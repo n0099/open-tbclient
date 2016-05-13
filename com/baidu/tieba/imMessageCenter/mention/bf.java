@@ -78,7 +78,7 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         View lg = this.czk.lg();
         this.czk.kW();
         this.czk.a(getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
-        this.czk.alh();
+        this.czk.alj();
         if (getActivity() != null) {
             UtilHelper.startHardAccelerated(getActivity().getWindow());
         }
@@ -86,12 +86,12 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         kL().addEventDelegate(this);
         registerListener(this.czq);
         registerListener(this.czr);
-        alC();
+        alE();
         return lg;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void alt() {
+    public void alv() {
         View findViewById;
         if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(t.g.tabcontainer_wrapper)) != null) {
             View findViewById2 = getFragmentActivity().getWindow().getDecorView().findViewById(16908290);
@@ -103,7 +103,7 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void alu() {
+    public void alw() {
         View findViewById;
         if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(t.g.tabcontainer_wrapper)) != null) {
             findViewById.setVisibility(0);
@@ -138,7 +138,7 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         if (getActivity() != null && q(getActivity().getIntent())) {
             this.czk.onNewIntent(getActivity().getIntent());
         } else {
-            this.czk.alg();
+            this.czk.ali();
         }
         super.onViewCreated(view, bundle);
     }
@@ -185,26 +185,26 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        if (this.czk.alj() != null && this.czk.Ms() != null) {
+        if (this.czk.all() != null && this.czk.Mu() != null) {
             if (z) {
-                this.czk.alj().setScrollable(true);
-                if (this.czk.Ms().getChildCount() == 3) {
-                    this.czk.Ms().getChildAt(1).setEnabled(true);
-                    this.czk.Ms().getChildAt(2).setEnabled(true);
+                this.czk.all().setScrollable(true);
+                if (this.czk.Mu().getChildCount() == 3) {
+                    this.czk.Mu().getChildAt(1).setEnabled(true);
+                    this.czk.Mu().getChildAt(2).setEnabled(true);
                     return;
                 }
                 return;
             }
-            this.czk.alj().setScrollable(false);
-            if (this.czk.Ms().getChildCount() == 3) {
-                this.czk.Ms().getChildAt(1).setEnabled(false);
-                this.czk.Ms().getChildAt(2).setEnabled(false);
+            this.czk.all().setScrollable(false);
+            if (this.czk.Mu().getChildCount() == 3) {
+                this.czk.Mu().getChildAt(1).setEnabled(false);
+                this.czk.Mu().getChildAt(2).setEnabled(false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean kf(int i) {
+    public boolean ke(int i) {
         return i == this.currentPageType;
     }
 
@@ -241,28 +241,28 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         if (bVar == null) {
             return true;
         }
-        if (bVar.Dj() == 9485) {
-            com.baidu.tbadk.mvc.b.a Dk = bVar.Dk();
-            if (Dk instanceof FeedData) {
-                return e((FeedData) Dk);
+        if (bVar.Dk() == 9485) {
+            com.baidu.tbadk.mvc.b.a Dl = bVar.Dl();
+            if (Dl instanceof FeedData) {
+                return e((FeedData) Dl);
             }
-        } else if (bVar.Dj() == 9484) {
-            com.baidu.tbadk.mvc.b.a Dk2 = bVar.Dk();
-            if (Dk2 instanceof FeedData) {
-                return g((FeedData) Dk2);
+        } else if (bVar.Dk() == 9484) {
+            com.baidu.tbadk.mvc.b.a Dl2 = bVar.Dl();
+            if (Dl2 instanceof FeedData) {
+                return g((FeedData) Dl2);
             }
-        } else if (bVar.Dj() == 9483) {
-            com.baidu.tbadk.mvc.b.a Dk3 = bVar.Dk();
-            if (Dk3 instanceof FeedData) {
-                return h((FeedData) Dk3);
+        } else if (bVar.Dk() == 9483) {
+            com.baidu.tbadk.mvc.b.a Dl3 = bVar.Dl();
+            if (Dl3 instanceof FeedData) {
+                return h((FeedData) Dl3);
             }
-        } else if (bVar.Dj() == 9486) {
+        } else if (bVar.Dk() == 9486) {
             this.czl.d(bVar);
             return true;
-        } else if (bVar.Dj() == 9487) {
-            com.baidu.tbadk.mvc.b.a Dk4 = bVar.Dk();
-            if (Dk4 instanceof FeedData) {
-                return f((FeedData) Dk4);
+        } else if (bVar.Dk() == 9487) {
+            com.baidu.tbadk.mvc.b.a Dl4 = bVar.Dl();
+            if (Dl4 instanceof FeedData) {
+                return f((FeedData) Dl4);
             }
         }
         return false;
@@ -294,7 +294,7 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
             return false;
         }
         TiebaStatic.log("c10967");
-        if (!alv()) {
+        if (!alx()) {
             UtilHelper.showToast(getActivity(), t.j.plugin_config_not_found);
             return false;
         }
@@ -304,7 +304,7 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, praiseListActivityConfig));
     }
 
-    private boolean alv() {
+    private boolean alx() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PraiseListActivityConfig.class);
     }
 
@@ -373,27 +373,27 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         return this.czj;
     }
 
-    public az alw() {
+    public az aly() {
         return this.czl;
     }
 
-    public j alx() {
+    public j alz() {
         return this.czm;
     }
 
-    public au aly() {
+    public au alA() {
         return this.czo;
     }
 
-    public e alz() {
+    public e alB() {
         return this.czp;
     }
 
-    public k alA() {
+    public k alC() {
         return this.czn;
     }
 
-    public z alB() {
+    public z alD() {
         return this.czk;
     }
 
@@ -439,15 +439,15 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    private void alC() {
+    private void alE() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, new bi(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public void ka(int i) {
-        this.czn.ka(i);
-        this.czl.ka(i);
-        this.czm.ka(i);
+    public void jZ(int i) {
+        this.czn.jZ(i);
+        this.czl.jZ(i);
+        this.czm.jZ(i);
     }
 }

@@ -10,6 +10,6 @@ class ak implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.tbadkCore.util.m.aUN();
+        com.baidu.tieba.tbadkCore.util.m.aUT();
     }
 }

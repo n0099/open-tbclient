@@ -26,7 +26,7 @@ public class s implements com.baidu.tbadk.mvc.b.h {
         builder.scr_w = Integer.valueOf(com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst()));
         builder.scr_h = Integer.valueOf(com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst()));
         builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.D(TbadkCoreApplication.m11getInst()));
-        builder.q_type = Integer.valueOf(az.uf().uh() ? 2 : 1);
+        builder.q_type = Integer.valueOf(az.ug().ui() ? 2 : 1);
         GodFeedReqIdl.Builder builder2 = new GodFeedReqIdl.Builder();
         builder2.data = builder.build(false);
         com.baidu.tbadk.util.o.a(builder2.data, true);

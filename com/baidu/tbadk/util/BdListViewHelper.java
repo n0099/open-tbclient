@@ -29,7 +29,7 @@ public class BdListViewHelper {
         }
     }
 
-    static /* synthetic */ int[] Fn() {
+    static /* synthetic */ int[] Fp() {
         int[] iArr = azV;
         if (iArr == null) {
             iArr = new int[HeadType.valuesCustom().length];
@@ -48,7 +48,7 @@ public class BdListViewHelper {
 
     public static int a(HeadType headType) {
         Context context = TbadkCoreApplication.m11getInst().getContext();
-        switch (Fn()[headType.ordinal()]) {
+        switch (Fp()[headType.ordinal()]) {
             case 1:
                 return com.baidu.adp.lib.util.k.c(context, t.e.ds98) + UtilHelper.getLightStatusBarHeight();
             case 2:

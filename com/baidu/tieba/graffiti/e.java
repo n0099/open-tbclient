@@ -83,7 +83,7 @@ public class e extends RelativeLayout implements View.OnClickListener {
         }
         this.aEi = fVar;
         a(fVar, i, i2, i3);
-        if (!d.XZ() || !z) {
+        if (!d.Yb() || !z) {
             this.bKF.setVisibility(8);
             this.aXb.setLayoutParams(this.bKC);
         } else {
@@ -154,7 +154,7 @@ public class e extends RelativeLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         p pVar;
-        Ya();
+        Yc();
         if (view == this.bKG && this.aEi != null && bl.ac(getContext()) && !com.baidu.tbadk.util.d.isFastDoubleClick() && !this.bKH) {
             this.bKH = true;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, p.class);
@@ -166,7 +166,7 @@ public class e extends RelativeLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ya() {
+    public void Yc() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 

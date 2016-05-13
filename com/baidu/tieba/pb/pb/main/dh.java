@@ -94,7 +94,7 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
         super.a(i, view, viewGroup, (ViewGroup) sVar, (com.baidu.tieba.tbadkCore.data.s) dkVar);
         this.mSkinType = TbadkCoreApplication.m11getInst().getSkinType();
         b(dkVar);
-        this.dfs = (com.baidu.tieba.tbadkCore.data.s) at(i);
+        this.dfs = (com.baidu.tieba.tbadkCore.data.s) as(i);
         com.baidu.tbadk.core.util.at.l(dkVar.dhh, t.d.cp_bg_line_d);
         com.baidu.tbadk.core.util.at.l(dkVar.dhi, t.d.cp_bg_line_b);
         com.baidu.tbadk.core.util.at.l(dkVar.dhj, t.d.cp_bg_line_b);
@@ -108,7 +108,7 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
         if (this.dfs != null) {
             a(dkVar, this.dfs, view, false, i);
         }
-        if (!this.dfP && this.dfQ && dkVar != null && dkVar.dfT.Hn() && (listView = ((PbActivity) this.dhY.getPageContext().getOrignalPage()).getListView()) != null) {
+        if (!this.dfP && this.dfQ && dkVar != null && dkVar.dfT.Hp() && (listView = ((PbActivity) this.dhY.getPageContext().getOrignalPage()).getListView()) != null) {
             this.dfP = true;
             CompatibleUtile.getInstance().closeViewGpu(listView);
         }
@@ -116,9 +116,9 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
     }
 
     private void a(dk dkVar, com.baidu.tieba.tbadkCore.data.s sVar, View view, boolean z, int i) {
-        com.baidu.tieba.tbadkCore.data.i aUc;
+        com.baidu.tieba.tbadkCore.data.i aUi;
         SparseArray sparseArray;
-        if (dkVar != null && sVar != null && (aUc = sVar.aUc()) != null) {
+        if (dkVar != null && sVar != null && (aUi = sVar.aUi()) != null) {
             this.ddo.z(null, "IMAGE0", "VIEW_TRUE");
             dkVar.dfT.setOnLinkImageClickListener(this.aFf);
             dkVar.dhm.setTag(null);
@@ -156,7 +156,7 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
                 if (this.dfL) {
                     dkVar.dhi.setVisibility(8);
                     dkVar.dhj.setVisibility(8);
-                    PraiseData praise = this.dfK.avB().getPraise();
+                    PraiseData praise = this.dfK.avE().getPraise();
                     if (praise != null && praise.getUser() != null && praise.getUser().size() > 0) {
                         dkVar.dhj.setVisibility(8);
                         dkVar.dhi.setVisibility(0);
@@ -175,7 +175,7 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
             dkVar.dhk.setVisibility(0);
             dkVar.dhu.setVisibility(0);
             dkVar.dhr.setVisibility(0);
-            String format = String.format(this.mContext.getString(t.j.is_floor), Integer.valueOf(sVar.aTS()));
+            String format = String.format(this.mContext.getString(t.j.is_floor), Integer.valueOf(sVar.aTY()));
             dkVar.dhq.setVisibility(0);
             dkVar.dhq.setText(format);
             if (!this.dfJ) {
@@ -208,19 +208,19 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
             sparseArray5.put(t.g.tag_load_sub_data, sVar);
             sparseArray5.put(t.g.tag_load_sub_view, view);
             sparseArray.put(t.g.tag_pb_floor_postion, Integer.valueOf(i));
-            sparseArray.put(t.g.tag_pb_floor_number, Integer.valueOf(sVar.aTS()));
-            if (sVar.aTW() > 0) {
+            sparseArray.put(t.g.tag_pb_floor_number, Integer.valueOf(sVar.aTY()));
+            if (sVar.aUc() > 0) {
                 if (this.dha == null) {
                     this.dha = new com.baidu.tieba.pb.pb.sub.an(this.mContext);
                     this.dha.setIsFromCDN(this.mIsFromCDN);
                     this.dha.J(this.dhc);
                     boolean z2 = false;
-                    String userId = this.dfK.avB().getAuthor().getUserId();
+                    String userId = this.dfK.avE().getAuthor().getUserId();
                     if (userId != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                         z2 = true;
                     }
-                    this.dha.v(this.dfK.avH(), z2);
-                    this.dha.l(this.dfK.avB());
+                    this.dha.v(this.dfK.avK(), z2);
+                    this.dha.l(this.dfK.avE());
                     this.dha.gr(this.dfJ);
                 }
                 dkVar.dhx.setVisibility(0);
@@ -306,7 +306,7 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
             dkVar.dfT.setIsFromCDN(this.mIsFromCDN);
             com.baidu.tbadk.widget.richText.a aVar = null;
             if (0 == 0) {
-                aVar = sVar.amw();
+                aVar = sVar.amz();
             }
             if (this.dfP || !this.dfQ) {
                 dkVar.dfT.a(aVar, false);
@@ -314,8 +314,8 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
                 dkVar.dfT.a(aVar, true);
             }
             boolean z3 = false;
-            if (this.dfK != null && this.dfK.avB() != null && this.dfK.avB().getAuthor() != null && sVar.getAuthor() != null) {
-                String userId2 = this.dfK.avB().getAuthor().getUserId();
+            if (this.dfK != null && this.dfK.avE() != null && this.dfK.avE().getAuthor() != null && sVar.getAuthor() != null) {
+                String userId2 = this.dfK.avE().getAuthor().getUserId();
                 String userId3 = sVar.getAuthor().getUserId();
                 if (!StringUtils.isNull(userId2) && userId2.equals(TbadkCoreApplication.getCurrentAccount())) {
                     z3 = true;
@@ -331,8 +331,8 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
                     sparseArray.put(t.g.tag_disable_reply_mute_userid, sVar.getAuthor().getUserId());
                     sparseArray.put(t.g.tag_disable_reply_mute_username, sVar.getAuthor().getUserName());
                 }
-                if (this.dfK.avB() != null) {
-                    sparseArray.put(t.g.tag_disable_reply_thread_id, this.dfK.avB().getId());
+                if (this.dfK.avE() != null) {
+                    sparseArray.put(t.g.tag_disable_reply_thread_id, this.dfK.avE().getId());
                 }
                 sparseArray.put(t.g.tag_disable_reply_post_id, sVar.getId());
             } else {
@@ -343,12 +343,12 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
             sparseArray.put(t.g.tag_should_manage_visible, false);
             sparseArray.put(t.g.tag_user_mute_visible, false);
             sparseArray.put(t.g.tag_should_hide_chudian_visible, true);
-            sparseArray.put(t.g.tag_chudian_template_id, Long.valueOf(aUc.getTemplateId()));
-            sparseArray.put(t.g.tag_chudian_monitor_id, aUc.aTw());
-            sparseArray.put(t.g.tag_chudian_hide_day, Integer.valueOf(aUc.aTx()));
-            a(dkVar, sVar, sVar.aTS() == 1, aVar);
+            sparseArray.put(t.g.tag_chudian_template_id, Long.valueOf(aUi.getTemplateId()));
+            sparseArray.put(t.g.tag_chudian_monitor_id, aUi.aTC());
+            sparseArray.put(t.g.tag_chudian_hide_day, Integer.valueOf(aUi.aTD()));
+            a(dkVar, sVar, sVar.aTY() == 1, aVar);
             a(dkVar);
-            dkVar.dmo.a(aUc, this.dhY, this.ddo);
+            dkVar.dmo.a(aUi, this.dhY, this.ddo);
         }
     }
 
@@ -358,10 +358,10 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
     }
 
     private void a(dk dkVar, com.baidu.tieba.tbadkCore.data.s sVar, boolean z, com.baidu.tbadk.widget.richText.a aVar) {
-        if (sVar == null || sVar.aAC() == null) {
+        if (sVar == null || sVar.aAF() == null) {
             dkVar.dhP.setVisibility(8);
         } else {
-            com.baidu.tieba.pb.view.n.a(sVar.aAC(), dkVar.dhP, false, z, aVar != null && StringUtils.isNull(aVar.toString()) && StringUtils.isNull(sVar.getBimg_url()));
+            com.baidu.tieba.pb.view.n.a(sVar.aAF(), dkVar.dhP, false, z, aVar != null && StringUtils.isNull(aVar.toString()) && StringUtils.isNull(sVar.getBimg_url()));
         }
     }
 
@@ -398,7 +398,7 @@ public class dh extends cm<com.baidu.tieba.tbadkCore.data.s, dk> implements View
         this.dfK = eVar;
     }
 
-    public void lE(int i) {
+    public void lD(int i) {
         this.dfH = i;
     }
 

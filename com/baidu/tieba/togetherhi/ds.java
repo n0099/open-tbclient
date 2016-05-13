@@ -23,11 +23,11 @@ public class ds extends FrameLayout implements View.OnClickListener {
     private TextView aOG;
     private TextView adi;
     private TextView bbW;
-    private View eJJ;
+    private View eJI;
+    private TextView eJJ;
     private TextView eJK;
     private TextView eJL;
-    private TextView eJM;
-    private PbTogetherhiAvatarList eJN;
+    private PbTogetherhiAvatarList eJM;
     private Context mContext;
     private n togetherHiInfo;
 
@@ -39,14 +39,14 @@ public class ds extends FrameLayout implements View.OnClickListener {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(t.h.tb_richtext_togetherhi_plan, this);
-        this.eJJ = inflate.findViewById(t.g.togetherhi_plan_layout);
+        this.eJI = inflate.findViewById(t.g.togetherhi_plan_layout);
         this.aOG = (TextView) inflate.findViewById(t.g.togetherhi_activity_title);
         this.adi = (TextView) inflate.findViewById(t.g.togetherhi_activity_location);
         this.bbW = (TextView) inflate.findViewById(t.g.togetherhi_activity_time);
-        this.eJK = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number);
-        this.eJL = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number_tv1);
-        this.eJM = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number_tv2);
-        this.eJN = (PbTogetherhiAvatarList) inflate.findViewById(t.g.togetherhi_avatar_list);
+        this.eJJ = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number);
+        this.eJK = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number_tv1);
+        this.eJL = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number_tv2);
+        this.eJM = (PbTogetherhiAvatarList) inflate.findViewById(t.g.togetherhi_avatar_list);
         inflate.setOnClickListener(this);
         onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
     }
@@ -68,27 +68,27 @@ public class ds extends FrameLayout implements View.OnClickListener {
             this.adi.setText(nVar.location);
         }
         this.bbW.setText(new SimpleDateFormat("MM月dd日 HH:mm").format(new Date(nVar.startTime * 1000)));
-        this.eJK.setText(Integer.toString(nVar.Rb));
-        this.eJN.setPortraitList(nVar.Rc);
+        this.eJJ.setText(Integer.toString(nVar.Rb));
+        this.eJM.setPortraitList(nVar.Rc);
     }
 
     public void reset() {
-        this.eJN.reset();
+        this.eJM.reset();
         this.bbW.setText("");
         this.aOG.setText("");
         this.adi.setText("");
-        this.eJK.setText("");
+        this.eJJ.setText("");
         setTag(null);
     }
 
     public void onChangeSkinType(int i) {
-        at.k(this.eJJ, t.f.pb_togetherhi_content_selector);
+        at.k(this.eJI, t.f.pb_togetherhi_content_selector);
         at.c(this.aOG, t.d.cp_link_tip_a, 1);
         at.c(this.adi, t.d.cp_cont_c, 1);
         at.c(this.bbW, t.d.cp_cont_c, 1);
-        at.c(this.eJK, t.d.cp_cont_b, 1);
+        at.c(this.eJJ, t.d.cp_cont_b, 1);
+        at.c(this.eJK, t.d.cp_cont_c, 1);
         at.c(this.eJL, t.d.cp_cont_c, 1);
-        at.c(this.eJM, t.d.cp_cont_c, 1);
     }
 
     @Override // android.view.View.OnClickListener

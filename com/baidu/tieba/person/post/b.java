@@ -17,17 +17,17 @@ class b extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tbadk.c.a aVar;
-        com.baidu.tbadk.mainTab.c Dd;
+        com.baidu.tbadk.mainTab.c De;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016220 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.c.a) && TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!ay.isEmpty(currentAccount) && (aVar = (com.baidu.tbadk.c.a) customResponsedMessage.getData()) != null) {
                 PersonPhotoLiveDelegateStatic personPhotoLiveDelegateStatic = new PersonPhotoLiveDelegateStatic();
                 aVar.a(personPhotoLiveDelegateStatic);
-                if (aVar.getContext() != null && (Dd = personPhotoLiveDelegateStatic.Dd()) != null) {
+                if (aVar.getContext() != null && (De = personPhotoLiveDelegateStatic.De()) != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("key_uid", currentAccount);
                     bundle.putString("thread_type_key", "photolive");
-                    Dd.auW.setArguments(bundle);
+                    De.auW.setArguments(bundle);
                 }
             }
         }

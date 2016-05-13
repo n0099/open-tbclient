@@ -16,10 +16,10 @@ public class c implements b {
     public interface a {
         void a(Point point);
 
-        void ajI();
+        void ajK();
     }
 
-    private int jP(int i) {
+    private int jO(int i) {
         return (int) (((this.k * i) + this.cuZ.y) - (this.k * this.cuZ.x));
     }
 
@@ -28,33 +28,33 @@ public class c implements b {
         if (!this.cvb.equals(this.cva)) {
             switch (this.cvf) {
                 case 0:
-                    ajP();
-                    break;
-                case 1:
                     ajR();
                     break;
-                case 2:
-                    ajQ();
-                    break;
-                case 3:
-                    ajS();
-                    break;
-                case 4:
+                case 1:
                     ajT();
                     break;
-                case 5:
+                case 2:
+                    ajS();
+                    break;
+                case 3:
                     ajU();
+                    break;
+                case 4:
+                    ajV();
+                    break;
+                case 5:
+                    ajW();
                     break;
             }
             return false;
         }
         if (this.cve != null) {
-            this.cve.ajI();
+            this.cve.ajK();
         }
         return true;
     }
 
-    private void ajP() {
+    private void ajR() {
         this.cvb.y += this.cvd;
         if (this.cvb.y > this.cva.y) {
             this.cvb.y = this.cva.y;
@@ -64,7 +64,7 @@ public class c implements b {
         }
     }
 
-    private void ajQ() {
+    private void ajS() {
         this.cvb.x += this.cvc;
         if (this.cvb.x > this.cva.x) {
             this.cvb.x = this.cva.x;
@@ -74,7 +74,7 @@ public class c implements b {
         }
     }
 
-    private void ajR() {
+    private void ajT() {
         this.cvb.y -= this.cvd;
         if (this.cvb.y < this.cva.y) {
             this.cvb.y = this.cva.y;
@@ -84,7 +84,7 @@ public class c implements b {
         }
     }
 
-    private void ajS() {
+    private void ajU() {
         this.cvb.x -= this.cvc;
         if (this.cvb.x < this.cva.x) {
             this.cvb.x = this.cva.x;
@@ -94,9 +94,9 @@ public class c implements b {
         }
     }
 
-    private void ajT() {
+    private void ajV() {
         this.cvb.x -= this.cvc;
-        this.cvb.y = jP(this.cvb.x);
+        this.cvb.y = jO(this.cvb.x);
         if (this.cvb.x < this.cva.x && this.cvb.y < this.cva.y) {
             this.cvb.x = this.cva.x;
             this.cvb.y = this.cva.y;
@@ -106,9 +106,9 @@ public class c implements b {
         }
     }
 
-    private void ajU() {
+    private void ajW() {
         this.cvb.x += this.cvc;
-        this.cvb.y = jP(this.cvb.x);
+        this.cvb.y = jO(this.cvb.x);
         if (this.cvb.x > this.cva.x && this.cvb.y > this.cva.y) {
             this.cvb.x = this.cva.x;
             this.cvb.y = this.cva.y;

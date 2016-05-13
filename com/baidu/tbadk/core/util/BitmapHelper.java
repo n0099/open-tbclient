@@ -246,7 +246,9 @@ public class BitmapHelper {
                     bitmap3 = Bitmap.createBitmap(i, i2, bitmap.getConfig());
                     new Canvas(bitmap3).drawBitmap(bitmap, matrix, null);
                     bitmap2 = bitmap3;
-                } catch (OutOfMemoryError e) {
+                } catch (NullPointerException e) {
+                    bitmap2 = bitmap3;
+                } catch (OutOfMemoryError e2) {
                     TbadkCoreApplication.m11getInst().onAppMemoryLow();
                     bitmap2 = bitmap3;
                 }
@@ -691,7 +693,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [790=4, 823=5, 824=5, 825=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [792=4, 825=5, 826=5, 827=5] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -788,7 +790,7 @@ public class BitmapHelper {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [843=4, 870=5, 871=5, 872=5, 874=5, 876=5, 877=5, 878=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [845=4, 872=5, 873=5, 874=5, 876=5, 878=5, 879=5, 880=5] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;

@@ -168,14 +168,14 @@ public class at {
         }
     }
 
-    public static int cx(int i) {
+    public static int cw(int i) {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(t.d.skin_1_common_color);
         }
         throw new IllegalArgumentException(XA);
     }
 
-    public static int cy(int i) {
+    public static int cx(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         return i == 1 ? app.getResources().getColor(t.d.skin_1_common_bg) : app.getResources().getColor(t.d.backgroundcolor);
     }
@@ -439,7 +439,7 @@ public class at {
         }
     }
 
-    public static ColorStateList cz(int i) {
+    public static ColorStateList cy(int i) {
         return f((Resources) null, i);
     }
 
@@ -552,11 +552,11 @@ public class at {
         }
     }
 
-    public static Bitmap cA(int i) {
+    public static Bitmap cz(int i) {
         return a((Resources) null, i, new BitmapFactory.Options());
     }
 
-    public static Bitmap cB(int i) {
+    public static Bitmap cA(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 2;
         return a((Resources) null, i, options);
@@ -568,7 +568,7 @@ public class at {
         return a((Resources) null, i, options, i2);
     }
 
-    public static Bitmap cC(int i) {
+    public static Bitmap cB(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
         return a((Resources) null, i, options);

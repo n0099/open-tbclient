@@ -18,14 +18,14 @@ public class r implements v {
         return dzK;
     }
 
-    public int aCp() {
+    public int aCs() {
         if (this.dzL == null) {
             return -1;
         }
         return this.dzL.getGodType();
     }
 
-    public GodDetailInfo aCq() {
+    public GodDetailInfo aCt() {
         return this.godDetailInfo;
     }
 

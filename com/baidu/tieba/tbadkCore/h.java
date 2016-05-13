@@ -14,7 +14,7 @@ public class h implements com.baidu.adp.widget.ListView.v {
         return eqr;
     }
 
-    public List<FeedForumData> aRY() {
+    public List<FeedForumData> aSb() {
         return this.biJ;
     }
 

@@ -18,31 +18,31 @@ public class c implements i {
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
     public void ax(int i, int i2) {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajC;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajE;
         Handler handler;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajB;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajC2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajD;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajE2;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajC3;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajC4;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajE3;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajE4;
         if (SystemClock.elapsedRealtime() - this.cuI <= 300) {
             return;
         }
-        ajC = this.cuJ.ajC();
+        ajE = this.cuJ.ajE();
         handler = this.cuJ.handler;
-        ajC.b(handler);
+        ajE.b(handler);
         b bVar = this.cuJ;
-        ajB = this.cuJ.ajB();
-        e ajJ = ajB.ajJ();
-        ajC2 = this.cuJ.ajC();
-        a = bVar.a(ajJ, ajC2.aka());
+        ajD = this.cuJ.ajD();
+        e ajL = ajD.ajL();
+        ajE2 = this.cuJ.ajE();
+        a = bVar.a(ajL, ajE2.akc());
         if (a) {
-            ajC4 = this.cuJ.ajC();
-            ajC4.akb();
+            ajE4 = this.cuJ.ajE();
+            ajE4.akd();
             return;
         }
-        ajC3 = this.cuJ.ajC();
-        ajC3.akc();
+        ajE3 = this.cuJ.ajE();
+        ajE3.ake();
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
@@ -51,44 +51,44 @@ public class c implements i {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void ajG() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajB;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajC;
+    public void ajI() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajD;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajE;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajB2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajC2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajD2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajE2;
         Handler handler;
         b bVar = this.cuJ;
-        ajB = this.cuJ.ajB();
-        e ajJ = ajB.ajJ();
-        ajC = this.cuJ.ajC();
-        a = bVar.a(ajJ, ajC.aka());
+        ajD = this.cuJ.ajD();
+        e ajL = ajD.ajL();
+        ajE = this.cuJ.ajE();
+        a = bVar.a(ajL, ajE.akc());
         if (a) {
             this.cuJ.fe(true);
         } else {
-            ajB2 = this.cuJ.ajB();
-            ajB2.ajX();
+            ajD2 = this.cuJ.ajD();
+            ajD2.ajZ();
         }
-        ajC2 = this.cuJ.ajC();
+        ajE2 = this.cuJ.ajE();
         handler = this.cuJ.handler;
-        ajC2.c(handler);
+        ajE2.c(handler);
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void ajH() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajB;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajB2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajC;
+    public void ajJ() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajD;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a ajD2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e ajE;
         Handler handler;
-        ajB = this.cuJ.ajB();
-        if (!ajB.ajW()) {
+        ajD = this.cuJ.ajD();
+        if (!ajD.ajY()) {
             Point point = new Point(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds30), TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds20));
             this.cuJ.cuv = false;
-            ajB2 = this.cuJ.ajB();
-            ajB2.b(point);
-            ajC = this.cuJ.ajC();
+            ajD2 = this.cuJ.ajD();
+            ajD2.b(point);
+            ajE = this.cuJ.ajE();
             handler = this.cuJ.handler;
-            ajC.c(handler);
+            ajE.c(handler);
         }
     }
 }

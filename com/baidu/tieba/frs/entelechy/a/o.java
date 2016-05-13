@@ -17,7 +17,7 @@ public class o implements com.baidu.adp.lib.f.c<TbImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: vw */
+    /* renamed from: vx */
     public TbImageView dE() {
         TbPageContext tbPageContext;
         tbPageContext = this.bpa.DV;

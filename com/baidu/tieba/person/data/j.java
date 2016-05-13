@@ -17,7 +17,7 @@ public class j implements v {
         return dzw;
     }
 
-    public List<MyGift> aCh() {
+    public List<MyGift> aCk() {
         if (this.mUserData != null) {
             return this.mUserData.getGift();
         }
@@ -61,7 +61,7 @@ public class j implements v {
         return null;
     }
 
-    public boolean aCi() {
+    public boolean aCl() {
         return this.dzx;
     }
 

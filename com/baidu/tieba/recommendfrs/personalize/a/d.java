@@ -12,7 +12,7 @@ import com.baidu.tieba.card.by;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.m, a> {
     private TbPageContext<?> DV;
-    private BdUniqueId aOT;
+    public BdUniqueId aOT;
     private bl bUC;
     private by boM;
 
@@ -41,7 +41,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.m,
             return null;
         }
         if (mVar != null) {
-            mVar.fx(i + 1);
+            mVar.fw(i + 1);
             mVar.b(b(mVar));
             mVar.c(c(mVar));
             mVar.d(e(mVar));
@@ -49,42 +49,38 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.m,
         }
         aVar.bUE.a(mVar);
         if (mVar != null) {
-            bx.Kg().a(mVar.KE());
+            bx.Ki().a(mVar.KG());
         }
         aVar.bUE.a(this.boM);
         return aVar.getView();
     }
 
     private aw b(com.baidu.tieba.card.a.m mVar) {
-        if (mVar == null || mVar.Kl() == null) {
+        if (mVar == null || mVar.Kn() == null) {
             return null;
         }
-        return new aw("c10732").ac("fid", String.valueOf(mVar.Kl().getFid())).ac("tid", String.valueOf(mVar.Kl().getTid())).ac("obj_param1", mVar.getWeight()).ac("obj_source", mVar.getSource()).s("obj_locate", mVar.Kh()).s("obj_type", mVar.KC());
+        return new aw("c10732").ac("fid", String.valueOf(mVar.Kn().getFid())).ac("tid", String.valueOf(mVar.Kn().getTid())).ac("obj_param1", mVar.getWeight()).ac("obj_source", mVar.getSource()).s("obj_locate", mVar.Kj()).s("obj_type", mVar.KE());
     }
 
     private aw c(com.baidu.tieba.card.a.m mVar) {
-        if (mVar == null || mVar.Kl() == null) {
+        if (mVar == null || mVar.Kn() == null) {
             return null;
         }
-        return new aw("c10707").ac("fid", String.valueOf(mVar.Kl().getFid())).ac("tid", String.valueOf(mVar.Kl().getTid())).ac("obj_param1", mVar.getWeight()).ac("obj_source", mVar.getSource()).s("obj_locate", mVar.Kh()).s("obj_type", mVar.KC());
+        return new aw("c10707").ac("fid", String.valueOf(mVar.Kn().getFid())).ac("tid", String.valueOf(mVar.Kn().getTid())).ac("obj_param1", mVar.getWeight()).ac("obj_source", mVar.getSource()).s("obj_locate", mVar.Kj()).s("obj_type", mVar.KE());
     }
 
     private aw d(com.baidu.tieba.card.a.m mVar) {
-        if (mVar == null || mVar.Kl() == null) {
+        if (mVar == null || mVar.Kn() == null) {
             return null;
         }
-        return new aw("c10733").ac("fid", String.valueOf(mVar.Kl().getFid())).ac("tid", String.valueOf(mVar.Kl().getTid())).ac("obj_param1", mVar.getWeight()).ac("obj_source", mVar.getSource()).s("obj_locate", mVar.Kh()).s("obj_type", mVar.KC());
+        return new aw("c10733").ac("fid", String.valueOf(mVar.Kn().getFid())).ac("tid", String.valueOf(mVar.Kn().getTid())).ac("obj_param1", mVar.getWeight()).ac("obj_source", mVar.getSource()).s("obj_locate", mVar.Kj()).s("obj_type", mVar.KE());
     }
 
     private aw e(com.baidu.tieba.card.a.m mVar) {
-        if (mVar == null || mVar.Kl() == null) {
+        if (mVar == null || mVar.Kn() == null) {
             return null;
         }
-        return new aw("c10706").ac("fid", String.valueOf(mVar.Kl().getFid())).ac("tid", String.valueOf(mVar.Kl().getTid())).ac("obj_param1", mVar.getWeight()).ac("obj_source", mVar.getSource()).s("obj_locate", mVar.Kh()).s("obj_type", mVar.KC());
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aOT = bdUniqueId;
+        return new aw("c10706").ac("fid", String.valueOf(mVar.Kn().getFid())).ac("tid", String.valueOf(mVar.Kn().getTid())).ac("obj_param1", mVar.getWeight()).ac("obj_source", mVar.getSource()).s("obj_locate", mVar.Kj()).s("obj_type", mVar.KE());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -19,29 +19,29 @@ public class af extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == 0) {
-            k alA = this.cyh.alA();
-            if (alA.getView() == null) {
-                View lg = alA.lg();
+            k alC = this.cyh.alC();
+            if (alC.getView() == null) {
+                View lg = alC.lg();
                 viewGroup.addView(lg);
                 return lg;
             }
-            return alA.getView();
+            return alC.getView();
         } else if (i == 1) {
-            az alw = this.cyh.alw();
-            if (alw.getView() == null) {
-                View lg2 = alw.lg();
+            az aly = this.cyh.aly();
+            if (aly.getView() == null) {
+                View lg2 = aly.lg();
                 viewGroup.addView(lg2);
                 return lg2;
             }
-            return alw.getView();
+            return aly.getView();
         } else {
-            j alx = this.cyh.alx();
-            if (alx.getView() == null) {
-                View lg3 = alx.lg();
+            j alz = this.cyh.alz();
+            if (alz.getView() == null) {
+                View lg3 = alz.lg();
                 viewGroup.addView(lg3);
                 return lg3;
             }
-            return alx.getView();
+            return alz.getView();
         }
     }
 

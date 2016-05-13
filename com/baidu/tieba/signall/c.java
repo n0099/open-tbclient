@@ -48,15 +48,15 @@ public class c {
     private a eiO = new a();
     private i eiQ = new i();
 
-    public boolean aPG() {
+    public boolean aPJ() {
         return (this.eiQ == null || StringUtils.isNull(this.eiQ.ejj)) ? false : true;
     }
 
-    public String Fl() {
+    public String Fn() {
         return this.eiQ.MQ;
     }
 
-    public String UR() {
+    public String UT() {
         return this.eiQ.ejj;
     }
 
@@ -64,59 +64,59 @@ public class c {
         return this.level;
     }
 
-    public boolean aPH() {
+    public boolean aPK() {
         return !StringUtils.isNull(this.eim) && this.eim.equals("1");
     }
 
-    public String aPI() {
+    public String aPL() {
         return this.ein;
     }
 
-    public String aAK() {
+    public String aAN() {
         return this.eio;
     }
 
-    public String aPJ() {
+    public String aPM() {
         return this.eip;
     }
 
-    public String aPK() {
+    public String aPN() {
         return this.eiq;
     }
 
-    public String aPL() {
+    public String aPO() {
         return this.eir;
     }
 
-    public int aPM() {
+    public int aPP() {
         return this.eis;
     }
 
-    public String aPN() {
+    public String aPQ() {
         return this.eit;
     }
 
-    public ArrayList<e> aPO() {
+    public ArrayList<e> aPR() {
         return this.eiK;
     }
 
-    public a aPP() {
+    public a aPS() {
         return this.eiO;
     }
 
-    public ArrayList<e> aPQ() {
+    public ArrayList<e> aPT() {
         return this.eiL;
     }
 
-    public ArrayList<e> aPR() {
+    public ArrayList<e> aPU() {
         return this.eiM;
     }
 
-    public boolean aPS() {
+    public boolean aPV() {
         return this.eiv;
     }
 
-    public String aPT() {
+    public String aPW() {
         return this.eiF;
     }
 
@@ -124,33 +124,33 @@ public class c {
         return this.content;
     }
 
-    public int aPU() {
+    public int aPX() {
         return this.eiG;
     }
 
-    public boolean aPV() {
+    public boolean aPY() {
         return this.eiH;
     }
 
-    public int aPW() {
+    public int aPZ() {
         return this.eiI;
     }
 
-    public int aPX() {
+    public int aQa() {
         return this.eiJ;
     }
 
     public void a(SignData signData) {
         e eVar;
         if (signData != null && (eVar = this.eiN.get(signData.getForumId())) != null) {
-            eVar.oP(1);
-            eVar.oQ(signData.getCountSignNum());
-            eVar.oR(signData.getBonusPoint());
+            eVar.oO(1);
+            eVar.oP(signData.getCountSignNum());
+            eVar.oQ(signData.getBonusPoint());
             eVar.jk(true);
             eVar.jl(false);
             eVar.jm(false);
             a(eVar);
-            aPY();
+            aQb();
             jj(true);
         }
     }
@@ -165,7 +165,7 @@ public class c {
         }
         this.eiN.remove(String.valueOf(eVar.getForumId()));
         this.eiM.remove(eVar);
-        if (eVar.aQb() + eVar.aQg() >= eVar.aQc()) {
+        if (eVar.aQe() + eVar.aQj() >= eVar.aQf()) {
             eVar.setUserLevel(eVar.getUserLevel() + 1);
             eVar.jn(true);
             if (eVar.getUserLevel() == this.level) {
@@ -174,10 +174,10 @@ public class c {
             }
         }
         this.eiL.add(eVar);
-        TbadkApplication.getInst().addSignedForum(eVar.getForumName(), eVar.aQg(), -1);
+        TbadkApplication.getInst().addSignedForum(eVar.getForumName(), eVar.aQj(), -1);
     }
 
-    private void aPY() {
+    private void aQb() {
         if (this.eiv) {
             if (this.eiz + this.eix <= 0) {
                 this.eiH = true;
@@ -194,17 +194,17 @@ public class c {
     public void a(u uVar) {
         this.eiI = 0;
         this.eiJ = 0;
-        ArrayList<v> aQp = uVar.aQp();
-        int size = aQp.size();
+        ArrayList<v> aQs = uVar.aQs();
+        int size = aQs.size();
         for (int i = 0; i < size; i++) {
-            v vVar = aQp.get(i);
+            v vVar = aQs.get(i);
             e eVar = this.eiN.get(new StringBuilder(String.valueOf(vVar.getForumId())).toString());
             if (eVar != null) {
                 if (vVar.getSigned() != 0) {
                     this.eiI++;
-                    eVar.oP(1);
-                    eVar.oQ(vVar.aQs());
-                    eVar.oR(vVar.getCurScore());
+                    eVar.oO(1);
+                    eVar.oP(vVar.aQv());
+                    eVar.oQ(vVar.getCurScore());
                     eVar.jk(true);
                     eVar.jl(false);
                     eVar.jm(false);
@@ -214,11 +214,11 @@ public class c {
                     eVar.jk(false);
                     eVar.jl(true);
                     eVar.jm(false);
-                    eVar.setErrorMsg(vVar.aPP().getUserMsg());
+                    eVar.setErrorMsg(vVar.aPS().getUserMsg());
                 }
             }
         }
-        aPY();
+        aQb();
         jj(true);
     }
 
@@ -256,7 +256,7 @@ public class c {
                     if (jSONObject2 != null) {
                         e eVar = new e();
                         eVar.parserJson(jSONObject2);
-                        if (eVar.aPZ() == 0) {
+                        if (eVar.aQc() == 0) {
                             if (this.eiu == 0) {
                                 if (this.eiv) {
                                     eVar.jl(true);
@@ -278,7 +278,7 @@ public class c {
                                 this.eiw++;
                             }
                             this.eiL.add(eVar);
-                            TbadkApplication.getInst().addSignedForum(eVar.getForumName(), eVar.aQg(), -1);
+                            TbadkApplication.getInst().addSignedForum(eVar.getForumName(), eVar.aQj(), -1);
                         }
                         this.eiK.add(eVar);
                         Collections.sort(this.eiK, new d(this));

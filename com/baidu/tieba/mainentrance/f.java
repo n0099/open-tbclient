@@ -8,11 +8,11 @@ public class f {
     private long mId;
     private String mName;
 
-    public String Mi() {
+    public String Mk() {
         return this.aWM;
     }
 
-    public long Mj() {
+    public long Ml() {
         return this.aWN;
     }
 

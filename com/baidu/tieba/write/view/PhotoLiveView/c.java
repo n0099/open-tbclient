@@ -5,11 +5,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class c implements com.baidu.tbadk.imageManager.b {
     private final /* synthetic */ ViewGroup aqU;
-    final /* synthetic */ a fbe;
+    final /* synthetic */ a fbd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, ViewGroup viewGroup) {
-        this.fbe = aVar;
+        this.fbd = aVar;
         this.aqU = viewGroup;
     }
 

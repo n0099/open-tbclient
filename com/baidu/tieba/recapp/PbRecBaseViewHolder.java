@@ -20,8 +20,8 @@ public abstract class PbRecBaseViewHolder extends y.a {
 
     public void update(r rVar, int i, boolean z) {
         if (!rVar.esO) {
-            com.baidu.tbadk.distribute.a.AK().a(this.awk.getContext(), rVar.aTM(), "show", "pb", rVar.esP, rVar.threadId);
-            com.baidu.tbadk.distribute.a.AK().a(rVar.aTM(), rVar.esP, rVar.threadId, "PB", "show", rVar.pageNumber);
+            com.baidu.tbadk.distribute.a.AL().a(this.awk.getContext(), rVar.aTS(), "show", "pb", rVar.esP, rVar.threadId);
+            com.baidu.tbadk.distribute.a.AL().a(rVar.aTS(), rVar.esP, rVar.threadId, "PB", "show", rVar.pageNumber);
             rVar.esO = true;
         }
         if (rVar != null) {
@@ -40,8 +40,8 @@ public abstract class PbRecBaseViewHolder extends y.a {
     public void refresh() {
         if (this.dXa != null) {
             if (!this.dXa.esO) {
-                com.baidu.tbadk.distribute.a.AK().a(this.awk.getContext(), this.dXa.aTM(), "show", "pb", this.dXa.esP, this.dXa.threadId);
-                com.baidu.tbadk.distribute.a.AK().a(this.dXa.aTM(), this.dXa.esP, this.dXa.threadId, "PB", "show", this.dXa.pageNumber);
+                com.baidu.tbadk.distribute.a.AL().a(this.awk.getContext(), this.dXa.aTS(), "show", "pb", this.dXa.esP, this.dXa.threadId);
+                com.baidu.tbadk.distribute.a.AL().a(this.dXa.aTS(), this.dXa.esP, this.dXa.threadId, "PB", "show", this.dXa.pageNumber);
                 this.dXa.esO = true;
             }
             if (this.dXa != null) {

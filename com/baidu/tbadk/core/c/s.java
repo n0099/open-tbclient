@@ -21,14 +21,14 @@ class s implements l {
     @Override // com.baidu.tbadk.core.c.l
     public void a(int i, Throwable th) {
         int[] iArr;
-        String sF;
+        String sG;
         int[] iArr2;
         int[] iArr3;
         if (i == 1) {
             int i2 = this.Ua;
             iArr = r.TY;
             if (i2 < iArr.length) {
-                this.TZ.sG();
+                this.TZ.sH();
             }
             if (this.Ua >= 0) {
                 int i3 = this.Ua;
@@ -41,8 +41,8 @@ class s implements l {
                 }
             }
             BdLog.e("pingIndex " + this.Ua + " out of bounds.");
-            sF = this.TZ.sF();
-            d.n(sF, "103", "ping timeout for index " + this.Ua);
+            sG = this.TZ.sG();
+            d.n(sG, "103", "ping timeout for index " + this.Ua);
         }
     }
 }

@@ -145,7 +145,7 @@ public class as extends com.baidu.adp.base.d<MsglistActivity<?>> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void iQ(int i) {
+    public void iP(int i) {
         this.cak.setVisibility(i);
     }
 
@@ -218,7 +218,7 @@ public class as extends com.baidu.adp.base.d<MsglistActivity<?>> {
         this.cam = z;
     }
 
-    public void iP(int i) {
+    public void iO(int i) {
         this.bZO = i;
     }
 }

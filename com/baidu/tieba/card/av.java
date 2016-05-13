@@ -98,15 +98,15 @@ public class av extends a<com.baidu.tieba.card.a.l> {
         if (this.mSkinType != i) {
             com.baidu.tbadk.core.util.at.k(getView(), t.f.addresslist_item_bg);
             com.baidu.tbadk.core.util.at.l(this.aOD, t.d.cp_bg_line_b);
-            this.aQr.sf();
-            this.aQp.sf();
-            this.aOO.sf();
+            this.aQr.sg();
+            this.aQp.sg();
+            this.aOO.sg();
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_home_page_multi_img;
     }
 
@@ -139,24 +139,24 @@ public class av extends a<com.baidu.tieba.card.a.l> {
         this.aQp.setUserAfterClickListener(this.adK);
         this.aOO.setData(lVar.aRG);
         this.aOO.setForumAfterClickListener(this.adn);
-        this.aOO.setStType(au.Kb());
-        this.aOO.setYuelaouLocate("feed#" + lVar.Kh());
-        if (StringUtils.isNull(lVar.aRG.getTitle()) || lVar.aRG.qY() == 1) {
+        this.aOO.setStType(au.Kd());
+        this.aOO.setYuelaouLocate("feed#" + lVar.Kj());
+        if (StringUtils.isNull(lVar.aRG.getTitle()) || lVar.aRG.qZ() == 1) {
             this.aOG.setVisibility(8);
         } else {
             this.aOG.setVisibility(0);
             lVar.aRG.Qa = 0;
-            if (this.aQq.aRY || lVar.aRG.rn()) {
+            if (this.aQq.aRY || lVar.aRG.ro()) {
                 this.aOG.setText(lVar.aRG.getTitle());
             } else {
                 lVar.aRG.parser_title();
                 this.aOG.setText(lVar.aRG.getSpan_str());
             }
-            au.a(this.aOG, lVar.Kl().getId(), t.d.cp_cont_b, t.d.cp_cont_d);
+            au.a(this.aOG, lVar.Kn().getId(), t.d.cp_cont_b, t.d.cp_cont_d);
         }
         StringBuilder sb = new StringBuilder();
-        if (lVar.aRG.qS() != null && !StringUtils.isNull(lVar.aRG.qS())) {
-            sb.append(lVar.aRG.qS());
+        if (lVar.aRG.qT() != null && !StringUtils.isNull(lVar.aRG.qT())) {
+            sb.append(lVar.aRG.qT());
         }
         ArrayList<MediaData> medias = lVar.aRG.getMedias();
         if (medias != null) {
@@ -179,18 +179,18 @@ public class av extends a<com.baidu.tieba.card.a.l> {
             this.aOM.setVisibility(8);
             i = 0;
         }
-        ArrayList<VoiceData.VoiceModel> qX = lVar.aRG.qX();
-        if (com.baidu.tbadk.core.util.y.s(qX)) {
+        ArrayList<VoiceData.VoiceModel> qY = lVar.aRG.qY();
+        if (com.baidu.tbadk.core.util.y.s(qY)) {
             this.aQo.setVisibility(8);
             z = false;
         } else {
             this.aQo.setVisibility(0);
-            VoiceData.VoiceModel voiceModel = qX.get(0);
+            VoiceData.VoiceModel voiceModel = qY.get(0);
             this.aQo.setVoiceModel(voiceModel);
             this.aQo.setTag(voiceModel);
-            this.aQo.aUX();
+            this.aQo.aVd();
             if (voiceModel != null) {
-                this.aQo.jM(voiceModel.voice_status.intValue());
+                this.aQo.jL(voiceModel.voice_status.intValue());
             }
             z = true;
         }
@@ -199,7 +199,7 @@ public class av extends a<com.baidu.tieba.card.a.l> {
         } else if (com.baidu.tbadk.core.l.ob().oh() && com.baidu.tbadk.core.util.y.r(medias) != 0) {
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();
-            com.baidu.tbadk.core.data.ax Kl = lVar.Kl();
+            com.baidu.tbadk.core.data.ax Kn = lVar.Kn();
             for (int i3 = 0; i3 < i; i3++) {
                 MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.y.c(medias, i3);
                 if (mediaData != null && mediaData.getType() == 3) {
@@ -210,7 +210,7 @@ public class av extends a<com.baidu.tieba.card.a.l> {
             if (com.baidu.tbadk.core.util.y.r(linkedList) > 0) {
                 this.aQr.setVisibility(0);
                 this.aQr.setFromCDN(this.Zv);
-                this.aQr.setImageClickListener(new bc(this, linkedList2, Kl));
+                this.aQr.setImageClickListener(new bc(this, linkedList2, Kn));
                 this.aQr.setImageUrls(linkedList);
             } else {
                 this.aQr.setVisibility(8);
@@ -218,7 +218,7 @@ public class av extends a<com.baidu.tieba.card.a.l> {
         } else {
             this.aQr.setVisibility(8);
         }
-        Kc();
+        Ke();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -251,12 +251,12 @@ public class av extends a<com.baidu.tieba.card.a.l> {
                 }
             }
         }
-        ImageViewerConfig createConfig = new ImageViewerConfig(this.DV.getPageActivity()).createConfig(arrayList, i, axVar.qP(), String.valueOf(axVar.getFid()), axVar.getTid(), this.Zv, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
+        ImageViewerConfig createConfig = new ImageViewerConfig(this.DV.getPageActivity()).createConfig(arrayList, i, axVar.qQ(), String.valueOf(axVar.getFid()), axVar.getTid(), this.Zv, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
         createConfig.getIntent().putExtra("from", "frs");
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
     }
 
-    private void Kc() {
+    private void Ke() {
         if (!this.aQq.aqS) {
             this.aQo.setClickable(false);
             this.aOO.setBarNameClickEnabled(false);
@@ -290,17 +290,17 @@ public class av extends a<com.baidu.tieba.card.a.l> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kd() {
+    public void Kf() {
         if (this.aQq != null && this.aQq.aRG != null) {
-            if (!JT()) {
+            if (!JV()) {
                 au.hb(this.aQq.aRG.getId());
             }
-            this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aQq.aRG, null, au.Kb(), 18003, true, false, false).addLocateParam(this.aQq.Ki()).addFrom(getClass().getName())));
+            this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aQq.aRG, null, au.Kd(), 18003, true, false, false).addLocateParam(this.aQq.Kk()).addFrom(getClass().getName())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean JT() {
+    public boolean JV() {
         return this.aQq.aRY && !this.aQq.aqS;
     }
 

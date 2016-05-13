@@ -69,13 +69,13 @@ public class a implements View.OnClickListener {
                     navigationBar3 = this.bYM.bYz;
                     navigationBar3.setVisibility(0);
                     multiImageView2 = this.bYM.bYA;
-                    multiImageView2.zw();
+                    multiImageView2.zx();
                     this.bYM.bYC = new AlphaAnimation(0.0f, 1.0f);
                 } else {
                     this.bYM.bYC = new AlphaAnimation(1.0f, 0.0f);
                     this.bYM.bYE = true;
                     multiImageView = this.bYM.bYA;
-                    multiImageView.zx();
+                    multiImageView.zy();
                 }
                 alphaAnimation = this.bYM.bYC;
                 alphaAnimation.setDuration(300L);

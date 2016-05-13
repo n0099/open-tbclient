@@ -100,23 +100,23 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             this.bDI.setVisibility(4);
         }
         this.mContext = context;
-        aUU();
+        aVa();
     }
 
-    private void aUU() {
+    private void aVa() {
         int skinType = TbadkCoreApplication.m11getInst().getSkinType();
         at.k(this.evw, t.f.btn_audio_frame_n);
         at.c(this.evu, t.d.cp_cont_f, 1);
         if (this.play_type == 0) {
-            aUY();
+            aVe();
             this.csz.setPadding(k.dip2px(getContext(), 12.0f), 0, 0, 0);
         }
         this.evx.onChangeSkinType(skinType);
     }
 
-    private void aUY() {
+    private void aVe() {
         if (this.csz != null) {
-            if (aUW()) {
+            if (aVc()) {
                 at.c(this.csz, t.f.icon_voice_stop);
             } else {
                 at.c(this.csz, t.f.icon_voice_play);
@@ -131,17 +131,17 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             VoiceManager voiceManager = getVoiceManager();
             if (voiceManager != null && voiceManager.isPlayDoing(voiceModel)) {
                 voiceManager.resetPlayView(this);
-                jL(this.csD.elapse);
+                jK(this.csD.elapse);
                 return;
             }
-            jM(this.csD.voice_status.intValue());
+            jL(this.csD.voice_status.intValue());
             this.evx.setCertainColumnCount(getAudioVoiceColumnCount());
-            this.evx.baS();
+            this.evx.baZ();
             this.evu.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
         }
     }
 
-    public void jL(int i) {
+    public void jK(int i) {
         String formatVoiceTime;
         if (this.csD != null && this.evu != null) {
             int i2 = i / 1000;
@@ -157,7 +157,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public void jM(int i) {
+    public void jL(int i) {
         if (i == 3) {
             this.bDI.setVisibility(4);
             jB(true);
@@ -165,7 +165,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
             return;
         }
         this.evx.setCertainColumnCount(getAudioVoiceColumnCount());
-        this.evx.baS();
+        this.evx.baZ();
         jB(false);
         if (i == 1) {
             if (this.csD != null) {
@@ -226,10 +226,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
     public void setTag(Object obj) {
         if (obj != null && (obj instanceof z)) {
             z zVar = (z) obj;
-            VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) zVar.Ht();
+            VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) zVar.Hv();
             if (voiceModel == null) {
                 voiceModel = new VoiceData.VoiceModel();
-                if (zVar.Hs() == 0) {
+                if (zVar.Hu() == 0) {
                     voiceModel.from = "pb_voice_play";
                 } else {
                     voiceModel.from = "floor_voice_play";
@@ -238,9 +238,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
                 voiceModel.duration = zVar.getDuration();
                 zVar.D(voiceModel);
             }
-            this.play_type = zVar.Hs();
+            this.play_type = zVar.Hu();
             setVoiceModel(voiceModel);
-            aUU();
+            aVa();
             obj = voiceModel;
         }
         super.setTag(obj);
@@ -250,26 +250,26 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
     public void b(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
             if (this.csD != voiceModel) {
-                jM(1);
+                jL(1);
             } else {
-                jM(voiceModel.voice_status.intValue());
+                jL(voiceModel.voice_status.intValue());
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-    public void aC(int i) {
-        if (!aUW()) {
-            jM(1);
+    public void aB(int i) {
+        if (!aVc()) {
+            jL(1);
             return;
         }
-        jL(i);
+        jK(i);
         if (this.csD != null) {
             this.csD.elapse = i;
         }
     }
 
-    private boolean aUW() {
+    private boolean aVc() {
         if (this.csD == null) {
             return false;
         }
@@ -287,8 +287,8 @@ public class PlayVoiceBntNew extends RelativeLayout implements View.OnClickListe
         return this.csD;
     }
 
-    public void aUX() {
-        aUU();
+    public void aVd() {
+        aVa();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b

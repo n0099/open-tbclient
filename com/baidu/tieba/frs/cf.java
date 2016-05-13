@@ -32,7 +32,7 @@ public class cf extends bw<com.baidu.tieba.tbadkCore.h, cg> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.h hVar, cg cgVar) {
         super.a(i, view, viewGroup, (ViewGroup) hVar, (com.baidu.tieba.tbadkCore.h) cgVar);
         if (hVar != null) {
-            this.biT.d(hVar.getForumId(), hVar.aRY());
+            this.biT.d(hVar.getForumId(), hVar.aSb());
         }
         return view;
     }

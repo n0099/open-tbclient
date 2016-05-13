@@ -30,7 +30,7 @@ public class c extends com.baidu.tieba.card.a<b> {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_divider_view;
     }
 

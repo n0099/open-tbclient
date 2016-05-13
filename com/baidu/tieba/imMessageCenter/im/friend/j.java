@@ -37,7 +37,7 @@ class j extends CustomMessageListener {
             this.cwP.cwK = contacts;
             pVar2 = this.cwP.cwI;
             if (pVar2 != null) {
-                this.cwP.akE();
+                this.cwP.akG();
             }
         }
     }

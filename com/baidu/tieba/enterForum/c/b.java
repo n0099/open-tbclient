@@ -7,7 +7,7 @@ import java.util.List;
 public class b {
     private static b aXT;
 
-    public static b ML() {
+    public static b MN() {
         if (aXT == null) {
             synchronized (b.class) {
                 if (aXT == null) {

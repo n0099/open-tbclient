@@ -23,7 +23,7 @@ public class u extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oA */
+    /* renamed from: oz */
     public com.baidu.tieba.recommendfrs.data.j getItem(int i) {
         if (this.ebA == null || this.ebA.dZV == null) {
             return null;
@@ -70,7 +70,7 @@ public class u extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.recommendfrs.data.i aML() {
+    public com.baidu.tieba.recommendfrs.data.i aMO() {
         return this.ebA;
     }
 }

@@ -69,11 +69,11 @@ public class a extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        aUH();
+        aUN();
         return false;
     }
 
-    public void aUH() {
+    public void aUN() {
         if (this.euW != null) {
             this.euW.cancel();
             this.euW = null;
@@ -99,7 +99,7 @@ public class a extends com.baidu.adp.base.e {
         this.euW.execute(new String[0]);
     }
 
-    public boolean aUI() {
+    public boolean aUO() {
         return (this.euW == null && this.euX == null && this.euY == null) ? false : true;
     }
 
@@ -166,9 +166,9 @@ public class a extends com.baidu.adp.base.e {
             } else {
                 this.aeI.n("is_vipdel", "0");
             }
-            this.aeI.tA().uu().mIsNeedTbs = true;
-            this.aeI.tc();
-            if (this.aeI.tA().uv().nZ()) {
+            this.aeI.tB().uv().mIsNeedTbs = true;
+            this.aeI.td();
+            if (this.aeI.tB().uw().nZ()) {
                 return true;
             }
             return false;
@@ -199,7 +199,7 @@ public class a extends com.baidu.adp.base.e {
             bVar.euZ = this.euZ;
             bVar.mPostId = this.mPostId;
             bVar.evb = this.aeI.getErrorString();
-            bVar.mErrCode = this.aeI.tE();
+            bVar.mErrCode = this.aeI.tF();
             if (bool.booleanValue()) {
                 bVar.rg = true;
             } else {
@@ -232,9 +232,9 @@ public class a extends com.baidu.adp.base.e {
             this.aeI.n("word", this.mForumName);
             this.aeI.n("z", this.mThreadId);
             this.aeI.n("ntn", "banid");
-            this.aeI.tA().uu().mIsNeedTbs = true;
-            this.aeI.tc();
-            if (this.aeI.tA().uv().nZ()) {
+            this.aeI.tB().uv().mIsNeedTbs = true;
+            this.aeI.td();
+            if (this.aeI.tB().uw().nZ()) {
                 return null;
             }
             return this.aeI.getErrorString();
@@ -335,12 +335,12 @@ public class a extends com.baidu.adp.base.e {
                     this.aeI.n("ntn", "");
                 }
             }
-            this.aeI.tA().uu().mIsNeedTbs = true;
-            String tc = this.aeI.tc();
-            if (this.aeI.tA().uv().nZ()) {
+            this.aeI.tB().uv().mIsNeedTbs = true;
+            String td = this.aeI.td();
+            if (this.aeI.tB().uw().nZ()) {
                 if (this.mType == 6) {
                     try {
-                        JSONArray optJSONArray = new JSONObject(tc).optJSONArray("cates");
+                        JSONArray optJSONArray = new JSONObject(td).optJSONArray("cates");
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             t tVar = new t();
                             tVar.parserJson(optJSONArray.optJSONObject(i));

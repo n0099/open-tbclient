@@ -67,7 +67,7 @@ public class bg {
         return spannableString;
     }
 
-    public static bg us() {
+    public static bg ut() {
         return Yf;
     }
 

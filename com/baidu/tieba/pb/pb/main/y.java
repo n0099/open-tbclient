@@ -16,13 +16,13 @@ class y extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int awy;
+        int awB;
         if ((customResponsedMessage instanceof CustomResponsedMessage) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            awy = this.djE.awy();
-            if (awy != 1) {
+            awB = this.djE.awB();
+            if (awB != 1) {
                 return;
             }
-            this.djE.awC();
+            this.djE.awF();
         }
     }
 }

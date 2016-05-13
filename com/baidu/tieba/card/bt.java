@@ -16,10 +16,10 @@ public class bt implements View.OnClickListener {
         com.baidu.tieba.card.a.n nVar;
         com.baidu.tieba.card.a.n nVar2;
         nVar = this.aQP.aPR;
-        if (nVar != null && this.aQP.JM() != null) {
-            by<com.baidu.tieba.card.a.n> JM = this.aQP.JM();
+        if (nVar != null && this.aQP.JO() != null) {
+            by<com.baidu.tieba.card.a.n> JO = this.aQP.JO();
             nVar2 = this.aQP.aPR;
-            JM.a(view, nVar2);
+            JO.a(view, nVar2);
         }
     }
 }

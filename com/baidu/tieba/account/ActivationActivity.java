@@ -69,7 +69,7 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
         setContentView(t.h.account_register_activation);
         initData(bundle);
         nq();
-        HZ();
+        Ib();
     }
 
     private void initData(Bundle bundle) {
@@ -117,7 +117,7 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HZ() {
+    public void Ib() {
         this.aIw = false;
         this.aIt.setEnabled(false);
         this.wa = aIl;
@@ -202,7 +202,7 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
         setResult(-1);
         finish();
         if (this.ajr) {
-            Ia();
+            Ic();
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "notlogin_11", "click", 1, new Object[0]);
             return;
         }
@@ -240,10 +240,10 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
                     this.LL.n(CommonVcodeActivityConfig.VCODE_MD5, ActivationActivity.this.aIx.getVcodeMd5());
                 }
                 this.LL.n("smscode", ActivationActivity.this.aIr.getText().toString());
-                String tc = this.LL.tc();
-                if (this.LL.tA().uv().nZ()) {
+                String td = this.LL.td();
+                if (this.LL.tB().uw().nZ()) {
                     y yVar = new y();
-                    yVar.parserJson(tc);
+                    yVar.parserJson(td);
                     return yVar;
                 }
                 return null;
@@ -274,7 +274,7 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
                 ActivationActivity.this.ako.setVisibility(0);
                 ActivationActivity.this.ako.setText(errorString);
             }
-            if (this.LL.tE() == 26) {
+            if (this.LL.tF() == 26) {
                 ActivationActivity.this.aID = 26;
                 ActivationActivity.this.aIm.setBackgroundResource(t.f.pass_input_wrong);
                 ActivationActivity.this.aIm.setPadding(ActivationActivity.this.aIB, 0, ActivationActivity.this.aIC, 0);
@@ -345,8 +345,8 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
             try {
                 this.LL = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
                 this.LL.n("phonenum", ActivationActivity.this.aIx.getPhone());
-                this.LL.tc();
-                if (this.LL.tA().uv().nZ()) {
+                this.LL.td();
+                if (this.LL.tB().uw().nZ()) {
                     z = true;
                 }
             } catch (Exception e) {
@@ -367,7 +367,7 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
                 ActivationActivity.this.aIs.setEnabled(true);
             }
             if (bool.booleanValue()) {
-                ActivationActivity.this.HZ();
+                ActivationActivity.this.Ib();
                 return;
             }
             String errorString = this.LL.getErrorString();
@@ -388,7 +388,7 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
         }
     }
 
-    private void Ia() {
+    private void Ic() {
         if (TbadkCoreApplication.m11getInst().getIsFirstUse()) {
             com.baidu.adp.lib.h.k.dM().b(new s(this));
         }

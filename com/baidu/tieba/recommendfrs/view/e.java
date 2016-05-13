@@ -16,7 +16,7 @@ public class e implements LineCountNotifyTextView.a {
     }
 
     @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
-    public void Gc() {
+    public void Ge() {
         LineCountNotifyTextView lineCountNotifyTextView;
         int i;
         TextView textView;

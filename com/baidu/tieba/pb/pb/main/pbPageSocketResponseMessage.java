@@ -91,10 +91,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                cg.axh().a(this.cacheKey, this.isFromMark, bArr);
+                cg.axk().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                cg.axh().l(this.cacheKey, bArr);
+                cg.axk().l(this.cacheKey, bArr);
                 return;
             default:
                 return;

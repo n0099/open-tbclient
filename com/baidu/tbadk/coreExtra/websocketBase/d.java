@@ -17,7 +17,7 @@ public class d extends com.baidu.adp.framework.listener.e {
     private final HashSet<Integer> amT;
     private int amV;
 
-    public static d Ac() {
+    public static d Ad() {
         return amU;
     }
 
@@ -31,7 +31,7 @@ public class d extends com.baidu.adp.framework.listener.e {
         MessageManager.getInstance().registerListener(0, this);
     }
 
-    public boolean dU(int i) {
+    public boolean dT(int i) {
         this.amV = 0;
         if (this.amP) {
             this.amV = 3;
@@ -42,7 +42,7 @@ public class d extends com.baidu.adp.framework.listener.e {
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
             this.amV = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().aR() > PingManager.Ag().Ai() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().aR() > PingManager.Ah().Aj() + 20000) {
             com.baidu.adp.framework.client.socket.k.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             this.amV = 2;
             return false;
@@ -75,7 +75,7 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
     }
 
-    public void dV(int i) {
+    public void dU(int i) {
         a aVar = this.amS.get(i);
         if (aVar == null) {
             aVar = new a(null);
@@ -87,7 +87,7 @@ public class d extends com.baidu.adp.framework.listener.e {
         this.amV = 5;
     }
 
-    public void dW(int i) {
+    public void dV(int i) {
         this.amS.remove(i);
     }
 
@@ -104,7 +104,7 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
     }
 
-    public void dX(int i) {
+    public void dW(int i) {
         this.amQ = i;
     }
 
@@ -151,7 +151,7 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
     }
 
-    public int Ad() {
+    public int Ae() {
         return this.amV;
     }
 }

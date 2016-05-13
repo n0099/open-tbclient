@@ -36,26 +36,26 @@ public class v extends com.baidu.adp.base.g {
         ai aiVar6;
         frsActivity = this.buB.bpj;
         com.baidu.tieba.tbadkCore.o PZ = frsActivity.PZ();
-        if (PZ != null && PZ.avA() != null) {
-            String name = PZ.avA().getName();
+        if (PZ != null && PZ.avD() != null) {
+            String name = PZ.avD().getName();
             if (obj == null || !(obj instanceof SignData)) {
                 signData = null;
                 z = false;
             } else {
                 signData = (SignData) obj;
-                com.baidu.tieba.tbadkCore.c.aRW().L(name, false);
+                com.baidu.tieba.tbadkCore.c.aRZ().L(name, false);
                 PZ.d(signData);
-                signData.setForumId(PZ.avA().getId());
+                signData.setForumId(PZ.avD().getId());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
                 z = true;
             }
-            this.buB.TR();
+            this.buB.TT();
             if (!z) {
                 aiVar = this.buB.bux;
-                if (!AntiHelper.pw(aiVar.getErrorCode())) {
+                if (!AntiHelper.pv(aiVar.getErrorCode())) {
                     aiVar2 = this.buB.bux;
                     if (aiVar2.getErrorCode() == 160002) {
-                        this.buB.gU(1);
+                        this.buB.gT(1);
                     }
                     frsActivity2 = this.buB.bpj;
                     aiVar3 = this.buB.bux;
@@ -65,19 +65,19 @@ public class v extends com.baidu.adp.base.g {
                 Activity pageActivity = this.buB.getPageContext().getPageActivity();
                 aiVar4 = this.buB.bux;
                 AntiHelper.O(pageActivity, aiVar4.getErrorString());
-            } else if (PZ.avA() != null) {
+            } else if (PZ.avD() != null) {
                 this.buB.f(PZ);
                 int i = -1;
-                if (this.buB.TT()) {
-                    i = PZ.avA().getUser_level() + 1;
+                if (this.buB.TV()) {
+                    i = PZ.avD().getUser_level() + 1;
                 }
-                TbadkCoreApplication.m11getInst().addSignedForum(PZ.avA().getName(), signData.getBonusPoint(), i);
+                TbadkCoreApplication.m11getInst().addSignedForum(PZ.avD().getName(), signData.getBonusPoint(), i);
                 aiVar5 = this.buB.bux;
-                if (AntiHelper.pw(aiVar5.getErrorCode())) {
+                if (AntiHelper.pv(aiVar5.getErrorCode())) {
                     Activity pageActivity2 = this.buB.getPageContext().getPageActivity();
                     aiVar6 = this.buB.bux;
                     AntiHelper.O(pageActivity2, aiVar6.getErrorString());
-                } else if (!this.buB.TP()) {
+                } else if (!this.buB.TR()) {
                     frsActivity4 = this.buB.bpj;
                     frsActivity4.showToast(this.buB.getPageContext().getResources().getString(t.j.frs_sign_success, Integer.valueOf(signData.getUserSignRank())));
                 } else {

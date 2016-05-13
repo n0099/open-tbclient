@@ -66,22 +66,22 @@ public class v {
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [74=4] */
-        public int tn() {
+        public int to() {
             return this.VT.num + this.VU.num + this.VV.num + this.VW.num + this.VX.num;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [80=14] */
-        public int to() {
+        public int tp() {
             return this.VT.num + this.VU.num + this.VV.num + this.VW.num + this.VX.num + this.VY.num + this.VZ.num + this.Wa.num + this.Wb.num + this.Wc.num + this.Wd.num + this.We.num + this.Wf.num + this.Wg.num + this.Wh.num;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */
-        public int tp() {
+        public int tq() {
             return this.VY.num + this.VZ.num + this.Wa.num + this.Wb.num + this.Wc.num;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [97=4] */
-        public int tq() {
+        public int tr() {
             return this.Wd.num + this.We.num + this.Wf.num + this.Wg.num + this.Wh.num;
         }
 
@@ -154,13 +154,13 @@ public class v {
                 VO.num++;
                 VO.time += j;
                 if (VO.num >= 100) {
-                    tg();
+                    th();
                 }
             }
         }
     }
 
-    public static void tg() {
+    public static void th() {
         if (VO.num > 10) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("act", "locStat");
@@ -204,7 +204,7 @@ public class v {
                 if (z) {
                     r.getInstance().insertNormalData(j, str);
                 } else {
-                    str6 = w.tr().ts();
+                    str6 = w.ts().tt();
                     if (!TextUtils.isEmpty(str6)) {
                         r.getInstance().insertErrorData(eVar.lo, str);
                     }
@@ -242,9 +242,9 @@ public class v {
                         VN.VS = false;
                     }
                 }
-                int i3 = VN.to();
-                if (i3 > 100 || (i3 > 0 && z8 != VN.VS)) {
-                    th();
+                int tp = VN.tp();
+                if (tp > 100 || (tp > 0 && z8 != VN.VS)) {
+                    ti();
                 }
             }
             if (z && z5) {
@@ -264,17 +264,17 @@ public class v {
                 dVar = dG();
             }
             if (TextUtils.isEmpty(str6)) {
-                str6 = w.tr().ts();
+                str6 = w.ts().tt();
             }
             if (!gh || !TextUtils.isEmpty("")) {
                 str4 = "";
             } else {
-                str4 = w.tr().dm(str);
+                str4 = w.ts().dm(str);
             }
             if (!TextUtils.isEmpty("")) {
                 str5 = "";
             } else {
-                str5 = tj();
+                str5 = tk();
             }
             dVar.q("url", str);
             dVar.q("act", "dl");
@@ -291,10 +291,10 @@ public class v {
             dVar.q("useIp", eVar.lq);
             dVar.q("dnsIp", str5);
             if (eVar.li > 1500 || eVar.li < 0) {
-                dVar.q("connBaidu", String.valueOf(tk()));
+                dVar.q("connBaidu", String.valueOf(tl()));
             }
-            dVar.q("memory", tl());
-            dVar.q("task", tm());
+            dVar.q("memory", tm());
+            dVar.q("task", tn());
             dVar.q("isWifi", fr ? "1" : "0");
             dVar.q("status", String.valueOf(eVar.lp));
             dVar.q("up", String.valueOf(eVar.lg));
@@ -314,17 +314,17 @@ public class v {
         }
     }
 
-    public static void th() {
-        if (VN.to() > 10) {
-            if (VN.tn() > 0) {
+    public static void ti() {
+        if (VN.tp() > 10) {
+            if (VN.to() > 0) {
                 a(VN.VT, VN.VU, VN.VV, VN.VX, VN.VW, 10000);
                 com.baidu.tbadk.performanceLog.x.b(VN.VT, VN.VU, VN.VV, VN.VX, VN.VW, 3);
             }
-            if (VN.tq() > 0) {
+            if (VN.tr() > 0) {
                 a(VN.Wd, VN.We, VN.Wf, VN.Wh, VN.Wg, 100002);
                 com.baidu.tbadk.performanceLog.x.b(VN.Wd, VN.We, VN.Wf, VN.Wh, VN.Wg, 2);
             }
-            if (VN.tp() > 0) {
+            if (VN.tq() > 0) {
                 a(VN.VY, VN.VZ, VN.Wa, VN.Wc, VN.Wb, 100001);
                 com.baidu.tbadk.performanceLog.x.b(VN.VY, VN.VZ, VN.Wa, VN.Wc, VN.Wb, 1);
             }
@@ -338,13 +338,13 @@ public class v {
             String str2 = "";
             String str3 = "";
             if (TextUtils.isEmpty("")) {
-                str = w.tr().ts();
+                str = w.ts().tt();
             }
             if (VQ != null && TextUtils.isEmpty("")) {
-                str2 = w.tr().dm(VQ);
+                str2 = w.ts().dm(VQ);
             }
             if (TextUtils.isEmpty("")) {
-                str3 = tj();
+                str3 = tk();
             }
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("act", "dlStat");
@@ -392,7 +392,7 @@ public class v {
                     VP.VI++;
                 }
                 if (VP.num >= 100) {
-                    ti();
+                    tj();
                 }
             }
             if (!z) {
@@ -414,7 +414,7 @@ public class v {
         }
     }
 
-    public static void ti() {
+    public static void tj() {
         if (VP.num > 10) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("act", "dcStat");
@@ -434,7 +434,7 @@ public class v {
         com.baidu.adp.lib.stats.a.dN().b("img", dG);
     }
 
-    private static String tj() {
+    private static String tk() {
         try {
             DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApp().getSystemService("wifi")).getDhcpInfo();
             return String.valueOf(intToIp(dhcpInfo.dns1)) + "," + intToIp(dhcpInfo.dns2);
@@ -454,7 +454,7 @@ public class v {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static long tk() {
+    private static long tl() {
         HttpURLConnection httpURLConnection;
         long j;
         if (VK >= 3) {
@@ -505,11 +505,11 @@ public class v {
         return j;
     }
 
-    private static String tl() {
-        return com.baidu.tbadk.imageManager.c.CH().ck();
+    private static String tm() {
+        return com.baidu.tbadk.imageManager.c.CI().ck();
     }
 
-    private static String tm() {
+    private static String tn() {
         return com.baidu.adp.lib.asyncTask.c.cl().ck();
     }
 
@@ -526,9 +526,9 @@ public class v {
     public static void a(boolean z, String str, String str2, String str3, String str4, String str5, long j, boolean z2) {
         String str6 = "";
         if (str != null) {
-            str6 = w.tr().dm(str);
+            str6 = w.ts().dm(str);
         }
-        String tj = tj();
+        String tk = tk();
         String ip = e.getIp();
         com.baidu.adp.lib.stats.d dG = dG();
         dG.q("act", "tachometerCDN");
@@ -539,7 +539,7 @@ public class v {
         dG.q("url", str);
         dG.q("localIp", ip);
         dG.q("cdnIp", str6);
-        dG.q("dnsIP", tj);
+        dG.q("dnsIP", tk);
         dG.q("usedIp", str2);
         dG.q("isUsedIp", z2 ? "0" : "1");
         dG.q("costTime", String.valueOf(j));

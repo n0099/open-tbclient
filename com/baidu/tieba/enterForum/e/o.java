@@ -43,10 +43,10 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
     public void B(com.baidu.tieba.enterForum.b.a aVar) {
         super.B(aVar);
         if (aVar != null) {
-            a(aVar.Mb(), true);
-            a(aVar.Mc(), false);
-            b(aVar.Mb(), true);
-            b(aVar.Mc(), false);
+            a(aVar.Md(), true);
+            a(aVar.Me(), false);
+            b(aVar.Md(), true);
+            b(aVar.Me(), false);
         }
     }
 
@@ -73,7 +73,7 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
                     imageView.setVisibility(8);
                     textView2.setVisibility(0);
                     textView2.setText(wVar.getName());
-                    if (wVar.aSV() == 0) {
+                    if (wVar.aTb() == 0) {
                         textView.setVisibility(8);
                     } else {
                         textView.setVisibility(0);
@@ -105,11 +105,11 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
         com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
         this.aOe.setBackgroundDrawable(at.getDrawable(t.f.home_like_item_bg));
         this.aZe.setBackgroundDrawable(at.getDrawable(t.f.home_like_item_bg));
-        if (getData() != null && getData().Mb() != null) {
-            at.k(this.aZc, BitmapHelper.getGradeResourceIdNew(getData().Mb().getLevel()));
+        if (getData() != null && getData().Md() != null) {
+            at.k(this.aZc, BitmapHelper.getGradeResourceIdNew(getData().Md().getLevel()));
         }
-        if (getData() != null && getData().Mc() != null) {
-            at.k(this.aZh, BitmapHelper.getGradeResourceIdNew(getData().Mc().getLevel()));
+        if (getData() != null && getData().Me() != null) {
+            at.k(this.aZh, BitmapHelper.getGradeResourceIdNew(getData().Me().getLevel()));
             return true;
         }
         return true;

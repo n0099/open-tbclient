@@ -14,9 +14,9 @@ public class c extends com.baidu.tieba.card.a.i implements com.baidu.tieba.card.
             this.dZQ = cardForum;
             this.aRs = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(String.valueOf(Ku()) + cardForum.position.intValue());
+                setYuelaouLocate(String.valueOf(Kw()) + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(String.valueOf(Ku()) + 0);
+                setYuelaouLocate(String.valueOf(Kw()) + 0);
             }
             if (y.r(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -42,7 +42,7 @@ public class c extends com.baidu.tieba.card.a.i implements com.baidu.tieba.card.
     }
 
     @Override // com.baidu.tieba.card.a.r
-    public boolean Kn() {
+    public boolean Kp() {
         return true;
     }
 
@@ -52,17 +52,17 @@ public class c extends com.baidu.tieba.card.a.i implements com.baidu.tieba.card.
     }
 
     public boolean oF() {
-        if (y.r(DR()) > 0) {
+        if (y.r(DS()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean ot(int i) {
+    public static boolean os(int i) {
         return i == 1;
     }
 
-    public static boolean ou(int i) {
+    public static boolean ot(int i) {
         return i == 2;
     }
 }

@@ -22,7 +22,7 @@ public class h implements View.OnTouchListener {
                     this.cuS.ay((int) motionEvent.getX(), (int) motionEvent.getY());
                     break;
                 case 1:
-                    this.cuS.ajG();
+                    this.cuS.ajI();
                     break;
                 case 2:
                     if (motionEvent.findPointerIndex(0) != -1) {

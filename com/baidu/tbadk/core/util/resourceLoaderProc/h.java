@@ -28,7 +28,7 @@ public class h {
         }
     }
 
-    public static h uK() {
+    public static h uL() {
         if (ZB == null) {
             ZB = new h();
         }
@@ -43,7 +43,7 @@ public class h {
         if (this.ZC.size() > 5) {
             this.ZC.poll();
         }
-        if (uL()) {
+        if (uM()) {
             int i2 = 0;
             for (a aVar2 : this.ZC) {
                 if (j > 0) {
@@ -54,7 +54,7 @@ public class h {
         }
     }
 
-    public boolean uL() {
+    public boolean uM() {
         return this.ZC.size() == 5;
     }
 
@@ -62,7 +62,7 @@ public class h {
         if (!com.baidu.adp.lib.util.i.ft()) {
             return null;
         }
-        if (uL() && this.ZF < 20.0f) {
+        if (uM() && this.ZF < 20.0f) {
             if (this.ZD == null) {
                 this.ZD = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }

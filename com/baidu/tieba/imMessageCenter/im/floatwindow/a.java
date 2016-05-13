@@ -14,11 +14,11 @@ public class a {
     private HashMap<String, ImMessageCenterPojo> cur = new HashMap<>();
     private HashMap<String, Integer> cus = new HashMap<>();
 
-    public void ajp() {
+    public void ajr() {
         this.cup = false;
     }
 
-    public void ajq() {
+    public void ajs() {
         this.cup = true;
     }
 
@@ -78,7 +78,7 @@ public class a {
         this.cur.clear();
     }
 
-    public int ajr() {
+    public int ajt() {
         int i = 0;
         Iterator<ImMessageCenterPojo> it = this.cur.values().iterator();
         while (true) {
@@ -91,7 +91,7 @@ public class a {
         }
     }
 
-    public ArrayList<String> ajs() {
+    public ArrayList<String> aju() {
         ArrayList<String> arrayList = new ArrayList<>();
         int size = this.cuq.size() - 1;
         if (size >= 0) {
@@ -157,7 +157,7 @@ public class a {
         if (imMessageCenterPojo == null) {
             return 0;
         }
-        return ((imMessageCenterPojo.getIs_hidden() == 1) && aju()) ? 6 : 0;
+        return ((imMessageCenterPojo.getIs_hidden() == 1) && ajw()) ? 6 : 0;
     }
 
     private void jW(String str) {
@@ -166,7 +166,7 @@ public class a {
         }
     }
 
-    public ArrayList<UserData> ajt() {
+    public ArrayList<UserData> ajv() {
         if (this.cuq == null || this.cuq.isEmpty()) {
             return null;
         }
@@ -197,7 +197,7 @@ public class a {
         }
     }
 
-    public boolean aju() {
+    public boolean ajw() {
         Iterator<Map.Entry<String, ImMessageCenterPojo>> it = this.cur.entrySet().iterator();
         boolean z = false;
         while (it.hasNext()) {
@@ -212,7 +212,7 @@ public class a {
         return z;
     }
 
-    public boolean ajv() {
+    public boolean ajx() {
         return (this.cuq == null || this.cuq.isEmpty()) ? false : true;
     }
 }

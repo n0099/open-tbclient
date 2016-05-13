@@ -64,7 +64,7 @@ public class v extends com.baidu.tieba.tbadkCore.data.s {
         return this.Oz;
     }
 
-    public void bx(int i) {
+    public void bw(int i) {
         this.Oz = i;
     }
 

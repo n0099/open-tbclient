@@ -9,23 +9,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.base.e<WriteActivity> {
-    private WriteActivity fcA;
-    private a fcy;
-    private ArrayList<com.baidu.tbadk.core.data.ax> fcz;
+    private a fcx;
+    private ArrayList<com.baidu.tbadk.core.data.ax> fcy;
+    private WriteActivity fcz;
     private int mErrCode;
 
     public p(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
+        this.fcx = null;
         this.fcy = null;
-        this.fcz = null;
         this.mErrCode = 0;
-        this.fcA = writeActivity;
-        this.fcz = new ArrayList<>();
+        this.fcz = writeActivity;
+        this.fcy = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.ax> bdn() {
-        return this.fcz;
+    public ArrayList<com.baidu.tbadk.core.data.ax> bdu() {
+        return this.fcy;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,10 +35,10 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void pn(String str) {
-        if (this.fcy == null) {
-            this.fcy = new a(this, null);
-            this.fcy.setPriority(3);
-            this.fcy.execute(str);
+        if (this.fcx == null) {
+            this.fcx = new a(this, null);
+            this.fcx.setPriority(3);
+            this.fcx.execute(str);
         }
     }
 
@@ -62,12 +62,12 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
             String obj = objArr[0].toString();
             this.LL = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
             this.LL.n("kw", obj);
-            String tc = this.LL.tc();
-            if (!this.LL.tA().uv().nZ()) {
+            String td = this.LL.td();
+            if (!this.LL.tB().uw().nZ()) {
                 return null;
             }
-            p pVar = new p(p.this.fcA);
-            pVar.parserJson(tc);
+            p pVar = new p(p.this.fcz);
+            pVar.parserJson(td);
             return pVar;
         }
 
@@ -77,14 +77,14 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
         /* renamed from: c */
         public void onPostExecute(p pVar) {
             super.onPostExecute(pVar);
-            p.this.fcy = null;
+            p.this.fcx = null;
             p.this.mLoadDataCallBack.d(pVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            p.this.fcy = null;
+            p.this.fcx = null;
             if (this.LL != null) {
                 this.LL.dl();
             }
@@ -110,7 +110,7 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
                         if (jSONObject2 != null) {
                             com.baidu.tbadk.core.data.ax axVar = new com.baidu.tbadk.core.data.ax();
                             axVar.parserJson(jSONObject2);
-                            this.fcz.add(axVar);
+                            this.fcy.add(axVar);
                         }
                     }
                 }
@@ -127,8 +127,8 @@ public class p extends com.baidu.adp.base.e<WriteActivity> {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.fcy != null) {
-            this.fcy.cancel();
+        if (this.fcx != null) {
+            this.fcx.cancel();
             return true;
         }
         return true;

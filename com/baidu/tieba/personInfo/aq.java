@@ -34,16 +34,16 @@ public class aq extends com.baidu.adp.base.g {
         bjVar = this.this$0.dFA;
         if (bjVar != null) {
             bjVar2 = this.this$0.dFA;
-            bjVar2.Pl();
+            bjVar2.Pn();
             if (obj == null || !(obj instanceof Integer) || ((Integer) obj).intValue() != 3) {
-                this.this$0.aDd();
+                this.this$0.aDg();
                 bjVar3 = this.this$0.dFA;
                 bjVar3.d(new ar(this));
                 bgVar = this.this$0.dyP;
-                if (bgVar.aDQ() != null) {
+                if (bgVar.aDT() != null) {
                     f fVar = this.this$0;
                     bgVar3 = this.this$0.dyP;
-                    fVar.dFK = bgVar3.aDQ().getPhotoAlbum();
+                    fVar.dFK = bgVar3.aDT().getPhotoAlbum();
                 }
                 bjVar4 = this.this$0.dFA;
                 com.baidu.tieba.person.a.b bVar = bjVar4.dHO;
@@ -52,7 +52,7 @@ public class aq extends com.baidu.adp.base.g {
                 bjVar5 = this.this$0.dFA;
                 bjVar5.dHO.notifyDataSetChanged();
                 bjVar6 = this.this$0.dFA;
-                bjVar6.aEj();
+                bjVar6.aEm();
                 if (obj != null && (obj instanceof Integer)) {
                     f fVar2 = this.this$0;
                     frameLayout = this.this$0.dFH;
@@ -62,11 +62,11 @@ public class aq extends com.baidu.adp.base.g {
                         asVar2 = this.this$0.dFI;
                         asVar2.hn(false);
                     }
-                    this.this$0.aDv();
+                    this.this$0.aDy();
                     if (((Integer) obj).intValue() == 1) {
                         this.this$0.cST = true;
                         this.this$0.dFD = false;
-                        this.this$0.Pe();
+                        this.this$0.Pg();
                         return;
                     } else if (((Integer) obj).intValue() == 0 && this.this$0.getPageContext() != null && this.this$0.getPageContext().getResources() != null) {
                         f fVar3 = this.this$0;
@@ -83,7 +83,7 @@ public class aq extends com.baidu.adp.base.g {
             frameLayout3 = this.this$0.dFH;
             fVar4.a((View) frameLayout3, false, -1);
             bgVar4 = this.this$0.dyP;
-            bgVar4.aDF();
+            bgVar4.aDI();
         }
     }
 }

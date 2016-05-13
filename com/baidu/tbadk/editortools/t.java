@@ -36,7 +36,7 @@ public class t extends com.baidu.tbadk.editortools.view.c {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            Bo();
+            Bp();
         }
     }
 
@@ -56,7 +56,7 @@ public class t extends com.baidu.tbadk.editortools.view.c {
         this.aqb.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void Bo() {
+    private void Bp() {
         int i = 0;
         for (int i2 = 0; i2 < this.aqb.size(); i2++) {
             i += this.aqb.valueAt(i2);

@@ -45,7 +45,7 @@ public class p implements Runnable {
                             cVar = this.buB.buq;
                             if (cVar != null) {
                                 cVar2 = this.buB.buq;
-                                if (cVar2.Uc()) {
+                                if (cVar2.Ue()) {
                                     TbadkSettings.getInst().saveBoolean(FrsActivity.bfV, true);
                                     this.buB.Ss();
                                     frsActivity2 = this.buB.bpj;

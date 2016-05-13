@@ -75,7 +75,7 @@ public class c {
         return this;
     }
 
-    public c bP(int i) {
+    public c bO(int i) {
         return cB(this.mActivity.getResources().getString(i));
     }
 
@@ -96,12 +96,12 @@ public class c {
         return this;
     }
 
-    public c bQ(int i) {
+    public c bP(int i) {
         this.Sa = i;
         return this;
     }
 
-    public c bR(int i) {
+    public c bQ(int i) {
         this.Rw = i;
         return this;
     }
@@ -121,7 +121,7 @@ public class c {
             if (this.Ot != null && this.Ot.size() > 0) {
                 int size = this.Ot.size();
                 for (int i = 0; i < size; i++) {
-                    bS(i);
+                    bR(i);
                 }
             }
             c(hVar);
@@ -136,7 +136,7 @@ public class c {
         }
     }
 
-    public c rX() {
+    public c rY() {
         if (!this.RK) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -178,7 +178,7 @@ public class c {
         }
     }
 
-    private View bS(int i) {
+    private View bR(int i) {
         View inflate = LayoutInflater.from(this.mActivity).inflate(this.RZ, this.RW, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
         TextView textView = (TextView) inflate.findViewById(t.g.dialog_item_btn);
@@ -216,7 +216,7 @@ public class c {
         return inflate;
     }
 
-    public View bT(int i) {
+    public View bS(int i) {
         if (this.RW == null) {
             return null;
         }

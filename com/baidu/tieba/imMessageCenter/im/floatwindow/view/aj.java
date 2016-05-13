@@ -17,7 +17,7 @@ public class aj {
 
     /* loaded from: classes.dex */
     public interface a {
-        void akt();
+        void akv();
     }
 
     public void a(a aVar) {
@@ -87,7 +87,7 @@ public class aj {
         if (bVar != null && bVar.getId() != 0) {
             this.cwp.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
             if (this.cwr != null) {
-                this.cwr.akt();
+                this.cwr.akv();
             }
         }
     }

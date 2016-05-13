@@ -31,14 +31,14 @@ public class e implements by<com.baidu.tieba.card.a.m> {
         bl blVar10;
         bl blVar11;
         bl blVar12;
-        bx.Kg().ci(true);
+        bx.Ki().ci(true);
         if (view != null) {
             blVar = this.ebg.bUC;
             if (blVar != null) {
                 blVar2 = this.ebg.bUC;
                 if (blVar2.getView() != null) {
                     blVar3 = this.ebg.bUC;
-                    if (blVar3.aQD != null && mVar != null && mVar.Kl() != null && !StringUtils.isNull(mVar.Kl().getTid())) {
+                    if (blVar3.aQD != null && mVar != null && mVar.Kn() != null && !StringUtils.isNull(mVar.Kn().getTid())) {
                         int id = view.getId();
                         blVar4 = this.ebg.bUC;
                         if (id != blVar4.getView().getId()) {
@@ -49,7 +49,7 @@ public class e implements by<com.baidu.tieba.card.a.m> {
                                     int id2 = view.getId();
                                     blVar12 = this.ebg.bUC;
                                     if (id2 == blVar12.aQD.aQM.getBarNameTv().getId()) {
-                                        TiebaStatic.log(mVar.KF());
+                                        TiebaStatic.log(mVar.KH());
                                         return;
                                     }
                                 }
@@ -59,7 +59,7 @@ public class e implements by<com.baidu.tieba.card.a.m> {
                                 int id3 = view.getId();
                                 blVar10 = this.ebg.bUC;
                                 if (id3 == blVar10.aQD.aPC.getId()) {
-                                    TiebaStatic.log(mVar.KG());
+                                    TiebaStatic.log(mVar.KI());
                                     return;
                                 }
                             }
@@ -69,7 +69,7 @@ public class e implements by<com.baidu.tieba.card.a.m> {
                                 if (blVar8.aQD.aQp.adG != null) {
                                     blVar9 = this.ebg.bUC;
                                     if (blVar9.aQD.aQp.adG.getId() == view.getId()) {
-                                        TiebaStatic.log(mVar.KG());
+                                        TiebaStatic.log(mVar.KI());
                                         return;
                                     }
                                     return;
@@ -78,7 +78,7 @@ public class e implements by<com.baidu.tieba.card.a.m> {
                             }
                             return;
                         }
-                        TiebaStatic.log(mVar.KD());
+                        TiebaStatic.log(mVar.KF());
                     }
                 }
             }

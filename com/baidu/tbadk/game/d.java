@@ -18,6 +18,6 @@ class d implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, this.asS.Cw());
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, this.asS.Cx());
     }
 }

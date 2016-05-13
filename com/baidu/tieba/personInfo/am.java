@@ -17,10 +17,10 @@ public class am implements c.b {
         this.this$0.dFL = false;
         if (i != 0) {
             if (i == 1) {
-                this.this$0.aDh();
+                this.this$0.aDk();
             }
         } else {
-            this.this$0.aDg();
+            this.this$0.aDj();
         }
         cVar.dismiss();
     }

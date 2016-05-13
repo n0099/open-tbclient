@@ -16,8 +16,8 @@ public class j implements Runnable {
         ap apVar2;
         yVar = this.dqn.dqe;
         apVar = this.dqn.dqc;
-        String aAw = apVar.aAw();
+        String aAz = apVar.aAz();
         apVar2 = this.dqn.dqc;
-        yVar.by(aAw, apVar2.aAA());
+        yVar.by(aAz, apVar2.aAD());
     }
 }

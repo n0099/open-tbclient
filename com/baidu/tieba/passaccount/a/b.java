@@ -39,7 +39,7 @@ public class b implements a.InterfaceC0033a {
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void b(String str, int i, String str2) {
         if (i == 1) {
-            ReloginManager.sL().e(null);
+            ReloginManager.sM().e(null);
         }
         c cVar = new c(this, str);
         cVar.setPriority(3);

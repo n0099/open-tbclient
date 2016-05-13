@@ -205,11 +205,11 @@ public class a {
         return null;
     }
 
-    public Class<?> auD() {
+    public Class<?> auG() {
         return this.dbu;
     }
 
-    public Stack<com.baidu.tieba.onlineDebugger.a.b> auE() {
+    public Stack<com.baidu.tieba.onlineDebugger.a.b> auH() {
         return this.dbv;
     }
 }

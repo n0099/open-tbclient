@@ -79,7 +79,7 @@ public class ad {
         notifyDataSetChanged();
         this.ebV.onChangeSkinType(i);
         this.ebW.onChangeSkinType(i);
-        this.ece.oz(i);
+        this.ece.oy(i);
     }
 
     public void notifyDataSetChanged() {
@@ -102,19 +102,19 @@ public class ad {
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         if (this.ecg != null) {
-            this.ecg.setPageUniqueId(bdUniqueId);
+            this.ecg.aOT = bdUniqueId;
         }
         if (this.ech != null) {
-            this.ech.setPageUniqueId(bdUniqueId);
+            this.ech.aOT = bdUniqueId;
         }
         if (this.eca != null) {
-            this.eca.setPageUniqueId(bdUniqueId);
+            this.eca.aOT = bdUniqueId;
         }
         if (this.ecb != null) {
-            this.ecb.setPageUniqueId(bdUniqueId);
+            this.ecb.aOT = bdUniqueId;
         }
         if (this.ecf != null) {
-            this.ecf.setPageUniqueId(bdUniqueId);
+            this.ecf.aOT = bdUniqueId;
         }
         if (this.ebV != null) {
             this.ebV.setPageUniqueId(bdUniqueId);
@@ -123,13 +123,13 @@ public class ad {
             this.ebW.setPageUniqueId(bdUniqueId);
         }
         if (this.ecc != null) {
-            this.ecc.setPageUniqueId(bdUniqueId);
+            this.ecc.aOT = bdUniqueId;
         }
         if (this.ecd != null) {
-            this.ecd.setPageUniqueId(bdUniqueId);
+            this.ecd.aOT = bdUniqueId;
         }
         if (this.ece != null) {
-            this.ece.setPageUniqueId(bdUniqueId);
+            this.ece.aOT = bdUniqueId;
         }
     }
 }

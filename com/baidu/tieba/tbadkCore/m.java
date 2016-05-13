@@ -131,7 +131,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                         }
                     }
                 }
-                kh(dataRes.is_new_url.intValue());
+                kg(dataRes.is_new_url.intValue());
                 this.eqz = dataRes.fortune_bag.intValue() == 1;
                 this.eqA = dataRes.fortune_desc;
                 if (dataRes.forum != null) {
@@ -169,7 +169,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 } else {
                     this.eqO = dataRes.nav_tab_info;
                 }
-                pd(dataRes.frs_tab_default.intValue());
+                pc(dataRes.frs_tab_default.intValue());
                 List<ZhiBoInfoTW> list3 = dataRes.twzhibo_info;
                 if (list3 != null && list3.size() > 0) {
                     this.eqG = new ArrayList();
@@ -230,7 +230,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    private void pd(int i) {
+    private void pc(int i) {
         this.eqP = 1;
         if (this.eqN != null && this.eqN.size() > 0) {
             for (FrsTabInfo frsTabInfo : this.eqN) {
@@ -254,10 +254,10 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                     axVar.setFid(j);
                 }
                 axVar.i(this.eqK);
-                if (axVar.getThreadType() == 33 && !axVar.rd()) {
+                if (axVar.getThreadType() == 33 && !axVar.re()) {
                     com.baidu.tbadk.core.data.ag agVar = new com.baidu.tbadk.core.data.ag();
                     agVar.a(axVar, 0);
-                    agVar.o(aSj());
+                    agVar.o(aSm());
                     if (appResponseToIntentClass) {
                         this.threadList.add(agVar);
                     }
@@ -269,7 +269,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Df() {
+    public byte[] Dg() {
         return null;
     }
 
@@ -291,7 +291,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     public void a(Message message) {
     }
 
-    public ForumData avA() {
+    public ForumData avD() {
         return this.dfa;
     }
 
@@ -323,7 +323,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cyL = adVar;
     }
 
-    public n aSa() {
+    public n aSd() {
         return this.eqy;
     }
 
@@ -331,7 +331,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqy = nVar;
     }
 
-    public com.baidu.tbadk.core.data.m aSb() {
+    public com.baidu.tbadk.core.data.m aSe() {
         return this.eqM;
     }
 
@@ -339,7 +339,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqM = mVar;
     }
 
-    public boolean aSc() {
+    public boolean aSf() {
         return this.eqz;
     }
 
@@ -347,7 +347,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqz = z;
     }
 
-    public String aSd() {
+    public String aSg() {
         return this.eqA;
     }
 
@@ -355,7 +355,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqA = str;
     }
 
-    public p aSe() {
+    public p aSh() {
         return this.eqB;
     }
 
@@ -371,7 +371,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.dfg = userData;
     }
 
-    public List<Long> aSf() {
+    public List<Long> aSi() {
         return this.eqx;
     }
 
@@ -379,7 +379,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqx = list;
     }
 
-    public b aSg() {
+    public b aSj() {
         return this.eqC;
     }
 
@@ -387,7 +387,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqC = bVar;
     }
 
-    public boolean aSh() {
+    public boolean aSk() {
         return this.eqD;
     }
 
@@ -403,7 +403,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.gameName = str;
     }
 
-    public List<g> aSi() {
+    public List<g> aSl() {
         return this.eqE;
     }
 
@@ -419,19 +419,19 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.userMap = hashMap;
     }
 
-    public int avI() {
+    public int avL() {
         return this.eqF;
     }
 
-    public void kh(int i) {
+    public void kg(int i) {
         this.eqF = i;
     }
 
-    public List<PhotoLiveCardData> aSj() {
+    public List<PhotoLiveCardData> aSm() {
         return this.eqG;
     }
 
-    public String aSk() {
+    public String aSn() {
         return this.eqJ;
     }
 
@@ -439,7 +439,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqJ = str;
     }
 
-    public List<FrsTabInfo> aSl() {
+    public List<FrsTabInfo> aSo() {
         return this.eqN;
     }
 
@@ -451,19 +451,19 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqG = list;
     }
 
-    public boolean aSm() {
+    public boolean aSp() {
         return this.eqI != null;
     }
 
-    public PhotoLiveCardData aSn() {
+    public PhotoLiveCardData aSq() {
         return this.eqI;
     }
 
-    public void b(PhotoLiveCardData photoLiveCardData) {
+    public void c(PhotoLiveCardData photoLiveCardData) {
         this.eqI = photoLiveCardData;
     }
 
-    public com.baidu.tbadk.core.data.r aSo() {
+    public com.baidu.tbadk.core.data.r aSr() {
         return this.eqL;
     }
 
@@ -471,15 +471,15 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqL = rVar;
     }
 
-    public int aSp() {
+    public int aSs() {
         return this.eqH;
     }
 
-    public void pe(int i) {
+    public void pd(int i) {
         this.eqH = i;
     }
 
-    public List<FeedForumData> aSq() {
+    public List<FeedForumData> aSt() {
         return this.eqQ;
     }
 
@@ -498,7 +498,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public List<CategoryInfo> aSr() {
+    public List<CategoryInfo> aSu() {
         return this.eqR;
     }
 
@@ -510,11 +510,11 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqS = str;
     }
 
-    public String aSs() {
+    public String aSv() {
         return this.eqS;
     }
 
-    public ax aSt() {
+    public ax aSw() {
         return this.eqU;
     }
 
@@ -522,15 +522,15 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqU = axVar;
     }
 
-    public int aSu() {
+    public int aSx() {
         return this.eqP;
     }
 
-    public void pf(int i) {
+    public void pe(int i) {
         this.eqP = i;
     }
 
-    public com.baidu.tbadk.core.data.q aSv() {
+    public com.baidu.tbadk.core.data.q aSy() {
         return this.eqT;
     }
 
@@ -538,15 +538,15 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqT = qVar;
     }
 
-    public int aSw() {
+    public int aSz() {
         return this.eqW;
     }
 
-    public void pg(int i) {
+    public void pf(int i) {
         this.eqW = i;
     }
 
-    public al aSx() {
+    public al aSA() {
         return this.eqV;
     }
 
@@ -554,7 +554,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.eqV = alVar;
     }
 
-    public NavTabInfo aSy() {
+    public NavTabInfo aSB() {
         return this.eqO;
     }
 

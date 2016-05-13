@@ -18,7 +18,7 @@ public class b {
     private b() {
     }
 
-    public static b Cz() {
+    public static b CA() {
         if (asV == null) {
             synchronized (b.class) {
                 if (asV == null) {
@@ -29,12 +29,12 @@ public class b {
         return asV;
     }
 
-    public void CA() {
+    public void CB() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void CB() {
+    public void CC() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -68,8 +68,8 @@ public class b {
             }
             com.baidu.tbadk.data.c closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.Av());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.Aw());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.Aw());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.Ax());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());

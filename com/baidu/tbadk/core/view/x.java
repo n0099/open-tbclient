@@ -18,7 +18,7 @@ class x extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (this.acA.isDone) {
-            this.acA.cS(TbadkCoreApplication.m11getInst().getSkinType());
+            this.acA.cR(TbadkCoreApplication.m11getInst().getSkinType());
         }
     }
 }

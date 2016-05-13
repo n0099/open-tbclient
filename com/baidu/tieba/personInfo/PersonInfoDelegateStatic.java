@@ -28,7 +28,7 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Dc() {
+    public com.baidu.tbadk.mainTab.c Dd() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.auW = new f();
         cVar.type = 8;
@@ -56,7 +56,7 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Db() {
+    public void Dc() {
         this.dFx = new e(this, CmdConfigCustom.MAINTAB_PERSON_TIP);
         this.dFx.setPriority(12);
         MessageManager.getInstance().registerListener(this.dFx);

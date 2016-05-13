@@ -24,7 +24,7 @@ class s extends CustomMessageListener {
             abVar = this.this$0.ewE;
             if (booleanValue) {
                 abVar2 = this.this$0.ewE;
-                if (abVar2.aMn()) {
+                if (abVar2.aMq()) {
                     z = true;
                     abVar.iO(z);
                 }

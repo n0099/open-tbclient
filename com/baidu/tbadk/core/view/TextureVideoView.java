@@ -46,12 +46,12 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     /* loaded from: classes.dex */
     public interface a {
-        void vt();
+        void vu();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void vu();
+        void vv();
     }
 
     public TextureVideoView(Context context) {
@@ -122,7 +122,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
         this.acB = str;
         this.acM = 0;
         this.acV = true;
-        vp();
+        vq();
         requestLayout();
         invalidate();
     }
@@ -133,7 +133,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     public void stopPlayback() {
         if (this.acE != null) {
-            at.vD().a(this.acE);
+            at.vE().a(this.acE);
             this.acE = null;
             this.acC = 0;
             this.acD = 0;
@@ -141,12 +141,12 @@ public class TextureVideoView extends TextureView implements MediaController.Med
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vp() {
+    public void vq() {
         if (this.acB != null && !this.acB.isEmpty() && this.mSurfaceTexture != null) {
             aH(false);
             try {
                 this.acE = new MediaPlayer();
-                at.vD().vE();
+                at.vE().vF();
                 this.acE.setOnPreparedListener(this.acZ);
                 this.acE.setOnVideoSizeChangedListener(this.acY);
                 this.zD = -1;
@@ -159,7 +159,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
                 this.acE.setAudioStreamType(3);
                 this.acE.prepareAsync();
                 this.acC = 1;
-                vq();
+                vr();
             } catch (IOException e) {
                 this.acC = -1;
                 this.acD = -1;
@@ -181,14 +181,14 @@ public class TextureVideoView extends TextureView implements MediaController.Med
             this.acH.hide();
         }
         this.acH = mediaController;
-        vq();
+        vr();
     }
 
-    private void vq() {
+    private void vr() {
         if (this.acE != null && this.acH != null) {
             this.acH.setMediaPlayer(this);
             this.acH.setAnchorView(getParent() instanceof View ? (View) getParent() : this);
-            this.acH.setEnabled(vs());
+            this.acH.setEnabled(vt());
         }
     }
 
@@ -214,7 +214,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
             this.acE.reset();
             this.acE.release();
             this.acE = null;
-            at.vD().vF();
+            at.vE().vG();
             this.acC = 0;
             if (z) {
                 this.acD = 0;
@@ -224,8 +224,8 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (vs() && this.acH != null) {
-            vr();
+        if (vt() && this.acH != null) {
+            vs();
             return false;
         }
         return false;
@@ -233,8 +233,8 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.view.View
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        if (vs() && this.acH != null) {
-            vr();
+        if (vt() && this.acH != null) {
+            vs();
             return false;
         }
         return false;
@@ -243,7 +243,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         boolean z = (i == 4 || i == 24 || i == 25 || i == 164 || i == 82 || i == 5 || i == 6) ? false : true;
-        if (vs() && z && this.acH != null) {
+        if (vt() && z && this.acH != null) {
             if (i == 79 || i == 85) {
                 if (this.acE.isPlaying()) {
                     pause();
@@ -268,13 +268,13 @@ public class TextureVideoView extends TextureView implements MediaController.Med
                 }
                 return true;
             } else {
-                vr();
+                vs();
             }
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void vr() {
+    private void vs() {
         if (this.acH.isShowing()) {
             this.acH.hide();
         } else {
@@ -296,7 +296,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void start() {
-        if (vs()) {
+        if (vt()) {
             this.acE.start();
             this.acC = 3;
         }
@@ -305,7 +305,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void pause() {
-        if (vs() && this.acE.isPlaying()) {
+        if (vt() && this.acE.isPlaying()) {
             this.acE.pause();
             this.acC = 4;
         }
@@ -314,7 +314,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getDuration() {
-        if (vs()) {
+        if (vt()) {
             if (this.zD > 0) {
                 return this.zD;
             }
@@ -327,7 +327,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getCurrentPosition() {
-        if (vs()) {
+        if (vt()) {
             return this.acE.getCurrentPosition();
         }
         return 0;
@@ -335,7 +335,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void seekTo(int i) {
-        if (vs()) {
+        if (vt()) {
             this.acE.seekTo(i);
             this.acM = 0;
             return;
@@ -345,7 +345,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean isPlaying() {
-        return vs() && this.acE.isPlaying();
+        return vt() && this.acE.isPlaying();
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -356,7 +356,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
         return 0;
     }
 
-    private boolean vs() {
+    private boolean vt() {
         return (this.acE == null || this.acC == -1 || this.acC == 0 || this.acC == 1) ? false : true;
     }
 

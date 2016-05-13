@@ -25,11 +25,11 @@ public class au {
         return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory()) == null || !readThreadHistory.od(str)) ? false : true;
     }
 
-    public static String Ka() {
+    public static String Kc() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
-    public static String Kb() {
+    public static String Kd() {
         return "personalize_page";
     }
 
@@ -50,7 +50,7 @@ public class au {
         String string = context.getString(i);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(string) + " " + ((Object) charSequence));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.at.getColor(i2)), 0, string.length(), 17);
-        com.baidu.adp.widget.d dVar = new com.baidu.adp.widget.d(context, com.baidu.tbadk.core.util.at.cA(i3), 1);
+        com.baidu.adp.widget.d dVar = new com.baidu.adp.widget.d(context, com.baidu.tbadk.core.util.at.cz(i3), 1);
         dVar.setOffset(3);
         spannableStringBuilder.setSpan(dVar, string.length(), string.length() + 1, 33);
         return spannableStringBuilder;
@@ -82,10 +82,10 @@ public class au {
         int i5 = 0;
         for (int i6 = 0; i6 < arrayList2.size(); i6++) {
             if (arrayList2.get(i6) != null) {
-                Bitmap cA = com.baidu.tbadk.core.util.at.cA(i3);
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cA);
-                if (cA != null) {
-                    bitmapDrawable.setBounds(0, 0, cA.getWidth(), cA.getHeight());
+                Bitmap cz = com.baidu.tbadk.core.util.at.cz(i3);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cz);
+                if (cz != null) {
+                    bitmapDrawable.setBounds(0, 0, cz.getWidth(), cz.getHeight());
                 }
                 com.baidu.tbadk.core.view.ah ahVar = new com.baidu.tbadk.core.view.ah(bitmapDrawable);
                 if (i6 == 0) {

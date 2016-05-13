@@ -29,7 +29,7 @@ public class d extends CustomMessageListener {
                 kVar = this.LK.mKeyboardAdjust;
                 if (kVar != null) {
                     kVar2 = this.LK.mKeyboardAdjust;
-                    kVar2.cN(TbadkCoreApplication.m11getInst().getSkinType());
+                    kVar2.cM(TbadkCoreApplication.m11getInst().getSkinType());
                 }
                 this.LK.onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
             }

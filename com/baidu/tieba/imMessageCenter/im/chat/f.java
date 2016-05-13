@@ -56,11 +56,11 @@ class f extends com.baidu.adp.framework.listener.e {
                         j2 = this.cth.csX;
                         handler.postDelayed(runnable, j2);
                     }
-                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e aiY = PersonalChatActivityStatic.aiY();
+                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e aja = PersonalChatActivityStatic.aja();
                     str = this.cth.csZ;
                     String str2 = String.valueOf(str) + "&" + user.getUserId();
                     bVar4 = this.cth.csY;
-                    aiY.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                    aja.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
                 } else {
                     return;
                 }

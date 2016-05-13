@@ -81,8 +81,8 @@ public class VotePhotoGroupView extends LinearLayout {
                     } else {
                         this.aFS.addView(eVar3);
                         if (aVar != null && eVar2 != null) {
-                            boolean isNull = StringUtils.isNull(aVar.Hu());
-                            boolean isNull2 = StringUtils.isNull(aVar2.Hu());
+                            boolean isNull = StringUtils.isNull(aVar.Hw());
+                            boolean isNull2 = StringUtils.isNull(aVar2.Hw());
                             if (isNull && isNull2) {
                                 eVar2.setNameVisibility(8);
                                 eVar3.setNameVisibility(8);
@@ -97,7 +97,7 @@ public class VotePhotoGroupView extends LinearLayout {
                     aVar = aVar2;
                 }
             }
-            if (i % 2 != 0 && aVar != null && eVar2 != null && StringUtils.isNull(aVar.Hu())) {
+            if (i % 2 != 0 && aVar != null && eVar2 != null && StringUtils.isNull(aVar.Hw())) {
                 eVar2.setNameVisibility(8);
             }
             if (z) {

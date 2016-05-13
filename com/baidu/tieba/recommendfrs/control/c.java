@@ -23,7 +23,7 @@ public class c extends CustomMessageListener {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer) && ((Integer) data).intValue() == 0 && this.dYW.isPrimary()) {
                 scrollFragmentTabHost = this.dYW.dYN;
-                scrollFragmentTabHost.aMJ();
+                scrollFragmentTabHost.aMM();
             }
         }
     }

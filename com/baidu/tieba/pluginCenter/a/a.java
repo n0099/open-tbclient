@@ -100,7 +100,7 @@ public class a extends com.baidu.tbadk.mvc.g.a<PluginConfigWrapper, com.baidu.tb
     @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-        this.dUQ.a(at.cA(t.f.bg_switch_open), at.cA(t.f.bg_switch_close), at.cA(t.f.btn_handle));
+        this.dUQ.a(at.cz(t.f.bg_switch_open), at.cz(t.f.bg_switch_close), at.cz(t.f.btn_handle));
         return true;
     }
 }

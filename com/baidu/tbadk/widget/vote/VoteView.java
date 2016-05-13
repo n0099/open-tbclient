@@ -76,13 +76,13 @@ public class VoteView extends LinearLayout {
     public void a(List<com.baidu.tbadk.widget.vote.a> list, boolean z) {
         removeAllViews();
         if (list != null && list.size() > 0) {
-            fi(list.size());
+            fh(list.size());
             int i = 0;
             for (com.baidu.tbadk.widget.vote.a aVar : list) {
                 if (aVar != null) {
                     c voteItemView = getVoteItemView();
                     if (voteItemView == null) {
-                        voteItemView = HB();
+                        voteItemView = HD();
                     }
                     int a2 = voteItemView.a(aVar);
                     if (a2 <= i) {
@@ -95,7 +95,7 @@ public class VoteView extends LinearLayout {
             int i2 = this.aGv - i;
             for (c cVar : this.aFQ) {
                 if (cVar != null) {
-                    cVar.fh(i2);
+                    cVar.fg(i2);
                     addView(cVar.getView());
                 }
             }
@@ -112,7 +112,7 @@ public class VoteView extends LinearLayout {
     public void setBoallotsForListView(List<com.baidu.tbadk.widget.vote.a> list) {
         int a2;
         if (!this.aGw) {
-            HA();
+            HC();
             this.aGw = true;
         }
         if (this.aGs != null && list != null && this.aGs.size() == 3) {
@@ -143,7 +143,7 @@ public class VoteView extends LinearLayout {
                         cVar2.getView().setVisibility(8);
                     } else {
                         cVar2.getView().setVisibility(0);
-                        cVar2.fh(this.aGv - i2);
+                        cVar2.fg(this.aGv - i2);
                         cVar2.setProgress(1.0f);
                     }
                 } else {
@@ -153,28 +153,28 @@ public class VoteView extends LinearLayout {
         }
     }
 
-    private void HA() {
+    private void HC() {
         this.aGs = new ArrayList();
         for (int i = 0; i < 3; i++) {
-            c HB = HB();
-            this.aGs.add(HB);
-            addView(HB.getView());
+            c HD = HD();
+            this.aGs.add(HD);
+            addView(HD.getView());
         }
     }
 
-    private void fi(int i) {
+    private void fh(int i) {
         int size;
         this.aGu.addAll(this.aFQ);
         this.aFQ.clear();
         if (i > 0 && (size = this.aGu.size()) < i) {
             int i2 = i - size;
             for (int i3 = 0; i3 < i2; i3++) {
-                this.aGu.add(HB());
+                this.aGu.add(HD());
             }
         }
     }
 
-    private c HB() {
+    private c HD() {
         c cVar;
         if (this.aFP != -1) {
             cVar = new c(getContext(), this.aFP);

@@ -33,9 +33,9 @@ public class a extends aa {
         }
     }
 
-    public void es(int i) {
+    public void er(int i) {
         if (this.aps != null) {
-            ((SendView) this.aps).es(i);
+            ((SendView) this.aps).er(i);
         }
     }
 }

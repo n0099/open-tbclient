@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as fjX;
+    final /* synthetic */ as fjW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.fjX = asVar;
+        this.fjW = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.fjX.a = asInterface.getPackageName();
-            this.fjX.b = asInterface.getActivityName();
-            if (!this.fjX.startSingleSignOn()) {
-                this.fjX.startAuthDialog();
+            this.fjW.a = asInterface.getPackageName();
+            this.fjW.b = asInterface.getActivityName();
+            if (!this.fjW.startSingleSignOn()) {
+                this.fjW.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.fjX.startAuthDialog();
+            this.fjW.startAuthDialog();
         } finally {
-            Context applicationContext = this.fjX.mActivity.getApplicationContext();
-            serviceConnection = this.fjX.fjW;
+            Context applicationContext = this.fjW.mActivity.getApplicationContext();
+            serviceConnection = this.fjW.fjV;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.fjX.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.fjW.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.fjX.startAuthDialog();
+            this.fjW.startAuthDialog();
         }
     }
 }

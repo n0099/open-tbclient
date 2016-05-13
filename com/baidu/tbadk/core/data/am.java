@@ -35,7 +35,7 @@ public class am extends ax {
             if (this.Pn == null) {
                 this.Pn = new com.baidu.tbadk.coreExtra.relationship.b();
             }
-            this.Pn.dK(commonDistance.is_hide.intValue());
+            this.Pn.dJ(commonDistance.is_hide.intValue());
             this.Pn.setTime(commonDistance.time.intValue());
             int intValue = commonDistance.distance.intValue();
             if (intValue > 0 && intValue <= 100) {

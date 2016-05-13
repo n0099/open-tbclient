@@ -50,7 +50,7 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0074a {
-        void pr(int i);
+        void pq(int i);
     }
 
     /* loaded from: classes.dex */
@@ -87,7 +87,7 @@ public class a {
             return null;
         }
         this.aeI = new ab();
-        this.aeI.tA().uu().mIsNeedTbs = true;
+        this.aeI.tB().uv().mIsNeedTbs = true;
         if (writeData.getType() == 3) {
             if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
                 this.aeI.n("vcode", writeData.getVcode());
@@ -175,9 +175,9 @@ public class a {
                 String r = m.r(voice, 1);
                 com.baidu.tbadk.coreExtra.data.d dV = cVar.dV(r);
                 if (dV != null && dV.isSuccess()) {
-                    com.baidu.tbadk.coreExtra.data.c wt = dV.wt();
-                    if (wt != null) {
-                        returnVoiceMd5 = wt.getMd5();
+                    com.baidu.tbadk.coreExtra.data.c wu = dV.wu();
+                    if (wu != null) {
+                        returnVoiceMd5 = wu.getMd5();
                         com.baidu.tbadk.core.voice.a.b.ah(writeData.getVoice(), returnVoiceMd5);
                         writeData.setReturnVoiceMd5(returnVoiceMd5);
                     } else {
@@ -313,7 +313,7 @@ public class a {
                     if (writeData.isFrsReply()) {
                         this.aeI.n("st_param", "frs");
                     }
-                    if (com.baidu.tbadk.editortools.d.b.BC().getStatus() == 1) {
+                    if (com.baidu.tbadk.editortools.d.b.BD().getStatus() == 1) {
                         this.aeI.n("ptype", "4");
                     }
                     e.a(this.aeI, writeData);
@@ -374,12 +374,12 @@ public class a {
                     break;
             }
         }
-        String tc = this.aeI.tc();
-        pq(95);
-        if (this.aeI.tA().uv().nZ()) {
-            this.etE.parserJson(tc);
+        String td = this.aeI.td();
+        pp(95);
+        if (this.aeI.tB().uw().nZ()) {
+            this.etE.parserJson(td);
         } else {
-            this.etE.setError_code(this.aeI.tD() ? this.aeI.tE() : this.aeI.tF());
+            this.etE.setError_code(this.aeI.tE() ? this.aeI.tF() : this.aeI.tG());
             this.etE.setError_msg(this.aeI.getErrorString());
         }
         if (this.etE.error_code != 0 && !i.fq()) {
@@ -389,11 +389,11 @@ public class a {
         }
         try {
             this.etF = new AntiData();
-            this.etF.parserJson(new JSONObject(tc).optJSONObject("anti_stat"));
+            this.etF.parserJson(new JSONObject(td).optJSONObject("anti_stat"));
         } catch (Exception e) {
         }
-        pq(100);
-        return tc;
+        pp(100);
+        return td;
     }
 
     private boolean nV(String str) {
@@ -406,9 +406,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pq(int i) {
+    public void pp(int i) {
         if (this.etH != null) {
-            this.etH.pr(i);
+            this.etH.pq(i);
         }
     }
 
@@ -416,7 +416,7 @@ public class a {
         if (this.aeI == null) {
             return false;
         }
-        return this.aeI.tA().uv().nZ();
+        return this.aeI.tB().uw().nZ();
     }
 
     public void cancel() {
@@ -428,15 +428,15 @@ public class a {
             this.atT.cancel();
         }
         if (this.etG != null) {
-            this.etG.aUS();
+            this.etG.aUY();
         }
     }
 
-    public AntiData aUl() {
+    public AntiData aUr() {
         return this.etF;
     }
 
-    public ErrorData aUm() {
+    public ErrorData aUs() {
         return this.etE;
     }
 }

@@ -24,7 +24,7 @@ class h implements c.b {
         cVar.dismiss();
         if (this.cxW == 1) {
             strangerListModel2 = this.cxV.cxQ;
-            strangerListModel2.akZ();
+            strangerListModel2.alb();
             this.cxV.finish();
             return;
         }

@@ -26,18 +26,18 @@ public class e implements a.b {
         PbActivity pbActivity2;
         aVar.dismiss();
         if (this.dhV) {
-            this.dhT.awl();
+            this.dhT.awo();
         }
         pbActivity = this.dhT.dhQ;
-        cw awu = pbActivity.awu();
-        if (awu != null) {
-            com.baidu.tieba.pb.data.e pbData = awu.getPbData();
-            if (pbData.avA() != null && pbData.avB() != null && pbData.avB().qU() != null && pbData.avB().qU().size() > 0 && pbData.avB().qU().get(0) != null) {
-                String id = pbData.avA().getId();
-                String id2 = pbData.avB().getId();
-                int activityId = pbData.avB().qU().get(0).getActivityId();
-                int ov = pbData.avB().qU().get(0).ov();
-                int ow = pbData.avB().qU().get(0).ow();
+        cw awx = pbActivity.awx();
+        if (awx != null) {
+            com.baidu.tieba.pb.data.e pbData = awx.getPbData();
+            if (pbData.avD() != null && pbData.avE() != null && pbData.avE().qV() != null && pbData.avE().qV().size() > 0 && pbData.avE().qV().get(0) != null) {
+                String id = pbData.avD().getId();
+                String id2 = pbData.avE().getId();
+                int activityId = pbData.avE().qV().get(0).getActivityId();
+                int ov = pbData.avE().qV().get(0).ov();
+                int ow = pbData.avE().qV().get(0).ow();
                 z = this.dhT.mIsSenior;
                 PbLotteryRequestMessage pbLotteryRequestMessage = new PbLotteryRequestMessage(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), id, id2, 1, activityId, ov, ow, z);
                 if (!this.dhV) {
@@ -46,8 +46,8 @@ public class e implements a.b {
                 }
                 this.dhT.sendMessage(pbLotteryRequestMessage);
             }
-            if (awu != null && awu.getPbData() != null) {
-                TiebaStatic.log(new aw("c10398").ac("fid", awu.getPbData().getForumId()).ac("tid", awu.getPbData().getThreadId()).ac("is_like", "1"));
+            if (awx != null && awx.getPbData() != null) {
+                TiebaStatic.log(new aw("c10398").ac("fid", awx.getPbData().getForumId()).ac("tid", awx.getPbData().getThreadId()).ac("is_like", "1"));
             }
         }
     }

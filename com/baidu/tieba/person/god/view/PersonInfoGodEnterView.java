@@ -70,49 +70,49 @@ public class PersonInfoGodEnterView extends LinearLayout implements View.OnClick
         if (bgVar != null) {
             this.dAy = bgVar;
             this.mUser = bgVar.getUserData();
-            if (aCE()) {
+            if (aCH()) {
                 this.dAB.setVisibility(0);
                 this.dAB.setIcon(t.f.icon_mine_tie);
                 this.dAB.setBackgroundResource(t.f.bg_icon_mine_selector);
             } else {
                 this.dAB.setVisibility(8);
             }
-            if (aCF()) {
+            if (aCI()) {
                 this.dAD.setVisibility(0);
                 this.dAD.setIcon(t.f.icon_mine_group);
                 this.dAD.setBackgroundResource(t.f.bg_icon_mine_selector);
             } else {
                 this.dAD.setVisibility(8);
             }
-            if (aCG()) {
+            if (aCJ()) {
                 this.dAC.setVisibility(0);
                 this.dAC.setIcon(t.f.icon_mine_ba);
                 this.dAC.setBackgroundResource(t.f.bg_icon_mine_selector);
             } else {
                 this.dAC.setVisibility(8);
             }
-            if (com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "god_enter_info_expand", true)) {
+            if (com.baidu.tbadk.core.sharedPref.b.sR().getBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "god_enter_info_expand", true)) {
                 hp(true);
             } else {
                 hp(false);
             }
-            abD();
+            abF();
         }
     }
 
-    private boolean aCE() {
+    private boolean aCH() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PersonPostActivityConfig.class);
     }
 
-    private boolean aCF() {
+    private boolean aCI() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
     }
 
-    private boolean aCG() {
+    private boolean aCJ() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PersonBarActivityConfig.class);
     }
 
-    private void abD() {
+    private void abF() {
         if (this.mUser != null) {
             this.dAC.setTitle(this.mContext.getString(t.j.person_forums));
             if (this.mUser.getSex() == 1) {
@@ -138,10 +138,10 @@ public class PersonInfoGodEnterView extends LinearLayout implements View.OnClick
         at.k(this.dAF, t.d.cp_bg_line_b);
         at.k(this.dAA, t.d.cp_bg_line_d);
         at.k(this.dAE, t.d.cp_bg_line_d);
-        aCH();
+        aCK();
     }
 
-    private void aCH() {
+    private void aCK() {
         if (this.dAG != null && this.dAA != null) {
             if (this.dAA.getVisibility() == 8) {
                 this.dAG.setImageDrawable(at.getDrawable(t.f.icon_mine_arrow_down));
@@ -175,51 +175,51 @@ public class PersonInfoGodEnterView extends LinearLayout implements View.OnClick
             }
         } else if (view == this.dAB) {
             if (this.mUser != null && this.dAy != null && bl.ac(this.mContext)) {
-                if (mz(1)) {
+                if (my(1)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mContext, this.mUser.getUserId(), this.mUser.getSex(), this.mUser.getPortrait())));
                     TiebaStatic.log(new aw("c10618").s("obj_type", 1).ac("obj_id", this.mUser.getUserId()));
                     return;
                 }
                 TiebaStatic.log(new aw("c10618").s("obj_type", 3).ac("obj_id", this.mUser.getUserId()));
-                BdToast.a(this.mContext, this.mContext.getResources().getString(t.j.user_set_private)).sc();
+                BdToast.a(this.mContext, this.mContext.getResources().getString(t.j.user_set_private)).sd();
             }
         } else if (view == this.dAC) {
             if (this.mUser != null && this.dAy != null && bl.ac(this.mContext)) {
-                if (mz(2)) {
+                if (my(2)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.mContext, this.mUser.getLike_bars(), this.mUser.getUserId(), this.mUser.getSex())));
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getResources().getString(t.j.user_set_private)).sc();
+                BdToast.a(this.mContext, this.mContext.getResources().getString(t.j.user_set_private)).sd();
             }
         } else if (view == this.dAD && this.mUser != null && this.dAy != null && bl.ac(this.mContext)) {
-            if (mz(3)) {
+            if (my(3)) {
                 TiebaStatic.log(new aw("c10620").s("obj_type", 1).ac("obj_id", this.mUser.getUserId()));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.mContext, this.mUser.getUserId(), this.mUser.getSex())));
                 return;
             }
             TiebaStatic.log(new aw("c10620").s("obj_type", 3).ac("obj_id", this.mUser.getUserId()));
-            BdToast.a(this.mContext, this.mContext.getResources().getString(t.j.user_set_private)).sc();
+            BdToast.a(this.mContext, this.mContext.getResources().getString(t.j.user_set_private)).sd();
         }
     }
 
-    private boolean mz(int i) {
+    private boolean my(int i) {
         int i2;
         if (this.mUser == null || this.dAy == null) {
             return false;
         }
         h personPrivate = this.mUser.getPersonPrivate();
-        PersonTainInfo aDA = this.dAy.aDA();
+        PersonTainInfo aDD = this.dAy.aDD();
         if (personPrivate == null) {
             i2 = 1;
         } else if (i == 1) {
-            i2 = personPrivate.AD();
+            i2 = personPrivate.AE();
         } else if (i == 2) {
-            i2 = personPrivate.AB();
+            i2 = personPrivate.AC();
         } else if (i != 3) {
             return false;
         } else {
-            i2 = personPrivate.AC();
+            i2 = personPrivate.AD();
         }
-        return i2 == 1 || (i2 == 2 && (aDA != null ? aDA.getIsFriend() : 1) == 1);
+        return i2 == 1 || (i2 == 2 && (aDD != null ? aDD.getIsFriend() : 1) == 1);
     }
 }

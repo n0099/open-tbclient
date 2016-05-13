@@ -12,7 +12,7 @@ public class a {
     private List<com.baidu.adp.widget.ListView.a> bei = new ArrayList();
     private BdTypeListView bej;
 
-    public List<com.baidu.adp.widget.ListView.a> Pb() {
+    public List<com.baidu.adp.widget.ListView.a> Pd() {
         return this.bei;
     }
 

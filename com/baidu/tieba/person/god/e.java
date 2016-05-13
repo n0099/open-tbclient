@@ -43,13 +43,13 @@ class e implements BdListView.e {
                                 j = this.dzZ.mUserId;
                                 hVar4.bG(j);
                                 gVar4 = this.dzZ.dzU;
-                                gVar4.OJ();
+                                gVar4.OL();
                                 return;
                             }
                             list3 = this.dzZ.dzW;
                             if (!list3.isEmpty()) {
                                 gVar2 = this.dzZ.dzU;
-                                gVar2.aCx();
+                                gVar2.aCA();
                                 return;
                             }
                             String string = TbadkCoreApplication.m11getInst().getString(t.j.no_data_text);

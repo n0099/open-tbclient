@@ -38,12 +38,12 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     /* JADX INFO: Access modifiers changed from: private */
     public void b(c cVar) {
         if (cVar != null) {
-            String UR = cVar.UR();
-            String Fl = cVar.Fl();
-            boolean aPS = cVar.aPS();
-            if (cVar.aPG()) {
-                this.ejk.gE(0);
-                new Handler().postDelayed(new n(this, UR, Fl, aPS), 500L);
+            String UT = cVar.UT();
+            String Fn = cVar.Fn();
+            boolean aPV = cVar.aPV();
+            if (cVar.aPJ()) {
+                this.ejk.gD(0);
+                new Handler().postDelayed(new n(this, UT, Fn, aPV), 500L);
             }
         }
     }
@@ -51,28 +51,28 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     /* JADX INFO: Access modifiers changed from: private */
     public void ny(String str) {
         if (this.ejn) {
-            c aQF = this.ejk.aQF();
+            c aQI = this.ejk.aQI();
             Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
             intent.addFlags(805306368);
             intent.putExtra("signall_noyify_click", true);
             PendingIntent activity = PendingIntent.getActivity(getPageContext().getPageActivity(), 0, intent, 134217728);
-            str = getPageContext().getPageActivity().getString(t.j.signallforum_back_finish, new Object[]{0, Integer.valueOf(aQF.aPR().size())});
+            str = getPageContext().getPageActivity().getString(t.j.signallforum_back_finish, new Object[]{0, Integer.valueOf(aQI.aPU().size())});
             a(str, activity, false);
             if (this.ejo) {
                 return;
             }
         }
         showToast(str);
-        this.ejk.aQD().aQx();
-        ArrayList<e> aPR = this.ejk.aQF().aPR();
-        int size = aPR.size();
+        this.ejk.aQG().aQA();
+        ArrayList<e> aPU = this.ejk.aQI().aPU();
+        int size = aPU.size();
         for (int i = 0; i < size; i++) {
-            e eVar = aPR.get(i);
+            e eVar = aPU.get(i);
             eVar.jl(true);
             eVar.jm(false);
             eVar.jk(false);
         }
-        this.ejk.aQG().notifyDataSetChanged();
+        this.ejk.aQJ().notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -80,7 +80,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         NotificationHelper.showNotification(getPageContext().getPageActivity(), t.f.singnallforum_progress, getPageContext().getString(t.j.app_name), str, str, pendingIntent, z);
     }
 
-    private void xm() {
+    private void xn() {
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), t.f.singnallforum_progress);
     }
 
@@ -93,7 +93,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             finish();
             return;
         }
-        xm();
+        xn();
         Intent intent = getIntent();
         if (intent.hasExtra("signall_noyify_click") && intent.getBooleanExtra("signall_noyify_click", false)) {
             TiebaStatic.log("signall_noyify_click");
@@ -109,8 +109,8 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         this.ejk.a(this);
         this.ejk.setOnItemClickListener(this);
         if (this.ejm.fU) {
-            this.ejq.a(this.ejm.aQt());
-            this.ejk.aQD().setSigning(90);
+            this.ejq.a(this.ejm.aQw());
+            this.ejk.aQG().setSigning(90);
             return;
         }
         this.ejk.jy();
@@ -134,30 +134,30 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public void aG(boolean z) {
         if (!com.baidu.adp.lib.util.i.fq()) {
             showToast(t.j.neterror);
-            this.ejk.Nn();
+            this.ejk.Np();
         } else if (!this.ejl.LoadData()) {
-            this.ejk.Nn();
+            this.ejk.Np();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c aQF = this.ejk.aQF();
+        c aQI = this.ejk.aQI();
         if (view == this.ejk.getProgressBar()) {
-            if (this.ejk.aQD().getCurrentStatus() == 2) {
+            if (this.ejk.aQG().getCurrentStatus() == 2) {
                 showToast(t.j.signallforum_finished);
                 return;
             }
-            if (aQF.aPM() != 0) {
-                nz(aQF.aPN());
-                this.CP.rU();
+            if (aQI.aPP() != 0) {
+                nz(aQI.aPQ());
+                this.CP.rV();
             } else if (com.baidu.adp.lib.util.i.fq()) {
-                aQk();
+                aQn();
             } else {
                 showToast(t.j.neterror);
             }
             TiebaStatic.log("signall_click");
-        } else if (view == this.ejk.aQH()) {
+        } else if (view == this.ejk.aQK()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_3", "click", 1, new Object[0]);
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getPageContext().getPageActivity(), 2, "msign", 1);
             memberPayActivityConfig.setSceneId("4007001000");
@@ -165,19 +165,19 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
     }
 
-    private void aQk() {
-        c aQF = this.ejk.aQF();
-        this.ejk.aQD().setDuration(Math.max(aQF.aPR().size() * 50, 2000));
-        this.ejk.aQD().setSigning(0);
-        this.ejm.d(aQF);
+    private void aQn() {
+        c aQI = this.ejk.aQI();
+        this.ejk.aQG().setDuration(Math.max(aQI.aPU().size() * 50, 2000));
+        this.ejk.aQG().setSigning(0);
+        this.ejm.d(aQI);
         this.ejm.LoadData();
-        this.ejk.aQG().notifyDataSetChanged();
+        this.ejk.aQJ().notifyDataSetChanged();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         e eVar;
-        if (this.ejk.aQG().getItemViewType(i) == 0 && this.ejk.aQF() != null && this.ejk.aQF().aPO() != null && this.ejk.aQF().aPO().size() > i && (eVar = this.ejk.aQF().aPO().get(i)) != null) {
+        if (this.ejk.aQJ().getItemViewType(i) == 0 && this.ejk.aQI() != null && this.ejk.aQI().aPR() != null && this.ejk.aQI().aPR().size() > i && (eVar = this.ejk.aQI().aPR().get(i)) != null) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(eVar.getForumName(), "signallforum")));
             TiebaStatic.log("signall_frs_click");
         }
@@ -194,7 +194,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public void onStop() {
         super.onStop();
         if (this.ejm != null && this.ejm.fU) {
-            aQl();
+            aQo();
         }
     }
 
@@ -210,12 +210,12 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             this.ejl.cancelLoadData();
             this.ejl = null;
         }
-        if (this.ejk != null && this.ejk.aQG() != null) {
-            this.ejk.aQG().aQm();
+        if (this.ejk != null && this.ejk.aQJ() != null) {
+            this.ejk.aQJ().aQp();
         }
         if (this.ejm != null) {
             if (this.ejm.fU) {
-                aQl();
+                aQo();
             }
             this.ejm.cancelMessage();
             this.ejm = null;
@@ -226,7 +226,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
     }
 
-    private void aQl() {
+    private void aQo() {
         this.ejn = true;
         Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
         intent.addFlags(805306368);
@@ -235,6 +235,6 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public BdListView onGetPreLoadListView() {
-        return this.ejk.aQE();
+        return this.ejk.aQH();
     }
 }

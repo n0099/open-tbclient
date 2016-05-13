@@ -89,7 +89,7 @@ public class g implements ad {
             }
             textView = this.bYM.Sm;
             textView.setVisibility(0);
-            this.bYM.abD();
+            this.bYM.abF();
             multiImageView = this.bYM.bYA;
             multiImageView.setIsFromCDN(true);
             multiImageView2 = this.bYM.bYA;

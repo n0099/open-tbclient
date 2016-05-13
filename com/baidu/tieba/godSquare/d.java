@@ -34,7 +34,7 @@ public class d {
         this.aWZ = (NoNetworkView) this.bek.findViewById(t.g.view_no_network);
         this.bkd = new PbListView(this.bek.getPageContext().getPageActivity());
         this.bkd.jn();
-        this.bkd.vg();
+        this.bkd.vh();
         this.bej = (BdTypeListView) this.bek.findViewById(t.g.god_square_list_view);
         this.mPullView = new w(this.bek.getPageContext());
         if (this.bek instanceof t.b) {
@@ -45,16 +45,16 @@ public class d {
         }
         this.bej.setPullRefresh(this.mPullView);
         this.bKf = new com.baidu.tieba.godSquare.a.a(this.bek.getPageContext(), this.bej);
-        this.bej.g(this.bKf.Pb());
+        this.bej.g(this.bKf.Pd());
         this.bej.setNextPage(this.bkd);
     }
 
-    public void Pc() {
+    public void Pe() {
         this.bej.setVisibility(8);
         this.bek.showLoadingView(this.mRootView, true);
     }
 
-    public void Pd() {
+    public void Pf() {
         this.bej.setVisibility(0);
         this.bek.hideLoadingView(this.mRootView);
     }
@@ -64,7 +64,7 @@ public class d {
         this.bek.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void Pe() {
+    public void Pg() {
         this.bej.setVisibility(0);
         this.bek.hideNetRefreshView(this.mRootView);
     }
@@ -83,25 +83,25 @@ public class d {
         this.bKf.notifyDataSetChanged();
     }
 
-    public void XV() {
-        this.bkd.vg();
-    }
-
-    public void XW() {
-        this.bkd.setText(this.bek.getResources().getString(t.j.network_ungeilivable));
-        this.bkd.vh();
-    }
-
     public void XX() {
-        this.bkd.setText(this.bek.getResources().getString(t.j.list_no_more));
         this.bkd.vh();
+    }
+
+    public void XY() {
+        this.bkd.setText(this.bek.getResources().getString(t.j.network_ungeilivable));
+        this.bkd.vi();
+    }
+
+    public void XZ() {
+        this.bkd.setText(this.bek.getResources().getString(t.j.list_no_more));
+        this.bkd.vi();
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.bek.getPageContext(), i);
-        this.bkd.cR(t.d.cp_bg_line_c);
+        this.bkd.cQ(t.d.cp_bg_line_c);
         this.bkd.setTextColor(at.getColor(t.d.cp_cont_d));
-        this.bkd.cS(i);
+        this.bkd.cR(i);
         this.aWZ.onChangeSkinType(this.bek.getPageContext(), i);
     }
 

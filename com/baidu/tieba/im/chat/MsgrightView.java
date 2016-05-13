@@ -71,7 +71,7 @@ public class MsgrightView extends as {
             this.caC.setVisibility(8);
             this.cad.setVisibility(0);
             this.cad.setText(null);
-            iQ(8);
+            iP(8);
             this.cak.getImage().setTag(null);
             this.cae.setVisibility(8);
             this.cae.setTag(null);
@@ -123,7 +123,7 @@ public class MsgrightView extends as {
                 this.caz.setOnClickListener(new bn(this));
             }
             this.cad.setVisibility(8);
-            iQ(8);
+            iP(8);
             this.cae.setVisibility(8);
             this.caf.setVisibility(8);
             this.cai.setVisibility(8);

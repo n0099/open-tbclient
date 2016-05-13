@@ -59,7 +59,7 @@ public class dp extends bw<com.baidu.tbadk.core.data.ax, du> implements View.OnC
     }
 
     private View b(int i, View view, com.baidu.tbadk.core.data.ax axVar, du duVar) {
-        if (axVar == null || axVar.qL() == null) {
+        if (axVar == null || axVar.qM() == null) {
             return null;
         }
         a(i, view, axVar, duVar);
@@ -81,7 +81,7 @@ public class dp extends bw<com.baidu.tbadk.core.data.ax, du> implements View.OnC
             com.baidu.tbadk.core.util.at.j((View) duVar.bls, t.d.cp_cont_c);
             com.baidu.tbadk.core.util.at.k(duVar.bfB, t.f.frs_item_control_btn_bg);
         }
-        if (axVar != null && !axVar.rh() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
+        if (axVar != null && !axVar.ri() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
             duVar.bji.setVisibility(0);
             duVar.bkX.setVisibility(0);
             duVar.bji.setText(axVar.getAddress());
@@ -126,7 +126,7 @@ public class dp extends bw<com.baidu.tbadk.core.data.ax, du> implements View.OnC
         }
         duVar.bfF.setText(axVar.getAuthor().getName_show());
         com.baidu.tieba.tbadkCore.util.s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
-        if (axVar.qY() == 1) {
+        if (axVar.qZ() == 1) {
             duVar.aOG.setVisibility(8);
         } else {
             duVar.aOG.setVisibility(0);
@@ -139,8 +139,8 @@ public class dp extends bw<com.baidu.tbadk.core.data.ax, du> implements View.OnC
             }
         }
         StringBuffer stringBuffer = new StringBuffer();
-        if (axVar.qS() != null && axVar.qS().trim().length() > 0) {
-            stringBuffer.append(axVar.qS());
+        if (axVar.qT() != null && axVar.qT().trim().length() > 0) {
+            stringBuffer.append(axVar.qT());
         }
         ArrayList<MediaData> medias = axVar.getMedias();
         if (medias != null) {
@@ -180,14 +180,14 @@ public class dp extends bw<com.baidu.tbadk.core.data.ax, du> implements View.OnC
         } else {
             duVar.bfK.setVisibility(8);
         }
-        long longValue = axVar.qL().total_num.longValue();
+        long longValue = axVar.qM().total_num.longValue();
         if (longValue > 0) {
             duVar.blm.setVisibility(0);
             duVar.blm.setText(com.baidu.tbadk.core.util.ay.A(longValue));
         } else {
             duVar.blm.setVisibility(8);
         }
-        List<PollOption> list = axVar.qL().options;
+        List<PollOption> list = axVar.qM().options;
         if (com.baidu.tbadk.core.l.ob().oh() && list != null && list.size() > 1) {
             duVar.bln.setVisibility(0);
             duVar.blo.setVisibility(0);
@@ -204,13 +204,13 @@ public class dp extends bw<com.baidu.tbadk.core.data.ax, du> implements View.OnC
                     PollOption pollOption = list.get(i5);
                     switch (i5) {
                         case 0:
-                            duVar.blo.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), axVar.qL().total_poll.longValue());
+                            duVar.blo.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), axVar.qM().total_poll.longValue());
                             break;
                         case 1:
-                            duVar.blp.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), axVar.qL().total_poll.longValue());
+                            duVar.blp.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), axVar.qM().total_poll.longValue());
                             break;
                         case 2:
-                            duVar.blq.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), axVar.qL().total_poll.longValue());
+                            duVar.blq.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), axVar.qM().total_poll.longValue());
                             break;
                     }
                     i4 = i5 + 1;
@@ -219,18 +219,18 @@ public class dp extends bw<com.baidu.tbadk.core.data.ax, du> implements View.OnC
         } else {
             duVar.bln.setVisibility(8);
         }
-        if (axVar.qL().options_count.intValue() == 0) {
+        if (axVar.qM().options_count.intValue() == 0) {
             duVar.blr.setVisibility(8);
             duVar.bls.setVisibility(8);
         } else {
             String string = this.bek.getResources().getString(t.j.total_x_vote_option);
             duVar.blr.setVisibility(0);
-            duVar.blr.setText(String.format(string, axVar.qL().options_count));
-            if (StringUtils.isNull(axVar.qL().tips, true)) {
+            duVar.blr.setText(String.format(string, axVar.qM().options_count));
+            if (StringUtils.isNull(axVar.qM().tips, true)) {
                 duVar.bls.setVisibility(8);
             } else {
                 duVar.bls.setVisibility(0);
-                duVar.bls.setText("(" + axVar.qL().tips + ")");
+                duVar.bls.setText("(" + axVar.qM().tips + ")");
             }
         }
         duVar.aej = this.mSkinType;
@@ -244,10 +244,10 @@ public class dp extends bw<com.baidu.tbadk.core.data.ax, du> implements View.OnC
             Object tag = view.getTag();
             if (tag instanceof Integer) {
                 int intValue = ((Integer) tag).intValue();
-                com.baidu.adp.widget.ListView.v at = at(intValue);
-                if (at instanceof com.baidu.tbadk.core.data.ax) {
+                com.baidu.adp.widget.ListView.v as = as(intValue);
+                if (as instanceof com.baidu.tbadk.core.data.ax) {
                     View childAt = this.bfr.getChildAt(intValue - (this.bfr.getFirstVisiblePosition() - this.bfr.getHeaderViewsCount()));
-                    this.bix.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.ax) at);
+                    this.bix.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.ax) as);
                 }
             }
         }

@@ -4,7 +4,7 @@ public class l {
     private static volatile l crn;
     private boolean isAcceptNotify;
 
-    public static l aiv() {
+    public static l aix() {
         if (crn == null) {
             synchronized (l.class) {
                 if (crn == null) {

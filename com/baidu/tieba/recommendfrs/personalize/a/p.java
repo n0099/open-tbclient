@@ -12,7 +12,7 @@ import com.baidu.tieba.card.by;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.j, a> {
     private TbPageContext<?> DV;
-    private BdUniqueId aOT;
+    public BdUniqueId aOT;
     private com.baidu.tieba.card.u ebs;
     private by<com.baidu.tieba.card.a.j> ebt;
 
@@ -39,11 +39,11 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.j,
         aVar.ebv.d(this.DV, TbadkCoreApplication.m11getInst().getSkinType());
         aVar.ebv.a(jVar);
         aVar.ebv.a(this.ebt);
-        bx.Kg().a(new aw("c11006"));
+        bx.Ki().a(new aw("c11006"));
         return aVar.getView();
     }
 
-    public void oz(int i) {
+    public void oy(int i) {
         if (this.ebs != null) {
             this.ebs.d(this.DV, i);
         }
@@ -57,9 +57,5 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.j,
             super(uVar.getView());
             this.ebv = uVar;
         }
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aOT = bdUniqueId;
     }
 }

@@ -17,21 +17,21 @@ public class h implements com.baidu.tbadk.editortools.b {
             if (aVar.code == 24) {
                 if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.h)) {
                     com.baidu.tbadk.coreExtra.data.h hVar = (com.baidu.tbadk.coreExtra.data.h) aVar.data;
-                    EmotionGroupType wx = hVar.wx();
+                    EmotionGroupType wy = hVar.wy();
                     String name = hVar.getName();
-                    if (wx != EmotionGroupType.LOCAL && name != null) {
+                    if (wy != EmotionGroupType.LOCAL && name != null) {
                         this.bYP.mContext.a(hVar);
                         this.bYP.onSendEmotion();
                     }
                 }
             } else if (aVar.code == 8) {
-                this.bYP.mContext.acx();
+                this.bYP.mContext.acz();
             } else if (aVar.code == 4) {
                 if (aVar.data != null && (aVar.data instanceof String)) {
                     this.bYP.mTextContent = (String) aVar.data;
                 }
             } else if (aVar.code == 14) {
-                this.bYP.mContext.acy();
+                this.bYP.mContext.acA();
             }
         }
     }

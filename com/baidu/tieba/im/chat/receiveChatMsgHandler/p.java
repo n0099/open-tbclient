@@ -20,7 +20,7 @@ public class p {
     private p() {
     }
 
-    public static synchronized p acL() {
+    public static synchronized p acN() {
         p pVar;
         synchronized (p.class) {
             if (ccW == null) {
@@ -37,7 +37,7 @@ public class p {
         }
     }
 
-    public long iV(int i) {
+    public long iU(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 

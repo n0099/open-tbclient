@@ -58,7 +58,7 @@ public class MyAudioRecorder implements i {
                 while (true) {
                     myAudioRecorder = new MyAudioRecorder(true, 1, aeS[i], 2, 2);
                     int i2 = i - 1;
-                    if (!(myAudioRecorder.wa() != State.INITIALIZING) || !(i2 >= 0)) {
+                    if (!(myAudioRecorder.wb() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
                     }
                     i = i2;
@@ -70,7 +70,7 @@ public class MyAudioRecorder implements i {
         return myAudioRecorder;
     }
 
-    public State wa() {
+    public State wb() {
         return this.aeY;
     }
 
@@ -266,7 +266,7 @@ public class MyAudioRecorder implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean vV() {
+    public boolean vW() {
         synchronized (mLock) {
             if (this.aeT == null || !this.aeT.isAlive()) {
                 this.aeT = new Thread(new g(this));
@@ -277,21 +277,21 @@ public class MyAudioRecorder implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void vW() {
+    public void vX() {
         this.aeY = State.STOPPED;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean vX() {
+    public boolean vY() {
         return this.aeY == State.RECORDING;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vU() {
+    public void vV() {
         if (aeV != null) {
             try {
                 start();
-                while (vX()) {
+                while (vY()) {
                     aeV.read(this.buffer, 0, this.buffer.length);
                     try {
                         System.out.println(this.buffer);

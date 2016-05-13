@@ -9,17 +9,17 @@ public class GetOnLineInfoStatic {
     private static Runnable mRunnable = new a();
 
     static {
-        DY();
         DZ();
         Ea();
         Eb();
-    }
-
-    private static void DY() {
-        MessageManager.getInstance().registerListener(new b(1001));
+        Ec();
     }
 
     private static void DZ() {
+        MessageManager.getInstance().registerListener(new b(1001));
+    }
+
+    private static void Ea() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(205005);
         bVar.setResponsedClass(GetOnLineInfoSocketResMessage.class);
         bVar.i(false);
@@ -27,13 +27,13 @@ public class GetOnLineInfoStatic {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private static void Ea() {
+    private static void Eb() {
         c cVar = new c(205005);
         cVar.setSelfListener(true);
         MessageManager.getInstance().registerListener(cVar);
     }
 
-    private static void Eb() {
+    private static void Ec() {
         MessageManager.getInstance().registerListener(new d(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
     }
 }

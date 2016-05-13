@@ -34,7 +34,7 @@ public class b implements NewSubPbActivity.a {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
             aVar = this.dqn.dqd;
-            if (!aVar.aUI() && objArr != null && objArr.length >= 4) {
+            if (!aVar.aUO() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
                 int g = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[1]), 0);
                 boolean d = com.baidu.adp.lib.h.b.d(String.valueOf(objArr[2]), false);
@@ -42,18 +42,18 @@ public class b implements NewSubPbActivity.a {
                 apVar = this.dqn.dqc;
                 if (apVar != null) {
                     apVar2 = this.dqn.dqc;
-                    if (apVar2.aAn() != null) {
+                    if (apVar2.aAq() != null) {
                         apVar3 = this.dqn.dqc;
-                        if (apVar3.aAn().avV() != null) {
+                        if (apVar3.aAq().avY() != null) {
                             apVar4 = this.dqn.dqc;
-                            if (apVar4.aAn().Kl() != null) {
+                            if (apVar4.aAq().Kn() != null) {
                                 aVar2 = this.dqn.dqd;
                                 apVar5 = this.dqn.dqc;
-                                String id = apVar5.aAn().avV().getId();
+                                String id = apVar5.aAq().avY().getId();
                                 apVar6 = this.dqn.dqc;
-                                String name = apVar6.aAn().avV().getName();
+                                String name = apVar6.aAq().avY().getName();
                                 apVar7 = this.dqn.dqc;
-                                aVar2.a(id, name, apVar7.aAn().Kl().getId(), valueOf, g2, g, d);
+                                aVar2.a(id, name, apVar7.aAq().Kn().getId(), valueOf, g2, g, d);
                                 return;
                             }
                             return;

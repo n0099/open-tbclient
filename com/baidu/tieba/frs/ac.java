@@ -23,7 +23,7 @@ public class ac implements Runnable {
         int C = com.baidu.adp.lib.util.k.C(this.bhl.getPageContext().getPageActivity());
         float f = TbadkCoreApplication.m11getInst().getApp().getResources().getDisplayMetrics().density;
         int i = 1;
-        if (com.baidu.tbadk.core.util.az.uf().uh()) {
+        if (com.baidu.tbadk.core.util.az.ug().ui()) {
             i = 2;
         }
         RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();

@@ -9,7 +9,7 @@ public class e implements b {
 
     /* loaded from: classes.dex */
     public interface a {
-        void eJ(int i);
+        void eI(int i);
     }
 
     public e(int i) {
@@ -21,7 +21,7 @@ public class e implements b {
         this.cvj = i;
     }
 
-    public void jQ(int i) {
+    public void jP(int i) {
         this.end = i;
     }
 
@@ -44,7 +44,7 @@ public class e implements b {
                 }
             }
             if (this.cvk != null) {
-                this.cvk.eJ(this.cvj);
+                this.cvk.eI(this.cvj);
             }
             return false;
         }

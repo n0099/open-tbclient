@@ -27,13 +27,13 @@ public class x implements NewSubPbActivity.a {
         Object[] objArr = (Object[]) obj;
         String str = "";
         apVar = this.dqn.dqc;
-        if (apVar.aAn() != null) {
+        if (apVar.aAq() != null) {
             apVar5 = this.dqn.dqc;
-            if (apVar5.aAn().Kl() != null) {
+            if (apVar5.aAq().Kn() != null) {
                 apVar6 = this.dqn.dqc;
-                if (apVar6.aAn().Kl().getAuthor() != null) {
+                if (apVar6.aAq().Kn().getAuthor() != null) {
                     apVar7 = this.dqn.dqc;
-                    str = String.valueOf(apVar7.aAn().Kl().getAuthor().getUserId());
+                    str = String.valueOf(apVar7.aAq().Kn().getAuthor().getUserId());
                 }
             }
         }
@@ -48,10 +48,10 @@ public class x implements NewSubPbActivity.a {
         NewSubPbActivity newSubPbActivity = this.dqn;
         Activity pageActivity = this.dqn.getPageContext().getPageActivity();
         apVar2 = this.dqn.dqc;
-        String id = apVar2.aAn().avV().getId();
+        String id = apVar2.aAq().avY().getId();
         apVar3 = this.dqn.dqc;
-        String name = apVar3.aAn().avV().getName();
+        String name = apVar3.aAq().avY().getName();
         apVar4 = this.dqn.dqc;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, apVar4.aAn().Kl().getId(), str, str2, str3)));
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, apVar4.aAq().Kn().getId(), str, str2, str3)));
     }
 }

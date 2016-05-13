@@ -14,7 +14,7 @@ class b extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.bai
     }
 
     @Override // com.baidu.tbadk.mvc.g.b
-    public int eE(int i) {
+    public int eD(int i) {
         Object item = getItem(i);
         if (item instanceof String) {
             return 2;

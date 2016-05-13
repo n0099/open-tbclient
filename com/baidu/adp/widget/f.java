@@ -107,7 +107,7 @@ public class f extends FrameLayout {
         }
     }
 
-    public void ax(int i) {
+    public void aw(int i) {
         if (this.AJ && i == 1) {
             this.Ay.setBackgroundResource(R.color.swipe_layout_night_bg);
         } else {

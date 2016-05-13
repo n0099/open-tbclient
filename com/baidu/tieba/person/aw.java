@@ -14,7 +14,7 @@ public class aw extends com.baidu.adp.base.e {
         }
     }
 
-    public PersonChangeData aBP() {
+    public PersonChangeData aBS() {
         return this.dwG;
     }
 

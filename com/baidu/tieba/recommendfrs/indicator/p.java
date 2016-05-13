@@ -114,7 +114,7 @@ public class p extends LinearLayout {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof q) {
                     q qVar = (q) childAt;
-                    qVar.sf();
+                    qVar.sg();
                     if (i2 == this.bHc) {
                         at.c(qVar.getTextView(), t.d.s_actionbar_text_line_color_s, 1);
                     } else {

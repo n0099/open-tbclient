@@ -24,7 +24,7 @@ public class fs implements BdSwitchView.a {
             StringBuilder sb = new StringBuilder(String.valueOf(hVar3.getString(t.j.image_show_setting)));
             hVar4 = this.bnr.mContext;
             view.setContentDescription(sb.append(hVar4.getString(t.j.now_state_on)).toString());
-            com.baidu.tbadk.core.l.ob().bn(0);
+            com.baidu.tbadk.core.l.ob().bm(0);
             com.baidu.tbadk.core.l.ob().ag(true);
         } else {
             hVar = this.bnr.mContext;

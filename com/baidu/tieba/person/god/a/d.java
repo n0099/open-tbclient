@@ -37,7 +37,7 @@ public class d extends com.baidu.tieba.person.a.c<n, a> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, a aVar) {
         if (nVar != null) {
-            nVar.fx(i + 1);
+            nVar.fw(i + 1);
         }
         aVar.bUH.a(nVar);
         return aVar.getView();

@@ -154,7 +154,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
         if (!this.UQ.contains(cVar)) {
             if (cVar.Ve != null) {
-                cVar.Ve.Db();
+                cVar.Ve.Dc();
             }
             this.UK.addView(cVar.Vc, i);
             if (i == -1) {
@@ -175,41 +175,41 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     }
 
     public void initViewPager() {
-        ci(0);
+        ch(0);
+    }
+
+    public void ch(int i) {
+        if (this.UR != null) {
+            removeView(this.UR);
+        }
+        this.UR = new CustomViewPager(this.mContext);
+        this.UR.setId(t.g.tab_content);
+        ci(i);
+        addView(this.UR);
+        removeView(this.UU);
+        addView(this.UU);
+        this.UR.setOffscreenPageLimit(this.UQ.size() - 1);
+        this.UR.setOnPageChangeListener(this);
+        this.UT = new a(this.mFragmentManager, this.UQ);
+        this.UR.setAdapter(this.UT);
+    }
+
+    public void sU() {
+        if (this.UR != null) {
+            removeView(this.UR);
+        }
+        this.UR = new CustomViewPager(this.mContext);
+        this.UR.setId(t.g.tab_content);
+        addView(this.UR);
+        removeView(this.UU);
+        addView(this.UU);
+        this.UR.setOffscreenPageLimit(this.UQ.size() - 1);
+        this.UR.setOnPageChangeListener(this);
+        this.UT = new a(this.mFragmentManager, this.UQ);
+        this.UR.setAdapter(this.UT);
     }
 
     public void ci(int i) {
-        if (this.UR != null) {
-            removeView(this.UR);
-        }
-        this.UR = new CustomViewPager(this.mContext);
-        this.UR.setId(t.g.tab_content);
-        cj(i);
-        addView(this.UR);
-        removeView(this.UU);
-        addView(this.UU);
-        this.UR.setOffscreenPageLimit(this.UQ.size() - 1);
-        this.UR.setOnPageChangeListener(this);
-        this.UT = new a(this.mFragmentManager, this.UQ);
-        this.UR.setAdapter(this.UT);
-    }
-
-    public void sT() {
-        if (this.UR != null) {
-            removeView(this.UR);
-        }
-        this.UR = new CustomViewPager(this.mContext);
-        this.UR.setId(t.g.tab_content);
-        addView(this.UR);
-        removeView(this.UU);
-        addView(this.UU);
-        this.UR.setOffscreenPageLimit(this.UQ.size() - 1);
-        this.UR.setOnPageChangeListener(this);
-        this.UT = new a(this.mFragmentManager, this.UQ);
-        this.UR.setAdapter(this.UT);
-    }
-
-    public void cj(int i) {
         RelativeLayout.LayoutParams layoutParams;
         RelativeLayout.LayoutParams layoutParams2;
         if (this.UR.getLayoutParams() == null) {
@@ -328,7 +328,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ck(int i) {
+    public void cj(int i) {
         if (i > 0 && (this.UO.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.UO.getLayoutParams();
             if (layoutParams.height != i) {
@@ -356,14 +356,14 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         return this.UK;
     }
 
-    public c cl(int i) {
+    public c ck(int i) {
         if (i < 0 || i >= this.UQ.size()) {
             return null;
         }
         return this.UQ.get(i);
     }
 
-    public c cm(int i) {
+    public c cl(int i) {
         for (c cVar : this.UQ) {
             if (i == cVar.mType) {
                 return cVar;
@@ -416,7 +416,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     }
 
     public void onChangeSkinType(int i) {
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(at.cC(t.f.s_tabbar_bg));
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(at.cB(t.f.s_tabbar_bg));
         if (i == 2 && this.UN) {
             this.UU.setBackgroundDrawable(bitmapDrawable);
         } else {
@@ -424,7 +424,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
         this.UK.onChangeSkinType(i);
         for (c cVar : this.UQ) {
-            cVar.Vc.cW(i);
+            cVar.Vc.cV(i);
         }
         if (this.UT != null) {
             int count = this.UT.getCount();

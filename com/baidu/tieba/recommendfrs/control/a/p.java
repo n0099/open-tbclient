@@ -48,7 +48,7 @@ public class p implements NetModel.b<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.re
             aVar3 = this.dZH.dZD;
             if (aVar3 != null) {
                 oVar = this.dZH.dZB;
-                boolean z2 = oVar.aMv() != 0;
+                boolean z2 = oVar.aMy() != 0;
                 if (!(data instanceof com.baidu.tieba.recommendfrs.data.r)) {
                     z = z2;
                 } else if (((com.baidu.tieba.recommendfrs.data.r) data).getPn() != 1) {
@@ -92,7 +92,7 @@ public class p implements NetModel.b<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.re
             aVar3 = this.dZH.dZD;
             if (aVar3 != null) {
                 oVar = this.dZH.dZB;
-                boolean z2 = oVar.aMv() != 0;
+                boolean z2 = oVar.aMy() != 0;
                 if (!(data instanceof com.baidu.tieba.recommendfrs.data.r)) {
                     z = z2;
                 } else if (((com.baidu.tieba.recommendfrs.data.r) data).getPn() != 1) {

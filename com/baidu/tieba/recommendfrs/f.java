@@ -109,9 +109,9 @@ public class f extends FrameLayout {
         this.dXQ.setSelector(17170445);
         this.bkd = new PbListView(context);
         this.bkd.jn();
-        this.bkd.cR(t.d.cp_bg_line_c);
+        this.bkd.cQ(t.d.cp_bg_line_c);
         this.bkd.setTextColor(at.getColor(t.d.cp_cont_d));
-        this.bkd.cS(TbadkCoreApplication.m11getInst().getSkinType());
+        this.bkd.cR(TbadkCoreApplication.m11getInst().getSkinType());
         this.dXQ.setNextPage(this.bkd);
         com.baidu.adp.base.h<?> s = com.baidu.adp.base.l.s(context);
         if (s instanceof TbPageContext) {
@@ -145,8 +145,8 @@ public class f extends FrameLayout {
 
     public void a(DataRes dataRes, boolean z) {
         if (this.bkd != null) {
-            this.bkd.vh();
-            this.bkd.cT(com.baidu.adp.lib.util.k.c(this.pageContext.getPageActivity(), t.e.ds110));
+            this.bkd.vi();
+            this.bkd.cS(com.baidu.adp.lib.util.k.c(this.pageContext.getPageActivity(), t.e.ds110));
         }
         this.dXT.a(z, dataRes, 0, null);
     }
@@ -156,17 +156,17 @@ public class f extends FrameLayout {
             at.l(this.dXW, t.d.cp_bg_line_d);
         }
         if (this.EG != null) {
-            this.EG.sf();
+            this.EG.sg();
         }
         if (this.refreshView != null) {
-            this.refreshView.sf();
+            this.refreshView.sg();
         }
         if (this.mPullView != null) {
-            this.mPullView.cS(i);
+            this.mPullView.cR(i);
         }
         if (this.bkd != null) {
             this.bkd.setTextColor(at.getColor(t.d.cp_cont_d));
-            this.bkd.cS(i);
+            this.bkd.cR(i);
         }
         this.dXR.onChangeSkinType(i);
         at.l(this, t.d.cp_bg_line_d);
@@ -181,8 +181,8 @@ public class f extends FrameLayout {
 
     public void an(String str, int i) {
         if (this.bkd != null) {
-            this.bkd.vh();
-            this.bkd.cT(com.baidu.adp.lib.util.k.c(this.pageContext.getPageActivity(), t.e.ds110));
+            this.bkd.vi();
+            this.bkd.cS(com.baidu.adp.lib.util.k.c(this.pageContext.getPageActivity(), t.e.ds110));
         }
         this.dXT.a(true, null, i, str);
     }
@@ -192,14 +192,14 @@ public class f extends FrameLayout {
         if (this.refreshView == null) {
             this.refreshView = new com.baidu.tbadk.f.h(getContext(), new m(this));
         }
-        this.refreshView.eB(getContext().getResources().getDimensionPixelSize(t.e.ds280));
+        this.refreshView.eA(getContext().getResources().getDimensionPixelSize(t.e.ds280));
         this.refreshView.fR(str);
         this.refreshView.c(view, z);
-        this.refreshView.CZ();
+        this.refreshView.Da();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pe() {
+    public void Pg() {
         if (this.refreshView != null) {
             this.refreshView.L(this);
             this.refreshView = null;
@@ -207,20 +207,20 @@ public class f extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pd() {
+    public void Pf() {
         if (this.EG != null) {
             this.EG.L(this);
             this.EG = null;
         }
         if (this.dXS != null) {
-            this.dXS.anv();
+            this.dXS.any();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean anx() {
+    public boolean anA() {
         if (this.refreshView != null) {
-            return this.refreshView.CS();
+            return this.refreshView.CT();
         }
         return false;
     }
@@ -233,12 +233,12 @@ public class f extends FrameLayout {
             } else {
                 this.EG = new com.baidu.tbadk.f.f(getContext(), i);
             }
-            this.EG.sf();
+            this.EG.sg();
         }
         this.EG.c(this, z);
     }
 
-    public void anz() {
+    public void anC() {
         setViewForeground(false);
         if (this.dXT != null) {
             this.dXT.cU(false);
@@ -252,7 +252,7 @@ public class f extends FrameLayout {
         }
     }
 
-    public void aLO() {
+    public void aLR() {
         if (this.dXT != null) {
             this.dXT.update();
         }
@@ -272,13 +272,13 @@ public class f extends FrameLayout {
         this.dXT.onDestroy();
     }
 
-    public void Zn() {
+    public void Zp() {
         if (this.dXR != null) {
             this.dXR.notifyDataSetChanged();
         }
     }
 
-    public void aLP() {
+    public void aLS() {
         if (this.dXT != null) {
             this.dXT.cU(true);
         }
@@ -286,6 +286,6 @@ public class f extends FrameLayout {
             TiebaStatic.log(new aw("c10794").ac("obj_duration", String.valueOf((System.currentTimeMillis() - this.dXV) / 1000)));
             this.dXV = 0L;
         }
-        bx.Kg().ci(false);
+        bx.Ki().ci(false);
     }
 }

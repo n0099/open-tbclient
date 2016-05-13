@@ -13,9 +13,9 @@ public class BdBaseViewPager extends ViewPager {
 
     /* loaded from: classes.dex */
     public interface a {
-        void vJ();
-
         void vK();
+
+        void vL();
     }
 
     public BdBaseViewPager(Context context) {

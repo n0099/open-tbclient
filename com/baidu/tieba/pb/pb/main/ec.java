@@ -41,18 +41,18 @@ public class ec {
             return false;
         }
         this.dkY = str;
-        return lS(1);
+        return lR(1);
     }
 
-    public boolean ayx() {
+    public boolean ayA() {
         this.dmP = !this.dmP;
-        this.mPostId = awK();
-        lS(6);
+        this.mPostId = awN();
+        lR(6);
         return true;
     }
 
-    public boolean lS(int i) {
-        lW(i);
+    public boolean lR(int i) {
+        lV(i);
         if (this.avz) {
             return false;
         }
@@ -74,7 +74,7 @@ public class ec {
         int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst().getApp());
         int C = com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getApp());
         float f = TbadkCoreApplication.m11getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = com.baidu.tbadk.core.util.az.uf().uh() ? 2 : 1;
+        int i2 = com.baidu.tbadk.core.util.az.ug().ui() ? 2 : 1;
         pbPageRequestMessage.set_scr_w(Integer.valueOf(B));
         pbPageRequestMessage.set_scr_h(Integer.valueOf(C));
         pbPageRequestMessage.set_scr_dip(f);
@@ -118,15 +118,15 @@ public class ec {
         return true;
     }
 
-    private String awK() {
-        if (this.dfY == null || this.dfY.avC() == null) {
+    private String awN() {
+        if (this.dfY == null || this.dfY.avF() == null) {
             return "";
         }
-        ArrayList<com.baidu.tieba.tbadkCore.data.s> avC = this.dfY.avC();
-        if (com.baidu.tbadk.core.util.y.r(avC) == 0) {
+        ArrayList<com.baidu.tieba.tbadkCore.data.s> avF = this.dfY.avF();
+        if (com.baidu.tbadk.core.util.y.r(avF) == 0) {
             return "";
         }
-        Iterator<com.baidu.tieba.tbadkCore.data.s> it = avC.iterator();
+        Iterator<com.baidu.tieba.tbadkCore.data.s> it = avF.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.tbadkCore.data.s next = it.next();
             if (next != null && next.getAuthor() != null && next.getAuthor().getUserId() != null && lY(next.getAuthor().getUserId())) {
@@ -137,10 +137,10 @@ public class ec {
     }
 
     public boolean lY(String str) {
-        if (getPbData() == null || getPbData().avB() == null || getPbData().avB().getAuthor() == null || StringUtils.isNull(str)) {
+        if (getPbData() == null || getPbData().avE() == null || getPbData().avE().getAuthor() == null || StringUtils.isNull(str)) {
             return false;
         }
-        String userId = getPbData().avB().getAuthor().getUserId();
+        String userId = getPbData().avE().getAuthor().getUserId();
         return !StringUtils.isNull(userId) && userId.equals(str);
     }
 
@@ -164,7 +164,7 @@ public class ec {
 
     protected void a(com.baidu.tieba.pb.data.e eVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
         ArrayList<com.baidu.tieba.tbadkCore.data.s> arrayList;
-        lX(i);
+        lW(i);
         if (eVar == null) {
             if (this.dlr != null) {
                 this.dlr.a(false, i2, i, 0, null, str, 1);
@@ -178,8 +178,8 @@ public class ec {
             this.hasMore = eVar.getPage().pK() != 0;
         }
         this.dli = this.dli < 1 ? 1 : this.dli;
-        if (this.dfY != null && this.dfY.avC() != null) {
-            arrayList = this.dfY.avC();
+        if (this.dfY != null && this.dfY.avF() != null) {
+            arrayList = this.dfY.avF();
         } else {
             arrayList = new ArrayList<>();
         }
@@ -203,12 +203,12 @@ public class ec {
 
     protected void a(com.baidu.tieba.pb.data.e eVar, ArrayList<com.baidu.tieba.tbadkCore.data.s> arrayList) {
         String Z;
-        if (arrayList != null && eVar.avC() != null) {
-            com.baidu.tieba.tbadkCore.data.s sVar = (com.baidu.tieba.tbadkCore.data.s) com.baidu.tbadk.core.util.y.c(eVar.avC(), 0);
+        if (arrayList != null && eVar.avF() != null) {
+            com.baidu.tieba.tbadkCore.data.s sVar = (com.baidu.tieba.tbadkCore.data.s) com.baidu.tbadk.core.util.y.c(eVar.avF(), 0);
             if (sVar != null && (Z = Z(arrayList)) != null && Z.equals(sVar.getId())) {
-                eVar.avC().remove(sVar);
+                eVar.avF().remove(sVar);
             }
-            arrayList.addAll(eVar.avC());
+            arrayList.addAll(eVar.avF());
         }
     }
 
@@ -246,7 +246,7 @@ public class ec {
         return this.dfY;
     }
 
-    public boolean ayy() {
+    public boolean ayB() {
         return this.isSquence;
     }
 
@@ -254,7 +254,7 @@ public class ec {
         this.isSquence = z;
     }
 
-    public boolean ayz() {
+    public boolean ayC() {
         return this.dmP;
     }
 
@@ -262,11 +262,11 @@ public class ec {
         this.dmP = z;
     }
 
-    public void lW(int i) {
+    public void lV(int i) {
         this.mRequestType = i;
     }
 
-    public void lX(int i) {
+    public void lW(int i) {
         this.dlp = i;
     }
 

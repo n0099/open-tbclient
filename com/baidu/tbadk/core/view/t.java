@@ -67,16 +67,16 @@ public class t extends com.baidu.adp.widget.ListView.d {
         this.acq = (LinearLayout) this.ach.findViewById(t.g.cube_container);
         this.acr = (FrameLayout) this.ach.findViewById(t.g.loading_cube);
         this.aci = (ImageView) this.acg.findViewById(t.g.pull_image);
-        this.acm = com.baidu.tbadk.core.util.al.tN().cu(TbadkCoreApplication.m11getInst().getSkinType());
+        this.acm = com.baidu.tbadk.core.util.al.tO().ct(TbadkCoreApplication.m11getInst().getSkinType());
         this.aci.setBackgroundDrawable(this.acm);
         this.aco = new u(this);
         this.acp = new com.baidu.tieba.a.b.b(getContext());
-        cS(TbadkCoreApplication.m11getInst().getSkinType());
+        cR(TbadkCoreApplication.m11getInst().getSkinType());
         this.acs = BitmapHelper.getResBitmapPowerOf2Size(getContext(), t.f.cube_top);
         this.act = BitmapHelper.getResBitmapPowerOf2Size(getContext(), t.f.btn_frs_post_arrow);
         this.acu = BitmapHelper.getResBitmapPowerOf2Size(getContext(), t.f.btn_frs_post_ok);
         if (this.acs == null || this.act == null || this.acu == null) {
-            com.baidu.tbadk.core.util.al.tN().ay(false);
+            com.baidu.tbadk.core.util.al.tO().ay(false);
         }
         this.acp.a(this.acs, this.acs, this.act, this.acs, this.acs, this.acs);
         this.acn = new com.baidu.tieba.a.d.a(getContext());
@@ -87,14 +87,14 @@ public class t extends com.baidu.adp.widget.ListView.d {
         } catch (Exception e) {
         }
         this.acr.addView(this.acn);
-        this.acp.Jb();
-        vn();
+        this.acp.Jd();
+        vo();
         return this.acg;
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void jo() {
-        if (tV()) {
+        if (tW()) {
             this.acn.setVisibility(0);
             this.acn.setRenderMode(1);
         } else if (this.acm != null && this.aci != null) {
@@ -105,17 +105,17 @@ public class t extends com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void N(boolean z) {
-        vn();
+        vo();
         this.acv = true;
-        if (tV()) {
-            vo();
+        if (tW()) {
+            vp();
             this.acn.requestRender();
             this.acn.onResume();
             this.acn.setRenderMode(1);
             if (z) {
-                this.acp.Jd();
+                this.acp.Jf();
             }
-            this.acp.Jb();
+            this.acp.Jd();
             this.acn.setVisibility(0);
         } else if (this.acm != null && this.aci != null) {
             this.acm.stop();
@@ -125,16 +125,16 @@ public class t extends com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void jp() {
-        vn();
-        if (tV()) {
+        vo();
+        if (tW()) {
             if (!this.acv) {
-                vo();
+                vp();
             }
             this.acn.requestRender();
             this.acn.onResume();
             this.acn.setVisibility(0);
             this.acn.setRenderMode(1);
-            this.acp.Jc();
+            this.acp.Je();
             this.acp.a(this.acs, this.acs, this.acs, this.acs, this.acs, this.acs);
         } else if (this.acm != null && this.aci != null) {
             this.acm.stop();
@@ -146,7 +146,7 @@ public class t extends com.baidu.adp.widget.ListView.d {
     @Override // com.baidu.adp.widget.ListView.d
     public void O(boolean z) {
         this.acv = false;
-        if (tV()) {
+        if (tW()) {
             this.acp.a(this.acs, this.acs, this.act, this.acs, this.acs, this.acs);
             if (this.acn != null) {
                 this.acn.setRenderMode(0);
@@ -173,9 +173,9 @@ public class t extends com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public void jq() {
-        if (tV()) {
+        if (tW()) {
             this.acp.a(this.acs, this.acs, this.acu, this.acs, this.acs, this.acs);
-            this.acp.Jd();
+            this.acp.Jf();
             this.acn.setRenderMode(1);
         }
     }
@@ -192,21 +192,21 @@ public class t extends com.baidu.adp.widget.ListView.d {
         this.acl = aVar;
     }
 
-    public void cS(int i) {
-        if (tV() && this.acp != null) {
-            this.acp.fq(com.baidu.tbadk.core.util.at.getColor(t.d.cp_bg_line_c));
+    public void cR(int i) {
+        if (tW() && this.acp != null) {
+            this.acp.fp(com.baidu.tbadk.core.util.at.getColor(t.d.cp_bg_line_c));
             com.baidu.tbadk.core.util.at.l(this.acg, t.d.cp_bg_line_c);
             com.baidu.tbadk.core.util.at.l(this.acq, t.d.cp_bg_line_c);
             com.baidu.tbadk.core.util.at.l(this.acr, t.d.cp_bg_line_c);
         }
     }
 
-    protected boolean tV() {
-        return com.baidu.tbadk.core.util.al.tN().tV();
+    protected boolean tW() {
+        return com.baidu.tbadk.core.util.al.tO().tW();
     }
 
-    private void vn() {
-        if (tV()) {
+    private void vo() {
+        if (tW()) {
             if (this.aci != null && this.acq != null) {
                 if (this.aci.getVisibility() != 8) {
                     this.aci.setVisibility(8);
@@ -225,7 +225,7 @@ public class t extends com.baidu.adp.widget.ListView.d {
         }
     }
 
-    private void vo() {
+    private void vp() {
         this.acn = new com.baidu.tieba.a.d.a(getContext());
         this.acn.setVisibility(4);
         this.acn.setEGLConfigChooser(this.aco);
@@ -236,7 +236,7 @@ public class t extends com.baidu.adp.widget.ListView.d {
     }
 
     private void release() {
-        if (tV()) {
+        if (tW()) {
             if (this.acm != null) {
                 this.acm.stop();
                 this.acm = null;

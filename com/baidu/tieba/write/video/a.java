@@ -7,32 +7,32 @@ import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements d.a {
-    final /* synthetic */ WriteLocationView fax;
+    final /* synthetic */ WriteLocationView faw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WriteLocationView writeLocationView) {
-        this.fax = writeLocationView;
+        this.faw = writeLocationView;
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void Cd() {
+    public void Ce() {
         BaseActivity baseActivity;
-        baseActivity = this.fax.boS;
+        baseActivity = this.faw.boS;
         baseActivity.showToast(t.j.no_network_guide);
-        this.fax.b(0, true, null);
+        this.faw.b(0, true, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
     public void fz(String str) {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        baseActivity = this.fax.boS;
+        baseActivity = this.faw.boS;
         if (StringUtils.isNull(str)) {
-            baseActivity2 = this.fax.boS;
+            baseActivity2 = this.faw.boS;
             str = baseActivity2.getResources().getString(t.j.location_fail);
         }
         baseActivity.showToast(str);
-        this.fax.b(0, true, null);
+        this.faw.b(0, true, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
@@ -40,7 +40,7 @@ public class a implements d.a {
         if (aVar == null || StringUtils.isNull(aVar.getFormatted_address())) {
             fz(null);
         } else {
-            this.fax.b(2, true, aVar.getFormatted_address());
+            this.faw.b(2, true, aVar.getFormatted_address());
         }
     }
 }

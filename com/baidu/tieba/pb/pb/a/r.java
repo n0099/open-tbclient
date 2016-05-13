@@ -99,13 +99,13 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
                 findViewById.setLayoutParams(layoutParams);
             }
         } else {
-            awb();
+            awe();
         }
         return this.dgr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awb() {
+    public void awe() {
         if (this.dgr != null && this.dgr.dgN != null && this.dgr.dgW != null) {
             this.dgr.dgN.setVisibility(0);
             this.dgr.dgW.setVisibility(8);
@@ -121,7 +121,7 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.s sVar, an anVar) {
         super.a(i, view, viewGroup, (ViewGroup) sVar, (com.baidu.tieba.tbadkCore.data.s) anVar);
         if (sVar != null && anVar != null) {
-            com.baidu.tbadk.widget.richText.o GL = sVar.GL();
+            com.baidu.tbadk.widget.richText.o GN = sVar.GN();
             if (!this.dgs) {
                 this.dgs = true;
                 if (b(sVar)) {
@@ -147,8 +147,8 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
                         a(sVar, anVar);
                     }
                 }
-                anVar.dgN.setOnClickListener(new a(GL, anVar));
-                if (this.dfK != null && this.dfK.avB() != null && this.dfK.avB().qY() == 1) {
+                anVar.dgN.setOnClickListener(new a(GN, anVar));
+                if (this.dfK != null && this.dfK.avE() != null && this.dfK.avE().qZ() == 1) {
                     anVar.dgO.setVisibility(8);
                     ViewGroup.LayoutParams layoutParams = anVar.dgP.getLayoutParams();
                     if (layoutParams instanceof LinearLayout.LayoutParams) {
@@ -161,8 +161,8 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
                     anVar.dgO.setVisibility(0);
                     anVar.dgO.setOnTouchListener(this.dfM);
                 }
-                anVar.bAx.setOnClickListener(new u(this, anVar, sVar, GL));
-                anVar.dgT.setOnPreparedListener(new v(this, anVar, GL, sVar));
+                anVar.bAx.setOnClickListener(new u(this, anVar, sVar, GN));
+                anVar.dgT.setOnPreparedListener(new v(this, anVar, GN, sVar));
                 anVar.dgT.setOnCompletionListener(new w(this, anVar, sVar));
                 anVar.dgT.setOnErrorListener(this.dgx);
                 anVar.dgT.setOnSurfaceDestroyedListener(this.acR);
@@ -172,16 +172,16 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
                 } else {
                     anVar.dgV.setPlayer(anVar.dgT);
                 }
-                awd();
+                awg();
             }
-            com.baidu.tbadk.data.f aTV = sVar.aTV();
-            if (aTV != null && !TextUtils.isEmpty(aTV.getName()) && !TextUtils.isEmpty(aTV.getName().trim())) {
-                String name = aTV.getName();
-                String lat = aTV.getLat();
-                String lng = aTV.getLng();
+            com.baidu.tbadk.data.f aUb = sVar.aUb();
+            if (aUb != null && !TextUtils.isEmpty(aUb.getName()) && !TextUtils.isEmpty(aUb.getName().trim())) {
+                String name = aUb.getName();
+                String lat = aUb.getLat();
+                String lng = aUb.getLng();
                 anVar.dgQ.setVisibility(0);
                 com.baidu.adp.lib.util.k.a(this.mContext, anVar.dgQ, 0, 10, 0, 10);
-                anVar.bmy.setText(aTV.getName());
+                anVar.bmy.setText(aUb.getName());
                 at.c(anVar.bmy, t.d.cp_link_tip_c, 1);
                 anVar.dgR.setImageDrawable(at.getDrawable(t.f.icon_pb_pin));
                 anVar.dgQ.setOnClickListener(new y(this, lat, lng, name));
@@ -189,13 +189,13 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
                 anVar.dgR.setVisibility(8);
                 anVar.bmy.setVisibility(8);
             }
-            PraiseData praise = this.dfK.avB().getPraise();
+            PraiseData praise = this.dfK.avE().getPraise();
             if (praise != null && praise.getUser() != null && praise.getUser().size() > 0) {
                 anVar.bfL.setIsFromPb(true);
                 anVar.bfL.setIsFromPbVideo(true);
                 if (!anVar.dgS.isShown()) {
                     anVar.dgS.setVisibility(0);
-                    anVar.bfL.cW(this.mSkinType);
+                    anVar.bfL.cV(this.mSkinType);
                 }
                 anVar.bfL.a(praise, sVar.getId(), praise.getPostId(), true);
             } else {
@@ -203,7 +203,7 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
             }
             com.baidu.tieba.graffiti.d.aj(anVar.bfL);
             com.baidu.tieba.graffiti.d.aj(anVar.dgS);
-            a(anVar, GL);
+            a(anVar, GN);
             anVar.dgX.setOnClickListener(new z(this, praise));
             anVar.dgX.setOnTouchListener(this.dgv);
             if (praise != null && praise.getIsLike() == 1) {
@@ -216,7 +216,7 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
                 at.c(anVar.dgO, t.d.cp_cont_b, 1);
                 at.c(anVar.dgP, t.d.cp_cont_c, 1);
                 at.c(anVar.dgX, t.d.cp_cont_i, 1);
-                anVar.bfL.cW(this.mSkinType);
+                anVar.bfL.cV(this.mSkinType);
                 anVar.dgX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.c((Resources) null, t.f.pb_like_after_play_selector), (Drawable) null, (Drawable) null);
                 anVar.dgU.onChangeSkinType(this.mSkinType);
                 at.c(anVar.dgY, t.f.icon_play_video);
@@ -231,9 +231,9 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awc() {
-        if (this.aPY != null && this.dfK != null && this.dfK.avB() != null && this.dfK.avB().ra() != null) {
-            this.aPY.A(this.dfK.avB().ra().video_md5, this.dfK.getThreadId(), this.dfK.getForumId());
+    public void awf() {
+        if (this.aPY != null && this.dfK != null && this.dfK.avE() != null && this.dfK.avE().rb() != null) {
+            this.aPY.A(this.dfK.avE().rb().video_md5, this.dfK.getThreadId(), this.dfK.getForumId());
         }
     }
 
@@ -241,17 +241,17 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
     public void c(com.baidu.tbadk.widget.richText.o oVar) {
         if (oVar != null) {
             this.dgu++;
-            oVar.fg(this.dgu);
+            oVar.ff(this.dgu);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(an anVar, com.baidu.tbadk.widget.richText.o oVar) {
         if (anVar != null && anVar.dgP != null && oVar != null) {
-            if (oVar.Hm() < this.dgu) {
-                oVar.fg(this.dgu);
+            if (oVar.Ho() < this.dgu) {
+                oVar.ff(this.dgu);
             } else {
-                this.dgu = oVar.Hm();
+                this.dgu = oVar.Ho();
             }
             anVar.dgP.setText(String.format(this.dhY.getPageContext().getResources().getString(t.j.video_play_count), ay.A(this.dgu)));
         }
@@ -264,7 +264,7 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
             aVar.cA(TbadkCoreApplication.m11getInst().getString(t.j.play_video_mobile_tip));
             aVar.a(t.j.confirm, new aa(this, anVar, sVar));
             aVar.b(t.j.cancel, new ab(this));
-            aVar.b(this.dhY.getPageContext()).rU();
+            aVar.b(this.dhY.getPageContext()).rV();
             return;
         }
         b(anVar, sVar);
@@ -323,17 +323,17 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
                     aVar.cA(TbadkCoreApplication.m11getInst().getString(t.j.play_video_mobile_tip));
                     aVar.a(t.j.confirm, new al(this));
                     aVar.b(t.j.cancel, new am(this));
-                    aVar.b(r.this.dhY.getPageContext()).rU();
+                    aVar.b(r.this.dhY.getPageContext()).rV();
                 } else {
-                    awg();
+                    awj();
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void awg() {
+        public void awj() {
             if (this.dgK != null && this.dgL != null && this.dgL.dgT != null) {
-                if (com.baidu.tbadk.core.view.at.vD().vG() > 0) {
+                if (com.baidu.tbadk.core.view.at.vE().vH() > 0) {
                     Intent intent = new Intent("android.intent.action.VIEW");
                     intent.setDataAndType(Uri.parse(this.dgK.getVideoUrl()), "video/mp4");
                     if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
@@ -355,35 +355,35 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
     }
 
     private boolean b(com.baidu.tieba.tbadkCore.data.s sVar) {
-        com.baidu.tbadk.widget.richText.o GL;
-        return (sVar == null || (GL = sVar.GL()) == null || GL.getDuration() <= 9) ? false : true;
+        com.baidu.tbadk.widget.richText.o GN;
+        return (sVar == null || (GN = sVar.GN()) == null || GN.getDuration() <= 9) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.tbadkCore.data.s sVar, an anVar) {
-        com.baidu.tbadk.widget.richText.o GL = sVar.GL();
-        if (GL != null) {
-            anVar.dgN.c(GL.po(), 17, false);
+        com.baidu.tbadk.widget.richText.o GN = sVar.GN();
+        if (GN != null) {
+            anVar.dgN.c(GN.po(), 17, false);
             anVar.dgN.setNoImageBottomText("");
-            if (StringUtils.isNull(GL.po())) {
-                lP(GL.getVideoUrl());
+            if (StringUtils.isNull(GN.po())) {
+                lP(GN.getVideoUrl());
             } else {
-                anVar.dgN.setEvent(new ac(this, GL));
+                anVar.dgN.setEvent(new ac(this, GN));
             }
             if (b(sVar)) {
-                anVar.dgU.aO(0, GL.getDuration() * 1000);
+                anVar.dgU.aO(0, GN.getDuration() * 1000);
             } else {
-                anVar.dgV.aAQ();
+                anVar.dgV.aAT();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lP(String str) {
-        if (this.dhY == null || this.dhY.awu() == null || this.dhY.awu().getPbData() == null || this.dhY.awu().getPbData().getPage() == null) {
+        if (this.dhY == null || this.dhY.awx() == null || this.dhY.awx().getPbData() == null || this.dhY.awx().getPbData().getPage() == null) {
             this.dhY.gy(true);
-        } else if (com.baidu.tbadk.core.view.at.vD().vG() <= 0) {
-            if (com.baidu.adp.lib.util.i.fr() && !this.dhY.awL() && com.baidu.tbadk.core.l.ob().oh()) {
+        } else if (com.baidu.tbadk.core.view.at.vE().vH() <= 0) {
+            if (com.baidu.adp.lib.util.i.fr() && !this.dhY.awO() && com.baidu.tbadk.core.l.ob().oh()) {
                 this.dgr.dgT.setVideoPath(str);
                 this.dgr.dgT.start();
                 b(this.dgr);
@@ -392,7 +392,7 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
         }
     }
 
-    private void awd() {
+    private void awg() {
         if (this.dfK != null) {
             String str = com.baidu.adp.lib.util.i.fr() ? "1" : "0";
             aw awVar = new aw("c10643");
@@ -407,17 +407,17 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
     public void b(com.baidu.tieba.tbadkCore.data.s sVar, an anVar) {
         if (sVar != null && anVar != null) {
             if (b(sVar)) {
-                anVar.dgU.afO();
+                anVar.dgU.afQ();
             } else {
-                anVar.dgV.afO();
+                anVar.dgV.afQ();
             }
         }
     }
 
     private void a(an anVar) {
         if (anVar != null && anVar.dgU != null && anVar.dgV != null) {
-            anVar.dgU.aAO();
-            anVar.dgV.aAO();
+            anVar.dgU.aAR();
+            anVar.dgV.aAR();
         }
     }
 
@@ -438,7 +438,7 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awe() {
+    public void awh() {
         if (this.dgr != null && this.dgr.dgT != null && this.dgr.dgY != null && this.dgr.mLoadingLayout != null) {
             if (this.dgr.dgT.isPlaying()) {
                 this.dgr.dgT.pause();
@@ -455,7 +455,7 @@ public class r extends cm<com.baidu.tieba.tbadkCore.data.s, an> {
         this.dfM = dVar;
     }
 
-    public void awf() {
+    public void awi() {
         if (this.dgr != null) {
             this.dgr.dgO.setTextSize(TbConfig.getContentSize());
         }

@@ -12,7 +12,7 @@ public class c extends f {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_advert_app_multipic_item;
     }
 
@@ -32,19 +32,19 @@ public class c extends f {
 
     @Override // com.baidu.tieba.card.f
     protected void a(boolean z, com.baidu.tieba.card.a.d dVar) {
-        List<String> Ks = dVar.Ks();
-        int size = Ks != null ? Ks.size() : 0;
+        List<String> Ku = dVar.Ku();
+        int size = Ku != null ? Ku.size() : 0;
         if (d(z, size)) {
             int i = this.mIsFromCDN ? 30 : 31;
             if (size == 1) {
-                this.aOo.c(Ks.get(0), i, false);
+                this.aOo.c(Ku.get(0), i, false);
             } else if (size == 2) {
-                this.aOo.c(Ks.get(0), i, false);
-                this.aOp.c(Ks.get(1), i, false);
+                this.aOo.c(Ku.get(0), i, false);
+                this.aOp.c(Ku.get(1), i, false);
             } else if (size >= 3) {
-                this.aOo.c(Ks.get(0), i, false);
-                this.aOp.c(Ks.get(1), i, false);
-                this.aOq.c(Ks.get(2), i, false);
+                this.aOo.c(Ku.get(0), i, false);
+                this.aOp.c(Ku.get(1), i, false);
+                this.aOq.c(Ku.get(2), i, false);
             }
         }
     }
@@ -74,7 +74,7 @@ public class c extends f {
     }
 
     @Override // com.baidu.tieba.card.f
-    protected String JP() {
+    protected String JR() {
         return "FRS";
     }
 }

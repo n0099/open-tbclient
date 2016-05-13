@@ -30,9 +30,9 @@ public class av implements View.OnClickListener {
                 str3 = (String) view.getTag();
             }
             if (!TextUtils.isEmpty(str3)) {
-                bg us = bg.us();
+                bg ut = bg.ut();
                 baseActivity2 = this.bqr.boS;
-                us.c(baseActivity2.getPageContext(), new String[]{str3});
+                ut.c(baseActivity2.getPageContext(), new String[]{str3});
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 aw awVar = new aw("show_picture");
                 str = this.bqr.mForumId;

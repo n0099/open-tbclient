@@ -9,7 +9,7 @@ public class e {
         this.cpL = new com.baidu.adp.framework.c.e(1000, 1000, 1000);
     }
 
-    public static e ahU() {
+    public static e ahW() {
         if (cpK == null) {
             synchronized (e.class) {
                 if (cpK == null) {

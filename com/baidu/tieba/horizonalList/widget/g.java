@@ -313,7 +313,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aar() {
+    public void aat() {
         boolean z = false;
         T adapter = getAdapter();
         boolean z2 = !(adapter == null || adapter.getCount() == 0) || isInFilterMode();
@@ -390,9 +390,9 @@ public abstract class g<T extends Adapter> extends ViewGroup {
                 g.this.onRestoreInstanceState(this.bSA);
                 this.bSA = null;
             } else {
-                g.this.aay();
+                g.this.aaA();
             }
-            g.this.aar();
+            g.this.aat();
             g.this.requestLayout();
         }
 
@@ -409,7 +409,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
             g.this.bSo = -1;
             g.this.bSp = Long.MIN_VALUE;
             g.this.bSj = false;
-            g.this.aar();
+            g.this.aat();
             g.this.requestLayout();
         }
     }
@@ -440,12 +440,12 @@ public abstract class g<T extends Adapter> extends ViewGroup {
                 }
                 return;
             }
-            g.this.aat();
-            g.this.aau();
+            g.this.aav();
+            g.this.aaw();
         }
     }
 
-    void aas() {
+    void aau() {
         if (this.bSl != null || this.bSt.isEnabled()) {
             if (this.mInLayout || this.bSz) {
                 if (this.bSy == null) {
@@ -454,13 +454,13 @@ public abstract class g<T extends Adapter> extends ViewGroup {
                 post(this.bSy);
                 return;
             }
-            aat();
-            aau();
+            aav();
+            aaw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aat() {
+    public void aav() {
         if (this.bSl != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
@@ -472,7 +472,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aau() {
+    public void aaw() {
         if (this.bSt.isEnabled() && getSelectedItemPosition() >= 0) {
             sendAccessibilityEvent(4);
         }
@@ -500,7 +500,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
         accessibilityNodeInfo.setClassName(g.class.getName());
-        accessibilityNodeInfo.setScrollable(aav());
+        accessibilityNodeInfo.setScrollable(aax());
         View selectedView = getSelectedView();
         if (selectedView != null) {
             accessibilityNodeInfo.setEnabled(selectedView.isEnabled());
@@ -511,7 +511,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         super.onInitializeAccessibilityEvent(accessibilityEvent);
         accessibilityEvent.setClassName(g.class.getName());
-        accessibilityEvent.setScrollable(aav());
+        accessibilityEvent.setScrollable(aax());
         View selectedView = getSelectedView();
         if (selectedView != null) {
             accessibilityEvent.setEnabled(selectedView.isEnabled());
@@ -522,7 +522,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
         accessibilityEvent.setItemCount(getCount());
     }
 
-    private boolean aav() {
+    private boolean aax() {
         int count;
         T adapter = getAdapter();
         if (adapter == null || (count = adapter.getCount()) <= 0) {
@@ -548,9 +548,9 @@ public abstract class g<T extends Adapter> extends ViewGroup {
         if (i > 0) {
             if (this.bSj) {
                 this.bSj = false;
-                int aax = aax();
-                if (aax >= 0 && n(aax, true) == aax) {
-                    setNextSelectedPositionInt(aax);
+                int aaz = aaz();
+                if (aaz >= 0 && n(aaz, true) == aaz) {
+                    setNextSelectedPositionInt(aaz);
                     z2 = true;
                     if (!z2) {
                         int selectedItemPosition = getSelectedItemPosition();
@@ -564,7 +564,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
                         int n2 = n < 0 ? n(selectedItemPosition, false) : n;
                         if (n2 >= 0) {
                             setNextSelectedPositionInt(n2);
-                            aaw();
+                            aay();
                             z = true;
                         }
                     }
@@ -584,21 +584,21 @@ public abstract class g<T extends Adapter> extends ViewGroup {
             this.bSo = -1;
             this.bSp = Long.MIN_VALUE;
             this.bSj = false;
-            aaw();
+            aay();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aaw() {
+    public void aay() {
         if (this.bHc != this.bSu || this.bSq != this.bSv) {
-            aas();
+            aau();
             this.bSu = this.bHc;
             this.bSv = this.bSq;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aax() {
+    public int aaz() {
         int i = this.bSr;
         if (i == 0) {
             return -1;
@@ -663,7 +663,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
         }
     }
 
-    public void aay() {
+    public void aaA() {
         if (getChildCount() > 0) {
             this.bSj = true;
             this.bSi = this.mLayoutWidth;

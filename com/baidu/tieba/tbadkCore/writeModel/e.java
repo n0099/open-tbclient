@@ -60,7 +60,7 @@ public class e {
                 abVar.n("lat", String.valueOf(x.getLatitude()));
                 abVar.n("lng", String.valueOf(x.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aUz().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aUF().getLocationData();
             if (locationData != null) {
                 abVar.n("name", locationData.getFormatted_address());
                 abVar.n("sn", locationData.getSn());

@@ -51,69 +51,69 @@ public class c {
                 } else if (attributeName.equals("tb_background")) {
                     int[] cb2 = cb(attributeValue);
                     if (cb2 != null) {
-                        bVar.aW(cb2[0]);
-                        bVar.aX(cb2[1]);
+                        bVar.aV(cb2[0]);
+                        bVar.aW(cb2[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_src")) {
                     int[] cb3 = cb(attributeValue);
                     if (cb3 != null) {
-                        bVar.bc(cb3[0]);
-                        bVar.bd(cb3[1]);
+                        bVar.bb(cb3[0]);
+                        bVar.bc(cb3[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_textColor")) {
                     int[] cb4 = cb(attributeValue);
                     if (cb4 != null) {
-                        bVar.ba(cb4[0]);
-                        bVar.bb(cb4[1]);
+                        bVar.aZ(cb4[0]);
+                        bVar.ba(cb4[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_style")) {
                     int[] cb5 = cb(attributeValue);
                     if (cb5 != null) {
-                        bVar.bf(cb5[0]);
-                        bVar.be(cb5[1]);
+                        bVar.be(cb5[0]);
+                        bVar.bd(cb5[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_divider")) {
                     int[] cb6 = cb(attributeValue);
                     if (cb6 != null) {
-                        bVar.aS(cb6[0]);
-                        bVar.aT(cb6[1]);
+                        bVar.aR(cb6[0]);
+                        bVar.aS(cb6[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableTop")) {
                     int[] cb7 = cb(attributeValue);
                     if (cb7 != null) {
-                        bVar.aQ(cb7[0]);
-                        bVar.aR(cb7[1]);
+                        bVar.aP(cb7[0]);
+                        bVar.aQ(cb7[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableLeft")) {
                     int[] cb8 = cb(attributeValue);
                     if (cb8 != null) {
-                        bVar.aO(cb8[0]);
-                        bVar.aP(cb8[1]);
+                        bVar.aN(cb8[0]);
+                        bVar.aO(cb8[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableRight")) {
                     int[] cb9 = cb(attributeValue);
                     if (cb9 != null) {
-                        bVar.aU(cb9[0]);
-                        bVar.aV(cb9[1]);
+                        bVar.aT(cb9[0]);
+                        bVar.aU(cb9[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_progressDrawable")) {
                     int[] cb10 = cb(attributeValue);
                     if (cb10 != null) {
-                        bVar.bg(cb10[0]);
-                        bVar.bh(cb10[1]);
+                        bVar.bf(cb10[0]);
+                        bVar.bg(cb10[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_textColorHint") && (cb = cb(attributeValue)) != null) {
-                    bVar.aY(cb[0]);
-                    bVar.aZ(cb[1]);
+                    bVar.aX(cb[0]);
+                    bVar.aY(cb[1]);
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (g = com.baidu.adp.lib.h.b.g(attributeValue.substring(1), 0)) != 0) {
@@ -334,7 +334,7 @@ public class c {
 
     private ColorStateList c(boolean z, int i, int i2) {
         if (TbadkCoreApplication.m11getInst().getSkinType() == 2) {
-            return at.cz(i);
+            return at.cy(i);
         }
         if (!z) {
             return this.LE.getColorStateList(i);

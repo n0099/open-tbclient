@@ -40,21 +40,21 @@ public class as {
     public as(com.baidu.tieba.personInfo.f fVar) {
         this.dxd = fVar;
         this.cSp = fVar.getBaseFragmentActivity();
-        this.dyP = this.dxd.aDb();
+        this.dyP = this.dxd.aDe();
         fVar.registerListener(this.dzc);
         fVar.registerListener(this.dzd);
-        aBZ();
+        aCc();
     }
 
-    private void aBZ() {
+    private void aCc() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (!com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("member_close_ad_mine_clicked", false) && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+        if (!com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("member_close_ad_mine_clicked", false) && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
             this.dzb = true;
-            aCc();
+            aCf();
         }
     }
 
-    public void aCa() {
+    public void aCd() {
         if (this.dyV) {
             TbadkSettings inst = TbadkSettings.getInst();
             StringBuilder sb = new StringBuilder("has_clicked_addresslist_item_in_leftnavi");
@@ -68,7 +68,7 @@ public class as {
         inst2.saveBoolean(sb2.append(TbadkCoreApplication.getCurrentAccount()).toString(), true);
     }
 
-    public void aCb() {
+    public void aCe() {
         this.dyV = false;
         this.dyU = 0;
         TbadkSettings inst = TbadkSettings.getInst();
@@ -115,18 +115,18 @@ public class as {
                     if (aVar != null) {
                         aVar.i(true, msgFans);
                     }
-                    aCc();
+                    aCf();
                 }
                 if (this.dyY) {
                     j(true, 1);
-                    aCc();
+                    aCf();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCc() {
+    public void aCf() {
         boolean z = (this.dyQ > 0 && this.dyW) || (this.dyU > 0 && this.dyV) || ((this.dyT > 0 && this.dyY) || this.mHasNewVersion || this.dzb);
         if (z && !this.isPrimary) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(z)));
@@ -140,7 +140,7 @@ public class as {
         }
     }
 
-    public void aCd() {
+    public void aCg() {
         if (this.isPrimary) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(false)));
         }

@@ -18,7 +18,7 @@ class d implements a.b {
         aVar2 = this.cxV.cxS;
         aVar2.dismiss();
         strangerListModel = this.cxV.cxQ;
-        strangerListModel.akZ();
+        strangerListModel.alb();
         this.cxV.showToast(t.j.cash_del_suc, false);
         this.cxV.finish();
     }

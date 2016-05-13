@@ -35,7 +35,7 @@ public class w extends t {
         super.N(z);
         this.isDone = false;
         if (!this.acx) {
-            cS(TbadkCoreApplication.m11getInst().getSkinType());
+            cR(TbadkCoreApplication.m11getInst().getSkinType());
         }
     }
 
@@ -46,19 +46,19 @@ public class w extends t {
     }
 
     @Override // com.baidu.tbadk.core.view.t
-    public void cS(int i) {
-        super.cS(i);
+    public void cR(int i) {
+        super.cR(i);
         if (this.ach != null && this.aci != null) {
             this.acx = false;
-            this.acm = com.baidu.tbadk.core.util.al.tN().ct(i);
+            this.acm = com.baidu.tbadk.core.util.al.tO().cs(i);
             if (this.acm != null) {
                 this.acx = true;
             } else {
                 this.acm = new AnimationDrawable();
             }
-            this.ach.setBackgroundColor(com.baidu.tbadk.core.util.al.tN().cv(i));
+            this.ach.setBackgroundColor(com.baidu.tbadk.core.util.al.tO().cu(i));
             if (!this.acx) {
-                this.acm = com.baidu.tbadk.core.util.al.tN().cu(i);
+                this.acm = com.baidu.tbadk.core.util.al.tO().ct(i);
             }
             this.acm.setOneShot(false);
             this.aci.setBackgroundDrawable(this.acm);

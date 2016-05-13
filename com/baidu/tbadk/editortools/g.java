@@ -65,7 +65,7 @@ public class g extends y {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Bc() {
+    public void Bd() {
         y.a aVar;
         bw(true);
         Iterator<s> it = this.apg.iterator();
@@ -82,7 +82,7 @@ public class g extends y {
                 aVar.leftMargin = cVar.getContext().getResources().getDimensionPixelSize(t.e.ds10);
                 aVar.rightMargin = cVar.getContext().getResources().getDimensionPixelSize(t.e.ds10);
             }
-            aVar.ek(2);
+            aVar.ej(2);
             addView(cVar, aVar);
         }
         bw(false);
@@ -149,21 +149,21 @@ public class g extends y {
                 aVar.gravity = 19;
             }
             if (z && aVar2.position == 1) {
-                aVar.ek(2);
+                aVar.ej(2);
                 addView(view, aVar);
             } else if (!z && aVar2.position != 1) {
                 switch (aVar2.position) {
                     case 2:
-                        aVar.ek(2);
+                        aVar.ej(2);
                         break;
                     case 3:
-                        aVar.ek(1);
+                        aVar.ej(1);
                         break;
                     case 4:
-                        aVar.ek(3);
+                        aVar.ej(3);
                         break;
                     case 5:
-                        aVar.ek(2);
+                        aVar.ej(2);
                         view.setVisibility(8);
                         break;
                 }
@@ -238,14 +238,14 @@ public class g extends y {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ee(int i) {
-        if (i == 2 && Bd() && this.apq != null) {
+    public void ed(int i) {
+        if (i == 2 && Be() && this.apq != null) {
             this.apq.b(new com.baidu.tbadk.editortools.a(1, 3, null));
             return;
         }
-        a ef = ef(i);
-        if (ef != null) {
-            if (ef.position == 5) {
+        a ee = ee(i);
+        if (ee != null) {
+            if (ee.position == 5) {
                 for (s sVar : this.apg) {
                     if (sVar.getToolId() == 2 || sVar.getToolId() == 1) {
                         sVar.kC();
@@ -290,7 +290,7 @@ public class g extends y {
         }
     }
 
-    private a ef(int i) {
+    private a ee(int i) {
         for (a aVar : this.aph) {
             if (aVar.aps != null && aVar.aps.getToolId() == i) {
                 return aVar;
@@ -299,7 +299,7 @@ public class g extends y {
         return null;
     }
 
-    private boolean Bd() {
+    private boolean Be() {
         for (a aVar : this.aph) {
             if (aVar.position == 5 && aVar.aps != null && (aVar.aps instanceof View) && ((View) aVar.aps).getVisibility() == 0) {
                 return true;
@@ -308,7 +308,7 @@ public class g extends y {
         return false;
     }
 
-    public s eg(int i) {
+    public s ef(int i) {
         for (s sVar : this.apg) {
             if (sVar.getToolId() == i) {
                 return sVar;

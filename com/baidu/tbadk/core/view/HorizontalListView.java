@@ -48,7 +48,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
     /* loaded from: classes.dex */
     public interface a {
-        void cM(int i);
+        void cL(int i);
     }
 
     public HorizontalListView(Context context, AttributeSet attributeSet) {
@@ -271,7 +271,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         if (width <= childCount) {
             childCount = width;
         }
-        cL(childCount);
+        cK(childCount);
     }
 
     private void n(View view, int i) {
@@ -340,11 +340,11 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.mScroller.forceFinished(true);
             }
             int i6 = this.aaw - this.aax;
-            cJ(i6);
             cI(i6);
-            cK(i6);
+            cH(i6);
+            cJ(i6);
             if (this.aaF != null) {
-                this.aaF.cM(getMiddleViewPosition());
+                this.aaF.cL(getMiddleViewPosition());
             }
             this.aaw = this.aax;
             if (!this.mScroller.isFinished()) {
@@ -353,7 +353,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void cI(int i) {
+    private void cH(int i) {
         View childAt = getChildAt(getChildCount() - 1);
         s(childAt != null ? childAt.getRight() : 0, i);
         View childAt2 = getChildAt(0);
@@ -385,7 +385,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void cJ(int i) {
+    private void cI(int i) {
         View childAt = getChildAt(0);
         while (childAt != null && childAt.getRight() + i <= 0) {
             this.aaz += childAt.getMeasuredWidth();
@@ -403,7 +403,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    private void cK(int i) {
+    private void cJ(int i) {
         if (getChildCount() > 0) {
             this.aaz += i;
             int i2 = this.aaz;
@@ -416,7 +416,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    public synchronized void cL(int i) {
+    public synchronized void cK(int i) {
         this.mScroller.startScroll(this.aax, 0, i - this.aax, 0);
         requestLayout();
     }

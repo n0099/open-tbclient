@@ -18,7 +18,7 @@ public class a implements b {
         this.avH = z;
     }
 
-    public boolean DG() {
+    public boolean DH() {
         return this.avJ;
     }
 
@@ -26,7 +26,7 @@ public class a implements b {
         this.avJ = z;
     }
 
-    public boolean DH() {
+    public boolean DI() {
         return this.avK;
     }
 
@@ -34,7 +34,7 @@ public class a implements b {
         this.avK = z;
     }
 
-    public boolean DI() {
+    public boolean DJ() {
         return this.avL;
     }
 

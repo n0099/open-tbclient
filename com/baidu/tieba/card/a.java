@@ -15,9 +15,9 @@ public abstract class a<T extends com.baidu.tieba.card.a.b> implements View.OnCl
     private TbPageContext<?> mTbPageContext;
     public int mSkinType = 3;
     private BdUniqueId mTag = null;
-    private View mView = LayoutInflater.from(getContext()).inflate(JN(), (ViewGroup) null, false);
+    private View mView = LayoutInflater.from(getContext()).inflate(JP(), (ViewGroup) null, false);
 
-    public abstract int JN();
+    public abstract int JP();
 
     public a(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
@@ -56,7 +56,7 @@ public abstract class a<T extends com.baidu.tieba.card.a.b> implements View.OnCl
         this.aNQ = byVar;
     }
 
-    public by<T> JM() {
+    public by<T> JO() {
         return this.aNQ;
     }
 }

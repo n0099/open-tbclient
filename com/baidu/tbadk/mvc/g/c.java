@@ -87,7 +87,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         this.avd = s;
     }
 
-    public List<D> DR() {
+    public List<D> DS() {
         return this.avW == null ? new ArrayList() : new ArrayList(this.avW);
     }
 
@@ -102,7 +102,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         return this.avW.size();
     }
 
-    public int DS() {
+    public int DT() {
         if (this.avW == null) {
             return 0;
         }
@@ -187,7 +187,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void DT() {
+    public void DU() {
         if (this.awd != null && this.awc != null) {
             this.awd.removeView(this.awc);
             this.awc = null;
@@ -195,7 +195,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View DU() {
+    public View DV() {
         if (this.awd == null) {
             this.awd = new FrameLayout(this.avZ.getPageActivity());
         }
@@ -231,7 +231,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean DV() {
+    public boolean DW() {
         return this.avW != null && this.avW.size() == 0;
     }
 }

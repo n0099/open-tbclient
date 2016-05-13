@@ -16,20 +16,20 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.write.video.WriteVideoActivity;
 /* loaded from: classes.dex */
 public class WriteActivityStatic {
-    private static int feg = 11;
-    private static int feh = 18;
+    private static int fef = 11;
+    private static int feg = 18;
 
     static {
         TbadkCoreApplication.m11getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
         TbadkCoreApplication.m11getInst().RegisterIntent(WriteVideoActivityConfig.class, WriteVideoActivity.class);
-        com.baidu.tieba.tbadkCore.location.d.aUE();
-        com.baidu.tbadk.core.util.bg.us().a("feedback:", new bo());
+        com.baidu.tieba.tbadkCore.location.d.aUK();
+        com.baidu.tbadk.core.util.bg.ut().a("feedback:", new bo());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void q(TbPageContext<?> tbPageContext) {
         com.baidu.adp.lib.stats.a.dN().dW();
-        if (Build.VERSION.SDK_INT <= feh && Build.VERSION.SDK_INT >= feg) {
+        if (Build.VERSION.SDK_INT <= feg && Build.VERSION.SDK_INT >= fef) {
             r(tbPageContext);
         } else {
             s(tbPageContext);

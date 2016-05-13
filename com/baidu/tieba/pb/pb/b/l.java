@@ -18,7 +18,7 @@ public class l {
     private k did;
 
     public l(PbActivity pbActivity) {
-        com.baidu.tbadk.core.data.a aVar = (pbActivity == null || pbActivity.awu() == null || pbActivity.awu().getPbData() == null || !pbActivity.awu().getPbData().avG()) ? null : pbActivity.awu().getPbData().avB().qU().get(0);
+        com.baidu.tbadk.core.data.a aVar = (pbActivity == null || pbActivity.awx() == null || pbActivity.awx().getPbData() == null || !pbActivity.awx().getPbData().avJ()) ? null : pbActivity.awx().getPbData().avE().qV().get(0);
         if (aVar != null) {
             this.dic = pbActivity;
             this.dia = new BaseWebView(pbActivity.getPageContext().getPageActivity());
@@ -36,15 +36,15 @@ public class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awo() {
+    public void awr() {
         try {
-            this.dib.a(com.baidu.tbadk.core.c.n.a("TBHY_EXT_SeniorLotteryPB", "getInitPageData", this.did.awm(), 1000L, new n(this)));
+            this.dib.a(com.baidu.tbadk.core.c.n.a("TBHY_EXT_SeniorLotteryPB", "getInitPageData", this.did.awp(), 1000L, new n(this)));
         } catch (Exception e) {
             BdLog.e(e);
         }
     }
 
-    public WebView awp() {
+    public WebView aws() {
         return this.dia;
     }
 
@@ -58,12 +58,12 @@ public class l {
         }
 
         @Override // com.baidu.tbadk.core.c.a
-        public void sr() {
+        public void ss() {
         }
 
         @Override // com.baidu.tbadk.core.c.a
-        public void ss() {
-            l.this.awo();
+        public void st() {
+            l.this.awr();
         }
     }
 
@@ -76,7 +76,7 @@ public class l {
         this.dib.a(com.baidu.tbadk.core.c.n.a("TBHY_EXT_SeniorLotteryPB", "drawLotteryResult", (Map<String, Object>) hashMap, 0L, false));
     }
 
-    public void awl() {
+    public void awo() {
         this.dib.a(com.baidu.tbadk.core.c.n.a("TBHY_EXT_SeniorLotteryPB", "drawLotteryRun", (Map<String, Object>) null, 0L, false));
     }
 }

@@ -35,11 +35,11 @@ public class k extends com.baidu.adp.framework.listener.e {
             replyInfo.setFriendId(requestApplyMessage.getFriendId());
             replyInfo.setMessage(requestApplyMessage.getMessage());
             bgVar = this.this$0.dyP;
-            bgVar.aDA().getReplyInfo().add(replyInfo);
+            bgVar.aDD().getReplyInfo().add(replyInfo);
             bjVar = this.this$0.dFA;
             if (bjVar != null) {
                 bjVar2 = this.this$0.dFA;
-                bjVar2.aEj();
+                bjVar2.aEm();
             }
         }
     }

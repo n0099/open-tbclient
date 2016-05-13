@@ -32,7 +32,7 @@ public class j {
 
     /* loaded from: classes.dex */
     public interface b {
-        void gN(int i);
+        void gM(int i);
     }
 
     /* loaded from: classes.dex */
@@ -65,7 +65,7 @@ public class j {
         this.btb = fuVar;
         this.bte = this.btd.get(this.btb.bmc);
         if (this.bte == null) {
-            this.bte = s.gP(this.btb.bmc);
+            this.bte = s.gO(this.btb.bmc);
             this.bte.a(this.mContext, this);
             this.btd.put(this.btb.bmc, this.bte);
         }
@@ -77,10 +77,10 @@ public class j {
                 horizontalTabView.getLocationInWindow(iArr);
                 com.baidu.adp.lib.util.k.A(horizontalTabView.getContext());
                 int C = com.baidu.adp.lib.util.k.C(horizontalTabView.getContext());
-                int Tw = this.bte.Tw();
+                int Ty = this.bte.Ty();
                 int measuredHeight = (C - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                if (measuredHeight < Tw) {
-                    horizontalTabView.getmShowMenuCallBack().gz(Tw - measuredHeight);
+                if (measuredHeight < Ty) {
+                    horizontalTabView.getmShowMenuCallBack().gy(Ty - measuredHeight);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class j {
         }
     }
 
-    public void Tx() {
+    public void Tz() {
         if (this.KJ != null) {
             try {
                 this.KJ.dismiss();
@@ -108,9 +108,9 @@ public class j {
         }
     }
 
-    public void vl() {
+    public void vm() {
         if (this.bte != null) {
-            this.bte.vl();
+            this.bte.vm();
         }
         if (this.btc != null) {
             at.k(this.btc, t.d.black_alpha40);
@@ -120,7 +120,7 @@ public class j {
         }
     }
 
-    public b Ty() {
+    public b TA() {
         return this.bsQ;
     }
 }

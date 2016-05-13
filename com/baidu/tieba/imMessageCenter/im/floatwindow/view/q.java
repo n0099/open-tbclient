@@ -64,11 +64,11 @@ class q extends com.baidu.adp.framework.listener.e {
                     j2 = this.cvZ.csX;
                     handler.postDelayed(runnable, j2);
                 }
-                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e akk = FloatingPersonalChatActivityStatic.akk();
+                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e akm = FloatingPersonalChatActivityStatic.akm();
                 str = this.cvZ.csZ;
                 String str2 = String.valueOf(str) + "&" + userData.getUserId();
                 bVar4 = this.cvZ.csY;
-                akk.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                akm.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
             }
             TbadkCoreApplication.m11getInst().getAlarmManager().mM();
         }

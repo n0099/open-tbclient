@@ -20,7 +20,7 @@ public class j implements CustomMessageTask.CustomRunnable<String> {
         imMessageCenterPojo.setGid("-1000");
         imMessageCenterPojo.setCustomGroupType(-8);
         imMessageCenterPojo.setIs_hidden(1);
-        com.baidu.tieba.im.db.i.aex().c(imMessageCenterPojo);
+        com.baidu.tieba.im.db.i.aez().c(imMessageCenterPojo);
         return null;
     }
 }

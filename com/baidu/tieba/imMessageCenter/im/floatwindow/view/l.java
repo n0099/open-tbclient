@@ -25,7 +25,7 @@ public class l {
         this.aGp.setText(str);
     }
 
-    public void jT(int i) {
+    public void jS(int i) {
         this.status = i;
         switch (i) {
             case 0:
@@ -62,7 +62,7 @@ public class l {
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
         this.aGp.setText(str);
         if (bVar != null) {
-            if (bVar.yW() < 0 || bVar.yW() > 1) {
+            if (bVar.yX() < 0 || bVar.yX() > 1) {
                 this.cvV.setVisibility(8);
                 this.cbg.setVisibility(8);
                 return;

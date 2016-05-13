@@ -20,15 +20,15 @@ public class a {
 
     public static AccountData l(String str, String str2, String str3) {
         ab abVar = new ab(TbConfig.LOGIN_FULL_ADDRESS);
-        abVar.tA().uu().mIsUseCurrentBDUSS = false;
+        abVar.tB().uv().mIsUseCurrentBDUSS = false;
         abVar.n("bdusstoken", String.valueOf(str2) + "|" + str3);
         abVar.n("channel_id", TbadkCoreApplication.m11getInst().getPushChannelId());
         abVar.n("channel_uid", TbadkCoreApplication.m11getInst().getPushChannelUserId());
-        abVar.tA().uu().YA = false;
-        String tc = abVar.tc();
-        if (abVar.tA().uv().nZ() && tc != null) {
+        abVar.tB().uv().YA = false;
+        String td = abVar.td();
+        if (abVar.tB().uw().nZ() && td != null) {
             y yVar = new y();
-            yVar.parserJson(tc);
+            yVar.parserJson(td);
             AccountData accountData = new AccountData();
             accountData.setAccount(yVar.getUser().getUserName());
             accountData.setPassword("");
@@ -78,15 +78,15 @@ public class a {
         public AccountData doInBackground(String... strArr) {
             a.b a;
             this.aeI = new ab(TbConfig.LOGIN_FULL_ADDRESS);
-            this.aeI.tA().uu().mIsUseCurrentBDUSS = false;
+            this.aeI.tB().uv().mIsUseCurrentBDUSS = false;
             this.aeI.n("bdusstoken", String.valueOf(this.cZq) + "|" + this.Mg);
             this.aeI.n("channel_id", TbadkCoreApplication.m11getInst().getPushChannelId());
             this.aeI.n("channel_uid", TbadkCoreApplication.m11getInst().getPushChannelUserId());
-            this.aeI.tA().uu().YA = false;
-            String tc = this.aeI.tc();
-            if (this.aeI.tA().uv().nZ() && tc != null) {
+            this.aeI.tB().uv().YA = false;
+            String td = this.aeI.td();
+            if (this.aeI.tB().uw().nZ() && td != null) {
                 y yVar = new y();
-                yVar.parserJson(tc);
+                yVar.parserJson(td);
                 AccountData accountData = new AccountData();
                 accountData.setAccount(yVar.getUser().getUserName());
                 accountData.setPassword("");
@@ -114,8 +114,8 @@ public class a {
         public void onPostExecute(AccountData accountData) {
             int i = 0;
             super.onPostExecute(accountData);
-            ReloginManager.sL().aw(false);
-            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.aeI.tE(), this.aeI.getErrorString(), new Object[0]);
+            ReloginManager.sM().aw(false);
+            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.aeI.tF(), this.aeI.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
                 this.cZr.a(accountData);
                 return;
@@ -123,7 +123,7 @@ public class a {
             String str = null;
             if (this.aeI != null) {
                 str = this.aeI.getErrorString();
-                i = this.aeI.tE();
+                i = this.aeI.tF();
             }
             if (str == null) {
                 str = TbadkCoreApplication.m11getInst().getApp().getResources().getString(t.j.data_load_error);

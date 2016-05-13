@@ -35,7 +35,7 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.CH().ez(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.CI().ey(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 

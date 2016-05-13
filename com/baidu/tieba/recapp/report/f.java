@@ -16,11 +16,11 @@ public class f implements d {
     private ArrayList<a> dXw = new ArrayList<>();
 
     public f() {
-        aLJ();
+        aLM();
         MessageManager.getInstance().registerListener(this.dXu);
     }
 
-    private void aLJ() {
+    private void aLM() {
         this.dXv = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "http://als.baidu.com/dalog/logForC");
         this.dXv.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         this.dXv.setIsNeedAddCommenParam(true);
@@ -31,13 +31,13 @@ public class f implements d {
     public void b(a aVar) {
         if (aVar != null) {
             d(aVar);
-            aLK();
+            aLN();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void aLI() {
-        aLK();
+    public void aLL() {
+        aLN();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -47,7 +47,7 @@ public class f implements d {
         }
     }
 
-    private void aLK() {
+    private void aLN() {
         if (y.r(this.dXw) > 0) {
             MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.dXw), this.dXv);
             this.dXw.clear();

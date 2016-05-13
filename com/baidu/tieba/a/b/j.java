@@ -25,8 +25,8 @@ public class j extends b.a {
     @Override // com.baidu.tieba.a.a.b.a, com.baidu.tieba.a.a.a
     public void d(float f, float f2, float f3, int i) {
         Handler handler;
-        this.aMD.IZ();
-        this.aMD.fr(3);
+        this.aMD.Jb();
+        this.aMD.fq(3);
         handler = this.aMD.mHandler;
         handler.sendEmptyMessage(2);
     }

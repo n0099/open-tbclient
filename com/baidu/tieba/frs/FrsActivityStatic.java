@@ -44,7 +44,7 @@ public class FrsActivityStatic {
         tbHttpMessageTask.setIsImm(true);
         tbHttpMessageTask.setPriority(4);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.location.d.aUE();
+        com.baidu.tieba.tbadkCore.location.d.aUK();
         bb bbVar = new bb();
         bbVar.setSelfExecute(true);
         bbVar.setPriority(4);
@@ -64,7 +64,7 @@ public class FrsActivityStatic {
     }
 
     private static void Qs() {
-        com.baidu.tbadk.core.util.bg.us().a(new be());
+        com.baidu.tbadk.core.util.bg.ut().a(new be());
     }
 
     public static void k(TbPageContext<?> tbPageContext) {
@@ -115,7 +115,7 @@ public class FrsActivityStatic {
             aVar.a(string, new bh(tbPageContext, pluginConfig));
             aVar.b(TbadkCoreApplication.m11getInst().getString(t.j.cancel), new az());
             aVar.b(tbPageContext);
-            aVar.rU();
+            aVar.rV();
         }
     }
 

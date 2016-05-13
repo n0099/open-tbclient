@@ -325,9 +325,9 @@ public class c {
                                             this.aeI.n("forum_name", og);
                                         }
                                     }
-                                    String tf = this.aeI.tf();
-                                    imageUploadResult2 = ImageUploadResult.parser(tf);
-                                    if (tf == null || imageUploadResult2 == null || !(imageUploadResult2.error_code == 0 || imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR)) {
+                                    String tg = this.aeI.tg();
+                                    imageUploadResult2 = ImageUploadResult.parser(tg);
+                                    if (tg == null || imageUploadResult2 == null || !(imageUploadResult2.error_code == 0 || imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR)) {
                                         break;
                                     }
                                     if (imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR) {

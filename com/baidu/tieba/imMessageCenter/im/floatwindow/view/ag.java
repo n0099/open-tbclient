@@ -26,7 +26,7 @@ public class ag extends com.baidu.adp.lib.h.d {
                 runnable = this.cwo.cvw;
                 linearLayout2.removeCallbacks(runnable);
             }
-            com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajw().fe(false);
+            com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajy().fe(false);
             this.cwo.cwj = true;
         }
     }
@@ -38,6 +38,6 @@ public class ag extends com.baidu.adp.lib.h.d {
         if (!hVar.d(animation)) {
             return;
         }
-        this.cwo.Bp();
+        this.cwo.Bq();
     }
 }

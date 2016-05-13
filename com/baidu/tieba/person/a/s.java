@@ -59,12 +59,12 @@ public class s extends c<com.baidu.tieba.person.data.l, com.baidu.tieba.person.b
 
     private void a(com.baidu.tieba.person.b.k kVar, com.baidu.tieba.person.data.l lVar) {
         if (lVar != null && lVar.getUserData() != null && kVar != null) {
-            this.dxU = lVar.aCl();
-            this.dxV = lVar.aCk();
+            this.dxU = lVar.aCo();
+            this.dxV = lVar.aCn();
             this.Fn = new b(lVar.getUserId(), lVar.getSex());
             this.userId = lVar.getUserId();
             this.isSelf = lVar.getIsSelf();
-            int AC = this.dxU != null ? this.dxU.AC() : 1;
+            int AD = this.dxU != null ? this.dxU.AD() : 1;
             int isFriend = this.dxV != null ? this.dxV.getIsFriend() : 1;
             if (lVar.dzf) {
                 kVar.dBV.setVisibility(0);
@@ -73,7 +73,7 @@ public class s extends c<com.baidu.tieba.person.data.l, com.baidu.tieba.person.b
             }
             if (this.isSelf) {
                 b(kVar, lVar);
-            } else if (AC == 1 || (AC == 2 && isFriend == 1)) {
+            } else if (AD == 1 || (AD == 2 && isFriend == 1)) {
                 b(kVar, lVar);
             } else {
                 c(kVar, lVar);
@@ -85,7 +85,7 @@ public class s extends c<com.baidu.tieba.person.data.l, com.baidu.tieba.person.b
     private void b(com.baidu.tieba.person.b.k kVar, com.baidu.tieba.person.data.l lVar) {
         String str;
         if (lVar != null && kVar != null) {
-            this.dxS = lVar.aCj();
+            this.dxS = lVar.aCm();
             this.isSelf = lVar.getIsSelf();
             this.dxT = this.mContext.getResources().getString(t.j.my_groups);
             String string = this.mContext.getResources().getString(t.j.members_in_group);

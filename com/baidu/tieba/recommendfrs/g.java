@@ -20,7 +20,7 @@ public class g implements r.a {
     @Override // com.baidu.tieba.recommendfrs.r.a
     public void aT(int i, int i2) {
         c cVar;
-        boolean anx;
+        boolean anA;
         TagInfo tagInfo;
         c cVar2;
         TagInfo tagInfo2;
@@ -29,12 +29,12 @@ public class g implements r.a {
         cVar = this.dXY.dXS;
         if (cVar == null) {
             this.dXY.showNetRefreshView(this.dXY, TbadkCoreApplication.m11getInst().getString(t.j.neterror), true);
-            this.dXY.Pd();
+            this.dXY.Pf();
             return;
         }
-        anx = this.dXY.anx();
-        this.dXY.Pe();
-        if (anx) {
+        anA = this.dXY.anA();
+        this.dXY.Pg();
+        if (anA) {
             this.dXY.g(true, TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds520));
         }
         tagInfo = this.dXY.dXP;
@@ -76,7 +76,7 @@ public class g implements r.a {
     public void onError(int i, String str) {
         BdTypeListView bdTypeListView;
         TbPageContext tbPageContext;
-        this.dXY.Pd();
+        this.dXY.Pf();
         if (i != 1) {
             bdTypeListView = this.dXY.dXQ;
             bdTypeListView.setVisibility(8);
@@ -90,8 +90,8 @@ public class g implements r.a {
     @Override // com.baidu.tieba.recommendfrs.r.a
     public void onSuccess() {
         BdTypeListView bdTypeListView;
-        this.dXY.Pd();
-        this.dXY.Pe();
+        this.dXY.Pf();
+        this.dXY.Pg();
         bdTypeListView = this.dXY.dXQ;
         bdTypeListView.setVisibility(0);
     }

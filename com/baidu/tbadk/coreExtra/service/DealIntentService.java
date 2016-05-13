@@ -112,7 +112,7 @@ public class DealIntentService extends BdBaseService {
             }
             int i = this.intent.getExtras().getInt("class", -1);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                dM(i);
+                dL(i);
             }
             String string = this.intent.getExtras().getString("stat");
             String stringExtra = this.intent.getStringExtra("link");
@@ -125,7 +125,7 @@ public class DealIntentService extends BdBaseService {
             for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                 if (runningTaskInfo.baseActivity.getPackageName().equals(DealIntentService.this.getPackageName())) {
                     if (5 == this.intent.getIntExtra("class", -1)) {
-                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.sK())) {
+                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.sL())) {
                             this.intent.putExtra("class", 11);
                         }
                         if (mentionActivityClassName != null && runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(mentionActivityClassName)) {
@@ -141,7 +141,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", IntentConfig.START, 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                dL(i);
+                dK(i);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -166,7 +166,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void dL(int i) {
+        private void dK(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -182,7 +182,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void dM(int i) {
+        private void dL(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

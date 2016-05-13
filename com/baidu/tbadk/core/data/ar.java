@@ -30,10 +30,10 @@ public class ar extends ax {
             this.PI.setTitle(axVar.getTitle());
             this.PI.setLastModifiedTime(axVar.getLast_time_int());
             this.PI.setPhotoLiveCover(axVar.getPhotoLiveCover());
-            this.PI.setContent(axVar.qS());
+            this.PI.setContent(axVar.qT());
             this.PI.setThreadId(com.baidu.adp.lib.h.b.c(axVar.getTid(), 0L));
             this.PI.setHeadlive(axVar.isHeadLive());
-            this.PI.setExpressionDatas(axVar.rb());
+            this.PI.setExpressionDatas(axVar.rc());
             if (this.PI.getShowStyle() < 0) {
                 this.PI.setShowStyle(this.PI.getRandom(3, i));
             }
@@ -42,7 +42,7 @@ public class ar extends ax {
         cr(axVar.getTid());
         setId(axVar.getId());
         setThreadType(axVar.getThreadType());
-        cs(axVar.qP());
+        cs(axVar.qQ());
         return this.PI;
     }
 

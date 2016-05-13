@@ -42,15 +42,15 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean gA(int i);
+        void gy(int i);
 
-        void gz(int i);
+        boolean gz(int i);
     }
 
     public void a(TabItemView tabItemView, boolean z) {
         fo foVar;
         int i = 0;
-        if (gM(tabItemView.getTabId())) {
+        if (gL(tabItemView.getTabId())) {
             if (this.bsS != null && !TextUtils.isEmpty(tabItemView.getUrl())) {
                 fo foVar2 = new fo();
                 foVar2.bmS = tabItemView.getUrl();
@@ -73,26 +73,26 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
             View childAt = this.bsH.getChildAt(i2);
             if (childAt instanceof TabItemView) {
                 TabItemView tabItemView2 = (TabItemView) childAt;
-                if (tabItemView2.getTabId() != this.bsJ.getTabId() && !gM(tabItemView2.getTabId())) {
+                if (tabItemView2.getTabId() != this.bsJ.getTabId() && !gL(tabItemView2.getTabId())) {
                     tabItemView2.setState(TabItemView.bsX);
                 }
             }
         }
         if (this.bsJ.getState() == TabItemView.bsX || this.bsJ.getState() == TabItemView.bsZ) {
-            this.bsI.Tx();
+            this.bsI.Tz();
             boolean z2 = this.bsJ.getState() == TabItemView.bsX;
             this.bsJ.setState(TabItemView.bsY);
-            i gI = gI(this.bsJ.getTabId());
-            if (TextUtils.isEmpty(gI.url)) {
+            i gH = gH(this.bsJ.getTabId());
+            if (TextUtils.isEmpty(gH.url)) {
                 foVar = null;
             } else {
                 fo foVar3 = new fo();
-                foVar3.bmS = gI.url;
-                foVar3.stType = gI.name;
+                foVar3.bmS = gH.url;
+                foVar3.stType = gH.name;
                 foVar = foVar3;
             }
-            if (gI.bsW != null && gI.bsW.bmd != null && gI.bsW.bmd.size() > 0) {
-                for (ft ftVar : gI.bsW.bmd) {
+            if (gH.bsW != null && gH.bsW.bmd != null && gH.bsW.bmd.size() > 0) {
+                for (ft ftVar : gH.bsW.bmd) {
                     if (ftVar != null && ftVar.isSelected) {
                         i = ftVar.blZ;
                     }
@@ -101,10 +101,10 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
             if (z2 && this.bsS != null) {
                 this.bsS.a(this.bsJ.getTabId(), i, foVar);
             }
-        } else if (gJ(this.bsJ.getTabId()) && !z) {
-            if (this.bsT == null || this.bsT.gA(this.bsJ.getTabId())) {
+        } else if (gI(this.bsJ.getTabId()) && !z) {
+            if (this.bsT == null || this.bsT.gz(this.bsJ.getTabId())) {
                 this.bsJ.setState(TabItemView.bsZ);
-                this.bsI.a((Activity) getContext(), this, this.bsJ, gI(this.bsJ.getTabId()).bsW);
+                this.bsI.a((Activity) getContext(), this, this.bsJ, gH(this.bsJ.getTabId()).bsW);
             } else {
                 return;
             }
@@ -191,7 +191,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
         if (list == null) {
             return false;
         }
-        i gI = gI(1);
+        i gH = gH(1);
         Iterator<i> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -204,24 +204,24 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
                 break;
             }
         }
-        if (gI == null || iVar == null) {
+        if (gH == null || iVar == null) {
             return false;
         }
-        if (gI.bsW == null && iVar.bsW == null) {
+        if (gH.bsW == null && iVar.bsW == null) {
             return false;
         }
-        if ((gI.bsW != null || iVar.bsW == null) && (iVar.bsW != null || gI.bsW == null)) {
-            if (gI.bsW.bmd == null && iVar.bsW.bmd == null) {
+        if ((gH.bsW != null || iVar.bsW == null) && (iVar.bsW != null || gH.bsW == null)) {
+            if (gH.bsW.bmd == null && iVar.bsW.bmd == null) {
                 return false;
             }
-            if ((gI.bsW.bmd != null || iVar.bsW.bmd == null) && (iVar.bsW.bmd != null || gI.bsW.bmd == null)) {
-                int size = gI.bsW.bmd.size();
+            if ((gH.bsW.bmd != null || iVar.bsW.bmd == null) && (iVar.bsW.bmd != null || gH.bsW.bmd == null)) {
+                int size = gH.bsW.bmd.size();
                 if (size != iVar.bsW.bmd.size()) {
                     return true;
                 }
                 for (int i = 0; i < size; i++) {
                     ft ftVar = iVar.bsW.bmd.get(i);
-                    ft ftVar2 = gI.bsW.bmd.get(i);
+                    ft ftVar2 = gH.bsW.bmd.get(i);
                     if (ftVar.blZ != ftVar2.blZ || !ftVar.name.equals(ftVar2.name)) {
                         return true;
                     }
@@ -257,7 +257,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
                     TabItemView tabItemView = new TabItemView(getContext(), iVar, i2);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, -1);
                     tabItemView.setOnClickListener(this.mOnClickListener);
-                    if (gM(iVar.aYo)) {
+                    if (gL(iVar.aYo)) {
                         at.j((View) tabItemView, t.d.cp_other_b);
                     }
                     this.bsH.addView(tabItemView, layoutParams);
@@ -270,7 +270,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
         }
     }
 
-    private i gI(int i) {
+    private i gH(int i) {
         if (i < 0 || this.aIe == null || this.aIe.size() == 0) {
             return null;
         }
@@ -282,9 +282,9 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
         return null;
     }
 
-    private boolean gJ(int i) {
-        i gI = gI(i);
-        return (gI == null || gI.bsW == null || gI.bsW.bmd == null || gI.bsW.bmd.size() <= 0) ? false : true;
+    private boolean gI(int i) {
+        i gH = gH(i);
+        return (gH == null || gH.bsW == null || gH.bsW.bmd == null || gH.bsW.bmd.size() <= 0) ? false : true;
     }
 
     public void setFakeTab(g gVar) {
@@ -312,7 +312,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
     }
 
     @Override // com.baidu.tieba.frs.tab.g
-    public void gK(int i) {
+    public void gJ(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -347,7 +347,7 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
         this.bsP = i;
     }
 
-    public void vl() {
+    public void vm() {
         at.l(this, this.bsP);
         int i = 0;
         while (true) {
@@ -355,15 +355,15 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
             if (i2 < this.bsH.getChildCount()) {
                 View childAt = this.bsH.getChildAt(i2);
                 if (childAt instanceof TabItemView) {
-                    if (gM(((TabItemView) childAt).getTabId())) {
+                    if (gL(((TabItemView) childAt).getTabId())) {
                         at.j(childAt, t.d.cp_other_b);
                     } else {
-                        ((TabItemView) childAt).vl();
+                        ((TabItemView) childAt).vm();
                     }
                 }
                 i = i2 + 1;
             } else {
-                this.bsI.vl();
+                this.bsI.vm();
                 return;
             }
         }
@@ -374,13 +374,13 @@ public class HorizontalTabView extends com.baidu.tbadk.widget.a.b implements g {
     }
 
     @Override // com.baidu.tieba.frs.tab.g
-    public void gL(int i) {
+    public void gK(int i) {
         if (this.bsJ != null && this.bsS != null) {
             this.bsS.a(this.bsJ.getTabId(), i, null);
         }
     }
 
-    public static boolean gM(int i) {
+    public static boolean gL(int i) {
         return i > 200 && i <= 300;
     }
 

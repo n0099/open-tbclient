@@ -60,10 +60,10 @@ public class bw extends a<com.baidu.tieba.card.a.q> {
     public void onClick(View view) {
         if ((view == this.aRh || view == this.aRi || view == this.aRl) && !StringUtils.isNull(this.aRm.aSu)) {
             TiebaStatic.log(new com.baidu.tbadk.core.util.aw(this.aRo).ac("obj_id", String.valueOf(this.aRm.aSs)));
-            com.baidu.tbadk.core.util.bg.us().c(getTbPageContext(), new String[]{this.aRm.aSu});
+            com.baidu.tbadk.core.util.bg.ut().c(getTbPageContext(), new String[]{this.aRm.aSu});
         } else if ((view == this.mRootView || view == this.aRj || view == this.aRk) && !StringUtils.isNull(this.aRm.aSx)) {
             TiebaStatic.log(new com.baidu.tbadk.core.util.aw(this.aRp).ac("obj_id", String.valueOf(this.aRm.aSs)));
-            com.baidu.tbadk.core.util.bg.us().c(getTbPageContext(), new String[]{this.aRm.aSx});
+            com.baidu.tbadk.core.util.bg.ut().c(getTbPageContext(), new String[]{this.aRm.aSx});
         }
     }
 
@@ -80,7 +80,7 @@ public class bw extends a<com.baidu.tieba.card.a.q> {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_promotion_item;
     }
 

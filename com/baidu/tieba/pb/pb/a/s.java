@@ -12,7 +12,7 @@ public class s implements TextureVideoView.b {
     }
 
     @Override // com.baidu.tbadk.core.view.TextureVideoView.b
-    public void vu() {
+    public void vv() {
         an anVar;
         an anVar2;
         an anVar3;
@@ -24,6 +24,6 @@ public class s implements TextureVideoView.b {
                 anVar3.dgT.stopPlayback();
             }
         }
-        this.dgC.awb();
+        this.dgC.awe();
     }
 }

@@ -157,19 +157,19 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.xk() && com.baidu.tbadk.coreExtra.messageCenter.a.xj()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.xl() && com.baidu.tbadk.coreExtra.messageCenter.a.xk()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.m11getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.xF().xO()) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.xG().xP()) {
                     aVar.WS = true;
                     if (z || z2) {
                         aVar.WS = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.xF().xR()) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.xG().xS()) {
                     aVar.WT = true;
                     if (z) {
                         aVar.WT = false;
@@ -181,7 +181,7 @@ public class NotificationHelper {
                 TbadkCoreApplication.m11getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.xF().xP()) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.xG().xQ()) {
             aVar.WU = true;
         }
         return aVar;

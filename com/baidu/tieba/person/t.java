@@ -29,7 +29,7 @@ public class t extends com.baidu.adp.framework.listener.e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        PersonBarActivity aBC;
+        PersonBarActivity aBF;
         boolean z;
         View view;
         View view2;
@@ -41,7 +41,7 @@ public class t extends com.baidu.adp.framework.listener.e {
         ae aeVar2;
         ArrayList<ForumData> arrayList2;
         ae aeVar3;
-        PersonBarActivity aBC2;
+        PersonBarActivity aBF2;
         View view3;
         String str;
         this.dvP.zu.k(2000L);
@@ -50,17 +50,17 @@ public class t extends com.baidu.adp.framework.listener.e {
         } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
             ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
             if (responseGetLivableForumList.getError() == 0) {
-                aBC = this.dvP.aBC();
-                if (aBC != null) {
-                    aBC2 = this.dvP.aBC();
-                    if (aBC2.getRequestCode() != 23011) {
+                aBF = this.dvP.aBF();
+                if (aBF != null) {
+                    aBF2 = this.dvP.aBF();
+                    if (aBF2.getRequestCode() != 23011) {
                         view3 = this.dvP.dvG;
                         view3.setVisibility(8);
                         aeVar = this.dvP.dvz;
                         if (aeVar == null) {
                             arrayList = this.dvP.hS;
                             arrayList.addAll(responseGetLivableForumList.getData());
-                            this.dvP.UH();
+                            this.dvP.UJ();
                             aeVar2 = this.dvP.dvz;
                             arrayList2 = this.dvP.hS;
                             aeVar2.ab(arrayList2);

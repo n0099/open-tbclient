@@ -11,7 +11,7 @@ import com.baidu.tieba.card.k;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<f, a> {
     private TbPageContext<?> DV;
-    private BdUniqueId aOT;
+    public BdUniqueId aOT;
     private by<f> boM;
     private k eaT;
 
@@ -30,10 +30,6 @@ public class b extends com.baidu.adp.widget.ListView.a<f, a> {
         this.eaT.aOC = false;
         this.eaT.j(this.aOT);
         return new a(this.eaT);
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aOT = bdUniqueId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

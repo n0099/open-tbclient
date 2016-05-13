@@ -152,7 +152,7 @@ public class ch {
             if (ckVar == null) {
                 return false;
             }
-            if (!axVar.rh() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
+            if (!axVar.ri() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
                 ckVar.bji.setVisibility(0);
                 ckVar.bji.setText(axVar.getAddress());
             } else {

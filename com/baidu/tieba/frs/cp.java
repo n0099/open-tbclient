@@ -12,12 +12,12 @@ public class cp implements BannerView.a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zj() {
+    public void zk() {
         this.bkx.QH();
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zk() {
+    public void zl() {
         this.bkx.QT();
     }
 }

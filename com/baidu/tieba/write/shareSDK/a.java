@@ -11,20 +11,20 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class a {
     private BaseActivity bek;
-    private final InterfaceC0081a eZE;
+    private final InterfaceC0081a eZD;
 
     /* renamed from: com.baidu.tieba.write.shareSDK.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0081a {
         void a(boolean z, PostPrefixData postPrefixData);
 
-        void bbT();
+        void bca();
     }
 
     public a(BaseActivity baseActivity, InterfaceC0081a interfaceC0081a) {
         this.bek = baseActivity;
-        this.eZE = interfaceC0081a;
-        bbS();
+        this.eZD = interfaceC0081a;
+        bbZ();
     }
 
     public void pf(String str) {
@@ -35,7 +35,7 @@ public class a {
         }
     }
 
-    public void bbS() {
+    public void bbZ() {
         if (this.bek != null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getprefix");

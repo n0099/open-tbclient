@@ -16,14 +16,14 @@ import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
     private com.baidu.tbadk.core.view.b aXt;
     private b dGf;
-    private com.baidu.adp.base.h eVc;
-    private From eVd;
-    private a eVe;
+    private com.baidu.adp.base.h eVb;
+    private From eVc;
+    private a eVd;
+    private com.baidu.tbadk.core.view.h eVe;
     private com.baidu.tbadk.core.view.h eVf;
-    private com.baidu.tbadk.core.view.h eVg;
-    private final HttpMessageListener eVh = new com.baidu.tieba.usermute.a(this, CmdConfigHttp.CMD_USER_MUTE_ADD);
-    private final HttpMessageListener eVi = new c(this, CmdConfigHttp.CMD_USER_MUTE_DEL);
-    private String eVj = "";
+    private final HttpMessageListener eVg = new com.baidu.tieba.usermute.a(this, CmdConfigHttp.CMD_USER_MUTE_ADD);
+    private final HttpMessageListener eVh = new c(this, CmdConfigHttp.CMD_USER_MUTE_DEL);
+    private String eVi = "";
     private String mUserId;
 
     /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
         PersonInfo,
         Setting;
 
-        /* JADX DEBUG: Replace access to removed values field (eVm) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (eVl) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static From[] valuesCustom() {
             From[] valuesCustom = values();
@@ -54,28 +54,28 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
     }
 
     public UserMuteAddAndDelModel(TbPageContext tbPageContext) {
-        this.eVc = tbPageContext;
-        baE();
-        baF();
+        this.eVb = tbPageContext;
+        baL();
+        baM();
+        this.eVg.setSelfListener(true);
         this.eVh.setSelfListener(true);
-        this.eVi.setSelfListener(true);
-        this.eVc.registerListener(this.eVh);
-        this.eVc.registerListener(this.eVi);
+        this.eVb.registerListener(this.eVg);
+        this.eVb.registerListener(this.eVh);
+        this.eVe = new com.baidu.tbadk.core.view.h();
         this.eVf = new com.baidu.tbadk.core.view.h();
-        this.eVg = new com.baidu.tbadk.core.view.h();
-        this.eVg.aaO = 1000L;
         this.eVf.aaO = 1000L;
+        this.eVe.aaO = 1000L;
     }
 
     public void onDestory() {
+        MessageManager.getInstance().unRegisterListener(this.eVg);
         MessageManager.getInstance().unRegisterListener(this.eVh);
-        MessageManager.getInstance().unRegisterListener(this.eVi);
+        this.eVe = null;
         this.eVf = null;
-        this.eVg = null;
     }
 
     public void a(a aVar) {
-        this.eVe = aVar;
+        this.eVd = aVar;
     }
 
     public void a(b bVar) {
@@ -94,7 +94,7 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
         }
         httpMessage.addParam("mute_type", 0);
         httpMessage.setExtra(str);
-        this.eVc.sendMessage(httpMessage);
+        this.eVb.sendMessage(httpMessage);
     }
 
     private void oW(String str) {
@@ -102,17 +102,17 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_USER_MUTE_DEL);
         httpMessage.addParam("mute_user", str);
         httpMessage.addParam("mute_type", 0);
-        this.eVc.sendMessage(httpMessage);
+        this.eVb.sendMessage(httpMessage);
     }
 
-    private void baE() {
+    private void baL() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_USER_MUTE_ADD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.USER_MUTE_ADD);
         tbHttpMessageTask.setResponsedClass(UserMuteAddResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void baF() {
+    private void baM() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_USER_MUTE_DEL, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.USER_MUTE_DEL);
         tbHttpMessageTask.setResponsedClass(UserMuteDelResponseMessage.class);
@@ -120,42 +120,42 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
     }
 
     private void l(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eVc.getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eVb.getPageActivity());
         if (ay.isEmpty(str4)) {
-            aVar.cA(this.eVc.getResources().getString(t.j.block_mute_message_alert, str));
+            aVar.cA(this.eVb.getResources().getString(t.j.block_mute_message_alert, str));
         } else {
             aVar.cA(str4);
         }
         aVar.a(t.j.confirm, new d(this, str2, str3));
         aVar.b(t.j.cancel, new e(this));
-        aVar.b(this.eVc).rU();
+        aVar.b(this.eVb).rV();
     }
 
     private void E(String str, String str2, String str3) {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eVc.getPageActivity());
-        aVar.cA(this.eVc.getResources().getString(t.j.block_mute_message_alert, str));
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eVb.getPageActivity());
+        aVar.cA(this.eVb.getResources().getString(t.j.block_mute_message_alert, str));
         aVar.a(t.j.confirm, new f(this, str2, str3));
         aVar.b(t.j.cancel, new g(this));
-        aVar.b(this.eVc).rU();
+        aVar.b(this.eVb).rV();
     }
 
     public void fB(String str) {
         if (str == null) {
             str = "";
         }
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eVc.getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eVb.getPageActivity());
         aVar.cA(str);
         aVar.b(t.j.know, new h(this));
-        aVar.b(this.eVc).rU();
+        aVar.b(this.eVb).rV();
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, From from) {
-        this.eVj = str;
+        this.eVi = str;
         if (str2 == null) {
             str2 = "";
         }
         if (from != null) {
-            this.eVd = from;
+            this.eVc = from;
             if (z) {
                 if (from == From.PB) {
                     TiebaStatic.log("c10024");
@@ -164,7 +164,7 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
                 } else if (from == From.Setting) {
                     TiebaStatic.log("c10047");
                 }
-                akv();
+                akx();
                 oW(str);
                 return;
             }
@@ -178,12 +178,12 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, From from, String str5) {
-        this.eVj = str;
+        this.eVi = str;
         if (str2 == null) {
             str2 = "";
         }
         if (from != null) {
-            this.eVd = from;
+            this.eVc = from;
             if (z) {
                 if (from == From.PB) {
                     TiebaStatic.log("c10024");
@@ -192,7 +192,7 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
                 } else if (from == From.Setting) {
                     TiebaStatic.log("c10047");
                 }
-                akv();
+                akx();
                 oW(str);
                 return;
             }
@@ -206,12 +206,12 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void baG() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eVc.getPageActivity());
-        aVar.cA(this.eVc.getResources().getString(t.j.mute_is_super_member_function));
+    public void baN() {
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eVb.getPageActivity());
+        aVar.cA(this.eVb.getResources().getString(t.j.mute_is_super_member_function));
         aVar.a(t.j.open_now, new i(this));
         aVar.b(t.j.cancel, new j(this));
-        aVar.b(this.eVc).rU();
+        aVar.b(this.eVb).rV();
     }
 
     @Override // com.baidu.adp.base.e
@@ -226,9 +226,9 @@ public class UserMuteAddAndDelModel extends com.baidu.adp.base.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akv() {
+    public void akx() {
         if (this.aXt == null) {
-            this.aXt = new com.baidu.tbadk.core.view.b((TbPageContext) this.eVc);
+            this.aXt = new com.baidu.tbadk.core.view.b((TbPageContext) this.eVb);
             this.aXt.c(new com.baidu.tieba.usermute.b(this));
         }
         this.aXt.aD(true);

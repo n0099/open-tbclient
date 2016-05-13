@@ -33,7 +33,7 @@ class aa implements AdapterView.OnItemClickListener {
                     if (item != null) {
                         if (item.thread_type == 33) {
                             TiebaStatic.log("c10254");
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.dEY.getActivity(), String.valueOf(item.thread_id)).ch(String.valueOf(item.post_id)).bp(18005).oq()));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.dEY.getActivity(), String.valueOf(item.thread_id)).ch(String.valueOf(item.post_id)).bo(18005).oq()));
                             return;
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.dEY.getActivity()).createCfgForPersonCenter(String.valueOf(item.thread_id), String.valueOf(item.post_id), "person_post", 18005)));

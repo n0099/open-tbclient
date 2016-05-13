@@ -14,11 +14,11 @@ public class bi implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.card.a.l lVar;
-        by<com.baidu.tieba.card.a.l> JM = this.aQB.JM();
-        if (JM != null) {
+        by<com.baidu.tieba.card.a.l> JO = this.aQB.JO();
+        if (JO != null) {
             view.setTag("2");
             lVar = this.aQB.aQq;
-            JM.a(view, lVar);
+            JO.a(view, lVar);
         }
     }
 }

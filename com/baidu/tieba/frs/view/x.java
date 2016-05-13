@@ -29,7 +29,7 @@ public class x extends PopupWindow implements View.OnClickListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void gl(int i);
+        void gk(int i);
     }
 
     public x(TbPageContext<?> tbPageContext, View view, a aVar) {
@@ -61,8 +61,8 @@ public class x extends PopupWindow implements View.OnClickListener {
 
     public void d(boolean z, boolean z2, boolean z3) {
         e(z, z2, z3);
-        Up();
-        Uq();
+        Ur();
+        Us();
     }
 
     private void e(boolean z, boolean z2, boolean z3) {
@@ -79,7 +79,7 @@ public class x extends PopupWindow implements View.OnClickListener {
         }
     }
 
-    private void Up() {
+    private void Ur() {
         LinearLayout linearLayout;
         int i = 0;
         LinearLayout linearLayout2 = null;
@@ -118,17 +118,17 @@ public class x extends PopupWindow implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.RI == view || this.bwM == view) {
-            Ur();
+            Ut();
         }
     }
 
-    private void Uq() {
+    private void Us() {
         com.baidu.adp.lib.h.j.showPopupWindowAtLocation(this, this.aJB, 0, 0, 1);
         this.bwL.startAnimation(AnimationUtils.loadAnimation(this.DV.getPageActivity(), t.a.write_popup_in));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ur() {
+    public void Ut() {
         Animation loadAnimation = AnimationUtils.loadAnimation(this.DV.getPageActivity(), t.a.write_popup_out);
         loadAnimation.setAnimationListener(new aa(this));
         this.bwL.startAnimation(loadAnimation);

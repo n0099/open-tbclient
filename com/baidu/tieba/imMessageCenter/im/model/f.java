@@ -22,6 +22,6 @@ class f extends s<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
-        return Boolean.valueOf(l.aeD().a(h.o(this.cqM), this.val$list, false));
+        return Boolean.valueOf(l.aeF().a(h.o(this.cqM), this.val$list, false));
     }
 }

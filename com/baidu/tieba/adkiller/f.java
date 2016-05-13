@@ -3,9 +3,8 @@ package com.baidu.tieba.adkiller;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements o.a<String> {
+class f implements o.a<String> {
     private final /* synthetic */ String aLS;
 
     /* JADX INFO: Access modifiers changed from: package-private */

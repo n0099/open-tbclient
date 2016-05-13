@@ -12,8 +12,8 @@ class v implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aPw.JM() != null) {
-            this.aPw.JM().a(view, null);
+        if (this.aPw.JO() != null) {
+            this.aPw.JO().a(view, null);
         }
     }
 }

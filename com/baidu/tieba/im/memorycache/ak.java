@@ -20,18 +20,18 @@ class ak implements CustomMessageTask.CustomRunnable<String> {
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
             try {
-                com.baidu.tieba.im.db.g.aet().aeu();
-                com.baidu.tieba.im.db.i.aex().c(this.cnH);
-                com.baidu.tieba.im.db.c.aep().jf(this.cnH.getGid());
-                com.baidu.tieba.im.db.g.aet().endTransaction();
+                com.baidu.tieba.im.db.g.aev().aew();
+                com.baidu.tieba.im.db.i.aez().c(this.cnH);
+                com.baidu.tieba.im.db.c.aer().jf(this.cnH.getGid());
+                com.baidu.tieba.im.db.g.aev().endTransaction();
                 return null;
             } catch (Exception e) {
                 BdLog.detailException(e);
-                com.baidu.tieba.im.db.g.aet().endTransaction();
+                com.baidu.tieba.im.db.g.aev().endTransaction();
                 return null;
             }
         } catch (Throwable th) {
-            com.baidu.tieba.im.db.g.aet().endTransaction();
+            com.baidu.tieba.im.db.g.aev().endTransaction();
             throw th;
         }
     }

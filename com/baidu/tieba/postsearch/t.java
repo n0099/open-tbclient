@@ -39,7 +39,7 @@ public class t {
             return false;
         }
         if (!str.equals(this.cMj)) {
-            aKR();
+            aKU();
         }
         switch (i) {
             case 1:
@@ -59,7 +59,7 @@ public class t {
         }
         this.cMj = str;
         this.dVB = 1;
-        this.dUY.sendMessage(nU(this.dVB));
+        this.dUY.sendMessage(nT(this.dVB));
         this.dVx = true;
         return true;
     }
@@ -70,7 +70,7 @@ public class t {
         }
         this.cMj = str;
         this.dVB = 2;
-        this.dUY.sendMessage(nU(this.dVB));
+        this.dUY.sendMessage(nT(this.dVB));
         this.dVy = true;
         return true;
     }
@@ -81,37 +81,37 @@ public class t {
         }
         this.cMj = str;
         this.dVB = 3;
-        this.dUY.sendMessage(nU(this.dVB));
+        this.dUY.sendMessage(nT(this.dVB));
         this.dVz = true;
         return true;
     }
 
-    public void aKO() {
+    public void aKR() {
         this.dUY.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
-    public void aKP() {
+    public void aKS() {
         if (!StringUtils.isNull(this.cMj) && !this.cMj.equals(this.dVr)) {
             this.dUY.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.cMj));
             this.dVr = this.cMj;
         }
     }
 
-    public void aKQ() {
+    public void aKT() {
         if (this.dVA != null) {
             this.dVA.clear();
         }
         this.dUY.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
-    public void aKR() {
+    public void aKU() {
         this.dVu = 1;
         this.dVv = 1;
         this.dVw = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKS() {
+    public void aKV() {
         if (this.dVA == null) {
             this.dVA = new ArrayList<>();
         }
@@ -130,7 +130,7 @@ public class t {
         }
     }
 
-    private HttpMessage nU(int i) {
+    private HttpMessage nT(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
         httpMessage.addParam("word", this.cMj);
         httpMessage.addParam(LegoListActivityConfig.RN, 30);
@@ -157,7 +157,7 @@ public class t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nV(int i) {
+    public void nU(int i) {
         switch (i) {
             case 1:
                 this.dVu++;
@@ -174,7 +174,7 @@ public class t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int nW(int i) {
+    public int nV(int i) {
         switch (i) {
             case 1:
                 return this.dVu;
@@ -188,7 +188,7 @@ public class t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nX(int i) {
+    public void nW(int i) {
         switch (i) {
             case 1:
                 this.dVx = false;

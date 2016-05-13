@@ -15,8 +15,8 @@ public class w extends com.baidu.tbadk.util.s<LinkedHashMap<String, String>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: aip */
+    /* renamed from: air */
     public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.c.aep().a(this.cqQ, 2, (String) null, 1000);
+        return com.baidu.tieba.im.db.c.aer().a(this.cqQ, 2, (String) null, 1000);
     }
 }

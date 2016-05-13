@@ -32,7 +32,7 @@ public class h implements a.b {
                 pbActivity2 = this.dhT.dhQ;
                 pbActivity2.showProgressBar(true, 0, 0);
             } else {
-                this.dhT.awl();
+                this.dhT.awo();
             }
             PbLotteryRequestMessage pbLotteryRequestMessage = (PbLotteryRequestMessage) this.dhW.getOrginalMessage().getExtra();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -47,9 +47,9 @@ public class h implements a.b {
         }
         aVar.dismiss();
         pbActivity = this.dhT.dhQ;
-        cw awu = pbActivity.awu();
-        if (awu != null && awu.getPbData() != null) {
-            TiebaStatic.log(new aw("c10504").ac("fid", awu.getPbData().getForumId()).ac("tid", awu.getPbData().getThreadId()).ac("obj_locate", "1"));
+        cw awx = pbActivity.awx();
+        if (awx != null && awx.getPbData() != null) {
+            TiebaStatic.log(new aw("c10504").ac("fid", awx.getPbData().getForumId()).ac("tid", awx.getPbData().getThreadId()).ac("obj_locate", "1"));
         }
     }
 }

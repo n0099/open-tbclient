@@ -46,7 +46,7 @@ public class bg extends CustomMessageListener {
             zVar = this.czs.czk;
             if (zVar != null) {
                 zVar2 = this.czs.czk;
-                zVar2.alg();
+                zVar2.ali();
             }
         }
     }

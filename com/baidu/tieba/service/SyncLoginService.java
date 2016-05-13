@@ -84,7 +84,7 @@ public class SyncLoginService extends BdBaseService {
                 this.LL.n("scr_w", String.valueOf(k.B(TbadkCoreApplication.m11getInst().getApp())));
                 this.LL.n("scr_h", String.valueOf(k.C(TbadkCoreApplication.m11getInst().getApp())));
                 this.LL.n("scr_dip", String.valueOf(k.D(TbadkCoreApplication.m11getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.xF().xI() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.xG().xJ() > 0) {
                     this.LL.n("_msg_status", "0");
                 } else {
                     this.LL.n("_msg_status", "1");
@@ -105,11 +105,11 @@ public class SyncLoginService extends BdBaseService {
                 this.LL.n("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m11getInst().getVersionCode())).toString());
                 this.LL.n("signmd5", ba.c(TbadkCoreApplication.m11getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.LL.n("md5", ag.getTiebaApkMd5());
-                String tc = this.LL.tc();
-                if (this.LL.tA().uv().nZ()) {
+                String td = this.LL.td();
+                if (this.LL.tB().uw().nZ()) {
                     eVar = new com.baidu.tieba.model.e();
                     try {
-                        eVar.parserJson(tc);
+                        eVar.parserJson(td);
                         SyncLoginService.mStatistics = null;
                         return eVar;
                     } catch (Exception e2) {

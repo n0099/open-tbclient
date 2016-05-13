@@ -34,7 +34,7 @@ public class h extends com.baidu.tieba.card.a.j implements com.baidu.tieba.card.
     }
 
     public boolean oF() {
-        return y.r(DR()) > 2;
+        return y.r(DS()) > 2;
     }
 
     @Override // com.baidu.tieba.card.a.r
@@ -46,7 +46,7 @@ public class h extends com.baidu.tieba.card.a.j implements com.baidu.tieba.card.
     }
 
     @Override // com.baidu.tieba.card.a.r
-    public boolean Kn() {
+    public boolean Kp() {
         return true;
     }
 

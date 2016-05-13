@@ -27,16 +27,16 @@ public class y implements TextWatcher {
                 this.cMQ.C(1, this.cMQ.cMj);
                 return;
             }
-            this.cMQ.aoN();
+            this.cMQ.aoQ();
             return;
         }
-        this.cMQ.aoA();
+        this.cMQ.aoD();
         if (this.cMQ.mMode != 0) {
             if (this.cMQ.mMode != 3) {
-                this.cMQ.aoK();
+                this.cMQ.aoN();
                 return;
             } else {
-                this.cMQ.aoL();
+                this.cMQ.aoO();
                 return;
             }
         }
@@ -44,7 +44,7 @@ public class y implements TextWatcher {
         if (!z && !SquareSearchActivityConfig.IS_SHOW_LIKE_FORUM) {
             return;
         }
-        this.cMQ.aoJ();
+        this.cMQ.aoM();
     }
 
     @Override // android.text.TextWatcher

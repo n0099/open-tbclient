@@ -18,7 +18,7 @@ public class u extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
-            this.this$0.aDv();
+            this.this$0.aDy();
         }
     }
 }

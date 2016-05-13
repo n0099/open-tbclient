@@ -39,7 +39,7 @@ public class y extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView
         }
     }
 
-    public fr TZ() {
+    public fr Ub() {
         if (this.buE == null) {
             this.buE = new fr(this.bpj.getPageContext());
             this.buE.setCommonClickListener(this.bha);
@@ -50,23 +50,23 @@ public class y extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView
     }
 
     public void dn(boolean z) {
-        TZ().da(z);
+        Ub().da(z);
     }
 
     public void setIsManager(boolean z) {
-        TZ().setIsManager(z);
+        Ub().setIsManager(z);
     }
 
     public void a(ed edVar) {
         if (this.buE != null) {
-            TZ().a(edVar, FrsActivityStatic.bhG);
+            Ub().a(edVar, FrsActivityStatic.bhG);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         int i = 1;
-        if (view == TZ().RW()) {
+        if (view == Ub().RW()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 if (TbadkCoreApplication.m11getInst().getSkinType() != 1) {
                     TiebaStatic.eventStat(getPageContext().getPageActivity(), "frs_night_mode", "frsclick", 1, new Object[0]);

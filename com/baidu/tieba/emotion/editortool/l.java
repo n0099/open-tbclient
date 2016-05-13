@@ -24,16 +24,16 @@ class l implements AdapterView.OnItemClickListener {
         if (lVar != null) {
             com.baidu.tbadk.coreExtra.data.h hVar = new com.baidu.tbadk.coreExtra.data.h();
             EmotionTabContentView.a aVar = (EmotionTabContentView.a) adapterView.getAdapter();
-            if (aVar != null && aVar.LK() != null) {
-                t LK = aVar.LK();
-                int LJ = aVar.LJ();
-                com.baidu.tbadk.editortools.emotiontool.c LN = LK.LN();
-                hVar.setName(LK.LN().el(LJ + i));
-                hVar.a(LN.Bv());
-                hVar.dY(LN.getGroupName());
-                hVar.dZ(LN.getGroupId());
-                hVar.setWidth(LN.getWidth());
-                hVar.setHeight(LN.getHeight());
+            if (aVar != null && aVar.LM() != null) {
+                t LM = aVar.LM();
+                int LL = aVar.LL();
+                com.baidu.tbadk.editortools.emotiontool.c LP = LM.LP();
+                hVar.setName(LM.LP().ek(LL + i));
+                hVar.a(LP.Bw());
+                hVar.dY(LP.getGroupName());
+                hVar.dZ(LP.getGroupId());
+                hVar.setWidth(LP.getWidth());
+                hVar.setHeight(LP.getHeight());
                 emotionTabContentView2 = EmotionTabContentView.this;
                 lVar2 = emotionTabContentView2.BV;
                 lVar2.b(new com.baidu.tbadk.editortools.a(24, -1, hVar));

@@ -30,7 +30,7 @@ public class d {
         p pVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, p.class);
         if (runTask != null && (pVar = (p) runTask.getData()) != null) {
-            if (pVar.YU() <= 0) {
+            if (pVar.YW() <= 0) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i)));
             } else {
                 new GraffitiTabActivityConfig(context, str, str2, str3).start();
@@ -44,7 +44,7 @@ public class d {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i)));
     }
 
-    public static boolean XZ() {
+    public static boolean Yb() {
         return bKz.ec() && TbadkCoreApplication.m11getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
     }
 
@@ -68,7 +68,7 @@ public class d {
     }
 
     public static void m(Intent intent) {
-        if (intent != null || XZ()) {
+        if (intent != null || Yb()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new j(intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME), intent.getIntExtra("from", -1))));
         }
     }

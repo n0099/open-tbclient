@@ -37,7 +37,7 @@ class aj implements View.OnLongClickListener {
                     if (aVar2.mP() && this.djE.djv.getId() != null) {
                         String id = this.djE.djv.getId();
                         cwVar = this.djE.dih;
-                        if (id.equals(cwVar.qT())) {
+                        if (id.equals(cwVar.qU())) {
                             z = true;
                             boolean booleanValue = ((Boolean) sparseArray.get(t.g.tag_is_subpb)).booleanValue();
                             elVar = this.djE.diR;

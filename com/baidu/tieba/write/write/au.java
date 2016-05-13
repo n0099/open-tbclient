@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements a.b {
-    final /* synthetic */ WriteActivity feb;
+    final /* synthetic */ WriteActivity fea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(WriteActivity writeActivity) {
-        this.feb = writeActivity;
+        this.fea = writeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -18,15 +18,15 @@ public class au implements a.b {
         WriteData writeData2;
         WriteData writeData3;
         aVar.dismiss();
-        writeData = this.feb.evE;
+        writeData = this.fea.evE;
         int type = writeData.getType();
         if (type == 0) {
-            writeData3 = this.feb.evE;
+            writeData3 = this.fea.evE;
             com.baidu.tieba.tbadkCore.ae.b(writeData3.getForumId(), (WriteData) null);
         } else if (type == 1) {
-            writeData2 = this.feb.evE;
+            writeData2 = this.fea.evE;
             com.baidu.tieba.tbadkCore.ae.c(writeData2.getThreadId(), (WriteData) null);
         }
-        this.feb.finish();
+        this.fea.finish();
     }
 }

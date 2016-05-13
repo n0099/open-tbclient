@@ -15,14 +15,14 @@ public class y implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aFE.GI() != null) {
+        if (this.aFE.GK() != null) {
             if (this.aFD.getContext() instanceof m) {
-                ((m) this.aFD.getContext()).B(this.aFD.getContext(), this.aFE.GI().toString());
+                ((m) this.aFD.getContext()).B(this.aFD.getContext(), this.aFE.GK().toString());
                 return;
             }
             com.baidu.adp.base.h<?> s = com.baidu.adp.base.l.s(this.aFD.getContext());
             if (s != null && (s.getOrignalPage() instanceof m)) {
-                ((m) s.getOrignalPage()).B(this.aFD.getContext(), this.aFE.GI().toString());
+                ((m) s.getOrignalPage()).B(this.aFD.getContext(), this.aFE.GK().toString());
             }
         }
     }

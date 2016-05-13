@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface v {
-    int Px();
+    int Pz();
 
     int Rt();
 
@@ -40,7 +40,7 @@ public interface v {
 
     void a(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, com.baidu.tieba.tbadkCore.o oVar);
 
-    com.baidu.adp.widget.ListView.v at(int i);
+    com.baidu.adp.widget.ListView.v as(int i);
 
     void av(String str, String str2);
 

@@ -53,7 +53,7 @@ public class c {
         String trim = str.trim();
         if (trim.startsWith("$") && (lE = com.baidu.tieba.onlineDebugger.e.b.lE("get " + trim)) != null) {
             try {
-                return lE.aux();
+                return lE.auA();
             } catch (Exception e) {
                 return null;
             }

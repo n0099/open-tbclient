@@ -62,11 +62,11 @@ public class d implements b {
         }
     }
 
-    private int jP(int i) {
+    private int jO(int i) {
         return (int) (((this.k * i) + this.cuZ.y) - (this.k * this.cuZ.x));
     }
 
-    private long ajV() {
+    private long ajX() {
         return SystemClock.elapsedRealtime() - this.startTime;
     }
 
@@ -75,34 +75,34 @@ public class d implements b {
         if (!this.cvb.equals(this.cva)) {
             switch (this.cvf) {
                 case 0:
-                    ajP();
-                    break;
-                case 1:
                     ajR();
                     break;
-                case 2:
-                    ajQ();
-                    break;
-                case 3:
-                    ajS();
-                    break;
-                case 4:
+                case 1:
                     ajT();
                     break;
-                case 5:
+                case 2:
+                    ajS();
+                    break;
+                case 3:
                     ajU();
+                    break;
+                case 4:
+                    ajV();
+                    break;
+                case 5:
+                    ajW();
                     break;
             }
             return false;
         }
         if (this.cve != null) {
-            this.cve.ajI();
+            this.cve.ajK();
         }
         return true;
     }
 
-    private void ajP() {
-        this.cvb.y = (int) (this.cuZ.y + (this.cvh * ((float) ajV())));
+    private void ajR() {
+        this.cvb.y = (int) (this.cuZ.y + (this.cvh * ((float) ajX())));
         if (this.cvb.y > this.cva.y) {
             this.cvb.y = this.cva.y;
         }
@@ -111,8 +111,8 @@ public class d implements b {
         }
     }
 
-    private void ajQ() {
-        this.cvb.x = (int) (this.cuZ.x + (this.cvg * ((float) ajV())));
+    private void ajS() {
+        this.cvb.x = (int) (this.cuZ.x + (this.cvg * ((float) ajX())));
         if (this.cvb.x > this.cva.x) {
             this.cvb.x = this.cva.x;
         }
@@ -121,8 +121,8 @@ public class d implements b {
         }
     }
 
-    private void ajR() {
-        this.cvb.y = (int) (this.cuZ.y - (this.cvh * ((float) ajV())));
+    private void ajT() {
+        this.cvb.y = (int) (this.cuZ.y - (this.cvh * ((float) ajX())));
         if (this.cvb.y < this.cva.y) {
             this.cvb.y = this.cva.y;
         }
@@ -131,8 +131,8 @@ public class d implements b {
         }
     }
 
-    private void ajS() {
-        this.cvb.x = (int) (this.cuZ.x - (this.cvg * ((float) ajV())));
+    private void ajU() {
+        this.cvb.x = (int) (this.cuZ.x - (this.cvg * ((float) ajX())));
         if (this.cvb.x < this.cva.x) {
             this.cvb.x = this.cva.x;
         }
@@ -141,10 +141,10 @@ public class d implements b {
         }
     }
 
-    private void ajT() {
+    private void ajV() {
         boolean z = true;
-        this.cvb.x = (int) (this.cuZ.x - (this.cvg * ((float) ajV())));
-        this.cvb.y = jP(this.cvb.x);
+        this.cvb.x = (int) (this.cuZ.x - (this.cvg * ((float) ajX())));
+        this.cvb.y = jO(this.cvb.x);
         if (this.cuZ.y <= this.cva.y ? this.cvb.y <= this.cva.y : this.cvb.y >= this.cva.y) {
             z = false;
         }
@@ -157,10 +157,10 @@ public class d implements b {
         }
     }
 
-    private void ajU() {
+    private void ajW() {
         boolean z = true;
-        this.cvb.x = (int) (this.cuZ.x + (this.cvg * ((float) ajV())));
-        this.cvb.y = jP(this.cvb.x);
+        this.cvb.x = (int) (this.cuZ.x + (this.cvg * ((float) ajX())));
+        this.cvb.y = jO(this.cvb.x);
         if (this.cuZ.y <= this.cva.y ? this.cvb.y <= this.cva.y : this.cvb.y >= this.cva.y) {
             z = false;
         }

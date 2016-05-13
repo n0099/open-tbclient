@@ -13,7 +13,7 @@ class al implements a.b {
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        this.dgM.awg();
+        this.dgM.awj();
         aVar.dismiss();
     }
 }

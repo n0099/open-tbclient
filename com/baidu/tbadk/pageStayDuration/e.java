@@ -15,7 +15,7 @@ public class e {
     private e() {
     }
 
-    public static e Ej() {
+    public static e Ek() {
         if (awt == null) {
             synchronized (e.class) {
                 if (awt == null) {
@@ -31,15 +31,15 @@ public class e {
     }
 
     public void a(Context context, d dVar, b bVar) {
-        if (dVar != null && dVar.Eh() > 0 && !StringUtils.isNull(dVar.getCurrentPageKey())) {
+        if (dVar != null && dVar.Ei() > 0 && !StringUtils.isNull(dVar.getCurrentPageKey())) {
             if (bVar == null) {
                 bVar = new f(this);
             }
-            if (bVar.Ef() && bVar.a(dVar)) {
+            if (bVar.Eg() && bVar.a(dVar)) {
                 aw awVar = new aw("stime");
-                awVar.ac("obj_source", c.B(dVar.Eg()));
+                awVar.ac("obj_source", c.B(dVar.Eh()));
                 awVar.ac("obj_type", dVar.getCurrentPageKey());
-                awVar.ac("obj_duration", String.valueOf(dVar.Eh()));
+                awVar.ac("obj_duration", String.valueOf(dVar.Ei()));
                 if (dVar.getFid() > 0) {
                     awVar.ac("fid", String.valueOf(dVar.getFid()));
                 }
@@ -54,7 +54,7 @@ public class e {
         }
     }
 
-    public boolean Ek() {
+    public boolean El() {
         return this.awu;
     }
 
@@ -62,12 +62,12 @@ public class e {
         this.awu = z;
     }
 
-    public int El() {
-        return !TbadkCoreApplication.m11getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.sQ().getInt("page_stay_max_cost", 0) : this.awv;
+    public int Em() {
+        return !TbadkCoreApplication.m11getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.sR().getInt("page_stay_max_cost", 0) : this.awv;
     }
 
-    public void eI(int i) {
+    public void eH(int i) {
         this.awv = i;
-        com.baidu.tbadk.core.sharedPref.b.sQ().putInt("page_stay_max_cost", this.awv);
+        com.baidu.tbadk.core.sharedPref.b.sR().putInt("page_stay_max_cost", this.awv);
     }
 }

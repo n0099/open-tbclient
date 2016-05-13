@@ -19,16 +19,16 @@ public class bc implements com.baidu.tbadk.widget.layout.g {
     @Override // com.baidu.tbadk.widget.layout.g
     public void c(View view, int i, boolean z) {
         com.baidu.tieba.card.a.l lVar;
-        by<com.baidu.tieba.card.a.l> JM = this.aQv.JM();
-        if (JM != null) {
+        by<com.baidu.tieba.card.a.l> JO = this.aQv.JO();
+        if (JO != null) {
             view.setTag("1");
             lVar = this.aQv.aQq;
-            JM.a(view, lVar);
+            JO.a(view, lVar);
         }
         if (!z) {
             this.aQv.a(this.aQw, i, this.aQx);
         } else {
-            this.aQv.Kd();
+            this.aQv.Kf();
         }
     }
 }

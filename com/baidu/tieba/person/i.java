@@ -45,7 +45,7 @@ public class i implements View.OnClickListener {
             if (i3 == 0) {
                 z2 = this.this$0.azG;
                 if (z2) {
-                    this.this$0.aBr();
+                    this.this$0.aBu();
                     return;
                 }
                 Intent intent = this.this$0.getIntent();
@@ -55,7 +55,7 @@ public class i implements View.OnClickListener {
                 return;
             }
             com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.m.cR(str), "head");
-            aVar.CK();
+            aVar.CL();
             aVar.a(new j(this));
             aVar.bE(false);
             this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(t.j.uploading));

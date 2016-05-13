@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class x extends z {
     public static void b(com.baidu.tbadk.core.util.u uVar, com.baidu.tbadk.core.util.u uVar2, com.baidu.tbadk.core.util.u uVar3, com.baidu.tbadk.core.util.u uVar4, com.baidu.tbadk.core.util.u uVar5, int i) {
-        if (aa.EM().EN()) {
+        if (aa.EN().EO()) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("action", "dlStat");
             dG.q("c_dnum", String.valueOf(uVar.num));
@@ -32,13 +32,13 @@ public class x extends z {
             dG.q("op_spnum", String.valueOf(uVar5.VJ));
             dG.q("op_costt", String.valueOf(uVar5.time));
             dG.q("op_dlsize", String.valueOf(uVar5.lh));
-            dG.q("nettype", aa.eN(i));
+            dG.q("nettype", aa.eM(i));
             com.baidu.adp.lib.stats.a.dN().a(TbConfig.TMP_PIC_DIR_NAME, dG);
         }
     }
 
     public static void a(int i, int i2, long j) {
-        if (aa.EM().EN()) {
+        if (aa.EN().EO()) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("action", "dcStat");
             dG.q("dcnum", String.valueOf(i));

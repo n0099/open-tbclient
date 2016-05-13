@@ -12,7 +12,7 @@ public class d implements CustomMessageTask.CustomRunnable<AccountData> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
         if (k.fG()) {
-            a.xi().xm();
+            a.xj().xn();
             return null;
         } else if (TbadkCoreApplication.m11getInst() != null) {
             TbadkCoreApplication.m11getInst().handler.post(new e(this));

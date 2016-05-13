@@ -18,7 +18,7 @@ public class x extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009503 && this.aXF.aXk != null) {
-            this.aXF.aXk.Nt();
+            this.aXF.aXk.Nv();
         }
     }
 }

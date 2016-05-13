@@ -13,7 +13,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aYM.fT(this.aYN);
+        this.aYM.fS(this.aYN);
         com.baidu.adp.lib.h.h.dL().post(new h(this));
     }
 }

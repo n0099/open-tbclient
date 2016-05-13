@@ -68,7 +68,7 @@ public class BdTypeListView extends BdListView {
         return this.zH.getData();
     }
 
-    public v at(int i) {
+    public v as(int i) {
         return this.zH.getItem(i);
     }
 }

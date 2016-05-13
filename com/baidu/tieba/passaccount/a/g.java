@@ -15,7 +15,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     private g() {
     }
 
-    public static synchronized g auL() {
+    public static synchronized g auO() {
         g gVar;
         synchronized (g.class) {
             if (dcp == null) {
@@ -40,7 +40,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void wi() {
+    public void wj() {
         SapiAccountManager.getInstance().logout();
     }
 
@@ -62,7 +62,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData sO() {
+    public AccountData sP() {
         SapiAccount session;
         AccountData l;
         SapiAccount.ReloginCredentials reloginCredentials = SapiAccountManager.getInstance().getSession().getReloginCredentials();
@@ -80,7 +80,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> wj() {
+    public List<AccountData> wk() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

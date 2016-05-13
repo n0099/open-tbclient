@@ -28,7 +28,7 @@ public class m {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aon();
+        void aoq();
     }
 
     public m(ViewGroup viewGroup) {
@@ -62,7 +62,7 @@ public class m {
     private View b(Context context, List<TagInfo> list, int i) {
         View inflate = LayoutInflater.from(context).inflate(t.h.scroll_fragment_more, (ViewGroup) null);
         this.bbZ = inflate.findViewById(t.g.more_top_view);
-        ow(this.topHeight);
+        ov(this.topHeight);
         GridView gridView = (GridView) inflate.findViewById(t.g.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
         this.eaH = new l(context, i);
@@ -72,7 +72,7 @@ public class m {
         return inflate;
     }
 
-    public void ow(int i) {
+    public void ov(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bbZ.getLayoutParams();
         layoutParams.height = i;
         this.bbZ.setLayoutParams(layoutParams);
@@ -93,11 +93,11 @@ public class m {
         return this.cIT;
     }
 
-    public void ox(int i) {
+    public void ow(int i) {
         this.topHeight = i;
     }
 
-    public void cW(int i) {
+    public void cV(int i) {
         at.l(this.awk, t.d.recommend_frs_more_background);
         if (this.eaH != null) {
             this.eaH.notifyDataSetChanged();

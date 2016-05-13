@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class d {
-    public static void sV() {
+    public static void sW() {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
             mainDBDatabaseManager.b("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
@@ -32,7 +32,7 @@ public class d {
             return false;
         }
         mainDBDatabaseManager.b("delete from chunk_upload_data where md5=? and account=?", new String[]{cVar.getMd5(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.b("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{cVar.getMd5(), Long.valueOf(cVar.getTotalLength()), Integer.valueOf(cVar.ws()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        return mainDBDatabaseManager.b("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{cVar.getMd5(), Long.valueOf(cVar.getTotalLength()), Integer.valueOf(cVar.wt()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
     public static com.baidu.tbadk.coreExtra.data.c cO(String str) {
@@ -51,7 +51,7 @@ public class d {
                         cVar = new com.baidu.tbadk.coreExtra.data.c();
                         try {
                             cVar.setMd5(str);
-                            cVar.dj(cursor.getInt(3));
+                            cVar.di(cursor.getInt(3));
                             cVar.M(cursor.getLong(2));
                         } catch (Exception e2) {
                             e = e2;

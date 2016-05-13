@@ -37,7 +37,7 @@ public class p extends a {
         this.dyd = list;
     }
 
-    public List<PersonInfoPostList> aCo() {
+    public List<PersonInfoPostList> aCr() {
         return this.dyd;
     }
 
@@ -68,11 +68,11 @@ public class p extends a {
         this.dzD = personTainInfo;
     }
 
-    public PersonTainInfo aCk() {
+    public PersonTainInfo aCn() {
         return this.dzD;
     }
 
-    public com.baidu.tbadk.data.h aCl() {
+    public com.baidu.tbadk.data.h aCo() {
         if (this.mUserData != null) {
             return this.mUserData.getPersonPrivate();
         }

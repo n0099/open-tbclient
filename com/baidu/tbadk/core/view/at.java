@@ -13,7 +13,7 @@ public class at {
     private boolean aeb = true;
     private Handler.Callback aed = new au(this);
 
-    public static at vD() {
+    public static at vE() {
         return adZ;
     }
 
@@ -32,18 +32,18 @@ public class at {
         }
     }
 
-    public void vE() {
+    public void vF() {
         this.aea++;
     }
 
-    public void vF() {
+    public void vG() {
         this.aea--;
         if (this.aea < 0) {
             this.aea = 0;
         }
     }
 
-    public int vG() {
+    public int vH() {
         return this.aea;
     }
 
@@ -51,11 +51,11 @@ public class at {
         this.aeb = z;
     }
 
-    public boolean vH() {
+    public boolean vI() {
         return this.aeb;
     }
 
-    public boolean vI() {
+    public boolean vJ() {
         return Build.MODEL != null && Build.MODEL.equals("MI 5");
     }
 }

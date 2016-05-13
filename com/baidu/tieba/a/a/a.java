@@ -7,7 +7,7 @@ public abstract class a {
 
     public abstract void d(float f, float f2, float f3, int i);
 
-    public boolean IW() {
+    public boolean IY() {
         return true;
     }
 
@@ -17,11 +17,11 @@ public abstract class a {
     public void c(float f, float f2, float f3, int i) {
     }
 
-    public int IX() {
+    public int IZ() {
         return this.aMc;
     }
 
-    public void fp(int i) {
+    public void fo(int i) {
         this.aMc = i;
     }
 }

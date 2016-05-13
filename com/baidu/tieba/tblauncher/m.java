@@ -1,25 +1,24 @@
 package com.baidu.tieba.tblauncher;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class m extends com.baidu.tbadk.pageStayDuration.b {
+class m extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean Ed() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public int Ee() {
-        return com.baidu.tbadk.pageStayDuration.e.Ej().El();
-    }
-
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean a(com.baidu.tbadk.pageStayDuration.d dVar) {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
+            return;
+        }
+        this.this$0.aMp();
     }
 }

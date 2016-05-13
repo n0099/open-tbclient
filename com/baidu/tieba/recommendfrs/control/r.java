@@ -17,7 +17,7 @@ class r extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            this.dZi.iO(((Boolean) customResponsedMessage.getData()).booleanValue() && this.dZi.aMn());
+            this.dZi.iO(((Boolean) customResponsedMessage.getData()).booleanValue() && this.dZi.aMq());
         }
     }
 }

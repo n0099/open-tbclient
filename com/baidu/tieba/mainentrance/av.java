@@ -12,6 +12,6 @@ class av implements CustomMessageTask.CustomRunnable {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA, com.baidu.tieba.tbadkCore.util.m.aUM());
+        return new CustomResponsedMessage<>(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA, com.baidu.tieba.tbadkCore.util.m.aUS());
     }
 }

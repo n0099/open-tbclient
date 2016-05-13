@@ -17,19 +17,19 @@ public class c {
         this.gravity = i;
     }
 
-    public final void ce(int i) {
+    public final void cd(int i) {
         this.Ta = i;
     }
 
-    public int sp() {
+    public int sq() {
         return this.Ta;
     }
 
-    public int sq() {
+    public int sr() {
         return this.Tb;
     }
 
-    public final void cf(int i) {
+    public final void ce(int i) {
         this.Tb = i;
     }
 
@@ -37,11 +37,11 @@ public class c {
         this.Tc = i;
     }
 
-    public final void cg(int i) {
+    public final void cf(int i) {
         this.Td = i;
     }
 
-    public void ch(int i) {
+    public void cg(int i) {
         this.Te = i;
     }
 

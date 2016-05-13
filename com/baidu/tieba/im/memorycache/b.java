@@ -46,11 +46,11 @@ public class b {
         this.cmN.setTag(this.mId);
     }
 
-    public boolean agX() {
+    public boolean agZ() {
         return this.cmI.get();
     }
 
-    public static b agY() {
+    public static b aha() {
         if (cmH == null) {
             synchronized (b.class) {
                 if (cmH == null) {
@@ -75,10 +75,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agZ() {
+    public void ahb() {
         ImMessageCenterPojo jC;
-        a js = js(-4);
-        if (js != null && (jC = js.jC("-1003")) != null) {
+        a jr = jr(-4);
+        if (jr != null && (jC = jr.jC("-1003")) != null) {
             String last_content = jC.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
@@ -113,10 +113,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aha() {
+    public void ahc() {
         ImMessageCenterPojo jC;
-        a js = js(-3);
-        if (js != null && (jC = js.jC("-1002")) != null) {
+        a jr = jr(-3);
+        if (jr != null && (jC = jr.jC("-1002")) != null) {
             String last_content = jC.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
@@ -129,10 +129,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ahb() {
+    public void ahd() {
         ImMessageCenterPojo jC;
-        a js = js(-5);
-        if (js != null && (jC = js.jC("-1004")) != null) {
+        a jr = jr(-5);
+        if (jr != null && (jC = jr.jC("-1004")) != null) {
             String last_content = jC.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
@@ -147,14 +147,14 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            js(imMessageCenterPojo.getCustomGroupType()).d(imMessageCenterPojo);
+            jr(imMessageCenterPojo.getCustomGroupType()).d(imMessageCenterPojo);
         }
     }
 
     public ImMessageCenterPojo aa(String str, int i) {
-        a js;
-        if (this.cmI.get() && (js = js(i)) != null) {
-            return js.jC(str);
+        a jr;
+        if (this.cmI.get() && (jr = jr(i)) != null) {
+            return jr.jC(str);
         }
         return null;
     }
@@ -170,12 +170,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ac(String str, int i) {
-        a js;
-        if (this.cmI.get() && (js = js(i)) != null) {
+        a jr;
+        if (this.cmI.get() && (jr = jr(i)) != null) {
             if (i == 9) {
                 BdLog.i("quit live group. ");
             }
-            js.jD(str);
+            jr.jD(str);
         }
     }
 
@@ -239,9 +239,9 @@ public class b {
     }
 
     private void clear() {
-        this.cmJ.agW();
-        this.cmK.agW();
-        this.cmL.agW();
+        this.cmJ.agY();
+        this.cmK.agY();
+        this.cmL.agY();
         sendClearMessage();
     }
 
@@ -460,12 +460,12 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ahc() {
+    public void ahe() {
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryInitCompleteMessage(true));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> ahd() {
+    public List<ImMessageCenterPojo> ahf() {
         LinkedList linkedList = new LinkedList();
         this.cmJ.a(new q(this, linkedList));
         this.cmK.a(new r(this, linkedList));
@@ -474,26 +474,26 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> ahe() {
+    public List<ImMessageCenterPojo> ahg() {
         LinkedList linkedList = new LinkedList();
         this.cmJ.a(new t(this, linkedList));
         return linkedList;
     }
 
-    public List<ImMessageCenterPojo> ahf() {
+    public List<ImMessageCenterPojo> ahh() {
         LinkedList linkedList = new LinkedList();
         this.cmL.a(new d(this, linkedList));
         return linkedList;
     }
 
-    public List<ImMessageCenterPojo> ahg() {
+    public List<ImMessageCenterPojo> ahi() {
         LinkedList linkedList = new LinkedList();
         this.cmK.a(new e(this, linkedList));
         return linkedList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> ahh() {
+    public List<ImMessageCenterPojo> ahj() {
         LinkedList linkedList = new LinkedList();
         this.cmK.a(new f(this, linkedList));
         return linkedList;
@@ -527,9 +527,9 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public ImMessageCenterPojo eJ(boolean z) {
         ImMessageCenterPojo imMessageCenterPojo = null;
-        a js = js(-7);
-        if (js != null) {
-            imMessageCenterPojo = js.jC("-1001");
+        a jr = jr(-7);
+        if (jr != null) {
+            imMessageCenterPojo = jr.jC("-1001");
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -574,9 +574,9 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public ImMessageCenterPojo eK(boolean z) {
         ImMessageCenterPojo imMessageCenterPojo = null;
-        a js = js(-8);
-        if (js != null) {
-            imMessageCenterPojo = js.jC("-1000");
+        a jr = jr(-8);
+        if (jr != null) {
+            imMessageCenterPojo = jr.jC("-1000");
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -620,7 +620,7 @@ public class b {
         a(eK(z), z, i);
     }
 
-    public SparseArray<Long> ahi() {
+    public SparseArray<Long> ahk() {
         SparseArray<Long> sparseArray = new SparseArray<>();
         if (this.cmI.get()) {
             this.cmJ.a(new k(this, sparseArray));
@@ -628,7 +628,7 @@ public class b {
         return sparseArray;
     }
 
-    public NewpushRepair ahj() {
+    public NewpushRepair ahl() {
         NewpushRepair.Builder builder = new NewpushRepair.Builder();
         ArrayList arrayList = new ArrayList();
         if (this.cmI.get()) {
@@ -643,9 +643,9 @@ public class b {
             return false;
         }
         if (TbadkCoreApplication.m11getInst().getCustomizedFilter() != null) {
-            return TbadkCoreApplication.m11getInst().getCustomizedFilter().bj(imMessageCenterPojo.getCustomGroupType());
+            return TbadkCoreApplication.m11getInst().getCustomizedFilter().bi(imMessageCenterPojo.getCustomGroupType());
         }
-        return bz.jt(imMessageCenterPojo.getCustomGroupType());
+        return bz.js(imMessageCenterPojo.getCustomGroupType());
     }
 
     public long ae(String str, int i) {
@@ -665,7 +665,7 @@ public class b {
         return j + 1;
     }
 
-    private a js(int i) {
+    private a jr(int i) {
         if (i == 2) {
             return this.cmK;
         }

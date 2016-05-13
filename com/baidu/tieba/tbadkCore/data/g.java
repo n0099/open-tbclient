@@ -8,7 +8,7 @@ public class g {
         this.status = i;
     }
 
-    public String aTr() {
+    public String aTx() {
         return this.esv;
     }
 

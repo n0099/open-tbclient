@@ -25,7 +25,7 @@ class z extends CustomMessageListener {
             if (TextUtils.isEmpty(str) || axVar.getPraise() == null) {
                 return;
             }
-            this.bhl.gh(axVar.getPraise().getIsLike());
+            this.bhl.gg(axVar.getPraise().getIsLike());
         }
     }
 }

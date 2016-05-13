@@ -8,22 +8,22 @@ public class e extends d {
     }
 
     private static void a(com.baidu.tbadk.core.data.c cVar, int i) {
-        com.baidu.tbadk.distribute.a.AK().a(cVar, "", 0L, "NEWINDEX", "show", i);
-        com.baidu.tieba.recapp.report.b.aLG().a(com.baidu.tieba.recapp.report.e.a(cVar, "show", i));
+        com.baidu.tbadk.distribute.a.AL().a(cVar, "", 0L, "NEWINDEX", "show", i);
+        com.baidu.tieba.recapp.report.b.aLJ().a(com.baidu.tieba.recapp.report.e.a(cVar, "show", i));
     }
 
     @Override // com.baidu.tieba.card.d, com.baidu.tieba.card.f
-    protected String JP() {
+    protected String JR() {
         return "NEWINDEX";
     }
 
     public static void a(com.baidu.tieba.card.a.d dVar, int i) {
-        a(dVar.Kt(), i);
+        a(dVar.Kv(), i);
     }
 
     public static void L(int i, int i2) {
         com.baidu.tieba.recapp.report.a i3 = com.baidu.tieba.recapp.report.e.i("store", i2, i);
         i3.bE("page", "NEWINDEX");
-        com.baidu.tieba.recapp.report.b.aLG().a(i3);
+        com.baidu.tieba.recapp.report.b.aLJ().a(i3);
     }
 }

@@ -18,9 +18,9 @@ public class ag implements MediaPlayer.OnErrorListener {
         boolean z;
         z = this.dgC.dgt;
         if (!z) {
-            BdToast.b(this.dgC.dhY.getPageContext().getPageActivity(), this.dgC.dhY.getPageContext().getResources().getString(t.j.pb_play_error), t.f.icon_toast_game_error).sc();
+            BdToast.b(this.dgC.dhY.getPageContext().getPageActivity(), this.dgC.dhY.getPageContext().getResources().getString(t.j.pb_play_error), t.f.icon_toast_game_error).sd();
         }
-        this.dgC.awb();
+        this.dgC.awe();
         return true;
     }
 }

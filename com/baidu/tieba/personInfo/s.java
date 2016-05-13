@@ -25,7 +25,7 @@ public class s extends CustomMessageListener {
             long c = com.baidu.adp.lib.h.b.c(bgVar.getId(), 0L);
             if (l != null && c == l.longValue()) {
                 bgVar2 = this.this$0.dyP;
-                bgVar2.aDF();
+                bgVar2.aDI();
             }
         }
     }

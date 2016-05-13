@@ -179,11 +179,11 @@ public class PhotoLiveCardView extends FrameLayout {
         this.alu = (LinearLayout) inflate.findViewById(t.g.photo_live_card_content);
         this.alw = (RelativeLayout) inflate.findViewById(t.g.photo_live_card_cover_and_expression);
         this.alB = (RelativeLayout) inflate.findViewById(t.g.photo_live_card_bottom);
-        zy();
         zz();
         zA();
-        zC();
         zB();
+        zD();
+        zC();
     }
 
     public void setData(PhotoLiveCardData photoLiveCardData) {
@@ -205,7 +205,7 @@ public class PhotoLiveCardView extends FrameLayout {
         }
     }
 
-    public void vl() {
+    public void vm() {
         int skinType = TbadkCoreApplication.m11getInst().getSkinType();
         if (skinType != this.aej) {
             at.k(this.alf, t.f.frs_item_control_btn_bg);
@@ -241,7 +241,7 @@ public class PhotoLiveCardView extends FrameLayout {
                 at.c(this.alC, t.d.cp_cont_i, 1);
             }
             at.c(this.alv, t.d.cp_cont_b, 1);
-            zD();
+            zE();
             this.aej = skinType;
         }
     }
@@ -403,7 +403,7 @@ public class PhotoLiveCardView extends FrameLayout {
         this.alh.setPadding(0, 0, 0, 0);
     }
 
-    private void zy() {
+    private void zz() {
         if (this.alg != null) {
             this.alh = (HeadImageView) this.alg.findViewById(t.g.author_portrait);
             this.ali = (FrameLayout) this.alg.findViewById(t.g.author_portrait_info);
@@ -418,7 +418,7 @@ public class PhotoLiveCardView extends FrameLayout {
         }
     }
 
-    private void zz() {
+    private void zA() {
         if (this.alr != null) {
             this.title = (TextView) this.alr.findViewById(t.g.title);
             this.als = (TextView) findViewById(t.g.refresh_time_in_title);
@@ -427,13 +427,13 @@ public class PhotoLiveCardView extends FrameLayout {
         }
     }
 
-    private void zA() {
+    private void zB() {
         if (this.alu != null) {
             this.alv = (TextView) this.alu.findViewById(t.g.content);
         }
     }
 
-    private void zB() {
+    private void zC() {
         if (this.alB != null) {
             this.alC = (TextView) this.alB.findViewById(t.g.ba_name);
             this.alD = (TextView) this.alB.findViewById(t.g.bottom_refresh_time);
@@ -441,21 +441,21 @@ public class PhotoLiveCardView extends FrameLayout {
         }
     }
 
-    private void zC() {
+    private void zD() {
         if (this.alw != null) {
             this.alx = (TbImageView) this.alw.findViewById(t.g.live_cover);
             this.alx.setGifIconSupport(false);
-            zE();
+            zF();
         }
     }
 
-    private void zD() {
+    private void zE() {
         at.k(this.aly, t.f.bg_tieziyingxiang);
         at.k(this.alz, t.f.bg_tieziyingxiang);
         at.k(this.alA, t.f.bg_tieziyingxiang);
     }
 
-    private void zE() {
+    private void zF() {
         if (this.alw != null) {
             this.aly = (TextView) this.alw.findViewById(t.g.first_style_first_expression);
             this.alz = (TextView) this.alw.findViewById(t.g.first_style_second_expression);
@@ -465,7 +465,7 @@ public class PhotoLiveCardView extends FrameLayout {
 
     private void setExpression(PhotoLiveCardData photoLiveCardData) {
         this.alH.clear();
-        zG();
+        zH();
         if (photoLiveCardData != null && photoLiveCardData.getExpressionDatas() != null) {
             int size = photoLiveCardData.getExpressionDatas().size();
             for (int i = 0; i < size && i < 3; i++) {
@@ -474,11 +474,11 @@ public class PhotoLiveCardView extends FrameLayout {
                     a(intValue, photoLiveCardData.getExpressionDatas(), i);
                 }
             }
-            zF();
+            zG();
         }
     }
 
-    private void zF() {
+    private void zG() {
         if (this.alH.size() != 0) {
             int size = this.alH.size();
             for (int i = 0; i < size; i++) {
@@ -493,7 +493,7 @@ public class PhotoLiveCardView extends FrameLayout {
         }
     }
 
-    private void zG() {
+    private void zH() {
         this.aly.setText("");
         this.alz.setText("");
         this.alA.setText("");
@@ -518,8 +518,8 @@ public class PhotoLiveCardView extends FrameLayout {
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(nVar.ak(nVar.getLabelName(), String.valueOf(nVar.zr())));
-            dR(textView.getId());
+            textView.setText(nVar.ak(nVar.getLabelName(), String.valueOf(nVar.zs())));
+            dQ(textView.getId());
         }
     }
 
@@ -560,7 +560,7 @@ public class PhotoLiveCardView extends FrameLayout {
         }
     }
 
-    private void dR(int i) {
+    private void dQ(int i) {
         if (this.alH.size() != 0) {
             int size = this.alH.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -638,10 +638,10 @@ public class PhotoLiveCardView extends FrameLayout {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
-        Bitmap cA = at.cA(t.f.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cA);
-        int height = cA.getHeight();
-        bitmapDrawable.setBounds(0, 0, cA.getWidth(), height);
+        Bitmap cz = at.cz(t.f.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cz);
+        int height = cz.getHeight();
+        bitmapDrawable.setBounds(0, 0, cz.getWidth(), height);
         spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), 0, "live".length(), 33);
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setBounds(0, 0, 10, height);

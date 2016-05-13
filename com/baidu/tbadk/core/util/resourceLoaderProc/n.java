@@ -20,7 +20,7 @@ public class n extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
+    public int uK() {
         return this.Xc;
     }
 
@@ -40,12 +40,12 @@ public class n extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
+    public boolean uI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uI() {
+    public boolean uJ() {
         return false;
     }
 

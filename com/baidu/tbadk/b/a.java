@@ -30,7 +30,7 @@ public class a {
             Kl.put(24, 7);
         }
 
-        public static int aL(int i) {
+        public static int aK(int i) {
             return Kl.get(i);
         }
     }
@@ -149,7 +149,7 @@ public class a {
             if (Kg.nb()) {
                 Kg.c(aVar);
             }
-            Kg.aM(i);
+            Kg.aL(i);
         }
     }
 

@@ -27,7 +27,7 @@ public class x implements SubsamplingScaleImageView.OnImageEventListener {
     @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
     public void onReady() {
         this.amC.mProgressBar.setVisibility(8);
-        this.amC.amm.FW();
+        this.amC.amm.FY();
         this.amC.amm.setVisibility(4);
     }
 

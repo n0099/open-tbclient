@@ -31,16 +31,16 @@ public class c extends CustomMessageListener {
         cwVar = this.dij.dih;
         if (cwVar != null) {
             cwVar2 = this.dij.dih;
-            if (cwVar2.axV() != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.k)) {
+            if (cwVar2.axY() != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.k)) {
                 com.baidu.tieba.graffiti.k kVar = (com.baidu.tieba.graffiti.k) customResponsedMessage.getData();
                 String threadId = kVar.getThreadId();
                 if (!TextUtils.isEmpty(threadId)) {
                     cwVar3 = this.dij.dih;
                     if (threadId.equals(cwVar3.getThreadID()) && (graffitiInfo = kVar.getGraffitiInfo()) != null && graffitiInfo.pq()) {
                         cwVar4 = this.dij.dih;
-                        com.baidu.tbadk.core.data.v axn = cwVar4.axV().axn();
-                        if (axn != null) {
-                            List<com.baidu.tbadk.core.data.u> items = axn.getItems();
+                        com.baidu.tbadk.core.data.v axq = cwVar4.axY().axq();
+                        if (axq != null) {
+                            List<com.baidu.tbadk.core.data.u> items = axq.getItems();
                             if (items == null) {
                                 items = new ArrayList<>();
                             }
@@ -50,7 +50,7 @@ public class c extends CustomMessageListener {
                             }
                             items.add(0, graffitiInfo);
                         }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_LIST_CHANGED, axn));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_LIST_CHANGED, axq));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
                     }
                 }

@@ -32,8 +32,8 @@ public class cx extends CustomMessageListener {
             }
             this.dlN.i(pbData);
             this.dlN.d(pbData);
-            if (pbData.avB() != null) {
-                pbData.avB().bH(0);
+            if (pbData.avE() != null) {
+                pbData.avE().bG(0);
             }
             aVar = this.dlN.dlr;
             if (aVar != null && pbData != null) {

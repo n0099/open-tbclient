@@ -29,21 +29,21 @@ public class dz {
     public interface a {
         void aM(int i, int i2);
 
-        void ayv();
+        void ayy();
 
-        void ayw();
+        void ayz();
     }
 
     public void u(int i, boolean z) {
         if (this.pbData != null) {
             if (z) {
                 com.baidu.tbadk.core.data.at atVar = new com.baidu.tbadk.core.data.at();
-                atVar.bG(4);
+                atVar.bF(4);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar));
                 this.dmG = 5;
             }
             this.dmC = i;
-            ayr();
+            ayu();
         }
     }
 
@@ -66,7 +66,7 @@ public class dz {
         int i3 = i;
         while (i2 < size) {
             com.baidu.tieba.tbadkCore.data.s sVar = arrayList.get(i2);
-            int i4 = (sVar == null || sVar.aTS() != this.dmD) ? i3 : i2;
+            int i4 = (sVar == null || sVar.aTY() != this.dmD) ? i3 : i2;
             i2++;
             i3 = i4;
         }
@@ -79,7 +79,7 @@ public class dz {
         if (arrayList.get(this.dmC) instanceof com.baidu.tieba.tbadkCore.data.s) {
             com.baidu.tieba.tbadkCore.data.s sVar2 = arrayList.get(this.dmC);
             this.dmD = f(this.dmC + 1, arrayList);
-            if (sVar2.aTS() == 1) {
+            if (sVar2.aTY() == 1) {
                 auVar.threadTitle = this.threadTitle;
                 if (!this.dmI) {
                     auVar.PL = true;
@@ -87,13 +87,13 @@ public class dz {
                     auVar.PL = false;
                 }
             } else {
-                if (sVar2.aTS() != 0) {
-                    auVar.PM = String.format(TbadkCoreApplication.m11getInst().getContext().getString(t.j.is_floor), Integer.valueOf(sVar2.aTS()));
+                if (sVar2.aTY() != 0) {
+                    auVar.PM = String.format(TbadkCoreApplication.m11getInst().getContext().getString(t.j.is_floor), Integer.valueOf(sVar2.aTY()));
                 }
                 auVar.threadTitle = this.threadTitle;
                 auVar.PL = false;
             }
-            auVar.PO = sVar2.amw();
+            auVar.PO = sVar2.amz();
             return auVar;
         }
         return null;
@@ -103,14 +103,14 @@ public class dz {
         if (i < 0 || arrayList == null || arrayList.size() <= 0 || i >= arrayList.size() || arrayList.get(i) == null) {
             return -1;
         }
-        return arrayList.get(i).aTS();
+        return arrayList.get(i).aTY();
     }
 
     private int g(int i, ArrayList<com.baidu.tieba.tbadkCore.data.s> arrayList) {
         if (i >= 0 && arrayList != null && arrayList.size() > 0 && i < arrayList.size()) {
             for (int i2 = i; i2 >= 0; i2--) {
                 com.baidu.tieba.tbadkCore.data.s sVar = arrayList.get(i2);
-                if (sVar != null && sVar.aTS() > 0) {
+                if (sVar != null && sVar.aTY() > 0) {
                     return i2;
                 }
             }
@@ -119,31 +119,31 @@ public class dz {
         return i;
     }
 
-    private void ayr() {
+    private void ayu() {
         com.baidu.tbadk.core.data.at atVar = new com.baidu.tbadk.core.data.at();
         Object obj = null;
         switch (this.dmG) {
             case 0:
             case 5:
-                atVar.bG(1);
-                obj = e(this.dmC, this.pbData.avC());
+                atVar.bF(1);
+                obj = e(this.dmC, this.pbData.avF());
                 this.dmG = 1;
                 break;
             case 1:
-                atVar.bG(2);
+                atVar.bF(2);
                 this.dmG = 2;
                 break;
             case 2:
-                atVar.bG(3);
+                atVar.bF(3);
                 this.dmG = 3;
                 break;
             case 3:
-                atVar.bG(2);
+                atVar.bF(2);
                 this.dmG = 2;
                 break;
             case 4:
             default:
-                atVar.bG(1);
+                atVar.bF(1);
                 this.dmG = 1;
                 break;
         }
@@ -154,7 +154,7 @@ public class dz {
     private void a(com.baidu.tieba.pb.data.e eVar, boolean z, int i, boolean z2) {
         if (!z) {
             com.baidu.tbadk.core.data.at atVar = new com.baidu.tbadk.core.data.at();
-            atVar.bG(15);
+            atVar.bF(15);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar));
             this.dmC = 0;
             this.dmG = 5;
@@ -164,7 +164,7 @@ public class dz {
                 return;
             }
             com.baidu.tbadk.core.data.at atVar2 = new com.baidu.tbadk.core.data.at();
-            atVar2.bG(4);
+            atVar2.bF(4);
             this.dmC = 0;
             this.dmG = 5;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar2));
@@ -185,12 +185,12 @@ public class dz {
         this.isSquence = z;
         this.dmH = z2;
         this.loadType = i;
-        if (eVar != null && eVar.avB() != null) {
-            this.threadTitle = eVar.avB().getTitle();
+        if (eVar != null && eVar.avE() != null) {
+            this.threadTitle = eVar.avE().getTitle();
             if (StringUtils.isNull(this.threadTitle)) {
-                this.threadTitle = eVar.avB().qS();
+                this.threadTitle = eVar.avE().qT();
             }
-            this.dmI = eVar.avB().qY() == 1;
+            this.dmI = eVar.avE().qZ() == 1;
         }
         if (z3) {
             a(eVar, z, i, z2);
@@ -213,33 +213,33 @@ public class dz {
         MessageManager.getInstance().unRegisterListener(this.dmM);
     }
 
-    public int ays() {
+    public int ayv() {
         return this.dmG;
     }
 
-    public void lV(int i) {
+    public void lU(int i) {
         this.dmG = i;
     }
 
-    public int ayt() {
-        if (this.pbData == null || this.pbData.avC() == null) {
+    public int ayw() {
+        if (this.pbData == null || this.pbData.avF() == null) {
             return -1;
         }
-        if (this.dmC >= 0 && this.dmC < this.pbData.avC().size()) {
-            this.dmF = this.pbData.avC().get(this.dmC);
+        if (this.dmC >= 0 && this.dmC < this.pbData.avF().size()) {
+            this.dmF = this.pbData.avF().get(this.dmC);
         }
         if (this.dmF != null) {
-            return this.dmF.aTS();
+            return this.dmF.aTY();
         }
         return -1;
     }
 
-    public com.baidu.tieba.tbadkCore.data.s ayu() {
-        if (this.pbData == null || this.pbData.avC() == null) {
+    public com.baidu.tieba.tbadkCore.data.s ayx() {
+        if (this.pbData == null || this.pbData.avF() == null) {
             return null;
         }
-        if (this.dmC >= 0 && this.dmC < this.pbData.avC().size()) {
-            this.dmF = this.pbData.avC().get(this.dmC);
+        if (this.dmC >= 0 && this.dmC < this.pbData.avF().size()) {
+            this.dmF = this.pbData.avF().get(this.dmC);
         }
         return this.dmF;
     }

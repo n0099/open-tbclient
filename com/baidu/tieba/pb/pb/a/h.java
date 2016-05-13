@@ -21,7 +21,7 @@ public class h implements a.b {
         com.baidu.tieba.pb.data.e eVar2;
         com.baidu.tieba.pb.data.e eVar3;
         aVar.dismiss();
-        this.dgb.lF(1);
+        this.dgb.lE(1);
         eVar = this.dgb.dfY;
         if (eVar != null) {
             aw awVar = new aw("c10398");

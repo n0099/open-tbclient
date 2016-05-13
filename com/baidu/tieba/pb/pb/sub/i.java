@@ -50,65 +50,65 @@ public class i implements TbRichTextView.d {
         int i3;
         try {
             apVar = this.dqn.dqc;
-            com.baidu.tieba.pb.data.h aAn = apVar.aAn();
+            com.baidu.tieba.pb.data.h aAq = apVar.aAq();
             ar = this.dqn.ar(str, i);
             com.baidu.tbadk.widget.richText.c cVar = null;
-            if (ar != null && ar.GC() != null) {
-                ArrayList<com.baidu.tbadk.widget.richText.c> GC = ar.GC();
+            if (ar != null && ar.GE() != null) {
+                ArrayList<com.baidu.tbadk.widget.richText.c> GE = ar.GE();
                 i3 = this.dqn.djt;
-                cVar = GC.get(i3);
+                cVar = GE.get(i3);
             }
             if (cVar != null) {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap3 = new ConcurrentHashMap<>();
-                if (cVar.GH().GT()) {
+                if (cVar.GJ().GV()) {
                     this.dqn.dju = false;
                     String str5 = "";
-                    com.baidu.tieba.tbadkCore.data.s avO = aAn.avO();
-                    com.baidu.tbadk.widget.richText.a amw = avO.amw();
+                    com.baidu.tieba.tbadkCore.data.s avR = aAq.avR();
+                    com.baidu.tbadk.widget.richText.a amz = avR.amz();
                     int size = arrayList3.size();
-                    a = this.dqn.a(amw, ar, i, i, arrayList3, concurrentHashMap3);
+                    a = this.dqn.a(amz, ar, i, i, arrayList3, concurrentHashMap3);
                     int size2 = arrayList3.size();
                     if (size != size2) {
                         str5 = arrayList3.get(size2 - 1);
                     }
-                    ArrayList<com.baidu.tieba.tbadkCore.data.s> aTR = avO.aTR();
+                    ArrayList<com.baidu.tieba.tbadkCore.data.s> aTX = avR.aTX();
                     int i4 = 0;
                     while (true) {
                         int i5 = i4;
-                        if (i5 >= aTR.size()) {
+                        if (i5 >= aTX.size()) {
                             break;
                         }
-                        a = this.dqn.a(aTR.get(i5).amw(), ar, a, i, arrayList3, concurrentHashMap3);
+                        a = this.dqn.a(aTX.get(i5).amz(), ar, a, i, arrayList3, concurrentHashMap3);
                         i4 = i5 + 1;
                     }
                     String str6 = null;
                     String str7 = null;
                     String str8 = null;
-                    if (aAn == null) {
+                    if (aAq == null) {
                         str2 = null;
                         str3 = null;
                         z = false;
                     } else {
-                        if (aAn.avV() != null) {
-                            str6 = aAn.avV().getName();
-                            str7 = aAn.avV().getId();
+                        if (aAq.avY() != null) {
+                            str6 = aAq.avY().getName();
+                            str7 = aAq.avY().getId();
                         }
-                        if (aAn.Kl() != null) {
-                            str8 = aAn.Kl().getId();
+                        if (aAq.Kn() != null) {
+                            str8 = aAq.Kn().getId();
                         }
                         str2 = str8;
                         str3 = str6;
                         z = true;
                     }
                     apVar2 = this.dqn.dqc;
-                    if (apVar2.aAE() != null) {
+                    if (apVar2.aAH() != null) {
                         apVar3 = this.dqn.dqc;
-                        concurrentHashMap = apVar3.aAE();
+                        concurrentHashMap = apVar3.aAH();
                         apVar4 = this.dqn.dqc;
-                        z2 = apVar4.aAG();
+                        z2 = apVar4.aAJ();
                         apVar5 = this.dqn.dqc;
-                        arrayList = apVar5.aAF();
+                        arrayList = apVar5.aAI();
                         apVar6 = this.dqn.dqc;
                         i2 = a + apVar6.getOffset();
                     } else {
@@ -130,28 +130,28 @@ public class i implements TbRichTextView.d {
                 String str9 = null;
                 String str10 = null;
                 String str11 = null;
-                if (aAn == null) {
+                if (aAq == null) {
                     str4 = null;
                     z4 = false;
                 } else {
-                    if (aAn.avV() != null) {
-                        str9 = aAn.avV().getName();
-                        str10 = aAn.avV().getId();
+                    if (aAq.avY() != null) {
+                        str9 = aAq.avY().getName();
+                        str10 = aAq.avY().getId();
                     }
-                    if (aAn.Kl() != null) {
-                        str11 = aAn.Kl().getId();
+                    if (aAq.Kn() != null) {
+                        str11 = aAq.Kn().getId();
                     }
                     str4 = str11;
                     z4 = true;
                 }
                 apVar7 = this.dqn.dqc;
-                if (apVar7.aAE() != null) {
+                if (apVar7.aAH() != null) {
                     apVar8 = this.dqn.dqc;
-                    concurrentHashMap2 = apVar8.aAE();
+                    concurrentHashMap2 = apVar8.aAH();
                     apVar9 = this.dqn.dqc;
-                    z5 = apVar9.aAG();
+                    z5 = apVar9.aAJ();
                     apVar10 = this.dqn.dqc;
-                    arrayList2 = apVar10.aAF();
+                    arrayList2 = apVar10.aAI();
                 } else {
                     concurrentHashMap2 = concurrentHashMap3;
                     arrayList2 = arrayList3;

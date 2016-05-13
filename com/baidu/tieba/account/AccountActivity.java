@@ -53,8 +53,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(t.h.account_activity);
-        HU();
-        HV();
+        HW();
+        HX();
         registerListener(this.aHX);
     }
 
@@ -69,15 +69,15 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HU() {
+    public void HW() {
         if (TbadkCoreApplication.m11getInst().isAccountsDataFromPass()) {
-            this.aHP = com.baidu.tbadk.coreExtra.a.a.wg().wj();
+            this.aHP = com.baidu.tbadk.coreExtra.a.a.wh().wk();
         } else {
             this.aHP = com.baidu.tbadk.core.a.b.oo();
         }
     }
 
-    private void HV() {
+    private void HX() {
         this.aHR = (RelativeLayout) findViewById(t.g.account_container);
         this.aHT = new com.baidu.tieba.account.c(this);
         this.mNavigationBar = (NavigationBar) findViewById(t.g.view_navigation_bar);
@@ -104,9 +104,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             this.auq = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
             this.auq.a(new g(this));
         }
-        this.auq.zq();
+        this.auq.zr();
         this.auq.h(accountData);
-        this.auq.zm();
+        this.auq.zn();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -126,7 +126,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         this.aHU = new d(accountData);
         this.aHU.setPriority(3);
         if (this.aHU != null) {
-            if (HX()) {
+            if (HZ()) {
                 this.mHandler.removeMessages(2);
                 Message obtainMessage = this.mHandler.obtainMessage(2);
                 obtainMessage.obj = accountData;
@@ -165,9 +165,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 }
                 this.mAccount.setIsActive(1);
                 com.baidu.tbadk.core.a.b.b(this.mAccount);
-                com.baidu.tbadk.coreExtra.a.c wg = com.baidu.tbadk.coreExtra.a.a.wg();
-                if (wg != null) {
-                    wg.f(this.mAccount);
+                com.baidu.tbadk.coreExtra.a.c wh = com.baidu.tbadk.coreExtra.a.a.wh();
+                if (wh != null) {
+                    wh.f(this.mAccount);
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);
@@ -209,7 +209,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             AccountActivity.this.closeLoadingDialog();
             AccountActivity.this.showToast(str2);
             if (i == 1 && this.akt != null) {
-                ReloginManager.sL().e(this.akt);
+                ReloginManager.sM().e(this.akt);
                 AccountActivity.this.a(false, this.akt);
             }
         }
@@ -236,14 +236,14 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             showLoadingDialog(getPageContext().getString(t.j.deleting), new i(this, z2));
             this.aHV = new a(z, accountData);
             this.aHV.setPriority(3);
-            HW();
+            HY();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HW() {
+    public void HY() {
         if (this.aHV != null) {
-            if (HX()) {
+            if (HZ()) {
                 this.mHandler.removeMessages(1);
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 200L);
                 return;
@@ -288,17 +288,17 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, this.aIb.getID()));
                     l.deleteAccountAllInfo(this.aIb.getID());
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    com.baidu.tbadk.core.sharedPref.b.sQ().remove("get_addresslist_switch" + this.aIb.getID());
+                    com.baidu.tbadk.core.sharedPref.b.sR().remove("get_addresslist_switch" + this.aIb.getID());
                     if (this.aIb.getID().equals(currentAccount)) {
-                        com.baidu.tbadk.coreExtra.a.c wg = com.baidu.tbadk.coreExtra.a.a.wg();
-                        if (wg != null) {
-                            wg.wi();
+                        com.baidu.tbadk.coreExtra.a.c wh = com.baidu.tbadk.coreExtra.a.a.wh();
+                        if (wh != null) {
+                            wh.wj();
                         }
                         this.mType = 2;
                     } else {
-                        com.baidu.tbadk.coreExtra.a.c wg2 = com.baidu.tbadk.coreExtra.a.a.wg();
-                        if (wg2 != null) {
-                            wg2.g(this.aIb);
+                        com.baidu.tbadk.coreExtra.a.c wh2 = com.baidu.tbadk.coreExtra.a.a.wh();
+                        if (wh2 != null) {
+                            wh2.g(this.aIb);
                         }
                         this.mType = 0;
                     }
@@ -364,16 +364,16 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public void run() {
             super.run();
             ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
-            abVar.tA().uu().YA = false;
-            abVar.tA().uu().mIsUseCurrentBDUSS = false;
+            abVar.tB().uv().YA = false;
+            abVar.tB().uv().mIsUseCurrentBDUSS = false;
             abVar.n("BDUSS", this.mZ);
             abVar.n("channel_id", TbadkCoreApplication.m11getInst().getPushChannelId());
             abVar.n("channel_uid", TbadkCoreApplication.m11getInst().getPushChannelUserId());
-            abVar.tc();
+            abVar.td();
         }
     }
 
-    private boolean HX() {
+    private boolean HZ() {
         return MessageManager.getInstance().getSocketClient().aS() > 0;
     }
 

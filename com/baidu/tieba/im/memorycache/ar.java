@@ -21,13 +21,13 @@ public class ar implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.g.aet().aeu();
-            com.baidu.tieba.im.db.c.aep().jf(this.cnU.getGid());
-            com.baidu.tieba.im.db.i.aex().c(this.cnU);
+            com.baidu.tieba.im.db.g.aev().aew();
+            com.baidu.tieba.im.db.c.aer().jf(this.cnU.getGid());
+            com.baidu.tieba.im.db.i.aez().c(this.cnU);
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
-            com.baidu.tieba.im.db.g.aet().endTransaction();
+            com.baidu.tieba.im.db.g.aev().endTransaction();
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_GROUP_CONFIRM_PASSED);
     }

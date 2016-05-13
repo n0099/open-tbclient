@@ -79,7 +79,7 @@ public class a extends bw<ax, d> {
         } else {
             dVar.btz.setVisibility(8);
         }
-        if (!axVar.rh() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
+        if (!axVar.ri() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
             dVar.btB.setVisibility(0);
             dVar.btC.setVisibility(0);
             dVar.btC.setText(axVar.getAddress());
@@ -88,7 +88,7 @@ public class a extends bw<ax, d> {
             dVar.btC.setVisibility(8);
         }
         s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
-        if (axVar.qY() == 1) {
+        if (axVar.qZ() == 1) {
             dVar.bty.setVisibility(8);
         } else {
             dVar.bty.setVisibility(0);
@@ -101,8 +101,8 @@ public class a extends bw<ax, d> {
             }
         }
         StringBuffer stringBuffer = new StringBuffer();
-        if (axVar.qS() != null && axVar.qS().trim().length() > 0) {
-            stringBuffer.append(axVar.qS());
+        if (axVar.qT() != null && axVar.qT().trim().length() > 0) {
+            stringBuffer.append(axVar.qT());
         }
         ArrayList<MediaData> medias = axVar.getMedias();
         if (medias != null) {
@@ -152,7 +152,7 @@ public class a extends bw<ax, d> {
         }
         dVar.btN.setText(com.baidu.tbadk.core.util.ay.x(axVar.getLast_time_int() * 1000));
         this.bts = axVar.qG();
-        if (this.bts.rA() == 1) {
+        if (this.bts.rB() == 1) {
             dVar.btv.setVisibility(0);
             dVar.btv.setTag(Integer.valueOf(i));
             dVar.btv.setOnClickListener(this.btt);
@@ -165,43 +165,43 @@ public class a extends bw<ax, d> {
                 dVar.btE.setText(this.bts.getLocation());
             }
             dVar.btF.setText(new SimpleDateFormat("MM月dd日 HH:mm").format(new Date(this.bts.getStartTime() * 1000)));
-            dVar.btG.setText(Integer.toString(this.bts.ry()));
-            dVar.btJ.setPortraitList(this.bts.rz());
+            dVar.btG.setText(Integer.toString(this.bts.rz()));
+            dVar.btJ.setPortraitList(this.bts.rA());
             return view;
         }
         dVar.btv.setVisibility(8);
         dVar.btw.setVisibility(0);
         dVar.btw.setTag(Integer.valueOf(i));
         dVar.btw.setOnClickListener(this.btt);
-        if (this.bts.rA() == 2) {
+        if (this.bts.rB() == 2) {
             dVar.livingTag.setVisibility(0);
         } else {
             dVar.livingTag.setVisibility(8);
         }
-        List<String> rv = this.bts.rv();
-        int size = rv == null ? 0 : rv.size();
-        if (rv != null && size > 0) {
-            dVar.image1.a(rv.get(0), 13, this.aOc, this.aOc, false);
+        List<String> rw = this.bts.rw();
+        int size = rw == null ? 0 : rw.size();
+        if (rw != null && size > 0) {
+            dVar.image1.a(rw.get(0), 13, this.aOc, this.aOc, false);
         } else {
             dVar.image1.a(null, 13, this.aOc, this.aOc, false);
         }
-        if (rv != null && size > 1) {
-            dVar.image2.a(rv.get(1), 13, this.aOc, this.aOc, false);
+        if (rw != null && size > 1) {
+            dVar.image2.a(rw.get(1), 13, this.aOc, this.aOc, false);
         } else {
             dVar.image2.a(null, 13, this.aOc, this.aOc, false);
         }
-        if (rv != null && size > 2) {
-            dVar.image3.a(rv.get(2), 13, this.aOc, this.aOc, false);
+        if (rw != null && size > 2) {
+            dVar.image3.a(rw.get(2), 13, this.aOc, this.aOc, false);
         } else {
             dVar.image3.a(null, 13, this.aOc, this.aOc, false);
         }
-        if (rv != null && size > 3) {
-            dVar.image4.a(rv.get(3), 13, this.aOc, this.aOc, false);
+        if (rw != null && size > 3) {
+            dVar.image4.a(rw.get(3), 13, this.aOc, this.aOc, false);
         } else {
             dVar.image4.a(null, 13, this.aOc, this.aOc, false);
         }
         dVar.btL.setText(this.bts.getActivityName());
-        dVar.btM.setText(Integer.toString(this.bts.rx()));
+        dVar.btM.setText(Integer.toString(this.bts.ry()));
         if (TextUtils.isEmpty(this.bts.getLocation())) {
             dVar.location.setVisibility(8);
             return view;

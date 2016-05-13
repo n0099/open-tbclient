@@ -52,14 +52,14 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean KM() {
-        if (!this.cyj.isLoading() && this.aSJ.DH() && alc()) {
+    public boolean KO() {
+        if (!this.cyj.isLoading() && this.aSJ.DI() && ale()) {
             this.aSJ.bI(true);
             this.aSJ.bK(true);
             this.cyi.d(this.cyl);
             this.cyj.setNeedCache(false);
-            this.cyj.Dy();
-            this.cyh.alx().d(this.aSJ);
+            this.cyj.Dz();
+            this.cyh.alz().d(this.aSJ);
             return true;
         }
         return false;
@@ -67,32 +67,32 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean ck(boolean z) {
-        if (this.cyj.isLoading() || !alc()) {
+        if (this.cyj.isLoading() || !ale()) {
             return false;
         }
         this.cyl = null;
         this.cyi.reset();
         this.cyj.setNeedCache(true);
-        this.cyj.Dy();
+        this.cyj.Dz();
         return true;
     }
 
-    protected boolean alc() {
+    protected boolean ale() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
         if (this.cym != null && this.cym.cyK != null) {
             this.cym.cyK.clear();
         }
-        this.cyh.alx().ale();
-        this.cyh.alx().a(this.cym);
+        this.cyh.alz().alg();
+        this.cyh.alz().a(this.cym);
         return false;
     }
 
     public boolean kX() {
-        if (alc()) {
-            if (this.cyh != null && this.cyh.alx() != null) {
-                this.cyh.alx().ald();
+        if (ale()) {
+            if (this.cyh != null && this.cyh.alz() != null) {
+                this.cyh.alz().alf();
             }
             this.cyk.a((com.baidu.tbadk.mvc.b.e) this.cyi);
             return true;
@@ -102,11 +102,11 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
 
     protected boolean a(h hVar, i iVar) {
         if (hVar.getUpdateType() != 4) {
-            this.cym.alr().clear();
+            this.cym.alt().clear();
         }
         this.cym.a(iVar);
-        if (iVar != null && iVar.alr() != null && iVar.alr().size() > 0) {
-            this.cyl = iVar.alr().get(iVar.alr().size() - 1);
+        if (iVar != null && iVar.alt() != null && iVar.alt().size() > 0) {
+            this.cyl = iVar.alt().get(iVar.alt().size() - 1);
             if (this.cym.getPage() != null) {
                 this.aSJ.bJ(this.cym.getPage().pK() == 1);
             } else {
@@ -123,14 +123,14 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
         }
         this.aSJ.bI(false);
         this.aSJ.bH(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.xi().xy();
-        this.cyh.alB().s(2, true);
+        com.baidu.tbadk.coreExtra.messageCenter.a.xj().xz();
+        this.cyh.alD().s(2, true);
         if (!TbadkCoreApplication.isLogin()) {
-            this.cym.alr().clear();
+            this.cym.alt().clear();
         } else {
-            this.cyh.alx().d(this.aSJ);
+            this.cyh.alz().d(this.aSJ);
         }
-        this.cyh.alx().a(this.cym);
+        this.cyh.alz().a(this.cym);
         return false;
     }
 
@@ -142,7 +142,7 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
         this.cyl = null;
         this.cyi.reset();
         this.cyj.setNeedCache(true);
-        this.cyj.Dy();
+        this.cyj.Dz();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0046a
@@ -152,7 +152,7 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<i> mvcHttpResponsedMessage, MvcHttpMessage<h, i> mvcHttpMessage, MvcNetMessage<h, i> mvcNetMessage) {
         i iVar;
-        this.cyh.alx().ale();
+        this.cyh.alz().alg();
         if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
             iVar = mvcHttpResponsedMessage.getData();
             r1 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -160,7 +160,7 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.xj().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -172,14 +172,14 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.cyh.a(errorData);
-            this.cyh.alx().a(errorData);
+            this.cyh.alz().a(errorData);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<i, ?> mvcSocketResponsedMessage, MvcSocketMessage<h, i> mvcSocketMessage, MvcNetMessage<h, i> mvcNetMessage) {
         i iVar;
-        this.cyh.alx().ale();
+        this.cyh.alz().alg();
         if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
             iVar = mvcSocketResponsedMessage.getData();
             r1 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
@@ -187,7 +187,7 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.xj().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -199,7 +199,7 @@ public class e extends com.baidu.adp.base.e<bf> implements NetModel.b<h, i>, a.I
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.cyh.a(errorData);
-            this.cyh.alx().a(errorData);
+            this.cyh.alz().a(errorData);
         }
     }
 

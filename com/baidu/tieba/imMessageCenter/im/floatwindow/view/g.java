@@ -21,8 +21,8 @@ public class g extends com.baidu.adp.lib.h.d {
         Animation animation2;
         this.cvL.cvF = false;
         animation2 = this.cvL.cvI;
-        if (animation == animation2 && this.cvL.ajL()) {
-            this.cvL.ajN();
+        if (animation == animation2 && this.cvL.ajN()) {
+            this.cvL.ajP();
         }
     }
 }

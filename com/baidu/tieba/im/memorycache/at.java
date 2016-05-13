@@ -17,7 +17,7 @@ class at implements CustomMessageTask.CustomRunnable<String> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        com.baidu.tieba.im.db.i.aex().c(this.cnH);
+        com.baidu.tieba.im.db.i.aez().c(this.cnH);
         return null;
     }
 }

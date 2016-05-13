@@ -54,7 +54,7 @@ public class q extends y.a {
         this.dgj = view.findViewById(t.g.line_view_left);
         this.dgk = view.findViewById(t.g.line_view_right);
         this.DM = view.findViewById(t.g.item_bottom_line_full);
-        this.dfT.Ho();
+        this.dfT.Hq();
         this.dfT.setImageViewStretch(true);
         int min = Math.min(((((com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.dfT.getPaddingLeft()) - this.dfT.getPaddingRight()) - ((int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds60)), i);
         this.dfT.setMaxImageWidth(min);

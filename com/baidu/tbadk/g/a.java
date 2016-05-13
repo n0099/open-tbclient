@@ -30,7 +30,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     private a() {
     }
 
-    public static a EX() {
+    public static a EY() {
         return ayS;
     }
 
@@ -61,7 +61,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 } else {
                     bdFileDownloadData.setStatus(1);
                     aoM.add(bdFileDownloadData);
-                    AU();
+                    AV();
                     return;
                 }
             }
@@ -90,13 +90,13 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 }
                 bdFileDownloadData.setStatus(1);
                 aoM.add(0, bdFileDownloadData);
-                AU();
+                AV();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AU() {
+    public void AV() {
         if (ayT == null && !aoM.isEmpty()) {
             ayT = aoM.get(0);
             if (ayT != null) {
@@ -166,7 +166,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 a.aoM.remove(0);
             }
             a.ayT = null;
-            a.this.AU();
+            a.this.AV();
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [407=4, 409=4, 410=4, 411=4, 346=4, 348=4, 349=4, 350=4] */
@@ -435,7 +435,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
             a.ayT = null;
             if (!a.aoM.isEmpty()) {
                 a.aoM.remove(0);
-                a.this.AU();
+                a.this.AV();
             }
         }
     }

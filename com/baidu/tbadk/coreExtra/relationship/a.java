@@ -13,7 +13,7 @@ public class a implements TbCheckBox.b {
     private String mUserName;
     private int mUserType;
 
-    public String yU() {
+    public String yV() {
         StringBuilder sb = new StringBuilder(64);
         if (this.mUserName != null) {
             sb.append(this.mUserName);
@@ -60,7 +60,7 @@ public class a implements TbCheckBox.b {
         this.ain = str;
     }
 
-    public String yV() {
+    public String yW() {
         return this.ain;
     }
 

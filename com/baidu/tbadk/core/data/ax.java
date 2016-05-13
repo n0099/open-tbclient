@@ -166,27 +166,31 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.anchorLevel = i;
     }
 
-    public boolean qH() {
-        return this.QM;
+    public int qH() {
+        return this.Qr;
     }
 
     public boolean qI() {
-        return this.QJ;
+        return this.QM;
     }
 
     public boolean qJ() {
+        return this.QJ;
+    }
+
+    public boolean qK() {
         return this.QK;
     }
 
-    public void bH(int i) {
+    public void bG(int i) {
         this.QL = i;
     }
 
-    public int qK() {
+    public int qL() {
         return this.QL;
     }
 
-    public PollInfo qL() {
+    public PollInfo qM() {
         return this.QI;
     }
 
@@ -262,7 +266,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return this.is_top;
     }
 
-    public void bI(int i) {
+    public void bH(int i) {
         this.is_top = i;
     }
 
@@ -270,15 +274,15 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return this.is_good;
     }
 
-    public void bJ(int i) {
+    public void bI(int i) {
         this.is_good = i;
     }
 
-    public int qM() {
+    public int qN() {
         return this.Qd;
     }
 
-    public bb qN() {
+    public bb qO() {
         return this.Qe;
     }
 
@@ -286,7 +290,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return this.author;
     }
 
-    public boolean qO() {
+    public boolean qP() {
         return (this.author == null || this.author.getGodUserData() == null || this.author.getGodUserData().getType() != 2) ? false : true;
     }
 
@@ -294,7 +298,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.author = metaData;
     }
 
-    public String qP() {
+    public String qQ() {
         return this.forum_name;
     }
 
@@ -302,15 +306,15 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.forum_name = str;
     }
 
-    public int qQ() {
+    public int qR() {
         return this.Qg;
     }
 
-    public String qR() {
+    public String qS() {
         return this.Qh;
     }
 
-    public String qS() {
+    public String qT() {
         return this.abstract_text;
     }
 
@@ -326,7 +330,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.isMarked = i;
     }
 
-    public String qT() {
+    public String qU() {
         return this.Qm;
     }
 
@@ -338,7 +342,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return this.Qj;
     }
 
-    public ArrayList<a> qU() {
+    public ArrayList<a> qV() {
         return this.Qx;
     }
 
@@ -346,15 +350,15 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.Qx = arrayList;
     }
 
-    public bf qV() {
+    public bf qW() {
         return this.Qy;
     }
 
-    public d qW() {
+    public d qX() {
         return this.Qz;
     }
 
-    public ArrayList<VoiceData.VoiceModel> qX() {
+    public ArrayList<VoiceData.VoiceModel> qY() {
         return this.Qk;
     }
 
@@ -366,7 +370,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.threadType = i;
     }
 
-    public int qY() {
+    public int qZ() {
         return this.Qo;
     }
 
@@ -378,11 +382,11 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.address = str;
     }
 
-    public String qZ() {
+    public String ra() {
         return this.Qv;
     }
 
-    public VideoInfo ra() {
+    public VideoInfo rb() {
         return this.Qt;
     }
 
@@ -394,7 +398,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.QD = str;
     }
 
-    public ArrayList<com.baidu.tbadk.coreExtra.view.n> rb() {
+    public ArrayList<com.baidu.tbadk.coreExtra.view.n> rc() {
         return this.Qs;
     }
 
@@ -407,7 +411,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return this.QF;
     }
 
-    public ai rc() {
+    public ai rd() {
         return this.QT;
     }
 
@@ -538,7 +542,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
                         for (int i5 = 0; i5 < size3; i5++) {
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
-                                nVar.dQ(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
+                                nVar.dP(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
                                 nVar.setLabelId(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 nVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
                                 this.Qs.add(nVar);
@@ -711,11 +715,11 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return this.Qi;
     }
 
-    public boolean rd() {
+    public boolean re() {
         return getIs_top() != 0;
     }
 
-    public int re() {
+    public int rf() {
         if (this.QP != null) {
             long qy = this.QP.qy();
             long qz = this.QP.qz();
@@ -731,8 +735,8 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return -1;
     }
 
-    public int rf() {
-        if (rh() && this.Qx.size() >= 1) {
+    public int rg() {
+        if (ri() && this.Qx.size() >= 1) {
             a aVar = this.Qx.get(0);
             int status = aVar.getStatus();
             if (status == 3) {
@@ -749,19 +753,19 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return -1;
     }
 
-    public int rg() {
-        if (!rh() || this.Qx.size() < 1 || this.Qx.get(0) == null) {
+    public int rh() {
+        if (!ri() || this.Qx.size() < 1 || this.Qx.get(0) == null) {
             return -1;
         }
         return this.Qx.get(0).or();
     }
 
-    public boolean rh() {
+    public boolean ri() {
         return this.Qq == 1;
     }
 
-    public String ri() {
-        return (!rh() || this.Qx.size() < 1 || this.Qx.get(0) == null) ? "" : this.Qx.get(0).getUrl();
+    public String rj() {
+        return (!ri() || this.Qx.size() < 1 || this.Qx.get(0) == null) ? "" : this.Qx.get(0).getUrl();
     }
 
     private com.baidu.adp.widget.d cv(String str) {
@@ -799,7 +803,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         SpannableString spannableString;
         if (this.title != null) {
             ArrayList arrayList = new ArrayList();
-            if (getThreadType() == 42 && rj()) {
+            if (getThreadType() == 42 && rk()) {
                 arrayList.add(Integer.valueOf(t.f.icon_convene));
             }
             if (getIs_top() == 1) {
@@ -807,22 +811,22 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
             } else if (getIs_top() == 2) {
                 arrayList.add(Integer.valueOf(t.f.icon_notice));
             }
-            if (qM() == 1 || this.Qe.rI() != 0) {
+            if (qN() == 1 || this.Qe.rJ() != 0) {
                 if (qF() != null && getThreadType() == 41) {
-                    if (re() == 2) {
+                    if (rf() == 2) {
                         arrayList.add(Integer.valueOf(t.f.label_interview));
                     }
                 } else {
                     arrayList.add(Integer.valueOf(t.f.icon_zhibo));
                 }
             }
-            if (z && rs()) {
-                Integer num = QC.get(Integer.valueOf(re()));
+            if (z && rt()) {
+                Integer num = QC.get(Integer.valueOf(rf()));
                 if (num != null) {
                     arrayList.add(num);
                 }
             }
-            if (getIs_good() == 1 && !rd()) {
+            if (getIs_good() == 1 && !re()) {
                 arrayList.add(Integer.valueOf(t.f.icon_elite));
             }
             if (getType() == PX || getType() == PY) {
@@ -834,21 +838,21 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
             if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
                 arrayList.add(Integer.valueOf(t.f.icon_live_on));
             }
-            if (qQ() == 1) {
+            if (qR() == 1) {
                 arrayList.add(Integer.valueOf(t.f.frs_post_ding));
             }
-            if (!z && rg() == 2) {
+            if (!z && rh() == 2) {
                 arrayList.add(Integer.valueOf(t.f.label_frs_activity_shai));
             } else {
-                Integer num2 = QB.get(new Point(rg(), rf()));
+                Integer num2 = QB.get(new Point(rh(), rg()));
                 if (num2 != null) {
                     arrayList.add(num2);
                 }
             }
-            if (qV() != null) {
+            if (qW() != null) {
                 arrayList.add(Integer.valueOf(t.f.tag_act));
             }
-            if (qW() != null) {
+            if (qX() != null) {
                 arrayList.add(Integer.valueOf(t.f.icon_tag_giftsend));
             }
             if (com.baidu.adp.lib.util.j.isEmpty(this.category_name)) {
@@ -869,10 +873,10 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
                 }
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap cA = com.baidu.tbadk.core.util.at.cA(((Integer) arrayList.get(i3)).intValue());
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(cA);
-                    if (cA != null) {
-                        bitmapDrawable.setBounds(0, 0, cA.getWidth(), cA.getHeight());
+                    Bitmap cz = com.baidu.tbadk.core.util.at.cz(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(cz);
+                    if (cz != null) {
+                        bitmapDrawable.setBounds(0, 0, cz.getWidth(), cz.getHeight());
                     }
                     com.baidu.tbadk.core.view.ah ahVar = new com.baidu.tbadk.core.view.ah(bitmapDrawable);
                     ahVar.setOffset(com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m11getInst().getApplicationContext(), this.Qa));
@@ -892,7 +896,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         }
     }
 
-    private boolean rj() {
+    private boolean rk() {
         return com.baidu.adp.lib.c.e.cS().Z("isConveneThreadOpen") == 1;
     }
 
@@ -900,7 +904,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         an(false);
     }
 
-    public void rk() {
+    public void rl() {
         an(true);
     }
 
@@ -912,15 +916,15 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return this.threadType == 33;
     }
 
-    public boolean rl() {
+    public boolean rm() {
         return this.threadType == 36;
     }
 
-    public boolean rm() {
+    public boolean rn() {
         return this.threadType == 40;
     }
 
-    public boolean rn() {
+    public boolean ro() {
         return this.threadType == 11 || this.Qn == 1;
     }
 
@@ -932,22 +936,22 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.post_num = i;
     }
 
-    public int ro() {
+    public int rp() {
         return this.Qw;
     }
 
-    public void bK(int i) {
+    public void bJ(int i) {
         this.Qw = i;
     }
 
-    public int rp() {
+    public int rq() {
         return this.QH;
     }
 
     @Override // com.baidu.tbadk.core.util.ak
     public ArrayList<com.baidu.tbadk.core.util.aj> getImages() {
         ArrayList<MediaData> medias = getMedias();
-        if (medias == null || rd()) {
+        if (medias == null || re()) {
             return null;
         }
         ArrayList<com.baidu.tbadk.core.util.aj> arrayList = new ArrayList<>();
@@ -980,7 +984,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return arrayList;
     }
 
-    public boolean rq() {
+    public boolean rr() {
         String userId;
         return this.author == null || (userId = this.author.getUserId()) == null || userId.equals("0");
     }
@@ -992,29 +996,29 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
             return PT;
         }
         if (this.Qt != null) {
-            if (qO()) {
+            if (qP()) {
                 return PW;
             }
             return PV;
-        } else if (qL() != null && getThreadType() == 36 && qL().type.intValue() == 2) {
+        } else if (qM() != null && getThreadType() == 36 && qM().type.intValue() == 2) {
             return PX;
         } else {
-            if (qL() != null && getThreadType() == 36 && qL().type.intValue() == 1) {
+            if (qM() != null && getThreadType() == 36 && qM().type.intValue() == 1) {
                 return PY;
             }
-            if (qF() != null && getThreadType() == 41 && qM() == 1 && re() == 2) {
+            if (qF() != null && getThreadType() == 41 && qN() == 1 && rf() == 2) {
                 return QO;
             }
-            if (rh() && rg() == 1) {
+            if (ri() && rh() == 1) {
                 return QU;
             }
             if (qG() != null && !TextUtils.isEmpty(qG().getActivityName())) {
                 return PZ;
             }
-            if (rh() && rg() == 2) {
+            if (ri() && rh() == 2) {
                 return QN;
             }
-            if (qO()) {
+            if (qP()) {
                 return PU;
             }
             return TYPE_NORMAL;
@@ -1025,7 +1029,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         return this.isHeadLive;
     }
 
-    public LiveCoverStatus rr() {
+    public LiveCoverStatus rs() {
         return this.QG;
     }
 
@@ -1059,11 +1063,11 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         }
     }
 
-    public boolean rs() {
+    public boolean rt() {
         return this.threadType == 41;
     }
 
-    public boolean rt() {
+    public boolean ru() {
         return this.QV;
     }
 
@@ -1071,7 +1075,7 @@ public class ax extends com.baidu.tieba.card.a.b implements com.baidu.adp.widget
         this.QV = z;
     }
 
-    public k ru() {
+    public k rv() {
         return this.QA;
     }
 }

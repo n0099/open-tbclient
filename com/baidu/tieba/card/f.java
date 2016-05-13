@@ -31,7 +31,7 @@ public abstract class f extends a<com.baidu.tieba.card.a.d> {
     protected boolean mIsFromCDN;
     private View mRootView;
 
-    protected abstract String JP();
+    protected abstract String JR();
 
     protected abstract void Q(View view);
 
@@ -61,22 +61,22 @@ public abstract class f extends a<com.baidu.tieba.card.a.d> {
         Q(view);
         this.mRootView.setOnClickListener(this);
         this.aOj.setOnClickListener(this);
-        this.aOm.uO();
+        this.aOm.uP();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.c Kt = this.aOs.Kt();
-        if (Kt != null) {
+        com.baidu.tbadk.core.data.c Kv = this.aOs.Kv();
+        if (Kv != null) {
             int i = this.aOs.mPn;
             String str = this.aOs.aRF;
             boolean z = view == this.aOj;
-            if (Kt.oH()) {
-                b(Kt);
+            if (Kv.oH()) {
+                b(Kv);
             } else {
-                a(Kt, this.aOs.getPosition(), this.aOj, this.aOm, z);
+                a(Kv, this.aOs.getPosition(), this.aOj, this.aOm, z);
             }
-            a(Kt, z ? false : true, i, str);
+            a(Kv, z ? false : true, i, str);
         }
     }
 
@@ -105,22 +105,22 @@ public abstract class f extends a<com.baidu.tieba.card.a.d> {
             this.mRootView.setVisibility(0);
         }
         this.aOs = dVar;
-        this.aOg.c(dVar.Ko(), 10, false);
+        this.aOg.c(dVar.Kq(), 10, false);
         this.aOh.setText(UtilHelper.getFixedText(dVar.getUserName(), 7, true));
-        String Kp = dVar.Kp();
-        if (!TextUtils.isEmpty(Kp)) {
-            this.aOi.setText(getFixedChineseString(com.baidu.tbadk.core.util.ay.c(Kp, 29, "...")));
+        String Kr = dVar.Kr();
+        if (!TextUtils.isEmpty(Kr)) {
+            this.aOi.setText(getFixedChineseString(com.baidu.tbadk.core.util.ay.c(Kr, 29, "...")));
         } else {
             this.aOi.setVisibility(8);
         }
         a(com.baidu.tbadk.core.l.ob().oh(), dVar);
-        String Kq = dVar.Kq();
-        boolean z2 = dVar.oH() && TextUtils.isEmpty(Kq);
+        String Ks = dVar.Ks();
+        boolean z2 = dVar.oH() && TextUtils.isEmpty(Ks);
         a(this.aOj, !z2);
         if (dVar.oG()) {
-            DownloadData b = b(dVar.Kt(), this.aOs.getPosition());
+            DownloadData b = b(dVar.Kv(), this.aOs.getPosition());
             b.setStatus(AppDownloadView.b(b));
-            a(this.aOj, b.getStatus(), Kq);
+            a(this.aOj, b.getStatus(), Ks);
             this.aOm.a(com.baidu.tieba.card.a.d.aRC, b);
             if (b.getStatus() != 5 && b.getStatus() != 1 && b.getStatus() != 7) {
                 z = false;
@@ -128,8 +128,8 @@ public abstract class f extends a<com.baidu.tieba.card.a.d> {
             this.aOm.setVisibility(z ? 0 : 8);
             return;
         }
-        if (!z2 && !TextUtils.isEmpty(Kq)) {
-            this.aOj.setText(Kq);
+        if (!z2 && !TextUtils.isEmpty(Ks)) {
+            this.aOj.setText(Ks);
         }
         this.aOm.setVisibility(8);
     }
@@ -227,7 +227,7 @@ public abstract class f extends a<com.baidu.tieba.card.a.d> {
 
     private void b(com.baidu.tbadk.core.data.c cVar) {
         if (cVar != null) {
-            com.baidu.tbadk.core.util.bg.us().a(getTbPageContext(), new String[]{cVar.MQ}, true);
+            com.baidu.tbadk.core.util.bg.ut().a(getTbPageContext(), new String[]{cVar.MQ}, true);
         }
     }
 
@@ -249,7 +249,7 @@ public abstract class f extends a<com.baidu.tieba.card.a.d> {
                 aVar.cA(trim);
                 aVar.a(t.j.alert_yes_button, new g(this, cVar, i));
                 aVar.b(t.j.alert_no_button, new h(this));
-                aVar.b(getTbPageContext()).rU();
+                aVar.b(getTbPageContext()).rV();
             }
         }
     }
@@ -268,7 +268,7 @@ public abstract class f extends a<com.baidu.tieba.card.a.d> {
     }
 
     private void a(com.baidu.tbadk.core.data.c cVar, boolean z, int i, String str) {
-        com.baidu.tbadk.distribute.a.AK().a(cVar, str, 0L, JP(), "click", i);
-        com.baidu.tieba.recapp.report.b.aLG().a(com.baidu.tieba.recapp.report.e.a(cVar, "click", i));
+        com.baidu.tbadk.distribute.a.AL().a(cVar, str, 0L, JR(), "click", i);
+        com.baidu.tieba.recapp.report.b.aLJ().a(com.baidu.tieba.recapp.report.e.a(cVar, "click", i));
     }
 }

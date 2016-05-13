@@ -76,13 +76,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         this.bDI = (ProgressBar) findViewById(t.g.progress);
     }
 
-    private void aiR() {
+    private void aiT() {
         this.csz.setVisibility(8);
         this.csA.setVisibility(0);
         ((AnimationDrawable) this.csA.getBackground()).start();
     }
 
-    private void aiS() {
+    private void aiU() {
         ((AnimationDrawable) this.csA.getBackground()).stop();
         this.csA.clearAnimation();
         this.csz.setVisibility(0);
@@ -93,21 +93,21 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         try {
-            aiS();
+            aiU();
         } catch (Exception e) {
         }
     }
 
-    public void jL(int i) {
+    public void jK(int i) {
     }
 
-    public void jM(int i) {
+    public void jL(int i) {
         if (i == 3) {
             if (this.csz != null) {
                 this.csz.setVisibility(0);
             }
             this.bDI.setVisibility(4);
-            aiR();
+            aiT();
             VoiceMsgData v = com.baidu.tieba.im.util.h.v(this.cqW);
             if (v != null && v.getHas_read() != 1) {
                 v.setHas_read(1);
@@ -141,7 +141,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             }
             return;
         }
-        aiS();
+        aiU();
         if (i == 1) {
             if (this.csz != null) {
                 this.csz.setVisibility(0);
@@ -201,13 +201,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             setBubbleLength(this.csD.duration);
             setTag(this.csD);
             z(chatMessage);
-            jM(this.csD.voice_status.intValue());
+            jL(this.csD.voice_status.intValue());
         }
     }
 
     public void reset() {
         this.csD = null;
-        jM(1);
+        jL(1);
     }
 
     private void setBubbleLength(int i) {
@@ -243,13 +243,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void b(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
-            jM(voiceModel.voice_status.intValue());
+            jL(voiceModel.voice_status.intValue());
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-    public void aC(int i) {
-        jL(i);
+    public void aB(int i) {
+        jK(i);
         if (this.csD != null) {
             this.csD.elapse = i;
         }

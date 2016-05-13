@@ -15,11 +15,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class ak implements a.d {
-    final /* synthetic */ WriteActivity feb;
+    final /* synthetic */ WriteActivity fea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(WriteActivity writeActivity) {
-        this.feb = writeActivity;
+        this.fea = writeActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -34,72 +34,72 @@ class ak implements a.d {
         WriteData writeData8;
         WriteData writeData9;
         WriteData writeData10;
-        this.feb.Pk();
-        this.feb.closeLoadingDialog();
+        this.fea.Pm();
+        this.fea.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.feb.evE;
+            writeData2 = this.fea.evE;
             if (writeData2 != null) {
                 if (!z) {
                     if (oVar != null && writeData != null && oVar.getVcode_pic_url() != null) {
                         if (!AntiHelper.g(antiData)) {
                             writeData.setVcodeMD5(oVar.getVcode_md5());
                             writeData.setVcodeUrl(oVar.getVcode_pic_url());
-                            if (oVar.wF().equals("4")) {
-                                NewVcodeActivityConfig newVcodeActivityConfig = new NewVcodeActivityConfig(this.feb.getPageContext().getPageActivity(), 12006, writeData, false);
-                                z2 = this.feb.fda;
+                            if (oVar.wG().equals("4")) {
+                                NewVcodeActivityConfig newVcodeActivityConfig = new NewVcodeActivityConfig(this.fea.getPageContext().getPageActivity(), 12006, writeData, false);
+                                z2 = this.fea.fcZ;
                                 if (z2) {
                                     newVcodeActivityConfig.setHideFeedBackButton();
                                 }
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, newVcodeActivityConfig));
                                 return;
                             }
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.feb.getPageContext().getPageActivity(), writeData, 12006)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.fea.getPageContext().getPageActivity(), writeData, 12006)));
                             return;
                         }
-                        this.feb.a(false, postWriteCallBackData);
+                        this.fea.a(false, postWriteCallBackData);
                         return;
                     }
-                    this.feb.a(false, postWriteCallBackData);
+                    this.fea.a(false, postWriteCallBackData);
                     return;
                 }
-                this.feb.bC(z);
-                this.feb.a(true, postWriteCallBackData);
-                writeData3 = this.feb.evE;
+                this.fea.bC(z);
+                this.fea.a(true, postWriteCallBackData);
+                writeData3 = this.fea.evE;
                 if (writeData3.getType() == 0) {
-                    writeData10 = this.feb.evE;
+                    writeData10 = this.fea.evE;
                     com.baidu.tieba.tbadkCore.ae.b(writeData10.getForumId(), (WriteData) null);
                     if (postWriteCallBackData.getIsCopyTWZhibo() == 3) {
-                        this.feb.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.feb.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE_TARGET, 18003)));
+                        this.fea.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.fea.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE_TARGET, 18003)));
                     }
                 } else {
-                    writeData4 = this.feb.evE;
+                    writeData4 = this.fea.evE;
                     if (writeData4.getType() == 1) {
-                        writeData9 = this.feb.evE;
+                        writeData9 = this.fea.evE;
                         com.baidu.tieba.tbadkCore.ae.c(writeData9.getThreadId(), (WriteData) null);
                     } else {
-                        writeData5 = this.feb.evE;
+                        writeData5 = this.fea.evE;
                         if (writeData5.getType() == 4) {
-                            writeData8 = this.feb.evE;
+                            writeData8 = this.fea.evE;
                             com.baidu.tieba.tbadkCore.ae.b(String.valueOf(writeData8.getForumId()) + "photolive", (WriteData) null);
                             if (postWriteCallBackData != null) {
-                                this.feb.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.feb.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE, 18003)));
+                                this.fea.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.fea.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE, 18003)));
                             }
                         } else {
-                            writeData6 = this.feb.evE;
+                            writeData6 = this.fea.evE;
                             if (writeData6.getType() == 5) {
-                                writeData7 = this.feb.evE;
+                                writeData7 = this.fea.evE;
                                 com.baidu.tieba.tbadkCore.ae.c(String.valueOf(writeData7.getThreadId()) + "updatephotolive", (WriteData) null);
                             }
                         }
                     }
                 }
-                this.feb.c(postWriteCallBackData);
+                this.fea.c(postWriteCallBackData);
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                 intent.putExtras(bundle);
-                this.feb.setResult(-1, intent);
-                this.feb.finish();
+                this.fea.setResult(-1, intent);
+                this.fea.finish();
             }
         }
     }

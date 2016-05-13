@@ -13,11 +13,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.widget.TbImageView;
@@ -49,9 +48,8 @@ public class ab {
     private int dag = -1;
     private FragmentTabHost.b exd = new ac(this);
     private com.baidu.tbadk.coreExtra.view.j auq = null;
-    private Runnable exe = new an(this);
-    private Runnable exf = new ap(this);
-    private final a.InterfaceC0033a Uk = new aq(this);
+    private Runnable exe = new ak(this);
+    private Runnable exf = new am(this);
 
     public ab(MainTabActivity mainTabActivity) {
         this.ewR = mainTabActivity;
@@ -61,16 +59,16 @@ public class ab {
         this.aTo = (FragmentTabHost) this.ewR.findViewById(t.g.tab_host);
         this.aTo.setup(this.ewR.getSupportFragmentManager());
         this.aTo.setOnTabSelectionListener(this.exd);
-        this.aTo.setFrameLayerClickListener(new as(this));
+        this.aTo.setFrameLayerClickListener(new an(this));
         if (MainTabActivityConfig.IS_INDICATOR_BOTTOM) {
             this.aTo.setShouldDrawIndicatorLine(false);
             this.aTo.setShouldDrawTopLine(true);
             this.aTo.d(0, TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds10), 0, 0);
             this.aTo.ax(true);
         }
-        this.aTo.setOnPageChangeListener(new at(this));
-        this.ewZ = com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("has_show_message_tab_tips", false);
-        Uv();
+        this.aTo.setOnPageChangeListener(new ao(this));
+        this.ewZ = com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("has_show_message_tab_tips", false);
+        Ux();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_FLOATING_LAYER_MAINTAB, this.ewR.getPageContext()));
         switchNaviBarStatus(z);
     }
@@ -82,11 +80,11 @@ public class ab {
         }
     }
 
-    public void aVG() {
-        com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("has_show_message_tab_tips", this.ewZ);
+    public void aVM() {
+        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("has_show_message_tab_tips", this.ewZ);
     }
 
-    public void aVH() {
+    public void aVN() {
         if (!this.ewZ) {
             if (this.mHandler == null) {
                 this.mHandler = new Handler();
@@ -95,7 +93,7 @@ public class ab {
         }
     }
 
-    public boolean aMn() {
+    public boolean aMq() {
         return this.dZc != null && this.dZc.getVisibility() == 0;
     }
 
@@ -126,19 +124,19 @@ public class ab {
         if (this.exa != null) {
             this.exa.onChangeSkinType(this.ewR.getPageContext(), i);
         }
-        com.baidu.tbadk.core.util.at.a(this.ewS, t.d.cp_cont_b, t.d.s_navbar_title_color, i);
-        com.baidu.tbadk.core.util.at.c(this.dZd, t.f.icon_news_down_bar_one);
-        com.baidu.tbadk.core.util.at.a(this.dZc, t.f.icon_game_bg_s, t.f.icon_game_bg);
-        com.baidu.tbadk.core.util.at.a(this.dZe, t.f.icon_search_bg_s, t.f.icon_search_bg);
-        com.baidu.tbadk.core.util.at.a(this.ewT, t.f.icon_sign_bg_s, t.f.icon_sign_bg);
-        com.baidu.tbadk.core.util.at.a(this.ewW, t.f.icon_message_bg_s, t.f.icon_message_bg);
+        at.a(this.ewS, t.d.cp_cont_b, t.d.s_navbar_title_color, i);
+        at.c(this.dZd, t.f.icon_news_down_bar_one);
+        at.a(this.dZc, t.f.icon_game_bg_s, t.f.icon_game_bg);
+        at.a(this.dZe, t.f.icon_search_bg_s, t.f.icon_search_bg);
+        at.a(this.ewT, t.f.icon_sign_bg_s, t.f.icon_sign_bg);
+        at.a(this.ewW, t.f.icon_message_bg_s, t.f.icon_message_bg);
         if (this.ewW.getVisibility() == 0 && this.ewX.getVisibility() == 0) {
             com.baidu.tbadk.i.a.a(this.ewR.getPageContext(), this.ewX);
         }
         if (TbadkCoreApplication.m11getInst().getSkinType() == 2) {
             this.ewV.setImageResource(t.f.s_icon_guanggao);
         } else {
-            com.baidu.tbadk.core.util.at.c(this.ewV, t.f.icon_guanggao_off);
+            at.c(this.ewV, t.f.icon_guanggao_off);
         }
         if (this.ewX != null) {
             r(this.ewX, this.exc);
@@ -151,42 +149,42 @@ public class ab {
             TbImageView tbImageView = (TbImageView) inflate.findViewById(t.g.member_icon);
             TextView textView = (TextView) inflate.findViewById(t.g.member_died_line_tip);
             boolean z = TbadkCoreApplication.m11getInst().getSkinType() == 1;
-            com.baidu.tbadk.core.util.at.c(textView, t.d.cp_cont_b, 1);
-            if (!StringUtils.isNull(gVar.AA())) {
-                textView.setText(gVar.AA());
+            at.c(textView, t.d.cp_cont_b, 1);
+            if (!StringUtils.isNull(gVar.AB())) {
+                textView.setText(gVar.AB());
             }
             if (!StringUtils.isNull(gVar.getUrl())) {
                 tbImageView.c(gVar.getUrl(), 21, false);
                 tbImageView.setIsNight(z);
             } else {
-                com.baidu.tbadk.core.util.at.c(tbImageView, t.f.icon_vip_advanced);
+                at.c(tbImageView, t.f.icon_vip_advanced);
             }
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.ewR.getPageContext().getPageActivity());
             aVar.z(inflate);
-            aVar.bN(t.d.cp_link_tip_d);
-            aVar.b(t.j.member_i_know, new au(this, aVar, i));
+            aVar.bM(t.d.cp_link_tip_d);
+            aVar.b(t.j.member_i_know, new ap(this, aVar, i));
             String string = this.ewR.getPageContext().getString(t.j.member_continue_pay);
             if (i == 0) {
                 string = this.ewR.getPageContext().getString(t.j.open_member);
             }
-            aVar.a(string, new av(this, aVar, i));
+            aVar.a(string, new aq(this, aVar, i));
             aVar.aq(false);
-            aVar.b(this.ewR.getPageContext()).rU();
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("show_member_deid_line", false);
+            aVar.b(this.ewR.getPageContext()).rV();
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("show_member_deid_line", false);
         }
     }
 
-    public void aVI() {
-        FragmentTabHost.c cm;
-        if (this.aTo != null && (cm = this.aTo.cm(this.aTo.getCurrentTabType())) != null && cm.Ve != null && cm.Ve.Dd() != null) {
-            String string = this.ewR.getPageContext().getString(cm.Ve.Dd().auX);
+    public void aVO() {
+        FragmentTabHost.c cl;
+        if (this.aTo != null && (cl = this.aTo.cl(this.aTo.getCurrentTabType())) != null && cl.Ve != null && cl.Ve.De() != null) {
+            String string = this.ewR.getPageContext().getString(cl.Ve.De().auX);
             if (this.ewS != null) {
                 this.ewS.setText(string);
             }
         }
     }
 
-    public void Uv() {
+    public void Ux() {
         this.mNavigationBar = (NavigationBar) this.ewR.findViewById(t.g.view_navigation_bar);
         if (this.mNavigationBar != null) {
             this.ewS = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, t.h.maintab_title_layout, (View.OnClickListener) null).findViewById(t.g.title_textview);
@@ -197,60 +195,41 @@ public class ab {
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.game_tip_view, (View.OnClickListener) null);
             this.dZc = (ImageView) addCustomView.findViewById(t.g.game_button_iv);
             this.dZd = (ImageView) addCustomView.findViewById(t.g.game_tip_msg_iv);
-            this.dZc.setOnClickListener(new aw(this));
+            this.dZc.setOnClickListener(new ar(this));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.setMargins(0, 0, com.baidu.adp.lib.util.k.c(this.ewR.getPageContext().getPageActivity(), t.e.ds16), 0);
             this.ewU = (ViewGroup) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.widget_nb_item_adkiller, (View.OnClickListener) null);
             this.ewV = (ImageView) this.ewU.findViewById(t.g.navigationBarGoAdKiller);
             this.ewU.setLayoutParams(layoutParams2);
             this.ewU.setVisibility(8);
-            this.ewV.setOnClickListener(new ad(this));
+            this.ewV.setOnClickListener(new as(this));
             View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.message_tip_view, (View.OnClickListener) null);
             this.ewW = (ImageView) addCustomView2.findViewById(t.g.message_button_iv);
             this.ewX = (TextView) addCustomView2.findViewById(t.g.message_tip_msg_iv);
-            aVJ();
-            this.ewW.setOnClickListener(new ae(this));
+            aVP();
+            this.ewW.setOnClickListener(new ad(this));
             this.dZe = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.widget_nb_item_search, (View.OnClickListener) null);
             this.dZe.setLayoutParams(layoutParams2);
             this.dZe.setVisibility(8);
-            this.dZe.setOnClickListener(new af(this));
+            this.dZe.setOnClickListener(new ae(this));
             this.ewT = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.widget_nb_item_signall, (View.OnClickListener) null);
             this.ewT.setLayoutParams(layoutParams2);
             this.ewT.setVisibility(8);
-            this.ewT.setOnClickListener(new ag(this));
-            this.mNavigationBar.setLoginClickListener(new ah(this));
-            this.mNavigationBar.setRegisterClickListener(new ai(this));
+            this.ewT.setOnClickListener(new af(this));
+            this.mNavigationBar.setLoginClickListener(new ag(this));
+            this.mNavigationBar.setRegisterClickListener(new ah(this));
         }
     }
 
-    public void aVJ() {
-        int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgReplyme();
-        int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgAtme();
-        int msgChat = ((msgReplyme + msgAtme) + com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgChat()) - com.baidu.tbadk.coreExtra.messageCenter.a.xi().xp();
+    public void aVP() {
+        int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgReplyme();
+        int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgAtme();
+        int msgChat = ((msgReplyme + msgAtme) + com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgChat()) - com.baidu.tbadk.coreExtra.messageCenter.a.xj().xq();
         if (msgChat == 0) {
             b(true, false, 0);
         } else {
             b(true, true, msgChat);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j(AccountData accountData) {
-        if (this.auq == null) {
-            this.auq = new com.baidu.tbadk.coreExtra.view.j(this.ewR.getPageContext());
-            this.auq.a(new aj(this));
-        }
-        this.auq.zq();
-        this.auq.h(accountData);
-        this.auq.zm();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void o(AccountData accountData) {
-        com.baidu.adp.lib.h.k.dM().b(new ak(this, accountData));
-        TbadkCoreApplication.setCurrentAccount(accountData, this.ewR.getPageContext().getPageActivity());
-        com.baidu.tbadk.browser.f.I(TbadkCoreApplication.m11getInst());
-        com.baidu.tbadk.core.e.b.b(this.ewR.getPageContext().getPageActivity(), 1, false);
     }
 
     public void jF(boolean z) {
@@ -284,18 +263,18 @@ public class ab {
         if (textView != null) {
             this.exc = i;
             textView.setVisibility(0);
-            com.baidu.tbadk.core.util.at.c(textView, t.d.frs_slidebar_message_text, 1);
+            at.c(textView, t.d.frs_slidebar_message_text, 1);
             if (i <= 0) {
                 textView.setVisibility(8);
             } else if (i < 10) {
                 textView.setText(String.valueOf(i));
-                com.baidu.tbadk.core.util.at.k(textView, t.f.icon_news_head_prompt_one);
+                at.k(textView, t.f.icon_news_head_prompt_one);
             } else if (i < 100) {
                 textView.setText(String.valueOf(i));
-                com.baidu.tbadk.core.util.at.k(textView, t.f.icon_news_head_prompt_two);
+                at.k(textView, t.f.icon_news_head_prompt_two);
             } else {
                 textView.setText("   ");
-                com.baidu.tbadk.core.util.at.k(textView, t.f.icon_news_head_prompt_more);
+                at.k(textView, t.f.icon_news_head_prompt_more);
             }
         }
     }
@@ -310,7 +289,7 @@ public class ab {
         this.daj = z;
         if (z) {
             if (this.exa == null) {
-                aVK();
+                aVQ();
             }
             this.exa.setVisibility(0);
             this.mNavigationBar.setVisibility(8);
@@ -322,14 +301,14 @@ public class ab {
         this.mNavigationBar.setVisibility(0);
     }
 
-    public boolean atX() {
+    public boolean aua() {
         return this.daj;
     }
 
-    private void aVK() {
+    private void aVQ() {
         this.exa = (NavigationBar) ((ViewStub) this.ewR.findViewById(t.g.viewstub_navigation_bar_in_edit)).inflate();
-        this.exa.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, t.h.enter_forum_edit_cancel, new al(this));
-        this.exb = this.exa.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.enter_forum_edit_confirm, new am(this));
+        this.exa.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, t.h.enter_forum_edit_cancel, new ai(this));
+        this.exb = this.exa.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.enter_forum_edit_confirm, new aj(this));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, com.baidu.adp.lib.util.k.c(this.ewR.getPageContext().getPageActivity(), t.e.ds16), 0);
         this.exb.setLayoutParams(layoutParams);
@@ -341,7 +320,7 @@ public class ab {
             if (this.dZd.getVisibility() != 0) {
                 this.dZd.setVisibility(0);
                 iQ(true);
-                com.baidu.tbadk.core.util.at.c(this.dZd, t.f.icon_news_down_bar_one);
+                at.c(this.dZd, t.f.icon_news_down_bar_one);
                 return;
             }
             return;
@@ -369,15 +348,15 @@ public class ab {
         while (it.hasNext()) {
             com.baidu.tbadk.mainTab.b next = it.next();
             if (next != null && next.isAvailable()) {
-                a(next, next.Dd(), next.ai(this.ewR.getPageContext().getPageActivity()));
+                a(next, next.De(), next.ai(this.ewR.getPageContext().getPageActivity()));
             }
         }
         if (TbadkCoreApplication.m11getInst().getSkinType() == 2 && TbadkCoreApplication.m11getInst().isThemeIconCover()) {
-            this.aTo.ci(2);
+            this.aTo.ch(2);
         } else if (MainTabActivityConfig.IS_INDICATOR_BOTTOM) {
-            this.aTo.ci(1);
+            this.aTo.ch(1);
         } else {
-            this.aTo.ci(0);
+            this.aTo.ch(0);
         }
         this.aTo.setViewPagerScrollable(false);
     }
@@ -397,7 +376,7 @@ public class ab {
                 fragmentTabIndicator.setTextSize(0, this.ewR.getResources().getDimension(t.e.fontsize32));
                 fragmentTabIndicator.setTextColorResId(t.d.s_tabbar_text_color);
             }
-            fragmentTabIndicator.cW(TbadkCoreApplication.m11getInst().getSkinType());
+            fragmentTabIndicator.cV(TbadkCoreApplication.m11getInst().getSkinType());
             fragmentTabIndicator.setTipPosType(1);
             cVar2.Vc = fragmentTabIndicator;
             cVar2.Ve = bVar;
@@ -405,11 +384,11 @@ public class ab {
         }
     }
 
-    public FragmentTabHost aVL() {
+    public FragmentTabHost aVR() {
         return this.aTo;
     }
 
-    public void aVM() {
+    public void aVS() {
         String currentAccount;
         if (this.aTo != null) {
             if (this.aTo.getCurrentTabType() == 8 || this.aTo.getCurrentTabType() == 14 || this.aTo.getCurrentTabType() == 2) {
@@ -420,7 +399,7 @@ public class ab {
                     this.exa.setVisibility(8);
                 }
             } else {
-                fX(atX());
+                fX(aua());
             }
             if (this.aTo.getCurrentTabType() == 6 || this.dag == 6) {
                 TbadkCoreApplication.m11getInst().setFriendFeedNew(false);
@@ -439,7 +418,7 @@ public class ab {
                 } else {
                     currentAccount = TbadkCoreApplication.getCurrentAccount();
                 }
-                com.baidu.tbadk.core.sharedPref.b.sQ().putLong("maintab_member_center_red_tip_" + currentAccount, System.currentTimeMillis() / 1000);
+                com.baidu.tbadk.core.sharedPref.b.sR().putLong("maintab_member_center_red_tip_" + currentAccount, System.currentTimeMillis() / 1000);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_MEMBER_RED_TIP, false));
             }
             if (this.aTo.getCurrentTabType() != 1) {
@@ -452,7 +431,7 @@ public class ab {
                     this.Ey = null;
                 }
             } else if (this.ewY) {
-                aVH();
+                aVN();
             }
         }
     }

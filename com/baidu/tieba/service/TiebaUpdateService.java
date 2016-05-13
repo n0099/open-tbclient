@@ -230,8 +230,8 @@ public class TiebaUpdateService extends BdBaseService {
                     this.LL = new ab(TiebaUpdateService.this.mMainApkUrl);
                     bool2 = Boolean.valueOf(this.LL.a(String.valueOf(TiebaUpdateService.this.mMainApkFileName) + ".tmp", TiebaUpdateService.this.mMainApkHandler, 0));
                     if (!bool2.booleanValue()) {
-                        if (this.LL.tE() != -2) {
-                            if (!this.LL.tA().uv().dm()) {
+                        if (this.LL.tF() != -2) {
+                            if (!this.LL.tB().uw().dm()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception e2) {
@@ -341,11 +341,11 @@ public class TiebaUpdateService extends BdBaseService {
                     bool2 = Boolean.valueOf(this.LL.a(String.valueOf(TiebaUpdateService.this.mOtherApkFileName) + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
                     if (bool2.booleanValue()) {
                         break;
-                    } else if (this.LL.tE() == -2) {
+                    } else if (this.LL.tF() == -2) {
                         bool = bool2;
                         break;
                     } else {
-                        if (!this.LL.tA().uv().dm()) {
+                        if (!this.LL.tB().uw().dm()) {
                             try {
                                 Thread.sleep(10000L);
                             } catch (Exception e2) {

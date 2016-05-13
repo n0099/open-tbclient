@@ -37,9 +37,9 @@ class fz implements cw.a {
                     ecVar2 = this.dpB.mReaderModel;
                     com.baidu.tieba.pb.data.e pbData = ecVar2.getPbData();
                     ecVar3 = this.dpB.mReaderModel;
-                    boolean ayy = ecVar3.ayy();
+                    boolean ayB = ecVar3.ayB();
                     ecVar4 = this.dpB.mReaderModel;
-                    dzVar2.b(pbData, ayy, i2, ecVar4.ayz());
+                    dzVar2.b(pbData, ayB, i2, ecVar4.ayC());
                 }
             }
         }

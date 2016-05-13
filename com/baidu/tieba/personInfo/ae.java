@@ -30,7 +30,7 @@ class ae implements NoNetworkView.a {
                         }
                     }
                     bgVar3 = this.this$0.dyP;
-                    bgVar3.aDF();
+                    bgVar3.aDI();
                 }
             }
         }

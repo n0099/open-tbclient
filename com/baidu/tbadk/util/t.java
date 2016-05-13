@@ -68,7 +68,7 @@ public class t {
         }
     }
 
-    public static void FA() {
+    public static void FC() {
         BdAsyncTask.removeAllTask(aAl);
     }
 }

@@ -46,8 +46,8 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         this.dZt = new j(this, CmdConfigCustom.CMD_SET_NU_AGE_GUIDE);
         this.dZu = new k(this, CmdConfigCustom.CMD_SET_INTEREST_GUIDE);
         setUniqueId(bdUniqueId);
-        KL();
-        KK();
+        KN();
+        KM();
         registerListener(this.cJp);
         registerListener(this.dZs);
         registerListener(this.dZt);
@@ -68,7 +68,7 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         recPersonalizeRequest.setPn(i4);
         recPersonalizeRequest.setSuggestCount(i5);
         recPersonalizeRequest.setTagCode(i2);
-        if ((!StringUtils.isNull(this.dZo) || !StringUtils.isNull(this.dZp)) && !com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("close_new_user_guide_tip", false)) {
+        if ((!StringUtils.isNull(this.dZo) || !StringUtils.isNull(this.dZp)) && !com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("close_new_user_guide_tip", false)) {
             recPersonalizeRequest.setSexTag(this.dZo);
             recPersonalizeRequest.seAgeTag(this.dZp);
         } else if (this.dZq != null) {
@@ -90,14 +90,14 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return false;
     }
 
-    private void KK() {
+    private void KM() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309264);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.h(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void KL() {
+    private void KN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, com.baidu.tieba.tbadkCore.a.a.ay(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
@@ -109,7 +109,7 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         if (!this.brj) {
             this.brj = true;
             com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n();
-            nVar.eM(1005);
+            nVar.eL(1005);
             nVar.pageType = 1;
             nVar.axK = false;
             nVar.isSuccess = responsedMessage.hasError() ? false : true;
@@ -135,7 +135,7 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         if (!this.brj) {
             this.brj = true;
             com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n();
-            nVar.eM(1005);
+            nVar.eL(1005);
             nVar.pageType = 1;
             nVar.axK = true;
             nVar.isSuccess = responsedMessage.hasError() ? false : true;
@@ -161,13 +161,13 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
     }
 
     public void d(com.baidu.tbadk.performanceLog.v vVar) {
-        if (vVar != null && com.baidu.tieba.recommendfrs.a.aLN().getCreateTime() > 0) {
-            long ol = com.baidu.tieba.recommendfrs.a.aLN().ol(1);
-            vVar.axx = com.baidu.tieba.recommendfrs.a.aLN().getCreateTime();
-            vVar.axE = com.baidu.tieba.recommendfrs.a.aLN().ok(1);
-            vVar.axF = ol + vVar.axx;
-            vVar.EH();
-            com.baidu.tieba.recommendfrs.a.aLN().setCreateTime(0L);
+        if (vVar != null && com.baidu.tieba.recommendfrs.a.aLQ().getCreateTime() > 0) {
+            long ok = com.baidu.tieba.recommendfrs.a.aLQ().ok(1);
+            vVar.axx = com.baidu.tieba.recommendfrs.a.aLQ().getCreateTime();
+            vVar.axE = com.baidu.tieba.recommendfrs.a.aLQ().oj(1);
+            vVar.axF = ok + vVar.axx;
+            vVar.EI();
+            com.baidu.tieba.recommendfrs.a.aLQ().setCreateTime(0L);
         }
     }
 }

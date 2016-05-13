@@ -16,7 +16,7 @@ public class h {
         this.name = str;
     }
 
-    public EmotionGroupType wx() {
+    public EmotionGroupType wy() {
         return this.afV;
     }
 
@@ -24,7 +24,7 @@ public class h {
         this.afV = emotionGroupType;
     }
 
-    public String wy() {
+    public String wz() {
         return this.pname;
     }
 

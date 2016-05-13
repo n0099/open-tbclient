@@ -19,10 +19,10 @@ public class b extends Handler {
     public void handleMessage(Message message) {
         switch (message.what) {
             case 202:
-                this.bpG.JU();
+                this.bpG.JW();
                 return;
             case 203:
-                this.bpG.JV();
+                this.bpG.JX();
                 return;
             default:
                 return;

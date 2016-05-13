@@ -11,13 +11,13 @@ public class aj implements AsyncImageLoader.IAsyncImageLoaderListener {
     final /* synthetic */ String b;
     final /* synthetic */ Uri cO;
     final /* synthetic */ ImageManager d;
-    final /* synthetic */ AsyncImageLoader.IAsyncImageLoaderListener fgH;
+    final /* synthetic */ AsyncImageLoader.IAsyncImageLoaderListener fgG;
 
     public aj(ImageManager imageManager, Uri uri, String str, AsyncImageLoader.IAsyncImageLoaderListener iAsyncImageLoaderListener) {
         this.d = imageManager;
         this.cO = uri;
         this.b = str;
-        this.fgH = iAsyncImageLoaderListener;
+        this.fgG = iAsyncImageLoaderListener;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
@@ -33,6 +33,6 @@ public class aj implements AsyncImageLoader.IAsyncImageLoaderListener {
                 memoryBitmapCache.a(this.b, bitmap);
             }
         }
-        this.fgH.onComplete(bitmap);
+        this.fgG.onComplete(bitmap);
     }
 }

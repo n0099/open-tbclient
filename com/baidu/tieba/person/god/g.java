@@ -27,7 +27,7 @@ public class g {
     private w mPullView;
     private View mRootView;
 
-    public BdTypeListView aCw() {
+    public BdTypeListView aCz() {
         return this.bej;
     }
 
@@ -48,9 +48,9 @@ public class g {
         this.bej.setPullRefresh(this.mPullView);
         this.bkd = new PbListView(baseActivity.getActivity());
         this.bkd.jn();
-        this.bkd.cR(t.d.cp_bg_line_c);
+        this.bkd.cQ(t.d.cp_bg_line_c);
         this.bkd.setTextColor(at.getColor(t.d.cp_cont_d));
-        this.bkd.cS(TbadkCoreApplication.m11getInst().getSkinType());
+        this.bkd.cR(TbadkCoreApplication.m11getInst().getSkinType());
         this.bej.setNextPage(this.bkd);
         this.dAa = this.bek.getResources().getDimensionPixelOffset(t.e.ds120);
         onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
@@ -59,10 +59,10 @@ public class g {
     public void onChangeSkinType(int i) {
         at.l(this.mRootView, this.dAb);
         if (this.mPullView != null) {
-            this.mPullView.cS(i);
+            this.mPullView.cR(i);
         }
         if (this.bkd != null) {
-            this.bkd.cS(i);
+            this.bkd.cR(i);
         }
         if (this.Ep != null) {
             this.Ep.onChangeSkinType(this.bek.getPageContext(), i);
@@ -91,7 +91,7 @@ public class g {
         this.bej.jy();
     }
 
-    public void Nn() {
+    public void Np() {
         this.bej.k(2000L);
     }
 
@@ -111,31 +111,31 @@ public class g {
         this.mNoDataView.setVisibility(0);
         this.bej.removeHeaderView(this.mNoDataView);
         this.bej.addHeaderView(this.mNoDataView);
-        aCy();
+        aCB();
         this.dAb = t.d.cp_bg_line_d;
         at.l(this.mRootView, this.dAb);
     }
 
-    public void OJ() {
+    public void OL() {
         if (this.bkd != null && this.bkd.getView() != null) {
             this.bkd.getView().setVisibility(0);
-            this.bkd.vg();
-            this.dAb = t.d.cp_bg_line_c;
-            at.l(this.mRootView, this.dAb);
-        }
-    }
-
-    public void aCx() {
-        if (this.bkd != null && this.bkd.getView() != null) {
-            this.bkd.getView().setVisibility(0);
-            this.bkd.setText(this.bek.getResources().getString(t.j.list_no_more_god_threads));
             this.bkd.vh();
             this.dAb = t.d.cp_bg_line_c;
             at.l(this.mRootView, this.dAb);
         }
     }
 
-    public void aCy() {
+    public void aCA() {
+        if (this.bkd != null && this.bkd.getView() != null) {
+            this.bkd.getView().setVisibility(0);
+            this.bkd.setText(this.bek.getResources().getString(t.j.list_no_more_god_threads));
+            this.bkd.vi();
+            this.dAb = t.d.cp_bg_line_c;
+            at.l(this.mRootView, this.dAb);
+        }
+    }
+
+    public void aCB() {
         if (this.bkd != null && this.bkd.getView() != null) {
             this.bkd.getView().setVisibility(8);
         }

@@ -27,11 +27,11 @@ public class w implements com.baidu.tbadk.mvc.b.a {
         return this.mName;
     }
 
-    public void pi(int i) {
+    public void ph(int i) {
         this.ero = i;
     }
 
-    public int aSV() {
+    public int aTb() {
         return this.ero;
     }
 

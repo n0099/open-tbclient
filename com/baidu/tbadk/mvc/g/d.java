@@ -24,7 +24,7 @@ public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends 
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public final int getItemViewType(int i) {
-        if (this.awb && DV()) {
+        if (this.awb && DW()) {
             return -1;
         }
         return super.getItemViewType(i);
@@ -32,10 +32,10 @@ public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends 
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (this.awb && DV()) {
-            return DU();
+        if (this.awb && DW()) {
+            return DV();
         }
-        DT();
+        DU();
         return a(view, i, (Class<?>) this.awi, this.awj);
     }
 }

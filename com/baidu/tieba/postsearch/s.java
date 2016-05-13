@@ -58,7 +58,7 @@ public class s extends BaseFragment implements BdListView.e {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.dVp == this.dUY.aKF().getCurrentTabType()) {
+        if (this.dVp == this.dUY.aKI().getCurrentTabType()) {
             iE(false);
         }
     }
@@ -70,7 +70,7 @@ public class s extends BaseFragment implements BdListView.e {
             com.baidu.tbadk.i.a.a(this.dUY.getPageContext(), this.mRootView);
         }
         if (this.bkd != null) {
-            this.bkd.cS(i);
+            this.bkd.cR(i);
         }
         if (this.dVn != null) {
             this.dVn.notifyDataSetChanged();
@@ -121,19 +121,19 @@ public class s extends BaseFragment implements BdListView.e {
             String str = this.dUY.cMj;
             if (!StringUtils.isNull(str)) {
                 boolean z2 = !str.equals(this.dVq) || z;
-                if (this.dVo == null || (this.dVo != null && !this.dVo.aih())) {
+                if (this.dVo == null || (this.dVo != null && !this.dVo.aij())) {
                     z2 = true;
                 }
                 if (z2) {
                     showLoadingView(this.mRootView, false, this.dUY.getResources().getDimensionPixelSize(t.e.ds320));
-                    this.dUY.aKE().au(str, this.dVp);
+                    this.dUY.aKH().au(str, this.dVp);
                     this.dVq = str;
                 }
             }
         }
     }
 
-    public void aKM() {
+    public void aKP() {
         if (this.dVo != null && this.dVo.dyd != null) {
             this.dVo.dyd.clear();
             this.dVn.clear();
@@ -150,25 +150,25 @@ public class s extends BaseFragment implements BdListView.e {
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void jA() {
-        if (!StringUtils.isNull(this.dVq) && this.dVo != null && this.dVo.isHasMore() && this.dUY.aKE().au(this.dVq, this.dVp)) {
-            aKN();
+        if (!StringUtils.isNull(this.dVq) && this.dVo != null && this.dVo.isHasMore() && this.dUY.aKH().au(this.dVq, this.dVp)) {
+            aKQ();
         }
     }
 
-    private void aKN() {
+    private void aKQ() {
         this.dVm.setNextPage(this.bkd);
-        this.bkd.vg();
+        this.bkd.vh();
     }
 
     private void Rg() {
         this.dVm.setNextPage(this.bkd);
-        this.bkd.vh();
+        this.bkd.vi();
         this.bkd.setText(this.dUY.getResources().getString(t.j.pb_load_more));
     }
 
     private void Rh() {
         this.dVm.setNextPage(this.bkd);
-        this.bkd.vh();
+        this.bkd.vi();
         this.bkd.setText(this.dUY.getResources().getString(t.j.list_no_more));
     }
 
@@ -180,7 +180,7 @@ public class s extends BaseFragment implements BdListView.e {
 
     private void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.dUY.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, com.baidu.adp.lib.util.k.c(this.dUY.getActivity(), t.e.ds320)), NoDataViewFactory.d.cP(t.j.no_search_result_record), null);
+            this.mNoDataView = NoDataViewFactory.a(this.dUY.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, com.baidu.adp.lib.util.k.c(this.dUY.getActivity(), t.e.ds320)), NoDataViewFactory.d.cO(t.j.no_search_result_record), null);
             this.mNoDataView.onChangeSkinType(this.dUY.getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);

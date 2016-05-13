@@ -191,7 +191,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int Bt() {
+    public int Bu() {
         return aqs.size();
     }
 

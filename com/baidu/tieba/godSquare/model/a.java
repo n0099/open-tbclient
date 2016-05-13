@@ -9,19 +9,19 @@ public class a {
     private final long bcV = TbConfig.APP_OVERDUR_DRAFT_BOX;
 
     public a() {
-        OQ();
+        OS();
     }
 
-    private void OQ() {
+    private void OS() {
         if (this.bcU == null) {
-            this.bcU = com.baidu.tbadk.core.b.a.rR().cw("tb.god_square");
+            this.bcU = com.baidu.tbadk.core.b.a.rS().cw("tb.god_square");
         }
     }
 
     public byte[] hC(String str) {
         o.b<byte[]> bVar;
         if (str != null) {
-            OQ();
+            OS();
             bVar = this.bcU.Q(str);
         } else {
             bVar = null;
@@ -34,7 +34,7 @@ public class a {
 
     public void j(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            OQ();
+            OS();
             this.bcU.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }

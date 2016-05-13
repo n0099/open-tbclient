@@ -21,7 +21,7 @@ public class ad implements com.baidu.tbadk.widget.layout.h {
             int lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
             bfVar = this.cyD.cyh;
             bfVar2 = this.cyD.cyh;
-            bfVar2.ka(lightStatusBarHeight + com.baidu.adp.lib.util.k.c(bfVar.getPageContext().getPageActivity(), t.e.ds98) + i2);
+            bfVar2.jZ(lightStatusBarHeight + com.baidu.adp.lib.util.k.c(bfVar.getPageContext().getPageActivity(), t.e.ds98) + i2);
         }
     }
 }

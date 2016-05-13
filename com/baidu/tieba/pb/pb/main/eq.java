@@ -28,7 +28,7 @@ public class eq implements Animation.AnimationListener {
         this.dpu.gS(false);
         z = this.dpu.doV;
         if (z) {
-            this.dpu.azA();
+            this.dpu.azD();
         }
         pbActivity = this.dpu.dhY;
         pbActivity.gz(true);

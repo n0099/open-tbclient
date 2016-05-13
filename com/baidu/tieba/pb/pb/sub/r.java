@@ -27,19 +27,19 @@ class r implements a.d {
             pVar = this.dqn.czd;
             if (pVar != null) {
                 pVar2 = this.dqn.czd;
-                if (pVar2.Bb() != null) {
+                if (pVar2.Bc() != null) {
                     pVar3 = this.dqn.czd;
-                    pVar3.Bb().hide();
+                    pVar3.Bc().hide();
                     apVar = this.dqn.dqc;
-                    if (apVar.aAx()) {
+                    if (apVar.aAA()) {
                         aw awVar = new aw("c10367");
                         apVar2 = this.dqn.dqc;
-                        TiebaStatic.log(awVar.ac("post_id", apVar2.BB()));
+                        TiebaStatic.log(awVar.ac("post_id", apVar2.BC()));
                     }
                 }
             }
         }
         yVar = this.dqn.dqe;
-        yVar.azZ();
+        yVar.aAc();
     }
 }

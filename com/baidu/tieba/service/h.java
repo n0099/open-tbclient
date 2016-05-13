@@ -22,11 +22,11 @@ class h implements a.InterfaceC0005a {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
                     cVar = this.edD.mModel;
-                    if (cVar.atH()) {
+                    if (cVar.atK()) {
                         cVar2 = this.edD.mModel;
                         cVar2.b(1, longitude, latitude);
                         cVar3 = this.edD.mModel;
-                        cVar3.atI();
+                        cVar3.atL();
                         return;
                     }
                     return;

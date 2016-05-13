@@ -20,13 +20,13 @@ public interface t {
 
     void n(String str, String str2);
 
-    ArrayList<BasicNameValuePair> tb();
+    ArrayList<BasicNameValuePair> tc();
 
-    String tc();
+    String td();
 
-    byte[] td();
-
-    String te();
+    byte[] te();
 
     String tf();
+
+    String tg();
 }

@@ -23,7 +23,7 @@ class bb implements View.OnClickListener {
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication.m11getInst().login(this.dwQ.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.dwQ.getBaseFragmentActivity().getPageContext().getPageActivity(), this.dwQ.getString(t.j.login_to_chat), true, 11028)));
         } else {
-            this.dwQ.atO();
+            this.dwQ.atR();
         }
     }
 }

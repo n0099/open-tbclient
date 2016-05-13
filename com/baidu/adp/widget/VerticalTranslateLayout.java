@@ -88,7 +88,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface f {
-        void ay(int i);
+        void ax(int i);
     }
 
     static {
@@ -199,7 +199,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     private boolean h(int i, int i2) {
-        return i >= this.wV - this.wN && i <= this.wV + this.wN && (i2 < this.wW - this.wN || i2 > this.wW + this.wN) && this.AZ.ap(i2 - this.wW);
+        return i >= this.wV - this.wN && i <= this.wV + this.wN && (i2 < this.wW - this.wN || i2 > this.wW + this.wN) && this.AZ.ao(i2 - this.wW);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -232,7 +232,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                                 this.AW = true;
                             }
                         }
-                        this.AZ.aq(this.AV - y);
+                        this.AZ.ap(this.AV - y);
                         this.AV = y;
                         this.AZ.xp.addMovement(motionEvent);
                         return true;
@@ -249,7 +249,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 }
                 if (!this.AZ.xq) {
                     this.AV = y;
-                    this.AZ.ap(y);
+                    this.AZ.ao(y);
                     break;
                 }
                 break;
@@ -267,7 +267,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 return true;
         }
         if (this.AZ.xq) {
-            this.AZ.aq(this.AV - y);
+            this.AZ.ap(this.AV - y);
             this.AV = y;
             this.AZ.xp.addMovement(motionEvent);
             return true;
@@ -398,7 +398,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             return iArr;
         }
 
-        boolean ap(int i) {
+        boolean ao(int i) {
             switch (ko()[this.Bd.AS.ordinal()]) {
                 case 1:
                     if (this.Bd.wR != 10004 && this.Bd.wR != 10000) {
@@ -412,7 +412,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     break;
                 case 3:
                     if (this.Bd.Bc != null) {
-                        this.Bd.Bc.ay(i);
+                        this.Bd.Bc.ax(i);
                         break;
                     }
                     break;
@@ -426,7 +426,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.xq = false;
         }
 
-        void aq(int i) {
+        void ap(int i) {
             if (this.xq) {
                 int i2 = this.Bd.AP - i;
                 switch (ko()[this.Bd.AS.ordinal()]) {

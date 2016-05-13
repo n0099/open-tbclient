@@ -29,7 +29,7 @@ public class a {
     private Vector<Long> cpE;
     private Handler mHandler;
 
-    public static a ahT() {
+    public static a ahV() {
         if (cpz == null) {
             synchronized (a.class) {
                 if (cpz == null) {
@@ -68,7 +68,7 @@ public class a {
         long j;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo W = i.aex().W(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            ImMessageCenterPojo W = i.aez().W(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
             if (!(W != null)) {
                 if (!this.cpE.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
@@ -180,7 +180,7 @@ public class a {
 
     private void b(long j, long j2, int i, long j3) {
         d dVar = new d(this, j2, j, i, j3);
-        this.cpA.postDelayed(dVar, e.ahU().bt().bu());
+        this.cpA.postDelayed(dVar, e.ahW().bt().bu());
         this.cpD.put(Long.valueOf(j2), dVar);
     }
 

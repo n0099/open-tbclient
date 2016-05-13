@@ -28,7 +28,7 @@ public class ao implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean aBY;
+        boolean aCb;
         boolean z;
         String str;
         BaseFragmentActivity baseFragmentActivity;
@@ -37,14 +37,14 @@ public class ao implements View.OnClickListener {
         BaseFragmentActivity baseFragmentActivity4;
         String str2;
         BaseFragmentActivity baseFragmentActivity5;
-        aBY = this.dyI.aBY();
-        if (!aBY) {
+        aCb = this.dyI.aCb();
+        if (!aCb) {
             baseFragmentActivity5 = this.dyI.cSp;
             baseFragmentActivity5.showToast(t.j.membership_load_fail);
             return;
         }
         if (this.dyJ.getUserData() != null && !ay.isEmpty(this.dyJ.getUserData().getUserId())) {
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("membership_first_launch" + this.dyJ.getUserData().getUserId(), false);
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("membership_first_launch" + this.dyJ.getUserData().getUserId(), false);
         }
         this.dyK.dBi.setVisibility(8);
         z = this.dyI.bJq;

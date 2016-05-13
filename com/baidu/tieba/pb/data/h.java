@@ -27,11 +27,11 @@ public class h {
     private ArrayList<s> dft = new ArrayList<>();
     private int dfu = 1;
 
-    public Error avN() {
+    public Error avQ() {
         return this.dfz;
     }
 
-    public s avO() {
+    public s avR() {
         return this.dfs;
     }
 
@@ -39,14 +39,14 @@ public class h {
         this.dfs = sVar;
     }
 
-    public int avP() {
+    public int avS() {
         if (this.dfw == -1) {
             this.dfw = this.brH;
         }
         return this.dfw;
     }
 
-    public int avQ() {
+    public int avT() {
         return this.dfw;
     }
 
@@ -54,26 +54,26 @@ public class h {
         if (hVar != null) {
             setAntiData(hVar.getAntiData());
             this.dfw = hVar.lk();
-            b(hVar.avV());
-            setPageSize(hVar.avU());
-            l(hVar.Kl());
+            b(hVar.avY());
+            setPageSize(hVar.avX());
+            l(hVar.Kn());
             setTotalCount(hVar.getTotalCount());
-            lC(hVar.avT());
-            this.dft.addAll(0, hVar.avS());
+            lB(hVar.avW());
+            this.dft.addAll(0, hVar.avV());
         }
     }
 
     public void b(h hVar, boolean z) {
         if (hVar != null) {
             setAntiData(hVar.getAntiData());
-            b(hVar.avV());
-            a(hVar.avO());
-            l(hVar.Kl());
-            if (hVar.avS() != null && hVar.avS().size() > 0) {
-                aG(hVar.lk());
-                setPageSize(hVar.avU());
+            b(hVar.avY());
+            a(hVar.avR());
+            l(hVar.Kn());
+            if (hVar.avV() != null && hVar.avV().size() > 0) {
+                aF(hVar.lk());
+                setPageSize(hVar.avX());
                 setTotalCount(hVar.getTotalCount());
-                lC(hVar.avT());
+                lB(hVar.avW());
             }
             int size = this.dft.size();
             if (z && size % this.dfv != 0) {
@@ -81,21 +81,21 @@ public class h {
                     this.dft.remove(this.dft.size() - 1);
                 }
             }
-            this.dft.addAll(hVar.avS());
+            this.dft.addAll(hVar.avV());
         }
     }
 
     public void c(h hVar, boolean z) {
         if (hVar != null) {
             setAntiData(hVar.getAntiData());
-            b(hVar.avV());
-            a(hVar.avO());
-            l(hVar.Kl());
-            if (hVar.avS() != null && hVar.avS().size() > 0) {
-                aG(hVar.lk());
-                setPageSize(hVar.avU());
+            b(hVar.avY());
+            a(hVar.avR());
+            l(hVar.Kn());
+            if (hVar.avV() != null && hVar.avV().size() > 0) {
+                aF(hVar.lk());
+                setPageSize(hVar.avX());
                 setTotalCount(hVar.getTotalCount());
-                lC(hVar.avT());
+                lB(hVar.avW());
             }
             int size = this.dft.size();
             if (z && size % this.dfv != 0) {
@@ -103,8 +103,8 @@ public class h {
                     this.dft.remove(this.dft.size() - 1);
                 }
             }
-            this.dft.addAll(hVar.avS());
-            avR();
+            this.dft.addAll(hVar.avV());
+            avU();
         }
     }
 
@@ -115,24 +115,24 @@ public class h {
     public void a(h hVar) {
         if (hVar != null) {
             setAntiData(hVar.getAntiData());
-            b(hVar.avV());
-            a(hVar.avO());
-            l(hVar.Kl());
-            if (hVar.avS() != null && hVar.avS().size() > 0) {
-                aG(hVar.lk());
-                setPageSize(hVar.avU());
+            b(hVar.avY());
+            a(hVar.avR());
+            l(hVar.Kn());
+            if (hVar.avV() != null && hVar.avV().size() > 0) {
+                aF(hVar.lk());
+                setPageSize(hVar.avX());
                 setTotalCount(hVar.getTotalCount());
-                lC(hVar.avT());
-                this.dfw = (this.brH - (((hVar.avS().size() - 1) + this.dfv) / this.dfv)) + 1;
+                lB(hVar.avW());
+                this.dfw = (this.brH - (((hVar.avV().size() - 1) + this.dfv) / this.dfv)) + 1;
                 if (this.dfw < 0) {
                     this.dfw = 0;
                 }
             }
-            this.dft.addAll(hVar.avS());
+            this.dft.addAll(hVar.avV());
         }
     }
 
-    public void avR() {
+    public void avU() {
         if (this.dfw < 0) {
             this.dfw = this.brH;
         } else if (this.dfw > this.brH) {
@@ -140,7 +140,7 @@ public class h {
         }
     }
 
-    public ArrayList<s> avS() {
+    public ArrayList<s> avV() {
         return this.dft;
     }
 
@@ -148,11 +148,11 @@ public class h {
         this.dft = arrayList;
     }
 
-    public int avT() {
+    public int avW() {
         return this.dfu;
     }
 
-    public void lC(int i) {
+    public void lB(int i) {
         this.dfu = i;
     }
 
@@ -164,7 +164,7 @@ public class h {
         this.asi = i;
     }
 
-    public int avU() {
+    public int avX() {
         return this.dfv;
     }
 
@@ -178,7 +178,7 @@ public class h {
         return this.brH;
     }
 
-    public void aG(int i) {
+    public void aF(int i) {
         this.brH = i;
     }
 
@@ -186,7 +186,7 @@ public class h {
         this.dfr = forumData;
     }
 
-    public ForumData avV() {
+    public ForumData avY() {
         return this.dfr;
     }
 
@@ -202,7 +202,7 @@ public class h {
         this.bgt = axVar;
     }
 
-    public boolean ahN() {
+    public boolean ahP() {
         return (this.bgt == null || this.dfs == null || this.bgt.getAuthor() == null || this.bgt.getAuthor().getUserId() == null || this.dfs.getAuthor() == null || this.dfs.getAuthor().getUserId() == null || !this.bgt.getAuthor().getUserId().equals(this.dfs.getAuthor().getUserId())) ? false : true;
     }
 
@@ -214,7 +214,7 @@ public class h {
         return this.brH < this.dfu;
     }
 
-    public ax Kl() {
+    public ax Kn() {
         return this.bgt;
     }
 
@@ -254,10 +254,10 @@ public class h {
                 int intValue2 = page.page_size.intValue() == 0 ? 20 : page.page_size.intValue();
                 int intValue3 = page.current_page.intValue();
                 int intValue4 = page.total_count.intValue();
-                hVar.aG(intValue3);
+                hVar.aF(intValue3);
                 hVar.setPageSize(intValue2);
                 hVar.setTotalCount(intValue4);
-                hVar.lC(intValue);
+                hVar.lB(intValue);
             }
             return hVar;
         } catch (Exception e) {

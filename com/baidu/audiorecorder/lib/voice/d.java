@@ -18,7 +18,7 @@ public class d implements Runnable {
         Runnable runnable;
         long currentTimeMillis = System.currentTimeMillis();
         j = this.Bq.Bo;
-        this.Bq.aA((int) (currentTimeMillis - j));
+        this.Bq.az((int) (currentTimeMillis - j));
         handler = this.Bq.pX;
         runnable = this.Bq.mRecordTimeThread;
         handler.postDelayed(runnable, 200L);

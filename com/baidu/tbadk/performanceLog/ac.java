@@ -4,12 +4,12 @@ import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 /* loaded from: classes.dex */
 public class ac extends z {
     public void a(v vVar) {
-        if (aa.EM().EN()) {
+        if (aa.EN().EO()) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
             dG.q("ishttp", vVar.axK ? "1" : "0");
             dG.q("issuccess", vVar.isSuccess ? "1" : "0");
-            dG.q("nettype", aa.EM().getNetType());
+            dG.q("nettype", aa.EN().getNetType());
             dG.q("wt", String.valueOf(vVar.axF));
             dG.q("qt", String.valueOf(vVar.axy));
             dG.q("connt", String.valueOf(vVar.axz));
@@ -54,7 +54,7 @@ public class ac extends z {
     }
 
     public void b(v vVar) {
-        if (aa.EM().EN() && vVar.axG > 0) {
+        if (aa.EN().EO() && vVar.axG > 0) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("action", "readCache");
             dG.q("rct", String.valueOf(vVar.axG));
@@ -63,7 +63,7 @@ public class ac extends z {
     }
 
     public void c(v vVar) {
-        if (aa.EM().EN() && vVar.axH > 0) {
+        if (aa.EN().EO() && vVar.axH > 0) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("action", "writeCache");
             dG.q("wct", String.valueOf(vVar.axH));
@@ -72,7 +72,7 @@ public class ac extends z {
     }
 
     public void a(u uVar, String str) {
-        if (uVar != null && str != null && aa.EM().EN()) {
+        if (uVar != null && str != null && aa.EN().EO()) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("action", "resource");
             dG.q("actype", str);
@@ -85,21 +85,21 @@ public class ac extends z {
     }
 
     public void g(e eVar) {
-        if (eVar != null && aa.EM().EN()) {
+        if (eVar != null && aa.EN().EO()) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("action", "fluency");
-            dG.q("fps", String.valueOf(eVar.Ew()));
-            dG.q("memp", String.valueOf(eVar.Ey()));
-            dG.q("cpu", String.valueOf(eVar.Ez()));
+            dG.q("fps", String.valueOf(eVar.Ex()));
+            dG.q("memp", String.valueOf(eVar.Ez()));
+            dG.q("cpu", String.valueOf(eVar.EA()));
             com.baidu.adp.lib.stats.a.dN().a(this.subType, dG);
         }
     }
 
     public void h(e eVar) {
-        if (aa.EM().EN()) {
+        if (aa.EN().EO()) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("action", "gc");
-            dG.q("gc", String.valueOf(eVar.Ex()));
+            dG.q("gc", String.valueOf(eVar.Ey()));
             com.baidu.adp.lib.stats.a.dN().a(this.subType, dG);
         }
     }

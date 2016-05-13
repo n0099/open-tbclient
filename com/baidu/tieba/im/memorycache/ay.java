@@ -20,15 +20,15 @@ class ay implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.g.aet().aeu();
-            com.baidu.tieba.im.db.i.aex().c(this.cnH);
+            com.baidu.tieba.im.db.g.aev().aew();
+            com.baidu.tieba.im.db.i.aez().c(this.cnH);
             if (this.cnH.getCustomGroupType() == 1) {
-                com.baidu.tieba.im.db.c.aep().jf(this.cnH.getGid());
+                com.baidu.tieba.im.db.c.aer().jf(this.cnH.getGid());
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            com.baidu.tieba.im.db.g.aet().endTransaction();
+            com.baidu.tieba.im.db.g.aev().endTransaction();
         }
         return new ResponseMemoryNotifyUpdataGroupMessage(this.cnH);
     }

@@ -28,7 +28,7 @@ public class d extends HttpMessageListener {
                 ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                 if (responseReportUserInfoMessage.getErrorCode() == 0) {
                     aVar3 = this.cZw.cZu;
-                    aVar3.lo(responseReportUserInfoMessage.getTimeInterval());
+                    aVar3.ln(responseReportUserInfoMessage.getTimeInterval());
                     return;
                 }
                 aVar2 = this.cZw.cZu;

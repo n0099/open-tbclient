@@ -24,7 +24,7 @@ public class ac extends com.baidu.adp.framework.listener.a {
         if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
             cVar = this.aXF.aXl;
             if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                this.aXF.aXk.Nn();
+                this.aXF.aXk.Np();
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
                         errorString = this.aXF.aJw.getResources().getString(t.j.neterror);

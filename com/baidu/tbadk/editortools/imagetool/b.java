@@ -21,7 +21,7 @@ public class b extends aa {
         this.aqq = new int[]{12, 13, 9};
     }
 
-    public void en(int i) {
+    public void em(int i) {
         if (this.aps != null) {
             MultiImgToolView multiImgToolView = (MultiImgToolView) this.aps;
             if (i == 1) {

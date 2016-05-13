@@ -20,8 +20,8 @@ public class cz extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SignData)) {
             SignData signData = (SignData) customResponsedMessage.getData();
-            if (this.dlN.getPbData() != null && this.dlN.getPbData().avA() != null && this.dlN.getPbData().avA().getSignData() != null && signData.getForumId().equals(this.dlN.getPbData().getForumId())) {
-                this.dlN.getPbData().avA().getSignData().setIsSigned(signData.getSigned());
+            if (this.dlN.getPbData() != null && this.dlN.getPbData().avD() != null && this.dlN.getPbData().avD().getSignData() != null && signData.getForumId().equals(this.dlN.getPbData().getForumId())) {
+                this.dlN.getPbData().avD().getSignData().setIsSigned(signData.getSigned());
             }
         }
     }

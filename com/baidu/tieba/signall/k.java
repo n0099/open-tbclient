@@ -21,11 +21,11 @@ class k extends CustomMessageListener {
         af afVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
             afVar = this.ejs.ejk;
-            c aQF = afVar.aQF();
-            if (aQF != null) {
-                aQF.a((SignData) customResponsedMessage.getData());
+            c aQI = afVar.aQI();
+            if (aQI != null) {
+                aQI.a((SignData) customResponsedMessage.getData());
                 afVar2 = this.ejs.ejk;
-                afVar2.aQG().notifyDataSetChanged();
+                afVar2.aQJ().notifyDataSetChanged();
             }
         }
     }

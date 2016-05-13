@@ -12,11 +12,11 @@ public class bc extends com.baidu.tieba.tbadkCore.data.s {
     private int position = 0;
     private String summary;
 
-    public String rK() {
+    public String rL() {
         return this.Rn;
     }
 
-    public String rB() {
+    public String rC() {
         return this.summary;
     }
 

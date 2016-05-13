@@ -58,9 +58,9 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
     public void onDestroy() {
         super.onDestroy();
         com.baidu.adp.lib.h.h.dL().removeCallbacks(this.aAH);
-        FH();
+        FJ();
         if (this.aAx != null) {
-            this.aAx.uS();
+            this.aAx.uT();
         }
     }
 
@@ -68,12 +68,12 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        FH();
+        FJ();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        if (FG()) {
+        if (FI()) {
             bundle.putString("from_page", this.aAB);
             bundle.putString(CommonVcodeActivityConfig.VCODE_PIC_URL, this.aAC);
             bundle.putString(CommonVcodeActivityConfig.VCODE_MD5, this.aAD);
@@ -96,7 +96,7 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
         nq();
         initData(bundle);
         if (nt()) {
-            FI();
+            FK();
         } else {
             finish();
         }
@@ -105,7 +105,7 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
     private void initData(Bundle bundle) {
         if (bundle != null) {
             this.aAB = bundle.getString("from_page");
-            if (FG()) {
+            if (FI()) {
                 this.aAC = bundle.getString(CommonVcodeActivityConfig.VCODE_PIC_URL);
                 this.aAD = bundle.getString(CommonVcodeActivityConfig.VCODE_MD5);
                 this.mForumId = bundle.getString("forum_id");
@@ -120,7 +120,7 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
         }
         Intent intent = getIntent();
         this.aAB = intent.getStringExtra("from_page");
-        if (FG()) {
+        if (FI()) {
             this.aAC = intent.getStringExtra(CommonVcodeActivityConfig.VCODE_PIC_URL);
             this.aAD = intent.getStringExtra(CommonVcodeActivityConfig.VCODE_MD5);
             this.mForumId = intent.getStringExtra("forum_id");
@@ -134,7 +134,7 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean FG() {
+    public boolean FI() {
         return !StringUtils.isNull(this.aAB) && this.aAB.equals(CommonVcodeActivityConfig.FROM_GRAFFITI_TAB);
     }
 
@@ -158,16 +158,16 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
         return true;
     }
 
-    private void FH() {
+    private void FJ() {
         if (this.mWebView != null) {
-            FL();
+            FN();
             this.mWebView.stopLoading();
         }
     }
 
-    private void FI() {
+    private void FK() {
         if (this.mWebView != null) {
-            FK();
+            FM();
             String str = String.valueOf(TbConfig.SERVER_ADDRESS_WEB_VIEW) + "mo/q/captcha";
             if (this.aAA) {
                 str = String.valueOf(str) + "?feedback=1";
@@ -219,15 +219,15 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
         }
         this.aAz = split[0];
         String str2 = split[1];
-        if (FG()) {
+        if (FI()) {
             gt(str2);
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FJ() {
-        if (FG()) {
+    public void FL() {
+        if (FI()) {
             at(this.aAz, this.aAC);
         }
     }
@@ -244,7 +244,7 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
         this.aAt.setVisibility(0);
     }
 
-    private void FK() {
+    private void FM() {
         if (this.aAv == null) {
             this.aAv = new com.baidu.tbadk.core.view.b(getPageContext());
             this.aAv.c(new f(this));
@@ -253,7 +253,7 @@ public class CommonVcodeActivity extends BaseActivity<CommonVcodeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FL() {
+    public void FN() {
         if (this.aAv != null) {
             this.aAv.aD(false);
         }

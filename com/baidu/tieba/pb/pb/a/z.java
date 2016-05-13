@@ -18,7 +18,7 @@ public class z implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if ((this.dgJ == null || this.dgJ.getIsLike() != 1) && this.dgC.dhY != null && bl.ac(this.dgC.dhY.getPageContext().getPageActivity())) {
-            this.dgC.dhY.aws();
+            this.dgC.dhY.awv();
         }
     }
 }

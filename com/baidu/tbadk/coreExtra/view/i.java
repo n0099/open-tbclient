@@ -211,9 +211,9 @@ public class i extends PagerAdapter {
             com.baidu.tbadk.widget.a currentView = hVar.getCurrentView();
             if (imageView != currentView || i == this.ajM.size() - 1) {
                 if (currentView != null) {
-                    currentView.FW();
+                    currentView.FY();
                 }
-                ((u) obj).zN();
+                ((u) obj).zO();
                 ((u) obj).e(this.ajY, z);
                 hVar.setCurrentView(imageView);
                 if (((u) obj).getImageType() == 1) {

@@ -40,7 +40,7 @@ public class e implements com.baidu.tieba.recommendfrs.c {
     }
 
     @Override // com.baidu.tieba.recommendfrs.c
-    public void anv() {
-        this.dYW.aMj();
+    public void any() {
+        this.dYW.aMm();
     }
 }

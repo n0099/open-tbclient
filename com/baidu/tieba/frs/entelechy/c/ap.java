@@ -13,8 +13,8 @@ public class ap implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bpY.JM() != null) {
-            this.bpY.JM().a(view, this.bpY.aab);
+        if (this.bpY.JO() != null) {
+            this.bpY.JO().a(view, this.bpY.aab);
         }
     }
 }

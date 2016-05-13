@@ -44,7 +44,7 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommend
         aVar.c(iVar);
         aVar.onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
         if (iVar != null && iVar.dZW != null) {
-            bx.Kg().a(new aw("c10985").ac("obj_name", iVar.dZW));
+            bx.Ki().a(new aw("c10985").ac("obj_name", iVar.dZW));
         }
         return aVar.getView();
     }

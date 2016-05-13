@@ -10,12 +10,12 @@ public class f extends b {
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean Ed() {
+    public boolean Ee() {
         return true;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public int Ee() {
+    public int Ef() {
         int i;
         i = this.aww.awv;
         return i;

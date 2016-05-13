@@ -19,11 +19,11 @@ public class a {
         }
     }
 
-    public static c wg() {
+    public static c wh() {
         return afq;
     }
 
-    public static boolean wh() {
+    public static boolean wi() {
         return afp;
     }
 

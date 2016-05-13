@@ -29,17 +29,17 @@ public class o extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean uI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
+    public boolean uJ() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public int uK() {
         return this.Xc;
     }
 }

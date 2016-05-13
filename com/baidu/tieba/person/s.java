@@ -72,7 +72,7 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PersonBarActivity aBC() {
+    public PersonBarActivity aBF() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonBarActivity) {
             return (PersonBarActivity) baseFragmentActivity;
@@ -132,29 +132,29 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
         View inflate = layoutInflater.inflate(t.h.friend_fragment, viewGroup, false);
         this.dvG = LayoutInflater.from(getPageContext().getPageActivity()).inflate(t.h.friend_fragment_header, (ViewGroup) null);
         this.dvH = (TextView) this.dvG.findViewById(t.g.header_text_describe);
-        if (aBC() == null) {
+        if (aBF() == null) {
             return inflate;
         }
         this.dvF = getString(t.j.person_bar_no_more);
-        this.dvo = aBC().aBt();
-        this.bIW = aBC().ahN();
-        this.dur = aBC().aBj();
+        this.dvo = aBF().aBw();
+        this.bIW = aBF().ahP();
+        this.dur = aBF().aBm();
         this.dvB = inflate.findViewById(t.g.friend_fragment_parent);
         if (this.bIW && !this.dur) {
-            this.aHS = (TextView) aBC().Rf().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.navigation_right_button_layout, aBC()).findViewById(t.g.right_textview);
+            this.aHS = (TextView) aBF().Rf().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.navigation_right_button_layout, aBF()).findViewById(t.g.right_textview);
             this.aHS.postDelayed(new z(this), 100L);
             this.aHS.setText(t.j.edit);
             this.aHS.setOnClickListener(new aa(this));
             this.aHS.setVisibility(0);
         }
-        this.dvz = new ae(aBC(), this.dvo.aBF(), this.bIW, this.dur);
-        this.dvz.mq(aBC().aBl());
+        this.dvz = new ae(aBF(), this.dvo.aBI(), this.bIW, this.dur);
+        this.dvz.mq(aBF().aBo());
         this.dvz.D(new ab(this));
         this.dvz.K(new ac(this));
         this.zu = (BdListView) inflate.findViewById(t.g.my_friend_list);
         this.zu.setAdapter((ListAdapter) this.dvz);
         this.zu.setOnItemClickListener(new ad(this));
-        this.mPullView = new com.baidu.tbadk.core.view.w(aBC().getPageContext());
+        this.mPullView = new com.baidu.tbadk.core.view.w(aBF().getPageContext());
         this.mPullView.a(new u(this));
         this.dvy = new a(getBaseFragmentActivity());
         this.zu.setNextPage(this.dvy);
@@ -168,7 +168,7 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
             BdListViewHelper.a(getActivity(), this.zu, BdListViewHelper.HeadType.HASTAB);
             i = BdListViewHelper.azU;
             if (this.mPageType == 0) {
-                string = String.format(getString(t.j.person_bar_no_personal_info), aBC().ahM());
+                string = String.format(getString(t.j.person_bar_no_personal_info), aBF().ahO());
             } else {
                 string = getString(t.j.person_bar_no_common_info);
             }
@@ -178,10 +178,10 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
         } else {
             this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, i), NoDataViewFactory.d.dP(string), null);
         }
-        if (this.bIW && aBC() != null && aBC().getRequestCode() != 23011) {
-            arX();
+        if (this.bIW && aBF() != null && aBF().getRequestCode() != 23011) {
+            asa();
         }
-        if (this.mPageType == aBC().ahL()) {
+        if (this.mPageType == aBF().ahN()) {
             this.zu.jy();
         }
         return inflate;
@@ -189,8 +189,8 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
 
     public void hk(boolean z) {
         if (this.dvz != null) {
-            this.dvz.atP();
-            if (this.dvz.aBE()) {
+            this.dvz.atS();
+            if (this.dvz.aBH()) {
                 if (z) {
                     this.dvz.setEditState(false);
                     hl(true);
@@ -211,32 +211,32 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
             if (this.aHS != null) {
                 this.aHS.setVisibility(0);
             }
-            if (aBC() != null && aBC().getRequestCode() == 23011 && this.aHS != null) {
+            if (aBF() != null && aBF().getRequestCode() == 23011 && this.aHS != null) {
                 this.aHS.setVisibility(8);
             }
         }
     }
 
-    public ae aBD() {
+    public ae aBG() {
         return this.dvz;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OP() {
+    public void OR() {
         if (this.dvo != null) {
             this.dvo.a(this.bIW, this.dvo.getId(), this.dvC, this.pageSize);
         }
     }
 
-    public void jd(int i) {
+    public void jc(int i) {
         if (this.dvo != null) {
             this.dvo.a(this.bIW, this.dvo.getId(), i, this.pageSize);
         }
     }
 
-    public void arX() {
+    public void asa() {
         if (this.dvo != null) {
-            this.dvo.arX();
+            this.dvo.asa();
         }
     }
 
@@ -246,40 +246,40 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
             if (!z) {
                 this.zu.k(2000L);
             }
-            int aBk = aBC().aBk();
+            int aBn = aBF().aBn();
             int i = 0;
             if (this.dvo != null && this.dvz != null) {
-                if (this.mPageType == aBC().ahL()) {
+                if (this.mPageType == aBF().ahN()) {
                     if (z) {
                         this.dvC = 1;
-                        this.dvo.aBF().b(rVar.aBw(), rVar.aBx());
-                        this.dvo.aBF().e(rVar.aBy(), rVar.aBz());
-                        this.dvo.aBF().ml(rVar.aBu());
-                        this.dvo.aBF().mn(rVar.aBv());
+                        this.dvo.aBI().b(rVar.aBz(), rVar.aBA());
+                        this.dvo.aBI().e(rVar.aBB(), rVar.aBC());
+                        this.dvo.aBI().mk(rVar.aBx());
+                        this.dvo.aBI().mm(rVar.aBy());
                     } else if (this.dvC == 1) {
-                        this.dvo.aBF().b(rVar.aBw(), rVar.aBx());
-                        this.dvo.aBF().e(rVar.aBy(), rVar.aBz());
-                        this.dvo.aBF().ml(rVar.aBu());
-                        this.dvo.aBF().mn(rVar.aBv());
+                        this.dvo.aBI().b(rVar.aBz(), rVar.aBA());
+                        this.dvo.aBI().e(rVar.aBB(), rVar.aBC());
+                        this.dvo.aBI().mk(rVar.aBx());
+                        this.dvo.aBI().mm(rVar.aBy());
                         this.dvC++;
                     } else {
-                        this.dvo.aBF().c(rVar.aBw(), rVar.aBx());
-                        this.dvo.aBF().d(rVar.aBy(), rVar.aBz());
-                        this.dvo.aBF().mm(rVar.aBu());
-                        this.dvo.aBF().mo(rVar.aBv());
+                        this.dvo.aBI().c(rVar.aBz(), rVar.aBA());
+                        this.dvo.aBI().d(rVar.aBB(), rVar.aBC());
+                        this.dvo.aBI().ml(rVar.aBx());
+                        this.dvo.aBI().mn(rVar.aBy());
                         this.dvC++;
                     }
                 }
                 if (this.mPageType == 0) {
-                    this.dvz.ab(this.dvo.aBF().aBA());
+                    this.dvz.ab(this.dvo.aBI().aBD());
                 } else {
-                    this.dvz.ab(this.dvo.aBF().aBB());
+                    this.dvz.ab(this.dvo.aBI().aBE());
                 }
-                if (rVar.aBB() != null) {
-                    i = this.dvo.aBF().aBB().size();
+                if (rVar.aBE() != null) {
+                    i = this.dvo.aBI().aBE().size();
                 }
-                if (aBC() != null) {
-                    aBC().au(aBk, i);
+                if (aBF() != null) {
+                    aBF().au(aBn, i);
                 }
                 hk(true);
                 this.dvz.notifyDataSetChanged();
@@ -299,24 +299,24 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
                 com.baidu.tbadk.core.util.at.k(this.mNoDataView, t.d.cp_bg_line_d);
                 this.mNoDataView.onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
             }
-            if (aBC() != null) {
-                aBC().Rf().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
+            if (aBF() != null) {
+                aBF().Rf().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
             }
             if (this.mPullView != null) {
-                this.mPullView.cS(i);
+                this.mPullView.cR(i);
             }
             if (this.dvz != null) {
                 this.dvz.notifyDataSetChanged();
             }
             if (this.dvy != null) {
-                this.dvy.cS(i);
+                this.dvy.cR(i);
             }
             com.baidu.tbadk.core.util.at.b(this.aHS, this.dvK, t.d.navi_op_text_skin);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void UH() {
+    public void UJ() {
         HashSet hashSet = new HashSet();
         Iterator<ForumData> it = this.hS.iterator();
         while (it.hasNext()) {
@@ -351,21 +351,21 @@ public class s extends BaseFragment implements View.OnClickListener, AdapterView
             com.baidu.tbadk.core.util.at.l(this.awm, this.bgColor);
             this.awm.setVisibility(8);
             this.mProgressBar = (ProgressBar) this.KB.findViewById(t.g.progress);
-            dS(TbadkCoreApplication.m11getInst().getSkinType());
+            dR(TbadkCoreApplication.m11getInst().getSkinType());
             this.awm.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             return this.KB;
         }
 
-        public void dS(int i) {
+        public void dR(int i) {
             this.aJw.getLayoutMode().x(this.awm);
         }
 
-        public void cS(int i) {
+        public void cR(int i) {
             com.baidu.tbadk.core.util.at.e(this.KB, this.bgColor, i);
             com.baidu.tbadk.core.util.at.e(this.awm, this.bgColor, i);
         }
 
-        public void OJ() {
+        public void OL() {
             this.mProgressBar.setVisibility(0);
             this.Sm.setText(this.aJw.getPageContext().getPageActivity().getText(t.j.loading));
             this.awm.setVisibility(0);

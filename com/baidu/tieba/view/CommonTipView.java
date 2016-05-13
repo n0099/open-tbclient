@@ -15,19 +15,19 @@ import com.baidu.tieba.t;
 public class CommonTipView extends TextView {
     private TranslateAnimation dYD;
     private Runnable dpt;
-    private Animation eWh;
-    private a eWi;
+    private Animation eWg;
+    private a eWh;
     private int zD;
 
     /* loaded from: classes.dex */
     public interface a {
-        void baT();
+        void bba();
     }
 
     public CommonTipView(Context context) {
         super(context);
         this.zD = 4000;
-        this.eWh = AnimationUtils.loadAnimation(TbadkCoreApplication.m11getInst(), t.a.fade_out);
+        this.eWg = AnimationUtils.loadAnimation(TbadkCoreApplication.m11getInst(), t.a.fade_out);
         this.dYD = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds56), 0.0f);
         this.dpt = new d(this);
         init();
@@ -36,7 +36,7 @@ public class CommonTipView extends TextView {
     private void init() {
         setTextSize(0, TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds24));
         setGravity(17);
-        this.eWh.setAnimationListener(new e(this));
+        this.eWg.setAnimationListener(new e(this));
         this.dYD.setDuration(400L);
         this.dYD.setAnimationListener(new f(this));
     }
@@ -45,7 +45,7 @@ public class CommonTipView extends TextView {
     public void hideTip() {
         removeCallbacks(this.dpt);
         if (this != null && getParent() != null) {
-            startAnimation(this.eWh);
+            startAnimation(this.eWg);
         }
     }
 

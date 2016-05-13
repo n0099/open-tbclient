@@ -17,13 +17,13 @@ public class n extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean Mw;
+        boolean My;
         boolean z;
-        Mw = this.aXF.Mw();
-        if (!Mw) {
-            this.aXF.Mx();
-        } else {
+        My = this.aXF.My();
+        if (!My) {
             this.aXF.Mz();
+        } else {
+            this.aXF.MB();
         }
         z = this.aXF.aXq;
         if (z) {

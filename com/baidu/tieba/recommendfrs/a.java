@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a aLN() {
+    public static a aLQ() {
         return dXI;
     }
 
@@ -25,7 +25,7 @@ public class a {
         this.dXJ = j;
     }
 
-    public long oj(int i) {
+    public long oi(int i) {
         Long l = this.dXL.get(i);
         if (l == null) {
             return -1L;
@@ -37,7 +37,7 @@ public class a {
         this.dXL.put(i, Long.valueOf(j));
     }
 
-    public long ok(int i) {
+    public long oj(int i) {
         Long l = this.dXK.get(i);
         if (l == null) {
             return -1L;
@@ -49,7 +49,7 @@ public class a {
         this.dXK.put(i, Long.valueOf(j));
     }
 
-    public long ol(int i) {
+    public long ok(int i) {
         Long l = this.dXM.get(i);
         if (l == null) {
             return -1L;
@@ -61,7 +61,7 @@ public class a {
         this.dXM.put(i, Long.valueOf(j));
     }
 
-    public long om(int i) {
+    public long ol(int i) {
         Long l = this.dXN.get(i);
         if (l == null) {
             return -1L;

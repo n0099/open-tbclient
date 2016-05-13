@@ -16,7 +16,7 @@ public class a extends b {
     private final Animation aDt;
     private final Animation aDu;
 
-    static /* synthetic */ int[] Gt() {
+    static /* synthetic */ int[] Gv() {
         int[] iArr = aDf;
         if (iArr == null) {
             iArr = new int[PullToRefreshBase.Mode.valuesCustom().length];
@@ -81,25 +81,25 @@ public class a extends b {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Gw() {
+    protected void Gy() {
         if (this.aDt == this.aDx.getAnimation()) {
             this.aDx.startAnimation(this.aDu);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Gx() {
+    protected void Gz() {
         this.aDx.setVisibility(0);
         this.aDy.setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Gy() {
+    protected void GA() {
         this.aDx.startAnimation(this.aDt);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Gz() {
+    protected void GB() {
         this.aDx.clearAnimation();
         this.aDy.setVisibility(8);
         this.aDx.setVisibility(0);
@@ -111,7 +111,7 @@ public class a extends b {
     }
 
     private float getDrawableRotationAngle() {
-        switch (Gt()[this.aCN.ordinal()]) {
+        switch (Gv()[this.aCN.ordinal()]) {
             case 2:
                 if (this.aDC != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;

@@ -12,7 +12,7 @@ class m implements a.InterfaceC0038a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0038a
-    public void zX() {
+    public void zY() {
         i iVar;
         i iVar2;
         i iVar3;
@@ -22,7 +22,7 @@ class m implements a.InterfaceC0038a {
         iVar = this.anx.anv;
         iVar.currentIndex = 0;
         iVar2 = this.anx.anv;
-        iVar2.amH = a.zR().zU();
+        iVar2.amH = a.zS().zV();
         iVar3 = this.anx.anv;
         list = iVar3.amH;
         if (list != null) {

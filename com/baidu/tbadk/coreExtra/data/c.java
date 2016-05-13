@@ -21,11 +21,11 @@ public class c {
         this.afz = j;
     }
 
-    public int ws() {
+    public int wt() {
         return this.afA;
     }
 
-    public void dj(int i) {
+    public void di(int i) {
         this.afA = i;
     }
 }

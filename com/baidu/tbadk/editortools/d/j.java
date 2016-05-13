@@ -18,11 +18,11 @@ public class j implements a.b {
         com.baidu.tieba.tbadkCore.location.d dVar;
         if (!com.baidu.adp.lib.util.i.fq()) {
             aVar2 = this.arM.arI;
-            aVar2.Cd();
+            aVar2.Ce();
         } else {
             this.arM.a(1, true, (String) null);
             dVar = this.arM.art;
-            dVar.aUG();
+            dVar.aUM();
         }
         aVar.dismiss();
     }

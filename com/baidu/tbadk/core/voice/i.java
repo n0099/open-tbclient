@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class i {
-    public static String vS() {
+    public static String vT() {
         return r.fR();
     }
 

@@ -64,7 +64,7 @@ public class j {
         }
     }
 
-    public void aoo() {
+    public void aor() {
         this.cIU = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, true));
         if (this.cIQ != null) {
@@ -78,7 +78,7 @@ public class j {
         this.eaD.setVisibility(8);
     }
 
-    public void aop() {
+    public void aos() {
         this.cIU = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, false));
         if (this.cIQ != null) {

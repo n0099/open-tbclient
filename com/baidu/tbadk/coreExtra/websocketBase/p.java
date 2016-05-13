@@ -32,7 +32,7 @@ public class p extends com.baidu.adp.framework.a.j {
                 j = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
             }
             if (responseOnlineMessage.getError() == 0) {
-                this.anC.As();
+                this.anC.At();
                 int cmd = socketResponsedMessage.getCmd();
                 StringBuilder sb = new StringBuilder("online succ. retry count-");
                 i2 = this.anC.any;

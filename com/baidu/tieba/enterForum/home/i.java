@@ -17,7 +17,7 @@ public class i implements ViewPager.OnPageChangeListener {
         FragmentTabWidget fragmentTabWidget;
         fragmentTabWidget = this.aXh.aXd;
         fragmentTabWidget.f(i, true);
-        this.aXh.fN(i);
+        this.aXh.fM(i);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

@@ -44,18 +44,18 @@ public class e implements View.OnClickListener {
             pbActivity = this.dgb.dhY;
             if (pbActivity.checkUpIsLogin()) {
                 pbActivity2 = this.dgb.dhY;
-                if (pbActivity2.awt() != null) {
+                if (pbActivity2.aww() != null) {
                     pbActivity3 = this.dgb.dhY;
-                    pbActivity3.awt().amQ();
+                    pbActivity3.aww().amT();
                     pbActivity4 = this.dgb.dhY;
-                    pbActivity4.awt().ayH();
+                    pbActivity4.aww().ayK();
                 }
                 if (this.bzn == 1) {
                     eVar5 = this.dgb.dfY;
-                    if (eVar5.avA() != null) {
+                    if (eVar5.avD() != null) {
                         eVar9 = this.dgb.dfY;
-                        if (eVar9.avA().isLike() == 1) {
-                            this.dgb.lF(0);
+                        if (eVar9.avD().isLike() == 1) {
+                            this.dgb.lE(0);
                             eVar6 = this.dgb.dfY;
                             if (eVar6 == null) {
                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -69,7 +69,7 @@ public class e implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.dgb.apg();
+                    this.dgb.apj();
                     eVar6 = this.dgb.dfY;
                     if (eVar6 == null) {
                     }
@@ -77,12 +77,12 @@ public class e implements View.OnClickListener {
                     eVar = this.dgb.dfY;
                     if (eVar != null) {
                         eVar2 = this.dgb.dfY;
-                        if (eVar2.avB() != null) {
+                        if (eVar2.avE() != null) {
                             eVar3 = this.dgb.dfY;
-                            if (eVar3.avB().ri() != null) {
+                            if (eVar3.avE().rj() != null) {
                                 context = this.dgb.mContext;
                                 eVar4 = this.dgb.dfY;
-                                com.baidu.tbadk.browser.f.t(context, eVar4.avB().ri());
+                                com.baidu.tbadk.browser.f.t(context, eVar4.avE().rj());
                                 context2 = this.dgb.mContext;
                                 TiebaStatic.eventStat(context2, "lottery", "click", 1, "page", "pb");
                             }

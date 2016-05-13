@@ -61,7 +61,7 @@ public class aq extends av {
             this.aQl = lVar;
             this.aab = lVar.aRG;
             if (lVar.aRG.getAuthor() != null) {
-                fu(lVar.aRG.getAuthor().getFansNum());
+                ft(lVar.aRG.getAuthor().getFansNum());
                 if (this.aab.getAuthor().getGodUserData().getFollowed() == 1) {
                     this.aOX.setVisibility(8);
                     return;
@@ -91,7 +91,7 @@ public class aq extends av {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fu(int i) {
+    public void ft(int i) {
         if (this.aQf != null) {
             this.aQf.setText(String.format(this.DV.getResources().getString(t.j.fans_default_name_god_user), com.baidu.tbadk.core.util.ay.A(i)));
         }

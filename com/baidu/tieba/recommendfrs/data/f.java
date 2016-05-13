@@ -12,7 +12,7 @@ public class f extends c {
     }
 
     public f() {
-        setStType(au.Kb());
+        setStType(au.Kd());
         setYuelaouLocate("percard#");
     }
 }

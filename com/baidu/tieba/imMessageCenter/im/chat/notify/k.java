@@ -26,7 +26,7 @@ class k implements AdapterView.OnItemLongClickListener {
         imMessageCenterShowItemData = this.ctO.ctC;
         fVar2.c(imMessageCenterShowItemData);
         if (this.ctO.ctH != null) {
-            this.ctO.ctH.rX();
+            this.ctO.ctH.rY();
         }
         return true;
     }

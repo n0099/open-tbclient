@@ -93,22 +93,22 @@ public class z implements View.OnClickListener {
             frsActivity39 = this.buF.bpj;
             if (frsActivity39.PZ() != null) {
                 frsActivity40 = this.buF.bpj;
-                if (frsActivity40.PZ().avA() != null) {
+                if (frsActivity40.PZ().avD() != null) {
                     MessageManager messageManager = MessageManager.getInstance();
                     Activity pageActivity = this.buF.getPageContext().getPageActivity();
                     frsActivity41 = this.buF.bpj;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(pageActivity, frsActivity41.PZ().avA().getId(), ForumDetailActivityConfig.FromType.FRS_SIDE)));
+                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(pageActivity, frsActivity41.PZ().avD().getId(), ForumDetailActivityConfig.FromType.FRS_SIDE)));
                 }
             }
         } else if (id == t.g.forum_manager_center) {
             frsActivity32 = this.buF.bpj;
             if (frsActivity32.PZ() != null) {
                 frsActivity34 = this.buF.bpj;
-                if (frsActivity34.PZ().avA() != null) {
+                if (frsActivity34.PZ().avD() != null) {
                     frsActivity35 = this.buF.bpj;
-                    String id2 = frsActivity35.PZ().avA().getId();
+                    String id2 = frsActivity35.PZ().avD().getId();
                     frsActivity36 = this.buF.bpj;
-                    com.baidu.tbadk.browser.f.t(this.buF.getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/bawuindex?fn=" + frsActivity36.PZ().avA().getName() + "&fid=" + id2);
+                    com.baidu.tbadk.browser.f.t(this.buF.getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/bawuindex?fn=" + frsActivity36.PZ().avD().getName() + "&fid=" + id2);
                     frsActivity37 = this.buF.bpj;
                     if (frsActivity37.PZ().getUserData() != null) {
                         aw ac = new aw("c10503").ac("fid", id2);
@@ -133,9 +133,9 @@ public class z implements View.OnClickListener {
             frsActivity24 = this.buF.bpj;
             if (frsActivity24.PZ() != null) {
                 frsActivity25 = this.buF.bpj;
-                if (frsActivity25.PZ().avA() != null) {
+                if (frsActivity25.PZ().avD() != null) {
                     frsActivity26 = this.buF.bpj;
-                    String name = frsActivity26.PZ().avA().getName();
+                    String name = frsActivity26.PZ().avD().getName();
                     if (!StringUtils.isNull(name)) {
                         frsActivity28 = this.buF.bpj;
                         frsActivity29 = this.buF.bpj;
@@ -195,9 +195,9 @@ public class z implements View.OnClickListener {
                     frsActivity7 = this.buF.bpj;
                     if (frsActivity7.PZ() != null) {
                         frsActivity9 = this.buF.bpj;
-                        if (frsActivity9.PZ().aSg() != null) {
+                        if (frsActivity9.PZ().aSj() != null) {
                             frsActivity10 = this.buF.bpj;
-                            if (frsActivity10.PZ().aSg().aRV() != 1) {
+                            if (frsActivity10.PZ().aSj().aRY() != 1) {
                                 frsGroupActivityConfig.showRecommend();
                             }
                         }

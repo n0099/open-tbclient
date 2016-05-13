@@ -36,7 +36,7 @@ public class i extends CountDownTimer {
             aVar2.dismiss();
         }
         if (this.dsq != null) {
-            this.dsq.awS();
+            this.dsq.awV();
         }
     }
 }

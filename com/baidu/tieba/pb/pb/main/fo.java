@@ -11,6 +11,6 @@ public class fo implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.dpu.azy();
+        this.dpu.azB();
     }
 }

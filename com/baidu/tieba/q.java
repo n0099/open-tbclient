@@ -23,10 +23,10 @@ class q implements GifView.a {
         this.aGW.setVisibility(8);
         this.aGX.release();
         if (System.currentTimeMillis() - this.aGY > 3000) {
-            com.baidu.tbadk.core.sharedPref.b.sQ().putInt("logo_animation_overtime_count", com.baidu.tbadk.core.sharedPref.b.sQ().getInt("logo_animation_overtime_count", 0) + 1);
+            com.baidu.tbadk.core.sharedPref.b.sR().putInt("logo_animation_overtime_count", com.baidu.tbadk.core.sharedPref.b.sR().getInt("logo_animation_overtime_count", 0) + 1);
         }
         if (this.aGZ != null) {
-            this.aGZ.HM();
+            this.aGZ.HO();
         }
     }
 }

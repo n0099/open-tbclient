@@ -13,6 +13,6 @@ class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        new com.baidu.tbadk.core.dialog.c(this.aHY.getPageContext().getPageActivity()).bP(t.j.alert_title).a(new String[]{this.aHY.getPageContext().getString(t.j.delete_account_only), this.aHY.getPageContext().getString(t.j.delete_account_and_group_cache), this.aHY.getPageContext().getString(t.j.delete_account_cancle)}, new d(this, view)).d(this.aHY.getPageContext()).rX();
+        new com.baidu.tbadk.core.dialog.c(this.aHY.getPageContext().getPageActivity()).bO(t.j.alert_title).a(new String[]{this.aHY.getPageContext().getString(t.j.delete_account_only), this.aHY.getPageContext().getString(t.j.delete_account_and_group_cache), this.aHY.getPageContext().getString(t.j.delete_account_cancle)}, new d(this, view)).d(this.aHY.getPageContext()).rY();
     }
 }

@@ -18,7 +18,7 @@ public class u implements View.OnClickListener {
         apVar = this.dqn.dqc;
         if (apVar != null) {
             apVar2 = this.dqn.dqc;
-            apVar2.Dy();
+            apVar2.Dz();
         }
     }
 }

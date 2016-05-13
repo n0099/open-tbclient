@@ -31,10 +31,10 @@ public class c extends CustomMessageListener {
                                 list3 = this.cpR.mList;
                                 list3.clear();
                             }
-                            com.baidu.tbadk.coreExtra.messageCenter.a.xi().c(new com.baidu.tbadk.coreExtra.d.e());
-                            com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgChat(0);
-                            com.baidu.tbadk.coreExtra.messageCenter.a.xi().xA();
-                            com.baidu.tbadk.coreExtra.messageCenter.a.xi().xw();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.xj().c(new com.baidu.tbadk.coreExtra.d.e());
+                            com.baidu.tbadk.coreExtra.messageCenter.a.xj().setMsgChat(0);
+                            com.baidu.tbadk.coreExtra.messageCenter.a.xj().xB();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.xj().xx();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
                             list = this.cpR.mList;

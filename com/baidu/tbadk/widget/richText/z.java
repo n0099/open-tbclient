@@ -36,11 +36,11 @@ public class z extends com.baidu.adp.lib.a.b.a.a.i {
         return this.duration;
     }
 
-    public int Hs() {
+    public int Hu() {
         return this.aFG;
     }
 
-    public Object Ht() {
+    public Object Hv() {
         return this.aFH;
     }
 

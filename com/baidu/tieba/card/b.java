@@ -51,7 +51,7 @@ public abstract class b<T extends com.baidu.tieba.card.a.a> extends a<T> {
         this.aNY = (ImageView) view.findViewById(t.g.item_right_arrow);
     }
 
-    private void JO() {
+    private void JQ() {
         if (getFrom() != null && getFrom().equals("home")) {
             com.baidu.tbadk.core.util.at.c(this.aNS, t.d.cp_cont_d, 1);
             this.aNY.setVisibility(8);
@@ -71,7 +71,7 @@ public abstract class b<T extends com.baidu.tieba.card.a.a> extends a<T> {
 
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            JO();
+            JQ();
         }
         this.mSkinType = i;
     }
@@ -113,17 +113,17 @@ public abstract class b<T extends com.baidu.tieba.card.a.a> extends a<T> {
         if (this.aNU == view && view != null && (view.getTag() instanceof String)) {
             String str = (String) view.getTag();
             if (!StringUtils.isNull(str)) {
-                com.baidu.tbadk.core.util.bg.us().c(getTbPageContext(), new String[]{str});
+                com.baidu.tbadk.core.util.bg.ut().c(getTbPageContext(), new String[]{str});
             }
         }
     }
 
     @Override // com.baidu.tieba.card.a
-    public final int JN() {
+    public final int JP() {
         return t.h.card_group;
     }
 
-    public void ft(int i) {
+    public void fs(int i) {
         if (this.aNV != null && this.aNV.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.aNV.getLayoutParams();
             layoutParams.height = i;

@@ -181,7 +181,7 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
     }
 
     @Override // com.baidu.tbadk.editortools.d.a
-    public String BB() {
+    public String BC() {
         return this.postID;
     }
 
@@ -189,7 +189,7 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         return this.stType;
     }
 
-    public com.baidu.tieba.pb.data.h aAn() {
+    public com.baidu.tieba.pb.data.h aAq() {
         return this.dqL;
     }
 
@@ -197,8 +197,8 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         return this.dfx;
     }
 
-    public boolean aAo() {
-        return (this.dqL == null || this.dqL.avO() == null) ? false : true;
+    public boolean aAr() {
+        return (this.dqL == null || this.dqL.avR() == null) ? false : true;
     }
 
     public void a(a aVar) {
@@ -214,17 +214,17 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         markData.setTime(date.getTime());
         markData.setHostMode(false);
         markData.setId(this.threadID);
-        markData.setFloor(sVar.aTS());
+        markData.setFloor(sVar.aTY());
         return markData;
     }
 
     public void destory() {
         cancelMessage();
         MessageManager.getInstance().unRegisterListener(this.drx);
-        MR();
+        MT();
     }
 
-    private void MR() {
+    private void MT() {
         if (this.aXX != null) {
             this.aXX.destory();
             this.aXX = null;
@@ -247,12 +247,12 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
     }
 
     public void mm(String str) {
-        if (!TextUtils.isEmpty(str) && this.dqL != null && this.dqL.avS() != null) {
-            ArrayList<com.baidu.tieba.tbadkCore.data.s> avS = this.dqL.avS();
-            int size = avS.size();
+        if (!TextUtils.isEmpty(str) && this.dqL != null && this.dqL.avV() != null) {
+            ArrayList<com.baidu.tieba.tbadkCore.data.s> avV = this.dqL.avV();
+            int size = avV.size();
             for (int i = 0; i < size; i++) {
-                if (str.equals(avS.get(i).getId())) {
-                    avS.remove(i);
+                if (str.equals(avV.get(i).getId())) {
+                    avV.remove(i);
                     this.drm++;
                     this.dqL.setTotalCount(this.dqL.getTotalCount() - 1);
                     return;
@@ -261,7 +261,7 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         }
     }
 
-    protected int aAp() {
+    protected int aAs() {
         int lk = this.dqL.lk();
         if (lk == 0) {
             return lk + 1;
@@ -269,19 +269,19 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         if (this.bcy == 0) {
             return lk + 1;
         }
-        if (this.bcy == 2 && this.dqL.avS().size() != 0 && this.dqL.avS().size() % this.dqL.avU() == 0) {
+        if (this.bcy == 2 && this.dqL.avV().size() != 0 && this.dqL.avV().size() % this.dqL.avX() == 0) {
             return lk + 1;
         }
         if (this.bcy == 3 && this.drs) {
-            return this.dqL.avQ() - 1;
+            return this.dqL.avT() - 1;
         }
         if (this.bcy == 3 && lk > 0) {
-            return this.dqL.avP() - 1;
+            return this.dqL.avS() - 1;
         }
         return lk;
     }
 
-    private SubPbRequestMessage aAq() {
+    private SubPbRequestMessage aAt() {
         this.avz = true;
         return c((Integer) null);
     }
@@ -300,7 +300,7 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
             j2 = com.baidu.adp.lib.h.b.c(this.postID, 0L);
         }
         if (num == null) {
-            intValue = aAp();
+            intValue = aAs();
         } else {
             intValue = num.intValue();
         }
@@ -314,19 +314,19 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         return new SubPbRequestMessage(this.Do.getPageActivity(), Long.parseLong(this.threadID), j, j2, i, B, C, f, this.stType, i2);
     }
 
-    public boolean Dy() {
-        return mb(0);
+    public boolean Dz() {
+        return ma(0);
     }
 
-    public boolean aAr() {
-        return mb(2);
+    public boolean aAu() {
+        return ma(2);
     }
 
-    public void aAs() {
-        int avU;
-        if (this.drm > 0 && this.dqL != null && (avU = this.dqL.avU()) > 0) {
+    public void aAv() {
+        int avX;
+        if (this.drm > 0 && this.dqL != null && (avX = this.dqL.avX()) > 0) {
             int lk = this.dqL.lk();
-            for (int i = (((this.drm + avU) - 1) / avU) - 1; i >= 0; i--) {
+            for (int i = (((this.drm + avX) - 1) / avX) - 1; i >= 0; i--) {
                 this.drw = c(Integer.valueOf(lk - i));
                 this.drw.setTreatDelPage(true);
                 sendMessage(this.drw);
@@ -335,15 +335,15 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         this.drm = 0;
     }
 
-    public boolean aAt() {
-        return mb(1);
+    public boolean aAw() {
+        return ma(1);
     }
 
-    public boolean aAu() {
-        return mb(3);
+    public boolean aAx() {
+        return ma(3);
     }
 
-    public boolean mb(int i) {
+    public boolean ma(int i) {
         if (this.avz) {
             return false;
         }
@@ -352,18 +352,18 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
             this.avz = false;
             return false;
         }
-        aAs();
+        aAv();
         this.bcy = i;
-        this.drw = aAq();
+        this.drw = aAt();
         sendMessage(this.drw);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tieba.pb.data.h hVar) {
-        ArrayList<com.baidu.tieba.tbadkCore.data.s> avS = hVar.avS();
-        if (avS == null || avS.size() == 0) {
-            hVar.aG(this.dqL.lk());
+        ArrayList<com.baidu.tieba.tbadkCore.data.s> avV = hVar.avV();
+        if (avV == null || avV.size() == 0) {
+            hVar.aF(this.dqL.lk());
         }
         if (this.bcy == 1) {
             this.dqL = hVar;
@@ -380,7 +380,7 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
     public void d(com.baidu.tieba.pb.data.h hVar) {
         if (this.bcy == 1) {
             this.dqL = hVar;
-            this.dqL.avR();
+            this.dqL.avU();
         } else if (this.bcy == 2) {
             this.dqL.c(hVar, true);
         } else if (this.bcy == 3) {
@@ -392,30 +392,30 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
 
     public void e(com.baidu.tieba.pb.data.h hVar) {
         String str;
-        if (hVar.Kl() == null || hVar.Kl().getAuthor() == null) {
+        if (hVar.Kn() == null || hVar.Kn().getAuthor() == null) {
             str = null;
         } else {
-            str = hVar.Kl().getAuthor().getUserId();
+            str = hVar.Kn().getAuthor().getUserId();
         }
         if (!this.drs) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= hVar.avS().size()) {
+                if (i2 >= hVar.avV().size()) {
                     break;
                 }
-                hVar.avS().get(i2).b(this.Do, str.equals(hVar.avS().get(i2).getAuthor().getUserId()));
+                hVar.avV().get(i2).b(this.Do, str.equals(hVar.avV().get(i2).getAuthor().getUserId()));
                 i = i2 + 1;
             }
         }
         this.drq.add(hVar);
     }
 
-    public boolean aAv() {
+    public boolean aAy() {
         return this.drg;
     }
 
-    public String aAw() {
+    public String aAz() {
         return this.drh;
     }
 
@@ -423,7 +423,7 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         return this.dfy;
     }
 
-    public boolean aAx() {
+    public boolean aAA() {
         return HotTopicActivityConfig.ST_TYPE.equals(getStType());
     }
 
@@ -431,11 +431,11 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         this.dfy = z;
     }
 
-    public int avH() {
+    public int avK() {
         return this.dff;
     }
 
-    public String aAy() {
+    public String aAB() {
         return this.drk;
     }
 
@@ -443,35 +443,35 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         this.drk = str;
     }
 
-    public boolean aAz() {
+    public boolean aAC() {
         return this.drj;
     }
 
-    public String aAA() {
+    public String aAD() {
         return this.dri;
     }
 
     @Override // com.baidu.tbadk.editortools.d.a
     public WriteData fs(String str) {
-        if (this.dqL == null || this.dqL.avV() == null || this.dqL.Kl() == null || this.dqL.avO() == null) {
+        if (this.dqL == null || this.dqL.avY() == null || this.dqL.Kn() == null || this.dqL.avR() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        writeData.setForumName(this.dqL.avV().getName());
-        writeData.setForumId(this.dqL.avV().getId());
-        writeData.setFloor(this.dqL.avO().getId());
+        writeData.setForumName(this.dqL.avY().getName());
+        writeData.setForumId(this.dqL.avY().getId());
+        writeData.setFloor(this.dqL.avR().getId());
         writeData.setType(2);
-        writeData.setThreadId(this.dqL.Kl().getId());
+        writeData.setThreadId(this.dqL.Kn().getId());
         writeData.setFloorNum(0);
         return writeData;
     }
 
     @Override // com.baidu.tbadk.editortools.d.a
-    public boolean BA() {
-        return aAr();
+    public boolean BB() {
+        return aAu();
     }
 
-    public boolean aAB() {
+    public boolean aAE() {
         return this.drs;
     }
 
@@ -479,23 +479,23 @@ public class ap extends com.baidu.tbadk.editortools.d.a {
         this.drs = z;
     }
 
-    public SmallTailInfo aAC() {
+    public SmallTailInfo aAF() {
         return this.drr;
     }
 
-    public boolean aAD() {
+    public boolean aAG() {
         return this.dro;
     }
 
-    public ConcurrentHashMap<String, ImageUrlData> aAE() {
+    public ConcurrentHashMap<String, ImageUrlData> aAH() {
         return this.dru;
     }
 
-    public ArrayList<String> aAF() {
+    public ArrayList<String> aAI() {
         return this.drt;
     }
 
-    public boolean aAG() {
+    public boolean aAJ() {
         return this.drv;
     }
 

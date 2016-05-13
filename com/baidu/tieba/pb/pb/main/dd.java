@@ -21,42 +21,42 @@ public class dd extends com.baidu.tbadk.core.dialog.c {
         super(tbPageContext.getPageActivity());
         this.Do = tbPageContext;
         this.ber = onClickListener;
-        ayd();
-    }
-
-    public TextView axY() {
-        return this.dlS;
-    }
-
-    public TextView axZ() {
-        return this.dlT;
-    }
-
-    public TextView aya() {
-        return this.dlV;
+        ayg();
     }
 
     public TextView ayb() {
-        return this.dlW;
+        return this.dlS;
     }
 
     public TextView ayc() {
+        return this.dlT;
+    }
+
+    public TextView ayd() {
+        return this.dlV;
+    }
+
+    public TextView aye() {
+        return this.dlW;
+    }
+
+    public TextView ayf() {
         return this.dlX;
     }
 
-    private void ayd() {
+    private void ayg() {
         a(new CharSequence[]{this.Do.getString(t.j.no_interesting), this.Do.getString(t.j.mark), this.Do.getString(t.j.mute), this.Do.getString(t.j.read_post_floor), this.Do.getString(t.j.pb_user_report_text), this.Do.getString(t.j.delete)}, new de(this));
         d(this.Do);
-        this.dlX = ap(bT(0));
-        this.dlS = ap(bT(1));
-        this.dlT = ap(bT(2));
-        this.dlU = ap(bT(3));
-        this.dlV = ap(bT(4));
-        this.dlW = ap(bT(5));
+        this.dlX = ap(bS(0));
+        this.dlS = ap(bS(1));
+        this.dlT = ap(bS(2));
+        this.dlU = ap(bS(3));
+        this.dlV = ap(bS(4));
+        this.dlW = ap(bS(5));
     }
 
-    public void Fi() {
-        rX();
+    public void Fk() {
+        rY();
     }
 
     private TextView ap(View view) {
@@ -78,25 +78,25 @@ public class dd extends com.baidu.tbadk.core.dialog.c {
         this.dlY = z;
     }
 
-    public void uP() {
+    public void uQ() {
         View view;
         TextView ap;
         int itemCount = getItemCount();
         ArrayList arrayList = new ArrayList();
         boolean z = true;
         for (int i = itemCount - 1; i >= 0; i--) {
-            View bT = bT(i);
-            if (bT != null) {
-                TextView ap2 = ap(bT(i));
-                View aP = aP(bT(i));
+            View bS = bS(i);
+            if (bS != null) {
+                TextView ap2 = ap(bS(i));
+                View aP = aP(bS(i));
                 if (ap2 != null) {
                     if (ap2.getVisibility() == 8) {
                         aP.setVisibility(8);
                     } else {
-                        arrayList.add(bT);
+                        arrayList.add(bS);
                         if (z) {
                             aP.setVisibility(8);
-                            com.baidu.tbadk.core.util.at.k(bT, t.f.dialog_single_button_bg_selector);
+                            com.baidu.tbadk.core.util.at.k(bS, t.f.dialog_single_button_bg_selector);
                             z = false;
                         } else {
                             aP.setVisibility(0);
@@ -110,11 +110,11 @@ public class dd extends com.baidu.tbadk.core.dialog.c {
             if (i2 >= itemCount) {
                 break;
             }
-            View bT2 = bT(i2);
-            if (bT2 == null || (ap = ap(bT(i2))) == null || ap.getVisibility() != 0) {
+            View bS2 = bS(i2);
+            if (bS2 == null || (ap = ap(bS(i2))) == null || ap.getVisibility() != 0) {
                 i2++;
             } else {
-                com.baidu.tbadk.core.util.at.k(bT2, t.f.dialog_single_button_first_bg_selector);
+                com.baidu.tbadk.core.util.at.k(bS2, t.f.dialog_single_button_first_bg_selector);
                 break;
             }
         }
@@ -123,15 +123,15 @@ public class dd extends com.baidu.tbadk.core.dialog.c {
         }
     }
 
-    public TextView aye() {
+    public TextView ayh() {
         return this.dlU;
     }
 
-    public void ayf() {
+    public void ayi() {
         this.dlU.setVisibility(8);
     }
 
-    public void ayg() {
+    public void ayj() {
         this.dlU.setVisibility(0);
     }
 }

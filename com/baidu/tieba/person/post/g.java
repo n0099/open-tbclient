@@ -15,7 +15,7 @@ public class g extends FragmentPagerAdapter {
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.aCO());
+        bundle.putString("key_empty_view_text", personPostActivity.aCR());
         this.dEq = new k();
         this.dEq.setArguments(bundle);
         this.dEp = new v();
@@ -23,7 +23,7 @@ public class g extends FragmentPagerAdapter {
         this.cpg = new int[]{0, 1};
     }
 
-    public v aCQ() {
+    public v aCT() {
         return this.dEp;
     }
 
@@ -44,7 +44,7 @@ public class g extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int jD(int i) {
+    public int jC(int i) {
         return this.cpg[i];
     }
 }

@@ -48,12 +48,12 @@ public class b implements View.OnClickListener {
         }
         if (str3 != null) {
             pbActivity = this.dpM.dhY;
-            if (pbActivity.awu() != null) {
+            if (pbActivity.awx() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
                 pbActivity2 = this.dpM.dhY;
                 Activity pageActivity = pbActivity2.getPageContext().getPageActivity();
                 pbActivity3 = this.dpM.dhY;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.awu().axA(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.awx().axD(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }

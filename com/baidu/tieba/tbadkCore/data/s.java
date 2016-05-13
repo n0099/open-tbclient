@@ -103,27 +103,27 @@ public class s implements v, ak {
         this.eth = new ArrayList<>();
     }
 
-    public c aTN() {
+    public c aTT() {
         return this.etk;
     }
 
-    public ArrayList<s> aTO() {
+    public ArrayList<s> aTU() {
         return this.ete;
     }
 
-    public void aTP() {
+    public void aTV() {
         this.etd++;
     }
 
-    public void aTQ() {
+    public void aTW() {
         this.etd--;
     }
 
-    public void pn(int i) {
+    public void pm(int i) {
         this.etd = i;
     }
 
-    public ArrayList<s> aTR() {
+    public ArrayList<s> aTX() {
         return this.eth;
     }
 
@@ -155,11 +155,11 @@ public class s implements v, ak {
         this.title = str;
     }
 
-    public int aTS() {
+    public int aTY() {
         return this.eta;
     }
 
-    public void po(int i) {
+    public void pn(int i) {
         this.eta = i;
     }
 
@@ -172,7 +172,7 @@ public class s implements v, ak {
         this.date = com.baidu.tbadk.core.util.ay.x(j);
     }
 
-    public String aTT() {
+    public String aTZ() {
         return this.date;
     }
 
@@ -192,7 +192,7 @@ public class s implements v, ak {
         this.praise = praiseData;
     }
 
-    public com.baidu.tbadk.widget.richText.a amw() {
+    public com.baidu.tbadk.widget.richText.a amz() {
         return this.cCl;
     }
 
@@ -204,11 +204,11 @@ public class s implements v, ak {
         return this.bimg_url;
     }
 
-    public com.baidu.tbadk.data.b aTU() {
+    public com.baidu.tbadk.data.b aUa() {
         return this.etm;
     }
 
-    public SmallTailInfo aAC() {
+    public SmallTailInfo aAF() {
         return this.drr;
     }
 
@@ -216,7 +216,7 @@ public class s implements v, ak {
         this.drr = smallTailInfo;
     }
 
-    public com.baidu.tbadk.data.f aTV() {
+    public com.baidu.tbadk.data.f aUb() {
         return this.etn;
     }
 
@@ -226,8 +226,8 @@ public class s implements v, ak {
         String str2;
         z zVar;
         com.baidu.tbadk.widget.richText.c cVar;
-        Bitmap cA;
-        if (tbPageContext != null && this.cCl != null && this.cCl.GC() != null) {
+        Bitmap cz;
+        if (tbPageContext != null && this.cCl != null && this.cCl.GE() != null) {
             BdUniqueId uniqueId = tbPageContext.getUniqueId();
             ArrayList<IconData> tShowInfoNew = getAuthor().getTShowInfoNew();
             if (tShowInfoNew != null) {
@@ -266,10 +266,10 @@ public class s implements v, ak {
             }
             int length = spannableString.length();
             a aVar = new a(tbPageContext.getPageActivity(), str, str2);
-            if (z && (cA = at.cA(t.f.icon_floorhost)) != null) {
-                int width = (cA.getWidth() * dimensionPixelSize) / cA.getHeight();
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(cA);
-                bitmapDrawable.setBounds(0, 0, cA.getWidth(), cA.getHeight());
+            if (z && (cz = at.cz(t.f.icon_floorhost)) != null) {
+                int width = (cz.getWidth() * dimensionPixelSize) / cz.getHeight();
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(cz);
+                bitmapDrawable.setBounds(0, 0, cz.getWidth(), cz.getHeight());
                 com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(bitmapDrawable);
                 if (this.author != null) {
                     spannableString.setSpan(fVar, sb2.length() + this.author.getName_show().length() + 1, str3.length() + sb2.length() + this.author.getName_show().length(), 17);
@@ -278,26 +278,26 @@ public class s implements v, ak {
                 }
             }
             spannableString.setSpan(aVar, 0, length, 18);
-            ArrayList<com.baidu.tbadk.widget.richText.c> GC = this.cCl.GC();
-            if (GC != null && GC.size() > 0) {
-                com.baidu.tbadk.widget.richText.c cVar2 = GC.get(0);
-                if (cVar2.GI() != null) {
-                    cVar2.fb(sb.length());
-                    cVar2.GI().insert(0, (CharSequence) spannableString);
+            ArrayList<com.baidu.tbadk.widget.richText.c> GE = this.cCl.GE();
+            if (GE != null && GE.size() > 0) {
+                com.baidu.tbadk.widget.richText.c cVar2 = GE.get(0);
+                if (cVar2.GK() != null) {
+                    cVar2.fa(sb.length());
+                    cVar2.GK().insert(0, (CharSequence) spannableString);
                     return;
                 }
                 int i3 = 0;
                 while (true) {
                     int i4 = i3;
-                    if (i4 >= GC.size()) {
+                    if (i4 >= GE.size()) {
                         zVar = null;
                         break;
-                    } else if (GC.get(i4) == null || GC.get(i4).getType() != 512) {
+                    } else if (GE.get(i4) == null || GE.get(i4).getType() != 512) {
                         i3 = i4 + 1;
                     } else {
-                        z GJ = GC.get(i4).GJ();
-                        GC.remove(i4);
-                        zVar = GJ;
+                        z GL = GE.get(i4).GL();
+                        GE.remove(i4);
+                        zVar = GL;
                         break;
                     }
                 }
@@ -307,9 +307,9 @@ public class s implements v, ak {
                 } else {
                     cVar = new com.baidu.tbadk.widget.richText.c(1);
                 }
-                cVar.fb(sb.length());
+                cVar.fa(sb.length());
                 cVar.append(spannableString);
-                GC.add(0, cVar);
+                GE.add(0, cVar);
             }
         }
     }
@@ -325,11 +325,11 @@ public class s implements v, ak {
         return bitmapDrawable;
     }
 
-    public int aTW() {
+    public int aUc() {
         return this.etd;
     }
 
-    public int aTX() {
+    public int aUd() {
         return this.etg;
     }
 
@@ -395,8 +395,8 @@ public class s implements v, ak {
                 while (it.hasNext()) {
                     l next = it.next();
                     if (next.getType() == 0) {
-                        if (next.aTB() != null) {
-                            sb.append((CharSequence) next.aTB());
+                        if (next.aTH() != null) {
+                            sb.append((CharSequence) next.aTH());
                         }
                     } else if (next.getType() == 3) {
                         if (next.getLink() != null) {
@@ -405,14 +405,14 @@ public class s implements v, ak {
                     } else if (next.getType() == 6) {
                         sb.append(context.getString(t.j.voice_str));
                     } else if (next.getType() == 2) {
-                        String fk = TbFaceManager.CG().fk(next.getText());
+                        String fk = TbFaceManager.CH().fk(next.getText());
                         if (fk != null) {
                             sb.append("[");
                             sb.append(fk);
                             sb.append("]");
                         }
-                    } else if (next.getType() == 11 && !com.baidu.tbadk.core.util.ay.isEmpty(next.aTA())) {
-                        sb.append("[").append(next.aTA()).append("]");
+                    } else if (next.getType() == 11 && !com.baidu.tbadk.core.util.ay.isEmpty(next.aTG())) {
+                        sb.append("[").append(next.aTG()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -486,7 +486,7 @@ public class s implements v, ak {
                 this.cCl = TbRichTextView.b(context, post.content, true);
                 if (this.cCl != null) {
                     this.cCl.setPostId(com.baidu.adp.lib.h.b.c(this.id, -1L));
-                    this.cCl.fa(this.eta);
+                    this.cCl.eZ(this.eta);
                     if (this.author != null) {
                         this.cCl.setAuthorId(this.author.getUserId());
                     }
@@ -603,18 +603,18 @@ public class s implements v, ak {
     }
 
     public String aU(Context context) {
-        ArrayList<com.baidu.tbadk.widget.richText.c> GC;
-        if (this.cCl == null || (GC = this.cCl.GC()) == null) {
+        ArrayList<com.baidu.tbadk.widget.richText.c> GE;
+        if (this.cCl == null || (GE = this.cCl.GE()) == null) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator<com.baidu.tbadk.widget.richText.c> it = GC.iterator();
+        Iterator<com.baidu.tbadk.widget.richText.c> it = GE.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.widget.richText.c next = it.next();
             if (next.getType() == 1) {
-                stringBuffer.append(next.GI().toString());
+                stringBuffer.append(next.GK().toString());
             } else if (next.getType() == 17) {
-                String str = next.GM().aty.asZ;
+                String str = next.GO().aty.asZ;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     stringBuffer.append("[" + str.substring(2, str.length() - 1) + "]");
                 }
@@ -631,33 +631,33 @@ public class s implements v, ak {
         return stringBuffer.toString();
     }
 
-    public int aTY() {
+    public int aUe() {
         return this.eti;
     }
 
-    public void pp(int i) {
+    public void po(int i) {
         this.eti = i;
     }
 
-    public aj aTZ() {
-        ArrayList<com.baidu.tbadk.widget.richText.c> GC;
-        if (this.cCl != null && (GC = this.cCl.GC()) != null) {
-            Iterator<com.baidu.tbadk.widget.richText.c> it = GC.iterator();
+    public aj aUf() {
+        ArrayList<com.baidu.tbadk.widget.richText.c> GE;
+        if (this.cCl != null && (GE = this.cCl.GE()) != null) {
+            Iterator<com.baidu.tbadk.widget.richText.c> it = GE.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.widget.richText.c next = it.next();
                 if (next.getType() == 8) {
                     aj ajVar = new aj();
-                    ajVar.width = next.GH().getWidth();
-                    ajVar.height = next.GH().getHeight();
-                    ajVar.imgUrl = next.GH().GU();
+                    ajVar.width = next.GJ().getWidth();
+                    ajVar.height = next.GJ().getHeight();
+                    ajVar.imgUrl = next.GJ().GW();
                     ajVar.Xc = 17;
                     return ajVar;
                 } else if (next.getType() == 1536) {
-                    if (next.GQ() == null || TextUtils.isEmpty(next.GQ().url)) {
+                    if (next.GS() == null || TextUtils.isEmpty(next.GS().url)) {
                         return null;
                     }
                     aj ajVar2 = new aj();
-                    ajVar2.imgUrl = next.GQ().url;
+                    ajVar2.imgUrl = next.GS().url;
                     ajVar2.Xc = 17;
                     return ajVar2;
                 }
@@ -669,26 +669,26 @@ public class s implements v, ak {
 
     @Override // com.baidu.tbadk.core.util.ak
     public ArrayList<aj> getImages() {
-        ArrayList<com.baidu.tbadk.widget.richText.c> GC;
-        if (this.cCl == null || (GC = this.cCl.GC()) == null) {
+        ArrayList<com.baidu.tbadk.widget.richText.c> GE;
+        if (this.cCl == null || (GE = this.cCl.GE()) == null) {
             return null;
         }
         ArrayList<aj> arrayList = new ArrayList<>();
-        Iterator<com.baidu.tbadk.widget.richText.c> it = GC.iterator();
+        Iterator<com.baidu.tbadk.widget.richText.c> it = GE.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.widget.richText.c next = it.next();
             if (next.getType() == 8) {
                 aj ajVar = new aj();
-                ajVar.width = next.GH().getWidth();
-                ajVar.height = next.GH().getHeight();
-                ajVar.imgUrl = next.GH().GU();
+                ajVar.width = next.GJ().getWidth();
+                ajVar.height = next.GJ().getHeight();
+                ajVar.imgUrl = next.GJ().GW();
                 ajVar.Xc = 17;
                 arrayList.add(ajVar);
-            } else if (next.GM() != null) {
+            } else if (next.GO() != null) {
                 aj ajVar2 = new aj();
-                ajVar2.width = next.GM().aty.atc;
-                ajVar2.height = next.GM().aty.atd;
-                ajVar2.Xd = next.GM();
+                ajVar2.width = next.GO().aty.atc;
+                ajVar2.height = next.GO().aty.atd;
+                ajVar2.Xd = next.GO();
                 ajVar2.Xc = 20;
                 arrayList.add(ajVar2);
             }
@@ -744,11 +744,11 @@ public class s implements v, ak {
             return esW;
         }
         if (this.etp != null && this.etp.esx) {
-            int aTv = this.etp.aTv();
-            if (aTv == 2) {
+            int aTB = this.etp.aTB();
+            if (aTB == 2) {
                 return esU;
             }
-            if (aTv == 1) {
+            if (aTB == 1) {
                 return esV;
             }
             return esS;
@@ -759,7 +759,7 @@ public class s implements v, ak {
         }
     }
 
-    public boolean aUa() {
+    public boolean aUg() {
         return this.etf;
     }
 
@@ -771,7 +771,7 @@ public class s implements v, ak {
         this.esZ = i;
     }
 
-    public ae aUb() {
+    public ae aUh() {
         return this.etj;
     }
 
@@ -779,20 +779,20 @@ public class s implements v, ak {
         this.etj = aeVar;
     }
 
-    public i aUc() {
+    public i aUi() {
         return this.etp;
     }
 
-    public com.baidu.tbadk.widget.richText.o GL() {
+    public com.baidu.tbadk.widget.richText.o GN() {
         if (this.dgK != null) {
             return this.dgK;
         }
-        if (this.cCl != null && y.r(this.cCl.GC()) > 0) {
-            Iterator<com.baidu.tbadk.widget.richText.c> it = this.cCl.GC().iterator();
+        if (this.cCl != null && y.r(this.cCl.GE()) > 0) {
+            Iterator<com.baidu.tbadk.widget.richText.c> it = this.cCl.GE().iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.widget.richText.c next = it.next();
                 if (next != null && next.getType() == 32) {
-                    this.dgK = next.GL();
+                    this.dgK = next.GN();
                     return this.dgK;
                 }
             }
@@ -800,15 +800,15 @@ public class s implements v, ak {
         return null;
     }
 
-    public ArrayList<com.baidu.tbadk.data.b> aUd() {
+    public ArrayList<com.baidu.tbadk.data.b> aUj() {
         return this.QS;
     }
 
-    public String aUe() {
+    public String aUk() {
         return this.etq;
     }
 
-    public String aUf() {
+    public String aUl() {
         return this.etr;
     }
 }

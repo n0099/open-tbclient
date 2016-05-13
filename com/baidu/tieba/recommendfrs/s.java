@@ -20,18 +20,18 @@ public class s implements AbsListView.OnScrollListener {
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (this.dYM.dYi == null) {
             this.dYM.dYi = new com.baidu.tbadk.performanceLog.m();
-            this.dYM.dYi.eM(1005);
+            this.dYM.dYi.eL(1005);
             this.dYM.dYi.pageType = 1;
         }
         if (this.dYM.dYj != null) {
             this.dYM.dYj.onScrollStateChanged(absListView, i);
         }
-        this.dYM.dYi.Et();
-        at.vD().aK(i == 0);
+        this.dYM.dYi.Eu();
+        at.vE().aK(i == 0);
         if (i == 0) {
-            bx.Kg().ci(true);
+            bx.Ki().ci(true);
             if (this.dYL) {
-                this.dYM.aMd();
+                this.dYM.aMg();
             }
             this.dYL = false;
             this.dYM.Rm();
@@ -50,11 +50,11 @@ public class s implements AbsListView.OnScrollListener {
         int i4 = (i + i2) - 1;
         if (!this.dYL && this.dYJ != i4) {
             this.dYJ = i4;
-            this.dYM.oq(this.dYJ);
+            this.dYM.op(this.dYJ);
         }
         if (this.dYL && this.dYJ != i) {
             this.dYJ = i;
-            this.dYM.oq(this.dYJ);
+            this.dYM.op(this.dYJ);
         }
     }
 }

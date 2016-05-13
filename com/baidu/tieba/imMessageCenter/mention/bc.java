@@ -24,7 +24,7 @@ public class bc extends com.baidu.tbadk.editortools.d.a<bf> {
     }
 
     @Override // com.baidu.tbadk.editortools.d.a
-    public boolean BA() {
+    public boolean BB() {
         return false;
     }
 
@@ -75,7 +75,7 @@ public class bc extends com.baidu.tbadk.editortools.d.a<bf> {
     }
 
     @Override // com.baidu.tbadk.editortools.d.a
-    public String BB() {
+    public String BC() {
         return null;
     }
 }

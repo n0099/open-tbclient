@@ -61,12 +61,12 @@ public class b implements fg {
             awVar2.ac("fid", frsActivity.getForumId());
             TiebaStatic.log(awVar2);
         }
-        if (HorizontalTabView.gM(i) && foVar != null) {
+        if (HorizontalTabView.gL(i) && foVar != null) {
             String str = (String) foVar.bmS;
             if (!StringUtils.isNull(str)) {
-                bg us = bg.us();
+                bg ut = bg.ut();
                 frsActivity2 = this.bps.bpj;
-                us.c(frsActivity2.getPageContext(), new String[]{str});
+                ut.c(frsActivity2.getPageContext(), new String[]{str});
                 return;
             }
             return;
@@ -96,6 +96,6 @@ public class b implements fg {
     }
 
     @Override // com.baidu.tieba.frs.fg
-    public void OY() {
+    public void Pa() {
     }
 }

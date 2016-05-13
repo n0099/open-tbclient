@@ -31,7 +31,7 @@ class b extends CustomMessageListener {
                 com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
                 aVar = this.aGQ.aGJ;
                 dL.removeCallbacks(aVar);
-                this.aGQ.HI();
+                this.aGQ.HK();
             }
         }
     }

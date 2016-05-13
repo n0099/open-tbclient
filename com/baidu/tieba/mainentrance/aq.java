@@ -55,8 +55,8 @@ class aq extends HttpMessageListener {
                     this.cMQ.showToast(t.j.neterror);
                 } else {
                     this.cMQ.showToast(httpResponsedMessage.getErrorString());
-                    this.cMQ.aoS();
-                    this.cMQ.mNoDataView.setTextOption(NoDataViewFactory.d.cP(t.j.text_no_suggest));
+                    this.cMQ.aoV();
+                    this.cMQ.mNoDataView.setTextOption(NoDataViewFactory.d.cO(t.j.text_no_suggest));
                 }
             }
         }

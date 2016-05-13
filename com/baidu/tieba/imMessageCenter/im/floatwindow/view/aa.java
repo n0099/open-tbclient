@@ -14,8 +14,8 @@ class aa extends com.baidu.tbadk.util.s<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: Io */
+    /* renamed from: Iq */
     public Void doInBackground() {
-        return com.baidu.tieba.im.db.l.aeD().k(this.cbK);
+        return com.baidu.tieba.im.db.l.aeF().k(this.cbK);
     }
 }

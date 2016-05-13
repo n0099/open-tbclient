@@ -8,7 +8,7 @@ import java.io.File;
 public class ax {
     private static ax XF;
 
-    public static synchronized ax tY() {
+    public static synchronized ax tZ() {
         ax axVar;
         synchronized (ax.class) {
             if (XF == null) {
@@ -84,13 +84,13 @@ public class ax {
         }
     }
 
-    public void tZ() {
+    public void ua() {
         s(new File(m.oH + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
         s(new File(m.oH + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void ua() {
-        t(new File(m.oH + "/" + TbConfig.getTempDirName() + "/" + m.cn(3)));
+    public void ub() {
+        t(new File(m.oH + "/" + TbConfig.getTempDirName() + "/" + m.cm(3)));
     }
 
     private void t(File file) {

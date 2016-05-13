@@ -12,7 +12,7 @@ public class co implements BannerView.a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zj() {
+    public void zk() {
         com.baidu.tbadk.core.data.p pVar;
         com.baidu.tbadk.core.data.p pVar2;
         pVar = this.bkx.bjZ;
@@ -25,7 +25,7 @@ public class co implements BannerView.a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zk() {
+    public void zl() {
         this.bkx.QT();
     }
 }

@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kv */
+    /* renamed from: ku */
     public ForumSuggestModel.Forum getItem(int i) {
         int count = getCount();
         if (count <= 0 || i >= count) {
@@ -93,8 +93,8 @@ public class a extends BaseAdapter {
             }
             d(c0063a.aZB, str);
             c0063a.cEQ.setTag(item.avatar);
-            c0063a.cER.setText(String.valueOf(this.bek.getPageContext().getString(t.j.forum_list_attention_tv)) + " " + kw(item.member_num));
-            c0063a.cES.setText(String.valueOf(this.bek.getPageContext().getString(t.j.forum_list_thread_tv)) + " " + kw(item.thread_num));
+            c0063a.cER.setText(String.valueOf(this.bek.getPageContext().getString(t.j.forum_list_attention_tv)) + " " + kv(item.member_num));
+            c0063a.cES.setText(String.valueOf(this.bek.getPageContext().getString(t.j.forum_list_thread_tv)) + " " + kv(item.thread_num));
             if (this.cLn || !TextUtils.isEmpty(item.slogan)) {
                 c0063a.cET.setVisibility(0);
                 c0063a.cET.setText(item.slogan);
@@ -107,7 +107,7 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public String kw(int i) {
+    public String kv(int i) {
         if (i >= 100000) {
             return String.valueOf(String.valueOf(i / 10000)) + this.bek.getPageContext().getString(t.j.member_count_unit);
         }

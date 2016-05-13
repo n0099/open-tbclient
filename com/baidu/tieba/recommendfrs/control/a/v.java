@@ -10,27 +10,27 @@ public class v extends com.baidu.tbadk.mvc.model.a<com.baidu.tieba.recommendfrs.
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<com.baidu.tieba.recommendfrs.data.r> Du() {
+    public Class<com.baidu.tieba.recommendfrs.data.r> Dv() {
         return com.baidu.tieba.recommendfrs.data.r.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String Dg() {
+    public String Dh() {
         return "RecommendGodCache";
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int Dv() {
+    public int Dw() {
         return CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int Dw() {
+    public int Dx() {
         return CmdConfigCustom.CMD_RECOMMEND_FRS_WRITE_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean Dn() {
+    protected boolean Do() {
         return true;
     }
 }

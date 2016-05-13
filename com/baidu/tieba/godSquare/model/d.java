@@ -29,7 +29,7 @@ public class d extends CustomMessageListener {
         aVar = this.bKt.bKp;
         if (aVar != null) {
             if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
-                this.bKt.hN(1);
+                this.bKt.hM(1);
                 return;
             }
             GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = (GodSquareCacheResponsedMsg) customResponsedMessage;
@@ -40,7 +40,7 @@ public class d extends CustomMessageListener {
                 aVar2.a(a, z, true, godSquareCacheResponsedMsg.getErrorString());
                 return;
             }
-            this.bKt.hN(1);
+            this.bKt.hM(1);
         }
     }
 }

@@ -35,11 +35,11 @@ public class e extends BaseFragment {
     private int aXf = 0;
     final CustomMessageListener aXg = new f(this, CmdConfigCustom.CMD_ENTER_FORUM_ADD_TOGETHERHI_TAB);
 
-    public ObservedChangeLinearLayout Mr() {
+    public ObservedChangeLinearLayout Mt() {
         return this.aXc;
     }
 
-    public FragmentTabWidget Ms() {
+    public FragmentTabWidget Mu() {
         return this.aXd;
     }
 
@@ -55,7 +55,7 @@ public class e extends BaseFragment {
             ((RelativeLayout.LayoutParams) this.aXc.getLayoutParams()).setMargins(0, com.baidu.adp.lib.util.k.c(getPageContext().getPageActivity(), t.e.ds98) + UtilHelper.getLightStatusBarHeight(), 0, 0);
         }
         this.aWZ.a(new h(this));
-        Mu();
+        Mw();
     }
 
     private void initViewPager() {
@@ -64,7 +64,7 @@ public class e extends BaseFragment {
         this.UR.setOnPageChangeListener(new i(this));
     }
 
-    private void Mt() {
+    private void Mv() {
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getPageActivity());
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(t.e.ds28));
         fragmentTabIndicator.setGravity(17);
@@ -86,9 +86,9 @@ public class e extends BaseFragment {
         this.aXd.setTabSelectionListener(new j(this));
     }
 
-    private void Mu() {
+    private void Mw() {
         initViewPager();
-        Mt();
+        Mv();
         if (this.aXf < 0) {
             this.aXf = 0;
         }
@@ -97,25 +97,25 @@ public class e extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fN(int i) {
-        fO(i);
+    public void fM(int i) {
+        fN(i);
         this.aXf = i;
         if (i == 0) {
             if (this.aWX != null) {
-                this.aWX.MC();
-                if (this.aWX.MF()) {
-                    this.aWX.ME();
+                this.aWX.ME();
+                if (this.aWX.MH()) {
+                    this.aWX.MG();
                 }
             }
         } else if (this.aWY != null && i == this.aWY.aYo && this.aWY.aYq != null) {
-            this.aWY.aYq.MC();
-            if (this.aWX != null && this.aWX.MF()) {
-                this.aWX.MD();
+            this.aWY.aYq.ME();
+            if (this.aWX != null && this.aWX.MH()) {
+                this.aWX.MF();
             }
         }
     }
 
-    private void fO(int i) {
+    private void fN(int i) {
         boolean z = i == 0;
         if (this.aWX != null) {
             this.aWX.ct(z);
@@ -126,7 +126,7 @@ public class e extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            fN(this.aXf);
+            fM(this.aXf);
             if (this.aXf == 0 && this.aWX != null) {
                 refreshImage(this.aWX.getView());
             } else if (this.aWY != null && this.aXf == this.aWY.aYo && this.aWY.aYq != null) {
@@ -229,7 +229,7 @@ public class e extends BaseFragment {
             }
             if (viewGroup != null && view != null) {
                 viewGroup.addView(view);
-                e.this.fN(e.this.aXf);
+                e.this.fM(e.this.aXf);
             }
             return view;
         }

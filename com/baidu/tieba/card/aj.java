@@ -12,9 +12,9 @@ public class aj implements TextureVideoView.a {
     }
 
     @Override // com.baidu.tbadk.core.view.TextureVideoView.a
-    public void vt() {
+    public void vu() {
         boolean z;
-        if (com.baidu.tbadk.core.view.at.vD().vH()) {
+        if (com.baidu.tbadk.core.view.at.vE().vI()) {
             z = this.aQe.aPU;
             if (!z) {
                 this.aQe.cg(false);

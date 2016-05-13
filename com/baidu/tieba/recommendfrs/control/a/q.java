@@ -19,7 +19,7 @@ public class q {
     private CustomMessageListener dZM = new r(this, CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED);
     private CustomMessageListener adW = new s(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
 
-    public static synchronized q aMp() {
+    public static synchronized q aMs() {
         q qVar;
         synchronized (q.class) {
             if (dZN == null) {

@@ -21,7 +21,7 @@ public class j implements AbsListView.OnScrollListener {
     public void onScrollStateChanged(AbsListView absListView, int i) {
         com.baidu.adp.lib.util.k.a(this.bYQ.getActivity(), this.bYQ.getActivity().getCurrentFocus());
         if (this.bYP.mTool != null) {
-            this.bYP.mTool.zx();
+            this.bYP.mTool.zy();
         }
     }
 }

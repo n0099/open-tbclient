@@ -15,7 +15,7 @@ class n extends s<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: Io */
+    /* renamed from: Iq */
     public Void doInBackground() {
         if (this.cfw.getData() instanceof String) {
             f.jk((String) this.cfw.getData());

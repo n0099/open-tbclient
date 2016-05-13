@@ -16,7 +16,7 @@ public class g {
         private static final g TG = new g();
     }
 
-    public static g st() {
+    public static g su() {
         return c.TG;
     }
 
@@ -24,7 +24,7 @@ public class g {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
                 this.Tt = new a(i, kVar, null);
-                this.Tt.sv();
+                this.Tt.sw();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -63,7 +63,7 @@ public class g {
 
         private void v(long j) {
             this.TE.add(Long.valueOf(j));
-            this.Tt.sv();
+            this.Tt.sw();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -105,25 +105,25 @@ public class g {
             this(i, kVar);
         }
 
-        private void su() {
+        private void sv() {
             this.Tz.invoke(this.Ty, this.Tv);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void sv() {
+        public void sw() {
             if (this.index >= this.TB) {
                 com.baidu.adp.lib.h.h.dL().post(new h(this));
                 return;
             }
             this.index++;
             try {
-                su();
+                sv();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> sw() {
+        private List<Long> sx() {
             return this.TA.TE;
         }
 
@@ -133,15 +133,15 @@ public class g {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> sx() {
+        public List<Long> sy() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> sw = sw();
-            int size = sw.size();
+            List<Long> sx = sx();
+            int size = sx.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(sw.get(i2 + 1).longValue() - sw.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(sx.get(i2 + 1).longValue() - sx.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

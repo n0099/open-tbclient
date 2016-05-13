@@ -75,12 +75,12 @@ public class p extends NoPressedLinearLayout implements ab, EmotionTabContentVie
         }
     }
 
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> LM() {
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> LO() {
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList = new ArrayList<>();
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = x.LW().LY().iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = x.LY().Ma().iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (next.Bv() != EmotionGroupType.BIG_EMOTION) {
+            if (next.Bw() != EmotionGroupType.BIG_EMOTION) {
                 arrayList.add(next);
             }
         }
@@ -89,15 +89,15 @@ public class p extends NoPressedLinearLayout implements ab, EmotionTabContentVie
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.aVW = x.LW().LY();
+        this.aVW = x.LY().Ma();
         if (!this.aWa) {
-            this.aVX = LM();
+            this.aVX = LO();
         } else {
-            this.aVX = x.LW().LY();
+            this.aVX = x.LY().Ma();
         }
         if ((this.aVW == null || this.aVW.size() <= 0) && this.aWb < 3) {
             this.aWb++;
-            x.LW().LX();
+            x.LY().LZ();
             return;
         }
         this.aVU.setDatas(this.aVW);
@@ -144,7 +144,7 @@ public class p extends NoPressedLinearLayout implements ab, EmotionTabContentVie
             com.baidu.tbadk.editortools.emotiontool.c cVar = this.aVX.get(i);
             this.aVT.g(this.aVX, i);
             if (this.aVZ) {
-                if (cVar.Bv() == EmotionGroupType.LOCAL) {
+                if (cVar.Bw() == EmotionGroupType.LOCAL) {
                     this.aVU.setShowDelete(true);
                 } else {
                     this.aVU.setShowDelete(false);
@@ -173,9 +173,9 @@ public class p extends NoPressedLinearLayout implements ab, EmotionTabContentVie
     }
 
     @Override // com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.a
-    public void ew(int i) {
+    public void ev(int i) {
         if (i >= 0 && i < this.aVW.size() && i != this.asz && this.aVT != null) {
-            this.aVT.fB(i);
+            this.aVT.fA(i);
             this.asz = i;
         }
     }
@@ -188,7 +188,7 @@ public class p extends NoPressedLinearLayout implements ab, EmotionTabContentVie
     }
 
     @Override // com.baidu.tieba.emotion.editortool.EmotionTabContentView.c
-    public void fC(int i) {
+    public void fB(int i) {
         if (this.aVU != null && i != this.asz) {
             this.aVU.setCurrentTab(i);
             this.asz = i;

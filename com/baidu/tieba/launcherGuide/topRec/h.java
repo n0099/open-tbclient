@@ -65,21 +65,21 @@ public class h extends com.baidu.adp.base.e<TopRecActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: u */
         public TRForumListData doInBackground(Object... objArr) {
-            String tc;
+            String td;
             try {
                 this.aeI = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/random_recommend_forum");
                 this.aeI.n(LegoListActivityConfig.RN, "100");
-                tc = this.aeI.tc();
+                td = this.aeI.td();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            if (tc == null) {
+            if (td == null) {
                 return null;
             }
-            if (!this.aeI.tA().uv().nZ()) {
+            if (!this.aeI.tB().uw().nZ()) {
                 h.this.aYg = false;
             } else {
-                this.cED = (TRForumListData) i.objectWithJsonStr(tc, TRForumListData.class);
+                this.cED = (TRForumListData) i.objectWithJsonStr(td, TRForumListData.class);
                 h.this.aYg = true;
             }
             return this.cED;

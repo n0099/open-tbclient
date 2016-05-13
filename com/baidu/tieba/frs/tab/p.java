@@ -28,7 +28,7 @@ public class p implements AdapterView.OnItemClickListener {
         jVar = this.btn.btl;
         if (jVar != null) {
             jVar2 = this.btn.btl;
-            jVar2.Tx();
+            jVar2.Tz();
         }
         baseAdapter = this.btn.btm;
         if (baseAdapter != null) {
@@ -45,7 +45,7 @@ public class p implements AdapterView.OnItemClickListener {
                 if (ftVar2 != null) {
                     ftVar2.isSelected = true;
                     bVar2 = this.btn.bsQ;
-                    bVar2.gN(ftVar2.blZ);
+                    bVar2.gM(ftVar2.blZ);
                 }
             }
         }

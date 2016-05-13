@@ -24,7 +24,7 @@ public class u {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public static String eS(int i) {
+    public static String eR(int i) {
         if (i >= 100000000) {
             return String.valueOf(i / 100000000) + "亿+";
         }

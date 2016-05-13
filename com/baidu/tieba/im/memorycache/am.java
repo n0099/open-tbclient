@@ -31,15 +31,15 @@ public class am implements CustomMessageTask.CustomRunnable<String> {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                com.baidu.tieba.im.db.g.aet().endTransaction();
+                com.baidu.tieba.im.db.g.aev().endTransaction();
             }
             if (customMessage instanceof CustomMessage) {
-                com.baidu.tieba.im.db.g.aet().aeu();
-                com.baidu.tieba.im.db.i.aex().a(this.cnH, 3);
+                com.baidu.tieba.im.db.g.aev().aew();
+                com.baidu.tieba.im.db.i.aez().a(this.cnH, 3);
                 if (this.cnH.getCustomGroupType() == 2) {
-                    com.baidu.tieba.im.db.l.aeD().a(this.cnR.getUserId(), this.cnR.getToUserId(), String.valueOf(this.cnR.getRecordId()), String.valueOf(this.cnR.getMsgId()), this.cnR.getLocalData().getStatus().shortValue());
+                    com.baidu.tieba.im.db.l.aeF().a(this.cnR.getUserId(), this.cnR.getToUserId(), String.valueOf(this.cnR.getRecordId()), String.valueOf(this.cnR.getMsgId()), this.cnR.getLocalData().getStatus().shortValue());
                 } else {
-                    com.baidu.tieba.im.db.k.aeC().a(this.cnR.getUserId(), this.cnR.getToUserId(), String.valueOf(this.cnR.getRecordId()), String.valueOf(this.cnR.getMsgId()), this.cnR.getLocalData().getStatus().shortValue());
+                    com.baidu.tieba.im.db.k.aeE().a(this.cnR.getUserId(), this.cnR.getToUserId(), String.valueOf(this.cnR.getRecordId()), String.valueOf(this.cnR.getMsgId()), this.cnR.getLocalData().getStatus().shortValue());
                 }
                 return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.cnJ);
             }

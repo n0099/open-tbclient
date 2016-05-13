@@ -36,7 +36,7 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         this.bNW = 4;
         this.aTj = new i(this);
         this.mContext = context;
-        vk();
+        vl();
     }
 
     public InviteFriendCandidateList(Context context, AttributeSet attributeSet) {
@@ -47,7 +47,7 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         this.bNW = 4;
         this.aTj = new i(this);
         this.mContext = context;
-        vk();
+        vl();
     }
 
     public void setMaxCount(int i) {
@@ -58,7 +58,7 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         this.cwG = aVar;
     }
 
-    private void vk() {
+    private void vl() {
         this.Vr = this.mContext.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_item_width);
         this.cwD = this.mContext.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_item_height);
         this.cwE = this.mContext.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_item_margin);
@@ -69,46 +69,46 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         this.cwC.setLayoutParams(layoutParams);
         this.cwC.setHorizontalScrollBarEnabled(true);
         this.cwC.setOrientation(0);
-        aky();
+        akA();
         addView(this.cwC);
         setSmoothScrollingEnabled(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aky() {
+    public void akA() {
         if (this.cwF == null) {
-            this.cwF = akC();
+            this.cwF = akE();
             this.cwF.setDrawBorder(false);
         }
-        this.cwF.setImageBitmap(at.cA(t.f.icon_add_pop));
+        this.cwF.setImageBitmap(at.cz(t.f.icon_add_pop));
         this.cwC.addView(this.cwF);
     }
 
-    private void akz() {
-        if (akA()) {
+    private void akB() {
+        if (akC()) {
             this.cwC.removeView(this.cwF);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean akA() {
+    public boolean akC() {
         int childCount = this.cwC.getChildCount();
         return childCount > 0 && this.cwC.getChildAt(childCount + (-1)) == this.cwF;
     }
 
     public void d(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (getItemLength() < this.bNW) {
-            HeadImageView akC = akC();
-            akC.setIsRound(false);
-            akC.c(aVar.getUserPortrait(), 12, false);
-            if (akA()) {
-                akC.setTag(aVar);
-                akC.setOnClickListener(this.aTj);
-                this.cwC.addView(akC, getItemLength());
+            HeadImageView akE = akE();
+            akE.setIsRound(false);
+            akE.c(aVar.getUserPortrait(), 12, false);
+            if (akC()) {
+                akE.setTag(aVar);
+                akE.setOnClickListener(this.aTj);
+                this.cwC.addView(akE, getItemLength());
                 scrollTo(getItemLength() * (this.Vr + this.cwE), 0);
             }
             if (getItemLength() >= this.bNW) {
-                akz();
+                akB();
             }
         }
     }
@@ -127,7 +127,7 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         return false;
     }
 
-    public String akB() {
+    public String akD() {
         Object tag;
         int childCount = this.cwC.getChildCount();
         StringBuilder sb = new StringBuilder();
@@ -147,13 +147,13 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         View findViewWithTag = this.cwC.findViewWithTag(aVar);
         if (findViewWithTag != null) {
             this.cwC.removeView(findViewWithTag);
-            if (!akA()) {
-                aky();
+            if (!akC()) {
+                akA();
             }
         }
     }
 
-    private HeadImageView akC() {
+    private HeadImageView akE() {
         HeadImageView headImageView = new HeadImageView(this.mContext);
         headImageView.setIsRound(false);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.Vr, this.cwD);
@@ -164,6 +164,6 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     }
 
     public int getItemLength() {
-        return akA() ? this.cwC.getChildCount() - 1 : this.cwC.getChildCount();
+        return akC() ? this.cwC.getChildCount() - 1 : this.cwC.getChildCount();
     }
 }

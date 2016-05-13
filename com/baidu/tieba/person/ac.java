@@ -18,18 +18,18 @@ class ac implements View.OnClickListener {
     public void onClick(View view) {
         ae aeVar;
         ae aeVar2;
-        PersonBarActivity aBC;
-        PersonBarActivity aBC2;
+        PersonBarActivity aBF;
+        PersonBarActivity aBF2;
         int intValue = ((Integer) view.getTag()).intValue();
         if (intValue >= 0) {
             aeVar = this.dvP.dvz;
             if (intValue < aeVar.getCount()) {
                 aeVar2 = this.dvP.dvz;
                 ForumData forumData = (ForumData) aeVar2.getItem(intValue);
-                aBC = this.dvP.aBC();
-                if (aBC != null) {
-                    aBC2 = this.dvP.aBC();
-                    this.dvP.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(aBC2.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
+                aBF = this.dvP.aBF();
+                if (aBF != null) {
+                    aBF2 = this.dvP.aBF();
+                    this.dvP.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(aBF2.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
                 }
             }
         }

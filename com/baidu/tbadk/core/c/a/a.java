@@ -18,7 +18,7 @@ public class a extends o {
         return "TBHY_COMMON_Clipboard";
     }
 
-    @p(sD = "copy")
+    @p(sE = "copy")
     protected JSONObject copyToClipboard(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject != null) {

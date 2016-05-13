@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ WXEntryActivity feS;
+    final /* synthetic */ WXEntryActivity feR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(WXEntryActivity wXEntryActivity) {
-        this.feS = wXEntryActivity;
+        this.feR = wXEntryActivity;
     }
 
     @Override // java.lang.Runnable
@@ -16,11 +16,11 @@ class e implements Runnable {
         SapiWebView sapiWebView;
         SapiWebView sapiWebView2;
         try {
-            sapiWebView = this.feS.dbR;
+            sapiWebView = this.feR.dbR;
             if (sapiWebView != null) {
-                sapiWebView2 = this.feS.dbR;
+                sapiWebView2 = this.feR.dbR;
                 sapiWebView2.destroy();
-                this.feS.dbR = null;
+                this.feR.dbR = null;
             }
         } catch (Throwable th) {
             BdLog.e(th);

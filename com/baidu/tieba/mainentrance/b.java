@@ -35,7 +35,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kx */
+    /* renamed from: kw */
     public c getItem(int i) {
         return (c) com.baidu.tbadk.core.util.y.c(this.cLr, i);
     }
@@ -77,11 +77,11 @@ public class b extends BaseAdapter {
                 if (cVar == null || c0064b2 == null) {
                     break;
                 }
-                String aov = cVar.aov();
-                c0064b2.cEQ.setTag(aov);
-                c0064b2.cEQ.c(aov, 10, false);
+                String aoy = cVar.aoy();
+                c0064b2.cEQ.setTag(aoy);
+                c0064b2.cEQ.c(aoy, 10, false);
                 c0064b2.aZB.setText(cVar.getForumName());
-                c0064b2.cER.setText(String.valueOf(this.bek.getPageContext().getString(t.j.forum_list_attention_tv)) + bp(cVar.aow() > 0 ? cVar.aow() : 0L));
+                c0064b2.cER.setText(String.valueOf(this.bek.getPageContext().getString(t.j.forum_list_attention_tv)) + bp(cVar.aoz() > 0 ? cVar.aoz() : 0L));
                 c0064b2.cLu.setTag(Integer.valueOf((i * 2) + i3));
                 i2 = i3 + 1;
             } else {

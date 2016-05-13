@@ -58,7 +58,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i {
         return this.mHeight;
     }
 
-    public String Hc() {
+    public String He() {
         return this.cdn_src;
     }
 
@@ -66,7 +66,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i {
         return this.link;
     }
 
-    public boolean GV() {
+    public boolean GX() {
         return this.aEw;
     }
 }

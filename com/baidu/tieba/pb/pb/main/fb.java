@@ -26,9 +26,9 @@ public class fb implements View.OnClickListener {
             pbActivity.showToast(t.j.neterror);
             return;
         }
-        com.baidu.tbadk.core.util.bg us = com.baidu.tbadk.core.util.bg.us();
+        com.baidu.tbadk.core.util.bg ut = com.baidu.tbadk.core.util.bg.ut();
         pbActivity2 = this.dpu.dhY;
-        us.c(pbActivity2.getPageContext(), new String[]{this.val$url});
+        ut.c(pbActivity2.getPageContext(), new String[]{this.val$url});
         pbActivity3 = this.dpu.dhY;
         pbActivity3.finish();
     }

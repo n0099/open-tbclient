@@ -24,7 +24,7 @@ public class a {
         this.dXk = str;
     }
 
-    public void oh(int i) {
+    public void og(int i) {
         this.dXl = i;
     }
 
@@ -46,7 +46,7 @@ public class a {
         }
     }
 
-    public JSONObject aLF() {
+    public JSONObject aLI() {
         if (this.dXp != null) {
             return this.dXp;
         }

@@ -43,10 +43,10 @@ public class g {
             ab abVar = new ab(g.ddF);
             abVar.n("forum_id", this.aJc);
             abVar.n("user_id", this.aJd);
-            String tc = abVar.tc();
-            if (abVar.tA().uv().nZ()) {
+            String td = abVar.td();
+            if (abVar.tB().uw().nZ()) {
                 try {
-                    return (ForbidTplData) i.objectWithJsonStr(tc, ForbidTplData.class);
+                    return (ForbidTplData) i.objectWithJsonStr(td, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -55,7 +55,7 @@ public class g {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = abVar.tE();
+            forbidTplData2.error.errno = abVar.tF();
             forbidTplData2.error.errMsg = abVar.getErrorString();
             return forbidTplData2;
         }

@@ -46,7 +46,7 @@ public class ep extends SparseArray<fg> {
                 fg valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.OY();
+                    valueAt.Pa();
                 }
                 i = i2 + 1;
             } else {
@@ -62,7 +62,7 @@ public class ep extends SparseArray<fg> {
         put(i, fgVar);
     }
 
-    public fg gu(int i) {
+    public fg gt(int i) {
         if (i > 100) {
             i = 100;
         }

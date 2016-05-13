@@ -67,9 +67,9 @@ public class h extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        if (eP(i) == 1) {
+        if (eO(i) == 1) {
             aVar.amf.setPadding(0, this.padding, 0, 0);
-        } else if (eP(i) == 2) {
+        } else if (eO(i) == 2) {
             aVar.amf.setPadding(0, 0, 0, this.padding);
         } else {
             aVar.amf.setPadding(0, 0, 0, 0);
@@ -91,7 +91,7 @@ public class h extends BaseAdapter {
         return view;
     }
 
-    public int eP(int i) {
+    public int eO(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -122,7 +122,7 @@ public class h extends BaseAdapter {
         }
     }
 
-    public void eQ(int i) {
+    public void eP(int i) {
         this.azC = i;
     }
 

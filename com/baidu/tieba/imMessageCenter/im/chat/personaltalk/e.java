@@ -16,7 +16,7 @@ public class e {
 
     public com.baidu.tbadk.coreExtra.relationship.b jT(String str) {
         if (this.ctT.get(str) != null) {
-            return this.ctT.get(str).aji();
+            return this.ctT.get(str).ajk();
         }
         return null;
     }

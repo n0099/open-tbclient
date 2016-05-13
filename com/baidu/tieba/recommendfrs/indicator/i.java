@@ -25,7 +25,7 @@ class i implements com.baidu.tbadk.widget.layout.h {
         mVar = this.eaC.eaw;
         if (mVar != null) {
             mVar2 = this.eaC.eaw;
-            mVar2.ow(i2);
+            mVar2.ov(i2);
         }
     }
 }

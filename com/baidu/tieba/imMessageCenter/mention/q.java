@@ -28,7 +28,7 @@ public class q implements AdapterView.OnItemLongClickListener {
         imMessageCenterShowItemData = this.cys.ctC;
         kVar2.c(imMessageCenterShowItemData);
         if (this.cys.ctH != null) {
-            this.cys.ctH.rX();
+            this.cys.ctH.rY();
         }
         return true;
     }

@@ -34,7 +34,7 @@ public class d extends b implements r {
     }
 
     @Override // com.baidu.tieba.card.a.r
-    public boolean Kn() {
+    public boolean Kp() {
         return false;
     }
 
@@ -43,7 +43,7 @@ public class d extends b implements r {
         this.aRD = z;
     }
 
-    public String Ko() {
+    public String Kq() {
         if (this.aRE == null || this.aRE.Nb == null) {
             return null;
         }
@@ -57,35 +57,35 @@ public class d extends b implements r {
         return this.aRE.Nb.userName;
     }
 
-    public String Kp() {
+    public String Kr() {
         if (this.aRE == null || this.aRE.Nb == null) {
             return null;
         }
         return this.aRE.Nb.Ni;
     }
 
-    public String Kq() {
+    public String Ks() {
         if (this.aRE == null || this.aRE.Nb == null) {
             return null;
         }
         return this.aRE.Nb.EZ;
     }
 
-    public String Kr() {
+    public String Kt() {
         if (this.aRE == null || this.aRE.Nb == null) {
             return null;
         }
         return this.aRE.Nb.Nk;
     }
 
-    public List<String> Ks() {
+    public List<String> Ku() {
         if (this.aRE == null || this.aRE.Nb == null) {
             return null;
         }
         return this.aRE.Nb.Np;
     }
 
-    public com.baidu.tbadk.core.data.c Kt() {
+    public com.baidu.tbadk.core.data.c Kv() {
         return this.aRE;
     }
 

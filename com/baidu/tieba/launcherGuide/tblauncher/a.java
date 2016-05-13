@@ -14,7 +14,7 @@ class a implements BaseViewPager.a {
     }
 
     @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-    public void cG(int i) {
+    public void cF(int i) {
         BaseViewPager baseViewPager;
         String str;
         BaseViewPager baseViewPager2;
@@ -26,7 +26,7 @@ class a implements BaseViewPager.a {
             }
             str = this.cEy.aAB;
             if (!str.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-                this.cEy.Ib();
+                this.cEy.Id();
             }
             CompatibleUtile.setAnim(this.cEy.getPageContext().getPageActivity(), 0, t.a.left);
             this.cEy.closeActivity();

@@ -35,9 +35,9 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
     protected final ProgressBar aDy;
     private boolean aDz;
 
-    protected abstract void Gw();
+    protected abstract void GA();
 
-    protected abstract void Gx();
+    protected abstract void GB();
 
     protected abstract void Gy();
 
@@ -49,7 +49,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
 
     protected abstract void t(float f);
 
-    static /* synthetic */ int[] Gl() {
+    static /* synthetic */ int[] Gn() {
         int[] iArr = aCL;
         if (iArr == null) {
             iArr = new int[PullToRefreshBase.Orientation.valuesCustom().length];
@@ -66,7 +66,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
         return iArr;
     }
 
-    static /* synthetic */ int[] Gt() {
+    static /* synthetic */ int[] Gv() {
         int[] iArr = aDf;
         if (iArr == null) {
             iArr = new int[PullToRefreshBase.Mode.valuesCustom().length];
@@ -102,7 +102,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
         Drawable drawable;
         this.aCN = mode;
         this.aDC = orientation;
-        switch (Gl()[orientation.ordinal()]) {
+        switch (Gn()[orientation.ordinal()]) {
             case 2:
                 LayoutInflater.from(context).inflate(t.h.pull_to_refresh_header_horizontal, this);
                 break;
@@ -116,7 +116,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
         this.aDB = (TextView) this.aDw.findViewById(t.g.pull_to_refresh_sub_text);
         this.aDx = (ImageView) this.aDw.findViewById(t.g.pull_to_refresh_image);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aDw.getLayoutParams();
-        switch (Gt()[mode.ordinal()]) {
+        switch (Gv()[mode.ordinal()]) {
             case 3:
                 layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
                 this.aDD = context.getString(t.j.pull_to_refresh_from_bottom_pull_label);
@@ -150,7 +150,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
             setSubTextColor(colorStateList);
         }
         Drawable drawable2 = typedArray.hasValue(6) ? typedArray.getDrawable(6) : null;
-        switch (Gt()[mode.ordinal()]) {
+        switch (Gv()[mode.ordinal()]) {
             case 3:
                 if (typedArray.hasValue(8)) {
                     drawable2 = typedArray.getDrawable(8);
@@ -187,7 +187,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
     }
 
     public final int getContentSize() {
-        switch (Gl()[this.aDC.ordinal()]) {
+        switch (Gn()[this.aDC.ordinal()]) {
             case 2:
                 return this.aDw.getWidth();
             default:
@@ -205,7 +205,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
         if (this.aDA != null) {
             this.aDA.setText(this.aDD);
         }
-        Gw();
+        Gy();
     }
 
     public final void jp() {
@@ -215,7 +215,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
         if (this.aDz) {
             ((AnimationDrawable) this.aDx.getDrawable()).start();
         } else {
-            Gx();
+            Gz();
         }
         if (this.aDB != null) {
             this.aDB.setVisibility(8);
@@ -226,7 +226,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
         if (this.aDA != null) {
             this.aDA.setText(this.aDF);
         }
-        Gy();
+        GA();
     }
 
     public final void reset() {
@@ -237,7 +237,7 @@ public abstract class b extends FrameLayout implements com.baidu.tbadk.widget.pu
         if (this.aDz) {
             ((AnimationDrawable) this.aDx.getDrawable()).stop();
         } else {
-            Gz();
+            GB();
         }
         if (this.aDB != null) {
             if (TextUtils.isEmpty(this.aDB.getText())) {

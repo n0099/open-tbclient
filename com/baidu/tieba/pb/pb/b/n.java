@@ -23,9 +23,9 @@ public class n implements com.baidu.tbadk.core.c.l {
         switch (i) {
             case 1:
                 kVar = this.die.did;
-                if (!kVar.awn()) {
+                if (!kVar.awq()) {
                     pbActivity = this.die.dic;
-                    pbActivity.awt().azH();
+                    pbActivity.aww().azK();
                     return;
                 }
                 return;

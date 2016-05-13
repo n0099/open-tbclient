@@ -38,7 +38,7 @@ public class s extends bw<com.baidu.tieba.card.a.p, a> {
         TiebaStatic.log(new aw("c10835"));
         if (pVar != null) {
             pVar.aSq = i + 1;
-            aVar.bwl.fw(com.baidu.adp.lib.util.k.dip2px(this.bek.getActivity(), 7.0f));
+            aVar.bwl.fv(com.baidu.adp.lib.util.k.dip2px(this.bek.getActivity(), 7.0f));
             aVar.bwl.showBottomLine(this.bwk);
             aVar.bwl.d(this.bek.getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
         }

@@ -19,7 +19,7 @@ public class e implements d {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public Object aux() {
+    public Object auA() {
         String trim;
         int lastIndexOf;
         String str = this.dbw;
@@ -56,10 +56,10 @@ public class e implements d {
                 Object[] objArr = new Object[split.length];
                 for (int i = 0; i < split.length; i++) {
                     try {
-                        Object aux = com.baidu.tieba.onlineDebugger.e.b.lE("get " + substring3).aux();
-                        if (aux != null) {
-                            objArr[i] = aux;
-                            clsArr[i] = aux.getClass();
+                        Object auA = com.baidu.tieba.onlineDebugger.e.b.lE("get " + substring3).auA();
+                        if (auA != null) {
+                            objArr[i] = auA;
+                            clsArr[i] = auA.getClass();
                         }
                     } catch (Exception e) {
                         BdLog.e(e);
@@ -88,7 +88,7 @@ public class e implements d {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public boolean auy() {
+    public boolean auB() {
         int indexOf;
         String str = this.dbw;
         String substring = str.substring(str.indexOf(" ") + 1);

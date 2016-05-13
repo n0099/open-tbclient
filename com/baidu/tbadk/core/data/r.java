@@ -32,7 +32,7 @@ public class r extends ax {
                 setId(String.valueOf(this.NZ.getThreadId()));
                 cr(String.valueOf(this.NZ.getThreadId()));
             }
-            if (StringUtils.isNull(qP())) {
+            if (StringUtils.isNull(qQ())) {
                 cs(this.NZ.getForumName());
             }
         }

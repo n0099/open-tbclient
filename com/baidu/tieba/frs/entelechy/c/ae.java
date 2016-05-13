@@ -21,16 +21,16 @@ public class ae implements com.baidu.tbadk.widget.layout.g {
     @Override // com.baidu.tbadk.widget.layout.g
     public void c(View view, int i, boolean z) {
         ax axVar;
-        by<ax> JM = this.bpM.JM();
-        if (JM != null) {
+        by<ax> JO = this.bpM.JO();
+        if (JO != null) {
             view.setTag("1");
             axVar = this.bpM.aab;
-            JM.a(view, axVar);
+            JO.a(view, axVar);
         }
         if (!z) {
             this.bpM.a(this.aQw, i, this.aQx);
         } else {
-            this.bpM.Kd();
+            this.bpM.Kf();
         }
     }
 }

@@ -31,14 +31,14 @@ public class z extends CustomMessageListener {
         com.baidu.tieba.enterForum.c.c cVar3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001398) {
             cVar = this.aXF.aXl;
-            if (cVar.MQ() != null) {
+            if (cVar.MS() != null) {
                 cVar2 = this.aXF.aXl;
-                com.baidu.tieba.enterForum.b.h Mf = cVar2.MQ().Mf();
-                if (Mf == null) {
+                com.baidu.tieba.enterForum.b.h Mh = cVar2.MS().Mh();
+                if (Mh == null) {
                     cVar3 = this.aXF.aXl;
-                    Mf = cVar3.MQ().Me();
+                    Mh = cVar3.MS().Mg();
                 }
-                as asVar = (Mf == null || Mf.Mo() == null || Mf.Mo().size() == 0) ? null : Mf.Mo().get(0);
+                as asVar = (Mh == null || Mh.Mq() == null || Mh.Mq().size() == 0) ? null : Mh.Mq().get(0);
                 if (asVar != null) {
                     String qv = asVar.qv();
                     String link = asVar.getLink();

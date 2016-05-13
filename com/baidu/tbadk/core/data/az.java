@@ -19,23 +19,23 @@ public class az {
         return this.imgUrl;
     }
 
-    public String rB() {
+    public String rC() {
         return this.summary;
     }
 
-    public String rC() {
+    public String rD() {
         return this.Rf;
     }
 
-    public int rD() {
+    public int rE() {
         return this.Rg;
     }
 
-    public String rE() {
+    public String rF() {
         return this.Rh;
     }
 
-    public long rF() {
+    public long rG() {
         return this.Ri;
     }
 
@@ -75,7 +75,7 @@ public class az {
         }
     }
 
-    public String rG() {
+    public String rH() {
         return this.Rj;
     }
 

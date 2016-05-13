@@ -9,11 +9,11 @@ public class bb {
     private int Rl = 0;
     private String link = "";
 
-    public int rI() {
+    public int rJ() {
         return this.Rk;
     }
 
-    public int rJ() {
+    public int rK() {
         return this.Rl;
     }
 

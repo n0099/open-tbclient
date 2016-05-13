@@ -12,7 +12,7 @@ public class d {
         this.esf = absDelegateAdapterList;
     }
 
-    public AbsDelegateAdapterList aTp() {
+    public AbsDelegateAdapterList aTv() {
         return this.esf;
     }
 

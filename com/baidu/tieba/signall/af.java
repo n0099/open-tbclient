@@ -74,44 +74,44 @@ public class af extends com.baidu.adp.base.f<SignAllForumActivity> {
         this.ekq.getLayoutMode().x(this.eks);
         at.l(this.ekr, t.d.signallforum_item_bg);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mPullView.cS(i);
+        this.mPullView.cR(i);
         this.eku.notifyDataSetChanged();
     }
 
     public void a(c cVar, boolean z) {
         if (cVar != null) {
             this.eja = cVar;
-            aQC();
-            ArrayList<e> aPO = cVar.aPO();
+            aQF();
+            ArrayList<e> aPR = cVar.aPR();
             this.eku.c(this.eja);
-            if (aPO.size() == ekp) {
+            if (aPR.size() == ekp) {
                 this.ekz.setVisibility(0);
-                this.ekz.setText(cVar.aPL());
+                this.ekz.setText(cVar.aPO());
                 return;
             }
             this.ekz.setVisibility(8);
         }
     }
 
-    private void aQC() {
+    private void aQF() {
         if (this.eja != null) {
-            this.eks.setHasPrivilege(this.eja.aPS());
-            this.eks.setmCurrentStatus(this.eja.aPU());
+            this.eks.setHasPrivilege(this.eja.aPV());
+            this.eks.setmCurrentStatus(this.eja.aPX());
             TextView message1 = this.eks.getMessage1();
-            SpannableString spannableString = new SpannableString(String.valueOf(this.eja.aPI()) + this.eja.aAK() + this.eja.aPJ());
+            SpannableString spannableString = new SpannableString(String.valueOf(this.eja.aPL()) + this.eja.aAN() + this.eja.aPM());
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(TbadkApplication.getInst().getResources().getColor(t.d.sign_all_forum_text_color));
-            int length = this.eja.aPI().length();
-            spannableString.setSpan(foregroundColorSpan, length, this.eja.aAK().length() + length, 33);
+            int length = this.eja.aPL().length();
+            spannableString.setSpan(foregroundColorSpan, length, this.eja.aAN().length() + length, 33);
             message1.setText(spannableString);
-            this.eks.getMessage2().setText(this.eja.aPK());
+            this.eks.getMessage2().setText(this.eja.aPN());
             this.ekw.setText(this.eja.getContent());
-            if (TextUtils.isEmpty(this.eja.aPT())) {
+            if (TextUtils.isEmpty(this.eja.aPW())) {
                 this.ekx.setText(t.j.sign_all_forum_memberbtn_content);
             } else {
-                this.ekx.setText(this.eja.aPT());
+                this.ekx.setText(this.eja.aPW());
             }
             this.eks.setVisibility(0);
-            if (this.eja.aPS() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
+            if (this.eja.aPV() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
                 this.ekv.setVisibility(8);
             } else {
                 this.ekv.setVisibility(0);
@@ -123,7 +123,7 @@ public class af extends com.baidu.adp.base.f<SignAllForumActivity> {
         this.ekt.jy();
     }
 
-    public void Nn() {
+    public void Np() {
         this.ekt.k(2000L);
     }
 
@@ -135,7 +135,7 @@ public class af extends com.baidu.adp.base.f<SignAllForumActivity> {
         this.ekt.setOnItemClickListener(onItemClickListener);
     }
 
-    public x aQD() {
+    public x aQG() {
         return this.eks;
     }
 
@@ -143,23 +143,23 @@ public class af extends com.baidu.adp.base.f<SignAllForumActivity> {
         return this.mProgressBar;
     }
 
-    public BdListView aQE() {
+    public BdListView aQH() {
         return this.ekt;
     }
 
-    public c aQF() {
+    public c aQI() {
         return this.eja;
     }
 
-    public p aQG() {
+    public p aQJ() {
         return this.eku;
     }
 
-    public LinearLayout aQH() {
+    public LinearLayout aQK() {
         return this.eky;
     }
 
-    public void gE(int i) {
+    public void gD(int i) {
         this.ekt.setSelection(i);
     }
 }

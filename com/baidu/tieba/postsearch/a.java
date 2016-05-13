@@ -19,10 +19,10 @@ public class a {
     public a(PostSearchActivity postSearchActivity, View view) {
         this.mRootView = view;
         this.dUY = postSearchActivity;
-        Uv();
+        Ux();
     }
 
-    private void Uv() {
+    private void Ux() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
         this.dUZ = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, t.h.post_search_navigation_view, (View.OnClickListener) null);
@@ -42,31 +42,31 @@ public class a {
         this.cLO.setText(str);
     }
 
-    public void Um() {
+    public void Uo() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
-    public void aKy() {
+    public void aKB() {
         com.baidu.adp.lib.util.k.a(this.dUY.getPageContext().getPageActivity(), this.cLO);
     }
 
-    public void aKz() {
+    public void aKC() {
         this.cLP.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKA() {
+    public void aKD() {
         if (!StringUtils.isNull(this.cLO.getText().toString())) {
             this.cLP.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKB() {
-        if (!this.dUY.aKD()) {
-            this.dUY.aKC();
+    public void aKE() {
+        if (!this.dUY.aKG()) {
+            this.dUY.aKF();
             if (!this.cLO.hasFocus()) {
                 this.cLO.requestFocus();
                 com.baidu.adp.lib.util.k.b(this.dUY.getPageContext().getPageActivity(), this.cLO);

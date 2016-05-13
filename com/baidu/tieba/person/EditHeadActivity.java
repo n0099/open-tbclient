@@ -108,11 +108,11 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         if (this.requestCode == 12002 || this.requestCode == 12001) {
             nq();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.requestCode, intent.getData(), com.baidu.tbadk.core.util.az.uf().ul());
+                TiebaPrepareImageService.StartService(this.requestCode, intent.getData(), com.baidu.tbadk.core.util.az.ug().um());
             } else {
-                TiebaPrepareImageService.StartService(this.requestCode, null, com.baidu.tbadk.core.util.az.uf().ul(), 0, stringExtra);
+                TiebaPrepareImageService.StartService(this.requestCode, null, com.baidu.tbadk.core.util.az.ug().um(), 0, stringExtra);
             }
-            abK();
+            abM();
         } else {
             nq();
             initData();
@@ -127,10 +127,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        amb();
+        amd();
     }
 
-    private void amb() {
+    private void amd() {
         com.baidu.tbadk.core.util.at.l(this.mNavigationBar, t.d.alpha80_black);
         getLayoutMode().x(this.duC);
         getLayoutMode().x(this.duD);
@@ -145,10 +145,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.duH.cancel();
         }
         this.duB.setImageDrawable(null);
-        aBq();
+        aBt();
     }
 
-    private void aBq() {
+    private void aBt() {
         if (this.duX != null) {
             for (Map.Entry<String, ImageView> entry : this.duX.entrySet()) {
                 ImageView value = entry.getValue();
@@ -213,7 +213,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBr() {
+    public void aBu() {
         if (this.duN != null) {
             this.duN.cancel();
         }
@@ -468,7 +468,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            if (!this.dvc || zl()) {
+            if (!this.dvc || zm()) {
                 EditHeadActivity.this.bDI.setVisibility(0);
                 EditHeadActivity.this.duD.setEnabled(false);
                 return;
@@ -510,7 +510,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             return this.bitmap;
         }
 
-        private boolean zl() {
+        private boolean zm() {
             PluginPackageManager.PluginStatus bs = PluginPackageManager.hF().bs(PluginCenter.NAME_MOTUSDK);
             if (bs == PluginPackageManager.PluginStatus.NROMAL) {
                 return true;
@@ -570,7 +570,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         }
     }
 
-    private void abK() {
+    private void abM() {
         this.duP = new c(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionImageResized());
@@ -653,7 +653,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 e = e2;
             }
             try {
-                if (this.aeI.tA().uv().nZ()) {
+                if (this.aeI.tB().uw().nZ()) {
                     return str;
                 }
                 return null;
@@ -681,7 +681,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void onPostExecute(String str) {
             EditHeadActivity.this.closeLoadingDialog();
             if (this.aeI != null) {
-                if (this.aeI.tA().uv().nZ()) {
+                if (this.aeI.tB().uw().nZ()) {
                     Intent intent = new Intent();
                     intent.putExtra("upload_image_type", 1);
                     EditHeadActivity.this.setResult(-1, intent);

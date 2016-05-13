@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class a {
     private static a azq;
 
-    public static a Ff() {
+    public static a Fh() {
         if (azq == null) {
             synchronized (a.class) {
                 if (azq == null) {
@@ -21,8 +21,8 @@ public class a {
     private a() {
     }
 
-    public String[] Fg() {
-        return com.baidu.tbadk.core.sharedPref.b.sQ().getString("key_discover_show_plugin_list", "").split("#");
+    public String[] Fi() {
+        return com.baidu.tbadk.core.sharedPref.b.sR().getString("key_discover_show_plugin_list", "").split("#");
     }
 
     private void r(String[] strArr) {
@@ -34,30 +34,30 @@ public class a {
                 }
             }
         }
-        com.baidu.tbadk.core.sharedPref.b.sQ().putString("key_discover_show_plugin_list", sb.toString());
+        com.baidu.tbadk.core.sharedPref.b.sR().putString("key_discover_show_plugin_list", sb.toString());
     }
 
     public void ga(String str) {
-        String[] Fg;
-        if (!StringUtils.isNull(str) && (Fg = Fg()) != null && Fg.length != 0) {
-            for (int i = 0; i < Fg.length; i++) {
-                if (str.equals(Fg[i])) {
-                    Fg[i] = "";
+        String[] Fi;
+        if (!StringUtils.isNull(str) && (Fi = Fi()) != null && Fi.length != 0) {
+            for (int i = 0; i < Fi.length; i++) {
+                if (str.equals(Fi[i])) {
+                    Fi[i] = "";
                 }
             }
-            r(Fg);
+            r(Fi);
         }
     }
 
     public void gb(String str) {
         String string;
         if (!StringUtils.isNull(str)) {
-            for (String str2 : com.baidu.tbadk.core.sharedPref.b.sQ().getString("key_discover_show_plugin_list", "").split("#")) {
+            for (String str2 : com.baidu.tbadk.core.sharedPref.b.sR().getString("key_discover_show_plugin_list", "").split("#")) {
                 if (str.equals(str2)) {
                     return;
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.sQ().putString("key_discover_show_plugin_list", String.valueOf(string) + "#" + str);
+            com.baidu.tbadk.core.sharedPref.b.sR().putString("key_discover_show_plugin_list", String.valueOf(string) + "#" + str);
         }
     }
 

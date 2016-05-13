@@ -58,7 +58,7 @@ public class c implements e<a> {
             aVar.lU = kVar;
         }
         byte[] dK = kVar.dK(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!kVar.uD()) {
+        if (!kVar.uE()) {
             aVar2.error_code = 3;
             aVar2.error_msg = l.getString(t.j.neterror);
             return aVar2;
@@ -86,7 +86,7 @@ public class c implements e<a> {
                 if (diskFileOperate.isSuccess() && diskFileOperate.bV() != null) {
                     str5 = diskFileOperate.bV().getAbsolutePath();
                     i3 = 0;
-                } else if (m.ta() < dK.length) {
+                } else if (m.tb() < dK.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,7 +97,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.df(i3);
+                aVar2.error_msg = a.de(i3);
             }
             return aVar2;
         }

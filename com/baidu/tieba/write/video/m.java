@@ -14,44 +14,44 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class m {
-    private static int faF = 31;
-    private static int faG = -100;
+    private static int faE = 31;
+    private static int faF = -100;
     private TbImageView aPJ;
     private ImageView aPK;
     private View aQQ;
     private View azx;
-    private WriteVideoActivity faH;
-    private TextView faI;
-    private EditText faJ;
-    private TextView faK;
-    private WriteLocationView faL;
+    private WriteVideoActivity faG;
+    private TextView faH;
+    private EditText faI;
+    private TextView faJ;
+    private WriteLocationView faK;
     private NavigationBar mNavigationBar;
 
     public m(WriteVideoActivity writeVideoActivity) {
-        this.faH = writeVideoActivity;
-        this.faH.setContentView(t.h.write_video_activity);
-        bcx();
+        this.faG = writeVideoActivity;
+        this.faG.setContentView(t.h.write_video_activity);
+        bcE();
         initView();
     }
 
-    private void bcx() {
-        this.aQQ = this.faH.findViewById(t.g.layout_root);
-        this.mNavigationBar = (NavigationBar) this.faH.findViewById(t.g.navigation_bar);
-        this.faJ = (EditText) this.faH.findViewById(t.g.edit_content);
-        this.faK = (TextView) this.faH.findViewById(t.g.text_content_size);
-        this.aPJ = (TbImageView) this.faH.findViewById(t.g.image_video);
-        this.aPK = (ImageView) this.faH.findViewById(t.g.image_video_play);
-        this.faL = (WriteLocationView) this.faH.findViewById(t.g.location);
+    private void bcE() {
+        this.aQQ = this.faG.findViewById(t.g.layout_root);
+        this.mNavigationBar = (NavigationBar) this.faG.findViewById(t.g.navigation_bar);
+        this.faI = (EditText) this.faG.findViewById(t.g.edit_content);
+        this.faJ = (TextView) this.faG.findViewById(t.g.text_content_size);
+        this.aPJ = (TbImageView) this.faG.findViewById(t.g.image_video);
+        this.aPK = (ImageView) this.faG.findViewById(t.g.image_video_play);
+        this.faK = (WriteLocationView) this.faG.findViewById(t.g.location);
     }
 
     private void initView() {
-        this.aPJ.setOnClickListener(this.faH);
-        this.azx = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.faH);
-        this.mNavigationBar.setTitleText(this.faH.getPageContext().getString(t.j.new_video_post));
-        this.faI = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.faH.getResources().getString(t.j.publish), this.faH, true);
-        this.faK.setText(String.valueOf(faF));
-        this.faJ.addTextChangedListener(new n(this));
-        this.faJ.setOnKeyListener(new o(this));
+        this.aPJ.setOnClickListener(this.faG);
+        this.azx = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.faG);
+        this.mNavigationBar.setTitleText(this.faG.getPageContext().getString(t.j.new_video_post));
+        this.faH = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.faG.getResources().getString(t.j.publish), this.faG, true);
+        this.faJ.setText(String.valueOf(faE));
+        this.faI.addTextChangedListener(new n(this));
+        this.faI.setOnKeyListener(new o(this));
     }
 
     public void pg(String str) {
@@ -77,36 +77,36 @@ public class m {
     }
 
     public void onChangeSkinType(int i) {
-        this.faH.getLayoutMode().ae(i == 1);
-        this.faH.getLayoutMode().x(this.aQQ);
-        this.mNavigationBar.onChangeSkinType(this.faH.getPageContext(), i);
-        at.k(this.faI, t.f.s_navbar_button_bg);
-        at.j((View) this.faI, t.d.navbar_btn_color);
-        this.faL.vl();
+        this.faG.getLayoutMode().ae(i == 1);
+        this.faG.getLayoutMode().x(this.aQQ);
+        this.mNavigationBar.onChangeSkinType(this.faG.getPageContext(), i);
+        at.k(this.faH, t.f.s_navbar_button_bg);
+        at.j((View) this.faH, t.d.navbar_btn_color);
+        this.faK.vm();
     }
 
     public String getContent() {
-        if (this.faJ.getText() == null) {
+        if (this.faI.getText() == null) {
             return null;
         }
-        return this.faJ.getText().toString();
+        return this.faI.getText().toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bcy() {
-        if (faF - bcz() < 0) {
-            this.faI.setEnabled(false);
+    public void bcF() {
+        if (faE - bcG() < 0) {
+            this.faH.setEnabled(false);
         } else {
-            this.faI.setEnabled(true);
+            this.faH.setEnabled(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long bcz() {
-        if (this.faJ.getText() == null || this.faJ.getText().toString() == null) {
+    public long bcG() {
+        if (this.faI.getText() == null || this.faI.getText().toString() == null) {
             return 0L;
         }
-        return g(this.faJ.getText().toString().trim());
+        return g(this.faI.getText().toString().trim());
     }
 
     public static long g(CharSequence charSequence) {
@@ -122,29 +122,29 @@ public class m {
         return Math.round(d);
     }
 
-    public WriteLocationView bcA() {
-        return this.faL;
+    public WriteLocationView bcH() {
+        return this.faK;
     }
 
-    public View bcB() {
+    public View bcI() {
         return this.aPJ;
     }
 
-    public View bcC() {
-        return this.faI;
+    public View bcJ() {
+        return this.faH;
     }
 
-    public View adU() {
+    public View adW() {
         return this.azx;
     }
 
-    public View bcD() {
-        return this.faJ;
+    public View bcK() {
+        return this.faI;
     }
 
     public void ci(long j) {
         if (this.aPJ != null) {
-            this.aPJ.setContentDescription(String.valueOf(this.faH.getResources().getString(t.j.video)) + ay.z(j));
+            this.aPJ.setContentDescription(String.valueOf(this.faG.getResources().getString(t.j.video)) + ay.z(j));
         }
     }
 }

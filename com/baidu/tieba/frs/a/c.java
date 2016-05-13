@@ -46,13 +46,13 @@ public class c implements View.OnClickListener {
                     bcVar = this.bnP.news_info;
                     if (bcVar != null) {
                         bcVar2 = this.bnP.news_info;
-                        if (!TextUtils.isEmpty(bcVar2.rK())) {
+                        if (!TextUtils.isEmpty(bcVar2.rL())) {
                             tbPageContext2 = this.bnP.Do;
                             TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                            bg us = bg.us();
+                            bg ut = bg.ut();
                             tbPageContext3 = this.bnP.Do;
                             bcVar3 = this.bnP.news_info;
-                            us.c((TbPageContext) l.s(tbPageContext3.getPageActivity()), new String[]{bcVar3.rK()});
+                            ut.c((TbPageContext) l.s(tbPageContext3.getPageActivity()), new String[]{bcVar3.rL()});
                             return;
                         }
                         return;
@@ -64,13 +64,13 @@ public class c implements View.OnClickListener {
             azVar = this.bnP.top_code;
             if (azVar != null) {
                 azVar2 = this.bnP.top_code;
-                if (!TextUtils.isEmpty(azVar2.rC())) {
+                if (!TextUtils.isEmpty(azVar2.rD())) {
                     tbPageContext4 = this.bnP.Do;
                     TiebaStatic.eventStat(tbPageContext4.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                    bg us2 = bg.us();
+                    bg ut2 = bg.ut();
                     tbPageContext5 = this.bnP.Do;
                     azVar3 = this.bnP.top_code;
-                    us2.c((TbPageContext) l.s(tbPageContext5.getPageActivity()), new String[]{azVar3.rC()});
+                    ut2.c((TbPageContext) l.s(tbPageContext5.getPageActivity()), new String[]{azVar3.rD()});
                 }
             }
         }

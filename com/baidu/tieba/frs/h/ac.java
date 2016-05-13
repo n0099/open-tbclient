@@ -19,10 +19,10 @@ class ac implements Runnable {
         FrsActivity frsActivity;
         aaVar = this.buI.buH;
         cnVar = aaVar.bgo;
-        if (cnVar.Py()) {
+        if (cnVar.PA()) {
             aaVar2 = this.buI.buH;
             frsActivity = aaVar2.bpj;
-            frsActivity.Pn();
+            frsActivity.Pp();
         }
     }
 }

@@ -14,7 +14,7 @@ public class ae implements aj.a {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.aj.a
-    public void akt() {
+    public void akv() {
         List list;
         int i;
         List list2;
@@ -41,7 +41,7 @@ public class ae implements aj.a {
                     ajVar = this.cwo.cwm;
                     list4 = this.cwo.mUserDataList;
                     i4 = this.cwo.currentIndex;
-                    lVar.jT(ajVar.c((UserData) list4.get(i4)));
+                    lVar.jS(ajVar.c((UserData) list4.get(i4)));
                 }
             }
         }

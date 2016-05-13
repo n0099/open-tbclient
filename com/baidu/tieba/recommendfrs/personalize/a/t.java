@@ -36,7 +36,7 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.p,
             aVar.bwl.d(this.DV, TbadkCoreApplication.m11getInst().getSkinType());
         }
         aVar.bwl.a(pVar);
-        bx.Kg().he("c10716");
+        bx.Ki().he("c10716");
         return aVar.getView();
     }
 

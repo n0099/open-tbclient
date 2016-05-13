@@ -25,7 +25,7 @@ public class q implements f {
         if (context != null && jVar != null) {
             this.mContext = context;
             this.btl = jVar;
-            this.bto = jVar.Ty();
+            this.bto = jVar.TA();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(t.h.tab_menu_multline_view, (ViewGroup) null);
             this.btq = (TabMenuPopView) this.mContentView.findViewById(t.g.categorycontainer);
             this.btq.setOnItemClickCallBack(this.bnw);
@@ -51,17 +51,17 @@ public class q implements f {
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public void vl() {
+    public void vm() {
         if (this.mContentView != null) {
             at.l(this.mContentView, t.d.cp_bg_line_d);
         }
         if (this.btq != null) {
-            this.btq.vl();
+            this.btq.vm();
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public int Tw() {
+    public int Ty() {
         this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         return this.mContentView.getMeasuredHeight();
     }

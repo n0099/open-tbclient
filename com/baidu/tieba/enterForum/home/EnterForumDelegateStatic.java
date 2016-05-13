@@ -16,7 +16,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Dc() {
+    public com.baidu.tbadk.mainTab.c Dd() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.auW = new e();
         cVar.type = 1;

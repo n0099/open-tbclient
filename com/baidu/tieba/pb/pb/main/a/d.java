@@ -31,9 +31,9 @@ public class d implements View.OnClickListener {
             }
             pbActivity2 = this.dpM.dhY;
             if (bl.ac(pbActivity2.getActivity()) && str != null) {
-                bg us = bg.us();
+                bg ut = bg.ut();
                 pbActivity4 = this.dpM.dhY;
-                us.c(pbActivity4.getPageContext(), new String[]{str});
+                ut.c(pbActivity4.getPageContext(), new String[]{str});
             }
             pbActivity3 = this.dpM.dhY;
             TiebaStatic.eventStat(pbActivity3.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);

@@ -22,30 +22,30 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        vl();
+        vm();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        vk();
+        vl();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        vk();
+        vl();
     }
 
-    private void vk() {
+    private void vl() {
         setOnClickListener(new s(this));
-        vl();
+        vm();
     }
 
     public void setStatedChangedListener(a aVar) {
         this.ace = aVar;
     }
 
-    public void vl() {
-        if (vm()) {
+    public void vm() {
+        if (vn()) {
             com.baidu.tbadk.core.util.at.c(this, t.f.icon_set_list_ok_s);
             setContentDescription(getResources().getString(t.j.check_box_checked));
             return;
@@ -55,11 +55,11 @@ public class TbCheckBox extends ImageView {
     }
 
     public boolean isChecked() {
-        return vm();
+        return vn();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean vm() {
+    public boolean vn() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -72,7 +72,7 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        vl();
+        vm();
         if (this.ace != null) {
             this.ace.a(this, z, getTag());
         }

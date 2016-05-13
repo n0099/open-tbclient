@@ -16,7 +16,7 @@ public class p implements al {
     }
 
     @Override // com.baidu.tieba.im.chat.al
-    public void acm() {
+    public void aco() {
         String str;
         AbsMsglistView absMsglistView;
         MsglistModel msglistModel;

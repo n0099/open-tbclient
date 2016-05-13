@@ -42,7 +42,7 @@ public class ReloginManager {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static ReloginManager sL() {
+    public static ReloginManager sM() {
         return Uh;
     }
 
@@ -59,7 +59,7 @@ public class ReloginManager {
                 return;
             }
             this.Ug = true;
-            if (sP()) {
+            if (sQ()) {
                 a(this.Uk);
             } else {
                 d(currentAccountObj);
@@ -114,7 +114,7 @@ public class ReloginManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sM() {
+    public void sN() {
         MessageManager messageManager = MessageManager.getInstance();
         Iterator<HttpMessage> it = this.Ui.iterator();
         while (it.hasNext()) {
@@ -123,7 +123,7 @@ public class ReloginManager {
         this.Ui.clear();
     }
 
-    public boolean sN() {
+    public boolean sO() {
         return this.Ug;
     }
 
@@ -173,23 +173,23 @@ public class ReloginManager {
         }
     }
 
-    public AccountData sO() {
-        c wg = com.baidu.tbadk.coreExtra.a.a.wg();
-        if (wg != null) {
-            return wg.sO();
+    public AccountData sP() {
+        c wh = com.baidu.tbadk.coreExtra.a.a.wh();
+        if (wh != null) {
+            return wh.sP();
         }
         return null;
     }
 
     private void a(a.InterfaceC0033a interfaceC0033a) {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_auto_pass_start", 0, "", new Object[0]);
-        c wg = com.baidu.tbadk.coreExtra.a.a.wg();
-        if (wg != null) {
-            wg.a(interfaceC0033a);
+        c wh = com.baidu.tbadk.coreExtra.a.a.wh();
+        if (wh != null) {
+            wh.a(interfaceC0033a);
         }
     }
 
-    public boolean sP() {
+    public boolean sQ() {
         return Build.VERSION.SDK_INT >= 9 && !TbConfig.USE_OLD_LOGIN && TbadkCoreApplication.m11getInst().isPassportV6ShouldOpen();
     }
 }

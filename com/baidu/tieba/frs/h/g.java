@@ -14,6 +14,6 @@ public class g implements Runnable {
         if (this.bup.btZ == null) {
             return;
         }
-        this.bup.TG();
+        this.bup.TI();
     }
 }

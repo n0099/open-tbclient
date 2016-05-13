@@ -4,8 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableStringBuilder;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+public class e extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
     final /* synthetic */ InputView arf;
     private final /* synthetic */ SpannableStringBuilder ari;
     private final /* synthetic */ int arj;

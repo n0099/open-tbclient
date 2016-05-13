@@ -37,7 +37,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommend
             return null;
         }
         aVar.ebc.a((com.baidu.tieba.card.a.i) cVar);
-        bx.Kg().a(new aw("c10714").ac("obj_param3", au.Ka()));
+        bx.Ki().a(new aw("c10714").ac("obj_param3", au.Kc()));
         return aVar.getView();
     }
 

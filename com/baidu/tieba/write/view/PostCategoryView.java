@@ -22,25 +22,25 @@ public class PostCategoryView extends TextView {
     private LinearLayout ban;
     private View btc;
     private TabMenuPopView btq;
-    private boolean fbh;
-    private LinearLayout fbi;
+    private boolean fbg;
+    private LinearLayout fbh;
+    private Drawable fbi;
     private Drawable fbj;
-    private Drawable fbk;
     private Context mContext;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.fbh = false;
-        this.fbj = at.getDrawable(t.f.icon_title_down);
-        this.fbj.setBounds(0, 0, this.fbj.getIntrinsicWidth(), this.fbj.getIntrinsicHeight());
-        this.fbk = at.getDrawable(t.f.icon_title_up);
-        this.fbk.setBounds(0, 0, this.fbk.getIntrinsicWidth(), this.fbj.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.fbj, null);
+        this.fbg = false;
+        this.fbi = at.getDrawable(t.f.icon_title_down);
+        this.fbi.setBounds(0, 0, this.fbi.getIntrinsicWidth(), this.fbi.getIntrinsicHeight());
+        this.fbj = at.getDrawable(t.f.icon_title_up);
+        this.fbj.setBounds(0, 0, this.fbj.getIntrinsicWidth(), this.fbi.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.fbi, null);
         setPadding(0, 0, k.c(getContext(), t.e.ds50), 0);
         this.ban = (LinearLayout) LayoutInflater.from(this.mContext).inflate(t.h.pop_category, (ViewGroup) null);
-        this.fbi = (LinearLayout) this.ban.findViewById(t.g.pop_category_layout);
-        this.btq = (TabMenuPopView) this.fbi.findViewById(t.g.pop_category_view);
+        this.fbh = (LinearLayout) this.ban.findViewById(t.g.pop_category_layout);
+        this.btq = (TabMenuPopView) this.fbh.findViewById(t.g.pop_category_view);
         this.btc = this.ban.findViewById(t.g.pop_category_grav);
         this.btc.setOnClickListener(new g(this));
     }
@@ -53,10 +53,10 @@ public class PostCategoryView extends TextView {
         this.btq.setOnItemClickCallBack(aVar);
     }
 
-    public void bcL() {
-        if (this.fbh) {
-            setCompoundDrawables(null, null, this.fbj, null);
-            this.fbh = false;
+    public void bcS() {
+        if (this.fbg) {
+            setCompoundDrawables(null, null, this.fbi, null);
+            this.fbg = false;
         } else {
             a(this);
             if (this.KJ != null) {
@@ -64,8 +64,8 @@ public class PostCategoryView extends TextView {
                 this.KJ.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
                 this.KJ.setHeight(-1);
                 this.KJ.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.fbk, null);
-                this.fbh = true;
+                setCompoundDrawables(null, null, this.fbj, null);
+                this.fbg = true;
             }
         }
         invalidate();
@@ -78,18 +78,18 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void vl() {
+    public void vm() {
         at.l(this, t.d.cp_bg_line_d);
         at.c(this, t.d.cp_cont_b, 1);
-        if (this.fbi != null) {
-            at.l(this.fbi, t.d.cp_bg_line_d);
+        if (this.fbh != null) {
+            at.l(this.fbh, t.d.cp_bg_line_d);
         }
         if (this.btq != null) {
-            this.btq.vl();
+            this.btq.vm();
         }
     }
 
-    public void bcM() {
+    public void bcT() {
         if (this.KJ != null) {
             this.KJ.dismiss();
         }

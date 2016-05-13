@@ -7,7 +7,7 @@ public class c {
         private static c amO = new c(null);
     }
 
-    public static c zZ() {
+    public static c Aa() {
         return a.amO;
     }
 
@@ -18,11 +18,11 @@ public class c {
         this();
     }
 
-    public void Aa() {
+    public void Ab() {
         eR("kLCSError=1");
     }
 
-    public void dT(int i) {
+    public void dS(int i) {
         eR("kNetStatus=" + i);
     }
 

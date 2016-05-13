@@ -18,7 +18,7 @@ public class f {
         this.est = str;
     }
 
-    public void pj(int i) {
+    public void pi(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
@@ -35,8 +35,8 @@ public class f {
         }
     }
 
-    public void aTq() {
-        pj(0);
+    public void aTw() {
+        pi(0);
     }
 
     public void aY(int i, int i2) {
@@ -45,14 +45,14 @@ public class f {
         }
     }
 
-    public int pk(int i) {
+    public int pj(int i) {
         if (i >= 0 && this.ess != null) {
             return this.ess.get(i, -1);
         }
         return -1;
     }
 
-    public void pl(int i) {
+    public void pk(int i) {
         if (this.ess != null) {
             this.ess.delete(i);
         }
@@ -60,7 +60,7 @@ public class f {
 
     public void c(int i, int i2, String str, int i3) {
         if (this.ess != null && i3 >= 0) {
-            pl(i);
+            pk(i);
             aw awVar = new aw("c10376");
             awVar.ac("da_page", this.est);
             awVar.s("position", i3);

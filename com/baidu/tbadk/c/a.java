@@ -13,11 +13,11 @@ public class a {
     }
 
     public void a(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.Dd() != null) {
+        if (bVar != null && bVar.De() != null) {
             Iterator<com.baidu.tbadk.mainTab.b> it = this.Lc.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.mainTab.b next = it.next();
-                if (next != null && next.Dd() != null && next.Dd().type == bVar.Dd().type) {
+                if (next != null && next.De() != null && next.De().type == bVar.De().type) {
                     return;
                 }
             }

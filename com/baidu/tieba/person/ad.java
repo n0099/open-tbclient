@@ -22,11 +22,11 @@ class ad implements AdapterView.OnItemClickListener {
         ae aeVar;
         boolean z;
         ae aeVar2;
-        PersonBarActivity aBC;
+        PersonBarActivity aBF;
         boolean z2;
-        PersonBarActivity aBC2;
-        PersonBarActivity aBC3;
-        PersonBarActivity aBC4;
+        PersonBarActivity aBF2;
+        PersonBarActivity aBF3;
+        PersonBarActivity aBF4;
         aeVar = this.dvP.dvz;
         if (aeVar.getItem(i) != null) {
             z = this.dvP.dvE;
@@ -35,23 +35,23 @@ class ad implements AdapterView.OnItemClickListener {
                 aeVar2 = this.dvP.dvz;
                 ForumData forumData = (ForumData) aeVar2.getItem(i);
                 if (forumData != null) {
-                    aBC = this.dvP.aBC();
-                    if (aBC != null) {
+                    aBF = this.dvP.aBF();
+                    if (aBF != null) {
                         z2 = this.dvP.dur;
                         if (z2) {
                             Intent intent = new Intent();
                             intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
                             intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
-                            aBC3 = this.dvP.aBC();
-                            this.dvP.aBC();
-                            aBC3.setResult(-1, intent);
-                            aBC4 = this.dvP.aBC();
-                            aBC4.finish();
+                            aBF3 = this.dvP.aBF();
+                            this.dvP.aBF();
+                            aBF3.setResult(-1, intent);
+                            aBF4 = this.dvP.aBF();
+                            aBF4.finish();
                             return;
                         }
                         s sVar = this.dvP;
-                        aBC2 = this.dvP.aBC();
-                        sVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(aBC2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
+                        aBF2 = this.dvP.aBF();
+                        sVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(aBF2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
                     }
                 }
             }

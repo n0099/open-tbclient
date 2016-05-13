@@ -50,7 +50,7 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
                         ax axVar = new ax();
                         axVar.setUserMap(hashMap);
                         axVar.a(list2.get(i3));
-                        axVar.bI(0);
+                        axVar.bH(0);
                         axVar.parser_title();
                         this.mThreadList.add(axVar);
                     }

@@ -89,7 +89,7 @@ public class da extends com.baidu.adp.framework.listener.a {
                 this.dlN.dly = true;
             }
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eM(this.dlN.axy());
+            vVar.eL(this.dlN.axB());
             vVar.axK = z;
             vVar.isSuccess = z7;
             vVar.axy = responsedMessage.performanceData.gv;

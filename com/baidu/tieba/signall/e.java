@@ -33,11 +33,11 @@ public class e implements ak {
         return this.avatar;
     }
 
-    public int aPZ() {
+    public int aQc() {
         return this.eiS;
     }
 
-    public int aQa() {
+    public int aQd() {
         return this.eiT;
     }
 
@@ -45,19 +45,19 @@ public class e implements ak {
         return this.userLevel;
     }
 
-    public int aQb() {
+    public int aQe() {
         return this.eiU;
     }
 
-    public int aQc() {
+    public int aQf() {
         return this.eiV;
     }
 
-    public void oP(int i) {
+    public void oO(int i) {
         this.eiS = i;
     }
 
-    public void oQ(int i) {
+    public void oP(int i) {
         this.eiT = i;
     }
 
@@ -65,7 +65,7 @@ public class e implements ak {
         this.userLevel = i;
     }
 
-    public boolean aQd() {
+    public boolean aQg() {
         return this.dtq;
     }
 
@@ -74,7 +74,7 @@ public class e implements ak {
         this.eiS = 1;
     }
 
-    public boolean aQe() {
+    public boolean aQh() {
         return this.eiX;
     }
 
@@ -83,7 +83,7 @@ public class e implements ak {
         this.eiS = 0;
     }
 
-    public boolean aQf() {
+    public boolean aQi() {
         return this.eiY;
     }
 
@@ -91,11 +91,11 @@ public class e implements ak {
         this.eiY = z;
     }
 
-    public int aQg() {
+    public int aQj() {
         return this.eiZ;
     }
 
-    public void oR(int i) {
+    public void oQ(int i) {
         this.eiZ = i;
     }
 
@@ -107,7 +107,7 @@ public class e implements ak {
         this.errorMsg = str;
     }
 
-    public boolean aQh() {
+    public boolean aQk() {
         return this.eiW;
     }
 

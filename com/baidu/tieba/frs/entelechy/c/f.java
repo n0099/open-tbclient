@@ -19,7 +19,7 @@ public class f implements Runnable {
         ax axVar;
         ax axVar2;
         TextureVideoView textureVideoView;
-        boolean JY;
+        boolean Ka;
         ax axVar3;
         TextureVideoView textureVideoView2;
         boolean z;
@@ -33,21 +33,21 @@ public class f implements Runnable {
         axVar = this.bpG.aab;
         if (axVar != null) {
             axVar2 = this.bpG.aab;
-            if (axVar2.ra() != null) {
+            if (axVar2.rb() != null) {
                 textureVideoView = this.bpG.aPL;
-                if (textureVideoView == null || com.baidu.tbadk.core.view.at.vD().vG() > 0) {
+                if (textureVideoView == null || com.baidu.tbadk.core.view.at.vE().vH() > 0) {
                     return;
                 }
-                JY = this.bpG.JY();
-                if (JY && com.baidu.tbadk.core.view.at.vD().vH() && TbadkCoreApplication.m11getInst().getVideoAutoPlay() == 0) {
+                Ka = this.bpG.Ka();
+                if (Ka && com.baidu.tbadk.core.view.at.vE().vI() && TbadkCoreApplication.m11getInst().getVideoAutoPlay() == 0) {
                     axVar3 = this.bpG.aab;
-                    String str = axVar3.ra().video_url;
+                    String str = axVar3.rb().video_url;
                     textureVideoView2 = this.bpG.aPL;
                     if (textureVideoView2.isPlaying() && str != null) {
                         textureVideoView4 = this.bpG.aPL;
                         if (str.equals(textureVideoView4.getVideoPath())) {
                             z = true;
-                            if (StringUtils.isNull(str) && !z && com.baidu.tbadk.core.view.at.vD().vG() == 0) {
+                            if (StringUtils.isNull(str) && !z && com.baidu.tbadk.core.view.at.vE().vH() == 0) {
                                 this.bpG.e(true, 2);
                                 textureVideoView3 = this.bpG.aPL;
                                 textureVideoView3.setVideoPath(str);
@@ -55,7 +55,7 @@ public class f implements Runnable {
                                 if (aVar != null) {
                                     aVar2 = this.bpG.aPY;
                                     axVar4 = this.bpG.aab;
-                                    String str2 = axVar4.ra().video_md5;
+                                    String str2 = axVar4.rb().video_md5;
                                     axVar5 = this.bpG.aab;
                                     String tid = axVar5.getTid();
                                     axVar6 = this.bpG.aab;

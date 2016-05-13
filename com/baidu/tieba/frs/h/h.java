@@ -51,23 +51,23 @@ public class h implements View.OnClickListener {
                 frsActivity15 = this.bup.bjB;
                 if (frsActivity15.PZ() != null && TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                     frsActivity17 = this.bup.bjB;
-                    if (frsActivity17.PZ().avA() != null) {
+                    if (frsActivity17.PZ().avD() != null) {
                         frsActivity18 = this.bup.bjB;
-                        if (frsActivity18.PZ().avA().getAnchorPower() != null) {
+                        if (frsActivity18.PZ().avD().getAnchorPower() != null) {
                             frsActivity19 = this.bup.bjB;
-                            if (frsActivity19.PZ().avA().getAnchorPower().can_add_live_post.intValue() != 2) {
+                            if (frsActivity19.PZ().avD().getAnchorPower().can_add_live_post.intValue() != 2) {
                                 z = true;
                                 boolean showXiaoyingTool = XiaoyingUtil.showXiaoyingTool();
-                                boolean Fa = com.baidu.tbadk.plugins.d.Fa();
+                                boolean Fc = com.baidu.tbadk.plugins.g.Fc();
                                 frsActivity16 = this.bup.bjB;
-                                boolean z2 = frsActivity16.PZ().getUserData().canPostHi() ? Fa : false;
+                                boolean z2 = frsActivity16.PZ().getUserData().canPostHi() ? Fc : false;
                                 boolean appResponseToIntentClass = TbadkCoreApplication.m11getInst().appResponseToIntentClass(WriteVoteActivityConfig.class);
-                                if (!this.bup.btZ.fs(1)) {
+                                if (!this.bup.btZ.fr(1)) {
                                     this.bup.a(z, showXiaoyingTool, z2, appResponseToIntentClass);
-                                    this.bup.btZ.JA();
+                                    this.bup.btZ.JC();
                                     return;
-                                } else if (this.bup.btZ.fs(3)) {
-                                    this.bup.btZ.JB();
+                                } else if (this.bup.btZ.fr(3)) {
+                                    this.bup.btZ.JD();
                                     return;
                                 } else {
                                     return;
@@ -78,12 +78,12 @@ public class h implements View.OnClickListener {
                 }
                 z = false;
                 boolean showXiaoyingTool2 = XiaoyingUtil.showXiaoyingTool();
-                boolean Fa2 = com.baidu.tbadk.plugins.d.Fa();
+                boolean Fc2 = com.baidu.tbadk.plugins.g.Fc();
                 frsActivity16 = this.bup.bjB;
                 if (frsActivity16.PZ().getUserData().canPostHi()) {
                 }
                 boolean appResponseToIntentClass2 = TbadkCoreApplication.m11getInst().appResponseToIntentClass(WriteVoteActivityConfig.class);
-                if (!this.bup.btZ.fs(1)) {
+                if (!this.bup.btZ.fr(1)) {
                 }
             } else if (view == this.bup.buc) {
                 frsActivity12 = this.bup.bjB;

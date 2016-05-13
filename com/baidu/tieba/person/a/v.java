@@ -33,9 +33,9 @@ public class v implements View.OnClickListener {
         } else if (id == t.g.live_mission_item && (view.getTag() instanceof com.baidu.tieba.person.data.m)) {
             TiebaStatic.log("c10784");
             com.baidu.tieba.person.data.m mVar = (com.baidu.tieba.person.data.m) view.getTag();
-            if (mVar.getUser() != null && mVar.aCm() != null && mVar.aCm().pw() != null) {
+            if (mVar.getUser() != null && mVar.aCp() != null && mVar.aCp().pw() != null) {
                 context = this.dxY.mContext;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MissonDetailsActivityConfig(context, 24004, mVar.aCm().pw().anchor_level.intValue(), mVar.getUser().portrait, mVar.getUser().name_show, MissonDetailsActivityConfig.FROM_PERSON)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MissonDetailsActivityConfig(context, 24004, mVar.aCp().pw().anchor_level.intValue(), mVar.getUser().portrait, mVar.getUser().name_show, MissonDetailsActivityConfig.FROM_PERSON)));
             }
         }
     }

@@ -32,7 +32,7 @@ public class aj extends c<al, com.baidu.tieba.person.b.r> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, al alVar, com.baidu.tieba.person.b.r rVar) {
         if (alVar != null && rVar != null) {
-            rVar.aCN();
+            rVar.aCQ();
             if (this.bUL) {
                 rVar.a(alVar);
                 this.bUL = false;

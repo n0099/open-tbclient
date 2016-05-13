@@ -8,7 +8,7 @@ public class at {
         return this.PK;
     }
 
-    public void bG(int i) {
+    public void bF(int i) {
         this.PK = i;
     }
 

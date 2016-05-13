@@ -15,7 +15,7 @@ public class ay {
     private List<String> photoList;
     private int startTime;
 
-    public List<String> rv() {
+    public List<String> rw() {
         return this.photoList;
     }
 
@@ -31,7 +31,7 @@ public class ay {
         return this.startTime;
     }
 
-    public int rw() {
+    public int rx() {
         return this.QZ;
     }
 
@@ -39,19 +39,19 @@ public class ay {
         return this.location;
     }
 
-    public int rx() {
+    public int ry() {
         return this.Ra;
     }
 
-    public int ry() {
+    public int rz() {
         return this.Rb;
     }
 
-    public List<String> rz() {
+    public List<String> rA() {
         return this.Rc;
     }
 
-    public int rA() {
+    public int rB() {
         return this.Rd;
     }
 

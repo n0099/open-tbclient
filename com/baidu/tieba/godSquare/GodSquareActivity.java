@@ -27,7 +27,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
         this.bKa.f(this.baZ);
         this.bKb = new com.baidu.tieba.godSquare.model.b(this.bKd, this);
         registerListener(this.adW);
-        XU();
+        XW();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,15 +41,15 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void XU() {
-        this.bKa.Pc();
+    public void XW() {
+        this.bKa.Pe();
         this.bKb.update();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
         if (i.fe()) {
-            XU();
+            XW();
         }
     }
 
@@ -69,8 +69,8 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void jA() {
         if (this.mHasMore) {
-            this.bKb.Pn();
-            this.bKa.XV();
+            this.bKb.Pp();
+            this.bKa.XX();
         }
     }
 

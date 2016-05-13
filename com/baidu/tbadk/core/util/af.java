@@ -16,11 +16,11 @@ public class af {
         public long mTime;
     }
 
-    public static int cr(int i) {
+    public static int cq(int i) {
         return WO.getAndSet(i);
     }
 
-    public static int cs(int i) {
+    public static int cr(int i) {
         return WO.addAndGet(i);
     }
 
@@ -34,7 +34,7 @@ public class af {
         }
     }
 
-    public static synchronized a tK() {
+    public static synchronized a tL() {
         a remove;
         synchronized (af.class) {
             int size = WN.size();

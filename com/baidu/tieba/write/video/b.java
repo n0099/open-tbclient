@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ WriteLocationView fax;
+    final /* synthetic */ WriteLocationView faw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(WriteLocationView writeLocationView, int i) {
         super(i);
-        this.fax = writeLocationView;
+        this.faw = writeLocationView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ public class b extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.fax.art;
+                dVar2 = this.faw.art;
                 dVar2.jA(false);
-                dVar3 = this.fax.art;
+                dVar3 = this.faw.art;
                 dVar3.bM(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.fax.b(2, true, responsedSelectLocation.getName());
+                this.faw.b(2, true, responsedSelectLocation.getName());
                 return;
             }
-            dVar = this.fax.art;
+            dVar = this.faw.art;
             dVar.jA(true);
-            this.fax.b(0, true, null);
+            this.faw.b(0, true, null);
         }
     }
 }

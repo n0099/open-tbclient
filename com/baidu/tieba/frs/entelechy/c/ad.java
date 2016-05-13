@@ -22,9 +22,9 @@ public class ad implements com.baidu.tbadk.widget.layout.g {
         ax axVar;
         TbPageContext tbPageContext;
         axVar = this.bpM.aab;
-        com.baidu.tbadk.core.data.k ru = axVar.ru();
-        long cartoonId = ru.getCartoonId();
-        int chapterId = ru.getChapterId();
+        com.baidu.tbadk.core.data.k rv = axVar.rv();
+        long cartoonId = rv.getCartoonId();
+        int chapterId = rv.getChapterId();
         tbPageContext = this.bpM.DV;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(tbPageContext.getPageActivity(), cartoonId, chapterId, 2)));
     }

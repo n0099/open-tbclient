@@ -32,7 +32,7 @@ public class g {
         }
     }
 
-    public int Az() {
+    public int AA() {
         return this.aod;
     }
 
@@ -44,7 +44,7 @@ public class g {
         return this.url;
     }
 
-    public String AA() {
+    public String AB() {
         return this.expire_remind;
     }
 

@@ -19,28 +19,28 @@ public class m implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         String data = customMessage.getData();
-        LinkedList<ImMessageCenterPojo> aez = com.baidu.tieba.im.db.i.aex().aez();
-        long iV = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.acL().iV(11);
-        long iV2 = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.acL().iV(12);
-        if (aez == null) {
-            aez = new LinkedList<>();
+        LinkedList<ImMessageCenterPojo> aeB = com.baidu.tieba.im.db.i.aez().aeB();
+        long iU = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.acN().iU(11);
+        long iU2 = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.acN().iU(12);
+        if (aeB == null) {
+            aeB = new LinkedList<>();
         }
-        if (iV != -1) {
+        if (iU != -1) {
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-            aez.add(imMessageCenterPojo);
+            aeB.add(imMessageCenterPojo);
             imMessageCenterPojo.setCustomGroupType(7);
             imMessageCenterPojo.setGid(String.valueOf(11));
-            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.bk(iV));
+            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.bk(iU));
             imMessageCenterPojo.setIs_hidden(1);
         }
-        if (iV2 != -1) {
+        if (iU2 != -1) {
             ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            aez.add(imMessageCenterPojo2);
+            aeB.add(imMessageCenterPojo2);
             imMessageCenterPojo2.setCustomGroupType(8);
             imMessageCenterPojo2.setGid(String.valueOf(12));
-            imMessageCenterPojo2.setPulled_msgId(com.baidu.tieba.im.util.g.bk(iV2));
+            imMessageCenterPojo2.setPulled_msgId(com.baidu.tieba.im.util.g.bk(iU2));
             imMessageCenterPojo2.setIs_hidden(1);
         }
-        return new MemoryGetFromDBMessage(aez, data);
+        return new MemoryGetFromDBMessage(aeB, data);
     }
 }

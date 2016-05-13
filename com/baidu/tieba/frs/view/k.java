@@ -26,7 +26,7 @@ public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
         int i4;
         HashMap hashMap2;
         String str3;
-        bg.us().c(this.bwe.Do, new String[]{str});
+        bg.ut().c(this.bwe.Do, new String[]{str});
         String str4 = "";
         String str5 = "";
         if (this.bwe.bjB != null) {

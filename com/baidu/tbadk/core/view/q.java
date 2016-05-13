@@ -31,7 +31,7 @@ public class q extends LinearLayout {
     private Context mContext;
     private View mRootView;
 
-    static /* synthetic */ int[] uW() {
+    static /* synthetic */ int[] uX() {
         int[] iArr = aby;
         if (iArr == null) {
             iArr = new int[NoDataViewFactory.ImgType.valuesCustom().length];
@@ -107,11 +107,11 @@ public class q extends LinearLayout {
             ((TbPageContext) hVar).getLayoutMode().x(this);
         }
         if (this.abw == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.abl.setImageBitmap(com.baidu.tbadk.core.util.at.cC(t.f.pic_emotion08));
+            this.abl.setImageBitmap(com.baidu.tbadk.core.util.at.cB(t.f.pic_emotion08));
         } else if (this.abw == NoDataViewFactory.ImgType.NODATA) {
-            this.abl.setImageBitmap(com.baidu.tbadk.core.util.at.cC(t.f.no_data_image));
+            this.abl.setImageBitmap(com.baidu.tbadk.core.util.at.cB(t.f.no_data_image));
         } else if (this.abw == NoDataViewFactory.ImgType.LOCAL) {
-            this.abl.setImageBitmap(com.baidu.tbadk.core.util.at.cC(this.abx));
+            this.abl.setImageBitmap(com.baidu.tbadk.core.util.at.cB(this.abx));
         } else if (i == 1) {
             this.abl.c(this.abu, 29, false);
         } else {
@@ -156,34 +156,34 @@ public class q extends LinearLayout {
         if (cVar != null) {
             this.abw = cVar.abD;
             this.abx = cVar.abx;
-            switch (uW()[cVar.abD.ordinal()]) {
+            switch (uX()[cVar.abD.ordinal()]) {
                 case 2:
-                    this.abt = com.baidu.tbadk.util.b.Fm().gf("pic_emotion03.png");
-                    this.abu = com.baidu.tbadk.util.b.Fm().gf("pic_emotion03_1.png");
+                    this.abt = com.baidu.tbadk.util.b.Fo().gf("pic_emotion03.png");
+                    this.abu = com.baidu.tbadk.util.b.Fo().gf("pic_emotion03_1.png");
                     break;
                 case 3:
-                    this.abt = com.baidu.tbadk.util.b.Fm().gf("pic_emotion05.png");
-                    this.abu = com.baidu.tbadk.util.b.Fm().gf("pic_emotion05_1.png");
+                    this.abt = com.baidu.tbadk.util.b.Fo().gf("pic_emotion05.png");
+                    this.abu = com.baidu.tbadk.util.b.Fo().gf("pic_emotion05_1.png");
                     break;
                 case 4:
-                    this.abt = com.baidu.tbadk.util.b.Fm().gf("pic_emotion01.png");
-                    this.abu = com.baidu.tbadk.util.b.Fm().gf("pic_emotion01_1.png");
+                    this.abt = com.baidu.tbadk.util.b.Fo().gf("pic_emotion01.png");
+                    this.abu = com.baidu.tbadk.util.b.Fo().gf("pic_emotion01_1.png");
                     break;
                 case 5:
-                    this.abt = com.baidu.tbadk.util.b.Fm().gf("pic_emotion02.png");
-                    this.abu = com.baidu.tbadk.util.b.Fm().gf("pic_emotion02_1.png");
+                    this.abt = com.baidu.tbadk.util.b.Fo().gf("pic_emotion02.png");
+                    this.abu = com.baidu.tbadk.util.b.Fo().gf("pic_emotion02_1.png");
                     break;
                 case 6:
-                    this.abt = com.baidu.tbadk.util.b.Fm().gf("pic_emotion06.png");
-                    this.abu = com.baidu.tbadk.util.b.Fm().gf("pic_emotion06_1.png");
+                    this.abt = com.baidu.tbadk.util.b.Fo().gf("pic_emotion06.png");
+                    this.abu = com.baidu.tbadk.util.b.Fo().gf("pic_emotion06_1.png");
                     break;
                 case 7:
-                    this.abt = com.baidu.tbadk.util.b.Fm().gf("pic_emotion07.png");
-                    this.abu = com.baidu.tbadk.util.b.Fm().gf("pic_emotion07_1.png");
+                    this.abt = com.baidu.tbadk.util.b.Fo().gf("pic_emotion07.png");
+                    this.abu = com.baidu.tbadk.util.b.Fo().gf("pic_emotion07_1.png");
                     break;
                 case 8:
-                    this.abt = com.baidu.tbadk.util.b.Fm().gf("pic_emotion08.png");
-                    this.abu = com.baidu.tbadk.util.b.Fm().gf("pic_emotion08_1.png");
+                    this.abt = com.baidu.tbadk.util.b.Fo().gf("pic_emotion08.png");
+                    this.abu = com.baidu.tbadk.util.b.Fo().gf("pic_emotion08_1.png");
                     break;
             }
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.abl.getLayoutParams();

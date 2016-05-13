@@ -16,15 +16,15 @@ public class al implements a.b {
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        if (this.dwD.dwu.aBP().getPhotoChanged()) {
+        if (this.dwD.dwu.aBS().getPhotoChanged()) {
             Intent intent = new Intent();
             if (this.dwD.dwg.booleanValue()) {
-                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.dwD.dwu.aBP());
+                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.dwD.dwu.aBS());
             } else {
-                intent.putExtra("data", this.dwD.dwu.aBP());
+                intent.putExtra("data", this.dwD.dwu.aBS());
             }
             this.dwD.setResult(-1, intent);
-            this.dwD.aBO();
+            this.dwD.aBR();
         }
         this.dwD.finish();
     }

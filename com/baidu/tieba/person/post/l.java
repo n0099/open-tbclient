@@ -71,7 +71,7 @@ public class l implements PersonPostModel.a {
                     }
                 }
                 pbListView = this.dEJ.dEC;
-                pbListView.vh();
+                pbListView.vi();
                 if (z) {
                     if (k.bP(personPostModel.post_list) < 20) {
                         this.dEJ.dEE = false;

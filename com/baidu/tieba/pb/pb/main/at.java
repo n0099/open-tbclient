@@ -35,10 +35,10 @@ public class at implements PbActivity.a {
         PbActivity pbActivity = this.djE;
         Activity pageActivity = this.djE.getPageContext().getPageActivity();
         cwVar2 = this.djE.dih;
-        String id = cwVar2.getPbData().avA().getId();
+        String id = cwVar2.getPbData().avD().getId();
         cwVar3 = this.djE.dih;
-        String name = cwVar3.getPbData().avA().getName();
+        String name = cwVar3.getPbData().avD().getName();
         cwVar4 = this.djE.dih;
-        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, cwVar4.getPbData().avB().getId(), valueOf, str, str2)));
+        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, cwVar4.getPbData().avE().getId(), valueOf, str, str2)));
     }
 }

@@ -12,7 +12,7 @@ public class g implements a.InterfaceC0047a {
     }
 
     @Override // com.baidu.tbadk.performanceLog.a.InterfaceC0047a
-    public void eJ(int i) {
+    public void eI(int i) {
         int i2;
         int i3;
         int i4;
@@ -28,8 +28,8 @@ public class g implements a.InterfaceC0047a {
             aVar.a((a.InterfaceC0047a) null);
             aVar2 = this.axa.awV;
             aVar2.stop();
-            this.axa.EA();
+            this.axa.EB();
         }
-        this.axa.eK(i);
+        this.axa.eJ(i);
     }
 }

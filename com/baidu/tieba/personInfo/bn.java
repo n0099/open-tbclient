@@ -36,8 +36,8 @@ public class bn implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.dHR.aEe();
-        this.dHR.aEf();
-        this.dHR.aEd();
+        this.dHR.aEh();
+        this.dHR.aEi();
+        this.dHR.aEg();
     }
 }

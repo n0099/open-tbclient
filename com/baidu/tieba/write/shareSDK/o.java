@@ -27,138 +27,138 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o {
     private WriteData evE;
-    private View fag;
-    private TextView fak;
-    private com.baidu.tieba.write.b fal;
-    private ImageView fam;
-    private View fan;
+    private View faf;
+    private TextView faj;
+    private com.baidu.tieba.write.b fak;
+    private ImageView fal;
+    private View fam;
+    private LinearLayout fan;
     private LinearLayout fao;
-    private LinearLayout fap;
-    private ShareSDKImageView faq;
+    private ShareSDKImageView fap;
+    private TextView faq;
     private TextView far;
-    private TextView fas;
-    private WriteShareActivity fat;
-    private com.baidu.tbadk.img.b fau;
+    private WriteShareActivity fas;
+    private com.baidu.tbadk.img.b fat;
     private PostPrefixData mPrefixData;
     private NavigationBar mNavigationBar = null;
     private View afm = null;
-    private EditText fae = null;
-    private View faf = null;
-    private LinearLayout fah = null;
-    private EditText fai = null;
-    private TextView faj = null;
+    private EditText fad = null;
+    private View fae = null;
+    private LinearLayout fag = null;
+    private EditText fah = null;
+    private TextView fai = null;
     private RelativeLayout bZp = null;
-    private boolean fav = false;
+    private boolean fau = false;
     private int width = 0;
     private int height = 0;
 
     public o(WriteShareActivity writeShareActivity) {
         this.evE = null;
-        this.fat = writeShareActivity;
-        this.evE = writeShareActivity.aVa();
-        if (this.fau == null) {
-            this.fau = new com.baidu.tbadk.img.b();
+        this.fas = writeShareActivity;
+        this.evE = writeShareActivity.aVg();
+        if (this.fat == null) {
+            this.fat = new com.baidu.tbadk.img.b();
         }
         nq();
     }
 
     private void nq() {
-        this.mNavigationBar = (NavigationBar) this.fat.findViewById(t.g.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) this.fas.findViewById(t.g.view_navigation_bar);
         this.afm = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.fat.getPageContext().getString(t.j.share_navigationbar_title));
-        this.faj = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.fat.getPageContext().getString(t.j.send_post));
-        this.bZp = (RelativeLayout) this.fat.findViewById(t.g.parent);
-        this.faf = this.fat.findViewById(t.g.interval_view);
-        this.fag = this.fat.findViewById(t.g.prefix_interval_view);
-        this.fao = (LinearLayout) this.fat.findViewById(t.g.post_share_layout);
-        this.fap = (LinearLayout) this.fat.findViewById(t.g.post_share_content_layout);
-        this.faq = (ShareSDKImageView) this.fat.findViewById(t.g.post_share_image);
-        this.far = (TextView) this.fat.findViewById(t.g.post_share_title);
-        this.fas = (TextView) this.fat.findViewById(t.g.post_share_content);
-        bci();
-        bck();
-        this.fah = (LinearLayout) this.fat.findViewById(t.g.post_content_container);
-        this.fah.setDrawingCacheEnabled(false);
-        this.fae.setVisibility(0);
-        this.fai.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        bcj();
+        this.mNavigationBar.setTitleText(this.fas.getPageContext().getString(t.j.share_navigationbar_title));
+        this.fai = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.fas.getPageContext().getString(t.j.send_post));
+        this.bZp = (RelativeLayout) this.fas.findViewById(t.g.parent);
+        this.fae = this.fas.findViewById(t.g.interval_view);
+        this.faf = this.fas.findViewById(t.g.prefix_interval_view);
+        this.fan = (LinearLayout) this.fas.findViewById(t.g.post_share_layout);
+        this.fao = (LinearLayout) this.fas.findViewById(t.g.post_share_content_layout);
+        this.fap = (ShareSDKImageView) this.fas.findViewById(t.g.post_share_image);
+        this.faq = (TextView) this.fas.findViewById(t.g.post_share_title);
+        this.far = (TextView) this.fas.findViewById(t.g.post_share_content);
+        bcp();
+        bcr();
+        this.fag = (LinearLayout) this.fas.findViewById(t.g.post_content_container);
+        this.fag.setDrawingCacheEnabled(false);
+        this.fad.setVisibility(0);
+        this.fah.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        bcq();
     }
 
-    public void bcg() {
-        this.fao = (LinearLayout) this.fat.findViewById(t.g.post_share_layout);
-        this.faq = (ShareSDKImageView) this.fat.findViewById(t.g.post_share_image);
-        this.faq.setIsRound(false);
-        this.faq.setDrawBorder(false);
-        this.faq.setAutoChangeStyle(true);
-        this.faq.setRadius(0);
-        this.far = (TextView) this.fat.findViewById(t.g.post_share_title);
-        this.fas = (TextView) this.fat.findViewById(t.g.post_share_content);
+    public void bcn() {
+        this.fan = (LinearLayout) this.fas.findViewById(t.g.post_share_layout);
+        this.fap = (ShareSDKImageView) this.fas.findViewById(t.g.post_share_image);
+        this.fap.setIsRound(false);
+        this.fap.setDrawBorder(false);
+        this.fap.setAutoChangeStyle(true);
+        this.fap.setRadius(0);
+        this.faq = (TextView) this.fas.findViewById(t.g.post_share_title);
+        this.far = (TextView) this.fas.findViewById(t.g.post_share_content);
         if (this.evE != null) {
             if (this.evE.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
-                this.faq.setEvent(new p(this));
+                this.fap.setEvent(new p(this));
             }
             if (this.evE.getShareImageType() == WriteData.SHARE_SDK_NET_IMAGE) {
                 if (this.evE.getShareSummaryImg() != null && this.evE.getShareSummaryImg().trim().length() > 0) {
-                    this.faq.c(this.evE.getShareSummaryImg(), 10, true);
+                    this.fap.c(this.evE.getShareSummaryImg(), 10, true);
                 } else {
-                    this.fav = true;
-                    bcj();
+                    this.fau = true;
+                    bcq();
                 }
             } else {
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(this.evE.getShareLocalImageData());
                 if (Bytes2Bitmap != null) {
-                    this.faq.setImageBitmap(Bytes2Bitmap);
+                    this.fap.setImageBitmap(Bytes2Bitmap);
                 } else {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     if (!TextUtils.isEmpty(this.evE.getShareLocalImageUri())) {
                         imageFileInfo.setFilePath(com.baidu.tbadk.core.util.m.a(TbadkCoreApplication.m11getInst().getApp(), Uri.parse(this.evE.getShareLocalImageUri())));
                     }
                     imageFileInfo.clearAllActions();
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.D(az.uf().ul(), az.uf().ul()));
-                    this.faq.setTag(imageFileInfo.toCachedKey(true));
-                    if (this.fau.a(imageFileInfo, new q(this), true) != null) {
-                        this.faq.invalidate();
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.D(az.ug().um(), az.ug().um()));
+                    this.fap.setTag(imageFileInfo.toCachedKey(true));
+                    if (this.fat.a(imageFileInfo, new q(this), true) != null) {
+                        this.fap.invalidate();
                     }
                 }
-                this.fav = true;
-                bcj();
+                this.fau = true;
+                bcq();
             }
             this.evE.setShareSummaryImgType(com.baidu.adp.lib.util.e.aF(this.evE.getShareSummaryImg()));
-            this.far.setText(this.evE.getShareSummaryTitle());
-            this.fas.setText(this.evE.getShareSummaryContent());
+            this.faq.setText(this.evE.getShareSummaryTitle());
+            this.far.setText(this.evE.getShareSummaryContent());
         }
     }
 
-    private void bch() {
-        this.fan = this.fat.findViewById(t.g.post_prefix_layout);
-        this.fak = (TextView) this.fat.findViewById(t.g.post_prefix);
-        this.fam = (ImageView) this.fat.findViewById(t.g.prefix_icon);
+    private void bco() {
+        this.fam = this.fas.findViewById(t.g.post_prefix_layout);
+        this.faj = (TextView) this.fas.findViewById(t.g.post_prefix);
+        this.fal = (ImageView) this.fas.findViewById(t.g.prefix_icon);
         if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0) {
-            this.fan.setVisibility(0);
+            this.fam.setVisibility(0);
             ArrayList<String> prefixs = this.mPrefixData.getPrefixs();
             int size = prefixs.size();
-            this.fak.setText(prefixs.get(0));
-            this.fat.qT(0);
-            this.fan.setOnClickListener(new r(this));
-            this.fam = (ImageView) this.fat.findViewById(t.g.prefix_icon);
+            this.faj.setText(prefixs.get(0));
+            this.fas.qS(0);
+            this.fam.setOnClickListener(new r(this));
+            this.fal = (ImageView) this.fas.findViewById(t.g.prefix_icon);
             if (size > 1) {
-                this.fam.setVisibility(0);
-                this.fak.setOnClickListener(new s(this));
+                this.fal.setVisibility(0);
+                this.faj.setOnClickListener(new s(this));
             }
-            this.fal = new com.baidu.tieba.write.b(this.fat.getPageContext().getContext());
-            this.fal.setMaxHeight(com.baidu.adp.lib.util.k.dip2px(this.fat.getPageContext().getContext(), 225.0f));
-            this.fal.setOutsideTouchable(true);
-            this.fal.setFocusable(true);
-            this.fal.setBackgroundDrawable(at.getDrawable(t.d.cp_bg_line_b));
-            this.fal.a(new t(this));
-            this.fal.setOnDismissListener(new u(this));
+            this.fak = new com.baidu.tieba.write.b(this.fas.getPageContext().getContext());
+            this.fak.setMaxHeight(com.baidu.adp.lib.util.k.dip2px(this.fas.getPageContext().getContext(), 225.0f));
+            this.fak.setOutsideTouchable(true);
+            this.fak.setFocusable(true);
+            this.fak.setBackgroundDrawable(at.getDrawable(t.d.cp_bg_line_b));
+            this.fak.a(new t(this));
+            this.fak.setOnDismissListener(new u(this));
             int color = at.getColor(t.d.write_text);
-            at.k(this.fak, t.f.write_prefix_item_selector);
-            at.c(this.fam, t.f.icon_title_down);
-            this.fak.setTextColor(color);
+            at.k(this.faj, t.f.write_prefix_item_selector);
+            at.c(this.fal, t.f.icon_title_down);
+            this.faj.setTextColor(color);
             for (int i = 0; i < size; i++) {
-                TextView textView = new TextView(this.fat.getPageContext().getContext());
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.dip2px(this.fat.getPageContext().getContext(), 45.0f));
+                TextView textView = new TextView(this.fas.getPageContext().getContext());
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.dip2px(this.fas.getPageContext().getContext(), 45.0f));
                 textView.setLayoutParams(layoutParams);
                 textView.setText(prefixs.get(i));
                 textView.setGravity(19);
@@ -167,45 +167,45 @@ public class o {
                 textView.setTextSize(1, 16.0f);
                 textView.setTextColor(color);
                 at.k(textView, t.f.write_prefix_item_selector);
-                textView.setPadding(com.baidu.adp.lib.util.k.dip2px(this.fat.getPageContext().getContext(), this.fat.getResources().getDimension(t.e.ds6)), 0, com.baidu.adp.lib.util.k.dip2px(this.fat.getPageContext().getContext(), this.fat.getResources().getDimension(t.e.ds22)), 0);
-                this.fal.addView(textView);
+                textView.setPadding(com.baidu.adp.lib.util.k.dip2px(this.fas.getPageContext().getContext(), this.fas.getResources().getDimension(t.e.ds6)), 0, com.baidu.adp.lib.util.k.dip2px(this.fas.getPageContext().getContext(), this.fas.getResources().getDimension(t.e.ds22)), 0);
+                this.fak.addView(textView);
                 if (i != size - 1) {
-                    layoutParams.bottomMargin = com.baidu.adp.lib.util.k.dip2px(this.fat.getPageContext().getContext(), 1.0f);
+                    layoutParams.bottomMargin = com.baidu.adp.lib.util.k.dip2px(this.fas.getPageContext().getContext(), 1.0f);
                     textView.setGravity(19);
-                    textView.setPadding(com.baidu.adp.lib.util.k.dip2px(this.fat.getPageContext().getContext(), this.fat.getResources().getDimension(t.e.ds6)), 0, com.baidu.adp.lib.util.k.dip2px(this.fat.getPageContext().getContext(), this.fat.getResources().getDimension(t.e.ds22)), 0);
+                    textView.setPadding(com.baidu.adp.lib.util.k.dip2px(this.fas.getPageContext().getContext(), this.fas.getResources().getDimension(t.e.ds6)), 0, com.baidu.adp.lib.util.k.dip2px(this.fas.getPageContext().getContext(), this.fas.getResources().getDimension(t.e.ds22)), 0);
                 }
             }
-            this.fal.qH(0);
+            this.fak.qG(0);
             return;
         }
-        this.fan.setVisibility(8);
+        this.fam.setVisibility(8);
     }
 
-    protected void bci() {
-        this.fae = (EditText) this.fat.findViewById(t.g.post_title);
+    protected void bcp() {
+        this.fad = (EditText) this.fas.findViewById(t.g.post_title);
         if (this.evE.getType() == 3) {
             if (this.evE.getTitle() != null && this.evE.getTitle().trim().length() > 0) {
-                this.fae.setText(this.evE.getTitle());
-                this.fae.setSelection(this.evE.getTitle().length());
+                this.fad.setText(this.evE.getTitle());
+                this.fad.setSelection(this.evE.getTitle().length());
             } else {
-                String str = String.valueOf(this.fat.getPageContext().getString(t.j.share_transfer_thread)) + this.evE.getShareSummaryTitle();
-                this.fae.setText(str);
+                String str = String.valueOf(this.fas.getPageContext().getString(t.j.share_transfer_thread)) + this.evE.getShareSummaryTitle();
+                this.fad.setText(str);
                 if (str.length() < 20) {
-                    this.fae.setSelection(str.length());
+                    this.fad.setSelection(str.length());
                 } else {
-                    this.fae.setSelection(20);
+                    this.fad.setSelection(20);
                 }
             }
         }
-        this.fae.addTextChangedListener(new v(this));
+        this.fad.addTextChangedListener(new v(this));
     }
 
-    public void bcj() {
+    public void bcq() {
         String str = null;
         if (this.evE.getType() == 3) {
-            String trim = this.fae.getText().toString().trim();
+            String trim = this.fad.getText().toString().trim();
             if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0) {
-                if (this.fat.bcd() == this.mPrefixData.getPrefixs().size() - 1) {
+                if (this.fas.bck() == this.mPrefixData.getPrefixs().size() - 1) {
                     if (TextUtils.isEmpty(trim)) {
                         this.evE.setIsNoTitle(true);
                     } else {
@@ -223,23 +223,23 @@ public class o {
                 str = "1";
             }
         }
-        if (str == null || str.length() <= 0 || !this.fav) {
-            this.faj.setEnabled(false);
+        if (str == null || str.length() <= 0 || !this.fau) {
+            this.fai.setEnabled(false);
         } else {
-            this.faj.setEnabled(true);
+            this.fai.setEnabled(true);
         }
     }
 
-    protected void bck() {
-        this.fai = (EditText) this.fat.findViewById(t.g.post_content);
-        this.fai.setDrawingCacheEnabled(false);
+    protected void bcr() {
+        this.fah = (EditText) this.fas.findViewById(t.g.post_content);
+        this.fah.setDrawingCacheEnabled(false);
         if (this.evE.getContent() != null && this.evE.getContent().length() > 0) {
-            SpannableString y = TbFaceManager.CG().y(this.fat.getPageContext().getContext(), this.evE.getContent());
-            this.fai.setText(y);
-            this.fai.setSelection(y.length());
+            SpannableString y = TbFaceManager.CH().y(this.fas.getPageContext().getContext(), this.evE.getContent());
+            this.fah.setText(y);
+            this.fah.setSelection(y.length());
         }
-        this.fai.setOnTouchListener(new w(this));
-        this.fai.addTextChangedListener(new x(this));
+        this.fah.setOnTouchListener(new w(this));
+        this.fah.addTextChangedListener(new x(this));
     }
 
     private void a(EditText editText, int i) {
@@ -252,40 +252,40 @@ public class o {
         editText.setSelection(selectionStart, selectionEnd);
     }
 
-    public EditText bcl() {
-        return this.fae;
+    public EditText bcs() {
+        return this.fad;
     }
 
-    public EditText aIW() {
-        return this.fai;
+    public EditText aIZ() {
+        return this.fah;
     }
 
     public void a(PostPrefixData postPrefixData) {
         this.mPrefixData = postPrefixData;
-        bch();
+        bco();
     }
 
     public void a(View.OnFocusChangeListener onFocusChangeListener) {
-        this.fae.setOnFocusChangeListener(onFocusChangeListener);
-        this.fai.setOnFocusChangeListener(onFocusChangeListener);
+        this.fad.setOnFocusChangeListener(onFocusChangeListener);
+        this.fah.setOnFocusChangeListener(onFocusChangeListener);
         this.afm.setOnFocusChangeListener(onFocusChangeListener);
-        this.faj.setOnFocusChangeListener(onFocusChangeListener);
+        this.fai.setOnFocusChangeListener(onFocusChangeListener);
     }
 
-    public com.baidu.tieba.write.b bcm() {
-        return this.fal;
+    public com.baidu.tieba.write.b bct() {
+        return this.fak;
     }
 
-    public View bcn() {
+    public View bcu() {
         return this.afm;
     }
 
-    public TextView bco() {
-        return this.faj;
+    public TextView bcv() {
+        return this.fai;
     }
 
-    public TextView bcp() {
-        return this.fak;
+    public TextView bcw() {
+        return this.faj;
     }
 
     public void R(View.OnClickListener onClickListener) {
@@ -293,36 +293,36 @@ public class o {
     }
 
     public void S(View.OnClickListener onClickListener) {
-        this.faj.setOnClickListener(onClickListener);
+        this.fai.setOnClickListener(onClickListener);
     }
 
     public void T(View.OnClickListener onClickListener) {
-        this.fah.setOnClickListener(onClickListener);
+        this.fag.setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fat != null) {
-            this.fat.getLayoutMode().ae(i == 1);
-            this.fat.getLayoutMode().x(this.bZp);
-            this.mNavigationBar.onChangeSkinType(this.fat.getPageContext(), i);
-            at.g(this.faj, i);
+        if (this.fas != null) {
+            this.fas.getLayoutMode().ae(i == 1);
+            this.fas.getLayoutMode().x(this.bZp);
+            this.mNavigationBar.onChangeSkinType(this.fas.getPageContext(), i);
+            at.g(this.fai, i);
+            at.l(this.fae, t.d.cp_bg_line_c);
             at.l(this.faf, t.d.cp_bg_line_c);
-            at.l(this.fag, t.d.cp_bg_line_c);
-            at.l(this.fae, t.d.cp_cont_g);
-            at.l(this.fap, t.d.cp_bg_line_e);
+            at.l(this.fad, t.d.cp_cont_g);
+            at.l(this.fao, t.d.cp_bg_line_e);
             int color = at.getColor(t.d.cp_cont_b);
             int color2 = at.getColor(t.d.cp_cont_e);
-            this.fae.setTextColor(color);
-            this.fai.setTextColor(color);
-            this.far.setTextColor(at.getColor(t.d.cp_cont_b));
-            this.fas.setTextColor(at.getColor(t.d.cp_cont_d));
-            a(this.fae, color2);
-            a(this.fai, color2);
-            bcj();
+            this.fad.setTextColor(color);
+            this.fah.setTextColor(color);
+            this.faq.setTextColor(at.getColor(t.d.cp_cont_b));
+            this.far.setTextColor(at.getColor(t.d.cp_cont_d));
+            a(this.fad, color2);
+            a(this.fah, color2);
+            bcq();
         }
     }
 
-    public ShareSDKImageView bcq() {
-        return this.faq;
+    public ShareSDKImageView bcx() {
+        return this.fap;
     }
 }

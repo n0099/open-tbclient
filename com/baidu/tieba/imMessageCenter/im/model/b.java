@@ -20,8 +20,8 @@ class b extends s<Boolean> {
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
         UserData userData;
-        l aeD = l.aeD();
+        l aeF = l.aeF();
         userData = this.cxq.mUser;
-        return Boolean.valueOf(aeD.bb(String.valueOf(userData.getUserId()), String.valueOf(this.val$msg.getMsgId())));
+        return Boolean.valueOf(aeF.bb(String.valueOf(userData.getUserId()), String.valueOf(this.val$msg.getMsgId())));
     }
 }

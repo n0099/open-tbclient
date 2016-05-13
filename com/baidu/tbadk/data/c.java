@@ -21,11 +21,11 @@ public class c {
         }
     }
 
-    public int Av() {
+    public int Aw() {
         return this.anG;
     }
 
-    public int Aw() {
+    public int Ax() {
         return this.anH;
     }
 }

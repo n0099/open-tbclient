@@ -18,10 +18,10 @@ class r extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016324 && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            q.aMp().dZJ = intValue;
-            t.or(intValue);
+            q.aMs().dZJ = intValue;
+            t.oq(intValue);
             if (!this.dZO.dZK) {
-                t.os(intValue);
+                t.or(intValue);
             }
         }
     }

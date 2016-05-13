@@ -35,15 +35,15 @@ public class aj implements BdListView.e {
                 bgVar = this.this$0.dyP;
                 if (bgVar != null) {
                     bgVar2 = this.this$0.dyP;
-                    if (!bgVar2.aDW()) {
+                    if (!bgVar2.aDZ()) {
                         bgVar5 = this.this$0.dyP;
-                        if (com.baidu.tbadk.core.util.y.s(bgVar5.aDz())) {
+                        if (com.baidu.tbadk.core.util.y.s(bgVar5.aDC())) {
                             bjVar6 = this.this$0.dFA;
-                            bjVar6.aEg();
+                            bjVar6.aEj();
                             return;
                         }
                         bjVar5 = this.this$0.dFA;
-                        bjVar5.aCx();
+                        bjVar5.aCA();
                         return;
                     }
                     hVar2 = this.this$0.dzV;
@@ -55,17 +55,17 @@ public class aj implements BdListView.e {
                             hVar4 = this.this$0.dzV;
                             hVar4.bG(c);
                             bjVar4 = this.this$0.dFA;
-                            bjVar4.OJ();
+                            bjVar4.OL();
                             return;
                         }
                         bgVar3 = this.this$0.dyP;
-                        if (com.baidu.tbadk.core.util.y.s(bgVar3.aDz())) {
+                        if (com.baidu.tbadk.core.util.y.s(bgVar3.aDC())) {
                             bjVar3 = this.this$0.dFA;
-                            bjVar3.aEg();
+                            bjVar3.aEj();
                             return;
                         }
                         bjVar2 = this.this$0.dFA;
-                        bjVar2.aCx();
+                        bjVar2.aCA();
                     }
                 }
             }

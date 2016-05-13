@@ -39,7 +39,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: dY */
+    /* renamed from: dX */
     public com.baidu.tbadk.d.a.a getItem(int i) {
         if (this.aos != null && i < this.aos.size()) {
             return this.aos.get(i);
@@ -56,8 +56,8 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             a aVar = (a) view.getTag();
-            aVar.aot.setImageResource(this.aos.get(i).AI());
-            aVar.title.setText(this.aos.get(i).AJ());
+            aVar.aot.setImageResource(this.aos.get(i).AJ());
+            aVar.title.setText(this.aos.get(i).AK());
             aVar.aou.setText(i);
             return view;
         }

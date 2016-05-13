@@ -6,16 +6,16 @@ public class u extends t {
     public String xJ;
     public long xK;
 
-    public void EF() {
+    public void EG() {
         ac acVar;
-        if (aa.EM().EN() && (acVar = (ac) aa.EM().eO(this.axu)) != null) {
+        if (aa.EN().EO() && (acVar = (ac) aa.EN().eN(this.axu)) != null) {
             acVar.a(this, "head");
         }
     }
 
-    public void EG() {
+    public void EH() {
         ac acVar;
-        if (aa.EM().EN() && (acVar = (ac) aa.EM().eO(this.axu)) != null) {
+        if (aa.EN().EO() && (acVar = (ac) aa.EN().eN(this.axu)) != null) {
             acVar.a(this, "img");
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c {
-    public static String avW() {
+    public static String avZ() {
         int fontSize = TbadkCoreApplication.m11getInst().getFontSize();
         if (fontSize == 0) {
             return TbadkCoreApplication.m11getInst().getString(t.j.toast_font_size_xlarge);
@@ -22,7 +22,7 @@ public class c {
         return TbadkCoreApplication.m11getInst().getString(t.j.toast_font_size_small);
     }
 
-    public static void avX() {
+    public static void awa() {
         int i = 1;
         int fontSize = TbadkCoreApplication.m11getInst().getFontSize();
         if (fontSize != 0) {
@@ -32,10 +32,10 @@ public class c {
             TbadkCoreApplication.m11getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
-        BdToast.a(TbadkCoreApplication.m11getInst(), avW(), t.f.icon_word_t_size, 0).sc();
+        BdToast.a(TbadkCoreApplication.m11getInst(), avZ(), t.f.icon_word_t_size, 0).sd();
     }
 
-    public static void avY() {
+    public static void awb() {
         int i = 1;
         int fontSize = TbadkCoreApplication.m11getInst().getFontSize();
         if (fontSize == 0) {
@@ -49,10 +49,10 @@ public class c {
             TbadkCoreApplication.m11getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
-        BdToast.a(TbadkCoreApplication.m11getInst(), avW(), t.f.icon_word_t_size, 0).sc();
+        BdToast.a(TbadkCoreApplication.m11getInst(), avZ(), t.f.icon_word_t_size, 0).sd();
     }
 
-    public static void lD(int i) {
+    public static void lC(int i) {
         if (TbadkCoreApplication.m11getInst().getFontSize() != i) {
             TbadkCoreApplication.m11getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));

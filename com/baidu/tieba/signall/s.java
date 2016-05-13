@@ -18,9 +18,9 @@ public class s implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        bg us = bg.us();
+        bg ut = bg.ut();
         TbPageContext<?> pageContext = this.ejS.getPageContext();
         str = this.ejS.ejP;
-        us.c(pageContext, new String[]{str});
+        ut.c(pageContext, new String[]{str});
     }
 }

@@ -8,7 +8,7 @@ public abstract class a implements v {
 
     public abstract String getImageUrl();
 
-    public abstract Object vR();
+    public abstract Object vS();
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {

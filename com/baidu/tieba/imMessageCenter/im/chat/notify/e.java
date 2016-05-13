@@ -25,7 +25,7 @@ class e extends CustomMessageListener {
             int a = s.a(newsNotifyMessage);
             textView = this.ctz.amh;
             if (textView != null) {
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().ya()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.xG().yb()) {
                     a -= newsNotifyMessage.getMsgOfficialMerge();
                 }
                 textView2 = this.ctz.amh;

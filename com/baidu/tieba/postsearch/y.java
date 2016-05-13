@@ -26,16 +26,16 @@ public class y {
         return this.aTo.getCurrentTabType();
     }
 
-    public void nZ(int i) {
+    public void nY(int i) {
         if (this.aTo == null) {
-            oa(1);
+            nZ(1);
             return;
         }
-        aKU();
+        aKX();
         if (this.aTo.getCurrentTabType() == i) {
-            s oc = oc(i);
-            if (oc != null) {
-                oc.iE(true);
+            s ob = ob(i);
+            if (ob != null) {
+                ob.iE(true);
                 return;
             }
             return;
@@ -55,9 +55,9 @@ public class y {
 
     public void a(int i, k kVar, boolean z) {
         iF(true);
-        s oc = oc(i);
-        if (oc != null) {
-            oc.a(kVar, z);
+        s ob = ob(i);
+        if (ob != null) {
+            ob.a(kVar, z);
         }
     }
 
@@ -67,43 +67,43 @@ public class y {
         }
     }
 
-    private void oa(int i) {
+    private void nZ(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(t.g.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
         this.aTo = (FragmentTabHost) inflate.findViewById(t.g.post_search_tab_host);
         this.aTo.setup(this.dUY.getSupportFragmentManager());
         this.aTo.setTabWidgetViewHeight((int) this.dUY.getResources().getDimension(t.e.ds80));
         this.aTo.setShouldDrawIndicatorLine(true);
-        aKT();
-        this.aTo.ci(3);
+        aKW();
+        this.aTo.ch(3);
         this.aTo.setCurrentTabByType(i);
         this.aTo.setNeedShowThemeStyle(false);
         this.aTo.getFragmentTabWidget().setBackGroundDrawableResId(0);
         this.aTo.onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
-    private void aKT() {
+    private void aKW() {
         FragmentTabHost.c cVar = new FragmentTabHost.c();
         this.dVL = new s(1);
         cVar.Vd = this.dVL;
-        cVar.Vc = ob(t.j.searching_time_tab);
+        cVar.Vc = oa(t.j.searching_time_tab);
         cVar.mType = 1;
         this.aTo.a(cVar);
         FragmentTabHost.c cVar2 = new FragmentTabHost.c();
         this.dVM = new s(2);
         cVar2.Vd = this.dVM;
-        cVar2.Vc = ob(t.j.searching_relative_tab);
+        cVar2.Vc = oa(t.j.searching_relative_tab);
         cVar2.mType = 2;
         this.aTo.a(cVar2);
         FragmentTabHost.c cVar3 = new FragmentTabHost.c();
         this.dVN = new s(3);
         cVar3.Vd = this.dVN;
-        cVar3.Vc = ob(t.j.searching_only_thread_tab);
+        cVar3.Vc = oa(t.j.searching_only_thread_tab);
         cVar3.mType = 3;
         this.aTo.a(cVar3);
     }
 
-    private FragmentTabIndicator ob(int i) {
+    private FragmentTabIndicator oa(int i) {
         FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.dUY.getPageContext().getPageActivity()).inflate(t.h.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
         fragmentTabIndicator.setTextSize(0, this.dUY.getResources().getDimensionPixelSize(t.e.ds32));
@@ -112,7 +112,7 @@ public class y {
         return fragmentTabIndicator;
     }
 
-    private s oc(int i) {
+    private s ob(int i) {
         switch (i) {
             case 1:
                 return this.dVL;
@@ -125,9 +125,9 @@ public class y {
         }
     }
 
-    private void aKU() {
-        this.dVL.aKM();
-        this.dVM.aKM();
-        this.dVN.aKM();
+    private void aKX() {
+        this.dVL.aKP();
+        this.dVM.aKP();
+        this.dVN.aKP();
     }
 }

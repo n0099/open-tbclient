@@ -29,7 +29,7 @@ public class af implements c.b {
         if (aVar != null && this.aXF.aXj.isAdded()) {
             this.aXF.f(true, "");
             if (aVar.type == 1) {
-                this.aXF.aXk.Nn();
+                this.aXF.aXk.Np();
             }
             if (aVar.aYg) {
                 if (aVar.type == 1) {
@@ -64,25 +64,25 @@ public class af implements c.b {
                     long currentTimeMillis = System.currentTimeMillis();
                     j2 = this.aXF.aXp;
                     cVar = this.aXF.aXl;
-                    long MP = cVar.MP();
+                    long MR = cVar.MR();
                     j3 = this.aXF.aXp;
-                    long j4 = MP - j3;
+                    long j4 = MR - j3;
                     cVar2 = this.aXF.aXl;
-                    long MN = cVar2.MN();
+                    long MP = cVar2.MP();
                     cVar3 = this.aXF.aXl;
-                    long MO = cVar3.MO();
+                    long MQ = cVar3.MQ();
                     cVar4 = this.aXF.aXl;
-                    TiebaStatic.page("op_forum_enter", currentTimeMillis - j2, j4, MN, MO, currentTimeMillis - cVar4.MM());
+                    TiebaStatic.page("op_forum_enter", currentTimeMillis - j2, j4, MP, MQ, currentTimeMillis - cVar4.MO());
                     this.aXF.aXp = -1L;
                 }
             }
             if (aVar.aYh != null && aVar.aYh.getHotSearchInfoData() != null) {
                 com.baidu.tieba.enterForum.b.c hotSearchInfoData = aVar.aYh.getHotSearchInfoData();
-                com.baidu.tbadk.core.sharedPref.b.sQ().putLong("hot_search_id", hotSearchInfoData.getId());
-                com.baidu.tbadk.core.sharedPref.b.sQ().putString("hot_search_name", hotSearchInfoData.getName());
-                com.baidu.tbadk.core.sharedPref.b.sQ().putString("hot_search_title", hotSearchInfoData.Mi());
-                com.baidu.tbadk.core.sharedPref.b.sQ().putLong("hot_search_type", hotSearchInfoData.Mj());
-                this.aXF.setSearchHint(hotSearchInfoData.Mi());
+                com.baidu.tbadk.core.sharedPref.b.sR().putLong("hot_search_id", hotSearchInfoData.getId());
+                com.baidu.tbadk.core.sharedPref.b.sR().putString("hot_search_name", hotSearchInfoData.getName());
+                com.baidu.tbadk.core.sharedPref.b.sR().putString("hot_search_title", hotSearchInfoData.Mk());
+                com.baidu.tbadk.core.sharedPref.b.sR().putLong("hot_search_type", hotSearchInfoData.Ml());
+                this.aXF.setSearchHint(hotSearchInfoData.Mk());
                 return;
             }
             this.aXF.setSearchHint(this.aXF.aJw.getResources().getString(t.j.enter_forum_search_tip));

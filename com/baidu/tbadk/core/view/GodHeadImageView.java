@@ -70,24 +70,24 @@ public class GodHeadImageView extends FrameLayout {
         this.aah.setScaleType(ImageView.ScaleType.CENTER_CROP);
         addView(this.aah, layoutParams);
         addView(this.aai, new FrameLayout.LayoutParams(-1, -1));
-        uP();
+        uQ();
     }
 
     public void setShowType(int i) {
         this.aak = i;
-        uP();
+        uQ();
     }
 
     public void setShapeType(int i) {
         this.aam = i;
-        uP();
+        uQ();
     }
 
     public void c(String str, int i, boolean z) {
         this.aah.c(str, i, z);
     }
 
-    private void uP() {
+    private void uQ() {
         switch (this.aak) {
             case 0:
                 this.aah.setPadding(0, 0, 0, 0);
@@ -119,13 +119,13 @@ public class GodHeadImageView extends FrameLayout {
         }
     }
 
-    public void uQ() {
-        uP();
+    public void uR() {
+        uQ();
     }
 
     public void setRadius(int i) {
         this.mRadius = i;
-        uP();
+        uQ();
     }
 
     public void setExtraPadding(int i) {

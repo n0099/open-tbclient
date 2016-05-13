@@ -25,20 +25,20 @@ public class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean l;
         if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryGetFromDBMessage)) {
-            com.baidu.tieba.im.push.f.ahV().clear();
+            com.baidu.tieba.im.push.f.ahX().clear();
             MemoryGetFromDBMessage memoryGetFromDBMessage = (MemoryGetFromDBMessage) customResponsedMessage;
             String uid = memoryGetFromDBMessage.getUid();
             if (TextUtils.isEmpty(uid) || !uid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 List<ImMessageCenterPojo> data = memoryGetFromDBMessage.getData();
                 if (data != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                        if (imMessageCenterPojo != null && bz.ju(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
+                        if (imMessageCenterPojo != null && bz.jt(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
                             this.cmP.e(imMessageCenterPojo);
                         }
                     }
                 }
                 this.cmP.cmI.set(true);
-                this.cmP.ahc();
+                this.cmP.ahe();
                 return;
             }
             try {
@@ -46,21 +46,21 @@ public class c extends CustomMessageListener {
                     l = this.cmP.l(imMessageCenterPojo2);
                     if (!l || imMessageCenterPojo2.getPulled_msgId() > 0) {
                         if (imMessageCenterPojo2.getCustomGroupType() == -9 && imMessageCenterPojo2.getPushIds() != null && imMessageCenterPojo2.getPushIds().length() > 0) {
-                            com.baidu.tieba.im.push.f.ahV().init(imMessageCenterPojo2.getGid(), imMessageCenterPojo2.getPushIds());
+                            com.baidu.tieba.im.push.f.ahX().init(imMessageCenterPojo2.getGid(), imMessageCenterPojo2.getPushIds());
                         }
                         this.cmP.e(imMessageCenterPojo2);
                     }
                 }
                 this.cmP.eJ(false);
                 this.cmP.eK(false);
-                this.cmP.agZ();
-                this.cmP.aha();
                 this.cmP.ahb();
+                this.cmP.ahc();
+                this.cmP.ahd();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
             this.cmP.cmI.set(true);
-            this.cmP.ahc();
+            this.cmP.ahe();
         }
     }
 }

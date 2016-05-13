@@ -21,7 +21,7 @@ public class j extends w {
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w, com.baidu.tbadk.mvc.f.a.a
     public void onPrimary() {
-        if (this.bER != null && this.bER.DS() == 0) {
+        if (this.bER != null && this.bER.DT() == 0) {
             fh(true);
         }
         super.onPrimary();
@@ -32,7 +32,7 @@ public class j extends w {
         if (aVar instanceof ag) {
             ag agVar = (ag) aVar;
             if (this.bER != null) {
-                this.bER.z(agVar.alr());
+                this.bER.z(agVar.alt());
             }
         }
     }
@@ -50,9 +50,9 @@ public class j extends w {
     protected void kW() {
         super.kW();
         this.cyp = (BdListView) getView().findViewById(t.g.atme_lv);
-        alf();
+        alh();
         this.bER = new com.baidu.tbadk.mvc.g.d<>(this.cyh.getPageContext(), b.class, t.h.mention_atme_item, this.cyh.kL());
-        this.bER.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.cyh.getResources().getDimension(t.e.ds80)), NoDataViewFactory.d.cP(t.j.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.bER.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.cyh.getResources().getDimension(t.e.ds80)), NoDataViewFactory.d.cO(t.j.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
         this.cyp.setAdapter((ListAdapter) this.bER);
     }
 
@@ -61,18 +61,18 @@ public class j extends w {
         if (this.bER != null) {
             this.bER.a(tbPageContext, i);
         }
-        if (this.cyo != null && this.cyo.DO() != null && this.cyo.DO().view != null) {
-            com.baidu.tbadk.core.util.at.c(this.cyo.DO().view, t.d.frs_slidebar_message_text, 1);
+        if (this.cyo != null && this.cyo.DP() != null && this.cyo.DP().view != null) {
+            com.baidu.tbadk.core.util.at.c(this.cyo.DP().view, t.d.frs_slidebar_message_text, 1);
         }
         return super.a(tbPageContext, i);
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public com.baidu.tbadk.mvc.f.a.b DK() {
+    public com.baidu.tbadk.mvc.f.a.b DL() {
         if (this.cyo == null) {
             this.cyo = new com.baidu.tbadk.mvc.f.a.b();
             this.cyo.setTitle(this.cyh.getPageContext().getString(t.j.mention_atme));
-            this.cyo.eD(2);
+            this.cyo.eC(2);
             FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
             if (this.cyh.getActivity() != null) {
                 aVar.view = this.cyh.getActivity().getLayoutInflater().inflate(t.h.message_tip_item, (ViewGroup) null);

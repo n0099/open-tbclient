@@ -24,6 +24,6 @@ public class dt implements View.OnClickListener {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.blk.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bjh.getAuthor().getUserId(), this.bjh.getAuthor().getName_show(), this.blk.bgq.avA().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bjh.getAuthor().getUserId(), this.bjh.getAuthor().getName_show(), this.blk.bgq.avD().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

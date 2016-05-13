@@ -15,7 +15,7 @@ public class v extends com.baidu.tbadk.editortools.emotiontool.a {
         return 1;
     }
 
-    public static synchronized v LV() {
+    public static synchronized v LX() {
         v vVar;
         synchronized (v.class) {
             vVar = aWq;
@@ -31,7 +31,7 @@ public class v extends com.baidu.tbadk.editortools.emotiontool.a {
     public void a(a.InterfaceC0040a interfaceC0040a) {
         if (this.aWr == null || this.aWr.isEmpty()) {
             this.aWr = new LinkedList<>();
-            if (TbFaceManager.CG().Bt() > 0) {
+            if (TbFaceManager.CH().Bu() > 0) {
                 u uVar = new u();
                 this.aWr.add(uVar);
                 if (interfaceC0040a != null) {
@@ -52,7 +52,7 @@ public class v extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void Bs() {
+    public void Bt() {
     }
 
     public boolean isEmpty() {

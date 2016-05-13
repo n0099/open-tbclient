@@ -18,7 +18,7 @@ public class o {
         return this.vcode_pic_url;
     }
 
-    public String wF() {
+    public String wG() {
         return this.agc;
     }
 

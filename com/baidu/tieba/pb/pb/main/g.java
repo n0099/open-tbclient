@@ -59,7 +59,7 @@ public class g extends com.baidu.tbadk.core.dialog.a {
             a(cVar.dip, cVar.dir);
             b(cVar.dio, cVar.diq);
             aq(false);
-            b(cVar.bLj).rU();
+            b(cVar.bLj).rV();
         }
     }
 
@@ -90,10 +90,10 @@ public class g extends com.baidu.tbadk.core.dialog.a {
             a(aVar.dip, aVar.dir);
             b(aVar.dio, aVar.diq);
             aq(false);
-            bO(1);
+            bN(1);
             b(aVar.bLj);
-            com.baidu.tbadk.core.util.at.d(rV(), t.f.dialog_push_bg, skinType);
-            rU();
+            com.baidu.tbadk.core.util.at.d(rW(), t.f.dialog_push_bg, skinType);
+            rV();
         }
     }
 
@@ -113,7 +113,7 @@ public class g extends com.baidu.tbadk.core.dialog.a {
             a(dVar.dip, dVar.dir);
             b(dVar.dio, dVar.diq);
             aq(false);
-            b(dVar.bLj).rU();
+            b(dVar.bLj).rV();
         }
     }
 }

@@ -14,7 +14,7 @@ public class g implements BaseWebView.e {
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
     public void onReceivedError(WebView webView, int i, String str, String str2) {
-        this.brD.Th();
+        this.brD.Ti();
         this.brD.isError = true;
     }
 }

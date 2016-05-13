@@ -102,7 +102,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     /* loaded from: classes.dex */
     public interface b {
-        void aC(int i);
+        void aB(int i);
 
         void b(VoiceData.VoiceModel voiceModel);
 
@@ -125,7 +125,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public static synchronized void initConfig() {
         synchronized (VoiceManager.class) {
             if (!bInitConfig) {
-                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("voice_use_soft_decoder", l.fW());
+                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("voice_use_soft_decoder", l.fW());
             }
         }
     }
@@ -136,7 +136,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public static void setVoiceUseSoftDecoder(boolean z) {
         bVoiceUseSoftDecoder = true;
-        com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
     }
 
     public static VoiceManager instance() {
@@ -392,7 +392,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         public void ah(int i) {
             b playView = VoiceManager.this.getPlayView();
             if (playView != null) {
-                playView.aC(i);
+                playView.aB(i);
             }
             if (VoiceManager.this.mCurPlayModel != null) {
                 VoiceManager.this.mCurPlayModel.elapse = i;

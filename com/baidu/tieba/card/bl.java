@@ -65,16 +65,16 @@ public class bl extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.m> {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_home_page_zhibo_item;
     }
 
     public void a(com.baidu.tieba.card.a.m mVar) {
         this.aQC = mVar;
-        JW();
+        JY();
     }
 
-    private void JW() {
+    private void JY() {
         if (this.aQC == null || this.aQC.aRZ == null) {
             this.aQD.mRootView.setVisibility(8);
             return;
@@ -95,8 +95,8 @@ public class bl extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.m> {
         this.aQD.aQK.setText(String.valueOf(fansNickName) + ": " + com.baidu.tbadk.core.util.ay.A(this.aQC.aRZ.getAuthor().getFansNum()));
         this.aQD.aQM.setData(this.aQC.aRZ);
         this.aQD.aQM.setForumAfterClickListener(this.aQF);
-        this.aQD.aQM.setStType(au.Kb());
-        this.aQD.aQM.setYuelaouLocate("feed#" + this.aQC.Kh());
+        this.aQD.aQM.setStType(au.Kd());
+        this.aQD.aQM.setYuelaouLocate("feed#" + this.aQC.Kj());
         d(this.DV, TbadkCoreApplication.m11getInst().getSkinType());
         if (com.baidu.tbadk.core.l.ob().oh() && this.aQC.aRZ.getPhotoLiveCover() != null && this.aQC.aRZ.getPhotoLiveCover().length() != 0) {
             this.aQD.aQL.setVisibility(0);
@@ -115,21 +115,21 @@ public class bl extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.m> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.aQD.mRootView || view == this.aQD.aQM.getCommentNumView()) {
-            if (JM() != null) {
-                JM().a(this.aQD.mRootView, this.aQC);
+            if (JO() != null) {
+                JO().a(this.aQD.mRootView, this.aQC);
             }
-            Ke();
+            Kg();
         }
     }
 
-    private void Ke() {
+    private void Kg() {
         if (this.aQC != null && this.aQC.aRZ != null) {
             au.hb(this.aQC.aRZ.getId());
-            if (!Kf()) {
+            if (!Kh()) {
                 UtilHelper.showToast(this.DV.getPageActivity(), t.j.plugin_config_not_found);
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.DV.getPageActivity(), this.aQC.aRZ.getTid()).ch(this.aQC.aRZ.qZ()).ck(this.aQC.Ki()).ci(au.Kb()).oq()));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.DV.getPageActivity(), this.aQC.aRZ.getTid()).ch(this.aQC.aRZ.ra()).ck(this.aQC.Kk()).ci(au.Kd()).oq()));
             hd(this.aQC.aRZ.getTid());
         }
     }
@@ -141,15 +141,15 @@ public class bl extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.m> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.i.a.a(tbPageContext, this.aQD.mRootView);
-            this.aQD.aQp.sf();
-            this.aQD.aQM.sf();
+            this.aQD.aQp.sg();
+            this.aQD.aQM.sg();
             com.baidu.tbadk.core.util.at.l(this.aQD.aQI, t.d.cp_bg_line_c);
             com.baidu.tbadk.core.util.at.k(this.aQD.mRootView, t.f.addresslist_item_bg);
             this.mSkinType = i;
         }
     }
 
-    private boolean Kf() {
+    private boolean Kh() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class);
     }
 
@@ -167,7 +167,7 @@ public class bl extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.m> {
         String string = this.DV.getResources().getString(t.j.recommend_live_title_prefix);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(string) + " " + ((Object) charSequence));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.at.getColor(t.d.cp_link_tip_a)), 0, string.length(), 17);
-        com.baidu.adp.widget.d dVar = new com.baidu.adp.widget.d(this.DV.getPageActivity(), com.baidu.tbadk.core.util.at.cA(t.f.pic_dot_title), 1);
+        com.baidu.adp.widget.d dVar = new com.baidu.adp.widget.d(this.DV.getPageActivity(), com.baidu.tbadk.core.util.at.cz(t.f.pic_dot_title), 1);
         dVar.setOffset(3);
         spannableStringBuilder.setSpan(dVar, string.length(), string.length() + 1, 33);
         return spannableStringBuilder;

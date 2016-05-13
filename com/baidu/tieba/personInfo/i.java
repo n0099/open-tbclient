@@ -24,13 +24,13 @@ public class i extends CustomMessageListener {
         bj bjVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
             bgVar = this.this$0.dyP;
-            if (bgVar.aDA() != null) {
+            if (bgVar.aDD() != null) {
                 bjVar = this.this$0.dFA;
                 if (bjVar != null) {
                     bgVar2 = this.this$0.dyP;
-                    bgVar2.aDA().setIsFriend(1);
+                    bgVar2.aDD().setIsFriend(1);
                     bjVar2 = this.this$0.dFA;
-                    bjVar2.aEj();
+                    bjVar2.aEm();
                 }
             }
         }

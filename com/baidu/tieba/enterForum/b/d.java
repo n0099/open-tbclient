@@ -13,7 +13,7 @@ public class d {
     private boolean aWP;
     private int level;
 
-    public ArrayList<w> Mk() {
+    public ArrayList<w> Mm() {
         return this.aWO;
     }
 
@@ -21,10 +21,10 @@ public class d {
         this.level = i;
     }
 
-    public void Ml() {
+    public void Mn() {
         Iterator<w> it = this.aWO.iterator();
         while (it.hasNext()) {
-            it.next().pi(0);
+            it.next().ph(0);
         }
     }
 

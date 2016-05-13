@@ -43,12 +43,12 @@ public class l extends CustomMessageListener {
                     bgVar2 = this.this$0.dyP;
                     if (bgVar2 != null) {
                         bgVar3 = this.this$0.dyP;
-                        bgVar3.aDY();
+                        bgVar3.aEb();
                     }
                     bjVar = this.this$0.dFA;
                     if (bjVar != null) {
                         bjVar2 = this.this$0.dFA;
-                        bjVar2.aEj();
+                        bjVar2.aEm();
                     }
                 } else if (updateAttentionMessage.getData().errorString != null) {
                     this.this$0.showToast(updateAttentionMessage.getData().errorString);

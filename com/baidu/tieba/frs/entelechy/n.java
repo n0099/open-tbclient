@@ -36,10 +36,10 @@ public class n extends d {
     @Override // com.baidu.tieba.frs.entelechy.d, com.baidu.tieba.frs.view.c
     public void a(ForumData forumData, com.baidu.tieba.tbadkCore.o oVar) {
         if (oVar != null) {
-            this.boa = oVar.aSa();
+            this.boa = oVar.aSd();
         }
         super.a(forumData, oVar);
-        this.mImageUrl = this.boa.aSB();
+        this.mImageUrl = this.boa.aSE();
     }
 
     @Override // com.baidu.tieba.frs.entelechy.d
@@ -47,11 +47,11 @@ public class n extends d {
         if (this.boa != null && this.bvI != null) {
             MediaData mediaData = new MediaData();
             mediaData.setType(3);
-            mediaData.setPic(this.boa.aSA());
+            mediaData.setPic(this.boa.aSD());
             this.bvI.getMedias().add(mediaData);
             MediaData mediaData2 = new MediaData();
             mediaData2.setType(3);
-            mediaData2.setPic(this.boa.aSB());
+            mediaData2.setPic(this.boa.aSE());
             this.bvI.getMedias().add(mediaData2);
         }
     }
@@ -59,14 +59,14 @@ public class n extends d {
     @Override // com.baidu.tieba.frs.entelechy.d
     protected void Sn() {
         if (this.bpp != null) {
-            if (this.bpp.aSb() == null || this.bpp.aSb().oS() == null || (this.bpp.aSb().oS().size() <= 0 && this.boa != null)) {
+            if (this.bpp.aSe() == null || this.bpp.aSe().oS() == null || (this.bpp.aSe().oS().size() <= 0 && this.boa != null)) {
                 this.bvl.setVisibility(8);
                 ArrayList<com.baidu.tbadk.core.data.n> arrayList = new ArrayList<>();
                 String str = "";
-                if (this.bpp.avA() != null && this.bpp.avA().getFrsBannerData() != null) {
-                    str = this.bpp.avA().getFrsBannerData().getValue();
+                if (this.bpp.avD() != null && this.bpp.avD().getFrsBannerData() != null) {
+                    str = this.bpp.avD().getFrsBannerData().getValue();
                 }
-                com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n(this.boa.aSA(), str, null);
+                com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n(this.boa.aSD(), str, null);
                 nVar.aj(true);
                 arrayList.add(nVar);
                 com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
@@ -75,7 +75,7 @@ public class n extends d {
                 return;
             }
             this.bvl.setVisibility(0);
-            a(this.bpp.aSb());
+            a(this.bpp.aSe());
         }
     }
 

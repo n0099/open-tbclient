@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 public class bb extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
     private final /* synthetic */ SpannableStringBuilder arg;
     private final /* synthetic */ EmotionGroupType arh;
-    final /* synthetic */ WriteActivity feb;
+    final /* synthetic */ WriteActivity fea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-        this.feb = writeActivity;
+        this.fea = writeActivity;
         this.arg = spannableStringBuilder;
         this.arh = emotionGroupType;
     }
@@ -21,12 +21,12 @@ public class bb extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.g.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText bdN;
+        EditText bdU;
         super.a((bb) aVar, str, i);
         if (aVar == null) {
             return;
         }
-        bdN = this.feb.bdN();
-        this.feb.a(this.arg, bdN.getSelectionStart(), aVar, this.arh);
+        bdU = this.fea.bdU();
+        this.fea.a(this.arg, bdU.getSelectionStart(), aVar, this.arh);
     }
 }

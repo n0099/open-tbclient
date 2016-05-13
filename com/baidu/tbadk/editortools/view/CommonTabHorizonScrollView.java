@@ -97,7 +97,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                 LinearLayout linearLayout = (LinearLayout) this.asy.getChildAt(this.asz);
                 if (linearLayout != null) {
                     linearLayout.setSelected(false);
-                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.asz).Cm().asx);
+                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.asz).Cn().asx);
                 } else {
                     return;
                 }
@@ -106,7 +106,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
             LinearLayout linearLayout2 = (LinearLayout) this.asy.getChildAt(this.asz);
             if (linearLayout2 != null) {
                 linearLayout2.setSelected(true);
-                at.c((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.asz).Cm().asw);
+                at.c((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.asz).Cn().asw);
             }
         }
     }
@@ -116,7 +116,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         this.asy.removeAllViews();
     }
 
-    public void cW(int i) {
+    public void cV(int i) {
         if (this.asE != null) {
             at.k(this.asE, t.f.icon_news_head_prompt_one);
             this.asE.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
@@ -130,9 +130,9 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
                         if (i2 == this.asz) {
-                            at.c(tbImageView, this.mDatas.get(i2).Cm().asw);
+                            at.c(tbImageView, this.mDatas.get(i2).Cn().asw);
                         } else {
-                            at.c(tbImageView, this.mDatas.get(i2).Cm().asx);
+                            at.c(tbImageView, this.mDatas.get(i2).Cn().asx);
                         }
                     }
                 } else {
@@ -161,7 +161,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CommonTabHorizonScrollView.this.asA.ew(this.Vw);
+            CommonTabHorizonScrollView.this.asA.ev(this.Vw);
         }
     }
 }

@@ -36,7 +36,7 @@ public class u {
         return this.On;
     }
 
-    public void bv(int i) {
+    public void bu(int i) {
         this.On = i;
     }
 
@@ -68,7 +68,7 @@ public class u {
         return this.Op;
     }
 
-    public void bw(int i) {
+    public void bv(int i) {
         this.Op = i;
     }
 

@@ -59,7 +59,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
             this.bxh = this.mRootView.findViewById(t.g.root);
             this.dxZ = (LinearLayout) this.mRootView.findViewById(t.g.reply_ll);
             this.OE = oVar.getUserData();
-            this.dya = oVar.aCn();
+            this.dya = oVar.aCq();
             initView();
         }
     }
@@ -73,7 +73,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
         textView.setOnClickListener(new x(this));
         this.dxZ.addView(inflate);
         kU();
-        aBX();
+        aCa();
     }
 
     public void kU() {
@@ -83,7 +83,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
         }
     }
 
-    public void aBX() {
+    public void aCa() {
         if (this.OE != null && this.dya != null) {
             a(this.dya, this.OE);
             kU();
@@ -159,7 +159,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.da
         aVar.b(this.cSp.getResources().getString(t.j.delete_account_cancle), new z(this));
         aVar.a(this.cSp.getResources().getString(t.j.reply_message), new aa(this, editText, userData));
         aVar.z(inflate);
-        aVar.b(this.cSp.getPageContext()).rU();
+        aVar.b(this.cSp.getPageContext()).rV();
         this.cSp.ShowSoftKeyPadDelay(editText, 200);
     }
 }

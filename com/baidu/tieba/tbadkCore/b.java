@@ -6,7 +6,7 @@ public class b {
     private int eqa = 0;
     private int eqb = 0;
 
-    public int aRV() {
+    public int aRY() {
         return this.eqb;
     }
 

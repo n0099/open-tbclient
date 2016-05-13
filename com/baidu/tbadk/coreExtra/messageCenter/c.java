@@ -34,67 +34,67 @@ public class c {
     private c() {
     }
 
-    public static c xF() {
+    public static c xG() {
         return agR;
     }
 
     public void initSetting() {
-        m.aUQ();
+        m.aUW();
     }
 
-    public void xG() {
-        m.xG();
+    public void xH() {
+        m.xH();
     }
 
-    public boolean xH() {
+    public boolean xI() {
         return this.agS > 0;
     }
 
-    public int xI() {
+    public int xJ() {
         return this.agS;
     }
 
-    public boolean xJ() {
+    public boolean xK() {
         return this.agU;
     }
 
-    public boolean xK() {
+    public boolean xL() {
         return this.agV;
     }
 
-    public boolean xL() {
+    public boolean xM() {
         return this.agX;
     }
 
-    public boolean xM() {
+    public boolean xN() {
         return this.agW;
     }
 
-    public boolean xN() {
+    public boolean xO() {
         return this.agT;
     }
 
-    public boolean xO() {
+    public boolean xP() {
         return this.agZ;
     }
 
-    public boolean xP() {
+    public boolean xQ() {
         return this.aha;
     }
 
-    public boolean xQ() {
+    public boolean xR() {
         return this.ahb;
     }
 
-    public boolean xR() {
+    public boolean xS() {
         return this.agY;
     }
 
-    public String xS() {
+    public String xT() {
         return this.ahc;
     }
 
-    public String xT() {
+    public String xU() {
         return this.ahd;
     }
 
@@ -103,17 +103,17 @@ public class c {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public void dq(int i) {
+    public void dp(int i) {
         if (i == 0) {
             this.agS = i;
-            a.xi().aM(true);
+            a.xj().aM(true);
         } else {
             this.agS = 300;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public boolean xU() {
+    public boolean xV() {
         return TbadkSettings.getInst().loadBoolean("group_notify", true) && TbadkCoreApplication.m11getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
     }
 
@@ -122,7 +122,7 @@ public class c {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public boolean xV() {
+    public boolean xW() {
         return TbadkSettings.getInst().loadBoolean("zan_disjunctor_setting" + TbadkCoreApplication.getCurrentAccount(), true);
     }
 
@@ -159,19 +159,19 @@ public class c {
     }
 
     public void aV(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("chat_float_window_switch", z);
-    }
-
-    public boolean xW() {
-        return com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("chat_float_window_switch", true);
-    }
-
-    public void aW(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("permit_screen_lock", z);
+        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("chat_float_window_switch", z);
     }
 
     public boolean xX() {
-        return com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("permit_screen_lock", true);
+        return com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("chat_float_window_switch", true);
+    }
+
+    public void aW(boolean z) {
+        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("permit_screen_lock", z);
+    }
+
+    public boolean xY() {
+        return com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("permit_screen_lock", true);
     }
 
     public void aX(boolean z) {
@@ -258,7 +258,7 @@ public class c {
         updateSignAlarm();
     }
 
-    public void dr(int i) {
+    public void dq(int i) {
         if (i == 0) {
             aU(false);
             aS(false);
@@ -274,7 +274,7 @@ public class c {
         }
     }
 
-    public int xY() {
+    public int xZ() {
         if (!this.agZ && !this.agY) {
             return 0;
         }
@@ -291,7 +291,7 @@ public class c {
         TbadkSettings.getInst().saveBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_switch", z);
     }
 
-    public boolean xZ() {
+    public boolean ya() {
         return TbadkSettings.getInst().loadBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_switch", true);
     }
 
@@ -299,7 +299,7 @@ public class c {
         TbadkSettings.getInst().saveBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_forum_broadcast_switch", z);
     }
 
-    public boolean ya() {
+    public boolean yb() {
         return TbadkSettings.getInst().loadBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_forum_broadcast_switch", true);
     }
 }

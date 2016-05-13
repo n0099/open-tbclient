@@ -87,7 +87,7 @@ public class ee extends bw<com.baidu.tbadk.core.data.ar, eg> implements View.OnC
             egVar.aej = this.mSkinType;
         }
         PhotoLiveCardData qs = arVar.qs();
-        if (2 == a(qs)) {
+        if (2 == b(qs)) {
             egVar.blR.setShowContent(true);
             egVar.blR.setShowCover(false);
             egVar.blR.setShowExpression(false);
@@ -118,7 +118,7 @@ public class ee extends bw<com.baidu.tbadk.core.data.ar, eg> implements View.OnC
         return view;
     }
 
-    private int a(PhotoLiveCardData photoLiveCardData) {
+    private int b(PhotoLiveCardData photoLiveCardData) {
         return (photoLiveCardData == null || StringUtils.isNull(photoLiveCardData.getPhotoLiveCover())) ? 2 : 1;
     }
 

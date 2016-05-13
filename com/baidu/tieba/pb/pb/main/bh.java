@@ -13,7 +13,7 @@ class bh implements com.baidu.adp.lib.f.c<View> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Yb */
+    /* renamed from: Yd */
     public View dE() {
         return new PlayVoiceBnt(this.djE.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
     }

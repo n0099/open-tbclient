@@ -12,7 +12,7 @@ public class d implements PullToRefreshBase.d {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.d
-    public void Gu() {
+    public void Gw() {
         this.aDg.jL();
     }
 }

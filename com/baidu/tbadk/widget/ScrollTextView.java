@@ -26,11 +26,11 @@ public class ScrollTextView extends TextView implements Runnable {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.aBJ.isFinished()) {
-            Gd();
+            Gf();
         }
     }
 
-    private void Gd() {
+    private void Gf() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
         this.aBJ.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.aBK));
@@ -42,7 +42,7 @@ public class ScrollTextView extends TextView implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.aBJ.isFinished()) {
-            Gd();
+            Gf();
         } else {
             post(this);
         }

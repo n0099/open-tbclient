@@ -19,7 +19,7 @@ public class ae implements MediaPlayer.OnPreparedListener {
             mediaPlayer.setVolume(0.0f, 0.0f);
             mediaPlayer.setLooping(true);
             mediaPlayer.start();
-            if (com.baidu.tbadk.core.view.at.vD().vI()) {
+            if (com.baidu.tbadk.core.view.at.vE().vJ()) {
                 mediaPlayer.seekTo(0);
             }
             handler = this.aQe.aPZ;

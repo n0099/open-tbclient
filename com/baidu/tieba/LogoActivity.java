@@ -60,7 +60,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
 
         @Override // java.lang.Runnable
         public void run() {
-            LogoActivity.this.HI();
+            LogoActivity.this.HK();
         }
     }
 
@@ -91,7 +91,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!isTaskRoot() && !HC()) {
+        if (!isTaskRoot() && !HE()) {
             finish();
             return;
         }
@@ -111,9 +111,9 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             LogoActivityConfig.isFirst = true;
         }
         this.aGC = TbadkCoreApplication.m11getInst().getIsFirstUse();
-        com.baidu.tbadk.performanceLog.ab.ES().bR(this.aGC);
+        com.baidu.tbadk.performanceLog.ab.ET().bR(this.aGC);
         registerListener(this.aGI);
-        HD();
+        HF();
         this.mHandler.sendMessage(this.mHandler.obtainMessage());
         HashMap hashMap = new HashMap();
         hashMap.put("type", IntentConfig.START);
@@ -121,7 +121,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.TIEBA_FATAL_ERROR, hashMap));
         if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_DEBUG_TOOL_START) != null) {
-            HE();
+            HG();
         }
         if (!com.baidu.tbadk.core.util.m.bF()) {
             com.baidu.tbadk.core.util.TiebaStatic.file("no SD", "LogoActivity.onCreate");
@@ -131,11 +131,11 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         }
     }
 
-    private boolean HC() {
+    private boolean HE() {
         return getIntent().getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false);
     }
 
-    private void HD() {
+    private void HF() {
         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && !getPageContext().getPageActivity().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
             TbadkCoreApplication.setCurrentAccount(com.baidu.tbadk.core.a.b.on(), getPageContext().getPageActivity());
         }
@@ -152,7 +152,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
     }
 
-    private void HE() {
+    private void HG() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new com.baidu.adp.a.a.c(getPageContext().getPageActivity())));
     }
 
@@ -181,7 +181,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     public void onResume() {
         super.onResume();
         if (LogoActivityConfig.isFirst) {
-            com.baidu.tbadk.performanceLog.ab.ES().Z(System.currentTimeMillis());
+            com.baidu.tbadk.performanceLog.ab.ET().Z(System.currentTimeMillis());
         }
         if (this.aGD) {
             this.aGD = false;
@@ -222,47 +222,47 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     }
 
     private void am(Context context) {
-        HF();
+        HH();
         if (LogoActivityConfig.mFromSpacial) {
-            fj(1);
+            fi(1);
             LogoActivityConfig.mFromSpacial = false;
         } else if (TbadkCoreApplication.isLogin()) {
-            boolean Lg = com.baidu.tieba.b.a.Lf().Lg();
+            boolean Li = com.baidu.tieba.b.a.Lh().Li();
             if (this.aGC) {
                 com.baidu.adp.lib.h.h.dL().post(this.aGM);
-            } else if (Lg) {
+            } else if (Li) {
                 com.baidu.adp.lib.h.h.dL().post(this.aGN);
             } else {
-                fj(1);
+                fi(1);
             }
         } else if (this.aGC) {
             com.baidu.adp.lib.h.h.dL().post(this.aGM);
         } else {
-            HG();
+            HI();
         }
     }
 
-    private void HF() {
+    private void HH() {
         if (this.aGC) {
             TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
             TbadkCoreApplication.m11getInst().setIsAbstractOn(0);
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("frs_first_in", true);
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("frs_first_in", true);
         }
     }
 
-    private void HG() {
+    private void HI() {
         long currentTimeMillis = System.currentTimeMillis();
-        boolean HH = HH();
-        this.aGF = HL();
-        com.baidu.tbadk.performanceLog.ab.ES().aa(System.currentTimeMillis() - currentTimeMillis);
-        if (HH) {
+        boolean HJ = HJ();
+        this.aGF = HN();
+        com.baidu.tbadk.performanceLog.ab.ET().aa(System.currentTimeMillis() - currentTimeMillis);
+        if (HJ) {
             com.baidu.adp.lib.h.h.dL().post(this.aGL);
         } else {
             com.baidu.adp.lib.h.h.dL().post(this.aGO);
         }
     }
 
-    private boolean HH() {
+    private boolean HJ() {
         if (com.baidu.adp.lib.c.e.cS().Z("ad_baichuan_open") == 0) {
             return false;
         }
@@ -276,25 +276,25 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HI() {
+    public void HK() {
         if (this.aGE >= 0) {
-            fk(this.aGE);
+            fj(this.aGE);
         } else if (!this.aGG || this.aGH) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             finish();
         } else {
             com.baidu.adp.lib.h.h.dL().post(this.aGP);
         }
-        com.baidu.tbadk.performanceLog.ab.ES().ac(System.currentTimeMillis());
+        com.baidu.tbadk.performanceLog.ab.ET().ac(System.currentTimeMillis());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HJ() {
+    public void HL() {
         com.baidu.tieba.tbadkCore.a.a(this, this.mRootView, t.a.fade_out_bg, new n(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HK() {
+    public void HM() {
         File[] listFiles;
         File file = new File(com.baidu.tbadk.core.util.m.getCacheDir());
         if (file.isDirectory() && (listFiles = file.listFiles(new o(this))) != null && listFiles.length > 0) {
@@ -304,12 +304,12 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         }
     }
 
-    private void fj(int i) {
+    private void fi(int i) {
         this.aGE = i;
-        HG();
+        HI();
     }
 
-    private void fk(int i) {
+    private void fj(int i) {
         LogoActivityConfig.isFirst = false;
         if (!this.aGG || this.aGH) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(i)));
@@ -326,15 +326,15 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             switch (i) {
                 case 16001:
                     if (intent == null) {
-                        fj(1);
+                        fi(1);
                         return;
                     }
                     int intExtra = intent.getIntExtra("go_to", -1);
                     if (intExtra >= 0) {
-                        fj(intExtra);
+                        fi(intExtra);
                         return;
                     } else {
-                        fj(1);
+                        fi(1);
                         return;
                     }
                 default:
@@ -343,11 +343,11 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         }
     }
 
-    private Bitmap HL() {
-        Integer Li = com.baidu.tieba.b.a.Lf().Li();
-        if (Li == null || Li.intValue() == 0) {
+    private Bitmap HN() {
+        Integer Lk = com.baidu.tieba.b.a.Lh().Lk();
+        if (Lk == null || Lk.intValue() == 0) {
             return null;
         }
-        return BitmapHelper.getCashBitmap(Li.intValue());
+        return BitmapHelper.getCashBitmap(Lk.intValue());
     }
 }

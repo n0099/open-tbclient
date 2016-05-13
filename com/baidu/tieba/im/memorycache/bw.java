@@ -17,7 +17,7 @@ class bw implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage != null && (customMessage instanceof CustomMessage)) {
-            com.baidu.tieba.im.db.c.aep().jc(this.coc);
+            com.baidu.tieba.im.db.c.aer().jc(this.coc);
         }
         return null;
     }

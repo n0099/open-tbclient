@@ -38,7 +38,7 @@ public class OnlineDebuggerStatic {
                         d b = com.baidu.tieba.onlineDebugger.e.b.b(aVarArr[0]);
                         com.baidu.tieba.onlineDebugger.d.b bVar = new com.baidu.tieba.onlineDebugger.d.b(aVarArr[0]);
                         if (b != null) {
-                            if (!b.auy()) {
+                            if (!b.auB()) {
                                 throw new IllegalAccessError("Illeagl Command: " + aVarArr[0].getMsgContent());
                             }
                             Object c = com.baidu.adp.lib.a.a.a.c(Looper.getMainLooper(), "sThreadLocal");
@@ -47,12 +47,12 @@ public class OnlineDebuggerStatic {
                                 this.dbq = threadLocal.get();
                                 threadLocal.set(Looper.getMainLooper());
                             }
-                            Object aux = b.aux();
+                            Object auA = b.auA();
                             if (c instanceof ThreadLocal) {
                                 ((ThreadLocal) c).set(this.dbq);
                             }
-                            if (aux != null) {
-                                bVar.setMsgContent(c.K(aux));
+                            if (auA != null) {
+                                bVar.setMsgContent(c.K(auA));
                             } else {
                                 bVar.setMsgContent("null");
                             }
@@ -78,7 +78,7 @@ public class OnlineDebuggerStatic {
                 BdLog.i("Result:" + bVar.getMsgContent());
             }
             if (bVar != null && bVar.getToUid() != null) {
-                MessageManager.getInstance().sendMessage(new TbDebugOnlineMessage(false, bVar.auC(), bVar.getToUid(), bVar.getMsgContent()));
+                MessageManager.getInstance().sendMessage(new TbDebugOnlineMessage(false, bVar.auF(), bVar.getToUid(), bVar.getMsgContent()));
             }
         }
     }

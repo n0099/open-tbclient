@@ -17,11 +17,11 @@ public class b {
         this.title = str;
     }
 
-    public int DN() {
+    public int DO() {
         return this.avR;
     }
 
-    public FragmentTabIndicator.a DO() {
+    public FragmentTabIndicator.a DP() {
         return this.avS;
     }
 
@@ -29,7 +29,7 @@ public class b {
         this.avS = aVar;
     }
 
-    public String DP() {
+    public String DQ() {
         return this.avT;
     }
 
@@ -37,11 +37,11 @@ public class b {
         this.avT = str;
     }
 
-    public int DQ() {
+    public int DR() {
         return this.avQ;
     }
 
-    public void eD(int i) {
+    public void eC(int i) {
         this.avQ = i;
     }
 }

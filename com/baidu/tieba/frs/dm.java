@@ -33,12 +33,12 @@ public class dm extends bw<com.baidu.tieba.tbadkCore.aa, dl> implements View.OnC
     @Override // com.baidu.tieba.frs.bw, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.aa aaVar, dl dlVar) {
         super.a(i, view, viewGroup, (ViewGroup) aaVar, (com.baidu.tieba.tbadkCore.aa) dlVar);
-        if (aaVar.aSY()) {
-            String aSZ = aaVar.aSZ();
-            if (aSZ != null) {
-                dlVar.bld.setText(aSZ);
-            } else if (this.bgq.avA() != null && this.bgq.avA().getName() != null) {
-                dlVar.bld.setText(this.mContext.getString(t.j.get_fortune_hint_format, this.bgq.avA().getName()));
+        if (aaVar.aTe()) {
+            String aTf = aaVar.aTf();
+            if (aTf != null) {
+                dlVar.bld.setText(aTf);
+            } else if (this.bgq.avD() != null && this.bgq.avD().getName() != null) {
+                dlVar.bld.setText(this.mContext.getString(t.j.get_fortune_hint_format, this.bgq.avD().getName()));
             }
             dlVar.blc.setTag(Integer.valueOf(i));
             dlVar.blc.setOnClickListener(this);
@@ -46,9 +46,9 @@ public class dm extends bw<com.baidu.tieba.tbadkCore.aa, dl> implements View.OnC
         } else {
             dlVar.blc.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.p aTa = aaVar.aTa();
-        if (aTa != null && aTa.aST() && !TextUtils.isEmpty(aTa.aSU())) {
-            dlVar.blf.setText(aTa.aSU());
+        com.baidu.tieba.tbadkCore.p aTg = aaVar.aTg();
+        if (aTg != null && aTg.aSZ() && !TextUtils.isEmpty(aTg.aTa())) {
+            dlVar.blf.setText(aTg.aTa());
             dlVar.ble.setTag(Integer.valueOf(i));
             dlVar.ble.setOnClickListener(this);
             dlVar.ble.setVisibility(0);
@@ -62,7 +62,7 @@ public class dm extends bw<com.baidu.tieba.tbadkCore.aa, dl> implements View.OnC
         }
         this.bek.getLayoutMode().ae(this.mSkinType == 1);
         this.bek.getLayoutMode().x(view);
-        if (!this.blg && !aaVar.aSY()) {
+        if (!this.blg && !aaVar.aTe()) {
             return new View(this.mContext);
         }
         return view;
@@ -82,7 +82,7 @@ public class dm extends bw<com.baidu.tieba.tbadkCore.aa, dl> implements View.OnC
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
             View childAt = this.bfr.getChildAt(intValue - (this.bfr.getFirstVisiblePosition() - this.bfr.getHeaderViewsCount()));
-            this.bix.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.ax) at(intValue));
+            this.bix.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.ax) as(intValue));
         }
     }
 }

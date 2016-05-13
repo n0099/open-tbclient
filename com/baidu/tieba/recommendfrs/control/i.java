@@ -20,7 +20,7 @@ public class i implements View.OnClickListener {
         if (mVar != null) {
             mVar2 = this.dYW.dYO;
             mVar2.a(1, true, 0, 0, 1, 0);
-            this.dYW.Pe();
+            this.dYW.Pg();
             this.dYW.n(false, this.dYW.getResources().getDimensionPixelSize(t.e.ds520));
         }
     }

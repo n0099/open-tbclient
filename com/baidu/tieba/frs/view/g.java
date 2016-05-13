@@ -22,7 +22,7 @@ public class g implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int pb;
-        if (this.bwe.bpp != null && this.bwe.bpp.aSv() != null && (pb = this.bwe.bpp.aSv().pb()) != 0 && pb == 1) {
+        if (this.bwe.bpp != null && this.bwe.bpp.aSy() != null && (pb = this.bwe.bpp.aSy().pb()) != 0 && pb == 1) {
             if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
                 if (this.bwe.bjB != null) {
                     long c = com.baidu.adp.lib.h.b.c(this.bwe.bjB.getForumId(), 0L);

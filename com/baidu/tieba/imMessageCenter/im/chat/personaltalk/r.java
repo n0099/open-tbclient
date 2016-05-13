@@ -22,10 +22,10 @@ public class r {
 
     /* loaded from: classes.dex */
     public interface a {
-        void uX();
+        void uY();
     }
 
-    public boolean ajj() {
+    public boolean ajl() {
         return this.cub;
     }
 
@@ -33,11 +33,11 @@ public class r {
         this.cub = z;
     }
 
-    public DataRes ajk() {
+    public DataRes ajm() {
         return this.data;
     }
 
-    public boolean ajl() {
+    public boolean ajn() {
         return this.cua;
     }
 
@@ -77,11 +77,11 @@ public class r {
         }
     }
 
-    public com.baidu.adp.framework.listener.e ajm() {
+    public com.baidu.adp.framework.listener.e ajo() {
         return this.bfe;
     }
 
-    public CustomMessageListener ajn() {
+    public CustomMessageListener ajp() {
         return this.mCustomListener;
     }
 }

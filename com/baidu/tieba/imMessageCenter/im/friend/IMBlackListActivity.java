@@ -17,14 +17,14 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         this.cwu = new h(this);
     }
 
-    private void aku() {
+    private void akw() {
         this.cwt = new BlackListModel(getPageContext());
         this.cwt.setUniqueId(getUniqueId());
     }
 
-    private void MC() {
+    private void ME() {
         this.cwt.loadBlackList();
-        this.cwu.Cs();
+        this.cwu.Ct();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,8 +34,8 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         registerListener(104103, this.bfe);
         registerListener(104102, this.bfe);
         initView();
-        aku();
-        MC();
+        akw();
+        ME();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,13 +48,13 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akv() {
+    public void akx() {
         showLoadingDialog((String) null, new b(this));
     }
 
     private void a(com.baidu.tieba.im.data.a aVar) {
         ki(String.format(getPageContext().getString(t.j.black_list_ensure_toremove_text), aVar.getUserName()));
-        this.CP.rU();
+        this.CP.rV();
     }
 
     private void ki(String str) {

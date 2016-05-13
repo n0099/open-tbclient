@@ -21,7 +21,7 @@ public class f {
         MessageManager.getInstance().registerListener(this.coM);
     }
 
-    public static f ahV() {
+    public static f ahX() {
         if (cpM == null) {
             synchronized (f.class) {
                 if (cpM == null) {
@@ -64,11 +64,11 @@ public class f {
         return this.cpN;
     }
 
-    public Long ahW() {
-        return com.baidu.tieba.im.memorycache.b.agY().ahi().get(this.cpN);
+    public Long ahY() {
+        return com.baidu.tieba.im.memorycache.b.aha().ahk().get(this.cpN);
     }
 
-    public synchronized List<Long> ahX() {
+    public synchronized List<Long> ahZ() {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (Long l : this.cpO) {
@@ -79,7 +79,7 @@ public class f {
         return arrayList;
     }
 
-    public synchronized void ahY() {
+    public synchronized void aia() {
         this.cpO.clear();
     }
 
@@ -107,7 +107,7 @@ public class f {
         }
     }
 
-    public synchronized boolean ahZ() {
+    public synchronized boolean aib() {
         boolean z;
         if (this.cpN > 0) {
             z = this.cpO.size() > 0;
@@ -133,7 +133,7 @@ public class f {
         return z;
     }
 
-    public synchronized String aia() {
+    public synchronized String aic() {
         String str;
         str = "";
         for (Long l : this.cpO) {

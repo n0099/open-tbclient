@@ -37,7 +37,7 @@ public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
         this.cvG = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
     }
 
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.e aka() {
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.e akc() {
         if (this.cvG.isEmpty()) {
             int[] iArr = new int[2];
             this.cvB.getLocationOnScreen(iArr);
@@ -50,8 +50,8 @@ public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
     }
 
     public void b(Handler handler) {
-        if (!ajL()) {
-            ajM();
+        if (!ajN()) {
+            ajO();
             if (handler != null) {
                 handler.removeCallbacks(this.cvJ);
                 handler.post(this.cvJ);
@@ -66,27 +66,27 @@ public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
         this.cvE = false;
         if (this.cvA.getWindowToken() != null) {
             this.cvA.clearAnimation();
-            this.cvA.startAnimation(akf());
+            this.cvA.startAnimation(akh());
             return;
         }
-        ajN();
+        ajP();
     }
 
-    public void akb() {
+    public void akd() {
         if (!this.cvF && !this.cvE) {
             this.cvE = true;
-            this.cvB.startAnimation(akd());
+            this.cvB.startAnimation(akf());
         }
     }
 
-    public void akc() {
+    public void ake() {
         if (!this.cvF && this.cvE) {
             this.cvE = false;
-            this.cvB.startAnimation(ake());
+            this.cvB.startAnimation(akg());
         }
     }
 
-    private ScaleAnimation akd() {
+    private ScaleAnimation akf() {
         if (this.cvC == null) {
             this.cvC = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
             this.cvC.setDuration(150L);
@@ -96,7 +96,7 @@ public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
         return this.cvC;
     }
 
-    private ScaleAnimation ake() {
+    private ScaleAnimation akg() {
         if (this.cvD == null) {
             this.cvD = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
             this.cvD.setDuration(150L);
@@ -107,14 +107,14 @@ public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation ajZ() {
+    public Animation akb() {
         if (this.cvH == null) {
             this.cvH = AnimationUtils.loadAnimation(TbadkCoreApplication.m11getInst(), t.a.float_window_tip_in_anim);
         }
         return this.cvH;
     }
 
-    private Animation akf() {
+    private Animation akh() {
         if (this.cvI == null) {
             this.cvI = AnimationUtils.loadAnimation(TbadkCoreApplication.m11getInst(), t.a.float_window_tip_out_anim);
             this.cvI.setAnimationListener(this.cvK);
@@ -123,7 +123,7 @@ public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams ajK() {
+    public WindowManager.LayoutParams ajM() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -1;

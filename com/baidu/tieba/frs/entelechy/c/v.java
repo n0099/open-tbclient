@@ -16,10 +16,10 @@ public class v implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ax axVar;
-        if (this.bpI.JM() != null) {
-            by<ax> JM = this.bpI.JM();
+        if (this.bpI.JO() != null) {
+            by<ax> JO = this.bpI.JO();
             axVar = this.bpI.aab;
-            JM.a(view, axVar);
+            JO.a(view, axVar);
         }
     }
 }

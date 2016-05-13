@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 public class q implements View.OnClickListener {
     private final /* synthetic */ com.baidu.tbadk.core.data.ax bjh;
     private final /* synthetic */ String djR;
-    final /* synthetic */ FeedBackTopListView fcC;
+    final /* synthetic */ FeedBackTopListView fcB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(FeedBackTopListView feedBackTopListView, com.baidu.tbadk.core.data.ax axVar, String str) {
-        this.fcC = feedBackTopListView;
+        this.fcB = feedBackTopListView;
         this.bjh = axVar;
         this.djR = str;
     }
@@ -27,12 +27,12 @@ public class q implements View.OnClickListener {
         Context context;
         Context context2;
         if (this.bjh.getThreadType() == 33) {
-            context2 = this.fcC.mContext;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, this.bjh.getTid()).ch(this.bjh.qZ()).oq()));
+            context2 = this.fcB.mContext;
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, this.bjh.getTid()).ch(this.bjh.ra()).oq()));
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.fcC.mContext;
+        context = this.fcB.mContext;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context).createNormalCfg(this.djR, null, WriteActivityConfig.FEED_BACK)));
     }
 }

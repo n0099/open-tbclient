@@ -22,6 +22,6 @@ class b implements AbsMsglistView.a {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView.a
-    public void abG() {
+    public void abI() {
     }
 }

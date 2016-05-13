@@ -21,7 +21,7 @@ public class f extends a {
     private Runnable zT;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int CV() {
+    public int CW() {
         this.currentIndex++;
         if (this.currentIndex >= this.auB) {
             this.currentIndex = 0;
@@ -52,22 +52,22 @@ public class f extends a {
         this.auB = this.auz.length;
     }
 
-    private void CW() {
+    private void CX() {
         if (this.auy != null && (this.auy.getBackground() instanceof AnimationDrawable)) {
             ((AnimationDrawable) this.auy.getBackground()).start();
         }
     }
 
-    private void CX() {
+    private void CY() {
         if (this.auy != null && (this.auy.getBackground() instanceof AnimationDrawable)) {
             ((AnimationDrawable) this.auy.getBackground()).stop();
         }
     }
 
     @Override // com.baidu.tbadk.f.a
-    protected void CT() {
+    protected void CU() {
         at.k(this.auy, t.f.loading_animation);
-        CW();
+        CX();
         this.amg.setText(this.auz[0]);
         TbadkCoreApplication.m11getInst().handler.removeCallbacks(this.zT);
         TbadkCoreApplication.m11getInst().handler.postDelayed(this.zT, 200L);
@@ -75,21 +75,21 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.f.a
-    protected void CU() {
-        CX();
+    protected void CV() {
+        CY();
         TbadkCoreApplication.m11getInst().handler.removeCallbacks(this.zT);
         this.auy.setBackgroundResource(0);
     }
 
-    public void sf() {
+    public void sg() {
         at.k(this.auy, t.f.loading_animation);
-        CW();
+        CX();
         at.c(this.amg, t.d.cp_cont_c, 1);
         at.c(this.auA, t.d.cp_cont_c, 1);
         at.l(this.auw, t.d.cp_bg_line_d);
     }
 
-    public View CY() {
+    public View CZ() {
         return this.auw;
     }
 }

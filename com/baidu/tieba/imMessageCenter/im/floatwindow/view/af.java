@@ -30,7 +30,7 @@ public class af implements FloatingPersonalChatView.a {
                 list3 = this.cwo.mUserDataList;
                 UserData userData = (UserData) list3.remove(i);
                 if (userData != null) {
-                    com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajw().kd(userData.getUserId());
+                    com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajy().kd(userData.getUserId());
                     Iterator<ImMessageCenterShowItemData> it = this.cwo.mList.iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -44,13 +44,13 @@ public class af implements FloatingPersonalChatView.a {
                     }
                     list4 = this.cwo.mUserDataList;
                     if (list4.size() <= 0) {
-                        this.cwo.akp();
+                        this.cwo.akr();
                         return;
                     }
                     FloatingPersonalChatView floatingPersonalChatView = this.cwo;
                     list5 = this.cwo.mUserDataList;
-                    floatingPersonalChatView.jV(list5.size() - 1);
-                    this.cwo.jW(i);
+                    floatingPersonalChatView.jU(list5.size() - 1);
+                    this.cwo.jV(i);
                 }
             }
         }

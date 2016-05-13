@@ -7,7 +7,7 @@ public abstract class f {
         this.apf = lVar;
     }
 
-    public l Bb() {
+    public l Bc() {
         return this.apf;
     }
 }

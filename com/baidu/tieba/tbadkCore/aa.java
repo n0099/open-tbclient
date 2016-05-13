@@ -9,7 +9,7 @@ public class aa extends ax {
     private p erB;
     private String fortune_desc;
 
-    public boolean aSY() {
+    public boolean aTe() {
         return this.erA;
     }
 
@@ -17,7 +17,7 @@ public class aa extends ax {
         this.erA = z;
     }
 
-    public String aSZ() {
+    public String aTf() {
         return this.fortune_desc;
     }
 
@@ -25,7 +25,7 @@ public class aa extends ax {
         this.fortune_desc = str;
     }
 
-    public p aTa() {
+    public p aTg() {
         return this.erB;
     }
 

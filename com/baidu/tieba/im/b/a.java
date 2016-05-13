@@ -3,7 +3,7 @@ package com.baidu.tieba.im.b;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
-    public static int jx(int i) {
+    public static int jw(int i) {
         switch (i) {
             case 1:
                 return -2;

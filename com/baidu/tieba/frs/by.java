@@ -56,15 +56,15 @@ public class by {
 
     public void b(com.baidu.tieba.tbadkCore.o oVar) {
         if (oVar != null) {
-            if (oVar.avA() != null && oVar.avA().isLike() == 0) {
+            if (oVar.avD() != null && oVar.avD().isLike() == 0) {
                 hide();
                 return;
             }
-            if (oVar.avA() != null) {
-                this.mForumId = oVar.avA().getId();
+            if (oVar.avD() != null) {
+                this.mForumId = oVar.avD().getId();
             }
-            this.biJ = oVar.aSq();
-            uP();
+            this.biJ = oVar.aSt();
+            uQ();
             if (this.mType == 1 && !this.biK) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10027").ac("fid", this.mForumId));
                 this.biK = true;
@@ -75,7 +75,7 @@ public class by {
     public void d(String str, List<FeedForumData> list) {
         this.mForumId = str;
         this.biJ = list;
-        uP();
+        uQ();
         if (this.mType == 2 && !this.biK) {
             TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10035").ac("fid", this.mForumId));
             this.biK = true;
@@ -83,7 +83,7 @@ public class by {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uP() {
+    public void uQ() {
         int i;
         if (com.baidu.tbadk.core.util.y.r(this.biJ) == 0) {
             hide();
@@ -119,7 +119,7 @@ public class by {
                 ceVar.biP.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 ceVar.biP.c(feedForumData.getAvatar(), 15, false);
                 ceVar.aOG.setText(feedForumData.getForumName());
-                ceVar.biQ.setText(String.format(this.mTbPageContext.getPageActivity().getString(t.j.attention_post_count), gp(feedForumData.getMemberCount()), gp(feedForumData.getPostNum())));
+                ceVar.biQ.setText(String.format(this.mTbPageContext.getPageActivity().getString(t.j.attention_post_count), go(feedForumData.getMemberCount()), go(feedForumData.getPostNum())));
                 ceVar.biR.setText(feedForumData.getReason());
                 if (feedForumData.getIsLike() == 0) {
                     ceVar.biS.setClickable(true);
@@ -149,7 +149,7 @@ public class by {
         }
     }
 
-    private String gp(int i) {
+    private String go(int i) {
         if (i < 0) {
             return "0";
         }
@@ -166,12 +166,12 @@ public class by {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fi() {
+    public void Fk() {
         a aVar = new a(this.mTbPageContext.getPageActivity());
         aVar.cA(this.mTbPageContext.getPageActivity().getString(t.j.not_intrested));
         aVar.a(t.j.alert_yes_button, new cc(this));
         aVar.b(t.j.alert_no_button, new cd(this));
-        aVar.b(this.mTbPageContext).rU();
+        aVar.b(this.mTbPageContext).rV();
     }
 
     public void changeSkinType(int i) {

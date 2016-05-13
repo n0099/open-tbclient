@@ -33,17 +33,17 @@ public class s implements by<com.baidu.tieba.card.a.n> {
         com.baidu.tieba.card.z zVar12;
         com.baidu.tieba.card.z zVar13;
         com.baidu.tieba.recommendfrs.control.a.f fVar2;
-        bx.Kg().ci(true);
+        bx.Ki().ci(true);
         fVar = this.ebx.ebp;
-        if (fVar != null && nVar != null && nVar.Kl() != null && !StringUtils.isNull(nVar.Kl().getTid())) {
+        if (fVar != null && nVar != null && nVar.Kn() != null && !StringUtils.isNull(nVar.Kn().getTid())) {
             zVar = this.ebx.ebw;
             if (zVar != null) {
                 zVar2 = this.ebx.ebw;
                 if (zVar2.getView() != null) {
-                    if ((view.getTag() instanceof String) && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L))) {
-                        com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L));
+                    if ((view.getTag() instanceof String) && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(nVar.Kn().getTid(), 0L))) {
+                        com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(nVar.Kn().getTid(), 0L));
                         fVar2 = this.ebx.ebp;
-                        fVar2.a(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.Kh(), nVar.Kj(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
+                        fVar2.a(com.baidu.adp.lib.h.b.c(nVar.Kn().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.Kj(), nVar.Kl(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
                     }
                     int id = view.getId();
                     zVar3 = this.ebx.ebw;
@@ -55,7 +55,7 @@ public class s implements by<com.baidu.tieba.card.a.n> {
                                 int id2 = view.getId();
                                 zVar13 = this.ebx.ebw;
                                 if (id2 == zVar13.aPD.getBarNameTv().getId()) {
-                                    TiebaStatic.log(nVar.Ky());
+                                    TiebaStatic.log(nVar.KA());
                                     return;
                                 }
                             }
@@ -65,7 +65,7 @@ public class s implements by<com.baidu.tieba.card.a.n> {
                             int id3 = view.getId();
                             zVar11 = this.ebx.ebw;
                             if (id3 == zVar11.aPC.getId()) {
-                                TiebaStatic.log(nVar.Kz());
+                                TiebaStatic.log(nVar.KB());
                                 return;
                             }
                         }
@@ -76,7 +76,7 @@ public class s implements by<com.baidu.tieba.card.a.n> {
                                 int id4 = view.getId();
                                 zVar10 = this.ebx.ebw;
                                 if (id4 == zVar10.aPF.adG.getId()) {
-                                    TiebaStatic.log(nVar.Kz());
+                                    TiebaStatic.log(nVar.KB());
                                     return;
                                 }
                             }
@@ -86,14 +86,14 @@ public class s implements by<com.baidu.tieba.card.a.n> {
                             int id5 = view.getId();
                             zVar8 = this.ebx.ebw;
                             if (id5 == zVar8.aPE.getId()) {
-                                TiebaStatic.log(nVar.KH());
+                                TiebaStatic.log(nVar.KJ());
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    TiebaStatic.log(nVar.Kx());
+                    TiebaStatic.log(nVar.Kz());
                 }
             }
         }

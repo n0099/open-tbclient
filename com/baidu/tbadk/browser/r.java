@@ -16,7 +16,7 @@ class r extends com.baidu.tbadk.core.c.o {
         return "TBHY_COMMON_Performance";
     }
 
-    @com.baidu.tbadk.core.c.p(sD = "trackFPS", sE = false)
+    @com.baidu.tbadk.core.c.p(sE = "trackFPS", sF = false)
     private void trackFPS() {
         this.Kx.trackFPS();
     }

@@ -7,7 +7,7 @@ public class q implements com.baidu.tbadk.mvc.b.e {
         this.eag = j;
     }
 
-    public long aMt() {
+    public long aMw() {
         return this.eag;
     }
 
@@ -17,12 +17,12 @@ public class q implements com.baidu.tbadk.mvc.b.e {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Dg() {
+    public String Dh() {
         return "RecommendGodCache";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Dh() {
+    public boolean Di() {
         return true;
     }
 

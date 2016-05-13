@@ -18,7 +18,7 @@ class ab implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         int i2;
-        boolean lJ;
+        boolean lI;
         com.baidu.tieba.pb.pb.main.a.f fVar;
         com.baidu.tbadk.performanceLog.e eVar;
         com.baidu.tbadk.performanceLog.e eVar2;
@@ -32,7 +32,7 @@ class ab implements AbsListView.OnScrollListener {
         cw cwVar4;
         com.baidu.tbadk.performanceLog.e eVar5;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
-        boolean lJ2;
+        boolean lI2;
         el elVar3;
         boolean z;
         el elVar4;
@@ -45,31 +45,31 @@ class ab implements AbsListView.OnScrollListener {
         boolean z2 = true;
         PbActivity pbActivity = this.djE;
         i2 = this.djE.bQV;
-        lJ = pbActivity.lJ(i2);
-        if (!lJ) {
-            lJ2 = this.djE.lJ(i);
-            if (lJ2) {
+        lI = pbActivity.lI(i2);
+        if (!lI) {
+            lI2 = this.djE.lI(i);
+            if (lI2) {
                 elVar3 = this.djE.diR;
                 if (elVar3 != null) {
                     elVar5 = this.djE.diR;
-                    elVar5.amQ();
+                    elVar5.amT();
                     eVar6 = this.djE.dja;
                     if (eVar6 != null) {
                         elVar7 = this.djE.diR;
-                        if (!elVar7.ayI()) {
+                        if (!elVar7.ayL()) {
                             elVar8 = this.djE.diR;
                             eVar7 = this.djE.dja;
-                            elVar8.fn(eVar7.BM());
+                            elVar8.fn(eVar7.BN());
                         }
                     }
                     elVar6 = this.djE.diR;
-                    elVar6.ayH();
+                    elVar6.ayK();
                 }
                 z = this.djE.diF;
                 if (!z) {
                     this.djE.diF = true;
                     elVar4 = this.djE.diR;
-                    elVar4.azu();
+                    elVar4.azx();
                 }
             }
         }
@@ -82,7 +82,7 @@ class ab implements AbsListView.OnScrollListener {
         if (eVar == null) {
             this.djE.diG = new com.baidu.tbadk.performanceLog.e();
             eVar5 = this.djE.diG;
-            eVar5.eM(1001);
+            eVar5.eL(1001);
         }
         if (i == 0) {
             cwVar = this.djE.dih;
@@ -90,27 +90,27 @@ class ab implements AbsListView.OnScrollListener {
                 cwVar2 = this.djE.dih;
                 if (cwVar2.getPbData() != null) {
                     cwVar3 = this.djE.dih;
-                    if (cwVar3.getPbData().avB() != null) {
+                    if (cwVar3.getPbData().avE() != null) {
                         cwVar4 = this.djE.dih;
-                        if (cwVar4.getPbData().avB().rm()) {
+                        if (cwVar4.getPbData().avE().rn()) {
                             z2 = false;
                         }
                     }
                 }
             }
             elVar = this.djE.diR;
-            if (elVar.ayU() != null && z2) {
+            if (elVar.ayX() != null && z2) {
                 elVar2 = this.djE.diR;
-                elVar2.ayU().notifyDataSetChanged();
+                elVar2.ayX().notifyDataSetChanged();
             }
             eVar4 = this.djE.diG;
-            eVar4.Et();
+            eVar4.Eu();
         } else if (i == 1) {
             eVar3 = this.djE.diG;
-            eVar3.Et();
+            eVar3.Eu();
         } else {
             eVar2 = this.djE.diG;
-            eVar2.Et();
+            eVar2.Eu();
         }
         this.djE.bQV = i;
     }
@@ -158,7 +158,7 @@ class ab implements AbsListView.OnScrollListener {
                 elVar = this.djE.diR;
                 if (elVar != null) {
                     elVar2 = this.djE.diR;
-                    if (elVar2.ayU() != null) {
+                    if (elVar2.ayX() != null) {
                         elVar3 = this.djE.diR;
                         elVar3.onScroll(absListView, i, i2, i3);
                         fVar = this.djE.diy;
@@ -167,52 +167,52 @@ class ab implements AbsListView.OnScrollListener {
                             fVar6.onScroll(absListView, i, i2, i3);
                         }
                         cwVar3 = this.djE.dih;
-                        if (cwVar3.axP()) {
+                        if (cwVar3.axS()) {
                             cwVar4 = this.djE.dih;
-                            ArrayList<com.baidu.tieba.tbadkCore.data.s> avC = cwVar4.getPbData().avC();
-                            if (avC != null && !avC.isEmpty()) {
+                            ArrayList<com.baidu.tieba.tbadkCore.data.s> avF = cwVar4.getPbData().avF();
+                            if (avF != null && !avF.isEmpty()) {
                                 elVar4 = this.djE.diR;
-                                int axc = ((i + i2) - elVar4.ayU().axc()) - 1;
+                                int axf = ((i + i2) - elVar4.ayX().axf()) - 1;
                                 cwVar5 = this.djE.dih;
                                 com.baidu.tieba.pb.data.e pbData = cwVar5.getPbData();
                                 if (pbData != null) {
-                                    if (pbData.avD() != null && !StringUtils.isNull(pbData.avD().rB())) {
-                                        axc--;
+                                    if (pbData.avG() != null && !StringUtils.isNull(pbData.avG().rC())) {
+                                        axf--;
                                     }
                                     z = this.djE.diI;
-                                    int i4 = z ? axc - 1 : axc;
-                                    int size = avC.size();
+                                    int i4 = z ? axf - 1 : axf;
+                                    int size = avF.size();
                                     if (i4 >= 0 && i4 < size) {
-                                        com.baidu.tieba.tbadkCore.data.s sVar = avC.get(i4);
+                                        com.baidu.tieba.tbadkCore.data.s sVar = avF.get(i4);
                                         fVar2 = this.djE.diZ;
                                         if (fVar2 != null) {
                                             fVar3 = this.djE.diZ;
-                                            int pk = fVar3.pk(i4);
-                                            if (pk >= 0) {
+                                            int pj = fVar3.pj(i4);
+                                            if (pj >= 0) {
                                                 if (sVar instanceof com.baidu.tieba.tbadkCore.data.r) {
                                                     fVar5 = this.djE.diZ;
                                                     cwVar12 = this.djE.dih;
-                                                    fVar5.c(i4, 1, cwVar12.getThreadID(), pk);
-                                                    com.baidu.tieba.recapp.report.b.aLG().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tieba.tbadkCore.data.r) sVar, "show"));
+                                                    fVar5.c(i4, 1, cwVar12.getThreadID(), pj);
+                                                    com.baidu.tieba.recapp.report.b.aLJ().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tieba.tbadkCore.data.r) sVar, "show"));
                                                     return;
                                                 }
                                                 fVar4 = this.djE.diZ;
                                                 cwVar6 = this.djE.dih;
-                                                fVar4.c(i4, 2, cwVar6.getThreadID(), pk);
+                                                fVar4.c(i4, 2, cwVar6.getThreadID(), pj);
                                                 cwVar7 = this.djE.dih;
                                                 if (cwVar7 != null) {
                                                     cwVar10 = this.djE.dih;
                                                     if (cwVar10.getPbData() != null) {
                                                         cwVar11 = this.djE.dih;
-                                                        forumData = cwVar11.getPbData().avA();
+                                                        forumData = cwVar11.getPbData().avD();
                                                         cwVar8 = this.djE.dih;
                                                         if (cwVar8 != null) {
                                                             cwVar9 = this.djE.dih;
-                                                            adVar = cwVar9.abs();
+                                                            adVar = cwVar9.abu();
                                                         }
                                                         int pI = adVar == null ? adVar.pI() : 0;
                                                         currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                                                        com.baidu.tieba.recapp.report.a i5 = com.baidu.tieba.recapp.report.e.i("store", pk, pI);
+                                                        com.baidu.tieba.recapp.report.a i5 = com.baidu.tieba.recapp.report.e.i("store", pj, pI);
                                                         i5.bE("page", "PB");
                                                         if (forumData != null) {
                                                             i5.bE("fid", forumData.getId());
@@ -222,7 +222,7 @@ class ab implements AbsListView.OnScrollListener {
                                                         if (currentAccountObj != null) {
                                                             i5.bE("vc", String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
                                                         }
-                                                        com.baidu.tieba.recapp.report.b.aLG().a(i5);
+                                                        com.baidu.tieba.recapp.report.b.aLJ().a(i5);
                                                     }
                                                 }
                                                 forumData = null;
@@ -232,13 +232,13 @@ class ab implements AbsListView.OnScrollListener {
                                                 if (adVar == null) {
                                                 }
                                                 currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                                                com.baidu.tieba.recapp.report.a i52 = com.baidu.tieba.recapp.report.e.i("store", pk, pI);
+                                                com.baidu.tieba.recapp.report.a i52 = com.baidu.tieba.recapp.report.e.i("store", pj, pI);
                                                 i52.bE("page", "PB");
                                                 if (forumData != null) {
                                                 }
                                                 if (currentAccountObj != null) {
                                                 }
-                                                com.baidu.tieba.recapp.report.b.aLG().a(i52);
+                                                com.baidu.tieba.recapp.report.b.aLJ().a(i52);
                                             }
                                         }
                                     }

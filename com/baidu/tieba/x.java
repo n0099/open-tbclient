@@ -15,6 +15,6 @@ class x implements View.OnClickListener {
     public void onClick(View view) {
         u.a aVar;
         aVar = this.aHF.aHA;
-        aVar.HP();
+        aVar.HR();
     }
 }

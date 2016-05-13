@@ -20,7 +20,7 @@ public class g {
         this.icon = str;
     }
 
-    public void pb(int i) {
+    public void pa(int i) {
         this.weight = i;
     }
 
@@ -48,11 +48,11 @@ public class g {
         this.time = i;
     }
 
-    public String aRX() {
+    public String aSa() {
         return this.obj_id;
     }
 
-    public String aqv() {
+    public String aqy() {
         return this.cPO;
     }
 
@@ -62,7 +62,7 @@ public class g {
         setTitle(starEnter.title);
         setType(starEnter.type.intValue());
         setUrl(starEnter.url);
-        pb(starEnter.weight.intValue());
+        pa(starEnter.weight.intValue());
         this.obj_id = starEnter.obj_id;
         this.cPO = starEnter.text;
     }

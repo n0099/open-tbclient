@@ -24,6 +24,6 @@ public class ar implements View.OnClickListener {
         } else {
             TiebaStatic.log("c10101");
         }
-        this.dwD.aBL();
+        this.dwD.aBO();
     }
 }

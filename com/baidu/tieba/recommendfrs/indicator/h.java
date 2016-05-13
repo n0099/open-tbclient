@@ -11,7 +11,7 @@ class h implements m.a {
     }
 
     @Override // com.baidu.tieba.recommendfrs.indicator.m.a
-    public void aon() {
+    public void aoq() {
         j jVar;
         m mVar;
         m mVar2;
@@ -19,7 +19,7 @@ class h implements m.a {
         jVar = this.eaC.eat;
         if (jVar != null) {
             jVar2 = this.eaC.eat;
-            jVar2.aop();
+            jVar2.aos();
         }
         mVar = this.eaC.eaw;
         if (mVar != null) {

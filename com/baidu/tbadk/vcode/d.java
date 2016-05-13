@@ -27,7 +27,7 @@ public class d extends WebViewClient {
         boolean gs;
         String gr2;
         String str2;
-        boolean FG;
+        boolean FI;
         String str3;
         String str4;
         String str5;
@@ -51,8 +51,8 @@ public class d extends WebViewClient {
                 commonVcodeActivity.aAy = gr2;
                 str2 = this.aAJ.aAy;
                 if (str2 != null) {
-                    FG = this.aAJ.FG();
-                    if (FG) {
+                    FI = this.aAJ.FI();
+                    if (FI) {
                         str3 = this.aAJ.aAC;
                         if (!StringUtils.isNull(str3)) {
                             CommonVcodeActivity commonVcodeActivity2 = this.aAJ;
@@ -83,7 +83,7 @@ public class d extends WebViewClient {
         BaseWebView baseWebView;
         super.onPageFinished(webView, str);
         this.aAJ.aAG = true;
-        this.aAJ.FL();
+        this.aAJ.FN();
         baseWebView = this.aAJ.mWebView;
         baseWebView.setVisibility(0);
     }

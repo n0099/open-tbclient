@@ -59,11 +59,11 @@ public class f {
             abVar.n("reason", this.qZ);
             abVar.n("ntn", "banid");
             abVar.n("post_id", this.mPostId);
-            abVar.tA().uu().mIsNeedTbs = true;
-            String tc = abVar.tc();
-            if (abVar.tA().uv().nZ()) {
+            abVar.tB().uv().mIsNeedTbs = true;
+            String td = abVar.td();
+            if (abVar.tB().uw().nZ()) {
                 try {
-                    return (ForbidResultData) i.objectWithJsonStr(tc, ForbidResultData.class);
+                    return (ForbidResultData) i.objectWithJsonStr(td, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -72,7 +72,7 @@ public class f {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = abVar.tE();
+            forbidResultData2.error_code = abVar.tF();
             forbidResultData2.error_msg = abVar.getErrorString();
             return forbidResultData2;
         }

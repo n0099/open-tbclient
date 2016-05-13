@@ -50,17 +50,17 @@ public class at extends w {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.c.w, com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.frs_item_lottery;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.c.w
     public void h(ax axVar) {
-        int rf;
-        if (axVar != null && axVar.qU() != null && axVar.qU().size() > 0 && axVar.qU().get(0) != null && (rf = axVar.rf()) != -1) {
+        int rg;
+        if (axVar != null && axVar.qV() != null && axVar.qV().size() > 0 && axVar.qV().get(0) != null && (rg = axVar.rg()) != -1) {
             super.h(axVar);
             this.aOM.setVisibility(8);
-            com.baidu.tbadk.core.data.a aVar = axVar.qU().get(0);
+            com.baidu.tbadk.core.data.a aVar = axVar.qV().get(0);
             if (!StringUtils.isNull(aVar.ox())) {
                 if (com.baidu.adp.lib.g.c.dF().V(10)) {
                     this.bqf.c(aVar.ox(), 10, false);
@@ -81,14 +81,14 @@ public class at extends w {
             } else {
                 this.bqg.setVisibility(8);
             }
-            if (rf == 4) {
+            if (rg == 4) {
                 if (this.bqn != null) {
                     this.bqn.setVisibility(8);
                 }
-                if (StringUtils.isNull(axVar.qS())) {
+                if (StringUtils.isNull(axVar.qT())) {
                     this.bqh.setText("【】");
                 } else {
-                    this.bqh.setText(axVar.qS());
+                    this.bqh.setText(axVar.qT());
                 }
                 this.bqi.setText(getContext().getResources().getString(t.j.time_before_lottery));
                 long millis = TimeUnit.SECONDS.toMillis(aVar.os()) - System.currentTimeMillis();
@@ -110,7 +110,7 @@ public class at extends w {
                 this.bqn.setVisibility(0);
                 this.bqn.setData(aVar.oy());
             }
-            if (rf == 1) {
+            if (rg == 1) {
                 this.bql.setText(TbadkCoreApplication.m11getInst().getResources().getString(t.j.join_immediately));
             } else {
                 this.bql.setText(TbadkCoreApplication.m11getInst().getResources().getString(t.j.check_detail));

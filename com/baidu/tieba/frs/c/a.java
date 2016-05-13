@@ -64,7 +64,7 @@ public class a extends bw<r, e> implements View.OnClickListener, PhotoLiveCardVi
             if (eVar.brY == null) {
                 eVar.brY = this.brP.dD();
                 eVar.brU.addView(eVar.brY.blQ);
-                eVar.brY.vl();
+                eVar.brY.vm();
             }
             a(eVar.brY, rVar);
         } else {
@@ -98,7 +98,7 @@ public class a extends bw<r, e> implements View.OnClickListener, PhotoLiveCardVi
     private void a(eg egVar, r rVar) {
         PhotoLiveCardData pc = rVar.pc();
         if (pc != null) {
-            if (2 == a(pc)) {
+            if (2 == b(pc)) {
                 egVar.blR.setShowContent(true);
                 egVar.blR.setShowCover(false);
                 egVar.blR.setShowExpression(false);
@@ -129,7 +129,7 @@ public class a extends bw<r, e> implements View.OnClickListener, PhotoLiveCardVi
         }
     }
 
-    private int a(PhotoLiveCardData photoLiveCardData) {
+    private int b(PhotoLiveCardData photoLiveCardData) {
         return (photoLiveCardData == null || StringUtils.isNull(photoLiveCardData.getPhotoLiveCover())) ? 2 : 1;
     }
 
@@ -174,7 +174,7 @@ public class a extends bw<r, e> implements View.OnClickListener, PhotoLiveCardVi
             dkVar.bfF.setText(rVar.getAuthor().getName_show());
             at.c(dkVar.bfF, t.d.cp_cont_c, 1);
             s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
-            if (rVar.qY() == 1) {
+            if (rVar.qZ() == 1) {
                 dkVar.aOG.setVisibility(8);
             } else {
                 dkVar.aOG.setVisibility(0);
@@ -187,8 +187,8 @@ public class a extends bw<r, e> implements View.OnClickListener, PhotoLiveCardVi
                 }
             }
             StringBuffer stringBuffer = new StringBuffer();
-            if (rVar.qS() != null && rVar.qS().trim().length() > 0) {
-                stringBuffer.append(rVar.qS());
+            if (rVar.qT() != null && rVar.qT().trim().length() > 0) {
+                stringBuffer.append(rVar.qT());
             }
             ArrayList<MediaData> medias = rVar.getMedias();
             if (medias != null) {
@@ -242,7 +242,7 @@ public class a extends bw<r, e> implements View.OnClickListener, PhotoLiveCardVi
                         i6 = i;
                     }
                     dkVar.bfE.setVisibility(0);
-                    dkVar.bfE.a(rVar, this.bgq.avA().getName(), this.bgq.avA().getId(), rVar.getTid());
+                    dkVar.bfE.a(rVar, this.bgq.avD().getName(), this.bgq.avD().getId(), rVar.getTid());
                     dkVar.bfE.setShowBig(this.bfl);
                     dkVar.bfE.setDrawNum(true);
                     dkVar.bfE.setFromCDN(this.mIsFromCDN);
@@ -279,7 +279,7 @@ public class a extends bw<r, e> implements View.OnClickListener, PhotoLiveCardVi
         }
     }
 
-    public int Tk() {
+    public int Tl() {
         return t.g.storecard_close_click;
     }
 }

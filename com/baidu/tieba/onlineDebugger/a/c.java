@@ -99,7 +99,7 @@ public class c implements b {
                             }
                             if (dVar != null) {
                                 try {
-                                    obj2 = dVar.aux();
+                                    obj2 = dVar.auA();
                                 } catch (Exception e2) {
                                     obj2 = null;
                                 }

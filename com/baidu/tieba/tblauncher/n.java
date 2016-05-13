@@ -20,7 +20,7 @@ class n extends CustomMessageListener {
         ab abVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001378) {
             abVar = this.this$0.ewE;
-            if (abVar.aVL().getCurrentTabType() == 1) {
+            if (abVar.aVR().getCurrentTabType() == 1) {
                 abVar2 = this.this$0.ewE;
                 abVar2.jG(true);
             }

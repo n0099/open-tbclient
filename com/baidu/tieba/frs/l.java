@@ -29,7 +29,7 @@ class l implements BdExpandListView.a {
         cnVar = this.bhl.bgo;
         if (cnVar.QC() instanceof com.baidu.tieba.frs.tab.h) {
             cnVar2 = this.bhl.bgo;
-            ((com.baidu.tieba.frs.tab.h) cnVar2.QC()).Pl();
+            ((com.baidu.tieba.frs.tab.h) cnVar2.QC()).Pn();
         }
     }
 
@@ -55,7 +55,7 @@ class l implements BdExpandListView.a {
         cnVar = this.bhl.bgo;
         if (cnVar.QC() instanceof com.baidu.tieba.frs.tab.h) {
             cnVar2 = this.bhl.bgo;
-            ((com.baidu.tieba.frs.tab.h) cnVar2.QC()).Pl();
+            ((com.baidu.tieba.frs.tab.h) cnVar2.QC()).Pn();
         }
     }
 }

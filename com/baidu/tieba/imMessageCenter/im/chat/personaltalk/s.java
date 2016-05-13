@@ -53,7 +53,7 @@ public class s extends com.baidu.adp.framework.listener.e {
                                 aVar3 = this.cuf.cue;
                                 if (aVar3 != null) {
                                     aVar4 = this.cuf.cue;
-                                    aVar4.uX();
+                                    aVar4.uY();
                                     return;
                                 }
                                 return;
@@ -85,7 +85,7 @@ public class s extends com.baidu.adp.framework.listener.e {
                             aVar = this.cuf.cue;
                             if (aVar != null) {
                                 aVar2 = this.cuf.cue;
-                                aVar2.uX();
+                                aVar2.uY();
                                 return;
                             }
                             return;

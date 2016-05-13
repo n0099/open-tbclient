@@ -29,7 +29,29 @@ public class h {
 
     /* loaded from: classes.dex */
     public interface a {
-        void akj();
+        void akl();
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Failed to check method usage
+    java.util.ConcurrentModificationException
+    	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1631)
+    	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+    	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+    	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+    	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+    	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+    	at jadx.core.codegen.ClassGen.skipMethod(ClassGen.java:332)
+    	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:298)
+    	at jadx.core.codegen.ClassGen.lambda$addInnerClsAndMethods$2(ClassGen.java:272)
+    	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+    	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+    	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
+    	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
+     */
+    public static /* synthetic */ void a(h hVar, boolean z) {
+        hVar.cvR = z;
     }
 
     public h(RelativeLayout relativeLayout, int i) {
@@ -55,7 +77,7 @@ public class h {
 
     public void a(com.baidu.adp.lib.h.d dVar) {
         if (this.cvM.getVisibility() == 0) {
-            this.cvO = new TranslateAnimation(akg(), 0.0f, 0.0f, 0.0f);
+            this.cvO = new TranslateAnimation(aki(), 0.0f, 0.0f, 0.0f);
             this.cvO.setDuration(300L);
             if (dVar != null) {
                 this.cvO.setAnimationListener(dVar);
@@ -64,7 +86,7 @@ public class h {
         }
     }
 
-    private int akg() {
+    private int aki() {
         int[] iArr = new int[2];
         this.cvM.getLocationInWindow(iArr);
         int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst());
@@ -73,7 +95,7 @@ public class h {
 
     public void b(com.baidu.adp.lib.h.d dVar) {
         if (this.cvM.getVisibility() == 0) {
-            this.cvP = new TranslateAnimation(0.0f, akg(), 0.0f, 0.0f);
+            this.cvP = new TranslateAnimation(0.0f, aki(), 0.0f, 0.0f);
             this.cvP.setDuration(300L);
             if (dVar != null) {
                 this.cvP.setAnimationListener(dVar);
@@ -82,13 +104,13 @@ public class h {
         }
     }
 
-    public void akh() {
+    public void akj() {
         TranslateAnimation translateAnimation = new TranslateAnimation(this.cvM.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
         this.cvM.startAnimation(translateAnimation);
     }
 
-    public void aki() {
+    public void akk() {
         TranslateAnimation translateAnimation = new TranslateAnimation(-this.cvM.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
         this.cvM.startAnimation(translateAnimation);
@@ -97,7 +119,7 @@ public class h {
     public void a(boolean z, UserData userData, int i) {
         if (z && userData != null) {
             this.cvQ = userData.getConcern_num();
-            jR(userData.getConcern_num());
+            jQ(userData.getConcern_num());
             this.aLx.c(userData.getPortrait(), 12, false);
             this.aLx.setUrl(userData.getPortrait());
             if (i == this.index) {
@@ -116,7 +138,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jR(int i) {
+    public void jQ(int i) {
         int i2;
         if (!this.cvR) {
             if (i <= 0) {

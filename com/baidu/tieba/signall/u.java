@@ -14,27 +14,27 @@ public class u {
     private a eiO = new a();
     private ArrayList<v> ejV = new ArrayList<>();
 
-    public int aQo() {
+    public int aQr() {
         return this.eis;
     }
 
-    public String aPN() {
+    public String aPQ() {
         return this.eit;
     }
 
-    public a aPP() {
+    public a aPS() {
         return this.eiO;
     }
 
-    public ArrayList<v> aQp() {
+    public ArrayList<v> aQs() {
         return this.ejV;
     }
 
-    public int aQq() {
+    public int aQt() {
         return this.ejT;
     }
 
-    public String aQr() {
+    public String aQu() {
         return this.ejU;
     }
 

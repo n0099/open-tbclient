@@ -17,7 +17,7 @@ public class c extends com.baidu.adp.base.e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void lo(int i);
+        void ln(int i);
 
         void onError(int i, String str);
     }
@@ -42,11 +42,11 @@ public class c extends com.baidu.adp.base.e {
         return false;
     }
 
-    public boolean atH() {
+    public boolean atK() {
         return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m11getInst().getReporyUserInfoLastTime()) >= this.Kc;
     }
 
-    public void atI() {
+    public void atL() {
         TbadkCoreApplication.m11getInst().setReporyUserInfoCurrentTime();
     }
 
@@ -54,7 +54,7 @@ public class c extends com.baidu.adp.base.e {
         this.Kc = j;
     }
 
-    public void atJ() {
+    public void atM() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);

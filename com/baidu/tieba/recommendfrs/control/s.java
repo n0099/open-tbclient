@@ -20,6 +20,6 @@ public class s extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getError() != 0) {
             return;
         }
-        this.dZi.aMm();
+        this.dZi.aMp();
     }
 }

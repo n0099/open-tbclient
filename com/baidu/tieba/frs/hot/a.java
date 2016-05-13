@@ -9,12 +9,12 @@ public class a {
     private o<byte[]> bcU;
 
     public a() {
-        OQ();
+        OS();
     }
 
-    public void OQ() {
+    public void OS() {
         if (this.bcU == null) {
-            this.bcU = com.baidu.tbadk.core.b.a.rR().cw("tb.forum_hot_thread");
+            this.bcU = com.baidu.tbadk.core.b.a.rS().cw("tb.forum_hot_thread");
         }
     }
 
@@ -32,7 +32,7 @@ public class a {
     public void j(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            OQ();
+            OS();
             this.bcU.a(String.valueOf(str) + "/" + currentAccount, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }

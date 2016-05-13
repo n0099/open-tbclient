@@ -34,7 +34,7 @@ public class m {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static String sX() {
+    public static String sY() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
             return TbadkCoreApplication.m11getInst().getApp().getString(t.j.error_no_sdcard);
@@ -64,7 +64,7 @@ public class m {
         return false;
     }
 
-    public static boolean sY() {
+    public static boolean sZ() {
         return cP(oH + "/" + TbConfig.getTempDirName() + "/");
     }
 
@@ -105,7 +105,7 @@ public class m {
     }
 
     public static File cS(String str) {
-        if (sY()) {
+        if (sZ()) {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -147,14 +147,14 @@ public class m {
     }
 
     public static File cV(String str) {
-        if (!sY()) {
+        if (!sZ()) {
             return null;
         }
         return new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
     }
 
     public static File cW(String str) {
-        if (sY()) {
+        if (sZ()) {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (!file.exists() || file.delete()) {
@@ -174,7 +174,7 @@ public class m {
     }
 
     public static File cX(String str) {
-        if (sY()) {
+        if (sZ()) {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -605,7 +605,7 @@ public class m {
 
     public static byte[] Z(String str, String str2) {
         String str3;
-        if (!sY() || str2 == null) {
+        if (!sZ() || str2 == null) {
             return null;
         }
         if (str != null) {
@@ -966,7 +966,7 @@ public class m {
     }
 
     public static boolean da(String str) {
-        if (sY()) {
+        if (sZ()) {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -1025,7 +1025,7 @@ public class m {
         return oH + "/" + TbConfig.getTempDirName() + "/";
     }
 
-    public static String sZ() {
+    public static String ta() {
         return oH + "/tieba/download";
     }
 
@@ -1045,7 +1045,7 @@ public class m {
         return false;
     }
 
-    public static long ta() {
+    public static long tb() {
         String absolutePath;
         if (bF()) {
             absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -1068,9 +1068,9 @@ public class m {
             return null;
         }
         File[] listFiles = VF.listFiles();
-        String cn = cn(i);
+        String cm = cm(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
-            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cn)) {
+            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cm)) {
                 if (listFiles[i2].getName().endsWith(str)) {
                     return listFiles[i2].getAbsolutePath();
                 }
@@ -1082,7 +1082,7 @@ public class m {
         return null;
     }
 
-    public static String cn(int i) {
+    public static String cm(int i) {
         switch (i) {
             case 1:
                 return "voice";
@@ -1116,7 +1116,7 @@ public class m {
         if (z) {
             sb.append(getCacheDir());
         }
-        sb.append(cn(i));
+        sb.append(cm(i));
         sb.append(File.separator);
         sb.append(str);
         return sb.toString();

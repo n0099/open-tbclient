@@ -9,9 +9,9 @@ class ad implements com.baidu.tbadk.editortools.d.c {
     }
 
     @Override // com.baidu.tbadk.editortools.d.c
-    public void BD() {
+    public void BE() {
         el elVar;
         elVar = this.djE.diR;
-        elVar.amP();
+        elVar.amS();
     }
 }

@@ -42,7 +42,7 @@ public class ej extends bw<ek, el> {
     @Override // com.baidu.tieba.frs.bw, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ek ekVar, el elVar) {
         if (elVar != null && elVar.blY != null) {
-            elVar.blY.sf();
+            elVar.blY.sg();
         }
         return view;
     }

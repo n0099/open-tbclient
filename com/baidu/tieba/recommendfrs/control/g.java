@@ -22,11 +22,11 @@ public class g implements CustomMessageTask.CustomRunnable<Boolean> {
         ScrollFragmentTabHost scrollFragmentTabHost3;
         ScrollFragmentTabHost scrollFragmentTabHost4;
         scrollFragmentTabHost = this.dYW.dYN;
-        if (scrollFragmentTabHost.aoi()) {
+        if (scrollFragmentTabHost.aol()) {
             scrollFragmentTabHost2 = this.dYW.dYN;
             if (scrollFragmentTabHost2.eax) {
                 scrollFragmentTabHost3 = this.dYW.dYN;
-                scrollFragmentTabHost3.aok();
+                scrollFragmentTabHost3.aon();
                 scrollFragmentTabHost4 = this.dYW.dYN;
                 scrollFragmentTabHost4.eax = false;
             }

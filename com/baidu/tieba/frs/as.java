@@ -32,27 +32,27 @@ class as extends CustomMessageListener {
             oVar = this.bhl.bgq;
             if (oVar != null) {
                 oVar2 = this.bhl.bgq;
-                if (oVar2.avA() != null) {
+                if (oVar2.avD() != null) {
                     SignData signData = (SignData) customResponsedMessage.getData();
                     if (signData.getForumId() != null) {
                         String forumId = signData.getForumId();
                         oVar3 = this.bhl.bgq;
-                        if (forumId.equals(oVar3.avA().getId())) {
+                        if (forumId.equals(oVar3.avD().getId())) {
                             oVar4 = this.bhl.bgq;
                             oVar4.d(signData);
                             mVar = this.bhl.bgE;
                             oVar5 = this.bhl.bgq;
                             mVar.f(oVar5);
                             oVar6 = this.bhl.bgq;
-                            int user_level = oVar6.avA().getUser_level();
+                            int user_level = oVar6.avD().getUser_level();
                             mVar2 = this.bhl.bgE;
-                            if (mVar2.TT()) {
+                            if (mVar2.TV()) {
                                 oVar8 = this.bhl.bgq;
-                                user_level = oVar8.avA().getUser_level() + 1;
+                                user_level = oVar8.avD().getUser_level() + 1;
                             }
                             TbadkCoreApplication m11getInst = TbadkCoreApplication.m11getInst();
                             oVar7 = this.bhl.bgq;
-                            m11getInst.addSignedForum(oVar7.avA().getName(), signData.getBonusPoint(), user_level);
+                            m11getInst.addSignedForum(oVar7.avD().getName(), signData.getBonusPoint(), user_level);
                         }
                     }
                 }

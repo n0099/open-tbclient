@@ -24,7 +24,7 @@ public class bx implements com.baidu.adp.widget.ListView.v {
         return this.biA;
     }
 
-    public void go(int i) {
+    public void gn(int i) {
         this.biA = i;
     }
 }

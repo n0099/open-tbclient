@@ -43,9 +43,9 @@ class an implements View.OnClickListener {
                             if (url != null) {
                                 context2 = this.adQ.mContext;
                                 if (com.baidu.adp.base.l.s(context2) instanceof TbPageContext) {
-                                    bg us = bg.us();
+                                    bg ut = bg.ut();
                                     context3 = this.adQ.mContext;
-                                    us.c((TbPageContext) com.baidu.adp.base.l.s(context3), new String[]{url});
+                                    ut.c((TbPageContext) com.baidu.adp.base.l.s(context3), new String[]{url});
                                 }
                             }
                         }

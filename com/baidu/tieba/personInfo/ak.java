@@ -26,7 +26,7 @@ public class ak implements h.a {
                 bgVar2 = this.this$0.dyP;
                 bgVar2.bR(list);
                 bjVar2 = this.this$0.dFA;
-                bjVar2.aEj();
+                bjVar2.aEm();
             }
         }
     }
@@ -43,13 +43,13 @@ public class ak implements h.a {
             bjVar = this.this$0.dFA;
             if (bjVar != null) {
                 bgVar = this.this$0.dyP;
-                if (com.baidu.tbadk.core.util.y.s(bgVar.aDz())) {
+                if (com.baidu.tbadk.core.util.y.s(bgVar.aDC())) {
                     bjVar3 = this.this$0.dFA;
-                    bjVar3.aEg();
+                    bjVar3.aEj();
                     return;
                 }
                 bjVar2 = this.this$0.dFA;
-                bjVar2.aCx();
+                bjVar2.aCA();
             }
         }
     }

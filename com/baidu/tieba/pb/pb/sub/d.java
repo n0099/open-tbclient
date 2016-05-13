@@ -93,32 +93,32 @@ public class d implements View.OnClickListener {
             }
         }
         yVar = this.dqn.dqe;
-        if (view == yVar.azX()) {
+        if (view == yVar.aAa()) {
             yVar36 = this.dqn.dqe;
-            yVar36.amQ();
+            yVar36.amT();
             apVar9 = this.dqn.dqc;
-            if (apVar9.Dy()) {
+            if (apVar9.Dz()) {
                 yVar37 = this.dqn.dqe;
-                yVar37.azU();
+                yVar37.azX();
                 return;
             }
             return;
         }
         yVar2 = this.dqn.dqe;
-        if (view == yVar2.aAb()) {
+        if (view == yVar2.aAe()) {
             MessageManager messageManager = MessageManager.getInstance();
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.dqn.getActivity());
             apVar7 = this.dqn.dqc;
             String threadID = apVar7.getThreadID();
             apVar8 = this.dqn.dqc;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createNormalCfg(threadID, apVar8.BB(), "")));
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createNormalCfg(threadID, apVar8.BC(), "")));
             return;
         }
         if (view != null) {
             yVar34 = this.dqn.dqe;
-            if (view == yVar34.azV()) {
+            if (view == yVar34.azY()) {
                 yVar35 = this.dqn.dqe;
-                yVar35.amQ();
+                yVar35.amT();
                 SparseArray sparseArray = (SparseArray) view.getTag();
                 com.baidu.tieba.tbadkCore.data.s sVar = sparseArray.get(t.g.tag_load_sub_data) instanceof com.baidu.tieba.tbadkCore.data.s ? (com.baidu.tieba.tbadkCore.data.s) sparseArray.get(t.g.tag_load_sub_data) : null;
                 View view2 = sparseArray.get(t.g.tag_load_sub_view) instanceof View ? (View) sparseArray.get(t.g.tag_load_sub_view) : null;
@@ -137,9 +137,9 @@ public class d implements View.OnClickListener {
         yVar3 = this.dqn.dqe;
         if (view == yVar3.QJ()) {
             yVar29 = this.dqn.dqe;
-            yVar29.amQ();
+            yVar29.amT();
             yVar30 = this.dqn.dqe;
-            if (yVar30.aAl() == null) {
+            if (yVar30.aAo() == null) {
                 if (view != null && view.getTag() != null) {
                     SparseArray sparseArray3 = (SparseArray) view.getTag();
                     if (sparseArray3.get(t.g.tag_del_post_is_self) instanceof Boolean) {
@@ -159,25 +159,25 @@ public class d implements View.OnClickListener {
                 yVar33.a(view, gw, isMarked2);
             }
             yVar31 = this.dqn.dqe;
-            if (yVar31.aAl() != null) {
+            if (yVar31.aAo() != null) {
                 yVar32 = this.dqn.dqe;
-                yVar32.aAl().Fi();
+                yVar32.aAo().Fk();
                 return;
             }
             return;
         }
         yVar4 = this.dqn.dqe;
-        if (yVar4.aAl() != null) {
+        if (yVar4.aAo() != null) {
             yVar27 = this.dqn.dqe;
-            if (view == yVar27.aAl().axY()) {
+            if (view == yVar27.aAo().ayb()) {
                 yVar28 = this.dqn.dqe;
-                yVar28.amQ();
+                yVar28.amT();
                 if (this.dqn.checkUpIsLogin()) {
                     apVar4 = this.dqn.dqc;
-                    if (apVar4.aAn() != null) {
+                    if (apVar4.aAq() != null) {
                         NewSubPbActivity newSubPbActivity = this.dqn;
                         apVar5 = this.dqn.dqc;
-                        newSubPbActivity.d(apVar5.aAn().avO());
+                        newSubPbActivity.d(apVar5.aAq().avR());
                         return;
                     }
                     return;
@@ -186,11 +186,11 @@ public class d implements View.OnClickListener {
             }
         }
         yVar5 = this.dqn.dqe;
-        if (yVar5.aAl() != null) {
+        if (yVar5.aAo() != null) {
             yVar24 = this.dqn.dqe;
-            if (view == yVar24.aAl().ayb()) {
+            if (view == yVar24.aAo().aye()) {
                 yVar25 = this.dqn.dqe;
-                yVar25.amQ();
+                yVar25.amT();
                 SparseArray sparseArray4 = (SparseArray) view.getTag();
                 if (sparseArray4 != null) {
                     yVar26 = this.dqn.dqe;
@@ -201,11 +201,11 @@ public class d implements View.OnClickListener {
             }
         }
         yVar6 = this.dqn.dqe;
-        if (yVar6.aAl() != null) {
+        if (yVar6.aAo() != null) {
             yVar22 = this.dqn.dqe;
-            if (view == yVar22.aAl().axZ()) {
+            if (view == yVar22.aAo().ayc()) {
                 yVar23 = this.dqn.dqe;
-                yVar23.amQ();
+                yVar23.amT();
                 if (!this.dqn.checkUpIsLogin()) {
                     return;
                 }
@@ -214,17 +214,17 @@ public class d implements View.OnClickListener {
             }
         }
         yVar7 = this.dqn.dqe;
-        if (yVar7.aAl() != null) {
+        if (yVar7.aAo() != null) {
             yVar20 = this.dqn.dqe;
-            if (view == yVar20.aAl().aya()) {
+            if (view == yVar20.aAo().ayd()) {
                 Object tag = view.getTag();
                 yVar21 = this.dqn.dqe;
-                yVar21.amQ();
+                yVar21.amT();
                 if (tag instanceof String) {
                     apVar3 = this.dqn.dqc;
-                    String BB = apVar3.BB();
+                    String BC = apVar3.BC();
                     if (this.dqn.checkUpIsLogin()) {
-                        this.dqn.lR(BB);
+                        this.dqn.lR(BC);
                         return;
                     }
                     return;
@@ -242,36 +242,36 @@ public class d implements View.OnClickListener {
             }
         }
         yVar8 = this.dqn.dqe;
-        if (view != yVar8.aAd()) {
+        if (view != yVar8.aAg()) {
             yVar10 = this.dqn.dqe;
             if (view != yVar10.getUserNameView()) {
                 yVar11 = this.dqn.dqe;
-                if (view != yVar11.aAe()) {
+                if (view != yVar11.aAh()) {
                     yVar12 = this.dqn.dqe;
-                    if (view != yVar12.aAf()) {
+                    if (view != yVar12.aAi()) {
                         yVar14 = this.dqn.dqe;
-                        if (view != yVar14.aAg()) {
+                        if (view != yVar14.aAj()) {
                             yVar15 = this.dqn.dqe;
-                            if (view != yVar15.aAh()) {
+                            if (view != yVar15.aAk()) {
                                 yVar16 = this.dqn.dqe;
-                                if (view != yVar16.aAa()) {
+                                if (view != yVar16.aAd()) {
                                     yVar17 = this.dqn.dqe;
-                                    if (view != yVar17.aAk()) {
+                                    if (view != yVar17.aAn()) {
                                         yVar18 = this.dqn.dqe;
-                                        if (view == yVar18.aAj()) {
+                                        if (view == yVar18.aAm()) {
                                             apVar = this.dqn.dqc;
                                             if (apVar != null) {
                                                 NewSubPbActivity newSubPbActivity2 = this.dqn;
                                                 apVar2 = this.dqn.dqc;
-                                                newSubPbActivity2.mi(apVar2.BB());
+                                                newSubPbActivity2.mi(apVar2.BC());
                                                 return;
                                             }
                                             return;
                                         }
                                         yVar19 = this.dqn.dqe;
-                                        if (view == yVar19.aAi()) {
+                                        if (view == yVar19.aAl()) {
                                             String string = TbadkCoreApplication.m11getInst().getString(t.j.tail_web_view_title);
-                                            String string2 = com.baidu.tbadk.core.sharedPref.b.sQ().getString("tail_link", "");
+                                            String string2 = com.baidu.tbadk.core.sharedPref.b.sR().getString("tail_link", "");
                                             if (!StringUtils.isNull(string2)) {
                                                 com.baidu.tbadk.browser.f.a(view.getContext(), string, string2, true, true, true);
                                                 return;
@@ -283,9 +283,9 @@ public class d implements View.OnClickListener {
                                 }
                                 if (this.dqn.checkUpIsLogin()) {
                                     pVar = this.dqn.czd;
-                                    if (pVar.Ck()) {
+                                    if (pVar.Cl()) {
                                         pVar3 = this.dqn.czd;
-                                        pVar3.Cl();
+                                        pVar3.Cm();
                                         return;
                                     }
                                     pVar2 = this.dqn.czd;
@@ -296,14 +296,14 @@ public class d implements View.OnClickListener {
                             }
                             String str5 = view.getTag() != null ? (String) view.getTag() : null;
                             if (bl.ac(this.dqn.getActivity()) && str5 != null) {
-                                bg.us().c(this.dqn.getPageContext(), new String[]{str5});
+                                bg.ut().c(this.dqn.getPageContext(), new String[]{str5});
                                 return;
                             }
                             return;
                         }
                     }
                     yVar13 = this.dqn.dqe;
-                    yVar13.amQ();
+                    yVar13.amT();
                     Activity pageActivity = this.dqn.getPageContext().getPageActivity();
                     String string3 = this.dqn.getPageContext().getString(t.j.user_icon_intro);
                     str4 = NewSubPbActivity.dpI;
@@ -313,7 +313,7 @@ public class d implements View.OnClickListener {
             }
         }
         yVar9 = this.dqn.dqe;
-        yVar9.amQ();
+        yVar9.amT();
         if (view instanceof HeadImageView) {
             String userId = ((HeadImageView) view).getUserId();
             str2 = ((HeadImageView) view).getUserName();

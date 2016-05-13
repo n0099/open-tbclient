@@ -67,7 +67,7 @@ public class f extends BaseAdapter {
         return null;
     }
 
-    private a akw() {
+    private a aky() {
         a aVar = new a(this, null);
         aVar.awk = LayoutInflater.from(this.cwx.getPageContext().getContext()).inflate(t.h.im_black_list_item, (ViewGroup) null);
         aVar.cwz = (HeadImageView) aVar.awk.findViewById(t.g.header_view);
@@ -82,11 +82,11 @@ public class f extends BaseAdapter {
     private a a(Object obj, com.baidu.tieba.im.data.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = akw();
+            aVar2 = aky();
         } else {
             aVar2 = (a) obj;
         }
-        a(aVar2, aVar.aef());
+        a(aVar2, aVar.aeh());
         aVar2.aLz.setText(aVar.getUserName());
         aVar2.cwA.setTag(aVar);
         this.cwx.getLayoutMode().x(aVar2.awk);

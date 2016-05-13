@@ -149,7 +149,7 @@ public abstract class c {
         bvW.put(5, "c0127");
     }
 
-    public boolean Ub() {
+    public boolean Ud() {
         return this.bvP;
     }
 
@@ -167,7 +167,7 @@ public abstract class c {
         com.baidu.tieba.tbadkCore.a.a(tbPageContextSupport, view, scaleAnimation, new h(this, tbPageContextSupport, view, f2));
     }
 
-    public boolean Uc() {
+    public boolean Ue() {
         int[] iArr = new int[2];
         try {
             this.bvv.getLocationOnScreen(iArr);
@@ -181,15 +181,15 @@ public abstract class c {
         return this.Dn;
     }
 
-    public View Ud() {
+    public View Uf() {
         return this.bve;
     }
 
-    public BarImageView TU() {
+    public BarImageView TW() {
         return this.bvx;
     }
 
-    public TextView Ue() {
+    public TextView Ug() {
         return this.Di;
     }
 
@@ -197,15 +197,15 @@ public abstract class c {
         return this.bvB.ah(view);
     }
 
-    public void Uf() {
+    public void Uh() {
         this.bvB.hide();
     }
 
-    public void Ug() {
+    public void Ui() {
         this.bvB.show();
     }
 
-    public boolean TS() {
+    public boolean TU() {
         return this.bvT;
     }
 
@@ -219,15 +219,15 @@ public abstract class c {
         }
     }
 
-    public View Uh() {
+    public View Uj() {
         return this.bva;
     }
 
-    public boolean TT() {
+    public boolean TV() {
         return this.bvU;
     }
 
-    public ProgressBar Ui() {
+    public ProgressBar Uk() {
         return this.buX;
     }
 
@@ -270,7 +270,7 @@ public abstract class c {
     protected void St() {
     }
 
-    public void gW(int i) {
+    public void gV(int i) {
         if (i == 0) {
             this.bvP = false;
             this.buS.setVisibility(0);
@@ -286,7 +286,7 @@ public abstract class c {
         this.bva.setVisibility(0);
     }
 
-    public void gX(int i) {
+    public void gW(int i) {
         if (i == 0) {
             this.bvT = false;
             this.buY.setVisibility(8);
@@ -427,7 +427,7 @@ public abstract class c {
         }
     }
 
-    public void Uj() {
+    public void Ul() {
         if (this.bvk != null) {
             this.bvk.setCoverFlowFactory(new j(this));
             this.bvk.setCallback(new k(this));

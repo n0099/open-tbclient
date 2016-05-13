@@ -57,7 +57,7 @@ class m implements View.OnClickListener {
             }
         } else {
             TiebaStatic.eventStat(this.bhl.getPageContext().getPageActivity(), "frs_post_thread", "frsclick", 1, new Object[0]);
-            b.sQ().putBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "frs_write_has_click", true);
+            b.sR().putBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "frs_write_has_click", true);
             cnVar10 = this.bhl.bgo;
             cnVar10.QF();
             this.bhl.PP();
@@ -81,7 +81,7 @@ class m implements View.OnClickListener {
                 return;
             }
             oVar = this.bhl.bgq;
-            String activityUrl = oVar.avA().getYuleData().rO().getActivityUrl();
+            String activityUrl = oVar.avD().getYuleData().rP().getActivityUrl();
             if (!StringUtils.isNull(activityUrl)) {
                 com.baidu.tbadk.browser.f.u(this.bhl.getPageContext().getPageActivity(), activityUrl);
             }

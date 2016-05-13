@@ -32,7 +32,7 @@ public class d implements AdapterView.OnItemClickListener {
                         this.azJ.azC = i;
                         this.azJ.bT(true);
                         hVar = this.azJ.azA;
-                        hVar.eQ(i);
+                        hVar.eP(i);
                         hVar2 = this.azJ.azA;
                         hVar2.notifyDataSetChanged();
                     }

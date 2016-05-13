@@ -13,12 +13,12 @@ class a extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         long j;
-        long j2 = com.baidu.tbadk.core.sharedPref.b.sQ().getLong("key_clear_resource", 0L);
+        long j2 = com.baidu.tbadk.core.sharedPref.b.sR().getLong("key_clear_resource", 0L);
         long currentTimeMillis = System.currentTimeMillis();
         j = ClearResourceStatic.KX;
         if (currentTimeMillis - j2 > j) {
             new b(this).start();
-            com.baidu.tbadk.core.sharedPref.b.sQ().putLong("key_clear_resource", currentTimeMillis);
+            com.baidu.tbadk.core.sharedPref.b.sR().putLong("key_clear_resource", currentTimeMillis);
         }
     }
 }

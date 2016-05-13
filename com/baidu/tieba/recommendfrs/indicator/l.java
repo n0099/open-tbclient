@@ -44,7 +44,7 @@ public class l extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ov */
+    /* renamed from: ou */
     public TagInfo getItem(int i) {
         if (i < 0 || i >= this.cIJ.size()) {
             return null;

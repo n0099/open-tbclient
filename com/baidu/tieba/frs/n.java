@@ -32,7 +32,7 @@ class n implements fg {
             cnVar5 = this.bhl.bgo;
             cnVar5.cP(true);
         }
-        this.bhl.Pk();
+        this.bhl.Pm();
         this.bhl.bgC.a(i, i2, foVar);
     }
 
@@ -41,6 +41,6 @@ class n implements fg {
     }
 
     @Override // com.baidu.tieba.frs.fg
-    public void OY() {
+    public void Pa() {
     }
 }

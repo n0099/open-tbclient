@@ -82,7 +82,7 @@ public class a extends cm<com.baidu.tieba.tbadkCore.data.s, c> implements View.O
             cVar.dfT.setLayoutParams(layoutParams);
             cVar.dfT.setPadding(0, 0, 0, 0);
             cVar.dfT.gv(null);
-            if (sVar.aTS() == 1) {
+            if (sVar.aTY() == 1) {
                 cVar.dfV.setVisibility(0);
                 String str = null;
                 long j = 0;
@@ -90,17 +90,17 @@ public class a extends cm<com.baidu.tieba.tbadkCore.data.s, c> implements View.O
                     j = sVar.getAuthor().getUserIdLong();
                     str = sVar.getAuthor().getUserName();
                 }
-                cVar.dfV.a(sVar.aUb(), str, j, com.baidu.adp.lib.h.b.c(this.dfK.avB().getId(), 0L), com.baidu.adp.lib.h.b.c(sVar.getId(), 0L));
-                cVar.dfV.sf();
+                cVar.dfV.a(sVar.aUh(), str, j, com.baidu.adp.lib.h.b.c(this.dfK.avE().getId(), 0L), com.baidu.adp.lib.h.b.c(sVar.getId(), 0L));
+                cVar.dfV.sg();
                 if (this.dfL) {
-                    PraiseData praise = this.dfK.avB().getPraise();
+                    PraiseData praise = this.dfK.avE().getPraise();
                     if (praise != null && praise.getUser() != null && praise.getUser().size() > 0) {
                         cVar.dfW.setVisibility(0);
                         cVar.dfU.setVisibility(0);
                         cVar.dfX.setVisibility(0);
                         cVar.dfW.setIsFromPb(true);
-                        cVar.dfW.a(praise, this.dfK.avB().getId(), praise.getPostId(), true);
-                        cVar.dfW.cW(this.mSkinType);
+                        cVar.dfW.a(praise, this.dfK.avE().getId(), praise.getPostId(), true);
+                        cVar.dfW.cV(this.mSkinType);
                     } else {
                         cVar.dfW.setVisibility(8);
                         cVar.dfU.setVisibility(8);
@@ -130,16 +130,16 @@ public class a extends cm<com.baidu.tieba.tbadkCore.data.s, c> implements View.O
             cVar.dfT.setIsFromCDN(this.mIsFromCDN);
             com.baidu.tbadk.widget.richText.a aVar = null;
             if (0 == 0) {
-                aVar = sVar.amw();
+                aVar = sVar.amz();
             }
             if (this.dfP || !this.dfQ) {
                 cVar.dfT.a(aVar, false);
             } else {
                 cVar.dfT.a(aVar, true);
             }
-            av qF = this.dfK.avB().qF();
+            av qF = this.dfK.avE().qF();
             if (qF != null) {
-                cVar.dfS.c(this.dfK.avB().qF().qB(), this.mIsFromCDN ? 17 : 18, false);
+                cVar.dfS.c(this.dfK.avE().qF().qB(), this.mIsFromCDN ? 17 : 18, false);
                 int B = (com.baidu.adp.lib.util.k.B(this.mContext) - com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds30)) - com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds30);
                 float qD = qF.qD() / qF.qC();
                 if (qD > 1.0f) {
@@ -194,7 +194,7 @@ public class a extends cm<com.baidu.tieba.tbadkCore.data.s, c> implements View.O
         this.dfK = eVar;
     }
 
-    public void lE(int i) {
+    public void lD(int i) {
         this.dfH = i;
     }
 

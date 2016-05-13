@@ -40,9 +40,9 @@ public class b implements fi {
             oVar.an(arrayList2);
             if (i == 1 || i == 2 || i == 5) {
                 oVar2 = this.bsy.bgq;
-                oVar2.aSK();
+                oVar2.aSN();
                 oVar3 = this.bsy.bgq;
-                oVar3.aSL();
+                oVar3.aSO();
             }
             fiVar2 = this.bsy.bsu;
             fiVar2.a(i, i2, fqVar, arrayList);

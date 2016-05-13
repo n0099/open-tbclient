@@ -34,7 +34,7 @@ class b implements Runnable {
         } else {
             max = Math.max(-(((this.euH.getWidth() - this.euH.getPaddingLeft()) - this.euH.getPaddingRight()) - 1), i3);
         }
-        this.euH.pu(-max);
+        this.euH.pt(-max);
         if (!computeScrollOffset) {
             scroller2 = this.euH.eup;
             scroller2.forceFinished(true);

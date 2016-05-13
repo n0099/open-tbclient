@@ -22,7 +22,7 @@ public class cf extends cm<com.baidu.tieba.tbadkCore.data.r, PbRecBaseViewHolder
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aF */
     public PbRecBaseViewHolder b(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.aLA().m(this.mContext, 2);
+        return com.baidu.tieba.recapp.a.aLD().m(this.mContext, 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +36,7 @@ public class cf extends cm<com.baidu.tieba.tbadkCore.data.r, PbRecBaseViewHolder
         if (pbRecBaseViewHolder.getRootView() != null) {
             com.baidu.tbadk.core.util.at.l(pbRecBaseViewHolder.getRootView(), t.d.cp_bg_line_d);
         }
-        pbRecBaseViewHolder.update((com.baidu.tieba.tbadkCore.data.r) at(i), i, this.mIsFromCDN);
+        pbRecBaseViewHolder.update((com.baidu.tieba.tbadkCore.data.r) as(i), i, this.mIsFromCDN);
         if (this.dkq == null || this.dkq.get() != pbRecBaseViewHolder) {
             this.dkq = new WeakReference<>(pbRecBaseViewHolder);
         }

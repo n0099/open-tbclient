@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.bg;
 public class MainTabActivityStatic {
     static {
         Qq();
-        aVF();
-        aVD();
-        aVE();
+        aVL();
+        aVJ();
+        aVK();
         MessageManager.getInstance().registerListener(new u(CmdConfigCustom.START_GO_HOME));
-        bg.us().a(new v());
+        bg.ut().a(new v());
     }
 
     private static void Qq() {
@@ -21,19 +21,19 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aVD() {
+    private static void aVJ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new x());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aVE() {
+    private static void aVK() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHOW_GAME_ICON, new y());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aVF() {
+    private static void aVL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new z());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

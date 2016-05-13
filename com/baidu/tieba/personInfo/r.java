@@ -21,6 +21,6 @@ public class r extends HttpMessageListener {
         if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ChangePortraitResponse) || ((ChangePortraitResponse) httpResponsedMessage).getErrCode() != 0) {
             return;
         }
-        this.this$0.aDk();
+        this.this$0.aDn();
     }
 }

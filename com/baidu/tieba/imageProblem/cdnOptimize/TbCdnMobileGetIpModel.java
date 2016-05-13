@@ -55,9 +55,9 @@ public class TbCdnMobileGetIpModel {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (10001 == message.what) {
-                TbCdnMobileGetIpModel.this.amk();
+                TbCdnMobileGetIpModel.this.amn();
             } else if (10002 == message.what) {
-                TbCdnMobileGetIpModel.this.aml();
+                TbCdnMobileGetIpModel.this.amo();
             }
         }
     };
@@ -67,7 +67,7 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void amk() {
+    public void amn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD, "http://httpdns.baidu.com/ips/v1");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
@@ -87,7 +87,7 @@ public class TbCdnMobileGetIpModel {
             synchronized (lock) {
                 try {
                     if (0 == mobileLastTachometerTime) {
-                        mobileLastTachometerTime = b.sQ().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
+                        mobileLastTachometerTime = b.sR().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
                     }
                     currentTimeMillis = System.currentTimeMillis();
                 } catch (Exception e) {
@@ -95,7 +95,7 @@ public class TbCdnMobileGetIpModel {
                 }
                 if (0 == mobileLastTachometerTime || currentTimeMillis - mobileLastTachometerTime >= 300000) {
                     mobileLastTachometerTime = currentTimeMillis;
-                    b.sQ().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
+                    b.sR().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
                     this.handler.sendEmptyMessage(10002);
                 }
             }
@@ -103,7 +103,7 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aml() {
+    public void amo() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD);
         httpMessage.addParam("domain", "hiphotos.jomodns.com");
         httpMessage.setTag(this.unique_id);

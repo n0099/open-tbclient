@@ -17,7 +17,7 @@ public class b implements a.InterfaceC0078a {
         int i4;
         if (i2 > 0 && i >= 0 && (i4 = (int) (((i + (i3 / 100.0f)) / i2) * 90.0f)) != this.etI) {
             this.etI = i4;
-            this.etJ.pq(i4);
+            this.etJ.pp(i4);
         }
     }
 }

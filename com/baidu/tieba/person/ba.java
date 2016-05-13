@@ -20,15 +20,15 @@ public class ba extends HttpMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonFriendActivity aBR;
-        PersonFriendActivity aBR2;
+        PersonFriendActivity aBU;
+        PersonFriendActivity aBU2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
             this.dwQ.dwM = false;
-            aBR = this.dwQ.aBR();
-            if (aBR != null) {
+            aBU = this.dwQ.aBU();
+            if (aBU != null) {
                 BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                aBR2 = this.dwQ.aBR();
-                if (tag == aBR2.getUniqueId()) {
+                aBU2 = this.dwQ.aBU();
+                if (tag == aBU2.getUniqueId()) {
                     this.dwQ.zu.k(2000L);
                     if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
                         PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;

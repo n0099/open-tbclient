@@ -41,63 +41,63 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         this.aEg = lVar;
     }
 
-    public l GO() {
+    public l GQ() {
         if (this.mType == 1280) {
             return this.aEg;
         }
         return null;
     }
 
-    public k GP() {
+    public k GR() {
         if (this.mType == 1024) {
             return this.aEh;
         }
         return null;
     }
 
-    public g GH() {
+    public g GJ() {
         if (this.mType == 8) {
             return this.aEa;
         }
         return null;
     }
 
-    public o GL() {
+    public o GN() {
         if (this.mType != 32) {
             return null;
         }
         return this.aEf;
     }
 
-    public z GJ() {
+    public z GL() {
         if (this.mType == 512 || this.mType == 768) {
             return this.aEc;
         }
         return null;
     }
 
-    public d GM() {
+    public d GO() {
         if (this.mType == 17) {
             return this.aEe;
         }
         return null;
     }
 
-    public f GQ() {
+    public f GS() {
         if (this.mType == 1536) {
             return this.aEi;
         }
         return null;
     }
 
-    public n GR() {
+    public n GT() {
         if (this.mType == 1792) {
             return this.aEj;
         }
         return null;
     }
 
-    public SpannableString GX() {
+    public SpannableString GZ() {
         if (this.mType != 1 || this.aEA == null) {
             return null;
         }
@@ -113,8 +113,8 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
             if (u != null) {
                 spannableStringBuilder.append(u);
             }
-            if (this.aEA.GD() == 1) {
-                c = c(this.mType, this.aEA.getText(), this.aEA.GE());
+            if (this.aEA.GF() == 1) {
+                c = c(this.mType, this.aEA.getText(), this.aEA.GG());
             } else {
                 c = c(this.mType, this.aEA.getText(), this.aEA.getText());
             }
@@ -150,23 +150,23 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         if (this.mType != 32 || this.aEA == null) {
             return null;
         }
-        if (this.aEA.GD() == 1) {
-            return this.aEA.GE();
+        if (this.aEA.GF() == 1) {
+            return this.aEA.GG();
         }
         return this.aEA.getText();
     }
 
-    public SpannableString GY() {
+    public SpannableString Ha() {
         if (this.mType != 2 || this.aEA == null) {
             return null;
         }
-        if (this.aEA.GD() == 1) {
-            return c(this.mType, this.aEA.getText(), this.aEA.GE());
+        if (this.aEA.GF() == 1) {
+            return c(this.mType, this.aEA.getText(), this.aEA.GG());
         }
         return c(this.mType, this.aEA.getText(), this.aEA.getLink());
     }
 
-    public SpannableString GZ() {
+    public SpannableString Hb() {
         if (this.mType != 256 || this.aEA == null) {
             return null;
         }
@@ -184,7 +184,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         return spannableString;
     }
 
-    public SpannableString Ha() {
+    public SpannableString Hc() {
         if (this.mType != 16 || this.aEA == null) {
             return null;
         }
@@ -196,14 +196,14 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         int fi;
         a.C0043a fI;
         SpannableString spannableString = null;
-        if (this.mType == 4 && this.aEA != null && this.aEA.getText() != null && this.aEA.getLink() != null && (fi = TbFaceManager.CG().fi((text = this.aEA.getText()))) != 0) {
-            String str = "#(" + TbFaceManager.CG().fk(text) + ")";
+        if (this.mType == 4 && this.aEA != null && this.aEA.getText() != null && this.aEA.getLink() != null && (fi = TbFaceManager.CH().fi((text = this.aEA.getText()))) != 0) {
+            String str = "#(" + TbFaceManager.CH().fk(text) + ")";
             spannableString = new SpannableString(String.valueOf(str) + " ");
             e eVar = new e(TbadkCoreApplication.m11getInst().getContext(), fi);
             if (arrayList != null) {
                 arrayList.add(eVar);
             }
-            if (TbFaceManager.CG().fI(text) != null) {
+            if (TbFaceManager.CH().fI(text) != null) {
                 int width = (int) (fI.getWidth() * 0.5d);
                 eVar.setBounds(new Rect(0, 0, width, width));
             } else {
@@ -226,14 +226,14 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         return spannableString;
     }
 
-    public SpannableString Hb() {
+    public SpannableString Hd() {
         if (this.mType != 1024 || this.aEh == null) {
             return null;
         }
         SpannableString spannableString = new SpannableString("a");
-        Drawable fe = j.fe(this.aEh.aEB);
-        fe.setBounds(0, 0, fe.getIntrinsicWidth(), fe.getIntrinsicHeight());
-        com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(fe);
+        Drawable fd = j.fd(this.aEh.aEB);
+        fd.setBounds(0, 0, fd.getIntrinsicWidth(), fd.getIntrinsicHeight());
+        com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(fd);
         fVar.setVerticalOffset(com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m11getInst().getContext(), t.e.ds4));
         spannableString.setSpan(fVar, 0, 1, 33);
         spannableString.setSpan(new h(1024, this.aEh.link), spannableString.length() - 1, "a".length(), 33);
@@ -243,9 +243,9 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
     public CharSequence w(ArrayList<e> arrayList) {
         switch (this.mType) {
             case 1:
-                return GX();
+                return GZ();
             case 2:
-                return GY();
+                return Ha();
             case 4:
                 return v(arrayList);
             case 8:
@@ -253,20 +253,20 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
             default:
                 return null;
             case 16:
-                return Ha();
+                return Hc();
             case 32:
                 return s(arrayList);
             case 128:
                 return t(arrayList);
             case 256:
-                return GZ();
-            case 1024:
                 return Hb();
+            case 1024:
+                return Hd();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x002b, code lost:
-        if (r7.aEf.Hl() != false) goto L9;
+        if (r7.aEf.Hn() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -275,7 +275,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         String str;
         int i = 0;
         try {
-            this.mType = fd(pbContent.type.intValue());
+            this.mType = fc(pbContent.type.intValue());
             switch (this.mType) {
                 case 8:
                     this.aEa = new g(pbContent);
@@ -327,7 +327,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
                     }
                     this.aEA = new b(pbContent);
                     if (this.mType == 4) {
-                        if (TbFaceManager.CG().fi(this.aEA.getText()) <= 0) {
+                        if (TbFaceManager.CH().fi(this.aEA.getText()) <= 0) {
                             this.mType = 1;
                             if (StringUtils.isNull(pbContent.c)) {
                                 str = "[" + TbadkCoreApplication.m11getInst().getString(t.j.editor_express) + "]";
@@ -347,7 +347,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
                     break;
             }
             if (this.mType != 1 && this.aEA != null) {
-                this.aEA.GF();
+                this.aEA.GH();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -358,7 +358,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
         String str;
         int i = 0;
         try {
-            this.mType = fd(jSONObject.optInt("type", 0));
+            this.mType = fc(jSONObject.optInt("type", 0));
             if (this.mType == 8) {
                 this.aEa = new g(jSONObject);
             } else if (this.mType == 512) {
@@ -386,7 +386,7 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
             } else {
                 this.aEA = new b(jSONObject);
                 if (this.mType == 4) {
-                    int fi = TbFaceManager.CG().fi(this.aEA.getText());
+                    int fi = TbFaceManager.CH().fi(this.aEA.getText());
                     String optString = jSONObject.optString("c");
                     if (fi <= 0) {
                         this.mType = 1;
@@ -404,14 +404,14 @@ public class i extends com.baidu.adp.lib.a.b.a.a.i {
                 }
             }
             if (this.mType != 1 && this.aEA != null) {
-                this.aEA.GF();
+                this.aEA.GH();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    private int fd(int i) {
+    private int fc(int i) {
         switch (i) {
             case 0:
                 return 1;

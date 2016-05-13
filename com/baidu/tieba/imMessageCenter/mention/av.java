@@ -21,7 +21,7 @@ public class av extends CustomMessageListener {
         bf bfVar;
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
             bfVar = this.cyY.cyh;
-            bfVar.alw().ale();
+            bfVar.aly().alg();
         }
     }
 }

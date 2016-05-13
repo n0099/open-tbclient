@@ -46,8 +46,8 @@ public class p extends com.baidu.adp.widget.ListView.a<ax, a> {
         }
 
         @Override // com.baidu.tieba.frs.fh
-        public void JZ() {
-            this.bpd.JZ();
+        public void Kb() {
+            this.bpd.Kb();
         }
 
         @Override // com.baidu.tieba.frs.fh

@@ -51,7 +51,7 @@ public class an extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.
     public void B(FeedData feedData) {
         super.B(feedData);
         if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) || FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
-            if (com.baidu.tieba.graffiti.d.XZ()) {
+            if (com.baidu.tieba.graffiti.d.Yb()) {
                 c(feedData);
                 return;
             } else if (com.baidu.tieba.graffiti.d.aj(null)) {
@@ -79,7 +79,7 @@ public class an extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.
                 this.cyN.setText(getString(t.j.mention_chatme));
             }
             this.bbW.setText(com.baidu.tbadk.core.util.ay.x(feedData.getTime()));
-            this.cyP = TbFaceManager.CG().a(this.bbm.getPageActivity().getApplicationContext(), feedData.getContent(), null);
+            this.cyP = TbFaceManager.CH().a(this.bbm.getPageActivity().getApplicationContext(), feedData.getContent(), null);
             this.cyf.setText(a(this.cyf, this.cyP));
             if (feedData.getThread_Type() == 33) {
                 this.aOG.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
@@ -87,7 +87,7 @@ public class an extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.
                 this.aOG.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
             if (feedData.getType() == 1) {
-                this.cyQ = TbFaceManager.CG().a(this.bbm.getPageActivity().getApplicationContext(), this.bbm.getPageActivity().getString(t.j.mention_replyme_original, new Object[]{feedData.getQuote_content()}), null);
+                this.cyQ = TbFaceManager.CH().a(this.bbm.getPageActivity().getApplicationContext(), this.bbm.getPageActivity().getString(t.j.mention_replyme_original, new Object[]{feedData.getQuote_content()}), null);
                 this.aOG.setText(a(this.aOG, this.cyQ));
             } else {
                 this.aOG.setText(this.bbm.getPageActivity().getString(t.j.mention_replyme_original, new Object[]{feedData.getTitle()}));

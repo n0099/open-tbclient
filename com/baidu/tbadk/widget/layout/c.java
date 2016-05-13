@@ -81,7 +81,7 @@ public class c extends ViewGroup {
     public void a(List<String> list, int i, boolean z) {
         int r;
         if (this.aCy != null && (r = y.r(list)) > 0) {
-            eY(r);
+            eX(r);
             int childCount = getChildCount();
             int i2 = this.Zv ? 13 : 14;
             int i3 = 0;
@@ -109,7 +109,7 @@ public class c extends ViewGroup {
         this.aCz = i;
     }
 
-    private void eY(int i) {
+    private void eX(int i) {
         int childCount = getChildCount() - i;
         if (childCount > 0) {
             removeViews(i, childCount);
@@ -173,7 +173,7 @@ public class c extends ViewGroup {
         }
     }
 
-    public void sf() {
+    public void sg() {
         this.aBF.setColor(at.getColor(t.d.cp_cont_g));
         invalidate();
     }

@@ -19,8 +19,8 @@ public class t extends w {
     }
 
     @Override // com.baidu.tbadk.core.view.w, com.baidu.tbadk.core.view.t
-    public void cS(int i) {
-        super.cS(i);
+    public void cR(int i) {
+        super.cR(i);
         at.l(this.ach, t.d.cp_bg_line_d);
     }
 

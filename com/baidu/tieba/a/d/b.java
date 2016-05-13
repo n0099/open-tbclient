@@ -82,7 +82,7 @@ public class b extends LinearLayout {
         }
     }
 
-    public void Jz() {
+    public void JB() {
         for (Runnable runnable : this.aNv) {
             if (runnable != null) {
                 this.handler.removeCallbacks(runnable);
@@ -90,9 +90,9 @@ public class b extends LinearLayout {
         }
     }
 
-    public void JA() {
+    public void JC() {
         this.aNu = false;
-        Jz();
+        JB();
         int size = this.aNw.size();
         for (int i = 0; i < size; i++) {
             f fVar = this.aNw.get(i);
@@ -104,10 +104,10 @@ public class b extends LinearLayout {
         }
     }
 
-    public void JB() {
-        if (fs(3)) {
+    public void JD() {
+        if (fr(3)) {
             this.aNu = false;
-            Jz();
+            JB();
             int size = this.aNw.size();
             for (int i = 0; i < size; i++) {
                 f fVar = this.aNw.get(i);
@@ -120,13 +120,13 @@ public class b extends LinearLayout {
         }
     }
 
-    public boolean fs(int i) {
+    public boolean fr(int i) {
         Iterator<f> it = this.aNw.iterator();
         boolean z = true;
         while (it.hasNext()) {
             f next = it.next();
             if (next != null) {
-                boolean z2 = next.fs(i) && z;
+                boolean z2 = next.fr(i) && z;
                 if (!z2) {
                     return z2;
                 }
@@ -148,19 +148,19 @@ public class b extends LinearLayout {
         }
     }
 
-    public void JC() {
+    public void JE() {
         if (this.aNw != null) {
             Iterator<f> it = this.aNw.iterator();
             while (it.hasNext()) {
                 f next = it.next();
                 if (next != null) {
-                    next.JC();
+                    next.JE();
                 }
             }
         }
     }
 
-    public void JD() {
+    public void JF() {
         if (this.aNw != null) {
             int size = this.aNw.size();
             for (int i = 0; i < size; i++) {
@@ -173,7 +173,7 @@ public class b extends LinearLayout {
                             this.aNx.j(i, false);
                         }
                     }
-                    fVar.uE();
+                    fVar.uF();
                 }
             }
             this.aNu = false;
@@ -184,7 +184,7 @@ public class b extends LinearLayout {
         this.aNu = z;
     }
 
-    public boolean JE() {
+    public boolean JG() {
         return this.aNu;
     }
 
@@ -197,10 +197,10 @@ public class b extends LinearLayout {
             super(context);
             this.aNB = new ArrayList<>();
             this.mSkinType = 3;
-            JF();
+            JH();
         }
 
-        public void JF() {
+        public void JH() {
             setOrientation(1);
         }
 

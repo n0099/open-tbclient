@@ -8,11 +8,11 @@ public class be {
     private int Rp = 0;
     private bd Rq = new bd();
 
-    public boolean rN() {
+    public boolean rO() {
         return this.Rp != 0;
     }
 
-    public bd rO() {
+    public bd rP() {
         return this.Rq;
     }
 

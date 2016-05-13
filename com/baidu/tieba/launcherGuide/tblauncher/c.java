@@ -31,14 +31,14 @@ class c implements ViewPager.OnPageChangeListener {
         if (i != i2 - 1) {
             view = this.cEy.cEm;
             view.setVisibility(8);
-            this.cEy.kl(t.e.ds120);
+            this.cEy.kk(t.e.ds120);
             indicatorView = this.cEy.cEl;
             indicatorView.setVisibility(0);
         } else {
             i3 = this.cEy.cEs;
             switch (i3) {
                 case 1:
-                    this.cEy.kl(t.e.ds60);
+                    this.cEy.kk(t.e.ds60);
                     view6 = this.cEy.cEm;
                     view6.setVisibility(0);
                     indicatorView3 = this.cEy.cEl;

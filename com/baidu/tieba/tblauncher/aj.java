@@ -1,10 +1,12 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.coreExtra.view.j;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class aj implements j.a {
+class aj implements View.OnClickListener {
     final /* synthetic */ ab exg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,8 +14,11 @@ public class aj implements j.a {
         this.exg = abVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.j.a
-    public void i(AccountData accountData) {
-        this.exg.o(accountData);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.exg.fX(false);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CONFIRM));
+        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("enter_forum_edit_mode", false);
+        TiebaStatic.log("c10099");
     }
 }

@@ -34,9 +34,9 @@ class f extends CustomMessageListener {
                             iVar = this.cxV.cxP;
                             if (iVar != null) {
                                 iVar2 = this.cxV.cxP;
-                                if (iVar2.ala() != null) {
+                                if (iVar2.alc() != null) {
                                     iVar3 = this.cxV.cxP;
-                                    iVar3.ala().notifyDataSetChanged();
+                                    iVar3.alc().notifyDataSetChanged();
                                     return;
                                 }
                                 return;

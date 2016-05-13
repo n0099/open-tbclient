@@ -22,10 +22,10 @@ public class be implements a.d {
         bf bfVar2;
         this.czi.cyh.hideProgressBar();
         pVar = this.czi.czd;
-        pVar.Bb().hide();
+        pVar.Bc().hide();
         bfVar = this.czi.cyq;
-        bfVar.alu();
-        if (postWriteCallBackData != null && oVar == null && !AntiHelper.pw(postWriteCallBackData.getErrorCode())) {
+        bfVar.alw();
+        if (postWriteCallBackData != null && oVar == null && !AntiHelper.pv(postWriteCallBackData.getErrorCode())) {
             bfVar2 = this.czi.cyq;
             bfVar2.showToast(postWriteCallBackData.getErrorString());
         }

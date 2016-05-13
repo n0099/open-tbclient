@@ -15,7 +15,7 @@ public class e {
     public HashMap<String, String> anX = new HashMap<>();
     public String anY;
 
-    public static synchronized e Ay() {
+    public static synchronized e Az() {
         e eVar;
         synchronized (e.class) {
             if (anU == null) {

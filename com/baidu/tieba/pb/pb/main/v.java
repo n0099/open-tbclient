@@ -33,7 +33,7 @@ class v implements View.OnClickListener {
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v158, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
     /* JADX WARN: Code restructure failed: missing block: B:135:0x06f7, code lost:
-        if (r21 == r1.dmZ.azN().ayn()) goto L134;
+        if (r21 == r1.dmZ.azQ().ayq()) goto L134;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:361:0x1162  */
@@ -99,7 +99,7 @@ class v implements View.OnClickListener {
         el elVar24;
         el elVar25;
         cw cwVar4;
-        String awK;
+        String awN;
         el elVar26;
         el elVar27;
         el elVar28;
@@ -132,8 +132,8 @@ class v implements View.OnClickListener {
         cw cwVar11;
         cw cwVar12;
         el elVar40;
-        int awy;
-        int awy2;
+        int awB;
+        int awB2;
         cw cwVar13;
         cw cwVar14;
         cw cwVar15;
@@ -142,8 +142,8 @@ class v implements View.OnClickListener {
         cw cwVar18;
         cw cwVar19;
         cw cwVar20;
-        int awy3;
-        int awy4;
+        int awB3;
+        int awB4;
         cw cwVar21;
         cw cwVar22;
         cw cwVar23;
@@ -277,7 +277,7 @@ class v implements View.OnClickListener {
         el elVar71;
         el elVar72;
         el elVar73;
-        boolean lK;
+        boolean lJ;
         cw cwVar62;
         el elVar74;
         cw cwVar63;
@@ -318,71 +318,71 @@ class v implements View.OnClickListener {
             cwVar86 = this.djE.dih;
             if (cwVar86.gE(true)) {
                 elVar83 = this.djE.diR;
-                elVar83.azb();
+                elVar83.aze();
                 return;
             }
             return;
         }
         elVar2 = this.djE.diR;
-        if (view == elVar2.ayW()) {
+        if (view == elVar2.ayZ()) {
             elVar81 = this.djE.diR;
-            elVar81.ayR();
+            elVar81.ayU();
             if (UtilHelper.isFloatWindowOpAllowed(this.djE.getPageContext().getPageActivity())) {
                 this.djE.diV = true;
                 PbActivity pbActivity = this.djE;
                 cwVar84 = this.djE.dih;
                 pbActivity.a(cwVar84.getPbData(), 0, 1, true, true);
                 elVar82 = this.djE.diR;
-                elVar82.ayQ();
+                elVar82.ayT();
                 com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10830");
                 cwVar85 = this.djE.dih;
                 TiebaStatic.log(awVar.ac("tid", cwVar85.getThreadID()));
                 return;
             }
-            this.djE.awx();
+            this.djE.awA();
             return;
         }
         elVar3 = this.djE.diR;
-        if (view == elVar3.azw()) {
+        if (view == elVar3.azz()) {
             elVar78 = this.djE.diR;
-            elVar78.amQ();
-            this.djE.Pk();
+            elVar78.amT();
+            this.djE.Pm();
             elVar79 = this.djE.diR;
-            elVar79.aza();
+            elVar79.azd();
             elVar80 = this.djE.diR;
-            elVar80.akv();
+            elVar80.akx();
             cwVar83 = this.djE.dih;
-            cwVar83.lO(1);
+            cwVar83.lN(1);
             return;
         }
         elVar4 = this.djE.diR;
         if (view == elVar4.dmZ.azx) {
             elVar77 = this.djE.diR;
             cwVar82 = this.djE.dih;
-            if (!elVar77.gY(cwVar82.axF())) {
+            if (!elVar77.gY(cwVar82.axI())) {
                 this.djE.diz = false;
                 this.djE.finish();
                 return;
             }
-            this.djE.Pk();
+            this.djE.Pm();
             return;
         }
         elVar5 = this.djE.diR;
-        if (view != elVar5.azn()) {
+        if (view != elVar5.azq()) {
             elVar14 = this.djE.diR;
-            if (view != elVar14.azo()) {
+            if (view != elVar14.azr()) {
                 elVar15 = this.djE.diR;
-                if (view != elVar15.azp()) {
+                if (view != elVar15.azs()) {
                     elVar16 = this.djE.diR;
-                    if (view != elVar16.azq()) {
+                    if (view != elVar16.azt()) {
                         elVar17 = this.djE.diR;
-                        if (view != elVar17.ayY()) {
+                        if (view != elVar17.azb()) {
                             elVar18 = this.djE.diR;
-                            if (view == elVar18.azt()) {
+                            if (view == elVar18.azw()) {
                                 cwVar80 = this.djE.dih;
                                 if (cwVar80 != null) {
                                     cwVar81 = this.djE.dih;
-                                    com.baidu.tbadk.browser.f.t(this.djE.getPageContext().getPageActivity(), cwVar81.getPbData().avB().qN().getLink());
+                                    com.baidu.tbadk.browser.f.t(this.djE.getPageContext().getPageActivity(), cwVar81.getPbData().avE().qO().getLink());
                                     return;
                                 }
                                 return;
@@ -396,20 +396,20 @@ class v implements View.OnClickListener {
                                         cwVar70 = this.djE.dih;
                                         if (cwVar70.getPbData() != null) {
                                             cwVar71 = this.djE.dih;
-                                            ArrayList<com.baidu.tieba.tbadkCore.data.s> avC = cwVar71.getPbData().avC();
-                                            if (avC == null || avC.size() <= 0) {
+                                            ArrayList<com.baidu.tieba.tbadkCore.data.s> avF = cwVar71.getPbData().avF();
+                                            if (avF == null || avF.size() <= 0) {
                                                 cwVar72 = this.djE.dih;
-                                                if (cwVar72.axB()) {
+                                                if (cwVar72.axE()) {
                                                     com.baidu.adp.lib.util.k.showToast(this.djE.getPageContext().getPageActivity(), this.djE.getPageContext().getString(t.j.pb_no_data_tips));
                                                     return;
                                                 }
                                             }
                                             elVar75 = this.djE.diR;
-                                            elVar75.ayH();
+                                            elVar75.ayK();
                                             elVar76 = this.djE.diR;
-                                            elVar76.azy();
-                                            this.djE.awz();
-                                            this.djE.awR();
+                                            elVar76.azB();
+                                            this.djE.awC();
+                                            this.djE.awU();
                                             return;
                                         }
                                     }
@@ -421,18 +421,18 @@ class v implements View.OnClickListener {
                                     elVar28 = this.djE.diR;
                                     if (view == elVar28.dmZ.dpX) {
                                         cwVar63 = this.djE.dih;
-                                        AdditionData avK = cwVar63.getPbData().avK();
-                                        if (!TextUtils.isEmpty(avK.getWarnMsg())) {
-                                            com.baidu.adp.lib.util.k.showToast(this.djE.getPageContext().getPageActivity(), avK.getWarnMsg());
+                                        AdditionData avN = cwVar63.getPbData().avN();
+                                        if (!TextUtils.isEmpty(avN.getWarnMsg())) {
+                                            com.baidu.adp.lib.util.k.showToast(this.djE.getPageContext().getPageActivity(), avN.getWarnMsg());
                                             return;
-                                        } else if (avK.getAlreadyCount() != avK.getTotalCount()) {
+                                        } else if (avN.getAlreadyCount() != avN.getTotalCount()) {
                                             cwVar64 = this.djE.dih;
-                                            ForumData avA = cwVar64.getPbData().avA();
+                                            ForumData avD = cwVar64.getPbData().avD();
                                             cwVar65 = this.djE.dih;
-                                            com.baidu.tbadk.core.data.ax avB = cwVar65.getPbData().avB();
+                                            com.baidu.tbadk.core.data.ax avE = cwVar65.getPbData().avE();
                                             cwVar66 = this.djE.dih;
                                             AntiData pz = cwVar66.getPbData().pz();
-                                            if (avB.getId() != null) {
+                                            if (avE.getId() != null) {
                                                 if (pz != null && pz.getIfpost() == 0) {
                                                     com.baidu.adp.lib.util.k.showToast(this.djE.getPageContext().getPageActivity(), pz.getForbid_info());
                                                     return;
@@ -443,38 +443,38 @@ class v implements View.OnClickListener {
                                                     cwVar68 = this.djE.dih;
                                                     i2 = cwVar68.getPbData().getUserData().getIsMem();
                                                 }
-                                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteActivityConfig(this.djE.getPageContext().getPageActivity(), 2, avA.getId(), avA.getName(), avB.getId(), avK.getPostId(), 0, pz, 13008, false, false, null, false, false, null, avK, null, i2)));
+                                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteActivityConfig(this.djE.getPageContext().getPageActivity(), 2, avD.getId(), avD.getName(), avE.getId(), avN.getPostId(), 0, pz, 13008, false, false, null, false, false, null, avN, null, i2)));
                                                 return;
                                             }
                                             return;
                                         } else {
-                                            com.baidu.adp.lib.util.k.showToast(this.djE.getPageContext().getPageActivity(), String.format(this.djE.getPageContext().getString(t.j.write_addition_limit), Integer.valueOf(avK.getTotalCount())));
+                                            com.baidu.adp.lib.util.k.showToast(this.djE.getPageContext().getPageActivity(), String.format(this.djE.getPageContext().getString(t.j.write_addition_limit), Integer.valueOf(avN.getTotalCount())));
                                             return;
                                         }
                                     }
                                     elVar29 = this.djE.diR;
-                                    if (elVar29.dmZ.azN() != null) {
+                                    if (elVar29.dmZ.azQ() != null) {
                                         elVar72 = this.djE.diR;
-                                        if (view == elVar72.dmZ.azN().axY()) {
+                                        if (view == elVar72.dmZ.azQ().ayb()) {
                                             elVar73 = this.djE.diR;
-                                            elVar73.amQ();
-                                            lK = this.djE.lK(11009);
-                                            if (lK) {
+                                            elVar73.amT();
+                                            lJ = this.djE.lJ(11009);
+                                            if (lJ) {
                                                 cwVar62 = this.djE.dih;
                                                 elVar74 = this.djE.diR;
-                                                if (cwVar62.lU(elVar74.azg()) == null) {
+                                                if (cwVar62.lT(elVar74.azj()) == null) {
                                                     return;
                                                 }
-                                                this.djE.awE();
+                                                this.djE.awH();
                                                 return;
                                             }
                                             return;
                                         }
                                     }
                                     elVar30 = this.djE.diR;
-                                    if (elVar30.dmZ.azN() != null) {
+                                    if (elVar30.dmZ.azQ() != null) {
                                         elVar69 = this.djE.diR;
-                                        if (view != elVar69.dmZ.azN().aym()) {
+                                        if (view != elVar69.dmZ.azQ().ayp()) {
                                             elVar71 = this.djE.diR;
                                         }
                                         elVar70 = this.djE.diR;
@@ -482,63 +482,63 @@ class v implements View.OnClickListener {
                                         return;
                                     }
                                     elVar31 = this.djE.diR;
-                                    if (elVar31.dmZ.azN() != null) {
+                                    if (elVar31.dmZ.azQ() != null) {
                                         elVar67 = this.djE.diR;
-                                        if (view == elVar67.dmZ.azN().ayh()) {
+                                        if (view == elVar67.dmZ.azQ().ayk()) {
                                             elVar68 = this.djE.diR;
-                                            elVar68.amQ();
-                                            this.djE.Pk();
+                                            elVar68.amT();
+                                            this.djE.Pm();
                                             this.djE.Qg();
                                             return;
                                         }
                                     }
                                     elVar32 = this.djE.diR;
-                                    if (elVar32.dmZ.azN() != null) {
+                                    if (elVar32.dmZ.azQ() != null) {
                                         elVar64 = this.djE.diR;
-                                        if (view == elVar64.dmZ.azN().ayi()) {
+                                        if (view == elVar64.dmZ.azQ().ayl()) {
                                             elVar65 = this.djE.diR;
-                                            elVar65.amQ();
+                                            elVar65.amT();
                                             cwVar60 = this.djE.dih;
-                                            if (cwVar60.abs() != null) {
+                                            if (cwVar60.abu() != null) {
                                                 elVar66 = this.djE.diR;
                                                 cwVar61 = this.djE.dih;
-                                                elVar66.a(cwVar61.abs(), this.djE.daz);
+                                                elVar66.a(cwVar61.abu(), this.djE.daz);
                                             }
                                             TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pb_skip_page", "pbclick", 1, new Object[0]);
                                             return;
                                         }
                                     }
                                     elVar33 = this.djE.diR;
-                                    if (elVar33.dmZ.azN() != null) {
+                                    if (elVar33.dmZ.azQ() != null) {
                                         elVar61 = this.djE.diR;
-                                        if (view == elVar61.dmZ.azN().ayj()) {
+                                        if (view == elVar61.dmZ.azQ().aym()) {
                                             elVar62 = this.djE.diR;
-                                            elVar62.amQ();
-                                            this.djE.Pk();
+                                            elVar62.amT();
+                                            this.djE.Pm();
                                             elVar63 = this.djE.diR;
-                                            elVar63.aza();
+                                            elVar63.azd();
                                             cwVar59 = this.djE.dih;
-                                            cwVar59.axK();
+                                            cwVar59.axN();
                                             TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pb_set_desc", "pbclick", 1, new Object[0]);
-                                            this.djE.awR();
+                                            this.djE.awU();
                                             return;
                                         }
                                     }
                                     elVar34 = this.djE.diR;
-                                    if (elVar34.dmZ.azN() != null) {
+                                    if (elVar34.dmZ.azQ() != null) {
                                         elVar59 = this.djE.diR;
-                                        if (view == elVar59.dmZ.azN().ayk()) {
+                                        if (view == elVar59.dmZ.azQ().ayn()) {
                                             cwVar55 = this.djE.dih;
                                             if (cwVar55 != null) {
                                                 cwVar56 = this.djE.dih;
                                                 if (cwVar56.getPbData() != null) {
                                                     cwVar57 = this.djE.dih;
-                                                    if (cwVar57.getPbData().avB() != null) {
+                                                    if (cwVar57.getPbData().avE() != null) {
                                                         elVar60 = this.djE.diR;
                                                         elVar60.dmZ.nv();
                                                         PbActivity pbActivity2 = this.djE;
                                                         cwVar58 = this.djE.dih;
-                                                        pbActivity2.lR(cwVar58.getPbData().avB().qZ());
+                                                        pbActivity2.lR(cwVar58.getPbData().avE().ra());
                                                         return;
                                                     }
                                                     return;
@@ -549,31 +549,31 @@ class v implements View.OnClickListener {
                                         }
                                     }
                                     elVar35 = this.djE.diR;
-                                    if (elVar35.dmZ.azN() != null) {
+                                    if (elVar35.dmZ.azQ() != null) {
                                         elVar55 = this.djE.diR;
-                                        if (view == elVar55.dmZ.azN().ayl()) {
+                                        if (view == elVar55.dmZ.azQ().ayo()) {
                                             TiebaStatic.log("c10414");
                                             elVar56 = this.djE.diR;
-                                            elVar56.amQ();
+                                            elVar56.amT();
                                             elVar57 = this.djE.diR;
-                                            if (elVar57.qK() != el.doH) {
+                                            if (elVar57.qL() != el.doH) {
                                                 cwVar53 = this.djE.dih;
-                                                if (cwVar53.axX() != null) {
+                                                if (cwVar53.aya() != null) {
                                                     cwVar54 = this.djE.dih;
-                                                    cwVar54.axX().lM(cw.dkX);
+                                                    cwVar54.aya().lL(cw.dkX);
                                                     return;
                                                 }
                                                 return;
                                             }
                                             elVar58 = this.djE.diR;
-                                            elVar58.azC();
+                                            elVar58.azF();
                                             return;
                                         }
                                     }
                                     ddVar = this.djE.diU;
                                     if (ddVar != null) {
                                         ddVar49 = this.djE.diU;
-                                        if (view == ddVar49.aya()) {
+                                        if (view == ddVar49.ayd()) {
                                             Object tag = view.getTag();
                                             if (!(tag instanceof String)) {
                                                 if (tag instanceof SparseArray) {
@@ -595,7 +595,7 @@ class v implements View.OnClickListener {
                                     ddVar2 = this.djE.diU;
                                     if (ddVar2 != null) {
                                         ddVar48 = this.djE.diU;
-                                        if (view == ddVar48.axY()) {
+                                        if (view == ddVar48.ayb()) {
                                             if (!this.djE.checkUpIsLogin()) {
                                                 return;
                                             }
@@ -606,14 +606,14 @@ class v implements View.OnClickListener {
                                     ddVar3 = this.djE.diU;
                                     if (ddVar3 != null) {
                                         ddVar47 = this.djE.diU;
-                                        if (view == ddVar47.aye()) {
+                                        if (view == ddVar47.ayh()) {
                                             if (view.getTag(t.g.tag_pb_floor_postion) instanceof Integer) {
                                                 cwVar51 = this.djE.dih;
                                                 if (cwVar51 != null) {
                                                     elVar54 = this.djE.diR;
-                                                    elVar54.ayR();
+                                                    elVar54.ayU();
                                                     if (!UtilHelper.isFloatWindowOpAllowed(this.djE.getPageContext().getPageActivity())) {
-                                                        this.djE.awx();
+                                                        this.djE.awA();
                                                         return;
                                                     }
                                                     int intValue = ((Integer) view.getTag(t.g.tag_pb_floor_postion)).intValue();
@@ -633,7 +633,7 @@ class v implements View.OnClickListener {
                                     ddVar4 = this.djE.diU;
                                     if (ddVar4 != null) {
                                         ddVar46 = this.djE.diU;
-                                        if (view == ddVar46.ayb()) {
+                                        if (view == ddVar46.aye()) {
                                             SparseArray sparseArray6 = (SparseArray) view.getTag();
                                             if (sparseArray6 != null && (sparseArray6.get(t.g.tag_del_post_type) instanceof Integer) && (sparseArray6.get(t.g.tag_del_post_id) instanceof String) && (sparseArray6.get(t.g.tag_manage_user_identity) instanceof Integer) && (sparseArray6.get(t.g.tag_del_post_is_self) instanceof Boolean)) {
                                                 elVar53 = this.djE.diR;
@@ -646,7 +646,7 @@ class v implements View.OnClickListener {
                                     ddVar5 = this.djE.diU;
                                     if (ddVar5 != null) {
                                         ddVar45 = this.djE.diU;
-                                        if (view == ddVar45.ayc()) {
+                                        if (view == ddVar45.ayf()) {
                                             long j = -1;
                                             String str2 = "";
                                             int i3 = 0;
@@ -664,9 +664,9 @@ class v implements View.OnClickListener {
                                             String str3 = null;
                                             String str4 = null;
                                             String str5 = null;
-                                            if (pbData != null && pbData.avA() != null) {
-                                                str3 = pbData.avA().getId();
-                                                str4 = pbData.avA().getName();
+                                            if (pbData != null && pbData.avD() != null) {
+                                                str3 = pbData.avD().getId();
+                                                str4 = pbData.avD().getName();
                                                 str5 = pbData.getThreadId();
                                             }
                                             com.baidu.tieba.pb.b.a(j, str2, null, "PB", "BTN_FB", "CLICK_FEEDBACK", "tpoint", str3, str4, str5);
@@ -675,30 +675,30 @@ class v implements View.OnClickListener {
                                         }
                                     }
                                     elVar36 = this.djE.diR;
-                                    if (elVar36.azD() == view) {
+                                    if (elVar36.azG() == view) {
                                         elVar52 = this.djE.diR;
-                                        if (elVar52.azD().getIndicateStatus()) {
+                                        if (elVar52.azG().getIndicateStatus()) {
                                             cwVar49 = this.djE.dih;
                                             com.baidu.tieba.pb.data.e pbData2 = cwVar49.getPbData();
-                                            if (pbData2 != null && pbData2.avB() != null && pbData2.avB().qF() != null) {
-                                                String qE = pbData2.avB().qF().qE();
+                                            if (pbData2 != null && pbData2.avE() != null && pbData2.avE().qF() != null) {
+                                                String qE = pbData2.avE().qF().qE();
                                                 if (StringUtils.isNull(qE)) {
-                                                    qE = pbData2.avB().qF().getTaskId();
+                                                    qE = pbData2.avE().qF().getTaskId();
                                                 }
                                                 TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c11107").ac("obj_id", qE));
                                             }
                                         } else {
                                             com.baidu.tieba.tbadkCore.d.a.bJ("c10725", null);
                                         }
-                                        this.djE.awS();
+                                        this.djE.awV();
                                         return;
                                     }
                                     elVar37 = this.djE.diR;
-                                    if (elVar37.ayT() != view) {
+                                    if (elVar37.ayW() != view) {
                                         ddVar6 = this.djE.diU;
                                         if (ddVar6 != null) {
                                             ddVar44 = this.djE.diU;
-                                            if (view == ddVar44.axZ()) {
+                                            if (view == ddVar44.ayc()) {
                                                 SparseArray<Object> sparseArray7 = (SparseArray) view.getTag();
                                                 if (sparseArray7 != null) {
                                                     boolean booleanValue2 = ((Boolean) sparseArray7.get(t.g.tag_should_manage_visible)).booleanValue();
@@ -727,20 +727,20 @@ class v implements View.OnClickListener {
                                             }
                                         }
                                         elVar38 = this.djE.diR;
-                                        if (view == elVar38.axw()) {
+                                        if (view == elVar38.axz()) {
                                             if (this.djE.checkUpIsLogin()) {
                                                 elVar47 = this.djE.diR;
-                                                if (!elVar47.axt()) {
+                                                if (!elVar47.axw()) {
                                                     cwVar44 = this.djE.dih;
                                                     if (cwVar44 != null) {
                                                         cwVar45 = this.djE.dih;
-                                                        if (cwVar45.axV() != null) {
+                                                        if (cwVar45.axY() != null) {
                                                             cwVar46 = this.djE.dih;
-                                                            if (cwVar46.axV().axn() != null) {
+                                                            if (cwVar46.axY().axq() != null) {
                                                                 cwVar47 = this.djE.dih;
-                                                                if (com.baidu.tbadk.core.util.y.r(cwVar47.axV().axn().getItems()) != 0) {
+                                                                if (com.baidu.tbadk.core.util.y.r(cwVar47.axY().axq().getItems()) != 0) {
                                                                     elVar48 = this.djE.diR;
-                                                                    elVar48.axu();
+                                                                    elVar48.axx();
                                                                     return;
                                                                 }
                                                                 this.djE.showToast(t.j.graffiti_quick_vote_empty);
@@ -753,7 +753,7 @@ class v implements View.OnClickListener {
                                                     return;
                                                 }
                                                 elVar49 = this.djE.diR;
-                                                elVar49.axv();
+                                                elVar49.axy();
                                                 return;
                                             }
                                             return;
@@ -766,11 +766,11 @@ class v implements View.OnClickListener {
                                                 elVar45 = this.djE.diR;
                                                 elVar45.a(((Integer) sparseArray8.get(t.g.tag_del_post_type)).intValue(), (String) sparseArray8.get(t.g.tag_del_post_id), ((Integer) sparseArray8.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray8.get(t.g.tag_del_post_is_self)).booleanValue());
                                             }
-                                            this.djE.awR();
+                                            this.djE.awU();
                                             return;
                                         } else if (view.getId() != t.g.replybtn && view.getId() != t.g.sub_pb_more && view.getId() != t.g.sub_pb_item) {
                                             elVar40 = this.djE.diR;
-                                            if (view == elVar40.awq()) {
+                                            if (view == elVar40.awt()) {
                                                 if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
                                                     long c = com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccountInfo().getID(), 0L);
                                                     cwVar42 = this.djE.dih;
@@ -783,9 +783,9 @@ class v implements View.OnClickListener {
                                             }
                                             int id = view.getId();
                                             if (id == t.g.pb_u9_text_view) {
-                                                if (this.djE.checkUpIsLogin() && (bcVar = (com.baidu.tbadk.core.data.bc) view.getTag()) != null && !StringUtils.isNull(bcVar.rK())) {
+                                                if (this.djE.checkUpIsLogin() && (bcVar = (com.baidu.tbadk.core.data.bc) view.getTag()) != null && !StringUtils.isNull(bcVar.rL())) {
                                                     TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "info_click", "click", 1, "page", "pb");
-                                                    com.baidu.tbadk.core.util.bg.us().c(this.djE.getPageContext(), new String[]{bcVar.rK()});
+                                                    com.baidu.tbadk.core.util.bg.ut().c(this.djE.getPageContext(), new String[]{bcVar.rL()});
                                                     return;
                                                 }
                                                 return;
@@ -798,29 +798,29 @@ class v implements View.OnClickListener {
                                                     ddVar43.gI(z7);
                                                 }
                                                 ddVar8 = this.djE.diU;
-                                                ddVar8.Fi();
+                                                ddVar8.Fk();
                                                 com.baidu.tieba.tbadkCore.data.s sVar = null;
                                                 if (view != null && view.getTag() != null) {
                                                     sVar = (com.baidu.tieba.tbadkCore.data.s) ((SparseArray) view.getTag()).get(t.g.tag_load_sub_data);
-                                                    if (!this.djE.awM()) {
+                                                    if (!this.djE.awP()) {
                                                         cwVar41 = this.djE.dih;
-                                                        if (cwVar41.axL() && TbadkCoreApplication.m11getInst().isTTSCanUse()) {
+                                                        if (cwVar41.axO() && TbadkCoreApplication.m11getInst().isTTSCanUse()) {
                                                             ddVar42 = this.djE.diU;
-                                                            ddVar42.ayg();
+                                                            ddVar42.ayj();
                                                             sparseArray = (SparseArray) view.getTag();
                                                             if (sparseArray.get(t.g.tag_pb_floor_postion) instanceof Integer) {
                                                                 int intValue3 = ((Integer) sparseArray.get(t.g.tag_pb_floor_postion)).intValue();
                                                                 int intValue4 = ((Integer) sparseArray.get(t.g.tag_pb_floor_number)).intValue();
                                                                 ddVar40 = this.djE.diU;
-                                                                ddVar40.aye().setTag(t.g.tag_pb_floor_postion, Integer.valueOf(intValue3));
+                                                                ddVar40.ayh().setTag(t.g.tag_pb_floor_postion, Integer.valueOf(intValue3));
                                                                 ddVar41 = this.djE.diU;
-                                                                ddVar41.aye().setTag(t.g.tag_pb_floor_number, Integer.valueOf(intValue4));
+                                                                ddVar41.ayh().setTag(t.g.tag_pb_floor_number, Integer.valueOf(intValue4));
                                                             }
                                                             SparseArray sparseArray9 = new SparseArray();
                                                             sparseArray9.put(t.g.tag_clip_board, (com.baidu.tieba.tbadkCore.data.s) ((SparseArray) view.getTag()).get(t.g.tag_clip_board));
                                                             sparseArray9.put(t.g.tag_is_subpb, false);
                                                             ddVar14 = this.djE.diU;
-                                                            ddVar14.axY().setTag(sparseArray9);
+                                                            ddVar14.ayb().setTag(sparseArray9);
                                                             sparseArray2 = (SparseArray) view.getTag();
                                                             booleanValue = ((Boolean) sparseArray2.get(t.g.tag_should_manage_visible)).booleanValue();
                                                             boolean booleanValue5 = ((Boolean) sparseArray2.get(t.g.tag_user_mute_visible)).booleanValue();
@@ -856,25 +856,25 @@ class v implements View.OnClickListener {
                                                                     sparseArray10.put(t.g.tag_del_post_id, sparseArray2.get(t.g.tag_del_post_id));
                                                                     sparseArray10.put(t.g.tag_del_post_type, sparseArray2.get(t.g.tag_del_post_type));
                                                                     ddVar39 = this.djE.diU;
-                                                                    ddVar39.ayb().setVisibility(0);
+                                                                    ddVar39.aye().setVisibility(0);
                                                                 } else {
                                                                     sparseArray10.put(t.g.tag_should_delete_visible, false);
                                                                     ddVar34 = this.djE.diU;
-                                                                    ddVar34.ayb().setVisibility(8);
+                                                                    ddVar34.aye().setVisibility(8);
                                                                 }
                                                                 ddVar35 = this.djE.diU;
-                                                                ddVar35.axZ().setTag(sparseArray10);
+                                                                ddVar35.ayc().setTag(sparseArray10);
                                                                 ddVar36 = this.djE.diU;
-                                                                ddVar36.ayb().setTag(sparseArray10);
+                                                                ddVar36.aye().setTag(sparseArray10);
                                                                 ddVar37 = this.djE.diU;
-                                                                ddVar37.axZ().setText(t.j.bar_manager);
+                                                                ddVar37.ayc().setText(t.j.bar_manager);
                                                                 ddVar38 = this.djE.diU;
-                                                                ddVar38.axZ().setVisibility(0);
+                                                                ddVar38.ayc().setVisibility(0);
                                                             } else if (!booleanValue6) {
                                                                 ddVar15 = this.djE.diU;
-                                                                ddVar15.axZ().setVisibility(8);
+                                                                ddVar15.ayc().setVisibility(8);
                                                                 ddVar16 = this.djE.diU;
-                                                                ddVar16.ayb().setVisibility(8);
+                                                                ddVar16.aye().setVisibility(8);
                                                             } else {
                                                                 SparseArray sparseArray11 = new SparseArray();
                                                                 sparseArray11.put(t.g.tag_should_manage_visible, false);
@@ -885,15 +885,15 @@ class v implements View.OnClickListener {
                                                                 sparseArray11.put(t.g.tag_del_post_id, sparseArray2.get(t.g.tag_del_post_id));
                                                                 sparseArray11.put(t.g.tag_del_post_type, sparseArray2.get(t.g.tag_del_post_type));
                                                                 ddVar17 = this.djE.diU;
-                                                                ddVar17.axZ().setTag(sparseArray11);
+                                                                ddVar17.ayc().setTag(sparseArray11);
                                                                 ddVar18 = this.djE.diU;
-                                                                ddVar18.ayb().setTag(sparseArray11);
+                                                                ddVar18.aye().setTag(sparseArray11);
                                                                 ddVar19 = this.djE.diU;
-                                                                ddVar19.axZ().setText(t.j.delete);
+                                                                ddVar19.ayc().setText(t.j.delete);
                                                                 ddVar20 = this.djE.diU;
-                                                                ddVar20.ayb().setVisibility(0);
+                                                                ddVar20.aye().setVisibility(0);
                                                                 ddVar21 = this.djE.diU;
-                                                                ddVar21.axZ().setVisibility(8);
+                                                                ddVar21.ayc().setVisibility(8);
                                                             }
                                                             sparseArray3 = (SparseArray) view.getTag();
                                                             if (sparseArray3.get(t.g.tag_user_mute_visible) instanceof Boolean) {
@@ -914,13 +914,13 @@ class v implements View.OnClickListener {
                                                                 sparseArray12.put(t.g.tag_del_post_id, sparseArray3.get(t.g.tag_del_post_id));
                                                                 sparseArray12.put(t.g.tag_manage_user_identity, sparseArray3.get(t.g.tag_manage_user_identity));
                                                                 ddVar30 = this.djE.diU;
-                                                                ddVar30.aya().setTag(sparseArray12);
+                                                                ddVar30.ayd().setTag(sparseArray12);
                                                                 ddVar31 = this.djE.diU;
-                                                                ddVar31.aya().setVisibility(0);
+                                                                ddVar31.ayd().setVisibility(0);
                                                                 ddVar32 = this.djE.diU;
-                                                                ddVar32.axZ().setVisibility(8);
+                                                                ddVar32.ayc().setVisibility(8);
                                                                 ddVar33 = this.djE.diU;
-                                                                ddVar33.aya().setText(t.j.mute_option);
+                                                                ddVar33.ayd().setText(t.j.mute_option);
                                                             } else {
                                                                 if (sparseArray3.get(t.g.tag_del_post_is_self) instanceof Boolean) {
                                                                     z5 = false;
@@ -936,12 +936,12 @@ class v implements View.OnClickListener {
                                                                 this.djE.djv = (com.baidu.tieba.tbadkCore.data.s) sparseArray3.get(t.g.tag_clip_board);
                                                                 if (!(!ek.g(this.djE.djv) ? false : isLogin)) {
                                                                     ddVar23 = this.djE.diU;
-                                                                    ddVar23.aya().setVisibility(0);
+                                                                    ddVar23.ayd().setVisibility(0);
                                                                     ddVar24 = this.djE.diU;
-                                                                    ddVar24.aya().setTag(str7);
+                                                                    ddVar24.ayd().setTag(str7);
                                                                 } else {
                                                                     ddVar22 = this.djE.diU;
-                                                                    ddVar22.aya().setVisibility(8);
+                                                                    ddVar22.ayd().setVisibility(8);
                                                                 }
                                                             }
                                                             sparseArray4 = (SparseArray) view.getTag();
@@ -966,21 +966,21 @@ class v implements View.OnClickListener {
                                                             }
                                                             if (!z6) {
                                                                 ddVar26 = this.djE.diU;
-                                                                ddVar26.ayc().setVisibility(0);
+                                                                ddVar26.ayf().setVisibility(0);
                                                                 ddVar27 = this.djE.diU;
-                                                                ddVar27.ayc().setTag(t.g.tag_chudian_template_id, Long.valueOf(j2));
+                                                                ddVar27.ayf().setTag(t.g.tag_chudian_template_id, Long.valueOf(j2));
                                                                 ddVar28 = this.djE.diU;
-                                                                ddVar28.ayc().setTag(t.g.tag_chudian_monitor_id, str);
+                                                                ddVar28.ayf().setTag(t.g.tag_chudian_monitor_id, str);
                                                                 ddVar29 = this.djE.diU;
-                                                                ddVar29.ayc().setTag(t.g.tag_chudian_hide_day, Integer.valueOf(i));
+                                                                ddVar29.ayf().setTag(t.g.tag_chudian_hide_day, Integer.valueOf(i));
                                                             } else {
                                                                 ddVar25 = this.djE.diU;
-                                                                ddVar25.ayc().setVisibility(8);
+                                                                ddVar25.ayf().setVisibility(8);
                                                             }
                                                         }
                                                     }
                                                     ddVar13 = this.djE.diU;
-                                                    ddVar13.ayf();
+                                                    ddVar13.ayi();
                                                     sparseArray = (SparseArray) view.getTag();
                                                     if (sparseArray.get(t.g.tag_pb_floor_postion) instanceof Integer) {
                                                     }
@@ -988,7 +988,7 @@ class v implements View.OnClickListener {
                                                     sparseArray92.put(t.g.tag_clip_board, (com.baidu.tieba.tbadkCore.data.s) ((SparseArray) view.getTag()).get(t.g.tag_clip_board));
                                                     sparseArray92.put(t.g.tag_is_subpb, false);
                                                     ddVar14 = this.djE.diU;
-                                                    ddVar14.axY().setTag(sparseArray92);
+                                                    ddVar14.ayb().setTag(sparseArray92);
                                                     sparseArray2 = (SparseArray) view.getTag();
                                                     booleanValue = ((Boolean) sparseArray2.get(t.g.tag_should_manage_visible)).booleanValue();
                                                     boolean booleanValue52 = ((Boolean) sparseArray2.get(t.g.tag_user_mute_visible)).booleanValue();
@@ -1036,15 +1036,15 @@ class v implements View.OnClickListener {
                                                         z2 = true;
                                                         if (!z2) {
                                                             ddVar12 = this.djE.diU;
-                                                            ddVar12.axY().setText(t.j.remove_mark);
+                                                            ddVar12.ayb().setText(t.j.remove_mark);
                                                         } else {
                                                             ddVar9 = this.djE.diU;
-                                                            ddVar9.axY().setText(t.j.mark);
+                                                            ddVar9.ayb().setText(t.j.mark);
                                                         }
                                                         ddVar10 = this.djE.diU;
                                                         ddVar10.gJ(true);
                                                         ddVar11 = this.djE.diU;
-                                                        ddVar11.uP();
+                                                        ddVar11.uQ();
                                                         return;
                                                     }
                                                 }
@@ -1054,23 +1054,23 @@ class v implements View.OnClickListener {
                                                 ddVar10 = this.djE.diU;
                                                 ddVar10.gJ(true);
                                                 ddVar11 = this.djE.diU;
-                                                ddVar11.uP();
+                                                ddVar11.uQ();
                                                 return;
                                             } else if (id != t.g.pb_head_reverse_hint) {
                                                 if (id == t.g.pb_act_btn) {
                                                     cwVar32 = this.djE.dih;
                                                     if (cwVar32.getPbData() != null) {
                                                         cwVar33 = this.djE.dih;
-                                                        if (cwVar33.getPbData().avB() != null) {
+                                                        if (cwVar33.getPbData().avE() != null) {
                                                             cwVar34 = this.djE.dih;
-                                                            if (cwVar34.getPbData().avB().ri() != null) {
+                                                            if (cwVar34.getPbData().avE().rj() != null) {
                                                                 Activity activity = this.djE.getActivity();
                                                                 cwVar35 = this.djE.dih;
-                                                                com.baidu.tbadk.browser.f.t(activity, cwVar35.getPbData().avB().ri());
+                                                                com.baidu.tbadk.browser.f.t(activity, cwVar35.getPbData().avE().rj());
                                                                 cwVar36 = this.djE.dih;
-                                                                if (cwVar36.getPbData().avB().rg() != 1) {
+                                                                if (cwVar36.getPbData().avE().rh() != 1) {
                                                                     cwVar37 = this.djE.dih;
-                                                                    if (cwVar37.getPbData().avB().rg() == 2) {
+                                                                    if (cwVar37.getPbData().avE().rh() == 2) {
                                                                         TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "pb");
                                                                         return;
                                                                     }
@@ -1105,13 +1105,13 @@ class v implements View.OnClickListener {
                                                 } else if (id == t.g.pb_item_tail_content) {
                                                     if (com.baidu.tbadk.core.util.bl.ac(this.djE.getPageContext().getPageActivity())) {
                                                         String string = TbadkCoreApplication.m11getInst().getString(t.j.tail_web_view_title);
-                                                        String string2 = com.baidu.tbadk.core.sharedPref.b.sQ().getString("tail_link", "");
+                                                        String string2 = com.baidu.tbadk.core.sharedPref.b.sR().getString("tail_link", "");
                                                         if (!StringUtils.isNull(string2)) {
                                                             TiebaStatic.log("c10056");
                                                             com.baidu.tbadk.browser.f.a(view.getContext(), string, string2, true, true, true);
                                                         }
                                                         elVar41 = this.djE.diR;
-                                                        elVar41.ayH();
+                                                        elVar41.ayK();
                                                         return;
                                                     }
                                                     return;
@@ -1119,8 +1119,8 @@ class v implements View.OnClickListener {
                                                     if (view != null) {
                                                         com.baidu.tbadk.browser.f.t(this.djE.getActivity(), (String) view.getTag());
                                                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                                                        awy3 = this.djE.awy();
-                                                        if (awy3 == 1) {
+                                                        awB3 = this.djE.awB();
+                                                        if (awB3 == 1) {
                                                             cwVar25 = this.djE.dih;
                                                             if (cwVar25 != null) {
                                                                 cwVar26 = this.djE.dih;
@@ -1136,8 +1136,8 @@ class v implements View.OnClickListener {
                                                             }
                                                             return;
                                                         }
-                                                        awy4 = this.djE.awy();
-                                                        if (awy4 == 2) {
+                                                        awB4 = this.djE.awB();
+                                                        if (awB4 == 2) {
                                                             cwVar21 = this.djE.dih;
                                                             if (cwVar21 != null) {
                                                                 cwVar22 = this.djE.dih;
@@ -1160,8 +1160,8 @@ class v implements View.OnClickListener {
                                                     if (view != null) {
                                                         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
                                                         com.baidu.tbadk.browser.f.t(this.djE.getActivity(), (String) view.getTag());
-                                                        awy = this.djE.awy();
-                                                        if (awy == 1) {
+                                                        awB = this.djE.awB();
+                                                        if (awB == 1) {
                                                             cwVar17 = this.djE.dih;
                                                             if (cwVar17 != null) {
                                                                 cwVar18 = this.djE.dih;
@@ -1177,8 +1177,8 @@ class v implements View.OnClickListener {
                                                             }
                                                             return;
                                                         }
-                                                        awy2 = this.djE.awy();
-                                                        if (awy2 == 2) {
+                                                        awB2 = this.djE.awB();
+                                                        if (awB2 == 2) {
                                                             cwVar13 = this.djE.dih;
                                                             if (cwVar13 != null) {
                                                                 cwVar14 = this.djE.dih;
@@ -1201,27 +1201,27 @@ class v implements View.OnClickListener {
                                                     if (id != t.g.manga_next_btn) {
                                                         return;
                                                     }
-                                                    this.djE.awO();
+                                                    this.djE.awR();
                                                     return;
                                                 } else {
-                                                    this.djE.awN();
+                                                    this.djE.awQ();
                                                     return;
                                                 }
                                             } else {
-                                                this.djE.Pk();
+                                                this.djE.Pm();
                                                 elVar43 = this.djE.diR;
-                                                elVar43.amQ();
+                                                elVar43.amT();
                                                 elVar44 = this.djE.diR;
-                                                elVar44.aza();
+                                                elVar44.azd();
                                                 cwVar38 = this.djE.dih;
-                                                cwVar38.axK();
+                                                cwVar38.axN();
                                                 return;
                                             }
                                         } else if (this.djE.checkUpIsLogin()) {
                                             cwVar5 = this.djE.dih;
                                             if (cwVar5.getPbData() != null) {
                                                 elVar39 = this.djE.diR;
-                                                elVar39.amQ();
+                                                elVar39.amT();
                                                 SparseArray sparseArray13 = (SparseArray) view.getTag();
                                                 com.baidu.tieba.tbadkCore.data.s sVar2 = (com.baidu.tieba.tbadkCore.data.s) sparseArray13.get(t.g.tag_load_sub_data);
                                                 View view2 = (View) sparseArray13.get(t.g.tag_load_sub_view);
@@ -1233,9 +1233,9 @@ class v implements View.OnClickListener {
                                                     cwVar7 = this.djE.dih;
                                                     if (cwVar7.getPbData() != null) {
                                                         cwVar11 = this.djE.dih;
-                                                        i4 = cwVar11.getPbData().avH();
+                                                        i4 = cwVar11.getPbData().avK();
                                                     }
-                                                    this.djE.Pk();
+                                                    this.djE.Pm();
                                                     if (view.getId() != t.g.replybtn) {
                                                         if (view.getId() == t.g.sub_pb_item) {
                                                             SparseArray sparseArray14 = (SparseArray) view.getTag();
@@ -1248,24 +1248,24 @@ class v implements View.OnClickListener {
                                                             TiebaStatic.log("c10088");
                                                             lU2 = this.djE.lU(id2);
                                                             SubPbActivityConfig subPbActivityConfig = new SubPbActivityConfig(this.djE.getPageContext().getPageActivity());
-                                                            SmallTailInfo aAC = sVar2.aAC();
+                                                            SmallTailInfo aAF = sVar2.aAF();
                                                             cwVar9 = this.djE.dih;
-                                                            this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig.createSubPbActivityConfig(threadID, id2, "pb", true, str9, true, str10, i4, aAC, cwVar9.getPbData().pz(), false, sVar2.getAuthor().getIconInfo()).addBigImageData(lU2.djS, lU2.djT, lU2.djU, lU2.index)));
+                                                            this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig.createSubPbActivityConfig(threadID, id2, "pb", true, str9, true, str10, i4, aAF, cwVar9.getPbData().pz(), false, sVar2.getAuthor().getIconInfo()).addBigImageData(lU2.djS, lU2.djT, lU2.djU, lU2.index)));
                                                             return;
                                                         }
                                                         TiebaStatic.log("c10089");
                                                         lU = this.djE.lU(id2);
                                                         SubPbActivityConfig subPbActivityConfig2 = new SubPbActivityConfig(this.djE.getPageContext().getPageActivity());
-                                                        SmallTailInfo aAC2 = sVar2.aAC();
+                                                        SmallTailInfo aAF2 = sVar2.aAF();
                                                         cwVar8 = this.djE.dih;
-                                                        this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig2.createSubPbActivityConfig(threadID, id2, "pb", true, null, false, null, i4, aAC2, cwVar8.getPbData().pz(), false, sVar2.getAuthor().getIconInfo()).addBigImageData(lU.djS, lU.djT, lU.djU, lU.index)));
+                                                        this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig2.createSubPbActivityConfig(threadID, id2, "pb", true, null, false, null, i4, aAF2, cwVar8.getPbData().pz(), false, sVar2.getAuthor().getIconInfo()).addBigImageData(lU.djS, lU.djT, lU.djU, lU.index)));
                                                         return;
                                                     }
                                                     lU3 = this.djE.lU(id2);
                                                     SubPbActivityConfig subPbActivityConfig3 = new SubPbActivityConfig(this.djE.getPageContext().getPageActivity());
-                                                    SmallTailInfo aAC3 = sVar2.aAC();
+                                                    SmallTailInfo aAF3 = sVar2.aAF();
                                                     cwVar10 = this.djE.dih;
-                                                    this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig3.createSubPbActivityConfig(threadID, id2, "pb", true, null, true, null, i4, aAC3, cwVar10.getPbData().pz(), false, sVar2.getAuthor().getIconInfo()).addBigImageData(lU3.djS, lU3.djT, lU3.djU, lU3.index)));
+                                                    this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig3.createSubPbActivityConfig(threadID, id2, "pb", true, null, true, null, i4, aAF3, cwVar10.getPbData().pz(), false, sVar2.getAuthor().getIconInfo()).addBigImageData(lU3.djS, lU3.djT, lU3.djU, lU3.index)));
                                                     return;
                                                 }
                                                 return;
@@ -1283,31 +1283,31 @@ class v implements View.OnClickListener {
                                         TiebaStatic.log(s2.ac("fid", cwVar48.getPbData().getForumId()));
                                         return;
                                     } else {
-                                        this.djE.aws();
+                                        this.djE.awv();
                                         return;
                                     }
                                 } else if (com.baidu.adp.lib.util.i.fq()) {
                                     elVar22 = this.djE.diR;
-                                    elVar22.ayH();
+                                    elVar22.ayK();
                                     z = this.djE.mIsLoading;
                                     if (!z) {
                                         this.djE.mIsLoading = true;
                                         elVar23 = this.djE.diR;
                                         elVar23.dmZ.dpV.setEnabled(false);
                                         elVar24 = this.djE.diR;
-                                        elVar24.ago();
-                                        this.djE.Pk();
+                                        elVar24.agq();
+                                        this.djE.Pm();
                                         elVar25 = this.djE.diR;
-                                        elVar25.aza();
+                                        elVar25.azd();
                                         cwVar4 = this.djE.dih;
-                                        awK = this.djE.awK();
-                                        cwVar4.lX(awK);
+                                        awN = this.djE.awN();
+                                        cwVar4.lX(awN);
                                         TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
                                         elVar26 = this.djE.diR;
-                                        elVar26.azy();
+                                        elVar26.azB();
                                         elVar27 = this.djE.diR;
-                                        elVar27.axv();
-                                        this.djE.awR();
+                                        elVar27.axy();
+                                        this.djE.awU();
                                         return;
                                     }
                                     return;
@@ -1320,7 +1320,7 @@ class v implements View.OnClickListener {
                             cwVar73 = this.djE.dih;
                             if (cwVar73.getErrorNo() == 4) {
                                 cwVar77 = this.djE.dih;
-                                if (StringUtils.isNull(cwVar77.axA())) {
+                                if (StringUtils.isNull(cwVar77.axD())) {
                                     cwVar78 = this.djE.dih;
                                     if (cwVar78.getAppealInfo() != null) {
                                         cwVar79 = this.djE.dih;
@@ -1333,11 +1333,11 @@ class v implements View.OnClickListener {
                             }
                             String stringExtra = this.djE.getIntent().getStringExtra("from");
                             cwVar74 = this.djE.dih;
-                            String name = cwVar74.getPbData().avA().getName();
+                            String name = cwVar74.getPbData().avD().getName();
                             cwVar75 = this.djE.dih;
-                            if (!TextUtils.isEmpty(cwVar75.axA())) {
+                            if (!TextUtils.isEmpty(cwVar75.axD())) {
                                 cwVar76 = this.djE.dih;
-                                if (cwVar76.axA().equals(name) && StringUtils.isNull(stringExtra)) {
+                                if (cwVar76.axD().equals(name) && StringUtils.isNull(stringExtra)) {
                                     this.djE.finish();
                                     return;
                                 }
@@ -1353,24 +1353,24 @@ class v implements View.OnClickListener {
             }
         }
         elVar6 = this.djE.diR;
-        elVar6.azs();
+        elVar6.azv();
         cwVar = this.djE.dih;
-        if (cwVar.getPbData().avH() == 1) {
+        if (cwVar.getPbData().avK() == 1) {
             aVar = this.djE.diO;
-            if (!aVar.aUI()) {
+            if (!aVar.aUO()) {
                 elVar7 = this.djE.diR;
-                elVar7.ayX();
+                elVar7.aza();
                 int i5 = 0;
                 elVar8 = this.djE.diR;
-                if (view != elVar8.azn()) {
+                if (view != elVar8.azq()) {
                     elVar9 = this.djE.diR;
-                    if (view != elVar9.azo()) {
+                    if (view != elVar9.azr()) {
                         elVar10 = this.djE.diR;
-                        if (view != elVar10.azp()) {
+                        if (view != elVar10.azs()) {
                             elVar11 = this.djE.diR;
-                            if (view != elVar11.azq()) {
+                            if (view != elVar11.azt()) {
                                 elVar12 = this.djE.diR;
-                                if (view == elVar12.ayY()) {
+                                if (view == elVar12.azb()) {
                                     i5 = 2;
                                 }
                             } else {
@@ -1386,15 +1386,15 @@ class v implements View.OnClickListener {
                     i5 = 6;
                 }
                 cwVar2 = this.djE.dih;
-                ForumData avA2 = cwVar2.getPbData().avA();
-                String name2 = avA2.getName();
-                String id3 = avA2.getId();
+                ForumData avD2 = cwVar2.getPbData().avD();
+                String name2 = avD2.getName();
+                String id3 = avD2.getId();
                 cwVar3 = this.djE.dih;
-                String id4 = cwVar3.getPbData().avB().getId();
+                String id4 = cwVar3.getPbData().avE().getId();
                 aVar2 = this.djE.diO;
                 elVar13 = this.djE.diR;
-                aVar2.a(id3, name2, id4, i5, elVar13.ayZ());
-                this.djE.awR();
+                aVar2.a(id3, name2, id4, i5, elVar13.azc());
+                this.djE.awU();
             }
         }
     }

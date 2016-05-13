@@ -16,7 +16,7 @@ class j implements p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void HM() {
+    public void HO() {
         LogoActivity logoActivity;
         LogoActivity logoActivity2;
         LogoActivity logoActivity3;
@@ -27,7 +27,7 @@ class j implements p.a {
             logoActivity2 = this.aGU.aGQ;
             logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(logoActivity2.getPageContext().getPageActivity()).createNormalCfg(1)));
         } else {
-            boolean z = com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("has_shown_app_guide", false);
+            boolean z = com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("has_shown_app_guide", false);
             logoActivity4 = this.aGU.aGQ;
             logoActivity5 = this.aGU.aGQ;
             logoActivity4.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(logoActivity5.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, z ? 1 : 3)));

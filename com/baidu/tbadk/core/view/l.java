@@ -13,6 +13,6 @@ public class l implements ViewTreeObserver.OnGlobalLayoutListener {
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
-        this.abg.uT();
+        this.abg.uU();
     }
 }

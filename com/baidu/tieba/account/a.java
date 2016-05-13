@@ -19,7 +19,7 @@ class a extends CustomMessageListener {
         if (customResponsedMessage == null || this.aHY.aHP == null) {
             return;
         }
-        this.aHY.HU();
+        this.aHY.HW();
         if (this.aHY.aHQ != null) {
             this.aHY.aHQ.setData(this.aHY.aHP);
             this.aHY.aHQ.notifyDataSetChanged();

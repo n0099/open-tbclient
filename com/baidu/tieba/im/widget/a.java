@@ -74,11 +74,11 @@ public class a<T> {
         return i;
     }
 
-    public int aiP() {
+    public int aiR() {
         return this.subType;
     }
 
-    public T aiQ() {
+    public T aiS() {
         return this.csj;
     }
 }

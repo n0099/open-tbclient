@@ -18,7 +18,7 @@ public class z implements MediaScannerConnection.MediaScannerConnectionClient {
 
     /* loaded from: classes.dex */
     public interface a {
-        void ty();
+        void tz();
     }
 
     public z(Context context) {
@@ -68,7 +68,7 @@ public class z implements MediaScannerConnection.MediaScannerConnectionClient {
             }
         }
         if (this.Wt && this.Wu != null) {
-            this.Wu.ty();
+            this.Wu.tz();
         }
     }
 }

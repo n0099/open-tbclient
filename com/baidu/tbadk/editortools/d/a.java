@@ -3,9 +3,9 @@ package com.baidu.tbadk.editortools.d;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public abstract class a<T> extends com.baidu.adp.base.e<T> {
-    public abstract boolean BA();
+    public abstract boolean BB();
 
-    public abstract String BB();
+    public abstract String BC();
 
     public abstract WriteData fs(String str);
 

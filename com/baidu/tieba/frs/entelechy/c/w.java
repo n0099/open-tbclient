@@ -130,15 +130,15 @@ public class w extends com.baidu.tieba.card.a<ax> {
         if (this.mSkinType != i) {
             com.baidu.tbadk.core.util.at.k(getView(), t.f.addresslist_item_bg);
             com.baidu.tbadk.core.util.at.l(this.aOD, t.d.cp_bg_line_b);
-            this.aQr.sf();
-            this.aQp.sf();
-            this.aOO.sf();
+            this.aQr.sg();
+            this.aQp.sg();
+            this.aOO.sg();
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_home_page_multi_img;
     }
 
@@ -166,15 +166,15 @@ public class w extends com.baidu.tieba.card.a<ax> {
         this.aQp.setUserAfterClickListener(this.adK);
         this.aOO.setData(axVar);
         this.aOO.setForumAfterClickListener(this.adn);
-        this.aOO.setStType(com.baidu.tieba.card.au.Kb());
-        if (StringUtils.isNull(axVar.getTitle()) || axVar.qY() == 1) {
+        this.aOO.setStType(com.baidu.tieba.card.au.Kd());
+        if (StringUtils.isNull(axVar.getTitle()) || axVar.qZ() == 1) {
             this.aOG.setVisibility(8);
         } else {
             ArrayList arrayList = new ArrayList();
             this.aOG.setVisibility(0);
             axVar.Qa = 0;
             if (i(axVar)) {
-                if (axVar.qM() == 1 && !axVar.rs()) {
+                if (axVar.qN() == 1 && !axVar.rt()) {
                     arrayList.add(Integer.valueOf(t.j.kn_zhibo));
                 }
                 if (axVar.getIs_good() == 1) {
@@ -183,11 +183,11 @@ public class w extends com.baidu.tieba.card.a<ax> {
                 if (axVar.getIs_top() == 1) {
                     arrayList.add(Integer.valueOf(t.j.commit_top));
                 }
-                if (axVar.rs() && axVar.qF() != null && axVar.re() == 2) {
+                if (axVar.rt() && axVar.qF() != null && axVar.rf() == 2) {
                     arrayList.add(Integer.valueOf(t.j.interview_live));
                 }
-                if (axVar.rh()) {
-                    Integer num = QB.get(new Point(axVar.rg(), axVar.rf()));
+                if (axVar.ri()) {
+                    Integer num = QB.get(new Point(axVar.rh(), axVar.rg()));
                     if (num != null) {
                         arrayList.add(num);
                     } else {
@@ -196,14 +196,14 @@ public class w extends com.baidu.tieba.card.a<ax> {
                 }
                 this.aOG.setText(com.baidu.tieba.card.au.a(getContext(), String.valueOf(axVar.getTitle()) + " ", arrayList, -2));
             } else if (j(axVar)) {
-                if (axVar.qW() != null) {
+                if (axVar.qX() != null) {
                     arrayList.add(Integer.valueOf(t.j.send_app_code_gift));
                 }
-                if (axVar.qV() != null) {
+                if (axVar.qW() != null) {
                     arrayList.add(Integer.valueOf(t.j.card_promotion_text));
                 }
                 this.aOG.setText(com.baidu.tieba.card.au.b(getContext(), String.valueOf(axVar.getTitle()) + " ", arrayList, -2));
-            } else if (axVar.rn()) {
+            } else if (axVar.ro()) {
                 this.aOG.setText(String.valueOf(axVar.getTitle()) + " ");
             } else {
                 axVar.parser_title();
@@ -212,8 +212,8 @@ public class w extends com.baidu.tieba.card.a<ax> {
             com.baidu.tieba.card.au.a(this.aOG, axVar.getId(), t.d.cp_cont_b, t.d.cp_cont_c);
         }
         StringBuilder sb = new StringBuilder();
-        if (axVar.qS() != null && !StringUtils.isNull(axVar.qS())) {
-            sb.append(axVar.qS());
+        if (axVar.qT() != null && !StringUtils.isNull(axVar.qT())) {
+            sb.append(axVar.qT());
         }
         ArrayList<MediaData> medias = axVar.getMedias();
         if (medias != null) {
@@ -245,17 +245,17 @@ public class w extends com.baidu.tieba.card.a<ax> {
                 layoutParams.setMargins(0, 0, 0, 0);
             }
         }
-        ArrayList<VoiceData.VoiceModel> qX = axVar.qX();
-        if (com.baidu.tbadk.core.util.y.s(qX)) {
+        ArrayList<VoiceData.VoiceModel> qY = axVar.qY();
+        if (com.baidu.tbadk.core.util.y.s(qY)) {
             this.aQo.setVisibility(8);
         } else {
             this.aQo.setVisibility(0);
-            VoiceData.VoiceModel voiceModel = qX.get(0);
+            VoiceData.VoiceModel voiceModel = qY.get(0);
             this.aQo.setVoiceModel(voiceModel);
             this.aQo.setTag(voiceModel);
-            this.aQo.aUX();
+            this.aQo.aVd();
             if (voiceModel != null) {
-                this.aQo.jM(voiceModel.voice_status.intValue());
+                this.aQo.jL(voiceModel.voice_status.intValue());
             }
         }
         if (com.baidu.tbadk.core.l.ob().oh() && com.baidu.tbadk.core.util.y.r(medias) != 0) {
@@ -275,7 +275,7 @@ public class w extends com.baidu.tieba.card.a<ax> {
             if (com.baidu.tbadk.core.util.y.r(linkedList) > 0) {
                 this.aQr.setVisibility(0);
                 this.aQr.setFromCDN(this.Zv);
-                if (this.aab.ru() != null) {
+                if (this.aab.rv() != null) {
                     this.aQr.setImageClickListener(new ad(this));
                 } else {
                     this.aQr.setImageClickListener(new ae(this, linkedList2, axVar));
@@ -288,11 +288,11 @@ public class w extends com.baidu.tieba.card.a<ax> {
             this.aQr.setVisibility(8);
         }
         if (this.bpK != null) {
-            if (axVar.qV() != null) {
-                String rP = axVar.qV().rP();
-                if (!StringUtils.isNull(rP)) {
+            if (axVar.qW() != null) {
+                String rQ = axVar.qW().rQ();
+                if (!StringUtils.isNull(rQ)) {
                     this.bpK.setVisibility(0);
-                    this.bpK.c(rP, 10, true);
+                    this.bpK.c(rQ, 10, true);
                 } else {
                     this.bpK.setVisibility(8);
                 }
@@ -301,8 +301,8 @@ public class w extends com.baidu.tieba.card.a<ax> {
             }
         }
         if (this.blb != null) {
-            if (axVar.qW() != null) {
-                String lo = axVar.qW().lo();
+            if (axVar.qX() != null) {
+                String lo = axVar.qX().lo();
                 if (!StringUtils.isNull(lo)) {
                     String fixedText = ay.getFixedText(lo, 20, true);
                     com.baidu.tbadk.core.util.at.k(this.blb, t.f.btn_red_frame_n);
@@ -316,21 +316,21 @@ public class w extends com.baidu.tieba.card.a<ax> {
                 this.blb.setVisibility(8);
             }
         }
-        Kc();
+        Ke();
     }
 
     private boolean i(ax axVar) {
         if (axVar == null) {
             return false;
         }
-        return axVar.qM() == 1 || axVar.getIs_good() == 1 || axVar.getIs_top() == 1 || axVar.rh();
+        return axVar.qN() == 1 || axVar.getIs_good() == 1 || axVar.getIs_top() == 1 || axVar.ri();
     }
 
     private boolean j(ax axVar) {
         if (axVar == null) {
             return false;
         }
-        return (axVar.qW() == null && axVar.qV() == null) ? false : true;
+        return (axVar.qX() == null && axVar.qW() == null) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -363,12 +363,12 @@ public class w extends com.baidu.tieba.card.a<ax> {
                 }
             }
         }
-        ImageViewerConfig createConfig = new ImageViewerConfig(this.DV.getPageActivity()).createConfig(arrayList, i, axVar.qP(), String.valueOf(axVar.getFid()), axVar.getTid(), this.Zv, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
+        ImageViewerConfig createConfig = new ImageViewerConfig(this.DV.getPageActivity()).createConfig(arrayList, i, axVar.qQ(), String.valueOf(axVar.getFid()), axVar.getTid(), this.Zv, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
         createConfig.getIntent().putExtra("from", "frs");
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
     }
 
-    private void Kc() {
+    private void Ke() {
         this.aQo.setClickable(true);
         this.aOO.setBarNameClickEnabled(true);
         int childCount = this.aQr.getChildCount();
@@ -393,21 +393,21 @@ public class w extends com.baidu.tieba.card.a<ax> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kd() {
+    public void Kf() {
         if (this.aab != null) {
             com.baidu.tieba.card.au.hb(this.aab.getId());
-            com.baidu.tbadk.core.data.k ru = this.aab.ru();
-            if (ru != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(this.DV.getPageActivity(), ru.getCartoonId(), ru.getChapterId(), 2)));
-            } else if (this.aab.qW() != null) {
+            com.baidu.tbadk.core.data.k rv = this.aab.rv();
+            if (rv != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(this.DV.getPageActivity(), rv.getCartoonId(), rv.getChapterId(), 2)));
+            } else if (this.aab.qX() != null) {
                 if (bl.ac(this.DV.getPageActivity())) {
-                    String postUrl = this.aab.qW().getPostUrl();
+                    String postUrl = this.aab.qX().getPostUrl();
                     if (!StringUtils.isNull(postUrl) && com.baidu.adp.lib.util.k.fH()) {
                         com.baidu.tbadk.browser.f.u(this.DV.getPageActivity(), postUrl);
                     }
                 }
             } else {
-                this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aab, null, com.baidu.tieba.card.au.Kb(), 18003, true, false, false).addFrom(getClass().getName())));
+                this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aab, null, com.baidu.tieba.card.au.Kd(), 18003, true, false, false).addFrom(getClass().getName())));
             }
         }
     }

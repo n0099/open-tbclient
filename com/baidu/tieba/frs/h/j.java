@@ -14,7 +14,7 @@ public class j implements x.a {
     }
 
     @Override // com.baidu.tieba.frs.view.x.a
-    public void gl(int i) {
+    public void gk(int i) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
         FrsActivity frsActivity3;

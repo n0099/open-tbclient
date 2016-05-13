@@ -24,7 +24,7 @@ public class b {
         return this.redirect;
     }
 
-    public void fJ(int i) {
+    public void fI(int i) {
         this.redirect = i;
     }
 
@@ -41,7 +41,7 @@ public class b {
         this.time = i;
     }
 
-    public void fK(int i) {
+    public void fJ(int i) {
         this.aWJ = i;
     }
 
@@ -49,11 +49,11 @@ public class b {
         this.isMem = i;
     }
 
-    public void fL(int i) {
+    public void fK(int i) {
         this.aWH = i;
     }
 
-    public void fM(int i) {
+    public void fL(int i) {
         this.aWI = i;
     }
 
@@ -65,7 +65,7 @@ public class b {
         this.aWG = gVar;
     }
 
-    public g Md() {
+    public g Mf() {
         return this.aWG;
     }
 
@@ -82,9 +82,9 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                fL(dataRes.msign_valid.intValue());
-                fM(dataRes.msign_level.intValue());
-                fK(dataRes.is_login.intValue());
+                fK(dataRes.msign_valid.intValue());
+                fL(dataRes.msign_level.intValue());
+                fJ(dataRes.is_login.intValue());
                 hm(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
@@ -108,7 +108,7 @@ public class b {
         }
     }
 
-    public h Me() {
+    public h Mg() {
         return this.aWE;
     }
 
@@ -116,7 +116,7 @@ public class b {
         this.aWE = hVar;
     }
 
-    public h Mf() {
+    public h Mh() {
         return this.aWF;
     }
 
@@ -124,7 +124,7 @@ public class b {
         this.aWF = hVar;
     }
 
-    public d Mg() {
+    public d Mi() {
         return this.aWD;
     }
 
@@ -140,7 +140,7 @@ public class b {
         return this.sZ;
     }
 
-    public boolean Mh() {
+    public boolean Mj() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.d.anL.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.anL.longValue();
     }
 

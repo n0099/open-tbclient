@@ -12,7 +12,7 @@ public class KeyboardLayout extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void au(int i);
+        void at(int i);
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
@@ -41,7 +41,7 @@ public class KeyboardLayout extends RelativeLayout {
             this.aBG = true;
             this.mHeight = i4;
             if (this.aBH != null) {
-                this.aBH.au(-1);
+                this.aBH.at(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
@@ -49,13 +49,13 @@ public class KeyboardLayout extends RelativeLayout {
         if (this.aBG && this.mHeight > i4) {
             this.zk = true;
             if (this.aBH != null) {
-                this.aBH.au(-3);
+                this.aBH.at(-3);
             }
         }
         if (this.aBG && this.zk && this.mHeight == i4) {
             this.zk = false;
             if (this.aBH != null) {
-                this.aBH.au(-2);
+                this.aBH.at(-2);
             }
         }
     }

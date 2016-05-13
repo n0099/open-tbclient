@@ -53,7 +53,7 @@ public class ab extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    private String fV(int i) {
+    private String fU(int i) {
         return i <= 999999 ? String.valueOf(i) : String.format("%.0fw", Float.valueOf(i / 10000.0f));
     }
 
@@ -63,8 +63,8 @@ public class ab extends LinearLayout implements View.OnClickListener {
             if (fVar.getType() == 0) {
                 setVisibility(0);
                 this.aZB.setText(fVar.getForumName());
-                this.aZC.setText(String.valueOf(TbadkCoreApplication.m11getInst().getString(t.j.attention_n)) + fV(fVar.Mm()));
-                this.aZD.setText(String.valueOf(TbadkCoreApplication.m11getInst().getString(t.j.text_post)) + fV(fVar.getThreadNum()));
+                this.aZC.setText(String.valueOf(TbadkCoreApplication.m11getInst().getString(t.j.attention_n)) + fU(fVar.Mo()));
+                this.aZD.setText(String.valueOf(TbadkCoreApplication.m11getInst().getString(t.j.text_post)) + fU(fVar.getThreadNum()));
                 this.aZE.setText(fVar.getSlogan());
                 if (!StringUtils.isNULL(fVar.getAvatar())) {
                     this.aZA.c(fVar.getAvatar(), 10, false);

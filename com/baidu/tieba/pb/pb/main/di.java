@@ -35,13 +35,13 @@ public class di implements b.a {
             sVar = this.dmm.dfs;
             if (sVar != null) {
                 eVar2 = this.dmm.dfK;
-                if (eVar2.avA() != null) {
+                if (eVar2.avD() != null) {
                     sVar2 = this.dmm.dfs;
-                    if (sVar2.aUc() != null) {
+                    if (sVar2.aUi() != null) {
                         sVar3 = this.dmm.dfs;
-                        long templateId = sVar3.aUc().getTemplateId();
+                        long templateId = sVar3.aUi().getTemplateId();
                         sVar4 = this.dmm.dfs;
-                        String aTw = sVar4.aUc().aTw();
+                        String aTC = sVar4.aUi().aTC();
                         if ("VIEW_TRUE".equals(str3) || "VIEW_CAROUSEL".equals(str3)) {
                             if (this.dmm.dml.containsKey(Long.valueOf(templateId))) {
                                 HashSet<String> hashSet = this.dmm.dml.get(Long.valueOf(templateId));
@@ -53,11 +53,11 @@ public class di implements b.a {
                                 }
                                 if (!z) {
                                     eVar3 = this.dmm.dfK;
-                                    String id = eVar3.avA().getId();
+                                    String id = eVar3.avD().getId();
                                     eVar4 = this.dmm.dfK;
-                                    String name = eVar4.avA().getName();
+                                    String name = eVar4.avD().getName();
                                     eVar5 = this.dmm.dfK;
-                                    com.baidu.tieba.pb.b.a(templateId, aTw, str, "PB", str2, str3, "tpoint", id, name, eVar5.getThreadId());
+                                    com.baidu.tieba.pb.b.a(templateId, aTC, str, "PB", str2, str3, "tpoint", id, name, eVar5.getThreadId());
                                     return;
                                 }
                                 return;
@@ -76,17 +76,17 @@ public class di implements b.a {
     }
 
     @Override // com.baidu.tieba.pb.b.a
-    public int avh() {
+    public int avk() {
         com.baidu.tieba.tbadkCore.data.s sVar;
         com.baidu.tieba.tbadkCore.data.s sVar2;
         sVar = this.dmm.dfs;
         if (ek.g(sVar)) {
             sVar2 = this.dmm.dfs;
-            ArrayList<com.baidu.tieba.tbadkCore.data.k> aTt = sVar2.aUc().aTt();
-            if (aTt == null) {
+            ArrayList<com.baidu.tieba.tbadkCore.data.k> aTz = sVar2.aUi().aTz();
+            if (aTz == null) {
                 return 0;
             }
-            return aTt.size();
+            return aTz.size();
         }
         return 0;
     }

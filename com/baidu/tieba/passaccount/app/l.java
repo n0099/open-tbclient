@@ -31,13 +31,13 @@ public class l implements a.InterfaceC0033a {
         this.dbZ.closeLoadingDialog();
         if (!TextUtils.isEmpty(accountData.getAccount())) {
             p(accountData);
-            this.dbZ.Ia();
+            this.dbZ.Ic();
             i = this.dbZ.mFrom;
             if (i != 4) {
-                this.dbZ.auF();
+                this.dbZ.auI();
                 return;
             } else {
-                this.dbZ.Ib();
+                this.dbZ.Id();
                 return;
             }
         }

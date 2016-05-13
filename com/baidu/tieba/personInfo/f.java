@@ -147,11 +147,11 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
     private CustomMessageListener dGo = new ab(this, CmdConfigCustom.CMD_FORUM_FEED_SWITCH_CHANGE);
     private CustomMessageListener dGp = new ad(this, CmdConfigCustom.CMD_MY_ATTENTION_AND_FANS_PLUGIN_INSTALL_SUCCESS);
 
-    public bg aDb() {
+    public bg aDe() {
         return this.dyP;
     }
 
-    public ViewEventCenter aDc() {
+    public ViewEventCenter aDf() {
         return this.aXs;
     }
 
@@ -167,7 +167,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        aDi();
+        aDl();
         s(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
         if (!this.mIsLogin) {
@@ -175,11 +175,11 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         }
         this.bIW = this.dyP.getIsSelf();
         this.userId = this.dyP.getId();
-        this.dFJ = this.dyP.aDS();
+        this.dFJ = this.dyP.aDV();
         registerListener();
-        aDq();
+        aDt();
         if (!this.bIW && TbadkCoreApplication.isLogin()) {
-            aDe();
+            aDh();
         }
     }
 
@@ -215,7 +215,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.dyP.aDD();
+        this.dyP.aDG();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -241,7 +241,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                 this.dFE.setVisibility(8);
                 X(this.awk);
             }
-            this.dFI.aCb();
+            this.dFI.aCe();
             this.aXa = (PluginErrorTipView) this.awk.findViewById(t.g.view_plugin_error_tip);
             hz(true);
         }
@@ -253,18 +253,18 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.dyP != null && this.dFA != null && this.dFA.aEh() != null) {
+        if (this.dyP != null && this.dFA != null && this.dFA.aEk() != null) {
             if (isPrimary()) {
                 UserData userData = this.dyP != null ? this.dyP.getUserData() : null;
-                if (this.dFA != null && this.dFA.aEh() != null) {
-                    this.dFA.aEh().setBackBitmap(userData);
+                if (this.dFA != null && this.dFA.aEk() != null) {
+                    this.dFA.aEk().setBackBitmap(userData);
                 }
-            } else if (this.dFA != null && this.dFA.aEh() != null) {
-                this.dFA.aEh().aCJ();
+            } else if (this.dFA != null && this.dFA.aEk() != null) {
+                this.dFA.aEk().aCM();
             }
             if (this.dFI != null) {
                 this.dFI.hm(isPrimary());
-                this.dFI.aCd();
+                this.dFI.aCg();
             }
             if (isPrimary() && com.baidu.adp.lib.util.i.fq()) {
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
@@ -279,9 +279,9 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                 }
                 if (!this.cST && this.mIsLogin) {
                     a((View) this.dFH, false, -1);
-                    this.dyP.aDF();
+                    this.dyP.aDI();
                 } else if (this.dFD) {
-                    this.dyP.aDF();
+                    this.dyP.aDI();
                 }
             }
         }
@@ -290,15 +290,15 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void setUserVisibleHint(boolean z) {
         super.setUserVisibleHint(z);
-        if (z && TbadkCoreApplication.isLogin() && Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("need_show_yinji", true)).booleanValue() && TbadkCoreApplication.isLogin()) {
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("need_show_yinji", false);
+        if (z && TbadkCoreApplication.isLogin() && Boolean.valueOf(com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("need_show_yinji", true)).booleanValue() && TbadkCoreApplication.isLogin()) {
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("need_show_yinji", false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.dyP != null && this.dyP.aDU() && TbadkCoreApplication.getCurrentAccount() != null) {
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "god_enter_info_expand", false);
+        if (this.dyP != null && this.dyP.aDX() && TbadkCoreApplication.getCurrentAccount() != null) {
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "god_enter_info_expand", false);
         }
         this.diQ.onDestroy();
         this.diP.onDestory();
@@ -329,26 +329,26 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         this.dFA = new bj(this, this.bIW, this.aXs, view);
         this.dFA.setPersonListRefreshListener(new ag(this));
         if (this.bIW) {
-            this.dyP.aDE();
+            this.dyP.aDH();
         } else {
             a((View) this.dFH, false, -1);
-            this.dyP.aDF();
+            this.dyP.aDI();
         }
         this.dFA.b(new ah(this));
         this.dFA.M(new ai(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDd() {
-        if (this.dFA != null && this.dyP != null && this.dyP.aDU()) {
-            this.dzV.my(this.dyP.aDX());
+    public void aDg() {
+        if (this.dFA != null && this.dyP != null && this.dyP.aDX()) {
+            this.dzV.mx(this.dyP.aEa());
             this.dFA.setOnSrollToBottomListener(new aj(this));
             this.dzV.a(new ak(this));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDe() {
+    public void aDh() {
         long c = com.baidu.adp.lib.h.b.c(this.dyP.getId(), 0L);
         this.diQ.e(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), c);
     }
@@ -364,10 +364,10 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                     c((com.baidu.tbadk.data.i) vVar, list, i);
                 }
             } else if (vVar instanceof com.baidu.tieba.person.data.b) {
-                aDf();
+                aDi();
             } else if (vVar instanceof com.baidu.tbadk.data.i) {
                 com.baidu.tbadk.data.i iVar = (com.baidu.tbadk.data.i) vVar;
-                if (iVar.AG()) {
+                if (iVar.AH()) {
                     a(iVar, list, i);
                 } else {
                     b(iVar, list, i);
@@ -380,31 +380,31 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         if (getPageContext() != null) {
             String[] strArr = {getPageContext().getString(t.j.hd_photo), getPageContext().getString(t.j.change_photo), getPageContext().getString(t.j.change_system_photo)};
             com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(getPageContext().getPageActivity());
-            cVar.bP(t.j.operation);
+            cVar.bO(t.j.operation);
             cVar.a(strArr, new al(this, iVar, list, i));
             cVar.d(getPageContext());
-            cVar.rX();
+            cVar.rY();
         }
     }
 
-    private void aDf() {
+    private void aDi() {
         if (getPageContext() != null) {
             String[] strArr = {getPageContext().getString(t.j.choose_local_photo), getPageContext().getString(t.j.change_system_photo)};
             com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(getPageContext().getPageActivity());
-            cVar.bP(t.j.operation);
+            cVar.bO(t.j.operation);
             cVar.a(strArr, new am(this));
             cVar.d(getPageContext());
-            cVar.rX();
+            cVar.rY();
         }
     }
 
     private void b(com.baidu.tbadk.data.i iVar, List<com.baidu.adp.widget.ListView.v> list, int i) {
         String[] strArr = {getPageContext().getString(t.j.look_big_photo), getPageContext().getString(t.j.set_as_portrait_photo), getPageContext().getString(t.j.delete)};
         com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(getPageContext().getPageActivity());
-        cVar.bP(t.j.operation);
+        cVar.bO(t.j.operation);
         cVar.a(strArr, new ao(this, iVar, list, i));
         cVar.d(getPageContext());
-        cVar.rX();
+        cVar.rY();
     }
 
     private String mx(String str) {
@@ -416,15 +416,15 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tbadk.data.i iVar, List<com.baidu.adp.widget.ListView.v> list, int i) {
-        if (iVar != null && list != null && !StringUtils.isNull(iVar.AF())) {
+        if (iVar != null && list != null && !StringUtils.isNull(iVar.AG())) {
             ArrayList<String> arrayList = new ArrayList<>();
             for (com.baidu.adp.widget.ListView.v vVar : list) {
                 if (vVar instanceof com.baidu.tbadk.data.i) {
                     com.baidu.tbadk.data.i iVar2 = (com.baidu.tbadk.data.i) vVar;
-                    if (iVar2.AG()) {
-                        arrayList.add(mx(iVar2.AF()));
+                    if (iVar2.AH()) {
+                        arrayList.add(mx(iVar2.AG()));
                     } else {
-                        arrayList.add(iVar2.AF());
+                        arrayList.add(iVar2.AG());
                     }
                 }
             }
@@ -433,34 +433,36 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
             if (size > 0) {
                 str = arrayList.get(size - 1);
             }
-            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(getPageContext().getPageActivity()).createConfig(arrayList, i, null, "", "", true, str, true)));
+            if (getPageContext() != null) {
+                sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(getPageContext().getPageActivity()).createConfig(arrayList, i, null, "", "", true, str, true)));
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDg() {
+    public void aDj() {
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.aJw.getPageContext().getPageActivity(), this.writeImagesInfo.toJsonString(), true);
         albumActivityConfig.setRequestCode(12002);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDh() {
+    public void aDk() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.aJw.getPageContext().getPageActivity(), 12014, this.dFL)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tbadk.data.i iVar) {
-        if (iVar != null && !StringUtils.isNull(iVar.AF())) {
+        if (iVar != null && !StringUtils.isNull(iVar.AG())) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", iVar.AF());
+            httpMessage.addParam("pic_url", iVar.AG());
             sendMessage(httpMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.tbadk.data.i iVar, List<com.baidu.adp.widget.ListView.v> list, int i) {
-        if (iVar != null && list != null && list.size() > 2 && !StringUtils.isNull(iVar.AF())) {
+        if (iVar != null && list != null && list.size() > 2 && !StringUtils.isNull(iVar.AG())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -468,8 +470,8 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                     com.baidu.adp.widget.ListView.v vVar = list.get(i2);
                     if (vVar instanceof com.baidu.tbadk.data.i) {
                         com.baidu.tbadk.data.i iVar2 = (com.baidu.tbadk.data.i) vVar;
-                        if (!iVar2.AG()) {
-                            jSONArray.put(iVar2.AF());
+                        if (!iVar2.AH()) {
+                            jSONArray.put(iVar2.AG());
                         }
                     }
                 }
@@ -494,8 +496,8 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                 com.baidu.adp.widget.ListView.v vVar = list.get(i);
                 if (vVar instanceof com.baidu.tbadk.data.i) {
                     com.baidu.tbadk.data.i iVar = (com.baidu.tbadk.data.i) vVar;
-                    if (!iVar.AG()) {
-                        jSONArray.put(iVar.AF());
+                    if (!iVar.AH()) {
+                        jSONArray.put(iVar.AG());
                     }
                 }
             }
@@ -506,7 +508,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    private void aDi() {
+    private void aDl() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_USER_PICS, TbConfig.SET_USER_PICS);
         tbHttpMessageTask.setResponsedClass(SetUserPicsResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -539,7 +541,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                     this.mPersonChangeData.setPhotoChanged(true);
                 }
                 if (this.dyP.getUserData() != null) {
-                    com.baidu.tbadk.imageManager.c.CH().fK(this.dyP.getUserData().getPortrait());
+                    com.baidu.tbadk.imageManager.c.CI().fK(this.dyP.getUserData().getPortrait());
                 }
             }
             this.dFD = true;
@@ -562,24 +564,24 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                 if (intent != null) {
                     int intExtra = intent.getIntExtra("upload_image_type", 0);
                     if (intExtra == 1) {
-                        aDj();
-                    } else if (intExtra == 2) {
                         aDm();
+                    } else if (intExtra == 2) {
+                        aDp();
                     }
                 }
             } else if (i == 12014) {
                 if (intent != null) {
                     int intExtra2 = intent.getIntExtra("upload_image_type", 0);
                     if (intExtra2 == 1) {
-                        aDj();
-                    } else if (intExtra2 == 2) {
                         aDm();
+                    } else if (intExtra2 == 2) {
+                        aDp();
                     }
                 }
             } else if (i == 24001) {
                 if (intent != null && this.dFA != null) {
-                    this.dFA.aiJ();
-                    this.dFA.aEh().setGiftIcon(false);
+                    this.dFA.aiL();
+                    this.dFA.aEk().setGiftIcon(false);
                 }
             } else if (i == 24004 && intent != null && intent.getBooleanExtra(MissonDetailsActivityConfig.IS_UPGRADE_SUCCESS, false)) {
                 com.baidu.tbadk.b.a.a(getBaseFragmentActivity()).b(this);
@@ -587,22 +589,22 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    private void aDj() {
+    private void aDm() {
         if (this.dyP != null && this.dyP.getUserData() != null) {
-            com.baidu.tbadk.imageManager.c.CH().fK(this.dyP.getUserData().getPortrait());
+            com.baidu.tbadk.imageManager.c.CI().fK(this.dyP.getUserData().getPortrait());
         }
         this.dFD = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDk() {
+    public void aDn() {
         if (!this.dFQ) {
             this.dFQ = true;
             this.dFX.postDelayed(this.mRunnable, 300L);
         }
     }
 
-    public boolean aDl() {
+    public boolean aDo() {
         return this.dFS;
     }
 
@@ -610,13 +612,13 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         this.dFS = z;
     }
 
-    private void aDm() {
+    private void aDp() {
         new com.baidu.tieba.person.a().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new ap(this));
     }
 
-    private void aDn() {
-        if (this.dyP != null && this.dyP.aDA() != null && this.dFB != null && this.dFA != null) {
-            this.dFA.a(this.dyP.aDA().getIsFriend() == 1, this.dFB.getMaskType() == 1, this.dFM);
+    private void aDq() {
+        if (this.dyP != null && this.dyP.aDD() != null && this.dFB != null && this.dFA != null) {
+            this.dFA.a(this.dyP.aDD().getIsFriend() == 1, this.dFB.getMaskType() == 1, this.dFM);
         }
     }
 
@@ -654,10 +656,10 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                 }
                 return;
             case 3:
-                aDp();
+                aDs();
                 return;
             case 4:
-                aDo();
+                aDr();
                 return;
             case 5:
                 if (com.baidu.tbadk.core.util.bl.ac(getPageContext().getPageActivity())) {
@@ -670,7 +672,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    private void aDo() {
+    private void aDr() {
         if (com.baidu.tbadk.core.util.bl.ac(getPageContext().getPageActivity()) && this.dyP != null) {
             UserData userData = this.dyP.getUserData();
             if (this.dyP.getIsSelf()) {
@@ -685,7 +687,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    private void aDp() {
+    private void aDs() {
         if (com.baidu.tbadk.core.util.bl.ac(getPageContext().getPageActivity()) && this.dyP != null) {
             UserData userData = this.dyP.getUserData();
             if (this.dyP.getIsSelf()) {
@@ -715,7 +717,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
 
     private void s(Bundle bundle) {
         this.dyP = new bg(getBaseFragmentActivity());
-        this.dyP.atR();
+        this.dyP.atU();
         this.dFB = new BlackListModel(getPageContext());
         this.mPersonChangeData = new PersonChangeData();
         a(this.dyP, bundle);
@@ -787,7 +789,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
     }
 
-    private void aDq() {
+    private void aDt() {
         if (this.aXX == null) {
             this.aXX = new com.baidu.tieba.tbadkCore.d.b("profileStat");
             this.aXX.start();
@@ -796,23 +798,23 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
 
     @Override // com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        int Dj = bVar.Dj();
-        bVar.Dk();
-        switch (Dj) {
+        int Dk = bVar.Dk();
+        bVar.Dl();
+        switch (Dk) {
             case 1:
-                aDp();
-                return true;
-            case 2:
-                aDo();
-                return true;
-            case 3:
                 aDs();
                 return true;
+            case 2:
+                aDr();
+                return true;
+            case 3:
+                aDv();
+                return true;
             case 4:
-                aDu();
+                aDx();
                 return true;
             case 5:
-                com.baidu.tbadk.core.util.bg.us().c(getPageContext(), new String[]{dyi});
+                com.baidu.tbadk.core.util.bg.ut().c(getPageContext(), new String[]{dyi});
                 return true;
             default:
                 return false;
@@ -850,7 +852,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         super.onUserChanged(z);
     }
 
-    public com.baidu.tieba.person.a.as aDr() {
+    public com.baidu.tieba.person.a.as aDu() {
         return this.dFI;
     }
 
@@ -862,7 +864,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         String str;
         int i2 = 0;
         if (this.dFA != null) {
-            if (this.dFA.aEo() != null && view.getId() == this.dFA.aEo().getId()) {
+            if (this.dFA.aEr() != null && view.getId() == this.dFA.aEr().getId()) {
                 this.aJw.finish();
                 return;
             }
@@ -883,33 +885,33 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                         c(iVar, arrayList, 0);
                     }
                 }
-            } else if (this.dFA.aEn() != null && view.getId() == this.dFA.aEn().getId()) {
+            } else if (this.dFA.aEq() != null && view.getId() == this.dFA.aEq().getId()) {
                 if (!this.bIW) {
                     if (id != null) {
                         TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10623").ac("obj_id", id));
                     }
-                    aDn();
+                    aDq();
                 }
-            } else if (view.getId() == this.dFA.aEh().getVipIcon().getId()) {
+            } else if (view.getId() == this.dFA.aEk().getVipIcon().getId()) {
                 TiebaStatic.log(this.dFP);
                 if (com.baidu.tbadk.core.util.bl.ac(getActivity())) {
-                    UserIconBox vipIcon = this.dFA.aEh().getVipIcon();
+                    UserIconBox vipIcon = this.dFA.aEk().getVipIcon();
                     if ((vipIcon.getTag() instanceof String) && (str = (String) vipIcon.getTag()) != null) {
-                        com.baidu.tbadk.core.util.bg.us().c(getPageContext(), new String[]{str});
+                        com.baidu.tbadk.core.util.bg.ut().c(getPageContext(), new String[]{str});
                     }
                 }
             } else if (view.getId() == this.dFA.getAttentionView().getId()) {
-                if (this.dyP != null && this.dyP.aDy() != null && this.dyP.aDy().getGodType() == 2) {
+                if (this.dyP != null && this.dyP.aDB() != null && this.dyP.aDB().getGodType() == 2) {
                     TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10803").s("obj_locate", 5).ac("obj_id", new StringBuilder(String.valueOf(this.dyP.getId())).toString()));
                 }
                 if (com.baidu.tbadk.core.util.bl.ac(getActivity())) {
-                    this.dyP.aDC();
+                    this.dyP.aDF();
                 }
-            } else if (view.getId() == this.dFA.aEi().getId()) {
-                aDu();
+            } else if (view.getId() == this.dFA.aEl().getId()) {
+                aDx();
             } else if (view.getId() == this.dFA.getUserIcon().getId()) {
-                aDs();
-            } else if (view.getId() == this.dFA.aEh().getMyGiftIcon().getId()) {
+                aDv();
+            } else if (view.getId() == this.dFA.aEk().getMyGiftIcon().getId()) {
                 TiebaStatic.log("igift_icon_ck");
                 if (com.baidu.tbadk.core.util.bl.ac(getActivity()) && (userData = this.dyP.getUserData()) != null) {
                     if (!com.baidu.adp.lib.util.k.fH()) {
@@ -919,7 +921,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                     this.dFz = true;
                     TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10613").ac("obj_id", id).s("obj_param1", this.dFJ));
                     sendMessage(new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(getPageContext().getPageActivity(), userData.getUserIdLong(), userData.getUserName(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001)));
-                    this.dFA.aEh().setGiftIcon(true);
+                    this.dFA.aEk().setGiftIcon(true);
                 }
             } else if (view.getId() == this.dFA.getMyGiftIcon().getId()) {
                 if (com.baidu.tbadk.core.util.bl.ac(getActivity())) {
@@ -934,16 +936,16 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                         sendMessage(new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(getPageContext().getPageActivity(), userData3.getUserIdLong(), userData3.getUserName(), GiftTabActivityConfig.FROM_PERSON_CENTER)));
                     }
                 }
-            } else if (this.dFA.aBT() != null && view.getId() == this.dFA.aBT().getId()) {
-                this.dFA.aEm();
-                aDt();
-            } else if (this.dFA.aBS() != null && view.getId() == this.dFA.aBS().getId()) {
-                this.dFA.aEm();
+            } else if (this.dFA.aBW() != null && view.getId() == this.dFA.aBW().getId()) {
+                this.dFA.aEp();
+                aDw();
+            } else if (this.dFA.aBV() != null && view.getId() == this.dFA.aBV().getId()) {
+                this.dFA.aEp();
                 if (this.dyP.getUserData() != null) {
-                    com.baidu.tbadk.newFriends.a.DX().O(this.dyP.getUserData().getUserIdLong());
+                    com.baidu.tbadk.newFriends.a.DY().O(this.dyP.getUserData().getUserIdLong());
                 }
-            } else if (this.dFA.aBU() != null && view.getId() == this.dFA.aBU().getId()) {
-                this.dFA.aEm();
+            } else if (this.dFA.aBX() != null && view.getId() == this.dFA.aBX().getId()) {
+                this.dFA.aEp();
                 if (this.dyP != null) {
                     if (!com.baidu.adp.lib.util.i.fq()) {
                         showToast(t.j.neterror);
@@ -953,7 +955,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                         this.diP.a(true, this.dyP.getUserData().getUserId(), this.dyP.getUserData().getUserName(), null, null, UserMuteAddAndDelModel.From.PersonInfo);
                     }
                 }
-            } else if (view.getId() == this.dFA.aEh().getExpandImg().getId()) {
+            } else if (view.getId() == this.dFA.aEk().getExpandImg().getId()) {
                 String bg_pic = this.dyP.getUserData().getBg_pic();
                 try {
                     i = com.baidu.adp.lib.h.b.g(my(bg_pic).get("props_id"), -1);
@@ -988,7 +990,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         };
     }
 
-    private void aDs() {
+    private void aDv() {
         if (this.dyP.getUserData() != null) {
             boolean isSelf = this.dyP.getIsSelf();
             String id = this.dyP.getId();
@@ -1002,7 +1004,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    private void aDt() {
+    private void aDw() {
         String format;
         String userName = this.dyP.getUserData() != null ? this.dyP.getUserData().getUserName() : null;
         if (userName != null) {
@@ -1016,11 +1018,11 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
             }
             aVar.cA(format);
             aVar.b(getPageContext());
-            aVar.rU();
+            aVar.rV();
         }
     }
 
-    private void aDu() {
+    private void aDx() {
         if (com.baidu.tbadk.core.util.bl.ac(getActivity())) {
             if (this.userId != null) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10622").ac("obj_id", this.userId));
@@ -1032,15 +1034,15 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                     com.baidu.tbadk.browser.f.t(getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/userappeal");
                 }
             } else {
-                PersonTainInfo aDA = this.dyP.aDA();
-                if (aDA != null) {
-                    int isFriend = aDA.getIsFriend();
-                    if (this.dyP.aDU()) {
+                PersonTainInfo aDD = this.dyP.aDD();
+                if (aDD != null) {
+                    int isFriend = aDD.getIsFriend();
+                    if (this.dyP.aDX()) {
                         a(this.dyP.getUserData(), isFriend);
                     } else if (isFriend == 0) {
                         UserData userData = this.dyP.getUserData();
                         if (userData != null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), this.dyP.aDB(), aDA.getUserClientVersionLower(), this.dyP.getStType())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), this.dyP.aDE(), aDD.getUserClientVersionLower(), this.dyP.getStType())));
                         }
                     } else if (isFriend == 1) {
                         UserData userData2 = this.dyP.getUserData();
@@ -1052,7 +1054,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
                             }
                         }
                     } else if (isFriend == 2) {
-                        com.baidu.tbadk.newFriends.a.DX().b(com.baidu.adp.lib.h.b.c(this.dyP.getId(), 0L), "pers_pg");
+                        com.baidu.tbadk.newFriends.a.DY().b(com.baidu.adp.lib.h.b.c(this.dyP.getId(), 0L), "pers_pg");
                     }
                 }
             }
@@ -1070,13 +1072,13 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    public void aDv() {
-        long j = com.baidu.tbadk.core.sharedPref.b.sQ().getLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+    public void aDy() {
+        long j = com.baidu.tbadk.core.sharedPref.b.sR().getLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L);
         if (this.dFA != null && this.dFA.dHB != null) {
             if (j < TbadkCoreApplication.m11getInst().getLastUpdateThemeTime()) {
                 com.baidu.tbadk.core.util.at.c(this.dFA.dHB, t.f.icon_news_down_bar_one);
                 this.dFA.dHB.setVisibility(0);
-                com.baidu.tbadk.core.sharedPref.b.sQ().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+                com.baidu.tbadk.core.sharedPref.b.sR().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L);
                 if (!isPrimary()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_PERSON_TIP, new com.baidu.tbadk.mainTab.a(true)));
                 }
@@ -1096,7 +1098,7 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
             } else {
                 this.cFC = new com.baidu.tbadk.f.f(getActivity(), i);
             }
-            this.cFC.sf();
+            this.cFC.sg();
         }
         this.cFC.c(view, z);
     }
@@ -1116,14 +1118,14 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
         if (this.refreshView == null) {
             this.refreshView = new com.baidu.tbadk.f.h(getPageContext().getPageActivity(), new ax(this));
         }
-        this.refreshView.eB(getResources().getDimensionPixelSize(t.e.ds160));
+        this.refreshView.eA(getResources().getDimensionPixelSize(t.e.ds160));
         this.refreshView.fR(str);
         this.refreshView.c(view, z);
-        this.refreshView.CZ();
+        this.refreshView.Da();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pe() {
+    public void Pg() {
         this.dFG.setVisibility(8);
         if (this.refreshView != null) {
             this.refreshView.L(this.dFH);
@@ -1132,9 +1134,9 @@ public class f extends BaseFragment implements b.a, com.baidu.tbadk.mvc.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDw() {
+    public void aDz() {
         if (this.dyP != null) {
-            this.dyP.aDR();
+            this.dyP.aDU();
             if (this.dFA != null && this.dFA.dHO != null) {
                 this.dFA.dHO.ac(this.dyP.getDataList());
                 this.dFA.dHO.notifyDataSetChanged();

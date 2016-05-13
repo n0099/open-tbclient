@@ -15,7 +15,7 @@ public class e extends AuthorizationListener {
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
         Toast.makeText(this.dbP.getPageContext().getPageActivity(), "正常化成功", 0).show();
-        this.dbP.auG();
+        this.dbP.auJ();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener

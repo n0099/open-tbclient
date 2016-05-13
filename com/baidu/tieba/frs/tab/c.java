@@ -23,18 +23,18 @@ public class c implements View.OnClickListener {
         }
         gVar = this.bsU.bsK;
         if (gVar != null) {
-            if (!(view instanceof TabItemView) || !HorizontalTabView.gM(((TabItemView) view).getTabId())) {
+            if (!(view instanceof TabItemView) || !HorizontalTabView.gL(((TabItemView) view).getTabId())) {
                 tabItemView = this.bsU.bsJ;
                 if (tabItemView != null) {
                     gVar2 = this.bsU.bsK;
                     tabItemView2 = this.bsU.bsJ;
-                    gVar2.gK(tabItemView2.getTabId());
+                    gVar2.gJ(tabItemView2.getTabId());
                     return;
                 }
                 return;
             }
             gVar3 = this.bsU.bsK;
-            gVar3.gK(((TabItemView) view).getTabId());
+            gVar3.gJ(((TabItemView) view).getTabId());
         }
     }
 }

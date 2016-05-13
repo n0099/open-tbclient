@@ -44,11 +44,11 @@ public class l {
         return this.text;
     }
 
-    public String aTA() {
+    public String aTG() {
         return this.c;
     }
 
-    public SpannableStringBuilder aTB() {
+    public SpannableStringBuilder aTH() {
         return this.esK;
     }
 
@@ -145,7 +145,7 @@ public class l {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.CG().fi(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.CH().fi(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

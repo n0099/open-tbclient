@@ -743,7 +743,8 @@ public class PluginPackageManager {
         this.uT = eVar;
     }
 
-    private boolean H(String str, String str2) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean H(String str, String str2) {
         return TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || Util.K(str2, str) != Util.VersionCompare.EQUAL;
     }
 
@@ -898,10 +899,6 @@ public class PluginPackageManager {
         if (this.uO) {
             b.hA().clear(this.uK);
         }
-    }
-
-    public void am(int i) {
-        this.uQ = i;
     }
 
     public int hX() {

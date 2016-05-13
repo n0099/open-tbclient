@@ -23,7 +23,7 @@ public class v extends CustomMessageListener {
         if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
             this.dVD.dVA = (ArrayList) data;
             postSearchActivity = this.dVD.dUY;
-            postSearchActivity.aKC();
+            postSearchActivity.aKF();
         }
     }
 }

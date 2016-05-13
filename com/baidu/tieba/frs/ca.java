@@ -29,7 +29,7 @@ public class ca extends com.baidu.adp.base.g {
         Handler handler;
         com.baidu.tieba.tbadkCore.x xVar4;
         xVar = this.biM.Dp;
-        if (AntiHelper.pw(xVar.getErrorCode())) {
+        if (AntiHelper.pv(xVar.getErrorCode())) {
             Activity pageActivity = this.biM.mTbPageContext.getPageActivity();
             xVar4 = this.biM.Dp;
             AntiHelper.O(pageActivity, xVar4.getErrorString());

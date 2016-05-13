@@ -36,7 +36,7 @@ public class k extends o {
         return "TBHY_EXT_SeniorLotteryPB";
     }
 
-    public Map<String, Object> awm() {
+    public Map<String, Object> awp() {
         HashMap hashMap = new HashMap();
         if (this.dhX != null) {
             JSONObject jSONObject = new JSONObject();
@@ -131,26 +131,26 @@ public class k extends o {
         return hashMap;
     }
 
-    @p(sD = "drawLottery")
+    @p(sE = "drawLottery")
     protected JSONObject drawLottery(JSONObject jSONObject) {
-        this.dfZ.awj();
+        this.dfZ.awm();
         JSONObject jSONObject2 = new JSONObject();
         jSONObject2.put("status", 0);
         return jSONObject2;
     }
 
-    @p(sD = "pageFinish")
+    @p(sE = "pageFinish")
     protected void pageFinish(JSONObject jSONObject) {
         this.dhZ = true;
-        this.dhY.hideLoadingView(this.dhY.awt().getView());
+        this.dhY.hideLoadingView(this.dhY.aww().getView());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean awn() {
+    public boolean awq() {
         return this.dhZ;
     }
 
-    @p(sD = "drawFinish")
+    @p(sE = "drawFinish")
     protected void drawFinish(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("message");

@@ -71,16 +71,16 @@ public class ab extends c<com.baidu.tieba.person.data.p, com.baidu.tieba.person.
 
     private void a(com.baidu.tieba.person.b.m mVar, com.baidu.tieba.person.data.p pVar) {
         if (pVar != null && pVar.getUserData() != null && mVar != null) {
-            this.dxU = pVar.aCl();
-            this.dxV = pVar.aCk();
+            this.dxU = pVar.aCo();
+            this.dxV = pVar.aCn();
             this.Fn = new a(pVar.getUserId(), pVar.getSex(), pVar.getPortrait());
             this.isSelf = pVar.getIsSelf();
             this.userId = pVar.getUserId();
-            int AD = this.dxU != null ? this.dxU.AD() : 1;
+            int AE = this.dxU != null ? this.dxU.AE() : 1;
             int isFriend = this.dxV != null ? this.dxV.getIsFriend() : 1;
             if (this.isSelf) {
                 b(mVar, pVar);
-            } else if (AD == 1 || (AD == 2 && isFriend == 1)) {
+            } else if (AE == 1 || (AE == 2 && isFriend == 1)) {
                 b(mVar, pVar);
             } else {
                 c(mVar, pVar);
@@ -94,7 +94,7 @@ public class ab extends c<com.baidu.tieba.person.data.p, com.baidu.tieba.person.
         if (mVar != null && pVar != null) {
             this.isSelf = pVar.getIsSelf();
             this.dye = this.mContext.getResources().getString(t.j.my_threads);
-            this.dyd = pVar.aCo();
+            this.dyd = pVar.aCr();
             if (!this.isSelf && pVar.getSex() == 2) {
                 this.dye = this.mContext.getResources().getString(t.j.her_threads);
             } else if (!this.isSelf && (pVar.getSex() == 1 || pVar.getSex() == 0)) {
@@ -367,7 +367,7 @@ public class ab extends c<com.baidu.tieba.person.data.p, com.baidu.tieba.person.
                 }
                 if (this.threadType != 33) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(ab.this.mContext).createCfgForPersonCenter(this.threadID, this.postID, "person_post", 18005)));
-                } else if (!ab.this.Kf()) {
+                } else if (!ab.this.Kh()) {
                     UtilHelper.showToast(ab.this.mContext, t.j.plugin_config_not_found);
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(ab.this.mContext, this.threadID).ch(this.postID).oq()));
@@ -377,7 +377,7 @@ public class ab extends c<com.baidu.tieba.person.data.p, com.baidu.tieba.person.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Kf() {
+    public boolean Kh() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class);
     }
 }

@@ -91,8 +91,8 @@ public final class R {
         public static final int bg_switch_open = 0x7f020246;
         public static final int btn_handle = 0x7f020404;
         public static final int icon_gif = 0x7f0209d2;
-        public static final int listview_pull_refresh01 = 0x7f020f9a;
-        public static final int listview_pull_refresh02 = 0x7f020f9c;
+        public static final int listview_pull_refresh01 = 0x7f020fa0;
+        public static final int listview_pull_refresh02 = 0x7f020fa2;
     }
 
     /* loaded from: classes.dex */

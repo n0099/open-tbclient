@@ -29,7 +29,7 @@ public class ab extends z {
     private long ayF = -1;
     private long ayG = -1;
 
-    public boolean ER() {
+    public boolean ES() {
         return this.ayi;
     }
 
@@ -130,7 +130,7 @@ public class ab extends z {
         this.ayA = j;
     }
 
-    public static ab ES() {
+    public static ab ET() {
         if (ayH == null) {
             synchronized (ab.class) {
                 if (ayH == null) {
@@ -141,9 +141,9 @@ public class ab extends z {
         return ayH;
     }
 
-    public void ET() {
+    public void EU() {
         long j = this.ayG - this.ayl;
-        if (j > 0 && !this.ayj && aa.EM().EN()) {
+        if (j > 0 && !this.ayj && aa.EN().EO()) {
             this.ayj = true;
             long j2 = this.aym - this.ayl;
             long j3 = this.ayE - this.ayl;
@@ -187,7 +187,7 @@ public class ab extends z {
     }
 
     public void an(long j) {
-        if (aa.EM().EN() && j > 0) {
+        if (aa.EN().EO() && j > 0) {
             com.baidu.adp.lib.stats.d dG = dG();
             dG.q("procname", "remote");
             dG.q("costt", String.valueOf(j));

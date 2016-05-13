@@ -37,9 +37,9 @@ public class m implements View.OnClickListener {
             eVar = this.dgn.dfK;
             if (eVar != null) {
                 eVar6 = this.dgn.dfK;
-                if (eVar6.avB() != null) {
+                if (eVar6.avE() != null) {
                     eVar7 = this.dgn.dfK;
-                    if (eVar7.avB().rf() == 1) {
+                    if (eVar7.avE().rg() == 1) {
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
                         aw awVar = new aw("c10400");
                         eVar8 = this.dgn.dfK;
@@ -47,14 +47,14 @@ public class m implements View.OnClickListener {
                         eVar9 = this.dgn.dfK;
                         TiebaStatic.log(ac.ac("tid", eVar9.getThreadId()).ac("uid", currentAccount));
                         eVar10 = this.dgn.dfK;
-                        if (eVar10.avA() != null) {
+                        if (eVar10.avD() != null) {
                             eVar11 = this.dgn.dfK;
-                            if (eVar11.avA().isLike() == 1) {
-                                this.dgn.avZ();
+                            if (eVar11.avD().isLike() == 1) {
+                                this.dgn.awc();
                                 return;
                             }
                         }
-                        this.dgn.awa();
+                        this.dgn.awd();
                         return;
                     }
                 }
@@ -62,12 +62,12 @@ public class m implements View.OnClickListener {
             eVar2 = this.dgn.dfK;
             if (eVar2 != null) {
                 eVar3 = this.dgn.dfK;
-                if (eVar3.avB() != null) {
+                if (eVar3.avE() != null) {
                     eVar4 = this.dgn.dfK;
-                    if (eVar4.avB().ri() != null) {
+                    if (eVar4.avE().rj() != null) {
                         context = this.dgn.mContext;
                         eVar5 = this.dgn.dfK;
-                        com.baidu.tbadk.browser.f.t(context, eVar5.avB().ri());
+                        com.baidu.tbadk.browser.f.t(context, eVar5.avE().rj());
                         context2 = this.dgn.mContext;
                         TiebaStatic.eventStat(context2, "show_picture", "click", 1, "page", "pb");
                     }

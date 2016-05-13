@@ -23,7 +23,7 @@ public class w implements Animation.AnimationListener {
         if (textView == null) {
             return;
         }
-        this.dYM.aMe();
+        this.dYM.aMh();
     }
 
     @Override // android.view.animation.Animation.AnimationListener

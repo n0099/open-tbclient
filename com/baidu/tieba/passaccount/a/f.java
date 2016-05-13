@@ -63,7 +63,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public static AccountData bt(String str, String str2) {
         ab abVar;
-        String tc;
+        String td;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -73,16 +73,16 @@ public class f {
             abVar.n("isphone", "0");
             abVar.n("channel_id", TbadkCoreApplication.m11getInst().getPushChannelId());
             abVar.n("channel_uid", TbadkCoreApplication.m11getInst().getPushChannelUserId());
-            abVar.tA().uu().ux().Zb = true;
-            abVar.tA().uu().mIsNeedAddCommenParam = false;
-            abVar.tA().uu().mIsUseCurrentBDUSS = false;
-            tc = abVar.tc();
+            abVar.tB().uv().uy().Zb = true;
+            abVar.tB().uv().mIsNeedAddCommenParam = false;
+            abVar.tB().uv().mIsUseCurrentBDUSS = false;
+            td = abVar.td();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (abVar.tA().uv().nZ() && tc != null) {
+        if (abVar.tB().uw().nZ() && td != null) {
             y yVar = new y();
-            yVar.parserJson(tc);
+            yVar.parserJson(td);
             String userId = yVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
@@ -104,13 +104,13 @@ public class f {
             }
             return accountData;
         }
-        if (abVar.tD()) {
-            switch (abVar.tE()) {
+        if (abVar.tE()) {
+            switch (abVar.tF()) {
                 case 1:
                 case 2:
                 case 5:
                     abVar.dl();
-                    ReloginManager.sL().e(null);
+                    ReloginManager.sM().e(null);
                     break;
             }
             return null;

@@ -34,7 +34,7 @@ public class aa extends com.baidu.adp.base.f<FrsActivity> {
         }
     }
 
-    public fi Ua() {
+    public fi Uc() {
         return this.brn;
     }
 
@@ -42,7 +42,7 @@ public class aa extends com.baidu.adp.base.f<FrsActivity> {
         return this.bgo.Rb();
     }
 
-    public void gV(int i) {
+    public void gU(int i) {
         if (this.bgo.QR() != null && this.bgo.QR().getChildAt(0) != null) {
             this.bgo.QR().setSelectionFromTop(this.bgo.QR().getFirstVisiblePosition(), this.bgo.QR().getChildAt(0).getTop() - i);
         }

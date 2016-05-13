@@ -37,28 +37,28 @@ public abstract class w extends com.baidu.adp.base.f<bf> implements t.c, com.bai
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
             if (this.aSR != null) {
-                if (aVar.DI()) {
+                if (aVar.DJ()) {
                     this.aSR.kC();
-                    if (aVar.DG()) {
-                        this.aSR.eF(t.j.loading);
-                    } else if (aVar.DH()) {
-                        this.aSR.eF(t.j.loading);
+                    if (aVar.DH()) {
+                        this.aSR.eE(t.j.loading);
+                    } else if (aVar.DI()) {
+                        this.aSR.eE(t.j.loading);
                     } else {
-                        this.aSR.eG(t.j.no_more_msg);
+                        this.aSR.eF(t.j.no_more_msg);
                     }
                 } else {
                     this.aSR.hide();
                 }
             }
             if (aVar.isPullRefreshing()) {
-                ald();
+                alf();
             } else {
-                ale();
+                alg();
             }
         }
     }
 
-    public void ald() {
+    public void alf() {
         if (this.mPullView != null) {
             this.mPullView.a((t.c) null);
         }
@@ -70,7 +70,7 @@ public abstract class w extends com.baidu.adp.base.f<bf> implements t.c, com.bai
         }
     }
 
-    public void ale() {
+    public void alg() {
         if (this.aSP != null) {
             this.aSP.k(2000L);
         }
@@ -79,19 +79,19 @@ public abstract class w extends com.baidu.adp.base.f<bf> implements t.c, com.bai
     @Override // com.baidu.tbadk.core.view.t.c
     public void b(View view, boolean z) {
         if (this instanceof k) {
-            this.cyh.alA().ck(z);
+            this.cyh.alC().ck(z);
         } else if (this instanceof j) {
-            this.cyh.alz().ck(z);
+            this.cyh.alB().ck(z);
         } else {
-            this.cyh.aly().ck(z);
+            this.cyh.alA().ck(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ErrorData errorData) {
-        ale();
+        alg();
         if (this.aSR != null) {
-            this.aSR.eG(t.j.no_more_msg);
+            this.aSR.eF(t.j.no_more_msg);
         }
     }
 
@@ -122,11 +122,11 @@ public abstract class w extends com.baidu.adp.base.f<bf> implements t.c, com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void alf() {
+    public void alh() {
         if (this.aSP != null) {
             this.acg = BdListViewHelper.a(this.cyh.getActivity(), this.aSP, BdListViewHelper.HeadType.HASTAB);
             if (this.cyw > 0) {
-                ka(this.cyw);
+                jZ(this.cyw);
             }
         }
     }
@@ -145,7 +145,7 @@ public abstract class w extends com.baidu.adp.base.f<bf> implements t.c, com.bai
             this.aSR.a(tbPageContext, i);
         }
         if (this.mPullView != null) {
-            this.mPullView.cS(i);
+            this.mPullView.cR(i);
             return true;
         }
         return true;
@@ -160,11 +160,11 @@ public abstract class w extends com.baidu.adp.base.f<bf> implements t.c, com.bai
             this.cyu = false;
             this.cyv = false;
             if (this instanceof k) {
-                this.cyh.alA().ck(false);
+                this.cyh.alC().ck(false);
             } else if (this instanceof j) {
-                this.cyh.alz().kX();
+                this.cyh.alB().kX();
             } else {
-                this.cyh.aly().kX();
+                this.cyh.alA().kX();
             }
         }
     }
@@ -175,11 +175,11 @@ public abstract class w extends com.baidu.adp.base.f<bf> implements t.c, com.bai
         }
     }
 
-    public void DL() {
+    public void DM() {
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public void DM() {
+    public void DN() {
     }
 
     public void fh(boolean z) {
@@ -194,7 +194,7 @@ public abstract class w extends com.baidu.adp.base.f<bf> implements t.c, com.bai
         return this.awk;
     }
 
-    public void ka(int i) {
+    public void jZ(int i) {
         ViewGroup.LayoutParams layoutParams;
         this.cyw = i;
         if (this.acg != null && (layoutParams = this.acg.getLayoutParams()) != null && layoutParams.height != i) {

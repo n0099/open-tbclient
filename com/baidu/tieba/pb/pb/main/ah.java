@@ -32,10 +32,10 @@ class ah implements TbRichTextView.d {
             this.djE.a(str, i, bVar);
             if (!bVar.djV) {
                 cwVar3 = this.djE.dih;
-                boolean axL = cwVar3.axL();
+                boolean axO = cwVar3.axO();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = bVar.djT;
                 cwVar4 = this.djE.dih;
-                ImageViewerConfig createConfig = new ImageViewerConfig(this.djE.getPageContext().getPageActivity()).createConfig(bVar.djS, 0, bVar.forumName, bVar.forumId, bVar.threadId, bVar.djU, bVar.djS.get(0), axL, concurrentHashMap, true, false, cwVar4.getHostMode());
+                ImageViewerConfig createConfig = new ImageViewerConfig(this.djE.getPageContext().getPageActivity()).createConfig(bVar.djS, 0, bVar.forumName, bVar.forumId, bVar.threadId, bVar.djU, bVar.djS.get(0), axO, concurrentHashMap, true, false, cwVar4.getHostMode());
                 createConfig.getIntent().putExtra("from", "pb");
                 this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
             } else {
@@ -48,10 +48,10 @@ class ah implements TbRichTextView.d {
                 boolean z = bVar.djU;
                 String str5 = bVar.lastId;
                 cwVar = this.djE.dih;
-                boolean axL2 = cwVar.axL();
+                boolean axO2 = cwVar.axO();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = bVar.djT;
                 cwVar2 = this.djE.dih;
-                ImageViewerConfig createConfig2 = imageViewerConfig.createConfig(arrayList, i2, str2, str3, str4, z, str5, axL2, concurrentHashMap2, true, false, cwVar2.getHostMode());
+                ImageViewerConfig createConfig2 = imageViewerConfig.createConfig(arrayList, i2, str2, str3, str4, z, str5, axO2, concurrentHashMap2, true, false, cwVar2.getHostMode());
                 createConfig2.getIntent().putExtra("from", "pb");
                 this.djE.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
             }

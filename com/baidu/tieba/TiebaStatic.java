@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TiebaStatic {
     static {
-        bg.us().a(new z());
+        bg.ut().a(new z());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

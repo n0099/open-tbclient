@@ -24,7 +24,7 @@ public abstract class c extends b implements ak {
         this.mSource = str;
     }
 
-    public void fx(int i) {
+    public void fw(int i) {
         this.aRz = i;
     }
 
@@ -32,11 +32,11 @@ public abstract class c extends b implements ak {
         this.aRA = str;
     }
 
-    public int Kh() {
+    public int Kj() {
         return this.aRz;
     }
 
-    public String Ki() {
+    public String Kk() {
         return String.valueOf(this.mSource) + "#" + this.aRz + "#" + this.aRA;
     }
 
@@ -48,11 +48,11 @@ public abstract class c extends b implements ak {
         return this.mSource;
     }
 
-    public String Kj() {
+    public String Kl() {
         return this.aRA;
     }
 
-    public String Kk() {
+    public String Km() {
         return this.aRB;
     }
 
@@ -60,7 +60,7 @@ public abstract class c extends b implements ak {
         this.aRB = str;
     }
 
-    public ax Kl() {
+    public ax Kn() {
         return null;
     }
 
@@ -69,20 +69,20 @@ public abstract class c extends b implements ak {
     }
 
     public aw hh(String str) {
-        ax Kl = Kl();
-        if (Kl == null) {
+        ax Kn = Kn();
+        if (Kn == null) {
             return null;
         }
-        return new aw(str).ac("fid", String.valueOf(Kl.getFid())).ac("tid", String.valueOf(Kl.getTid())).ac("obj_param1", getWeight()).ac("obj_source", getSource()).s("obj_locate", Kh()).ac("obj_param3", au.Ka()).s("obj_type", Km());
+        return new aw(str).ac("fid", String.valueOf(Kn.getFid())).ac("tid", String.valueOf(Kn.getTid())).ac("obj_param1", getWeight()).ac("obj_source", getSource()).s("obj_locate", Kj()).ac("obj_param3", au.Kc()).s("obj_type", Ko());
     }
 
-    private int Km() {
+    private int Ko() {
         int i;
-        ax Kl = Kl();
-        if (Kl == null) {
+        ax Kn = Kn();
+        if (Kn == null) {
             return 0;
         }
-        ArrayList<MediaData> medias = Kl.getMedias();
+        ArrayList<MediaData> medias = Kn.getMedias();
         if (medias == null) {
             i = 0;
         } else {
@@ -100,9 +100,9 @@ public abstract class c extends b implements ak {
 
     @Override // com.baidu.tbadk.core.util.ak
     public ArrayList<aj> getImages() {
-        ax Kl = Kl();
-        if (Kl != null) {
-            return Kl.getImages();
+        ax Kn = Kn();
+        if (Kn != null) {
+            return Kn.getImages();
         }
         return null;
     }

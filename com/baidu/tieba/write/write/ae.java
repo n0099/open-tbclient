@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity feb;
+    final /* synthetic */ WriteActivity fea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(WriteActivity writeActivity) {
-        this.feb = writeActivity;
+        this.fea = writeActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -16,13 +16,13 @@ public class ae implements View.OnFocusChangeListener {
         com.baidu.tbadk.editortools.l lVar;
         com.baidu.tbadk.editortools.l lVar2;
         if (z) {
-            this.feb.fdL = false;
-            this.feb.fdY = false;
-            this.feb.bdw();
-            lVar = this.feb.apy;
+            this.fea.fdK = false;
+            this.fea.fdX = false;
+            this.fea.bdD();
+            lVar = this.fea.apy;
             if (lVar != null) {
-                lVar2 = this.feb.apy;
-                lVar2.zx();
+                lVar2 = this.fea.apy;
+                lVar2.zy();
             }
         }
     }

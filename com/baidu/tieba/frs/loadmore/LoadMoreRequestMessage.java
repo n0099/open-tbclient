@@ -60,7 +60,7 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(C);
         builder.scr_w = Integer.valueOf(B);
-        builder.q_type = Integer.valueOf(az.uf().uh() ? 2 : 1);
+        builder.q_type = Integer.valueOf(az.ug().ui() ? 2 : 1);
         if (z) {
             o.a(builder, true);
         }

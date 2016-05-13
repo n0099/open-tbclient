@@ -19,7 +19,7 @@ class u extends com.baidu.tbadk.core.c.o {
         return "TBHY_COMMON_UISwitch";
     }
 
-    @com.baidu.tbadk.core.c.p(sD = "viewHideSwitch", sE = false)
+    @com.baidu.tbadk.core.c.p(sE = "viewHideSwitch", sF = false)
     private void viewHideSwitch(JSONObject jSONObject) {
         boolean z;
         if (jSONObject != null) {

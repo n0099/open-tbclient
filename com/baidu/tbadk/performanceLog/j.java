@@ -14,7 +14,7 @@ public class j extends com.baidu.adp.a.a.a {
 
     /* loaded from: classes.dex */
     public interface a {
-        void eJ(int i);
+        void eI(int i);
     }
 
     @Override // com.baidu.adp.a.a.a
@@ -22,7 +22,7 @@ public class j extends com.baidu.adp.a.a.a {
         if (!ah()) {
             super.start();
             this.axi.sendEmptyMessageDelayed(0, 10000L);
-            EB();
+            EC();
             try {
                 d.a(this.axd, new l(this));
             } catch (Exception e) {
@@ -34,10 +34,10 @@ public class j extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        EC();
+        ED();
     }
 
-    private void EB() {
+    private void EC() {
         if (this.axf == null) {
             this.axf = new d();
         }
@@ -46,7 +46,7 @@ public class j extends com.baidu.adp.a.a.a {
         }
     }
 
-    private void EC() {
+    private void ED() {
         if (this.axf != null && this.axf.ah()) {
             this.axf.stop();
         }

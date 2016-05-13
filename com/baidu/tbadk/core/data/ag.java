@@ -22,7 +22,7 @@ public class ag extends ax {
             setAuthor(axVar.getAuthor());
             setTitle(axVar.getTitle());
             setPhotoLiveCover(axVar.getPhotoLiveCover());
-            cs(axVar.qP());
+            cs(axVar.qQ());
             cr(axVar.getTid());
             u(axVar.getLast_time_int());
             setAddress(axVar.getAddress());
@@ -31,10 +31,10 @@ public class ag extends ax {
             setPraise(axVar.getPraise());
             setReply_num(axVar.getReply_num());
             setPost_num(axVar.getPost_num());
-            ct(axVar.qS());
+            ct(axVar.qT());
             cr(axVar.getTid());
-            setExpressionDatas(axVar.rb());
-            setShowExpressionViewIndexList(axVar.rb());
+            setExpressionDatas(axVar.rc());
+            setShowExpressionViewIndexList(axVar.rc());
             setId(axVar.getId());
             if (getShowStyle() < 0) {
                 this.Pa = getRandom(3, i);
@@ -81,7 +81,7 @@ public class ag extends ax {
             LabelInfo labelInfo = list.get(i);
             if (labelInfo != null) {
                 com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
-                nVar.dQ(labelInfo.labelHot.intValue());
+                nVar.dP(labelInfo.labelHot.intValue());
                 nVar.setLabelId(labelInfo.labelId);
                 nVar.setLabelName(labelInfo.labelContent);
                 arrayList.add(nVar);

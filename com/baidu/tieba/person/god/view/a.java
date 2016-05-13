@@ -106,12 +106,12 @@ public class a extends com.baidu.tieba.personInfo.a implements com.baidu.tieba.p
         this.dAQ.setOnClickListener(this.dxd);
         this.dAH.setOnClickListener(this.dxd);
         this.dAM.setOnClickListener(this.dxd);
-        aCK();
-        aCL();
+        aCN();
+        aCO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aCI() {
+    public boolean aCL() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PersonListActivityConfig.class);
     }
 
@@ -119,7 +119,7 @@ public class a extends com.baidu.tieba.personInfo.a implements com.baidu.tieba.p
     public void setBackBitmap(UserData userData) {
         String bg_pic = userData != null ? userData.getBg_pic() : null;
         if (StringUtils.isNull(bg_pic)) {
-            com.baidu.tbadk.imageManager.c.CH().ez(1152000);
+            com.baidu.tbadk.imageManager.c.CI().ey(1152000);
             Bitmap logoBitmap = BitmapHelper.getLogoBitmap(this.mActivity.getApplicationContext(), t.f.pic_mycenter_bg_def);
             if (logoBitmap == null) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
@@ -137,14 +137,14 @@ public class a extends com.baidu.tieba.personInfo.a implements com.baidu.tieba.p
     }
 
     @Override // com.baidu.tieba.personInfo.a
-    public void aCJ() {
+    public void aCM() {
         if (this.dAK != null) {
-            this.dAK.CE();
+            this.dAK.CF();
         }
         this.dAH.setImageBitmap(null);
     }
 
-    private void aCK() {
+    private void aCN() {
         if (this.bIW) {
             this.dAT.setVisibility(8);
             this.dAZ.setVisibility(0);
@@ -209,7 +209,7 @@ public class a extends com.baidu.tieba.personInfo.a implements com.baidu.tieba.p
         }
     }
 
-    private void aCL() {
+    private void aCO() {
         this.dAK.setIsRound(true);
         this.dAK.setDrawBorder(false);
         this.dAK.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -244,7 +244,7 @@ public class a extends com.baidu.tieba.personInfo.a implements com.baidu.tieba.p
     }
 
     @Override // com.baidu.tieba.personInfo.a
-    public void Pl() {
+    public void Pn() {
         this.dAI.clearAnimation();
         this.dAI.setImageDrawable(null);
         this.dAI.setVisibility(8);
@@ -260,8 +260,8 @@ public class a extends com.baidu.tieba.personInfo.a implements com.baidu.tieba.p
     }
 
     @Override // com.baidu.tieba.personInfo.a
-    public void aBX() {
-        this.dAy = this.dxd.aDb();
+    public void aCa() {
+        this.dAy = this.dxd.aDe();
         if (this.dAy != null) {
             UserData userData = this.dAy.getUserData();
             setBackBitmap(userData);
@@ -272,7 +272,7 @@ public class a extends com.baidu.tieba.personInfo.a implements com.baidu.tieba.p
     }
 
     public void h(UserData userData) {
-        if (!aCM() || userData == null) {
+        if (!aCP() || userData == null) {
             this.dAZ.setVisibility(8);
             return;
         }
@@ -354,7 +354,7 @@ public class a extends com.baidu.tieba.personInfo.a implements com.baidu.tieba.p
         return this.mRootView;
     }
 
-    private boolean aCM() {
+    private boolean aCP() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(BuyTBeanActivityConfig.class);
     }
 

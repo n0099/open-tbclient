@@ -31,18 +31,18 @@ class d implements t.b {
             if (gVar != null) {
                 if (!com.baidu.adp.lib.util.i.fq()) {
                     gVar4 = this.dzZ.dzU;
-                    gVar4.Nn();
+                    gVar4.Np();
                     String string = TbadkCoreApplication.m11getInst().getString(t.j.neterror);
                     gVar5 = this.dzZ.dzU;
                     gVar5.mj(string);
                     gVar6 = this.dzZ.dzU;
-                    gVar6.aCy();
+                    gVar6.aCB();
                     return;
                 }
                 hVar2 = this.dzZ.dzV;
                 if (!hVar2.isLoading()) {
                     gVar2 = this.dzZ.dzU;
-                    gVar2.aCy();
+                    gVar2.aCB();
                     gVar3 = this.dzZ.dzU;
                     gVar3.hideNoDataView();
                     hVar3 = this.dzZ.dzV;

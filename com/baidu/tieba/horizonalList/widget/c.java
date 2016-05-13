@@ -43,11 +43,11 @@ public class c implements Runnable {
                 absHListView7.postDelayed(this, 40L);
                 return;
             }
-            this.bRy.aai();
+            this.bRy.aak();
             absHListView5 = AbsHListView.this;
             absHListView5.mTouchMode = 3;
             absHListView6 = AbsHListView.this;
-            absHListView6.ie(1);
+            absHListView6.id(1);
         }
     }
 }

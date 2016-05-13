@@ -35,7 +35,7 @@ public class n implements f {
         if (context != null && jVar != null) {
             this.mContext = context;
             this.btl = jVar;
-            this.bsQ = jVar.Ty();
+            this.bsQ = jVar.TA();
             initView();
         }
     }
@@ -52,12 +52,12 @@ public class n implements f {
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public void vl() {
+    public void vm() {
         this.btm.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public int Tw() {
+    public int Ty() {
         return 0;
     }
 }

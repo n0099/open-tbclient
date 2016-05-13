@@ -30,11 +30,11 @@ class fw extends CustomMessageListener {
                 dzVar = this.dpB.mReaderManager;
                 int i = dzVar.dmC;
                 dzVar2 = this.dpB.mReaderManager;
-                aVar2.aM(i, dzVar2.ayt());
+                aVar2.aM(i, dzVar2.ayw());
             } else if (intValue == 2) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10833").ac("obj_locate", "2"));
                 aVar = this.dpB.mRefreshCallback;
-                aVar.ayw();
+                aVar.ayz();
             }
         }
     }

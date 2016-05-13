@@ -16,6 +16,6 @@ public class b implements a.b {
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         this.amF.dismiss();
-        this.evN.aVc();
+        this.evN.aVi();
     }
 }

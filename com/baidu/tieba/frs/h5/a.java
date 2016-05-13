@@ -70,7 +70,7 @@ public class a extends bw<h, l> {
         webView.setWebChromeClient(new b(this));
         webView.setOnLoadUrlListener(new c(this, hVar));
         webView.setHorizontalScrollBarEnabled(false);
-        if (!dVar.Ti() && hVar != null) {
+        if (!dVar.Tj() && hVar != null) {
             CompatibleUtile.getInstance().loadUrl(webView, hVar.url);
             dVar.setWebViewLoading(true);
         }

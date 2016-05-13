@@ -110,7 +110,7 @@ public class f extends BaseFragment {
 
     private void initData() {
         this.ctA = new ImMessageCenterModel();
-        eY(com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("is_shut_down_validate", false) ? false : true);
+        eY(com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("is_shut_down_validate", false) ? false : true);
     }
 
     private void X(View view) {
@@ -146,7 +146,7 @@ public class f extends BaseFragment {
                 this.ctG.onChangeSkinType(i);
             }
             if (this.ctF != null) {
-                this.ctF.cS(i);
+                this.ctF.cR(i);
             }
             if (this.ctE != null) {
                 this.ctE.notifyDataSetChanged();
@@ -161,26 +161,26 @@ public class f extends BaseFragment {
         }
     }
 
-    private void ajd() {
+    private void ajf() {
         if (isAdded()) {
             if (this.mIsLogin) {
-                aje();
+                ajg();
             } else {
-                ajf();
+                ajh();
             }
         }
     }
 
-    private void aje() {
+    private void ajg() {
         NoDataViewFactory.b bVar = null;
         if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(getString(t.j.maintab_imcenter_button_text), new p(this)));
         }
-        this.mNoDataView = NoDataViewFactory.a(this.ctB.getPageContext().getPageActivity(), this.ctL, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(t.e.ds80)), NoDataViewFactory.d.cP(t.j.no_recent_chat), bVar);
+        this.mNoDataView = NoDataViewFactory.a(this.ctB.getPageContext().getPageActivity(), this.ctL, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(t.e.ds80)), NoDataViewFactory.d.cO(t.j.no_recent_chat), bVar);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
     }
 
-    private void ajf() {
+    private void ajh() {
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(getString(t.j.maintab_imcenter_unlogin_button_text), new q(this));
         int dimensionPixelSize = getResources().getDimensionPixelSize(t.e.ds100);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(t.e.ds480);
@@ -194,7 +194,7 @@ public class f extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        ajd();
+        ajf();
         if (!z) {
             eX(true);
         } else {
@@ -217,14 +217,14 @@ public class f extends BaseFragment {
         this.ctI = new h(this, imMessageCenterShowItemData);
         String string = this.ctB.getPageContext().getPageActivity().getString(t.j.delete_user_chat);
         this.ctH = new com.baidu.tbadk.core.dialog.c(this.ctB.getPageContext().getPageActivity());
-        this.ctH.bP(t.j.operation);
+        this.ctH.bO(t.j.operation);
         this.ctH.a(new String[]{string}, this.ctI);
         this.ctH.d(this.ctB.getPageContext());
     }
 
     public void eW(boolean z) {
         if (z) {
-            if (ajg() && this.ctG.getVisibility() != 0) {
+            if (aji() && this.ctG.getVisibility() != 0) {
                 this.ctG.setVisibility(0);
             }
         } else if (this.ctG.getVisibility() != 8) {
@@ -235,7 +235,7 @@ public class f extends BaseFragment {
     public void eX(boolean z) {
         if (z) {
             if (this.mNoDataView == null) {
-                ajd();
+                ajf();
             }
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(0);
@@ -247,7 +247,7 @@ public class f extends BaseFragment {
         }
     }
 
-    public boolean ajg() {
+    public boolean aji() {
         return this.ctK;
     }
 

@@ -17,7 +17,7 @@ public class c {
         return this.threadId;
     }
 
-    public u XY() {
+    public u Ya() {
         return this.bKy;
     }
 }

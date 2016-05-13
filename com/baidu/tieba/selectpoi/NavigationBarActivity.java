@@ -29,7 +29,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         this.aKU = (NavigationBar) findViewById(t.g.navigation_bar);
         this.ddG = (RelativeLayout) findViewById(t.g.navigation_bar_root);
         this.aKU.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-        if (aNa()) {
+        if (aNd()) {
             this.edt = (NoNetworkView) ((ViewStub) findViewById(t.g.no_network_viewstub)).inflate();
         }
     }
@@ -51,20 +51,20 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        aNa();
+        aNd();
         this.edu = new RelativeLayout(getPageContext().getContext());
         this.edu.addView(view, new ViewGroup.LayoutParams(-1, -1));
         this.ddG.addView(this.edu, 0, layoutParams);
     }
 
-    protected boolean aNa() {
+    protected boolean aNd() {
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (aNa()) {
+        if (aNd()) {
             layoutParams.addRule(3, t.g.no_network_view);
         } else {
             layoutParams.addRule(3, t.g.no_network_viewstub);

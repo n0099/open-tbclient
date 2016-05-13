@@ -32,12 +32,12 @@ public class p extends y.a {
 
     public void a(com.baidu.tieba.person.data.s sVar) {
         if (sVar != null) {
-            this.dDL.setData(sVar.aCr());
+            this.dDL.setData(sVar.aCu());
             this.dDL.notifyDataSetChanged();
         }
     }
 
-    public void aCN() {
+    public void aCQ() {
         if (this.aej != TbadkCoreApplication.m11getInst().getSkinType()) {
             this.aej = TbadkCoreApplication.m11getInst().getSkinType();
             at.l(this.awk, t.d.cp_bg_line_d);

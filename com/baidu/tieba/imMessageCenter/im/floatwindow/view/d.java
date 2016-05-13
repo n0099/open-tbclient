@@ -12,7 +12,7 @@ public class d implements e.a {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.e.a
-    public void eJ(int i) {
+    public void eI(int i) {
         int i2;
         a aVar = this.cvz;
         i2 = this.cvz.cuP;

@@ -48,7 +48,7 @@ public class r extends LinearLayout {
     public void a(TbPageContext<?> tbPageContext, boolean z) {
         if (z) {
             if (this.aZk == null) {
-                Ny();
+                NA();
             }
             com.baidu.tbadk.i.a.a(tbPageContext, this.aZk);
             this.aZk.setVisibility(0);
@@ -57,7 +57,7 @@ public class r extends LinearLayout {
         }
     }
 
-    public void Ny() {
+    public void NA() {
         this.aZk = ((ViewStub) findViewById(t.g.viewstub_guide)).inflate();
         View findViewById = this.aZk.findViewById(t.g.enterforum_guide_find_interest);
         findViewById.setOnClickListener(new t(this));

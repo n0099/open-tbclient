@@ -18,7 +18,7 @@ public class ad {
         return this.OP;
     }
 
-    public void by(int i) {
+    public void bx(int i) {
         this.OP = i;
     }
 
@@ -26,7 +26,7 @@ public class ad {
         return this.total_num;
     }
 
-    public void bz(int i) {
+    public void by(int i) {
         this.total_num = i;
     }
 
@@ -38,7 +38,7 @@ public class ad {
         return this.OQ;
     }
 
-    public void bA(int i) {
+    public void bz(int i) {
         this.OQ = i;
     }
 
@@ -46,7 +46,7 @@ public class ad {
         return this.current_page;
     }
 
-    public void bB(int i) {
+    public void bA(int i) {
         this.current_page = i;
     }
 
@@ -54,11 +54,11 @@ public class ad {
         return this.OR;
     }
 
-    public void bC(int i) {
+    public void bB(int i) {
         this.OR = i;
     }
 
-    public void bD(int i) {
+    public void bC(int i) {
         this.has_more = i;
     }
 
@@ -66,7 +66,7 @@ public class ad {
         return this.has_more;
     }
 
-    public void bE(int i) {
+    public void bD(int i) {
         this.OS = i;
     }
 

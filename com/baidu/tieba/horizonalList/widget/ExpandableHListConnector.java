@@ -34,7 +34,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b ir(int i) {
+    public b iq(int i) {
         int i2;
         int i3;
         int i4 = 0;
@@ -125,10 +125,10 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        b ir = ir(i);
-        i iVar = ir.bSM;
+        b iq = iq(i);
+        i iVar = iq.bSM;
         boolean isChildSelectable = iVar.type == 1 ? this.bSC.isChildSelectable(iVar.bSP, iVar.bSQ) : true;
-        ir.recycle();
+        iq.recycle();
         return isChildSelectable;
     }
 
@@ -140,54 +140,54 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         Object child;
-        b ir = ir(i);
-        if (ir.bSM.type == 2) {
-            child = this.bSC.getGroup(ir.bSM.bSP);
-        } else if (ir.bSM.type == 1) {
-            child = this.bSC.getChild(ir.bSM.bSP, ir.bSM.bSQ);
+        b iq = iq(i);
+        if (iq.bSM.type == 2) {
+            child = this.bSC.getGroup(iq.bSM.bSP);
+        } else if (iq.bSM.type == 1) {
+            child = this.bSC.getChild(iq.bSM.bSP, iq.bSM.bSQ);
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        ir.recycle();
+        iq.recycle();
         return child;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         long combinedChildId;
-        b ir = ir(i);
-        long groupId = this.bSC.getGroupId(ir.bSM.bSP);
-        if (ir.bSM.type == 2) {
+        b iq = iq(i);
+        long groupId = this.bSC.getGroupId(iq.bSM.bSP);
+        if (iq.bSM.type == 2) {
             combinedChildId = this.bSC.getCombinedGroupId(groupId);
-        } else if (ir.bSM.type == 1) {
-            combinedChildId = this.bSC.getCombinedChildId(groupId, this.bSC.getChildId(ir.bSM.bSP, ir.bSM.bSQ));
+        } else if (iq.bSM.type == 1) {
+            combinedChildId = this.bSC.getCombinedChildId(groupId, this.bSC.getChildId(iq.bSM.bSP, iq.bSM.bSQ));
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        ir.recycle();
+        iq.recycle();
         return combinedChildId;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         View childView;
-        b ir = ir(i);
-        if (ir.bSM.type == 2) {
-            childView = this.bSC.getGroupView(ir.bSM.bSP, ir.aaD(), view, viewGroup);
-        } else if (ir.bSM.type == 1) {
-            childView = this.bSC.getChildView(ir.bSM.bSP, ir.bSM.bSQ, ir.bSN.bSH == i, view, viewGroup);
+        b iq = iq(i);
+        if (iq.bSM.type == 2) {
+            childView = this.bSC.getGroupView(iq.bSM.bSP, iq.aaF(), view, viewGroup);
+        } else if (iq.bSM.type == 1) {
+            childView = this.bSC.getChildView(iq.bSM.bSP, iq.bSM.bSQ, iq.bSN.bSH == i, view, viewGroup);
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
-        ir.recycle();
+        iq.recycle();
         return childView;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int i2;
-        b ir = ir(i);
-        i iVar = ir.bSM;
+        b iq = iq(i);
+        i iVar = iq.bSM;
         if (this.bSC instanceof HeterogeneousExpandableList) {
             HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) this.bSC;
             if (iVar.type == 2) {
@@ -200,7 +200,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         } else {
             i2 = 1;
         }
-        ir.recycle();
+        iq.recycle();
         return i2;
     }
 
@@ -320,21 +320,21 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         return false;
     }
 
-    ExpandableListAdapter aaz() {
+    ExpandableListAdapter aaB() {
         return this.bSC;
     }
 
     @Override // android.widget.Filterable
     public Filter getFilter() {
-        ExpandableListAdapter aaz = aaz();
-        if (aaz instanceof Filterable) {
-            return ((Filterable) aaz).getFilter();
+        ExpandableListAdapter aaB = aaB();
+        if (aaB instanceof Filterable) {
+            return ((Filterable) aaB).getFilter();
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<GroupMetadata> aaA() {
+    public ArrayList<GroupMetadata> aaC() {
         return this.bSD;
     }
 
@@ -354,9 +354,9 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        ExpandableListAdapter aaz = aaz();
-        if (aaz != null) {
-            return aaz.isEmpty();
+        ExpandableListAdapter aaB = aaB();
+        if (aaB != null) {
+            return aaB.isEmpty();
         }
         return true;
     }
@@ -369,14 +369,14 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         int min = Math.min(groupCount - 1, Math.max(0, i));
         long uptimeMillis = SystemClock.uptimeMillis() + 100;
         boolean z = false;
-        ExpandableListAdapter aaz = aaz();
-        if (aaz == null) {
+        ExpandableListAdapter aaB = aaB();
+        if (aaB == null) {
             return -1;
         }
         int i2 = min;
         int i3 = min;
         while (SystemClock.uptimeMillis() <= uptimeMillis) {
-            if (aaz.getGroupId(i3) != j) {
+            if (aaB.getGroupId(i3) != j) {
                 boolean z2 = min == groupCount + (-1);
                 boolean z3 = i2 == 0;
                 if (z2 && z3) {
@@ -468,7 +468,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         public GroupMetadata bSN;
         public int bSO;
 
-        private void aaB() {
+        private void aaD() {
             if (this.bSM != null) {
                 this.bSM.recycle();
                 this.bSM = null;
@@ -481,19 +481,19 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         }
 
         static b a(int i, int i2, int i3, int i4, GroupMetadata groupMetadata, int i5) {
-            b aaC = aaC();
-            aaC.bSM = i.i(i2, i3, i4, i);
-            aaC.bSN = groupMetadata;
-            aaC.bSO = i5;
-            return aaC;
+            b aaE = aaE();
+            aaE.bSM = i.i(i2, i3, i4, i);
+            aaE.bSN = groupMetadata;
+            aaE.bSO = i5;
+            return aaE;
         }
 
-        private static b aaC() {
+        private static b aaE() {
             b bVar;
             synchronized (bSL) {
                 if (bSL.size() > 0) {
                     bVar = bSL.remove(0);
-                    bVar.aaB();
+                    bVar.aaD();
                 } else {
                     bVar = new b();
                 }
@@ -502,7 +502,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         }
 
         public void recycle() {
-            aaB();
+            aaD();
             synchronized (bSL) {
                 if (bSL.size() < 5) {
                     bSL.add(this);
@@ -510,7 +510,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
             }
         }
 
-        public boolean aaD() {
+        public boolean aaF() {
             return this.bSN != null;
         }
     }

@@ -35,18 +35,18 @@ public class o implements by<com.baidu.tieba.card.a.l> {
         av avVar12;
         av avVar13;
         com.baidu.tieba.recommendfrs.control.a.f fVar2;
-        bx.Kg().ci(true);
+        bx.Ki().ci(true);
         if (view != null) {
             avVar = this.ebq.ebo;
             if (avVar != null) {
                 avVar2 = this.ebq.ebo;
                 if (avVar2.getView() != null) {
                     fVar = this.ebq.ebp;
-                    if (fVar != null && lVar != null && lVar.Kl() != null && !StringUtils.isNull(lVar.Kl().getTid())) {
-                        if ((view.getTag() instanceof String) && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(lVar.Kl().getTid(), 0L))) {
-                            com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(lVar.Kl().getTid(), 0L));
+                    if (fVar != null && lVar != null && lVar.Kn() != null && !StringUtils.isNull(lVar.Kn().getTid())) {
+                        if ((view.getTag() instanceof String) && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(lVar.Kn().getTid(), 0L))) {
+                            com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(lVar.Kn().getTid(), 0L));
                             fVar2 = this.ebq.ebp;
-                            fVar2.a(com.baidu.adp.lib.h.b.c(lVar.Kl().getTid(), 0L), lVar.getWeight(), lVar.getSource(), lVar.Kh(), lVar.Kj(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
+                            fVar2.a(com.baidu.adp.lib.h.b.c(lVar.Kn().getTid(), 0L), lVar.getWeight(), lVar.getSource(), lVar.Kj(), lVar.Kl(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
                         }
                         int id = view.getId();
                         avVar3 = this.ebq.ebo;
@@ -56,7 +56,7 @@ public class o implements by<com.baidu.tieba.card.a.l> {
                                 int id2 = view.getId();
                                 avVar13 = this.ebq.ebo;
                                 if (id2 == avVar13.aQo.getId()) {
-                                    TiebaStatic.log(lVar.KB());
+                                    TiebaStatic.log(lVar.KD());
                                     return;
                                 }
                             }
@@ -65,7 +65,7 @@ public class o implements by<com.baidu.tieba.card.a.l> {
                                 int id3 = view.getId();
                                 avVar12 = this.ebq.ebo;
                                 if (id3 == avVar12.aQn.getId()) {
-                                    TiebaStatic.log(lVar.Kz());
+                                    TiebaStatic.log(lVar.KB());
                                     return;
                                 }
                             }
@@ -76,7 +76,7 @@ public class o implements by<com.baidu.tieba.card.a.l> {
                                     int id4 = view.getId();
                                     avVar11 = this.ebq.ebo;
                                     if (id4 == avVar11.aQp.adG.getId()) {
-                                        TiebaStatic.log(lVar.Kz());
+                                        TiebaStatic.log(lVar.KB());
                                         return;
                                     }
                                 }
@@ -88,18 +88,18 @@ public class o implements by<com.baidu.tieba.card.a.l> {
                                     int id5 = view.getId();
                                     avVar9 = this.ebq.ebo;
                                     if (id5 == avVar9.aOO.getBarNameTv().getId()) {
-                                        TiebaStatic.log(lVar.Ky());
+                                        TiebaStatic.log(lVar.KA());
                                         return;
                                     }
                                 }
                             }
                             if (view instanceof TbImageView) {
-                                TiebaStatic.log(lVar.KA());
+                                TiebaStatic.log(lVar.KC());
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(lVar.Kx());
+                        TiebaStatic.log(lVar.Kz());
                     }
                 }
             }

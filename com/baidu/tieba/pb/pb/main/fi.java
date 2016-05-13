@@ -15,7 +15,7 @@ public class fi implements View.OnClickListener {
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        this.dpu.azy();
+        this.dpu.azB();
         pbActivity = this.dpu.dhY;
         if (pbActivity.bjV != null) {
             pbActivity2 = this.dpu.dhY;

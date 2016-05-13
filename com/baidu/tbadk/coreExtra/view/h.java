@@ -41,24 +41,24 @@ public class h extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
             if (this.ajK != null) {
-                this.ajK.FM();
+                this.ajK.FO();
             }
         }
         if (this.ajK == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] f = f(motionEvent);
-        if (this.ajK.FN()) {
+        if (this.ajK.FP()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (f != null && this.ajK.FR() && f[0] < 0.0f) {
+        if (f != null && this.ajK.FT() && f[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (f != null && this.ajK.FS() && f[0] > 0.0f) {
+        if (f != null && this.ajK.FU() && f[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (f == null) {
-            if (this.ajK.FS() || this.ajK.FR()) {
+            if (this.ajK.FU() || this.ajK.FT()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -75,17 +75,17 @@ public class h extends BaseViewPager {
         if (this.ajK == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.ajK.FN()) {
+        if (this.ajK.FP()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (f != null && this.ajK.FR() && f[0] < 0.0f) {
+        if (f != null && this.ajK.FT() && f[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (f != null && this.ajK.FS() && f[0] > 0.0f) {
+        if (f != null && this.ajK.FU() && f[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (f == null) {
-            if (this.ajK.FS() || this.ajK.FR()) {
+            if (this.ajK.FU() || this.ajK.FT()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

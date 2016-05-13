@@ -58,9 +58,9 @@ public class ap extends c<com.baidu.tieba.person.data.t, com.baidu.tieba.person.
                 sVar.dDR.c(null, 10, false);
             }
             sVar.bxj.setText(tVar.getName());
-            sVar.dDS.setText(tVar.aCt());
+            sVar.dDS.setText(tVar.aCw());
             am amVar = new am(this.cSp.getPageContext());
-            amVar.au(tVar.aCv());
+            amVar.au(tVar.aCy());
             sVar.dDT.setAdapter((ListAdapter) amVar);
             sVar.dDQ.setOnClickListener(new aq(this, tVar));
             sVar.dDT.setOnItemClickListener(new ar(this, amVar));
@@ -71,7 +71,7 @@ public class ap extends c<com.baidu.tieba.person.data.t, com.baidu.tieba.person.
     public void mt(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                bg.us().c(this.cSp.getPageContext(), new String[]{str.substring("tieba&".length())});
+                bg.ut().c(this.cSp.getPageContext(), new String[]{str.substring("tieba&".length())});
             } else if (str.startsWith("http:") || str.startsWith("https:")) {
                 com.baidu.tbadk.browser.f.a(this.cSp.getPageContext().getPageActivity(), true, str);
             } else {

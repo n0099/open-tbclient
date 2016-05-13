@@ -14,14 +14,14 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
     private final /* synthetic */ ViewGroup aqU;
-    final /* synthetic */ a fbe;
-    private final /* synthetic */ boolean fbf;
+    final /* synthetic */ a fbd;
+    private final /* synthetic */ boolean fbe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, ViewGroup viewGroup, boolean z) {
-        this.fbe = aVar;
+        this.fbd = aVar;
         this.aqU = viewGroup;
-        this.fbf = z;
+        this.fbe = z;
     }
 
     @Override // android.view.View.OnClickListener
@@ -42,27 +42,27 @@ class d implements View.OnClickListener {
         LinkedList linkedList6;
         int indexOfChild = this.aqU.indexOfChild(view);
         if (indexOfChild >= 0) {
-            if (this.fbf) {
-                baseActivity2 = this.fbe.boS;
+            if (this.fbe) {
+                baseActivity2 = this.fbd.boS;
                 if (baseActivity2 instanceof WriteActivity) {
-                    linkedList2 = this.fbe.chosedFiles;
+                    linkedList2 = this.fbd.chosedFiles;
                     if (linkedList2 != null) {
-                        linkedList4 = this.fbe.chosedFiles;
+                        linkedList4 = this.fbd.chosedFiles;
                         if (linkedList4.size() > 0) {
-                            linkedList5 = this.fbe.chosedFiles;
-                            linkedList6 = this.fbe.chosedFiles;
+                            linkedList5 = this.fbd.chosedFiles;
+                            linkedList6 = this.fbd.chosedFiles;
                             linkedList5.remove(linkedList6.size() - 1);
                         }
                     }
-                    baseActivity3 = this.fbe.boS;
-                    linkedList3 = this.fbe.chosedFiles;
+                    baseActivity3 = this.fbd.boS;
+                    linkedList3 = this.fbd.chosedFiles;
                     ((WriteActivity) baseActivity3).o(linkedList3);
-                    baseActivity4 = this.fbe.boS;
+                    baseActivity4 = this.fbd.boS;
                     ((WriteActivity) baseActivity4).d((com.baidu.tbadk.editortools.a) null);
                     return;
                 }
             }
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.fbe.getItem(indexOfChild);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.fbd.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
@@ -70,19 +70,19 @@ class d implements View.OnClickListener {
                 z = file.exists() && file.length() != 0;
             }
             if (!z) {
-                context = this.fbe.mContext;
+                context = this.fbd.mContext;
                 k.b(context, t.j.editor_mutiiamge_image_error);
                 return;
             }
-            lVar = this.fbe.apf;
+            lVar = this.fbd.apf;
             if (lVar != null) {
-                if (this.fbe.bcI()) {
-                    this.fbe.bcJ();
+                if (this.fbd.bcP()) {
+                    this.fbd.bcQ();
                 }
-                baseActivity = this.fbe.boS;
-                linkedList = this.fbe.chosedFiles;
+                baseActivity = this.fbd.boS;
+                linkedList = this.fbd.chosedFiles;
                 ((WriteActivity) baseActivity).o(linkedList);
-                lVar2 = this.fbe.apf;
+                lVar2 = this.fbd.apf;
                 lVar2.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
             }
         }

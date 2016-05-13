@@ -59,7 +59,7 @@ public class ae {
 
     public static void a(String str, String str2, WriteData writeData) {
         if (!ay.isEmpty(str) && !ay.isEmpty(str2)) {
-            com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rR().cx("tb.pb_editor");
+            com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rS().cx("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 cx.b(bI(str, str2), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -70,7 +70,7 @@ public class ae {
 
     public static void b(String str, WriteData writeData) {
         if (!ay.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rR().cx("tb.pb_editor");
+            com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rS().cx("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 cx.b(nT(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -81,7 +81,7 @@ public class ae {
 
     public static void c(String str, WriteData writeData) {
         if (!ay.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rR().cx("tb.pb_editor");
+            com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rS().cx("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 cx.b(nS(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -92,7 +92,7 @@ public class ae {
 
     public static void d(String str, WriteData writeData) {
         if (!ay.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rR().cx("tb.pb_editor");
+            com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rS().cx("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 cx.b(nR(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -136,7 +136,7 @@ public class ae {
         public WriteData doInBackground(String... strArr) {
             String str;
             try {
-                str = com.baidu.tbadk.core.b.a.rR().cx("tb.pb_editor").get(this.cacheKey);
+                str = com.baidu.tbadk.core.b.a.rS().cx("tb.pb_editor").get(this.cacheKey);
             } catch (Exception e) {
                 str = null;
             }

@@ -24,12 +24,12 @@ public class z implements TextureView.SurfaceTextureListener {
         z = this.ade.acV;
         if (z) {
             this.ade.acV = false;
-            this.ade.vp();
+            this.ade.vq();
         }
         aVar = this.ade.acW;
         if (aVar != null) {
             aVar2 = this.ade.acW;
-            aVar2.vt();
+            aVar2.vu();
         }
     }
 
@@ -46,7 +46,7 @@ public class z implements TextureView.SurfaceTextureListener {
         bVar = this.ade.acR;
         if (bVar != null) {
             bVar2 = this.ade.acR;
-            bVar2.vu();
+            bVar2.vv();
         }
         this.ade.mSurfaceTexture = null;
         mediaController = this.ade.acH;

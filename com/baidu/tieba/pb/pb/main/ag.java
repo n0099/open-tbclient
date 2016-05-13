@@ -26,15 +26,15 @@ class ag implements BdListView.e {
         cw cwVar6;
         el elVar4;
         z = this.djE.djr;
-        if (z && this.djE.awM()) {
-            this.djE.awO();
+        if (z && this.djE.awP()) {
+            this.djE.awR();
         }
         z2 = this.djE.mIsLogin;
         if (z2) {
             cwVar = this.djE.dih;
             if (cwVar.gE(false)) {
                 elVar4 = this.djE.diR;
-                elVar4.azb();
+                elVar4.aze();
                 TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
             } else {
                 elVar = this.djE.diR;
@@ -45,13 +45,13 @@ class ag implements BdListView.e {
                     elVar2 = this.djE.diR;
                     if (elVar2 != null) {
                         cwVar4 = this.djE.dih;
-                        if (cwVar4.axV() != null) {
+                        if (cwVar4.axY() != null) {
                             cwVar5 = this.djE.dih;
-                            if (cwVar5.axV().axj()) {
+                            if (cwVar5.axY().axm()) {
                                 elVar3 = this.djE.diR;
-                                elVar3.axu();
+                                elVar3.axx();
                                 cwVar6 = this.djE.dih;
-                                cwVar6.axV().axl();
+                                cwVar6.axY().axo();
                             }
                         }
                     }

@@ -332,7 +332,7 @@ public class c implements v {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.v
-    public int Px() {
+    public int Pz() {
         return 0;
     }
 
@@ -381,7 +381,7 @@ public class c implements v {
     @Override // com.baidu.tieba.frs.entelechy.a.v
     public int Sz() {
         if (this.boy != null) {
-            return this.boy.Tk();
+            return this.boy.Tl();
         }
         return 0;
     }
@@ -413,9 +413,9 @@ public class c implements v {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.a.v
-    public com.baidu.adp.widget.ListView.v at(int i) {
+    public com.baidu.adp.widget.ListView.v as(int i) {
         if (this.bof != null) {
-            return this.bof.at(i);
+            return this.bof.as(i);
         }
         return null;
     }
@@ -446,7 +446,7 @@ public class c implements v {
             }
             for (com.baidu.adp.widget.ListView.a aVar : this.bei) {
                 if (aVar instanceof bw) {
-                    ((bw) aVar).gn(i);
+                    ((bw) aVar).gm(i);
                 }
             }
         }

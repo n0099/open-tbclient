@@ -59,7 +59,7 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auF() {
+    public void auI() {
         TbadkCoreApplication.m11getInst().onUserChanged();
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
@@ -68,7 +68,7 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auG() {
+    public void auJ() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
@@ -85,9 +85,9 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
             this.auq = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
             this.auq.a(new f(this));
         }
-        this.auq.zq();
+        this.auq.zr();
         this.auq.h(accountData);
-        this.auq.zm();
+        this.auq.zn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

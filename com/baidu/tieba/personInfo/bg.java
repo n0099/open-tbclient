@@ -76,7 +76,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return this.dzX;
     }
 
-    public PersonUserGodInfo aDy() {
+    public PersonUserGodInfo aDB() {
         return this.dzL;
     }
 
@@ -84,7 +84,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return this.SN;
     }
 
-    public List<com.baidu.tieba.card.a.c> aDz() {
+    public List<com.baidu.tieba.card.a.c> aDC() {
         return this.dHs;
     }
 
@@ -112,7 +112,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         this.mUserData = userData;
     }
 
-    public PersonTainInfo aDA() {
+    public PersonTainInfo aDD() {
         return this.dya;
     }
 
@@ -172,7 +172,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         this.stType = str;
     }
 
-    public String aDB() {
+    public String aDE() {
         return this.dGW;
     }
 
@@ -190,22 +190,22 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return false;
     }
 
-    public void aDC() {
+    public void aDF() {
         if (this.mUserData != null && this.dHa != null && this.mUserData.getUserId() != null) {
             if (this.mUserData.getHave_attention() != 1) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10609").ac("obj_id", this.mUserData.getUserId()).s("obj_param1", aDS()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10609").ac("obj_id", this.mUserData.getUserId()).s("obj_param1", aDV()));
             } else {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10610").ac("obj_id", this.mUserData.getUserId()).s("obj_param1", aDS()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10610").ac("obj_id", this.mUserData.getUserId()).s("obj_param1", aDV()));
             }
-            this.dHa.a(this.mUserData.getHave_attention() != 1, this.mUserData.getPortrait(), this.mUserData.getUserId(), aDT(), "0");
+            this.dHa.a(this.mUserData.getHave_attention() != 1, this.mUserData.getPortrait(), this.mUserData.getUserId(), aDW(), "0");
         }
     }
 
-    public void aDD() {
+    public void aDG() {
         MessageManager.getInstance().unRegisterListener(this.cZY);
     }
 
-    public void atR() {
+    public void atU() {
         com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfigCustom.CMD_CACHE_PERSONINFO, new bi());
         aVar.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
@@ -214,11 +214,11 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         registerListener(this.cZY);
     }
 
-    public void aDE() {
+    public void aDH() {
         sendMessage(new RequestPersonInfoMessage());
     }
 
-    public void aDF() {
+    public void aDI() {
         if (!com.baidu.adp.lib.util.i.fq()) {
             this.mLoadDataCallBack.d(0);
         } else if (TbadkCoreApplication.isLogin() || (this.dHq instanceof PersonInfoActivity)) {
@@ -237,9 +237,9 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
                 profileRequestMessage.set_friend_uid(Long.valueOf(com.baidu.adp.lib.h.b.c(getId(), 0L)));
                 profileRequestMessage.set_is_guest(1);
             }
-            if (aDB() != null) {
+            if (aDE() != null) {
                 try {
-                    profileRequestMessage.set_st_type(aDB());
+                    profileRequestMessage.set_st_type(aDE());
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -265,7 +265,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
     public void a(boolean z, String str, boolean z2, boolean z3) {
         if (!z) {
             if (getIsSelf()) {
-                com.baidu.tbadk.getUserInfo.b.Cz().a(this.mUserData);
+                com.baidu.tbadk.getUserInfo.b.CA().a(this.mUserData);
                 TbadkCoreApplication.m11getInst();
                 if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
                     TbadkCoreApplication.m11getInst();
@@ -280,7 +280,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
             if (antiData != null) {
                 setAntiData(antiData);
             }
-            aDR();
+            aDU();
             this.mLoadDataCallBack.d(1);
             return;
         }
@@ -398,65 +398,65 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         }
     }
 
-    private boolean aDG() {
+    private boolean aDJ() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(AddressListActivityConfig.class);
     }
 
-    private boolean aDH() {
+    private boolean aDK() {
         return TbadkCoreApplication.m11getInst().appResponseToCmd(CmdConfigCustom.START_EDITMARK);
     }
 
-    private boolean aDI() {
+    private boolean aDL() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PbHistoryActivityConfig.class);
     }
 
-    private boolean aDJ() {
+    private boolean aDM() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(MyLiveActivityConfig.class);
     }
 
-    private boolean aBW() {
+    private boolean aBZ() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(MyGiftListActivityConfig.class);
     }
 
-    private boolean aDK() {
+    private boolean aDN() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(FriendFeedActivityConfig.class);
     }
 
-    private boolean aDL() {
+    private boolean aDO() {
         return TbadkCoreApplication.m11getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_FEED);
     }
 
-    private boolean aDM() {
+    private boolean aDP() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PersonListActivityConfig.class);
     }
 
-    private boolean aDN() {
+    private boolean aDQ() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(GroupActivityActivityConfig.class) && TbadkCoreApplication.m11getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
     }
 
-    public com.baidu.tieba.person.data.d aDO() {
+    public com.baidu.tieba.person.data.d aDR() {
         com.baidu.tieba.person.data.d dVar = new com.baidu.tieba.person.data.d();
-        if (aDI()) {
+        if (aDL()) {
             dVar.dzm.add(new com.baidu.tieba.person.data.e(2));
         }
-        if (aDH()) {
+        if (aDK()) {
             dVar.dzm.add(new com.baidu.tieba.person.data.e(1));
         }
-        if (!aDT()) {
-            if (aDM()) {
+        if (!aDW()) {
+            if (aDP()) {
                 dVar.dzm.add(new com.baidu.tieba.person.data.e(4));
                 dVar.dzm.add(new com.baidu.tieba.person.data.e(3));
             }
-        } else if (this.bJq && aDK()) {
+        } else if (this.bJq && aDN()) {
             dVar.dzm.add(new com.baidu.tieba.person.data.e(5));
         }
-        if (aDG()) {
+        if (aDJ()) {
             dVar.dzm.add(new com.baidu.tieba.person.data.e(0));
         }
         return dVar;
     }
 
-    private com.baidu.tieba.person.a.al aDP() {
+    private com.baidu.tieba.person.a.al aDS() {
         if (this.mUserData == null) {
             return null;
         }
@@ -465,7 +465,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         alVar.setPhotoAlbum(this.mUserData.getPhotoAlbum());
         if (this.bJq && this.mUserData.getPhotoAlbum() != null && !bQ(this.mUserData.getPhotoAlbum()) && this.mUserData.getPhotoAlbum().size() < 9) {
             com.baidu.tieba.person.data.b bVar = new com.baidu.tieba.person.data.b();
-            bVar.mv(9 - this.mUserData.getPhotoAlbum().size());
+            bVar.mu(9 - this.mUserData.getPhotoAlbum().size());
             alVar.getPhotoAlbum().add(bVar);
             return alVar;
         }
@@ -486,11 +486,11 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return false;
     }
 
-    public com.baidu.tieba.person.a.al aDQ() {
+    public com.baidu.tieba.person.a.al aDT() {
         return this.dHp;
     }
 
-    public void aDR() {
+    public void aDU() {
         this.SN.clear();
         if (this.mUserData != null && getIsSelf() && this.mUserData.getUserVipInfo() != null) {
             TbadkCoreApplication.setCurrentMemberType(this.mUserData.getUserVipInfo().getVipStatus());
@@ -502,25 +502,25 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         }
         oVar.f(this.mUserData);
         this.SN.add(oVar);
-        if (this.bJq || aDT()) {
-            this.dHe = aDO();
+        if (this.bJq || aDW()) {
+            this.dHe = aDR();
             this.SN.add(this.dHe);
         }
         if (this.bJq && this.dGZ != null) {
             this.dHm = new com.baidu.tieba.person.data.t();
             this.dHm.setName(this.dGZ.getName());
-            this.dHm.mw(this.dGZ.aCu());
+            this.dHm.mw(this.dGZ.aCx());
             this.dHm.setIcon(this.dGZ.getIcon());
-            this.dHm.mv(this.dGZ.aCt());
-            this.dHm.bN(this.dGZ.aCv());
+            this.dHm.mv(this.dGZ.aCw());
+            this.dHm.bN(this.dGZ.aCy());
             this.SN.add(this.dHm);
         }
-        if (this.bJq && !aDT() && aDK()) {
+        if (this.bJq && !aDW() && aDN()) {
             this.dHk = new com.baidu.tieba.person.data.i();
             this.dHk.dzg = false;
             this.SN.add(this.dHk);
         }
-        if (this.bJq && aDL() && com.baidu.adp.lib.c.e.cS().Z("mygroup_states") == 1) {
+        if (this.bJq && aDO() && com.baidu.adp.lib.c.e.cS().Z("mygroup_states") == 1) {
             this.dHl = new com.baidu.tieba.person.data.h();
             this.dHl.dzf = false;
             if (this.dHk == null) {
@@ -530,18 +530,18 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
             this.dHl.dzg = false;
             this.SN.add(this.dHl);
         }
-        if (aBW()) {
+        if (aBZ()) {
             this.dHh = new com.baidu.tieba.person.data.j();
             this.dHh.f(this.mUserData);
             this.dHh.setIsSelf(getIsSelf());
-            if (aDU()) {
+            if (aDX()) {
                 this.dHh.ho(true);
             } else {
                 this.dHh.ho(false);
             }
             this.SN.add(this.dHh);
         }
-        if (com.baidu.tbadk.plugins.d.Fb()) {
+        if (com.baidu.tbadk.plugins.g.Fd()) {
             if (this.bJq) {
                 this.dHn = new com.baidu.tieba.person.data.q();
                 this.dHn.dzg = false;
@@ -559,11 +559,11 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
                 this.SN.add(this.dHo);
             }
         }
-        if (!aDU()) {
-            this.dHp = aDP();
+        if (!aDX()) {
+            this.dHp = aDS();
             this.SN.add(this.dHp);
         }
-        if (!this.bJq && this.mUserData != null && !aDU() && aDM()) {
+        if (!this.bJq && this.mUserData != null && !aDX() && aDP()) {
             this.dHj = new com.baidu.tieba.person.data.f();
             this.dHj.dzq = this.mUserData.getFansNum();
             this.dHj.sex = this.mUserData.getSex();
@@ -577,18 +577,18 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
             this.dHi.sex = this.mUserData.getSex();
             this.SN.add(this.dHi);
         }
-        if (!aDU()) {
+        if (!aDX()) {
             this.dHf = new com.baidu.tieba.person.data.p();
             this.dHf.setIsSelf(getIsSelf());
             this.dHf.f(this.mUserData);
-            this.dHf.a(aDA());
+            this.dHf.a(aDD());
             this.dHf.d(this.dyd);
             if (com.baidu.tbadk.core.util.y.r(this.dyd) <= 0) {
                 this.dHf.dzg = false;
             }
             this.SN.add(this.dHf);
         }
-        if (aDV()) {
+        if (aDY()) {
             List<ThreadInfo> godThreadList = this.dzL.getGodThreadList();
             com.baidu.tieba.person.data.k kVar = new com.baidu.tieba.person.data.k();
             kVar.title = TbadkCoreApplication.m11getInst().getString(t.j.group_title_god);
@@ -600,20 +600,20 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
                 bR(subList);
             }
         }
-        if (getIsSelf() && aDJ()) {
+        if (getIsSelf() && aDM()) {
             this.dHg = new com.baidu.tieba.person.data.m();
             this.SN.add(this.dHg);
             this.dHg.setUser(this.dGY);
         }
-        if (!aDU()) {
+        if (!aDX()) {
             this.dHc = new com.baidu.tieba.person.data.g();
             this.dHc.setSelf(getIsSelf());
             if (this.mUserData != null) {
                 this.dHc.setSex(this.mUserData.getSex());
                 this.dHc.setCount(this.mUserData.getLike_bars());
-                this.dHc.setIsFriend(aDA().getIsFriend());
+                this.dHc.setIsFriend(aDD().getIsFriend());
                 this.dHc.setUserId(this.mUserData.getUserId());
-                this.dHc.mx(this.mUserData.getPersonPrivate().AB());
+                this.dHc.mw(this.mUserData.getPersonPrivate().AC());
                 this.dHc.bL(this.mUserData.getLikeForum());
                 if (com.baidu.tbadk.core.util.y.r(this.mUserData.getLikeForum()) <= 0) {
                     this.dHc.dzg = false;
@@ -621,20 +621,20 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
             }
             this.SN.add(this.dHc);
         }
-        if (aDN() && !aDU()) {
+        if (aDQ() && !aDX()) {
             this.dHd = new com.baidu.tieba.person.data.l();
             this.dHd.setIsSelf(getIsSelf());
             this.dHd.f(this.mUserData);
-            this.dHd.a(aDA());
+            this.dHd.a(aDD());
             if (com.baidu.tbadk.core.util.y.r(this.mUserData.getGroup()) <= 0) {
                 this.dHd.dzg = false;
             }
             this.SN.add(this.dHd);
         }
-        if (aDU()) {
+        if (aDX()) {
             com.baidu.tieba.person.data.k kVar2 = new com.baidu.tieba.person.data.k();
             kVar2.dzA = true;
-            kVar2.dzy = aDX();
+            kVar2.dzy = aEa();
             this.SN.add(kVar2);
             this.dHs.clear();
             bR(this.dzL.getGodThreadList());
@@ -642,7 +642,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         this.dHr = true;
     }
 
-    public int aDS() {
+    public int aDV() {
         if (getUserData() == null || getUserData().getGodInfo() == null) {
             return 0;
         }
@@ -650,26 +650,26 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return (intValue == 2 || intValue == 1) ? 1 : 0;
     }
 
-    public boolean aDT() {
+    public boolean aDW() {
         return this.dzL != null && this.dzL.getGodType() == 2;
     }
 
-    public boolean aDU() {
-        return aDT() && !this.bJq;
+    public boolean aDX() {
+        return aDW() && !this.bJq;
     }
 
-    public boolean aDV() {
-        return aDT() && this.bJq;
+    public boolean aDY() {
+        return aDW() && this.bJq;
     }
 
-    public boolean aDW() {
+    public boolean aDZ() {
         if (this.dzL == null || this.dzL.getGodType() != 2) {
             return false;
         }
         return com.baidu.adp.lib.h.b.c(this.dzL.getTotalThread(), 0L) > ((long) this.dzL.getGodThreadList().size());
     }
 
-    public int aDX() {
+    public int aEa() {
         if (this.dzL != null) {
             return this.dzL.getCurPage();
         }
@@ -693,7 +693,7 @@ public class bg extends com.baidu.adp.base.e<BaseFragmentActivity> {
         }
     }
 
-    public void aDY() {
+    public void aEb() {
         if (this.dzX != null && this.mUserData != null && this.dzL != null) {
             this.dzX.setFansNum(this.mUserData.getFansNum());
             GodUserData godUserData = new GodUserData();

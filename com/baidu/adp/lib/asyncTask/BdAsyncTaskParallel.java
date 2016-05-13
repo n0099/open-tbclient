@@ -56,6 +56,9 @@ public class BdAsyncTaskParallel {
     }
 
     public int getTag() {
+        if (this.iU == null) {
+            return 0;
+        }
         return this.iU.getId();
     }
 

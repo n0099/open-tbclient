@@ -14,20 +14,20 @@ public class e implements a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void yX() {
+    public void yY() {
         k.showToast(TbadkCoreApplication.m11getInst().getContext(), t.j.auth_account_success);
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void yY() {
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.share.a
     public void yZ() {
-        k.showToast(TbadkCoreApplication.m11getInst().getContext(), t.j.share_success);
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
     public void za() {
+        k.showToast(TbadkCoreApplication.m11getInst().getContext(), t.j.share_success);
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.share.a
+    public void zb() {
     }
 }

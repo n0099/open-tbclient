@@ -40,7 +40,7 @@ public class f {
         this.kb = new HashMap<>();
     }
 
-    public int wu() {
+    public int wv() {
         return this.afK;
     }
 
@@ -48,7 +48,7 @@ public class f {
         return this.afM;
     }
 
-    public n wv() {
+    public n ww() {
         return this.afP;
     }
 
@@ -70,9 +70,9 @@ public class f {
                 this.afP.parserJson(jSONObject.optJSONObject("webview_checkurl"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
                 if (optJSONObject != null) {
-                    com.baidu.tbadk.distribute.a.AK().dZ(optJSONObject.optInt("distance", 60));
-                    com.baidu.tbadk.distribute.a.AK().ea(optJSONObject.optInt("items_num", 10));
-                    com.baidu.tbadk.distribute.a.AK().bt(1 == optJSONObject.optInt("ad_show", 1));
+                    com.baidu.tbadk.distribute.a.AL().dY(optJSONObject.optInt("distance", 60));
+                    com.baidu.tbadk.distribute.a.AL().dZ(optJSONObject.optInt("items_num", 10));
+                    com.baidu.tbadk.distribute.a.AL().bt(1 == optJSONObject.optInt("ad_show", 1));
                 }
                 TbadkCoreApplication.m11getInst().setYijianfankuiFname(this.mYijianfankuiFname);
                 if (this.afN == null) {
@@ -93,10 +93,10 @@ public class f {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
                 if (optJSONObject2 != null) {
-                    com.baidu.tieba.tbadkCore.videoupload.a.pA(optJSONObject2.optInt("chunk_size"));
-                    com.baidu.tieba.tbadkCore.videoupload.a.pB(optJSONObject2.optInt("block_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.pz(optJSONObject2.optInt("chunk_size"));
+                    com.baidu.tieba.tbadkCore.videoupload.a.pA(optJSONObject2.optInt("block_size"));
                 }
-                aa.EM().Q(jSONObject.optLong("small_flow_time_out"));
+                aa.EN().Q(jSONObject.optLong("small_flow_time_out"));
                 TbadkCoreApplication.m11getInst().setInterviewLivePollingInterval(jSONObject.optLong("interview_pulling_interval"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("switch");
                 if (optJSONArray != null) {
@@ -110,7 +110,7 @@ public class f {
                                 MessageManager.getInstance().dispatchResponsedMessageToUI(new UninstallInquirerBySyncMessage(Boolean.valueOf(valueOf.intValue() != 1)));
                             }
                             if (TextUtils.equals("forum_mask_stat", optString)) {
-                                com.baidu.tbadk.coreExtra.messageCenter.c.xF().bb(valueOf.intValue() == 0);
+                                com.baidu.tbadk.coreExtra.messageCenter.c.xG().bb(valueOf.intValue() == 0);
                             }
                             if ("netlib_type".equals(optString)) {
                                 TbadkCoreApplication.m11getInst().setNetWorkCoreType(jSONObject2.optInt("type", 1) == 0 ? 1 : 0);
@@ -119,7 +119,7 @@ public class f {
                                 com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
                             }
                             if ("is_plugin_resource_open_net".equals(optString)) {
-                                com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("is_plugin_resource_open_net", valueOf.intValue() == 1);
+                                com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("is_plugin_resource_open_net", valueOf.intValue() == 1);
                                 if (valueOf.intValue() != 1) {
                                     TbadkCoreApplication.m11getInst().setPluginResourceSwitch(false);
                                 }
@@ -175,14 +175,14 @@ public class f {
                     TbadkCoreApplication.m11getInst().setImTimeOut(new int[]{optJSONObject6.optInt("2gTo", 0) * 1000, optJSONObject6.optInt("3gTo", 0) * 1000, optJSONObject6.optInt("wifiTo", 0) * 1000});
                 }
                 JSONObject optJSONObject7 = jSONObject.optJSONObject("imNotifyRecordStrategy");
-                com.baidu.tbadk.data.e Ay = com.baidu.tbadk.data.e.Ay();
+                com.baidu.tbadk.data.e Az = com.baidu.tbadk.data.e.Az();
                 if (optJSONObject7 != null) {
-                    Ay.parserJson(optJSONObject7);
+                    Az.parserJson(optJSONObject7);
                 }
                 JSONObject optJSONObject8 = jSONObject.optJSONObject("local_dialog");
                 if (optJSONObject8 != null) {
                     this.afQ = optJSONObject8.optInt("local_dialog_android", 1);
-                    com.baidu.tbadk.core.sharedPref.b.sQ().putInt("sync_local_dialog", this.afQ);
+                    com.baidu.tbadk.core.sharedPref.b.sR().putInt("sync_local_dialog", this.afQ);
                 }
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_RESET_CONNECT_STRATEGY));
                 TbConfig.setPbListNum(this.afD);
@@ -211,7 +211,7 @@ public class f {
         return sb.toString();
     }
 
-    public long ww() {
+    public long wx() {
         return this.afL;
     }
 }

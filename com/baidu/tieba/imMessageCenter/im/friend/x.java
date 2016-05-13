@@ -18,12 +18,12 @@ public class x implements TbCheckBox.a {
         InviteFriendListActivity inviteFriendListActivity;
         InviteFriendListActivity inviteFriendListActivity2;
         int i;
-        this.cxj.akR();
+        this.cxj.akT();
         if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
             if (z) {
-                int akS = this.cxj.akS();
+                int akU = this.cxj.akU();
                 inviteFriendCandidateList = this.cxj.cxa;
-                if (akS <= inviteFriendCandidateList.getItemLength()) {
+                if (akU <= inviteFriendCandidateList.getItemLength()) {
                     inviteFriendListActivity = this.cxj.cwX;
                     inviteFriendListActivity2 = this.cxj.cwX;
                     String string = inviteFriendListActivity2.getPageContext().getString(t.j.invite_friend_exceed_max_count);

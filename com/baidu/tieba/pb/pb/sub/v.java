@@ -36,25 +36,25 @@ public class v implements ap.a {
         yVar = this.dqn.dqe;
         if (yVar != null) {
             yVar5 = this.dqn.dqe;
-            yVar5.azZ();
+            yVar5.aAc();
         }
         if (z) {
             yVar2 = this.dqn.dqe;
             yVar2.hideNoDataView();
             if (hVar != null) {
-                if (hVar.avO() == null) {
+                if (hVar.avR() == null) {
                     apVar4 = this.dqn.dqc;
                 }
-                com.baidu.tieba.tbadkCore.data.s avO = hVar.avO();
+                com.baidu.tieba.tbadkCore.data.s avR = hVar.avR();
                 apVar = this.dqn.dqc;
-                avO.a(apVar.aAC());
+                avR.a(apVar.aAF());
                 yVar3 = this.dqn.dqe;
                 if (yVar3 != null) {
                     yVar4 = this.dqn.dqe;
                     apVar2 = this.dqn.dqc;
-                    int avH = apVar2.avH();
+                    int avK = apVar2.avK();
                     apVar3 = this.dqn.dqc;
-                    yVar4.a(hVar, avH, apVar3.aAE() != null);
+                    yVar4.a(hVar, avK, apVar3.aAH() != null);
                 }
                 com.baidu.tieba.pb.f fVar = new com.baidu.tieba.pb.f();
                 fVar.setData(hVar);

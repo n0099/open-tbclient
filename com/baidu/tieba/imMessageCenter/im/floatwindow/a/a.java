@@ -11,7 +11,7 @@ public class a {
     private a() {
     }
 
-    public static a ajO() {
+    public static a ajQ() {
         if (cuW == null) {
             cuW = new a();
         }

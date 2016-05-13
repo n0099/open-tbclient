@@ -13,7 +13,7 @@ class i implements com.baidu.adp.lib.f.c<GridView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: LI */
+    /* renamed from: LK */
     public GridView dE() {
         return new GridView(this.aVE.getContext());
     }

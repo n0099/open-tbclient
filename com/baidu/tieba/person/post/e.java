@@ -14,7 +14,7 @@ class e implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dEo.coQ = com.baidu.tbadk.core.a.h.bo(4) % 3;
+        this.dEo.coQ = com.baidu.tbadk.core.a.h.bn(4) % 3;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", "post");
         httpMessage.addParam("val", String.valueOf(this.dEo.coQ + 1));

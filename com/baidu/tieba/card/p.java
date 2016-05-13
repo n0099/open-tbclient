@@ -47,7 +47,7 @@ public class p extends b<com.baidu.tieba.card.a.i> {
         this.aNZ.addView(this.aPg);
         this.aPg.setSelector(t.f.list_selector_transparent);
         this.aPg.setPadding(tbPageContext.getResources().getDimensionPixelSize(t.e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(t.e.ds4), 0);
-        JS();
+        JU();
         if (this.aPh == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < 10; i++) {
@@ -81,7 +81,7 @@ public class p extends b<com.baidu.tieba.card.a.i> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
         if (this.aPg != null && this.aPh != null) {
-            this.aPh.cN(i);
+            this.aPh.cM(i);
         }
     }
 
@@ -89,21 +89,21 @@ public class p extends b<com.baidu.tieba.card.a.i> {
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.card.a.i iVar) {
         super.a((p) iVar);
-        if (iVar == null || com.baidu.tbadk.core.util.y.r(iVar.DR()) <= 0) {
+        if (iVar == null || com.baidu.tbadk.core.util.y.r(iVar.DS()) <= 0) {
             getView().setVisibility(8);
             return;
         }
-        int r = com.baidu.tbadk.core.util.y.r(iVar.DR());
+        int r = com.baidu.tbadk.core.util.y.r(iVar.DS());
         if (r > 10) {
-            ArrayList arrayList = new ArrayList(iVar.DR());
-            iVar.DR().clear();
-            iVar.DR().addAll(arrayList.subList(0, 10));
+            ArrayList arrayList = new ArrayList(iVar.DS());
+            iVar.DS().clear();
+            iVar.DS().addAll(arrayList.subList(0, 10));
         }
-        this.aPp = iVar.Ku();
+        this.aPp = iVar.Kw();
         this.stType = iVar.getStType();
-        if (!b(iVar.DR(), this.aPk)) {
-            boolean z = com.baidu.tbadk.core.util.y.r(iVar.DR()) != com.baidu.tbadk.core.util.y.r(this.aPk);
-            this.aPk = iVar.DR();
+        if (!b(iVar.DS(), this.aPk)) {
+            boolean z = com.baidu.tbadk.core.util.y.r(iVar.DS()) != com.baidu.tbadk.core.util.y.r(this.aPk);
+            this.aPk = iVar.DS();
             if (r <= 0) {
                 getView().setVisibility(8);
                 return;
@@ -183,7 +183,7 @@ public class p extends b<com.baidu.tieba.card.a.i> {
         return z2;
     }
 
-    private void JS() {
+    private void JU() {
         this.ajv = new t(this);
     }
 

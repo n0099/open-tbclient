@@ -78,7 +78,7 @@ public abstract class a<T, V extends y.a> {
         }
     }
 
-    public v at(int i) {
+    public v as(int i) {
         if (this.ye != null) {
             return this.ye.getItem(i);
         }

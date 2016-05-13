@@ -19,16 +19,16 @@ public class d implements a.InterfaceC0062a {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.a.InterfaceC0062a
-    public void ajI() {
+    public void ajK() {
         boolean z;
         boolean z2;
-        ArrayList<UserData> ajt;
+        ArrayList<UserData> ajv;
         z = this.cuJ.cuv;
         if (!z) {
             z2 = this.cuJ.cuu;
-            if (!z2 && (ajt = this.cuJ.cuz.ajt()) != null && !ajt.isEmpty()) {
-                this.cuJ.ajE();
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m11getInst(), ajt)));
+            if (!z2 && (ajv = this.cuJ.cuz.ajv()) != null && !ajv.isEmpty()) {
+                this.cuJ.ajG();
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m11getInst(), ajv)));
             }
         }
     }

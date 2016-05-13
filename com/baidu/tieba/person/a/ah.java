@@ -34,7 +34,7 @@ public class ah extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mt */
+    /* renamed from: ms */
     public High getItem(int i) {
         if (this.aZH == null || i >= this.aZH.size() || i < 0) {
             return null;

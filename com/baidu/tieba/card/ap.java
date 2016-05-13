@@ -14,10 +14,10 @@ public class ap implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.card.a.n nVar;
-        if (this.aQk.JM() != null) {
-            by<com.baidu.tieba.card.a.n> JM = this.aQk.JM();
+        if (this.aQk.JO() != null) {
+            by<com.baidu.tieba.card.a.n> JO = this.aQk.JO();
             nVar = this.aQk.aQg;
-            JM.a(view, nVar);
+            JO.a(view, nVar);
         }
     }
 }

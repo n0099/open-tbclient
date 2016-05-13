@@ -103,7 +103,7 @@ public class b {
     public void ac(ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
         if (arrayList != null) {
             if (arrayList != null && arrayList.size() == 0) {
-                arrayList.add(this.dxd.aDb().aDO());
+                arrayList.add(this.dxd.aDe().aDR());
             } else {
                 Iterator<com.baidu.adp.widget.ListView.v> it = arrayList.iterator();
                 boolean z = true;

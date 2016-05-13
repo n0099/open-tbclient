@@ -12,7 +12,7 @@ public class p {
     private static p aAf = null;
     private CustomMessageListener nT;
 
-    public static p Fw() {
+    public static p Fy() {
         if (aAf == null) {
             synchronized (aAe) {
                 if (aAf == null) {
@@ -27,10 +27,10 @@ public class p {
         com.baidu.adp.lib.util.i.init();
     }
 
-    public void Fx() {
+    public void Fz() {
         try {
             if (this.nT == null) {
-                this.nT = Fy();
+                this.nT = FA();
                 MessageManager.getInstance().registerListener(this.nT);
             }
         } catch (Exception e) {
@@ -39,19 +39,19 @@ public class p {
         }
     }
 
-    private CustomMessageListener Fy() {
+    private CustomMessageListener FA() {
         return new q(this, 2000994);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fz() {
+    public void FB() {
         try {
             boolean fq = com.baidu.adp.lib.util.i.fq();
             if (fq) {
                 if (com.baidu.adp.lib.util.i.fr()) {
-                    az.uf().aA(true);
+                    az.ug().aA(true);
                 } else if (com.baidu.adp.lib.util.i.fs()) {
-                    az.uf().aA(false);
+                    az.ug().aA(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(fq);

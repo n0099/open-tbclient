@@ -23,7 +23,7 @@ public class ak extends Handler {
             if (!MessageManager.getInstance().getSocketClient().isValid()) {
                 fq = this.cyJ.fq();
                 if (fq) {
-                    this.cyJ.alp();
+                    this.cyJ.alr();
                 }
             }
             handler = this.cyJ.mHandler;

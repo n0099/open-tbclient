@@ -14,10 +14,10 @@ public class br implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.card.a.n nVar;
-        if (this.aQP.JM() != null) {
-            by<com.baidu.tieba.card.a.n> JM = this.aQP.JM();
+        if (this.aQP.JO() != null) {
+            by<com.baidu.tieba.card.a.n> JO = this.aQP.JO();
             nVar = this.aQP.aPR;
-            JM.a(view, nVar);
+            JO.a(view, nVar);
         }
     }
 }

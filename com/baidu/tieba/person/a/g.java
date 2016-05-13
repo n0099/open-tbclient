@@ -46,9 +46,9 @@ public class g extends c<com.baidu.tieba.person.data.d, com.baidu.tieba.person.b
     }
 
     private void a(com.baidu.tieba.person.b.e eVar, com.baidu.tieba.person.data.d dVar) {
-        bg aDb;
-        if (dVar != null && eVar != null && eVar.dBr != null && this.dxd != null && (aDb = this.dxd.aDb()) != null) {
-            if (aDb.aDT() && !aDb.getIsSelf()) {
+        bg aDe;
+        if (dVar != null && eVar != null && eVar.dBr != null && this.dxd != null && (aDe = this.dxd.aDe()) != null) {
+            if (aDe.aDW() && !aDe.getIsSelf()) {
                 eVar.dBt.setVisibility(8);
                 b(eVar);
             } else if (dVar.dzm != null && dVar.dzm.size() > 0) {
@@ -60,17 +60,17 @@ public class g extends c<com.baidu.tieba.person.data.d, com.baidu.tieba.person.b
                 eVar.dBx.a(b(dVar.dzm, 3), 2, this.dxD);
                 eVar.dBy.a(b(dVar.dzm, 0), 3, this.dxD);
                 eVar.dBz.a(b(dVar.dzm, 5), -1, this.dxD);
-                this.dxd.aDr().a(1, eVar.dBv);
-                if (aDb.getIsSelf() && !aDb.aDT()) {
-                    this.dxd.aDr().a(2, eVar.dBx);
+                this.dxd.aDu().a(1, eVar.dBv);
+                if (aDe.getIsSelf() && !aDe.aDW()) {
+                    this.dxd.aDu().a(2, eVar.dBx);
                     if (this.dxd.dFR > 0) {
-                        this.dxd.aDr().j(true, 2);
+                        this.dxd.aDu().j(true, 2);
                     }
                 }
-                if (aDb.getIsSelf()) {
-                    this.dxd.aDr().a(3, eVar.dBy);
+                if (aDe.getIsSelf()) {
+                    this.dxd.aDu().a(3, eVar.dBy);
                 }
-                if (!aDb.aDT()) {
+                if (!aDe.aDW()) {
                     eVar.dBt.setPadding(0, 0, 0, this.dxF);
                 } else {
                     eVar.dBt.setPadding(0, this.dxE, 0, this.dxF);
@@ -84,10 +84,10 @@ public class g extends c<com.baidu.tieba.person.data.d, com.baidu.tieba.person.b
 
     private void a(com.baidu.tieba.person.b.e eVar) {
         if (eVar != null && eVar.dBr != null && this.dxd != null) {
-            bg aDb = this.dxd.aDb();
-            if (aDb != null && aDb.aDT()) {
+            bg aDe = this.dxd.aDe();
+            if (aDe != null && aDe.aDW()) {
                 eVar.dBr.setVisibility(0);
-                eVar.dBr.a(this.dxd.aDb(), this.dxd.aDc());
+                eVar.dBr.a(this.dxd.aDe(), this.dxd.aDf());
                 return;
             }
             eVar.dBr.setVisibility(8);
@@ -95,11 +95,11 @@ public class g extends c<com.baidu.tieba.person.data.d, com.baidu.tieba.person.b
     }
 
     private void b(com.baidu.tieba.person.b.e eVar) {
-        if (eVar != null && eVar.dBs != null && this.dxd != null && this.dxd.aDb() != null) {
-            bg aDb = this.dxd.aDb();
-            if (aDb.aDT() && !aDb.getIsSelf()) {
+        if (eVar != null && eVar.dBs != null && this.dxd != null && this.dxd.aDe() != null) {
+            bg aDe = this.dxd.aDe();
+            if (aDe.aDW() && !aDe.getIsSelf()) {
                 eVar.dBs.setVisibility(0);
-                eVar.dBs.setData(aDb);
+                eVar.dBs.setData(aDe);
                 return;
             }
             eVar.dBs.setVisibility(8);

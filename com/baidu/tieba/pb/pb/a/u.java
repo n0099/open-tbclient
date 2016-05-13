@@ -30,7 +30,7 @@ public class u implements View.OnClickListener {
         this.dgD.dgW.setVisibility(8);
         this.dgD.dgT.start();
         this.dgC.b(this.dgE, this.dgD);
-        this.dgC.awc();
+        this.dgC.awf();
         this.dgC.c(this.dgF);
         this.dgC.a(this.dgD, this.dgF);
         eVar = this.dgC.dfK;

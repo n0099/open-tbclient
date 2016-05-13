@@ -28,11 +28,11 @@ public class m extends c {
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public ax Kl() {
+    public ax Kn() {
         return this.aRZ;
     }
 
-    public int KC() {
+    public int KE() {
         return (this.aRZ == null || StringUtils.isNull(this.aRZ.getPhotoLiveCover())) ? 0 : 1;
     }
 
@@ -52,19 +52,19 @@ public class m extends c {
         this.aSd = awVar;
     }
 
-    public aw KD() {
-        return this.aSa != null ? this.aSa.ac("obj_param3", au.Ka()) : this.aSa;
-    }
-
-    public aw KE() {
-        return this.aSb != null ? this.aSb.ac("obj_param3", au.Ka()) : this.aSb;
-    }
-
     public aw KF() {
-        return this.aSd != null ? this.aSd.ac("obj_param3", au.Ka()) : this.aSd;
+        return this.aSa != null ? this.aSa.ac("obj_param3", au.Kc()) : this.aSa;
     }
 
     public aw KG() {
-        return this.aSc != null ? this.aSc.ac("obj_param3", au.Ka()) : this.aSc;
+        return this.aSb != null ? this.aSb.ac("obj_param3", au.Kc()) : this.aSb;
+    }
+
+    public aw KH() {
+        return this.aSd != null ? this.aSd.ac("obj_param3", au.Kc()) : this.aSd;
+    }
+
+    public aw KI() {
+        return this.aSc != null ? this.aSc.ac("obj_param3", au.Kc()) : this.aSc;
     }
 }

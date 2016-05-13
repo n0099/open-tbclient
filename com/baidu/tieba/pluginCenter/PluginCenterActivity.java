@@ -46,11 +46,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         setContentView(t.h.plugin_center_activity);
         this.aXs = new ViewEventCenter();
         this.aXs.addEventDelegate(this);
-        Uv();
-        WM();
+        Ux();
+        WO();
     }
 
-    private void Uv() {
+    private void Ux() {
         if (getIntent() != null) {
             this.mFromType = getIntent().getIntExtra(PluginCenterActivityConfig.KEY_FROM_TYPE, 0);
         }
@@ -63,10 +63,10 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    private void WM() {
+    private void WO() {
         this.mRootView = findViewById(t.g.parent);
         this.zu = (BdListView) findViewById(t.g.list);
-        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(t.g.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, com.baidu.adp.lib.util.k.c(getActivity(), t.e.ds220)), NoDataViewFactory.d.cP(t.j.plugin_no_plugins), null);
+        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(t.g.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, com.baidu.adp.lib.util.k.c(getActivity(), t.e.ds220)), NoDataViewFactory.d.cO(t.j.plugin_no_plugins), null);
         this.zu.setEmptyView(this.mNoDataView);
         this.dUt = new b(this, getPageContext(), new Class[]{com.baidu.tieba.pluginCenter.a.d.class, com.baidu.tieba.pluginCenter.a.a.class, com.baidu.tieba.pluginCenter.a.e.class}, new int[]{t.h.plugin_center_list_function_item, t.h.plugin_center_list_discover_item, t.h.plugin_center_list_desc_item}, this.aXs);
         this.zu.setAdapter((ListAdapter) this.dUt);
@@ -138,7 +138,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             aVar.a(string, new c(this, pluginConfigWrapper));
             aVar.b(TbadkCoreApplication.m11getInst().getString(t.j.cancel), new d(this));
             aVar.b(getPageContext());
-            aVar.rU();
+            aVar.rV();
         }
     }
 
@@ -147,11 +147,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         if (str == null) {
             return null;
         }
-        List<Object> DR = this.dUt.DR();
-        if (DR == null || DR.isEmpty()) {
+        List<Object> DS = this.dUt.DS();
+        if (DS == null || DS.isEmpty()) {
             return null;
         }
-        for (Object obj : DR) {
+        for (Object obj : DS) {
             if (obj instanceof PluginConfigWrapper) {
                 PluginConfigWrapper pluginConfigWrapper = (PluginConfigWrapper) obj;
                 if (str.equals(pluginConfigWrapper.package_name)) {
@@ -194,7 +194,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         for (PluginNetConfigInfos.PluginConfig pluginConfig : list) {
             if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.display_name) && pluginConfig.forbidden != 1 && ((findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().findPluginSetting(pluginConfig.package_name)) == null || pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code)) {
                 if (TextUtils.isEmpty(pluginConfig.package_name) || !PluginCenter.NAME_MOTUSDK.equals(pluginConfig.package_name) || com.baidu.adp.lib.c.e.cS().Z("motu_sdk") != 1) {
-                    if (com.baidu.tbadk.pluign.a.Ff().gd(pluginConfig.ext)) {
+                    if (com.baidu.tbadk.pluign.a.Fh().gd(pluginConfig.ext)) {
                         arrayList3.add(a(pluginConfig));
                     } else if (this.mFromType == 0) {
                         arrayList2.add(pluginConfig);
@@ -215,32 +215,32 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
     @Override // com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        int Dj = bVar.Dj();
-        com.baidu.tbadk.mvc.b.a Dk = bVar.Dk();
-        switch (Dj) {
+        int Dk = bVar.Dk();
+        com.baidu.tbadk.mvc.b.a Dl = bVar.Dl();
+        switch (Dk) {
             case 0:
-                if (Dk instanceof PluginConfigWrapper) {
-                    PluginConfigWrapper pluginConfigWrapper = (PluginConfigWrapper) Dk;
+                if (Dl instanceof PluginConfigWrapper) {
+                    PluginConfigWrapper pluginConfigWrapper = (PluginConfigWrapper) Dl;
                     PluginPackageManager.hF().bl(pluginConfigWrapper.package_name);
                     pluginConfigWrapper.setDownLoadStatus(1);
                     this.dUt.A((com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b>>) pluginConfigWrapper);
-                    com.baidu.tbadk.pluign.a.Ff().ga(pluginConfigWrapper.package_name);
+                    com.baidu.tbadk.pluign.a.Fh().ga(pluginConfigWrapper.package_name);
                     return true;
                 }
                 break;
             case 1:
-                if (Dk instanceof PluginConfigWrapper) {
-                    PluginConfigWrapper pluginConfigWrapper2 = (PluginConfigWrapper) Dk;
+                if (Dl instanceof PluginConfigWrapper) {
+                    PluginConfigWrapper pluginConfigWrapper2 = (PluginConfigWrapper) Dl;
                     PluginPackageManager.hF().bm(pluginConfigWrapper2.package_name);
                     pluginConfigWrapper2.setDownLoadStatus(2);
                     this.dUt.A((com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b>>) pluginConfigWrapper2);
-                    com.baidu.tbadk.pluign.a.Ff().gb(pluginConfigWrapper2.package_name);
+                    com.baidu.tbadk.pluign.a.Fh().gb(pluginConfigWrapper2.package_name);
                     return true;
                 }
                 break;
             case 2:
-                if (Dk instanceof PluginConfigWrapper) {
-                    a((PluginConfigWrapper) Dk);
+                if (Dl instanceof PluginConfigWrapper) {
+                    a((PluginConfigWrapper) Dl);
                     return true;
                 }
                 break;

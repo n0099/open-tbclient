@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class w extends BaseAdapter {
-    private static final int dVE = TbadkCoreApplication.m11getInst().getListItemRule().wz();
+    private static final int dVE = TbadkCoreApplication.m11getInst().getListItemRule().wA();
     private TbPageContext<?> Do;
     private List<k.a> aIe = new ArrayList();
 
@@ -36,7 +36,7 @@ public class w extends BaseAdapter {
             return 0;
         }
         int i = size - dVE;
-        nY(i);
+        nX(i);
         this.aIe.addAll(list);
         return i;
     }
@@ -45,7 +45,7 @@ public class w extends BaseAdapter {
         this.aIe.clear();
     }
 
-    private void nY(int i) {
+    private void nX(int i) {
         if (this.aIe.size() <= i) {
             this.aIe.clear();
         }

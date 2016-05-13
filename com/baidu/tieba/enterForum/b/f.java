@@ -25,7 +25,7 @@ public class f implements com.baidu.tbadk.mvc.b.a {
         return this.mForumName;
     }
 
-    public int Mm() {
+    public int Mo() {
         return this.aWS;
     }
 

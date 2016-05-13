@@ -14,7 +14,7 @@ class dr implements c<View> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Yb */
+    /* renamed from: Yd */
     public View dE() {
         return new TogetherHiLivingView(this.val$context);
     }

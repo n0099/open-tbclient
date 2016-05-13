@@ -26,11 +26,11 @@ public class a implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     public a(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
         this.bjB = frsActivity;
         this.btR = noPressedRelativeLayout;
-        Tz();
-        TA();
+        TB();
+        TC();
     }
 
-    private void Tz() {
+    private void TB() {
         this.btS = new aq(this.bjB.getPageContext().getPageActivity());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.c(this.bjB.getPageContext().getPageActivity(), t.e.ds80));
         layoutParams.addRule(12);
@@ -40,7 +40,7 @@ public class a implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         lr();
     }
 
-    private void TA() {
+    private void TC() {
         this.btT = new TbImageView(this.bjB.getPageContext().getPageActivity());
         int c = com.baidu.adp.lib.util.k.c(this.bjB.getPageContext().getPageActivity(), t.e.ds68);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(c, c);
@@ -61,41 +61,41 @@ public class a implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         if (!this.btW) {
             if (z) {
                 if (z2) {
-                    TD();
+                    TF();
                 } else {
                     this.btS.setVisibility(0);
                 }
             } else if (z2) {
-                TE();
+                TG();
             } else {
                 this.btS.setVisibility(8);
             }
         }
     }
 
-    private void TB() {
+    private void TD() {
         this.btU = AnimationUtils.loadAnimation(this.bjB.getPageContext().getPageActivity(), t.a.frs_pull_up_refresh_out);
         this.btU.setAnimationListener(new c(this));
     }
 
-    private void TC() {
+    private void TE() {
         this.btV = AnimationUtils.loadAnimation(this.bjB.getPageContext().getPageActivity(), t.a.frs_pull_up_refresh_in);
         this.btV.setAnimationListener(new d(this));
     }
 
-    private void TD() {
+    private void TF() {
         if (!af(this.btS) && !this.btS.isShown()) {
             if (this.btV == null) {
-                TC();
+                TE();
             }
             this.btS.startAnimation(this.btV);
         }
     }
 
-    private void TE() {
+    private void TG() {
         if (!af(this.btS) && this.btS.isShown()) {
             if (this.btU == null) {
-                TB();
+                TD();
             }
             this.btS.startAnimation(this.btU);
         }
@@ -135,9 +135,9 @@ public class a implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
         this.btW = z;
         if (this.btS != null) {
             if (z) {
-                TE();
+                TG();
             } else {
-                TD();
+                TF();
             }
         }
     }
@@ -161,7 +161,7 @@ public class a implements com.baidu.tieba.frs.entelechy.b.c, com.baidu.tieba.frs
     }
 
     @Override // com.baidu.tieba.frs.tab.h
-    public void Pl() {
+    public void Pn() {
         if (this.btT != null) {
             this.btT.clearAnimation();
             this.btT.setImageDrawable(null);

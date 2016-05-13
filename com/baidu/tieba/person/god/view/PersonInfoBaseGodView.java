@@ -79,19 +79,19 @@ public class PersonInfoBaseGodView extends LinearLayout implements View.OnClickL
             this.dAy = bgVar;
             this.bIW = bgVar.getIsSelf();
             this.aXs = viewEventCenter;
-            aCC();
-            aCB();
+            aCF();
+            aCE();
         }
     }
 
-    private void aCB() {
-        PersonUserGodInfo aDy;
-        if (this.dAy != null && (aDy = this.dAy.aDy()) != null && aDy.getForumGodList() != null) {
-            this.dAw.setData(aDy.getForumGodList());
+    private void aCE() {
+        PersonUserGodInfo aDB;
+        if (this.dAy != null && (aDB = this.dAy.aDB()) != null && aDB.getForumGodList() != null) {
+            this.dAw.setData(aDB.getForumGodList());
         }
     }
 
-    private void aCC() {
+    private void aCF() {
         if (this.dAy != null) {
             UserData userData = this.dAy.getUserData();
             if (userData != null) {
@@ -132,9 +132,9 @@ public class PersonInfoBaseGodView extends LinearLayout implements View.OnClickL
                     this.dAn.setVisibility(8);
                 }
             }
-            PersonUserGodInfo aDy = this.dAy.aDy();
-            if (aDy != null) {
-                int age = aDy.getAge();
+            PersonUserGodInfo aDB = this.dAy.aDB();
+            if (aDB != null) {
+                int age = aDB.getAge();
                 if (age < 1 || age > 100) {
                     this.dAq.setVisibility(8);
                     this.dAt.setVisibility(8);
@@ -143,7 +143,7 @@ public class PersonInfoBaseGodView extends LinearLayout implements View.OnClickL
                     this.dAt.setVisibility(0);
                     this.dAq.setText(this.mContext.getResources().getString(t.j.person_age, Integer.valueOf(age)));
                 }
-                String address = aDy.getAddress();
+                String address = aDB.getAddress();
                 if (TextUtils.isEmpty(address)) {
                     this.dAu.setVisibility(8);
                     this.dAr.setVisibility(8);

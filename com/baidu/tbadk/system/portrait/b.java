@@ -16,7 +16,7 @@ public class b implements View.OnClickListener {
         int i;
         i = this.azJ.azC;
         if (i != -1) {
-            this.azJ.Fi();
+            this.azJ.Fk();
             return;
         }
         this.azJ.setResult(0);

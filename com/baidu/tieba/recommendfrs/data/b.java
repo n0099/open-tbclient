@@ -12,7 +12,7 @@ public class b extends c {
     }
 
     public b() {
-        setStType(au.Kb());
+        setStType(au.Kd());
         setYuelaouLocate("ptrcard#");
     }
 }

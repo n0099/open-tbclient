@@ -439,7 +439,7 @@ public class NavigationBar extends RelativeLayout {
     public void onChangeSkinType(com.baidu.adp.base.h<?> hVar, int i) {
         BitmapDrawable bitmapDrawable;
         if (this.isAutoNight) {
-            bitmapDrawable = new BitmapDrawable(com.baidu.tbadk.core.util.at.cB(t.f.s_navbar_bg));
+            bitmapDrawable = new BitmapDrawable(com.baidu.tbadk.core.util.at.cA(t.f.s_navbar_bg));
         } else {
             bitmapDrawable = new BitmapDrawable(com.baidu.tbadk.core.util.at.p(t.f.s_navbar_bg, i));
         }

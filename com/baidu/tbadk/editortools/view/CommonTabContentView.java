@@ -72,10 +72,10 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
             }
             this.asg.setAdapter(null);
             this.asi = count;
-            int Co = bVar.Co();
+            int Cp = bVar.Cp();
             int row = bVar.getRow();
-            if (count != 0 && Co != 0 && row != 0) {
-                this.ask = row * Co;
+            if (count != 0 && Cp != 0 && row != 0) {
+                this.ask = row * Cp;
                 int i3 = count / this.ask;
                 int i4 = count % this.ask == 0 ? i3 : i3 + 1;
                 if (i4 > 1) {
@@ -85,10 +85,10 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                 } else {
                     this.ash.setVisibility(4);
                 }
-                this.asl = bVar.Cr();
+                this.asl = bVar.Cs();
                 ArrayList arrayList = new ArrayList();
                 for (int i5 = 0; i5 < i4; i5++) {
-                    if (bVar.Cp() == 0) {
+                    if (bVar.Cq() == 0) {
                         GridView gridView2 = new GridView(getContext());
                         gridView2.setVerticalSpacing(bVar.getVerticalSpacing());
                         gridView2.setGravity(17);
@@ -100,18 +100,18 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                         gridView2.setSelection(-1);
                         gridView = gridView2;
                     } else {
-                        gridView = (GridView) LayoutInflater.from(getContext()).inflate(bVar.Cp(), (ViewGroup) null);
+                        gridView = (GridView) LayoutInflater.from(getContext()).inflate(bVar.Cq(), (ViewGroup) null);
                     }
                     if (this.asl != null) {
                         gridView.setOnItemClickListener(this.yR);
                     }
-                    gridView.setNumColumns(Co);
+                    gridView.setNumColumns(Cp);
                     if (i5 < i4 - 1) {
                         i = this.ask;
                     } else {
                         i = count - (this.ask * (i4 - 1));
                     }
-                    gridView.setAdapter((ListAdapter) new a(getContext(), i, i5 * this.ask, bVar.Cn()));
+                    gridView.setAdapter((ListAdapter) new a(getContext(), i, i5 * this.ask, bVar.Co()));
                     arrayList.add(gridView);
                 }
                 this.asj = new b(arrayList);
@@ -153,7 +153,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
 
     public void a(int i, com.baidu.tbadk.editortools.view.b bVar) {
         if (bVar != null && this.asg != null) {
-            this.asg.setCurrentItem(i / (bVar.Co() * bVar.getRow()));
+            this.asg.setCurrentItem(i / (bVar.Cp() * bVar.getRow()));
         }
     }
 

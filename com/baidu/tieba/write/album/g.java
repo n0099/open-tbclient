@@ -5,11 +5,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class g implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ e eXP;
+    final /* synthetic */ e eXO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.eXP = eVar;
+        this.eXO = eVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -20,39 +20,39 @@ class g implements ViewPager.OnPageChangeListener {
         o oVar2;
         j jVar2;
         int i3;
-        ImageFileInfo qL;
+        ImageFileInfo qK;
         o oVar3;
         ImageView imageView;
         ImageView imageView2;
         j jVar3;
         int i4;
-        this.eXP.asz = i;
-        e eVar = this.eXP;
-        i2 = this.eXP.asz;
-        eVar.qK(i2 + 1);
-        jVar = this.eXP.eXN;
+        this.eXO.asz = i;
+        e eVar = this.eXO;
+        i2 = this.eXO.asz;
+        eVar.qJ(i2 + 1);
+        jVar = this.eXO.eXM;
         if (jVar != null) {
-            oVar = this.eXP.eXx;
+            oVar = this.eXO.eXw;
             if (oVar != null) {
-                oVar2 = this.eXP.eXx;
-                if ("-1".equals(oVar2.bby())) {
-                    jVar3 = this.eXP.eXN;
-                    i4 = this.eXP.asz;
-                    qL = jVar3.qL(i4 + 1);
+                oVar2 = this.eXO.eXw;
+                if ("-1".equals(oVar2.bbF())) {
+                    jVar3 = this.eXO.eXM;
+                    i4 = this.eXO.asz;
+                    qK = jVar3.qK(i4 + 1);
                 } else {
-                    jVar2 = this.eXP.eXN;
-                    i3 = this.eXP.asz;
-                    qL = jVar2.qL(i3);
+                    jVar2 = this.eXO.eXM;
+                    i3 = this.eXO.asz;
+                    qK = jVar2.qK(i3);
                 }
-                oVar3 = this.eXP.eXx;
-                if (oVar3.isAdded(qL)) {
-                    e eVar2 = this.eXP;
-                    imageView2 = this.eXP.eXO;
+                oVar3 = this.eXO.eXw;
+                if (oVar3.isAdded(qK)) {
+                    e eVar2 = this.eXO;
+                    imageView2 = this.eXO.eXN;
                     eVar2.b(imageView2, true);
                     return;
                 }
-                e eVar3 = this.eXP;
-                imageView = this.eXP.eXO;
+                e eVar3 = this.eXO;
+                imageView = this.eXO.eXN;
                 eVar3.b(imageView, false);
             }
         }

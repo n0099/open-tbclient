@@ -84,7 +84,7 @@ public class r extends c<com.baidu.tieba.person.data.j, com.baidu.tieba.person.b
 
     private void b(com.baidu.tieba.person.b.j jVar, com.baidu.tieba.person.data.j jVar2) {
         if (jVar2 != null && jVar != null) {
-            this.dxN = jVar2.aCh();
+            this.dxN = jVar2.aCk();
             this.isSelf = jVar2.getIsSelf();
             this.dxO = this.mContext.getResources().getString(t.j.gift_received_by_me);
             String string = this.mContext.getResources().getString(t.j.gifts_got_in_total);
@@ -159,7 +159,7 @@ public class r extends c<com.baidu.tieba.person.data.j, com.baidu.tieba.person.b
 
     private void a(com.baidu.tieba.person.b.j jVar, com.baidu.tieba.person.data.j jVar2, String str) {
         String string;
-        if (jVar2.aCi()) {
+        if (jVar2.aCl()) {
             this.dxP.setVisibility(8);
             jVar.dCw.setVisibility(0);
             jVar.dCx.setVisibility(0);
@@ -213,7 +213,7 @@ public class r extends c<com.baidu.tieba.person.data.j, com.baidu.tieba.person.b
             if (this.id == null) {
                 return;
             }
-            if (!r.this.aBW()) {
+            if (!r.this.aBZ()) {
                 r.this.cSp.showToast(t.j.gift_load_fail);
             } else if (bl.ac(r.this.cSp.getActivity())) {
                 if ((r.this.dxP != null && view.getId() == r.this.dxP.getId()) || (r.this.dxQ != null && view.getId() == r.this.dxQ.getId())) {
@@ -243,7 +243,7 @@ public class r extends c<com.baidu.tieba.person.data.j, com.baidu.tieba.person.b
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aBW() {
+    public boolean aBZ() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(MyGiftListActivityConfig.class);
     }
 

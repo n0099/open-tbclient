@@ -34,7 +34,7 @@ class l extends CustomMessageListener {
                 }
                 imageView = this.dYZ.dYX;
                 imageView.setVisibility(0);
-                fT.cW(TbadkCoreApplication.m11getInst().getSkinType());
+                fT.cV(TbadkCoreApplication.m11getInst().getSkinType());
             }
         }
     }

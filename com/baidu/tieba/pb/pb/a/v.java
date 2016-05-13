@@ -31,10 +31,10 @@ public class v implements MediaPlayer.OnPreparedListener {
                 float duration = curProgress * 1.0f * this.dgD.dgT.getDuration();
                 PbVideoControllerView pbVideoControllerView = this.dgD.dgU;
                 this.dgD.dgT.seekTo((int) (duration / 10000.0f));
-            } else if (at.vD().vI()) {
+            } else if (at.vE().vJ()) {
                 this.dgD.dgT.seekTo(0);
             }
-            this.dgC.awc();
+            this.dgC.awf();
             this.dgC.c(this.dgF);
             this.dgC.a(this.dgD, this.dgF);
             handler = this.dgC.mHandler;

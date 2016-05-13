@@ -17,9 +17,9 @@ public class k extends s<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: Io */
+    /* renamed from: Iq */
     public Void doInBackground() {
-        this.crl.aiq().e(this.jI, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.crm));
+        this.crl.ais().e(this.jI, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.crm));
         return null;
     }
 }

@@ -29,7 +29,7 @@ public class UserLikeButton extends TextView {
 
     /* loaded from: classes.dex */
     public interface a {
-        void cX(int i);
+        void cW(int i);
     }
 
     public UserLikeButton(Context context) {

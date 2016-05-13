@@ -12,7 +12,7 @@ public class ar implements UserLikeButton.a {
     }
 
     @Override // com.baidu.tbadk.core.view.UserLikeButton.a
-    public void cX(int i) {
-        this.aQm.fu(i);
+    public void cW(int i) {
+        this.aQm.ft(i);
     }
 }

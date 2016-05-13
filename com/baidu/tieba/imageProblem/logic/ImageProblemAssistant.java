@@ -203,7 +203,7 @@ public class ImageProblemAssistant {
         try {
             TestTask testTask2 = this.cBw.get(4);
             try {
-                if (b.sQ().getBoolean("show_images", true)) {
+                if (b.sR().getBoolean("show_images", true)) {
                     testTask2.result = 0;
                 } else {
                     testTask2.result = 2;
@@ -230,9 +230,9 @@ public class ImageProblemAssistant {
         try {
             TestTask testTask2 = this.cBw.get(5);
             try {
-                String tc = new ab(TbCdnTachometerModel.cAZ).tc();
-                if (!TextUtils.isEmpty(tc)) {
-                    JSONObject jSONObject = new JSONObject(tc);
+                String td = new ab(TbCdnTachometerModel.cAZ).td();
+                if (!TextUtils.isEmpty(td)) {
+                    JSONObject jSONObject = new JSONObject(td);
                     this.cBv = new TbCdnIpListData();
                     this.cBv.parseJson(jSONObject);
                     boolean bm = bm(this.cBv.imageUrl, null);
@@ -292,7 +292,7 @@ public class ImageProblemAssistant {
             try {
                 ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
                 abVar.n("ab_img_m", "1");
-                abVar.tc();
+                abVar.td();
             } catch (Exception e) {
                 BdLog.e(e);
             }

@@ -23,10 +23,10 @@ public class t implements ak.a {
         FrsActivity frsActivity2;
         frsActivity = this.buB.bpj;
         com.baidu.tieba.tbadkCore.o PZ = frsActivity.PZ();
-        if (PZ != null && PZ.avA() != null) {
-            com.baidu.tieba.tbadkCore.c.aRW().L(PZ.avA().getName(), false);
-            PZ.avA().setLike(0);
-            this.buB.gS(0);
+        if (PZ != null && PZ.avD() != null) {
+            com.baidu.tieba.tbadkCore.c.aRZ().L(PZ.avD().getName(), false);
+            PZ.avD().setLike(0);
+            this.buB.gR(0);
             frsActivity2 = this.buB.bpj;
             frsActivity2.bhj.d(true);
             TbadkCoreApplication.m11getInst().delLikeForum(str);

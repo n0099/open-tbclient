@@ -60,7 +60,7 @@ public class o extends a<com.baidu.tieba.card.a.h> {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_god_square_rec_god;
     }
 
@@ -85,8 +85,8 @@ public class o extends a<com.baidu.tieba.card.a.h> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (JM() != null) {
-            JM().a(view, this.aPe);
+        if (JO() != null) {
+            JO().a(view, this.aPe);
         }
         if (view == getView() && this.aPd != null && !StringUtils.isNull(this.aPd.getName_show()) && !StringUtils.isNull(this.aPd.getUserId())) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.DV.getPageActivity(), this.aPd.getUserId(), this.aPd.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));

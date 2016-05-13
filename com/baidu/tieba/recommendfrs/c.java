@@ -6,7 +6,7 @@ import tbclient.Personalized.TagInfo;
 public interface c {
     void H(int i, int i2, int i3);
 
-    void anv();
+    void any();
 
     void ch(List<TagInfo> list);
 

@@ -148,7 +148,7 @@ public class c {
         }
     }
 
-    public String an(int i) {
+    public String am(int i) {
         PluginSetting findPluginSettingByCmd = this.vu.findPluginSettingByCmd(i);
         if (findPluginSettingByCmd != null) {
             return findPluginSettingByCmd.packageName;

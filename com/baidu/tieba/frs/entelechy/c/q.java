@@ -40,7 +40,7 @@ public class q implements View.OnClickListener {
                     axVar4 = this.bpH.aab;
                     if (!StringUtils.isNull(axVar4.getAuthor().getUserId())) {
                         axVar5 = this.bpH.aab;
-                        if (axVar5.qP() != null) {
+                        if (axVar5.qQ() != null) {
                             MessageManager messageManager = MessageManager.getInstance();
                             tbPageContext = this.bpH.DV;
                             Activity pageActivity = tbPageContext.getPageActivity();
@@ -49,7 +49,7 @@ public class q implements View.OnClickListener {
                             axVar7 = this.bpH.aab;
                             String name_show = axVar7.getAuthor().getName_show();
                             axVar8 = this.bpH.aab;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, axVar8.qP(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, axVar8.qQ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }
                 }

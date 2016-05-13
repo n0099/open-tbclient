@@ -23,19 +23,19 @@ public class ag implements BdPersonListView.a {
         bj bjVar3;
         if (!com.baidu.adp.lib.util.i.fq()) {
             bjVar = this.this$0.dFA;
-            bjVar.Pl();
+            bjVar.Pn();
             return;
         }
         bgVar = this.this$0.dyP;
-        bgVar.aDF();
+        bgVar.aDI();
         bjVar2 = this.this$0.dFA;
-        if (bjVar2.aEh() != null) {
+        if (bjVar2.aEk() != null) {
             bjVar3 = this.this$0.dFA;
-            bjVar3.aEh().jk();
+            bjVar3.aEk().jk();
         }
         z = this.this$0.bIW;
         if (!z && TbadkCoreApplication.isLogin()) {
-            this.this$0.aDe();
+            this.this$0.aDh();
         }
         hVar = this.this$0.dzV;
         if (hVar != null) {
@@ -49,9 +49,9 @@ public class ag implements BdPersonListView.a {
         bj bjVar;
         bj bjVar2;
         bjVar = this.this$0.dFA;
-        if (bjVar.aEh() != null) {
+        if (bjVar.aEk() != null) {
             bjVar2 = this.this$0.dFA;
-            bjVar2.aEh().Pl();
+            bjVar2.aEk().Pn();
         }
     }
 
@@ -60,9 +60,9 @@ public class ag implements BdPersonListView.a {
         bj bjVar;
         bj bjVar2;
         bjVar = this.this$0.dFA;
-        if (bjVar.aEh() != null) {
+        if (bjVar.aEk() != null) {
             bjVar2 = this.this$0.dFA;
-            bjVar2.aEh().j(f);
+            bjVar2.aEk().j(f);
         }
     }
 }

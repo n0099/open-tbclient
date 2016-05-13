@@ -13,7 +13,7 @@ class w implements View.OnTouchListener {
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.cxj.akR();
+        this.cxj.akT();
         return false;
     }
 }

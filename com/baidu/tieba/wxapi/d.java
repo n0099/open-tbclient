@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.data.aw;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class d extends AuthorizationListener {
-    final /* synthetic */ WXEntryActivity feS;
+    final /* synthetic */ WXEntryActivity feR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(WXEntryActivity wXEntryActivity) {
-        this.feS = wXEntryActivity;
+        this.feR = wXEntryActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -19,7 +19,7 @@ class d extends AuthorizationListener {
         aw awVar = new aw();
         awVar.PS = 0;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LOGIN_WEINXIN, awVar));
-        this.feS.closeActivity();
+        this.feR.closeActivity();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -29,6 +29,6 @@ class d extends AuthorizationListener {
         awVar.errorCode = i;
         awVar.errorMsg = str;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LOGIN_WEINXIN, awVar));
-        this.feS.closeActivity();
+        this.feR.closeActivity();
     }
 }

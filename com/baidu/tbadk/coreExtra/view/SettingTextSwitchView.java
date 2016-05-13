@@ -24,32 +24,32 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        zH();
+        zI();
         d(attributeSet);
-        dS(TbadkCoreApplication.m11getInst().getSkinType());
+        dR(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        zH();
-        dS(TbadkCoreApplication.m11getInst().getSkinType());
+        zI();
+        dR(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        zH();
+        zI();
         d(attributeSet);
-        dS(TbadkCoreApplication.m11getInst().getSkinType());
+        dR(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
     public View getView() {
         return this.amf;
     }
 
-    public void dS(int i) {
-        this.ami.a(at.cA(t.f.bg_switch_open), at.cA(t.f.bg_switch_close), at.cA(t.f.btn_handle));
+    public void dR(int i) {
+        this.ami.a(at.cz(t.f.bg_switch_open), at.cz(t.f.bg_switch_close), at.cz(t.f.btn_handle));
         at.c(this.amg, t.d.cp_cont_b, 1);
         if (this.amh != null) {
             at.c(this.amh, t.d.cp_cont_d, 1);
@@ -84,7 +84,7 @@ public class SettingTextSwitchView extends FrameLayout {
         this.ami.setOnSwitchStateChangeListener(aVar);
     }
 
-    private void zH() {
+    private void zI() {
         LayoutInflater.from(this.mContext).inflate(t.h.setting_text_switch_view, (ViewGroup) this, true);
         this.amf = (LinearLayout) findViewById(t.g.container);
         this.amg = (TextView) findViewById(t.g.text);

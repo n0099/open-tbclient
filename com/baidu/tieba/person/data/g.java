@@ -27,7 +27,7 @@ public class g extends a {
         this.count = i;
     }
 
-    public List<MyLikeForum> aCf() {
+    public List<MyLikeForum> aCi() {
         return this.dzs;
     }
 
@@ -51,11 +51,11 @@ public class g extends a {
         this.sex = i;
     }
 
-    public int aCg() {
+    public int aCj() {
         return this.dzt;
     }
 
-    public void mx(int i) {
+    public void mw(int i) {
         this.dzt = i;
     }
 

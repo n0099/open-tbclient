@@ -41,7 +41,7 @@ public class a {
     private int aoA = 10;
     private boolean aox = i.fq();
 
-    public static a AK() {
+    public static a AL() {
         return aow;
     }
 
@@ -52,16 +52,16 @@ public class a {
             if (z) {
                 bu(true);
             } else {
-                AL();
+                AM();
             }
         }
     }
 
-    private void AL() {
+    private void AM() {
         this.handler.removeMessages(1);
     }
 
-    private void AM() {
+    private void AN() {
         this.handler.removeMessages(1);
         this.handler.sendEmptyMessageDelayed(1, this.aoz);
     }
@@ -85,15 +85,15 @@ public class a {
     public void bs(boolean z) {
         MessageManager messageManager = MessageManager.getInstance();
         if (z) {
-            messageManager.registerTask(AP());
+            messageManager.registerTask(AQ());
         }
-        messageManager.registerTask(AN());
+        messageManager.registerTask(AO());
         messageManager.registerListener(this.aoB);
         messageManager.registerListener(this.aoC);
         messageManager.registerListener(this.downloadListener);
     }
 
-    private HttpMessageTask AN() {
+    private HttpMessageTask AO() {
         HttpMessageTask httpMessageTask = new HttpMessageTask(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOG_TOGETHER + "?cmd=303101");
         httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
         return httpMessageTask;
@@ -103,7 +103,7 @@ public class a {
         this.isUpload = z;
     }
 
-    public void dZ(int i) {
+    public void dY(int i) {
         if (i > 3600) {
             this.aoz = 300000L;
         } else if (i <= 0) {
@@ -113,7 +113,7 @@ public class a {
         }
     }
 
-    public void ea(int i) {
+    public void dZ(int i) {
         if (i > 20) {
             this.aoA = 10;
         } else if (i <= 0) {
@@ -140,7 +140,7 @@ public class a {
         }
     }
 
-    private boolean AO() {
+    private boolean AP() {
         return this.handler.hasMessages(1);
     }
 
@@ -148,12 +148,12 @@ public class a {
     public void bu(boolean z) {
         if (this.aox && this.isUpload) {
             List<AdReq> bv = bv(z);
-            if (z || !AO()) {
-                AM();
+            if (z || !AP()) {
+                AN();
             }
             if (bv != null && bv.size() != 0) {
                 if (!z) {
-                    AM();
+                    AN();
                 }
                 MessageManager.getInstance().sendMessage(new DistributeRequest(bv));
             }
@@ -180,7 +180,7 @@ public class a {
         return arrayList;
     }
 
-    private SocketMessageTask AP() {
+    private SocketMessageTask AQ() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(303101);
         socketMessageTask.h(true);
         socketMessageTask.setResponsedClass(DistributeSocketResponse.class);
@@ -280,7 +280,7 @@ public class a {
             this.aoG.put(str, remove);
             com.baidu.tieba.recapp.report.a a = com.baidu.tieba.recapp.report.e.a(remove, "download_status", 0);
             a.bE("dl", IntentConfig.START);
-            com.baidu.tieba.recapp.report.b.aLG().a(a);
+            com.baidu.tieba.recapp.report.b.aLJ().a(a);
         }
     }
 
@@ -300,7 +300,7 @@ public class a {
             }
             com.baidu.tieba.recapp.report.a a = com.baidu.tieba.recapp.report.e.a(remove, "download_status", 0);
             a.bE("dl", str2);
-            com.baidu.tieba.recapp.report.b.aLG().a(a);
+            com.baidu.tieba.recapp.report.b.aLJ().a(a);
         }
     }
 

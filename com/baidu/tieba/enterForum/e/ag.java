@@ -46,18 +46,18 @@ public class ag {
         }
         if (acVar != null && tbPageContext != null) {
             this.aZN -= acVar.getItemViewCount();
-            acVar.a(NG(), tbPageContext);
+            acVar.a(NI(), tbPageContext);
             acVar.setChangeViewVisibility(z);
         }
     }
 
     public void i(TbPageContext<BaseFragmentActivity> tbPageContext) {
         if (this.aZM != null && this.aZM.get() != null && tbPageContext != null) {
-            this.aZM.get().a(NG(), tbPageContext);
+            this.aZM.get().a(NI(), tbPageContext);
         }
     }
 
-    private List<com.baidu.tieba.enterForum.b.f> NG() {
+    private List<com.baidu.tieba.enterForum.b.f> NI() {
         int i;
         if (TbadkCoreApplication.isLogin()) {
             i = 3;
@@ -79,18 +79,18 @@ public class ag {
         return arrayList;
     }
 
-    public ac NH() {
+    public ac NJ() {
         if (this.aZM == null) {
             return null;
         }
         return this.aZM.get();
     }
 
-    public void NI() {
-        ac NH = NH();
-        if (NH != null) {
-            NH.NE();
-            NH.NF();
+    public void NK() {
+        ac NJ = NJ();
+        if (NJ != null) {
+            NJ.NG();
+            NJ.NH();
         }
     }
 }

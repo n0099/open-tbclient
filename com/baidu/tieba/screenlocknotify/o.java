@@ -25,10 +25,10 @@ public class o {
         }
     }
 
-    public void aMX() {
+    public void aNa() {
         try {
             this.edo.reenableKeyguard();
-            f.aMP().ecV++;
+            f.aMS().ecV++;
             if (this.edn != null) {
                 this.edn.release();
                 this.edn = null;
@@ -38,7 +38,7 @@ public class o {
         }
     }
 
-    public void aMY() {
+    public void aNb() {
         try {
             if (this.edn == null) {
                 this.edn = this.edm.newWakeLock(268435462, "ScreenLockNotify");
@@ -47,15 +47,15 @@ public class o {
             if (this.edn != null) {
                 this.edn.acquire(10000L);
                 this.edo.disableKeyguard();
-                f.aMP().ecS = 0;
-                f.aMP().ecW++;
+                f.aMS().ecS = 0;
+                f.aMS().ecW++;
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public boolean aMZ() {
+    public boolean aNc() {
         try {
             return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.ecO, new Object[0])).booleanValue();
         } catch (Throwable th) {

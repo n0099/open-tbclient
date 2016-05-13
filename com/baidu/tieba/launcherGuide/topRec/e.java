@@ -56,7 +56,7 @@ public class e {
         this.cEY = this.cEZ.findViewById(t.g.footer_background);
         this.cFa = (TextView) this.cEZ.findViewById(t.g.footer_text);
         this.cFb = (ImageView) this.cEZ.findViewById(t.g.footer_icon);
-        ant();
+        anw();
         this.cFe = AnimationUtils.loadAnimation(this.cEM.getPageContext().getPageActivity(), t.a.top_recommended_finish_a);
         this.cFf = AnimationUtils.loadAnimation(this.cEM.getPageContext().getPageActivity(), t.a.top_recommended_finish_b);
         this.cFe.setAnimationListener(new f(this));
@@ -66,11 +66,11 @@ public class e {
         this.mProgressBar = (ProgressBar) this.cEM.findViewById(t.g.loading);
     }
 
-    public LinearLayout anr() {
+    public LinearLayout anu() {
         return this.cEZ;
     }
 
-    public Button ans() {
+    public Button anv() {
         return this.cEX;
     }
 
@@ -88,7 +88,7 @@ public class e {
         this.cEW.k(2000L);
     }
 
-    public void kn(int i) {
+    public void km(int i) {
         this.cEX.invalidate();
         if (this.cFc < 100) {
             this.cFd.setText(String.valueOf(this.cEM.getPageContext().getString(t.j.done)) + "(" + this.cFc + ")");
@@ -102,13 +102,13 @@ public class e {
         this.cFc = i;
     }
 
-    public void ant() {
+    public void anw() {
         this.cFa.setText(this.cEM.getPageContext().getString(t.j.flist_expand_list));
         at.k(this.cFb, t.f.ico_downward);
         this.cEZ.setOnClickListener(this.cEM);
     }
 
-    public void anu() {
+    public void anx() {
         this.cFa.setText(this.cEM.getPageContext().getString(t.j.to_the_end));
         this.cFb.setVisibility(8);
         this.cEZ.setClickable(false);

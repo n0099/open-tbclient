@@ -19,12 +19,12 @@ class ae implements PbActivity.c {
         cwVar = this.djE.dih;
         if (cwVar.gF(true)) {
             elVar2 = this.djE.diR;
-            elVar2.azc();
+            elVar2.azf();
             return;
         }
         elVar = this.djE.diR;
-        elVar.azx();
+        elVar.azA();
         cwVar2 = this.djE.dih;
-        cwVar2.lO(1);
+        cwVar2.lN(1);
     }
 }

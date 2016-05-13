@@ -13,7 +13,7 @@ public class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aky.zq();
-        this.aky.zo();
+        this.aky.zr();
+        this.aky.zp();
     }
 }

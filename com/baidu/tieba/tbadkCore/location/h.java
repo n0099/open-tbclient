@@ -37,6 +37,6 @@ public class h extends HttpMessageListener {
             return;
         }
         TbadkCoreApplication.m11getInst().setLocationShared(true);
-        this.euV.aUB();
+        this.euV.aUH();
     }
 }

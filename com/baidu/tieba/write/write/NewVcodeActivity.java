@@ -36,7 +36,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     private com.baidu.tbadk.core.view.b aAv = null;
     private com.baidu.tbadk.core.view.h aAw = null;
     private com.baidu.tbadk.core.view.h aAx = null;
-    private WriteData fcO = null;
+    private WriteData fcN = null;
     private String aAy = null;
     private String aAz = null;
     private boolean aAA = true;
@@ -47,7 +47,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             if (NewVcodeActivity.this.mWebView == null) {
                 return;
             }
-            NewVcodeActivity.this.FL();
+            NewVcodeActivity.this.FN();
             NewVcodeActivity.this.mWebView.setVisibility(0);
         }
     };
@@ -76,7 +76,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             } else {
                 NewVcodeActivity.this.aAx.d(postWriteCallBackData.getErrorString());
             }
-            NewVcodeActivity.this.FJ();
+            NewVcodeActivity.this.FL();
         }
     };
 
@@ -95,13 +95,13 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public void onDestroy() {
         super.onDestroy();
         com.baidu.adp.lib.h.h.dL().removeCallbacks(this.aAH);
-        bdu();
-        FH();
-        if (this.fcO.getType() == 3) {
+        bdB();
+        FJ();
+        if (this.fcN.getType() == 3) {
             com.baidu.tbadk.core.e.b.b(getPageContext().getPageActivity(), 200, false);
         }
         if (this.aAx != null) {
-            this.aAx.uS();
+            this.aAx.uT();
         }
     }
 
@@ -109,9 +109,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        bdu();
-        FH();
-        if (this.fcO.getType() == 3) {
+        bdB();
+        FJ();
+        if (this.fcN.getType() == 3) {
             com.baidu.tbadk.core.e.b.b(getPageContext().getPageActivity(), 200, false);
             finish();
         }
@@ -119,7 +119,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.fcO);
+        bundle.putSerializable("model", this.fcN);
         bundle.putBoolean("need_feed_back_button", this.aAA);
         super.onSaveInstanceState(bundle);
     }
@@ -131,7 +131,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         nq();
         initData(bundle);
         if (nt()) {
-            FI();
+            FK();
         } else {
             finish();
         }
@@ -139,22 +139,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.fcO = (WriteData) bundle.getSerializable("model");
+            this.fcN = (WriteData) bundle.getSerializable("model");
             this.aAA = bundle.getBoolean("need_feed_back_button");
         } else {
             Intent intent = getIntent();
-            this.fcO = (WriteData) intent.getSerializableExtra("model");
+            this.fcN = (WriteData) intent.getSerializableExtra("model");
             this.aAA = intent.getBooleanExtra("need_feed_back_button", true);
         }
-        if (this.fcO == null) {
+        if (this.fcN == null) {
             finish();
             return;
         }
         this.aru = new com.baidu.tieba.tbadkCore.writeModel.a(this);
         this.aru.b(this.arK);
-        this.aru.d(this.fcO);
-        if (this.fcO.getWriteImagesInfo() != null) {
-            this.aru.jC(this.fcO.getWriteImagesInfo().size() > 0);
+        this.aru.d(this.fcN);
+        if (this.fcN.getWriteImagesInfo() != null) {
+            this.aru.jC(this.fcN.getWriteImagesInfo().size() > 0);
         }
     }
 
@@ -187,10 +187,10 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                                 return true;
                             } else if (str.contains("objc:jsChangeVcode")) {
                                 NewVcodeActivity.this.aAy = NewVcodeActivity.this.gr(str);
-                                if (NewVcodeActivity.this.aAy == null || NewVcodeActivity.this.fcO == null) {
+                                if (NewVcodeActivity.this.aAy == null || NewVcodeActivity.this.fcN == null) {
                                     return false;
                                 }
-                                NewVcodeActivity.this.at(NewVcodeActivity.this.aAy, NewVcodeActivity.this.fcO.getVcodeUrl());
+                                NewVcodeActivity.this.at(NewVcodeActivity.this.aAy, NewVcodeActivity.this.fcN.getVcodeUrl());
                                 return true;
                             } else if (!str.contains("objc:jsSubmit")) {
                                 return false;
@@ -205,14 +205,14 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
                         NewVcodeActivity.this.aAG = true;
-                        NewVcodeActivity.this.FL();
+                        NewVcodeActivity.this.FN();
                         NewVcodeActivity.this.mWebView.setVisibility(0);
                     }
 
                     @Override // android.webkit.WebViewClient
                     public void onReceivedError(WebView webView, int i, String str, String str2) {
                         super.onReceivedError(webView, i, str, str2);
-                        NewVcodeActivity.this.FL();
+                        NewVcodeActivity.this.FN();
                         NewVcodeActivity.this.showToast(t.j.neterror);
                         NewVcodeActivity.this.finish();
                     }
@@ -227,16 +227,16 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         return true;
     }
 
-    private void FH() {
+    private void FJ() {
         if (this.mWebView != null) {
-            FL();
+            FN();
             this.mWebView.stopLoading();
         }
     }
 
-    private void FI() {
+    private void FK() {
         if (this.mWebView != null) {
-            FK();
+            FM();
             String str = String.valueOf(TbConfig.SERVER_ADDRESS_WEB_VIEW) + "mo/q/captcha";
             if (this.aAA) {
                 str = String.valueOf(str) + "?feedback=1";
@@ -265,9 +265,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         this.aAx.aaO = 1000L;
     }
 
-    private void bdu() {
+    private void bdB() {
         this.aAt.setVisibility(8);
-        FJ();
+        FL();
         if (this.aru != null) {
             this.aru.cancelLoadData();
         }
@@ -305,8 +305,8 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FJ() {
-        at(this.aAz, this.fcO.getVcodeUrl());
+    public void FL() {
+        at(this.aAz, this.fcN.getVcodeUrl());
     }
 
     private void po(String str) {
@@ -315,12 +315,12 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             finish();
         } else if (!StringUtils.isNull(str)) {
             this.aAt.setVisibility(0);
-            this.fcO.setVcode(str);
-            this.aru.aVb();
+            this.fcN.setVcode(str);
+            this.aru.aVh();
         }
     }
 
-    private void FK() {
+    private void FM() {
         if (this.aAv == null) {
             this.aAv = new com.baidu.tbadk.core.view.b(getPageContext());
             this.aAv.c(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.write.NewVcodeActivity.6
@@ -334,7 +334,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FL() {
+    public void FN() {
         if (this.aAv != null) {
             this.aAv.aD(false);
         }

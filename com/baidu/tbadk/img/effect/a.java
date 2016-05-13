@@ -47,7 +47,7 @@ public class a extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.CH().ez(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.CI().ey(BitmapHelper.getBitmapSize(bitmap) * 2);
         if (WriteImageActivityConfig.FILTER_NAME_NORMAL.equals(this.auk)) {
             return bitmap;
         }

@@ -32,18 +32,18 @@ public class g extends com.baidu.tieba.a.b.a {
         this.aMq = this.mRadius;
     }
 
-    public void Je() {
-        IZ();
+    public void Jg() {
+        Jb();
         this.aMr = this.mRadius;
         this.aMq = this.mRadius;
-        fr(4);
+        fq(4);
         a(new i(this));
         a(new j(this));
     }
 
-    public void Jf() {
-        IZ();
-        fr(2);
+    public void Jh() {
+        Jb();
+        fq(2);
         a(new k(this));
         a(new l(this));
     }
@@ -52,13 +52,13 @@ public class g extends com.baidu.tieba.a.b.a {
         return this.aMB;
     }
 
-    public void fr(int i) {
+    public void fq(int i) {
         this.aMB = i;
     }
 
     @Override // com.baidu.tieba.a.b.a
-    public void uE() {
-        super.uE();
+    public void uF() {
+        super.uF();
         this.aMr = this.mRadius;
         this.aMq = this.mRadius;
         this.aMB = 1;

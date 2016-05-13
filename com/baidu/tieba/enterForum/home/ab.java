@@ -17,8 +17,8 @@ public class ab implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         k kVar;
-        bg us = bg.us();
+        bg ut = bg.ut();
         kVar = this.aXJ.aXF;
-        us.a(kVar.aJw.getPageContext(), new String[]{this.aXL}, true);
+        ut.a(kVar.aJw.getPageContext(), new String[]{this.aXL}, true);
     }
 }

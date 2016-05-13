@@ -66,11 +66,11 @@ public class f extends PullToRefreshBase<HorizontalScrollView> {
         @Override // android.view.View
         protected boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
             boolean overScrollBy = super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
-            c.a(f.this, i, i3, i2, i4, Gv(), z);
+            c.a(f.this, i, i3, i2, i4, Gx(), z);
             return overScrollBy;
         }
 
-        private int Gv() {
+        private int Gx() {
             if (getChildCount() > 0) {
                 return Math.max(0, getChildAt(0).getWidth() - ((getWidth() - getPaddingLeft()) - getPaddingRight()));
             }

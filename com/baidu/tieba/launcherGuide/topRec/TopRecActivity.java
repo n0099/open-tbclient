@@ -61,7 +61,7 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
             this.cED.forum_list[i].is_like = 1;
             this.cEA.notifyDataSetChanged();
             this.cEE++;
-            this.cEz.kn(this.cEE);
+            this.cEz.km(this.cEE);
         }
     }
 
@@ -73,17 +73,17 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
             if (this.cEE != 0) {
                 this.cEE--;
             }
-            this.cEz.kn(this.cEE);
+            this.cEz.km(this.cEE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void anm() {
+    public synchronized void anp() {
         this.cEH++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void ann() {
+    public synchronized void anq() {
         if (this.cEH != 0) {
             this.cEH--;
         }
@@ -102,7 +102,7 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
         int size2 = this.cEG.size();
         for (int i2 = 0; i2 < size2; i2++) {
             if (this.cEG.get(i2) != null) {
-                this.cEG.get(i2).aSW();
+                this.cEG.get(i2).aTc();
             }
         }
     }
@@ -112,11 +112,11 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     public void onResume() {
         super.onResume();
         if (this.cEA != null) {
-            int anq = this.cEA.anq();
-            if (anq != 0) {
-                this.cEE += anq;
-                this.cEH = anq + this.cEH;
-                this.cEz.kn(this.cEE);
+            int ant = this.cEA.ant();
+            if (ant != 0) {
+                this.cEE += ant;
+                this.cEH = ant + this.cEH;
+                this.cEz.km(this.cEE);
             }
             this.cEA.notifyDataSetChanged();
         }
@@ -131,7 +131,7 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int km(int i) {
+    public int kl(int i) {
         if (this.cED == null) {
             return -1;
         }
@@ -146,12 +146,12 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.cEz.anr()) {
-            this.cEA.ano();
-            if (this.cEA.anp()) {
-                this.cEz.anu();
+        if (view == this.cEz.anu()) {
+            this.cEA.anr();
+            if (this.cEA.ans()) {
+                this.cEz.anx();
             }
-        } else if (view == this.cEz.ans()) {
+        } else if (view == this.cEz.anv()) {
             if (this.cEH != 0) {
                 showToast(String.valueOf(getPageContext().getString(t.j.top_rec_like_finish_a)) + this.cEH + getPageContext().getString(t.j.top_rec_like_finish_b));
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "top_rec_have_like", "people_number", 1, new Object[0]);
@@ -162,9 +162,9 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
             com.baidu.tbadk.core.e.b.d(getPageContext().getPageActivity(), 1);
         } else if (this.cED != null && this.cED.forum_list.length != 0) {
             int intValue = ((Integer) view.getTag()).intValue();
-            int km = km(intValue);
-            if (this.cED.forum_list[km].is_like == 1) {
-                aE(km, intValue);
+            int kl = kl(intValue);
+            if (this.cED.forum_list[kl].is_like == 1) {
+                aE(kl, intValue);
                 this.cEC = new a(this, null);
                 this.cEF.add(this.cEC);
                 this.cEC.setPriority(2);
@@ -172,12 +172,12 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
                 return;
             }
             this.Dp = new x(getPageContext());
-            if (!this.Dp.aSX()) {
+            if (!this.Dp.aTd()) {
                 this.cEG.add(this.Dp);
-                aD(km, intValue);
-                this.Dp.setLoadDataCallBack(new c(this, km, intValue));
+                aD(kl, intValue);
+                this.Dp.setLoadDataCallBack(new c(this, kl, intValue));
                 this.Dp.setFrom("from_topRec");
-                this.Dp.bH(this.cED.forum_list[km].forum_name, String.valueOf(this.cED.forum_list[km].forum_id));
+                this.Dp.bH(this.cED.forum_list[kl].forum_name, String.valueOf(this.cED.forum_list[kl].forum_id));
             }
         }
     }
@@ -206,7 +206,7 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
         /* renamed from: a */
         public String doInBackground(Integer... numArr) {
             this.id = numArr[0].intValue();
-            this.position = TopRecActivity.this.km(this.id);
+            this.position = TopRecActivity.this.kl(this.id);
             if (this.position >= 0) {
                 this.cEK = TopRecActivity.this.cED.forum_list[this.position];
             }
@@ -217,8 +217,8 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
                     this.aeI.n("kw", this.cEK.forum_name);
                     this.aeI.n("favo_type", "1");
                     this.aeI.n("st_type", "from_topRec");
-                    this.aeI.tA().uu().mIsNeedTbs = true;
-                    this.aeI.tc();
+                    this.aeI.tB().uv().mIsNeedTbs = true;
+                    this.aeI.td();
                     return null;
                 }
                 return null;
@@ -237,13 +237,13 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
             TopRecActivity.this.cEC = null;
             if (this.aeI == null) {
                 TopRecActivity.this.aD(this.position, this.cEK.forum_id);
-            } else if (!this.aeI.tA().uv().nZ()) {
+            } else if (!this.aeI.tB().uw().nZ()) {
                 TopRecActivity.this.aD(this.position, this.cEK.forum_id);
             } else if (str == null) {
                 TopRecActivity.this.aD(this.position, this.cEK.forum_id);
             } else {
                 TbadkApplication.getInst().delLikeForum(this.cEK.forum_name);
-                TopRecActivity.this.ann();
+                TopRecActivity.this.anq();
             }
         }
 

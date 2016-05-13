@@ -10,7 +10,7 @@ import tbclient.ForumRecommend.Banner;
 public class h {
     private ArrayList<as> aWV = new ArrayList<>();
 
-    public ArrayList<as> Mo() {
+    public ArrayList<as> Mq() {
         return this.aWV;
     }
 

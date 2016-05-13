@@ -69,7 +69,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 this.dUB.display_name = "";
             }
             this.cao.setText(this.dUB.display_name);
-            aKv();
+            aKy();
             if (this.dUB.newest != null) {
                 if (TextUtils.isEmpty(this.dUB.newest.change_log)) {
                     this.dUy.setText("");
@@ -87,7 +87,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKv() {
+    public void aKy() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_ENABLE_STATE_CHANGED));
         if (PluginPackageManager.hF().bp(this.mPluginName) && PluginPackageManager.hF().bn(this.mPluginName)) {
             this.dUx.setText(t.j.plugin_enabled);
@@ -133,22 +133,22 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public void onClick(View view) {
         if (view == this.dUA) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                aKw();
+                aKz();
             } else if (this.mStatus == 3) {
                 PluginPackageManager.hF().bl(this.mPluginName);
-                aKv();
+                aKy();
             } else if (this.mStatus == 2) {
                 PluginPackageManager.hF().bm(this.mPluginName);
-                aKv();
+                aKy();
             }
         }
     }
 
-    private void aKw() {
+    private void aKz() {
         if (!com.baidu.adp.lib.util.i.fq()) {
             showToast(t.j.neterror);
         } else if (com.baidu.adp.lib.util.i.fs()) {
-            aKx();
+            aKA();
         } else {
             at.c(this.dUA, t.d.cp_cont_d, 1);
             this.dUA.setEnabled(false);
@@ -156,7 +156,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    private void aKx() {
+    private void aKA() {
         String string;
         String string2;
         if (this.dUB != null && this.dUB.newest != null) {
@@ -174,7 +174,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
             aVar.a(string2, new h(this));
             aVar.b(t.j.cancel, new i(this));
             aVar.b(getPageContext());
-            aVar.rU();
+            aVar.rV();
         }
     }
 

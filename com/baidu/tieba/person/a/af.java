@@ -58,8 +58,8 @@ public class af extends c<com.baidu.tieba.person.data.r, com.baidu.tieba.person.
 
     private void a(com.baidu.tieba.person.b.o oVar, com.baidu.tieba.person.data.r rVar) {
         if (oVar != null && rVar != null) {
-            this.godType = rVar.aCp();
-            this.godDetailInfo = rVar.aCq();
+            this.godType = rVar.aCs();
+            this.godDetailInfo = rVar.aCt();
             this.forumGodList = rVar.getForumGodList();
             String string = this.cSp.getResources().getString(t.j.tb_user_god);
             if (this.godType == 2) {
@@ -216,7 +216,7 @@ public class af extends c<com.baidu.tieba.person.data.r, com.baidu.tieba.person.
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (this.url != null) {
-                bg.us().c(af.this.cSp.getPageContext(), new String[]{this.url});
+                bg.ut().c(af.this.cSp.getPageContext(), new String[]{this.url});
             }
         }
     }

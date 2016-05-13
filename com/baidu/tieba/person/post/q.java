@@ -64,7 +64,7 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         this.dEs.fetchPost(this.cSp.getPageContext(), this, z, this.mV, true, this.mThreadType);
     }
 
-    public void aCR() {
+    public void aCU() {
         if (this.dEs != null) {
             this.dEs.cancelLoadData();
         }
@@ -103,7 +103,7 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mB */
+    /* renamed from: mA */
     public PersonPostModel.PostInfoList getItem(int i) {
         if (this.dEM == null || this.dEM.size() - 1 < i) {
             return null;
@@ -264,7 +264,7 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
             }
             bVar.bli.setData(photoLiveCardData);
         }
-        bVar.cS(TbadkCoreApplication.m11getInst().getSkinType());
+        bVar.cR(TbadkCoreApplication.m11getInst().getSkinType());
         this.cSp.getLayoutMode().ae(TbadkCoreApplication.m11getInst().getSkinType() == 1);
         this.cSp.getLayoutMode().x(bVar.mContentView);
         return view;
@@ -282,7 +282,7 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         for (int i = 0; i < labelInfoArr.length; i++) {
             com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
             if (labelInfoArr[i] != null) {
-                nVar.dQ(labelInfoArr[i].labelHot);
+                nVar.dP(labelInfoArr[i].labelHot);
                 nVar.setLabelName(labelInfoArr[i].labelName);
                 nVar.setLabelId(labelInfoArr[i].LabelId);
                 arrayList.add(nVar);
@@ -348,8 +348,8 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         }
 
         @Override // com.baidu.tieba.person.post.a
-        public void cS(int i) {
-            super.cS(i);
+        public void cR(int i) {
+            super.cR(i);
             at.c(this.aOG, t.d.cp_cont_b, 1);
             at.c(this.cyf, t.d.cp_cont_f, 1);
             at.k(this.dEQ, t.d.cp_bg_line_b);
@@ -375,11 +375,11 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         Object tag = view.getTag();
         if (tag instanceof PhotoLiveCardData) {
             this.dEN = (PhotoLiveCardData) tag;
-            aCS();
+            aCV();
         }
     }
 
-    public void aCS() {
+    public void aCV() {
         if (this.dnT == null) {
             String string = this.cSp.getPageContext().getResources().getString(t.j.del_thread_confirm);
             this.dnT = new com.baidu.tbadk.core.dialog.a(this.cSp.getActivity());
@@ -389,17 +389,17 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
             this.dnT.ap(true);
             this.dnT.b(this.cSp.getPageContext());
         }
-        this.dnT.rU();
+        this.dnT.rV();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCT() {
+    public void aCW() {
         if (this.dEN != null) {
             if (this.diO == null) {
                 this.diO = new com.baidu.tieba.tbadkCore.f.a(this.cSp);
                 this.diO.setLoadDataCallBack(this.djp);
             }
-            if (!this.diO.aUI()) {
+            if (!this.diO.aUO()) {
                 this.cSp.showProgressBar();
                 String valueOf = String.valueOf(this.dEN.getForumId());
                 String forumName = this.dEN.getForumName();
@@ -446,7 +446,7 @@ public class q extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         }
     }
 
-    public PersonPostModel aCU() {
+    public PersonPostModel aCX() {
         return this.dEs;
     }
 }

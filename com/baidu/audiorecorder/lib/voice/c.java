@@ -25,7 +25,7 @@ public class c implements Runnable {
     private final Runnable mRecordTimeThread = new d(this);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aA(int i) {
+    public void az(int i) {
         Message obtainMessage = this.mHandler.obtainMessage(9);
         obtainMessage.arg1 = i;
         this.mHandler.sendMessage(obtainMessage);
@@ -275,7 +275,7 @@ public class c implements Runnable {
                     }
                     this.Bh = 4;
                     this.Bp = System.currentTimeMillis() - this.Bo;
-                    aA((int) this.Bp);
+                    az((int) this.Bp);
                     if (this.pX != null) {
                         this.pX.removeCallbacks(this.mRecordTimeThread);
                     }

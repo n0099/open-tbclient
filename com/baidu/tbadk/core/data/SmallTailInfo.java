@@ -43,13 +43,13 @@ public class SmallTailInfo implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String fk = TbFaceManager.CG().fk(smallTailInfoContent.text);
+                    String fk = TbFaceManager.CH().fk(smallTailInfoContent.text);
                     if (!StringUtils.isNull(fk)) {
                         sb.append("#(" + fk + ")");
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.CG().a(TbadkCoreApplication.m11getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.CH().a(TbadkCoreApplication.m11getInst(), sb.toString(), null);
         }
     }
 

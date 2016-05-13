@@ -66,12 +66,12 @@ public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Dg() {
+    public String Dh() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Dh() {
+    public boolean Di() {
         return true;
     }
 

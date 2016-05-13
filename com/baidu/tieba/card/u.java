@@ -47,7 +47,7 @@ public class u extends b<com.baidu.tieba.card.a.j> {
         if (this.aPt != null && this.aPh != null) {
             com.baidu.tbadk.core.util.at.j((View) this.aNT, t.d.cp_cont_d);
             com.baidu.tbadk.core.util.at.j((View) this.aNS, t.d.cp_cont_d);
-            this.aPh.cN(i);
+            this.aPh.cM(i);
         }
     }
 
@@ -55,12 +55,12 @@ public class u extends b<com.baidu.tieba.card.a.j> {
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.card.a.j jVar) {
         super.a((u) jVar);
-        if (jVar != null && !com.baidu.tbadk.core.util.y.s(jVar.DR())) {
+        if (jVar != null && !com.baidu.tbadk.core.util.y.s(jVar.DS())) {
             if (StringUtils.isNull(jVar.aRs)) {
                 this.aNS.setText(this.Do.getPageActivity().getResources().getString(t.j.the_gods_you_may_interest_in));
             }
-            if (L(jVar.DR())) {
-                this.aPv = jVar.DR();
+            if (L(jVar.DS())) {
+                this.aPv = jVar.DS();
                 this.aPh.setData(this.aPv);
                 this.aPh.notifyDataSetChanged();
             }

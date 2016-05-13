@@ -19,11 +19,11 @@ public class h implements m.a {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
         if (z) {
-            this.dYW.aMj();
+            this.dYW.aMm();
         }
         if (z) {
             scrollFragmentTabHost2 = this.dYW.dYN;
-            if (!scrollFragmentTabHost2.aom() && nVar != null && nVar.isEmpty()) {
+            if (!scrollFragmentTabHost2.aop() && nVar != null && nVar.isEmpty()) {
                 if (this.dYW.getPageContext() == null || this.dYW.getPageContext().getResources() == null) {
                     return;
                 }
@@ -39,9 +39,9 @@ public class h implements m.a {
     public void a(long j, String str, int i) {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
-        this.dYW.aMj();
+        this.dYW.aMm();
         scrollFragmentTabHost = this.dYW.dYN;
-        if (scrollFragmentTabHost.aom()) {
+        if (scrollFragmentTabHost.aop()) {
             scrollFragmentTabHost2 = this.dYW.dYN;
             scrollFragmentTabHost2.b(j, str, i);
         } else if (this.dYW.getPageContext() == null || this.dYW.getPageContext().getResources() == null) {
@@ -53,7 +53,7 @@ public class h implements m.a {
     @Override // com.baidu.tieba.recommendfrs.control.a.m.a
     public void a(long j, DataRes dataRes, boolean z) {
         ScrollFragmentTabHost scrollFragmentTabHost;
-        this.dYW.aMj();
+        this.dYW.aMm();
         scrollFragmentTabHost = this.dYW.dYN;
         scrollFragmentTabHost.c(j, dataRes, z);
     }

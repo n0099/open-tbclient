@@ -3,5 +3,5 @@ package com.baidu.tbadk.core.c;
 interface j {
     void cE(String str);
 
-    void sz();
+    void sA();
 }

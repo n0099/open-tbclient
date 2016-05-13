@@ -50,20 +50,20 @@ public class a extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
     /* renamed from: a */
     public void B(p pVar) {
         super.B(pVar);
-        if (pVar != null && pVar.aMC() != null) {
+        if (pVar != null && pVar.aMF() != null) {
             this.ecm = pVar;
-            ZhiBoInfoTW aMC = pVar.aMC();
-            this.dVH.setText(e(aMC.title));
-            this.eci.setText(c(aMC));
-            this.alx.c(aMC.livecover_src, 10, false);
-            String forumName = StringUtils.isNull(aMC.forum_name) ? pVar.getForumName() : aMC.forum_name;
+            ZhiBoInfoTW aMF = pVar.aMF();
+            this.dVH.setText(e(aMF.title));
+            this.eci.setText(c(aMF));
+            this.alx.c(aMF.livecover_src, 10, false);
+            String forumName = StringUtils.isNull(aMF.forum_name) ? pVar.getForumName() : aMF.forum_name;
             if (StringUtils.isNull(forumName)) {
                 this.ecj.setVisibility(8);
             } else {
                 this.ecj.setVisibility(0);
                 this.ecj.setText(getContext().getString(t.j.chosen_pb_original_bar, forumName));
             }
-            this.ecl.setText(ay.B(aMC.reply_num.intValue() == 0 ? pVar.aMy() : aMC.reply_num.intValue()));
+            this.ecl.setText(ay.B(aMF.reply_num.intValue() == 0 ? pVar.aMB() : aMF.reply_num.intValue()));
             s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.od(String.valueOf(pVar.getThreadId()))) {
                 this.cHv = t.d.cp_cont_c;
@@ -83,9 +83,9 @@ public class a extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("  " + ((Object) charSequence));
-        Bitmap cA = at.cA(t.f.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cA);
-        bitmapDrawable.setBounds(0, 0, cA.getWidth(), cA.getHeight());
+        Bitmap cz = at.cz(t.f.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cz);
+        bitmapDrawable.setBounds(0, 0, cz.getWidth(), cz.getHeight());
         spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), 0, 1, 33);
         return spannableStringBuilder;
     }

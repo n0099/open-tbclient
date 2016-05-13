@@ -27,7 +27,7 @@ class a implements View.OnClickListener {
         aVar = this.ddx.ddv;
         if (aVar != null) {
             aVar2 = this.ddx.ddv;
-            if (!ay.isEmpty(aVar2.avi())) {
+            if (!ay.isEmpty(aVar2.avl())) {
                 ForbidActivity forbidActivity = this.ddx;
                 radioGroup = this.ddx.ddq;
                 str = this.ddx.mForumId;
@@ -36,7 +36,7 @@ class a implements View.OnClickListener {
                 str4 = this.ddx.mUserName;
                 str5 = this.ddx.mPostId;
                 aVar3 = this.ddx.ddv;
-                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.avi(), new b(this));
+                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.avl(), new b(this));
             }
         }
     }

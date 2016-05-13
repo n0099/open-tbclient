@@ -16,7 +16,7 @@ public class i {
     private boolean ant = false;
     private final g.a anu = new j(this);
 
-    public static synchronized i Ak() {
+    public static synchronized i Al() {
         i iVar;
         synchronized (i.class) {
             if (anp == null) {
@@ -47,29 +47,29 @@ public class i {
         return null;
     }
 
-    private String Al() {
+    private String Am() {
         if (this.amH == null || this.currentIndex <= -1 || this.currentIndex >= this.amH.size()) {
             return null;
         }
-        return a.zR().zU().get(this.currentIndex);
+        return a.zS().zV().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eU(String str) {
-        String Al = Al();
-        if (Al == null) {
-            if (!a.zR().zW()) {
-                a.zR().a(new k(this, str));
+        String Am = Am();
+        if (Am == null) {
+            if (!a.zS().zX()) {
+                a.zS().a(new k(this, str));
             }
             com.baidu.adp.framework.client.socket.j.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            Am();
-        } else if (eT(Al) == null) {
-            Am();
+            An();
+        } else if (eT(Am) == null) {
+            An();
         } else {
             this.ant = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.j.setUrl(Al);
+            com.baidu.adp.framework.client.socket.j.setUrl(Am);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
             this.anr = true;
@@ -78,8 +78,8 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Am() {
-        NoNetworkView.uX();
+    public void An() {
+        NoNetworkView.uY();
         this.ans = false;
         this.currentIndex = 0;
         this.ant = false;
@@ -87,14 +87,14 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void An() {
+    public void Ao() {
         if (!this.ant) {
             this.ant = true;
             if (this.anr) {
                 this.anr = false;
-                c.zZ().eQ(TiebaIMConfig.url);
+                c.Aa().eQ(TiebaIMConfig.url);
             }
-            c.zZ().Aa();
+            c.Aa().Ab();
             if (!this.ans) {
                 new e("www.baidu.com", new l(this));
                 this.ans = true;

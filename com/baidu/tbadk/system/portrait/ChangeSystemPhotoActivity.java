@@ -73,10 +73,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void initData() {
         this.azG = getIntent().getBooleanExtra("need_upload", true);
         this.azB = new ArrayList<>();
-        Fh();
+        Fj();
     }
 
-    private void Fh() {
+    private void Fj() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             SapiAccountManager.getInstance().getAccountService().getPopularPortraitsInfo(new e(this), session.bduss);
@@ -95,19 +95,19 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         at.k(this.azw, t.f.s_navbar_button_bg);
     }
 
-    public void Fi() {
+    public void Fk() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.bM(t.j.enter_forum_cancel_change_tip);
+        aVar.bL(t.j.enter_forum_cancel_change_tip);
         aVar.b(t.j.alert_no_button, new f(this));
         aVar.a(t.j.alert_yes_btn, new g(this));
-        aVar.b(getPageContext()).rU();
+        aVar.b(getPageContext()).rV();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             if (this.azC != -1) {
-                Fi();
+                Fk();
             } else {
                 setResult(0);
                 finish();
@@ -168,13 +168,13 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             this.aeI = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
             try {
                 this.aeI.c("pic", ChangeSystemPhotoActivity.this.azE.jb());
-                str = this.aeI.tf();
+                str = this.aeI.tg();
             } catch (Exception e2) {
                 str = null;
                 e = e2;
             }
             try {
-                if (this.aeI.tA().uv().nZ()) {
+                if (this.aeI.tB().uw().nZ()) {
                     return str;
                 }
                 return null;
@@ -203,7 +203,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 if (ChangeSystemPhotoActivity.this.azH != null) {
                     ChangeSystemPhotoActivity.this.azH.aD(false);
                 }
-                if (this.aeI.tA().uv().nZ()) {
+                if (this.aeI.tB().uw().nZ()) {
                     new com.baidu.tbadk.core.view.h().c(ChangeSystemPhotoActivity.this.getResources().getString(t.j.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.azF);

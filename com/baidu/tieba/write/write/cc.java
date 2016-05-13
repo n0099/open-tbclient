@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
 class cc implements a.b {
-    final /* synthetic */ WriteImageActivity.a feu;
+    final /* synthetic */ WriteImageActivity.a fet;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(WriteImageActivity.a aVar) {
-        this.feu = aVar;
+        this.fet = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

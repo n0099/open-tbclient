@@ -40,26 +40,26 @@ public class af extends com.baidu.adp.base.e {
         this.mSex = i;
     }
 
-    public boolean ahN() {
+    public boolean ahP() {
         return this.bIW;
     }
 
-    public void mp(int i) {
+    public void mo(int i) {
         this.dvC = i;
     }
 
-    public r aBF() {
+    public r aBI() {
         return this.mData;
     }
 
-    public void arX() {
+    public void asa() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!ahN()) {
+        if (!ahP()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -87,7 +87,7 @@ public class af extends com.baidu.adp.base.e {
             }
             if (str != null) {
                 try {
-                    com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rR().cx("tb.my_pages");
+                    com.baidu.adp.lib.cache.o<String> cx = com.baidu.tbadk.core.b.a.rS().cx("tb.my_pages");
                     if (cx != null) {
                         cx.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
                     }

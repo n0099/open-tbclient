@@ -56,7 +56,7 @@ public class d implements Runnable {
             if (j > this.cpH) {
                 concurrentHashMap2 = this.cpF.cpC;
                 concurrentHashMap2.put(Long.valueOf(this.cpG), MessageUtils.makeNewpushGroupRepair(this.cpG, this.cpI, this.cpH, j, this.cpJ));
-                com.baidu.tieba.im.b.b.ahA().a(this.cpG, 1L, 0L, true);
+                com.baidu.tieba.im.b.b.ahC().a(this.cpG, 1L, 0L, true);
                 vector = this.cpF.cpE;
                 vector.add(Long.valueOf(this.cpG));
                 this.cpF.be(this.cpG);

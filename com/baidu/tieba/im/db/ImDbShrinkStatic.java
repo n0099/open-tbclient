@@ -20,10 +20,10 @@ public class ImDbShrinkStatic {
     private b cfp = null;
 
     static {
-        aev();
+        aex();
     }
 
-    public static ImDbShrinkStatic aev() {
+    public static ImDbShrinkStatic aex() {
         if (cfn == null) {
             synchronized (ImDbShrinkStatic.class) {
                 if (cfn == null) {
@@ -49,8 +49,8 @@ public class ImDbShrinkStatic {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    ImDbShrinkStatic.aev().cfo.removeMessages(1);
-                    ImDbShrinkStatic.aev().execute();
+                    ImDbShrinkStatic.aex().cfo.removeMessages(1);
+                    ImDbShrinkStatic.aex().execute();
                     return;
                 default:
                     return;
@@ -98,8 +98,8 @@ public class ImDbShrinkStatic {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> aeA = i.aex().aeA();
-            if (aeA == null || aeA.size() == 0) {
+            LinkedList<ImMessageCenterPojo> aeC = i.aez().aeC();
+            if (aeC == null || aeC.size() == 0) {
                 return false;
             }
             if (ImDbShrinkStatic.cfq < 0) {
@@ -121,25 +121,25 @@ public class ImDbShrinkStatic {
                 ImDbShrinkStatic.cfr = 1000;
             }
             try {
-                g.aet().aeu();
-                for (ImMessageCenterPojo imMessageCenterPojo : aeA) {
+                g.aev().aew();
+                for (ImMessageCenterPojo imMessageCenterPojo : aeC) {
                     if (isCancelled()) {
-                        g.aet().endTransaction();
+                        g.aev().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.aep().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
+                        c.aer().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        l.aeD().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
+                        l.aeF().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        k.aeC().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
+                        k.aeE().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.aeq().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
+                        d.aes().S(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cfr);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                g.aet().endTransaction();
+                g.aev().endTransaction();
             }
             return true;
         }

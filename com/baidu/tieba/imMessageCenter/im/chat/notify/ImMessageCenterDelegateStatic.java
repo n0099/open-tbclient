@@ -25,7 +25,7 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Dc() {
+    public com.baidu.tbadk.mainTab.c Dd() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         bf bfVar = new bf();
         bfVar.setPageType(1);
@@ -56,7 +56,7 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Db() {
+    public void Dc() {
         this.ctx = new e(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
         MessageManager.getInstance().registerListener(this.ctx);
         MessageManager.getInstance().registerListener(this.cty);

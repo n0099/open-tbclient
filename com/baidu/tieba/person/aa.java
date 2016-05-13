@@ -30,7 +30,7 @@ class aa implements View.OnClickListener {
         aeVar = this.dvP.dvz;
         if (aeVar != null) {
             aeVar2 = this.dvP.dvz;
-            if (!aeVar2.HY()) {
+            if (!aeVar2.Ia()) {
                 aeVar5 = this.dvP.dvz;
                 aeVar5.setEditState(true);
                 textView3 = this.dvP.aHS;

@@ -26,7 +26,7 @@ class ac extends com.baidu.adp.base.g {
             switch (aVar2.getLoadDataMode()) {
                 case 0:
                     cwVar = this.djE.dih;
-                    cwVar.axN();
+                    cwVar.axQ();
                     this.djE.a((a.b) obj);
                     return;
                 case 1:

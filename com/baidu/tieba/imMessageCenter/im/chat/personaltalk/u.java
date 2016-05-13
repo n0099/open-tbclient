@@ -16,8 +16,8 @@ public class u extends com.baidu.tbadk.util.s<PersonalSettingItemData> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: ajo */
+    /* renamed from: ajq */
     public PersonalSettingItemData doInBackground() {
-        return com.baidu.tieba.im.settingcache.j.aiu().bf(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aKh));
+        return com.baidu.tieba.im.settingcache.j.aiw().bf(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aKh));
     }
 }

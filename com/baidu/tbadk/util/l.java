@@ -24,11 +24,11 @@ public class l {
     private static BroadcastReceiver tH = new m();
     private static BdNativeCrash.NativeCrashCallback aAd = new n();
 
-    public static void Ft() {
+    public static void Fv() {
         if (BdNativeCrash.mbLibLoaded) {
             BdNativeCrash.getInstance().initCrash(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
             BdNativeCrash.getInstance().setCrashCallback(aAd);
-            Fu();
+            Fw();
         }
     }
 
@@ -36,7 +36,7 @@ public class l {
     public static boolean gl(String str) {
         if ("libpluginhook.so".equals(str)) {
             com.baidu.adp.plugin.b.a.hs().bf("plugin_patch_native_crashed");
-            com.baidu.tbadk.core.sharedPref.b.sQ().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.sQ().getInt("plugin_patch_hook_failed_count", 0) + 1);
+            com.baidu.tbadk.core.sharedPref.b.sR().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.sR().getInt("plugin_patch_hook_failed_count", 0) + 1);
             return true;
         }
         return false;
@@ -54,8 +54,8 @@ public class l {
         }
         for (PluginSetting pluginSetting : plugins.values()) {
             if (aq(str, pluginSetting.apkPath)) {
-                int i = com.baidu.tbadk.core.sharedPref.b.sQ().getInt("native_crash_count_" + pluginSetting.packageName, 0);
-                com.baidu.tbadk.core.sharedPref.b.sQ().putInt("native_crash_count_" + pluginSetting.packageName, i + 1);
+                int i = com.baidu.tbadk.core.sharedPref.b.sR().getInt("native_crash_count_" + pluginSetting.packageName, 0);
+                com.baidu.tbadk.core.sharedPref.b.sR().putInt("native_crash_count_" + pluginSetting.packageName, i + 1);
                 if (i >= 3) {
                     com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().f(pluginSetting.packageName, false);
                 }
@@ -107,7 +107,7 @@ public class l {
         return z;
     }
 
-    private static void Fu() {
+    private static void Fw() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();

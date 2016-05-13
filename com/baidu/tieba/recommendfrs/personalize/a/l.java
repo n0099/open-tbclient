@@ -12,7 +12,7 @@ import com.baidu.tieba.card.by;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.l, a> {
     private TbPageContext<?> DV;
-    private BdUniqueId aOT;
+    public BdUniqueId aOT;
     private by bUy;
     private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> boU;
     private com.baidu.adp.lib.f.b<TbImageView> boV;
@@ -26,7 +26,7 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.l,
         this.boV = new com.baidu.adp.lib.f.b<>(new n(this), 12, 0);
         this.bUy = new o(this);
         this.DV = tbPageContext;
-        aMK();
+        aMN();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,15 +46,15 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.l,
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.l lVar, a aVar) {
         if (lVar != null) {
-            lVar.fx(i + 1);
+            lVar.fw(i + 1);
         }
-        bx.Kg().a(lVar.Kw());
+        bx.Ki().a(lVar.Ky());
         aVar.ebr.a(lVar);
         aVar.ebr.a(this.bUy);
         return aVar.getView();
     }
 
-    private void aMK() {
+    private void aMN() {
         com.baidu.tieba.card.a.l.aRL = "c10705";
         com.baidu.tieba.card.a.l.aRM = "c10730";
         com.baidu.tieba.card.a.l.aRN = "c10731";
@@ -83,10 +83,6 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.l,
             super(avVar.getView());
             this.ebr = avVar;
         }
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aOT = bdUniqueId;
     }
 
     public void a(com.baidu.tieba.recommendfrs.control.a.f fVar) {

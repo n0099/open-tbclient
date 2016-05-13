@@ -37,13 +37,13 @@ class c implements fi {
         cnVar = this.bhl.bgo;
         if (cnVar.QC() instanceof com.baidu.tieba.frs.tab.h) {
             cnVar11 = this.bhl.bgo;
-            ((com.baidu.tieba.frs.tab.h) cnVar11.QC()).Pl();
+            ((com.baidu.tieba.frs.tab.h) cnVar11.QC()).Pn();
         }
         bVar = this.bhl.bgN;
         if (bVar != null) {
             mVar = this.bhl.bgE;
             bVar2 = this.bhl.bgN;
-            mVar.dl(bVar2.gy(i));
+            mVar.dl(bVar2.gx(i));
         }
         d.a aVar = new d.a();
         if (fqVar != null) {
@@ -62,7 +62,7 @@ class c implements fi {
                     i5 = FrsActivity.bfW;
                     int size = arrayList.size();
                     i6 = FrsActivity.bfX;
-                    cnVar8.gr(i5 - (size * i6));
+                    cnVar8.gq(i5 - (size * i6));
                     cnVar9 = this.bhl.bgo;
                     cnVar9.Rh();
                 } else {
@@ -80,7 +80,7 @@ class c implements fi {
                 i3 = FrsActivity.bfW;
                 int size2 = arrayList.size();
                 i4 = FrsActivity.bfX;
-                cnVar2.gr(i3 - (size2 * i4));
+                cnVar2.gq(i3 - (size2 * i4));
             }
         }
         if (i == 1) {
@@ -100,16 +100,16 @@ class c implements fi {
                 this.bhl.setNetRefreshViewEmotionDefMarginTop();
             }
             this.bhl.PN();
-            if (this.bhl.Qd().Tb() != null) {
-                this.bhl.bgq = this.bhl.Qd().Tb();
+            if (this.bhl.Qd().Tc() != null) {
+                this.bhl.bgq = this.bhl.Qd().Tc();
             }
             cnVar5 = this.bhl.bgo;
             cnVar5.cQ(false);
         }
         aaVar = this.bhl.bgD;
-        if (aaVar.Ua() != null) {
+        if (aaVar.Uc() != null) {
             aaVar2 = this.bhl.bgD;
-            aaVar2.Ua().a(i, i2, fqVar, arrayList);
+            aaVar2.Uc().a(i, i2, fqVar, arrayList);
         }
     }
 }

@@ -15,13 +15,13 @@ class af implements t.b {
     public void aG(boolean z) {
         cw cwVar;
         el elVar;
-        if (this.djE.awM()) {
+        if (this.djE.awP()) {
             this.djE.finish();
         }
         cwVar = this.djE.dih;
         if (!cwVar.gF(true)) {
             elVar = this.djE.diR;
-            elVar.aze();
+            elVar.azh();
             return;
         }
         TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);

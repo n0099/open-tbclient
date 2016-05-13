@@ -7,13 +7,13 @@ import com.baidu.tieba.write.data.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.write.data.LocationSearchResponseMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SearchLocationActivity eZt;
+    final /* synthetic */ SearchLocationActivity eZs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SearchLocationActivity searchLocationActivity, int i, int i2) {
         super(i, i2);
-        this.eZt = searchLocationActivity;
+        this.eZs = searchLocationActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,19 +24,19 @@ class a extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof LocationSearchHttpResponsedMessage) || (responsedMessage instanceof LocationSearchResponseMessage)) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.eZt.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.eZt.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
+                    this.eZs.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.eZs.getResources().getString(t.j.neterror) : responsedMessage.getErrorString());
                     return;
                 }
                 if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                    this.eZt.eZn = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                    this.eZs.eZm = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                 }
                 if (responsedMessage instanceof LocationSearchResponseMessage) {
-                    this.eZt.eZn = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                    this.eZs.eZm = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                 }
-                hVar = this.eZt.eZo;
-                bVar = this.eZt.eZn;
+                hVar = this.eZs.eZn;
+                bVar = this.eZs.eZm;
                 hVar.a(bVar);
-                hVar2 = this.eZt.eZo;
+                hVar2 = this.eZs.eZn;
                 hVar2.notifyDataSetChanged();
             }
         }

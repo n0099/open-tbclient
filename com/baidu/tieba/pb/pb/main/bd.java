@@ -25,6 +25,6 @@ public class bd implements a.b {
         intent.putExtra(PbActivityConfig.KEY_MARK, this.djM);
         this.djE.setResult(-1, intent);
         this.djN.dismiss();
-        this.djE.awB();
+        this.djE.awE();
     }
 }

@@ -22,7 +22,7 @@ public class f implements View.OnClickListener {
         FrsActivity frsActivity;
         aw awVar = new aw("c10826");
         oVar = this.bnY.bpp;
-        awVar.ac("obj_id", oVar.avA().getId());
+        awVar.ac("obj_id", oVar.avD().getId());
         TiebaStatic.log(awVar);
         frsActivity = this.bnY.bjB;
         com.baidu.tbadk.browser.f.a(frsActivity.getPageContext().getPageActivity(), true, this.bnZ.oA());

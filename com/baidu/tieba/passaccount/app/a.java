@@ -21,7 +21,7 @@ class a implements a.InterfaceC0033a {
         if (accountData.getAccount() != null && !"".equals(accountData.getAccount())) {
             com.baidu.tbadk.core.a.b.b(accountData);
             TbadkCoreApplication.setCurrentAccount(accountData, this.dbP.getPageContext().getPageActivity());
-            this.dbP.auF();
+            this.dbP.auI();
             return;
         }
         this.dbP.j(accountData);

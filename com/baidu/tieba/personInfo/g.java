@@ -20,7 +20,7 @@ public class g extends CustomMessageListener {
         bg bgVar;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001379) {
             bgVar = this.this$0.dyP;
-            bgVar.aDF();
+            bgVar.aDI();
         }
     }
 }

@@ -13,12 +13,12 @@ class f implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eaC.aoi()) {
-            this.eaC.aok();
+        if (this.eaC.aol()) {
+            this.eaC.aon();
             view.setContentDescription("展开");
             return;
         }
-        this.eaC.aoj();
+        this.eaC.aom();
         TiebaStatic.log("c10510");
         view.setContentDescription("折叠");
     }

@@ -19,7 +19,7 @@ class g implements com.baidu.tieba.im.chat.notify.a {
         iVar = this.cxV.cxP;
         if (iVar != null) {
             iVar2 = this.cxV.cxP;
-            if (iVar2.ala() != null) {
+            if (iVar2.alc() != null) {
                 strangerListModel = this.cxV.cxQ;
                 if (strangerListModel != null) {
                     strangerListModel2 = this.cxV.cxQ;
@@ -27,9 +27,9 @@ class g implements com.baidu.tieba.im.chat.notify.a {
                         this.cxV.finish();
                     }
                     iVar3 = this.cxV.cxP;
-                    StrangerListAdapter ala = iVar3.ala();
+                    StrangerListAdapter alc = iVar3.alc();
                     strangerListModel3 = this.cxV.cxQ;
-                    ala.setData(strangerListModel3.getData());
+                    alc.setData(strangerListModel3.getData());
                 }
             }
         }

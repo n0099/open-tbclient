@@ -24,7 +24,7 @@ class d extends HttpMessageListener {
                 return;
             }
             this.cEy.cEo = false;
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("jump_to_new_user_guide", false);
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("jump_to_new_user_guide", false);
         } else {
             this.cEy.cEo = false;
         }

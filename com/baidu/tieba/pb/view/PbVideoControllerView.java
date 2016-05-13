@@ -82,14 +82,14 @@ public class PbVideoControllerView extends RelativeLayout {
         this.mHandler.removeMessages(1);
         this.dsL.setProgress(0);
         if (this.dsH != null) {
-            this.dsH.setText(mf(i));
+            this.dsH.setText(me(i));
         }
         if (this.dsI != null) {
-            this.dsI.setText(mf(me(i2)));
+            this.dsI.setText(me(md(i2)));
         }
     }
 
-    public void afO() {
+    public void afQ() {
         if (this.dsG != null) {
             this.dsF = ((this.dsG.getDuration() / 200) / 50) * 50;
             if (this.dsF < 50) {
@@ -101,17 +101,17 @@ public class PbVideoControllerView extends RelativeLayout {
         }
     }
 
-    public void aAO() {
+    public void aAR() {
         this.dsK = false;
         this.mHandler.removeMessages(1);
         this.dsL.setProgress(0);
         if (this.dsH != null) {
-            this.dsH.setText(mf(0));
+            this.dsH.setText(me(0));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int aAP() {
+    public int aAS() {
         if (this.dsG == null || this.dsJ) {
             return 0;
         }
@@ -124,21 +124,21 @@ public class PbVideoControllerView extends RelativeLayout {
             this.dsG.getBufferPercentage();
         }
         if (this.dsI != null && duration > 0) {
-            this.dsI.setText(mf(me(duration)));
+            this.dsI.setText(me(md(duration)));
         }
         if (this.dsH != null) {
-            this.dsH.setText(mf(currentPosition));
+            this.dsH.setText(me(currentPosition));
             return currentPosition;
         }
         return currentPosition;
     }
 
-    private int me(int i) {
+    private int md(int i) {
         return (int) (Math.ceil((1.0f * i) / 1000.0f) * 1000.0d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String mf(int i) {
+    public String me(int i) {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;

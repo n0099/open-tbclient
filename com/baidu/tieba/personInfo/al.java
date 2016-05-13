@@ -25,10 +25,10 @@ public class al implements c.b {
         if (i != 0) {
             if (i != 1) {
                 if (i == 2) {
-                    this.this$0.aDh();
+                    this.this$0.aDk();
                 }
             } else {
-                this.this$0.aDg();
+                this.this$0.aDj();
             }
         } else {
             this.this$0.c(this.dGq, this.dGr, this.cUj);

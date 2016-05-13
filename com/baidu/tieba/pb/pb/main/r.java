@@ -21,7 +21,7 @@ class r implements UserMuteAddAndDelModel.a {
         if (pbData != null) {
             MuteUser muteUser = new MuteUser();
             muteUser.setUserId(str);
-            pbData.avJ().add(muteUser);
+            pbData.avM().add(muteUser);
         }
     }
 }

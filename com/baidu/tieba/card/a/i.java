@@ -19,7 +19,7 @@ public class i extends a {
         this.mList.add(lVar);
     }
 
-    public List<com.baidu.tieba.horizonalList.widget.l> DR() {
+    public List<com.baidu.tieba.horizonalList.widget.l> DS() {
         return this.mList;
     }
 
@@ -31,7 +31,7 @@ public class i extends a {
         this.stType = str;
     }
 
-    public String Ku() {
+    public String Kw() {
         return this.aPp;
     }
 

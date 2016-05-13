@@ -307,7 +307,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         }
     }
 
-    public void CC() {
+    public void CD() {
         this.atx = true;
         play();
     }
@@ -320,14 +320,14 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mHandler.removeMessages(1);
-        CE();
+        CF();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
         this.mHandler.removeMessages(1);
-        CE();
+        CF();
     }
 
     @Override // android.view.View
@@ -391,7 +391,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     public void startLoading() {
         if (!this.mIsLoading) {
             this.mIsLoading = true;
-            CD();
+            CE();
         }
     }
 
@@ -427,7 +427,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         invalidate();
     }
 
-    private void CD() {
+    private void CE() {
         removeCallbacks(this);
         postDelayed(this, 150L);
     }
@@ -439,7 +439,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             this.atl = 0.0f;
         }
         invalidate();
-        CD();
+        CE();
     }
 
     public void setPlayCallback(a aVar) {
@@ -462,7 +462,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             this.aty = null;
             return;
         }
-        boolean Fr = h.Fr();
+        boolean Ft = h.Ft();
         k q = l.q(getContext());
         if (q != null) {
             bdUniqueId = q.getUniqueId();
@@ -472,12 +472,12 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             z = false;
         }
         if (!(aVar == this.aty && this.atA == bdUniqueId)) {
-            CE();
+            CF();
         }
         this.aty = aVar;
         this.atA = bdUniqueId;
-        String str = Fr ? this.aty.atb : this.aty.ata;
-        com.baidu.adp.widget.a.a aVar2 = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Fr), str);
+        String str = Ft ? this.aty.atb : this.aty.ata;
+        com.baidu.adp.widget.a.a aVar2 = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Ft), str);
         if (aVar2 != null) {
             stopLoading();
             setGif(aVar2);
@@ -488,12 +488,12 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         } else {
             startLoading();
             if (!z) {
-                com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.atB, 0, 0, this.atA, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Fr), str);
+                com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.atB, 0, 0, this.atA, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Ft), str);
             }
         }
     }
 
-    public void CE() {
+    public void CF() {
         stopLoading();
         this.atj = false;
         this.ato = false;
@@ -520,15 +520,15 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.aty != null) {
-            boolean Fr = h.Fr();
-            String str = Fr ? this.aty.atb : this.aty.ata;
-            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Fr), str);
+            boolean Ft = h.Ft();
+            String str = Ft ? this.aty.atb : this.aty.ata;
+            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Ft), str);
             if (aVar != null) {
                 this.aty.asY = false;
                 setGif(aVar);
             } else {
                 startLoading();
-                com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.atB, 0, 0, this.atA, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Fr), str);
+                com.baidu.adp.lib.g.c.dF().a(this.aty.asZ, 20, this.atB, 0, 0, this.atA, this.aty.mGid, this.aty.asZ, Boolean.valueOf(Ft), str);
                 return;
             }
         }

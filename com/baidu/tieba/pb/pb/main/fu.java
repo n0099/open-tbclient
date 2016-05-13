@@ -12,7 +12,7 @@ public class fu implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-        byte[] E = cg.axh().E(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        byte[] E = cg.axk().E(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
         PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
         pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
         pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());

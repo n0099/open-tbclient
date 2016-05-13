@@ -16,7 +16,7 @@ class n implements f.a {
         el elVar2;
         this.djE.gz(z);
         elVar = this.djE.diR;
-        if (elVar.azD() != null && z) {
+        if (elVar.azG() != null && z) {
             elVar2 = this.djE.diR;
             elVar2.gS(false);
         }

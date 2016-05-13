@@ -8,20 +8,20 @@ public abstract class j {
     protected View cuT;
     private boolean aux = false;
     protected WindowManager cuU = (WindowManager) TbadkCoreApplication.m11getInst().getSystemService("window");
-    protected WindowManager.LayoutParams cuV = ajK();
+    protected WindowManager.LayoutParams cuV = ajM();
 
-    public abstract WindowManager.LayoutParams ajK();
+    public abstract WindowManager.LayoutParams ajM();
 
     public j(View view) {
         this.cuT = view;
     }
 
-    public boolean ajL() {
+    public boolean ajN() {
         return this.aux && this.cuT.getParent() != null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ajM() {
+    public void ajO() {
         if (this.cuU != null && this.cuV != null && this.cuT.getParent() == null) {
             this.aux = true;
             this.cuU.addView(this.cuT, this.cuV);
@@ -29,7 +29,7 @@ public abstract class j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ajN() {
+    public void ajP() {
         if (this.cuU != null && this.cuT.getParent() != null) {
             this.aux = false;
             this.cuU.removeView(this.cuT);

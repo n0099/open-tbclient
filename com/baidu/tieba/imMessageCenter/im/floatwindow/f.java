@@ -24,20 +24,20 @@ public class f extends g {
 
     public void b(int i, int i2, String str, int i3) {
         aB(i, i2);
-        ajM();
+        ajO();
         this.aLx.c(str, 12, false);
         this.aLx.setUrl(str);
-        jO(i3);
+        jN(i3);
         this.aLx.requestFocusFromTouch();
     }
 
     public void ah(String str, int i) {
         if (TextUtils.equals(str, this.aLx.getUrl())) {
-            jO(i);
+            jN(i);
         }
     }
 
-    private void jO(int i) {
+    private void jN(int i) {
         int i2;
         if (i <= 0) {
             this.cuN.setVisibility(8);
@@ -58,7 +58,7 @@ public class f extends g {
         at.k(this.cuN, i2);
     }
 
-    public e ajJ() {
+    public e ajL() {
         this.cuM.aE(this.cuT);
         return this.cuM;
     }

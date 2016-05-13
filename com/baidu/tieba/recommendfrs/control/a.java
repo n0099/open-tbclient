@@ -43,18 +43,18 @@ public class a extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         TbadkCoreApplication.m11getInst().setEnterRecommendFrs(true);
-        com.baidu.tieba.recommendfrs.control.a.q.aMp().dZK = isPrimary();
+        com.baidu.tieba.recommendfrs.control.a.q.aMs().dZK = isPrimary();
         if (isPrimary()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "c10702", "click");
             if (this.dYN != null) {
-                if (this.dYN.aol()) {
-                    this.dYN.aLO();
+                if (this.dYN.aoo()) {
+                    this.dYN.aLR();
                     n(false, getResources().getDimensionPixelSize(t.e.ds520));
                 } else {
                     this.dYN.setItemForeGround(this.dYN.getCurrentItem());
                 }
             }
-            com.baidu.tieba.recommendfrs.control.a.t.os(0);
+            com.baidu.tieba.recommendfrs.control.a.t.or(0);
             return;
         }
         VoiceManager aV = com.baidu.tieba.tbadkCore.voice.b.aV(getActivity());
@@ -75,31 +75,31 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        aku();
+        akw();
         this.dYN = (ScrollFragmentTabHost) getView().findViewById(t.g.recommend_frs_tab_host);
         this.dYN.setPageUniqueId(getUniqueId());
         this.dYN.a(this.dYU, this.dYV);
         this.dYN.switchNaviBarStatus(this.mIsLogin);
         onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
-        com.baidu.tieba.recommendfrs.a.aLN().setCreateTime(System.currentTimeMillis() - com.baidu.tieba.recommendfrs.a.aLN().oj(1));
+        com.baidu.tieba.recommendfrs.a.aLQ().setCreateTime(System.currentTimeMillis() - com.baidu.tieba.recommendfrs.a.aLQ().oi(1));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.dYQ = true;
-        com.baidu.tieba.recommendfrs.a.aLN().r(System.currentTimeMillis(), 1);
+        com.baidu.tieba.recommendfrs.a.aLQ().r(System.currentTimeMillis(), 1);
         registerListener(this.dYR);
         registerListener(this.dYS);
-        alC();
-        aMi();
+        alE();
+        aMl();
     }
 
-    private void aMi() {
+    private void aMl() {
         com.baidu.tieba.myCollection.baseHistory.a aVar = new com.baidu.tieba.myCollection.baseHistory.a(getPageContext());
         aVar.setUniqueId(getUniqueId());
         aVar.a(new f(this));
-        aVar.Do();
+        aVar.Dp();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -107,17 +107,17 @@ public class a extends BaseFragment {
         super.onDestroy();
         this.dYN.onDestroy();
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED);
-        com.baidu.tieba.recommendfrs.control.a.q.aMp().onDestory();
+        com.baidu.tieba.recommendfrs.control.a.q.aMs().onDestory();
     }
 
-    private void alC() {
+    private void alE() {
         this.dYP = new CustomMessageTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, new g(this));
         this.dYP.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(this.dYP);
     }
 
-    private void aku() {
-        com.baidu.tieba.recommendfrs.control.a.q.aMp().o(getUniqueId());
+    private void akw() {
+        com.baidu.tieba.recommendfrs.control.a.q.aMs().o(getUniqueId());
         this.dYO = new com.baidu.tieba.recommendfrs.control.a.m(getPageContext(), getUniqueId());
         this.dYO.a(new h(this));
     }
@@ -126,8 +126,8 @@ public class a extends BaseFragment {
     public void bu(List<TagInfo> list) {
         if (com.baidu.tbadk.core.util.y.r(list) > 0 && this.dYN != null && !this.dYN.cn(list)) {
             this.dYN.bw(list);
-            if (com.baidu.tieba.recommendfrs.control.a.q.aMp().dZJ != 0) {
-                com.baidu.tieba.recommendfrs.control.a.t.or(com.baidu.tieba.recommendfrs.control.a.q.aMp().dZJ);
+            if (com.baidu.tieba.recommendfrs.control.a.q.aMs().dZJ != 0) {
+                com.baidu.tieba.recommendfrs.control.a.t.oq(com.baidu.tieba.recommendfrs.control.a.q.aMs().dZJ);
             }
             this.dYN.setCurrentTab(0);
         }
@@ -141,7 +141,7 @@ public class a extends BaseFragment {
             } else {
                 this.cFC = new com.baidu.tbadk.f.f(getActivity(), i);
             }
-            this.cFC.sf();
+            this.cFC.sg();
         }
         if (this.dYN != null && this.dYN.getContentContainer() != null) {
             this.cFC.c(this.dYN.getContentContainer(), z);
@@ -149,7 +149,7 @@ public class a extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aMj() {
+    public void aMm() {
         if (this.cFC != null && this.dYN != null && this.dYN.getContentContainer() != null) {
             this.cFC.L(this.dYN.getContentContainer());
             this.cFC = null;
@@ -161,16 +161,16 @@ public class a extends BaseFragment {
         if (this.refreshView == null) {
             this.refreshView = new com.baidu.tbadk.f.h(getPageContext().getPageActivity(), new i(this));
         }
-        this.refreshView.eB(getResources().getDimensionPixelSize(t.e.ds280));
+        this.refreshView.eA(getResources().getDimensionPixelSize(t.e.ds280));
         this.refreshView.fR(str);
         if (this.dYN != null && this.dYN.getContentContainer() != null) {
             this.refreshView.c(this.dYN.getContentContainer(), z);
         }
-        this.refreshView.CZ();
+        this.refreshView.Da();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pe() {
+    public void Pg() {
         if (this.refreshView != null && this.dYN != null && this.dYN.getContentContainer() != null) {
             this.refreshView.L(this.dYN.getContentContainer());
             this.refreshView = null;
@@ -184,7 +184,7 @@ public class a extends BaseFragment {
             this.dYN.onChangeSkinType(i);
         }
         if (this.refreshView != null) {
-            this.refreshView.sf();
+            this.refreshView.sg();
         }
     }
 
@@ -231,7 +231,7 @@ public class a extends BaseFragment {
             this.dYT = Boolean.valueOf(com.baidu.tbadk.core.l.ob().oh());
         }
         if (z) {
-            this.dYN.aMI();
+            this.dYN.aML();
         }
     }
 

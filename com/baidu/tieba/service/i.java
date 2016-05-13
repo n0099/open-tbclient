@@ -13,7 +13,7 @@ class i implements c.a {
     }
 
     @Override // com.baidu.tieba.model.c.a
-    public void lo(int i) {
+    public void ln(int i) {
         com.baidu.tieba.model.c cVar;
         BdLog.i("location_success");
         BdLog.e("location_success next time=" + i);

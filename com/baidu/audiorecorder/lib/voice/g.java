@@ -33,15 +33,15 @@ public class g implements com.baidu.tieba.tbadkCore.voice.a {
         if (jVar != null && !ag.W(null)) {
             this.BJ = jVar;
             if (!com.baidu.tbadk.core.util.m.bF()) {
-                String sX = com.baidu.tbadk.core.util.m.sX();
-                if (sX == null) {
-                    sX = com.baidu.adp.lib.voice.l.getString(t.j.voice_error_sdcard);
+                String sY = com.baidu.tbadk.core.util.m.sY();
+                if (sY == null) {
+                    sY = com.baidu.adp.lib.voice.l.getString(t.j.voice_error_sdcard);
                 }
-                this.BJ.onShowErr(0, sX);
+                this.BJ.onShowErr(0, sY);
                 return false;
             }
             U(true);
-            this.BK = com.baidu.tbadk.core.voice.i.vS();
+            this.BK = com.baidu.tbadk.core.voice.i.vT();
             String dQ = com.baidu.tbadk.core.voice.i.dQ(this.BK);
             if (this.BL == null) {
                 this.BL = new a(this, null);

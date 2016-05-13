@@ -12,9 +12,9 @@ import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
     private final d dZj = new d();
-    private final int dZk = com.baidu.tbadk.core.sharedPref.b.sQ().getInt("home_page_max_thread_count", 300);
+    private final int dZk = com.baidu.tbadk.core.sharedPref.b.sR().getInt("home_page_max_thread_count", 300);
 
-    public int aMo() {
+    public int aMr() {
         return this.dZk;
     }
 
@@ -151,7 +151,7 @@ public class a {
     private void a(List<com.baidu.adp.widget.ListView.v> list, DataRes.Builder builder) {
         com.baidu.tieba.recommendfrs.data.i e;
         if (builder != null && list != null) {
-            if (!com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("close_new_user_guide_tip", false) && builder.age_sex != null) {
+            if (!com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("close_new_user_guide_tip", false) && builder.age_sex != null) {
                 com.baidu.tieba.recommendfrs.data.k f = com.baidu.tieba.recommendfrs.data.k.f(builder);
                 if (f != null) {
                     list.add(0, f);

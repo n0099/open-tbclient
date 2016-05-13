@@ -60,19 +60,19 @@ public class p implements com.baidu.tbadk.mvc.b.a {
         return this;
     }
 
-    public long aMw() {
+    public long aMz() {
         return this.eal;
     }
 
-    public long aMx() {
+    public long aMA() {
         return this.deK;
     }
 
-    public long aMy() {
+    public long aMB() {
         return this.eak;
     }
 
-    public long aMz() {
+    public long aMC() {
         return this.excId;
     }
 
@@ -88,7 +88,7 @@ public class p implements com.baidu.tbadk.mvc.b.a {
         return this.desc;
     }
 
-    public List<String> aMA() {
+    public List<String> aMD() {
         return this.thumbnail;
     }
 
@@ -96,15 +96,15 @@ public class p implements com.baidu.tbadk.mvc.b.a {
         return this.forumName;
     }
 
-    public int aMB() {
+    public int aME() {
         return this.thread_type;
     }
 
-    public ZhiBoInfoTW aMC() {
+    public ZhiBoInfoTW aMF() {
         return this.twzhibo_info;
     }
 
-    public boolean aMu() {
+    public boolean aMx() {
         return this.alL;
     }
 
@@ -112,7 +112,7 @@ public class p implements com.baidu.tbadk.mvc.b.a {
         this.alL = z;
     }
 
-    public int aMD() {
+    public int aMG() {
         return this.eaj;
     }
 

@@ -120,7 +120,7 @@ public class MultiImageView extends RelativeLayout {
         this.ajQ = new r(this);
     }
 
-    public void cN(int i) {
+    public void cM(int i) {
         if (this.mSkinType != i && this.akJ != null) {
             int childCount = this.akJ.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
@@ -234,7 +234,7 @@ public class MultiImageView extends RelativeLayout {
         this.akG.setEnabled(false);
     }
 
-    public void zw() {
+    public void zx() {
         if (!this.akO) {
             this.akI.setVisibility(0);
         }
@@ -250,7 +250,7 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public void zx() {
+    public void zy() {
         if (!this.akO) {
             this.akI.setVisibility(8);
         }

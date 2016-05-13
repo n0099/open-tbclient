@@ -72,27 +72,27 @@ public abstract class a {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED, Integer.valueOf(optInt5)));
                 }
                 if (optInt >= 0 && optInt3 >= 0 && optInt6 >= 0 && optInt4 >= 0) {
-                    if (com.baidu.tbadk.coreExtra.messageCenter.c.xF().xI() <= 0) {
+                    if (com.baidu.tbadk.coreExtra.messageCenter.c.xG().xJ() <= 0) {
                         optInt6 = 0;
                         optInt4 = 0;
                         optInt3 = 0;
                         optInt = 0;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().xV()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xG().xW()) {
                         optInt -= optInt2;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().xM()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xG().xN()) {
                         optInt = 0;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().xK()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xG().xL()) {
                         optInt6 = 0;
                     }
-                    int i = com.baidu.tbadk.coreExtra.messageCenter.c.xF().xL() ? optInt3 : 0;
+                    int i = com.baidu.tbadk.coreExtra.messageCenter.c.xG().xM() ? optInt3 : 0;
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgChat();
-                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgBookmark();
-                        com.baidu.tbadk.coreExtra.messageCenter.a.xi().j(jSONObject2);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.xi().a(optInt, optInt6, msgChat, i, msgBookmark, optInt4);
+                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgChat();
+                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgBookmark();
+                        com.baidu.tbadk.coreExtra.messageCenter.a.xj().j(jSONObject2);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.xj().a(optInt, optInt6, msgChat, i, msgBookmark, optInt4);
                         if (jSONObject2.has("absmsg") && (jSONObject = jSONObject2.getJSONObject("absmsg")) != null && jSONObject.has("th") && (obj = jSONObject.get("th")) != null) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NOTIFY_TOGETHERHI_ACTIVITY, obj.toString()));
                         }

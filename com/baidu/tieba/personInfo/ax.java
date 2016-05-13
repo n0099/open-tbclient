@@ -19,8 +19,8 @@ public class ax implements View.OnClickListener {
         f fVar = this.this$0;
         frameLayout = this.this$0.dFH;
         fVar.a((View) frameLayout, false, -1);
-        this.this$0.Pe();
+        this.this$0.Pg();
         bgVar = this.this$0.dyP;
-        bgVar.aDF();
+        bgVar.aDI();
     }
 }

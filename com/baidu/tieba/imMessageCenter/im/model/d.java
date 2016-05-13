@@ -15,8 +15,8 @@ public class d extends s<CommonMsgPojo> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: akY */
+    /* renamed from: ala */
     public CommonMsgPojo doInBackground() {
-        return l.aeD().Y(this.cxq.getUser().getUserId(), 23);
+        return l.aeF().Y(this.cxq.getUser().getUserId(), 23);
     }
 }

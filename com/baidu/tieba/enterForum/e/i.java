@@ -40,7 +40,7 @@ public class i extends LinearLayout {
         this.mType = i;
         if (i == 2) {
             if (this.aYR == null) {
-                Nw();
+                Ny();
             }
             if (this.aYR.getParent() == null) {
                 addView(this.aYR);
@@ -48,7 +48,7 @@ public class i extends LinearLayout {
             removeView(this.aYS);
         } else {
             if (this.aYS == null) {
-                Nv();
+                Nx();
             }
             if (this.aYS.getParent() == null) {
                 addView(this.aYS);
@@ -56,21 +56,21 @@ public class i extends LinearLayout {
             if (this.aYS.getFooterViewsCount() < 1 && TbadkCoreApplication.m11getInst().getSkinType() != 2) {
                 this.aYS.addFooterView(this.aYT);
             }
-            Nx();
+            Nz();
             removeView(this.aYR);
         }
         setStateForDisplayView(i);
     }
 
-    private void Nv() {
+    private void Nx() {
         this.aYS = new c(getContext());
         this.aYS.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         this.aYS.setSelector(new ColorDrawable(0));
         a(this.aYS);
-        Nx();
+        Nz();
     }
 
-    private void Nw() {
+    private void Ny() {
         this.aYR = new a(getContext());
         this.aYR.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         this.aYR.setNumColumns(2);
@@ -79,7 +79,7 @@ public class i extends LinearLayout {
         a(this.aYR);
     }
 
-    private void Nx() {
+    private void Nz() {
         this.aYS.setDivider(at.getDrawable(t.f.enter_forum_list_divider));
         this.aYS.setDividerHeight(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds1));
     }
@@ -164,7 +164,7 @@ public class i extends LinearLayout {
         setBackgroundColor(at.getColor(t.d.cp_bg_line_d));
         setStateForDisplayView(this.mType);
         if (this.mType == 1) {
-            Nx();
+            Nz();
         }
     }
 }

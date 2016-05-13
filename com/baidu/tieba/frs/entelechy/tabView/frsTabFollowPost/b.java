@@ -53,11 +53,11 @@ public class b implements View.OnClickListener {
         aVar2.setData(list);
         aVar3 = this.bpB.bpw;
         iVar = this.bpB.bpt;
-        aVar3.d(iVar.getPageContext()).rX();
+        aVar3.d(iVar.getPageContext()).rY();
         frsActivity = this.bpB.bpt;
         if (frsActivity.PZ() != null) {
             frsActivity2 = this.bpB.bpt;
-            if (frsActivity2.PZ().avA() != null) {
+            if (frsActivity2.PZ().avD() != null) {
                 getFrsTabFollowPostNumRequest = this.bpB.bpy;
                 if (getFrsTabFollowPostNumRequest == null) {
                     a aVar5 = this.bpB;
@@ -65,7 +65,7 @@ public class b implements View.OnClickListener {
                     aVar5.bpy = new GetFrsTabFollowPostNumRequest(frsActivity3.getUniqueId());
                     getFrsTabFollowPostNumRequest2 = this.bpB.bpy;
                     frsActivity4 = this.bpB.bpt;
-                    getFrsTabFollowPostNumRequest2.setFid(frsActivity4.PZ().avA().getId());
+                    getFrsTabFollowPostNumRequest2.setFid(frsActivity4.PZ().avD().getId());
                     MessageManager messageManager = MessageManager.getInstance();
                     getFrsTabFollowPostNumRequest3 = this.bpB.bpy;
                     messageManager.sendMessage(getFrsTabFollowPostNumRequest3);

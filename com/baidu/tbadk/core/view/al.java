@@ -14,7 +14,7 @@ public class al implements com.baidu.adp.lib.f.c<TbImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: vw */
+    /* renamed from: vx */
     public TbImageView dE() {
         return new TbImageView(this.val$context);
     }

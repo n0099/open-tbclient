@@ -84,14 +84,14 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         SparseArray sparseArray;
-        if (this.dha == null || this.drc == null || this.drc.aTO() == null) {
+        if (this.dha == null || this.drc == null || this.drc.aTU() == null) {
             setMeasuredDimension(0, 0);
             return;
         }
         int size = View.MeasureSpec.getSize(i);
-        ArrayList<com.baidu.tieba.tbadkCore.data.s> aTO = this.drc.aTO();
-        int size2 = aTO.size();
-        if (this.drc.aUa()) {
+        ArrayList<com.baidu.tieba.tbadkCore.data.s> aTU = this.drc.aTU();
+        int size2 = aTU.size();
+        if (this.drc.aUg()) {
             this.drc.jz(true);
             if (size2 <= 10) {
                 this.drb = size2;
@@ -132,18 +132,18 @@ public class SubPbLayout extends ViewGroup {
             }
             sparseArray.put(t.g.tag_load_sub_view, this.mRootView);
             sparseArray.put(t.g.tag_is_subpb, true);
-            if (aTO.get(i3) != null && aTO.get(i3).getAuthor() != null) {
-                sparseArray.put(t.g.tag_photo_username, aTO.get(i3).getAuthor().getUserName());
-                sparseArray.put(t.g.tag_photo_userid, aTO.get(i3).getAuthor().getUserId());
-                sparseArray.put(t.g.tag_clip_board, aTO.get(i3));
+            if (aTU.get(i3) != null && aTU.get(i3).getAuthor() != null) {
+                sparseArray.put(t.g.tag_photo_username, aTU.get(i3).getAuthor().getUserName());
+                sparseArray.put(t.g.tag_photo_userid, aTU.get(i3).getAuthor().getUserId());
+                sparseArray.put(t.g.tag_clip_board, aTU.get(i3));
             }
-            this.dha.a((an.a) sparseArray.get(t.g.tag_holder), aTO.get(i3), this.drc.aTW() > aTO.size() || aTO.size() - i3 > 1, i3 == 0);
+            this.dha.a((an.a) sparseArray.get(t.g.tag_holder), aTU.get(i3), this.drc.aUc() > aTU.size() || aTU.size() - i3 > 1, i3 == 0);
             view.measure(((size - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             i3++;
             i4 += view.getMeasuredHeight();
         }
-        if (aTO != null && aTO.size() > 0 && this.drc.aTW() > this.drb) {
-            a(getContext(), (TextView) this.dre.findViewById(t.g.sub_pb_more_text), this.drc.aTW() - this.drb);
+        if (aTU != null && aTU.size() > 0 && this.drc.aUc() > this.drb) {
+            a(getContext(), (TextView) this.dre.findViewById(t.g.sub_pb_more_text), this.drc.aUc() - this.drb);
             this.dre.setOnClickListener(this.dqY);
             SparseArray sparseArray4 = (SparseArray) this.dre.getTag();
             if (sparseArray4 == null) {
@@ -164,7 +164,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (this.drc != null && this.drc.aTO() != null) {
+        if (this.drc != null && this.drc.aTU() != null) {
             int size = this.drd.size();
             for (int i6 = 0; i6 < size; i6++) {
                 a poll = this.drd.poll();
@@ -216,7 +216,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.drc != null && this.drc.aTO() != null) {
+        if (this.drc != null && this.drc.aTU() != null) {
             int i = this.drb;
             for (int i2 = 0; i2 < i; i2++) {
                 if (i < getChildCount()) {
@@ -237,7 +237,7 @@ public class SubPbLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: aAm */
+    /* renamed from: aAp */
     public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }

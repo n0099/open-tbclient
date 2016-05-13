@@ -39,12 +39,12 @@ public class d extends CustomMessageListener {
                             break;
                         }
                         lVar = (com.baidu.tieba.recommendfrs.data.l) it.next();
-                        if (lVar != null && lVar.aMq() != null && lVar.aMq().tag_type.intValue() == 3) {
+                        if (lVar != null && lVar.aMt() != null && lVar.aMt().tag_type.intValue() == 3) {
                             break;
                         }
                     }
                     if (lVar != null) {
-                        for (Object obj : lVar.aMr()) {
+                        for (Object obj : lVar.aMu()) {
                             if (obj instanceof com.baidu.tieba.card.a.g) {
                                 com.baidu.tieba.card.a.g gVar = (com.baidu.tieba.card.a.g) obj;
                                 if (gVar.aRH != null && gVar.aRH.aRG != null && gVar.aRH.aRG.getAuthor() != null && gVar.aRH.aRG.getAuthor().getUserId() != null && gVar.aRH.aRG.getAuthor().getGodUserData() != null) {

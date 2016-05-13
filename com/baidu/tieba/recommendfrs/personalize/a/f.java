@@ -13,7 +13,7 @@ import com.baidu.tieba.card.by;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.l, a> {
     private TbPageContext<?> DV;
-    private BdUniqueId aOT;
+    public BdUniqueId aOT;
     private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> boU;
     private com.baidu.adp.lib.f.b<TbImageView> boV;
     private by boZ;
@@ -46,12 +46,12 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.l,
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.l lVar, a aVar) {
         if (lVar != null) {
-            lVar.fx(i + 1);
+            lVar.fw(i + 1);
         }
         aVar.ebk.a(lVar);
         aVar.ebk.a(this.boZ);
         if (lVar.aRG != null && lVar.aRG.getTid() != null) {
-            bx.Kg().a(new aw("c11003").ac("tid", lVar.aRG.getTid()));
+            bx.Ki().a(new aw("c11003").ac("tid", lVar.aRG.getTid()));
         }
         return aVar.getView();
     }
@@ -71,10 +71,6 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.l,
             super(aqVar.getView());
             this.ebk = aqVar;
         }
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aOT = bdUniqueId;
     }
 
     public void a(com.baidu.tieba.recommendfrs.control.a.f fVar) {

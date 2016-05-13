@@ -26,16 +26,16 @@ public class j implements a.b {
         PbActivity pbActivity3;
         aVar.dismiss();
         pbActivity = this.dhT.dhQ;
-        cw awu = pbActivity.awu();
-        if (!((awu != null) & (awu.getPbData() != null)) || awu.getPbData().avB() == null || StringUtils.isNull(awu.getPbData().avB().getTitle())) {
+        cw awx = pbActivity.awx();
+        if (!((awx != null) & (awx.getPbData() != null)) || awx.getPbData().avE() == null || StringUtils.isNull(awx.getPbData().avE().getTitle())) {
             pbActivity2 = this.dhT.dhQ;
-            com.baidu.tbadk.browser.f.t(pbActivity2.getActivity(), this.dhW.getLotteryInfo().avv().getLink());
+            com.baidu.tbadk.browser.f.t(pbActivity2.getActivity(), this.dhW.getLotteryInfo().avy().getLink());
         } else {
             pbActivity3 = this.dhT.dhQ;
-            com.baidu.tbadk.browser.f.c(pbActivity3.getActivity(), awu.getPbData().avB().getTitle(), this.dhW.getLotteryInfo().avv().getLink());
+            com.baidu.tbadk.browser.f.c(pbActivity3.getActivity(), awx.getPbData().avE().getTitle(), this.dhW.getLotteryInfo().avy().getLink());
         }
-        if (awu != null && awu.getPbData() != null) {
-            TiebaStatic.log(new aw("c10506").ac("fid", awu.getPbData().getForumId()).ac("tid", awu.getPbData().getThreadId()).ac("obj_locate", "1"));
+        if (awx != null && awx.getPbData() != null) {
+            TiebaStatic.log(new aw("c10506").ac("fid", awx.getPbData().getForumId()).ac("tid", awx.getPbData().getThreadId()).ac("obj_locate", "1"));
         }
     }
 }

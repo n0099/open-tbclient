@@ -9,7 +9,7 @@ public class a {
         }
     }
 
-    public b Nc() {
+    public b Ne() {
         return this.aYm;
     }
 }

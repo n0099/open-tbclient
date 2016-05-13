@@ -18,7 +18,7 @@ public class j extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.eda.aMU();
+            this.eda.aMX();
         }
     }
 }

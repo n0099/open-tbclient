@@ -23,7 +23,7 @@ public class ar extends w {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.c.w, com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.frs_interview_live_item;
     }
 

@@ -31,7 +31,7 @@ public class o implements v {
         this.dzH = personTainInfo;
     }
 
-    public PersonTainInfo aCn() {
+    public PersonTainInfo aCq() {
         return this.dzH;
     }
 

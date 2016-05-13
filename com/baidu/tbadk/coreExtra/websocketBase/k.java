@@ -15,10 +15,10 @@ public class k implements a.InterfaceC0038a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0038a
-    public void zX() {
+    public void zY() {
         List list;
         this.anv.currentIndex = 0;
-        this.anv.amH = a.zR().zU();
+        this.anv.amH = a.zS().zV();
         list = this.anv.amH;
         if (list == null) {
             this.anv.ant = false;

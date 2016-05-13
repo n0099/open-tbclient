@@ -37,7 +37,7 @@ public class t implements View.OnClickListener {
                         xVar = this.aPs.Dp;
                         xVar.bH(str8, valueOf);
                         str7 = this.aPs.aPm;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str7).ac("fid", valueOf).ac("obj_param3", au.Ka()));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str7).ac("fid", valueOf).ac("obj_param3", au.Kc()));
                     }
                 }
             } else if (view.getTag(t.g.tag_forum_name) != null) {
@@ -46,10 +46,10 @@ public class t implements View.OnClickListener {
                 if (com.baidu.tbadk.core.util.ay.aL(str9)) {
                     if (view.getId() != t.g.m_forum_name_textview) {
                         str = this.aPs.aPn;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str).ac("fid", valueOf2).ac("obj_param3", au.Ka()));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str).ac("fid", valueOf2).ac("obj_param3", au.Kc()));
                     } else {
                         str6 = this.aPs.aPo;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str6).ac("fid", valueOf2).ac("obj_param3", au.Ka()));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.aw(str6).ac("fid", valueOf2).ac("obj_param3", au.Kc()));
                     }
                     str2 = this.aPs.stType;
                     if (!StringUtils.isNull(str2)) {

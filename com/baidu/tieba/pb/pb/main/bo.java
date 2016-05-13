@@ -12,7 +12,7 @@ class bo implements com.baidu.adp.lib.f.c<LinearLayout> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: awY */
+    /* renamed from: axb */
     public LinearLayout dE() {
         LinearLayout linearLayout = new LinearLayout(this.djE.getPageContext().getPageActivity());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);

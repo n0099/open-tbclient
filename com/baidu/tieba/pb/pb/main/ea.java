@@ -36,9 +36,9 @@ public class ea extends CustomMessageListener {
             if (eVar != null) {
                 this.dmN.dmJ = false;
                 eVar2 = this.dmN.pbData;
-                if (eVar2.avC() != null) {
+                if (eVar2.avF() != null) {
                     eVar5 = this.dmN.pbData;
-                    i = eVar5.avC().size();
+                    i = eVar5.avF().size();
                 } else {
                     i = 0;
                 }
@@ -48,7 +48,7 @@ public class ea extends CustomMessageListener {
                         eVar4 = this.dmN.pbData;
                         if (eVar4.getPage().pK() != 0) {
                             aVar2 = this.dmN.dmK;
-                            aVar2.ayv();
+                            aVar2.ayy();
                         }
                     }
                 }
@@ -57,14 +57,14 @@ public class ea extends CustomMessageListener {
                     this.dmN.dmG = 5;
                     com.baidu.tbadk.core.data.at atVar = new com.baidu.tbadk.core.data.at();
                     atVar.setData(TbadkCoreApplication.m11getInst().getResources().getString(t.j.read_thread_over));
-                    atVar.bG(1);
+                    atVar.bF(1);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar));
                     return;
                 } else if (this.dmN.dmC == -1) {
                     this.dmN.dmG = 5;
                     this.dmN.dmC = 0;
                     com.baidu.tbadk.core.data.at atVar2 = new com.baidu.tbadk.core.data.at();
-                    atVar2.bG(15);
+                    atVar2.bF(15);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar2));
                     return;
                 } else {
@@ -73,9 +73,9 @@ public class ea extends CustomMessageListener {
                     dz dzVar = this.dmN;
                     int i2 = this.dmN.dmC;
                     eVar3 = this.dmN.pbData;
-                    e = dzVar.e(i2, eVar3.avC());
+                    e = dzVar.e(i2, eVar3.avF());
                     com.baidu.tbadk.core.data.at atVar3 = new com.baidu.tbadk.core.data.at();
-                    atVar3.bG(1);
+                    atVar3.bF(1);
                     atVar3.setData(e);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, atVar3));
                     return;

@@ -8,7 +8,7 @@ import tbclient.RecommendForumInfo;
 public class g {
     ArrayList<f> aWU = new ArrayList<>();
 
-    public List<f> Mn() {
+    public List<f> Mp() {
         return this.aWU;
     }
 

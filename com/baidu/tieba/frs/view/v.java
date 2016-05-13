@@ -51,10 +51,10 @@ public class v extends LinearLayout {
         at.c(this.bwz, t.d.cp_cont_b, 2);
         this.bwz.setHintTextColor(at.getColor(t.d.cp_cont_e));
         this.bwz.setPadding(context.getResources().getDimensionPixelSize(t.e.ds20), 0, 0, 0);
-        Um();
+        Uo();
     }
 
-    public void Um() {
+    public void Uo() {
         this.azz.setFocusable(true);
         this.azz.setFocusableInTouchMode(true);
         this.azz.requestFocus();
@@ -74,10 +74,10 @@ public class v extends LinearLayout {
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         this.bwD = shareFromFrsMsgData;
-        uX();
+        uY();
     }
 
-    private void uX() {
+    private void uY() {
         this.aGp.setText(dA(this.bwD.getName()));
         BdLog.e("mData.getImageUrl()的图片URL" + this.bwD.getImageUrl());
         this.bwA.c(this.bwD.getImageUrl(), 15, false);

@@ -11,7 +11,7 @@ public class a {
     private String mTitle;
     private int mWidth;
 
-    public String aTk() {
+    public String aTq() {
         return this.erZ;
     }
 
@@ -23,7 +23,7 @@ public class a {
         return this.mHeight;
     }
 
-    public String aTl() {
+    public String aTr() {
         return this.esa;
     }
 

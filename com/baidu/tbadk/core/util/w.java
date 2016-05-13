@@ -8,7 +8,7 @@ public class w {
     private String Wl = "";
     private final long Wm = 120000;
 
-    public static w tr() {
+    public static w ts() {
         if (Wn == null) {
             synchronized (w.class) {
                 if (Wn == null) {
@@ -19,7 +19,7 @@ public class w {
         return Wn;
     }
 
-    public String ts() {
+    public String tt() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.Wi > 120000) {
             if (com.baidu.adp.lib.util.k.fG()) {

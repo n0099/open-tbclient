@@ -26,7 +26,7 @@ public class r implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         this.aGX.setVisibility(0);
-        this.aGX.CC();
+        this.aGX.CD();
         com.baidu.adp.lib.h.h.dL().postDelayed(new s(this, this.aHa), 800L);
     }
 }

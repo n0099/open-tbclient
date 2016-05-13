@@ -17,7 +17,7 @@ class fy implements dz.a {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.dz.a
-    public void ayv() {
+    public void ayy() {
         boolean z;
         ec ecVar;
         ec ecVar2;
@@ -47,7 +47,7 @@ class fy implements dz.a {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.dz.a
-    public void ayw() {
+    public void ayz() {
         boolean z;
         ec ecVar;
         ec ecVar2;
@@ -57,7 +57,7 @@ class fy implements dz.a {
             ecVar = this.dpB.mReaderModel;
             if (ecVar != null) {
                 ecVar2 = this.dpB.mReaderModel;
-                ecVar2.ayx();
+                ecVar2.ayA();
                 return;
             }
             return;
@@ -92,12 +92,12 @@ class fy implements dz.a {
             dzVar6 = this.dpB.mReaderManager;
             aVar.drA = dzVar6.dmC;
             dzVar7 = this.dpB.mReaderManager;
-            aVar.drB = dzVar7.ayt();
+            aVar.drB = dzVar7.ayw();
             String str2 = "";
             dzVar8 = this.dpB.mReaderManager;
-            if (dzVar8.ayu() != null) {
+            if (dzVar8.ayx() != null) {
                 dzVar9 = this.dpB.mReaderManager;
-                str2 = dzVar9.ayu().getId();
+                str2 = dzVar9.ayx().getId();
             }
             aVar.postId = str2;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
@@ -105,9 +105,9 @@ class fy implements dz.a {
         }
         String str3 = "";
         dzVar = this.dpB.mReaderManager;
-        if (dzVar.ayu() != null) {
+        if (dzVar.ayx() != null) {
             dzVar5 = this.dpB.mReaderManager;
-            str3 = dzVar5.ayu().getId();
+            str3 = dzVar5.ayx().getId();
         }
         dzVar2 = this.dpB.mReaderManager;
         boolean z2 = dzVar2.dmH;

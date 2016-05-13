@@ -11,15 +11,15 @@ public class c {
     private ArrayList<a> esd = new ArrayList<>();
     private ArrayList<b> ese = new ArrayList<>();
 
-    public String aTm() {
+    public String aTs() {
         return this.esc;
     }
 
-    public List<a> aTn() {
+    public List<a> aTt() {
         return this.esd;
     }
 
-    public List<b> aTo() {
+    public List<b> aTu() {
         return this.ese;
     }
 

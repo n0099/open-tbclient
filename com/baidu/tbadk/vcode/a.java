@@ -18,7 +18,7 @@ class a implements Runnable {
         if (baseWebView == null) {
             return;
         }
-        this.aAJ.FL();
+        this.aAJ.FN();
         baseWebView2 = this.aAJ.mWebView;
         baseWebView2.setVisibility(0);
     }

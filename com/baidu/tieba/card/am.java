@@ -59,7 +59,7 @@ public class am extends z {
             this.aQg = nVar;
             this.aab = nVar.aRZ;
             if (nVar.aRZ.getAuthor() != null) {
-                fu(nVar.aRZ.getAuthor().getFansNum());
+                ft(nVar.aRZ.getAuthor().getFansNum());
                 if (this.aab.getAuthor().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.aab.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                     this.aOX.setVisibility(8);
                 } else if (this.aab.getAuthor().getGodUserData().getFollowed() == 1) {
@@ -91,7 +91,7 @@ public class am extends z {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fu(int i) {
+    public void ft(int i) {
         if (this.aQf != null) {
             this.aQf.setText(String.format(this.DV.getResources().getString(t.j.fans_default_name_god_user), com.baidu.tbadk.core.util.ay.A(i)));
         }

@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class m implements com.baidu.tbadk.imageManager.b {
     private final /* synthetic */ ViewGroup aqU;
-    final /* synthetic */ l eYb;
+    final /* synthetic */ l eYa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, ViewGroup viewGroup) {
-        this.eYb = lVar;
+        this.eYa = lVar;
         this.aqU = viewGroup;
     }
 

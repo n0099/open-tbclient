@@ -55,7 +55,7 @@ public class p implements ViewPager.OnPageChangeListener {
             if (imageView != null) {
                 hVar5 = this.akQ.akJ;
                 hVar5.setSelectedView(imageView);
-                imageView.FW();
+                imageView.FY();
             }
         }
         hVar2 = this.akQ.akJ;
@@ -64,7 +64,7 @@ public class p implements ViewPager.OnPageChangeListener {
             hVar4 = this.akQ.akJ;
             View childAt = hVar4.getChildAt(i2);
             if (childAt != null && (childAt instanceof u)) {
-                ((u) childAt).zO();
+                ((u) childAt).zP();
             }
         }
         z = this.akQ.akN;

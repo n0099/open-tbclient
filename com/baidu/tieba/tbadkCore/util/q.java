@@ -24,7 +24,7 @@ public class q extends s {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
                 if (this.evj.size() >= this.evl) {
-                    aHz();
+                    aHC();
                 }
                 this.evj.put(str, valueOf);
             }
@@ -63,7 +63,7 @@ public class q extends s {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.s
-    public void aUR() {
+    public void aUX() {
         synchronized (this) {
             this.evm.clear();
             this.evj.clear();

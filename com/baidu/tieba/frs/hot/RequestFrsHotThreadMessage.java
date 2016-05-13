@@ -26,7 +26,7 @@ public class RequestFrsHotThreadMessage extends NetMessage {
         builder.scr_w = Integer.valueOf(k.B(TbadkCoreApplication.m11getInst()));
         builder.scr_h = Integer.valueOf(k.C(TbadkCoreApplication.m11getInst()));
         builder.scr_dip = Double.valueOf(TbadkCoreApplication.m11getInst().getApp().getResources().getDisplayMetrics().density);
-        builder.q_type = Integer.valueOf(az.uf().uh() ? 2 : 1);
+        builder.q_type = Integer.valueOf(az.ug().ui() ? 2 : 1);
         if (l.ob().oh()) {
             builder.rn = 35;
         } else {

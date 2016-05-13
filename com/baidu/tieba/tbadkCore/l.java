@@ -63,11 +63,11 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         this.categoryId = i;
     }
 
-    public void pc(int i) {
+    public void pb(int i) {
         this.mSortType = i;
     }
 
-    public int aRZ() {
+    public int aSc() {
         return this.mSortType;
     }
 
@@ -172,12 +172,12 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Dg() {
+    public String Dh() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Dh() {
+    public boolean Di() {
         return false;
     }
 

@@ -114,7 +114,7 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             return this;
         }
 
-        public a bp(int i) {
+        public a bo(int i) {
             this.requestCode = i;
             return this;
         }

@@ -33,7 +33,7 @@ public class ai extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void aQI() {
+    public void aQL() {
         if (this.erK != null) {
             this.erK.cancel();
             this.erK = null;
@@ -88,7 +88,7 @@ public class ai extends com.baidu.adp.base.e {
         public SignData doInBackground(Object... objArr) {
             Object obj;
             Exception e;
-            String tc;
+            String td;
             JSONObject jSONObject;
             TiebaStatic.eventStat(TbadkCoreApplication.m11getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
             Object obj2 = null;
@@ -97,22 +97,22 @@ public class ai extends com.baidu.adp.base.e {
                 this.aeI = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
                 this.aeI.n("kw", ai.this.mForumName);
                 this.aeI.n("fid", ai.this.mForumId);
-                this.aeI.tA().uu().mIsNeedTbs = true;
-                tc = this.aeI.tc();
+                this.aeI.tB().uv().mIsNeedTbs = true;
+                td = this.aeI.td();
             } catch (Exception e2) {
                 obj = obj2;
                 e = e2;
             }
-            if (this.aeI.tD()) {
-                obj = this.aeI.tA().uv().nZ();
+            if (this.aeI.tE()) {
+                obj = this.aeI.tB().uw().nZ();
                 try {
                     if (obj != 0) {
                         SignData signData = new SignData();
-                        signData.parserJson(tc);
+                        signData.parserJson(td);
                         obj = signData;
-                    } else if (!ay.isEmpty(tc) && (jSONObject = new JSONObject(tc)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
+                    } else if (!ay.isEmpty(td) && (jSONObject = new JSONObject(td)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
                         SignData signData2 = new SignData();
-                        signData2.parserJson(tc);
+                        signData2.parserJson(td);
                         signData2.setIsSigned(1);
                         signData2.setCountSignNum(1);
                         obj2 = null;
@@ -149,7 +149,7 @@ public class ai extends com.baidu.adp.base.e {
             ai.this.erK = null;
             TiebaStatic.eventStat(TbadkCoreApplication.m11getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
             if (signData == null && this.aeI != null) {
-                ai.this.mErrorCode = this.aeI.tE();
+                ai.this.mErrorCode = this.aeI.tF();
                 ai.this.mErrorString = this.aeI.getErrorString();
             }
             ai.this.mLoadDataCallBack.d(signData);

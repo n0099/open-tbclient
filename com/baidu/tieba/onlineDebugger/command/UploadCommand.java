@@ -40,7 +40,7 @@ public class UploadCommand implements d {
         }
     }
 
-    static /* synthetic */ int[] auA() {
+    static /* synthetic */ int[] auD() {
         int[] iArr = dbF;
         if (iArr == null) {
             iArr = new int[EnumUploadType.valuesCustom().length];
@@ -75,10 +75,10 @@ public class UploadCommand implements d {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public Object aux() {
+    public Object auA() {
         String str = null;
         try {
-            switch (auA()[this.dbE.ordinal()]) {
+            switch (auD()[this.dbE.ordinal()]) {
                 case 1:
                     str = c(lv(this.path), this.path);
                     break;
@@ -172,11 +172,11 @@ public class UploadCommand implements d {
         abVar.c("debugfile", bArr);
         abVar.n("tbs", TbadkCoreApplication.m11getInst().getTbs());
         abVar.n("type", SocialConstants.ANDROID_CLIENT_TYPE);
-        return abVar.tf();
+        return abVar.tg();
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public boolean auy() {
+    public boolean auB() {
         return !this.path.contains("..");
     }
 }

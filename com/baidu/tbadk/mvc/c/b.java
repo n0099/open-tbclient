@@ -22,11 +22,11 @@ public class b {
         this.ave = aVar2;
     }
 
-    public int Dj() {
+    public int Dk() {
         return this.ava;
     }
 
-    public com.baidu.tbadk.mvc.b.a Dk() {
+    public com.baidu.tbadk.mvc.b.a Dl() {
         return this.avc;
     }
 
@@ -49,15 +49,15 @@ public class b {
         this.avh = new WeakReference<>(view);
     }
 
-    public int Dl() {
+    public int Dm() {
         return this.avf;
     }
 
-    public void eC(int i) {
+    public void eB(int i) {
         this.avf = i;
     }
 
-    public boolean Dm() {
+    public boolean Dn() {
         return this.avb;
     }
 

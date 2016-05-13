@@ -118,7 +118,7 @@ public class c extends HorizontalScrollView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void H(View view) {
-        if (this.ajG && view != this.ajE && zl()) {
+        if (this.ajG && view != this.ajE && zm()) {
             if (this.ajE != null) {
                 this.ajE.setBackgroundDrawable(null);
                 ((TextView) this.ajE.getTag()).setSelected(false);
@@ -134,7 +134,7 @@ public class c extends HorizontalScrollView {
         }
     }
 
-    private boolean zl() {
+    private boolean zm() {
         PluginPackageManager.PluginStatus bs = PluginPackageManager.hF().bs(PluginCenter.NAME_MOTUSDK);
         if (bs == PluginPackageManager.PluginStatus.NROMAL) {
             return true;

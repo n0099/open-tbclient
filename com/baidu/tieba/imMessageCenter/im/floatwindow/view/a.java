@@ -37,7 +37,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.floatwindow.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0062a {
-        void ajI();
+        void ajK();
     }
 
     public a(Context context) {
@@ -66,18 +66,18 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         headImageView.setDefaultBgResource(0);
     }
 
-    public boolean ajW() {
+    public boolean ajY() {
         return this.cvv;
     }
 
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.e ajJ() {
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.e ajL() {
         this.cuM.aE(this.cuT);
         return this.cuM;
     }
 
     public void a(Handler handler, boolean z) {
-        if (!ajL()) {
-            ajM();
+        if (!ajN()) {
+            ajO();
             if (handler != null && z) {
                 handler.post(this.cvw);
             }
@@ -88,7 +88,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         this.cuH = interfaceC0062a;
     }
 
-    public void jR(int i) {
+    public void jQ(int i) {
         int i2;
         if (i <= 0) {
             this.cvq.setVisibility(8);
@@ -108,7 +108,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         this.cvq.setBackgroundResource(i2);
     }
 
-    public void ajX() {
+    public void ajZ() {
         int i;
         int measuredWidth = this.cuT.getMeasuredWidth();
         int i2 = this.cuV.x;
@@ -117,7 +117,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         } else {
             i = 0;
         }
-        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.ajO().a(aC(i2, i));
+        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.ajQ().a(aC(i2, i));
     }
 
     public void b(Point point) {
@@ -125,10 +125,10 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         this.cvu.y = this.cuV.y;
         this.cvv = true;
         setTouchable(false);
-        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.ajO().a(c(point));
+        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.ajQ().a(c(point));
     }
 
-    public void ajY() {
+    public void aka() {
         int measuredWidth = this.cuT.getMeasuredWidth();
         boolean z = this.cvu.x != 0;
         boolean z2 = this.cvu.x != this.cuP - measuredWidth;
@@ -141,13 +141,13 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         }
         this.cvv = true;
         setTouchable(false);
-        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.ajO().a(c(this.cvu));
+        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.ajQ().a(c(this.cvu));
     }
 
     public void K(ArrayList<String> arrayList) {
         if (arrayList != null && !arrayList.isEmpty()) {
             int size = arrayList.size();
-            jS(size);
+            jR(size);
             for (int i = 0; i < size; i++) {
                 y(i, arrayList.get(i));
             }
@@ -173,7 +173,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         }
     }
 
-    private void jS(int i) {
+    private void jR(int i) {
         this.cvm.setVisibility(i > 0 ? 0 : 8);
         this.cvn.setVisibility(i > 1 ? 0 : 8);
         this.cvo.setVisibility(i > 2 ? 0 : 8);
@@ -181,7 +181,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation ajZ() {
+    public Animation akb() {
         if (this.cvr == null) {
             this.cvr = AnimationUtils.loadAnimation(TbadkCoreApplication.m11getInst(), t.a.float_window_in_anim);
         }
@@ -194,7 +194,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
             this.cvs.a(this.cvy);
         }
         this.cvs.setStart(i);
-        this.cvs.jQ(i2);
+        this.cvs.jP(i2);
         return this.cvs;
     }
 

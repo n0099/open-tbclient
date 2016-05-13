@@ -27,13 +27,13 @@ public class au extends CustomMessageListener {
                 if (i < responseUnreadPointNum.getNum()) {
                     this.dze.dyU = responseUnreadPointNum.getNum();
                     this.dze.j(true, 3);
-                    this.dze.aCc();
+                    this.dze.aCf();
                 }
             } else {
                 this.dze.dyV = false;
                 this.dze.dyU = 0;
             }
-            this.dze.aCa();
+            this.dze.aCd();
         }
     }
 }

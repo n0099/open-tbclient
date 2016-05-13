@@ -36,9 +36,9 @@ public class an implements c.b {
             textView = this.dwD.dwm;
             textView.setText(this.dwF);
         }
-        this.dwD.aBI();
+        this.dwD.aBL();
         i2 = this.dwD.mSex;
-        if (i2 != this.dwD.dwu.aBP().getSex()) {
+        if (i2 != this.dwD.dwu.aBS().getSex()) {
             this.dwD.bKq = true;
             if (TbadkCoreApplication.m11getInst().getSkinType() == 2) {
                 textView3 = this.dwD.ckh;

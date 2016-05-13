@@ -5,15 +5,15 @@ public class a {
     private c Yx = new c();
     private d Yy = new d();
 
-    public b uu() {
+    public b uv() {
         return this.Yw;
     }
 
-    public c uv() {
+    public c uw() {
         return this.Yx;
     }
 
-    public d uw() {
+    public d ux() {
         return this.Yy;
     }
 }

@@ -24,23 +24,23 @@ public class VoiceCheckResult {
         }
     }
 
-    public ResultCode aUg() {
+    public ResultCode aUm() {
         return this.ety;
     }
 
-    public boolean aUh() {
+    public boolean aUn() {
         return this.etz;
     }
 
-    public boolean aUi() {
+    public boolean aUo() {
         return this.needVerify;
     }
 
-    public String aUj() {
+    public String aUp() {
         return this.authSid;
     }
 
-    public String aUk() {
+    public String aUq() {
         return this.authToken;
     }
 }

@@ -38,7 +38,7 @@ public class e implements com.baidu.tieba.frs.entelechy.b.e {
     private Runnable bun = new g(this);
     private View.OnClickListener buo = new h(this);
 
-    private boolean TF() {
+    private boolean TH() {
         return UtilHelper.detectOpenGLES20(this.bjB.getPageContext().getPageActivity());
     }
 
@@ -46,7 +46,7 @@ public class e implements com.baidu.tieba.frs.entelechy.b.e {
         if (frsActivity != null && noPressedRelativeLayout != null) {
             this.bjB = frsActivity;
             this.btR = noPressedRelativeLayout;
-            if (TF()) {
+            if (TH()) {
                 as(this.bjB.getPageContext().getPageActivity());
             } else {
                 at(this.bjB.getPageContext().getPageActivity());
@@ -78,11 +78,11 @@ public class e implements com.baidu.tieba.frs.entelechy.b.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void PP() {
         if (this.bjB != null) {
-            boolean z = (this.bjB.PZ() == null || !TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class) || this.bjB.PZ().avA() == null || this.bjB.PZ().avA().getAnchorPower() == null || this.bjB.PZ().avA().getAnchorPower().can_add_live_post.intValue() == 2) ? false : true;
+            boolean z = (this.bjB.PZ() == null || !TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class) || this.bjB.PZ().avD() == null || this.bjB.PZ().avD().getAnchorPower() == null || this.bjB.PZ().avD().getAnchorPower().can_add_live_post.intValue() == 2) ? false : true;
             boolean showXiaoyingTool = XiaoyingUtil.showXiaoyingTool();
-            boolean Fa = this.bjB.PZ().getUserData().canPostHi() ? com.baidu.tbadk.plugins.d.Fa() : false;
+            boolean Fc = this.bjB.PZ().getUserData().canPostHi() ? com.baidu.tbadk.plugins.g.Fc() : false;
             this.bgH = new com.baidu.tieba.frs.view.x(this.bjB.getPageContext(), this.btR, new j(this));
-            this.bgH.d(z, showXiaoyingTool, Fa);
+            this.bgH.d(z, showXiaoyingTool, Fc);
         }
     }
 
@@ -136,13 +136,13 @@ public class e implements com.baidu.tieba.frs.entelechy.b.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void TG() {
-        TI();
+    public void TI() {
+        TK();
         a(true, true, true, true);
-        TH();
+        TJ();
     }
 
-    private void TH() {
+    private void TJ() {
         if (this.btZ != null) {
             k kVar = new k(this);
             this.buc.setDispathEventAction(kVar);
@@ -157,7 +157,7 @@ public class e implements com.baidu.tieba.frs.entelechy.b.e {
         }
     }
 
-    private void TI() {
+    private void TK() {
         if (this.btZ != null) {
             Bitmap resBitmapPowerOf2Size = BitmapHelper.getResBitmapPowerOf2Size(this.bjB.getPageContext().getPageActivity(), t.f.btn_frs_post_off);
             Bitmap resBitmapPowerOf2Size2 = BitmapHelper.getResBitmapPowerOf2Size(this.bjB.getPageContext().getPageActivity(), t.f.btn_frs_post_more);
@@ -223,7 +223,7 @@ public class e implements com.baidu.tieba.frs.entelechy.b.e {
                 this.buk = z3;
                 this.bul = z4;
             }
-            this.btZ.JD();
+            this.btZ.JF();
         }
     }
 
@@ -232,23 +232,23 @@ public class e implements com.baidu.tieba.frs.entelechy.b.e {
         if (this.btZ != null) {
             com.baidu.adp.lib.h.h.dL().removeCallbacks(this.bum);
             com.baidu.adp.lib.h.h.dL().removeCallbacks(this.bun);
-            this.btZ.Jz();
+            this.btZ.JB();
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.e
     public void SF() {
-        if (this.btZ != null && !this.btZ.fs(1)) {
+        if (this.btZ != null && !this.btZ.fr(1)) {
             com.baidu.adp.lib.h.h.dL().postDelayed(this.bum, 1000L);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.e
     public boolean QM() {
-        if (this.btZ == null || this.btZ.fs(1)) {
+        if (this.btZ == null || this.btZ.fr(1)) {
             return false;
         }
-        this.btZ.JB();
+        this.btZ.JD();
         return true;
     }
 

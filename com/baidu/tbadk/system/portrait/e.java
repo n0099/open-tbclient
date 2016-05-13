@@ -27,7 +27,7 @@ public class e extends GetPopularPortraitsCallback {
                     i iVar = new i();
                     iVar.setUrl(popularPortraitsInfo.url);
                     iVar.setNum(popularPortraitsInfo.num);
-                    iVar.eR(popularPortraitsInfo.myItem);
+                    iVar.eQ(popularPortraitsInfo.myItem);
                     iVar.ge(popularPortraitsInfo.series);
                     arrayList2 = this.azJ.azB;
                     arrayList2.add(iVar);

@@ -24,11 +24,11 @@ public class d extends com.baidu.adp.base.e<SquareSearchActivity> {
         this.cLz = aVar;
     }
 
-    public void aox() {
+    public void aoA() {
         sendMessage(new HotForumNetMessage());
     }
 
-    public void aoy() {
+    public void aoB() {
         registerListener(new e(this, CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116));
     }
 
