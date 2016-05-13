@@ -13,7 +13,7 @@ public class a implements j.b {
     }
 
     @Override // com.baidu.tieba.frs.tab.j.b
-    public void gN(int i) {
+    public void gM(int i) {
         TabItemView tabItemView;
         g gVar;
         g gVar2;
@@ -36,7 +36,7 @@ public class a implements j.b {
         gVar = this.bsU.bsK;
         if (gVar != null) {
             gVar2 = this.bsU.bsK;
-            gVar2.gL(i);
+            gVar2.gK(i);
         }
     }
 }

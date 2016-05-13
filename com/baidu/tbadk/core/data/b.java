@@ -49,7 +49,7 @@ public class b implements com.baidu.adp.widget.ListView.v {
         return this.MC;
     }
 
-    public void bq(int i) {
+    public void bp(int i) {
         this.MC = i;
     }
 

@@ -20,6 +20,6 @@ public class y extends CustomMessageListener {
         if (customResponsedMessage == null) {
             return;
         }
-        this.this$0.aDw();
+        this.this$0.aDz();
     }
 }

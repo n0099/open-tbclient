@@ -9,9 +9,9 @@ class l implements com.baidu.tbadk.editortools.d.c {
     }
 
     @Override // com.baidu.tbadk.editortools.d.c
-    public void BD() {
+    public void BE() {
         y yVar;
         yVar = this.dqn.dqe;
-        yVar.azY();
+        yVar.aAb();
     }
 }

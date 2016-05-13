@@ -51,9 +51,9 @@ public class c extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
         super.B(pVar);
         if (pVar != null) {
             this.ecm = pVar;
-            String str = (pVar.aMA() == null || pVar.aMA().size() <= 0) ? null : pVar.aMA().get(0);
+            String str = (pVar.aMD() == null || pVar.aMD().size() <= 0) ? null : pVar.aMD().get(0);
             TbImageView tbImageView = this.aSX;
-            if (!pVar.aMu()) {
+            if (!pVar.aMx()) {
                 str = null;
             }
             tbImageView.c(str, 10, false);
@@ -69,9 +69,9 @@ public class c extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
                 this.aSY.setOnClickListener(new f(this, pVar));
             }
             this.aSZ.setVisibility(0);
-            this.aSZ.setText(ay.A(pVar.aMx()));
+            this.aSZ.setText(ay.A(pVar.aMA()));
             com.baidu.tieba.graffiti.d.aj(this.aSZ);
-            this.aTa.setText(ay.A(pVar.aMy()));
+            this.aTa.setText(ay.A(pVar.aMB()));
             s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.od(String.valueOf(pVar.getThreadId()))) {
                 this.cHv = t.d.cp_cont_c;

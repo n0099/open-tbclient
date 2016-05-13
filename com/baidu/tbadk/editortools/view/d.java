@@ -36,10 +36,10 @@ public class d implements c.a {
         boolean z2 = false;
         while (i3 < size) {
             arrayList3 = this.asK.SE;
-            b.C0041b Cm = ((b) arrayList3.get(i3)).Cm();
-            if (Cm != null) {
+            b.C0041b Cn = ((b) arrayList3.get(i3)).Cn();
+            if (Cn != null) {
                 z = true;
-                this.asK.c(Cm);
+                this.asK.c(Cn);
             } else {
                 z = z2;
             }
@@ -61,12 +61,12 @@ public class d implements c.a {
     }
 
     @Override // com.baidu.tbadk.editortools.view.c.a
-    public void Cs() {
+    public void Ct() {
         this.asK.showProgressBar();
     }
 
     @Override // com.baidu.tbadk.editortools.view.c.a
-    public void Ct() {
+    public void Cu() {
         this.asK.hideProgressBar();
     }
 }

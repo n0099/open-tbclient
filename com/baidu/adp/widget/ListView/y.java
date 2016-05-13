@@ -23,7 +23,7 @@ public class y extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: at */
+    /* renamed from: as */
     public v getItem(int i) {
         if (this.zL != null) {
             int size = this.zL.size();

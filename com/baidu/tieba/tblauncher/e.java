@@ -20,14 +20,14 @@ class e extends CustomMessageListener {
         ab abVar2;
         ab abVar3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
-            this.this$0.atT();
+            this.this$0.atW();
             abVar = this.this$0.ewE;
             if (abVar != null) {
                 abVar2 = this.this$0.ewE;
-                if (abVar2.aVL() != null) {
+                if (abVar2.aVR() != null) {
                     MainTabActivity mainTabActivity = this.this$0;
                     abVar3 = this.this$0.ewE;
-                    mainTabActivity.ewy = abVar3.aVL().getCurrentTabType();
+                    mainTabActivity.ewy = abVar3.aVR().getCurrentTabType();
                 }
             }
             this.this$0.ewz = true;

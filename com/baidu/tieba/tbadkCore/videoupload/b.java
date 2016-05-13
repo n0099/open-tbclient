@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void aUT() {
+    public static void aUZ() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
             mainDBDatabaseManager.s("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");

@@ -1,11 +1,11 @@
 package com.baidu.tbadk.util;
 /* loaded from: classes.dex */
 public class h {
-    public static boolean Fq() {
-        return Fr();
+    public static boolean Fs() {
+        return Ft();
     }
 
-    public static boolean Fr() {
+    public static boolean Ft() {
         return com.baidu.tbadk.core.util.m.bF() && com.baidu.adp.gif.e.bE();
     }
 

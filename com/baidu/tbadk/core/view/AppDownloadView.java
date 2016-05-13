@@ -81,33 +81,33 @@ public class AppDownloadView extends LinearLayout {
                     com.baidu.tbadk.core.util.at.c(this.ZQ, t.f.icon_download_pause);
                     break;
             }
-            int al = com.baidu.tbadk.download.b.AQ().al(downloadData.getId(), downloadData.getName());
+            int al = com.baidu.tbadk.download.b.AR().al(downloadData.getId(), downloadData.getName());
             if (al >= 0) {
-                cF(al);
+                cE(al);
             } else {
-                cF(0);
+                cE(0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cF(int i) {
+    public void cE(int i) {
         int max = Math.max(0, i);
         this.ZP.setProgress(max);
         this.ZR.setText(String.valueOf(max) + "%");
     }
 
     public static int b(DownloadData downloadData) {
-        if (com.baidu.tbadk.download.b.AQ().fd(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.AR().fd(downloadData.getId())) {
             return 3;
         }
-        if (com.baidu.tbadk.download.b.AQ().fb(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.AR().fb(downloadData.getId())) {
             return 5;
         }
-        if (com.baidu.tbadk.download.b.AQ().fa(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.AR().fa(downloadData.getId())) {
             return 1;
         }
-        if (!com.baidu.tbadk.download.b.AQ().am(downloadData.getId(), downloadData.getName())) {
+        if (!com.baidu.tbadk.download.b.AR().am(downloadData.getId(), downloadData.getName())) {
             return 6;
         }
         return 7;
@@ -116,38 +116,38 @@ public class AppDownloadView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        uN();
+        uO();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        uM();
+        uN();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            uM();
-        } else {
             uN();
-        }
-    }
-
-    private void uM() {
-        if (this.downloadListener != null) {
-            MessageManager.getInstance().registerListener(this.downloadListener);
+        } else {
+            uO();
         }
     }
 
     private void uN() {
         if (this.downloadListener != null) {
+            MessageManager.getInstance().registerListener(this.downloadListener);
+        }
+    }
+
+    private void uO() {
+        if (this.downloadListener != null) {
             MessageManager.getInstance().unRegisterListener(this.downloadListener);
         }
     }
 
-    public void uO() {
+    public void uP() {
         if (this.downloadListener == null) {
             this.downloadListener = new com.baidu.tbadk.core.view.a(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
         }

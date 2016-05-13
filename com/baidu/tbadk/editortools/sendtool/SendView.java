@@ -134,7 +134,7 @@ public class SendView extends TextView implements ab {
                         break;
                     }
             }
-            es(this.mType);
+            er(this.mType);
         }
     }
 
@@ -190,7 +190,7 @@ public class SendView extends TextView implements ab {
         this.mType = i;
     }
 
-    public void es(int i) {
+    public void er(int i) {
         if (i == ALL) {
             if (this.asc[0] || this.asc[1] || this.asc[2] || this.asc[3] || this.asc[4] || this.asc[5]) {
                 setEnabled(true);

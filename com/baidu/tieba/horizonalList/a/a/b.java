@@ -17,7 +17,7 @@ public class b implements a {
         this.bPV = aVar;
     }
 
-    public boolean ZI() {
+    public boolean ZK() {
         return this.bPV != null;
     }
 
@@ -46,7 +46,7 @@ public class b implements a {
         this.bPW.bPZ = null;
         this.bPW.clearChoices();
         this.bPW.aaG = true;
-        this.bPW.aay();
+        this.bPW.aaA();
         this.bPW.requestLayout();
         this.bPW.setLongClickable(true);
     }

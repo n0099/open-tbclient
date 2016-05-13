@@ -30,7 +30,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.ejP = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
         this.ejQ = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
         nq();
-        aQn();
+        aQq();
     }
 
     private void nq() {
@@ -47,7 +47,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.dQG.setOnClickListener(new t(this));
     }
 
-    private void aQn() {
+    private void aQq() {
         TiebaStatic.log("c10746");
     }
 

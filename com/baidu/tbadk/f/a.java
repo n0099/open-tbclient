@@ -11,7 +11,7 @@ public class a {
         this.auw = view;
     }
 
-    public boolean CS() {
+    public boolean CT() {
         return this.aux;
     }
 
@@ -19,14 +19,14 @@ public class a {
         if (view != null && this.auw != null && this.auw.getParent() == null) {
             this.aux = true;
             d.N(view).a(view, this.auw, z);
-            CT();
+            CU();
         }
     }
 
     public void L(View view) {
         if (view != null && this.auw != null && this.auw.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                CU();
+                CV();
                 ((ViewGroup) view).removeView(this.auw);
                 this.aux = false;
             } catch (Exception e) {
@@ -38,9 +38,9 @@ public class a {
         c(view, false);
     }
 
-    protected void CT() {
+    protected void CU() {
     }
 
-    protected void CU() {
+    protected void CV() {
     }
 }

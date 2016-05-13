@@ -101,9 +101,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         this.afm.setOnClickListener(new d(this));
         if (this.coS) {
             this.coT = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.widget_nb_item_privacy, (View.OnClickListener) null);
-            int bo = com.baidu.tbadk.core.a.h.bo(4) - 1;
-            at.a(this.coT, dEm[bo], coX[bo]);
-            this.dEk = bo;
+            int bn = com.baidu.tbadk.core.a.h.bn(4) - 1;
+            at.a(this.coT, dEm[bn], coX[bn]);
+            this.dEk = bn;
             this.coT.setOnClickListener(new e(this));
             this.dEj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.widget_nb_item_recycle_bin, (View.OnClickListener) null);
             at.a(this.dEj, t.f.icon_recycle_bin, t.f.icon_recycle_bin_w);
@@ -115,7 +115,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         this.aTo.setup(getSupportFragmentManager());
         this.aTo.setOnPageChangeListener(this);
         this.aTo.setTabWidgetViewHeight((int) getResources().getDimension(t.e.ds80));
-        ahK();
+        ahM();
         ((RelativeLayout.LayoutParams) this.aTo.getTabWrapper().getLayoutParams()).setMargins(0, UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.c(getActivity(), t.e.ds98), 0, 0);
         if (bundle != null) {
             this.coO = bundle.getInt("CurrTabIndex");
@@ -140,21 +140,21 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    private void ahK() {
+    private void ahM() {
         if (this.dEl != null) {
             int count = this.dEl.getCount();
             for (int i = 0; i < count; i++) {
                 Fragment item = this.dEl.getItem(i);
-                int jD = this.dEl.jD(i);
+                int jC = this.dEl.jC(i);
                 if (item != null) {
-                    if (jD == 0) {
+                    if (jC == 0) {
                         a(item, 0, String.format(getPageContext().getString(t.j.person_post_thread), this.coR));
-                    } else if (jD == 1) {
+                    } else if (jC == 1) {
                         a(item, 1, String.format(getPageContext().getString(t.j.person_post_reply), this.coR));
                     }
                 }
             }
-            this.aTo.sT();
+            this.aTo.sU();
         }
     }
 
@@ -168,7 +168,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return this.mV;
     }
 
-    public String ahM() {
+    public String ahO() {
         return this.coR;
     }
 
@@ -182,11 +182,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         super.onSaveInstanceState(bundle);
     }
 
-    public String aCO() {
+    public String aCR() {
         if (this.coS) {
             return getPageContext().getString(t.j.person_post_lv_empty_host);
         }
-        return String.format(getPageContext().getString(t.j.person_post_lv_empty_guest), ahM());
+        return String.format(getPageContext().getString(t.j.person_post_lv_empty_guest), ahO());
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -232,10 +232,10 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public BdListView onGetPreLoadListView() {
         if (this.dEl != null) {
-            v aCQ = this.dEl.aCQ();
-            ae aCV = aCQ != null ? aCQ.aCV() : null;
-            if (aCV != null) {
-                return aCV.PC();
+            v aCT = this.dEl.aCT();
+            ae aCY = aCT != null ? aCT.aCY() : null;
+            if (aCY != null) {
+                return aCY.PE();
             }
             return null;
         }

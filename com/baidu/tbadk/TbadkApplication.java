@@ -44,7 +44,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     private static final String CUSTOM_THEME_URL = "file:///android_asset/sapi_theme/style.css";
@@ -89,7 +88,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         } else {
             string = resources.getString(t.j.register_tip);
         }
-        boolean z = b.sQ().getBoolean("is_domain_qa", false);
+        boolean z = b.sR().getBoolean("is_domain_qa", false);
         boolean isVoiceLoginCanUse = TbadkCoreApplication.m11getInst().isVoiceLoginCanUse();
         if (z) {
             build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
@@ -100,7 +99,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             SapiAccountManager.getInstance().init(build);
         } catch (Exception e) {
         }
-        ab.ES().U(System.currentTimeMillis() - currentTimeMillis);
+        ab.ET().U(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private FastLoginFeature[] generateFastLoginFeatures(boolean z) {
@@ -127,18 +126,18 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         init(getContext());
         if ((this.isCdnTachometerProcess == null || !this.isCdnTachometerProcess.booleanValue()) && !this.isPluginInstallProcess) {
-            boolean Fs = j.Fs();
+            boolean Fu = j.Fu();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = Fs && isXiaomiPushSdkShouldOpen;
+            boolean z = Fu && isXiaomiPushSdkShouldOpen;
             long currentTimeMillis = System.currentTimeMillis();
             String str = String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER;
-            PluginPackageManager.hF().a(a.EX(), new com.baidu.tbadk.g.c(), Fs && isXiaomiPushSdkShouldOpen);
+            PluginPackageManager.hF().a(a.EY(), new com.baidu.tbadk.g.c(), Fu && isXiaomiPushSdkShouldOpen);
             PluginSettings m9if = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if();
             if (m9if != null) {
                 String containerVersion = m9if.getContainerVersion();
                 if (!TextUtils.isEmpty(containerVersion) && Util.K(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                    ab.ES().bS(z);
-                    ab.ES().W(System.currentTimeMillis() - currentTimeMillis);
+                    ab.ET().bS(z);
+                    ab.ET().W(System.currentTimeMillis() - currentTimeMillis);
                 }
             }
         }
@@ -154,19 +153,19 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (this.isRemoteProcess) {
-            ab.ES().an(System.currentTimeMillis() - this.processCreateTime);
+            ab.ET().an(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
             long currentTimeMillis2 = System.currentTimeMillis();
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    bg.us().c(null, new String[]{str3});
+                    bg.ut().c(null, new String[]{str3});
                 }
             });
-            ab.ES().af(System.currentTimeMillis() - currentTimeMillis2);
+            ab.ET().af(System.currentTimeMillis() - currentTimeMillis2);
         }
-        ab.ES().S(System.currentTimeMillis());
+        ab.ET().S(System.currentTimeMillis());
     }
 
     private void initSettings() {
@@ -272,7 +271,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        b.sQ().remove("account_share");
+        b.sR().remove("account_share");
     }
 
     public String loginShareRead() {
@@ -327,14 +326,10 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loadPatchs() {
         super.loadPatchs();
         PluginPackageManager.hF().d(String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
-        if (checkSyncPatchBlacklist() && m.hq()) {
-            int i = b.sQ().getInt("plugin_patch_hook_failed_count", 0);
-            PluginPackageManager.hF().am(i);
-            if (i == 0 && PluginPackageManager.hF().hJ()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                PluginPackageManager.hF().hK();
-                ab.ES().V(System.currentTimeMillis() - currentTimeMillis);
-            }
+        if (checkSyncPatchBlacklist() && m.hq() && b.sR().getInt("plugin_patch_hook_failed_count", 0) == 0 && PluginPackageManager.hF().hJ()) {
+            long currentTimeMillis = System.currentTimeMillis();
+            PluginPackageManager.hF().hK();
+            ab.ET().V(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -342,13 +337,12 @@ public class TbadkApplication extends TbadkCoreApplication {
         StringBuffer stringBuffer;
         Map<String, PluginSetting> plugins;
         PluginSetting pluginSetting;
-        String[] split;
         try {
             plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if().getPlugins();
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
-        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if().hasPatch() || plugins == null || plugins.isEmpty()) {
+        if (plugins == null || plugins.isEmpty()) {
             return false;
         }
         Iterator<PluginSetting> it = plugins.values().iterator();
@@ -364,12 +358,6 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         if (pluginSetting == null) {
             return false;
-        }
-        if (!TextUtils.isEmpty(pluginSetting.ext)) {
-            String string = new JSONObject(pluginSetting.ext).getString("patch_blacklist_models");
-            if (!TextUtils.isEmpty(string) && (split = string.split(",")) != null) {
-                this.mPatchWhiteList = split;
-            }
         }
         if (this.mPatchWhiteList == null || this.mPatchWhiteList.length == 0) {
             return true;

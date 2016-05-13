@@ -104,15 +104,15 @@ public class b extends com.baidu.adp.lib.a.b.a.a.i {
         return this.mLink;
     }
 
-    public int GD() {
+    public int GF() {
         return this.aDW;
     }
 
-    public String GE() {
+    public String GG() {
         return this.aDX;
     }
 
-    public void GF() {
+    public void GH() {
         if (this.VC != null) {
             this.VC = this.VC.replaceAll("\n", "");
         }

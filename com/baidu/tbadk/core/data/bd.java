@@ -16,11 +16,11 @@ public class bd {
         return this.activity_url;
     }
 
-    public String rL() {
+    public String rM() {
         return this.activity_all_icon;
     }
 
-    public String rM() {
+    public String rN() {
         return this.activity_half_icon;
     }
 

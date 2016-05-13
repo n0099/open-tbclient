@@ -47,6 +47,6 @@ public class bu extends y.a {
         this.biu = (TextView) view.findViewById(t.g.frs_app_download);
         this.bih = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
         this.bij = (ViewStub) view.findViewById(t.g.item_adkiller_close);
-        this.bis.uO();
+        this.bis.uP();
     }
 }

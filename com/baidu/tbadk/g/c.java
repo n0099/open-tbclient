@@ -175,7 +175,7 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         private String b(o<String> oVar, String str) {
             this.LL = new ab(c.ADDRESS);
             this.LL.n("plugin_upload_config", str);
-            return this.LL.tc();
+            return this.LL.td();
         }
 
         /* JADX DEBUG: Method merged with bridge method */

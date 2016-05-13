@@ -12,7 +12,7 @@ class m implements com.baidu.adp.lib.f.c<GifView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: awX */
+    /* renamed from: axa */
     public GifView dE() {
         return new GifView(this.dqn.getPageContext().getPageActivity());
     }

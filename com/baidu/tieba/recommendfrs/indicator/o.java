@@ -24,7 +24,7 @@ public class o extends com.baidu.adp.lib.h.d {
         aVar = this.eaI.eaG;
         if (aVar != null) {
             aVar2 = this.eaI.eaG;
-            aVar2.aon();
+            aVar2.aoq();
         }
         viewGroup = this.eaI.cIW;
         view = this.eaI.awk;

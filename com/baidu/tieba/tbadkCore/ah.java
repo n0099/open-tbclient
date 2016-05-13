@@ -37,18 +37,18 @@ public class ah {
             com.baidu.adp.lib.util.k.showToast(context, t.j.neterror);
             return false;
         } else {
-            com.baidu.tbadk.distribute.a.AK().a(cVar);
+            com.baidu.tbadk.distribute.a.AL().a(cVar);
             String str2 = cVar.MO;
             if (StringUtils.isNull(str2)) {
                 str2 = str;
             }
-            com.baidu.tbadk.download.b.AQ().a(cVar.MS, cVar.MR, str2, i, com.baidu.adp.lib.h.b.g(cVar.MN, 0));
+            com.baidu.tbadk.download.b.AR().a(cVar.MS, cVar.MR, str2, i, com.baidu.adp.lib.h.b.g(cVar.MN, 0));
             return true;
         }
     }
 
     public static final void e(com.baidu.tbadk.core.data.c cVar) {
-        com.baidu.tbadk.download.b.AQ().e(cVar.MR, cVar.MS, true);
+        com.baidu.tbadk.download.b.AR().e(cVar.MR, cVar.MS, true);
     }
 
     public static final void a(Context context, q qVar) {

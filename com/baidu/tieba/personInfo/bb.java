@@ -80,7 +80,7 @@ public class bb extends com.baidu.adp.framework.listener.a {
                         frameLayout4 = this.this$0.dFH;
                         if (frameLayout4 != null) {
                             bjVar4 = this.this$0.dFA;
-                            bjVar4.Pl();
+                            bjVar4.Pn();
                             f fVar = this.this$0;
                             frameLayout5 = this.this$0.dFH;
                             fVar.aH(frameLayout5);
@@ -111,7 +111,7 @@ public class bb extends com.baidu.adp.framework.listener.a {
                         frameLayout = this.this$0.dFH;
                         if (frameLayout != null) {
                             bjVar2 = this.this$0.dFA;
-                            bjVar2.Pl();
+                            bjVar2.Pn();
                             f fVar3 = this.this$0;
                             frameLayout2 = this.this$0.dFH;
                             fVar3.aH(frameLayout2);
@@ -143,10 +143,10 @@ public class bb extends com.baidu.adp.framework.listener.a {
                     bgVar4 = this.this$0.dyP;
                     UserData userData = bgVar4.getUserData();
                     if (userData != null && (personPrivate = userData.getPersonPrivate()) != null) {
-                        com.baidu.tbadk.core.a.h.n(5, personPrivate.AE());
-                        com.baidu.tbadk.core.a.h.n(3, personPrivate.AC());
-                        com.baidu.tbadk.core.a.h.n(4, personPrivate.AD());
-                        com.baidu.tbadk.core.a.h.n(2, personPrivate.AB());
+                        com.baidu.tbadk.core.a.h.n(5, personPrivate.AF());
+                        com.baidu.tbadk.core.a.h.n(3, personPrivate.AD());
+                        com.baidu.tbadk.core.a.h.n(4, personPrivate.AE());
+                        com.baidu.tbadk.core.a.h.n(2, personPrivate.AC());
                     }
                 }
             }

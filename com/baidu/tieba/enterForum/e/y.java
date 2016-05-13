@@ -42,7 +42,7 @@ public class y extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.w, com.
         if (wVar != null) {
             int level = wVar.getLevel();
             this.aZv.setText(wVar.getName());
-            if (wVar.aSV() == 0) {
+            if (wVar.aTb() == 0) {
                 this.aZu.setVisibility(8);
             } else {
                 this.aZu.setVisibility(0);

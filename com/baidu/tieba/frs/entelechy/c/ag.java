@@ -15,10 +15,10 @@ public class ag implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tbadk.core.data.ag agVar;
-        if (this.bpP.JM() != null) {
-            by<com.baidu.tbadk.core.data.ag> JM = this.bpP.JM();
+        if (this.bpP.JO() != null) {
+            by<com.baidu.tbadk.core.data.ag> JO = this.bpP.JO();
             agVar = this.bpP.bpN;
-            JM.a(view, agVar);
+            JO.a(view, agVar);
         }
     }
 }

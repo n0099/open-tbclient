@@ -17,7 +17,7 @@ public class en {
         this.bma.put(i, eoVar);
     }
 
-    public eo gt(int i) {
+    public eo gs(int i) {
         return this.bma.get(i);
     }
 }

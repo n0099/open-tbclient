@@ -20,7 +20,7 @@ class k extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof aw)) {
             aw awVar = (aw) customResponsedMessage.getData();
             if (awVar.PS == 0) {
-                this.dbZ.auH();
+                this.dbZ.auK();
             } else {
                 this.dbZ.lF(awVar.errorMsg);
             }

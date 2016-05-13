@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements ap {
-    final /* synthetic */ ag eYV;
-    private final /* synthetic */ String eYW;
+    final /* synthetic */ ag eYU;
+    private final /* synthetic */ String eYV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ag agVar, String str) {
-        this.eYV = agVar;
-        this.eYW = str;
+        this.eYU = agVar;
+        this.eYV = str;
     }
 
     @Override // com.baidu.tieba.write.album.ap
@@ -31,17 +31,17 @@ public class am implements ap {
         o oVar2;
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list2);
-        if (!this.eYW.equals("-1")) {
-            textView = this.eYV.Di;
+        if (!this.eYV.equals("-1")) {
+            textView = this.eYU.Di;
             textView.setText(str);
-            this.eYV.bbK();
+            this.eYU.bbR();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();
             arrayList2.addAll(list);
             d dVar = new d();
             dVar.setAlbumId("-1");
-            albumActivity = this.eYV.eXM;
+            albumActivity = this.eYU.eXL;
             String string = albumActivity.getPageContext().getString(t.j.write_album_all);
             dVar.setName(string);
             dVar.pa(String.valueOf(arrayList.size()));
@@ -52,14 +52,14 @@ public class am implements ap {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             arrayList.add(0, imageFileInfo);
-            textView2 = this.eYV.Di;
+            textView2 = this.eYU.Di;
             textView2.setText(string);
-            oVar = this.eYV.eXx;
+            oVar = this.eYU.eXw;
             oVar.cN(arrayList2);
-            oVar2 = this.eYV.eXx;
+            oVar2 = this.eYU.eXw;
             oVar2.cO(arrayList);
             z = true;
         }
-        this.eYV.setData(arrayList, z);
+        this.eYU.setData(arrayList, z);
     }
 }

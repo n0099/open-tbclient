@@ -1,9 +1,9 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public interface q {
-    String aTE();
+    String aTK();
 
-    String aTF();
+    String aTL();
 
-    String aTG();
+    String aTM();
 }

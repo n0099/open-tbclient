@@ -10,7 +10,7 @@ public class cg {
     private long dku = 0;
     private long dkv = 0;
 
-    public static synchronized cg axh() {
+    public static synchronized cg axk() {
         cg cgVar;
         synchronized (cg.class) {
             if (dkr == null) {
@@ -22,18 +22,18 @@ public class cg {
     }
 
     private cg() {
-        OQ();
+        OS();
     }
 
-    private void OQ() {
+    private void OS() {
         if (this.dks == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.dks = com.baidu.tbadk.core.b.a.rR().cw("tb.pb_mark");
+            this.dks = com.baidu.tbadk.core.b.a.rS().cw("tb.pb_mark");
             this.dkv = System.currentTimeMillis() - currentTimeMillis;
         }
         if (this.dkt == null) {
             long currentTimeMillis2 = System.currentTimeMillis();
-            this.dkt = com.baidu.tbadk.core.b.a.rR().cw("tb.pb_normal");
+            this.dkt = com.baidu.tbadk.core.b.a.rS().cw("tb.pb_normal");
             this.dku = System.currentTimeMillis() - currentTimeMillis2;
         }
     }
@@ -69,16 +69,16 @@ public class cg {
             return null;
         }
         com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-        vVar.eM(1001);
+        vVar.eL(1001);
         vVar.axG = (System.currentTimeMillis() - currentTimeMillis) + j;
-        vVar.EI();
+        vVar.EJ();
         return Q.iz;
     }
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            OQ();
+            OS();
             if (z) {
                 this.dks.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -86,22 +86,22 @@ public class cg {
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eM(1001);
+            vVar.eL(1001);
             vVar.axH = currentTimeMillis2;
-            vVar.EJ();
+            vVar.EK();
         }
     }
 
     public void l(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            OQ();
+            OS();
             this.dks.a(str, bArr, 2592000000L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eM(1001);
+            vVar.eL(1001);
             vVar.axH = currentTimeMillis2;
-            vVar.EJ();
+            vVar.EK();
         }
     }
 }

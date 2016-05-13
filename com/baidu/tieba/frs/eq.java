@@ -14,11 +14,11 @@ public class eq {
         return bmf;
     }
 
-    public void gv(int i) {
+    public void gu(int i) {
         this.bme.put(i, "1");
     }
 
-    public boolean gw(int i) {
+    public boolean gv(int i) {
         if (i > 100) {
             i = 100;
         }

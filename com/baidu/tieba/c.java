@@ -49,8 +49,8 @@ class c implements Runnable {
                     relativeLayout5 = this.aGQ.mRootView;
                     relativeLayout5.setOnClickListener(new d(this));
                 }
-                com.baidu.tbadk.performanceLog.ab.ES().ab(System.currentTimeMillis());
-                com.baidu.tieba.b.a.Lf().Lk();
+                com.baidu.tbadk.performanceLog.ab.ET().ab(System.currentTimeMillis());
+                com.baidu.tieba.b.a.Lh().Lm();
             }
         }
         com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();

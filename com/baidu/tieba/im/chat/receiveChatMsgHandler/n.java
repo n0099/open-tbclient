@@ -75,13 +75,13 @@ public class n {
                     }
                 }
             }
-            com.baidu.tieba.im.db.d.aeq().l(linkedList);
+            com.baidu.tieba.im.db.d.aes().l(linkedList);
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
             imMessageCenterPojo.setIs_hidden(1);
             imMessageCenterPojo.setCustomGroupType(-2);
             imMessageCenterPojo.setPulled_msgId(j2);
-            com.baidu.tieba.im.db.i.aex().c(imMessageCenterPojo);
+            com.baidu.tieba.im.db.i.aez().c(imMessageCenterPojo);
             if (groupNewsPojo3 != null) {
                 ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                 imMessageCenterPojo2.setGid(String.valueOf("-1002"));
@@ -91,7 +91,7 @@ public class n {
                 imMessageCenterPojo2.setLast_content_time(groupNewsPojo3.getTime());
                 imMessageCenterPojo2.setLast_content(groupNewsPojo3.getContent());
                 imMessageCenterPojo2.setIs_hidden(0);
-                com.baidu.tieba.im.db.i.aex().a(imMessageCenterPojo2, 2);
+                com.baidu.tieba.im.db.i.aez().a(imMessageCenterPojo2, 2);
             }
             if (groupNewsPojo2 != null) {
                 ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
@@ -102,7 +102,7 @@ public class n {
                 imMessageCenterPojo3.setLast_content_time(groupNewsPojo2.getTime());
                 imMessageCenterPojo3.setLast_content(groupNewsPojo2.getContent());
                 imMessageCenterPojo3.setIs_hidden(0);
-                com.baidu.tieba.im.db.i.aex().a(imMessageCenterPojo3, 2);
+                com.baidu.tieba.im.db.i.aez().a(imMessageCenterPojo3, 2);
             }
             if (groupNewsPojo != null) {
                 ImMessageCenterPojo imMessageCenterPojo4 = new ImMessageCenterPojo();
@@ -113,7 +113,7 @@ public class n {
                 imMessageCenterPojo4.setLast_content_time(groupNewsPojo.getTime());
                 imMessageCenterPojo4.setLast_content(groupNewsPojo.getContent());
                 imMessageCenterPojo4.setIs_hidden(0);
-                com.baidu.tieba.im.db.i.aex().a(imMessageCenterPojo4, 2);
+                com.baidu.tieba.im.db.i.aez().a(imMessageCenterPojo4, 2);
             }
             Iterator<GroupNewsPojo> it2 = j.iterator();
             while (it2.hasNext()) {
@@ -194,7 +194,7 @@ public class n {
                 str4 = jSONObject.optString("userName");
                 str5 = jSONObject.optString("groupName");
             }
-            ImMessageCenterPojo aa = com.baidu.tieba.im.memorycache.b.agY().aa(str3, 1);
+            ImMessageCenterPojo aa = com.baidu.tieba.im.memorycache.b.aha().aa(str3, 1);
             if (aa != null) {
                 str5 = aa.getGroup_name();
             }

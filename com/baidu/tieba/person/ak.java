@@ -14,6 +14,6 @@ public class ak implements a.b {
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.dwD.aBL();
+        this.dwD.aBO();
     }
 }

@@ -4,15 +4,15 @@ import android.content.Intent;
 import com.baidu.tbadk.core.atomData.MotuVideoConfig;
 /* loaded from: classes.dex */
 class f implements Runnable {
-    final /* synthetic */ WriteVideoActivity faE;
+    final /* synthetic */ WriteVideoActivity faD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(WriteVideoActivity writeVideoActivity) {
-        this.faE = writeVideoActivity;
+        this.faD = writeVideoActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.faE.getPageContext().getPageActivity().sendBroadcast(new Intent(MotuVideoConfig.ACTION_FINISH_VIDEO_ALL_ACTIVITY));
+        this.faD.getPageContext().getPageActivity().sendBroadcast(new Intent(MotuVideoConfig.ACTION_FINISH_VIDEO_ALL_ACTIVITY));
     }
 }

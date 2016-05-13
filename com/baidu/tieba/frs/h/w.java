@@ -38,10 +38,10 @@ public class w {
     public void onOpened() {
         ArrayList<RecommendForumData> recommendForumData;
         this.bpj.setSwipeBackEnabled(false);
-        this.bpj.PF();
+        this.bpj.PH();
         TiebaStatic.eventStat(this.bpj.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
         com.baidu.tieba.tbadkCore.o PZ = this.bpj.PZ();
-        if (PZ != null && PZ.avA() != null && (recommendForumData = PZ.avA().getRecommendForumData()) != null) {
+        if (PZ != null && PZ.avD() != null && (recommendForumData = PZ.avD().getRecommendForumData()) != null) {
             Iterator<RecommendForumData> it = recommendForumData.iterator();
             while (it.hasNext()) {
                 TiebaStatic.eventStat(this.bpj.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().mParam);

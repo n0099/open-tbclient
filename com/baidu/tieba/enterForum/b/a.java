@@ -11,11 +11,11 @@ public class a implements com.baidu.tbadk.mvc.b.a {
         this.aWC = wVar2;
     }
 
-    public w Mb() {
+    public w Md() {
         return this.aWB;
     }
 
-    public w Mc() {
+    public w Me() {
         return this.aWC;
     }
 }

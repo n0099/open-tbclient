@@ -84,7 +84,7 @@ public class bz implements View.OnClickListener {
                 }
             }
         } else {
-            this.biM.Fi();
+            this.biM.Fk();
             com.baidu.tbadk.core.util.aw awVar2 = new com.baidu.tbadk.core.util.aw("c10029");
             str3 = this.biM.mForumId;
             TiebaStatic.log(awVar2.ac("fid", str3));

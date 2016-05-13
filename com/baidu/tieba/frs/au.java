@@ -23,7 +23,7 @@ class au extends CustomMessageListener {
                 FrsActivityStatic.bhG = true;
                 FrsActivityStatic.bhF = true;
             }
-            this.bhl.PF();
+            this.bhl.PH();
         }
     }
 }

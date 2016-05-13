@@ -161,16 +161,16 @@ public class FragmentTabIndicator extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        cW(TbadkCoreApplication.m11getInst().getSkinType());
+        cV(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
-    public void cW(int i) {
+    public void cV(int i) {
         at.c(this.auO, this.auL, 1);
         if (this.auO != null) {
             this.auO.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.c((Resources) null, this.auM), at.getDrawable(this.auN), (Drawable) null);
         }
         for (Map.Entry<String, a> entry : this.auR.entrySet()) {
-            entry.getValue().cW(i);
+            entry.getValue().cV(i);
         }
     }
 
@@ -183,7 +183,7 @@ public class FragmentTabIndicator extends LinearLayout {
         public boolean auS = true;
         public int auU = t.d.frs_slidebar_message_text;
 
-        public void cW(int i) {
+        public void cV(int i) {
             if (this.auT != 0) {
                 at.k(this.view, this.auT);
             }
@@ -214,7 +214,7 @@ public class FragmentTabIndicator extends LinearLayout {
         }
     }
 
-    public void De() {
+    public void Df() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.auO.getLayoutParams();
         layoutParams.width = -2;
         this.auO.setLayoutParams(layoutParams);

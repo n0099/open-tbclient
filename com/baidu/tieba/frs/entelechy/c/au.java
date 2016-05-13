@@ -20,7 +20,7 @@ public class au extends w {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.c.w, com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.frs_share_picture_thread_item;
     }
 
@@ -29,10 +29,10 @@ public class au extends w {
         super.h(axVar);
         if (axVar != null) {
             this.bkS.setVisibility(8);
-            if (axVar.qU() != null && axVar.qU().size() > 0 && axVar.qU().get(0) != null) {
-                com.baidu.tbadk.core.data.a aVar = axVar.qU().get(0);
+            if (axVar.qV() != null && axVar.qV().size() > 0 && axVar.qV().get(0) != null) {
+                com.baidu.tbadk.core.data.a aVar = axVar.qV().get(0);
                 if (!StringUtils.isNull(aVar.getUrl())) {
-                    this.bkS.setTag(axVar.qU().get(0).getUrl());
+                    this.bkS.setTag(axVar.qV().get(0).getUrl());
                     this.bqq = axVar.getTid();
                     this.mForumId = String.valueOf(axVar.getFid());
                 }

@@ -22,9 +22,9 @@ public class ai implements View.OnClickListener {
             if (list != null) {
                 com.baidu.adp.widget.ListView.v vVar = null;
                 if (view.getTag() instanceof com.baidu.tieba.person.b.q) {
-                    vVar = ((com.baidu.tieba.person.b.q) view.getTag()).vL();
+                    vVar = ((com.baidu.tieba.person.b.q) view.getTag()).vM();
                 } else if (view.getTag() instanceof com.baidu.tieba.person.b.c) {
-                    vVar = ((com.baidu.tieba.person.b.c) view.getTag()).vL();
+                    vVar = ((com.baidu.tieba.person.b.c) view.getTag()).vM();
                 }
                 list2 = this.this$0.dFK;
                 int a = com.baidu.tbadk.core.util.y.a(list2, vVar);

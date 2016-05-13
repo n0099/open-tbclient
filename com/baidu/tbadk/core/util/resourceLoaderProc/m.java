@@ -52,7 +52,7 @@ public class m extends a {
         if (this.ZL) {
             return null;
         }
-        com.baidu.adp.widget.a.a fL = com.baidu.tbadk.imageManager.c.CH().fL(str);
+        com.baidu.adp.widget.a.a fL = com.baidu.tbadk.imageManager.c.CI().fL(str);
         if (fL != null) {
             fL.xH.xJ = "memory";
             fL.xH.xK = 0L;
@@ -77,9 +77,9 @@ public class m extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.g.e
     public void a(String str, Object obj, Object... objArr) {
-        com.baidu.tbadk.imageManager.c CH = com.baidu.tbadk.imageManager.c.CH();
+        com.baidu.tbadk.imageManager.c CI = com.baidu.tbadk.imageManager.c.CI();
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            CH.b(str, (com.baidu.adp.widget.a.a) obj);
+            CI.b(str, (com.baidu.adp.widget.a.a) obj);
         }
     }
 
@@ -99,12 +99,12 @@ public class m extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
+    public boolean uI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uI() {
+    public boolean uJ() {
         return false;
     }
 
@@ -117,7 +117,7 @@ public class m extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
+    public int uK() {
         return this.ZN;
     }
 }

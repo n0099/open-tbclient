@@ -27,7 +27,7 @@ public class ee {
         private static ee dmV = new ee(null);
     }
 
-    public static ee ayA() {
+    public static ee ayD() {
         return a.dmV;
     }
 
@@ -65,7 +65,7 @@ public class ee {
         if (!this.dmS) {
             this.dmT = false;
             return null;
-        } else if (this.dfY != null && this.dfY.avC() != null && this.dfY.avC().size() > 0) {
+        } else if (this.dfY != null && this.dfY.avF() != null && this.dfY.avF().size() > 0) {
             this.dmT = true;
             com.baidu.tieba.pb.data.e eVar = this.dfY;
             this.dfY = null;
@@ -77,7 +77,7 @@ public class ee {
         }
     }
 
-    public Parcelable ayB() {
+    public Parcelable ayE() {
         if (this.dmT) {
             this.dmT = false;
             Parcelable parcelable = this.dmU;
@@ -88,11 +88,11 @@ public class ee {
         return null;
     }
 
-    public boolean axB() {
+    public boolean axE() {
         return this.dlc;
     }
 
-    public boolean ayC() {
+    public boolean ayF() {
         return this.dla;
     }
 
@@ -104,10 +104,10 @@ public class ee {
         } else if (eVar == null) {
             reset();
             return false;
-        } else if (eVar.avC() == null) {
+        } else if (eVar.avF() == null) {
             reset();
             return false;
-        } else if (eVar.avC().size() < 1) {
+        } else if (eVar.avF().size() < 1) {
             reset();
             return false;
         } else if (parcelable == null) {
@@ -131,10 +131,10 @@ public class ee {
     }
 
     public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.dfY != null && this.dfY.avA() != null) {
+        if (customResponsedMessage != null && this.dfY != null && this.dfY.avD() != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.h.b.c(this.dfY.avA().getId(), 0L)) {
-                this.dfY.avA().setLike(i);
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.h.b.c(this.dfY.avD().getId(), 0L)) {
+                this.dfY.avD().setLike(i);
             }
         }
     }

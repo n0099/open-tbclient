@@ -54,7 +54,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         } else {
             MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
         }
-        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, k.c(getActivity(), t.e.ds220)), NoDataViewFactory.d.cP(t.j.select_friend_no_data_tip), null);
+        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, k.c(getActivity(), t.e.ds220)), NoDataViewFactory.d.cO(t.j.select_friend_no_data_tip), null);
         this.azz.addView(this.mNoDataView, 1);
         if (bundle != null) {
             this.cxu = bundle.getInt("key_from_where");
@@ -100,12 +100,12 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareFromGameCenterMsgData shareFromGameCenterMsgData, long j, String str, String str2) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.bO(1);
+        aVar.bN(1);
         com.baidu.tieba.im.widget.b bVar = new com.baidu.tieba.im.widget.b(getPageContext().getPageActivity());
         bVar.setData(shareFromGameCenterMsgData);
         aVar.z(bVar);
         aVar.a(t.j.share, new f(this, j, shareFromGameCenterMsgData, str, str2, bVar));
         aVar.b(t.j.alert_no_button, new g(this, bVar));
-        aVar.b(getPageContext()).rU();
+        aVar.b(getPageContext()).rV();
     }
 }

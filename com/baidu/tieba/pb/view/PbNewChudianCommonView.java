@@ -85,13 +85,13 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
             this.dsz = iVar;
             this.dss = bdBaseActivity;
             this.ddo = aVar;
-            ArrayList<com.baidu.tieba.tbadkCore.data.h> aTs = this.dsz.aTs();
-            if (aTs != null && aTs.size() > 0 && (hVar = aTs.get(0)) != null && !ay.isEmpty(hVar.getText())) {
+            ArrayList<com.baidu.tieba.tbadkCore.data.h> aTy = this.dsz.aTy();
+            if (aTy != null && aTy.size() > 0 && (hVar = aTy.get(0)) != null && !ay.isEmpty(hVar.getText())) {
                 at.c(this.dst, t.d.cp_cont_i, 1);
                 at.d(this.dst, t.f.btn_all_green_n, 1);
                 this.dst.setText(hVar.getText());
                 this.dst.setVisibility(0);
-                if (aTs.size() > 1 && (hVar2 = aTs.get(1)) != null && !ay.isEmpty(hVar2.getText())) {
+                if (aTy.size() > 1 && (hVar2 = aTy.get(1)) != null && !ay.isEmpty(hVar2.getText())) {
                     at.c(this.dsu, t.d.cp_cont_i, 1);
                     at.d(this.dsu, t.f.btn_all_green_n, 1);
                     this.dsu.setText(hVar2.getText());
@@ -105,17 +105,17 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
                 at.c(this.dsv, t.f.icon_pic_place);
                 this.dsv.setVisibility(0);
             }
-            com.baidu.tieba.tbadkCore.data.j aTu = this.dsz.aTu();
-            if (aTu != null && !ay.isEmpty(aTu.getText())) {
+            com.baidu.tieba.tbadkCore.data.j aTA = this.dsz.aTA();
+            if (aTA != null && !ay.isEmpty(aTA.getText())) {
                 if (this.dst.getVisibility() != 0 && this.dsu.getVisibility() != 0) {
                     at.c(this.dsy, t.d.cp_cont_i, 1);
                     at.d(this.dsy, t.f.btn_all_blue_n, 1);
-                    this.dsy.setText(aTu.getText());
+                    this.dsy.setText(aTA.getText());
                     this.dsy.setVisibility(0);
                 } else {
                     at.c(this.dsx, t.d.cp_cont_i, 1);
                     at.d(this.dsx, t.f.btn_all_blue_n, 1);
-                    this.dsx.setText(aTu.getText());
+                    this.dsx.setText(aTA.getText());
                     this.dsx.setVisibility(0);
                 }
             }
@@ -129,19 +129,19 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
     public void onClick(View view) {
         if (this.dsz != null) {
             if (view == this.dst) {
-                if (this.dsz.aTs() != null) {
-                    a(this.dsz.aTs().get(0));
+                if (this.dsz.aTy() != null) {
+                    a(this.dsz.aTy().get(0));
                 }
             } else if (view == this.dsu) {
-                if (this.dsz.aTs() != null) {
-                    a(this.dsz.aTs().get(1));
+                if (this.dsz.aTy() != null) {
+                    a(this.dsz.aTy().get(1));
                 }
             } else if (view == this.dsx || view == this.dsy) {
-                com.baidu.tieba.tbadkCore.data.j aTu = this.dsz.aTu();
-                if (!ay.isEmpty(aTu.getUrl())) {
-                    com.baidu.tbadk.browser.f.t(this.mContext, aTu.getUrl());
+                com.baidu.tieba.tbadkCore.data.j aTA = this.dsz.aTA();
+                if (!ay.isEmpty(aTA.getUrl())) {
+                    com.baidu.tbadk.browser.f.t(this.mContext, aTA.getUrl());
                     if (this.ddo != null) {
-                        this.ddo.z(aTu.getUrl(), "BUTTON", "CLICK");
+                        this.ddo.z(aTA.getUrl(), "BUTTON", "CLICK");
                     }
                 }
             }
@@ -165,7 +165,7 @@ public class PbNewChudianCommonView extends RelativeLayout implements View.OnCli
                     aVar.b(this.dss.getResources().getString(t.j.cancel), new l(this, trim));
                     aVar.aq(false);
                     aVar.b(this.dss.getPageContext());
-                    aVar.rU();
+                    aVar.rV();
                 }
             }
         }

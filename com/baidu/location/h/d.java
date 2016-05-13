@@ -31,7 +31,7 @@ public class d {
         }
     }
 
-    private long aJ(int i) {
+    private long aI(int i) {
         RandomAccessFile randomAccessFile;
         String g = i.g();
         if (g == null) {
@@ -103,7 +103,7 @@ public class d {
     }
 
     public long b() {
-        return aJ(this.d);
+        return aI(this.d);
     }
 
     public void b(long j) {
@@ -111,6 +111,6 @@ public class d {
     }
 
     public long c() {
-        return aJ(this.g);
+        return aI(this.g);
     }
 }

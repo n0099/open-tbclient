@@ -17,6 +17,6 @@ public class f implements View.OnClickListener {
         EditText editText;
         editText = this.dVb.cLO;
         editText.setText("");
-        this.dVb.aKB();
+        this.dVb.aKE();
     }
 }

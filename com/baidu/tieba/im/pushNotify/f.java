@@ -25,7 +25,7 @@ class f extends CustomMessageListener {
             if (imMessageCenterPojo.getCustomGroupType() == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(com.baidu.adp.lib.h.b.c(imMessageCenterPojo.getGid(), 0L))));
             }
-            com.baidu.tieba.im.b.b.ahA().a(com.baidu.adp.lib.h.b.c(imMessageCenterPojo.getGid(), 0L), g.bl(imMessageCenterPojo.getPulled_msgId()), 0L, true);
+            com.baidu.tieba.im.b.b.ahC().a(com.baidu.adp.lib.h.b.c(imMessageCenterPojo.getGid(), 0L), g.bl(imMessageCenterPojo.getPulled_msgId()), 0L, true);
         }
     }
 }

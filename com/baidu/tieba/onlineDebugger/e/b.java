@@ -20,19 +20,19 @@ public class b {
             String trim = str.substring("get ".length()).trim();
             a aVar = new a();
             aVar.lz(trim);
-            return new com.baidu.tieba.onlineDebugger.command.b(aVar.auD(), aVar.auE());
+            return new com.baidu.tieba.onlineDebugger.command.b(aVar.auG(), aVar.auH());
         } else if (str.startsWith("set ")) {
             new com.baidu.tieba.onlineDebugger.b.a().ls(str);
             String trim2 = str.substring("set ".length()).trim();
             a aVar2 = new a();
             aVar2.lz(trim2);
-            return new com.baidu.tieba.onlineDebugger.command.b(aVar2.auD(), aVar2.auE());
+            return new com.baidu.tieba.onlineDebugger.command.b(aVar2.auG(), aVar2.auH());
         } else if (str.startsWith("exe ")) {
             new com.baidu.tieba.onlineDebugger.b.a().ls(str);
             String trim3 = str.substring("exe ".length()).trim();
             a aVar3 = new a();
             aVar3.lz(trim3);
-            return new com.baidu.tieba.onlineDebugger.command.b(aVar3.auD(), aVar3.auE());
+            return new com.baidu.tieba.onlineDebugger.command.b(aVar3.auG(), aVar3.auH());
         } else if (str.startsWith("shell ")) {
             String substring = str.substring("shell ".length());
             if (substring.contains("su ")) {

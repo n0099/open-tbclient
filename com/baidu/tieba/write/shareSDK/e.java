@@ -6,11 +6,11 @@ import com.baidu.tieba.write.shareSDK.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0081a {
-    final /* synthetic */ WriteShareActivity fad;
+    final /* synthetic */ WriteShareActivity fac;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(WriteShareActivity writeShareActivity) {
-        this.fad = writeShareActivity;
+        this.fac = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0081a
@@ -23,17 +23,17 @@ public class e implements a.InterfaceC0081a {
         o oVar3;
         PostPrefixData postPrefixData5;
         if (z) {
-            this.fad.mPrefixData = postPrefixData;
-            postPrefixData2 = this.fad.mPrefixData;
+            this.fac.mPrefixData = postPrefixData;
+            postPrefixData2 = this.fac.mPrefixData;
             if (postPrefixData2 != null) {
-                postPrefixData3 = this.fad.mPrefixData;
+                postPrefixData3 = this.fac.mPrefixData;
                 if (postPrefixData3.getPrefixs().size() > 0) {
-                    postPrefixData4 = this.fad.mPrefixData;
-                    postPrefixData4.getPrefixs().add(this.fad.getPageContext().getString(t.j.write_no_prefix));
-                    oVar2 = this.fad.eZN;
+                    postPrefixData4 = this.fac.mPrefixData;
+                    postPrefixData4.getPrefixs().add(this.fac.getPageContext().getString(t.j.write_no_prefix));
+                    oVar2 = this.fac.eZM;
                     if (oVar2 != null) {
-                        oVar3 = this.fad.eZN;
-                        postPrefixData5 = this.fad.mPrefixData;
+                        oVar3 = this.fac.eZM;
+                        postPrefixData5 = this.fac.mPrefixData;
                         oVar3.a(postPrefixData5);
                         return;
                     }
@@ -43,16 +43,16 @@ public class e implements a.InterfaceC0081a {
             }
             return;
         }
-        this.fad.mPrefixData = null;
-        oVar = this.fad.eZN;
+        this.fac.mPrefixData = null;
+        oVar = this.fac.eZM;
         oVar.a((PostPrefixData) null);
     }
 
     @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0081a
-    public void bbT() {
+    public void bca() {
         o oVar;
-        this.fad.mPrefixData = null;
-        oVar = this.fad.eZN;
+        this.fac.mPrefixData = null;
+        oVar = this.fac.eZM;
         oVar.a((PostPrefixData) null);
     }
 }

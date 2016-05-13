@@ -23,7 +23,7 @@ public class ae extends com.baidu.adp.base.g {
         String str;
         com.baidu.tieba.tbadkCore.x xVar4;
         xVar = this.aXF.Dp;
-        if (AntiHelper.pw(xVar.getErrorCode())) {
+        if (AntiHelper.pv(xVar.getErrorCode())) {
             Activity pageActivity = this.aXF.aJw.getPageContext().getPageActivity();
             xVar4 = this.aXF.Dp;
             AntiHelper.O(pageActivity, xVar4.getErrorString());

@@ -98,7 +98,7 @@ public class as extends y.a {
         this.dhi = view.findViewById(t.g.new_pb_list_item_line_top);
         this.dhj = view.findViewById(t.g.new_pb_list_item_line_top_full);
         this.dhk = view.findViewById(t.g.new_pb_list_item_blank_top);
-        this.dfT.Ho();
+        this.dfT.Hq();
         this.dfT.setImageViewStretch(true);
         int min = Math.min(((((com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.dfT.getPaddingLeft()) - this.dfT.getPaddingRight()) - ((int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds60)), i);
         this.dfT.setMaxImageWidth(min);

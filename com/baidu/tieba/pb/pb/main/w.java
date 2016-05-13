@@ -36,7 +36,7 @@ class w implements a.d {
         el elVar7;
         el elVar8;
         com.baidu.tbadk.editortools.d.e eVar2;
-        this.djE.Pk();
+        this.djE.Pm();
         elVar = this.djE.diR;
         elVar.gU(z);
         String str = "";
@@ -47,19 +47,19 @@ class w implements a.d {
         }
         if (z) {
             elVar2 = this.djE.diR;
-            elVar2.amQ();
+            elVar2.amT();
             eVar = this.djE.dja;
             if (eVar != null) {
                 elVar8 = this.djE.diR;
                 eVar2 = this.djE.dja;
-                elVar8.fn(eVar2.BM());
+                elVar8.fn(eVar2.BN());
             }
             elVar3 = this.djE.diR;
-            elVar3.ayG();
+            elVar3.ayJ();
             elVar4 = this.djE.diR;
             elVar4.fo(true);
             cwVar = this.djE.dih;
-            cwVar.axN();
+            cwVar.axQ();
             this.djE.a(antiData, postWriteCallBackData);
             if (writeData != null) {
                 String floor = writeData.getFloor();
@@ -68,18 +68,18 @@ class w implements a.d {
                     if (cwVar2.getHostMode()) {
                         cwVar4 = this.djE.dih;
                         com.baidu.tieba.pb.data.e pbData = cwVar4.getPbData();
-                        if (pbData != null && pbData.avB() != null && pbData.avB().getAuthor() != null && (userId = pbData.avB().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                        if (pbData != null && pbData.avE() != null && pbData.avE().getAuthor() != null && (userId = pbData.avE().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                             cwVar5 = this.djE.dih;
-                            if (cwVar5.axH()) {
+                            if (cwVar5.axK()) {
                                 elVar6 = this.djE.diR;
-                                elVar6.aza();
+                                elVar6.azd();
                             }
                         }
                     } else {
                         cwVar3 = this.djE.dih;
-                        if (cwVar3.axH()) {
+                        if (cwVar3.axK()) {
                             elVar5 = this.djE.diR;
-                            elVar5.aza();
+                            elVar5.azd();
                         }
                     }
                 } else if (floor != null) {
@@ -89,7 +89,7 @@ class w implements a.d {
                     elVar7.j(pbData2);
                 }
                 cwVar6 = this.djE.dih;
-                if (cwVar6.axD()) {
+                if (cwVar6.axG()) {
                     com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10369");
                     cwVar7 = this.djE.dih;
                     TiebaStatic.log(awVar.ac("tid", cwVar7.getThreadID()));

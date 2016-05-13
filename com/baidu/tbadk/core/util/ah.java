@@ -10,7 +10,7 @@ public class ah {
     private static ah WV;
     private static final BdUniqueId WW = BdUniqueId.gen();
 
-    public static synchronized ah tL() {
+    public static synchronized ah tM() {
         ah ahVar;
         synchronized (ah.class) {
             if (WV == null) {
@@ -55,16 +55,16 @@ public class ah {
     public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
             String dy = ba.dy(str);
-            ax.tY().ad(str2, dy);
+            ax.tZ().ad(str2, dy);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int dv = ax.tY().dv(dy);
+                    int dv = ax.tZ().dv(dy);
                     if (dv > 0) {
                         if (z) {
-                            Bitmap dt = ax.tY().dt(dy);
-                            com.baidu.tbadk.imageManager.c.CH().ez(dv);
+                            Bitmap dt = ax.tZ().dt(dy);
+                            com.baidu.tbadk.imageManager.c.CI().ey(dv);
                             if (dt != null) {
-                                a(str, dt, z2, ax.tY().du(dy), z3, dy);
+                                a(str, dt, z2, ax.tZ().du(dy), z3, dy);
                             }
                         }
                     }
@@ -105,7 +105,7 @@ public class ah {
     }
 
     private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.CH().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.CI().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
@@ -118,7 +118,7 @@ public class ah {
             bitmap2 = BitmapHelper.getRoundedCornerBitmap(c, (c.getHeight() < 100 || c.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            ax.tY().g(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
+            ax.tZ().g(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
         }
         return bitmap2;
     }
@@ -140,7 +140,7 @@ public class ah {
         int i4;
         int i5;
         int i6 = 70;
-        int tx = LocalViewSize.tt().tx();
+        int ty = LocalViewSize.tu().ty();
         if (z) {
             if (i / i2 >= 3) {
                 z2 = true;
@@ -151,21 +151,21 @@ public class ah {
                 z2 = true;
                 i3 = i2;
             }
-            if (i4 <= i3 && i4 > tx) {
-                i3 = (int) (i3 / (i4 / tx));
-            } else if (i3 > i4 || i3 <= tx) {
-                tx = i4;
+            if (i4 <= i3 && i4 > ty) {
+                i3 = (int) (i3 / (i4 / ty));
+            } else if (i3 > i4 || i3 <= ty) {
+                ty = i4;
             } else {
-                tx = (int) (i4 / (i3 / tx));
-                i3 = tx;
+                ty = (int) (i4 / (i3 / ty));
+                i3 = ty;
             }
-            if (z2 && i <= tx && i2 <= i3) {
-                tx = (int) (tx * 0.9d);
+            if (z2 && i <= ty && i2 <= i3) {
+                ty = (int) (ty * 0.9d);
                 i3 = (int) (i3 * 0.9d);
             }
-            if (tx < 70 || i3 >= 70) {
+            if (ty < 70 || i3 >= 70) {
                 i6 = i3;
-                i5 = tx;
+                i5 = ty;
             } else {
                 i5 = 70;
             }
@@ -178,15 +178,15 @@ public class ah {
         }
         if (i3 > i4) {
         }
-        tx = i4;
+        ty = i4;
         if (z2) {
-            tx = (int) (tx * 0.9d);
+            ty = (int) (ty * 0.9d);
             i3 = (int) (i3 * 0.9d);
         }
-        if (tx < 70) {
+        if (ty < 70) {
         }
         i6 = i3;
-        i5 = tx;
+        i5 = ty;
         return new com.baidu.tbadk.core.util.b.a(i5, i6, z2);
     }
 }

@@ -39,7 +39,7 @@ public abstract class am extends com.baidu.tieba.card.a<ax> {
     protected View mRootView;
     private int mSkinType;
 
-    protected abstract void gB(int i);
+    protected abstract void gA(int i);
 
     protected abstract void k(ax axVar);
 
@@ -87,17 +87,17 @@ public abstract class am extends com.baidu.tieba.card.a<ax> {
         if (this.mSkinType != i) {
             com.baidu.tbadk.core.util.at.k(getView(), t.f.addresslist_item_bg);
             com.baidu.tbadk.core.util.at.l(this.aQI, t.d.cp_bg_line_b);
-            this.aQp.sf();
-            this.aOO.sf();
+            this.aQp.sg();
+            this.aOO.sg();
             com.baidu.tbadk.core.util.at.c(this.bpW, t.d.cp_cont_c, 1);
             com.baidu.tbadk.core.util.at.c(this.bpX, t.d.cp_cont_d, 1);
-            gB(i);
+            gA(i);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_vote_item;
     }
 
@@ -127,23 +127,23 @@ public abstract class am extends com.baidu.tieba.card.a<ax> {
         arrayList.add(Integer.valueOf(t.j.vote));
         this.RX.setText(com.baidu.tieba.card.au.a(getContext(), String.valueOf(axVar.getTitle()) + " ", arrayList, -2));
         com.baidu.tieba.card.au.a(this.RX, axVar.getId(), t.d.cp_cont_b, t.d.cp_cont_d);
-        if (axVar.qL() == null || axVar.qL().options_count.intValue() == 0) {
+        if (axVar.qM() == null || axVar.qM().options_count.intValue() == 0) {
             this.bpW.setVisibility(8);
             this.bpX.setVisibility(8);
         } else {
             String string = this.DV.getResources().getString(t.j.total_x_vote_option);
             this.bpW.setVisibility(0);
-            this.bpW.setText(String.format(string, axVar.qL().options_count));
-            if (StringUtils.isNull(axVar.qL().tips, true)) {
+            this.bpW.setText(String.format(string, axVar.qM().options_count));
+            if (StringUtils.isNull(axVar.qM().tips, true)) {
                 this.bpX.setVisibility(8);
             } else {
                 this.bpX.setVisibility(0);
-                this.bpX.setText("(" + axVar.qL().tips + ")");
+                this.bpX.setText("(" + axVar.qM().tips + ")");
             }
         }
         this.aOO.setData(this.aab);
         this.aOO.setForumAfterClickListener(this.adn);
-        this.aOO.setStType(com.baidu.tieba.card.au.Kb());
+        this.aOO.setStType(com.baidu.tieba.card.au.Kd());
         k(axVar);
         d(this.DV, TbadkCoreApplication.m11getInst().getSkinType());
     }
@@ -151,7 +151,7 @@ public abstract class am extends com.baidu.tieba.card.a<ax> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if ((view == this.mRootView || view == this.aOO.getCommentNumView()) && this.aab != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aab, this.aab.qP(), null, 18003, true, false, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aab, this.aab.qQ(), null, 18003, true, false, false)));
         }
     }
 

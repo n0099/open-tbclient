@@ -29,13 +29,13 @@ public class ba implements a.b {
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        int awy;
+        int awB;
         this.djE.HidenSoftKeyPad((InputMethodManager) this.djE.getSystemService("input_method"), this.djJ.getChatMsgView());
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.djE.getPageContext().getPageActivity(), this.bhA, this.bhB, this.bhC, "from_share", this.djJ.getLeaveMsg(), this.djK.toChatMessageContent())));
         aVar.dismiss();
-        awy = this.djE.awy();
-        if (awy == 1) {
-            this.djE.awC();
+        awB = this.djE.awB();
+        if (awB == 1) {
+            this.djE.awF();
         }
     }
 }

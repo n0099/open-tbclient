@@ -80,48 +80,48 @@ public class bq extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.n> {
     }
 
     private void T(View view) {
-        if (JM() != null) {
-            JM().a(view, this.aPR);
+        if (JO() != null) {
+            JO().a(view, this.aPR);
         }
         if (this.aPR != null && this.aPR.aRZ != null) {
-            if (!JT()) {
+            if (!JV()) {
                 au.hb(this.aPR.aRZ.getId());
             }
-            this.Do.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.Do.getPageActivity()).createFromThreadCfg(this.aPR.aRZ, this.aPR.aRZ.qP(), au.Kb(), 18003, true, false, false).addLocateParam(this.aPR.Ki())));
+            this.Do.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.Do.getPageActivity()).createFromThreadCfg(this.aPR.aRZ, this.aPR.aRZ.qQ(), au.Kd(), 18003, true, false, false).addLocateParam(this.aPR.Kk())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean JT() {
+    public boolean JV() {
         return this.aPR.aRY && !this.aPR.aSl;
     }
 
     private void U(View view) {
-        if (this.aPR != null && this.aPR.aRZ != null && this.aPR.aRZ.ra() != null) {
-            by<com.baidu.tieba.card.a.n> JM = JM();
-            if (JM != null) {
+        if (this.aPR != null && this.aPR.aRZ != null && this.aPR.aRZ.rb() != null) {
+            by<com.baidu.tieba.card.a.n> JO = JO();
+            if (JO != null) {
                 view.setTag(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-                JM.a(view, this.aPR);
+                JO.a(view, this.aPR);
             }
             if (!com.baidu.adp.lib.util.i.fq()) {
                 com.baidu.adp.lib.util.k.l(getContext(), getContext().getString(t.j.neterror));
             } else {
-                XiaoyingUtil.startPlayXiaoyingVideo(this.Do.getPageActivity(), this.aPR.aRZ.ra().video_url, this.aPR.aRZ.ra().video_width.intValue(), this.aPR.aRZ.ra().video_height.intValue(), this.aPR.aRZ.ra().thumbnail_url);
+                XiaoyingUtil.startPlayXiaoyingVideo(this.Do.getPageActivity(), this.aPR.aRZ.rb().video_url, this.aPR.aRZ.rb().video_width.intValue(), this.aPR.aRZ.rb().video_height.intValue(), this.aPR.aRZ.rb().thumbnail_url);
             }
         }
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_home_page_video_thread;
     }
 
     public void a(com.baidu.tieba.card.a.n nVar) {
         this.aPR = nVar;
-        JW();
+        JY();
     }
 
-    private void JW() {
+    private void JY() {
         if (this.aPR == null || this.aPR.aRZ == null || this.aPR.aRZ.getAuthor() == null) {
             this.aQO.aQQ.setVisibility(8);
             return;
@@ -140,17 +140,17 @@ public class bq extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.n> {
         this.aQO.aPF.setUserAfterClickListener(this.adK);
         this.aQO.mTextTitle.setText(this.aPR.aRZ.getTitle());
         this.aQO.aPD.setData(this.aPR.aRZ);
-        this.aQO.aPD.setStType(au.Kb());
-        this.aQO.aPD.setYuelaouLocate("feed#" + this.aPR.Kh());
+        this.aQO.aPD.setStType(au.Kd());
+        this.aQO.aPD.setYuelaouLocate("feed#" + this.aPR.Kj());
         this.aQO.aPD.setForumAfterClickListener(this.adn);
         d(this.Do, TbadkCoreApplication.m11getInst().getSkinType());
-        if (!JT()) {
+        if (!JV()) {
             au.a(this.aQO.mTextTitle, this.aPR.aRZ.getId(), t.d.cp_cont_b, t.d.cp_cont_d);
         } else {
             com.baidu.tbadk.core.util.at.j((View) this.aQO.mTextTitle, t.d.cp_cont_b);
         }
-        if (com.baidu.tbadk.core.l.ob().oh() && this.aPR.aRZ.ra() != null && !StringUtils.isNull(this.aPR.aRZ.ra().video_url)) {
-            this.aQO.aPJ.c(this.aPR.aRZ.ra().thumbnail_url, 10, true);
+        if (com.baidu.tbadk.core.l.ob().oh() && this.aPR.aRZ.rb() != null && !StringUtils.isNull(this.aPR.aRZ.rb().video_url)) {
+            this.aQO.aPJ.c(this.aPR.aRZ.rb().thumbnail_url, 10, true);
             this.aQO.aPE.setVisibility(0);
         } else {
             this.aQO.aPE.setVisibility(8);
@@ -169,8 +169,8 @@ public class bq extends com.baidu.tieba.card.a<com.baidu.tieba.card.a.n> {
             com.baidu.tbadk.core.util.at.l(this.aQO.aPI, t.d.cp_bg_line_c);
             com.baidu.tbadk.core.util.at.j((View) this.aQO.mTextTitle, t.d.cp_cont_b);
             com.baidu.tbadk.core.util.at.c(this.aQO.aPK, t.f.btn_icon_play_video_n);
-            this.aQO.aPF.sf();
-            this.aQO.aPD.sf();
+            this.aQO.aPF.sg();
+            this.aQO.aPD.sg();
             this.mSkinType = i;
         }
     }

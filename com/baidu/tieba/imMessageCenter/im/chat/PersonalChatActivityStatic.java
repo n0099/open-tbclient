@@ -15,10 +15,10 @@ public class PersonalChatActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new m());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        bg.us().a(new p());
+        bg.ut().a(new p());
     }
 
-    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e aiY() {
+    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e aja() {
         return cti;
     }
 

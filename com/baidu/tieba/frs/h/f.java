@@ -11,7 +11,7 @@ class f implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.bup.btZ != null) {
-            this.bup.btZ.JD();
+            this.bup.btZ.JF();
         }
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
 class bd implements TbFaceManager.a {
-    final /* synthetic */ WriteActivity feb;
+    final /* synthetic */ WriteActivity fea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(WriteActivity writeActivity) {
-        this.feb = writeActivity;
+        this.fea = writeActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.TbFaceManager.a

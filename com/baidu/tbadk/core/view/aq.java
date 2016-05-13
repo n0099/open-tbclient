@@ -70,7 +70,7 @@ public class aq extends CustomMessageListener {
                             aVar = this.adX.adT;
                             if (aVar != null) {
                                 aVar2 = this.adX.adT;
-                                aVar2.cX(fansNum);
+                                aVar2.cW(fansNum);
                             }
                             this.adX.aI(false);
                         }

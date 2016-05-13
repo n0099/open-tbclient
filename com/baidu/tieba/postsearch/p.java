@@ -18,7 +18,7 @@ public class p implements a.b {
         BdListView bdListView;
         aVar.dismiss();
         postSearchActivity = this.dVl.dUY;
-        postSearchActivity.aKE().aKQ();
+        postSearchActivity.aKH().aKT();
         bdListView = this.dVl.dVh;
         bdListView.setVisibility(8);
         this.dVl.showNoDataView();

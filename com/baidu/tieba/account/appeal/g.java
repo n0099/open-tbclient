@@ -43,10 +43,10 @@ public class g {
             ab abVar = new ab(g.aJh);
             abVar.n("forum_id", this.aJc);
             abVar.n("user_id", this.aJd);
-            String tc = abVar.tc();
-            if (abVar.tA().uv().nZ()) {
+            String td = abVar.td();
+            if (abVar.tB().uw().nZ()) {
                 try {
-                    ForbidReasonData forbidReasonData = (ForbidReasonData) i.objectWithJsonStr(tc, ForbidReasonData.class);
+                    ForbidReasonData forbidReasonData = (ForbidReasonData) i.objectWithJsonStr(td, ForbidReasonData.class);
                     forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
                     return forbidReasonData;
                 } catch (Exception e) {
@@ -57,7 +57,7 @@ public class g {
                 }
             }
             ForbidReasonData forbidReasonData3 = new ForbidReasonData();
-            forbidReasonData3.error.errno = abVar.tE();
+            forbidReasonData3.error.errno = abVar.tF();
             forbidReasonData3.error.errMsg = abVar.getErrorString();
             return forbidReasonData3;
         }

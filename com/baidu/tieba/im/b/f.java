@@ -23,13 +23,13 @@ public class f extends com.baidu.adp.framework.listener.e {
                 if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() != 0) {
                     return;
                 }
-                this.coN.ahE();
+                this.coN.ahG();
             } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
                 ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
                 if (responseOnlineMessage.getError() == 0) {
                     this.coN.coF = responseOnlineMessage.getGroupInfos();
-                    if (com.baidu.tieba.im.memorycache.b.agY().agX()) {
-                        this.coN.ahx();
+                    if (com.baidu.tieba.im.memorycache.b.aha().agZ()) {
+                        this.coN.ahz();
                     }
                 }
             }

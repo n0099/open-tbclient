@@ -45,12 +45,12 @@ public class ae implements View.OnClickListener {
                 abVar9.aG("c11104", "2");
                 return;
             case 1:
-                bg us = bg.us();
+                bg ut = bg.ut();
                 abVar2 = this.bwZ.bwX;
                 tbPageContext = abVar2.mTbPageContext;
                 abVar3 = this.bwZ.bwX;
                 akVar = abVar3.mRealTimeData;
-                us.c(tbPageContext, new String[]{akVar.getUrl()});
+                ut.c(tbPageContext, new String[]{akVar.getUrl()});
                 abVar4 = this.bwZ.bwX;
                 aVar = abVar4.bwU;
                 aVar.removeMessages(1);

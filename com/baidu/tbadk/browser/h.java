@@ -19,14 +19,14 @@ public class h extends com.baidu.tbadk.core.c.o {
         return "TBHY_COMMON_Utils";
     }
 
-    @com.baidu.tbadk.core.c.p(sD = "showToast", sE = false)
+    @com.baidu.tbadk.core.c.p(sE = "showToast", sF = false)
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).sc();
+            BdToast.a(getContext(), jSONObject.optString("message")).sd();
         }
     }
 
-    @com.baidu.tbadk.core.c.p(sD = "showNetStatus", sE = false)
+    @com.baidu.tbadk.core.c.p(sE = "showNetStatus", sF = false)
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -52,7 +52,7 @@ public class h extends com.baidu.tbadk.core.c.o {
         return jSONObject;
     }
 
-    @com.baidu.tbadk.core.c.p(sD = "showDeviceInfo", sE = false)
+    @com.baidu.tbadk.core.c.p(sE = "showDeviceInfo", sF = false)
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.m11getInst().getCuid();

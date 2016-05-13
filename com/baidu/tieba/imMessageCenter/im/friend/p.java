@@ -48,17 +48,17 @@ public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements
         this.cxd = 0;
         this.cwX = inviteFriendListActivity;
         this.cxe = z;
-        vk();
+        vl();
     }
 
     public View getRootView() {
         return this.KB;
     }
 
-    private void vk() {
+    private void vl() {
         this.cwX.setContentView(t.h.invite_friend_list);
         this.KB = this.cwX.findViewById(t.g.root_view);
-        Uv();
+        Ux();
         this.zu = (BdListView) this.KB.findViewById(t.g.friend_list);
         this.zu.setOnItemClickListener(this.cwX);
         if (this.cxe) {
@@ -75,15 +75,15 @@ public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements
             this.cxb.setVisibility(8);
             this.cwZ.setVisibility(8);
         }
-        akP();
+        akR();
         this.cxc = (Button) this.KB.findViewById(t.g.button_send);
         this.cxc.setOnClickListener(this.cwX);
-        vl();
-        akH();
-        jX(0);
+        vm();
+        akJ();
+        jW(0);
     }
 
-    private void Uv() {
+    private void Ux() {
         this.mNavigationBar = (NavigationBar) this.KB.findViewById(t.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new s(this));
         if (this.cxe) {
@@ -106,13 +106,13 @@ public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akG() {
+    public void akI() {
         if (this.cwX != null) {
-            this.cwX.akE();
+            this.cwX.akG();
         }
     }
 
-    public void vl() {
+    public void vm() {
         int skinType = TbadkCoreApplication.m11getInst().getSkinType();
         this.cwX.getLayoutMode().ae(skinType == 1);
         this.cwX.getLayoutMode().x(this.KB);
@@ -122,11 +122,11 @@ public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements
         this.mListFooter.setEnabled(false);
     }
 
-    public void akH() {
+    public void akJ() {
         this.zu.setOnTouchListener(new w(this));
     }
 
-    public void akI() {
+    public void akK() {
         com.baidu.adp.lib.util.k.a(this.cwX.getPageContext().getPageActivity(), this.crz);
         this.cxg.setVisibility(8);
         this.cxf.setVisibility(0);
@@ -134,21 +134,21 @@ public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements
         this.crz.getText().clear();
     }
 
-    public boolean akJ() {
+    public boolean akL() {
         return this.cxg != null && this.cxg.getVisibility() == 0;
     }
 
-    public int akK() {
+    public int akM() {
         return this.cxc.getId();
     }
 
-    public String akL() {
+    public String akN() {
         Editable text = this.crz.getText();
         return text != null ? text.toString() : "";
     }
 
-    public String akM() {
-        return this.cxa.akB();
+    public String akO() {
+        return this.cxa.akD();
     }
 
     public void e(List<com.baidu.tbadk.coreExtra.relationship.a> list, boolean z) {
@@ -176,20 +176,20 @@ public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements
         }
     }
 
-    public void akN() {
+    public void akP() {
         if (this.mNoDataView != null) {
             this.mNoDataView.e(this.cwX.getPageContext());
         }
     }
 
-    public void akO() {
+    public void akQ() {
         if (this.mNoDataView != null) {
             this.mNoDataView.onActivityStop();
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [384=4] */
-    private void akP() {
+    private void akR() {
         int dimensionPixelSize = this.cwX.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_item_height) + this.cwX.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_padding_bottom) + this.cwX.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_padding_top);
         this.mListFooter = new View(this.cwX.getPageContext().getPageActivity());
         this.mListFooter.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
@@ -200,20 +200,20 @@ public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements
     public void g(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
             this.cxa.d(aVar);
-            jX(this.cxa.getItemLength());
-            akQ();
+            jW(this.cxa.getItemLength());
+            akS();
         }
     }
 
     public void h(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
             this.cxa.f(aVar);
-            jX(this.cxa.getItemLength());
-            akQ();
+            jW(this.cxa.getItemLength());
+            akS();
         }
     }
 
-    private void akQ() {
+    private void akS() {
         if (this.cxa.getItemLength() > 0) {
             this.cxc.setEnabled(true);
         } else {
@@ -221,19 +221,19 @@ public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements
         }
     }
 
-    public void akR() {
+    public void akT() {
         com.baidu.adp.lib.util.k.a(this.cwX.getPageContext().getPageActivity(), this.crz);
     }
 
-    private void jX(int i) {
+    private void jW(int i) {
         this.cxc.setText(String.format(this.cwX.getPageContext().getString(t.j.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
-    public int akS() {
+    public int akU() {
         return this.cxd;
     }
 
-    public void jY(int i) {
+    public void jX(int i) {
         this.cxd = i;
         this.cxa.setMaxCount(i);
     }

@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tieba.enterForum.home.e;
 /* loaded from: classes.dex */
 public interface d {
-    void MC();
+    void ME();
 
     void cr(boolean z);
 
-    void fP(int i);
+    void fO(int i);
 
     void g(e eVar);
 

@@ -17,7 +17,7 @@ class bc implements CustomMessageTask.CustomRunnable<String> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        com.baidu.tieba.im.db.i.aex().a(this.cmS, 1);
+        com.baidu.tieba.im.db.i.aez().a(this.cmS, 1);
         return null;
     }
 }

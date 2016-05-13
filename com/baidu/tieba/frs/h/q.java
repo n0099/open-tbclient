@@ -34,9 +34,9 @@ public class q implements a.b {
             TbadkCoreApplication m11getInst = TbadkCoreApplication.m11getInst();
             frsActivity2 = this.buB.bpj;
             m11getInst.login(frsActivity2.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.buB.getPageContext().getPageActivity(), this.buB.getPageContext().getString(t.j.login_to_use), true, 11036)));
-        } else if (PZ != null && PZ.avA() != null) {
+        } else if (PZ != null && PZ.avD() != null) {
             akVar = this.buB.buw;
-            akVar.n(PZ.avA().getName(), com.baidu.adp.lib.h.b.c(PZ.avA().getId(), 0L));
+            akVar.n(PZ.avD().getName(), com.baidu.adp.lib.h.b.c(PZ.avD().getId(), 0L));
         }
     }
 }

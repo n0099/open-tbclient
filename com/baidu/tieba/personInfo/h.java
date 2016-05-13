@@ -29,7 +29,7 @@ public class h extends com.baidu.adp.framework.listener.e {
                 bjVar = this.this$0.dFA;
                 if (bjVar != null) {
                     bjVar2 = this.this$0.dFA;
-                    bjVar2.aiJ();
+                    bjVar2.aiL();
                 }
             } else {
                 errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.this$0.getResources().getString(t.j.neterror) : responseDeleteFriendMessage.getErrorString();

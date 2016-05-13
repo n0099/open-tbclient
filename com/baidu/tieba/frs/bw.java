@@ -72,7 +72,7 @@ public abstract class bw<T, V extends y.a> extends com.baidu.adp.widget.ListView
         this.bix = biVar;
     }
 
-    public void gn(int i) {
+    public void gm(int i) {
         this.bgj = i;
     }
 

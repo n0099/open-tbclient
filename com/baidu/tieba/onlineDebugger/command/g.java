@@ -30,13 +30,13 @@ public class g implements d {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public Object aux() {
+    public Object auA() {
         com.baidu.adp.lib.h.h.dL().post(new h(this));
         return true;
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public boolean auy() {
+    public boolean auB() {
         return true;
     }
 }

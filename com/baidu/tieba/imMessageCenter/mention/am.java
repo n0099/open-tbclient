@@ -9,13 +9,8 @@ public class am extends com.baidu.tbadk.mvc.model.a<ay, bf> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<ay> Du() {
+    public Class<ay> Dv() {
         return ay.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    public int Dv() {
-        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
@@ -24,7 +19,12 @@ public class am extends com.baidu.tbadk.mvc.model.a<ay, bf> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String Dg() {
+    public int Dx() {
+        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a
+    public String Dh() {
         return "tb_user_replyme";
     }
 }

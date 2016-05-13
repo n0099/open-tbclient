@@ -12,9 +12,9 @@ public class aa {
     private long ayf;
     private boolean ayb = false;
     private long aye = 86400;
-    private long ayc = com.baidu.tbadk.core.sharedPref.b.sQ().getLong(ayd, 0);
+    private long ayc = com.baidu.tbadk.core.sharedPref.b.sR().getLong(ayd, 0);
 
-    public static aa EM() {
+    public static aa EN() {
         if (ayg == null) {
             synchronized (aa.class) {
                 if (ayg == null) {
@@ -30,7 +30,7 @@ public class aa {
         this.ayf = this.aye;
     }
 
-    public boolean EN() {
+    public boolean EO() {
         if (!this.ayb || (System.currentTimeMillis() - this.ayc) / 1000 <= this.ayf) {
             return this.ayb;
         }
@@ -42,19 +42,19 @@ public class aa {
         if (z) {
             if (0 == this.ayc || currentTimeMillis - this.ayc >= this.ayf) {
                 this.ayc = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.sQ().putLong(ayd, this.ayc);
+                com.baidu.tbadk.core.sharedPref.b.sR().putLong(ayd, this.ayc);
             }
         } else {
             this.ayc = 0L;
-            com.baidu.tbadk.core.sharedPref.b.sQ().putLong(ayd, this.ayc);
+            com.baidu.tbadk.core.sharedPref.b.sR().putLong(ayd, this.ayc);
         }
         this.ayb = z;
         if (com.baidu.adp.lib.stats.a.dN().dU()) {
-            ab.ES().ET();
+            ab.ET().EU();
         }
     }
 
-    public String EO() {
+    public String EP() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -68,7 +68,7 @@ public class aa {
         }
     }
 
-    public final String EP() {
+    public final String EQ() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -102,7 +102,7 @@ public class aa {
         return "2G";
     }
 
-    public static String eN(int i) {
+    public static String eM(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -115,8 +115,8 @@ public class aa {
         return "WIFI";
     }
 
-    public z eO(int i) {
-        if (EN()) {
+    public z eN(int i) {
+        if (EO()) {
             switch (i) {
                 case 1000:
                     ac acVar = new ac();
@@ -170,7 +170,7 @@ public class aa {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int EQ() {
+    public int ER() {
         BufferedReader bufferedReader;
         Process process;
         String str;

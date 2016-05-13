@@ -35,8 +35,8 @@ public class a<T extends v, V extends C0035a> extends PagerAdapter implements Vi
     public void onClick(View view) {
         b<T, V> bVar;
         C0035a G = G(view);
-        if (G != null && G.vL() != null && G.vL().getType() != null && (bVar = this.aeh.get(G.vL().getType())) != null && bVar.vM() != null) {
-            bVar.vM().c(G, G.vL());
+        if (G != null && G.vM() != null && G.vM().getType() != null && (bVar = this.aeh.get(G.vM().getType())) != null && bVar.vN() != null) {
+            bVar.vN().c(G, G.vM());
         }
     }
 
@@ -119,21 +119,21 @@ public class a<T extends v, V extends C0035a> extends PagerAdapter implements Vi
         if (i >= this.mListData.size()) {
             return null;
         }
-        View cZ = cZ(i);
-        if (cZ != null && cZ.getParent() != viewGroup) {
-            viewGroup.addView(cZ);
-            return cZ;
+        View cY = cY(i);
+        if (cY != null && cY.getParent() != viewGroup) {
+            viewGroup.addView(cY);
+            return cY;
         }
-        return cZ;
+        return cY;
     }
 
-    public View cZ(int i) {
+    public View cY(int i) {
         if (i >= this.aei.size() || i >= this.mListData.size()) {
             return null;
         }
         View view = this.aei.get(i);
         C0035a G = G(view);
-        if (G != null && G.vL() == null) {
+        if (G != null && G.vM() == null) {
             a((C0035a) view.getTag(), this.mListData.get(i));
             return view;
         }
@@ -165,8 +165,8 @@ public class a<T extends v, V extends C0035a> extends PagerAdapter implements Vi
         if (this.aei != null) {
             for (View view : this.aei) {
                 C0035a G = G(view);
-                if (G != null && G.vL() != null && (bVar = this.aeh.get(G.vL().getType())) != null) {
-                    bVar.b(G, G.vL());
+                if (G != null && G.vM() != null && (bVar = this.aeh.get(G.vM().getType())) != null) {
+                    bVar.b(G, G.vM());
                 }
             }
             this.aei.clear();
@@ -197,7 +197,7 @@ public class a<T extends v, V extends C0035a> extends PagerAdapter implements Vi
             return this.view;
         }
 
-        public v vL() {
+        public v vM() {
             return this.aek;
         }
 

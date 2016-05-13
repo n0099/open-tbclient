@@ -41,6 +41,6 @@ public class i implements fg {
     }
 
     @Override // com.baidu.tieba.frs.fg
-    public void OY() {
+    public void Pa() {
     }
 }

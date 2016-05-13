@@ -12,7 +12,7 @@ public class f implements j.a {
     }
 
     @Override // com.baidu.tbadk.performanceLog.j.a
-    public void eJ(int i) {
+    public void eI(int i) {
         j jVar;
         j jVar2;
         jVar = this.axa.awU;
@@ -20,7 +20,7 @@ public class f implements j.a {
         jVar2 = this.axa.awU;
         jVar2.stop();
         this.axa.awW = i;
-        ac acVar = (ac) aa.EM().eO(this.axa.axu);
+        ac acVar = (ac) aa.EN().eN(this.axa.axu);
         if (acVar != null) {
             acVar.h(this.axa);
         }

@@ -76,7 +76,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         addGlobalLayoutListener();
         adjustResizeForSoftInput(t.d.transparent, true);
         if (com.baidu.adp.lib.util.k.fK()) {
-            this.ecI = aMO();
+            this.ecI = aMR();
             if (this.ecI != null) {
                 this.ecx.setBackgroundDrawable(this.ecI);
             }
@@ -115,10 +115,10 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         this.ecJ.setAdapter((ListAdapter) this.ecK);
         this.ecJ.setOnItemClickListener(this.yR);
         registerReceiver(this.ecM, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
-        f.aMP().ecX = false;
+        f.aMS().ecX = false;
     }
 
-    public String aMN() {
+    public String aMQ() {
         if (this.crz != null) {
             return com.baidu.adp.lib.util.j.a(this.crz.getText(), null);
         }
@@ -129,7 +129,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (!"com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(aLf())) {
+        if (!"com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(aLi())) {
             finish();
         }
     }
@@ -139,22 +139,22 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     public void onResume() {
         LinkedList linkedList;
         super.onResume();
-        List<p> aMR = f.aMP().aMR();
-        if (aMR == null || aMR.isEmpty()) {
-            f.aMP().ecR.aMX();
+        List<p> aMU = f.aMS().aMU();
+        if (aMU == null || aMU.isEmpty()) {
+            f.aMS().ecR.aNa();
             finish();
             return;
         }
-        if (f.aMP().aMS().size() == 1) {
-            p pVar = f.aMP().aMS().get(0);
-            if (f.aMP().aMW()) {
+        if (f.aMS().aMV().size() == 1) {
+            p pVar = f.aMS().aMV().get(0);
+            if (f.aMS().aMZ()) {
                 this.ecz.setVisibility(8);
                 this.ecE.setVisibility(8);
                 this.ecA.setVisibility(8);
                 this.ecJ.setMaxHeight(0);
             } else {
                 this.ecz.setVisibility(0);
-                this.ecE.setText(oB(pVar.edp));
+                this.ecE.setText(oA(pVar.edp));
                 this.ecE.setVisibility(0);
                 this.ecA.setVisibility(0);
                 this.ecB.setText(pVar.groupName);
@@ -167,41 +167,41 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             this.ecz.setVisibility(8);
             this.ecA.setVisibility(8);
             this.ecE.setVisibility(8);
-            if (f.aMP().aMW()) {
-                if (f.aMP().aMS().size() < 3) {
+            if (f.aMS().aMZ()) {
+                if (f.aMS().aMV().size() < 3) {
                     this.ecD.setVisibility(8);
-                    linkedList = aMR;
+                    linkedList = aMU;
                 } else {
-                    List<p> aMR2 = f.aMP().aMR();
-                    LinkedList linkedList2 = new LinkedList(aMR2.subList(0, 2));
-                    linkedList2.add(aMR2.get(aMR2.size() - 1));
+                    List<p> aMU2 = f.aMS().aMU();
+                    LinkedList linkedList2 = new LinkedList(aMU2.subList(0, 2));
+                    linkedList2.add(aMU2.get(aMU2.size() - 1));
                     this.ecD.setVisibility(0);
                     linkedList = linkedList2;
                 }
-            } else if (f.aMP().aMS().size() <= 3) {
+            } else if (f.aMS().aMV().size() <= 3) {
                 this.ecD.setVisibility(8);
-                linkedList = aMR;
+                linkedList = aMU;
             } else {
                 this.ecD.setVisibility(0);
-                linkedList = aMR;
+                linkedList = aMU;
             }
             this.ecK.iS(true);
             this.ecJ.setMaxHeight(this.ecH);
-            aMR = linkedList;
+            aMU = linkedList;
         }
-        this.ecK.iT(f.aMP().aMW());
-        this.ecK.setData(aMR);
+        this.ecK.iT(f.aMS().aMZ());
+        this.ecK.setData(aMU);
         this.ecK.notifyDataSetChanged();
-        f.aMP().ecU = 1;
-        f.aMP().ecS = 0;
+        f.aMS().ecU = 1;
+        f.aMS().ecS = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        f.aMP().ecU = 0;
-        f.aMP().ecS = 0;
+        f.aMS().ecU = 0;
+        f.aMS().ecS = 0;
         HidenSoftKeyPad(this.mInputManager, this.crz);
     }
 
@@ -210,7 +210,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(this.ecM);
-        f.aMP().ecU = 0;
+        f.aMS().ecU = 0;
         this.ecI = null;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_AUDIO_VIEW_SHOW_WHEN_LOCK_DESTROY));
     }
@@ -218,43 +218,43 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     public void a(p pVar) {
         if (pVar != null) {
             if (!TextUtils.isEmpty(pVar.url)) {
-                bg.us().c(getPageContext(), new String[]{pVar.url});
+                bg.ut().c(getPageContext(), new String[]{pVar.url});
                 TiebaStatic.log(new aw("c10316").ac("obj_type", pVar.stat).s("obj_locate", 2));
-                f.aMP().c(pVar);
+                f.aMS().c(pVar);
                 finish();
             } else if (pVar.customGroupType == 1) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getPageContext().getPageActivity(), Integer.parseInt(pVar.groupId), pVar.groupName, 0L, "from_lock")));
-                f.aMP().c(pVar);
-                f.aMP().ecR.aMX();
-                if (!f.aMP().ecR.aMZ()) {
-                    f.aMP().ecR.aMY();
+                f.aMS().c(pVar);
+                f.aMS().ecR.aNa();
+                if (!f.aMS().ecR.aNc()) {
+                    f.aMS().ecR.aNb();
                 }
-                f.aMP().ecS = 0;
+                f.aMS().ecS = 0;
                 finish();
             } else if (pVar.customGroupType == 2) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(this.ecL.groupId, 0L), pVar.groupName, pVar.edq, 0, pVar.eds ? 1 : 0)));
-                f.aMP().c(pVar);
-                f.aMP().ecS = 0;
-                f.aMP().ecR.aMX();
-                if (!f.aMP().ecR.aMZ()) {
-                    f.aMP().ecR.aMY();
+                f.aMS().c(pVar);
+                f.aMS().ecS = 0;
+                f.aMS().ecR.aNa();
+                if (!f.aMS().ecR.aNc()) {
+                    f.aMS().ecR.aNb();
                 }
                 finish();
             } else if (pVar.customGroupType == 4) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(this.ecL.groupId, 0L), pVar.groupName, pVar.edq, 0, 4)));
-                f.aMP().c(pVar);
-                f.aMP().ecS = 0;
-                f.aMP().ecR.aMX();
-                if (!f.aMP().ecR.aMZ()) {
-                    f.aMP().ecR.aMY();
+                f.aMS().c(pVar);
+                f.aMS().ecS = 0;
+                f.aMS().ecR.aNa();
+                if (!f.aMS().ecR.aNc()) {
+                    f.aMS().ecR.aNb();
                 }
                 finish();
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChatMessageActivityConfig(getPageContext().getPageActivity())));
-                f.aMP().c(pVar);
-                f.aMP().ecR.aMX();
-                if (!f.aMP().ecR.aMZ()) {
-                    f.aMP().ecR.aMY();
+                f.aMS().c(pVar);
+                f.aMS().ecR.aNa();
+                if (!f.aMS().ecR.aNc()) {
+                    f.aMS().ecR.aNb();
                 }
                 finish();
             }
@@ -264,11 +264,11 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            f.aMP().ecR.aMX();
+            f.aMS().ecR.aNa();
             finish();
             return true;
         } else if (i == 82) {
-            f.aMP().ecR.aMX();
+            f.aMS().ecR.aNa();
             finish();
             return true;
         } else {
@@ -281,11 +281,11 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String oB(int i) {
+    public String oA(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 
-    public Drawable aMO() {
+    public Drawable aMR() {
         Bitmap bitmap;
         try {
             Drawable drawable = WallpaperManager.getInstance(getPageContext().getPageActivity()).getDrawable();
@@ -309,7 +309,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         }
     }
 
-    public String aLf() {
+    public String aLi() {
         List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkApplication.getInst().getSystemService("activity")).getRunningTasks(5);
         if (runningTasks == null || runningTasks.size() <= 0) {
             return null;

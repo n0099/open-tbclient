@@ -36,23 +36,23 @@ public class l {
         this.ead = dataRes;
     }
 
-    public void ks(int i) {
+    public void kr(int i) {
         this.cIw = i;
     }
 
-    public int anZ() {
+    public int aoc() {
         return this.cIw;
     }
 
-    public boolean aoa() {
+    public boolean aod() {
         return this.cIx;
     }
 
-    public boolean aob() {
+    public boolean aoe() {
         return this.cIy;
     }
 
-    public TagInfo aMq() {
+    public TagInfo aMt() {
         return this.eac;
     }
 
@@ -70,7 +70,7 @@ public class l {
             this.pn = nVar.getPn();
             this.hasMore = nVar.getHasMore();
             if (nVar instanceof r) {
-                this.eae = ((r) nVar).aMs();
+                this.eae = ((r) nVar).aMv();
             }
             List<Object> a = a(z2, nVar);
             if (z2) {
@@ -100,8 +100,8 @@ public class l {
                 if ((obj instanceof ExcellentThreadInfo) && (!z || !a((ExcellentThreadInfo) obj))) {
                     p pVar = new p();
                     pVar.b((ExcellentThreadInfo) obj);
-                    pVar.setShowImage(nVar.aMu());
-                    if (pVar.aMB() != 33) {
+                    pVar.setShowImage(nVar.aMx());
+                    if (pVar.aME() != 33) {
                         list.add(pVar);
                     } else if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                         list.add(pVar);
@@ -137,7 +137,7 @@ public class l {
             }
             if (nVar instanceof r) {
                 r rVar = (r) nVar;
-                if (this.pn == 1 && rVar.aME() == 0) {
+                if (this.pn == 1 && rVar.aMH() == 0) {
                     list.add(0, new g());
                 }
             }
@@ -190,7 +190,7 @@ public class l {
         return false;
     }
 
-    public List<Object> aMr() {
+    public List<Object> aMu() {
         return this.avW;
     }
 
@@ -206,7 +206,7 @@ public class l {
         return this.dataType;
     }
 
-    public long aMs() {
+    public long aMv() {
         return this.eae;
     }
 }

@@ -16,12 +16,12 @@ public class b extends PopupWindow {
     private int asz;
     private Context context;
     private int count;
-    private a eXv;
+    private a eXu;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void qI(int i);
+        void qH(int i);
     }
 
     public b(Context context) {
@@ -68,7 +68,7 @@ public class b extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new View$OnClickListenerC0080b(this.count, this.eXv));
+        view.setOnClickListener(new View$OnClickListenerC0080b(this.count, this.eXu));
         this.amf.addView(view);
         this.count++;
     }
@@ -77,7 +77,7 @@ public class b extends PopupWindow {
         this.maxHeight = i;
     }
 
-    public void qH(int i) {
+    public void qG(int i) {
         if (this.asz != -1) {
             this.amf.getChildAt(this.asz).setSelected(false);
         }
@@ -86,24 +86,24 @@ public class b extends PopupWindow {
     }
 
     public void a(a aVar) {
-        this.eXv = aVar;
+        this.eXu = aVar;
     }
 
     /* renamed from: com.baidu.tieba.write.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class View$OnClickListenerC0080b implements View.OnClickListener {
-        private a eXw;
+        private a eXv;
         private int position;
 
         public View$OnClickListenerC0080b(int i, a aVar) {
             this.position = i;
-            this.eXw = aVar;
+            this.eXv = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.eXw != null) {
-                this.eXw.qI(this.position);
+            if (this.eXv != null) {
+                this.eXv.qH(this.position);
             }
         }
     }

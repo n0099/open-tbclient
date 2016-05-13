@@ -1,15 +1,15 @@
 package com.baidu.tieba.write.write;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ AtListActivity fcq;
+    final /* synthetic */ AtListActivity fcp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AtListActivity atListActivity) {
-        this.fcq = atListActivity;
+        this.fcp = atListActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.fcq.pm(com.baidu.adp.lib.util.j.a(this.fcq.crz.getText(), ""));
+        this.fcp.pm(com.baidu.adp.lib.util.j.a(this.fcp.crz.getText(), ""));
     }
 }

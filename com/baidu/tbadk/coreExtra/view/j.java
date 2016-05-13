@@ -79,7 +79,7 @@ public class j {
         this.akv = aVar;
     }
 
-    public void zm() {
+    public void zn() {
         if (this.akd == null) {
             this.akc = LayoutInflater.from(this.Do.getPageActivity()).inflate(t.h.main_input_username, (ViewGroup) null);
             this.ake = (EditText) this.akc.findViewById(t.g.account);
@@ -100,7 +100,7 @@ public class j {
             this.akj.setOnCheckedChangeListener(this.akh);
             this.akk.setOnCheckedChangeListener(this.akh);
             this.akr = (TextView) this.akc.findViewById(t.g.phone_info);
-            zp();
+            zq();
             this.akd = new Dialog(this.Do.getPageActivity(), t.k.input_username_dialog);
             this.akd.setCanceledOnTouchOutside(false);
             this.akd.setCancelable(false);
@@ -109,7 +109,7 @@ public class j {
         }
         if (!this.akd.isShowing()) {
             this.ake.setText((CharSequence) null);
-            zp();
+            zq();
             eJ(null);
             if (this.aks == null || this.aks.length() <= 0) {
                 this.akr.setText("Hi," + this.Do.getString(t.j.bar_friend));
@@ -126,7 +126,7 @@ public class j {
         }
     }
 
-    public void zn() {
+    public void zo() {
         String editable = this.ake.getText().toString();
         if (editable == null || editable.length() <= 0) {
             eJ(this.Do.getString(t.j.input_name));
@@ -145,7 +145,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zo() {
+    public void zp() {
         if (this.akv != null) {
             this.akv.i(null);
         }
@@ -192,10 +192,10 @@ public class j {
             this.akn.cancel();
             this.akn = null;
         }
-        zq();
+        zr();
     }
 
-    public void zp() {
+    public void zq() {
         this.akf.setVisibility(8);
         this.akf.clearCheck();
         this.akg.setVisibility(8);
@@ -208,7 +208,7 @@ public class j {
         this.akk.setChecked(false);
     }
 
-    public void zq() {
+    public void zr() {
         if (this.akd != null && this.akd.isShowing()) {
             com.baidu.adp.lib.h.j.b(this.akd, this.Do);
         }
@@ -266,13 +266,13 @@ public class j {
             if (bVar == null) {
                 j.this.eJ(this.aeI.getErrorString());
             } else if (bVar.getUser().getUserName() != null) {
-                j.this.zq();
+                j.this.zr();
                 TbadkCoreApplication.setCurrentAccount(j.this.akt, j.this.Do.getPageActivity());
                 if (j.this.aku != null) {
                     j.this.aku.i(j.this.akt);
                 }
             } else {
-                j.this.m(bVar.wr());
+                j.this.m(bVar.ws());
             }
         }
 
@@ -282,7 +282,7 @@ public class j {
             j.this.akq.setVisibility(0);
             j.this.akp.setEnabled(false);
             j.this.eJ(null);
-            j.this.zp();
+            j.this.zq();
             super.onPreExecute();
         }
 
@@ -312,7 +312,7 @@ public class j {
         public com.baidu.tbadk.coreExtra.data.b doInBackground(String... strArr) {
             String str;
             Exception e;
-            String tc;
+            String td;
             String str2 = null;
             str2 = null;
             str2 = null;
@@ -321,14 +321,14 @@ public class j {
                 this.aeI = new com.baidu.tbadk.core.util.ab(this.mUrl);
                 this.aeI.n("un", this.mAccount);
                 this.aeI.n("BDUSS", j.this.akt.getBDUSS());
-                this.aeI.tA().uu().YA = false;
-                tc = this.aeI.tc();
+                this.aeI.tB().uv().YA = false;
+                td = this.aeI.td();
             } catch (Exception e2) {
                 str = str2;
                 e = e2;
             }
-            if (this.aeI.tD()) {
-                str = this.aeI.tE();
+            if (this.aeI.tE()) {
+                str = this.aeI.tF();
                 try {
                 } catch (Exception e3) {
                     e = e3;
@@ -337,7 +337,7 @@ public class j {
                 }
                 if (str == 0) {
                     com.baidu.tbadk.coreExtra.data.b bVar = new com.baidu.tbadk.coreExtra.data.b();
-                    bVar.parserJson(tc);
+                    bVar.parserJson(td);
                     String userName = bVar.getUser().getUserName();
                     String bduss = bVar.getUser().getBDUSS();
                     str = bVar;
@@ -357,12 +357,12 @@ public class j {
                             str2 = r1;
                         }
                     }
-                } else if (this.aeI.tE() == 36) {
+                } else if (this.aeI.tF() == 36) {
                     com.baidu.tbadk.coreExtra.data.b bVar2 = new com.baidu.tbadk.coreExtra.data.b();
-                    bVar2.parserJson(tc);
+                    bVar2.parserJson(td);
                     str = bVar2;
-                } else if (this.aeI.tE() == 1) {
-                    j.this.zq();
+                } else if (this.aeI.tF() == 1) {
+                    j.this.zr();
                     str = 0;
                     return str;
                 }
@@ -393,12 +393,12 @@ public class j {
         public com.baidu.tbadk.coreExtra.data.b doInBackground(String... strArr) {
             this.aeI = new com.baidu.tbadk.core.util.ab(this.mUrl);
             this.aeI.n("un", this.mAccount);
-            String tc = this.aeI.tc();
-            if (!this.aeI.tD() || this.aeI.tE() != 36) {
+            String td = this.aeI.td();
+            if (!this.aeI.tE() || this.aeI.tF() != 36) {
                 return null;
             }
             com.baidu.tbadk.coreExtra.data.b bVar = new com.baidu.tbadk.coreExtra.data.b();
-            bVar.parserJson(tc);
+            bVar.parserJson(td);
             return bVar;
         }
 
@@ -409,14 +409,14 @@ public class j {
         public void onPostExecute(com.baidu.tbadk.coreExtra.data.b bVar) {
             super.onPostExecute(bVar);
             this.aky.akn = null;
-            if (!this.aeI.tD()) {
+            if (!this.aeI.tE()) {
                 this.aky.eJ(this.aeI.getErrorString());
-            } else if (this.aeI.tE() == 0) {
+            } else if (this.aeI.tF() == 0) {
                 this.aky.eJ(this.aky.Do.getString(t.j.name_not_use));
-            } else if (this.aeI.tE() == 36) {
+            } else if (this.aeI.tF() == 36) {
                 this.aky.eJ(this.aeI.getErrorString());
                 if (bVar != null) {
-                    this.aky.m(bVar.wr());
+                    this.aky.m(bVar.ws());
                 }
             } else {
                 this.aky.eJ(this.aeI.getErrorString());
@@ -427,7 +427,7 @@ public class j {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             this.aky.eJ(null);
-            this.aky.zp();
+            this.aky.zq();
             super.onPreExecute();
         }
     }

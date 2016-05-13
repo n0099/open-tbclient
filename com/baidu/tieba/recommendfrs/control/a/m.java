@@ -107,13 +107,13 @@ public class m {
                     } else {
                         this.dZC.bU(j2);
                     }
-                    this.dZz.Dy();
+                    this.dZz.Dz();
                     return;
                 default:
                     this.dZB.setPn(i);
                     this.dZB.setTagCode(j);
                     this.dZB.bT(j2);
-                    this.dZy.Dy();
+                    this.dZy.Dz();
                     return;
             }
         }
@@ -129,7 +129,7 @@ public class m {
         if (!this.dZG.get(b, false)) {
             this.dZG.put(b, true);
             com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n();
-            nVar.eM(1005);
+            nVar.eL(1005);
             nVar.pageType = b;
             nVar.axK = false;
             nVar.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
@@ -156,7 +156,7 @@ public class m {
         if (!this.dZG.get(b, false)) {
             this.dZG.put(b, true);
             com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n();
-            nVar.eM(1005);
+            nVar.eL(1005);
             nVar.pageType = b;
             nVar.axK = true;
             nVar.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
@@ -183,12 +183,12 @@ public class m {
 
     public void a(com.baidu.tbadk.performanceLog.n nVar, int i) {
         if (nVar != null) {
-            long ol = com.baidu.tieba.recommendfrs.a.aLN().ol(i);
+            long ok = com.baidu.tieba.recommendfrs.a.aLQ().ok(i);
             nVar.axx = 0L;
-            com.baidu.tieba.recommendfrs.a.aLN().setCreateTime(0L);
-            nVar.axE = com.baidu.tieba.recommendfrs.a.aLN().ok(i);
-            nVar.axF = ol;
-            nVar.EH();
+            com.baidu.tieba.recommendfrs.a.aLQ().setCreateTime(0L);
+            nVar.axE = com.baidu.tieba.recommendfrs.a.aLQ().oj(i);
+            nVar.axF = ok;
+            nVar.EI();
         }
     }
 }

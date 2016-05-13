@@ -21,7 +21,7 @@ public class RecommendFrsSocketResponsedMessage extends MvcSocketResponsedMessag
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof o) {
                 o oVar = (o) mvcNetMessage.getRequestData();
-                if (oVar.aMv() == 0 && (cw = com.baidu.tbadk.core.b.a.rR().cw("RecommendFrsCache")) != null) {
+                if (oVar.aMy() == 0 && (cw = com.baidu.tbadk.core.b.a.rS().cw("RecommendFrsCache")) != null) {
                     cw.e(new StringBuilder(String.valueOf(oVar.getTagCode())).toString(), bArr);
                 }
             }

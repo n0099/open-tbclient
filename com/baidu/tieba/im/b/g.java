@@ -20,9 +20,9 @@ public class g extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof BackgroundSwitchMessage) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                this.coN.ahD();
+                this.coN.ahF();
             } else {
-                this.coN.ahC();
+                this.coN.ahE();
             }
         }
     }

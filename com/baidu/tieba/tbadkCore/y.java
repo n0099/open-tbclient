@@ -133,7 +133,7 @@ public class y {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> aRY() {
+    public List<FeedForumData> aSb() {
         return this.erv;
     }
 }

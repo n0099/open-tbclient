@@ -13,14 +13,14 @@ public class n implements HorizontalTabView.a {
     }
 
     @Override // com.baidu.tieba.frs.tab.HorizontalTabView.a
-    public void gz(int i) {
+    public void gy(int i) {
         aa aaVar;
         aaVar = this.buB.buy;
-        aaVar.gV(i);
+        aaVar.gU(i);
     }
 
     @Override // com.baidu.tieba.frs.tab.HorizontalTabView.a
-    public boolean gA(int i) {
+    public boolean gz(int i) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
         frsActivity = this.buB.bpj;

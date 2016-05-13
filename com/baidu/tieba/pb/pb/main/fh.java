@@ -18,13 +18,13 @@ public class fh implements View.OnClickListener {
         boolean z;
         pbActivity = this.dpu.dhY;
         if (pbActivity.checkUpIsLogin()) {
-            this.dpu.akv();
+            this.dpu.akx();
             if (this.dpu.djq != null) {
                 PbActivity.c cVar = this.dpu.djq;
                 z = this.dpu.dfL;
                 cVar.gB(z);
             }
-            this.dpu.azk();
+            this.dpu.azn();
         }
     }
 }

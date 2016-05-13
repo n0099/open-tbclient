@@ -59,7 +59,7 @@ public class ak extends am {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.c.am
-    protected void gB(int i) {
+    protected void gA(int i) {
         SM();
         this.blo.onChangeSkinType(i);
         this.blp.onChangeSkinType(i);
@@ -74,8 +74,8 @@ public class ak extends am {
 
     @Override // com.baidu.tieba.frs.entelechy.c.am
     protected void k(ax axVar) {
-        if (axVar != null && axVar.qL() != null) {
-            List<PollOption> list = axVar.qL().options;
+        if (axVar != null && axVar.qM() != null) {
+            List<PollOption> list = axVar.qM().options;
             if (!com.baidu.tbadk.core.l.ob().oh() || com.baidu.tbadk.core.util.y.s(list)) {
                 this.bln.setVisibility(8);
                 return;
@@ -87,15 +87,15 @@ public class ak extends am {
             this.blq.setVisibility(size == 3 ? 0 : 4);
             if (size >= 1) {
                 PollOption pollOption = list.get(0);
-                this.blo.a(1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), axVar.qL().total_poll.longValue());
+                this.blo.a(1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), axVar.qM().total_poll.longValue());
             }
             if (size >= 2) {
                 PollOption pollOption2 = list.get(1);
-                this.blp.a(1, pollOption2.image, Boolean.valueOf(this.mIsFromCDN), pollOption2.text, pollOption2.num.longValue(), axVar.qL().total_poll.longValue());
+                this.blp.a(1, pollOption2.image, Boolean.valueOf(this.mIsFromCDN), pollOption2.text, pollOption2.num.longValue(), axVar.qM().total_poll.longValue());
             }
             if (size >= 3) {
                 PollOption pollOption3 = list.get(2);
-                this.blq.a(1, pollOption3.image, Boolean.valueOf(this.mIsFromCDN), pollOption3.text, pollOption3.num.longValue(), axVar.qL().total_poll.longValue());
+                this.blq.a(1, pollOption3.image, Boolean.valueOf(this.mIsFromCDN), pollOption3.text, pollOption3.num.longValue(), axVar.qM().total_poll.longValue());
             }
         }
     }

@@ -33,12 +33,12 @@ public class ah extends CustomMessageListener {
                 eVar = this.dgC.dfK;
                 if (eVar != null) {
                     eVar2 = this.dgC.dfK;
-                    if (eVar2.avB() != null) {
+                    if (eVar2.avE() != null) {
                         eVar3 = this.dgC.dfK;
-                        if (!TextUtils.isEmpty(eVar3.avB().getId())) {
+                        if (!TextUtils.isEmpty(eVar3.avE().getId())) {
                             String id = axVar.getId();
                             eVar4 = this.dgC.dfK;
-                            if (id.equals(eVar4.avB().getId())) {
+                            if (id.equals(eVar4.avE().getId())) {
                                 anVar = this.dgC.dgr;
                                 if (anVar != null) {
                                     anVar2 = this.dgC.dgr;

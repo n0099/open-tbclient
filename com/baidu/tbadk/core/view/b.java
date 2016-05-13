@@ -60,7 +60,7 @@ public class b {
         }
     }
 
-    public void cH(int i) {
+    public void cG(int i) {
         if (this.mActivity != null) {
             this.ZZ = this.mActivity.getString(i);
         }

@@ -2,12 +2,12 @@ package com.baidu.tieba.onlineDebugger.command;
 /* loaded from: classes.dex */
 public class c implements d {
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public Object aux() {
+    public Object auA() {
         return true;
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public boolean auy() {
+    public boolean auB() {
         return false;
     }
 }

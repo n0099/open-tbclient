@@ -10,7 +10,7 @@ import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.base.e {
     private com.baidu.adp.framework.listener.a cJp;
-    private a eVn;
+    private a eVm;
     private Object mExtra;
 
     /* loaded from: classes.dex */
@@ -21,7 +21,7 @@ public class k extends com.baidu.adp.base.e {
     public k(com.baidu.adp.base.h<?> hVar, a aVar) {
         super(hVar);
         this.cJp = new l(this, CmdConfigHttp.CMD_USER_MUTE_CHECK, 303040);
-        this.eVn = aVar;
+        this.eVm = aVar;
         this.cJp.bm().setSelfListener(true);
         this.cJp.bn().setSelfListener(true);
         registerListener(this.cJp);

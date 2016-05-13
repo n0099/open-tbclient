@@ -15,9 +15,9 @@ class es implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.widget.ListView.v at;
-        if (this.bmg.at(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.ax) {
-            com.baidu.tbadk.browser.f.a(this.bmg.bek.getApplicationContext(), TbadkCoreApplication.m11getInst().getString(t.j.user_icon_web_view_title), String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.ax) at).getAuthor().getUserId(), true, true, false);
+        com.baidu.adp.widget.ListView.v as;
+        if (this.bmg.as(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.ax) {
+            com.baidu.tbadk.browser.f.a(this.bmg.bek.getApplicationContext(), TbadkCoreApplication.m11getInst().getString(t.j.user_icon_web_view_title), String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.ax) as).getAuthor().getUserId(), true, true, false);
             TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10134").s("obj_type", 3));
         }
     }

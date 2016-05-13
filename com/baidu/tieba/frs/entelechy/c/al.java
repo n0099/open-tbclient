@@ -42,7 +42,7 @@ public class al extends am {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.c.am
-    protected void gB(int i) {
+    protected void gA(int i) {
         if (this.bpU != null) {
             this.bpU.onChangeSkinType(i);
         }
@@ -50,10 +50,10 @@ public class al extends am {
 
     @Override // com.baidu.tieba.frs.entelechy.c.am
     protected void k(ax axVar) {
-        if (axVar != null && axVar.qL() != null) {
-            long longValue = axVar.qL().total_poll.longValue();
+        if (axVar != null && axVar.qM() != null) {
+            long longValue = axVar.qM().total_poll.longValue();
             long j = longValue < 0 ? 0L : longValue;
-            List<PollOption> list = axVar.qL().options;
+            List<PollOption> list = axVar.qM().options;
             if (list != null && !list.isEmpty()) {
                 LinkedList linkedList = new LinkedList();
                 for (PollOption pollOption : list) {

@@ -18,7 +18,7 @@ public class a {
         interfaceC0059a.a(this.cmF.values().iterator());
     }
 
-    public void agW() {
+    public void agY() {
         this.cmF.clear();
     }
 

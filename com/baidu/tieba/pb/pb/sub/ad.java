@@ -24,7 +24,7 @@ public class ad implements Runnable {
         if (this.py != null) {
             int[] iArr = new int[2];
             pVar = this.dqN.czd;
-            pVar.Bb().getLocationInWindow(iArr);
+            pVar.Bc().getLocationInWindow(iArr);
             bdListView = this.dqN.zu;
             bdListView.setSelectionFromTop(this.Sg + 1, iArr[1] - this.py.getHeight());
             bdListView2 = this.dqN.zu;

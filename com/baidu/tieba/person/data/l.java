@@ -17,7 +17,7 @@ public class l extends a {
         return dzC;
     }
 
-    public List<MyGroup> aCj() {
+    public List<MyGroup> aCm() {
         if (this.mUserData != null) {
             return this.mUserData.getGroup();
         }
@@ -51,11 +51,11 @@ public class l extends a {
         this.dzD = personTainInfo;
     }
 
-    public PersonTainInfo aCk() {
+    public PersonTainInfo aCn() {
         return this.dzD;
     }
 
-    public com.baidu.tbadk.data.h aCl() {
+    public com.baidu.tbadk.data.h aCo() {
         if (this.mUserData != null) {
             return this.mUserData.getPersonPrivate();
         }

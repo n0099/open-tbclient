@@ -13,9 +13,9 @@ public class s implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean vm;
+        boolean vn;
         TbCheckBox tbCheckBox = this.acf;
-        vm = this.acf.vm();
-        tbCheckBox.setChecked(!vm);
+        vn = this.acf.vn();
+        tbCheckBox.setChecked(!vn);
     }
 }

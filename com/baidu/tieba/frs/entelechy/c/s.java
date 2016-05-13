@@ -62,7 +62,7 @@ public class s extends w {
         if (axVar != null) {
             this.aab = axVar;
             if (axVar.getAuthor() != null) {
-                fu(axVar.getAuthor().getFansNum());
+                ft(axVar.getAuthor().getFansNum());
                 if (this.aab.getAuthor().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.aab.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                     this.aOX.setVisibility(8);
                 } else if (this.aab.getAuthor().getGodUserData().getFollowed() == 1) {
@@ -98,7 +98,7 @@ public class s extends w {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fu(int i) {
+    public void ft(int i) {
         if (this.aQf != null) {
             this.aQf.setText(String.format(this.DV.getResources().getString(t.j.fans_default_name_god_user), ay.A(i)));
         }

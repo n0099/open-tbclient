@@ -25,29 +25,29 @@ public class a extends BaseAdapter {
     private com.baidu.tbadk.img.b aqG = new com.baidu.tbadk.img.b();
     private l apf = null;
     private int aqJ = 13;
-    private int fbb = 6;
-    private boolean fbc = false;
+    private int fba = 6;
+    private boolean fbb = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0082a fbd = new b(this);
+    private InterfaceC0082a fbc = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0082a {
-        void qZ(int i);
+        void qY(int i);
     }
 
-    public void bcG() {
+    public void bcN() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            bcH();
-        } else if (this.chosedFiles.size() < this.fbb) {
+            bcO();
+        } else if (this.chosedFiles.size() < this.fba) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                bcH();
+                bcO();
             }
         }
     }
 
-    private void bcH() {
+    private void bcO() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + t.f.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -58,14 +58,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean bcI() {
+    public boolean bcP() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void bcJ() {
+    public void bcQ() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        bcG();
+        bcN();
         notifyDataSetInvalidated();
     }
 
@@ -168,7 +168,7 @@ public class a extends BaseAdapter {
         return inflate;
     }
 
-    public void qY(int i) {
-        this.fbb = i;
+    public void qX(int i) {
+        this.fba = i;
     }
 }

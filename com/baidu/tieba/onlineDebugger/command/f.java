@@ -11,7 +11,7 @@ public class f implements d {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public Object aux() {
+    public Object auA() {
         if (this.dbz == null) {
             return null;
         }
@@ -33,7 +33,7 @@ public class f implements d {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public boolean auy() {
+    public boolean auB() {
         return false;
     }
 }

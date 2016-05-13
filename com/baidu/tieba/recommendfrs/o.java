@@ -78,11 +78,11 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
 
     public void b(View view, int i, int i2, int i3, int i4) {
         if (i2 != i4) {
-            on(i2);
+            om(i2);
         }
     }
 
-    private void on(int i) {
+    private void om(int i) {
         this.dYh = i;
         if (this.bzI != null) {
             ViewGroup.LayoutParams layoutParams = this.bzI.getLayoutParams();
@@ -136,21 +136,21 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
         this.dYe = dVar;
     }
 
-    public void anz() {
-        com.baidu.tieba.recommendfrs.a.aLN().r(System.currentTimeMillis(), getLogType());
+    public void anC() {
+        com.baidu.tieba.recommendfrs.a.aLQ().r(System.currentTimeMillis(), getLogType());
         this.dYc = System.currentTimeMillis();
         if (this.dYf != null && !StringUtils.isNull(this.dYf.tag_name)) {
             TiebaStatic.log(new aw("kantie_1").ac("obj_name", this.dYf.tag_name));
         }
-        if (this.cFA && this.dYg != null && this.dYg.aMr() != null && this.dYg.aMr().size() > 0) {
+        if (this.cFA && this.dYg != null && this.dYg.aMu() != null && this.dYg.aMu().size() > 0) {
             if (this.dYg.getDataType() == 1) {
                 this.dYb.notifyDataSetChanged();
             } else {
                 this.dXR.notifyDataSetChanged();
             }
         } else if (this.cFz && !com.baidu.adp.lib.util.k.fH()) {
-            if (this.dYb.DS() <= 0) {
-                this.dYb.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajh), NoDataViewFactory.d.cP(t.j.neterror), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+            if (this.dYb.DT() <= 0) {
+                this.dYb.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajh), NoDataViewFactory.d.cO(t.j.neterror), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
                 this.dYb.notifyDataSetChanged();
             }
         } else {
@@ -158,16 +158,16 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
                 this.cFG = false;
                 com.baidu.adp.lib.h.h.dL().postDelayed(new q(this), 200L);
             } else {
-                anA();
+                anD();
             }
             TiebaStatic.eventStat(getContext(), "kantie_duration", String.valueOf((System.currentTimeMillis() - this.dYc) / 1000));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anA() {
+    public void anD() {
         a((View) this, false, getResources().getDimensionPixelSize(t.e.ds520));
-        aiJ();
+        aiL();
     }
 
     private void g(Context context, View view) {
@@ -177,12 +177,12 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
         this.bkd = new PbListView(context);
         this.bkd.jn();
         this.bkd.setTextColor(at.getColor(t.d.cp_cont_d));
-        this.bkd.cS(TbadkCoreApplication.m11getInst().getSkinType());
+        this.bkd.cR(TbadkCoreApplication.m11getInst().getSkinType());
         this.mPullView.a(new a(this, null));
         this.dYa.setOnSrollToBottomListener(this);
         this.dYa.setOnScrollListener(this);
         this.bzI = new TextView(context);
-        on(this.dYh);
+        om(this.dYh);
         this.dYa.f(this.bzI, 0);
     }
 
@@ -192,77 +192,77 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
             this.dYa.k(2000L);
         }
         if (this.bkd != null) {
-            this.bkd.vh();
+            this.bkd.vi();
         }
         if (lVar == null) {
-            oo(1);
+            on(1);
             aH(this);
-            this.dYb.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajh), NoDataViewFactory.d.cP(t.j.invite_friend_no_data_now), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+            this.dYb.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajh), NoDataViewFactory.d.cO(t.j.invite_friend_no_data_now), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
             this.dYb.notifyDataSetChanged();
-            com.baidu.tieba.recommendfrs.a.aLN().s(System.currentTimeMillis() - currentTimeMillis, 2);
+            com.baidu.tieba.recommendfrs.a.aLQ().s(System.currentTimeMillis() - currentTimeMillis, 2);
             return;
         }
         this.dYg = lVar;
         this.bfs = false;
-        this.cFA = lVar.aob();
-        this.cFz = lVar.aoa();
-        this.dYf = lVar.aMq();
+        this.cFA = lVar.aoe();
+        this.cFz = lVar.aod();
+        this.dYf = lVar.aMt();
         setHasMore(lVar.hasMore());
-        List<Object> aMr = lVar.aMr();
+        List<Object> aMu = lVar.aMu();
         if (this.dYb != null) {
-            if (aMr == null || aMr.size() <= 0) {
+            if (aMu == null || aMu.size() <= 0) {
                 if (!z2) {
-                    oo(1);
+                    on(1);
                 }
                 if (this.cFz && this.cFA) {
-                    this.dYb.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajh), NoDataViewFactory.d.cP(t.j.invite_friend_no_data_now), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+                    this.dYb.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajh), NoDataViewFactory.d.cO(t.j.invite_friend_no_data_now), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
                     setHasMore(false);
                 } else {
                     this.dYb.a((NoDataViewFactory.c) null, (NoDataViewFactory.d) null, (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
                 }
-                this.dYb.z((List) aMr);
+                this.dYb.z((List) aMu);
                 this.dYb.notifyDataSetChanged();
             } else if (lVar.getDataType() == 1) {
                 if (!z2) {
-                    oo(lVar.getDataType());
+                    on(lVar.getDataType());
                 }
-                this.dYb.z((List) aMr);
+                this.dYb.z((List) aMu);
             } else if (lVar.getDataType() == 2) {
                 if (this.dXR == null) {
                     this.dXR = new com.baidu.tieba.recommendfrs.personalize.a.ad(getContext(), this.dYa);
                     this.dXR.setPageUniqueId(this.aOT);
-                    aLS();
+                    aLV();
                 } else if (!z2) {
-                    oo(lVar.getDataType());
+                    on(lVar.getDataType());
                 }
                 ArrayList arrayList = new ArrayList();
-                for (Object obj : aMr) {
+                for (Object obj : aMu) {
                     if (obj instanceof com.baidu.adp.widget.ListView.v) {
                         arrayList.add((com.baidu.adp.widget.ListView.v) obj);
                     }
                 }
                 this.dXR.co(arrayList);
             }
-            if (this.dYf != null && !StringUtils.isNull(this.dYf.tag_name) && com.baidu.tbadk.core.util.y.r(aMr) > 0) {
+            if (this.dYf != null && !StringUtils.isNull(this.dYf.tag_name) && com.baidu.tbadk.core.util.y.r(aMu) > 0) {
                 TiebaStatic.log(new aw("kantie_1").ac("obj_name", this.dYf.tag_name));
             }
-            com.baidu.tieba.recommendfrs.a.aLN().s(System.currentTimeMillis() - currentTimeMillis, getLogType());
+            com.baidu.tieba.recommendfrs.a.aLQ().s(System.currentTimeMillis() - currentTimeMillis, getLogType());
         }
         if (z) {
-            this.dYa.setSelection(lVar.anZ());
+            this.dYa.setSelection(lVar.aoc());
         }
-        if (this.cFA || (aMr != null && !aMr.isEmpty())) {
+        if (this.cFA || (aMu != null && !aMu.isEmpty())) {
             aH(this);
         }
         if (!z) {
-            aLT();
+            aLW();
         }
     }
 
     public void iH(boolean z) {
         if (this.dYa != null) {
             RS();
-            if (!z || this.dYg == null || this.dYg.aMr() == null || this.dYg.aMr().size() <= 0) {
+            if (!z || this.dYg == null || this.dYg.aMu() == null || this.dYg.aMu().size() <= 0) {
                 this.dYa.setSelection(0);
                 this.dYa.jy();
             }
@@ -276,19 +276,19 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
                 this.dYa.setNextPage(this.bkd);
             }
             if (this.mHasMore) {
-                this.bkd.vj();
-                this.bkd.cT(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds110));
+                this.bkd.vk();
+                this.bkd.cS(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds110));
                 return;
             }
-            this.bkd.cU(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds140));
+            this.bkd.cT(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds140));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiJ() {
+    public void aiL() {
         int logType = getLogType();
-        if (com.baidu.tieba.recommendfrs.a.aLN().om(logType) == -1) {
-            com.baidu.tieba.recommendfrs.a.aLN().u(System.currentTimeMillis(), logType);
+        if (com.baidu.tieba.recommendfrs.a.aLQ().ol(logType) == -1) {
+            com.baidu.tieba.recommendfrs.a.aLQ().u(System.currentTimeMillis(), logType);
         }
         if (this.cFz) {
             this.dYd.b(1, this.dYf.tag_code.longValue(), 0L);
@@ -303,12 +303,12 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
             this.dYa.k(2000L);
         }
         this.bfs = false;
-        this.bkd.vh();
-        if (this.dYg != null && this.dYg.aMr() != null) {
-            i2 = this.dYg.aMr().size();
+        this.bkd.vi();
+        if (this.dYg != null && this.dYg.aMu() != null) {
+            i2 = this.dYg.aMu().size();
         }
         if (i2 <= 0 && (this.cFz || i == -53)) {
-            oo(1);
+            on(1);
             if (StringUtils.isNull(str, true)) {
                 str = TbadkCoreApplication.m11getInst().getString(t.j.neterror);
             }
@@ -316,7 +316,7 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
             this.dYb.z((List) new ArrayList());
         }
         aH(this);
-        aLT();
+        aLW();
     }
 
     private void r(long j, String str) {
@@ -330,7 +330,7 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
 
     private void b(ZhiBoInfoTW zhiBoInfoTW) {
         if (zhiBoInfoTW != null) {
-            this.pageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.pageContext.getContext(), String.valueOf(zhiBoInfoTW.thread_id)).cj("from_frs").bp(18003).oq()));
+            this.pageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.pageContext.getContext(), String.valueOf(zhiBoInfoTW.thread_id)).cj("from_frs").bo(18003).oq()));
             TiebaStatic.log("c10258");
         }
     }
@@ -347,38 +347,38 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
     public void jA() {
         if (this.mHasMore && com.baidu.adp.lib.util.k.fH() && !this.bfs) {
             this.bfs = true;
-            this.bkd.vg();
+            this.bkd.vh();
             if (this.dYd != null) {
                 if (this.dYg == null || this.dYg.getDataType() == 1) {
                     if (this.dYb == null) {
                         this.dYd.b(1, this.dYf.tag_code.longValue(), 0L);
                         return;
                     }
-                    com.baidu.tieba.recommendfrs.data.p aLQ = this.dYb.aLQ();
-                    if (aLQ != null) {
-                        this.dYd.b(this.dYg != null ? this.dYg.getPn() + 1 : 1, this.dYf.tag_code.longValue(), aLQ.aMw());
+                    com.baidu.tieba.recommendfrs.data.p aLT = this.dYb.aLT();
+                    if (aLT != null) {
+                        this.dYd.b(this.dYg != null ? this.dYg.getPn() + 1 : 1, this.dYf.tag_code.longValue(), aLT.aMz());
                     }
                 } else if (this.dYg.getDataType() == 2) {
                     int pn = this.dYg.getPn() + 1;
-                    aLR();
-                    this.dYd.b(pn, this.dYf.tag_code.longValue(), this.dYg.aMs());
+                    aLU();
+                    this.dYd.b(pn, this.dYf.tag_code.longValue(), this.dYg.aMv());
                 }
             }
         }
     }
 
-    private void aLR() {
-        if (this.dYg != null && this.dYg.getDataType() == 2 && this.dYg.aMr() != null && this.dYg.aMr().size() >= TbadkCoreApplication.m11getInst().getListItemRule().wA() - 30) {
-            int wB = TbadkCoreApplication.m11getInst().getListItemRule().wB();
-            if (wB < 0) {
-                wB = 0;
+    private void aLU() {
+        if (this.dYg != null && this.dYg.getDataType() == 2 && this.dYg.aMu() != null && this.dYg.aMu().size() >= TbadkCoreApplication.m11getInst().getListItemRule().wB() - 30) {
+            int wC = TbadkCoreApplication.m11getInst().getListItemRule().wC();
+            if (wC < 0) {
+                wC = 0;
             }
-            ArrayList arrayList = new ArrayList(this.dYg.aMr());
+            ArrayList arrayList = new ArrayList(this.dYg.aMu());
             ArrayList arrayList2 = new ArrayList();
             for (int i = 0; i < arrayList.size(); i++) {
-                if (i >= wB && i < wB + 30) {
+                if (i >= wC && i < wC + 30) {
                     arrayList2.add(arrayList.get(i));
-                } else if (i >= wB + 30) {
+                } else if (i >= wC + 30) {
                     break;
                 }
             }
@@ -407,11 +407,11 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
             this.dXR.onChangeSkinType(i);
         }
         if (this.mPullView != null) {
-            this.mPullView.cS(i);
+            this.mPullView.cR(i);
         }
         if (this.bkd != null) {
             this.bkd.setTextColor(at.getColor(t.d.cp_cont_d));
-            this.bkd.cS(i);
+            this.bkd.cR(i);
         }
     }
 
@@ -429,10 +429,10 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
         }
         if (this.dYi == null) {
             this.dYi = new com.baidu.tbadk.performanceLog.m();
-            this.dYi.eM(1005);
+            this.dYi.eL(1005);
         }
         this.dYi.pageType = getLogType();
-        this.dYi.Et();
+        this.dYi.Eu();
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
@@ -440,11 +440,11 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
         if (bVar == null) {
             return false;
         }
-        bVar.Dj();
-        com.baidu.tbadk.mvc.b.a Dk = bVar.Dk();
+        bVar.Dk();
+        com.baidu.tbadk.mvc.b.a Dl = bVar.Dl();
         if (this.dYg == null || this.dYg.getDataType() == 1) {
-            if (Dk instanceof com.baidu.tieba.recommendfrs.data.p) {
-                com.baidu.tieba.recommendfrs.data.p pVar = (com.baidu.tieba.recommendfrs.data.p) Dk;
+            if (Dl instanceof com.baidu.tieba.recommendfrs.data.p) {
+                com.baidu.tieba.recommendfrs.data.p pVar = (com.baidu.tieba.recommendfrs.data.p) Dl;
                 int i = 0;
                 while (true) {
                     if (i < this.dYb.getCount()) {
@@ -459,22 +459,22 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
                     }
                 }
                 String str = null;
-                if (pVar.aMA() != null && !pVar.aMA().isEmpty()) {
-                    str = pVar.aMA().get(0);
+                if (pVar.aMD() != null && !pVar.aMD().isEmpty()) {
+                    str = pVar.aMD().get(0);
                 }
-                if (pVar.aMB() == 33) {
-                    b(pVar.aMC());
-                } else if (pVar.aMD() == 1) {
-                    r(pVar.aMz(), str);
+                if (pVar.aME() == 33) {
+                    b(pVar.aMF());
+                } else if (pVar.aMG() == 1) {
+                    r(pVar.aMC(), str);
                     TiebaStatic.log(new aw("kantie_card").ac("obj_name", pVar.dZX).s("obj_type", 1).s("obj_locate", i).ac("obj_source", pVar.eam).s("obj_param1", 1).ac("abtest", pVar.abtest));
-                } else if (pVar.aMD() == 3) {
+                } else if (pVar.aMG() == 3) {
                     ns(new StringBuilder(String.valueOf(pVar.getThreadId())).toString());
                     TiebaStatic.log(new aw("kantie_card").ac("obj_name", pVar.dZX).s("obj_type", 2).s("obj_locate", i).ac("obj_source", pVar.eam).s("obj_param1", 1).ac("abtest", pVar.abtest));
                 }
                 com.baidu.tieba.tbadkCore.util.s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
                 if (readThreadHistory != null && !readThreadHistory.od(String.valueOf(pVar.getThreadId()))) {
                     readThreadHistory.oc(String.valueOf(pVar.getThreadId()));
-                    this.dYb.A((n) Dk);
+                    this.dYb.A((n) Dl);
                 }
             }
             return true;
@@ -506,10 +506,10 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
         public void aG(boolean z) {
             TiebaStatic.eventStat(o.this.getContext(), "kantie_update", null);
             if (o.this.dYd != null) {
-                o.this.aiJ();
-                if (com.baidu.tieba.recommendfrs.control.a.q.aMp().cyC == com.baidu.tieba.recommendfrs.control.a.q.aMp().dZI) {
-                    com.baidu.tieba.recommendfrs.control.a.q.aMp().dZJ = 0;
-                    com.baidu.tieba.recommendfrs.control.a.t.or(0);
+                o.this.aiL();
+                if (com.baidu.tieba.recommendfrs.control.a.q.aMs().cyC == com.baidu.tieba.recommendfrs.control.a.q.aMs().dZI) {
+                    com.baidu.tieba.recommendfrs.control.a.q.aMs().dZJ = 0;
+                    com.baidu.tieba.recommendfrs.control.a.t.oq(0);
                 }
             }
         }
@@ -522,14 +522,14 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
             } else {
                 this.cFC = new com.baidu.tbadk.f.f(getContext(), i);
             }
-            this.cFC.sf();
+            this.cFC.sg();
         }
         this.cFC.c(view, z);
         if (this.mPullView != null) {
             this.mPullView.Q(false);
         }
         if (this.dYb != null) {
-            oo(1);
+            on(1);
             this.dYb.bM(false);
             this.dYb.notifyDataSetChanged();
         }
@@ -555,40 +555,40 @@ public class o extends FrameLayout implements AbsListView.OnScrollListener, BdLi
         }
     }
 
-    public void aLP() {
+    public void aLS() {
     }
 
-    private void oo(int i) {
+    private void on(int i) {
         if (i == 1) {
             if ((this.dYa.getAdapter() instanceof com.baidu.adp.widget.ListView.e) && !(((com.baidu.adp.widget.ListView.e) this.dYa.getAdapter()).getWrappedAdapter() instanceof n)) {
                 this.dYa.setAdapter((ListAdapter) this.dYb);
-                aLS();
+                aLV();
             }
         } else if (i == 2 && (this.dYa.getAdapter() instanceof com.baidu.adp.widget.ListView.e) && !(((com.baidu.adp.widget.ListView.e) this.dYa.getAdapter()).getWrappedAdapter() instanceof com.baidu.adp.widget.ListView.y)) {
             this.dYa.a((com.baidu.adp.widget.ListView.a<com.baidu.adp.widget.ListView.v, y.a>) null);
-            aLS();
+            aLV();
         }
     }
 
-    private void aLS() {
+    private void aLV() {
         this.dYa.setPullRefresh(null);
         this.mPullView.release();
         this.mPullView = new com.baidu.tbadk.core.view.w(this.pageContext);
         this.dYa.setPullRefresh(this.mPullView);
         this.dYa.removeHeaderView(this.bzI);
         this.bzI = new TextView(this.pageContext.getPageActivity());
-        on(this.dYh);
+        om(this.dYh);
         this.dYa.f(this.bzI, 0);
         this.mPullView.a(new a(this, null));
         this.mPullView.setTag(this.aOT);
     }
 
-    private void aLT() {
+    private void aLW() {
         int logType = getLogType();
-        long om = com.baidu.tieba.recommendfrs.a.aLN().om(logType);
-        if (om > 0) {
-            com.baidu.tieba.recommendfrs.a.aLN().t(System.currentTimeMillis() - om, logType);
-            com.baidu.tieba.recommendfrs.a.aLN().u(0L, logType);
+        long ol = com.baidu.tieba.recommendfrs.a.aLQ().ol(logType);
+        if (ol > 0) {
+            com.baidu.tieba.recommendfrs.a.aLQ().t(System.currentTimeMillis() - ol, logType);
+            com.baidu.tieba.recommendfrs.a.aLQ().u(0L, logType);
         }
     }
 

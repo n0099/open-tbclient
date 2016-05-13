@@ -7,7 +7,7 @@ public class c {
     private com.baidu.adp.lib.f.a<String, com.baidu.adp.widget.a.a> atM;
     private com.baidu.adp.lib.f.a<String, com.baidu.adp.widget.a.a> atN;
 
-    public static c CH() {
+    public static c CI() {
         return atL;
     }
 
@@ -18,20 +18,20 @@ public class c {
         this.atN = new e(this, 0);
     }
 
-    public int CI() {
+    public int CJ() {
         return this.atN.getMaxSize();
     }
 
     public void C(int i, int i2) {
-        ex(i);
-        ey(i2);
+        ew(i);
+        ex(i2);
     }
 
-    public void ex(int i) {
+    public void ew(int i) {
         this.atM.T(i);
     }
 
-    public void ey(int i) {
+    public void ex(int i) {
         this.atN.T(i);
     }
 
@@ -45,7 +45,7 @@ public class c {
         }
     }
 
-    public boolean ez(int i) {
+    public boolean ey(int i) {
         return this.atN.S(i);
     }
 

@@ -5,24 +5,24 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class ae implements View.OnClickListener {
     private final /* synthetic */ int Sg;
-    final /* synthetic */ ab eYJ;
-    private final /* synthetic */ ImageFileInfo eYL;
+    final /* synthetic */ ab eYI;
+    private final /* synthetic */ ImageFileInfo eYK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ab abVar, int i, ImageFileInfo imageFileInfo) {
-        this.eYJ = abVar;
+        this.eYI = abVar;
         this.Sg = i;
-        this.eYL = imageFileInfo;
+        this.eYK = imageFileInfo;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         x xVar;
         x xVar2;
-        xVar = this.eYJ.eYH;
+        xVar = this.eYI.eYG;
         if (xVar != null) {
-            xVar2 = this.eYJ.eYH;
-            xVar2.a(this.Sg, this.eYL);
+            xVar2 = this.eYI.eYG;
+            xVar2.a(this.Sg, this.eYK);
         }
     }
 }

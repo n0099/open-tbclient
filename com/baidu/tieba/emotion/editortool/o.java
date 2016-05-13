@@ -15,6 +15,6 @@ public class o implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdToast.a(this.aVQ.getContext(), this.aVQ.getContext().getResources().getString(t.j.emotion_cant_show)).sc();
+        BdToast.a(this.aVQ.getContext(), this.aVQ.getContext().getResources().getString(t.j.emotion_cant_show)).sd();
     }
 }

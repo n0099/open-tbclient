@@ -56,7 +56,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         this.asg = viewPager;
         if (viewPager != null) {
             viewPager.setOnPageChangeListener(new a(this, null));
-            aoq();
+            aot();
         }
     }
 
@@ -65,7 +65,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         int dimensionPixelSize = getResources().getDimensionPixelSize(t.e.ds24);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(t.e.ds20);
         q qVar = new q(context);
-        qVar.sf();
+        qVar.sg();
         if (i == 0) {
             at.c(qVar.getTextView(), t.d.s_actionbar_text_line_color_s, 1);
         } else {
@@ -80,7 +80,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : ?: CAST (java.lang.Object) (wrap: java.lang.CharSequence : 0x002f: INVOKE  (r6v0 java.lang.CharSequence A[REMOVE]) = (r1v0 android.support.v4.view.PagerAdapter), (r0v3 int) type: VIRTUAL call: android.support.v4.view.PagerAdapter.getPageTitle(int):java.lang.CharSequence))] */
-    private void aoq() {
+    private void aot() {
         PagerAdapter adapter = this.asg.getAdapter();
         c cVar = new c(this, null);
         this.eaL.clear();
@@ -193,7 +193,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             this.eaK.setDuration(300L);
         }
         int aW = aW(i2, 0);
-        this.eaK.oy(i);
+        this.eaK.ox(i);
         this.eaK.aN(getScrollX(), aW);
         startAnimation(this.eaK);
     }
@@ -243,7 +243,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             this();
         }
 
-        public void oy(int i) {
+        public void ox(int i) {
             this.eaP = i;
         }
 

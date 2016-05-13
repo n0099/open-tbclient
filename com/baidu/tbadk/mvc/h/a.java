@@ -57,18 +57,18 @@ public class a extends c implements s {
         this.KB.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void eF(int i) {
+    public void eE(int i) {
         this.mProgressBar.setVisibility(0);
         this.Sm.setText(i);
         this.awm.setVisibility(0);
     }
 
-    public void eG(int i) {
+    public void eF(int i) {
         this.mProgressBar.setVisibility(8);
         this.Sm.setText(i);
     }
 
-    public void eH(int i) {
+    public void eG(int i) {
         this.mProgressBar.setVisibility(8);
         this.Sm.setText(i);
     }

@@ -9,7 +9,7 @@ public class a {
         this.xD = j;
     }
 
-    public com.baidu.tbadk.coreExtra.relationship.b aji() {
+    public com.baidu.tbadk.coreExtra.relationship.b ajk() {
         return this.csY;
     }
 

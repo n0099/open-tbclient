@@ -15,11 +15,11 @@ import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements a.b {
-    final /* synthetic */ UserMuteAddAndDelModel eVk;
+    final /* synthetic */ UserMuteAddAndDelModel eVj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(UserMuteAddAndDelModel userMuteAddAndDelModel) {
-        this.eVk = userMuteAddAndDelModel;
+        this.eVj = userMuteAddAndDelModel;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -30,15 +30,15 @@ public class i implements a.b {
         com.baidu.adp.base.h hVar2;
         if (Build.VERSION.SDK_INT < 11) {
             aVar.dismiss();
-            hVar2 = this.eVk.eVc;
+            hVar2 = this.eVj.eVb;
             ((TbPageContext) hVar2).showToast(t.j.frs_header_games_unavailable);
             return;
         }
         int i = -1;
         String str = "";
-        from = this.eVk.eVd;
+        from = this.eVj.eVc;
         if (from != UserMuteAddAndDelModel.From.PB) {
-            from2 = this.eVk.eVd;
+            from2 = this.eVj.eVc;
             if (from2 == UserMuteAddAndDelModel.From.PersonInfo) {
                 TiebaStatic.log("c10038");
                 i = 5;
@@ -50,7 +50,7 @@ public class i implements a.b {
             str = "4010001001";
         }
         aVar.dismiss();
-        hVar = this.eVk.eVc;
+        hVar = this.eVj.eVb;
         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) hVar.getPageActivity(), 2, true, i);
         if (!StringUtils.isNULL(str)) {
             memberPayActivityConfig.setSceneId(str);

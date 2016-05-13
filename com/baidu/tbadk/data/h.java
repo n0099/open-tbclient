@@ -11,19 +11,19 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
     private int aoh = 1;
     private int aoi = 1;
 
-    public int AB() {
+    public int AC() {
         return this.aof;
     }
 
-    public int AC() {
+    public int AD() {
         return this.aog;
     }
 
-    public int AD() {
+    public int AE() {
         return this.aoh;
     }
 
-    public int AE() {
+    public int AF() {
         return this.aoi;
     }
 

@@ -4,13 +4,13 @@ public class w extends z {
     public static int axP = 100;
     public static int axQ = 10;
 
-    public static void EK() {
-        if (aa.EM().EN()) {
+    public static void EL() {
+        if (aa.EN().EO()) {
             if (b.axU > axQ) {
-                b.EE();
+                b.EF();
             }
             if (a.axR > axQ) {
-                a.EE();
+                a.EF();
             }
         }
     }
@@ -23,12 +23,12 @@ public class w extends z {
             a.axT++;
         }
         if (a.axR > axP) {
-            a.EE();
+            a.EF();
         }
     }
 
     public void c(p pVar) {
-        if (aa.EM().EN()) {
+        if (aa.EN().EO()) {
             if (b.axU < axP) {
                 b.axV += pVar.kY;
                 b.axW += pVar.wf;
@@ -39,7 +39,7 @@ public class w extends z {
                 b.axU++;
                 return;
             }
-            b.EE();
+            b.EF();
         }
     }
 
@@ -50,7 +50,7 @@ public class w extends z {
         public static int axS;
         public static int axT;
 
-        public static void EE() {
+        public static void EF() {
             com.baidu.adp.lib.stats.d dG = w.dG();
             dG.q("action", "imbusy");
             dG.q("totalNum", String.valueOf(axR));
@@ -78,7 +78,7 @@ public class w extends z {
         public static int axZ;
         public static long aya;
 
-        public static void EE() {
+        public static void EF() {
             com.baidu.adp.lib.stats.d dG = w.dG();
             dG.q("action", "imcost");
             dG.q("dect", String.valueOf(axV));
@@ -89,10 +89,10 @@ public class w extends z {
             dG.q("cpu", String.valueOf(axZ));
             dG.q("totalNum", String.valueOf(axU));
             com.baidu.adp.lib.stats.a.dN().a("im", dG);
-            EL();
+            EM();
         }
 
-        public static void EL() {
+        public static void EM() {
             axU = 0;
             axV = 0L;
             axW = 0L;

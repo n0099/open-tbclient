@@ -22,7 +22,7 @@ public class p extends b implements r {
     }
 
     @Override // com.baidu.tieba.card.a.r
-    public boolean Kn() {
+    public boolean Kp() {
         return true;
     }
 

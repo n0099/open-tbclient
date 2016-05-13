@@ -23,7 +23,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     private PingMessage ank = null;
     private int anl = 0;
 
-    public static PingManager Ag() {
+    public static PingManager Ah() {
         if (anf == null) {
             synchronized (PingManager.class) {
                 if (anf == null) {
@@ -87,7 +87,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         bVar.j(false);
         MessageManager.getInstance().registerTask(bVar);
         this.ank = new PingMessage();
-        Ah();
+        Ai();
         f fVar = new f(this, 1003);
         MessageManager.getInstance().registerListener(new g(this, CmdConfigCustom.CMD_BACKGROUND_SWTICH));
         MessageManager.getInstance().registerListener(fVar);
@@ -111,10 +111,10 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     private void b(boolean z, int i) {
         if (this.anl <= 10) {
             this.anl++;
-            if (aa.EM().EN()) {
+            if (aa.EN().EO()) {
                 com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dN().al("pfmonitor");
                 al.q("action", "ping");
-                al.q("nettype", aa.EM().getNetType());
+                al.q("nettype", aa.EN().getNetType());
                 al.q("ct", String.valueOf(System.currentTimeMillis() - this.ang));
                 al.q("issuccess", z ? "1" : "0");
                 al.q("errcode", String.valueOf(i));
@@ -136,7 +136,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         }
     }
 
-    public void Ah() {
+    public void Ai() {
         int[] socketHeartBeatStratgy = TbadkCoreApplication.m11getInst().getSocketHeartBeatStratgy();
         if (socketHeartBeatStratgy.length == 2) {
             this.anh = socketHeartBeatStratgy[0] * 1000;
@@ -150,7 +150,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         }
     }
 
-    public int Ai() {
+    public int Aj() {
         return this.anh;
     }
 

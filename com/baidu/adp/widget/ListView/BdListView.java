@@ -58,7 +58,7 @@ public class BdListView extends ListView {
 
     /* loaded from: classes.dex */
     public interface c {
-        void au(int i);
+        void at(int i);
     }
 
     /* loaded from: classes.dex */
@@ -433,7 +433,7 @@ public class BdListView extends ListView {
                 this.mLayoutHasInit = true;
                 this.mMaxHeight = i5;
                 if (this.zm != null) {
-                    this.zm.au(-1);
+                    this.zm.at(-1);
                 }
             } else {
                 this.mMaxHeight = this.mMaxHeight < i5 ? i5 : this.mMaxHeight;
@@ -441,7 +441,7 @@ public class BdListView extends ListView {
             if (this.mLayoutHasInit && this.mMaxHeight > i5 && i5 != this.mPreHeight) {
                 this.zk = true;
                 if (this.zm != null) {
-                    this.zm.au(-3);
+                    this.zm.at(-3);
                 }
                 if (this.zl && lastVisiblePosition >= getCount() - 1) {
                     getHandler().postDelayed(this.zn, 1L);
@@ -450,7 +450,7 @@ public class BdListView extends ListView {
             if (this.mLayoutHasInit && this.zk && this.mMaxHeight == i5) {
                 this.zk = false;
                 if (this.zm != null) {
-                    this.zm.au(-2);
+                    this.zm.at(-2);
                 }
             }
             this.mPreHeight = i5;

@@ -22,12 +22,12 @@ public class b extends o {
         return "TBHY_COMMON_Navigator";
     }
 
-    @p(sD = "toNativePage")
+    @p(sE = "toNativePage")
     protected void toNativePage(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("url");
             if (!StringUtils.isNull(optString)) {
-                bg.us().c(this.Do, new String[]{optString});
+                bg.ut().c(this.Do, new String[]{optString});
             }
         }
     }

@@ -12,7 +12,7 @@ public class a {
     private static a dWY;
     private HashMap<Integer, Class<? extends PbRecBaseViewHolder>> dWZ = new HashMap<>();
 
-    public static final a aLA() {
+    public static final a aLD() {
         if (dWY != null) {
             return dWY;
         }

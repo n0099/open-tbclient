@@ -44,13 +44,13 @@ class o implements AbsListView.OnScrollListener {
         if (dVar != null) {
             dVar2 = this.bhl.bgI;
             mVar2 = this.bhl.bgE;
-            dVar2.a(absListView, i, i2, i3, mVar2.TY());
+            dVar2.a(absListView, i, i2, i3, mVar2.Ua());
         }
         fkVar = this.bhl.bgK;
         if (fkVar != null) {
             fkVar2 = this.bhl.bgK;
             mVar = this.bhl.bgE;
-            fkVar2.a(absListView, i, i2, i3, mVar.TY(), this.bhn);
+            fkVar2.a(absListView, i, i2, i3, mVar.Ua(), this.bhn);
         }
         oVar = this.bhl.bgq;
         if (oVar != null) {
@@ -59,48 +59,48 @@ class o implements AbsListView.OnScrollListener {
                 cnVar2 = this.bhl.bgo;
                 if (cnVar2.Ra() != null) {
                     oVar2 = this.bhl.bgq;
-                    int aSG = oVar2.aSG();
+                    int aSJ = oVar2.aSJ();
                     cnVar3 = this.bhl.bgo;
-                    int headerViewsCount = ((i + i2) - cnVar3.QR().getHeaderViewsCount()) - aSG;
-                    int i6 = (headerViewsCount - 1) + aSG;
+                    int headerViewsCount = ((i + i2) - cnVar3.QR().getHeaderViewsCount()) - aSJ;
+                    int i6 = (headerViewsCount - 1) + aSJ;
                     fVar = this.bhl.bgl;
                     if (fVar != null) {
                         fVar2 = this.bhl.bgl;
-                        int pk = fVar2.pk(headerViewsCount);
-                        if (pk >= 0 && i6 >= 0) {
+                        int pj = fVar2.pj(headerViewsCount);
+                        if (pj >= 0 && i6 >= 0) {
                             oVar3 = this.bhl.bgq;
                             if (i6 < oVar3.getThreadList().size()) {
                                 oVar4 = this.bhl.bgq;
                                 com.baidu.adp.widget.ListView.v vVar = oVar4.getThreadList().get(i6);
                                 if (vVar instanceof com.baidu.tbadk.core.data.c) {
                                     fVar4 = this.bhl.bgl;
-                                    fVar4.c(headerViewsCount, 1, this.bhl.forumId, pk);
+                                    fVar4.c(headerViewsCount, 1, this.bhl.forumId, pj);
                                     i5 = this.bhl.mPn;
                                     a a = com.baidu.tieba.recapp.report.e.a((com.baidu.tbadk.core.data.c) vVar, "show", i5);
                                     z2 = this.bhl.bgk;
                                     a.bE("isCache", String.valueOf(z2));
-                                    b.aLG().a(a);
+                                    b.aLJ().a(a);
                                     return;
                                 }
                                 oVar5 = this.bhl.bgq;
-                                ForumData avA = oVar5.avA();
+                                ForumData avD = oVar5.avD();
                                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                                 fVar3 = this.bhl.bgl;
-                                fVar3.c(headerViewsCount, 2, this.bhl.forumId, pk);
+                                fVar3.c(headerViewsCount, 2, this.bhl.forumId, pj);
                                 i4 = this.bhl.mPn;
-                                a i7 = com.baidu.tieba.recapp.report.e.i("store", pk, i4);
+                                a i7 = com.baidu.tieba.recapp.report.e.i("store", pj, i4);
                                 i7.bE("page", "FRS");
                                 z = this.bhl.bgk;
                                 i7.bE("isCache", String.valueOf(z));
-                                if (avA != null) {
-                                    i7.bE("fid", avA.getId());
-                                    i7.bE("fc1", avA.getFirst_class());
-                                    i7.bE("fc2", avA.getSecond_class());
+                                if (avD != null) {
+                                    i7.bE("fid", avD.getId());
+                                    i7.bE("fc1", avD.getFirst_class());
+                                    i7.bE("fc2", avD.getSecond_class());
                                 }
                                 if (currentAccountObj != null) {
                                     i7.bE("vc", String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
                                 }
-                                b.aLG().a(i7);
+                                b.aLJ().a(i7);
                             }
                         }
                     }
@@ -143,9 +143,9 @@ class o implements AbsListView.OnScrollListener {
         }
         if (this.bhl.bgz == null) {
             this.bhl.bgz = new com.baidu.tbadk.performanceLog.e();
-            this.bhl.bgz.eM(1000);
+            this.bhl.bgz.eL(1000);
         }
-        com.baidu.tbadk.core.view.at.vD().aK(i == 0);
+        com.baidu.tbadk.core.view.at.vE().aK(i == 0);
         if (i == 0) {
             cnVar4 = this.bhl.bgo;
             xVar = this.bhl.bhi;
@@ -162,6 +162,6 @@ class o implements AbsListView.OnScrollListener {
             cnVar3.cR(true);
             this.bhl.AD = true;
         }
-        this.bhl.bgz.Et();
+        this.bhl.bgz.Eu();
     }
 }

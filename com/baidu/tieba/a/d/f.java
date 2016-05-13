@@ -30,34 +30,34 @@ public class f extends LinearLayout {
         this.aNC = new GLSurfaceView(context);
         this.aND = new com.baidu.tieba.a.b.g(context);
         this.aNC.setEGLConfigChooser(new g(this));
-        JG();
+        JI();
     }
 
-    public void JA() {
-        JH();
-        this.aND.Je();
+    public void JC() {
+        JJ();
+        this.aND.Jg();
     }
 
-    private void JG() {
+    private void JI() {
         if (!this.aNE) {
             setProjectionMode(1);
-            JI();
+            JK();
             this.aNC.setRenderer(this.aND);
             addView(this.aNC);
             this.aNE = true;
         }
     }
 
-    public void JB() {
-        JH();
-        this.aND.Jf();
+    public void JD() {
+        JJ();
+        this.aND.Jh();
     }
 
-    public void JH() {
+    public void JJ() {
         this.aNC.setRenderMode(1);
     }
 
-    public void JC() {
+    public void JE() {
         this.aNC.setRenderMode(0);
     }
 
@@ -72,11 +72,11 @@ public class f extends LinearLayout {
     @Override // android.view.View
     public void setBackgroundColor(int i) {
         if (this.aND != null) {
-            this.aND.fq(i);
+            this.aND.fp(i);
         }
     }
 
-    public void JI() {
+    public void JK() {
         if (this.aNC != null) {
             this.aNC.setZOrderOnTop(true);
             if (this.aNC.getHolder() != null) {
@@ -94,12 +94,12 @@ public class f extends LinearLayout {
         return this.aND.getViewStatus();
     }
 
-    public boolean fs(int i) {
+    public boolean fr(int i) {
         return this.aND.getViewStatus() == i;
     }
 
-    public void uE() {
-        this.aND.uE();
+    public void uF() {
+        this.aND.uF();
     }
 
     public void setWriteEndCallBack(g.a aVar) {

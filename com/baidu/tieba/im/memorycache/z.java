@@ -19,10 +19,10 @@ public class z extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
             this.this$0.cmX = (ResponseOnlineMessage) socketResponsedMessage;
-            if (!b.agY().cmI.get()) {
+            if (!b.aha().cmI.get()) {
                 return;
             }
-            this.this$0.ahl();
+            this.this$0.ahn();
         }
     }
 }

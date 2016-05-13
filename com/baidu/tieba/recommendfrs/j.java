@@ -24,12 +24,12 @@ public class j implements BdListView.e {
         pbListView = this.dXY.bkd;
         if (pbListView != null) {
             pbListView2 = this.dXY.bkd;
-            pbListView2.vg();
+            pbListView2.vh();
             pbListView3 = this.dXY.bkd;
             tbPageContext = this.dXY.pageContext;
-            pbListView3.cT(com.baidu.adp.lib.util.k.c(tbPageContext.getPageActivity(), t.e.ds110));
+            pbListView3.cS(com.baidu.adp.lib.util.k.c(tbPageContext.getPageActivity(), t.e.ds110));
         }
         rVar = this.dXY.dXT;
-        rVar.Pn();
+        rVar.Pp();
     }
 }

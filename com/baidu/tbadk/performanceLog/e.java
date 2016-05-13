@@ -27,7 +27,7 @@ public class e extends t {
     private CustomMessageListener customNormalListener = new i(this, CmdConfigCustom.CMD_PERF_SAMPLE);
 
     public e() {
-        Eu();
+        Ev();
     }
 
     public void onDestroy() {
@@ -40,10 +40,10 @@ public class e extends t {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void Et() {
+    public void Eu() {
         if (this.awR < this.awS) {
             this.awR++;
-            Ev();
+            Ew();
             if (this.awU == null) {
                 this.awU = new j();
                 this.awU.a(this.awY);
@@ -57,20 +57,20 @@ public class e extends t {
         }
     }
 
-    private void Eu() {
+    private void Ev() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void Ev() {
+    private void Ew() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eK(int i) {
+    public void eJ(int i) {
         String valueOf = String.valueOf(i);
         if (this.awO == null) {
             this.awO = new ArrayList<>();
@@ -89,7 +89,7 @@ public class e extends t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eL(int i) {
+    public void eK(int i) {
         String valueOf = String.valueOf(i);
         if (this.awQ == null) {
             this.awQ = new ArrayList<>();
@@ -97,19 +97,19 @@ public class e extends t {
         this.awQ.add(valueOf);
     }
 
-    public String Ew() {
+    public String Ex() {
         return q(this.awO);
     }
 
-    public String Ex() {
+    public String Ey() {
         return String.valueOf(this.awW);
     }
 
-    public String Ey() {
+    public String Ez() {
         return q(this.awP);
     }
 
-    public String Ez() {
+    public String EA() {
         return q(this.awQ);
     }
 
@@ -133,9 +133,9 @@ public class e extends t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EA() {
+    public void EB() {
         ac acVar;
-        if (this.awT == this.awS && this.awS == this.awX && (acVar = (ac) aa.EM().eO(this.axu)) != null) {
+        if (this.awT == this.awS && this.awS == this.awX && (acVar = (ac) aa.EN().eN(this.axu)) != null) {
             acVar.g(this);
         }
     }

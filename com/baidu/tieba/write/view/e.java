@@ -29,19 +29,19 @@ public class e {
     private AlertDialog RH;
     private final ViewGroup RI;
     private String Rz;
-    private String faT;
+    private String faS;
+    private b faT;
     private b faU;
     private b faV;
-    private b faW;
-    private DialogInterface.OnKeyListener faX;
+    private DialogInterface.OnKeyListener faW;
     protected final Activity mActivity;
     private View mContentView;
     private String mMessage;
     private String mTitle;
     private int Rw = -1;
     private int Ss = -1;
-    private int faR = t.f.btn_blue_bg;
-    private int faS = t.d.cp_cont_g;
+    private int faQ = t.f.btn_blue_bg;
+    private int faR = t.d.cp_cont_g;
     private boolean RK = false;
     private boolean RL = true;
 
@@ -50,8 +50,13 @@ public class e {
         void a(e eVar);
     }
 
-    public e qU(int i) {
+    public e qT(int i) {
         this.Ss = i;
+        return this;
+    }
+
+    public e qU(int i) {
+        this.faQ = i;
         return this;
     }
 
@@ -60,17 +65,12 @@ public class e {
         return this;
     }
 
-    public e qW(int i) {
-        this.faS = i;
-        return this;
-    }
-
     public e a(DialogInterface.OnKeyListener onKeyListener) {
-        this.faX = onKeyListener;
+        this.faW = onKeyListener;
         return this;
     }
 
-    public e qX(int i) {
+    public e qW(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -80,7 +80,7 @@ public class e {
     public e a(int i, b bVar) {
         if (this.mActivity != null) {
             this.Rz = this.mActivity.getResources().getString(i);
-            this.faU = bVar;
+            this.faT = bVar;
         }
         return this;
     }
@@ -88,7 +88,7 @@ public class e {
     public e b(int i, b bVar) {
         if (this.mActivity != null) {
             this.RA = this.mActivity.getResources().getString(i);
-            this.faV = bVar;
+            this.faU = bVar;
         }
         return this;
     }
@@ -115,8 +115,8 @@ public class e {
             ImageView imageView = (ImageView) this.RI.findViewById(t.g.bdalert_icon);
             TextView textView2 = (TextView) this.RI.findViewById(t.g.message);
             Button button = (Button) this.RI.findViewById(t.g.yes);
-            at.k(button, this.faR);
-            at.c(button, this.faS, 3);
+            at.k(button, this.faQ);
+            at.c(button, this.faR, 3);
             Button button2 = (Button) this.RI.findViewById(t.g.no);
             Button button3 = (Button) this.RI.findViewById(t.g.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -141,8 +141,8 @@ public class e {
                 z = false;
             } else {
                 button.setText(this.Rz);
-                if (this.faU != null) {
-                    button.setOnClickListener(new a(this, this.faU));
+                if (this.faT != null) {
+                    button.setOnClickListener(new a(this, this.faT));
                 }
                 z = true;
             }
@@ -150,17 +150,17 @@ public class e {
                 z2 = false;
             } else {
                 button2.setText(this.RA);
-                if (this.faV != null) {
-                    button2.setOnClickListener(new a(this, this.faV));
+                if (this.faU != null) {
+                    button2.setOnClickListener(new a(this, this.faU));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.faT)) {
+            if (TextUtils.isEmpty(this.faS)) {
                 z3 = false;
             } else {
-                button3.setText(this.faT);
-                if (this.faW != null) {
-                    button3.setOnClickListener(new a(this, this.faW));
+                button3.setText(this.faS);
+                if (this.faV != null) {
+                    button3.setOnClickListener(new a(this, this.faV));
                 }
                 z3 = true;
             }
@@ -240,8 +240,8 @@ public class e {
             if (this.RF != null) {
                 this.RH.setOnCancelListener(this.RF);
             }
-            if (this.faX != null) {
-                this.RH.setOnKeyListener(this.faX);
+            if (this.faW != null) {
+                this.RH.setOnKeyListener(this.faW);
             }
             if (z) {
                 j.a(this.RH, this.mActivity);
@@ -268,7 +268,7 @@ public class e {
         return this;
     }
 
-    public e bcF() {
+    public e bcM() {
         return kx(true);
     }
 
@@ -280,18 +280,18 @@ public class e {
 
     /* loaded from: classes.dex */
     private class a implements View.OnClickListener {
-        private final e faZ;
-        private final b fba;
+        private final e faY;
+        private final b faZ;
 
         public a(e eVar, b bVar) {
-            this.faZ = eVar;
-            this.fba = bVar;
+            this.faY = eVar;
+            this.faZ = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.fba != null) {
-                this.fba.a(this.faZ);
+            if (this.faZ != null) {
+                this.faZ.a(this.faY);
             }
         }
     }

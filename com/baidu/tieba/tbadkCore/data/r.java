@@ -17,15 +17,15 @@ public class r extends s implements p {
         this.esN = new e(app);
     }
 
-    public e aTH() {
+    public e aTN() {
         return this.esN;
     }
 
-    public String aTI() {
+    public String aTO() {
         return this.esN == null ? "" : this.esN.id;
     }
 
-    public void pm(int i) {
+    public void pl(int i) {
         this.MM = i;
     }
 
@@ -43,7 +43,7 @@ public class r extends s implements p {
         return this.esN.oG();
     }
 
-    public boolean aTJ() {
+    public boolean aTP() {
         if (this.esN == null) {
             return false;
         }
@@ -70,13 +70,13 @@ public class r extends s implements p {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.q
-    public String aTE() {
+    public String aTK() {
         String str = (this.esN == null || this.esN.esk == null) ? null : this.esN.esk.user_name;
         return StringUtils.isNull(str) ? "" : str;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.q
-    public String aTF() {
+    public String aTL() {
         if (this.esN == null || this.esN.esk == null) {
             return null;
         }
@@ -84,21 +84,21 @@ public class r extends s implements p {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.q
-    public String aTG() {
+    public String aTM() {
         if (this.esN == null || this.esN.esk == null) {
             return null;
         }
         return this.esN.esk.thread_title;
     }
 
-    public String aTK() {
+    public String aTQ() {
         if (this.esN == null || this.esN.esk == null) {
             return null;
         }
         return this.esN.esk.thread_pic;
     }
 
-    public int aTL() {
+    public int aTR() {
         if (this.esN == null || this.esN.esk == null) {
             return -1;
         }
@@ -113,7 +113,7 @@ public class r extends s implements p {
         return g;
     }
 
-    public com.baidu.tbadk.core.data.c aTM() {
+    public com.baidu.tbadk.core.data.c aTS() {
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
         if (this.esN != null) {
             cVar.MN = this.esN.id;
@@ -148,10 +148,10 @@ public class r extends s implements p {
 
     @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (aTL() == 2) {
+        if (aTR() == 2) {
             return com.baidu.tbadk.core.data.c.MH;
         }
-        if (aTL() == 6) {
+        if (aTR() == 6) {
             return com.baidu.tbadk.core.data.c.MI;
         }
         return com.baidu.tbadk.core.data.c.MG;

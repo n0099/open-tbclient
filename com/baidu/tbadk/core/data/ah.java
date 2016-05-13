@@ -10,6 +10,10 @@ public class ah extends ax {
         return this.Pd;
     }
 
+    public void a(PhotoLiveCardData photoLiveCardData) {
+        this.Pd = photoLiveCardData;
+    }
+
     @Override // com.baidu.tbadk.core.data.ax, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
         return Pc;

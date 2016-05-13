@@ -36,7 +36,7 @@ public class r extends y.a {
             this.dDP.setDatas(alVar.getPhotoAlbum());
             if (this.cSp.nY() instanceof com.baidu.tieba.personInfo.f) {
                 com.baidu.tieba.personInfo.f fVar = (com.baidu.tieba.personInfo.f) this.cSp.nY();
-                if (fVar.aDl()) {
+                if (fVar.aDo()) {
                     this.dDO.setSelection(com.baidu.tbadk.core.util.y.r(alVar.getPhotoAlbum()));
                     fVar.hy(false);
                 }
@@ -44,7 +44,7 @@ public class r extends y.a {
         }
     }
 
-    public void aCN() {
+    public void aCQ() {
         if (this.aej != TbadkCoreApplication.m11getInst().getSkinType()) {
             this.aej = TbadkCoreApplication.m11getInst().getSkinType();
             at.l(this.awk, t.d.cp_bg_line_d);

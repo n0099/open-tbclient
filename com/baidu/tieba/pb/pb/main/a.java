@@ -20,6 +20,6 @@ public class a extends Thread {
         abVar.n("tid", this.bqq);
         abVar.n("phonenum", this.dif);
         abVar.n("optype", this.dig);
-        abVar.tc();
+        abVar.td();
     }
 }

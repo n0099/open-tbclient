@@ -102,7 +102,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_h = Integer.valueOf(k.C(TbadkCoreApplication.m11getInst()));
         builder.scr_dip = Double.valueOf(k.D(TbadkCoreApplication.m11getInst()));
         builder.q_type = 1;
-        if (TbadkCoreApplication.getCurrentAccount() != null || b.sQ().getBoolean("has_requested_new_user_guide", false)) {
+        if (TbadkCoreApplication.getCurrentAccount() != null || b.sR().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;
         }
         builder.need_age_module = Integer.valueOf(i);

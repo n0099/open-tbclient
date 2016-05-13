@@ -34,7 +34,7 @@ public class k implements a.InterfaceC0006a {
     private boolean mUseHttpAutoSwitch = TbadkCoreApplication.m11getInst().isHttpAutoSwitch();
     private boolean Zs = false;
 
-    public boolean uD() {
+    public boolean uE() {
         return this.Zq;
     }
 
@@ -42,7 +42,7 @@ public class k implements a.InterfaceC0006a {
         return this.Zi;
     }
 
-    public void uE() {
+    public void uF() {
         this.Zm = null;
         this.ln = "";
         this.Zq = false;
@@ -57,7 +57,7 @@ public class k implements a.InterfaceC0006a {
         StringBuffer stringBuffer = new StringBuffer();
         try {
             try {
-                uE();
+                uF();
                 if (this.Zg != null) {
                     cancel();
                     this.ei = null;
@@ -136,7 +136,7 @@ public class k implements a.InterfaceC0006a {
         return dJ(str);
     }
 
-    private boolean uF() {
+    private boolean uG() {
         if (this.errorCode == -12 || this.errorCode == -18 || this.errorCode == -19) {
             int i = Zt + 1;
             Zt = i;
@@ -165,7 +165,7 @@ public class k implements a.InterfaceC0006a {
             StringBuilder sb = new StringBuilder(20);
             try {
                 try {
-                    uE();
+                    uF();
                     if (this.Zk != null) {
                         cancel();
                     }
@@ -183,7 +183,7 @@ public class k implements a.InterfaceC0006a {
                     this.responseCode = this.Zg.dv().responseCode;
                     this.errorCode = this.Zg.dv().lE;
                     this.Zq = this.Zg.dv().dB();
-                    if (this.mUseHttpAutoSwitch && uF()) {
+                    if (this.mUseHttpAutoSwitch && uG()) {
                         this.mUseHttpClient = false;
                         TbadkCoreApplication.m11getInst().setHttpClientOpen(false);
                         Zo = 0;
@@ -210,7 +210,7 @@ public class k implements a.InterfaceC0006a {
                         this.dataSize = 0;
                     }
                     this.xv = this.Zk.cd();
-                    this.Zr = this.Zk.uC();
+                    this.Zr = this.Zk.uD();
                     while (true) {
                         if (i >= size) {
                             break;
@@ -274,7 +274,7 @@ public class k implements a.InterfaceC0006a {
                 if (Zn == 2) {
                     v.a("A2T", Zp, this.errorCode, Zo);
                 }
-                if (uF()) {
+                if (uG()) {
                     this.mUseHttpClient = true;
                     this.Zs = true;
                     TbadkCoreApplication.m11getInst().setHttpClientOpen(true);
@@ -386,7 +386,7 @@ public class k implements a.InterfaceC0006a {
         }
     }
 
-    public boolean uG() {
+    public boolean uH() {
         if (this.Zk == null) {
             return false;
         }

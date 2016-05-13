@@ -52,7 +52,7 @@ public class ae extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean HY() {
+    public boolean Ia() {
         return this.aId;
     }
 
@@ -67,14 +67,14 @@ public class ae extends BaseAdapter {
         return 0;
     }
 
-    public void atP() {
+    public void atS() {
         this.cZJ = false;
         if (this.dvR == null || this.dvR.size() == 0) {
             this.cZJ = true;
         }
     }
 
-    public boolean aBE() {
+    public boolean aBH() {
         return this.cZJ;
     }
 
@@ -179,7 +179,7 @@ public class ae extends BaseAdapter {
                     aVar.dwb.setText(String.format(this.dvQ.getPageContext().getString(t.j.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
                     aVar.dwc.setOnClickListener(this.dvS);
                     aVar.dwc.setTag(Integer.valueOf(i));
-                    if (i < this.mData.aBu()) {
+                    if (i < this.mData.aBx()) {
                         aVar.cao.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_v), (Drawable) null);
                         if (!this.dur && this.dvT) {
                             aVar.dwd.setVisibility(0);
@@ -195,12 +195,12 @@ public class ae extends BaseAdapter {
                         aVar.dwe.setVisibility(0);
                     }
                 } else {
-                    if ((this.dvQ.ahL() == 0 && i < this.mData.aBu()) || (this.dvQ.ahL() == 1 && i < this.mData.aBv())) {
+                    if ((this.dvQ.ahN() == 0 && i < this.mData.aBx()) || (this.dvQ.ahN() == 1 && i < this.mData.aBy())) {
                         aVar.cao.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_v), (Drawable) null);
                     } else {
                         aVar.cao.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                     }
-                    if (this.dvQ.ahL() == 1) {
+                    if (this.dvQ.ahN() == 1) {
                         aVar.dvY.setVisibility(8);
                     }
                     aVar.dwd.setVisibility(8);
@@ -213,7 +213,7 @@ public class ae extends BaseAdapter {
                     view2 = view3;
                 } else {
                     aVar.dwc.setVisibility(8);
-                    if (i < this.mData.aBu() && this.bJq && !this.dur && this.dvT) {
+                    if (i < this.mData.aBx() && this.bJq && !this.dur && this.dvT) {
                         aVar.dwd.setVisibility(0);
                         view2 = view3;
                     } else {

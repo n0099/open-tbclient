@@ -114,15 +114,15 @@ public class fa extends bw<com.baidu.tbadk.core.data.ax, fe> {
     }
 
     private void e(com.baidu.tbadk.core.data.ax axVar, fe feVar) {
-        VideoInfo ra;
-        if (axVar != null && feVar != null && (ra = axVar.ra()) != null) {
-            if (com.baidu.tbadk.core.l.ob().oh() && !StringUtils.isNull(ra.video_url)) {
+        VideoInfo rb;
+        if (axVar != null && feVar != null && (rb = axVar.rb()) != null) {
+            if (com.baidu.tbadk.core.l.ob().oh() && !StringUtils.isNull(rb.video_url)) {
                 feVar.bmD.setVisibility(0);
-                feVar.bmA.c(ra.thumbnail_url, 13, false);
+                feVar.bmA.c(rb.thumbnail_url, 13, false);
             } else {
                 feVar.bmD.setVisibility(8);
             }
-            int intValue = ra.play_count.intValue() > 0 ? ra.play_count.intValue() : 0;
+            int intValue = rb.play_count.intValue() > 0 ? rb.play_count.intValue() : 0;
             if (intValue > 0) {
                 feVar.bmF.setText(String.format(this.bek.getResources().getString(t.j.frs_video_play_count_text), com.baidu.tbadk.core.util.ay.A(intValue)));
                 feVar.bmF.setVisibility(0);
@@ -134,7 +134,7 @@ public class fa extends bw<com.baidu.tbadk.core.data.ax, fe> {
 
     private void f(com.baidu.tbadk.core.data.ax axVar, fe feVar) {
         if (axVar != null && feVar != null) {
-            if (axVar.qY() == 1) {
+            if (axVar.qZ() == 1) {
                 feVar.aOG.setVisibility(8);
                 return;
             }
@@ -199,7 +199,7 @@ public class fa extends bw<com.baidu.tbadk.core.data.ax, fe> {
     }
 
     private void g(com.baidu.tbadk.core.data.ax axVar, fe feVar) {
-        if (axVar != null && !axVar.rh() && !StringUtils.isNull(axVar.getAddress())) {
+        if (axVar != null && !axVar.ri() && !StringUtils.isNull(axVar.getAddress())) {
             feVar.bmy.setText(axVar.getAddress());
             feVar.bmy.setVisibility(0);
             feVar.bmz.setVisibility(0);

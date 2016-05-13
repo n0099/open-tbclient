@@ -27,7 +27,7 @@ public class ab extends CustomMessageListener {
                 if (intValue == 0) {
                     bgVar2 = this.this$0.dyP;
                     if (bgVar2.dGX) {
-                        this.this$0.aDw();
+                        this.this$0.aDz();
                         return;
                     }
                 }
@@ -35,7 +35,7 @@ public class ab extends CustomMessageListener {
                 if (bgVar.dGX) {
                     return;
                 }
-                this.this$0.aDw();
+                this.this$0.aDz();
             }
         }
     }

@@ -13,7 +13,7 @@ import com.baidu.tieba.frs.fh;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.n, a> {
     private TbPageContext<?> DV;
-    private BdUniqueId aOT;
+    public BdUniqueId aOT;
     private by boZ;
     private com.baidu.tieba.recommendfrs.control.a.f ebi;
     private am ebl;
@@ -40,18 +40,14 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.n,
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.n nVar, a aVar) {
         if (nVar != null) {
-            nVar.fx(i + 1);
+            nVar.fw(i + 1);
         }
         aVar.ebn.a(nVar);
         aVar.ebn.a(this.boZ);
         if (nVar.aRZ != null && nVar.aRZ.getTid() != null) {
-            bx.Kg().a(new aw("c11003").ac("tid", nVar.aRZ.getTid()));
+            bx.Ki().a(new aw("c11003").ac("tid", nVar.aRZ.getTid()));
         }
         return aVar.getView();
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aOT = bdUniqueId;
     }
 
     /* loaded from: classes.dex */
@@ -64,8 +60,8 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.n,
         }
 
         @Override // com.baidu.tieba.frs.fh
-        public void JZ() {
-            this.ebn.JZ();
+        public void Kb() {
+            this.ebn.Kb();
         }
 
         @Override // com.baidu.tieba.frs.fh

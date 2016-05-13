@@ -41,7 +41,7 @@ public class o implements com.baidu.adp.framework.client.socket.link.e {
     @Override // com.baidu.adp.framework.client.socket.link.e
     public void c(Map<String, String> map) {
         com.baidu.adp.framework.client.socket.link.e eVar;
-        UpdateClientInfoMessage Ap;
+        UpdateClientInfoMessage Aq;
         UpdateClientInfoMessage updateClientInfoMessage;
         com.baidu.adp.framework.client.socket.link.e eVar2;
         eVar = this.anC.anz;
@@ -51,8 +51,8 @@ public class o implements com.baidu.adp.framework.client.socket.link.e {
         }
         com.baidu.adp.framework.client.socket.k.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
         n nVar = this.anC;
-        Ap = this.anC.Ap();
-        nVar.anA = Ap;
+        Aq = this.anC.Aq();
+        nVar.anA = Aq;
         MessageManager messageManager = MessageManager.getInstance();
         updateClientInfoMessage = this.anC.anA;
         messageManager.sendMessage(updateClientInfoMessage);

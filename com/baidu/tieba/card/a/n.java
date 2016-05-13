@@ -21,7 +21,7 @@ public class n extends c {
     }
 
     public static boolean b(ax axVar) {
-        return (axVar == null || axVar.ra() == null) ? false : true;
+        return (axVar == null || axVar.rb() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -29,34 +29,34 @@ public class n extends c {
         if (this.aRZ == null) {
             return aSe;
         }
-        if (this.aRZ.qO()) {
+        if (this.aRZ.qP()) {
             return aSf;
         }
         return aSe;
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public ax Kl() {
+    public ax Kn() {
         return this.aRZ;
     }
 
-    public aw Kw() {
+    public aw Ky() {
         return hh(aSj);
     }
 
-    public aw Kx() {
+    public aw Kz() {
         return hh(aSk);
     }
 
-    public aw Ky() {
+    public aw KA() {
         return hh(aSh);
     }
 
-    public aw Kz() {
+    public aw KB() {
         return hh(aSg);
     }
 
-    public aw KH() {
+    public aw KJ() {
         return hh(aSi);
     }
 }

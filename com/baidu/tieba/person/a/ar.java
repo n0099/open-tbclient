@@ -21,6 +21,6 @@ public class ar implements AdapterView.OnItemClickListener {
         if (item == null) {
             return;
         }
-        this.dyL.mt(item.aCu());
+        this.dyL.mt(item.aCx());
     }
 }

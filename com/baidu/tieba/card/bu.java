@@ -69,7 +69,7 @@ public class bu extends a<com.baidu.tieba.card.a.p> {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.home_card_hot_topic_item;
     }
 
@@ -162,7 +162,7 @@ public class bu extends a<com.baidu.tieba.card.a.p> {
         }
     }
 
-    public void fw(int i) {
+    public void fv(int i) {
         ViewGroup.LayoutParams layoutParams = this.aOf.getLayoutParams();
         layoutParams.height = i;
         this.aOf.setLayoutParams(layoutParams);

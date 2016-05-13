@@ -27,9 +27,9 @@ public class fb implements View.OnClickListener {
             if (this.bjh.getAuthor() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
                 context = this.bmw.mContext;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bjh.getAuthor().getUserId(), this.bjh.getAuthor().getName_show(), this.bmw.bgq.avA().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bjh.getAuthor().getUserId(), this.bjh.getAuthor().getName_show(), this.bmw.bgq.avD().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
             }
-            if (this.bjh.rt()) {
+            if (this.bjh.ru()) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10241").ac("fid", String.valueOf(this.bjh.getFid())).s("obj_type", 2));
             }
         }

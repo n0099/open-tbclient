@@ -38,7 +38,7 @@ public class q implements a.d {
             this.arZ.arp = null;
             this.arZ.arU = null;
             this.arZ.bC(true);
-            this.arZ.Cj();
+            this.arZ.Ck();
         }
         int i = -1;
         String str = "";
@@ -48,28 +48,28 @@ public class q implements a.d {
         }
         if (z) {
             aVar = this.arZ.aru;
-            WriteData aVa = aVar.aVa();
+            WriteData aVg = aVar.aVg();
             aVar2 = this.arZ.aru;
             aVar2.d((WriteData) null);
             aVar3 = this.arZ.aru;
             aVar3.jC(false);
             this.arZ.arq = null;
-            if (aVa != null && aVa != null && aVa.getType() == 2) {
+            if (aVg != null && aVg != null && aVg.getType() == 2) {
                 aVar4 = this.arZ.arW;
-                aVar4.BA();
+                aVar4.BB();
             }
-        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.pw(i)) {
+        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.pv(i)) {
             this.arZ.l(i, str);
         } else if (oVar != null && writeData != null && !StringUtils.isNull(oVar.getVcode_pic_url())) {
             writeData.setVcodeMD5(oVar.getVcode_md5());
             writeData.setVcodeUrl(oVar.getVcode_pic_url());
-            if (oVar.wF().equals("4")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.arZ.Cf().getPageActivity(), 12006, writeData, false)));
+            if (oVar.wG().equals("4")) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.arZ.Cg().getPageActivity(), 12006, writeData, false)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.arZ.Cf().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.arZ.Cg().getPageActivity(), writeData, 12006)));
             }
         } else {
-            this.arZ.Cf().showToast(str);
+            this.arZ.Cg().showToast(str);
         }
     }
 }

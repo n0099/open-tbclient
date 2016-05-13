@@ -42,7 +42,7 @@ class e implements MultiImgToolView.a {
         l lVar6;
         int i3;
         dragHorizonScrollView = this.aqO.aqC;
-        if (!dragHorizonScrollView.aUw()) {
+        if (!dragHorizonScrollView.aUC()) {
             this.aqO.bk(view);
             dragHorizonScrollView2 = this.aqO.aqC;
             int bl = dragHorizonScrollView2.bl(view);

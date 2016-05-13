@@ -28,7 +28,7 @@ public class y extends CustomMessageListener {
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof String) {
-                bg.us().a(this.aXF.aJw.getPageContext(), new String[]{(String) data}, true);
+                bg.ut().a(this.aXF.aJw.getPageContext(), new String[]{(String) data}, true);
             }
         }
     }

@@ -10,7 +10,7 @@ public class l {
         l(new ArrayList<>());
     }
 
-    public String wC() {
+    public String wD() {
         return this.aga;
     }
 
@@ -18,7 +18,7 @@ public class l {
         this.aga = str;
     }
 
-    public ArrayList<Object> wD() {
+    public ArrayList<Object> wE() {
         return this.agb;
     }
 

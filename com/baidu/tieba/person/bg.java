@@ -27,7 +27,7 @@ public class bg extends BaseAdapter {
     private boolean cZJ = false;
     private ArrayList<ProgressBar> dwS = new ArrayList<>();
 
-    public void aul() {
+    public void auo() {
         if (this.dwS != null) {
             int i = 0;
             while (true) {
@@ -47,7 +47,7 @@ public class bg extends BaseAdapter {
         }
     }
 
-    public void atP() {
+    public void atS() {
         this.cZJ = false;
         if (this.SE != null && this.SE.size() == 0) {
             this.cZJ = true;

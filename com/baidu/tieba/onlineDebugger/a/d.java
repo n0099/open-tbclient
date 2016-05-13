@@ -25,9 +25,9 @@ public class d implements b {
                     if (this.dbt.contains(".") || (this.dbt.contains("(") && this.dbt.contains(")"))) {
                         com.baidu.tieba.onlineDebugger.command.d lE = com.baidu.tieba.onlineDebugger.e.b.lE("get " + this.dbt);
                         if (lE != null) {
-                            Object aux = lE.aux();
-                            if (aux != null) {
-                                str = aux.toString();
+                            Object auA = lE.auA();
+                            if (auA != null) {
+                                str = auA.toString();
                             }
                         } else {
                             str = this.dbt;

@@ -22,7 +22,7 @@ class o extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             int a = MainTabActivity.a(newsNotifyMessage);
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().ya()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xG().yb()) {
                 a -= newsNotifyMessage.getMsgOfficialMerge();
             }
             if (a == 0) {

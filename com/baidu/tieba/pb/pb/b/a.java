@@ -30,7 +30,7 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
     private HttpMessageListener dhS;
     private boolean mIsSenior;
 
-    public boolean awh() {
+    public boolean awk() {
         return this.mIsSenior;
     }
 
@@ -44,16 +44,16 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean awi() {
-        cw awu = this.dhQ.awu();
-        return (awu == null || awu.getPbData() == null || !awu.getPbData().avG()) ? false : true;
+    public boolean awl() {
+        cw awx = this.dhQ.awx();
+        return (awx == null || awx.getPbData() == null || !awx.getPbData().avJ()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lG(int i) {
-        cw awu = this.dhQ.awu();
-        if (awu != null && awu.getPbData() != null && awu.getPbData().avA() != null) {
-            awu.getPbData().avA().setLike(i);
+    public void lF(int i) {
+        cw awx = this.dhQ.awx();
+        if (awx != null && awx.getPbData() != null && awx.getPbData().avD() != null) {
+            awx.getPbData().avD().setLike(i);
             y yVar = new y();
             yVar.setLike(i);
             yVar.setUserLevel(-1);
@@ -62,37 +62,37 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
         }
     }
 
-    public void awj() {
+    public void awm() {
         if (this.dhQ.checkUpIsLogin()) {
-            el awt = this.dhQ.awt();
-            cw awu = this.dhQ.awu();
-            if (awt != null) {
-                awt.amQ();
-                awt.ayH();
+            el aww = this.dhQ.aww();
+            cw awx = this.dhQ.awx();
+            if (aww != null) {
+                aww.amT();
+                aww.ayK();
             }
-            if (awu == null || awu.getPbData() == null || awu.getPbData().avA() == null) {
-                lH(5);
+            if (awx == null || awx.getPbData() == null || awx.getPbData().avD() == null) {
+                lG(5);
                 return;
             }
-            com.baidu.tieba.pb.data.e pbData = awu.getPbData();
-            if (pbData.avA().isLike() == 0) {
-                lH(2);
+            com.baidu.tieba.pb.data.e pbData = awx.getPbData();
+            if (pbData.avD().isLike() == 0) {
+                lG(2);
             } else if (!this.dhQ.isProgressBarShown()) {
-                if (pbData.avA() != null && pbData.avB() != null && pbData.avB().qU() != null && pbData.avB().qU().size() > 0 && pbData.avB().qU().get(0) != null) {
-                    String id = pbData.avA().getId();
-                    String id2 = pbData.avB().getId();
-                    int activityId = pbData.avB().qU().get(0).getActivityId();
-                    int ov = pbData.avB().qU().get(0).ov();
-                    int ow = pbData.avB().qU().get(0).ow();
+                if (pbData.avD() != null && pbData.avE() != null && pbData.avE().qV() != null && pbData.avE().qV().size() > 0 && pbData.avE().qV().get(0) != null) {
+                    String id = pbData.avD().getId();
+                    String id2 = pbData.avE().getId();
+                    int activityId = pbData.avE().qV().get(0).getActivityId();
+                    int ov = pbData.avE().qV().get(0).ov();
+                    int ow = pbData.avE().qV().get(0).ow();
                     if (MessageManager.getInstance().findMessage(CmdConfigHttp.PB_LOTTERY_HTTP_CMD, getUniqueId()) == null || MessageManager.getInstance().findMessage(CmdConfigHttp.PB_LOTTERY_HTTP_CMD, getUniqueId()).size() == 0) {
-                        if (!awi()) {
+                        if (!awl()) {
                             this.dhQ.showProgressBar(true, 0, 0);
                         }
                         sendMessage(new PbLotteryRequestMessage(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), id, id2, 0, activityId, ov, ow, this.mIsSenior));
                         return;
                     }
                 }
-                lH(5);
+                lG(5);
             } else {
                 return;
             }
@@ -102,12 +102,12 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void G(int i, String str) {
-        this.dhQ.awt().ayE().G(i, str);
+        this.dhQ.aww().ayH().G(i, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lH(int i) {
-        this.dhQ.awt().ayE().G(i, null);
+    public void lG(int i) {
+        this.dhQ.aww().ayH().G(i, null);
     }
 
     public void H(int i, String str) {
@@ -128,7 +128,7 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
                 a(true, this.dhR);
                 break;
             case 3:
-                awk();
+                awn();
                 break;
             case 4:
                 b(this.dhR);
@@ -141,8 +141,8 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
     }
 
     private int getType() {
-        cw awu = this.dhQ.awu();
-        return (awu == null || awu.getPbData() == null || awu.getPbData().avA() == null || awu.getPbData().avA().isLike() != 0) ? 5 : 2;
+        cw awx = this.dhQ.awx();
+        return (awx == null || awx.getPbData() == null || awx.getPbData().avD() == null || awx.getPbData().avD().isLike() != 0) ? 5 : 2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -178,7 +178,7 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awk() {
+    public void awn() {
         com.baidu.tieba.pb.pb.main.g gVar = new com.baidu.tieba.pb.pb.main.g(this.dhQ.getActivity());
         g.c cVar = new g.c();
         cVar.bLj = this.dhQ.getPageContext();
@@ -194,11 +194,11 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage) {
-        cw awu = this.dhQ.awu();
-        if (awu != null) {
+        cw awx = this.dhQ.awx();
+        if (awx != null) {
             PbLotteryRequestMessage pbLotteryRequestMessage = (PbLotteryRequestMessage) pbLotteryHttpResponseMessage.getOrginalMessage().getExtra();
-            if (!this.dhQ.awT() && pbLotteryRequestMessage != null && awu.getPbData() != null && awu.getPbData().avA() != null && TbadkCoreApplication.m11getInst().appResponseToIntentClass(GetLotteryChanceActivityConfig.class)) {
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GetLotteryChanceActivityConfig(this.dhQ.getPageContext().getPageActivity(), pbLotteryHttpResponseMessage.getLotteryInfo().avw(), 24006, awu.getPbData().avA().getName(), pbLotteryRequestMessage.getForumId(), pbLotteryRequestMessage.getThreadId(), pbLotteryRequestMessage.getAwardActId(), awu.getPbData().avA().getSigned())));
+            if (!this.dhQ.awW() && pbLotteryRequestMessage != null && awx.getPbData() != null && awx.getPbData().avD() != null && TbadkCoreApplication.m11getInst().appResponseToIntentClass(GetLotteryChanceActivityConfig.class)) {
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GetLotteryChanceActivityConfig(this.dhQ.getPageContext().getPageActivity(), pbLotteryHttpResponseMessage.getLotteryInfo().avz(), 24006, awx.getPbData().avD().getName(), pbLotteryRequestMessage.getForumId(), pbLotteryRequestMessage.getThreadId(), pbLotteryRequestMessage.getAwardActId(), awx.getPbData().avD().getSigned())));
             } else {
                 this.dhQ.showToast(t.j.system_error);
             }
@@ -214,8 +214,8 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
         Resources resources = this.dhQ.getResources();
         dVar.diu = resources.getString(t.j.aiyaya);
         dVar.div = resources.getString(t.j.not_win_lottery_tip);
-        int chanceCount = (int) pbLotteryHttpResponseMessage.getLotteryInfo().avw().getChanceCount();
-        dVar.diw = lI(chanceCount);
+        int chanceCount = (int) pbLotteryHttpResponseMessage.getLotteryInfo().avz().getChanceCount();
+        dVar.diw = lH(chanceCount);
         dVar.dio = resources.getString(t.j.cancel);
         if (chanceCount <= 0) {
             string = resources.getString(t.j.add_lottery_chance);
@@ -229,8 +229,8 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awl() {
-        this.dhQ.awt().ayE().awl();
+    public void awo() {
+        this.dhQ.aww().ayH().awo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -240,8 +240,8 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
         aVar.bLj = this.dhQ.getPageContext();
         Resources resources = this.dhQ.getResources();
         aVar.dil = resources.getString(t.j.congratulation_to_get_lottery);
-        aVar.dim = resources.getString(t.j.lottery_detail, pbLotteryHttpResponseMessage.getLotteryInfo().avv().avu());
-        aVar.din = pbLotteryHttpResponseMessage.getLotteryInfo().avv().avt();
+        aVar.dim = resources.getString(t.j.lottery_detail, pbLotteryHttpResponseMessage.getLotteryInfo().avy().avx());
+        aVar.din = pbLotteryHttpResponseMessage.getLotteryInfo().avy().avw();
         aVar.dio = resources.getString(t.j.cancel);
         aVar.dip = resources.getString(t.j.check_immediately);
         aVar.diq = new i(this);
@@ -249,7 +249,7 @@ public class a extends com.baidu.adp.base.e<PbActivity> {
         gVar.a(aVar);
     }
 
-    private CharSequence lI(int i) {
+    private CharSequence lH(int i) {
         String string = this.dhQ.getResources().getString(t.j.enable_lottery_chance_tip, Integer.valueOf(i));
         SpannableString spannableString = new SpannableString(string);
         int indexOf = string.indexOf(String.valueOf(i));

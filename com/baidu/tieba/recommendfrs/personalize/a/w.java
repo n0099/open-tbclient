@@ -38,7 +38,7 @@ public class w implements AdapterView.OnItemClickListener {
         uVar2.notifyDataSetChanged();
         vVar = v.this;
         uVar3 = this.ebH.ebE;
-        vVar.b(uVar3.aML());
+        vVar.b(uVar3.aMO());
         TiebaStatic.log(new aw("c10986").ac("obj_name", item.dZX));
     }
 }

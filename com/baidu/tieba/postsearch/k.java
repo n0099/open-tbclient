@@ -33,7 +33,7 @@ public class k {
         public String title;
     }
 
-    public boolean aih() {
+    public boolean aij() {
         return (this.dyd == null || this.dyd.size() == 0) ? false : true;
     }
 

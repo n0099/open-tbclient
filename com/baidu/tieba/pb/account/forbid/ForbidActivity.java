@@ -71,7 +71,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lz(int i) {
+    public void ly(int i) {
         for (int i2 = 0; i2 < 3; i2++) {
             RadioButton radioButton = (RadioButton) this.ddq.getChildAt(i2);
             if (radioButton.getId() == i) {
@@ -109,7 +109,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.ddz = strArr;
         }
 
-        public String avi() {
+        public String avl() {
             if (this.ddz == null || this.bKU >= this.ddz.length) {
                 return null;
             }

@@ -64,11 +64,11 @@ public class a extends c {
     }
 
     @Override // com.baidu.tbadk.core.dialog.c
-    public c rX() {
-        View bT;
-        super.rX();
-        if (this.mDatas != null && (bT = bT(this.mDatas.size())) != null && (bT.findViewById(t.g.dialog_item_btn) instanceof TextView)) {
-            at.j((View) ((TextView) bT.findViewById(t.g.dialog_item_btn)), t.d.cp_link_tip_a);
+    public c rY() {
+        View bS;
+        super.rY();
+        if (this.mDatas != null && (bS = bS(this.mDatas.size())) != null && (bS.findViewById(t.g.dialog_item_btn) instanceof TextView)) {
+            at.j((View) ((TextView) bS.findViewById(t.g.dialog_item_btn)), t.d.cp_link_tip_a);
         }
         return this;
     }

@@ -33,15 +33,15 @@ public class q {
     private View.OnTouchListener aFz = new t(this);
     private c.InterfaceC0053c aVi = new u(this);
 
-    public m aMk() {
+    public m aMn() {
         return this.dYj;
     }
 
-    public View.OnTouchListener aMl() {
+    public View.OnTouchListener aMo() {
         return this.aFz;
     }
 
-    public ObservedChangeLinearLayout Mr() {
+    public ObservedChangeLinearLayout Mt() {
         return this.aXc;
     }
 
@@ -52,7 +52,7 @@ public class q {
         this.dYj = new m(context, observedChangeLinearLayout, view2);
         this.dZf = new com.baidu.tieba.c.c(context);
         this.dZf.a(this.aVi);
-        aMm();
+        aMp();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -63,20 +63,20 @@ public class q {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aMm() {
+    public void aMp() {
         boolean z = true;
         if (com.baidu.tbadk.mainTab.d.getGame() != null) {
             boolean appResponseToIntentClass = TbadkCoreApplication.m11getInst().appResponseToIntentClass(GameCenterActivityConfig.class);
             if (com.baidu.tbadk.mainTab.d.getGame().hasGameCenter != null && com.baidu.tbadk.mainTab.d.getGame().hasGameCenter.intValue() == 1 && appResponseToIntentClass) {
                 iP(true);
-                long j = com.baidu.tbadk.core.sharedPref.b.sQ().getLong("game_last_time", 0L);
+                long j = com.baidu.tbadk.core.sharedPref.b.sR().getLong("game_last_time", 0L);
                 if (com.baidu.tbadk.mainTab.d.getGame().gameLastLaunchtime.longValue() > j) {
-                    com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("game_is_show_tip", true);
-                    com.baidu.tbadk.core.sharedPref.b.sQ().putLong("game_last_time", com.baidu.tbadk.mainTab.d.getGame().gameLastLaunchtime.longValue());
+                    com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("game_is_show_tip", true);
+                    com.baidu.tbadk.core.sharedPref.b.sR().putLong("game_last_time", com.baidu.tbadk.mainTab.d.getGame().gameLastLaunchtime.longValue());
                 } else if (com.baidu.tbadk.mainTab.d.getGame().gameLastLaunchtime.longValue() == j) {
-                    z = com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("game_is_show_tip", true);
+                    z = com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("game_is_show_tip", true);
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("game_is_show_tip", false);
+                    com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("game_is_show_tip", false);
                     z = false;
                 }
                 iO(z);
@@ -85,11 +85,11 @@ public class q {
             }
             iP(false);
             iO(false);
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("game_is_show_tip", false);
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("game_is_show_tip", false);
         }
     }
 
-    public boolean aMn() {
+    public boolean aMq() {
         return this.dZc != null && this.dZc.getVisibility() == 0;
     }
 

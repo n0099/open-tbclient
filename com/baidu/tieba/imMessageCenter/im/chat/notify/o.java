@@ -13,7 +13,7 @@ public class o implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("is_shut_down_validate", true);
+        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("is_shut_down_validate", true);
         this.ctO.eY(false);
         this.ctO.eW(false);
     }

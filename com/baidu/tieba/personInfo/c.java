@@ -35,16 +35,16 @@ public class c extends LinearLayout {
         this.dFu = new BdExpandImageView(this.dxd.getActivity(), null);
     }
 
-    public void mC(int i) {
+    public void mB(int i) {
         if (this.dxd != null) {
             if (i == 2) {
                 if (this.dFo == null) {
                     this.dFo = new com.baidu.tieba.person.god.view.a(this.dxd, this.bIW, this.aXs);
                 }
                 if (this.bIW) {
-                    this.dxd.aDr().a(2, this.dFo);
+                    this.dxd.aDu().a(2, this.dFo);
                     if (this.dxd.dFR > 0) {
-                        this.dxd.aDr().j(true, 2);
+                        this.dxd.aDu().j(true, 2);
                     }
                 }
                 this.dFp = this.dFo;
@@ -100,9 +100,9 @@ public class c extends LinearLayout {
         return this.dFn;
     }
 
-    public void Pl() {
+    public void Pn() {
         if (this.dFp != null) {
-            this.dFp.Pl();
+            this.dFp.Pn();
         }
     }
 
@@ -110,9 +110,9 @@ public class c extends LinearLayout {
         return (this.dFp == null || this.dFp.getUserIcon() == null) ? this.dFs : this.dFp.getUserIcon();
     }
 
-    public void aCJ() {
+    public void aCM() {
         if (this.dFp != null) {
-            this.dFp.aCJ();
+            this.dFp.aCM();
         }
     }
 
@@ -122,9 +122,9 @@ public class c extends LinearLayout {
         }
     }
 
-    public void aBX() {
+    public void aCa() {
         if (this.dFp != null) {
-            this.dFp.aBX();
+            this.dFp.aCa();
         }
     }
 

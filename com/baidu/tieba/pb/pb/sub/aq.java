@@ -176,7 +176,7 @@ public class aq extends com.baidu.adp.framework.listener.a {
                     } else {
                         hVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                     }
-                    if (hVar.avN().errorno.intValue() != 0) {
+                    if (hVar.avQ().errorno.intValue() != 0) {
                         aVar5 = this.dry.drl;
                         if (aVar5 != null) {
                             aVar6 = this.dry.drl;
@@ -185,12 +185,12 @@ public class aq extends com.baidu.adp.framework.listener.a {
                         }
                         return;
                     }
-                    if (hVar.Kl() != null && hVar.Kl().getAuthor() != null) {
-                        str5 = hVar.Kl().getAuthor().getUserId();
-                        if (com.baidu.tbadk.core.util.y.s(hVar.avO().getAuthor().getIconInfo())) {
+                    if (hVar.Kn() != null && hVar.Kn().getAuthor() != null) {
+                        str5 = hVar.Kn().getAuthor().getUserId();
+                        if (com.baidu.tbadk.core.util.y.s(hVar.avR().getAuthor().getIconInfo())) {
                             arrayList2 = this.dry.drn;
                             if (arrayList2 != null) {
-                                MetaData author = hVar.avO().getAuthor();
+                                MetaData author = hVar.avR().getAuthor();
                                 arrayList3 = this.dry.drn;
                                 author.setIconInfo(arrayList3);
                             }
@@ -198,19 +198,19 @@ public class aq extends com.baidu.adp.framework.listener.a {
                     }
                     z2 = this.dry.drs;
                     if (!z2) {
-                        for (int i2 = 0; i2 < hVar.avS().size(); i2++) {
-                            boolean equals = str5.equals(hVar.avS().get(i2).getAuthor().getUserId());
+                        for (int i2 = 0; i2 < hVar.avV().size(); i2++) {
+                            boolean equals = str5.equals(hVar.avV().get(i2).getAuthor().getUserId());
                             tbPageContext = this.dry.Do;
-                            hVar.avS().get(i2).b(tbPageContext, equals);
+                            hVar.avV().get(i2).b(tbPageContext, equals);
                         }
                     }
-                    if (hVar.avO() != null) {
-                        this.dry.postID = hVar.avO().getId();
+                    if (hVar.avR() != null) {
+                        this.dry.postID = hVar.avR().getId();
                     }
-                    if (hVar.Kl() != null) {
-                        this.dry.threadID = hVar.Kl().getId();
+                    if (hVar.Kn() != null) {
+                        this.dry.threadID = hVar.Kn().getId();
                         this.dry.dfy = hVar.mP();
-                        this.dry.drk = hVar.Kl().qT();
+                        this.dry.drk = hVar.Kn().qU();
                     }
                     str = this.dry.drk;
                     if (str != null) {
@@ -231,7 +231,7 @@ public class aq extends com.baidu.adp.framework.listener.a {
                     }
                     aVar3 = this.dry.drl;
                     if (aVar3 != null) {
-                        boolean z5 = this.dry.aAo();
+                        boolean z5 = this.dry.aAr();
                         aVar4 = this.dry.drl;
                         hVar2 = this.dry.dqL;
                         aVar4.a(z5, error, errorString2, hVar2);

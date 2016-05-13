@@ -64,7 +64,7 @@ class e implements com.baidu.adp.plugin.packageManager.e {
             pluginConfig = this.dUC.dUB;
             if (id.equals(pluginConfig.package_name)) {
                 this.dUC.showToast(bdFileDownloadData.getStatusMsg());
-                this.dUC.aKv();
+                this.dUC.aKy();
                 this.dUC.bTZ = true;
             }
         }
@@ -74,10 +74,10 @@ class e implements com.baidu.adp.plugin.packageManager.e {
     public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
         if (i == 0) {
             this.dUC.showToast(this.dUC.getPageContext().getString(t.j.plugin_installation_finished));
-            this.dUC.aKv();
+            this.dUC.aKy();
             return;
         }
         this.dUC.showToast(String.valueOf(this.dUC.getPageContext().getString(t.j.plugin_installation_failed)) + str);
-        this.dUC.aKv();
+        this.dUC.aKy();
     }
 }

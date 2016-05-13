@@ -27,14 +27,14 @@ public class j {
         return this.apE;
     }
 
-    public int Bg() {
+    public int Bh() {
         return this.apF;
     }
 
     public void c(Context context, View view) {
         int i;
-        if (!StringUtils.isNull(this.apB) && !StringUtils.isNull(this.apD) && (i = com.baidu.tbadk.core.sharedPref.b.sQ().getInt(this.apD, 0)) < 3) {
-            com.baidu.tbadk.core.sharedPref.b.sQ().putInt(this.apD, i + 1);
+        if (!StringUtils.isNull(this.apB) && !StringUtils.isNull(this.apD) && (i = com.baidu.tbadk.core.sharedPref.b.sR().getInt(this.apD, 0)) < 3) {
+            com.baidu.tbadk.core.sharedPref.b.sR().putInt(this.apD, i + 1);
             d(context, view);
         }
     }
@@ -63,7 +63,7 @@ public class j {
         }
     }
 
-    public void Bh() {
+    public void Bi() {
         if (this.apC != null && this.apC.isShowing()) {
             com.baidu.adp.lib.h.j.a(this.apC);
         }

@@ -13,7 +13,7 @@ public class e extends b.a {
 
     @Override // com.baidu.tieba.a.a.b.a, com.baidu.tieba.a.a.a
     public void d(float f, float f2, float f3, int i) {
-        this.aMA.IZ();
-        this.aMA.Ja();
+        this.aMA.Jb();
+        this.aMA.Jc();
     }
 }

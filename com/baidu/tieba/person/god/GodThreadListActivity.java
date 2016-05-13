@@ -41,15 +41,15 @@ public class GodThreadListActivity extends BaseActivity<GodThreadListActivity> i
         }
         this.dzW = new ArrayList();
         this.dzU = new g(this);
-        this.dzT = new a(getPageContext(), this.dzU.aCw());
+        this.dzT = new a(getPageContext(), this.dzU.aCz());
         this.dzV = new h(getPageContext());
-        this.dzV.my(this.dfw);
+        this.dzV.mx(this.dfw);
         this.dzU.a(new c(this));
         this.dzU.a(new d(this));
         this.dzU.setOnSrollToBottomListener(new e(this));
         this.dzV.a(new f(this));
         this.dzU.jy();
-        this.dzU.aCy();
+        this.dzU.aCB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -136,7 +136,7 @@ public class GodThreadListActivity extends BaseActivity<GodThreadListActivity> i
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.f.b<TbImageView> Po() {
+    public com.baidu.adp.lib.f.b<TbImageView> Pq() {
         if (this.dzY == null) {
             this.dzY = FrsCommonImageLayout.o(getPageContext().getPageActivity(), 12);
         }

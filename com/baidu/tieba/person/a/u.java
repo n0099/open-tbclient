@@ -45,24 +45,24 @@ public class u extends c<com.baidu.tieba.person.data.m, com.baidu.tieba.person.b
 
     private void a(com.baidu.tieba.person.b.l lVar, com.baidu.tieba.person.data.m mVar) {
         lVar.dCI.setOnClickListener(this.Fn);
-        com.baidu.tbadk.core.data.w aCm = mVar.aCm();
-        if (aCm == null || aCm.pw() == null || aCm.px() == null) {
+        com.baidu.tbadk.core.data.w aCp = mVar.aCp();
+        if (aCp == null || aCp.pw() == null || aCp.px() == null) {
             lVar.dCM.setVisibility(8);
             return;
         }
-        TwZhiBoUser pw = aCm.pw();
-        if (aCm.px().size() == 0 || pw.in_black_list.intValue() == 1) {
+        TwZhiBoUser pw = aCp.pw();
+        if (aCp.px().size() == 0 || pw.in_black_list.intValue() == 1) {
             lVar.dCM.setVisibility(8);
             return;
         }
         lVar.dCM.setOnClickListener(this.Fn);
         lVar.dCM.setTag(mVar);
         lVar.dCM.setVisibility(0);
-        lVar.dCP.setText(String.format(this.mContext.getString(t.j.host_level_unlock), Integer.valueOf(a.C0031a.aL(pw.anchor_level.intValue()) + 1)));
+        lVar.dCP.setText(String.format(this.mContext.getString(t.j.host_level_unlock), Integer.valueOf(a.C0031a.aK(pw.anchor_level.intValue()) + 1)));
         lVar.dCQ.removeAllViews();
         int c = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds4);
         int c2 = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds32);
-        for (TwAnchorProfitItem twAnchorProfitItem : aCm.px()) {
+        for (TwAnchorProfitItem twAnchorProfitItem : aCp.px()) {
             com.baidu.tieba.view.g gVar = new com.baidu.tieba.view.g(this.mContext);
             HeadImageView icon = gVar.getIcon();
             icon.setAutoChangeStyle(true);

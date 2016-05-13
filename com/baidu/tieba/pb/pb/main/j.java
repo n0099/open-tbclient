@@ -20,17 +20,17 @@ class j implements cj.a {
         el elVar;
         cw cwVar3;
         if (i == 0) {
-            ee.ayA().reset();
+            ee.ayD().reset();
             cwVar = this.djE.dih;
-            cwVar.axQ();
+            cwVar.axT();
             cwVar2 = this.djE.dih;
-            ArrayList<com.baidu.tieba.tbadkCore.data.s> avC = cwVar2.getPbData().avC();
-            if (avC != null) {
-                Iterator<com.baidu.tieba.tbadkCore.data.s> it = avC.iterator();
+            ArrayList<com.baidu.tieba.tbadkCore.data.s> avF = cwVar2.getPbData().avF();
+            if (avF != null) {
+                Iterator<com.baidu.tieba.tbadkCore.data.s> it = avF.iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     com.baidu.tieba.tbadkCore.data.s next = it.next();
-                    if (ek.g(next) && next.aUc().getTemplateId() == j) {
+                    if (ek.g(next) && next.aUi().getTemplateId() == j) {
                         it.remove();
                         z = true;
                     }

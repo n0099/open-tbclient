@@ -13,7 +13,7 @@ public class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dVb.aKB();
-        this.dVb.aKA();
+        this.dVb.aKE();
+        this.dVb.aKD();
     }
 }

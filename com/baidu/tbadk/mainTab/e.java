@@ -13,11 +13,11 @@ public class e {
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.Dd() != null) {
+        if (bVar != null && bVar.De() != null) {
             Iterator<b> it = this.Lc.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.Dd() != null && next.Dd().type == bVar.Dd().type) {
+                if (next != null && next.De() != null && next.De().type == bVar.De().type) {
                     return;
                 }
             }

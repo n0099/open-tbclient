@@ -12,6 +12,6 @@ class e implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cEy.ang();
+        this.cEy.anj();
     }
 }

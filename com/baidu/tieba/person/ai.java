@@ -13,6 +13,6 @@ public class ai implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dwD.mq(800);
+        this.dwD.mp(800);
     }
 }

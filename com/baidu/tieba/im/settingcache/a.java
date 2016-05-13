@@ -14,7 +14,7 @@ public abstract class a {
 
     public abstract void a(com.baidu.tieba.im.pushNotify.a aVar, com.baidu.tbadk.util.g<Void> gVar);
 
-    protected abstract o<String> aiq();
+    protected abstract o<String> ais();
 
     public abstract com.baidu.tieba.im.pushNotify.a bf(String str, String str2);
 
@@ -30,12 +30,12 @@ public abstract class a {
         if (str2 != null && str2.length() != 0) {
             String str3 = String.valueOf(str2) + "@";
             synchronized (this.cqZ) {
-                o<String> aiq = aiq();
-                List<o.b<String>> b = s.b(aiq);
+                o<String> ais = ais();
+                List<o.b<String>> b = s.b(ais);
                 if (b != null) {
                     for (o.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = aiq.get(str4)) != null) {
+                        if (str4 != null && str4.startsWith(str3) && (str = ais.get(str4)) != null) {
                             this.cqZ.put(str4, (com.baidu.tieba.im.pushNotify.a) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, cls));
                         }
                     }

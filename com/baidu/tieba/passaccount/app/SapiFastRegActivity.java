@@ -79,13 +79,13 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
             this.auq = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
             this.auq.a(new y(this));
         }
-        this.auq.zq();
+        this.auq.zr();
         this.auq.h(accountData);
-        this.auq.zm();
+        this.auq.zn();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auJ() {
+    public void auM() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
@@ -107,8 +107,8 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
             finish();
             return;
         }
-        Ia();
-        auF();
+        Ic();
+        auI();
     }
 
     private void initData(Bundle bundle) {
@@ -152,7 +152,7 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         this.mNavigationBar.onChangeSkinType(getPageContext(), 0);
     }
 
-    private void auF() {
+    private void auI() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.m11getInst().onUserChanged();
         if (this.dbS) {
@@ -163,8 +163,8 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         } else {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
             if (intExtra == -1) {
-                if (com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                    com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                if (com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                    com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
                     intExtra = 1;
                 } else {
                     intExtra = 1;
@@ -175,7 +175,7 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         finish();
     }
 
-    private void Ia() {
+    private void Ic() {
         if (this.mFrom == 3 && TbadkCoreApplication.m11getInst().getIsFirstUse()) {
             com.baidu.adp.lib.h.k.dM().b(new z(this));
         }

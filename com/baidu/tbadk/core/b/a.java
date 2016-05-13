@@ -67,7 +67,7 @@ public class a extends CustomMessageListener {
         Ru = new HashMap<>();
     }
 
-    public static a rR() {
+    public static a rS() {
         if (Rr == null) {
             Rr = new a();
         }

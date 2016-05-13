@@ -99,7 +99,7 @@ public class k extends w {
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w
     protected void kW() {
-        alf();
+        alh();
         this.ctD.jy();
         this.aXV = TbadkCoreApplication.isLogin();
         if (!this.aXV) {
@@ -108,11 +108,11 @@ public class k extends w {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w
-    public void ald() {
+    public void alf() {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w
-    public void ale() {
+    public void alg() {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w
@@ -120,19 +120,19 @@ public class k extends w {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w, com.baidu.tbadk.mvc.f.a.a
-    public void DL() {
-        super.DL();
+    public void DM() {
+        super.DM();
         if (this.mNoDataView != null) {
             this.mNoDataView.onActivityStop();
         }
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public com.baidu.tbadk.mvc.f.a.b DK() {
+    public com.baidu.tbadk.mvc.f.a.b DL() {
         if (this.cyo == null) {
             this.cyo = new com.baidu.tbadk.mvc.f.a.b();
             this.cyo.setTitle(this.cyh.getPageContext().getString(t.j.mention_chatme));
-            this.cyo.eD(0);
+            this.cyo.eC(0);
             FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
             if (this.cyh.getActivity() != null) {
                 aVar.view = this.cyh.getActivity().getLayoutInflater().inflate(t.h.message_tip_item, (ViewGroup) null);
@@ -174,7 +174,7 @@ public class k extends w {
 
     private void initData() {
         this.ctA = new ImMessageCenterModel();
-        eY(com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("is_shut_down_validate", false) ? false : true);
+        eY(com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("is_shut_down_validate", false) ? false : true);
     }
 
     private void X(View view) {
@@ -210,31 +210,31 @@ public class k extends w {
         if (tbPageContext != null) {
             tbPageContext.getLayoutMode().x(this.ctL);
         }
-        if (this.cyo == null || this.cyo.DO() == null || this.cyo.DO().view == null) {
+        if (this.cyo == null || this.cyo.DP() == null || this.cyo.DP().view == null) {
             return true;
         }
-        com.baidu.tbadk.core.util.at.c(this.cyo.DO().view, t.d.frs_slidebar_message_text, 1);
+        com.baidu.tbadk.core.util.at.c(this.cyo.DP().view, t.d.frs_slidebar_message_text, 1);
         return true;
     }
 
     private void fg(boolean z) {
         if (z) {
-            aje();
+            ajg();
         } else {
-            ajf();
+            ajh();
         }
     }
 
-    private void aje() {
+    private void ajg() {
         NoDataViewFactory.b bVar = null;
         if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.cyq.getResources().getString(t.j.maintab_imcenter_button_text), new u(this)));
         }
-        this.mNoDataView = NoDataViewFactory.a(this.cyq.getPageContext().getPageActivity(), this.ctL, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.cyq.getResources().getDimension(t.e.ds320)), NoDataViewFactory.d.cP(t.j.no_recent_chat), bVar);
+        this.mNoDataView = NoDataViewFactory.a(this.cyq.getPageContext().getPageActivity(), this.ctL, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.cyq.getResources().getDimension(t.e.ds320)), NoDataViewFactory.d.cO(t.j.no_recent_chat), bVar);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
     }
 
-    private void ajf() {
+    private void ajh() {
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(this.cyq.getResources().getString(t.j.maintab_imcenter_unlogin_button_text), new v(this));
         int dimensionPixelSize = this.cyq.getResources().getDimensionPixelSize(t.e.ds320);
         int dimensionPixelSize2 = this.cyq.getResources().getDimensionPixelSize(t.e.ds480);
@@ -253,7 +253,7 @@ public class k extends w {
         this.ctI = new m(this, imMessageCenterShowItemData);
         String string = this.cyq.getPageContext().getPageActivity().getString(t.j.delete_user_chat);
         this.ctH = new com.baidu.tbadk.core.dialog.c(this.cyq.getPageContext().getPageActivity());
-        this.ctH.bP(t.j.operation);
+        this.ctH.bO(t.j.operation);
         this.ctH.a(new String[]{string}, this.ctI);
         this.ctH.d(this.cyq.getPageContext());
     }
@@ -270,7 +270,7 @@ public class k extends w {
 
     public void eW(boolean z) {
         if (z) {
-            if (ajg() && this.ctG.getVisibility() != 0) {
+            if (aji() && this.ctG.getVisibility() != 0) {
                 this.ctG.setVisibility(0);
             }
         } else if (this.ctG.getVisibility() != 8) {
@@ -295,7 +295,7 @@ public class k extends w {
         }
     }
 
-    public boolean ajg() {
+    public boolean aji() {
         return this.ctK;
     }
 

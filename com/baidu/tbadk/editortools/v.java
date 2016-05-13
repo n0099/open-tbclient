@@ -15,11 +15,11 @@ class v implements b.a {
 
     @Override // com.baidu.tbadk.editortools.view.b.a
     public View getView(int i, View view, ViewGroup viewGroup) {
-        e ej;
-        ej = this.aqc.ej(i);
-        if (ej.getLayoutParams() == null) {
-            ej.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        e ei;
+        ei = this.aqc.ei(i);
+        if (ei.getLayoutParams() == null) {
+            ei.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
         }
-        return ej;
+        return ei;
     }
 }

@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public static a wk() {
+    public static a wl() {
         if (aft == null) {
             synchronized (a.class) {
                 if (aft == null) {
@@ -42,15 +42,15 @@ public class a {
         return aft;
     }
 
-    public boolean wl() {
+    public boolean wm() {
         return this.afs;
     }
 
-    public int wm() {
+    public int wn() {
         return this.afu;
     }
 
-    public String wn() {
+    public String wo() {
         return this.afs ? "pub_env=" + this.afu + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

@@ -32,7 +32,7 @@ public class cv implements TbImageView.a {
             bannerView = this.bkx.bjX;
             if (bannerView != null) {
                 bannerView2 = this.bkx.bjX;
-                if (bannerView2.zi()) {
+                if (bannerView2.zj()) {
                     z2 = this.bkx.bka;
                     if (!z2) {
                         bdExpandListView = this.bkx.bjM;

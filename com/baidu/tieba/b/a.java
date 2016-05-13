@@ -14,7 +14,7 @@ public class a {
     private HashMap<String, String> aTY = new HashMap<>();
     private String aTZ;
 
-    public static synchronized a Lf() {
+    public static synchronized a Lh() {
         a aVar;
         synchronized (a.class) {
             if (aTW == null) {
@@ -26,33 +26,33 @@ public class a {
     }
 
     private a() {
-        Lj();
-        this.aTZ = ay.uc();
+        Ll();
+        this.aTZ = ay.ud();
     }
 
-    public boolean Lg() {
+    public boolean Li() {
         Date handleDate = StringUtils.handleDate("2016-02-07 00:00:00", "yyyy-MM-dd HH:mm:ss");
         Date handleDate2 = StringUtils.handleDate("2016-02-08 23:59:59", "yyyy-MM-dd HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
-        return date.getTime() - handleDate.getTime() >= 0 && handleDate2.getTime() - date.getTime() >= 0 && !b.sQ().getBoolean(GuildActivityConfig.CUSTOM_GUIDE_SHOWED, false);
+        return date.getTime() - handleDate.getTime() >= 0 && handleDate2.getTime() - date.getTime() >= 0 && !b.sR().getBoolean(GuildActivityConfig.CUSTOM_GUIDE_SHOWED, false);
     }
 
-    public boolean Lh() {
+    public boolean Lj() {
         Date handleDate = StringUtils.handleDate("2016-02-09 00:00:00", "yyyy-MM-dd HH:mm:ss");
         Date handleDate2 = StringUtils.handleDate("2016-02-14 23:59:59", "yyyy-MM-dd HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
-        return date.getTime() - handleDate.getTime() >= 0 && handleDate2.getTime() - date.getTime() >= 0 && !b.sQ().getBoolean(this.aTZ, false);
+        return date.getTime() - handleDate.getTime() >= 0 && handleDate2.getTime() - date.getTime() >= 0 && !b.sR().getBoolean(this.aTZ, false);
     }
 
-    public Integer Li() {
+    public Integer Lk() {
         Integer num = this.aTX.get(this.aTZ);
-        if (num == null || b.sQ().getBoolean(this.aTZ, false)) {
+        if (num == null || b.sR().getBoolean(this.aTZ, false)) {
             return 0;
         }
         return Integer.valueOf(num.intValue());
     }
 
-    private void Lj() {
+    private void Ll() {
         this.aTX.put("2016-02-09", Integer.valueOf(t.f.custom_ad_1));
         this.aTX.put("2016-02-10", Integer.valueOf(t.f.custom_ad_2));
         this.aTX.put("2016-02-11", Integer.valueOf(t.f.custom_ad_3));
@@ -63,15 +63,15 @@ public class a {
         this.aTY.put("2016-02-13", "448");
     }
 
-    public void Lk() {
-        b.sQ().putBoolean(this.aTZ, true);
+    public void Lm() {
+        b.sR().putBoolean(this.aTZ, true);
     }
 
-    public void Ll() {
-        b.sQ().putBoolean(GuildActivityConfig.CUSTOM_GUIDE_SHOWED, true);
+    public void Ln() {
+        b.sR().putBoolean(GuildActivityConfig.CUSTOM_GUIDE_SHOWED, true);
     }
 
-    public String Lm() {
+    public String Lo() {
         return this.aTY.get(this.aTZ);
     }
 }

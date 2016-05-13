@@ -15,11 +15,11 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         k kVar;
-        List<Long> sx;
+        List<Long> sy;
         g.b bVar;
         kVar = this.TD.TC;
-        sx = this.TD.sx();
-        kVar.m(sx);
+        sy = this.TD.sy();
+        kVar.m(sy);
         bVar = this.TD.TA;
         bVar.destroy();
         this.TD.destroy();

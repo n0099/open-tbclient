@@ -33,10 +33,10 @@ public class c {
         return etS.get(str3);
     }
 
-    public static void aUp() {
+    public static void aUv() {
     }
 
-    public static void ps(int i) {
+    public static void pr(int i) {
         for (String str : etS.keySet()) {
             a(etS.get(str), i);
         }

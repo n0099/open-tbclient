@@ -12,7 +12,7 @@ public class j extends a {
         this.mList.add(kVar);
     }
 
-    public List<com.baidu.tieba.horizonalList.widget.l> DR() {
+    public List<com.baidu.tieba.horizonalList.widget.l> DS() {
         return this.mList;
     }
 

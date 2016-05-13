@@ -33,10 +33,10 @@ public class o implements a.InterfaceC0046a<com.baidu.tieba.recommendfrs.data.n>
         if (readCacheMessage != null) {
             if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.recommendfrs.data.m) {
                 i = 2;
-                j = ((com.baidu.tieba.recommendfrs.data.m) readCacheMessage.getRequestData()).aMt();
+                j = ((com.baidu.tieba.recommendfrs.data.m) readCacheMessage.getRequestData()).aMw();
             } else if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.recommendfrs.data.q) {
                 i = 3;
-                j = ((com.baidu.tieba.recommendfrs.data.q) readCacheMessage.getRequestData()).aMt();
+                j = ((com.baidu.tieba.recommendfrs.data.q) readCacheMessage.getRequestData()).aMw();
             }
             if (j < 0 && readCacheMessage != null && readCacheRespMsg != null) {
                 com.baidu.tbadk.core.log.b.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));

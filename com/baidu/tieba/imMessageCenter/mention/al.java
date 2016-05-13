@@ -18,7 +18,7 @@ public class al implements com.baidu.tbadk.mvc.b.j {
     protected ah cyM = new ah();
     protected boolean sZ;
 
-    public ArrayList<FeedData> alr() {
+    public ArrayList<FeedData> alt() {
         return this.cyK;
     }
 
@@ -41,7 +41,7 @@ public class al implements com.baidu.tbadk.mvc.b.j {
                         }
                     } else {
                         this.cyK.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.aj(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.XZ())) {
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.aj(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.Yb())) {
                             this.cyK.remove(feedData);
                         }
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.y.r(feedData.getPraiseList()) == 0) {
@@ -75,7 +75,7 @@ public class al implements com.baidu.tbadk.mvc.b.j {
                             }
                         } else {
                             this.cyK.add(feedData);
-                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.aj(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.XZ())) {
+                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.aj(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.Yb())) {
                                 this.cyK.remove(feedData);
                             }
                             if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.y.r(feedData.getPraiseList()) == 0) {

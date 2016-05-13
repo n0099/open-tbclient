@@ -40,75 +40,75 @@ public class l extends c {
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public ax Kl() {
+    public ax Kn() {
         return this.aRG;
     }
 
-    public boolean Kv() {
-        return (this.aRG == null || y.r(this.aRG.qX()) == 0) ? false : true;
+    public boolean Kx() {
+        return (this.aRG == null || y.r(this.aRG.qY()) == 0) ? false : true;
     }
 
-    public aw Kw() {
-        if (Kv()) {
+    public aw Ky() {
+        if (Kx()) {
             return hh(aRQ);
         }
         aw hh = hh(aRL);
         if (hh != null) {
-            hh.ac("ab_tag", Kj()).ac("ab_action", "show");
-            return hh;
-        }
-        return hh;
-    }
-
-    public aw Kx() {
-        if (Kv()) {
-            return hh(aRR);
-        }
-        aw hh = hh(aRM);
-        if (hh != null) {
-            hh.ac("ab_tag", Kj()).ac("ab_action", "click");
-            return hh;
-        }
-        return hh;
-    }
-
-    public aw Ky() {
-        if (Kv()) {
-            return hh(aRS);
-        }
-        aw hh = hh(aRN);
-        if (hh != null) {
-            hh.ac("ab_tag", Kj()).ac("ab_action", "click");
+            hh.ac("ab_tag", Kl()).ac("ab_action", "show");
             return hh;
         }
         return hh;
     }
 
     public aw Kz() {
-        if (Kv()) {
-            return hh(aRT);
+        if (Kx()) {
+            return hh(aRR);
         }
-        aw hh = hh(aRO);
+        aw hh = hh(aRM);
         if (hh != null) {
-            hh.ac("ab_tag", Kj()).ac("ab_action", "click");
+            hh.ac("ab_tag", Kl()).ac("ab_action", "click");
             return hh;
         }
         return hh;
     }
 
     public aw KA() {
-        if (Kv()) {
-            return hh(aRU);
+        if (Kx()) {
+            return hh(aRS);
         }
-        aw hh = hh(aRP);
+        aw hh = hh(aRN);
         if (hh != null) {
-            hh.ac("ab_tag", Kj()).ac("ab_action", "click");
+            hh.ac("ab_tag", Kl()).ac("ab_action", "click");
             return hh;
         }
         return hh;
     }
 
     public aw KB() {
+        if (Kx()) {
+            return hh(aRT);
+        }
+        aw hh = hh(aRO);
+        if (hh != null) {
+            hh.ac("ab_tag", Kl()).ac("ab_action", "click");
+            return hh;
+        }
+        return hh;
+    }
+
+    public aw KC() {
+        if (Kx()) {
+            return hh(aRU);
+        }
+        aw hh = hh(aRP);
+        if (hh != null) {
+            hh.ac("ab_tag", Kl()).ac("ab_action", "click");
+            return hh;
+        }
+        return hh;
+    }
+
+    public aw KD() {
         return hh(aRV);
     }
 }

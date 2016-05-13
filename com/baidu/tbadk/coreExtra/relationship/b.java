@@ -30,11 +30,11 @@ public class b {
         this.time = j;
     }
 
-    public int yW() {
+    public int yX() {
         return this.hide;
     }
 
-    public void dK(int i) {
+    public void dJ(int i) {
         this.hide = i;
     }
 }

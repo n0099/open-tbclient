@@ -20,9 +20,9 @@ public class q implements View.OnClickListener {
         TbRichTextView.c cVar2;
         cVar = this.aFD.aFm;
         if (cVar != null) {
-            d GM = this.aFE.GM();
+            d GO = this.aFE.GO();
             cVar2 = this.aFD.aFm;
-            cVar2.a(view, GM.aty.mGid, GM.aty.mPackageName, GM.aty.NM, GM.aty.ata, GM.aty.atb, GM.aty.asZ, GM.aty.atc, GM.aty.atd);
+            cVar2.a(view, GO.aty.mGid, GO.aty.mPackageName, GO.aty.NM, GO.aty.ata, GO.aty.atb, GO.aty.asZ, GO.aty.atc, GO.aty.atd);
         }
     }
 }

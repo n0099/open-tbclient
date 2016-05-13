@@ -36,17 +36,17 @@ class d extends CustomMessageListener {
                     this.this$0.isUserChanged = false;
                     this.this$0.ewz = false;
                     abVar3 = this.this$0.ewE;
-                    abVar3.aVI();
+                    abVar3.aVO();
                 }
             }
             abVar2 = this.this$0.ewE;
-            FragmentTabHost aVL = abVar2.aVL();
+            FragmentTabHost aVR = abVar2.aVR();
             i = this.this$0.ewy;
-            aVL.setCurrentTabByType(i);
+            aVR.setCurrentTabByType(i);
             this.this$0.isUserChanged = false;
             this.this$0.ewz = false;
             abVar3 = this.this$0.ewE;
-            abVar3.aVI();
+            abVar3.aVO();
         }
     }
 }

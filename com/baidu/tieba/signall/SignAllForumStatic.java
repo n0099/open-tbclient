@@ -16,22 +16,22 @@ public class SignAllForumStatic {
     private static Context mContext;
 
     static {
-        CA();
+        CB();
         ac acVar = new ac(CmdConfigCustom.DISCOVER_ADD_VIEW);
         acVar.setPriority(3);
         MessageManager.getInstance().registerListener(acVar);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DISCOVER_NEED_ADD_VIEW, null));
-        aQy();
+        aQB();
         TbadkCoreApplication.m11getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
     }
 
-    private static void CA() {
+    private static void CB() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SIGN_ALL_FORUM_CUSTOM_CMD, new ad());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aQy() {
-        bg.us().a(new ae());
+    private static void aQB() {
+        bg.ut().a(new ae());
     }
 }

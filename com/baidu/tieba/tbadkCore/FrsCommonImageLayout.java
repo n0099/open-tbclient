@@ -66,12 +66,12 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes.dex */
     public interface b {
-        void cY(int i);
+        void cX(int i);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        com.baidu.adp.lib.f.b<TbImageView> Po();
+        com.baidu.adp.lib.f.b<TbImageView> Pq();
     }
 
     public void setDrawNum(boolean z) {
@@ -164,11 +164,11 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             Context pageActivity;
             MediaData[] mediaDataArr2;
             if (FrsCommonImageLayout.this.eqf != null) {
-                FrsCommonImageLayout.this.eqf.cY(this.mIndex);
+                FrsCommonImageLayout.this.eqf.cX(this.mIndex);
             } else if (FrsCommonImageLayout.this.epa != null && this.mIndex < FrsCommonImageLayout.this.epa.length) {
                 if (FrsCommonImageLayout.this.epa[this.mIndex].getType() == 5) {
                     if (FrsCommonImageLayout.this.eql instanceof TbPageContext) {
-                        bg.us().c((TbPageContext) FrsCommonImageLayout.this.eql, new String[]{FrsCommonImageLayout.this.epa[this.mIndex].getVideoUrl()});
+                        bg.ut().c((TbPageContext) FrsCommonImageLayout.this.eql, new String[]{FrsCommonImageLayout.this.epa[this.mIndex].getVideoUrl()});
                     }
                 } else {
                     ArrayList<String> arrayList = new ArrayList<>();
@@ -247,7 +247,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         Resources resources = getResources();
         this.str = String.valueOf(resources.getString(t.j.frs_item_common_image_canvas_text1)) + this.eqg + resources.getString(t.j.frs_item_common_image_canvas_text2);
         if (this.eqi == null && (hVar.getOrignalPage() instanceof c)) {
-            this.eqi = ((c) hVar.getOrignalPage()).Po();
+            this.eqi = ((c) hVar.getOrignalPage()).Pq();
         }
         if (this.eqi != null) {
             if (this.epa == null || this.epa.length <= 0) {

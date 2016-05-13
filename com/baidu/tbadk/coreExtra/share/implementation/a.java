@@ -80,17 +80,17 @@ public class a implements com.baidu.tbadk.coreExtra.share.b {
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onCancelOfBaiduListener() {
-            a.this.aiZ.zg();
+            a.this.aiZ.zh();
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onCompleteOfBaiduListener() {
-            a.this.aiZ.zf();
+            a.this.aiZ.zg();
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onErrorOfBaiduListener() {
-            a.this.aiZ.zh();
+            a.this.aiZ.zi();
         }
     }
 
@@ -112,24 +112,24 @@ public class a implements com.baidu.tbadk.coreExtra.share.b {
             this.ajb = interfaceC0037a;
         }
 
-        public void zf() {
+        public void zg() {
             if (this.aja) {
-                this.aiF.yX();
+                this.aiF.yY();
                 this.ajb.onSuccess();
                 return;
             }
-            this.aiF.yZ();
-        }
-
-        public void zg() {
-            this.aiF.yY();
+            this.aiF.za();
         }
 
         public void zh() {
+            this.aiF.yZ();
+        }
+
+        public void zi() {
             if (this.aja) {
-                this.aiF.za();
+                this.aiF.zb();
             } else {
-                this.aiF.za();
+                this.aiF.zb();
             }
         }
     }

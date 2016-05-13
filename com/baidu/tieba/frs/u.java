@@ -27,9 +27,9 @@ class u extends AppDownloadView.a {
         }
         int intValue = ((Integer) view.getTag()).intValue();
         cnVar = this.bhl.bgo;
-        com.baidu.adp.widget.ListView.v at = cnVar.Ra().at(intValue);
-        if (at instanceof com.baidu.tbadk.core.data.c) {
-            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) at;
+        com.baidu.adp.widget.ListView.v as = cnVar.Ra().as(intValue);
+        if (as instanceof com.baidu.tbadk.core.data.c) {
+            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) as;
             FrsActivity frsActivity = this.bhl;
             i = this.bhl.mPn;
             frsActivity.a(cVar, false, i);
@@ -52,7 +52,7 @@ class u extends AppDownloadView.a {
                     if (com.baidu.adp.lib.util.i.fq() && !com.baidu.adp.lib.util.i.fr()) {
                         this.bhl.a(cVar, intValue, false);
                         break;
-                    } else if (this.bhl.d((com.baidu.tbadk.core.data.c) at, intValue)) {
+                    } else if (this.bhl.d((com.baidu.tbadk.core.data.c) as, intValue)) {
                         if (this.ZT != null) {
                             this.ZT.setVisibility(0);
                         }

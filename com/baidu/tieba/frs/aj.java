@@ -12,11 +12,11 @@ public class aj implements x.a {
     }
 
     @Override // com.baidu.tieba.frs.view.x.a
-    public void gl(int i) {
+    public void gk(int i) {
         switch (i) {
             case 0:
                 this.bhl.bgd = false;
-                this.bhl.gj(0);
+                this.bhl.gi(0);
                 return;
             case 1:
                 this.bhl.PK();

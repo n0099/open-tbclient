@@ -62,7 +62,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
 
     /* loaded from: classes.dex */
     public interface b {
-        void zQ();
+        void zR();
     }
 
     public void onChangeSkinType(int i) {
@@ -151,7 +151,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
         this.mProgressBar.setLayoutParams(layoutParams2);
         this.mProgressBar.setIndeterminate(true);
         addView(this.mProgressBar);
-        zJ();
+        zK();
         this.amn = new TextView(this.mContext);
         at.k(this.amn, t.f.btn_percent_yuantu);
         this.amn.setText(t.j.original_img_look);
@@ -169,10 +169,10 @@ public class u extends RelativeLayout implements View.OnClickListener {
         this.amn.setOnClickListener(this);
         this.amn.setVisibility(8);
         addView(this.amn, layoutParams3);
-        zK();
+        zL();
     }
 
-    private void zJ() {
+    private void zK() {
         this.amy = new TextView(this.mContext);
         this.amy.setBackgroundResource(t.f.bg_url_drag_imagview_fade_view);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
@@ -182,7 +182,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
         this.amy.setVisibility(8);
     }
 
-    private void zK() {
+    private void zL() {
         this.amo = new TextView(this.mContext);
         at.l(this.amo, t.d.transparent);
         this.amo.setText(t.j.goto_pb_floor);
@@ -207,7 +207,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zL() {
+    public void zM() {
         if (this.amo != null) {
             boolean z = this.amr || this.ams;
             if (!this.akP && z && this.amu != null && this.amu.threadId > 0 && this.amu.postId > 0 && this.amu.mThreadType != 33) {
@@ -225,7 +225,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
         }
     }
 
-    private void zM() {
+    private void zN() {
         if (this.amo != null) {
             this.amo.setVisibility(8);
             if (this.amy != null) {
@@ -237,9 +237,9 @@ public class u extends RelativeLayout implements View.OnClickListener {
     public void bi(boolean z) {
         this.akP = z;
         if (this.akP) {
-            zM();
+            zN();
         } else {
-            zL();
+            zM();
         }
     }
 
@@ -266,14 +266,14 @@ public class u extends RelativeLayout implements View.OnClickListener {
                 return false;
             }
             String dy = ba.dy(this.amu.originalUrl);
-            this.amp.setImage(ImageSource.uri(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ax.tY().ds(dy) + "/" + dy));
+            this.amp.setImage(ImageSource.uri(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ax.tZ().ds(dy) + "/" + dy));
             this.amp.setVisibility(0);
             return true;
         }
         return false;
     }
 
-    public void zN() {
+    public void zO() {
         bk(false);
     }
 
@@ -346,7 +346,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
             Bitmap iY = aVar.iY();
             if (iY == null) {
                 if (!this.amr) {
-                    this.amm.FT();
+                    this.amm.FV();
                     return;
                 }
                 this.ams = false;
@@ -364,7 +364,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
                     this.amn.setVisibility(0);
                 }
             }
-            zL();
+            zM();
             this.amm.setLoadBigImage(true);
         }
     }
@@ -390,7 +390,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
         this.mProgressBar.setVisibility(8);
     }
 
-    public void zO() {
+    public void zP() {
         if (this.amm != null && this.amm.getImageType() == 1) {
             this.amm.stop();
         }
@@ -405,12 +405,12 @@ public class u extends RelativeLayout implements View.OnClickListener {
         if (this.amm != null && (str = (String) this.amm.getTag()) != null) {
             if ((!eM(str) || com.baidu.adp.lib.util.i.fq()) && this.amm != null) {
                 if (this.amm.getImageType() == 1) {
-                    if (this.amm.getGifCache() == null || !this.amm.Ga()) {
+                    if (this.amm.getGifCache() == null || !this.amm.Gc()) {
                         e(str, z, z2);
                     }
                 } else if (this.amm.getImageType() == 2) {
                     e(str, z, z2);
-                } else if (this.amm.getImageBitmap() == null || !this.amm.Ga()) {
+                } else if (this.amm.getImageBitmap() == null || !this.amm.Gc()) {
                     e(str, z, z2);
                 }
             }
@@ -437,7 +437,7 @@ public class u extends RelativeLayout implements View.OnClickListener {
         if (view == this.amn) {
             String dy = ba.dy(this.amu.originalUrl);
             if (this.amu.originalProcess >= 0) {
-                com.baidu.tbadk.download.e.AT().y(dy, 13);
+                com.baidu.tbadk.download.e.AU().y(dy, 13);
                 this.amu.originalProcess = -1;
                 if (this.amu.originalSize > 0) {
                     this.amn.setText(String.valueOf(aml) + "(" + ay.I(this.amu.originalSize) + ")");
@@ -448,21 +448,21 @@ public class u extends RelativeLayout implements View.OnClickListener {
                 return;
             }
             if (this.ajZ != null) {
-                this.ajZ.zQ();
+                this.ajZ.zR();
             }
             com.baidu.adp.base.h<?> s = com.baidu.adp.base.l.s(this.mContext);
             if (s == null) {
                 eN(dy);
-            } else if (!com.baidu.adp.lib.util.i.fq() || com.baidu.adp.lib.util.i.fr() || com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("original_img_down_tip", false)) {
+            } else if (!com.baidu.adp.lib.util.i.fq() || com.baidu.adp.lib.util.i.fr() || com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("original_img_down_tip", false)) {
                 eN(dy);
             } else {
-                com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("original_img_down_tip", true);
+                com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("original_img_down_tip", true);
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(s.getPageActivity());
-                aVar.bM(t.j.original_img_down_no_wifi_tip);
+                aVar.bL(t.j.original_img_down_no_wifi_tip);
                 aVar.a(t.j.alert_yes_button, new ab(this, aVar, dy));
                 aVar.b(t.j.alert_no_button, new ac(this, aVar));
                 aVar.b(s);
-                aVar.rU();
+                aVar.rV();
             }
         } else if (view == this.amo && this.amu != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createHistoryCfg(String.valueOf(this.amu.threadId), String.valueOf(this.amu.postId), this.amu.mIsSeeHost, this.amu.mIsReserver, null)));
@@ -480,16 +480,16 @@ public class u extends RelativeLayout implements View.OnClickListener {
         downloadData.setStatus(1);
         downloadData.setUrl(this.amu.originalUrl);
         downloadData.setType(13);
-        downloadData.setPath(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ax.tY().ds(str) + "/" + str);
+        downloadData.setPath(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ax.tZ().ds(str) + "/" + str);
         downloadData.setCallback(new ad(this));
-        com.baidu.tbadk.download.e.AT().a(downloadData, 100);
+        com.baidu.tbadk.download.e.AU().a(downloadData, 100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean bn(boolean z) {
         if (this.amu != null && !StringUtils.isNull(this.amu.originalUrl, true) && this.amu.originalSize >= 0) {
             String dy = ba.dy(this.amu.originalUrl);
-            if (new File(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ax.tY().ds(dy) + "/" + dy).exists()) {
+            if (new File(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ax.tZ().ds(dy) + "/" + dy).exists()) {
                 this.amu.originalProcess = 100;
                 if (z) {
                     this.amn.setVisibility(8);

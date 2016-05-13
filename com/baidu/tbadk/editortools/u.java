@@ -16,7 +16,7 @@ public class u extends com.baidu.tbadk.editortools.view.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public e ej(int i) {
+    public e ei(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
@@ -33,15 +33,15 @@ public class u extends com.baidu.tbadk.editortools.view.b {
 
     @Override // com.baidu.tbadk.editortools.view.b
     public void init(Context context) {
-        et(4);
-        eu(2);
+        es(4);
+        et(2);
         a(new v(this));
-        Cq().c(this);
+        Cr().c(this);
         a(new w(this));
     }
 
     @Override // com.baidu.tbadk.editortools.view.b
-    public void Bp() {
+    public void Bq() {
         if (this.apt != null) {
             this.apt.clear();
         }

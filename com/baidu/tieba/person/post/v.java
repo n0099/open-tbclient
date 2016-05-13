@@ -78,7 +78,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
         String str = "";
         NoDataViewFactory.c a2 = NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, dimension);
         if (this.dES.equals("photolive")) {
-            int i = com.baidu.tbadk.core.sharedPref.b.sQ().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1);
+            int i = com.baidu.tbadk.core.sharedPref.b.sR().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1);
             if (i == 0) {
                 str = getPageContext().getResources().getString(t.j.to_live_to_god);
                 string = getPageContext().getResources().getString(t.j.user_not_liver);
@@ -89,7 +89,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
                 bVar = null;
             }
             if (i < 0) {
-                aCX();
+                aDa();
             }
         } else {
             string = getArguments().getString("key_empty_view_text");
@@ -107,7 +107,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
             this.dEV.setThreadType(33);
         }
         this.dET.Ed.setAdapter((ListAdapter) this.dEV);
-        this.dET.PC().setOnItemClickListener(new aa(this));
+        this.dET.PE().setOnItemClickListener(new aa(this));
         this.mPullView = new com.baidu.tbadk.core.view.w(getPageContext());
         this.mPullView.a(new ab(this));
         this.dET.Ed.setPullRefresh(this.mPullView);
@@ -133,7 +133,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
     public void jA() {
         if (this.mHasMore) {
             this.dEV.hr(false);
-            this.dEX.OJ();
+            this.dEX.OL();
             this.avK = true;
             return;
         }
@@ -165,17 +165,17 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
             at.l(this.awm, this.bgColor);
             this.awm.setVisibility(8);
             this.mProgressBar = (ProgressBar) this.KB.findViewById(t.g.progress);
-            dS(TbadkCoreApplication.m11getInst().getSkinType());
+            dR(TbadkCoreApplication.m11getInst().getSkinType());
             at.j((View) this.Sm, t.d.pb_more_txt);
             this.awm.setLayoutParams(new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.c(this.aJw.getPageContext().getPageActivity(), t.e.ds120)));
             return this.KB;
         }
 
-        public void dS(int i) {
+        public void dR(int i) {
             this.aJw.getLayoutMode().x(this.awm);
         }
 
-        public void cS(int i) {
+        public void cR(int i) {
             if (this.mSkinType != i) {
                 at.j((View) this.Sm, t.d.pb_more_txt);
                 at.e(this.KB, this.bgColor, i);
@@ -184,7 +184,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
             }
         }
 
-        public void OJ() {
+        public void OL() {
             this.mProgressBar.setVisibility(0);
             this.Sm.setText(this.aJw.getPageContext().getPageActivity().getText(t.j.loading));
             this.awm.setVisibility(0);
@@ -199,7 +199,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
             at.l(this.KB, t.d.cp_bg_line_d);
         }
 
-        public void aCZ() {
+        public void aDc() {
             at.l(this.KB, t.d.cp_bg_line_c);
         }
 
@@ -217,7 +217,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
             }
         }
 
-        public void OK() {
+        public void OM() {
             this.mProgressBar.setVisibility(8);
             this.awm.setVisibility(0);
             this.Sm.setText(t.j.load_more);
@@ -239,13 +239,13 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
                 this.dET.mNoDataView.e(getPageContext());
             }
             if (this.mPullView != null) {
-                this.mPullView.cS(i);
+                this.mPullView.cR(i);
             }
             if (this.dEV != null) {
                 this.dEV.notifyDataSetChanged();
             }
             if (this.dEX != null) {
-                this.dEX.cS(i);
+                this.dEX.cR(i);
             }
             at.l(this.dET.Ed, t.d.cp_bg_line_d);
         }
@@ -257,7 +257,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
         if (this.dET.mNoDataView != null) {
             this.dET.mNoDataView.e(getPageContext());
         }
-        if (this.dEV.aCU() != null) {
+        if (this.dEV.aCX() != null) {
             this.dEH.setSelfListener(true);
             this.dEI.setSelfListener(true);
         }
@@ -283,7 +283,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         if (this.dEV != null) {
-            this.dEV.aCR();
+            this.dEV.aCU();
         }
         try {
             com.baidu.tbadk.b.a.na();
@@ -328,7 +328,7 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
         }
     }
 
-    public ae aCV() {
+    public ae aCY() {
         return this.dET;
     }
 
@@ -385,12 +385,12 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
         this.dEV = null;
         com.baidu.adp.lib.util.k.b(getActivity(), t.j.his_post_not_available);
         new Timer().schedule(new ac(this), 2000L);
-        this.dEX.OK();
+        this.dEX.OM();
         return false;
     }
 
     @Override // com.baidu.tbadk.e.a
-    public boolean CR() {
+    public boolean CS() {
         return this.dEV == null || this.dEV.getCount() <= 0;
     }
 
@@ -409,22 +409,22 @@ public class v extends BaseFragment implements BdListView.e, b.a, com.baidu.tbad
             this.dEX.hw(true);
             return;
         }
-        this.dEX.aCZ();
+        this.dEX.aDc();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCW() {
+    public void aCZ() {
         TiebaStatic.log("c10491");
-        aCY();
+        aDb();
         com.baidu.tbadk.b.a.a(getBaseFragmentActivity()).a(1, this);
     }
 
-    private void aCX() {
-        aCY();
+    private void aDa() {
+        aDb();
         com.baidu.tbadk.b.a.a(getBaseFragmentActivity()).b(this);
     }
 
-    private void aCY() {
+    private void aDb() {
         com.baidu.tbadk.b.a.a(getBaseFragmentActivity()).a(true, true, true, (b.a) this);
     }
 

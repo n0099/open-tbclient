@@ -195,10 +195,10 @@ public class cn {
         this.bjM.setRecyclerListener(new cs(this));
         this.bkd = new PbListView(this.bjB.getPageContext().getPageActivity());
         this.bkd.jn();
-        this.bkd.cR(t.d.cp_bg_line_c);
+        this.bkd.cQ(t.d.cp_bg_line_c);
         this.bjM.setOnSrollToBottomListener(this.bjB);
         this.mNavigationBar.setOnTouchListener(new com.baidu.tieba.tbadkCore.ab(new ct(this)));
-        this.bjN = aVar.a(this.bjB, this.bjM, com.baidu.tbadk.core.util.az.uf().uh());
+        this.bjN = aVar.a(this.bjB, this.bjM, com.baidu.tbadk.core.util.az.ug().ui());
         this.bjO = (TextView) this.bjB.findViewById(t.g.frs_noexist_post);
         this.bjO.setVisibility(8);
         this.bjG.setOnClickListener(this.bjV);
@@ -254,7 +254,7 @@ public class cn {
 
     public void QE() {
         com.baidu.tbadk.core.data.ak realTimeData;
-        if (this.bjB.PZ().avA() != null && this.bjB.PZ().avA().getRealTimeData() != null && (realTimeData = this.bjB.PZ().avA().getRealTimeData()) != null && !StringUtils.isNull(realTimeData.getIcon()) && this.bkm == null) {
+        if (this.bjB.PZ().avD() != null && this.bjB.PZ().avD().getRealTimeData() != null && (realTimeData = this.bjB.PZ().avD().getRealTimeData()) != null && !StringUtils.isNull(realTimeData.getIcon()) && this.bkm == null) {
             this.bkm = new com.baidu.tieba.frs.view.ab(realTimeData, this, this.bjB.getPageContext());
             this.bkm.show();
         }
@@ -318,7 +318,7 @@ public class cn {
                             break;
                     }
                 } else {
-                    com.baidu.tbadk.core.util.bg.us().c(this.bjB.getPageContext(), new String[]{value});
+                    com.baidu.tbadk.core.util.bg.ut().c(this.bjB.getPageContext(), new String[]{value});
                     if (!StringUtils.isNull(value) && value.startsWith("game:detail:")) {
                         TiebaStatic.eventStat(this.bjB.getPageContext().getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
                     }
@@ -410,7 +410,7 @@ public class cn {
         this.bjG.setVisibility(8);
     }
 
-    public void gq(int i) {
+    public void gp(int i) {
         LinearLayout linearLayout = (LinearLayout) this.bjB.findViewById(t.g.frs_editor_container);
         if (i != linearLayout.getVisibility()) {
             linearLayout.setVisibility(i);
@@ -422,7 +422,7 @@ public class cn {
         String string2 = this.bjB.getPageContext().getPageActivity().getString(t.j.view_host);
         String string3 = this.bjB.getPageContext().getPageActivity().getString(t.j.view_reverse);
         this.bjT = new com.baidu.tbadk.core.dialog.c(this.bjB.getPageContext().getPageActivity());
-        this.bjT.bP(t.j.operation);
+        this.bjT.bO(t.j.operation);
         if (z) {
             this.bjT.a(new String[]{string, string3}, this.bjW);
         } else {
@@ -453,7 +453,7 @@ public class cn {
 
     public void QL() {
         if (this.bjT != null) {
-            this.bjT.rX();
+            this.bjT.rY();
         }
     }
 
@@ -493,7 +493,7 @@ public class cn {
         return this.bjA;
     }
 
-    public void Ld() {
+    public void Lf() {
         this.bjM.setVisibility(0);
     }
 
@@ -525,7 +525,7 @@ public class cn {
     public void QQ() {
         QP();
         if (this.bjP != null) {
-            this.bjP.rX();
+            this.bjP.rY();
         }
     }
 
@@ -616,7 +616,7 @@ public class cn {
         }
         if (FrsActivityStatic.bhG) {
             j = edVar.Rz() - edVar.RA();
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().ya()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xG().yb()) {
                 j -= edVar.RB();
             }
         } else {
@@ -649,7 +649,7 @@ public class cn {
             this.bjN.Sw();
             this.bjN.notifyDataSetChanged();
         }
-        this.bjB.PF();
+        this.bjB.PH();
         this.bjB.getLayoutMode().ae(i == 1);
         this.bjB.getLayoutMode().x(this.bjC);
         if (this.bjC != null) {
@@ -658,7 +658,7 @@ public class cn {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.bjB.getPageContext(), i);
             this.mNavigationBar.getBackground().mutate().setAlpha(0);
-            this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.at.cB(t.f.s_navbar_bg)));
+            this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.at.cA(t.f.s_navbar_bg)));
             com.baidu.tbadk.core.util.at.e(this.bjY, t.d.cp_bg_line_b, i);
             com.baidu.tbadk.core.util.at.l(this.mNavigationBar.getBottomLine(), t.d.cp_bg_line_b);
         }
@@ -669,7 +669,7 @@ public class cn {
             this.bjX.kU();
         }
         if (this.bkd != null) {
-            this.bkd.cS(i);
+            this.bkd.cR(i);
         }
         com.baidu.tbadk.core.util.at.a(this.bjD, t.f.icon_edit_selector_s, t.f.icon_edit_selector);
         cW(false);
@@ -712,10 +712,10 @@ public class cn {
 
     public void a(com.baidu.tbadk.core.data.bd bdVar) {
         this.bjH.setVisibility(0);
-        String rL = bdVar.rL();
         String rM = bdVar.rM();
-        this.bjI.c(rL, 10, false);
-        this.bjJ.c(rM, 10, false);
+        String rN = bdVar.rN();
+        this.bjI.c(rM, 10, false);
+        this.bjJ.c(rN, 10, false);
         TbadkCoreApplication.m11getInst().handler.postDelayed(this.bkv, TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
@@ -744,7 +744,7 @@ public class cn {
     }
 
     public void Re() {
-        if (com.baidu.tbadk.performanceLog.aa.EM().EN()) {
+        if (com.baidu.tbadk.performanceLog.aa.EN().EO()) {
             int lastVisiblePosition = this.bjM.getLastVisiblePosition();
             for (int i = 0; i <= lastVisiblePosition; i++) {
                 View childAt = this.bjM.getChildAt(i);
@@ -753,7 +753,7 @@ public class cn {
                         dk dkVar = (dk) childAt.getTag();
                         if (dkVar.bfG != null) {
                             com.baidu.tbadk.performanceLog.u perfLog = dkVar.bfG.getPerfLog();
-                            perfLog.eM(1000);
+                            perfLog.eL(1000);
                             perfLog.axv = true;
                             if (lastVisiblePosition == i) {
                                 int[] iArr = new int[2];
@@ -761,7 +761,7 @@ public class cn {
                                 if (iArr[1] > com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getContext())) {
                                 }
                             }
-                            dkVar.bfG.uR();
+                            dkVar.bfG.uS();
                         }
                         if (dkVar.bfE != null && (dkVar.bfE instanceof ViewGroup)) {
                             FrsCommonImageLayout frsCommonImageLayout = dkVar.bfE;
@@ -770,7 +770,7 @@ public class cn {
                                 if (childAt2 instanceof TbImageView) {
                                     TbImageView tbImageView = (TbImageView) childAt2;
                                     com.baidu.tbadk.performanceLog.u perfLog2 = tbImageView.getPerfLog();
-                                    perfLog2.eM(1000);
+                                    perfLog2.eL(1000);
                                     perfLog2.axv = true;
                                     if (lastVisiblePosition == i) {
                                         int[] iArr2 = new int[2];
@@ -778,7 +778,7 @@ public class cn {
                                         if (iArr2[1] > com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getContext())) {
                                         }
                                     }
-                                    tbImageView.uR();
+                                    tbImageView.uS();
                                 }
                             }
                         }
@@ -787,7 +787,7 @@ public class cn {
                         bu buVar = (bu) childAt.getTag();
                         if (buVar.bhW != null) {
                             com.baidu.tbadk.performanceLog.u perfLog3 = buVar.bhW.getPerfLog();
-                            perfLog3.eM(1000);
+                            perfLog3.eL(1000);
                             perfLog3.axv = true;
                             if (lastVisiblePosition == i) {
                                 int[] iArr3 = new int[2];
@@ -795,12 +795,12 @@ public class cn {
                                 if (iArr3[1] > com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getContext())) {
                                 }
                             }
-                            buVar.bhW.uR();
+                            buVar.bhW.uS();
                         }
                         if (buVar.bit != null && (buVar.bit instanceof TbImageView)) {
                             TbImageView tbImageView2 = buVar.bit;
                             com.baidu.tbadk.performanceLog.u perfLog4 = tbImageView2.getPerfLog();
-                            perfLog4.eM(1000);
+                            perfLog4.eL(1000);
                             perfLog4.axv = true;
                             if (lastVisiblePosition == i) {
                                 int[] iArr4 = new int[2];
@@ -808,14 +808,14 @@ public class cn {
                                 if (iArr4[1] > com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getContext())) {
                                 }
                             }
-                            tbImageView2.uR();
+                            tbImageView2.uS();
                         }
                     }
                     if (childAt.getTag() instanceof cl) {
                         cl clVar = (cl) childAt.getTag();
                         if (clVar.bjl != null && clVar.bjl.aLx != null && (clVar.bjl.aLx instanceof HeadImageView)) {
                             com.baidu.tbadk.performanceLog.u perfLog5 = clVar.bjl.aLx.getPerfLog();
-                            perfLog5.eM(1000);
+                            perfLog5.eL(1000);
                             perfLog5.axv = true;
                             if (lastVisiblePosition == i) {
                                 int[] iArr5 = new int[2];
@@ -823,7 +823,7 @@ public class cn {
                                 if (iArr5[1] > com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getContext())) {
                                 }
                             }
-                            clVar.bjl.aLx.uR();
+                            clVar.bjl.aLx.uS();
                         }
                         ArrayList arrayList = new ArrayList();
                         if (clVar.aLs != null) {
@@ -840,7 +840,7 @@ public class cn {
                             while (it.hasNext()) {
                                 TbImageView tbImageView3 = (TbImageView) it.next();
                                 com.baidu.tbadk.performanceLog.u perfLog6 = tbImageView3.getPerfLog();
-                                perfLog6.eM(1000);
+                                perfLog6.eL(1000);
                                 perfLog6.axv = true;
                                 if (lastVisiblePosition == i) {
                                     int[] iArr6 = new int[2];
@@ -848,7 +848,7 @@ public class cn {
                                     if (iArr6[1] > com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getContext())) {
                                     }
                                 }
-                                tbImageView3.uR();
+                                tbImageView3.uS();
                             }
                         }
                     }
@@ -864,46 +864,46 @@ public class cn {
     public void Rg() {
         this.mHasMore = true;
         this.bjM.setNextPage(this.bkd);
-        this.bkd.vg();
+        this.bkd.vh();
     }
 
     public void Rh() {
         this.mHasMore = false;
         if (this.bke > 0) {
-            this.bkd.cT(this.bke);
+            this.bkd.cS(this.bke);
         }
         this.bjM.setNextPage(this.bkd);
-        this.bkd.vh();
+        this.bkd.vi();
         this.bkd.setText(this.bjB.getResources().getString(t.j.list_no_more));
     }
 
     public void Ri() {
         this.mHasMore = false;
         this.bjM.setNextPage(null);
-        this.bkd.vi();
+        this.bkd.vj();
     }
 
     public void Rj() {
-        this.bkd.vi();
+        this.bkd.vj();
     }
 
-    public boolean Py() {
+    public boolean PA() {
         return this.bkd.getView().getParent() != null && this.mHasMore;
     }
 
-    public void gr(int i) {
+    public void gq(int i) {
         this.bke = i;
     }
 
-    public void gs(int i) {
+    public void gr(int i) {
         if (TbadkCoreApplication.getCurrentAccount() == null) {
-            if ((i == 3 || i == 6) && com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("frs_login_tip", true)) {
+            if ((i == 3 || i == 6) && com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("frs_login_tip", true)) {
                 if (this.aYI == null) {
                     this.aYI = new CommonTipView(this.bjB.getActivity());
                 }
                 this.aYI.setText(t.j.frs_login_tip);
                 this.aYI.a((FrameLayout) Rb(), TbadkCoreApplication.m11getInst().getSkinType());
-                com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("frs_login_tip", false);
+                com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("frs_login_tip", false);
             }
         }
     }
@@ -946,7 +946,7 @@ public class cn {
                 if (i2 < this.bjM.getChildCount()) {
                     View childAt = this.bjM.getChildAt(this.bkf ? (this.bjM.getChildCount() - 1) - i2 : i2);
                     if (childAt.getTag() instanceof fh) {
-                        ((fh) childAt.getTag()).JZ();
+                        ((fh) childAt.getTag()).Kb();
                     }
                     i = i2 + 1;
                 } else {

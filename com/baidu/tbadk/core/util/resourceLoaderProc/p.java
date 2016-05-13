@@ -23,17 +23,17 @@ public class p extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
+    public boolean uI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uI() {
+    public boolean uJ() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
+    public int uK() {
         return this.Xc;
     }
 }

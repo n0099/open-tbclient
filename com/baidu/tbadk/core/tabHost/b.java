@@ -13,7 +13,7 @@ class b implements FragmentTabWidget.c {
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.c
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         if (i4 != i2) {
-            this.UZ.ck(i2);
+            this.UZ.cj(i2);
         }
     }
 }

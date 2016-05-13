@@ -77,7 +77,7 @@ public class ConstrainImageGroup extends LinearLayout {
     public void setImageUrls(List<String> list) {
         int i;
         if (!y.s(list) && this.aCq != null) {
-            eX(y.r(list));
+            eW(y.r(list));
             int childCount = getChildCount();
             int i2 = 0;
             int i3 = 0;
@@ -98,11 +98,11 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    private void eX(int i) {
-        int eW = this.aCs.eW(i);
-        int childCount = getChildCount() - eW;
+    private void eW(int i) {
+        int eV = this.aCs.eV(i);
+        int childCount = getChildCount() - eV;
         if (childCount > 0) {
-            removeViews(eW, childCount);
+            removeViews(eV, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
@@ -123,12 +123,12 @@ public class ConstrainImageGroup extends LinearLayout {
         return dD;
     }
 
-    public void sf() {
+    public void sg() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt instanceof c) {
-                ((c) childAt).sf();
+                ((c) childAt).sg();
             }
         }
     }

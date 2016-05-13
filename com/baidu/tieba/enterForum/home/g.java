@@ -18,10 +18,10 @@ public class g implements com.baidu.tbadk.widget.layout.h {
         if (i2 != i4) {
             int lightStatusBarHeight = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.c(this.aXh.getActivity(), t.e.ds98) + i2;
             if (this.aXh.aWX != null) {
-                this.aXh.aWX.fP(lightStatusBarHeight);
+                this.aXh.aWX.fO(lightStatusBarHeight);
             }
             if (this.aXh.aWY != null && this.aXh.aWY.aYq != null) {
-                this.aXh.aWY.aYq.fP(lightStatusBarHeight);
+                this.aXh.aWY.aYq.fO(lightStatusBarHeight);
             }
         }
     }

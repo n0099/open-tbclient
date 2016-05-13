@@ -37,38 +37,38 @@ class l extends CustomMessageListener {
             com.baidu.tieba.pb.data.e pbData = cwVar.getPbData();
             if (pbData != null) {
                 cwVar2 = this.djE.dih;
-                if (cwVar2.axI() != null) {
+                if (cwVar2.axL() != null) {
                     cwVar4 = this.djE.dih;
-                    if (cwVar4.axI().getUserIdLong() == sVar.getToUserId()) {
+                    if (cwVar4.axL().getUserIdLong() == sVar.getToUserId()) {
                         elVar2 = this.djE.diR;
                         int sendCount = sVar.getSendCount();
                         cwVar5 = this.djE.dih;
                         com.baidu.tieba.pb.data.e pbData2 = cwVar5.getPbData();
                         cwVar6 = this.djE.dih;
-                        boolean axB = cwVar6.axB();
+                        boolean axE = cwVar6.axE();
                         cwVar7 = this.djE.dih;
-                        elVar2.a(sendCount, pbData2, axB, cwVar7.getRequestType());
+                        elVar2.a(sendCount, pbData2, axE, cwVar7.getRequestType());
                     }
                 }
-                if (pbData.avC() != null && pbData.avC().size() >= 1 && pbData.avC().get(0) != null) {
-                    long c = com.baidu.adp.lib.h.b.c(pbData.avC().get(0).getId(), 0L);
+                if (pbData.avF() != null && pbData.avF().size() >= 1 && pbData.avF().get(0) != null) {
+                    long c = com.baidu.adp.lib.h.b.c(pbData.avF().get(0).getId(), 0L);
                     cwVar3 = this.djE.dih;
                     long c2 = com.baidu.adp.lib.h.b.c(cwVar3.getThreadID(), 0L);
                     if (c == sVar.getPostId() && c2 == sVar.getThreadId()) {
-                        com.baidu.tbadk.core.data.ae aUb = pbData.avC().get(0).aUb();
-                        if (aUb == null) {
-                            aUb = new com.baidu.tbadk.core.data.ae();
+                        com.baidu.tbadk.core.data.ae aUh = pbData.avF().get(0).aUh();
+                        if (aUh == null) {
+                            aUh = new com.baidu.tbadk.core.data.ae();
                         }
-                        ArrayList<ae.a> pN = aUb.pN();
+                        ArrayList<ae.a> pN = aUh.pN();
                         if (pN == null) {
                             pN = new ArrayList<>();
                         }
                         pN.add(0, aVar);
-                        aUb.bF(sVar.getSendCount() + aUb.pM());
-                        aUb.g(pN);
-                        pbData.avC().get(0).a(aUb);
+                        aUh.bE(sVar.getSendCount() + aUh.pM());
+                        aUh.g(pN);
+                        pbData.avF().get(0).a(aUh);
                         elVar = this.djE.diR;
-                        elVar.ayU().notifyDataSetChanged();
+                        elVar.ayX().notifyDataSetChanged();
                     }
                 }
             }

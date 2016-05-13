@@ -41,8 +41,8 @@ public class f extends ft {
     }
 
     public void m(com.baidu.tbadk.core.data.ax axVar) {
-        if (axVar != null && axVar.rc() != null) {
-            int status = axVar.rc().getStatus();
+        if (axVar != null && axVar.rd() != null) {
+            int status = axVar.rd().getStatus();
             if (status == 1) {
                 gt(true);
             } else if (status == 2) {
@@ -51,7 +51,7 @@ public class f extends ft {
         }
     }
 
-    public TextView awq() {
+    public TextView awt() {
         return this.dik;
     }
 }

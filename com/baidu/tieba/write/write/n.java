@@ -16,10 +16,10 @@ import java.util.ArrayList;
 public class n extends BaseAdapter {
     private ArrayList<MetaData> SE;
     private TbCheckBox.a cwR;
-    private AtListActivity fcs;
-    private boolean fcu;
+    private AtListActivity fcr;
+    private boolean fct;
     private final Context mContext;
-    private b fct = null;
+    private b fcs = null;
     private ViewGroup cwT = null;
 
     /* loaded from: classes.dex */
@@ -29,14 +29,14 @@ public class n extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.fct = bVar;
+        this.fcs = bVar;
     }
 
     public n(AtListActivity atListActivity, boolean z) {
-        this.fcu = true;
-        this.fcs = atListActivity;
-        this.mContext = this.fcs.getPageContext().getContext();
-        this.fcu = z;
+        this.fct = true;
+        this.fcr = atListActivity;
+        this.mContext = this.fcr.getPageContext().getContext();
+        this.fct = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -59,7 +59,7 @@ public class n extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: rk */
+    /* renamed from: rj */
     public MetaData getItem(int i) {
         if (this.SE != null && i < this.SE.size()) {
             return this.SE.get(i);
@@ -94,29 +94,29 @@ public class n extends BaseAdapter {
         a aVar;
         int skinType = TbadkCoreApplication.m11getInst().getSkinType();
         if (obj == null) {
-            aVar = bdm();
+            aVar = bdt();
         } else {
             aVar = (a) obj;
         }
-        if (this.fct != null) {
-            this.fct.a(aVar.awk, metaData);
+        if (this.fcs != null) {
+            this.fcs.a(aVar.awk, metaData);
         }
         String portrait = metaData.getPortrait();
         aVar.aLz.setText(metaData.getName_show());
         aVar.cwV.setTagData(metaData);
         aVar.cwz.setTag(portrait);
-        if (this.fcu) {
+        if (this.fct) {
             aVar.cwV.setVisibility(0);
         } else {
             aVar.cwV.setVisibility(8);
         }
         aVar.cwz.c(portrait, 12, false);
-        this.fcs.getPageContext().getLayoutMode().ae(skinType == 1);
-        this.fcs.getPageContext().getLayoutMode().x(aVar.awk);
+        this.fcr.getPageContext().getLayoutMode().ae(skinType == 1);
+        this.fcr.getPageContext().getLayoutMode().x(aVar.awk);
         return aVar;
     }
 
-    private a bdm() {
+    private a bdt() {
         a aVar = new a(this, null);
         aVar.awk = LayoutInflater.from(this.mContext).inflate(t.h.invite_friend_list_item, (ViewGroup) null);
         aVar.cwz = (HeadImageView) aVar.awk.findViewById(t.g.photo);

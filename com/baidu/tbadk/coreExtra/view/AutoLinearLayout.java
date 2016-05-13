@@ -83,7 +83,7 @@ public class AutoLinearLayout extends LinearLayout {
         int childCount = getChildCount();
         int culumnsCount = getCulumnsCount();
         if (this.ajg != 0 && this.ajk != 0) {
-            dP(childCount);
+            dO(childCount);
         }
         if (this.ajg != 0) {
             for (int i3 = 0; i3 < this.ajk; i3++) {
@@ -108,7 +108,7 @@ public class AutoLinearLayout extends LinearLayout {
         }
     }
 
-    private void dP(int i) {
+    private void dO(int i) {
         if (this.ajk <= i) {
             removeViews(this.ajk, i - this.ajk);
         }

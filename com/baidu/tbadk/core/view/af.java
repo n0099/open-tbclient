@@ -39,7 +39,7 @@ class af implements View.OnClickListener {
         axVar = this.adu.aab;
         if (axVar != null) {
             axVar2 = this.adu.aab;
-            if (!StringUtils.isNull(axVar2.qP())) {
+            if (!StringUtils.isNull(axVar2.qQ())) {
                 str = this.adu.adl;
                 if (!StringUtils.isNull(str)) {
                     str2 = this.adu.adm;
@@ -48,10 +48,10 @@ class af implements View.OnClickListener {
                         context2 = this.adu.mContext;
                         FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context2);
                         axVar4 = this.adu.aab;
-                        String qP = axVar4.qP();
+                        String qQ = axVar4.qQ();
                         str3 = this.adu.adl;
                         str4 = this.adu.adm;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(qP, str3, str4)));
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(qQ, str3, str4)));
                         onClickListener = this.adu.adn;
                         if (onClickListener == null) {
                             onClickListener2 = this.adu.adn;
@@ -65,7 +65,7 @@ class af implements View.OnClickListener {
                 context = this.adu.mContext;
                 FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(context);
                 axVar3 = this.adu.aab;
-                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(axVar3.qP(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(axVar3.qQ(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 onClickListener = this.adu.adn;
                 if (onClickListener == null) {
                 }

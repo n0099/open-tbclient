@@ -26,8 +26,8 @@ public class b implements com.baidu.tieba.recommendfrs.d {
                     Iterator it = arrayList3.iterator();
                     while (it.hasNext()) {
                         com.baidu.tieba.recommendfrs.data.l lVar = (com.baidu.tieba.recommendfrs.data.l) it.next();
-                        if (lVar != null && lVar.aMq() != null && j == lVar.aMq().tag_code.longValue()) {
-                            lVar.ks(i);
+                        if (lVar != null && lVar.aMt() != null && j == lVar.aMt().tag_code.longValue()) {
+                            lVar.kr(i);
                             return;
                         }
                     }

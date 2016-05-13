@@ -1455,8 +1455,6 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
     public void startActivityFromChild(Activity activity, Intent intent, int i) {
         if (this.mEntity != null) {
             this.mEntity.startActivityFromChild(activity, intent, i);
-        } else {
-            super.startActivityFromChild(activity, intent, i);
         }
     }
 

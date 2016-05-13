@@ -27,7 +27,7 @@ public class c {
                 com.baidu.adp.widget.ListView.v vVar3 = (com.baidu.adp.widget.ListView.v) y.c(list, i2 + 1);
                 if ((vVar2 instanceof com.baidu.tieba.card.a.r) && (vVar3 instanceof com.baidu.tieba.card.a.r)) {
                     com.baidu.tieba.card.a.r rVar = (com.baidu.tieba.card.a.r) vVar3;
-                    if (((com.baidu.tieba.card.a.r) vVar2).Kn()) {
+                    if (((com.baidu.tieba.card.a.r) vVar2).Kp()) {
                         rVar.cj(false);
                     }
                 }
@@ -37,7 +37,7 @@ public class c {
 
     private static void b(DataRes.Builder builder, List<com.baidu.adp.widget.ListView.v> list) {
         com.baidu.tieba.card.a.c cVar;
-        ax Kl;
+        ax Kn;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             HashMap hashMap = new HashMap();
@@ -49,7 +49,7 @@ public class c {
             int r = y.r(list);
             for (int i = 0; i < r; i++) {
                 com.baidu.adp.widget.ListView.v vVar = (com.baidu.adp.widget.ListView.v) y.c(list, i);
-                if ((vVar instanceof com.baidu.tieba.card.a.c) && (Kl = (cVar = (com.baidu.tieba.card.a.c) vVar).Kl()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.h.b.c(Kl.getTid(), 0L)))) != null) {
+                if ((vVar instanceof com.baidu.tieba.card.a.c) && (Kn = (cVar = (com.baidu.tieba.card.a.c) vVar).Kn()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.h.b.c(Kn.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
                     cVar.hf(threadPersonalized.abtest_tag);

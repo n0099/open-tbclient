@@ -16,7 +16,7 @@ public class aj extends ax {
         return erN;
     }
 
-    public boolean aTg() {
+    public boolean aTm() {
         return this.erQ;
     }
 
@@ -24,7 +24,7 @@ public class aj extends ax {
         this.erQ = z;
     }
 
-    public az aTh() {
+    public az aTn() {
         return this.erO;
     }
 
@@ -32,7 +32,7 @@ public class aj extends ax {
         this.erO = azVar;
     }
 
-    public bc aTi() {
+    public bc aTo() {
         return this.erP;
     }
 

@@ -24,7 +24,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
         this.SO = onClickListener;
     }
 
-    public T cd(int i) {
+    public T cc(int i) {
         if (this.SN == null || this.SN.isEmpty() || i < 0 || i >= this.SN.size()) {
             return null;
         }
@@ -97,7 +97,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
     }
 
-    public void sf() {
+    public void sg() {
         if (this.SM != null && this.SM.size() > 0) {
             Iterator<TbImageView> it = this.SM.iterator();
             while (it.hasNext()) {

@@ -49,19 +49,19 @@ public class bo extends com.baidu.adp.base.f {
         return this.mView;
     }
 
-    public View aBS() {
+    public View aBV() {
         return this.dwW;
     }
 
-    public View aBT() {
+    public View aBW() {
         return this.dwX;
     }
 
-    public View aBU() {
+    public View aBX() {
         return this.dwY;
     }
 
-    public void ms(int i) {
+    public void mr(int i) {
         this.dwY.setVisibility(0);
         this.dwZ.setVisibility(0);
         if (i == 0) {

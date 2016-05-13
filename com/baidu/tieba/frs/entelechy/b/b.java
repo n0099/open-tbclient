@@ -28,5 +28,5 @@ public interface b {
 
     void b(BdExpandListView bdExpandListView, BannerView bannerView);
 
-    boolean gy(int i);
+    boolean gx(int i);
 }

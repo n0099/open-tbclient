@@ -24,9 +24,9 @@ public class ae implements View.OnTouchListener {
         long j;
         if (TbadkCoreApplication.isLogin()) {
             eVar = this.dgC.dfK;
-            ax avB = eVar.avB();
+            ax avE = eVar.avE();
             if (view != null) {
-                boolean z5 = avB.getPraise() == null || avB.getPraise().getIsLike() == 0;
+                boolean z5 = avE.getPraise() == null || avE.getPraise().getIsLike() == 0;
                 if (motionEvent.getAction() == 0) {
                     long currentTimeMillis = System.currentTimeMillis();
                     j = this.dgC.bfp;

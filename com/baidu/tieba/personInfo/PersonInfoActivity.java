@@ -120,7 +120,7 @@ public class PersonInfoActivity extends BaseFragmentActivity implements VoiceMan
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.f.b<TbImageView> Po() {
+    public com.baidu.adp.lib.f.b<TbImageView> Pq() {
         if (this.dzY == null) {
             this.dzY = FrsCommonImageLayout.o(getPageContext().getPageActivity(), 12);
         }

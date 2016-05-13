@@ -24,6 +24,6 @@ public class af implements View.OnClickListener {
         fragmentTabIndicator = this.cMQ.cLK;
         fragmentTabIndicator.setCompoundDrawablesRightResId(t.f.icon_toolbar_arrow_down_s);
         fragmentTabIndicator2 = this.cMQ.cLK;
-        fragmentTabIndicator2.cW(TbadkCoreApplication.m11getInst().getSkinType());
+        fragmentTabIndicator2.cV(TbadkCoreApplication.m11getInst().getSkinType());
     }
 }

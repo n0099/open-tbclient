@@ -60,10 +60,10 @@ public class ShareFromFrsView extends LinearLayout {
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         this.bwD = shareFromFrsMsgData;
-        uX();
+        uY();
     }
 
-    private void uX() {
+    private void uY() {
         this.aGp.setText(dA(this.bwD.getName()));
         this.bwA.setDefaultResource(t.f.icon_default_ba_120);
         this.bwA.setAutoChangeStyle(false);

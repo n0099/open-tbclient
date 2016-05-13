@@ -4,7 +4,7 @@ public class g {
     private static volatile g crg;
     private boolean isAcceptNotify;
 
-    public static g ais() {
+    public static g aiu() {
         if (crg == null) {
             synchronized (g.class) {
                 if (crg == null) {

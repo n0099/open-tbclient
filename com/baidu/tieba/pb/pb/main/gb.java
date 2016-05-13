@@ -19,7 +19,7 @@ public class gb {
     private String dpG = null;
     private String mPackageName = null;
 
-    public static gb azJ() {
+    public static gb azM() {
         if (dpC == null) {
             synchronized (gb.class) {
                 if (dpC == null) {
@@ -44,9 +44,9 @@ public class gb {
             } else if (mf(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
             } else if (mg(str)) {
-                com.baidu.tbadk.core.util.bg.us().a(tbPageContext, new String[]{str}, true);
+                com.baidu.tbadk.core.util.bg.ut().a(tbPageContext, new String[]{str}, true);
             } else {
-                com.baidu.tbadk.core.util.bg.us().c(tbPageContext, new String[]{str});
+                com.baidu.tbadk.core.util.bg.ut().c(tbPageContext, new String[]{str});
             }
         }
     }
@@ -119,12 +119,12 @@ public class gb {
             }
             if (this.dpD == null) {
                 this.dpD = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                this.dpD.bM(t.j.download_iqiyi_app_dialog);
+                this.dpD.bL(t.j.download_iqiyi_app_dialog);
                 this.dpD.a(t.j.install_app, new gc(this, tbPageContext));
                 this.dpD.b(t.j.webpage_play, new gd(this, tbPageContext));
                 this.dpD.aq(false);
             }
-            this.dpD.b(tbPageContext).rU();
+            this.dpD.b(tbPageContext).rV();
         }
     }
 

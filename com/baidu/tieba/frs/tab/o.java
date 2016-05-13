@@ -67,7 +67,7 @@ public class o extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gO */
+    /* renamed from: gN */
     public ft getItem(int i) {
         List list;
         List list2;

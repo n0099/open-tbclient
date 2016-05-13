@@ -15,13 +15,13 @@ public class p extends t {
     public long wf;
     public long xK;
 
-    public void ED() {
+    public void EE() {
         this.axo.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EE() {
-        w wVar = (w) aa.EM().eO(this.axu);
+    public void EF() {
+        w wVar = (w) aa.EN().eN(this.axu);
         if (wVar != null) {
             wVar.c(this);
         }
@@ -38,8 +38,8 @@ public class p extends t {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            p.this.axc = aa.EM().EQ();
-            p.this.EE();
+            p.this.axc = aa.EN().ER();
+            p.this.EF();
             return Boolean.TRUE;
         }
 

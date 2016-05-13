@@ -17,21 +17,21 @@ public class i extends com.baidu.adp.framework.listener.a {
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        String aCA;
+        String aCD;
         h.a aVar;
         h.a aVar2;
         this.dAg.avz = false;
         if (responsedMessage != null) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
-                aCA = this.dAg.aCA();
+                aCD = this.dAg.aCD();
                 if (!StringUtils.isNull(errorString)) {
-                    aCA = errorString;
+                    aCD = errorString;
                 }
                 aVar = this.dAg.dAe;
                 if (aVar != null) {
                     aVar2 = this.dAg.dAe;
-                    aVar2.fz(aCA);
+                    aVar2.fz(aCD);
                 }
             } else if (responsedMessage instanceof GodThreadListHttpResponseMessage) {
                 this.dAg.a(((GodThreadListHttpResponseMessage) responsedMessage).getData());

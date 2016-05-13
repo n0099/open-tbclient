@@ -8,24 +8,24 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ax implements TextWatcher {
     private int dMC;
-    final /* synthetic */ WriteActivity feb;
+    final /* synthetic */ WriteActivity fea;
     private EditText crz = null;
     private TextView Sm = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(WriteActivity writeActivity) {
-        this.feb = writeActivity;
+        this.fea = writeActivity;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         boolean z;
-        this.feb.bcj();
-        z = this.feb.fdK;
+        this.fea.bcq();
+        z = this.fea.fdJ;
         if (z) {
             this.dMC = this.crz.getSelectionStart();
             this.crz.setSelection(this.dMC);
-            this.feb.b(this.Sm, this.crz);
+            this.fea.b(this.Sm, this.crz);
         }
     }
 
@@ -42,40 +42,40 @@ public class ax implements TextWatcher {
         EditText editText4;
         TextView textView3;
         TextView textView4;
-        z = this.feb.fdK;
+        z = this.fea.fdJ;
         if (z) {
-            z3 = this.feb.fdL;
+            z3 = this.fea.fdK;
             if (z3) {
                 EditText editText5 = this.crz;
-                editText3 = this.feb.fdF;
+                editText3 = this.fea.fdE;
                 if (editText5 == editText3) {
                     TextView textView5 = this.Sm;
-                    textView4 = this.feb.fdG;
+                    textView4 = this.fea.fdF;
                     if (textView5 == textView4) {
                         return;
                     }
                 }
-                editText4 = this.feb.fdF;
+                editText4 = this.fea.fdE;
                 this.crz = editText4;
-                textView3 = this.feb.fdG;
+                textView3 = this.fea.fdF;
                 this.Sm = textView3;
                 return;
             }
         }
-        z2 = this.feb.fdK;
+        z2 = this.fea.fdJ;
         if (z2) {
             EditText editText6 = this.crz;
-            editText = this.feb.fdB;
+            editText = this.fea.fdA;
             if (editText6 == editText) {
                 TextView textView6 = this.Sm;
-                textView2 = this.feb.fdH;
+                textView2 = this.fea.fdG;
                 if (textView6 == textView2) {
                     return;
                 }
             }
-            editText2 = this.feb.fdB;
+            editText2 = this.fea.fdA;
             this.crz = editText2;
-            textView = this.feb.fdH;
+            textView = this.fea.fdG;
             this.Sm = textView;
         }
     }

@@ -10,19 +10,19 @@ public class ah {
     private int chat = 0;
     private int bookmark = 0;
 
-    public int alk() {
+    public int alm() {
         return this.cyE;
     }
 
-    public int all() {
+    public int aln() {
         return this.cyF;
     }
 
-    public int alm() {
+    public int alo() {
         return this.fans;
     }
 
-    public int aln() {
+    public int alp() {
         return this.bookmark;
     }
 

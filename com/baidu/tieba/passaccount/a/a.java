@@ -25,7 +25,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a auK() {
+    public static a auN() {
         if (dcf == null) {
             dcf = new a();
         }

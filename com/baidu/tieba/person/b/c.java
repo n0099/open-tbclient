@@ -30,8 +30,8 @@ public class c extends y.a {
             this.dBl = vVar;
             com.baidu.tieba.person.data.b bVar = (com.baidu.tieba.person.data.b) vVar;
             at.c(this.dBj, t.f.icon_pic_add);
-            if (bVar.aCe() > 0) {
-                this.dBk.setText(String.format(TbadkCoreApplication.m11getInst().getString(t.j.have_left_some_picture_upload), Integer.valueOf(bVar.aCe())));
+            if (bVar.aCh() > 0) {
+                this.dBk.setText(String.format(TbadkCoreApplication.m11getInst().getString(t.j.have_left_some_picture_upload), Integer.valueOf(bVar.aCh())));
                 at.c(this.dBk, t.d.cp_cont_c, 1);
             }
             at.k(getView(), t.f.add_pic_item_bg);
@@ -39,7 +39,7 @@ public class c extends y.a {
         }
     }
 
-    public v vL() {
+    public v vM() {
         return this.dBl;
     }
 

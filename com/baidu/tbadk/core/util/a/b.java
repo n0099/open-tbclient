@@ -17,7 +17,7 @@ public class b {
     public boolean YB = false;
     public int YC = 0;
 
-    public i ux() {
+    public i uy() {
         return this.Yz;
     }
 
@@ -53,25 +53,25 @@ public class b {
         }
         String netType = j.getNetType();
         if (netType != null) {
-            String wn = com.baidu.tbadk.coreExtra.b.a.wk().wn();
+            String wo = com.baidu.tbadk.coreExtra.b.a.wl().wo();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m11getInst().getKeepaliveWifi() == 1) {
-                    str = String.valueOf(wn) + "ka=open";
+                    str = String.valueOf(wo) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                     com.baidu.adp.lib.network.a.a.ac(str);
                 }
                 z = false;
-                str = wn;
+                str = wo;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                 com.baidu.adp.lib.network.a.a.ac(str);
             } else {
                 if (TbadkCoreApplication.m11getInst().getKeepaliveNonWifi() == 1) {
-                    str = String.valueOf(wn) + "ka=open";
+                    str = String.valueOf(wo) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                     com.baidu.adp.lib.network.a.a.ac(str);
                 }
                 z = false;
-                str = wn;
+                str = wo;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
                 com.baidu.adp.lib.network.a.a.ac(str);
             }
@@ -84,7 +84,7 @@ public class b {
         tVar.n("model", Build.MODEL);
     }
 
-    public String uy() {
+    public String uz() {
         if (this.Yz.mUrl == null) {
             return null;
         }

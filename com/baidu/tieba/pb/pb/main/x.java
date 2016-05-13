@@ -89,14 +89,14 @@ class x implements cw.a {
         el elVar24;
         el elVar25;
         cw cwVar25;
-        if (!z || eVar == null || eVar.avC() == null || eVar.avC().size() >= 1) {
+        if (!z || eVar == null || eVar.avF() == null || eVar.avF().size() >= 1) {
             this.djE.cST = true;
             long currentTimeMillis = System.currentTimeMillis();
             elVar = this.djE.diR;
-            elVar.azd();
-            if (eVar != null && eVar.avG()) {
+            elVar.azg();
+            if (eVar != null && eVar.avJ()) {
                 elVar25 = this.djE.diR;
-                if (elVar25.ayE() == null) {
+                if (elVar25.ayH() == null) {
                     this.djE.djc = true;
                 }
             } else {
@@ -105,7 +105,7 @@ class x implements cw.a {
                 pbActivity.hideLoadingView(elVar2.getView());
             }
             elVar3 = this.djE.diR;
-            elVar3.agn();
+            elVar3.agp();
             elVar4 = this.djE.diR;
             elVar4.fo(false);
             z2 = this.djE.mIsLoading;
@@ -119,22 +119,22 @@ class x implements cw.a {
             }
             if (z && eVar != null) {
                 elVar13 = this.djE.diR;
-                elVar13.Ld();
+                elVar13.Lf();
                 elVar14 = this.djE.diR;
-                elVar14.ha(eVar.avG());
-                if (eVar.avB() != null && eVar.avB().ru() != null) {
-                    this.djE.a(eVar.avB().ru());
+                elVar14.ha(eVar.avJ());
+                if (eVar.avE() != null && eVar.avE().rv() != null) {
+                    this.djE.a(eVar.avE().rv());
                 }
                 eVar2 = this.djE.dja;
                 if (eVar2 != null) {
                     elVar23 = this.djE.diR;
                     eVar10 = this.djE.dja;
-                    elVar23.fn(eVar10.BM());
+                    elVar23.fn(eVar10.BN());
                 }
                 TbadkCoreApplication.m11getInst().setDefaultBubble(eVar.getUserData().getBimg_url());
                 TbadkCoreApplication.m11getInst().setDefaultBubbleEndTime(eVar.getUserData().getBimg_end_time());
-                if (eVar.avC() != null && eVar.avC().size() >= 1 && eVar.avC().get(0) != null) {
-                    String id = eVar.avC().get(0).getId();
+                if (eVar.avF() != null && eVar.avF().size() >= 1 && eVar.avF().get(0) != null) {
+                    String id = eVar.avF().get(0).getId();
                     cwVar24 = this.djE.dih;
                     cwVar24.lV(id);
                 }
@@ -143,21 +143,21 @@ class x implements cw.a {
                     eVar7 = this.djE.dja;
                     eVar7.a(eVar.pz());
                     eVar8 = this.djE.dja;
-                    eVar8.a(eVar.avA(), eVar.getUserData());
+                    eVar8.a(eVar.avD(), eVar.getUserData());
                     eVar9 = this.djE.dja;
                     cwVar21 = this.djE.dih;
-                    MetaData axI = cwVar21.axI();
+                    MetaData axL = cwVar21.axL();
                     cwVar22 = this.djE.dih;
                     String threadID = cwVar22.getThreadID();
                     cwVar23 = this.djE.dih;
-                    eVar9.a(axI, threadID, cwVar23.axx());
+                    eVar9.a(axL, threadID, cwVar23.axA());
                 }
                 aVar = this.djE.cPW;
                 if (aVar != null) {
                     aVar2 = this.djE.cPW;
                     aVar2.aa(eVar.mP());
                 }
-                if (eVar == null || eVar.avI() != 1) {
+                if (eVar == null || eVar.avL() != 1) {
                     this.djE.mIsFromCDN = false;
                 } else {
                     this.djE.mIsFromCDN = true;
@@ -167,7 +167,7 @@ class x implements cw.a {
                 elVar15.gZ(z4);
                 elVar16 = this.djE.diR;
                 cwVar9 = this.djE.dih;
-                elVar16.gT(cwVar9.axB());
+                elVar16.gT(cwVar9.axE());
                 z5 = this.djE.diV;
                 if (!z5) {
                     z6 = this.djE.diW;
@@ -188,25 +188,25 @@ class x implements cw.a {
                 }
                 elVar17 = this.djE.diR;
                 cwVar11 = this.djE.dih;
-                boolean axB = cwVar11.axB();
+                boolean axE = cwVar11.axE();
                 cwVar12 = this.djE.dih;
-                elVar17.a(eVar, i2, i3, axB, i4, cwVar12.getIsFromMark());
+                elVar17.a(eVar, i2, i3, axE, i4, cwVar12.getIsFromMark());
                 elVar18 = this.djE.diR;
                 cwVar13 = this.djE.dih;
-                elVar18.a(eVar, cwVar13.axB(), false, i2);
+                elVar18.a(eVar, cwVar13.axE(), false, i2);
                 elVar19 = this.djE.diR;
                 cwVar14 = this.djE.dih;
                 elVar19.gX(cwVar14.getHostMode());
                 cwVar15 = this.djE.dih;
-                if (cwVar15.axV() != null) {
+                if (cwVar15.axY() != null) {
                     elVar21 = this.djE.diR;
                     cwVar18 = this.djE.dih;
-                    elVar21.b(cwVar18.axV().axn());
+                    elVar21.b(cwVar18.axY().axq());
                     elVar22 = this.djE.diR;
                     cwVar19 = this.djE.dih;
-                    elVar22.gV(cwVar19.axV().axo());
+                    elVar22.gV(cwVar19.axY().axr());
                 }
-                this.djE.awJ();
+                this.djE.awM();
                 AntiData pz = eVar.pz();
                 if (pz != null) {
                     this.djE.arA = pz.getVoice_message();
@@ -215,14 +215,14 @@ class x implements cw.a {
                         eVar4 = this.djE.dja;
                         if (eVar4 != null) {
                             eVar5 = this.djE.dja;
-                            if (eVar5.Bb() != null) {
+                            if (eVar5.Bc() != null) {
                                 eVar6 = this.djE.dja;
-                                com.baidu.tbadk.editortools.s eg = eVar6.Bb().eg(6);
-                                if (eg != null) {
+                                com.baidu.tbadk.editortools.s ef = eVar6.Bc().ef(6);
+                                if (ef != null) {
                                     str3 = this.djE.arA;
                                     if (!TextUtils.isEmpty(str3)) {
                                         onClickListener = this.djE.cCv;
-                                        ((View) eg).setOnClickListener(onClickListener);
+                                        ((View) ef).setOnClickListener(onClickListener);
                                     }
                                 }
                             }
@@ -230,11 +230,11 @@ class x implements cw.a {
                     }
                 }
                 cwVar16 = this.djE.dih;
-                if (cwVar16.axV() != null) {
+                if (cwVar16.axY() != null) {
                     cwVar17 = this.djE.dih;
-                    if (cwVar17.axV().axq()) {
+                    if (cwVar17.axY().axt()) {
                         elVar20 = this.djE.diR;
-                        elVar20.axs();
+                        elVar20.axv();
                     }
                 }
             } else if (str != null) {
@@ -265,7 +265,7 @@ class x implements cw.a {
                             this.djE.setNetRefreshViewEmotionDefMarginTop();
                         }
                         elVar8 = this.djE.diR;
-                        elVar8.azv();
+                        elVar8.azy();
                     }
                 } else {
                     this.djE.showToast(str);
@@ -273,10 +273,10 @@ class x implements cw.a {
                 elVar5 = this.djE.diR;
                 elVar5.mb(this.djE.getResources().getString(t.j.list_no_more));
                 elVar6 = this.djE.diR;
-                elVar6.vh();
+                elVar6.vi();
             }
             this.djE.axE = System.currentTimeMillis() - currentTimeMillis;
-            if (!this.djE.awu().axB() || this.djE.awu().getPbData().getPage().pL() != 0 || this.djE.awu().axT()) {
+            if (!this.djE.awx().axE() || this.djE.awx().getPbData().getPage().pL() != 0 || this.djE.awx().axW()) {
                 this.djE.djb = true;
             }
             cwVar5 = this.djE.dih;
@@ -284,13 +284,13 @@ class x implements cw.a {
                 elVar11 = this.djE.diR;
                 if (elVar11 != null) {
                     cwVar6 = this.djE.dih;
-                    if (cwVar6.axV() != null) {
+                    if (cwVar6.axY() != null) {
                         cwVar7 = this.djE.dih;
-                        if (cwVar7.axV().axk()) {
+                        if (cwVar7.axY().axn()) {
                             elVar12 = this.djE.diR;
-                            elVar12.axu();
+                            elVar12.axx();
                             cwVar8 = this.djE.dih;
-                            cwVar8.axV().axm();
+                            cwVar8.axY().axp();
                             return;
                         }
                         return;
@@ -302,7 +302,7 @@ class x implements cw.a {
             return;
         }
         cwVar25 = this.djE.dih;
-        cwVar25.lO(1);
+        cwVar25.lN(1);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.cw.a
@@ -336,7 +336,7 @@ class x implements cw.a {
                 j4 = vVar.axF;
             }
             vVar.axF = j4;
-            vVar.EH();
+            vVar.EI();
         }
     }
 }

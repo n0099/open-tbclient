@@ -23,7 +23,7 @@ public class q implements View.OnClickListener {
     public void onClick(View view) {
         SignAllForumActivity signAllForumActivity;
         HashMap hashMap;
-        if (!this.ejy.aQf()) {
+        if (!this.ejy.aQi()) {
             this.ejz.ejK.setVisibility(4);
             this.ejz.ejL.setVisibility(0);
             this.ejz.ejM.setText(t.j.signallforum_resigning);

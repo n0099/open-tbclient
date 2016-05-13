@@ -38,14 +38,14 @@ class q implements d.a {
         if (eVar != null) {
             elVar6 = this.djE.diR;
             eVar3 = this.djE.dja;
-            elVar6.fn(eVar3.BM());
+            elVar6.fn(eVar3.BN());
         }
         elVar3 = this.djE.diR;
         elVar3.aQ(view);
         elVar4 = this.djE.diR;
         elVar4.gR(true);
         eVar2 = this.djE.dja;
-        eVar2.BP();
+        eVar2.BQ();
         fVar = this.djE.diy;
         if (fVar != null) {
             fVar2 = this.djE.diy;
@@ -99,14 +99,14 @@ class q implements d.a {
         if (eVar != null) {
             elVar3 = this.djE.diR;
             eVar3 = this.djE.dja;
-            elVar3.fn(eVar3.BM());
+            elVar3.fn(eVar3.BN());
         }
         elVar = this.djE.diR;
-        elVar.ayH();
+        elVar.ayK();
         eVar2 = this.djE.dja;
-        eVar2.BP();
+        eVar2.BQ();
         elVar2 = this.djE.diR;
-        elVar2.amQ();
+        elVar2.amT();
         return true;
     }
 }

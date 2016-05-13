@@ -34,15 +34,15 @@ public class h implements a.d {
         com.baidu.tieba.tbadkCore.writeModel.a aVar2;
         if (writeData == null) {
             aVar2 = this.arM.aru;
-            writeData2 = aVar2.aVa();
+            writeData2 = aVar2.aVg();
         } else {
             writeData2 = writeData;
         }
         if (!z) {
-            if (writeData2 != null && oVar != null && !TextUtils.isEmpty(oVar.wF())) {
+            if (writeData2 != null && oVar != null && !TextUtils.isEmpty(oVar.wG())) {
                 writeData2.setVcodeMD5(oVar.getVcode_md5());
                 writeData2.setVcodeUrl(oVar.getVcode_pic_url());
-                if (oVar.wF().equals("4")) {
+                if (oVar.wG().equals("4")) {
                     MessageManager messageManager = MessageManager.getInstance();
                     baseActivity2 = this.arM.arz;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity2.getActivity(), 12006, writeData2, false)));
@@ -55,13 +55,13 @@ public class h implements a.d {
         } else {
             this.arM.bC(true);
             aVar = this.arM.aru;
-            WriteData aVa = aVar.aVa();
+            WriteData aVg = aVar.aVg();
             this.arM.resetData();
             str = this.arM.mThreadId;
             ae.c(str, (WriteData) null);
-            if (aVa != null) {
-                if (aVa != null && aVa.getType() == 2) {
-                    ae.a(aVa.getThreadId(), this.arM);
+            if (aVg != null) {
+                if (aVg != null && aVg.getType() == 2) {
+                    ae.a(aVg.getThreadId(), this.arM);
                 }
             } else {
                 return;

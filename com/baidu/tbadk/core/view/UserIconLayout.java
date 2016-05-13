@@ -74,7 +74,7 @@ public class UserIconLayout extends LinearLayout {
         this.adI.setLayoutParams(layoutParams2);
         this.adG.setLayoutParams(layoutParams3);
         this.adG.setId(t.g.user_name);
-        this.adI.vv();
+        this.adI.vw();
         addView(this.adH);
         addView(this.adG);
         addView(this.adI);
@@ -111,11 +111,11 @@ public class UserIconLayout extends LinearLayout {
             } else {
                 this.adH.setVisibility(8);
             }
-            vz();
+            vA();
         }
     }
 
-    private void vz() {
+    private void vA() {
         if (this.aab != null && this.aab.getAuthor() != null) {
             if (!com.baidu.tbadk.core.util.y.s(this.aab.getAuthor().getTShowInfoNew())) {
                 com.baidu.tbadk.core.util.at.j((View) this.adG, t.d.cp_cont_h);
@@ -125,8 +125,8 @@ public class UserIconLayout extends LinearLayout {
         }
     }
 
-    public void sf() {
-        vz();
+    public void sg() {
+        vA();
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {

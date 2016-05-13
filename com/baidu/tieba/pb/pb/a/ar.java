@@ -19,7 +19,7 @@ public class ar implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dhg.pp(Math.min(this.dhf + 5, this.val$count));
+        this.dhg.po(Math.min(this.dhf + 5, this.val$count));
         this.dhe.notifyDataSetChanged();
     }
 }

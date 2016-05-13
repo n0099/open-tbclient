@@ -61,8 +61,8 @@ class y implements com.baidu.adp.widget.ListView.x {
                         axVar5 = this.bhl.bgt;
                         frsActivity.mThreadId = axVar5.getId();
                         axVar6 = this.bhl.bgt;
-                        String qR = axVar6.qR();
-                        if (qR == null || qR.equals("")) {
+                        String qS = axVar6.qS();
+                        if (qS == null || qS.equals("")) {
                             this.bhl.bgm = false;
                         } else {
                             this.bhl.bgm = true;

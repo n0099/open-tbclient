@@ -26,7 +26,7 @@ public class d extends f {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_advert_app_item;
     }
 
@@ -39,11 +39,11 @@ public class d extends f {
 
     @Override // com.baidu.tieba.card.f
     protected void a(boolean z, com.baidu.tieba.card.a.d dVar) {
-        String Kr = dVar.Kr();
-        boolean a = a(this.aOn, dVar.Kt());
-        if (z && !TextUtils.isEmpty(Kr) && a) {
+        String Kt = dVar.Kt();
+        boolean a = a(this.aOn, dVar.Kv());
+        if (z && !TextUtils.isEmpty(Kt) && a) {
             this.aOn.setVisibility(0);
-            this.aOn.c(Kr, this.mIsFromCDN ? 30 : 31, false);
+            this.aOn.c(Kt, this.mIsFromCDN ? 30 : 31, false);
             return;
         }
         this.aOn.setVisibility(8);
@@ -87,7 +87,7 @@ public class d extends f {
     }
 
     @Override // com.baidu.tieba.card.f
-    protected String JP() {
+    protected String JR() {
         return "FRS";
     }
 }

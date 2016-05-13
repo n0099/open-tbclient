@@ -5,11 +5,11 @@ import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bq implements Runnable {
-    final /* synthetic */ bp fel;
+    final /* synthetic */ bp fek;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bp bpVar) {
-        this.fel = bpVar;
+        this.fek = bpVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,18 +19,18 @@ public class bq implements Runnable {
         com.baidu.tbadk.editortools.l lVar2;
         com.baidu.tbadk.editortools.j jVar2;
         BaseActivity baseActivity;
-        jVar = this.fel.fei;
+        jVar = this.fek.feh;
         if (jVar != null) {
-            lVar = this.fel.apy;
+            lVar = this.fek.apy;
             if (lVar != null) {
-                lVar2 = this.fel.apy;
-                com.baidu.tbadk.editortools.s eg = lVar2.eg(24);
-                if (eg instanceof View) {
-                    jVar2 = this.fel.fei;
-                    baseActivity = this.fel.bek;
-                    jVar2.c(baseActivity.getPageContext().getPageActivity(), (View) eg);
+                lVar2 = this.fek.apy;
+                com.baidu.tbadk.editortools.s ef = lVar2.ef(24);
+                if (ef instanceof View) {
+                    jVar2 = this.fek.feh;
+                    baseActivity = this.fek.bek;
+                    jVar2.c(baseActivity.getPageContext().getPageActivity(), (View) ef);
                 }
-                this.fel.fej = true;
+                this.fek.fei = true;
             }
         }
     }

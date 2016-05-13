@@ -13,25 +13,25 @@ public class b extends a {
         u(this.aMz);
     }
 
-    public void Jb() {
-        uE();
+    public void Jd() {
+        uF();
         a(new c(this));
     }
 
-    public void Jc() {
-        uE();
+    public void Je() {
+        uF();
         a(new d(this));
         a(new e(this));
         a(new f(this));
     }
 
-    public void Jd() {
+    public void Jf() {
         this.aMy = true;
     }
 
     @Override // com.baidu.tieba.a.b.a
-    public void uE() {
-        super.uE();
+    public void uF() {
+        super.uF();
         this.aMy = false;
     }
 }

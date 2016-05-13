@@ -17,7 +17,7 @@ public class bi implements a.b {
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         if (!com.baidu.tbadk.core.util.m.bF()) {
-            this.djE.showToast(com.baidu.tbadk.core.util.m.sX());
+            this.djE.showToast(com.baidu.tbadk.core.util.m.sY());
         } else {
             FileDownloader.download(this.djE.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.djE.getPageContext().getString(t.j.download_baidu_video));
         }

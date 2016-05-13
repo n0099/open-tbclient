@@ -17,7 +17,7 @@ class b extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                this.aHY.HW();
+                this.aHY.HY();
                 return;
             case 2:
                 if (message.obj instanceof AccountData) {

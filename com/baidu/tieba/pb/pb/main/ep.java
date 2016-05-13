@@ -30,7 +30,7 @@ public class ep implements Animation.AnimationListener {
         this.dpu.dmZ.setTitleVisibility(true);
         this.dpw.setVisibility(8);
         this.dpu.gS(true);
-        this.dpu.azz();
+        this.dpu.azC();
         pbActivity = this.dpu.dhY;
         pbActivity.gz(false);
     }

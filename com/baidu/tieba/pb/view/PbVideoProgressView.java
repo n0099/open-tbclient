@@ -52,7 +52,7 @@ public class PbVideoProgressView extends RelativeLayout {
         this.dsG = mediaPlayerControl;
     }
 
-    public void aAQ() {
+    public void aAT() {
         this.dsK = false;
         this.mHandler.removeMessages(1);
         if (this.dsQ != null) {
@@ -64,7 +64,7 @@ public class PbVideoProgressView extends RelativeLayout {
         }
     }
 
-    public void afO() {
+    public void afQ() {
         if (this.dsG != null) {
             this.dsF = ((this.dsG.getDuration() / 200) / 50) * 50;
             if (this.dsF < 50) {
@@ -76,12 +76,12 @@ public class PbVideoProgressView extends RelativeLayout {
         }
     }
 
-    public void aAO() {
-        aAQ();
+    public void aAR() {
+        aAT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int aAP() {
+    public int aAS() {
         if (this.dsG == null || this.dsQ == null) {
             return 0;
         }

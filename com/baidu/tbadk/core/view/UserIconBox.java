@@ -30,9 +30,9 @@ public class UserIconBox extends LinearLayout {
     public interface b {
         ListView getListView();
 
-        int vx();
+        int vy();
 
-        com.baidu.adp.lib.f.b<TbImageView> vy();
+        com.baidu.adp.lib.f.b<TbImageView> vz();
     }
 
     public void setAutoChangedStyle(boolean z) {
@@ -65,9 +65,9 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.adv = bVar.vy();
+            this.adv = bVar.vz();
             if (bVar.getListView() != null && this.adw == null) {
-                this.adw = new a(bVar.vx());
+                this.adw = new a(bVar.vy());
                 bVar.getListView().setRecyclerListener(this.adw);
             }
         }
@@ -95,7 +95,7 @@ public class UserIconBox extends LinearLayout {
         this.adz = i4;
         this.adA = z;
         this.mIconWidth = i2;
-        if (!cV(min)) {
+        if (!cU(min)) {
             setVisibility(8);
         } else if (min > 0) {
             setVisibility(0);
@@ -127,7 +127,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    private boolean cV(int i) {
+    private boolean cU(int i) {
         if (i <= 0) {
             return false;
         }
@@ -175,7 +175,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void cW(int i) {
+    public void cV(int i) {
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -219,7 +219,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void vv() {
+    public void vw() {
         this.adB = true;
     }
 }

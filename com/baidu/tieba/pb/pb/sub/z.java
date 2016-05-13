@@ -30,21 +30,21 @@ public class z implements b.a {
             sVar = this.dqN.dfs;
             if (sVar != null) {
                 hVar2 = this.dqN.dqL;
-                if (hVar2.avV() != null) {
+                if (hVar2.avY() != null) {
                     hVar3 = this.dqN.dqL;
-                    if (hVar3.Kl() != null) {
+                    if (hVar3.Kn() != null) {
                         sVar2 = this.dqN.dfs;
-                        if (sVar2.aUc() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
+                        if (sVar2.aUi() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
                             sVar3 = this.dqN.dfs;
-                            long templateId = sVar3.aUc().getTemplateId();
+                            long templateId = sVar3.aUi().getTemplateId();
                             sVar4 = this.dqN.dfs;
-                            String aTw = sVar4.aUc().aTw();
+                            String aTC = sVar4.aUi().aTC();
                             hVar4 = this.dqN.dqL;
-                            String id = hVar4.avV().getId();
+                            String id = hVar4.avY().getId();
                             hVar5 = this.dqN.dqL;
-                            String name = hVar5.avV().getName();
+                            String name = hVar5.avY().getName();
                             hVar6 = this.dqN.dqL;
-                            com.baidu.tieba.pb.b.a(templateId, aTw, str, "PB", str2, str3, "tpoint", id, name, hVar6.Kl().getTid());
+                            com.baidu.tieba.pb.b.a(templateId, aTC, str, "PB", str2, str3, "tpoint", id, name, hVar6.Kn().getTid());
                         }
                     }
                 }
@@ -53,17 +53,17 @@ public class z implements b.a {
     }
 
     @Override // com.baidu.tieba.pb.b.a
-    public int avh() {
+    public int avk() {
         com.baidu.tieba.tbadkCore.data.s sVar;
         com.baidu.tieba.tbadkCore.data.s sVar2;
         sVar = this.dqN.dfs;
         if (ek.g(sVar)) {
             sVar2 = this.dqN.dfs;
-            ArrayList<com.baidu.tieba.tbadkCore.data.k> aTt = sVar2.aUc().aTt();
-            if (aTt == null) {
+            ArrayList<com.baidu.tieba.tbadkCore.data.k> aTz = sVar2.aUi().aTz();
+            if (aTz == null) {
                 return 0;
             }
-            return aTt.size();
+            return aTz.size();
         }
         return 0;
     }

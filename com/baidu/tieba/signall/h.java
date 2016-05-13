@@ -8,11 +8,11 @@ public class h {
     private static final String eji = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/msign";
     private com.baidu.tbadk.core.util.ab LL = null;
 
-    public String aQj() {
+    public String aQm() {
         this.LL = new com.baidu.tbadk.core.util.ab(eji);
-        this.LL.tA().uu().YA = true;
-        this.LL.tA().uu().mIsNeedTbs = true;
-        return this.LL.tc();
+        this.LL.tB().uv().YA = true;
+        this.LL.tB().uv().mIsNeedTbs = true;
+        return this.LL.td();
     }
 
     public String nx(String str) {
@@ -24,9 +24,9 @@ public class h {
         this.LL = new com.baidu.tbadk.core.util.ab(eji);
         this.LL.n("user_id", str2);
         this.LL.n("forum_ids", str);
-        this.LL.tA().uu().YA = true;
-        this.LL.tA().uu().mIsNeedTbs = true;
-        return this.LL.tc();
+        this.LL.tB().uv().YA = true;
+        this.LL.tB().uv().mIsNeedTbs = true;
+        return this.LL.td();
     }
 
     public void cancel() {
@@ -37,7 +37,7 @@ public class h {
 
     public boolean nZ() {
         if (this.LL != null) {
-            return this.LL.tA().uv().nZ();
+            return this.LL.tB().uw().nZ();
         }
         return false;
     }

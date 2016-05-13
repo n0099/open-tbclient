@@ -7,10 +7,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class FrsLoadMoreStatic {
     static {
         com.baidu.tieba.tbadkCore.a.a.c(301002, LoadMoreResponseSocketMessage.class, false);
-        Tn();
+        To();
     }
 
-    private static void Tn() {
+    private static void To() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, com.baidu.tieba.tbadkCore.a.a.ay("c/f/frs/threadlist", 301002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

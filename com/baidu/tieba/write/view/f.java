@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 class f implements bl.a {
     private final /* synthetic */ AtomicBoolean RT;
-    final /* synthetic */ e faY;
+    final /* synthetic */ e faX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, AtomicBoolean atomicBoolean) {
-        this.faY = eVar;
+        this.faX = eVar;
         this.RT = atomicBoolean;
     }
 

@@ -23,13 +23,13 @@ public class b extends HttpMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage;
-        boolean awi;
-        boolean awi2;
-        boolean awi3;
-        boolean awi4;
-        boolean awi5;
-        boolean awi6;
-        boolean awi7;
+        boolean awl;
+        boolean awl2;
+        boolean awl3;
+        boolean awl4;
+        boolean awl5;
+        boolean awl6;
+        boolean awl7;
         PbActivity pbActivity;
         PbActivity pbActivity2;
         PbActivity pbActivity3;
@@ -48,8 +48,8 @@ public class b extends HttpMessageListener {
                 }
             }
             if (httpResponsedMessage.hasError()) {
-                awi7 = this.dhT.awi();
-                if (!awi7) {
+                awl7 = this.dhT.awl();
+                if (!awl7) {
                     if (!StringUtils.isNULL(httpResponsedMessage.getErrorString())) {
                         pbActivity3 = this.dhT.dhQ;
                         pbActivity3.showToast(httpResponsedMessage.getErrorString());
@@ -61,63 +61,63 @@ public class b extends HttpMessageListener {
                     pbActivity2.hideProgressBar();
                     return;
                 }
-                this.dhT.lH(5);
+                this.dhT.lG(5);
                 return;
             }
             switch (pbLotteryHttpResponseMessage3.getType()) {
                 case 0:
-                    this.dhT.lG(1);
-                    awi5 = this.dhT.awi();
-                    if (awi5) {
-                        this.dhT.G(0, new StringBuilder(String.valueOf(pbLotteryHttpResponseMessage3.getLotteryInfo().avv().oJ())).toString());
+                    this.dhT.lF(1);
+                    awl5 = this.dhT.awl();
+                    if (awl5) {
+                        this.dhT.G(0, new StringBuilder(String.valueOf(pbLotteryHttpResponseMessage3.getLotteryInfo().avy().oJ())).toString());
                         break;
                     } else {
                         this.dhT.c(false, pbLotteryHttpResponseMessage3);
                         break;
                     }
                 case 1:
-                    this.dhT.lG(1);
-                    awi4 = this.dhT.awi();
-                    if (awi4) {
-                        this.dhT.lH(1);
+                    this.dhT.lF(1);
+                    awl4 = this.dhT.awl();
+                    if (awl4) {
+                        this.dhT.lG(1);
                         break;
                     } else {
                         this.dhT.b(false, pbLotteryHttpResponseMessage3);
                         break;
                     }
                 case 2:
-                    awi = this.dhT.awi();
-                    if (awi) {
-                        this.dhT.lH(2);
+                    awl = this.dhT.awl();
+                    if (awl) {
+                        this.dhT.lG(2);
                         break;
                     } else {
                         this.dhT.a(false, pbLotteryHttpResponseMessage3);
                         break;
                     }
                 case 3:
-                    this.dhT.lG(1);
-                    awi2 = this.dhT.awi();
-                    if (awi2) {
-                        this.dhT.lH(3);
+                    this.dhT.lF(1);
+                    awl2 = this.dhT.awl();
+                    if (awl2) {
+                        this.dhT.lG(3);
                         break;
                     } else {
-                        this.dhT.awk();
+                        this.dhT.awn();
                         break;
                     }
                 case 4:
-                    this.dhT.lG(1);
-                    awi3 = this.dhT.awi();
-                    if (awi3) {
-                        this.dhT.lH(4);
+                    this.dhT.lF(1);
+                    awl3 = this.dhT.awl();
+                    if (awl3) {
+                        this.dhT.lG(4);
                         break;
                     } else {
                         this.dhT.b(pbLotteryHttpResponseMessage3);
                         break;
                     }
                 default:
-                    awi6 = this.dhT.awi();
-                    if (awi6) {
-                        this.dhT.lH(5);
+                    awl6 = this.dhT.awl();
+                    if (awl6) {
+                        this.dhT.lG(5);
                         break;
                     } else {
                         this.dhT.a(pbLotteryHttpResponseMessage3);

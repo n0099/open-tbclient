@@ -19,10 +19,10 @@ public class ak {
         this.cSp = baseFragmentActivity;
         this.dyy = hTypeListView;
         this.mId = baseFragmentActivity.getUniqueId();
-        acs();
+        acu();
     }
 
-    private void acs() {
+    private void acu() {
         this.dyz = new ai(this.cSp, com.baidu.tbadk.data.i.aoj);
         this.dyA = new d(this.cSp, com.baidu.tieba.person.data.b.dzh);
         this.bei.add(this.dyz);

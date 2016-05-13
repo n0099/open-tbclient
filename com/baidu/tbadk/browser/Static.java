@@ -28,7 +28,7 @@ public class Static {
 
     static {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new i(0));
-        bg.us().a(new j());
+        bg.ut().a(new j());
         com.baidu.adp.lib.c.e.cS().a(new com.baidu.adp.lib.c.c("switch_mbaidu_startup", 1, null));
         nk();
         nn();
@@ -36,7 +36,7 @@ public class Static {
     }
 
     private static void nk() {
-        bg.us().a(new k());
+        bg.ut().a(new k());
     }
 
     private static String bQ(String str) {
@@ -183,11 +183,11 @@ public class Static {
     }
 
     private static void nn() {
-        bg.us().a(new o());
+        bg.ut().a(new o());
     }
 
     private static void no() {
-        bg.us().a(new p());
+        bg.ut().a(new p());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

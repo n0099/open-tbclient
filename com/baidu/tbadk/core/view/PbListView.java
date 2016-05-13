@@ -59,22 +59,22 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         return this.KB;
     }
 
-    public void uZ() {
+    public void va() {
         this.aca.setVisibility(0);
     }
 
-    public void va() {
+    public void vb() {
         this.aca.setVisibility(8);
     }
 
-    public void vb() {
+    public void vc() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aca.getLayoutParams();
         layoutParams.leftMargin = 0;
         layoutParams.rightMargin = 0;
         this.aca.setLayoutParams(layoutParams);
     }
 
-    public void vc() {
+    public void vd() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aca.getLayoutParams();
         layoutParams.height = com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds1);
         this.aca.setLayoutParams(layoutParams);
@@ -84,36 +84,36 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         this.Sm.setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, i));
     }
 
-    public LinearLayout vd() {
+    public LinearLayout ve() {
         return this.acb;
     }
 
-    public void ve() {
+    public void vf() {
         if (this.acb.getVisibility() != 0) {
             this.acb.setVisibility(0);
         }
     }
 
-    public void vf() {
+    public void vg() {
         if (8 != this.acb.getVisibility()) {
             this.acb.setVisibility(8);
         }
     }
 
-    public void vg() {
+    public void vh() {
         this.mProgressBar.setVisibility(0);
         this.Sm.setText(this.mContext.getText(t.j.loading));
-        cS(TbadkCoreApplication.m11getInst().getSkinType());
+        cR(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
-    public void vh() {
+    public void vi() {
         this.mProgressBar.setVisibility(8);
         if (this.abX != null) {
             this.Sm.setText(this.abX);
         } else {
             this.Sm.setText(this.mContext.getText(t.j.pb_load_more));
         }
-        cS(TbadkCoreApplication.m11getInst().getSkinType());
+        cR(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
     public void showLoading() {
@@ -121,7 +121,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         this.Sm.setText(this.mContext.getText(t.j.loading));
     }
 
-    public void cQ(int i) {
+    public void cP(int i) {
         com.baidu.tbadk.core.util.at.k(this.abY, i);
     }
 
@@ -134,7 +134,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void setText(String str) {
         this.abX = str;
         this.Sm.setText(str);
-        cS(TbadkCoreApplication.m11getInst().getSkinType());
+        cR(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
     public void setTextColor(int i) {
@@ -152,11 +152,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         }
     }
 
-    public void cR(int i) {
+    public void cQ(int i) {
         this.acc = i;
     }
 
-    public void cS(int i) {
+    public void cR(int i) {
         String charSequence = this.Sm.getText().toString();
         int i2 = 0;
         if (charSequence.equals(this.mContext.getText(t.j.pb_load_more))) {
@@ -180,27 +180,27 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         }
     }
 
-    public void cT(int i) {
+    public void cS(int i) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.abW.getLayoutParams());
         layoutParams.height = i;
         this.abW.setLayoutParams(layoutParams);
         this.abW.setVisibility(0);
     }
 
-    public void vi() {
+    public void vj() {
         this.abW.setVisibility(8);
     }
 
-    public void vj() {
+    public void vk() {
         this.acb.setVisibility(0);
         this.aca.setVisibility(0);
         this.abY.setVisibility(0);
         this.Sm.setVisibility(0);
         this.mProgressBar.setVisibility(0);
-        vi();
+        vj();
     }
 
-    public void cU(int i) {
+    public void cT(int i) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.abW.getLayoutParams());
         layoutParams.height = i;
         this.abW.setLayoutParams(layoutParams);

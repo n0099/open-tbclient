@@ -21,7 +21,7 @@ public class k extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage instanceof RemindRecommendMessage) && com.baidu.tbadk.coreExtra.messageCenter.c.xF().xZ() && f.aMQ()) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof RemindRecommendMessage) && com.baidu.tbadk.coreExtra.messageCenter.c.xG().ya() && f.aMT()) {
             int hours = new Date(System.currentTimeMillis()).getHours();
             if ((hours < 0 || hours > 7) && hours < 23) {
                 RemindRecommendMessage remindRecommendMessage = (RemindRecommendMessage) customResponsedMessage;

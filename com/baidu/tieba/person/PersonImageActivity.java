@@ -67,7 +67,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.bYA.setBackgroundColor(com.baidu.tbadk.core.util.at.cy(i));
+            this.bYA.setBackgroundColor(com.baidu.tbadk.core.util.at.cx(i));
         } else {
             this.bYA.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
@@ -179,7 +179,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.m.a(this.mUrl, this.hx, PersonImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.m.sX();
+                    return com.baidu.tbadk.core.util.m.sY();
                 case -1:
                 default:
                     return PersonImageActivity.this.getPageContext().getString(t.j.save_error);

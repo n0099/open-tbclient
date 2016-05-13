@@ -48,17 +48,17 @@ public class e extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
+    public boolean uI() {
         return this.Zx;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uI() {
+    public boolean uJ() {
         return this.Zw;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
+    public int uK() {
         return this.Xc;
     }
 }

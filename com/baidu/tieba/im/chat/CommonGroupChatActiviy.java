@@ -34,11 +34,11 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void abH() {
-        super.abH();
+    public void abJ() {
+        super.abJ();
     }
 
-    protected void abI() {
+    protected void abK() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         if (this.caH != null) {
@@ -76,7 +76,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         bundle.putSerializable("group", ((CommonGroupMsglistModel) this.caH).getGroup());
     }
 
-    protected boolean abJ() {
+    protected boolean abL() {
         GroupData group = ((CommonGroupMsglistModel) this.caH).getGroup();
         return (group == null || group.getGroupId() == 0) ? false : true;
     }
@@ -113,7 +113,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             default:
                 return;
             case 4:
-                if (acw() && (msg2 = this.caH.getMsg(i2)) != null && com.baidu.tieba.im.util.h.p(msg2)) {
+                if (acy() && (msg2 = this.caH.getMsg(i2)) != null && com.baidu.tieba.im.util.h.p(msg2)) {
                     String A = com.baidu.tieba.im.util.h.A(msg2.getContent(), true);
                     String A2 = com.baidu.tieba.im.util.h.A(msg2.getContent(), false);
                     if (A != null && (this.caH instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.caH).getGroup() != null) {
@@ -124,7 +124,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 }
                 return;
             case 7:
-                if (acw() && this.caH != null && (msg = this.caH.getMsg(i2)) != null && com.baidu.tieba.im.util.h.q(msg) && (content = msg.getContent()) != null) {
+                if (acy() && this.caH != null && (msg = this.caH.getMsg(i2)) != null && com.baidu.tieba.im.util.h.q(msg) && (content = msg.getContent()) != null) {
                     try {
                         jSONArray = new JSONArray(content);
                     } catch (Exception e) {
@@ -154,8 +154,8 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void abK() {
-        super.abK();
+    public void abM() {
+        super.abM();
         registerListener(103110, this.bfe);
         registerListener(103101, this.bfe);
         registerListener(103112, this.bfe);
@@ -172,8 +172,8 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void abL() {
-        super.abL();
+    public void abN() {
+        super.abN();
         MessageManager.getInstance().unRegisterListener(this.bfe);
         MessageManager.getInstance().unRegisterListener(this.mCustomListener);
     }

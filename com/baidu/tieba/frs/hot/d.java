@@ -44,7 +44,7 @@ public class d implements fg {
                 this.brJ.pn = foVar.pn;
                 hE(foVar.forumId);
             } else if (foVar.pn == this.brH && !this.brG) {
-                Tj();
+                Tk();
             } else {
                 b(com.baidu.adp.lib.h.b.c(foVar.forumId, 0L), true);
             }
@@ -59,11 +59,11 @@ public class d implements fg {
     @Override // com.baidu.tieba.frs.fg
     public void init() {
         registerListener();
-        CA();
+        CB();
     }
 
     @Override // com.baidu.tieba.frs.fg
-    public void OY() {
+    public void Pa() {
         unRegisterListener();
     }
 
@@ -75,7 +75,7 @@ public class d implements fg {
         MessageManager.getInstance().sendMessage(frsHotThreadRequestCacheMessage);
     }
 
-    private void Tj() {
+    private void Tk() {
         if (this.brI != null) {
             if (this.brK == null || this.brK.size() == 0) {
                 this.brJ.bmV = false;
@@ -115,7 +115,7 @@ public class d implements fg {
         MessageManager.getInstance().unRegisterListener(this.brL);
     }
 
-    private void CA() {
+    private void CB() {
         com.baidu.tieba.tbadkCore.a.a.a(301003, ResponsedFrsHotSocketMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(301003, CmdConfigHttp.FRS_HOT_TAB_CMD, TbConfig.GET_FRS_HOT, ResponsedFrsHotHttpMessage.class, false, false, false, false);
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_FRS_HOT_CACHE, b.class);

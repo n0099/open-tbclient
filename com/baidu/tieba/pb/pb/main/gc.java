@@ -9,13 +9,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class gc implements a.b {
-    private final /* synthetic */ TbPageContext azg;
+    private final /* synthetic */ TbPageContext azf;
     final /* synthetic */ gb dpH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gc(gb gbVar, TbPageContext tbPageContext) {
         this.dpH = gbVar;
-        this.azg = tbPageContext;
+        this.azf = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -28,13 +28,13 @@ public class gc implements a.b {
         if (com.baidu.tbadk.core.util.m.bF()) {
             str = this.dpH.bbf;
             if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.i.fr()) {
-                Activity pageActivity = this.azg.getPageActivity();
+                Activity pageActivity = this.azf.getPageActivity();
                 str2 = this.dpH.bbf;
-                FileDownloader.download(pageActivity, str2, null, this.azg.getString(t.j.download_iqiyi_app));
+                FileDownloader.download(pageActivity, str2, null, this.azf.getString(t.j.download_iqiyi_app));
                 return;
             }
             return;
         }
-        com.baidu.adp.lib.util.k.showToast(this.azg.getPageActivity(), com.baidu.tbadk.core.util.m.sX());
+        com.baidu.adp.lib.util.k.showToast(this.azf.getPageActivity(), com.baidu.tbadk.core.util.m.sY());
     }
 }

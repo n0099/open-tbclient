@@ -19,18 +19,18 @@ public class aj extends HttpMessageListener {
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
             ah msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
-            if (!com.baidu.tbadk.coreExtra.messageCenter.a.xk() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.xF().xH()) {
-                if (msgData.aln() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgBookmark(msgData.aln());
+            if (!com.baidu.tbadk.coreExtra.messageCenter.a.xl() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.xG().xI()) {
+                if (msgData.alp() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xj().setMsgBookmark(msgData.alp());
                 }
-                if (msgData.all() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xF().xK()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgAtme(msgData.all());
+                if (msgData.aln() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xG().xL()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xj().setMsgAtme(msgData.aln());
                 }
-                if (msgData.alk() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xF().xM()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgReplyme(msgData.alk());
+                if (msgData.alm() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xG().xN()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xj().setMsgReplyme(msgData.alm());
                 }
-                if (msgData.alm() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xF().xL()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.xi().setMsgFans(msgData.alm());
+                if (msgData.alo() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xG().xM()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.xj().setMsgFans(msgData.alo());
                 }
             }
         }

@@ -46,7 +46,7 @@ public class h extends BaseAdapter {
         this.dEs.fetchPost(this.bbm, this.dEt, z, this.mV, false);
     }
 
-    public void aCR() {
+    public void aCU() {
         if (this.dEs != null) {
             this.dEs.cancelLoadData();
         }
@@ -89,43 +89,43 @@ public class h extends BaseAdapter {
         return view;
     }
 
-    public PersonPostModel.PostInfoList mA(int i) {
+    public PersonPostModel.PostInfoList mz(int i) {
         return this.dEs.post_list.get(i);
     }
 
     private void a(int i, a aVar, ViewGroup viewGroup) {
-        PersonPostModel.PostInfoList mA = mA(i);
+        PersonPostModel.PostInfoList mz = mz(i);
         if (this.dEi == null) {
-            this.dEi = mA.user_portrait;
+            this.dEi = mz.user_portrait;
         }
-        aVar.a(mA, false, this.dEi);
+        aVar.a(mz, false, this.dEi);
         ArrayList<String[]> arrayList = new ArrayList<>();
-        int length = mA.content.length;
+        int length = mz.content.length;
         for (int i2 = 0; i2 < length; i2++) {
-            if (mA.content[i2].post_content.length != 0) {
+            if (mz.content[i2].post_content.length != 0) {
                 StringBuffer stringBuffer = new StringBuffer();
-                if (!mA.content[i2].post_content[0].text.startsWith("回复 ")) {
+                if (!mz.content[i2].post_content[0].text.startsWith("回复 ")) {
                     stringBuffer.append("回复：");
                 }
-                int length2 = mA.content[i2].post_content.length;
+                int length2 = mz.content[i2].post_content.length;
                 for (int i3 = 0; i3 < length2; i3++) {
-                    stringBuffer.append(mA.content[i2].post_content[i3].text);
+                    stringBuffer.append(mz.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(mA.thread_id), String.valueOf(mA.content[i2].post_id), String.valueOf(mA.content[i2].post_type), ay.x(mA.content[i2].create_time * 1000), String.valueOf(mA.thread_type)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(mz.thread_id), String.valueOf(mz.content[i2].post_id), String.valueOf(mz.content[i2].post_type), ay.x(mz.content[i2].create_time * 1000), String.valueOf(mz.thread_type)});
             }
         }
         aVar.dEw.setContent(arrayList);
-        if (Pattern.compile("^回复：").matcher(mA.title).find()) {
-            aVar.dEx.setText(mA.title.replaceFirst("回复：", "原贴："));
+        if (Pattern.compile("^回复：").matcher(mz.title).find()) {
+            aVar.dEx.setText(mz.title.replaceFirst("回复：", "原贴："));
         } else {
-            aVar.dEx.setText(mA.title);
+            aVar.dEx.setText(mz.title);
         }
         TextView textView = aVar.dEx;
         String[] strArr = new String[4];
-        strArr[0] = String.valueOf(mA.thread_id);
-        strArr[3] = String.valueOf(mA.thread_type);
+        strArr[0] = String.valueOf(mz.thread_id);
+        strArr[3] = String.valueOf(mz.thread_type);
         textView.setTag(strArr);
-        if (mA.thread_type == 33) {
+        if (mz.thread_type == 33) {
             aVar.dEx.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
             aVar.dEx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
@@ -135,7 +135,7 @@ public class h extends BaseAdapter {
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(t.e.person_post_reply_ori_padding);
         aVar.dEx.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         aVar.a(this.dEu);
-        aVar.cS(TbadkCoreApplication.m11getInst().getSkinType());
+        aVar.cR(TbadkCoreApplication.m11getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -156,8 +156,8 @@ public class h extends BaseAdapter {
         }
 
         @Override // com.baidu.tieba.person.post.a
-        public void cS(int i) {
-            super.cS(i);
+        public void cR(int i) {
+            super.cR(i);
             at.k(this.dEx, t.d.cp_bg_line_e);
             at.c(this.dEx, t.d.cp_cont_b, 1);
             at.k(this.aOf, t.d.cp_bg_line_b);

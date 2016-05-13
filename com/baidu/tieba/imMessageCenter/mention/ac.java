@@ -14,9 +14,9 @@ public class ac implements NoNetworkView.a {
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void aF(boolean z) {
         for (int i = 0; i < 3; i++) {
-            com.baidu.tbadk.mvc.f.a.a ke = this.cyD.ke(i);
-            if (ke != null) {
-                ke.bL(z);
+            com.baidu.tbadk.mvc.f.a.a kd = this.cyD.kd(i);
+            if (kd != null) {
+                kd.bL(z);
             }
         }
     }

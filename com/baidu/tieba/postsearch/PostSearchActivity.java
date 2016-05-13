@@ -22,43 +22,43 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
     public void kD(String str) {
         this.cMj = str;
-        this.dVc.nZ(1);
-        this.dVd.aKR();
-        this.dVc.Pc();
+        this.dVc.nY(1);
+        this.dVd.aKU();
+        this.dVc.Pe();
     }
 
     public void nj(String str) {
         this.dVc.nj(str);
     }
 
-    public void aKC() {
+    public void aKF() {
         this.dVc.ak(this.dVd.dVA);
     }
 
     public void a(int i, k kVar, boolean z) {
-        if (i == 1 && (kVar == null || !kVar.aih())) {
-            this.dVc.Pd();
-            this.dVc.aKV();
+        if (i == 1 && (kVar == null || !kVar.aij())) {
+            this.dVc.Pf();
+            this.dVc.aKY();
             return;
         }
-        this.dVc.Pd();
-        this.dVc.aKK();
+        this.dVc.Pf();
+        this.dVc.aKN();
         this.dVc.a(i, kVar, z);
     }
 
-    public boolean aKD() {
-        return this.dVc.aKD();
+    public boolean aKG() {
+        return this.dVc.aKG();
     }
 
-    public void aKy() {
-        this.dVc.aKy();
+    public void aKB() {
+        this.dVc.aKB();
     }
 
-    public t aKE() {
+    public t aKH() {
         return this.dVd;
     }
 
-    public z aKF() {
+    public z aKI() {
         return this.dVc;
     }
 
@@ -73,7 +73,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
         if (intent != null) {
             this.mForumName = intent.getStringExtra("forum_name");
         }
-        this.dVd.aKO();
+        this.dVd.aKR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

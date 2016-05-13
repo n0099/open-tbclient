@@ -34,7 +34,7 @@ public class m implements TextWatcher {
         if (!StringUtils.isNull(editable2) && com.baidu.tbadk.util.u.gp(editable2) > this.arN) {
             this.arO.setText(com.baidu.tbadk.util.u.d(editable2, 0, this.arN - 1));
             this.arO.setSelection(this.arO.getText().length());
-            UtilHelper.showToast(this.arM.BR().getApplication(), this.arM.BR().getResources().getString(t.j.show_pic_over_limit_tip));
+            UtilHelper.showToast(this.arM.BS().getApplication(), this.arM.BS().getResources().getString(t.j.show_pic_over_limit_tip));
         }
     }
 }

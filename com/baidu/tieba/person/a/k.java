@@ -20,6 +20,6 @@ public class k implements View.OnClickListener {
         Context context2;
         context = this.dxJ.mContext;
         context2 = this.dxJ.mContext;
-        BdToast.a(context, context2.getResources().getString(t.j.user_set_private)).sc();
+        BdToast.a(context, context2.getResources().getString(t.j.user_set_private)).sd();
     }
 }

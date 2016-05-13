@@ -91,9 +91,9 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
     public void setData(ax axVar) {
         if (axVar != null) {
             this.aab = axVar;
-            if (!StringUtils.isNull(axVar.qP())) {
+            if (!StringUtils.isNull(axVar.qQ())) {
                 this.adf.setVisibility(0);
-                String string = getContext().getString(t.j.chosen_pb_original_bar, UtilHelper.getFixedBarText(axVar.qP(), 5, true));
+                String string = getContext().getString(t.j.chosen_pb_original_bar, UtilHelper.getFixedBarText(axVar.qQ(), 5, true));
                 this.adf.setText(string);
                 this.adf.setContentDescription(string);
                 this.adf.setOnClickListener(this.adq);
@@ -102,7 +102,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
                 this.adf.setVisibility(8);
             }
             this.adg.setText(ay.y(axVar.getLast_time_int() * 1000));
-            if (this.ado && !axVar.rh() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
+            if (this.ado && !axVar.ri() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
                 this.adi.setVisibility(0);
                 this.adh.setVisibility(0);
                 this.adi.setText(axVar.getAddress());
@@ -137,7 +137,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
         }
     }
 
-    public void sf() {
+    public void sg() {
         com.baidu.tbadk.core.util.at.j((View) this.adf, t.d.home_page_bar_name);
         com.baidu.tbadk.core.util.at.k(this.adf, t.f.label_bg_tie_n);
         com.baidu.tbadk.core.util.at.j((View) this.adg, t.d.cp_cont_e);

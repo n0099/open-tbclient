@@ -13,6 +13,6 @@ public class ad implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dEY.aCW();
+        this.dEY.aCZ();
     }
 }

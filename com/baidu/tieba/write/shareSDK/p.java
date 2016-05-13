@@ -7,11 +7,11 @@ import com.baidu.tieba.write.view.ShareSDKImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements TbImageView.a {
-    final /* synthetic */ o faw;
+    final /* synthetic */ o fav;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.faw = oVar;
+        this.fav = oVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
@@ -28,28 +28,28 @@ public class p implements TbImageView.a {
         WriteShareActivity writeShareActivity5;
         int i2;
         if (z) {
-            shareSDKImageView = this.faw.faq;
+            shareSDKImageView = this.fav.fap;
             if (shareSDKImageView.getLoadedWidth() != 0) {
-                shareSDKImageView2 = this.faw.faq;
+                shareSDKImageView2 = this.fav.fap;
                 if (shareSDKImageView2.getLoadedHeight() != 0) {
-                    o oVar = this.faw;
-                    shareSDKImageView3 = this.faw.faq;
+                    o oVar = this.fav;
+                    shareSDKImageView3 = this.fav.fap;
                     oVar.width = shareSDKImageView3.getLoadedWidth();
-                    o oVar2 = this.faw;
-                    shareSDKImageView4 = this.faw.faq;
+                    o oVar2 = this.fav;
+                    shareSDKImageView4 = this.fav.fap;
                     oVar2.height = shareSDKImageView4.getLoadedHeight();
-                    writeShareActivity3 = this.faw.fat;
+                    writeShareActivity3 = this.fav.fas;
                     if (writeShareActivity3 != null) {
-                        writeShareActivity4 = this.faw.fat;
-                        WriteData aVa = writeShareActivity4.aVa();
-                        i = this.faw.width;
-                        aVa.setShareSummaryImgWidth(i);
-                        writeShareActivity5 = this.faw.fat;
-                        WriteData aVa2 = writeShareActivity5.aVa();
-                        i2 = this.faw.height;
-                        aVa2.setShareSummaryImgHeight(i2);
-                        this.faw.fav = true;
-                        this.faw.bcj();
+                        writeShareActivity4 = this.fav.fas;
+                        WriteData aVg = writeShareActivity4.aVg();
+                        i = this.fav.width;
+                        aVg.setShareSummaryImgWidth(i);
+                        writeShareActivity5 = this.fav.fas;
+                        WriteData aVg2 = writeShareActivity5.aVg();
+                        i2 = this.fav.height;
+                        aVg2.setShareSummaryImgHeight(i2);
+                        this.fav.fau = true;
+                        this.fav.bcq();
                         return;
                     }
                     return;
@@ -58,12 +58,12 @@ public class p implements TbImageView.a {
             }
             return;
         }
-        this.faw.fav = false;
-        this.faw.bcj();
-        writeShareActivity = this.faw.fat;
+        this.fav.fau = false;
+        this.fav.bcq();
+        writeShareActivity = this.fav.fas;
         if (writeShareActivity != null) {
-            writeShareActivity2 = this.faw.fat;
-            writeShareActivity2.qS(t.j.share_load_image_fail_tip);
+            writeShareActivity2 = this.fav.fas;
+            writeShareActivity2.qR(t.j.share_load_image_fail_tip);
         }
     }
 
@@ -71,12 +71,12 @@ public class p implements TbImageView.a {
     public void onCancel() {
         WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
-        this.faw.fav = false;
-        this.faw.bcj();
-        writeShareActivity = this.faw.fat;
+        this.fav.fau = false;
+        this.fav.bcq();
+        writeShareActivity = this.fav.fas;
         if (writeShareActivity != null) {
-            writeShareActivity2 = this.faw.fat;
-            writeShareActivity2.qS(t.j.share_load_image_fail_tip);
+            writeShareActivity2 = this.fav.fas;
+            writeShareActivity2.qR(t.j.share_load_image_fail_tip);
         }
     }
 }

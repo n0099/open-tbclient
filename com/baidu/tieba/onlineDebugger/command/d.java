@@ -1,7 +1,7 @@
 package com.baidu.tieba.onlineDebugger.command;
 /* loaded from: classes.dex */
 public interface d {
-    Object aux();
+    Object auA();
 
-    boolean auy();
+    boolean auB();
 }

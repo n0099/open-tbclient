@@ -22,7 +22,7 @@ class c implements NoNetworkView.a {
                 dVar.jy();
                 return;
             }
-            this.bKe.XU();
+            this.bKe.XW();
         }
     }
 }

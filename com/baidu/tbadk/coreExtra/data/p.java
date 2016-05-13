@@ -53,90 +53,90 @@ public class p {
                 this.aDKillerUrl = jSONObject.optString("adkiller_url");
                 this.agq = jSONObject.optInt("read_thread_switch", 0);
                 this.agv = jSONObject.optInt("localvideo_open", 2);
-                com.baidu.tbadk.pageStayDuration.e.Ej().eI(jSONObject.optInt("statlog_path_max", 3));
+                com.baidu.tbadk.pageStayDuration.e.Ek().eH(jSONObject.optInt("statlog_path_max", 3));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String wH() {
+    public String wI() {
         return this.agj;
     }
 
-    public String wI() {
+    public String wJ() {
         return this.agd;
     }
 
-    public String wJ() {
+    public String wK() {
         return this.agf;
     }
 
-    public String wK() {
+    public String wL() {
         return this.agg;
     }
 
-    public String wL() {
+    public String wM() {
         return this.agh;
     }
 
-    public String wM() {
+    public String wN() {
         return this.agi;
     }
 
-    public String wN() {
+    public String wO() {
         return this.agr;
     }
 
-    public String wO() {
+    public String wP() {
         return this.ags;
     }
 
-    public String wP() {
+    public String wQ() {
         return this.agt;
     }
 
-    public String wQ() {
+    public String wR() {
         return this.agk;
     }
 
-    public String wR() {
+    public String wS() {
         return this.agl;
     }
 
-    public int wS() {
+    public int wT() {
         return this.agm;
     }
 
-    public long wT() {
+    public long wU() {
         return this.lastUpdateTime;
     }
 
-    public long wU() {
+    public long wV() {
         return this.ago;
     }
 
-    public int wV() {
+    public int wW() {
         return this.agp;
     }
 
-    public int wW() {
+    public int wX() {
         return this.agn;
     }
 
-    public String wX() {
+    public String wY() {
         return this.infoIconUrl;
     }
 
-    public String wY() {
+    public String wZ() {
         return this.infoTargetUrl;
     }
 
-    public long wZ() {
+    public long xa() {
         return this.infoTimeStamp;
     }
 
-    public String xa() {
+    public String xb() {
         return this.agu;
     }
 
@@ -144,11 +144,11 @@ public class p {
         return this.aDKillerUrl;
     }
 
-    public int xb() {
+    public int xc() {
         return this.agq;
     }
 
-    public boolean xc() {
+    public boolean xd() {
         return this.agv == 1;
     }
 }

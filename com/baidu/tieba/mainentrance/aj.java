@@ -49,7 +49,7 @@ public class aj implements a.b {
                 scrollView2 = this.cMQ.cMv;
                 squareSearchActivity.aI(scrollView2);
                 this.cMQ.mNoDataView.setVisibility(0);
-                this.cMQ.mNoDataView.setTextOption(NoDataViewFactory.d.cP(t.j.text_no_search_record));
+                this.cMQ.mNoDataView.setTextOption(NoDataViewFactory.d.cO(t.j.text_no_search_record));
                 z = this.cMQ.avp;
                 if (!z) {
                     RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = new RequestSearchPersonHistoryWriteMessage();
@@ -65,8 +65,8 @@ public class aj implements a.b {
             squareSearchActivity2.aI(scrollView);
             this.cMQ.cLN.setVisibility(8);
             this.cMQ.mNoDataView.setVisibility(0);
-            this.cMQ.mNoDataView.setTextOption(NoDataViewFactory.d.cP(t.j.text_no_search_record));
-            com.baidu.tieba.tbadkCore.util.m.aUO();
+            this.cMQ.mNoDataView.setTextOption(NoDataViewFactory.d.cO(t.j.text_no_search_record));
+            com.baidu.tieba.tbadkCore.util.m.aUU();
             return;
         }
         com.baidu.adp.lib.h.k.dM().c(new ak(this));
@@ -86,6 +86,6 @@ public class aj implements a.b {
         squareSearchActivity4.aI(searchPageFocusBar);
         this.cMQ.cLN.setVisibility(8);
         this.cMQ.mNoDataView.setVisibility(0);
-        this.cMQ.mNoDataView.setTextOption(NoDataViewFactory.d.cP(t.j.text_no_search_record));
+        this.cMQ.mNoDataView.setTextOption(NoDataViewFactory.d.cO(t.j.text_no_search_record));
     }
 }

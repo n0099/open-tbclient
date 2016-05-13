@@ -17,7 +17,7 @@ public class c {
     private c() {
     }
 
-    public static c Fo() {
+    public static c Fq() {
         return azY;
     }
 
@@ -32,7 +32,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Fp() {
+    public boolean Fr() {
         int i;
         long j = 0;
         byte[] aD = com.baidu.adp.lib.util.e.aD("crash_hour_record.log");
@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.Fp());
+            return Boolean.valueOf(c.this.Fr());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

@@ -45,7 +45,7 @@ public class h extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Bc() {
+    public void Bd() {
         Iterator<ab> it = this.apu.iterator();
         while (it.hasNext()) {
             ab next = it.next();
@@ -90,9 +90,9 @@ public class h extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ee(int i) {
-        if (eh(i)) {
-            if (Bf()) {
+    public void ed(int i) {
+        if (eg(i)) {
+            if (Bg()) {
                 this.apw = true;
             } else {
                 this.apw = false;
@@ -119,7 +119,7 @@ public class h extends FrameLayout {
             }
             if (!this.apw && (getContext() instanceof Activity)) {
                 if (this.apy != null) {
-                    this.apy.Bj();
+                    this.apy.Bk();
                 } else {
                     com.baidu.adp.lib.util.k.a(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
@@ -129,7 +129,7 @@ public class h extends FrameLayout {
         }
     }
 
-    private boolean eh(int i) {
+    private boolean eg(int i) {
         Iterator<ab> it = this.apu.iterator();
         while (it.hasNext()) {
             if (it.next().getToolId() == i) {
@@ -139,7 +139,7 @@ public class h extends FrameLayout {
         return false;
     }
 
-    public s eg(int i) {
+    public s ef(int i) {
         Iterator<s> it = this.apt.iterator();
         while (it.hasNext()) {
             s next = it.next();
@@ -167,11 +167,11 @@ public class h extends FrameLayout {
         }
     }
 
-    public boolean Be() {
-        return getVisibility() == 0 && Bf();
+    public boolean Bf() {
+        return getVisibility() == 0 && Bg();
     }
 
-    private boolean Bf() {
+    private boolean Bg() {
         Iterator<ab> it = this.apu.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {

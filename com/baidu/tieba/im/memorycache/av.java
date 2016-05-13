@@ -25,7 +25,7 @@ public class av extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205006 && (socketResponsedMessage instanceof ResponsedPersonalMsgReadMessage)) {
             ResponsedPersonalMsgReadMessage responsedPersonalMsgReadMessage = (ResponsedPersonalMsgReadMessage) socketResponsedMessage;
             if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.c.a.cqy && responsedPersonalMsgReadMessage.getToUserType() == 0) {
-                ImMessageCenterPojo aa = b.agY().aa(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
+                ImMessageCenterPojo aa = b.aha().aa(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
                 if (aa != null) {
                     long bk = com.baidu.tieba.im.util.g.bk(responsedPersonalMsgReadMessage.getHasSentMsgId());
                     if (bk > aa.getSent_msgId()) {

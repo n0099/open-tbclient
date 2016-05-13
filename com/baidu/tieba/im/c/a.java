@@ -69,7 +69,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void be(String str, String str2) {
-        com.baidu.adp.widget.a.a fM = com.baidu.tbadk.imageManager.c.CH().fM(str);
+        com.baidu.adp.widget.a.a fM = com.baidu.tbadk.imageManager.c.CI().fM(str);
         String str3 = String.valueOf(str2) + 10;
         if (fM != null && fM.iZ()) {
             e(str3, fM);
@@ -80,7 +80,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.CH().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.CI().c(str, aVar);
         com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ba.dy(str), DiskFileOperate.Action.WRITE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.n(true);
@@ -93,7 +93,7 @@ public class a {
         com.baidu.tbadk.img.a<ChatMessage> aVar = this.cqB.get(str);
         if (aVar == null) {
             com.baidu.tbadk.img.a<ChatMessage> aVar2 = new com.baidu.tbadk.img.a<>(str, "IM");
-            aVar2.CK();
+            aVar2.CL();
             aVar2.y(chatMessage);
             if (this.cqE != null && this.cqE.get() != null) {
                 aVar2.a(this.cqE.get());
@@ -131,18 +131,18 @@ public class a {
         }
         for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.cqB.entrySet()) {
             com.baidu.tbadk.img.a<ChatMessage> value = entry.getValue();
-            if (value != null && value.CJ() != null) {
-                ChatMessage CJ = value.CJ();
-                if (chatMessage.getRecordId() != CJ.getRecordId()) {
+            if (value != null && value.CK() != null) {
+                ChatMessage CK = value.CK();
+                if (chatMessage.getRecordId() != CK.getRecordId()) {
                     continue;
                 } else if (chatMessage.getCustomGroupType() == 2 || chatMessage.getCustomGroupType() == 4) {
-                    if (chatMessage.getToUserId() == CJ.getToUserId()) {
+                    if (chatMessage.getToUserId() == CK.getToUserId()) {
                         if (this.cqE != null && this.cqE.get() != null) {
                             value.a(this.cqE.get());
                         }
                         return true;
                     }
-                } else if (chatMessage.getGroupId() != null && CJ.getGroupId() != null && chatMessage.getGroupId().equals(CJ.getGroupId())) {
+                } else if (chatMessage.getGroupId() != null && CK.getGroupId() != null && chatMessage.getGroupId().equals(CK.getGroupId())) {
                     if (this.cqE != null && this.cqE.get() != null) {
                         value.a(this.cqE.get());
                     }
@@ -191,7 +191,7 @@ public class a {
         return -1;
     }
 
-    public static a aio() {
+    public static a aiq() {
         if (cqx == null) {
             synchronized (a.class) {
                 if (cqx == null) {
@@ -202,11 +202,11 @@ public class a {
         return cqx;
     }
 
-    public static void jF(int i) {
+    public static void jE(int i) {
         cqy = i;
     }
 
-    public static void jG(int i) {
+    public static void jF(int i) {
         cqz = i;
     }
 

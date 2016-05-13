@@ -20,6 +20,6 @@ public class i extends com.baidu.tbadk.util.s<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.aep().b(this.cqL.getGroupId(), this.val$list, false));
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.aer().b(this.cqL.getGroupId(), this.val$list, false));
     }
 }

@@ -65,7 +65,7 @@ public class b extends HttpMessageListener {
                     qVar2.a(error2, errorString, null, null, null, null, 0, 0, str);
                 } else {
                     o vCodeData = responseCommitGraffitiMessage.getVCodeData();
-                    if (vCodeData == null || !"4".equals(vCodeData.wF()) || !responseCommitGraffitiMessage.isNeedVcode()) {
+                    if (vCodeData == null || !"4".equals(vCodeData.wG()) || !responseCommitGraffitiMessage.isNeedVcode()) {
                         qVar3 = this.bKx.bKu;
                         int error3 = responseCommitGraffitiMessage.getError();
                         String errorString2 = responseCommitGraffitiMessage.getErrorString();

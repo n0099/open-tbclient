@@ -32,7 +32,7 @@ public class o implements View.OnClickListener {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v27, resolved type: com.baidu.tieba.frs.FrsActivity */
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0037, code lost:
-        if (r14 == r1.Ue()) goto L11;
+        if (r14 == r1.Ug()) goto L11;
      */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
@@ -65,14 +65,14 @@ public class o implements View.OnClickListener {
         com.baidu.tieba.frs.view.c cVar7;
         frsActivity = this.buB.bpj;
         com.baidu.tieba.tbadkCore.o PZ = frsActivity.PZ();
-        if (PZ != null && PZ.avA() != null) {
+        if (PZ != null && PZ.avD() != null) {
             cVar5 = this.buB.buq;
             if (cVar5 != null) {
                 cVar6 = this.buB.buq;
-                if (view != cVar6.TU()) {
+                if (view != cVar6.TW()) {
                     cVar7 = this.buB.buq;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.buB.getPageContext().getPageActivity(), PZ.avA().getId(), ForumDetailActivityConfig.FromType.FRS)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.buB.getPageContext().getPageActivity(), PZ.avD().getId(), ForumDetailActivityConfig.FromType.FRS)));
                 return;
             }
         }
@@ -109,8 +109,8 @@ public class o implements View.OnClickListener {
             if (!frsActivity5.Qa() && com.baidu.adp.lib.util.i.fq()) {
                 frsActivity6 = this.buB.bpj;
                 if (frsActivity6.checkUpIsLogin()) {
-                    if (!this.buB.TS()) {
-                        this.buB.TV();
+                    if (!this.buB.TU()) {
+                        this.buB.TX();
                     } else if (TbadkCoreApplication.m11getInst().getUseNewResign() == 1) {
                         frsActivity7 = this.buB.bpj;
                         Activity pageActivity = frsActivity7.getPageContext().getPageActivity();
@@ -121,13 +121,13 @@ public class o implements View.OnClickListener {
             }
         } else if (id == t.g.frs_header_games) {
             frsActivity10 = this.buB.bpj;
-            if (frsActivity10.checkUpIsLogin() && PZ != null && PZ.aSk() != null) {
-                String aSk = PZ.aSk();
-                int dj = com.baidu.tbadk.core.util.n.dj(aSk);
+            if (frsActivity10.checkUpIsLogin() && PZ != null && PZ.aSn() != null) {
+                String aSn = PZ.aSn();
+                int dj = com.baidu.tbadk.core.util.n.dj(aSn);
                 if (dj == 2) {
-                    bg.us().a((TbPageContext) this.buB.getPageContext(), new String[]{aSk}, true);
+                    bg.ut().a((TbPageContext) this.buB.getPageContext(), new String[]{aSn}, true);
                 } else if (dj == 1) {
-                    String nZ = com.baidu.tieba.tbadkCore.util.n.nZ(aSk);
+                    String nZ = com.baidu.tieba.tbadkCore.util.n.nZ(aSn);
                     if (TextUtils.isEmpty(nZ) || Build.VERSION.SDK_INT < 11) {
                         com.baidu.adp.lib.util.k.showToast(this.buB.getPageContext().getPageActivity(), this.buB.getPageContext().getPageActivity().getString(t.j.frs_header_games_unavailable));
                         return;
@@ -136,7 +136,7 @@ public class o implements View.OnClickListener {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(this.buB.getPageContext().getPageActivity(), nZ, "1000601")));
                 } else if (dj == 3) {
                     frsActivity11 = this.buB.bpj;
-                    com.baidu.tbadk.core.util.n.a(frsActivity11.getPageContext(), aSk);
+                    com.baidu.tbadk.core.util.n.a(frsActivity11.getPageContext(), aSn);
                 }
             }
         } else if (id == t.g.btn_love_content) {
@@ -159,11 +159,11 @@ public class o implements View.OnClickListener {
                 }
             }
         } else if (id == t.g.frs_bawu_center && PZ != null && PZ.getUserData() != null && PZ.getUserData().isBawu()) {
-            String aSs = PZ.aSs();
-            if (!ay.isEmpty(aSs)) {
-                com.baidu.tbadk.browser.f.t(this.buB.getPageContext().getPageActivity(), aSs);
-                if (PZ.avA() != null) {
-                    TiebaStatic.log(new aw("c10502").ac("fid", PZ.avA().getId()).ac("uid", PZ.getUserData().getUserId()));
+            String aSv = PZ.aSv();
+            if (!ay.isEmpty(aSv)) {
+                com.baidu.tbadk.browser.f.t(this.buB.getPageContext().getPageActivity(), aSv);
+                if (PZ.avD() != null) {
+                    TiebaStatic.log(new aw("c10502").ac("fid", PZ.avD().getId()).ac("uid", PZ.getUserData().getUserId()));
                 }
             }
         }

@@ -13,7 +13,7 @@ public class ae {
         WM = TbadkCoreApplication.m11getInst().getNetWorkCoreType();
     }
 
-    public static synchronized ae tJ() {
+    public static synchronized ae tK() {
         ae aeVar;
         synchronized (ae.class) {
             if (WI == null) {
@@ -28,7 +28,7 @@ public class ae {
         return new ac(aVar);
     }
 
-    public static void cq(int i) {
+    public static void cp(int i) {
         WM = i;
     }
 }

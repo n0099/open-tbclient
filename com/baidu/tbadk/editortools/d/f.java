@@ -15,7 +15,7 @@ public class f implements d.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void Cd() {
+    public void Ce() {
         BaseActivity baseActivity;
         baseActivity = this.arM.arz;
         baseActivity.showToast(t.j.no_network_guide);
@@ -27,7 +27,7 @@ public class f implements d.a {
         BaseActivity baseActivity;
         baseActivity = this.arM.arz;
         if (StringUtils.isNull(str)) {
-            str = this.arM.Bb().getContext().getString(t.j.location_fail);
+            str = this.arM.Bc().getContext().getString(t.j.location_fail);
         }
         baseActivity.showToast(str);
         this.arM.a(0, false, (String) null);

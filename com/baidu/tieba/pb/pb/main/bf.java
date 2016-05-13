@@ -15,7 +15,7 @@ class bf implements com.baidu.adp.lib.f.c<ImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: awW */
+    /* renamed from: awZ */
     public ImageView dE() {
         ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.djE.getPageContext().getPageActivity());
         boolean oh = com.baidu.tbadk.core.l.ob().oh();

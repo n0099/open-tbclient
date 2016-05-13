@@ -15,9 +15,9 @@ public class f extends s<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: Io */
+    /* renamed from: Iq */
     public Void doInBackground() {
-        this.crd.aiq().remove(this.jI);
+        this.crd.ais().remove(this.jI);
         return null;
     }
 }

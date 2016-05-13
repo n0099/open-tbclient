@@ -46,10 +46,10 @@ public final class ga extends LinearLayout {
         com.baidu.tbadk.core.util.at.c(this.aFL, t.d.cp_cont_f, 1);
         this.bwz.setHintTextColor(com.baidu.tbadk.core.util.at.getColor(t.d.cp_cont_e));
         this.bwz.setPadding(context.getResources().getDimensionPixelSize(t.e.ds20), 0, 0, 0);
-        Um();
+        Uo();
     }
 
-    public void Um() {
+    public void Uo() {
         this.azz.setFocusable(true);
         this.azz.setFocusableInTouchMode(true);
         this.azz.requestFocus();
@@ -69,10 +69,10 @@ public final class ga extends LinearLayout {
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         this.csy = shareFromPBMsgData;
-        uX();
+        uY();
     }
 
-    private void uX() {
+    private void uY() {
         this.title.setText(this.csy.getTitle());
         BdLog.e("mData.getImageUrl()的图片URL" + this.csy.getImageUrl());
         this.bYs.setTag(this.csy.getImageUrl());

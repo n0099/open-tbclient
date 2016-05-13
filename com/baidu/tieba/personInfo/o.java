@@ -22,7 +22,7 @@ public class o extends CustomMessageListener {
         bjVar = this.this$0.dFA;
         if (bjVar != null) {
             bjVar2 = this.this$0.dFA;
-            bjVar2.mD(0);
+            bjVar2.mC(0);
         }
     }
 }

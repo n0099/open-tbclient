@@ -41,7 +41,7 @@ public class x extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void aSW() {
+    public void aTc() {
         if (this.erq != null) {
             this.erq.cancel();
             this.erq = null;
@@ -63,7 +63,7 @@ public class x extends com.baidu.adp.base.e {
         }
     }
 
-    public boolean aSX() {
+    public boolean aTd() {
         return this.erq != null;
     }
 
@@ -103,18 +103,18 @@ public class x extends com.baidu.adp.base.e {
                 this.aeI.n("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.aeI.n("user_id", TbadkCoreApplication.getCurrentAccount());
                 this.aeI.n("forum_name", x.this.mForumName);
-                this.aeI.tA().uu().mIsNeedTbs = true;
-                String tc = this.aeI.tc();
-                if (!this.aeI.tA().uv().tD()) {
-                    x.this.setErrorCode(this.aeI.tF());
-                    x.this.setErrorString(this.aeI.tG());
+                this.aeI.tB().uv().mIsNeedTbs = true;
+                String td = this.aeI.td();
+                if (!this.aeI.tB().uw().tE()) {
+                    x.this.setErrorCode(this.aeI.tG());
+                    x.this.setErrorString(this.aeI.tH());
                 } else {
-                    x.this.setErrorCode(this.aeI.tE());
+                    x.this.setErrorCode(this.aeI.tF());
                     x.this.setErrorString(this.aeI.getErrorString());
                 }
-                if (this.aeI.tA().uv().nZ() && tc != null) {
+                if (this.aeI.tB().uw().nZ() && td != null) {
                     y yVar = new y();
-                    yVar.parserJson(tc);
+                    yVar.parserJson(td);
                     yVar.setFid(x.this.mForumId);
                     return yVar;
                 }
@@ -133,7 +133,7 @@ public class x extends com.baidu.adp.base.e {
         /* renamed from: d */
         public void onPostExecute(y yVar) {
             x.this.erq = null;
-            if (this.aeI != null && this.aeI.tA().uv().nZ() && x.this.getErrorCode() == 0 && yVar != null) {
+            if (this.aeI != null && this.aeI.tB().uw().nZ() && x.this.getErrorCode() == 0 && yVar != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.h.b.c(yVar.getFid(), 0L))));
                 TbadkCoreApplication.m11getInst().addLikeForum(x.this.mForumName);
             }

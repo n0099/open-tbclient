@@ -29,10 +29,10 @@ public class c {
         } else {
             this.aeo = false;
         }
-        this.aen = vN();
+        this.aen = vO();
     }
 
-    private List<v> vN() {
+    private List<v> vO() {
         ArrayList arrayList = new ArrayList();
         if (this.aem != null) {
             if (this.aeo) {
@@ -52,7 +52,7 @@ public class c {
         return arrayList;
     }
 
-    public int da(int i) {
+    public int cZ(int i) {
         if (this.aeo) {
             int size = this.aen.size();
             if (i == 0) {
@@ -66,42 +66,42 @@ public class c {
         return i;
     }
 
-    public int db(int i) {
+    public int da(int i) {
         if (this.aeo) {
             return i - this.aes;
         }
         return i;
     }
 
-    public int vO() {
+    public int vP() {
         if (this.aem == null) {
             return 0;
         }
         return this.aem.size();
     }
 
-    public int vP() {
+    public int vQ() {
         if (this.aeo) {
             return this.aes;
         }
         return 0;
     }
 
-    public void dc(int i) {
+    public void db(int i) {
         this.aer = i;
         t(this.aem);
     }
 
-    public void dd(int i) {
+    public void dc(int i) {
         this.aeq = i;
         t(this.aem);
     }
 
-    public List<v> vQ() {
+    public List<v> vR() {
         return this.aen;
     }
 
-    public void de(int i) {
+    public void dd(int i) {
         this.aes = i;
         t(this.aem);
     }

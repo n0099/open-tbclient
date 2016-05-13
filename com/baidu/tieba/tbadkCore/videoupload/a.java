@@ -24,13 +24,13 @@ public class a {
         }
     }
 
-    public void aUS() {
+    public void aUY() {
         if (this.evo != null) {
             this.evo.cancel();
         }
     }
 
-    public static void pA(int i) {
+    public static void pz(int i) {
         if (i <= 0) {
             chunkLength = 512000;
         } else {
@@ -38,7 +38,7 @@ public class a {
         }
     }
 
-    public static void pB(int i) {
+    public static void pA(int i) {
         if (i <= 0) {
             evn = 6144000;
         } else {

@@ -21,7 +21,7 @@ class s implements Handler.Callback {
                 if (cwVar != null) {
                     cwVar2 = this.djE.dih;
                     if (cwVar2.mP()) {
-                        this.djE.awF();
+                        this.djE.awI();
                         break;
                     }
                 }

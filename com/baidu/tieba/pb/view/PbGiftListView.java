@@ -126,7 +126,7 @@ public class PbGiftListView extends FrameLayout {
         }
     }
 
-    public void sf() {
+    public void sg() {
         at.c(this.drX, t.d.cp_cont_d, 1);
         at.c(this.drY, t.d.cp_link_tip_c, 1);
     }

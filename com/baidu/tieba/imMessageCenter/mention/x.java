@@ -14,9 +14,9 @@ public class x implements BdListView.f {
     @Override // com.baidu.adp.widget.ListView.BdListView.f
     public void t(BdListView bdListView) {
         if (this.cyx instanceof j) {
-            this.cyx.cyh.alz().KM();
+            this.cyx.cyh.alB().KO();
         } else {
-            this.cyx.cyh.aly().KM();
+            this.cyx.cyh.alA().KO();
         }
     }
 }

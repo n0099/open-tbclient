@@ -48,7 +48,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
         return this.cIK;
     }
 
-    public boolean aoi() {
+    public boolean aol() {
         return this.eaw != null && this.eaw.isShowing();
     }
 
@@ -97,27 +97,27 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public void aoj() {
+    public void aom() {
         if (this.eaw == null) {
             this.eaw = new m(this.cIK);
             this.eaw.a(this.eaB);
         }
-        this.eaw.ox(this.topHeight);
+        this.eaw.ow(this.topHeight);
         if (!this.eaw.isShowing()) {
             this.eaw.a(this.mContext, this.eav, this.UR.getCurrentItem());
             if (this.eat != null) {
-                this.eat.aoo();
+                this.eat.aor();
             }
         }
     }
 
-    public void aok() {
+    public void aon() {
         if (this.eaw != null) {
             this.eaw.aE(this.mContext);
         }
     }
 
-    public boolean aol() {
+    public boolean aoo() {
         return y.r(this.eav) <= 0;
     }
 
@@ -129,7 +129,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
                     arrayList.add(new com.baidu.tieba.recommendfrs.data.l(tagInfo));
                 }
             }
-            com.baidu.tieba.recommendfrs.control.a.q.aMp().cl(list);
+            com.baidu.tieba.recommendfrs.control.a.q.aMs().cl(list);
             this.eav = list;
             if (this.eau != null) {
                 this.eau.an(arrayList);
@@ -146,9 +146,9 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public void aLO() {
+    public void aLR() {
         if (this.eau != null) {
-            this.eau.aLO();
+            this.eau.aLR();
         }
     }
 
@@ -169,12 +169,12 @@ public class ScrollFragmentTabHost extends FrameLayout {
         this.eau = new a(this.mContext, bVar, cVar, this.aOT);
         if (this.eay != null) {
             this.eau.setScrollFragmentTabHost(this);
-            this.eau.a(this.eay.aMk(), this.eay.aMl(), this.eay.Mr());
+            this.eau.a(this.eay.aMn(), this.eay.aMo(), this.eay.Mt());
         }
         this.UR.setAdapter(this.eau);
     }
 
-    public boolean aom() {
+    public boolean aop() {
         return this.eau != null && this.eau.getCount() > 0;
     }
 
@@ -200,10 +200,10 @@ public class ScrollFragmentTabHost extends FrameLayout {
             this.eat.onChangeSkinType(i);
         }
         if (this.eau != null) {
-            this.eau.cW(i);
+            this.eau.cV(i);
         }
         if (this.eaw != null) {
-            this.eaw.cW(i);
+            this.eaw.cV(i);
         }
         com.baidu.adp.base.h<?> s = com.baidu.adp.base.l.s(getContext());
         if (this.aST != null) {
@@ -248,7 +248,7 @@ public class ScrollFragmentTabHost extends FrameLayout {
         }
     }
 
-    public void aMJ() {
+    public void aMM() {
         if (this.eau != null) {
             this.eau.iR(false);
         }
@@ -270,8 +270,8 @@ public class ScrollFragmentTabHost extends FrameLayout {
         this.eau.iL(z);
     }
 
-    public void aMI() {
-        this.eau.aMI();
+    public void aML() {
+        this.eau.aML();
     }
 
     public List<String> getNextPageSourceKeyList() {

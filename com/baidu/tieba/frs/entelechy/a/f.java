@@ -22,7 +22,7 @@ public class f implements by<ax> {
         af afVar;
         af afVar2;
         af afVar3;
-        bx.Kg().ci(true);
+        bx.Ki().ci(true);
         if (view != null) {
             afVar = this.boN.boL;
             if (afVar != null) {

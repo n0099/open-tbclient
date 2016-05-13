@@ -51,7 +51,7 @@ public class ay extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static String ub() {
+    public static String uc() {
         String format;
         Date date = new Date();
         synchronized (pp) {
@@ -60,7 +60,7 @@ public class ay extends com.baidu.adp.lib.util.j {
         return format;
     }
 
-    public static String uc() {
+    public static String ud() {
         String format;
         Date date = new Date();
         synchronized (pj) {
@@ -94,7 +94,7 @@ public class ay extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static int ud() {
+    public static int ue() {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(5) + 0 + (calendar.get(1) * 10000) + ((calendar.get(2) + 1) * 100);
     }
@@ -316,7 +316,7 @@ public class ay extends com.baidu.adp.lib.util.j {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
     @Deprecated
-    public static String cD(int i) {
+    public static String cC(int i) {
         if (i > 9999) {
             return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
         }
@@ -506,7 +506,7 @@ public class ay extends com.baidu.adp.lib.util.j {
         return spannableStringBuilder == null ? new SpannableStringBuilder("") : new SpannableStringBuilder("\u202d").append((CharSequence) spannableStringBuilder).append((CharSequence) "\u202c");
     }
 
-    public static String ue() {
+    public static String uf() {
         return "-∞";
     }
 

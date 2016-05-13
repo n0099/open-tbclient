@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -20,12 +21,23 @@ public class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        PluginSettings m9if;
         PluginNetConfigInfos id;
         List<PluginNetConfigInfos.PluginConfig> configs;
         String e;
+        String str;
+        boolean H;
         boolean z = false;
         Object data = customResponsedMessage.getData();
-        if (data != null && (data instanceof PluginNetConfigInfos.PluginConfig)) {
+        if (data != null && (data instanceof PluginNetConfigInfos.PluginConfig) && (m9if = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if()) != null) {
+            if (m9if != null) {
+                PluginPackageManager pluginPackageManager = this.this$0;
+                str = this.this$0.uL;
+                H = pluginPackageManager.H(str, m9if.getContainerVersion());
+                if (H) {
+                    return;
+                }
+            }
             PluginNetConfigInfos.PluginConfig pluginConfig = (PluginNetConfigInfos.PluginConfig) data;
             if (!TextUtils.isEmpty(pluginConfig.package_name) && (id = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ic().id()) != null && (configs = id.getConfigs()) != null) {
                 int i = 0;

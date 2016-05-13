@@ -43,31 +43,31 @@ public class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeN() {
+    public void aeP() {
         if (this.dVj == null) {
             this.dVj = new com.baidu.tbadk.core.dialog.a(this.dUY.getPageContext().getPageActivity()).cA(this.dUY.getPageContext().getString(t.j.alert_clean_history)).a(this.dUY.getPageContext().getString(t.j.clear_all_text), new p(this)).b(this.dUY.getPageContext().getString(t.j.alert_no_button), new q(this)).b(this.dUY.getPageContext());
         }
-        this.dVj.rU();
+        this.dVj.rV();
     }
 
-    private void hc(int i) {
+    private void hb(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.dUY.getPageContext().getPageActivity(), this.dVg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, com.baidu.adp.lib.util.k.c(this.dUY.getActivity(), t.e.ds320)), NoDataViewFactory.d.cP(t.j.text_no_search_record), null);
+            this.mNoDataView = NoDataViewFactory.a(this.dUY.getPageContext().getPageActivity(), this.dVg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, com.baidu.adp.lib.util.k.c(this.dUY.getActivity(), t.e.ds320)), NoDataViewFactory.d.cO(t.j.text_no_search_record), null);
             this.mNoDataView.onChangeSkinType(this.dUY.getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
             this.mNoDataView.setOnTouchListener(new r(this));
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.cP(i));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.cO(i));
         this.mNoDataView.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
-        hc(t.j.text_no_search_record);
+        hb(t.j.text_no_search_record);
     }
 
-    public void aKJ() {
+    public void aKM() {
         this.dVh.setVisibility(8);
-        hc(t.j.no_search_result_record);
+        hb(t.j.no_search_result_record);
     }
 
     private void hideNoDataView() {
@@ -76,19 +76,19 @@ public class l {
         }
     }
 
-    public void Pc() {
+    public void Pe() {
         this.dVk = true;
         this.dUY.showLoadingView(this.dVg, false, this.dUY.getResources().getDimensionPixelSize(t.e.ds386));
     }
 
-    public void Pd() {
+    public void Pf() {
         this.dVk = false;
         this.dUY.hideLoadingView(this.dVg);
     }
 
     public void ak(ArrayList<String> arrayList) {
         this.dVg.setVisibility(0);
-        Pd();
+        Pf();
         if (arrayList == null || arrayList.size() == 0) {
             this.dVh.setVisibility(8);
             showNoDataView();
@@ -100,11 +100,11 @@ public class l {
         this.dVi.notifyDataSetChanged();
     }
 
-    public void aKK() {
+    public void aKN() {
         this.dVg.setVisibility(8);
     }
 
-    public boolean aKL() {
+    public boolean aKO() {
         return this.dVg.getVisibility() == 0 && !this.dVk && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
     }
 

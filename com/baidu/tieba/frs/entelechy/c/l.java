@@ -12,7 +12,7 @@ public class l implements TextureVideoView.b {
     }
 
     @Override // com.baidu.tbadk.core.view.TextureVideoView.b
-    public void vu() {
+    public void vv() {
         this.bpG.stopPlay();
     }
 }

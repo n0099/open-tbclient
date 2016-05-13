@@ -28,9 +28,9 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     private SapiWebView dbR;
     private FrameLayout dbT;
-    private IWXAPI feP;
-    private boolean feQ;
-    private Intent feR;
+    private IWXAPI feO;
+    private boolean feP;
+    private Intent feQ;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -49,12 +49,12 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         this.dbR.setOnFinishCallback(new b(this));
         this.dbR.setWeixinHandler(new c(this));
         this.dbR.setAuthorizationListener(new d(this));
-        this.feP = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
-        this.feR = getIntent();
-        if (this.feR != null) {
-            this.feP.handleIntent(getIntent(), this);
+        this.feO = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
+        this.feQ = getIntent();
+        if (this.feQ != null) {
+            this.feO.handleIntent(getIntent(), this);
         }
-        if (!this.feQ) {
+        if (!this.feP) {
             this.dbR.loadWeixinSSOLogin();
         }
     }
@@ -63,9 +63,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.feR = intent;
-        if (this.feR != null) {
-            this.feP.handleIntent(intent, this);
+        this.feQ = intent;
+        if (this.feQ != null) {
+            this.feO.handleIntent(intent, this);
         }
     }
 
@@ -85,8 +85,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
-        if (this.feR != null) {
-            f.beh().G(this.feR);
+        if (this.feQ != null) {
+            f.beo().G(this.feQ);
         }
         closeActivity();
     }
@@ -96,7 +96,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         String str;
         if (baseResp != null) {
             if (1 == baseResp.getType()) {
-                this.feQ = true;
+                this.feP = true;
                 if (baseResp.errCode == 0) {
                     if (baseResp instanceof SendAuth.Resp) {
                         String str2 = ((SendAuth.Resp) baseResp).state;
@@ -121,19 +121,19 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                 }
                 Intent intent = new Intent(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
                 if (i == 0) {
-                    BdToast.b(getActivity(), getResources().getString(t.j.share_alert_success), t.f.icon_toast_game_ok).sc();
+                    BdToast.b(getActivity(), getResources().getString(t.j.share_alert_success), t.f.icon_toast_game_ok).sd();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_WX_SHARE_SUCCESS, true));
                     intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_SUCCESS);
                 } else if (i == -2) {
                     intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_CANCLE);
                 } else if (i == 123456) {
-                    BdToast.b(getActivity(), getResources().getString(t.j.weixin_not_installed_yet), t.f.icon_toast_game_error).sc();
+                    BdToast.b(getActivity(), getResources().getString(t.j.weixin_not_installed_yet), t.f.icon_toast_game_error).sd();
                 } else {
                     com.baidu.tbadk.core.log.b.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i, "", "share_fail_exception", String.valueOf(str) + "&" + com.baidu.tbadk.coreExtra.share.d.aiE);
-                    BdToast.b(getActivity(), getResources().getString(t.j.share_alert_fail), t.f.icon_toast_game_error).sc();
+                    BdToast.b(getActivity(), getResources().getString(t.j.share_alert_fail), t.f.icon_toast_game_error).sd();
                     intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
                 }
-                this.feQ = true;
+                this.feP = true;
                 BdBaseApplication.getInst().sendBroadcast(intent);
                 closeActivity();
             }

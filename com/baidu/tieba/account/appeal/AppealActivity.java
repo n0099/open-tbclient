@@ -59,7 +59,7 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         aVar.cA(str);
         aVar.a(getPageContext().getString(t.j.anti_no_chance_pos), new e(this, z));
         aVar.b(getPageContext());
-        aVar.rU();
+        aVar.rV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

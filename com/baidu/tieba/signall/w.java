@@ -34,32 +34,32 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
         this.ekd = cVar;
     }
 
-    public c aQt() {
+    public c aQw() {
         return this.ekd;
     }
 
-    private String aQu() {
-        ArrayList<e> aPR = this.ekd.aPR();
-        if (aPR == null) {
+    private String aQx() {
+        ArrayList<e> aPU = this.ekd.aPU();
+        if (aPU == null) {
             return "";
         }
-        if (!this.ekd.aPS()) {
+        if (!this.ekd.aPV()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<e> it = aPR.iterator();
+            Iterator<e> it = aPU.iterator();
             while (it.hasNext()) {
                 e next = it.next();
                 if (next.getUserLevel() < this.ekd.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            aPR.removeAll(arrayList);
+            aPU.removeAll(arrayList);
         }
-        int size = aPR.size();
+        int size = aPU.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            e eVar = aPR.get(i);
-            if (eVar.aQe()) {
-                if (!eVar.aQf()) {
+            e eVar = aPU.get(i);
+            if (eVar.aQh()) {
+                if (!eVar.aQi()) {
                     eVar.jm(true);
                 }
             }
@@ -79,11 +79,11 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
         }
         String str = null;
         this.eka = new b();
-        boolean aPH = this.ekd.aPH();
-        if (!aPH) {
-            str = aQu();
+        boolean aPK = this.ekd.aPK();
+        if (!aPK) {
+            str = aQx();
         }
-        this.eka.jo(aPH);
+        this.eka.jo(aPK);
         this.eka.execute(str);
         return true;
     }
@@ -110,7 +110,7 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
             this.ekf = z;
         }
 
-        public boolean aQv() {
+        public boolean aQy() {
             return this.ekf;
         }
 
@@ -126,13 +126,13 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: H */
         public u doInBackground(String... strArr) {
-            if (!aQv() && (strArr == null || strArr.length == 0 || strArr[0] == null)) {
+            if (!aQy() && (strArr == null || strArr.length == 0 || strArr[0] == null)) {
                 return null;
             }
-            if (aQv()) {
+            if (aQy()) {
                 this.eke = new h();
                 if (com.baidu.adp.lib.util.i.fq()) {
-                    aQw();
+                    aQz();
                 }
             } else {
                 String[] split = strArr[0].split(",");
@@ -156,10 +156,10 @@ public class w extends com.baidu.adp.base.e<SignAllForumActivity> {
             return w.this.ekb;
         }
 
-        private u aQw() {
-            String aQj = this.eke.aQj();
+        private u aQz() {
+            String aQm = this.eke.aQm();
             if (this.eke.nZ()) {
-                w.this.ekb.parserJson(aQj);
+                w.this.ekb.parserJson(aQm);
                 return w.this.ekb;
             }
             w.this.ekb = null;

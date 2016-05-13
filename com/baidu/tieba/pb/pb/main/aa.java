@@ -25,7 +25,7 @@ class aa implements a.InterfaceC0032a {
         com.baidu.tbadk.baseEditMark.a aVar3;
         com.baidu.tbadk.baseEditMark.a aVar4;
         elVar = this.djE.diR;
-        elVar.azd();
+        elVar.azg();
         if (z) {
             aVar = this.djE.cPW;
             if (aVar != null) {
@@ -40,7 +40,7 @@ class aa implements a.InterfaceC0032a {
                 cwVar3 = this.djE.dih;
                 elVar2.j(cwVar3.getPbData());
             } else {
-                this.djE.awF();
+                this.djE.awI();
             }
             if (z2) {
                 aVar2 = this.djE.cPW;

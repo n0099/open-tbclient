@@ -164,13 +164,13 @@ public class dv extends bw<com.baidu.tbadk.core.data.am, cl> {
     public void a(cl.a aVar, com.baidu.tbadk.core.data.am amVar, boolean z) {
         if (amVar != null && aVar != null) {
             if (amVar.getLbsInfo() != null) {
-                if (amVar.getLbsInfo().yW() == 1) {
+                if (amVar.getLbsInfo().yX() == 1) {
                     aVar.aJR.setVisibility(0);
                     com.baidu.tbadk.core.util.at.c(aVar.aJR, this.aJN, 1);
                     aVar.aJR.setText(this.mContext.getResources().getString(t.j.contact_yinshen));
                     aVar.aJR.setCompoundDrawables(null, null, null, null);
                     aVar.aLA.setVisibility(8);
-                } else if (amVar.getLbsInfo().yW() == 0) {
+                } else if (amVar.getLbsInfo().yX() == 0) {
                     if (StringUtils.isNull(amVar.getLbsInfo().getDistance())) {
                         aVar.aJR.setVisibility(8);
                         aVar.aLA.setVisibility(0);

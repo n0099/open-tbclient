@@ -39,16 +39,16 @@ public class EditorInfoView extends TextView {
         setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(t.e.ds48));
     }
 
-    public void vl() {
+    public void vm() {
         int skinType = TbadkCoreApplication.m11getInst().getSkinType();
         if (skinType != this.aej) {
             this.aej = skinType;
-            sf();
+            sg();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sf() {
+    public void sg() {
         if (this.erE == null) {
             this.erE = new GradientDrawable();
             this.erE.setCornerRadius(getContext().getResources().getDimension(t.e.ds24));

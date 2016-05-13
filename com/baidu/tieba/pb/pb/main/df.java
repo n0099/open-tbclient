@@ -48,46 +48,46 @@ public class df extends com.baidu.adp.base.f<PbActivity> {
         return this.mView;
     }
 
-    public TextView axY() {
+    public TextView ayb() {
         return this.dlS;
     }
 
-    public TextView ayh() {
+    public TextView ayk() {
         return this.dma;
     }
 
-    public TextView ayi() {
+    public TextView ayl() {
         return this.dmb;
     }
 
-    public TextView ayj() {
+    public TextView aym() {
         return this.dmc;
     }
 
-    public TextView ayk() {
+    public TextView ayn() {
         return this.dme;
     }
 
-    public TextView ayl() {
+    public TextView ayo() {
         return this.dmd;
     }
 
-    public TextView aym() {
+    public TextView ayp() {
         return this.dmi;
     }
 
-    public View ayn() {
+    public View ayq() {
         return this.dmf;
     }
 
-    public void ayo() {
+    public void ayr() {
         if (this.zT == null) {
             this.zT = new dg(this);
         }
         this.dmf.postDelayed(this.zT, 200L);
     }
 
-    public void ayp() {
+    public void ays() {
         this.dmf.setBackgroundColor(this.dic.getResources().getColor(t.d.transparent));
     }
 
@@ -134,7 +134,7 @@ public class df extends com.baidu.adp.base.f<PbActivity> {
         this.dmf.setOnClickListener(this.Fn);
     }
 
-    public void ayq() {
+    public void ayt() {
         com.baidu.tbadk.core.util.at.l(this.dmg, t.d.cp_bg_line_e);
         com.baidu.tbadk.core.util.at.l(this.dmh, t.d.cp_bg_line_e);
         com.baidu.tbadk.core.util.at.l(this.dmj, t.d.cp_bg_line_b);

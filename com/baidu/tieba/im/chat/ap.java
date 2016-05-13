@@ -41,11 +41,11 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         this.bZG = bVar;
     }
 
-    private void acn() {
+    private void acp() {
         this.mCurrentTime = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aco() {
+    public boolean acq() {
         return this.bZM;
     }
 
@@ -53,7 +53,7 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         this.bZM = z;
     }
 
-    public boolean acp() {
+    public boolean acr() {
         return this.bZN;
     }
 
@@ -61,7 +61,7 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         this.bZN = z;
     }
 
-    public void iP(int i) {
+    public void iO(int i) {
         this.bZO = i;
     }
 
@@ -70,7 +70,7 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        acn();
+        acp();
         return view;
     }
 
@@ -83,7 +83,7 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
             this.bZP = t;
         }
 
-        public T acq() {
+        public T acs() {
             return this.bZP;
         }
     }

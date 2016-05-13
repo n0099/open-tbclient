@@ -35,7 +35,7 @@ public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
         return false;
     }
 
-    public void aQI() {
+    public void aQL() {
         if (this.ekB != null) {
             this.ekB.cancel();
             this.ekB = null;
@@ -81,14 +81,14 @@ public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
                 this.aeI = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
                 this.aeI.n("kw", ah.this.mForumName);
                 this.aeI.n("fid", ah.this.mForumId);
-                this.aeI.tA().uu().mIsNeedTbs = true;
-                String tc = this.aeI.tc();
-                if (!this.aeI.tD() || !this.aeI.tA().uv().nZ()) {
+                this.aeI.tB().uv().mIsNeedTbs = true;
+                String td = this.aeI.td();
+                if (!this.aeI.tE() || !this.aeI.tB().uw().nZ()) {
                     return null;
                 }
                 signData = new SignData();
                 try {
-                    signData.parserJson(tc);
+                    signData.parserJson(td);
                     signData.setForumId(ah.this.mForumId);
                     signData.setForumName(ah.this.mForumName);
                     return signData;
@@ -123,7 +123,7 @@ public class ah extends com.baidu.adp.base.e<SignAllForumActivity> {
                 ah.this.ekC.b(signData);
                 return;
             }
-            ah.this.mErrorCode = this.aeI.tE();
+            ah.this.mErrorCode = this.aeI.tF();
             ah.this.mErrorString = this.aeI.getErrorString();
             ah.this.ekC.onError(ah.this.mForumId, ah.this.mErrorString);
         }

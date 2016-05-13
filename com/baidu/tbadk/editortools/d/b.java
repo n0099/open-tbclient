@@ -4,7 +4,7 @@ public class b {
     private static b arm;
     private int mStatus = 0;
 
-    public static b BC() {
+    public static b BD() {
         if (arm == null) {
             synchronized (b.class) {
                 if (arm == null) {

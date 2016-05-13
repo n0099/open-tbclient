@@ -18,7 +18,7 @@ public class n implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         aw awVar = new aw("c10826");
-        awVar.ac("obj_id", this.bwi.bpp.avA().getId());
+        awVar.ac("obj_id", this.bwi.bpp.avD().getId());
         TiebaStatic.log(awVar);
         com.baidu.tbadk.browser.f.a(this.bwi.bjB.getPageContext().getPageActivity(), true, this.bnZ.oA());
     }

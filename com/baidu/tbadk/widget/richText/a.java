@@ -32,11 +32,11 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         this.aDV = str;
     }
 
-    public void fa(int i) {
+    public void eZ(int i) {
         this.aDU = i;
     }
 
-    public int GB() {
+    public int GD() {
         return this.aDU;
     }
 
@@ -105,7 +105,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     }
                     c cVar2 = new c(8);
                     this.aDL++;
-                    cVar2.a(next.GH());
+                    cVar2.a(next.GJ());
                     this.aDM.add(cVar2);
                 } else if (z && next.getType() == 32) {
                     if (cVar != null) {
@@ -113,10 +113,10 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     }
                     c cVar3 = new c(32);
                     cVar3.setVideoUrl(next.getVideoUrl());
-                    cVar3.a(next.GL());
+                    cVar3.a(next.GN());
                     this.aDM.add(cVar3);
                     cVar = new c(1);
-                    CharSequence w = next.w(cVar.GG());
+                    CharSequence w = next.w(cVar.GI());
                     if (w != null) {
                         cVar.append(w);
                     }
@@ -126,7 +126,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                         cVar = null;
                     }
                     c cVar4 = new c(512);
-                    cVar4.a(next.GJ());
+                    cVar4.a(next.GL());
                     this.aDM.add(cVar4);
                 } else if (next.getType() == 17) {
                     if (cVar != null) {
@@ -134,7 +134,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                         cVar = null;
                     }
                     c cVar5 = new c(17);
-                    cVar5.a(next.GM());
+                    cVar5.a(next.GO());
                     this.aDM.add(cVar5);
                 } else if (next.getType() == 1280) {
                     if (cVar != null) {
@@ -143,7 +143,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     }
                     c cVar6 = new c(1280);
                     this.aDL++;
-                    cVar6.a(next.GO());
+                    cVar6.a(next.GQ());
                     this.aDM.add(cVar6);
                 } else if (next.getType() == 1536) {
                     if (cVar != null) {
@@ -151,7 +151,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                         cVar = null;
                     }
                     c cVar7 = new c(1536);
-                    cVar7.a(next.GQ());
+                    cVar7.a(next.GS());
                     this.aDM.add(cVar7);
                 } else if (next.getType() == 1792) {
                     if (cVar != null) {
@@ -159,7 +159,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                         cVar = null;
                     }
                     c cVar8 = new c(1792);
-                    cVar8.a(next.GR());
+                    cVar8.a(next.GT());
                     if (z2) {
                         this.aDM.add(1, cVar8);
                     } else {
@@ -171,10 +171,10 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     }
                     if (next.getType() == 1024) {
                         c cVar9 = new c(1024);
-                        cVar9.a(next.GP());
+                        cVar9.a(next.GR());
                         this.aDM.add(cVar9);
                     }
-                    CharSequence w2 = next.w(cVar.GG());
+                    CharSequence w2 = next.w(cVar.GI());
                     if (w2 != null) {
                         cVar.append(w2);
                     }
@@ -222,7 +222,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public ArrayList<c> GC() {
+    public ArrayList<c> GE() {
         return this.aDM;
     }
 
@@ -235,8 +235,8 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         for (int i = 0; i < size; i++) {
             c cVar = this.aDM.get(i);
             String cVar2 = cVar.toString();
-            if (cVar.getType() == 1 && cVar.GN() > 0) {
-                cVar2 = cVar2.substring(cVar.GN());
+            if (cVar.getType() == 1 && cVar.GP() > 0) {
+                cVar2 = cVar2.substring(cVar.GP());
             }
             if (i == size - 1 && cVar.getType() == 1 && this.aDN) {
                 sb.append(cVar2.substring(0, cVar2.length() - this.aDO));
@@ -244,11 +244,11 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                 sb.append(this.aDP);
             } else if (cVar.getType() == 512) {
                 sb.append(this.aDQ);
-            } else if (cVar.getType() == 32 && cVar.GL() != null) {
-                if (StringUtils.isNull(cVar.GL().Hk())) {
+            } else if (cVar.getType() == 32 && cVar.GN() != null) {
+                if (StringUtils.isNull(cVar.GN().Hm())) {
                     sb.append(cVar2);
                 } else {
-                    sb.append(this.aDR).append(cVar.GL().Hk());
+                    sb.append(this.aDR).append(cVar.GN().Hm());
                 }
             } else if (cVar.getType() == 1536) {
                 sb.append(this.aDS);

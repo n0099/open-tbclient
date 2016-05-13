@@ -13,7 +13,7 @@ public class fc implements a.b {
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        this.dpu.amQ();
+        this.dpu.amT();
         aVar.dismiss();
     }
 }

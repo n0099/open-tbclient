@@ -17,7 +17,7 @@ class d extends s<Integer> {
     @Override // com.baidu.tbadk.util.s
     public Integer doInBackground() {
         if (!this.bYv) {
-            com.baidu.tieba.im.db.b.aen().aeo();
+            com.baidu.tieba.im.db.b.aep().aeq();
         }
         return 0;
     }

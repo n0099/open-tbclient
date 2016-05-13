@@ -26,7 +26,7 @@ public class u implements TextWatcher {
                 textView = this.cxj.cxi;
                 textView.setVisibility(8);
             }
-            this.cxj.akG();
+            this.cxj.akI();
         }
     }
 

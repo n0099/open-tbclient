@@ -16,7 +16,7 @@ public class l extends a {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l aeD() {
+    public static synchronized l aeF() {
         l lVar;
         synchronized (l.class) {
             if (cfu == null) {
@@ -50,7 +50,7 @@ public class l extends a {
             ?? valueOf = String.valueOf(cff);
             try {
                 try {
-                    cursor = g.aet().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.aev().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {

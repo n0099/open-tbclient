@@ -21,13 +21,13 @@ public abstract class c implements CustomMessageTask.CustomRunnable<LoadHistoryM
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage) || this.crs == null) {
-            return jJ(this.mCmd);
+            return jI(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
         LinkedList<ChatMessage> a = this.crs.a(com.baidu.adp.lib.h.b.c(data.id, 0L), data.coj, data.cok, data.limit);
         if (a == null) {
-            return jJ(this.mCmd);
+            return jI(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
         if (data.coj == null) {
@@ -45,7 +45,7 @@ public abstract class c implements CustomMessageTask.CustomRunnable<LoadHistoryM
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage jJ(int i) {
+    private LoadHistoryResponsedMessage jI(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

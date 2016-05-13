@@ -126,11 +126,11 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
         super.a(i, view, viewGroup, (ViewGroup) sVar, (com.baidu.tieba.tbadkCore.data.s) dxVar);
         a(dxVar);
         c(dxVar);
-        com.baidu.tieba.tbadkCore.data.s sVar2 = (com.baidu.tieba.tbadkCore.data.s) at(i);
+        com.baidu.tieba.tbadkCore.data.s sVar2 = (com.baidu.tieba.tbadkCore.data.s) as(i);
         if (sVar2 != null) {
             a(dxVar, sVar2, view, false, i);
         }
-        if (!this.dfP && this.dfQ && dxVar != null && dxVar.dfT.Hn() && (listView = ((PbActivity) this.dhY.getPageContext().getOrignalPage()).getListView()) != null) {
+        if (!this.dfP && this.dfQ && dxVar != null && dxVar.dfT.Hp() && (listView = ((PbActivity) this.dhY.getPageContext().getOrignalPage()).getListView()) != null) {
             this.dfP = true;
             CompatibleUtile.getInstance().closeViewGpu(listView);
         }
@@ -155,14 +155,14 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
     */
     private void a(dx dxVar, com.baidu.tieba.tbadkCore.data.s sVar, View view, boolean z, int i) {
         SparseArray sparseArray;
-        com.baidu.tbadk.widget.richText.a amw;
+        com.baidu.tbadk.widget.richText.a amz;
         boolean z2;
         boolean z3;
         boolean z4;
         String userId;
         boolean z5;
         boolean z6;
-        ArrayList<com.baidu.tbadk.data.b> aUd;
+        ArrayList<com.baidu.tbadk.data.b> aUj;
         SparseArray sparseArray2;
         if (dxVar != null && sVar != null) {
             if (!z) {
@@ -174,12 +174,12 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                 dxVar.dhx.setVisibility(0);
                 dxVar.dht.setVisibility(0);
                 dxVar.dhs.setVisibility(8);
-                if (sVar.aTU() == null) {
+                if (sVar.aUa() == null) {
                     dxVar.dhy.setVisibility(8);
-                } else if (TbadkCoreApplication.m11getInst().isBaobaoShouldOpen() && sVar.aTU().Au() == 1) {
+                } else if (TbadkCoreApplication.m11getInst().isBaobaoShouldOpen() && sVar.aUa().Av() == 1) {
                     dxVar.dhy.changeSkinType(this.mSkinType);
                     dxVar.dhy.setVisibility(0);
-                    dxVar.dhy.setData(sVar.aTU());
+                    dxVar.dhy.setData(sVar.aUa());
                 } else {
                     dxVar.dhy.setVisibility(8);
                 }
@@ -213,7 +213,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     sparseArray2.put(t.g.tag_richtext_bg, null);
                     dxVar.dfT.gv(null);
                     dxVar.dfT.setBackgroundDrawable(null);
-                    if (sVar.aTS() == 1) {
+                    if (sVar.aTY() == 1) {
                         dxVar.dfT.setIsSupportVitality(true);
                     } else {
                         dxVar.dfT.setIsSupportVitality(false);
@@ -221,7 +221,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                 } else {
                     this.dms = true;
                     dxVar.dfT.setIsSupportVitality(false);
-                    if (sVar.aTS() == 1) {
+                    if (sVar.aTY() == 1) {
                         layoutParams.leftMargin = getDimensionPixelSize(t.e.ds30);
                     } else {
                         layoutParams.leftMargin = 0;
@@ -231,7 +231,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     dxVar.dfT.gv(sVar.getBimg_url());
                 }
                 dxVar.dfT.setLayoutParams(layoutParams);
-                if (sVar.aTS() != 1) {
+                if (sVar.aTY() != 1) {
                     if (TextUtils.isEmpty(sVar.getBimg_url())) {
                         dxVar.dfT.setOnClickListener(this.bnn);
                         dxVar.dfT.setTextViewOnClickListener(this.bnn);
@@ -245,8 +245,8 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     dxVar.dhh.setOnClickListener(null);
                     dxVar.dhu.setOnClickListener(null);
                 }
-                dxVar.dhr.setText(sVar.aTT());
-                if (sVar.aTS() == 1) {
+                dxVar.dhr.setText(sVar.aTZ());
+                if (sVar.aTY() == 1) {
                     dxVar.dhh.setPadding(0, 0, 0, 0);
                     a(dxVar.dfT, view, true, this.dms);
                     dxVar.dhi.setVisibility(8);
@@ -263,31 +263,31 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                         j = sVar.getAuthor().getUserIdLong();
                         str = sVar.getAuthor().getUserName();
                     }
-                    dxVar.dfV.a(sVar.aUb(), str, j, com.baidu.adp.lib.h.b.c(this.dfK.avB().getId(), 0L), com.baidu.adp.lib.h.b.c(sVar.getId(), 0L));
-                    dxVar.dfV.sf();
+                    dxVar.dfV.a(sVar.aUh(), str, j, com.baidu.adp.lib.h.b.c(this.dfK.avE().getId(), 0L), com.baidu.adp.lib.h.b.c(sVar.getId(), 0L));
+                    dxVar.dfV.sg();
                     if (this.dfL) {
-                        PraiseData praise = this.dfK.avB().getPraise();
+                        PraiseData praise = this.dfK.avE().getPraise();
                         if (praise != null && praise.getUser() != null && praise.getUser().size() > 0) {
                             dxVar.dfW.setVisibility(0);
                             dxVar.dfX.setVisibility(0);
                             dxVar.dfW.setIsFromPb(true);
-                            dxVar.dfW.a(praise, this.dfK.avB().getId(), praise.getPostId(), true);
-                            dxVar.dfW.cW(this.mSkinType);
+                            dxVar.dfW.a(praise, this.dfK.avE().getId(), praise.getPostId(), true);
+                            dxVar.dfW.cV(this.mSkinType);
                         } else {
                             dxVar.dfW.setVisibility(8);
                             dxVar.dfX.setVisibility(8);
                         }
                         com.baidu.tieba.graffiti.d.aj(dxVar.dfW);
                         com.baidu.tieba.graffiti.d.aj(dxVar.dfX);
-                        com.baidu.tbadk.data.f aTV = sVar.aTV();
+                        com.baidu.tbadk.data.f aUb = sVar.aUb();
                         dxVar.dhM.setVisibility(8);
-                        if (aTV != null && !TextUtils.isEmpty(aTV.getName()) && !TextUtils.isEmpty(aTV.getName().trim())) {
-                            String name = aTV.getName();
-                            String lat = aTV.getLat();
-                            String lng = aTV.getLng();
+                        if (aUb != null && !TextUtils.isEmpty(aUb.getName()) && !TextUtils.isEmpty(aUb.getName().trim())) {
+                            String name = aUb.getName();
+                            String lat = aUb.getLat();
+                            String lng = aUb.getLng();
                             dxVar.dhJ.setVisibility(0);
                             com.baidu.adp.lib.util.k.a(this.mContext, dxVar.dhJ, 0, 10, 0, 10);
-                            dxVar.dhL.setText(aTV.getName());
+                            dxVar.dhL.setText(aUb.getName());
                             com.baidu.tbadk.core.util.at.c(dxVar.dhL, t.d.cp_link_tip_c, 1);
                             com.baidu.tbadk.core.util.at.c(dxVar.dhK, t.f.icon_pb_pin);
                             dxVar.dhJ.setOnClickListener(new dr(this, lat, lng, name));
@@ -318,7 +318,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                                 TextView textView2 = new TextView(this.mContext);
                                 textView2.setTextSize(0, getDimensionPixelSize(t.e.fontsize24));
                                 com.baidu.tbadk.core.util.at.c(textView2, t.d.cp_cont_d, 1);
-                                textView2.setText(sVar.aTT());
+                                textView2.setText(sVar.aTZ());
                                 textView2.setTag("pb_item_god_time_tag");
                                 textView2.setGravity(3);
                                 textView2.setPadding(0, 0, getDimensionPixelSize(t.e.ds20), 0);
@@ -334,8 +334,8 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                                 dxVar.dhL.setCompoundDrawablesWithIntrinsicBounds(getDrawable(t.f.icon_pb_pin), (Drawable) null, (Drawable) null, (Drawable) null);
                                 dxVar.dmw.addView(dxVar.dhL, layoutParams3);
                                 dxVar.dhJ.addView(dxVar.dmw, new LinearLayout.LayoutParams(-1, -2));
-                                if (aTV != null && !TextUtils.isEmpty(aTV.getName()) && !TextUtils.isEmpty(aTV.getName().trim())) {
-                                    dxVar.dhL.setOnClickListener(new ds(this, aTV.getLat(), aTV.getLng(), aTV.getName()));
+                                if (aUb != null && !TextUtils.isEmpty(aUb.getName()) && !TextUtils.isEmpty(aUb.getName().trim())) {
+                                    dxVar.dhL.setOnClickListener(new ds(this, aUb.getLat(), aUb.getLng(), aUb.getName()));
                                 }
                             }
                             dxVar.dhJ.setOnClickListener(null);
@@ -346,23 +346,23 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                         dxVar.dhJ.setVisibility(8);
                         dxVar.dhM.setVisibility(8);
                     }
-                    if (this.dhY.awt().awi()) {
+                    if (this.dhY.aww().awl()) {
                         dxVar.dfT.setVisibility(8);
                     }
                     ((LinearLayout.LayoutParams) dxVar.dhy.getLayoutParams()).leftMargin = getDimensionPixelSize(t.e.ds30);
-                    if (this.dfK.avB() != null && this.dfK.avB().qV() != null) {
-                        com.baidu.tbadk.core.data.bf qV = this.dfK.avB().qV();
-                        String activityUrl = qV.getActivityUrl();
-                        String rP = qV.rP();
-                        String rQ = qV.rQ();
-                        if (!StringUtils.isNull(rQ)) {
+                    if (this.dfK.avE() != null && this.dfK.avE().qW() != null) {
+                        com.baidu.tbadk.core.data.bf qW = this.dfK.avE().qW();
+                        String activityUrl = qW.getActivityUrl();
+                        String rQ = qW.rQ();
+                        String rR = qW.rR();
+                        if (!StringUtils.isNull(rR)) {
                             dxVar.dmy.setVisibility(0);
-                            dxVar.dmy.setText(rQ);
+                            dxVar.dmy.setText(rR);
                             dxVar.dmy.setOnClickListener(new dt(this, activityUrl));
                             dxVar.dmz.setOnClickListener(new du(this, activityUrl));
-                            if (!StringUtils.isNull(rP)) {
+                            if (!StringUtils.isNull(rQ)) {
                                 dxVar.bkY.setVisibility(0);
-                                dxVar.bkY.c(rP, 10, true);
+                                dxVar.bkY.c(rQ, 10, true);
                             }
                         } else {
                             return;
@@ -398,14 +398,14 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                             dxVar.dhi.setVisibility(8);
                         }
                     }
-                    com.baidu.tbadk.data.f aTV2 = sVar.aTV();
+                    com.baidu.tbadk.data.f aUb2 = sVar.aUb();
                     dxVar.dhJ.setVisibility(8);
-                    if (aTV2 != null && !TextUtils.isEmpty(aTV2.getName()) && !TextUtils.isEmpty(aTV2.getName().trim())) {
-                        String name2 = aTV2.getName();
-                        String lat2 = aTV2.getLat();
-                        String lng2 = aTV2.getLng();
+                    if (aUb2 != null && !TextUtils.isEmpty(aUb2.getName()) && !TextUtils.isEmpty(aUb2.getName().trim())) {
+                        String name2 = aUb2.getName();
+                        String lat2 = aUb2.getLat();
+                        String lng2 = aUb2.getLng();
                         dxVar.dhM.setVisibility(0);
-                        dxVar.dhO.setText(aTV2.getName());
+                        dxVar.dhO.setText(aUb2.getName());
                         com.baidu.tbadk.core.util.at.c(dxVar.dhO, t.d.cp_link_tip_c, 1);
                         com.baidu.tbadk.core.util.at.c(dxVar.dhN, t.f.icon_pb_pin);
                         dxVar.dhM.setOnClickListener(new dv(this, lat2, lng2, name2));
@@ -419,7 +419,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     dxVar.dhu.setVisibility(0);
                     dxVar.dhz.setVisibility(0);
                     dxVar.dhr.setVisibility(0);
-                    String format = String.format(this.mContext.getString(t.j.is_floor), Integer.valueOf(sVar.aTS()));
+                    String format = String.format(this.mContext.getString(t.j.is_floor), Integer.valueOf(sVar.aTY()));
                     dxVar.dhq.setVisibility(0);
                     dxVar.dhq.setText(format);
                 }
@@ -446,7 +446,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
             sparseArray.put(t.g.tag_load_sub_data, sVar);
             sparseArray.put(t.g.tag_load_sub_view, view);
             sparseArray.put(t.g.tag_pb_floor_postion, Integer.valueOf(i));
-            sparseArray.put(t.g.tag_pb_floor_number, Integer.valueOf(sVar.aTS()));
+            sparseArray.put(t.g.tag_pb_floor_number, Integer.valueOf(sVar.aTY()));
             SparseArray sparseArray7 = (SparseArray) dxVar.dkC.getTag();
             if (sparseArray7 == null) {
                 sparseArray7 = new SparseArray();
@@ -455,18 +455,18 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
             sparseArray7.put(t.g.tag_clip_board, sVar);
             sparseArray7.put(t.g.tag_load_sub_data, sVar);
             sparseArray7.put(t.g.tag_load_sub_view, view);
-            if (sVar.aTW() > 0) {
+            if (sVar.aUc() > 0) {
                 if (this.dha == null) {
                     this.dha = new com.baidu.tieba.pb.pb.sub.an(this.mContext);
                     this.dha.setIsFromCDN(this.mIsFromCDN);
                     this.dha.J(this.dhc);
                     boolean z7 = false;
-                    String userId2 = this.dfK.avB().getAuthor().getUserId();
+                    String userId2 = this.dfK.avE().getAuthor().getUserId();
                     if (userId2 != null && userId2.equals(TbadkCoreApplication.getCurrentAccount())) {
                         z7 = true;
                     }
-                    this.dha.v(this.dfK.avH(), z7);
-                    this.dha.l(this.dfK.avB());
+                    this.dha.v(this.dfK.avK(), z7);
+                    this.dha.l(this.dfK.avE());
                     this.dha.gr(this.dfJ);
                 }
                 dxVar.dhx.setVisibility(0);
@@ -483,7 +483,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                 dxVar.dhw.setVisibility(8);
                 dxVar.dhv.setVisibility(8);
             }
-            a(dxVar, sVar, this.dfK.avK(), i);
+            a(dxVar, sVar, this.dfK.avN(), i);
             if (!z) {
                 String portrait = sVar.getAuthor().getPortrait();
                 if (sVar.getAuthor() != null) {
@@ -505,11 +505,11 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     if (level_id != 0) {
                         dxVar.dhn.setVisibility(0);
                         com.baidu.tbadk.core.util.at.c(dxVar.dhn, BitmapHelper.getGradeResourceIdNew(level_id));
-                        String aUf = sVar.aUf();
-                        if (StringUtils.isNull(aUf)) {
-                            aUf = String.format(TbadkCoreApplication.m11getInst().getString(t.j.degree_in_forum), Integer.valueOf(level_id));
+                        String aUl = sVar.aUl();
+                        if (StringUtils.isNull(aUl)) {
+                            aUl = String.format(TbadkCoreApplication.m11getInst().getString(t.j.degree_in_forum), Integer.valueOf(level_id));
                         }
-                        dxVar.dhn.setContentDescription(aUf);
+                        dxVar.dhn.setContentDescription(aUl);
                         dxVar.dhn.setOnClickListener(null);
                     } else {
                         dxVar.dhn.setVisibility(8);
@@ -551,7 +551,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     if (dxVar.bvy != null) {
                         dxVar.bvy.setTag(t.g.tag_user_id, sVar.getAuthor().getUserId());
                         dxVar.bvy.setOnClickListener(((PbActivity) this.dhY.getPageContext().getOrignalPage()).diS.bkL);
-                        dxVar.bvy.vv();
+                        dxVar.bvy.vw();
                         dxVar.bvy.a(this.dhb, i2, getDimensionPixelSize(t.e.pb_icon_width), getDimensionPixelSize(t.e.pb_icon_height), getDimensionPixelSize(t.e.pb_icon_margin));
                     }
                     if (dxVar.adH != null) {
@@ -569,7 +569,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     }
                     dxVar.dmx.c(portrait, 28, false);
                     dxVar.dmx.setUserId(sVar.getAuthor().getUserId());
-                    dxVar.dmx.af(sVar.getAuthor().getUserName(), sVar.aUe());
+                    dxVar.dmx.af(sVar.getAuthor().getUserName(), sVar.aUk());
                     dxVar.dmx.setOnClickListener(((PbActivity) this.dhY.getPageContext().getOrignalPage()).diS.dpJ);
                 } else {
                     if (this.dfJ) {
@@ -577,7 +577,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     }
                     dxVar.dmx.setVisibility(8);
                     dxVar.dhm.setUserId(sVar.getAuthor().getUserId());
-                    dxVar.dhm.af(sVar.getAuthor().getUserName(), sVar.aUe());
+                    dxVar.dhm.af(sVar.getAuthor().getUserName(), sVar.aUk());
                     dxVar.dhm.setImageDrawable(null);
                     dxVar.dhm.c(portrait, 28, false);
                 }
@@ -592,18 +592,18 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
             }
             dxVar.dfT.setIsFromCDN(this.mIsFromCDN);
             if (0 != 0) {
-                amw = null;
+                amz = null;
             } else {
-                amw = sVar.amw();
+                amz = sVar.amz();
             }
             if (this.dfP || !this.dfQ) {
-                dxVar.dfT.a(amw, false);
+                dxVar.dfT.a(amz, false);
             } else {
-                dxVar.dfT.a(amw, true);
+                dxVar.dfT.a(amz, true);
             }
             boolean z8 = false;
             boolean z9 = false;
-            if (this.dfK.avH() != 0) {
+            if (this.dfK.avK() != 0) {
                 z8 = true;
                 z9 = true;
                 String userId3 = sVar.getAuthor().getUserId();
@@ -614,8 +614,8 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     z8 = false;
                 }
             }
-            if (this.dfK != null && this.dfK.avB() != null && this.dfK.avB().getAuthor() != null && sVar.getAuthor() != null) {
-                String userId4 = this.dfK.avB().getAuthor().getUserId();
+            if (this.dfK != null && this.dfK.avE() != null && this.dfK.avE().getAuthor() != null && sVar.getAuthor() != null) {
+                String userId4 = this.dfK.avE().getAuthor().getUserId();
                 String userId5 = sVar.getAuthor().getUserId();
                 if (!StringUtils.isNull(userId4) && userId4.equals(TbadkCoreApplication.getCurrentAccount())) {
                     z3 = true;
@@ -653,13 +653,13 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     if (z) {
                         i3 = 2;
                     }
-                    if (sVar.aTS() == 1) {
+                    if (sVar.aTY() == 1) {
                         i3 = 0;
                     }
                     sparseArray.put(t.g.tag_forbid_user_post_id, sVar.getId());
                     if (!z8) {
                         sparseArray.put(t.g.tag_should_manage_visible, true);
-                        sparseArray.put(t.g.tag_manage_user_identity, Integer.valueOf(this.dfK.avH()));
+                        sparseArray.put(t.g.tag_manage_user_identity, Integer.valueOf(this.dfK.avK()));
                         sparseArray.put(t.g.tag_forbid_user_name, sVar.getAuthor().getUserName());
                     } else {
                         sparseArray.put(t.g.tag_should_manage_visible, false);
@@ -671,8 +671,8 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                             sparseArray.put(t.g.tag_user_mute_mute_userid, sVar.getAuthor().getUserId());
                             sparseArray.put(t.g.tag_user_mute_mute_username, sVar.getAuthor().getUserName());
                         }
-                        if (this.dfK.avB() != null) {
-                            sparseArray.put(t.g.tag_user_mute_thread_id, this.dfK.avB().getId());
+                        if (this.dfK.avE() != null) {
+                            sparseArray.put(t.g.tag_user_mute_thread_id, this.dfK.avE().getId());
                         }
                         sparseArray.put(t.g.tag_user_mute_post_id, sVar.getId());
                     } else {
@@ -680,7 +680,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     }
                     if (!z5) {
                         sparseArray.put(t.g.tag_should_delete_visible, true);
-                        sparseArray.put(t.g.tag_manage_user_identity, Integer.valueOf(this.dfK.avH()));
+                        sparseArray.put(t.g.tag_manage_user_identity, Integer.valueOf(this.dfK.avK()));
                         sparseArray.put(t.g.tag_del_post_is_self, Boolean.valueOf(z6));
                         sparseArray.put(t.g.tag_del_post_type, Integer.valueOf(i3));
                         sparseArray.put(t.g.tag_del_post_id, sVar.getId());
@@ -690,7 +690,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                     if (z) {
                         dxVar.dht.setVisibility(8);
                         com.baidu.tbadk.core.util.at.c(dxVar.dhC, t.d.subpb_listitem_time, 1);
-                        dxVar.dhC.setText(String.format(this.mContext.getResources().getString(t.j.write_addition_update), sVar.aTT()));
+                        dxVar.dhC.setText(String.format(this.mContext.getResources().getString(t.j.write_addition_update), sVar.aTZ()));
                         if (dxVar.dhE.getVisibility() == 0) {
                             com.baidu.tbadk.core.util.at.c(dxVar.dhE, t.d.cp_link_tip_c, 3);
                             sparseArray.put(t.g.tag_user_mute_visible, false);
@@ -698,21 +698,21 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                             dxVar.dhE.setOnClickListener(this.dhc);
                         }
                     }
-                    aUd = sVar.aUd();
-                    if (aUd.size() > 0 || (sVar.aTS() == 1 && this.dhY.awt().awi())) {
+                    aUj = sVar.aUj();
+                    if (aUj.size() > 0 || (sVar.aTY() == 1 && this.dhY.aww().awl())) {
                         dxVar.dmA.setVisibility(8);
                     } else {
-                        com.baidu.tbadk.data.b bVar = aUd.get(0);
+                        com.baidu.tbadk.data.b bVar = aUj.get(0);
                         if (!StringUtils.isNull(bVar.getIconUrl())) {
                             dxVar.dmA.setScaleType(ImageView.ScaleType.FIT_XY);
                             dxVar.dmA.c(bVar.getIconUrl(), 10, true);
                             dxVar.dmA.setVisibility(0);
-                            if (!StringUtils.isNull(bVar.At())) {
-                                dxVar.dmA.setTag(t.g.tag_pb_lottery_tail_link, bVar.At());
+                            if (!StringUtils.isNull(bVar.Au())) {
+                                dxVar.dmA.setTag(t.g.tag_pb_lottery_tail_link, bVar.Au());
                             }
                         }
                     }
-                    a(dxVar, sVar, sVar.aTS() != 1, amw);
+                    a(dxVar, sVar, sVar.aTY() != 1, amz);
                     b(dxVar);
                 }
             }
@@ -729,7 +729,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
             int i32 = 1;
             if (z) {
             }
-            if (sVar.aTS() == 1) {
+            if (sVar.aTY() == 1) {
             }
             sparseArray.put(t.g.tag_forbid_user_post_id, sVar.getId());
             if (!z8) {
@@ -740,11 +740,11 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
             }
             if (z) {
             }
-            aUd = sVar.aUd();
-            if (aUd.size() > 0) {
+            aUj = sVar.aUj();
+            if (aUj.size() > 0) {
             }
             dxVar.dmA.setVisibility(8);
-            a(dxVar, sVar, sVar.aTS() != 1, amw);
+            a(dxVar, sVar, sVar.aTY() != 1, amz);
             b(dxVar);
         }
     }
@@ -755,10 +755,10 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
     }
 
     private void a(dx dxVar, com.baidu.tieba.tbadkCore.data.s sVar, boolean z, com.baidu.tbadk.widget.richText.a aVar) {
-        if (sVar == null || sVar.aAC() == null) {
+        if (sVar == null || sVar.aAF() == null) {
             dxVar.dhP.setVisibility(8);
         } else {
-            com.baidu.tieba.pb.view.n.a(sVar.aAC(), dxVar.dhP, false, z, aVar != null && StringUtils.isNull(aVar.toString()) && StringUtils.isNull(sVar.getBimg_url()));
+            com.baidu.tieba.pb.view.n.a(sVar.aAF(), dxVar.dhP, false, z, aVar != null && StringUtils.isNull(aVar.toString()) && StringUtils.isNull(sVar.getBimg_url()));
         }
     }
 
@@ -780,13 +780,13 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
     }
 
     private void a(dx dxVar, com.baidu.tieba.tbadkCore.data.s sVar, AdditionData additionData, int i) {
-        if (sVar.aTX() > 0 && sVar.aTR() != null) {
+        if (sVar.aUd() > 0 && sVar.aTX() != null) {
             dxVar.dhB.setVisibility(0);
             dxVar.dhB.removeViews(0, dxVar.dhB.getChildCount() - 1);
-            int size = sVar.aTR().size();
-            int aTY = sVar.aTY();
-            for (int i2 = 0; i2 < aTY; i2++) {
-                com.baidu.tieba.tbadkCore.data.s sVar2 = sVar.aTR().get(i2);
+            int size = sVar.aTX().size();
+            int aUe = sVar.aUe();
+            for (int i2 = 0; i2 < aUe; i2++) {
+                com.baidu.tieba.tbadkCore.data.s sVar2 = sVar.aTX().get(i2);
                 View inflate = LayoutInflater.from(this.mContext).inflate(t.h.new_pb_list_item, (ViewGroup) dxVar.dhB, false);
                 dx dxVar2 = new dx(inflate, this.dfJ, this.dfI, this.dfH, true);
                 c(dxVar2);
@@ -813,12 +813,12 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
                 }
                 dxVar.dhB.addView(inflate, dxVar.dhB.getChildCount() - 1);
             }
-            if (aTY < size) {
+            if (aUe < size) {
                 dxVar.dhF.setVisibility(0);
                 com.baidu.tbadk.core.util.at.k(dxVar.dhH, t.d.cp_bg_line_b);
                 com.baidu.tbadk.core.util.at.k(dxVar.dhI, t.d.cp_bg_line_b);
                 com.baidu.tbadk.core.util.at.c(dxVar.dhG, t.d.cp_cont_f, 1);
-                dxVar.dhF.setOnClickListener(new dw(this, aTY, size, sVar));
+                dxVar.dhF.setOnClickListener(new dw(this, aUe, size, sVar));
                 return;
             }
             dxVar.dhF.setVisibility(8);
@@ -859,7 +859,7 @@ public class dq extends cm<com.baidu.tieba.tbadkCore.data.s, dx> implements View
         this.dfK = eVar;
     }
 
-    public void lE(int i) {
+    public void lD(int i) {
         this.dfH = i;
     }
 

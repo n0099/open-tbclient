@@ -25,7 +25,7 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public void fc(int i) {
+    public void fb(int i) {
         if (i == 1) {
             this.width = aEq;
             this.height = this.width;

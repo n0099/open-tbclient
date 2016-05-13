@@ -68,10 +68,10 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public ImageUploadResult doInBackground(String... strArr) {
-            return CL();
+            return CM();
         }
 
-        private ImageUploadResult CL() {
+        private ImageUploadResult CM() {
             a.this.atT.a(this, null);
             ImageUploadResult s = a.this.atT.s(a.this.mPath, this.atU);
             publishProgress(100);
@@ -152,7 +152,7 @@ public class a<T> {
         this.atT.setGroupId(str);
     }
 
-    public T CJ() {
+    public T CK() {
         return this.atS;
     }
 
@@ -160,9 +160,9 @@ public class a<T> {
         this.atS = t;
     }
 
-    public void CK() {
-        LocalViewSize.ImageSize tv = LocalViewSize.tt().tv();
-        LocalViewSize.ImageSize tw = LocalViewSize.tt().tw();
-        f(tw.width, tw.height, tv.width, tv.height);
+    public void CL() {
+        LocalViewSize.ImageSize tw = LocalViewSize.tu().tw();
+        LocalViewSize.ImageSize tx = LocalViewSize.tu().tx();
+        f(tx.width, tx.height, tw.width, tw.height);
     }
 }

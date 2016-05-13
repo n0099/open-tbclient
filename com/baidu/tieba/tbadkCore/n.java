@@ -21,27 +21,27 @@ public class n {
     private long erk = 0;
     private String erl = null;
 
-    public int aSz() {
+    public int aSC() {
         return this.eqY;
     }
 
-    public String aSA() {
+    public String aSD() {
         return this.eqZ;
     }
 
-    public String aSB() {
+    public String aSE() {
         return this.era;
     }
 
-    public boolean aSC() {
+    public boolean aSF() {
         return this.erj;
     }
 
-    public long aSD() {
+    public long aSG() {
         return this.erk;
     }
 
-    public String aSE() {
+    public String aSH() {
         return this.erl;
     }
 

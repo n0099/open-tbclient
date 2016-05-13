@@ -31,7 +31,7 @@ public class ak extends CustomMessageListener {
                 int i = iArr[1];
                 anVar4 = this.dgC.dgr;
                 if (i + anVar4.dgT.getHeight() < 0) {
-                    this.dgC.awe();
+                    this.dgC.awh();
                 }
             }
         }

@@ -140,7 +140,7 @@ public class an extends BaseAdapter {
         }
         aVar.dqW = (TextView) inflate.findViewById(t.g.manage_btn);
         aVar.dfT = (TbRichTextView) inflate.findViewById(t.g.new_sub_pb_list_richText);
-        aVar.dfT.Ho();
+        aVar.dfT.Hq();
         aVar.dfT.setLineSpacing(1.2f);
         aVar.dfT.setSubPbPost(true);
         aVar.dfT.setTextSize(TbConfig.getContentSizeOfLzl(this.mContext));
@@ -178,35 +178,35 @@ public class an extends BaseAdapter {
                 sparseArray.put(t.g.tag_is_subpb, true);
             }
             aVar.dfT.setLinkTextColor(at.getColor(t.d.cp_link_tip_c));
-            com.baidu.tbadk.widget.richText.a amw = sVar.amw();
-            if (amw != null) {
-                ArrayList<com.baidu.tbadk.widget.richText.c> GC = amw.GC();
-                if (GC.size() > 0) {
+            com.baidu.tbadk.widget.richText.a amz = sVar.amz();
+            if (amz != null) {
+                ArrayList<com.baidu.tbadk.widget.richText.c> GE = amz.GE();
+                if (GE.size() > 0) {
                     if (this.dqU) {
-                        com.baidu.tbadk.widget.richText.c cVar2 = GC.get(GC.size() - 1);
+                        com.baidu.tbadk.widget.richText.c cVar2 = GE.get(GE.size() - 1);
                         int type = cVar2.getType();
                         String str = "";
                         if (type == 1) {
-                            String x = (GC.size() <= 1 || GC.get(GC.size() + (-2)).getType() == type) ? "  " + ay.x(sVar.getTime()) : ay.x(sVar.getTime());
-                            SpannableStringBuilder GI = cVar2.GI();
-                            if (amw.aDN) {
-                                GI.delete(GI.length() - amw.aDO, GI.length());
+                            String x = (GE.size() <= 1 || GE.get(GE.size() + (-2)).getType() == type) ? "  " + ay.x(sVar.getTime()) : ay.x(sVar.getTime());
+                            SpannableStringBuilder GK = cVar2.GK();
+                            if (amz.aDN) {
+                                GK.delete(GK.length() - amz.aDO, GK.length());
                             }
                             str = ay.dw(x);
-                            GI.append((CharSequence) str);
-                            amw.aDN = true;
-                            amw.aDO = str.length();
+                            GK.append((CharSequence) str);
+                            amz.aDN = true;
+                            amz.aDO = str.length();
                             cVar = cVar2;
-                        } else if (amw.aDN) {
+                        } else if (amz.aDN) {
                             cVar = cVar2;
                         } else {
                             String x2 = ay.x(sVar.getTime());
                             com.baidu.tbadk.widget.richText.c cVar3 = new com.baidu.tbadk.widget.richText.c(1);
                             String dw = ay.dw(x2);
                             cVar3.append(dw);
-                            amw.aDN = true;
-                            amw.aDO = dw.length();
-                            GC.add(cVar3);
+                            amz.aDN = true;
+                            amz.aDO = dw.length();
+                            GE.add(cVar3);
                             cVar = cVar3;
                             str = dw;
                         }
@@ -215,20 +215,20 @@ public class an extends BaseAdapter {
                         } else {
                             textAppearanceSpan = new TextAppearanceSpan(this.mContext, t.k.subtext_entelechy);
                         }
-                        SpannableStringBuilder GI2 = cVar.GI();
-                        GI2.setSpan(textAppearanceSpan, GI2.length() - str.length(), GI2.length(), 33);
+                        SpannableStringBuilder GK2 = cVar.GK();
+                        GK2.setSpan(textAppearanceSpan, GK2.length() - str.length(), GK2.length(), 33);
                     } else {
-                        SpannableStringBuilder GI3 = GC.get(GC.size() - 1).GI();
-                        if (amw.aDN) {
-                            GI3.delete(GI3.length() - amw.aDO, GI3.length());
+                        SpannableStringBuilder GK3 = GE.get(GE.size() - 1).GK();
+                        if (amz.aDN) {
+                            GK3.delete(GK3.length() - amz.aDO, GK3.length());
                         }
-                        amw.aDN = false;
-                        amw.aDO = 0;
+                        amz.aDN = false;
+                        amz.aDO = 0;
                     }
                 }
                 aVar.dfT.setVoiceViewRes(t.h.voice_play_btn);
                 aVar.dfT.setIsFromCDN(this.mIsFromCDN);
-                aVar.dfT.setText(sVar.amw());
+                aVar.dfT.setText(sVar.amz());
             }
             String userId2 = sVar.getAuthor().getUserId();
             if (this.dqS != 0) {

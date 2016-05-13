@@ -34,7 +34,7 @@ public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.q
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.q qVar, a aVar) {
         aVar.ebS.d(this.DV, TbadkCoreApplication.m11getInst().getSkinType());
         aVar.ebS.a(qVar);
-        bx.Kg().a(new aw("c10718").ac("obj_id", String.valueOf(qVar.aSs)));
+        bx.Ki().a(new aw("c10718").ac("obj_id", String.valueOf(qVar.aSs)));
         return aVar.getView();
     }
 

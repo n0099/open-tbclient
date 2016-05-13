@@ -37,17 +37,17 @@ public class k implements View.OnTouchListener {
                 headImageView.setVisibility(0);
                 h hVar = this.cvU;
                 i = this.cvU.cvQ;
-                hVar.jR(i);
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b ajw = com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajw();
+                hVar.jQ(i);
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b ajy = com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajy();
                 aVar = this.cvU.cvS;
-                ajw.a(aVar);
+                ajy.a(aVar);
                 break;
             case 2:
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b ajw2 = com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajw();
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b ajy2 = com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajy();
                 point = this.cvU.cuO;
                 int rawX = ((int) motionEvent.getRawX()) + point.x;
                 point2 = this.cvU.cuO;
-                ajw2.aw(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
+                ajy2.aw(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
                 break;
         }
         return false;

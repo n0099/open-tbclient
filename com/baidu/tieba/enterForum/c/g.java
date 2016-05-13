@@ -26,52 +26,52 @@ public class g {
         this.aXs = viewEventCenter;
     }
 
-    public i MW() {
+    public i MY() {
         if (this.aYi == null) {
             return null;
         }
         return this.aYi.get();
     }
 
-    public void MX() {
+    public void MZ() {
         i iVar = new i(this.Do.getPageActivity());
         iVar.setEventCenter(this.aXs);
         this.aYi = new SoftReference<>(iVar);
     }
 
-    public int MY() {
+    public int Na() {
         return this.aYl;
     }
 
-    public List<w> DR() {
+    public List<w> DS() {
         if (this.aYl == 2) {
             if (TbadkCoreApplication.m11getInst().getSkinType() != 2) {
-                return b(this.aYk.DR(), false);
+                return b(this.aYk.DS(), false);
             }
-            return this.aYk.DR();
+            return this.aYk.DS();
         }
-        return this.aYj.DR();
+        return this.aYj.DS();
     }
 
     public void b(w wVar) {
-        List<w> DR = DR();
-        if (DR != null) {
-            DR.remove(wVar);
+        List<w> DS = DS();
+        if (DS != null) {
+            DS.remove(wVar);
             if (this.aYl == 2) {
                 if (TbadkCoreApplication.m11getInst().getSkinType() != 2) {
-                    this.aYk.z((List) b(DR, true));
+                    this.aYk.z((List) b(DS, true));
                     return;
                 } else {
-                    this.aYk.z((List) DR);
+                    this.aYk.z((List) DS);
                     return;
                 }
             }
-            this.aYj.z((List) DR);
+            this.aYj.z((List) DS);
         }
     }
 
-    public void MZ() {
-        List<w> DR = DR();
+    public void Nb() {
+        List<w> DS = DS();
         if (this.aYl == 2) {
             TiebaStatic.eventStat(this.Do.getPageActivity(), "list_switch_btn", "is_single", 1, new Object[0]);
             this.aYl = 1;
@@ -79,7 +79,7 @@ public class g {
             TiebaStatic.eventStat(this.Do.getPageActivity(), "list_switch_btn", "is_single", 0, new Object[0]);
             this.aYl = 2;
         }
-        a(this.aYl, DR);
+        a(this.aYl, DS);
     }
 
     public void a(int i, List<w> list) {
@@ -113,7 +113,7 @@ public class g {
         if (iVar != null) {
             if (this.aYl == 2) {
                 if (this.aYk == null) {
-                    Nb();
+                    Nd();
                 }
                 iVar.setGridAdapterIfNeeded(this.aYk);
                 if (TbadkCoreApplication.m11getInst().getSkinType() != 2) {
@@ -125,7 +125,7 @@ public class g {
                 return;
             }
             if (this.aYj == null) {
-                Na();
+                Nc();
             }
             iVar.setListAdapterIfNeeded(this.aYj);
             this.aYj.z((List) list);
@@ -133,12 +133,12 @@ public class g {
         }
     }
 
-    private void Na() {
+    private void Nc() {
         this.aYj = new com.baidu.tieba.enterForum.a.b(this.Do, u.class, t.h.home_like_item_in_edit_list, this.aXs);
         this.aYj.bM(false);
     }
 
-    private void Nb() {
+    private void Nd() {
         this.aYk = new com.baidu.tieba.enterForum.a.a(this.Do, m.class, t.h.home_like_item_in_edit_grid, this.aXs);
         this.aYk.bM(false);
     }

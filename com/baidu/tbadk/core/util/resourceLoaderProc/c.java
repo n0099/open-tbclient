@@ -23,7 +23,7 @@ import java.net.URLDecoder;
 public class c implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.a> {
     private int Xc;
 
-    public int uJ() {
+    public int uK() {
         return this.Xc;
     }
 
@@ -85,7 +85,7 @@ public class c implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.a> {
             return null;
         }
         boolean booleanValue = (str == null || !str.startsWith("width=")) ? Boolean.valueOf(String.valueOf(objArr[2])).booleanValue() : false;
-        String str4 = booleanValue ? str : String.valueOf(TbConfig.IMAGE_ADDRESS) + (String.valueOf(String.valueOf(str) + "&imgtype=0") + "&qulity=" + az.uf().uk());
+        String str4 = booleanValue ? str : String.valueOf(TbConfig.IMAGE_ADDRESS) + (String.valueOf(String.valueOf(str) + "&imgtype=0") + "&qulity=" + az.ug().ul());
         boolean z = false;
         if (!(TbadkCoreApplication.m11getInst().getCapabilityOfWebp() && com.baidu.adp.lib.c.e.cS().Z("webp_enable") == 1) || str4.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = str4.lastIndexOf(".jpg")) <= 0) {
             str3 = str4;
@@ -98,7 +98,7 @@ public class c implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.a> {
             aVar.lU = kVar;
         }
         byte[] l = kVar.l(str3, !booleanValue);
-        if (kVar.responseCode == 302 && (17 == uJ() || 18 == uJ() || 13 == uJ() || 14 == uJ())) {
+        if (kVar.responseCode == 302 && (17 == uK() || 18 == uK() || 13 == uK() || 14 == uK())) {
             try {
                 InputStream openRawResource = TbadkCoreApplication.m11getInst().getResources().openRawResource(t.f.img_default_delete_big2, new TypedValue());
                 l = com.baidu.adp.lib.network.a.b.b(openRawResource);
@@ -108,7 +108,7 @@ public class c implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.a> {
                 return null;
             }
         }
-        if (!kVar.uD() && kVar.responseCode != 302) {
+        if (!kVar.uE() && kVar.responseCode != 302) {
             bitmap = null;
         } else {
             Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(l);
@@ -116,7 +116,7 @@ public class c implements com.baidu.adp.lib.g.e<com.baidu.adp.widget.a.a> {
                 TiebaStatic.imgError(TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str3);
                 TbadkCoreApplication.m11getInst().incWebpFailureCount();
                 l = kVar.l(str4, !booleanValue);
-                if (l != null && kVar.uD()) {
+                if (l != null && kVar.uE()) {
                     bitmap = BitmapHelper.Bytes2Bitmap(l);
                 }
             }

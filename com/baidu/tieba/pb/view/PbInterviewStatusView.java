@@ -114,20 +114,20 @@ public class PbInterviewStatusView extends FrameLayout {
     }
 
     public void a(PbActivity pbActivity, com.baidu.tieba.pb.data.e eVar) {
-        this.NS = eVar.avB().qF().qE();
+        this.NS = eVar.avE().qF().qE();
         if (StringUtils.isNull(this.NS)) {
-            this.NS = eVar.avB().qF().getTaskId();
+            this.NS = eVar.avE().qF().getTaskId();
         }
-        this.dsm = !PbActivityConfig.FROM_INTERVIEW_LIVE.equals(pbActivity.awU());
+        this.dsm = !PbActivityConfig.FROM_INTERVIEW_LIVE.equals(pbActivity.awX());
         b(pbActivity, eVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PbActivity pbActivity, com.baidu.tieba.pb.data.e eVar) {
-        int re = eVar.avB().re();
-        switch (re) {
+        int rf = eVar.avE().rf();
+        switch (rf) {
             case 1:
-                long millis = TimeUnit.SECONDS.toMillis(eVar.avB().qF().qy()) - System.currentTimeMillis();
+                long millis = TimeUnit.SECONDS.toMillis(eVar.avE().qF().qy()) - System.currentTimeMillis();
                 if (millis > TimeUnit.SECONDS.toMillis(61L)) {
                     long millis2 = millis - TimeUnit.SECONDS.toMillis(61L);
                     this.dsj = new e(this, millis2, millis2, pbActivity, eVar).start();
@@ -170,7 +170,7 @@ public class PbInterviewStatusView extends FrameLayout {
                 at.l(this.dsg, t.d.cp_bg_line_c);
                 this.mRootView.setAlpha(0.95f);
                 setClickable(true);
-                if (re == 2) {
+                if (rf == 2) {
                     this.dsa.setText(pbActivity.getPageContext().getPageActivity().getString(t.j.interview_live_in_process));
                     if (this.dsm) {
                         W(pbActivity);

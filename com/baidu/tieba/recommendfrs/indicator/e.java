@@ -23,7 +23,7 @@ class e extends CustomMessageListener {
             jVar = this.eaC.eat;
             if (jVar != null) {
                 jVar2 = this.eaC.eat;
-                jVar2.aV(com.baidu.tieba.recommendfrs.control.a.q.aMp().dZI, intValue);
+                jVar2.aV(com.baidu.tieba.recommendfrs.control.a.q.aMs().dZI, intValue);
             }
         }
     }

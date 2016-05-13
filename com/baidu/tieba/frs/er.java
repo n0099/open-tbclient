@@ -70,7 +70,7 @@ public class er extends bw<com.baidu.tbadk.core.data.ax, ew> implements View.OnC
     }
 
     private View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ax axVar, ew ewVar) {
-        if (ewVar == null || axVar == null || axVar.qL() == null) {
+        if (ewVar == null || axVar == null || axVar.qM() == null) {
             return null;
         }
         a(i, view, axVar, ewVar);
@@ -78,7 +78,7 @@ public class er extends bw<com.baidu.tbadk.core.data.ax, ew> implements View.OnC
             com.baidu.tbadk.core.util.at.k(ewVar.bmh, t.f.frs_item_control_btn_bg);
             com.baidu.tbadk.core.util.at.c(ewVar.bmi, t.d.cp_cont_d, 1);
         }
-        if (axVar != null && !axVar.rh() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
+        if (axVar != null && !axVar.ri() && !TextUtils.isEmpty(axVar.getAddress()) && !TextUtils.isEmpty(axVar.getAddress().trim())) {
             ewVar.bji.setVisibility(0);
             ewVar.bkX.setVisibility(0);
             ewVar.bji.setText(axVar.getAddress());
@@ -126,7 +126,7 @@ public class er extends bw<com.baidu.tbadk.core.data.ax, ew> implements View.OnC
         }
         ewVar.bmj.setText(axVar.getAuthor().getName_show());
         com.baidu.tieba.tbadkCore.util.s readThreadHistory = TbadkCoreApplication.m11getInst().getReadThreadHistory();
-        if (axVar.qY() == 1) {
+        if (axVar.qZ() == 1) {
             ewVar.title.setVisibility(8);
         } else {
             ewVar.title.setVisibility(0);
@@ -139,8 +139,8 @@ public class er extends bw<com.baidu.tbadk.core.data.ax, ew> implements View.OnC
             }
         }
         StringBuffer stringBuffer = new StringBuffer();
-        if (axVar.qS() != null && axVar.qS().trim().length() > 0) {
-            stringBuffer.append(axVar.qS());
+        if (axVar.qT() != null && axVar.qT().trim().length() > 0) {
+            stringBuffer.append(axVar.qT());
         }
         ArrayList<MediaData> medias = axVar.getMedias();
         if (medias != null) {
@@ -184,11 +184,11 @@ public class er extends bw<com.baidu.tbadk.core.data.ax, ew> implements View.OnC
         } else {
             ewVar.bmn.setVisibility(8);
         }
-        long longValue = axVar.qL().total_poll.longValue();
+        long longValue = axVar.qM().total_poll.longValue();
         ewVar.bmo.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_vote_n), (Drawable) null, (Drawable) null, (Drawable) null);
         if (longValue > 0) {
             ewVar.bmo.setVisibility(0);
-            ewVar.bmo.setText(com.baidu.tbadk.core.util.ay.A(axVar.qL().total_num.longValue()));
+            ewVar.bmo.setText(com.baidu.tbadk.core.util.ay.A(axVar.qM().total_num.longValue()));
             if (ewVar.aej != this.mSkinType) {
                 com.baidu.tbadk.core.util.at.c(ewVar.bmo, t.d.cp_cont_d, 1);
             }
@@ -196,7 +196,7 @@ public class er extends bw<com.baidu.tbadk.core.data.ax, ew> implements View.OnC
             ewVar.bmo.setVisibility(8);
         }
         long j = longValue < 0 ? 0L : longValue;
-        List<PollOption> list = axVar.qL().options;
+        List<PollOption> list = axVar.qM().options;
         LinkedList linkedList = new LinkedList();
         if (list != null && list.size() > 0) {
             int i4 = 1;
@@ -221,21 +221,21 @@ public class er extends bw<com.baidu.tbadk.core.data.ax, ew> implements View.OnC
                 ewVar.bmr.setVisibility(8);
             }
         }
-        if (axVar.qL().options_count.intValue() == 0) {
+        if (axVar.qM().options_count.intValue() == 0) {
             ewVar.bms.setVisibility(8);
             ewVar.bmt.setVisibility(8);
         } else {
             String string = this.bek.getResources().getString(t.j.total_x_vote_option);
             ewVar.bms.setVisibility(0);
-            ewVar.bms.setText(String.format(string, axVar.qL().options_count));
+            ewVar.bms.setText(String.format(string, axVar.qM().options_count));
             if (ewVar.aej != this.mSkinType) {
                 com.baidu.tbadk.core.util.at.c(ewVar.bms, t.d.cp_cont_c, 1);
             }
-            if (StringUtils.isNull(axVar.qL().tips, true)) {
+            if (StringUtils.isNull(axVar.qM().tips, true)) {
                 ewVar.bmt.setVisibility(8);
             } else {
                 ewVar.bmt.setVisibility(0);
-                ewVar.bmt.setText("(" + axVar.qL().tips + ")");
+                ewVar.bmt.setText("(" + axVar.qM().tips + ")");
                 if (ewVar.aej != this.mSkinType) {
                     com.baidu.tbadk.core.util.at.c(ewVar.bmt, t.d.cp_cont_d, 1);
                 }
@@ -261,10 +261,10 @@ public class er extends bw<com.baidu.tbadk.core.data.ax, ew> implements View.OnC
             Object tag = view.getTag();
             if (tag instanceof Integer) {
                 int intValue = ((Integer) tag).intValue();
-                com.baidu.adp.widget.ListView.v at = at(intValue);
-                if (at instanceof com.baidu.tbadk.core.data.ax) {
+                com.baidu.adp.widget.ListView.v as = as(intValue);
+                if (as instanceof com.baidu.tbadk.core.data.ax) {
                     View childAt = this.bfr.getChildAt(intValue - (this.bfr.getFirstVisiblePosition() - this.bfr.getHeaderViewsCount()));
-                    this.bix.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.ax) at);
+                    this.bix.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.ax) as);
                 }
             }
         }

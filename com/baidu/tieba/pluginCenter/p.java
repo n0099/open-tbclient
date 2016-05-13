@@ -21,7 +21,7 @@ class p implements View.OnClickListener {
         pluginDownloadActivity.setResult(0);
         pluginDownloadActivity2 = PluginDownloadActivity.this;
         pluginDownloadActivity2.finish();
-        com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
-        com.baidu.tbadk.core.sharedPref.b.sQ().putLong(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
+        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
+        com.baidu.tbadk.core.sharedPref.b.sR().putLong(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
     }
 }

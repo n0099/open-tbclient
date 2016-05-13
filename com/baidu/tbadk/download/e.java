@@ -29,7 +29,7 @@ public class e {
     private e() {
     }
 
-    public static e AT() {
+    public static e AU() {
         return aoT;
     }
 
@@ -79,7 +79,7 @@ public class e {
                 } else {
                     downloadData.setStatus(5);
                     aoM.add(downloadData);
-                    AU();
+                    AV();
                     return;
                 }
             }
@@ -87,7 +87,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AU() {
+    public void AV() {
         if (aoU == null && !aoM.isEmpty()) {
             aoU = aoM.get(0);
             if (aoU != null) {
@@ -104,7 +104,7 @@ public class e {
     public void r(String str, boolean z) {
         if (aoU != null && aoU.getUrl().equals(str)) {
             if (z) {
-                this.aoV.AX();
+                this.aoV.AY();
                 return;
             } else {
                 this.aoV.cancel(true);
@@ -157,7 +157,7 @@ public class e {
         }
     }
 
-    public void eb(int i) {
+    public void ea(int i) {
         if (aoU != null && aoU.getType() == i) {
             this.aoV.cancel(true);
         }
@@ -189,7 +189,7 @@ public class e {
         a() {
         }
 
-        public void AX() {
+        public void AY() {
             if (this.LL != null) {
                 this.LL.m14do();
             }
@@ -210,7 +210,7 @@ public class e {
                 e.aoM.remove(0);
             }
             e.aoU = null;
-            e.this.AU();
+            e.this.AV();
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [384=4, 385=4, 386=4, 382=4] */
@@ -381,7 +381,7 @@ public class e {
             e.aoU = null;
             if (!e.aoM.isEmpty()) {
                 e.aoM.remove(0);
-                e.this.AU();
+                e.this.AV();
             }
         }
     }

@@ -29,13 +29,13 @@ public class p implements AdapterView.OnItemClickListener {
                 hVar2 = this.dEJ.dEA;
                 if (i < hVar2.getCount()) {
                     hVar3 = this.dEJ.dEA;
-                    PersonPostModel.PostInfoList mA = hVar3.mA(i);
-                    if (mA != null) {
-                        if (mA.thread_type == 33) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.dEJ.getActivity(), String.valueOf(mA.thread_id)).ch(String.valueOf(mA.post_id)).bp(18005).oq()));
+                    PersonPostModel.PostInfoList mz = hVar3.mz(i);
+                    if (mz != null) {
+                        if (mz.thread_type == 33) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.dEJ.getActivity(), String.valueOf(mz.thread_id)).ch(String.valueOf(mz.post_id)).bo(18005).oq()));
                             return;
                         }
-                        this.dEJ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.dEJ.getActivity()).createCfgForPersonCenter(String.valueOf(mA.thread_id), String.valueOf(mA.post_id), "person_post", 18005)));
+                        this.dEJ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.dEJ.getActivity()).createCfgForPersonCenter(String.valueOf(mz.thread_id), String.valueOf(mz.post_id), "person_post", 18005)));
                     }
                 }
             }

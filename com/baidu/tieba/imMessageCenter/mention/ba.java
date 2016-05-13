@@ -29,7 +29,7 @@ public class ba implements as.a {
                 feedData2 = this.czi.cze;
                 if (feedData2.getReplyer() != null) {
                     if (this.czi.cyh != null) {
-                        this.czi.cyh.alt();
+                        this.czi.cyh.alv();
                     }
                     pVar3 = this.czi.czd;
                     feedData3 = this.czi.cze;
@@ -38,7 +38,7 @@ public class ba implements as.a {
                 }
             }
             if (this.czi.cyh != null) {
-                this.czi.cyh.alt();
+                this.czi.cyh.alv();
             }
             pVar2 = this.czi.czd;
             pVar2.fC(null);

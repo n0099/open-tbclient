@@ -22,7 +22,7 @@ public class e implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         TextView textView5;
-        if (!this.aHY.aHQ.HY()) {
+        if (!this.aHY.aHQ.Ia()) {
             this.aHY.aHQ.setEditState(true);
             textView3 = this.aHY.aHS;
             textView3.setText(t.j.done);

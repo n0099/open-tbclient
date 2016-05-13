@@ -26,7 +26,7 @@ class am implements c.InterfaceC0053c {
                 fVar = this.djE.diy;
                 if (fVar != null) {
                     elVar2 = this.djE.diR;
-                    elVar2.azA();
+                    elVar2.azD();
                     fVar2 = this.djE.diy;
                     fVar2.cX(false);
                     fVar3 = this.djE.diy;
@@ -54,15 +54,15 @@ class am implements c.InterfaceC0053c {
                     fVar2.cX(true);
                     if (Math.abs(i2) > this.bhm) {
                         elVar4 = this.djE.diR;
-                        elVar4.azz();
+                        elVar4.azC();
                         fVar3 = this.djE.diy;
                         fVar3.RR();
                     }
-                    if (this.djE.awM()) {
+                    if (this.djE.awP()) {
                         elVar2 = this.djE.diR;
-                        elVar2.ayN();
+                        elVar2.ayQ();
                         elVar3 = this.djE.diR;
-                        elVar3.ayO();
+                        elVar3.ayR();
                     }
                 }
             }

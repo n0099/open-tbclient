@@ -38,8 +38,8 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.Cy() != null) {
-            b.Cz().a(this.mData.Cy());
+        if (this.mData != null && this.mData.Cz() != null) {
+            b.CA().a(this.mData.Cz());
         } else {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED));
         }

@@ -146,7 +146,7 @@ public class k extends BaseAdapter {
         this.aId = z;
     }
 
-    public boolean HY() {
+    public boolean Ia() {
         return this.aId;
     }
 

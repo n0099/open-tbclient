@@ -27,7 +27,7 @@ public class v implements TextView.OnEditorActionListener {
                 this.cMQ.C(1, this.cMQ.cMj);
                 return true;
             }
-            this.cMQ.aoI();
+            this.cMQ.aoL();
             return true;
         }
         return false;

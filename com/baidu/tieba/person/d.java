@@ -16,9 +16,9 @@ public class d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
-        this.duv.coQ = com.baidu.tbadk.core.a.h.bo(this.duv.aBn()) % 3;
+        this.duv.coQ = com.baidu.tbadk.core.a.h.bn(this.duv.aBq()) % 3;
         String str = "";
-        switch (this.duv.aBn()) {
+        switch (this.duv.aBq()) {
             case 2:
                 str = "like";
                 break;

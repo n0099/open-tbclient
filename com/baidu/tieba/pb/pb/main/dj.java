@@ -18,7 +18,7 @@ public class dj implements TbRichTextView.e {
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
     public void b(View view, String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.core.util.bg.us().c(this.dmm.dhY.getPageContext(), new String[]{str});
+            com.baidu.tbadk.core.util.bg.ut().c(this.dmm.dhY.getPageContext(), new String[]{str});
         }
     }
 }

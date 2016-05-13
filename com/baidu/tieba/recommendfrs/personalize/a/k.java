@@ -24,17 +24,17 @@ public class k implements by {
         am amVar2;
         am amVar3;
         com.baidu.tieba.recommendfrs.control.a.f fVar2;
-        bx.Kg().ci(true);
+        bx.Ki().ci(true);
         amVar = this.ebm.ebl;
         if (amVar != null && view != null && bVar != null && (bVar instanceof com.baidu.tieba.card.a.n)) {
             fVar = this.ebm.ebi;
             if (fVar != null) {
                 com.baidu.tieba.card.a.n nVar = (com.baidu.tieba.card.a.n) bVar;
                 if (nVar.aRZ != null) {
-                    if ((view.getTag() instanceof String) && nVar.Kl() != null && nVar.Kl().getId() != null && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L))) {
-                        com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L));
+                    if ((view.getTag() instanceof String) && nVar.Kn() != null && nVar.Kn().getId() != null && !com.baidu.tieba.recommendfrs.e.bR(com.baidu.adp.lib.h.b.c(nVar.Kn().getTid(), 0L))) {
+                        com.baidu.tieba.recommendfrs.e.bQ(com.baidu.adp.lib.h.b.c(nVar.Kn().getTid(), 0L));
                         fVar2 = this.ebm.ebi;
-                        fVar2.a(com.baidu.adp.lib.h.b.c(nVar.Kl().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.Kh(), nVar.Kj(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
+                        fVar2.a(com.baidu.adp.lib.h.b.c(nVar.Kn().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.Kj(), nVar.Kl(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
                     }
                     if (view instanceof TbImageView) {
                         TiebaStatic.log(new aw("c11004").ac("tid", nVar.aRZ.getTid()));

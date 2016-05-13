@@ -43,7 +43,7 @@ class cb implements Runnable {
         list2 = byVar2.biJ;
         if (list2.size() > 0) {
             byVar4 = this.biN.biM;
-            byVar4.uP();
+            byVar4.uQ();
             return;
         }
         byVar3 = this.biN.biM;

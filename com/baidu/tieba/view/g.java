@@ -10,17 +10,17 @@ import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class g extends RelativeLayout implements View.OnClickListener {
     private HeadImageView bip;
-    private ImageView eWq;
+    private ImageView eWp;
 
     public g(Context context) {
         super(context);
         this.bip = new HeadImageView(context);
-        this.eWq = new ImageView(context);
+        this.eWp = new ImageView(context);
         addView(this.bip);
-        addView(this.eWq);
-        ((RelativeLayout.LayoutParams) this.eWq.getLayoutParams()).addRule(12);
-        ((RelativeLayout.LayoutParams) this.eWq.getLayoutParams()).addRule(11);
-        at.c(this.eWq, t.f.profit_lock);
+        addView(this.eWp);
+        ((RelativeLayout.LayoutParams) this.eWp.getLayoutParams()).addRule(12);
+        ((RelativeLayout.LayoutParams) this.eWp.getLayoutParams()).addRule(11);
+        at.c(this.eWp, t.f.profit_lock);
         this.bip.setAlpha(0.3f);
     }
 
@@ -35,8 +35,8 @@ public class g extends RelativeLayout implements View.OnClickListener {
     }
 
     public void bn(int i, int i2) {
-        this.eWq.getLayoutParams().height = i2;
-        this.eWq.getLayoutParams().width = i;
+        this.eWp.getLayoutParams().height = i2;
+        this.eWp.getLayoutParams().width = i;
     }
 
     public HeadImageView getIcon() {
@@ -44,7 +44,7 @@ public class g extends RelativeLayout implements View.OnClickListener {
     }
 
     public ImageView getLock() {
-        return this.eWq;
+        return this.eWp;
     }
 
     @Override // android.view.View.OnClickListener

@@ -19,10 +19,10 @@ public class aa extends Handler {
     public void handleMessage(Message message) {
         switch (message.what) {
             case 202:
-                this.aQe.JU();
+                this.aQe.JW();
                 return;
             case 203:
-                this.aQe.JV();
+                this.aQe.JX();
                 return;
             default:
                 return;

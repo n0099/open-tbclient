@@ -14,14 +14,14 @@ public class u extends com.baidu.tbadk.editortools.emotiontool.c {
 
     private void init() {
         super.setCols(7);
-        super.em(3);
+        super.el(3);
         com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkCoreApplication.m11getInst().getApp().getResources(), t.f.icon_face_original_s), false);
         super.d(aVar);
         super.c(aVar);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String el(int i) {
+    public String ek(int i) {
         int i2;
         if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.aqs.size()) {
             i2 = 0;
@@ -62,7 +62,7 @@ public class u extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType Bv() {
+    public EmotionGroupType Bw() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -87,7 +87,7 @@ public class u extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean Bu() {
+    public boolean Bv() {
         return true;
     }
 }

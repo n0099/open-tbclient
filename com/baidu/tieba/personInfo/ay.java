@@ -13,6 +13,6 @@ public class ay implements Runnable {
     public void run() {
         bg bgVar;
         bgVar = this.this$0.dyP;
-        bgVar.aDF();
+        bgVar.aDI();
     }
 }

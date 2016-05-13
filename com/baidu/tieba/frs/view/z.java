@@ -21,7 +21,7 @@ public class z implements View.OnClickListener {
         aVar = this.bwN.bwJ;
         if (aVar != null) {
             aVar2 = this.bwN.bwJ;
-            aVar2.gl(this.bwO.bwP);
+            aVar2.gk(this.bwO.bwP);
         }
         this.bwN.dismiss();
     }

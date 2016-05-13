@@ -65,7 +65,7 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener {
         this.mPullView.a(new o(this));
         this.dEz.setOnScrollListener(this);
         this.dEC = new PbListView(getActivity());
-        this.dEC.cR(t.d.transparent);
+        this.dEC.cQ(t.d.transparent);
         this.dEC.setTextColor(at.getColor(t.d.pb_more_txt));
         this.dEz.setNextPage(this.dEC);
         this.dED = this.dEC.getView().findViewById(t.g.pb_more_view);
@@ -112,11 +112,11 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener {
     public void onDestroy() {
         super.onDestroy();
         if (this.dEA != null) {
-            this.dEA.aCR();
+            this.dEA.aCU();
         }
     }
 
-    private void Nf() {
+    private void Nh() {
         this.dEA = new h(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
         this.dEA.a(this.dEr);
         this.dEA.hr(true);
@@ -126,7 +126,7 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener {
 
     public void onActive() {
         if (!this.dEB) {
-            Nf();
+            Nh();
             this.dEB = true;
         }
     }
@@ -142,9 +142,9 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener {
                 at.k(this.mNoDataView, t.d.cp_bg_line_d);
             }
             if (this.dEC != null) {
-                this.dEC.cS(i);
+                this.dEC.cR(i);
             }
-            this.mPullView.cS(i);
+            this.mPullView.cR(i);
         }
     }
 
@@ -158,7 +158,7 @@ public class k extends BaseFragment implements AbsListView.OnScrollListener {
             this.dEF = i3;
             this.dEA.hr(false);
             this.dED.setVisibility(0);
-            this.dEC.vg();
+            this.dEC.vh();
         }
     }
 

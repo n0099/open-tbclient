@@ -20,7 +20,7 @@ public class u extends HttpMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        int nW;
+        int nV;
         PostSearchActivity postSearchActivity;
         PostSearchActivity postSearchActivity2;
         PostSearchActivity postSearchActivity3;
@@ -30,16 +30,16 @@ public class u extends HttpMessageListener {
         if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
             HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
             int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
-            this.dVD.nX(intValue);
-            nW = this.dVD.nW(intValue);
-            boolean z = nW > 1;
+            this.dVD.nW(intValue);
+            nV = this.dVD.nV(intValue);
+            boolean z = nV > 1;
             PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
             if (statusCode == 200 && error == 0) {
                 postSearchActivity4 = this.dVD.dUY;
                 postSearchActivity4.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
-                this.dVD.nV(intValue);
-                this.dVD.aKP();
+                this.dVD.nU(intValue);
                 this.dVD.aKS();
+                this.dVD.aKV();
                 return;
             }
             String errorString = postSearchHttpResponseMessage.getErrorString();

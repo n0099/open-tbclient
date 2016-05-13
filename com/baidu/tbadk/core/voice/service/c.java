@@ -49,11 +49,11 @@ public class c {
         if (cO == null) {
             cO = new com.baidu.tbadk.coreExtra.data.c();
             cO.setMd5(d);
-            cO.dj(0);
+            cO.di(0);
             cO.M(file.length());
         }
         this.aeJ = new a(str, cO, String.valueOf(TbConfig.SERVER_ADDRESS) + this.aeL, d);
-        this.aeK = this.aeJ.vZ();
+        this.aeK = this.aeJ.wa();
         if (this.aeK.isSuccess() && (a2 = a(d, cO)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
@@ -79,17 +79,17 @@ public class c {
                 }
             }
         }
-        String tc = this.aeI.tc();
-        if (tc == null || !this.aeI.tA().uv().nZ()) {
-            cVar.dj((int) L(cVar.getTotalLength()));
+        String td = this.aeI.td();
+        if (td == null || !this.aeI.tB().uw().nZ()) {
+            cVar.di((int) L(cVar.getTotalLength()));
             com.baidu.tbadk.core.util.d.a(cVar);
-            this.aeK.setErrorCode(this.aeI.tE());
+            this.aeK.setErrorCode(this.aeI.tF());
             this.aeK.setErrorString(this.aeI.getErrorString());
             this.aeK.av(false);
             return null;
         }
         com.baidu.tbadk.core.util.d.cN(str);
-        return tc;
+        return td;
     }
 
     private long L(long j) {
@@ -117,20 +117,20 @@ public class c {
             this.mVoiceMd5 = str3;
         }
 
-        public com.baidu.tbadk.coreExtra.data.d vZ() {
+        public com.baidu.tbadk.coreExtra.data.d wa() {
             com.baidu.tbadk.coreExtra.data.d dVar = new com.baidu.tbadk.coreExtra.data.d();
             long totalLength = this.aeO.getTotalLength();
             long j = totalLength % 30720 == 0 ? totalLength / 30720 : (totalLength / 30720) + 1;
-            int ws = this.aeO.ws();
-            if (ws < j) {
+            int wt = this.aeO.wt();
+            if (wt < j) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
-                if (randomAccessFile.skipBytes(ws * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) < ws * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
+                if (randomAccessFile.skipBytes(wt * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) < wt * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
                     dVar.av(false);
                     randomAccessFile.close();
                     return dVar;
                 }
                 while (true) {
-                    int i = ws;
+                    int i = wt;
                     if (i < j) {
                         int i2 = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
                         if (i == j - 1) {
@@ -151,21 +151,21 @@ public class c {
                             boolean z = false;
                             if (this.aeP) {
                                 z = true;
-                            } else if (this.LL.tf() == null || !this.LL.tA().uv().nZ()) {
-                                this.aeO.dj(i);
+                            } else if (this.LL.tg() == null || !this.LL.tB().uw().nZ()) {
+                                this.aeO.di(i);
                                 com.baidu.tbadk.core.util.d.a(this.aeO);
                                 randomAccessFile.close();
                                 z = true;
                             }
                             if (z) {
-                                dVar.setErrorCode(this.LL.tE());
+                                dVar.setErrorCode(this.LL.tF());
                                 dVar.setErrorString(this.LL.getErrorString());
                                 dVar.b(this.aeO);
                                 dVar.av(false);
                                 return dVar;
                             }
                         }
-                        ws = i + 1;
+                        wt = i + 1;
                     } else {
                         randomAccessFile.close();
                         break;

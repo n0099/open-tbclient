@@ -100,16 +100,16 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_home_page_zhibo_item;
     }
 
     public void a(com.baidu.tbadk.core.data.ag agVar) {
         this.bpN = agVar;
-        JW();
+        JY();
     }
 
-    private void JW() {
+    private void JY() {
         String string;
         boolean z;
         if (this.bpN == null) {
@@ -150,7 +150,7 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
         this.bpO.aQK.setText(String.valueOf(fansNickName) + ": " + ay.A(this.bpN.getAuthor().getFansNum()));
         this.bpO.aQM.setData(this.bpN);
         this.bpO.aQM.setForumAfterClickListener(this.aQF);
-        this.bpO.aQM.setStType(com.baidu.tieba.card.au.Kb());
+        this.bpO.aQM.setStType(com.baidu.tieba.card.au.Kd());
         d(this.DV, TbadkCoreApplication.m11getInst().getSkinType());
         if (com.baidu.tbadk.core.l.ob().oh() && this.bpN.getPhotoLiveCover() != null && this.bpN.getPhotoLiveCover().length() != 0) {
             this.bpO.aQL.setVisibility(0);
@@ -162,9 +162,9 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
             this.bpO.bpR.setVisibility(8);
             this.bpO.bpS.setVisibility(8);
             this.bpO.bpT.setVisibility(8);
-            String qS = this.bpN.qS();
-            this.bpO.bpQ.setText(qS);
-            this.bpO.bpQ.setVisibility(StringUtils.isNull(qS) ? 8 : 0);
+            String qT = this.bpN.qT();
+            this.bpO.bpQ.setText(qT);
+            this.bpO.bpQ.setVisibility(StringUtils.isNull(qT) ? 8 : 0);
         }
         com.baidu.tbadk.core.util.at.c(this.bpO.aQK, t.d.cp_cont_d, 1);
         if (com.baidu.tieba.card.au.hc(this.bpN.getTid())) {
@@ -179,21 +179,21 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.bpO.mRootView || view == this.bpO.aQM.getCommentNumView()) {
-            if (JM() != null) {
-                JM().a(this.bpO.mRootView, this.bpN);
+            if (JO() != null) {
+                JO().a(this.bpO.mRootView, this.bpN);
             }
-            Ke();
+            Kg();
         }
     }
 
-    private void Ke() {
+    private void Kg() {
         if (this.bpN != null) {
             com.baidu.tieba.card.au.hb(this.bpN.getTid());
-            if (!Kf()) {
+            if (!Kh()) {
                 UtilHelper.showToast(this.DV.getPageActivity(), t.j.plugin_config_not_found);
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.DV.getPageActivity(), this.bpN.getTid()).cj("from_frs").bp(18003).oq()));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.DV.getPageActivity(), this.bpN.getTid()).cj("from_frs").bo(18003).oq()));
             hd(this.bpN.getTid());
         }
     }
@@ -205,15 +205,15 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.i.a.a(tbPageContext, this.bpO.mRootView);
-            this.bpO.aQp.sf();
-            this.bpO.aQM.sf();
+            this.bpO.aQp.sg();
+            this.bpO.aQM.sg();
             com.baidu.tbadk.core.util.at.l(this.bpO.aQI, t.d.cp_bg_line_c);
             com.baidu.tbadk.core.util.at.k(this.bpO.mRootView, t.f.addresslist_item_bg);
             this.mSkinType = i;
         }
     }
 
-    private boolean Kf() {
+    private boolean Kh() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class);
     }
 
@@ -226,20 +226,20 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
 
     private void b(com.baidu.tbadk.core.data.ag agVar) {
         this.alH.clear();
-        zG();
-        if (agVar != null && agVar.rb() != null) {
-            int size = agVar.rb().size();
+        zH();
+        if (agVar != null && agVar.rc() != null) {
+            int size = agVar.rc().size();
             for (int i = 0; i < size && i < 3; i++) {
                 int intValue = agVar.getShowExpressionViewIndex().get(i).intValue();
                 if (intValue >= 0) {
-                    a(intValue, agVar.rb(), i);
+                    a(intValue, agVar.rc(), i);
                 }
             }
-            zF();
+            zG();
         }
     }
 
-    private void zG() {
+    private void zH() {
         this.bpO.bpR.setText("");
         this.bpO.bpS.setText("");
         this.bpO.bpT.setText("");
@@ -257,7 +257,7 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
         this.alH.add(Integer.valueOf(this.bpO.bpT.getId()));
     }
 
-    private void zF() {
+    private void zG() {
         if (this.alH.size() != 0) {
             int size = this.alH.size();
             for (int i = 0; i < size; i++) {
@@ -308,8 +308,8 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(nVar.ak(nVar.getLabelName(), String.valueOf(nVar.zr())));
-            dR(textView.getId());
+            textView.setText(nVar.ak(nVar.getLabelName(), String.valueOf(nVar.zs())));
+            dQ(textView.getId());
         }
     }
 
@@ -325,7 +325,7 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
         return (nVar == null || StringUtils.isNull(nVar.getLabelName())) ? false : true;
     }
 
-    private void dR(int i) {
+    private void dQ(int i) {
         if (this.alH.size() != 0) {
             int size = this.alH.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -344,10 +344,10 @@ public class af extends com.baidu.tieba.card.a<com.baidu.tbadk.core.data.ag> {
         String string = this.DV.getResources().getString(t.j.recommend_live_title_prefix);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(string) + " " + ((Object) charSequence));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.at.getColor(t.d.cp_link_tip_a)), 0, string.length(), 17);
-        Bitmap cA = com.baidu.tbadk.core.util.at.cA(t.f.pic_dot_title);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cA);
-        if (cA != null) {
-            bitmapDrawable.setBounds(0, 0, cA.getWidth(), cA.getHeight());
+        Bitmap cz = com.baidu.tbadk.core.util.at.cz(t.f.pic_dot_title);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cz);
+        if (cz != null) {
+            bitmapDrawable.setBounds(0, 0, cz.getWidth(), cz.getHeight());
         }
         spannableStringBuilder.setSpan(new com.baidu.tbadk.core.view.ah(bitmapDrawable), string.length(), string.length() + 1, 33);
         return spannableStringBuilder;

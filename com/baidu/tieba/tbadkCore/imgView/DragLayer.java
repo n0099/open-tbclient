@@ -55,7 +55,7 @@ public class DragLayer extends FrameLayout {
         return this.euI;
     }
 
-    public void aUx() {
+    public void aUD() {
         if (this.euI != null) {
             if (this.euI.aBB != null) {
                 this.euI.aBB.recycle();
@@ -81,6 +81,6 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aUx();
+        aUD();
     }
 }

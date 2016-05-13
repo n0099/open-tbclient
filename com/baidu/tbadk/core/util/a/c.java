@@ -11,7 +11,7 @@ public class c {
     public boolean hO = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean tD() {
+    public boolean tE() {
         return this.lE == 200;
     }
 

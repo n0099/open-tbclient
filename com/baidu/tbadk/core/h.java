@@ -26,15 +26,15 @@ public class h {
     }
 
     protected String getResult() {
-        String tc = this.LL.tc();
+        String td = this.LL.td();
         this.LM = new NewErrorData();
-        this.LM.parserJson(tc);
-        return tc;
+        this.LM.parserJson(td);
+        return td;
     }
 
     public boolean nZ() {
         if (this.LL != null) {
-            return this.LL.tA().uv().nZ();
+            return this.LL.tB().uw().nZ();
         }
         return false;
     }

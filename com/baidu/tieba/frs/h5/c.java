@@ -22,9 +22,9 @@ public class c implements BaseWebView.b {
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         BaseActivity baseActivity;
-        bg us = bg.us();
+        bg ut = bg.ut();
         baseActivity = this.brz.bek;
-        us.a(baseActivity.getPageContext(), new String[]{str}, true);
+        ut.a(baseActivity.getPageContext(), new String[]{str}, true);
         if (this.brA != null && !TextUtils.isEmpty(this.brA.stType)) {
             TiebaStatic.log(new aw("c10335").ac("obj_name", this.brA.stType));
         }

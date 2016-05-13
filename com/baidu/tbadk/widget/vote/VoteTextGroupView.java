@@ -68,7 +68,7 @@ public class VoteTextGroupView extends LinearLayout {
                     bVar.aGr = inflate.findViewById(t.g.v_line);
                     bVar.aGq.setClickable(false);
                     inflate.setTag(bVar);
-                    bVar.aGp.setText(UtilHelper.getFixedText(aVar.Hu(), 15, false));
+                    bVar.aGp.setText(UtilHelper.getFixedText(aVar.Hw(), 15, false));
                     bVar.aGq.setChecked(aVar.isSelected());
                     bVar.aGo.setOnClickListener(new a(aVar, i));
                     a(TbadkCoreApplication.m11getInst().getSkinType(), bVar);

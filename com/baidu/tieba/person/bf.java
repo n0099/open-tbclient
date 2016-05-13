@@ -21,7 +21,7 @@ class bf implements BdListView.e {
             bhVar = this.dwQ.dwI;
             ayVar.pageNum = bhVar.getData().getPage().pI() + 1;
             this.dwQ.dwM = true;
-            this.dwQ.atN();
+            this.dwQ.atQ();
         }
     }
 }

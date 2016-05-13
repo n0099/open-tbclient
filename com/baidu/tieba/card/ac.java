@@ -16,10 +16,10 @@ public class ac implements View.OnClickListener {
         com.baidu.tieba.card.a.n nVar;
         com.baidu.tieba.card.a.n nVar2;
         nVar = this.aQe.aPR;
-        if (nVar != null && this.aQe.JM() != null) {
-            by<com.baidu.tieba.card.a.n> JM = this.aQe.JM();
+        if (nVar != null && this.aQe.JO() != null) {
+            by<com.baidu.tieba.card.a.n> JO = this.aQe.JO();
             nVar2 = this.aQe.aPR;
-            JM.a(view, nVar2);
+            JO.a(view, nVar2);
         }
     }
 }

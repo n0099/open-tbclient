@@ -13,7 +13,7 @@ public class bf {
     private long end_time;
     private long start_time;
 
-    public String rP() {
+    public String rQ() {
         return this.activity_banner;
     }
 
@@ -21,7 +21,7 @@ public class bf {
         return this.activity_url;
     }
 
-    public String rQ() {
+    public String rR() {
         return this.activity_button;
     }
 

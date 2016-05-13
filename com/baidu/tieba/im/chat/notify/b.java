@@ -55,7 +55,7 @@ public abstract class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iR */
+    /* renamed from: iQ */
     public ImMessageCenterShowItemData getItem(int i) {
         if (this.mList == null || this.mList.size() == 0 || i < 0 || i >= getCount()) {
             return null;
@@ -161,7 +161,7 @@ public abstract class b extends BaseAdapter {
         if (unReadCount > 0) {
             aVar.cba.setVisibility(0);
             String valueOf = unReadCount > 99 ? "..." : String.valueOf(unReadCount);
-            if (c.xF().xI() == 0) {
+            if (c.xG().xJ() == 0) {
                 valueOf = "";
                 unReadCount = 0;
             } else {
@@ -198,7 +198,7 @@ public abstract class b extends BaseAdapter {
         at.c(aVar.cba, t.d.frs_slidebar_message_text, 1);
     }
 
-    public boolean acA() {
+    public boolean acC() {
         return this.caW;
     }
 

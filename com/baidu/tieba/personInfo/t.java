@@ -20,7 +20,7 @@ public class t extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         int g;
         bg bgVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.g) && (g = com.baidu.adp.lib.h.b.g(((com.baidu.tieba.tbadkCore.data.g) customResponsedMessage.getData()).aTr(), 0)) > 0) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.g) && (g = com.baidu.adp.lib.h.b.g(((com.baidu.tieba.tbadkCore.data.g) customResponsedMessage.getData()).aTx(), 0)) > 0) {
             bgVar = this.this$0.dyP;
             UserData userData = bgVar.getUserData();
             if (userData != null) {

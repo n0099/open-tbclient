@@ -73,7 +73,7 @@ public class a implements d {
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public void onChangeSkinType(int i) {
         if (this.bpk != null) {
-            this.bpk.vl();
+            this.bpk.vm();
         }
         if (this.bpl != null) {
             this.bpl.onChangeSkinType(i);
@@ -118,12 +118,12 @@ public class a implements d {
     public void a(BdListView bdListView, o oVar) {
         boolean z;
         URI uri;
-        if (oVar != null && oVar.aSy() != null && oVar.aSy().tab != null) {
-            this.bpl.setData(oVar.aSy().menu);
+        if (oVar != null && oVar.aSB() != null && oVar.aSB().tab != null) {
+            this.bpl.setData(oVar.aSB().menu);
             this.bpp = oVar;
             c(oVar);
             this.bpo = new TabData();
-            for (FrsTabInfo frsTabInfo : oVar.aSy().tab) {
+            for (FrsTabInfo frsTabInfo : oVar.aSB().tab) {
                 if (frsTabInfo != null && frsTabInfo.tab_id.intValue() > 0 && !TextUtils.isEmpty(frsTabInfo.tab_name) && !TextUtils.isEmpty(frsTabInfo.tab_name.trim()) && (frsTabInfo.tab_type.intValue() == 1 || frsTabInfo.tab_type.intValue() == 0 || frsTabInfo.tab_type.intValue() == 11)) {
                     if (frsTabInfo.tab_id.intValue() != 3 && frsTabInfo.tab_id.intValue() != 4 && frsTabInfo.tab_id.intValue() != 2) {
                         i iVar = new i();
@@ -138,7 +138,7 @@ public class a implements d {
                                 sb.append("&");
                                 sb.append("fid");
                                 sb.append("=");
-                                sb.append(oVar.avA().getId());
+                                sb.append(oVar.avD().getId());
                                 iVar.url = sb.toString();
                                 if (!TextUtils.isEmpty(iVar.url)) {
                                 }
@@ -153,7 +153,7 @@ public class a implements d {
                             }
                         } else if (frsTabInfo.tab_type.intValue() != 0 || frsTabInfo.tab_id.intValue() < 100) {
                             if (frsTabInfo.tab_type.intValue() != 1 || frsTabInfo.tab_id.intValue() >= 100) {
-                                if (frsTabInfo.tab_type.intValue() == 11 && !HorizontalTabView.gM(frsTabInfo.tab_id.intValue())) {
+                                if (frsTabInfo.tab_type.intValue() == 11 && !HorizontalTabView.gL(frsTabInfo.tab_id.intValue())) {
                                 }
                                 if (!TextUtils.isEmpty(iVar.url)) {
                                     try {
@@ -171,7 +171,7 @@ public class a implements d {
                                 }
                                 iVar.aYo = frsTabInfo.tab_id.intValue();
                                 iVar.name = frsTabInfo.tab_name;
-                                if (frsTabInfo.tab_type.intValue() != 11 && HorizontalTabView.gM(frsTabInfo.tab_id.intValue())) {
+                                if (frsTabInfo.tab_type.intValue() != 11 && HorizontalTabView.gL(frsTabInfo.tab_id.intValue())) {
                                     iVar.url = frsTabInfo.tab_url;
                                     if (Static.bW(iVar.url)) {
                                         if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null) {
@@ -180,14 +180,14 @@ public class a implements d {
                                     } else {
                                         this.bpo.add(iVar);
                                     }
-                                } else if (frsTabInfo.tab_id.intValue() == 1 && eq.RD().gw(frsTabInfo.tab_id.intValue())) {
-                                    eo gt = en.RC().gt(iVar.aYo);
-                                    if (gt != null && gt.bmd != null && gt.bmd.size() > 0) {
+                                } else if (frsTabInfo.tab_id.intValue() == 1 && eq.RD().gv(frsTabInfo.tab_id.intValue())) {
+                                    eo gs = en.RC().gs(iVar.aYo);
+                                    if (gs != null && gs.bmd != null && gs.bmd.size() > 0) {
                                         iVar.bsW = new fu();
-                                        iVar.bsW.bmc = gt.bmc;
+                                        iVar.bsW.bmc = gs.bmc;
                                         iVar.bsW.bmd = new LinkedList();
                                         boolean z2 = true;
-                                        for (em emVar : gt.bmd) {
+                                        for (em emVar : gs.bmd) {
                                             if (emVar != null) {
                                                 ft ftVar = new ft();
                                                 ftVar.name = emVar.name;
@@ -205,12 +205,12 @@ public class a implements d {
                                     }
                                     this.bpo.add(iVar);
                                 } else if (frsTabInfo.tab_id.intValue() == 1) {
-                                    eo gt2 = en.RC().gt(iVar.aYo);
-                                    if (gt2 != null && gt2.bmd != null && gt2.bmd.size() > 0) {
+                                    eo gs2 = en.RC().gs(iVar.aYo);
+                                    if (gs2 != null && gs2.bmd != null && gs2.bmd.size() > 0) {
                                         iVar.bsW = new fu();
-                                        iVar.bsW.bmc = gt2.bmc;
+                                        iVar.bsW.bmc = gs2.bmc;
                                         iVar.bsW.bmd = new LinkedList();
-                                        for (em emVar2 : gt2.bmd) {
+                                        for (em emVar2 : gs2.bmd) {
                                             if (emVar2 != null) {
                                                 ft ftVar2 = new ft();
                                                 ftVar2.name = emVar2.name;
@@ -226,7 +226,7 @@ public class a implements d {
                     }
                 }
             }
-            this.bpk.c(this.bpo, oVar.aSu(), 4);
+            this.bpk.c(this.bpo, oVar.aSx(), 4);
             if (!this.bpn) {
                 b(bdListView, bdListView.getHeaderViewsCount());
             }
@@ -250,22 +250,22 @@ public class a implements d {
     }
 
     private void c(o oVar) {
-        if (oVar == null || oVar.aSr() == null || oVar.aSr().size() == 0) {
+        if (oVar == null || oVar.aSu() == null || oVar.aSu().size() == 0) {
             en.RC().a(1, null);
             return;
         }
-        List<CategoryInfo> aSr = oVar.aSr();
+        List<CategoryInfo> aSu = oVar.aSu();
         eo eoVar = new eo();
         eoVar.bmc = 1;
         ArrayList arrayList = new ArrayList();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < aSr.size()) {
-                if (aSr.get(i2) != null) {
+            if (i2 < aSu.size()) {
+                if (aSu.get(i2) != null) {
                     em emVar = new em();
-                    emVar.blZ = aSr.get(i2).category_id.intValue();
-                    emVar.name = aSr.get(i2).category_name;
+                    emVar.blZ = aSu.get(i2).category_id.intValue();
+                    emVar.name = aSu.get(i2).category_name;
                     arrayList.add(emVar);
                 }
                 i = i2 + 1;

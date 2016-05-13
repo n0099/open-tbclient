@@ -21,38 +21,38 @@ public class y extends HttpMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonBarActivity aBC;
+        PersonBarActivity aBF;
         String str;
-        PersonBarActivity aBC2;
+        PersonBarActivity aBF2;
         boolean z;
         String str2;
         String str3;
         af afVar;
         af afVar2;
-        PersonBarActivity aBC3;
+        PersonBarActivity aBF3;
         String str4;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
-            aBC = this.dvP.aBC();
-            if (aBC != null) {
+            aBF = this.dvP.aBF();
+            if (aBF != null) {
                 if (this.dvP.dvy != null && this.dvP.dvy.getView() != null) {
                     this.dvP.dvy.getView().setVisibility(0);
                 }
                 this.dvP.zu.k(2000L);
                 this.dvP.cMs = false;
                 BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                aBC2 = this.dvP.aBC();
-                if (tag == aBC2.getUniqueId()) {
+                aBF2 = this.dvP.aBF();
+                if (tag == aBF2.getUniqueId()) {
                     if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
                         PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
                         if (personBarResponseMessage.getErrCode() == 0) {
                             r personBarData = personBarResponseMessage.getPersonBarData();
                             afVar = this.dvP.dvo;
-                            afVar.mp(this.dvP.dvC);
+                            afVar.mo(this.dvP.dvC);
                             afVar2 = this.dvP.dvo;
                             afVar2.mr(personBarResponseMessage.getResultString());
                             this.dvP.a(personBarData, false);
-                            aBC3 = this.dvP.aBC();
-                            if (1 == aBC3.ahL()) {
+                            aBF3 = this.dvP.aBF();
+                            if (1 == aBF3.ahN()) {
                                 s.a aVar = this.dvP.dvy;
                                 str4 = this.dvP.dvF;
                                 aVar.mp(str4);

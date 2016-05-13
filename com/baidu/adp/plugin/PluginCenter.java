@@ -403,7 +403,6 @@ public class PluginCenter {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryLaunchAllPlugins() {
-        Plugin.b bVar;
         if (this.mPluginsMap == null || this.mPluginsMap.size() == 0 || this.mPluginsMap.size() == 1) {
             this.mHandler.removeCallbacks(this.mRetryRunnable);
             return;
@@ -415,6 +414,7 @@ public class PluginCenter {
             if (entry != null && entry.getKey() != null && entry.getValue() != null) {
                 String key = entry.getKey();
                 Plugin value = entry.getValue();
+                Plugin.b bVar = null;
                 PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().findPluginSetting(key);
                 if (findPluginSetting != null) {
                     if (!findPluginSetting.isPatch || !TextUtils.isEmpty(findPluginSetting.replaceMethodClasses)) {
@@ -422,16 +422,18 @@ public class PluginCenter {
                         }
                     }
                 }
-                if (value == null || value.isLoaded() || System.currentTimeMillis() - value.getLastLaunchTime() <= PLUGIN_RETRY_MIN_TIME_INTERVAL) {
-                    bVar = null;
-                } else {
-                    bVar = value.initWithBroadcast(key);
-                    if (bVar.sZ) {
-                        if (PluginPackageManager.hF().dU()) {
-                            com.baidu.adp.plugin.b.a.hs().bf("plugin_load_retry_succ");
+                long j = 4001;
+                if (value != null && !value.isLoaded()) {
+                    j = System.currentTimeMillis() - value.getLastLaunchTime();
+                    if (j > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
+                        bVar = value.initWithBroadcast(key);
+                        if (bVar.sZ) {
+                            if (PluginPackageManager.hF().dU()) {
+                                com.baidu.adp.plugin.b.a.hs().bf("plugin_load_retry_succ");
+                            }
+                        } else if (PluginPackageManager.hF().dU()) {
+                            com.baidu.adp.plugin.b.a.hs().g("plugin_loaded_failed", key, bVar.reason, bVar.tb);
                         }
-                    } else if (PluginPackageManager.hF().dU()) {
-                        com.baidu.adp.plugin.b.a.hs().g("plugin_loaded_failed", key, bVar.reason, bVar.tb);
                     }
                 }
                 if (value != null) {
@@ -477,7 +479,9 @@ public class PluginCenter {
                                 sb.append("-ret==null");
                             }
                         }
-                        com.baidu.adp.plugin.packageManager.a.b.io().bE(value.getPackageName());
+                        if (j > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
+                            com.baidu.adp.plugin.packageManager.a.b.io().bE(value.getPackageName());
+                        }
                     }
                 }
             }

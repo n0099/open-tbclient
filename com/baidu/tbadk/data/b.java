@@ -36,7 +36,7 @@ public class b {
         return this.icon_url;
     }
 
-    public String At() {
+    public String Au() {
         return this.icon_link;
     }
 
@@ -44,7 +44,7 @@ public class b {
         return this.content;
     }
 
-    public int Au() {
+    public int Av() {
         return this.anF;
     }
 }

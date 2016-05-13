@@ -17,14 +17,14 @@ public class j implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c sg() {
+    public com.baidu.tbadk.core.flow.a.c sh() {
         com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-        cVar.ce(t.f.icon_dot_personal_s);
-        cVar.cf(t.f.icon_dot_personal_n);
+        cVar.cd(t.f.icon_dot_personal_s);
+        cVar.ce(t.f.icon_dot_personal_n);
         cVar.setSpacing(t.e.ds10);
         cVar.setGravity(85);
-        cVar.ch(t.e.ds20);
-        cVar.cg(t.e.ds16);
+        cVar.cg(t.e.ds20);
+        cVar.cf(t.e.ds16);
         return cVar;
     }
 
@@ -37,14 +37,14 @@ public class j implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e sh() {
+    public com.baidu.tbadk.core.flow.a.e si() {
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
         eVar.setHeight(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds280));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View si() {
+    public View sj() {
         return this.bwe.bvl;
     }
 }

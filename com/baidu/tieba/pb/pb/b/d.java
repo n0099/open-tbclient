@@ -20,9 +20,9 @@ public class d implements a.b {
         PbActivity pbActivity;
         aVar.dismiss();
         pbActivity = this.dhT.dhQ;
-        cw awu = pbActivity.awu();
-        if (awu != null && awu.getPbData() != null) {
-            TiebaStatic.log(new aw("c10398").ac("fid", awu.getPbData().getForumId()).ac("tid", awu.getPbData().getThreadId()).ac("is_like", "2"));
+        cw awx = pbActivity.awx();
+        if (awx != null && awx.getPbData() != null) {
+            TiebaStatic.log(new aw("c10398").ac("fid", awx.getPbData().getForumId()).ac("tid", awx.getPbData().getThreadId()).ac("is_like", "2"));
         }
     }
 }

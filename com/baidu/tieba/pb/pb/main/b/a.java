@@ -25,11 +25,11 @@ public class a extends RelativeLayout {
         LayoutInflater.from(this.mContext).inflate(t.h.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
         this.dpP = (TextView) findViewById(t.g.custom_check_radio_button_tv);
         this.dpQ = (RadioButton) findViewById(t.g.custom_check_radio_button_rb);
-        azK();
+        azN();
         setOnClickListener(new b(this));
     }
 
-    public void azK() {
+    public void azN() {
         if (this.dpP != null) {
             at.a(this.dpP, "cp_link_tip_a");
         }

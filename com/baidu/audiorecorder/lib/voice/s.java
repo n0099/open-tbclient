@@ -259,7 +259,7 @@ public class s extends ViewGroup implements View.OnClickListener, com.baidu.adp.
             this.CP.cA(getContext().getString(t.j.voice_restart_tip)).a(getContext().getString(t.j.voice_restart), new t(this, recorderManager)).b(getContext().getString(t.j.cancel), new u(this)).b(com.baidu.adp.base.l.s(getContext()));
         }
         try {
-            this.CP.rU();
+            this.CP.rV();
         } catch (Exception e) {
             if (getVoiceManager() != null && this.mModel != null) {
                 if (recorderManager != null) {
@@ -456,7 +456,7 @@ public class s extends ViewGroup implements View.OnClickListener, com.baidu.adp.
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-    public void aC(int i) {
+    public void aB(int i) {
         if (this.mModel != null && this.CL != null) {
             int i2 = i / 1000;
             if (this.CV != i2) {

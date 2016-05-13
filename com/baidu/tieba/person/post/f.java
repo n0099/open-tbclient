@@ -15,6 +15,6 @@ class f implements View.OnClickListener {
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bg.us().c(this.dEo.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/pmc"});
+        bg.ut().c(this.dEo.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/pmc"});
     }
 }

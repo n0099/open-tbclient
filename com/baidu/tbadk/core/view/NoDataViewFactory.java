@@ -119,7 +119,7 @@ public class NoDataViewFactory {
             return dVar;
         }
 
-        public static d cP(int i) {
+        public static d cO(int i) {
             return dP(TbadkCoreApplication.m11getInst().getResources().getString(i));
         }
 

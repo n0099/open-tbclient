@@ -61,7 +61,7 @@ public class a {
         return this;
     }
 
-    public a bL(int i) {
+    public a bK(int i) {
         cz(this.mActivity.getResources().getString(i));
         return this;
     }
@@ -93,7 +93,7 @@ public class a {
         return this;
     }
 
-    public a bM(int i) {
+    public a bL(int i) {
         if (this.mActivity != null) {
             this.mMessage = this.mActivity.getResources().getString(i);
         }
@@ -132,7 +132,7 @@ public class a {
         this.RJ = (ViewGroup) this.RI.findViewById(t.g.real_view);
     }
 
-    public a bN(int i) {
+    public a bM(int i) {
         if (isAutoNight()) {
             this.RB = at.getColor(i);
         } else {
@@ -141,7 +141,7 @@ public class a {
         return this;
     }
 
-    public a bO(int i) {
+    public a bN(int i) {
         this.RC = i;
         return this;
     }
@@ -160,10 +160,10 @@ public class a {
                 linearLayout.removeAllViews();
                 linearLayout.addView(this.mContentView);
             } else {
-                View rS = rS();
-                if (rS != null) {
+                View rT = rT();
+                if (rT != null) {
                     linearLayout.removeAllViews();
-                    linearLayout.addView(rS);
+                    linearLayout.addView(rT);
                 }
             }
             c(hVar);
@@ -198,7 +198,7 @@ public class a {
         return this;
     }
 
-    public View rS() {
+    public View rT() {
         boolean z = !StringUtils.isNull(this.mTitle);
         boolean z2 = StringUtils.isNull(this.mMessage) ? false : true;
         if (z || z2) {
@@ -286,7 +286,7 @@ public class a {
         }
     }
 
-    public a rT() {
+    public a rU() {
         return ar(false);
     }
 
@@ -357,7 +357,7 @@ public class a {
         }
     }
 
-    public a rU() {
+    public a rV() {
         return ar(true);
     }
 
@@ -393,7 +393,7 @@ public class a {
         }
     }
 
-    public ViewGroup rV() {
+    public ViewGroup rW() {
         return this.RJ;
     }
 
@@ -401,7 +401,7 @@ public class a {
         this.RM = obj;
     }
 
-    public Object rW() {
+    public Object rX() {
         return this.RM;
     }
 

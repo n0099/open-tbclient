@@ -17,7 +17,7 @@ public class ay extends al implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Df() {
+    public byte[] Dg() {
         return null;
     }
 

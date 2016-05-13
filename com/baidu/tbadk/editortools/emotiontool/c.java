@@ -8,11 +8,11 @@ public abstract class c {
     private int aqx;
     private int cols;
 
-    public abstract boolean Bu();
+    public abstract boolean Bv();
 
-    public abstract EmotionGroupType Bv();
+    public abstract EmotionGroupType Bw();
 
-    public abstract String el(int i);
+    public abstract String ek(int i);
 
     public abstract boolean fl(String str);
 
@@ -30,7 +30,7 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a Bw() {
+    public com.baidu.adp.widget.a.a Bx() {
         return this.aqv;
     }
 
@@ -41,7 +41,7 @@ public abstract class c {
         this.aqv = aVar;
     }
 
-    public com.baidu.adp.widget.a.a Bx() {
+    public com.baidu.adp.widget.a.a By() {
         return this.aqw;
     }
 
@@ -61,12 +61,12 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int By() {
+    public int Bz() {
         return this.aqx;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void em(int i) {
+    public void el(int i) {
         this.aqx = i;
     }
 }

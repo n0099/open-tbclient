@@ -63,7 +63,7 @@ public class m extends CustomMessageListener {
                             axVar7.getAuthor().setFansNum(fansNum);
                             axVar8 = this.aOW.aab;
                             axVar8.getAuthor().getGodUserData().setIsFromNetWork(false);
-                            this.aOW.fu(fansNum);
+                            this.aOW.ft(fansNum);
                             this.aOW.aI(false);
                         }
                     }

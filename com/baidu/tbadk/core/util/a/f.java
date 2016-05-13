@@ -84,21 +84,21 @@ public class f implements a.InterfaceC0006a {
     }
 
     public f(com.baidu.adp.lib.network.http.f fVar) {
-        uz();
+        uA();
         this.YN = fVar;
         this.mContext = TbadkCoreApplication.m11getInst().getApp();
     }
 
-    public static void uz() {
+    public static void uA() {
         synchronized (f.class) {
             if (!YJ) {
                 YJ = true;
-                uA();
+                uB();
             }
         }
     }
 
-    public static synchronized void uA() {
+    public static synchronized void uB() {
         synchronized (f.class) {
             try {
                 Cursor query = TbadkCoreApplication.m11getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
@@ -116,10 +116,10 @@ public class f implements a.InterfaceC0006a {
     public void dl() {
         this.YM = true;
         this.YN.dv().lD = true;
-        uB();
+        uC();
     }
 
-    private void uB() {
+    private void uC() {
         try {
             if (this.YK != null) {
                 this.YK.abort();
@@ -333,7 +333,7 @@ public class f implements a.InterfaceC0006a {
                     } catch (Exception e6) {
                     }
                 }
-                uB();
+                uC();
                 this.YN.b(eVar);
                 if ((str == null || str.length() == 0) && c != null) {
                     boolean fr2 = com.baidu.adp.lib.util.i.fr();
@@ -392,7 +392,7 @@ public class f implements a.InterfaceC0006a {
                     this.YN.dv().contentType = obj2;
                     if (obj2.contains("text/vnd.wap.wml")) {
                         if (this.YL < 1) {
-                            uB();
+                            uC();
                             this.YL++;
                             this.YN.dv().responseCode = 0;
                             i2--;
@@ -402,7 +402,7 @@ public class f implements a.InterfaceC0006a {
                                 } catch (Exception e12) {
                                 }
                             }
-                            uB();
+                            uC();
                             this.YN.b(eVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean fr3 = com.baidu.adp.lib.util.i.fr();
@@ -427,7 +427,7 @@ public class f implements a.InterfaceC0006a {
                                 } catch (Exception e13) {
                                 }
                             }
-                            uB();
+                            uC();
                             this.YN.b(eVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean fr4 = com.baidu.adp.lib.util.i.fr();
@@ -455,7 +455,7 @@ public class f implements a.InterfaceC0006a {
                         } catch (Exception e14) {
                         }
                     }
-                    uB();
+                    uC();
                     this.YN.b(eVar);
                     if ((str == null || str.length() == 0) && c != null) {
                         boolean fr5 = com.baidu.adp.lib.util.i.fr();
@@ -509,7 +509,7 @@ public class f implements a.InterfaceC0006a {
                         } catch (Exception e15) {
                         }
                     }
-                    uB();
+                    uC();
                     this.YN.b(eVar);
                     if ((str == null || str.length() == 0) && c != null) {
                         boolean fr6 = com.baidu.adp.lib.util.i.fr();
@@ -571,7 +571,7 @@ public class f implements a.InterfaceC0006a {
                             } catch (Exception e17) {
                             }
                         }
-                        uB();
+                        uC();
                         this.YN.b(eVar);
                         if ((str == null || str.length() == 0) && c != null) {
                             boolean fr7 = com.baidu.adp.lib.util.i.fr();
@@ -600,7 +600,7 @@ public class f implements a.InterfaceC0006a {
                             } catch (Exception e19) {
                             }
                         }
-                        uB();
+                        uC();
                         this.YN.b(eVar);
                         if ((str == null || str.length() == 0) && c != null) {
                             boolean fr8 = com.baidu.adp.lib.util.i.fr();
@@ -631,7 +631,7 @@ public class f implements a.InterfaceC0006a {
                                 } catch (Exception e21) {
                                 }
                             }
-                            uB();
+                            uC();
                             this.YN.b(eVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean fr9 = com.baidu.adp.lib.util.i.fr();
@@ -658,7 +658,7 @@ public class f implements a.InterfaceC0006a {
                                 } catch (Exception e22) {
                                 }
                             }
-                            uB();
+                            uC();
                             this.YN.b(eVar);
                             if ((str != null || str.length() == 0) && c != null) {
                                 fr = com.baidu.adp.lib.util.i.fr();
@@ -687,7 +687,7 @@ public class f implements a.InterfaceC0006a {
                             } catch (Exception e24) {
                             }
                         }
-                        uB();
+                        uC();
                         this.YN.b(eVar);
                         if ((str == null || str.length() == 0) && c != null) {
                             boolean fr10 = com.baidu.adp.lib.util.i.fr();
@@ -716,7 +716,7 @@ public class f implements a.InterfaceC0006a {
                             } catch (Exception e26) {
                             }
                         }
-                        uB();
+                        uC();
                         this.YN.b(eVar);
                         if ((str == null || str.length() == 0) && c != null) {
                             boolean fr11 = com.baidu.adp.lib.util.i.fr();
@@ -745,7 +745,7 @@ public class f implements a.InterfaceC0006a {
                             } catch (Exception e27) {
                             }
                         }
-                        uB();
+                        uC();
                         this.YN.b(eVar);
                         if ((str == null || str.length() == 0) && c != null) {
                             boolean fr12 = com.baidu.adp.lib.util.i.fr();
@@ -769,7 +769,7 @@ public class f implements a.InterfaceC0006a {
         }
         this.YL = 0;
         this.YN.dv().lG = bArr;
-        uB();
+        uC();
         this.YN.b(eVar);
         if ((str == null || str.length() == 0) && c != null) {
             boolean fr13 = com.baidu.adp.lib.util.i.fr();
@@ -818,7 +818,7 @@ public class f implements a.InterfaceC0006a {
         return this.hO;
     }
 
-    public boolean uC() {
+    public boolean uD() {
         return this.YR;
     }
 

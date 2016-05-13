@@ -20,7 +20,7 @@ class bd implements AdapterView.OnItemClickListener {
         bg bgVar;
         bg bgVar2;
         bg bgVar3;
-        PersonFriendActivity aBR;
+        PersonFriendActivity aBU;
         bgVar = this.dwQ.dwJ;
         if (bgVar != null) {
             bgVar2 = this.dwQ.dwJ;
@@ -29,8 +29,8 @@ class bd implements AdapterView.OnItemClickListener {
                 UserData userData = (UserData) bgVar3.getItem(i);
                 if (userData != null && userData.getUserId() != null) {
                     ay ayVar = this.dwQ;
-                    aBR = this.dwQ.aBR();
-                    ayVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(aBR.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
+                    aBU = this.dwQ.aBU();
+                    ayVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(aBU.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
                 }
             }
         }

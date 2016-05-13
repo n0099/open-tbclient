@@ -19,7 +19,7 @@ class be implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         for (ImMessageCenterPojo imMessageCenterPojo : this.cob) {
-            com.baidu.tieba.im.db.i.aex().c(imMessageCenterPojo);
+            com.baidu.tieba.im.db.i.aez().c(imMessageCenterPojo);
         }
         return null;
     }

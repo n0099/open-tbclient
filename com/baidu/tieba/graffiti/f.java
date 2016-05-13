@@ -13,7 +13,7 @@ public class f implements View.OnLongClickListener {
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        this.bKK.Ya();
+        this.bKK.Yc();
         return true;
     }
 }

@@ -54,7 +54,7 @@ public class f {
         return this;
     }
 
-    public f bU(int i) {
+    public f bT(int i) {
         return cC(this.Do.getResources().getString(i));
     }
 
@@ -69,7 +69,7 @@ public class f {
         return this;
     }
 
-    public f rY() {
+    public f rZ() {
         if (!this.RK) {
             this.RK = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -87,7 +87,7 @@ public class f {
         return this;
     }
 
-    public void bV(int i) {
+    public void bU(int i) {
         for (int i2 = 0; i2 < this.mItems.size(); i2++) {
             if (i2 == i) {
                 this.mItems.get(i2).setChecked(true);
@@ -98,7 +98,7 @@ public class f {
         this.So.setData(this.mItems);
     }
 
-    public f rZ() {
+    public f sa() {
         if (!this.RK) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }

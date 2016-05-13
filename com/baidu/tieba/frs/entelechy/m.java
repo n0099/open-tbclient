@@ -38,15 +38,15 @@ public class m implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean gy(int i) {
+    public boolean gx(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(boolean z, com.baidu.tieba.frs.entelechy.b.d dVar, com.baidu.tieba.frs.h.m mVar, cn cnVar, com.baidu.tieba.tbadkCore.o oVar) {
         if (mVar != null && cnVar != null && oVar != null && dVar != null && cnVar.QR() != null) {
-            mVar.TK();
-            cnVar.a(oVar.avA(), oVar.getUserData(), 1);
+            mVar.TM();
+            cnVar.a(oVar.avD(), oVar.getUserData(), 1);
             if (z) {
                 dVar.b(cnVar.QR(), cnVar.QR().getHeaderViewsCount());
             }
@@ -83,28 +83,28 @@ public class m implements com.baidu.tieba.frs.entelechy.b.b {
         switch (i) {
             case 2:
                 if (lVar != null) {
-                    lVar.pc(0);
+                    lVar.pb(0);
                     lVar.setIsGood(0);
                     break;
                 }
                 break;
             case 3:
                 if (lVar != null) {
-                    lVar.pc(1);
+                    lVar.pb(1);
                     lVar.setIsGood(0);
                     break;
                 }
                 break;
             case 5:
                 if (lVar != null) {
-                    lVar.pc(0);
+                    lVar.pb(0);
                     lVar.setIsGood(1);
                     break;
                 }
                 break;
             case 6:
                 if (lVar != null) {
-                    lVar.pc(2);
+                    lVar.pb(2);
                     lVar.setIsGood(0);
                     break;
                 }

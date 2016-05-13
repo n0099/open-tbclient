@@ -24,7 +24,7 @@ public class cj {
     public cj(cw cwVar, BaseActivity baseActivity) {
         this.dih = cwVar;
         this.bek = baseActivity;
-        axi();
+        axl();
         this.bek.registerListener(this.dkA);
     }
 
@@ -32,7 +32,7 @@ public class cj {
         this.dkz = aVar;
     }
 
-    public void axi() {
+    public void axl() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
         tbHttpMessageTask.setIsNeedTbs(true);

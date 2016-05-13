@@ -17,15 +17,15 @@ public class l implements NoPressedRelativeLayout.a {
         NoPressedRelativeLayout noPressedRelativeLayout;
         NoPressedRelativeLayout noPressedRelativeLayout2;
         NoPressedRelativeLayout noPressedRelativeLayout3;
-        if (motionEvent != null && this.bup.btZ != null && !this.bup.btZ.JE()) {
+        if (motionEvent != null && this.bup.btZ != null && !this.bup.btZ.JG()) {
             if (motionEvent.getAction() == 0) {
                 noPressedRelativeLayout3 = this.bup.btR;
                 noPressedRelativeLayout3.setNeedInterceptTouchEvent(false);
             } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                if (!this.bup.btZ.fs(1)) {
+                if (!this.bup.btZ.fr(1)) {
                     noPressedRelativeLayout2 = this.bup.btR;
                     noPressedRelativeLayout2.setNeedInterceptTouchEvent(true);
-                    this.bup.btZ.JB();
+                    this.bup.btZ.JD();
                     return;
                 }
                 noPressedRelativeLayout = this.bup.btR;
@@ -34,7 +34,7 @@ public class l implements NoPressedRelativeLayout.a {
                 this.bup.bud.setVisibility(8);
                 this.bup.bue.setVisibility(8);
                 this.bup.buf.setVisibility(8);
-                this.bup.btZ.JC();
+                this.bup.btZ.JE();
             }
         }
     }

@@ -13,6 +13,6 @@ public class ag implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cMQ.aoM();
+        this.cMQ.aoP();
     }
 }

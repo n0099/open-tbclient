@@ -37,11 +37,11 @@ public class f {
 
     public static s a(e eVar, boolean z, int i) {
         if (z) {
-            if (eVar == null || eVar.avC() == null || eVar.avC().size() <= 0) {
+            if (eVar == null || eVar.avF() == null || eVar.avF().size() <= 0) {
                 return null;
             }
-            s sVar = eVar.avC().get(0);
-            if (sVar.aTS() != 1) {
+            s sVar = eVar.avF().get(0);
+            if (sVar.aTY() != 1) {
                 return a(eVar);
             }
             return sVar;
@@ -51,20 +51,20 @@ public class f {
 
     public static s a(e eVar) {
         MetaData metaData;
-        if (eVar == null || eVar.avB() == null || eVar.avB().getAuthor() == null) {
+        if (eVar == null || eVar.avE() == null || eVar.avE().getAuthor() == null) {
             return null;
         }
         s sVar = new s();
-        MetaData author = eVar.avB().getAuthor();
+        MetaData author = eVar.avE().getAuthor();
         String userId = author.getUserId();
-        HashMap<String, MetaData> userMap = eVar.avB().getUserMap();
+        HashMap<String, MetaData> userMap = eVar.avE().getUserMap();
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
             metaData = author;
         }
-        sVar.po(1);
-        sVar.setId(eVar.avB().qZ());
-        sVar.setTitle(eVar.avB().getTitle());
-        sVar.setTime(eVar.avB().getCreateTime());
+        sVar.pn(1);
+        sVar.setId(eVar.avE().ra());
+        sVar.setTitle(eVar.avE().getTitle());
+        sVar.setTime(eVar.avE().getCreateTime());
         sVar.setAuthor(metaData);
         return sVar;
     }
@@ -74,19 +74,19 @@ public class f {
             return null;
         }
         StringBuilder sb = new StringBuilder(150);
-        com.baidu.tbadk.widget.richText.g GH = cVar.GH();
-        if (GH != null) {
-            if (!StringUtils.isNull(GH.GS())) {
-                return GH.GS();
+        com.baidu.tbadk.widget.richText.g GJ = cVar.GJ();
+        if (GJ != null) {
+            if (!StringUtils.isNull(GJ.GU())) {
+                return GJ.GU();
             }
-            if (GH.getHeight() * GH.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (GH.getHeight() * GH.getWidth()));
+            if (GJ.getHeight() * GJ.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (GJ.getHeight() * GJ.getWidth()));
                 sb.append("width=");
-                sb.append(String.valueOf((int) (GH.getWidth() * sqrt)));
+                sb.append(String.valueOf((int) (GJ.getWidth() * sqrt)));
                 sb.append("&height=");
-                sb.append(String.valueOf((int) (sqrt * GH.getHeight())));
+                sb.append(String.valueOf((int) (sqrt * GJ.getHeight())));
             } else {
-                float width = GH.getWidth() / GH.getHeight();
+                float width = GJ.getWidth() / GJ.getHeight();
                 double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
                 sb.append("width=");
                 sb.append(String.valueOf((int) (width * sqrt2)));
@@ -94,20 +94,20 @@ public class f {
                 sb.append(String.valueOf((int) sqrt2));
             }
             sb.append("&src=");
-            sb.append(ay.aN(GH.getSrc()));
+            sb.append(ay.aN(GJ.getSrc()));
             return sb.toString();
         }
         return null;
     }
 
     public static void a(s sVar, PbActivity.b bVar) {
-        if (sVar != null && sVar.amw() != null && sVar.amw().GC() != null && bVar != null && bVar.djS != null && bVar.djT != null && sVar.amw().GC().size() != 0) {
+        if (sVar != null && sVar.amz() != null && sVar.amz().GE() != null && bVar != null && bVar.djS != null && bVar.djT != null && sVar.amz().GE().size() != 0) {
             String str = (String) y.c(bVar.djS, bVar.index);
             if (!StringUtils.isNull(str)) {
                 bVar.djS = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = bVar.djT;
                 bVar.djT = new ConcurrentHashMap<>();
-                Iterator<com.baidu.tbadk.widget.richText.c> it = sVar.amw().GC().iterator();
+                Iterator<com.baidu.tbadk.widget.richText.c> it = sVar.amz().GE().iterator();
                 while (it.hasNext()) {
                     com.baidu.tbadk.widget.richText.c next = it.next();
                     if (next != null && next.getType() == 8) {

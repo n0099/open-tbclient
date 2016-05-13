@@ -18,9 +18,9 @@ public class ac implements View.OnClickListener {
             int intValue = ((Integer) view.getTag()).intValue();
             i = this.cwo.currentIndex;
             if (i == intValue) {
-                this.cwo.akp();
+                this.cwo.akr();
             } else {
-                this.cwo.jV(intValue);
+                this.cwo.jU(intValue);
             }
         }
     }

@@ -41,7 +41,7 @@ public class r extends FrameLayout implements View.OnClickListener {
         return this.dsS;
     }
 
-    public void Ho() {
+    public void Hq() {
         this.aFp = true;
     }
 
@@ -84,7 +84,7 @@ public class r extends FrameLayout implements View.OnClickListener {
                 this.dsT.setOnClickListener(this);
                 this.dsT.setInterceptOnClick(true);
                 this.dsT.setDefaultResource(t.f.icon_click);
-                this.dsT.c(aVar.aTk(), 18, false);
+                this.dsT.c(aVar.aTq(), 18, false);
                 int B = com.baidu.adp.lib.util.k.B(this.mContext) - (com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds30) * 2);
                 float f = imageHeight / imageWidth;
                 if (f > 1.7777778f) {
@@ -114,7 +114,7 @@ public class r extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.dsS != null) {
-            com.baidu.tbadk.browser.f.t(this.mContext, this.dsS.aTl());
+            com.baidu.tbadk.browser.f.t(this.mContext, this.dsS.aTr());
         }
     }
 

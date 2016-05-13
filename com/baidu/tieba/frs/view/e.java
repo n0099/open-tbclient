@@ -17,8 +17,8 @@ public class e implements View.OnClickListener {
     public void onClick(View view) {
         com.baidu.tieba.tbadkCore.g gVar;
         if ((this.bwe.Do == null || this.bwe.Do.getOrignalPage() == null || this.bwe.Do.getOrignalPage().checkUpIsLogin()) && (gVar = (com.baidu.tieba.tbadkCore.g) view.getTag()) != null) {
-            bg.us().c(this.bwe.Do, new String[]{gVar.getUrl()});
-            a.C0075a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.aRX(), this.bwe.bjB.getForumId(), this.bwe.bjB.getForumName(), null);
+            bg.ut().c(this.bwe.Do, new String[]{gVar.getUrl()});
+            a.C0075a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", gVar.aSa(), this.bwe.bjB.getForumId(), this.bwe.bjB.getForumName(), null);
             a.bK("obj_url", gVar.getUrl());
             a.save();
         }

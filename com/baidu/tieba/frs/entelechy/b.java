@@ -39,15 +39,15 @@ public abstract class b extends com.baidu.tieba.frs.view.c {
     public void Sd() {
         if (this.bjB != null && this.bjB.PZ() != null && this.bnU != null) {
             ArrayList arrayList = new ArrayList();
-            List<v> aSR = this.bjB.PZ().aSR();
-            if (aSR != null) {
+            List<v> aSX = this.bjB.PZ().aSX();
+            if (aSX != null) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= y.r(aSR)) {
+                    if (i2 >= y.r(aSX)) {
                         break;
                     }
-                    v vVar = (v) y.c(aSR, i2);
+                    v vVar = (v) y.c(aSX, i2);
                     if (vVar instanceof ax) {
                         arrayList.add((ax) vVar);
                     }

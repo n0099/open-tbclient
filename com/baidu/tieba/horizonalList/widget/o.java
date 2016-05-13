@@ -93,10 +93,10 @@ public class o {
                     break;
                 }
             case 1:
-                if (!this.bTN.bTZ && !this.bTN.aaP() && !this.bTN.aaO()) {
+                if (!this.bTN.bTZ && !this.bTN.aaR() && !this.bTN.aaQ()) {
                     this.bTN.finish();
                 }
-                if (!this.bTO.bTZ && !this.bTO.aaP() && !this.bTO.aaO()) {
+                if (!this.bTO.bTZ && !this.bTO.aaR() && !this.bTO.aaQ()) {
                     this.bTO.finish();
                     break;
                 }
@@ -233,7 +233,7 @@ public class o {
             this.bTS = this.mStart + Math.round((this.bTT - this.mStart) * f);
         }
 
-        private static float iG(int i) {
+        private static float iF(int i) {
             return i > 0 ? -2000.0f : 2000.0f;
         }
 
@@ -283,7 +283,7 @@ public class o {
             this.mStart = i;
             this.bTT = i2;
             int i4 = i - i2;
-            this.bTW = iG(i4);
+            this.bTW = iF(i4);
             this.bTU = -i4;
             this.bUa = Math.abs(i4);
             this.zD = (int) (1000.0d * Math.sqrt(((-2.0d) * i4) / this.bTW));
@@ -306,10 +306,10 @@ public class o {
             this.mState = 0;
             double d = 0.0d;
             if (i2 != 0) {
-                int iJ = iJ(i2);
-                this.bTX = iJ;
-                this.zD = iJ;
-                d = iI(i2);
+                int iI = iI(i2);
+                this.bTX = iI;
+                this.zD = iI;
+                d = iH(i2);
             }
             this.bTY = (int) (d * Math.signum(i2));
             this.bTT = this.bTY + i;
@@ -323,16 +323,16 @@ public class o {
             }
         }
 
-        private double iH(int i) {
+        private double iG(int i) {
             return Math.log((0.35f * Math.abs(i)) / (this.bUb * this.bUc));
         }
 
-        private double iI(int i) {
-            return Math.exp(iH(i) * (bUd / (bUd - 1.0d))) * this.bUb * this.bUc;
+        private double iH(int i) {
+            return Math.exp(iG(i) * (bUd / (bUd - 1.0d))) * this.bUb * this.bUc;
         }
 
-        private int iJ(int i) {
-            return (int) (Math.exp(iH(i) / (bUd - 1.0d)) * 1000.0d);
+        private int iI(int i) {
+            return (int) (Math.exp(iG(i) / (bUd - 1.0d)) * 1000.0d);
         }
 
         private void y(int i, int i2, int i3) {
@@ -344,9 +344,9 @@ public class o {
         }
 
         private void z(int i, int i2, int i3) {
-            this.bTW = iG(i3 == 0 ? i - i2 : i3);
+            this.bTW = iF(i3 == 0 ? i - i2 : i3);
             y(i, i2, i3);
-            aaN();
+            aaP();
         }
 
         private void j(int i, int i2, int i3, int i4) {
@@ -360,7 +360,7 @@ public class o {
             int i6 = i - i5;
             if (i6 * i4 >= 0) {
                 z(i, i5, i4);
-            } else if (iI(i4) > Math.abs(i6)) {
+            } else if (iH(i4) > Math.abs(i6)) {
                 c(i, i4, z ? i2 : i, z ? i : i3, this.bUa);
             } else {
                 x(i, i5, i4);
@@ -375,7 +375,7 @@ public class o {
             }
         }
 
-        private void aaN() {
+        private void aaP() {
             float abs = (this.bTU * this.bTU) / (Math.abs(this.bTW) * 2.0f);
             float signum = Math.signum(this.bTU);
             if (abs > this.bUa) {
@@ -392,15 +392,15 @@ public class o {
             this.zD = -((int) ((1000.0f * this.bTU) / this.bTW));
         }
 
-        boolean aaO() {
+        boolean aaQ() {
             switch (this.mState) {
                 case 0:
                     if (this.zD < this.bTX) {
                         this.mStart = this.bTT;
                         this.bTU = (int) this.bTV;
-                        this.bTW = iG(this.bTU);
+                        this.bTW = iF(this.bTU);
                         this.mStartTime += this.zD;
-                        aaN();
+                        aaP();
                         break;
                     } else {
                         return false;
@@ -412,11 +412,11 @@ public class o {
                     x(this.bTT, this.mStart, 0);
                     break;
             }
-            aaP();
+            aaR();
             return true;
         }
 
-        boolean aaP() {
+        boolean aaR() {
             long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.mStartTime;
             if (currentAnimationTimeMillis > this.zD) {
                 return false;

@@ -18,7 +18,7 @@ public class j implements FragmentTabWidget.a {
         CustomViewPager customViewPager;
         customViewPager = this.aXh.UR;
         customViewPager.setCurrentItem(i);
-        this.aXh.fN(i);
+        this.aXh.fM(i);
         if (i != 2) {
             if (this.aXh.aWY != null && i == this.aXh.aWY.aYo) {
                 TiebaStatic.log("c11148");

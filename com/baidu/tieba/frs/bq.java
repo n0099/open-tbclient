@@ -45,6 +45,6 @@ public class bq extends y.a {
         this.bhV = view.findViewById(t.g.frs_app_multi_pic_container);
         this.bih = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
         this.bij = (ViewStub) view.findViewById(t.g.item_adkiller_close);
-        this.ZT.uO();
+        this.ZT.uP();
     }
 }

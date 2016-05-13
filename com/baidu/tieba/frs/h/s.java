@@ -33,16 +33,16 @@ public class s extends com.baidu.adp.base.g {
         com.baidu.tieba.tbadkCore.x xVar6;
         boolean z = false;
         xVar = this.buB.Dp;
-        if (!AntiHelper.pw(xVar.getErrorCode())) {
+        if (!AntiHelper.pv(xVar.getErrorCode())) {
             frsActivity = this.buB.bpj;
             com.baidu.tieba.tbadkCore.o PZ = frsActivity.PZ();
-            if (PZ != null && PZ.avA() != null) {
-                String name = PZ.avA().getName();
+            if (PZ != null && PZ.avD() != null) {
+                String name = PZ.avD().getName();
                 if (obj != null && (obj instanceof com.baidu.tieba.tbadkCore.y)) {
-                    com.baidu.tieba.tbadkCore.c.aRW().L(name, false);
+                    com.baidu.tieba.tbadkCore.c.aRZ().L(name, false);
                     ((com.baidu.tieba.tbadkCore.y) obj).setLike(1);
                     PZ.c((com.baidu.tieba.tbadkCore.y) obj);
-                    PZ.cu(((com.baidu.tieba.tbadkCore.y) obj).aRY());
+                    PZ.cu(((com.baidu.tieba.tbadkCore.y) obj).aSb());
                     z = true;
                 }
                 frsActivity2 = this.buB.bpj;
@@ -55,7 +55,7 @@ public class s extends com.baidu.adp.base.g {
                         return;
                     }
                     xVar3 = this.buB.Dp;
-                    if (!AntiHelper.pw(xVar3.getErrorCode())) {
+                    if (!AntiHelper.pv(xVar3.getErrorCode())) {
                         frsActivity3 = this.buB.bpj;
                         xVar4 = this.buB.Dp;
                         frsActivity3.showToast(xVar4.getErrorString());
@@ -70,7 +70,7 @@ public class s extends com.baidu.adp.base.g {
                 frsActivity5 = this.buB.bpj;
                 frsActivity5.showToast(this.buB.getPageContext().getString(t.j.like_success));
                 TbadkCoreApplication.m11getInst().addLikeForum(name);
-                this.buB.g(true, PZ.avA().getId());
+                this.buB.g(true, PZ.avD().getId());
                 com.baidu.tieba.tbadkCore.y yVar = (com.baidu.tieba.tbadkCore.y) obj;
                 yVar.setLike(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));

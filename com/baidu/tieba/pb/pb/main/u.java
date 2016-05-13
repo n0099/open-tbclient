@@ -21,20 +21,20 @@ class u implements a.b {
         el elVar4;
         this.djE.PY();
         cwVar = this.djE.dih;
-        com.baidu.tbadk.core.data.ad abs = cwVar.abs();
+        com.baidu.tbadk.core.data.ad abu = cwVar.abu();
         elVar = this.djE.diR;
         int pageNum = elVar.getPageNum();
         if (pageNum <= 0) {
             this.djE.showToast(t.j.pb_page_error);
-        } else if (abs == null || pageNum <= abs.pF()) {
+        } else if (abu == null || pageNum <= abu.pF()) {
             elVar2 = this.djE.diR;
-            elVar2.amQ();
-            this.djE.Pk();
+            elVar2.amT();
+            this.djE.Pm();
             elVar3 = this.djE.diR;
-            elVar3.aza();
+            elVar3.azd();
             cwVar2 = this.djE.dih;
             elVar4 = this.djE.diR;
-            cwVar2.lO(elVar4.getPageNum());
+            cwVar2.lN(elVar4.getPageNum());
             aVar.dismiss();
         } else {
             this.djE.showToast(t.j.pb_page_error);

@@ -8,6 +8,6 @@ import com.baidu.tieba.passaccount.app.LoginActivity;
 public class LoginActivityStatic {
     static {
         TbadkCoreApplication.m11getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
-        bg.us().a(new b());
+        bg.ut().a(new b());
     }
 }

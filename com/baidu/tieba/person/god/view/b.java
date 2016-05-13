@@ -24,11 +24,11 @@ public class b implements View.OnClickListener {
         ImageView imageView;
         ViewEventCenter viewEventCenter;
         ViewEventCenter viewEventCenter2;
-        boolean aCI;
+        boolean aCL;
         ViewEventCenter viewEventCenter3;
         ViewEventCenter viewEventCenter4;
         Activity activity;
-        boolean aCI2;
+        boolean aCL2;
         ViewEventCenter viewEventCenter5;
         ViewEventCenter viewEventCenter6;
         Activity activity2;
@@ -48,8 +48,8 @@ public class b implements View.OnClickListener {
                 }
                 return;
             }
-            aCI = this.dBa.aCI();
-            if (!aCI) {
+            aCL = this.dBa.aCL();
+            if (!aCL) {
                 activity = this.dBa.mActivity;
                 k.showToast(activity.getApplicationContext(), t.j.plugin_config_not_found);
                 return;
@@ -62,8 +62,8 @@ public class b implements View.OnClickListener {
             }
             return;
         }
-        aCI2 = this.dBa.aCI();
-        if (!aCI2) {
+        aCL2 = this.dBa.aCL();
+        if (!aCL2) {
             activity2 = this.dBa.mActivity;
             k.showToast(activity2.getApplicationContext(), t.j.plugin_config_not_found);
             return;

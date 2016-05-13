@@ -7,7 +7,7 @@ public class ar {
     private static final ar Xy = new ar();
     private final HashMap<Class<?>, Class<?>> Xz = new HashMap<>();
 
-    public static final ar tW() {
+    public static final ar tX() {
         return Xy;
     }
 
@@ -30,7 +30,7 @@ public class ar {
         return getIntentClass(cls) != null;
     }
 
-    public int tX() {
+    public int tY() {
         return this.Xz.size();
     }
 

@@ -58,7 +58,7 @@ public class an extends c<com.baidu.tieba.person.data.n, com.baidu.tieba.person.
                 bVar.dBg.setVisibility(8);
                 bVar.dBf.setText(t.j.person_member_center);
                 if (nVar.getUserData() != null && !ay.isEmpty(nVar.getUserData().getUserId())) {
-                    if (com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("membership_first_launch" + nVar.getUserData().getUserId(), true)) {
+                    if (com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("membership_first_launch" + nVar.getUserData().getUserId(), true)) {
                         bVar.dBi.setVisibility(0);
                     } else {
                         bVar.dBi.setVisibility(8);
@@ -87,7 +87,7 @@ public class an extends c<com.baidu.tieba.person.data.n, com.baidu.tieba.person.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aBY() {
+    public boolean aCb() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(MemberPrivilegeActivityConfig.class);
     }
 }

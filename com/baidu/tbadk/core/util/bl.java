@@ -34,14 +34,14 @@ public class bl {
         Yq = true;
     }
 
-    private static void ut() {
+    private static void uu() {
         if (mAppContext != null && mAppContext.getResources() != null) {
             Yp = mAppContext.getResources().getColor(t.d.more_color);
             Yo = mAppContext.getResources().getColor(t.d.skin_1_common_color);
         }
     }
 
-    private static int cE(int i) {
+    private static int cD(int i) {
         return aB(i == 1);
     }
 
@@ -49,7 +49,7 @@ public class bl {
     public static int aB(boolean z) {
         if (Yq) {
             Yq = false;
-            ut();
+            uu();
         }
         return z ? Yo : Yp;
     }
@@ -155,13 +155,13 @@ public class bl {
 
     public static void c(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cE(i));
+            textView.setTextColor(cD(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cE(i));
+            checkBox.setTextColor(cD(i));
         }
     }
 

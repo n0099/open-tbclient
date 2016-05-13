@@ -10,7 +10,7 @@ public class bd implements com.baidu.tbadk.editortools.d.c {
     }
 
     @Override // com.baidu.tbadk.editortools.d.c
-    public void BD() {
+    public void BE() {
         bf bfVar;
         bfVar = this.czi.cyq;
         bfVar.showProgressBar();

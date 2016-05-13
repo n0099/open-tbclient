@@ -22,11 +22,11 @@ class a implements View.OnClickListener {
         bVar = this.drM.drL;
         if (bVar != null) {
             bVar2 = this.drM.drL;
-            if (bVar2.Au() != 1) {
+            if (bVar2.Av() != 1) {
                 bVar3 = this.drM.drL;
-                String At = bVar3.At();
-                if (!com.baidu.adp.lib.util.j.isEmpty(At)) {
-                    com.baidu.tbadk.browser.f.t(this.drM.getContext(), At);
+                String Au = bVar3.Au();
+                if (!com.baidu.adp.lib.util.j.isEmpty(Au)) {
+                    com.baidu.tbadk.browser.f.t(this.drM.getContext(), Au);
                     return;
                 }
                 return;

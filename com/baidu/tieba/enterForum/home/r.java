@@ -17,7 +17,7 @@ public class r implements a.b {
         com.baidu.tieba.enterForum.c.c cVar;
         long j;
         TiebaStatic.eventStat(this.aXF.aJw.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
-        this.aXF.aXk.Ns();
+        this.aXF.aXk.Nu();
         this.aXF.aXr = System.currentTimeMillis();
         cVar = this.aXF.aXl;
         j = this.aXF.aXr;

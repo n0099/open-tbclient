@@ -13,7 +13,7 @@ public class bp implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
             return null;
         }
-        String str = com.baidu.tbadk.core.b.a.rR().cx("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
+        String str = com.baidu.tbadk.core.b.a.rS().cx("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
         ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
         if (str != null) {
             try {

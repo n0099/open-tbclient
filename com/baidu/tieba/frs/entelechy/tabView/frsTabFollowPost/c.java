@@ -57,7 +57,7 @@ public class c implements c.b {
                 frsActivity2 = this.bpB.bpt;
                 if (frsActivity2.Qn() != null) {
                     frsActivity3 = this.bpB.bpt;
-                    frsActivity3.Qd().gH(emVar.blZ);
+                    frsActivity3.Qd().gG(emVar.blZ);
                     frsActivity4 = this.bpB.bpt;
                     frsActivity4.Qn().jy();
                     return;

@@ -17,7 +17,7 @@ public class s implements v {
         return dzM;
     }
 
-    public List<High> aCr() {
+    public List<High> aCu() {
         return this.dzN;
     }
 
@@ -29,7 +29,7 @@ public class s implements v {
         this.hasMore = z;
     }
 
-    public String aCs() {
+    public String aCv() {
         return this.dzO;
     }
 

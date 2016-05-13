@@ -21,16 +21,16 @@ public class q extends BdAsyncTask<Void, Void, Void> {
         long j;
         long j2;
         if (!this.ctY) {
-            com.baidu.tieba.im.settingcache.j aiu = com.baidu.tieba.im.settingcache.j.aiu();
+            com.baidu.tieba.im.settingcache.j aiw = com.baidu.tieba.im.settingcache.j.aiw();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             j2 = this.ctX.userId;
-            aiu.f(currentAccount, String.valueOf(j2), false);
+            aiw.f(currentAccount, String.valueOf(j2), false);
             return null;
         }
-        com.baidu.tieba.im.settingcache.j aiu2 = com.baidu.tieba.im.settingcache.j.aiu();
+        com.baidu.tieba.im.settingcache.j aiw2 = com.baidu.tieba.im.settingcache.j.aiw();
         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
         j = this.ctX.userId;
-        aiu2.f(currentAccount2, String.valueOf(j), true);
+        aiw2.f(currentAccount2, String.valueOf(j), true);
         return null;
     }
 }

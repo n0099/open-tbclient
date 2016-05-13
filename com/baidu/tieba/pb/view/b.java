@@ -24,7 +24,7 @@ public class b extends com.baidu.adp.widget.ListView.c {
         this.mRootView = LayoutInflater.from(this.DV.getPageActivity()).inflate(t.h.login_see_more_layout, (ViewGroup) null);
         this.drQ = (TextView) this.mRootView.findViewById(t.g.login_button);
         this.drQ.setOnClickListener(this.drR);
-        cS(TbadkCoreApplication.m11getInst().getSkinType());
+        cR(TbadkCoreApplication.m11getInst().getSkinType());
         return this.mRootView;
     }
 
@@ -32,7 +32,7 @@ public class b extends com.baidu.adp.widget.ListView.c {
     public void onClick() {
     }
 
-    public void cS(int i) {
+    public void cR(int i) {
         com.baidu.tbadk.i.a.a(this.DV, this.mRootView);
     }
 }

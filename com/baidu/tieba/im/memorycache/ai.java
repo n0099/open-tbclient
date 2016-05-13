@@ -16,7 +16,7 @@ class ai implements CustomMessageTask.CustomRunnable<MemoryClearUnreadCountMessa
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<MemoryClearUnreadCountMessage.a> customMessage) {
         MemoryClearUnreadCountMessage.a data = customMessage.getData();
-        com.baidu.tieba.im.db.i.aex().X(data.id, data.customGroupType);
+        com.baidu.tieba.im.db.i.aez().X(data.id, data.customGroupType);
         return null;
     }
 }

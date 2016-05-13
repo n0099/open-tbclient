@@ -56,10 +56,10 @@ class j extends CustomMessageListener {
                     cnVar2 = this.bhl.bgo;
                     cnVar2.Ra().getDatas().remove(cVar);
                     oVar = this.bhl.bgq;
-                    int oB = oVar.avA().getAdKillerData().oB();
+                    int oB = oVar.avD().getAdKillerData().oB();
                     int i = oB > 0 ? oB - 1 : 0;
                     oVar2 = this.bhl.bgq;
-                    oVar2.avA().getAdKillerData().bq(i);
+                    oVar2.avD().getAdKillerData().bp(i);
                     mVar = this.bhl.bgE;
                     oVar3 = this.bhl.bgq;
                     mVar.e(oVar3);

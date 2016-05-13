@@ -31,7 +31,7 @@ public class Cdo extends cm<com.baidu.tbadk.core.data.bc, dn> {
         super.a(i, view, viewGroup, (ViewGroup) bcVar, (com.baidu.tbadk.core.data.bc) dnVar);
         if (bcVar != null) {
             dnVar.dmq.setOnClickListener(this.bxd);
-            dnVar.dmq.setText(bcVar.rB());
+            dnVar.dmq.setText(bcVar.rC());
             dnVar.dmq.setTag(bcVar);
             com.baidu.tbadk.core.util.at.l(dnVar.dmr, t.d.cp_bg_line_b);
             com.baidu.tbadk.core.util.at.c(dnVar.dmq, t.d.cp_cont_b, 1);

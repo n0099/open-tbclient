@@ -37,8 +37,8 @@ public class aj implements TextWatcher {
         textView.setText(String.valueOf(length));
         linearLayout = this.dwD.dwp;
         linearLayout.setVisibility(0);
-        this.dwD.mq(0);
-        this.dwD.aBK();
+        this.dwD.mp(0);
+        this.dwD.aBN();
         if (length > 50) {
             this.dwD.showToast(t.j.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
@@ -59,7 +59,7 @@ public class aj implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         TextView textView;
         TextView textView2;
-        if (!editable.toString().replaceAll("\\s*", "").equals(this.dwD.dwu.aBP().getIntro())) {
+        if (!editable.toString().replaceAll("\\s*", "").equals(this.dwD.dwu.aBS().getIntro())) {
             this.dwD.bKq = true;
             if (TbadkCoreApplication.m11getInst().getSkinType() == 2) {
                 textView2 = this.dwD.ckh;

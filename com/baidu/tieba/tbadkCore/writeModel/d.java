@@ -22,7 +22,7 @@ public class d {
         return this.errorCode != 0;
     }
 
-    public boolean aVf() {
+    public boolean aVl() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 

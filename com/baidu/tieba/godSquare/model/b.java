@@ -5,7 +5,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.i;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,8 +12,6 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.card.a.h;
 import com.baidu.tieba.godSquare.model.req.GodSquareCacheRequestMsg;
 import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
-import com.baidu.tieba.godSquare.model.res.GodSquareHttpResponsedMsg;
-import com.baidu.tieba.godSquare.model.res.GodSquareSocketResponsedMsg;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,32 +37,26 @@ public class b {
     public b(a aVar, BaseActivity baseActivity) {
         this.bKp = aVar;
         this.bek = baseActivity;
-        CA();
         registerListener();
-    }
-
-    private void CA() {
-        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE, com.baidu.tieba.godSquare.model.req.a.class);
-        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigHttp.CMD_GET_HOT_GOD, 309315, TbConfig.GET_HOT_GOD, GodSquareHttpResponsedMsg.class, GodSquareSocketResponsedMsg.class);
     }
 
     public void update() {
         this.bKr = 1;
         this.bKq = true;
         if (i.fe()) {
-            hN(1);
+            hM(1);
         } else {
-            hO(1);
+            hN(1);
         }
     }
 
-    public void Pn() {
+    public void Pp() {
         this.bKq = false;
-        hN(this.pn + 1);
+        hM(this.pn + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hN(int i) {
+    public void hM(int i) {
         if (this.bek != null) {
             this.pn = i;
             GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
@@ -74,7 +65,7 @@ public class b {
         }
     }
 
-    private void hO(int i) {
+    private void hN(int i) {
         if (this.bek != null) {
             GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
             godSquareCacheRequestMsg.cacheKey = new StringBuilder(String.valueOf(i)).toString();

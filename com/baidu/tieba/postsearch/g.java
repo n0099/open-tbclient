@@ -34,7 +34,7 @@ public class g implements TextWatcher {
             textView.setVisibility(0);
             return;
         }
-        this.dVb.aKB();
+        this.dVb.aKE();
         textView2 = this.dVb.cLP;
         textView2.setVisibility(8);
     }

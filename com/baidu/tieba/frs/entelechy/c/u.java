@@ -42,11 +42,11 @@ public class u implements View.OnClickListener {
                     axVar4 = this.bpI.aab;
                     if (!StringUtils.isNull(axVar4.getAuthor().getUserId())) {
                         axVar5 = this.bpI.aab;
-                        if (axVar5.qP() != null) {
-                            if (this.bpI.JM() != null) {
-                                by<ax> JM = this.bpI.JM();
+                        if (axVar5.qQ() != null) {
+                            if (this.bpI.JO() != null) {
+                                by<ax> JO = this.bpI.JO();
                                 axVar9 = this.bpI.aab;
-                                JM.a(view, axVar9);
+                                JO.a(view, axVar9);
                             }
                             MessageManager messageManager = MessageManager.getInstance();
                             tbPageContext = this.bpI.DV;
@@ -56,7 +56,7 @@ public class u implements View.OnClickListener {
                             axVar7 = this.bpI.aab;
                             String name_show = axVar7.getAuthor().getName_show();
                             axVar8 = this.bpI.aab;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, axVar8.qP(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, axVar8.qQ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }
                 }

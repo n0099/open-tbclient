@@ -19,13 +19,13 @@ public class bh extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean kf;
+        boolean ke;
         z zVar;
         z zVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
             Intent intent = (Intent) customResponsedMessage.getData();
-            kf = this.czs.kf(intent.getIntExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 1));
-            if (kf) {
+            ke = this.czs.ke(intent.getIntExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 1));
+            if (ke) {
                 MentionActivityConfig.newJumpIn = true;
                 zVar = this.czs.czk;
                 if (zVar != null) {

@@ -24,7 +24,7 @@ public class h extends a {
         this.auG = (TextView) this.auw.findViewById(t.g.net_refresh_button);
         this.auG.setOnClickListener(onClickListener);
         this.auw.setOnClickListener(null);
-        sf();
+        sg();
     }
 
     public void fR(String str) {
@@ -48,7 +48,7 @@ public class h extends a {
         }
     }
 
-    public void eB(int i) {
+    public void eA(int i) {
         ViewGroup.LayoutParams layoutParams = this.auD.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
@@ -57,19 +57,19 @@ public class h extends a {
         }
     }
 
-    public void CZ() {
+    public void Da() {
         this.auG.setVisibility(0);
         this.auF.setVisibility(0);
         at.c(this.auE, t.d.cp_cont_d, 1);
     }
 
-    public void Da() {
+    public void Db() {
         this.auG.setVisibility(8);
         this.auF.setVisibility(8);
         at.c(this.auE, t.d.cp_cont_b, 1);
     }
 
-    public void sf() {
+    public void sg() {
         int skinType = TbadkCoreApplication.m11getInst().getSkinType();
         at.c(this.auD, t.f.net_refresh_emotion);
         at.b(this.auE, t.d.cp_cont_d, 1, skinType);
@@ -79,7 +79,7 @@ public class h extends a {
         at.l(this.auw, t.d.cp_bg_line_d);
     }
 
-    public View CY() {
+    public View CZ() {
         return this.auw;
     }
 }

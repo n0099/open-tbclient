@@ -21,7 +21,7 @@ public class v {
         return this.signed;
     }
 
-    public int aQs() {
+    public int aQv() {
         return this.ejY;
     }
 
@@ -29,7 +29,7 @@ public class v {
         return this.ejZ;
     }
 
-    public a aPP() {
+    public a aPS() {
         return this.eiO;
     }
 

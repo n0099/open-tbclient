@@ -11,25 +11,25 @@ public abstract class e extends FragmentPagerAdapter {
     private int[] cpg;
     private ArrayList<BaseFragment> duw;
 
-    protected abstract BaseFragment aBp();
+    protected abstract BaseFragment aBs();
 
     public e(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
         this.duw = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt(LegoListActivityConfig.PAGE_TYPE, 0);
-        BaseFragment aBp = aBp();
-        aBp.setArguments(bundle);
-        this.duw.add(aBp);
+        BaseFragment aBs = aBs();
+        aBs.setArguments(bundle);
+        this.duw.add(aBs);
         if (z) {
             this.cpg = new int[1];
             return;
         }
         Bundle bundle2 = new Bundle();
         bundle2.putInt(LegoListActivityConfig.PAGE_TYPE, 1);
-        BaseFragment aBp2 = aBp();
-        aBp2.setArguments(bundle2);
-        this.duw.add(aBp2);
+        BaseFragment aBs2 = aBs();
+        aBs2.setArguments(bundle2);
+        this.duw.add(aBs2);
         this.cpg = new int[]{0, 1};
     }
 
@@ -46,7 +46,7 @@ public abstract class e extends FragmentPagerAdapter {
         return this.cpg.length;
     }
 
-    public int jD(int i) {
+    public int jC(int i) {
         return this.cpg[i];
     }
 }

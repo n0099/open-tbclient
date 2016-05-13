@@ -47,7 +47,7 @@ public class f extends com.baidu.adp.base.e<SignAllForumActivity> {
         registerListener(this.ejg);
     }
 
-    public boolean aQi() {
+    public boolean aQl() {
         return this.eje;
     }
 

@@ -21,7 +21,7 @@ class bv extends CustomMessageListener {
         elVar = this.djE.diR;
         if (elVar != null) {
             elVar2 = this.djE.diR;
-            elVar2.awf();
+            elVar2.awi();
         }
     }
 }

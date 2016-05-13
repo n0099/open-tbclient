@@ -30,7 +30,7 @@ public class q extends y.a {
         if (vVar instanceof com.baidu.tbadk.data.i) {
             this.dBl = vVar;
             com.baidu.tbadk.data.i iVar = (com.baidu.tbadk.data.i) vVar;
-            if (iVar.AG()) {
+            if (iVar.AH()) {
                 String dk = com.baidu.tbadk.core.util.q.dk(iVar.getSmallUrl());
                 this.dDM.setVisibility(0);
                 at.c(this.dDM, t.d.cp_cont_i, 1);
@@ -48,7 +48,7 @@ public class q extends y.a {
         }
     }
 
-    public v vL() {
+    public v vM() {
         return this.dBl;
     }
 

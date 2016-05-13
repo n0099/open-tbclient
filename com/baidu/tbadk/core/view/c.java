@@ -46,7 +46,7 @@ public class c implements View.OnClickListener {
                         axVar6 = this.aag.aab;
                         String name_show = axVar6.getAuthor().getName_show();
                         axVar7 = this.aag.aab;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, axVar7.qP(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, axVar7.qQ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         onClickListener = this.aag.aac;
                         if (onClickListener != null) {
                             onClickListener2 = this.aag.aac;

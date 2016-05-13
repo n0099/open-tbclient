@@ -6,7 +6,7 @@ import com.baidu.adp.base.BdBaseApplication;
 public class b {
     private static b azT;
 
-    public static b Fm() {
+    public static b Fo() {
         if (azT == null) {
             azT = new b();
         }

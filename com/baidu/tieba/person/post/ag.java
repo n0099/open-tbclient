@@ -12,16 +12,16 @@ import com.baidu.tieba.person.god.GodThreadListSocketResponseMessage;
 /* loaded from: classes.dex */
 public class ag {
     public static void init() {
-        abA();
-        aDa();
+        abC();
+        aDd();
     }
 
-    public static void abA() {
+    public static void abC() {
         com.baidu.tieba.tbadkCore.a.a.a(303002, UserPostPageSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309291, GodThreadListSocketResponseMessage.class, false, false);
     }
 
-    private static void aDa() {
+    private static void aDd() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ay("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

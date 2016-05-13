@@ -28,7 +28,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     private Button ctr;
     private View.OnClickListener cts;
 
-    static /* synthetic */ int[] ajc() {
+    static /* synthetic */ int[] aje() {
         int[] iArr = ctt;
         if (iArr == null) {
             iArr = new int[PersonalMsglistModel.CardStatus.valuesCustom().length];
@@ -56,9 +56,9 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     public PersonalChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
         this.cts = new q(this);
-        if (!this.ctl.aiX() && this.mTool != null) {
-            b(this.mTool.eg(6));
-            b(this.mTool.eg(2));
+        if (!this.ctl.aiZ() && this.mTool != null) {
+            b(this.mTool.ef(6));
+            b(this.mTool.ef(2));
         }
     }
 
@@ -72,7 +72,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             this.bYV = (TextView) this.mBtnGroupInfo.findViewById(t.g.group_info_btn_txt);
             this.bYV.setText(string);
         }
-        if (!this.ctl.aiX()) {
+        if (!this.ctl.aiZ()) {
             this.mBtnGroupInfo.setVisibility(8);
             this.ctm = (LinearLayout) ((ViewStub) talkableActivity.findViewById(t.g.stranger_person_add_friend_stub)).inflate();
             this.ctn = (LinearLayout) this.ctm.findViewById(t.g.add_friend_tip_full);
@@ -104,16 +104,16 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void aiZ() {
+    private void ajb() {
         if (this.mTool != null) {
-            this.mTool.Bk();
+            this.mTool.Bl();
         }
     }
 
     public void a(PersonalMsglistModel.CardStatus cardStatus, boolean z, String... strArr) {
-        switch (ajc()[cardStatus.ordinal()]) {
+        switch (aje()[cardStatus.ordinal()]) {
             case 1:
-                aja();
+                ajc();
                 return;
             case 2:
                 eU(z);
@@ -133,7 +133,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void aja() {
+    private void ajc() {
         this.ctn.setVisibility(0);
         this.ctq.setVisibility(8);
         this.cto.setText(t.j.add_friend_title);
@@ -142,7 +142,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void eU(boolean z) {
-        if (this.ctl.aiU().akV() == PersonalMsglistModel.CardStatus.WAIT && z) {
+        if (this.ctl.aiW().akX() == PersonalMsglistModel.CardStatus.WAIT && z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 1, 1.0f, 1, 0.0f);
             translateAnimation.setDuration(400L);
             translateAnimation.setFillAfter(true);
@@ -172,7 +172,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void j(boolean z, String str) {
-        String userName = this.ctl.aiU().getUser().getUserName();
+        String userName = this.ctl.aiW().getUser().getUserName();
         this.ctq.setVisibility(8);
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 1.0f, 1, 0.0f);
@@ -193,7 +193,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
     }
 
     private void eV(boolean z) {
-        aiZ();
+        ajb();
         if (z) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, 0.0f, 2, 0.0f, 2, 0.0f, 2, -1.0f);
             translateAnimation.setDuration(500L);
@@ -205,7 +205,7 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         this.ctm.setVisibility(8);
     }
 
-    public Button ajb() {
+    public Button ajd() {
         return this.ctr;
     }
 

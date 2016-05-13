@@ -31,7 +31,7 @@ public class ag extends c<com.baidu.tieba.person.data.s, com.baidu.tieba.person.
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.s sVar, com.baidu.tieba.person.b.p pVar) {
         if (sVar != null && pVar != null) {
-            pVar.aCN();
+            pVar.aCQ();
             String string = this.mContext.getResources().getString(t.j.person_user_togetherhi_him);
             if (sVar.getSex() == 2) {
                 string = this.mContext.getResources().getString(t.j.person_user_togetherhi_her);
@@ -64,7 +64,7 @@ public class ag extends c<com.baidu.tieba.person.data.s, com.baidu.tieba.person.
         public void onClick(View view) {
             if (bl.ac(ag.this.mContext)) {
                 ThUserActivityConfig thUserActivityConfig = new ThUserActivityConfig(ag.this.mContext);
-                thUserActivityConfig.initUserActivityConfig(this.dyv.aCs());
+                thUserActivityConfig.initUserActivityConfig(this.dyv.aCv());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, thUserActivityConfig));
             }
         }

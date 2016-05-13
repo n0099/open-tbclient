@@ -21,7 +21,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         String str;
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.mCmd);
         if (customMessage == null || !(customMessage instanceof LoadDraftMessage)) {
-            return jI(this.mCmd);
+            return jH(this.mCmd);
         }
         LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
         if (TbadkCoreApplication.getCurrentAccountObj() == null) {
@@ -32,7 +32,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         LoadDraftMessage.a data = loadDraftMessage.getData();
         com.baidu.tieba.im.pushNotify.a bf = this.crr.bf(str, data.id);
         if (bf == null) {
-            return jI(loadDraftMessage.getCmd());
+            return jH(loadDraftMessage.getCmd());
         }
         String draft = bf.getDraft();
         LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
@@ -46,7 +46,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
         return loadDraftResponsedMessage;
     }
 
-    private LoadDraftResponsedMessage jI(int i) {
+    private LoadDraftResponsedMessage jH(int i) {
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
         loadDraftResponsedMessage.setError(-18);
         return loadDraftResponsedMessage;

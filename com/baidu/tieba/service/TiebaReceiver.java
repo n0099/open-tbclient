@@ -7,6 +7,6 @@ import android.content.Intent;
 public class TiebaReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        intent.getAction().equals(com.baidu.tbadk.data.d.Ax());
+        intent.getAction().equals(com.baidu.tbadk.data.d.Ay());
     }
 }

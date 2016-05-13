@@ -35,7 +35,7 @@ public class h extends com.baidu.adp.base.e {
         return this.Or == 1;
     }
 
-    public void my(int i) {
+    public void mx(int i) {
         reset();
         this.dAd = i;
         this.curPage = this.dAd;
@@ -72,26 +72,26 @@ public class h extends com.baidu.adp.base.e {
         return false;
     }
 
-    private GodThreadListRequestMessage aCz() {
+    private GodThreadListRequestMessage aCC() {
         return new GodThreadListRequestMessage();
     }
 
     public void bG(long j) {
-        GodThreadListRequestMessage aCz = aCz();
-        aCz.setUserId(j);
-        aCz.setPn(this.curPage + 1);
-        aCz.setNum(20);
-        sendMessage(aCz);
+        GodThreadListRequestMessage aCC = aCC();
+        aCC.setUserId(j);
+        aCC.setPn(this.curPage + 1);
+        aCC.setNum(20);
+        sendMessage(aCC);
         this.avz = true;
     }
 
     public void j(int i, long j) {
-        GodThreadListRequestMessage aCz = aCz();
-        aCz.setUserId(j);
+        GodThreadListRequestMessage aCC = aCC();
+        aCC.setUserId(j);
         this.curPage = i;
-        aCz.setPn(this.curPage);
-        aCz.setNum(20);
-        sendMessage(aCz);
+        aCC.setPn(this.curPage);
+        aCC.setNum(20);
+        sendMessage(aCC);
         this.avz = true;
     }
 
@@ -106,7 +106,7 @@ public class h extends com.baidu.adp.base.e {
     public void a(DataRes dataRes) {
         if (dataRes == null) {
             if (this.dAe != null) {
-                this.dAe.fz(aCA());
+                this.dAe.fz(aCD());
                 return;
             }
             return;
@@ -124,7 +124,7 @@ public class h extends com.baidu.adp.base.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String aCA() {
+    public String aCD() {
         if (k.fH()) {
             return TbadkCoreApplication.m11getInst().getString(t.j.no_data_text);
         }

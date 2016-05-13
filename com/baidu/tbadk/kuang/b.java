@@ -46,9 +46,9 @@ public class b {
         auq = new com.baidu.tbadk.coreExtra.view.j(tbPageContext);
         auq.a(new c());
         auq.b(new d());
-        auq.zq();
+        auq.zr();
         auq.h(accountData);
-        auq.zm();
+        auq.zn();
     }
 
     public static void bG(boolean z) {
@@ -59,7 +59,7 @@ public class b {
         com.baidu.adp.lib.h.h.dL().postDelayed(new i(customResponsedMessage), aup);
     }
 
-    public static void CP() {
+    public static void CQ() {
         a("login", new Class[0], new Object[0], new j());
     }
 }

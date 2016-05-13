@@ -27,7 +27,7 @@ public class cn {
         this.djz = aVar;
     }
 
-    public void lM(int i) {
+    public void lL(int i) {
         if (this.dih != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
             httpMessage.addParam("thread_id", this.dih.getThreadID());

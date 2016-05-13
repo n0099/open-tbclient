@@ -51,17 +51,17 @@ public class c extends b {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Gx() {
+    protected void Gz() {
         this.aDx.startAnimation(this.aDt);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Gz() {
+    protected void GB() {
         this.aDx.clearAnimation();
-        GA();
+        GC();
     }
 
-    private void GA() {
+    private void GC() {
         if (this.aDG != null) {
             this.aDG.reset();
             this.aDx.setImageMatrix(this.aDG);
@@ -69,11 +69,11 @@ public class c extends b {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Gw() {
+    protected void Gy() {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Gy() {
+    protected void GA() {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b

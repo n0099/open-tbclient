@@ -14,11 +14,11 @@ public class aw implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.card.a.l lVar;
-        if (this.aQv.JM() != null) {
-            by<com.baidu.tieba.card.a.l> JM = this.aQv.JM();
+        if (this.aQv.JO() != null) {
+            by<com.baidu.tieba.card.a.l> JO = this.aQv.JO();
             lVar = this.aQv.aQq;
-            JM.a(view, lVar);
+            JO.a(view, lVar);
         }
-        this.aQv.Kd();
+        this.aQv.Kf();
     }
 }

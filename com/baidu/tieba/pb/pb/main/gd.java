@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class gd implements a.b {
-    private final /* synthetic */ TbPageContext azg;
+    private final /* synthetic */ TbPageContext azf;
     final /* synthetic */ gb dpH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gd(gb gbVar, TbPageContext tbPageContext) {
         this.dpH = gbVar;
-        this.azg = tbPageContext;
+        this.azf = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -25,7 +25,7 @@ public class gd implements a.b {
         aVar2.dismiss();
         str = this.dpH.dpE;
         if (!TextUtils.isEmpty(str)) {
-            Activity pageActivity = this.azg.getPageActivity();
+            Activity pageActivity = this.azf.getPageActivity();
             str2 = this.dpH.dpE;
             com.baidu.tbadk.browser.f.a(pageActivity, false, str2);
         }

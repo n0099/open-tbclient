@@ -32,7 +32,7 @@ public class e extends CustomMessageListener {
             String f = dF.f(str, i);
             if (f != null && f.equals(str2)) {
                 this.aCi.destroyDrawingCache();
-                Gj();
+                Gl();
                 method = TbImageView.aCe;
                 com.baidu.adp.lib.a.a.a.a(method, this.aCi, TbImageView.class);
                 method2 = TbImageView.aCf;
@@ -46,7 +46,7 @@ public class e extends CustomMessageListener {
         }
     }
 
-    private void Gj() {
+    private void Gl() {
         Method method;
         Method method2;
         Method method3;

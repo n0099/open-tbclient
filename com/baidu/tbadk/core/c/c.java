@@ -51,13 +51,13 @@ public abstract class c implements i {
             String optString = jSONObject2.optString("callbackId");
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!pVar.sE()) {
+                if (!pVar.sF()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
                         invoke = method.invoke(this, jSONObject);
                     } else if (parameterTypes.length == 0) {
-                        d.cD("native method " + getClass().getSimpleName() + ":" + pVar.sD() + " ignored all parameters.");
+                        d.cD("native method " + getClass().getSimpleName() + ":" + pVar.sE() + " ignored all parameters.");
                         invoke = method.invoke(this, new Object[0]);
                     } else {
                         a(str, jSONObject2, "500", "parameters too much!");
@@ -77,7 +77,7 @@ public abstract class c implements i {
                         }
                         return;
                     } else if (parameterTypes.length == 0) {
-                        d.cD("native method " + getClass().getSimpleName() + ":" + pVar.sD() + " ignored all parameters.");
+                        d.cD("native method " + getClass().getSimpleName() + ":" + pVar.sE() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
                             c(optString, null);
@@ -126,18 +126,18 @@ public abstract class c implements i {
         for (Method method : cls.getDeclaredMethods()) {
             p pVar = (p) method.getAnnotation(p.class);
             if (pVar != null) {
-                String sD = pVar.sD();
-                if (TextUtils.isEmpty(sD)) {
-                    sD = null;
+                String sE = pVar.sE();
+                if (TextUtils.isEmpty(sE)) {
+                    sE = null;
                 }
-                if (pVar.sE() && !Void.TYPE.equals(method.getReturnType())) {
+                if (pVar.sF() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
-                if (TextUtils.isEmpty(sD)) {
-                    sD = method.getName();
+                if (TextUtils.isEmpty(sE)) {
+                    sE = method.getName();
                 }
                 method.setAccessible(true);
-                this.Tn.put(sD, method);
+                this.Tn.put(sE, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

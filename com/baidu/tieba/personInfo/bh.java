@@ -107,7 +107,7 @@ public class bh extends CustomMessageListener {
                     i = i2 + 1;
                 }
             }
-            this.dHt.aDR();
+            this.dHt.aDU();
             gVar = this.dHt.mLoadDataCallBack;
             gVar.d(2);
         }

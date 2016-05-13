@@ -18,11 +18,11 @@ public class f extends ImageSpan {
         this.aCo = 0;
     }
 
-    public void eU(int i) {
+    public void eT(int i) {
         this.paddingLeft = i;
     }
 
-    public void eV(int i) {
+    public void eU(int i) {
         this.paddingRight = i;
     }
 

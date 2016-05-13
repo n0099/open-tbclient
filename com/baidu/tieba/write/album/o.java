@@ -7,16 +7,16 @@ import java.util.List;
 public class o {
     private int asz;
     private WriteImagesInfo dwh;
-    private String eFl;
-    private List<ImageFileInfo> eFm;
-    private List<d> eFn;
-    private final AlbumActivity eXM;
-    private List<ImageFileInfo> eYf;
-    private String eYg;
-    private boolean eYh = false;
+    private String eFk;
+    private List<ImageFileInfo> eFl;
+    private List<d> eFm;
+    private final AlbumActivity eXL;
+    private List<ImageFileInfo> eYe;
+    private String eYf;
+    private boolean eYg = false;
 
     public o(AlbumActivity albumActivity) {
-        this.eXM = albumActivity;
+        this.eXL = albumActivity;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
@@ -39,7 +39,7 @@ public class o {
         return this.dwh.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> bbx() {
+    public List<ImageFileInfo> bbE() {
         if (this.dwh != null) {
             return this.dwh.getChosedFiles();
         }
@@ -75,44 +75,44 @@ public class o {
         return 0;
     }
 
-    public String bby() {
-        return this.eFl;
+    public String bbF() {
+        return this.eFk;
     }
 
     public void pb(String str) {
-        this.eFl = str;
+        this.eFk = str;
     }
 
-    public List<ImageFileInfo> bbz() {
-        return this.eFm;
+    public List<ImageFileInfo> bbG() {
+        return this.eFl;
     }
 
     public void cM(List<ImageFileInfo> list) {
-        this.eFm = list;
+        this.eFl = list;
     }
 
     public int getCurrentIndex() {
         return this.asz;
     }
 
-    public void qH(int i) {
+    public void qG(int i) {
         this.asz = i;
     }
 
-    public List<d> aXo() {
-        return this.eFn;
+    public List<d> aXu() {
+        return this.eFm;
     }
 
     public void cN(List<d> list) {
-        this.eFn = list;
+        this.eFm = list;
     }
 
-    public List<ImageFileInfo> bbA() {
-        return this.eYf;
+    public List<ImageFileInfo> bbH() {
+        return this.eYe;
     }
 
     public void cO(List<ImageFileInfo> list) {
-        this.eYf = list;
+        this.eYe = list;
     }
 
     public int size() {
@@ -122,12 +122,12 @@ public class o {
         return this.dwh.size();
     }
 
-    public String bbB() {
-        return this.eYg;
+    public String bbI() {
+        return this.eYf;
     }
 
     public void pc(String str) {
-        this.eYg = str;
+        this.eYf = str;
     }
 
     public void setOriginalImg(boolean z) {
@@ -138,11 +138,11 @@ public class o {
         return this.dwh.isOriginalImg();
     }
 
-    public boolean bbC() {
-        return this.eYh;
+    public boolean bbJ() {
+        return this.eYg;
     }
 
     public void ks(boolean z) {
-        this.eYh = z;
+        this.eYg = z;
     }
 }

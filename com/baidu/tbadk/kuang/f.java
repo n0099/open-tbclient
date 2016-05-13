@@ -24,7 +24,7 @@ public class f implements HostInvokeCallback {
             b.Mg = (String) obj;
             str = b.mZ;
             if (str == null) {
-                b.CP();
+                b.CQ();
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));

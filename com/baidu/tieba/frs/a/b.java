@@ -60,11 +60,11 @@ public class b extends y.a {
 
     public void a(aj ajVar) {
         if (ajVar != null) {
-            az aTh = ajVar.aTh();
-            bc aTi = ajVar.aTi();
-            this.top_code = aTh;
-            this.news_info = aTi;
-            if (ajVar.aTg()) {
+            az aTn = ajVar.aTn();
+            bc aTo = ajVar.aTo();
+            this.top_code = aTn;
+            this.news_info = aTo;
+            if (ajVar.aTm()) {
                 this.biC.setVisibility(0);
             } else {
                 this.biC.setVisibility(8);
@@ -72,52 +72,52 @@ public class b extends y.a {
             if (this.top_code == null) {
                 this.bnF.setVisibility(8);
                 this.bnM.setVisibility(8);
-            } else if (StringUtils.isNull(this.top_code.rB())) {
+            } else if (StringUtils.isNull(this.top_code.rC())) {
                 this.bnF.setVisibility(8);
                 this.bnM.setVisibility(8);
             } else {
                 this.bnF.setVisibility(0);
                 this.bnM.setVisibility(0);
                 this.bnH.c(this.top_code.qv(), 10, false);
-                this.bnI.setText(this.top_code.rB());
-                if (StringUtils.isNull(aTh.rG())) {
+                this.bnI.setText(this.top_code.rC());
+                if (StringUtils.isNull(aTn.rH())) {
                     this.bnL.setVisibility(8);
                 } else {
-                    this.bnL.setText(aTh.rG());
+                    this.bnL.setText(aTn.rH());
                     this.bnL.setVisibility(0);
                 }
-                int rD = this.top_code.rD();
-                if (rD == 1 || rD == 2) {
-                    if (StringUtils.isNull(this.top_code.rE())) {
+                int rE = this.top_code.rE();
+                if (rE == 1 || rE == 2) {
+                    if (StringUtils.isNull(this.top_code.rF())) {
                         this.bnJ.setVisibility(8);
                     } else {
-                        String str = String.valueOf(this.Do.getResources().getString(t.j.u9_shengyu)) + this.top_code.rE();
+                        String str = String.valueOf(this.Do.getResources().getString(t.j.u9_shengyu)) + this.top_code.rF();
                         SpannableString spannableString = new SpannableString(str);
-                        UtilHelper.setSpan(spannableString, str, this.top_code.rE(), new ForegroundColorSpan(at.getColor(t.d.cp_link_tip_d)));
+                        UtilHelper.setSpan(spannableString, str, this.top_code.rF(), new ForegroundColorSpan(at.getColor(t.d.cp_link_tip_d)));
                         this.bnJ.setText(spannableString);
                         this.bnJ.setVisibility(0);
                     }
-                    if (aTh.rF() <= 0) {
+                    if (aTn.rG() <= 0) {
                         this.bnK.setVisibility(8);
                     } else {
-                        String str2 = String.valueOf(this.Do.getResources().getString(t.j.u9_worth)) + this.top_code.rF();
+                        String str2 = String.valueOf(this.Do.getResources().getString(t.j.u9_worth)) + this.top_code.rG();
                         SpannableString spannableString2 = new SpannableString(str2);
-                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.rF()), new ForegroundColorSpan(at.getColor(t.d.cp_link_tip_d)));
+                        UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.top_code.rG()), new ForegroundColorSpan(at.getColor(t.d.cp_link_tip_d)));
                         this.bnK.setText(spannableString2);
                         this.bnK.setVisibility(0);
                     }
                 } else {
                     this.bnK.setVisibility(8);
-                    this.bnJ.setText(aTh.getSubTitle());
+                    this.bnJ.setText(aTn.getSubTitle());
                     this.bnJ.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(aTi.rB())) {
+            if (this.news_info == null || StringUtils.isNull(aTo.rC())) {
                 this.bnG.setVisibility(8);
                 return;
             }
             this.bnG.setVisibility(0);
-            this.bnN.setText(aTi.rB());
+            this.bnN.setText(aTo.rC());
         }
     }
 

@@ -12,7 +12,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public Object aux() {
+    public Object auA() {
         Object obj;
         if (this.dbv != null && this.dbv.size() > 0) {
             Object obj2 = this.dbu;
@@ -32,7 +32,7 @@ public class b implements d {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.d
-    public boolean auy() {
+    public boolean auB() {
         String name = this.dbu.getPackage().getName();
         for (String str : com.baidu.tieba.onlineDebugger.d.a.dbH) {
             if (name.startsWith(str)) {

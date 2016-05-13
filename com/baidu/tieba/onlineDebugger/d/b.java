@@ -15,20 +15,20 @@ public class b {
 
     public b(a aVar) {
         this();
-        this.dbI = aVar.auB();
-        this.toUid = aVar.auC();
+        this.dbI = aVar.auE();
+        this.toUid = aVar.auF();
         this.msgType = aVar.getMsgType();
         this.dbJ = aVar.getToUid();
     }
 
     public b() {
         this.dbN = !TbadkCoreApplication.m11getInst().isDebugMode();
-        lw(2);
+        lv(2);
         ly(TbConfig.getVersion());
         this.dbJ = TbadkCoreApplication.getCurrentAccount();
     }
 
-    public String auC() {
+    public String auF() {
         return this.dbJ;
     }
 
@@ -36,7 +36,7 @@ public class b {
         return this.toUid;
     }
 
-    public void lw(int i) {
+    public void lv(int i) {
         this.dbL = i;
     }
 

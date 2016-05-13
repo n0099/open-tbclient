@@ -18,7 +18,7 @@ public class y extends com.baidu.tbadk.util.s<DataRes> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: aMh */
+    /* renamed from: aMk */
     public DataRes doInBackground() {
         byte[] bArr = (byte[]) this.cFw.get("0");
         if (bArr == null || bArr.length == 0) {

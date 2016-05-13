@@ -28,12 +28,12 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
     private View dHC;
     private RelativeLayout dbg;
     private boolean diA;
-    private AlbumActivity eXM;
-    private o eXx;
-    private h eYR;
-    private View eYS;
-    private com.baidu.tieba.write.view.a eYT;
-    private ab eYU;
+    private AlbumActivity eXL;
+    private o eXw;
+    private h eYQ;
+    private View eYR;
+    private com.baidu.tieba.write.view.a eYS;
+    private ab eYT;
     private NavigationBar mNavigationBar;
     private com.baidu.tbadk.core.view.q mNoDataView;
     private View mView;
@@ -41,12 +41,12 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eXM = (AlbumActivity) getBaseFragmentActivity();
-        this.eXx = this.eXM.bbn();
-        p.bbD().a(this);
-        this.eYR = new h(this.eXM.getPageContext().getPageActivity());
-        this.eYT = new com.baidu.tieba.write.view.a(this.eXM);
-        this.eXx.pb("-1");
+        this.eXL = (AlbumActivity) getBaseFragmentActivity();
+        this.eXw = this.eXL.bbu();
+        p.bbK().a(this);
+        this.eYQ = new h(this.eXL.getPageContext().getPageActivity());
+        this.eYS = new com.baidu.tieba.write.view.a(this.eXL);
+        this.eXw.pb("-1");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -54,24 +54,24 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
         this.mView = layoutInflater.inflate(t.h.album_image_list_view, (ViewGroup) null);
         this.dbg = (RelativeLayout) this.mView.findViewById(t.g.album_image_list_root);
         this.mNavigationBar = (NavigationBar) this.mView.findViewById(t.g.view_navigation_bar);
-        this.dHC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.eXM);
-        this.eYS = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, t.h.album_iamge_title_layout, (View.OnClickListener) null);
-        this.Di = (TextView) this.eYS.findViewById(t.g.navigationTitle_frs);
+        this.dHC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.eXL);
+        this.eYR = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, t.h.album_iamge_title_layout, (View.OnClickListener) null);
+        this.Di = (TextView) this.eYR.findViewById(t.g.navigationTitle_frs);
         this.cRJ = (GridView) this.mView.findViewById(t.g.gv_image_list);
-        this.eYU = new ab(this.eXM, this.eXx);
-        this.cRJ.setAdapter((ListAdapter) this.eYU);
+        this.eYT = new ab(this.eXL, this.eXw);
+        this.cRJ.setAdapter((ListAdapter) this.eYT);
         this.cRJ.setOnScrollListener(this);
         ah ahVar = new ah(this);
         ai aiVar = new ai(this);
         aj ajVar = new aj(this);
         ak akVar = new ak(this);
         al alVar = new al(this);
-        this.eYS.setOnClickListener(akVar);
-        this.eYT.a(alVar);
-        this.eYU.a(ahVar);
-        this.eYU.a(aiVar);
-        this.eYU.a(ajVar);
-        this.mNoDataView = NoDataViewFactory.a(this.eXM.getPageContext().getPageActivity(), this.dbg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.v(t.j.album_list_no_data, t.j.album_list_no_data_1), null);
+        this.eYR.setOnClickListener(akVar);
+        this.eYS.a(alVar);
+        this.eYT.a(ahVar);
+        this.eYT.a(aiVar);
+        this.eYT.a(ajVar);
+        this.mNoDataView = NoDataViewFactory.a(this.eXL.getPageContext().getPageActivity(), this.dbg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.v(t.j.album_list_no_data, t.j.album_list_no_data_1), null);
         return this.mView;
     }
 
@@ -85,21 +85,21 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
         super.onResume();
         this.diA = false;
         if (isShow()) {
-            bbw();
+            bbD();
         }
     }
 
-    private void bbv() {
-        if (this.eXx == null && this.eXM != null) {
-            this.eXx = this.eXM.bbn();
+    private void bbC() {
+        if (this.eXw == null && this.eXL != null) {
+            this.eXw = this.eXL.bbu();
         }
-        if (this.eXx != null && this.eXx.bbA() == null) {
-            setData(bbJ(), true);
+        if (this.eXw != null && this.eXw.bbH() == null) {
+            setData(bbQ(), true);
             pd("-1");
         }
     }
 
-    private List<ImageFileInfo> bbJ() {
+    private List<ImageFileInfo> bbQ() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 20; i++) {
             arrayList.add(new ImageFileInfo());
@@ -112,48 +112,48 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
 
     private void pd(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.eYR.a(str, new am(this, str));
+            this.eYQ.a(str, new am(this, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bbK() {
-        this.eYR.a(new an(this));
+    public void bbR() {
+        this.eYQ.a(new an(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setData(List<ImageFileInfo> list, boolean z) {
-        if (this.eYU != null) {
-            this.eXx.cM(list);
-            this.eYU.setData(list, z);
+        if (this.eYT != null) {
+            this.eXw.cM(list);
+            this.eYT.setData(list, z);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eXM.getLayoutMode().ae(i == 1);
-        this.eXM.getLayoutMode().x(this.mView);
-        if (this.eYU != null) {
-            this.eYU.notifyDataSetChanged();
+        this.eXL.getLayoutMode().ae(i == 1);
+        this.eXL.getLayoutMode().x(this.mView);
+        if (this.eYT != null) {
+            this.eYT.notifyDataSetChanged();
         }
-        this.mNavigationBar.onChangeSkinType(this.eXM.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.eXL.getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
     }
 
-    public View aEo() {
+    public View aEr() {
         return this.dHC;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.eYR != null) {
-            this.eYR.aYF();
+        if (this.eYQ != null) {
+            this.eYQ.aYM();
         }
-        p.bbD().b(this);
+        p.bbK().b(this);
     }
 
     public void D(int i, boolean z) {
@@ -176,8 +176,8 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
     }
 
     public void g(ImageFileInfo imageFileInfo, boolean z) {
-        if (imageFileInfo != null && this.eYU != null) {
-            D(this.eYU.i(imageFileInfo), z);
+        if (imageFileInfo != null && this.eYT != null) {
+            D(this.eYT.i(imageFileInfo), z);
         }
     }
 
@@ -194,12 +194,12 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
 
     @Override // com.baidu.tieba.write.album.p.a
     public void ku(boolean z) {
-        bbw();
+        bbD();
     }
 
-    private void bbw() {
+    private void bbD() {
         if (!isHidden() && !this.diA) {
-            bbv();
+            bbC();
         }
     }
 
@@ -212,32 +212,32 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.eYU.kc(true);
-        } else if (this.eYU.isScroll()) {
-            this.eYU.kc(false);
-            aXp();
+            this.eYT.kc(true);
+        } else if (this.eYT.isScroll()) {
+            this.eYT.kc(false);
+            aXv();
         }
     }
 
-    private void aXp() {
+    private void aXv() {
         int childCount = this.cRJ.getChildCount();
         int firstVisiblePosition = this.cRJ.getFirstVisiblePosition();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.cRJ.getChildAt(i);
             if (childAt != null) {
                 HeadImageView headImageView = (HeadImageView) childAt.findViewById(t.g.pic);
-                ImageFileInfo item = this.eYU.getItem(firstVisiblePosition + i);
+                ImageFileInfo item = this.eYT.getItem(firstVisiblePosition + i);
                 if (item != null && headImageView != null) {
                     headImageView.setTag(item.toCachedKey(false));
-                    this.eXM.YI().a(item, new ao(this), false, false);
+                    this.eXL.YK().a(item, new ao(this), false, false);
                 }
             }
         }
     }
 
     public void refresh() {
-        if (this.eYU != null) {
-            this.eYU.notifyDataSetChanged();
+        if (this.eYT != null) {
+            this.eYT.notifyDataSetChanged();
         }
     }
 }

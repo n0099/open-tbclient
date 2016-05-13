@@ -49,11 +49,11 @@ public class i extends com.baidu.adp.base.f<StrangerListActivity> {
         this.Ed.setAdapter((ListAdapter) this.cxX);
     }
 
-    public StrangerListAdapter ala() {
+    public StrangerListAdapter alc() {
         return this.cxX;
     }
 
-    public View alb() {
+    public View ald() {
         return this.cxY;
     }
 }

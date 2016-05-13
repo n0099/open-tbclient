@@ -6,11 +6,11 @@ public class p {
     private boolean ern;
     private String menu_name;
 
-    public boolean aST() {
+    public boolean aSZ() {
         return this.ern;
     }
 
-    public String aSU() {
+    public String aTa() {
         return this.menu_name;
     }
 

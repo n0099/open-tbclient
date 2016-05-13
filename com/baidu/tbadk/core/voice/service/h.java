@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.voice.service;
 public interface h {
     boolean dX(String str);
 
-    void dg(int i);
+    void df(int i);
 
     int fU();
 
@@ -11,13 +11,13 @@ public interface h {
 
     boolean isPlaying();
 
-    void vW();
-
-    void wb();
+    void vX();
 
     void wc();
 
     void wd();
 
-    boolean we();
+    void we();
+
+    boolean wf();
 }

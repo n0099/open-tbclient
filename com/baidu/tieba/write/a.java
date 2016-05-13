@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private TextView eXs;
-    private ImageView eXt;
-    private View eXu;
+    private TextView eXr;
+    private ImageView eXs;
+    private View eXt;
     private Context mContext;
 
     public a(Context context) {
@@ -32,34 +32,34 @@ public class a extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(t.h.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.eXs = (TextView) findViewById(t.g.prefix_text);
-        this.eXt = (ImageView) findViewById(t.g.prefix_checked);
-        this.eXu = findViewById(t.g.prefix_item_divider);
-        this.eXs.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        at.k(this.eXs, t.d.cp_bg_line_d);
-        this.eXt.setBackgroundDrawable(at.getDrawable(t.f.icon_set_list_ok_s));
-        at.k(this.eXu, t.d.cp_bg_line_c);
+        this.eXr = (TextView) findViewById(t.g.prefix_text);
+        this.eXs = (ImageView) findViewById(t.g.prefix_checked);
+        this.eXt = findViewById(t.g.prefix_item_divider);
+        this.eXr.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        at.k(this.eXr, t.d.cp_bg_line_d);
+        this.eXs.setBackgroundDrawable(at.getDrawable(t.f.icon_set_list_ok_s));
+        at.k(this.eXt, t.d.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.eXs.setText(str);
+        this.eXr.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.eXs.setTextColor(i);
+        this.eXr.setTextColor(i);
     }
 
     public void kr(boolean z) {
         if (z) {
-            this.eXt.setVisibility(0);
+            this.eXs.setVisibility(0);
         } else {
-            this.eXt.setVisibility(8);
+            this.eXs.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.eXu.getLayoutParams()).setMargins(k.c(this.mContext, t.e.ds30), 0, k.c(this.mContext, t.e.ds30), 0);
+            ((LinearLayout.LayoutParams) this.eXt.getLayoutParams()).setMargins(k.c(this.mContext, t.e.ds30), 0, k.c(this.mContext, t.e.ds30), 0);
         }
     }
 }

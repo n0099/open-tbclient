@@ -18,10 +18,10 @@ public class e implements View.OnClickListener {
         ax axVar;
         ax axVar2;
         axVar = this.bpG.aab;
-        if (axVar != null && this.bpG.JM() != null) {
-            by<ax> JM = this.bpG.JM();
+        if (axVar != null && this.bpG.JO() != null) {
+            by<ax> JO = this.bpG.JO();
             axVar2 = this.bpG.aab;
-            JM.a(view, axVar2);
+            JO.a(view, axVar2);
         }
     }
 }

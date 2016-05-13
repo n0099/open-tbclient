@@ -21,7 +21,7 @@ public class ai {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized ai alo() {
+    public static synchronized ai alq() {
         ai aiVar;
         synchronized (ai.class) {
             if (cyG == null) {
@@ -37,7 +37,7 @@ public class ai {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alp() {
+    public void alr() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
     }
 
@@ -46,7 +46,7 @@ public class ai {
         return com.baidu.adp.lib.util.i.fq();
     }
 
-    public void alq() {
+    public void als() {
         this.cyI = 0L;
         destroy();
         start();

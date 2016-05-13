@@ -140,7 +140,7 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         }
         this.mSource = this.Zf;
         this.bsi = new l();
-        this.bsi.pc(0);
+        this.bsi.pb(0);
         this.bsi.setIsGood(0);
         this.bgq = new o();
         this.brd = new c<>(this.bpj.getPageContext(), this.bsi);
@@ -159,9 +159,9 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         bundle.putInt(FrsActivityConfig.FLAG, this.bgg);
     }
 
-    public boolean KM() {
+    public boolean KO() {
         if (this.bsk != 1) {
-            gG(1);
+            gF(1);
             return true;
         } else if (this.brd.isLoading()) {
             return false;
@@ -175,8 +175,8 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
     }
 
     public void m(int i, boolean z) {
-        if (this.bgq != null && this.bgq.aSq() != null) {
-            this.bgq.aSq().clear();
+        if (this.bgq != null && this.bgq.aSt() != null) {
+            this.bgq.aSt().clear();
         }
         l lVar = (l) l.objectWithJson(l.jsonWithObject(this.bsi), l.class);
         lVar.setPn(1);
@@ -192,16 +192,16 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
             this.bsn = new fo();
             this.bsn.pn = 1;
             this.bsn.forumName = this.bgf;
-            if (this.bgq != null && this.bgq.avA() != null) {
-                this.bsn.forumId = this.bgq.avA().getId();
+            if (this.bgq != null && this.bgq.avD() != null) {
+                this.bsn.forumId = this.bgq.avD().getId();
             }
         }
-        gG(i);
+        gF(i);
     }
 
-    public void gF(int i) {
+    public void gE(int i) {
         if (this.bsk != 1) {
-            gG(4);
+            gF(4);
         } else if (!this.brd.isLoading()) {
             l lVar = (l) l.objectWithJson(l.jsonWithObject(this.bsi), l.class);
             lVar.setPn(i);
@@ -211,7 +211,7 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
 
     private void a(l lVar, int i) {
         boolean z = true;
-        this.bpj.bgU.gm(i);
+        this.bpj.bgU.gl(i);
         this.brd.a(lVar);
         this.mType = i;
         lVar.setKw(this.bgf);
@@ -225,7 +225,7 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         int B = k.B(this.bpj.getPageContext().getPageActivity());
         int C = k.C(this.bpj.getPageContext().getPageActivity());
         float f = TbadkCoreApplication.m11getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = az.uf().uh() ? 2 : 1;
+        int i2 = az.ug().ui() ? 2 : 1;
         lVar.setScrW(B);
         lVar.setScrH(C);
         lVar.setScrDip(f);
@@ -253,16 +253,16 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         lVar.setUpdateType(this.mType);
         lVar.setNeedCache(z);
         if (!z) {
-            Tc();
+            Td();
             return;
         }
-        Tc();
-        new C0055a(this, z, com.baidu.tieba.tbadkCore.c.aRW().d(this.bgf, lVar.aRZ(), lVar.getIsGood(), this.bsi.getCategoryId())).execute(new Object[0]);
+        Td();
+        new C0055a(this, z, com.baidu.tieba.tbadkCore.c.aRZ().d(this.bgf, lVar.aSc(), lVar.getIsGood(), this.bsi.getCategoryId())).execute(new Object[0]);
     }
 
     protected boolean a(l lVar, m mVar) {
         if (this.bsp) {
-            this.bsk = mVar.aSu();
+            this.bsk = mVar.aSx();
         }
         this.bsp = false;
         this.bgq.d(mVar);
@@ -333,7 +333,7 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         if (!this.brj) {
             this.brj = true;
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eM(1000);
+            vVar.eL(1000);
             vVar.axK = false;
             vVar.isSuccess = this.brf.isSuccess;
             vVar.axy = mvcSocketResponsedMessage.performanceData.gv;
@@ -437,7 +437,7 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         if (!this.brj) {
             this.brj = true;
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eM(1000);
+            vVar.eL(1000);
             vVar.axK = true;
             vVar.isSuccess = this.brf.isSuccess;
             vVar.axy = mvcHttpResponsedMessage.performanceData.gv;
@@ -464,8 +464,8 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
     }
 
     public void RF() {
-        if (this.bgq != null && this.bgq.avA() != null && this.bgq.avA().getBannerListData() != null) {
-            String lastIds = this.bgq.avA().getBannerListData().getLastIds();
+        if (this.bgq != null && this.bgq.avD() != null && this.bgq.avD().getBannerListData() != null) {
+            String lastIds = this.bgq.avD().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
                 this.brg = lastIds;
             }
@@ -480,11 +480,11 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
             this.bpj.createTime = 0L;
             vVar.axE = this.bpj.axE;
             vVar.axF = vVar.axF == 0 ? System.currentTimeMillis() - this.bpj.Oe : vVar.axF;
-            vVar.EH();
+            vVar.EI();
         }
     }
 
-    public String JP() {
+    public String JR() {
         return this.mPageType;
     }
 
@@ -492,17 +492,17 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         return this.mType;
     }
 
-    public o Tb() {
+    public o Tc() {
         return this.bgq;
     }
 
-    public d.a To() {
+    public d.a Tp() {
         return this.brf;
     }
 
-    private void Tc() {
+    private void Td() {
         this.aXY = System.currentTimeMillis();
-        this.brd.Dy();
+        this.brd.Dz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -519,6 +519,10 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         } else {
             this.mPageType = "normal_page";
         }
+    }
+
+    public boolean Tq() {
+        return this.bsx == 5;
     }
 
     /* renamed from: com.baidu.tieba.frs.e.a$a  reason: collision with other inner class name */
@@ -541,11 +545,11 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Object... objArr) {
-            if (this.needCache && com.baidu.tieba.tbadkCore.c.aRW().nG(this.bsz)) {
-                if (!com.baidu.tieba.tbadkCore.c.aRW().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.bsz)) {
-                    com.baidu.tieba.tbadkCore.c.aRW().getResponseData().avA().getSignData().setIsSigned(0);
+            if (this.needCache && com.baidu.tieba.tbadkCore.c.aRZ().nG(this.bsz)) {
+                if (!com.baidu.tieba.tbadkCore.c.aRZ().isSameDay(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + this.bsz)) {
+                    com.baidu.tieba.tbadkCore.c.aRZ().getResponseData().avD().getSignData().setIsSigned(0);
                 }
-                publishProgress(com.baidu.tieba.tbadkCore.c.aRW().getResponseData());
+                publishProgress(com.baidu.tieba.tbadkCore.c.aRZ().getResponseData());
                 return null;
             }
             return null;
@@ -561,19 +565,19 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         }
     }
 
-    public long MM() {
+    public long MO() {
         return this.aYb;
     }
 
-    public long MN() {
+    public long MP() {
         return this.aXZ;
     }
 
-    public long MO() {
+    public long MQ() {
         return this.aYa;
     }
 
-    public long MP() {
+    public long MR() {
         return this.aXY;
     }
 
@@ -581,11 +585,11 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         return this.brd.isLoading();
     }
 
-    public int Tp() {
+    public int Tr() {
         return this.bsm;
     }
 
-    private void Tq() {
+    private void Ts() {
         if (this.bsv == null) {
             this.bsv = new ArrayList<>();
         }
@@ -604,27 +608,27 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
                 fqVar.pn = 1;
                 fqVar.forumName = this.bgf;
                 fqVar.bmV = false;
-                if (this.bgq != null && this.bgq.avA() != null) {
-                    fqVar.forumId = this.bgq.avA().getId();
+                if (this.bgq != null && this.bgq.avD() != null) {
+                    fqVar.forumId = this.bgq.avD().getId();
                 }
-                Tq();
+                Ts();
                 this.bgq.an(this.bsv);
                 this.bsu.a(i, i2, fqVar, this.bsv);
             }
             foVar = new fo();
             foVar.pn = -1;
         }
-        if (this.bgq != null && this.bgq.avA() != null) {
-            foVar.forumId = this.bgq.avA().getId();
+        if (this.bgq != null && this.bgq.avD() != null) {
+            foVar.forumId = this.bgq.avD().getId();
         }
         foVar.forumName = this.bgf;
-        if (en.RC().gt(1) != null && this.bsk == 1) {
+        if (en.RC().gs(1) != null && this.bsk == 1) {
             this.bsi.setCategoryId(i2);
         }
         this.bsl = i2;
         this.bsn = foVar;
         b(i, i2, foVar);
-        gG(5);
+        gF(5);
     }
 
     @Override // com.baidu.tieba.frs.fg
@@ -633,7 +637,7 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         this.bss.a(this.bst);
     }
 
-    private void gG(int i) {
+    private void gF(int i) {
         this.mType = i;
         switch (i) {
             case 1:
@@ -673,10 +677,10 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
             this.bsm = this.bsl;
             return;
         }
-        fg gu = this.bss.gu(this.bsk);
-        if (gu != null) {
+        fg gt = this.bss.gt(this.bsk);
+        if (gt != null) {
             this.bso = true;
-            gu.a(this.bsk, this.bsl, this.bsn);
+            gt.a(this.bsk, this.bsl, this.bsn);
             return;
         }
         if (this.bgq != null && this.bgq.getThreadList() != null) {
@@ -711,12 +715,12 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
     }
 
     @Override // com.baidu.tieba.frs.fg
-    public void OY() {
+    public void Pa() {
         this.bss.destory();
         this.bss.clear();
     }
 
-    public int Tr() {
+    public int Tt() {
         return this.bsk;
     }
 
@@ -725,7 +729,7 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
             if (this.bsk == 1) {
                 this.bgq.a(abVar);
             }
-            int Ts = Ts();
+            int Tu = Tu();
             if (this.brc != null && this.brc.size() > 0) {
                 int size = this.brc.size();
                 for (int i = 0; i < size; i++) {
@@ -740,16 +744,16 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
                 agVar.a(abVar, -1);
                 agVar.setPost_num(1);
                 if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                    this.brc.add(Ts, agVar);
+                    this.brc.add(Tu, agVar);
                     return;
                 }
                 return;
             }
-            this.brc.add(Ts, abVar);
+            this.brc.add(Tu, abVar);
         }
     }
 
-    public int Ts() {
+    public int Tu() {
         if (this.brc == null || this.brc.size() <= 0) {
             return 0;
         }
@@ -778,11 +782,11 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         return false;
     }
 
-    public boolean Tt() {
+    public boolean Tv() {
         return this.bso;
     }
 
-    public void Tu() {
+    public void Tw() {
         dd ddVar = new dd();
         if (this.bgq.getThreadList() != null) {
             this.bgq.getThreadList().clear();
@@ -794,11 +798,11 @@ public class a extends e<FrsActivity> implements NetModel.b<l, m>, fg {
         }
     }
 
-    public void gH(int i) {
+    public void gG(int i) {
         this.bsx = i;
     }
 
-    public int Tv() {
+    public int Tx() {
         return this.bsx;
     }
 

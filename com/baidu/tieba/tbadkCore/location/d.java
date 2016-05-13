@@ -29,7 +29,7 @@ public class d extends com.baidu.adp.base.e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void Cd();
+        void Ce();
 
         void a(com.baidu.tieba.tbadkCore.location.a aVar);
 
@@ -38,26 +38,26 @@ public class d extends com.baidu.adp.base.e {
 
     /* loaded from: classes.dex */
     public interface b {
-        void Ce();
+        void Cf();
 
         void fA(String str);
     }
 
-    private void aUA() {
+    private void aUG() {
         this.euR = new h(this, CmdConfigHttp.SET_PRIVATE_CMD);
     }
 
-    public void aUB() {
-        if (aUD()) {
+    public void aUH() {
+        if (aUJ()) {
             if (this.euO != null) {
-                this.euO.a(c.aUz().getLocationData());
+                this.euO.a(c.aUF().getLocationData());
             }
         } else if (i.fq()) {
             if (ag.P(this.euQ.getActivity())) {
                 com.baidu.adp.lib.e.a.cZ().a(true, this.euT);
             }
         } else if (this.euO != null) {
-            this.euO.Cd();
+            this.euO.Ce();
         }
     }
 
@@ -89,8 +89,8 @@ public class d extends com.baidu.adp.base.e {
             return;
         }
         d(aVar);
-        c.aUz().setTimeStamp(System.currentTimeMillis());
-        c.aUz().b(aVar);
+        c.aUF().setTimeStamp(System.currentTimeMillis());
+        c.aUF().b(aVar);
         if (this.euO != null) {
             this.euO.a(aVar);
         }
@@ -136,40 +136,40 @@ public class d extends com.baidu.adp.base.e {
         }
     }
 
-    public boolean aUC() {
-        return System.currentTimeMillis() - c.aUz().getTimeStamp() > 300000;
+    public boolean aUI() {
+        return System.currentTimeMillis() - c.aUF().getTimeStamp() > 300000;
     }
 
-    public boolean aUD() {
-        com.baidu.tieba.tbadkCore.location.a locationData = c.aUz().getLocationData();
-        return (aUC() || locationData == null || StringUtils.isNull(locationData.getFormatted_address())) ? false : true;
+    public boolean aUJ() {
+        com.baidu.tieba.tbadkCore.location.a locationData = c.aUF().getLocationData();
+        return (aUI() || locationData == null || StringUtils.isNull(locationData.getFormatted_address())) ? false : true;
     }
 
     public void jA(boolean z) {
-        c.aUz().setNoLongerShowAddress(z);
-        com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("no_longer_show_address", c.aUz().isNoLongerShowAddress());
+        c.aUF().setNoLongerShowAddress(z);
+        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("no_longer_show_address", c.aUF().isNoLongerShowAddress());
     }
 
     public void bM(String str, String str2) {
-        com.baidu.tieba.tbadkCore.location.a locationData = c.aUz().getLocationData();
+        com.baidu.tieba.tbadkCore.location.a locationData = c.aUF().getLocationData();
         if (locationData != null) {
             locationData.setFormatted_address(str);
             locationData.setSn(str2);
         }
     }
 
-    public static void aUE() {
+    public static void aUK() {
         com.baidu.tieba.tbadkCore.a.a.a(303017, LocationSocketResponsedMessage.class, false, false);
     }
 
-    public boolean aUF() {
+    public boolean aUL() {
         if (!UtilHelper.isSystemLocationProviderEnabled(this.euQ.getPageContext().getPageActivity())) {
             BdLog.i("canDoLocationRequest:system location not enabled!");
             return false;
         } else if (!TbadkCoreApplication.m11getInst().getLocationShared()) {
             BdLog.i("canDoLocationRequest:location setting is not shared!");
             return false;
-        } else if (c.aUz().isNoLongerShowAddress()) {
+        } else if (c.aUF().isNoLongerShowAddress()) {
             BdLog.i("canDoLocationRequest:no longer show address!");
             return false;
         } else {
@@ -177,9 +177,9 @@ public class d extends com.baidu.adp.base.e {
         }
     }
 
-    public void aUG() {
+    public void aUM() {
         if (this.euR == null) {
-            aUA();
+            aUG();
             registerListener(this.euR);
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);

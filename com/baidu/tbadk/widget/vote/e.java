@@ -81,12 +81,12 @@ public class e extends FrameLayout {
             this.isSelected = z;
             this.aFY = aVar;
             this.position = i;
-            if (StringUtils.isNull(aVar.Hu())) {
+            if (StringUtils.isNull(aVar.Hw())) {
                 this.aGc.setVisibility(4);
                 this.aGc.setText((CharSequence) null);
             } else {
                 this.aGc.setVisibility(0);
-                this.aGc.setText(UtilHelper.getFixedText(aVar.Hu(), 10, false));
+                this.aGc.setText(UtilHelper.getFixedText(aVar.Hw(), 10, false));
             }
             if (i2 == 2) {
                 setOnClickListener(null);
@@ -96,7 +96,7 @@ public class e extends FrameLayout {
                 bV(z);
             }
             this.aGe.setVisibility(z ? 0 : 8);
-            this.aFZ.c(aVar.Hz(), 17, false);
+            this.aFZ.c(aVar.HB(), 17, false);
         }
     }
 
@@ -118,20 +118,20 @@ public class e extends FrameLayout {
         setProgressGroupVisible(true);
         this.aGd.setVisibility(8);
         if (aVar != null) {
-            if (StringUtils.isNull(aVar.Hv())) {
+            if (StringUtils.isNull(aVar.Hx())) {
                 this.aGa.setVisibility(8);
                 this.aGa.setText((CharSequence) null);
             } else {
                 this.aGa.setVisibility(0);
-                this.aGa.setText(aVar.Hv());
+                this.aGa.setText(aVar.Hx());
             }
-            if (StringUtils.isNull(aVar.Hw())) {
+            if (StringUtils.isNull(aVar.Hy())) {
                 this.aGb.setVisibility(8);
                 this.aGb.setText((CharSequence) null);
                 return;
             }
             this.aGb.setVisibility(0);
-            this.aGb.setText(aVar.Hw());
+            this.aGb.setText(aVar.Hy());
         }
     }
 
@@ -149,14 +149,14 @@ public class e extends FrameLayout {
 
     public void setProgress(float f) {
         if (f >= 0.0f && this.aFY != null) {
-            int Hy = (int) (this.aFY.Hy() * f);
+            int HA = (int) (this.aFY.HA() * f);
             if (this.isSelected) {
-                this.aFK.setProgress(Hy);
+                this.aFK.setProgress(HA);
                 this.aFK.setSecondaryProgress(0);
                 return;
             }
             this.aFK.setProgress(0);
-            this.aFK.setSecondaryProgress(Hy);
+            this.aFK.setSecondaryProgress(HA);
         }
     }
 

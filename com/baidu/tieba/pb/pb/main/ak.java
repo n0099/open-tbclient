@@ -17,8 +17,8 @@ class ak implements NoNetworkView.a {
         z2 = this.djE.diA;
         if (!z2 && z) {
             cwVar = this.djE.dih;
-            if (!cwVar.axG()) {
-                this.djE.amA();
+            if (!cwVar.axJ()) {
+                this.djE.amD();
             }
         }
         this.djE.setNetRefreshViewEmotionDefMarginTop();

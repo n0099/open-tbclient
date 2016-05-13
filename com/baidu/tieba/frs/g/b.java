@@ -21,10 +21,10 @@ public class b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        v at;
+        v as;
         BaseActivity baseActivity;
-        if (this.btu.at(((Integer) view.getTag()).intValue()) instanceof ax) {
-            String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((ax) at).getAuthor().getUserId();
+        if (this.btu.as(((Integer) view.getTag()).intValue()) instanceof ax) {
+            String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((ax) as).getAuthor().getUserId();
             String string = TbadkCoreApplication.m11getInst().getString(t.j.user_icon_web_view_title);
             baseActivity = this.btu.bek;
             f.a(baseActivity.getApplicationContext(), string, str, true, true, false);

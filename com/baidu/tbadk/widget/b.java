@@ -16,11 +16,11 @@ public class b implements Handler.Callback {
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.aBt.FY();
+                this.aBt.Ga();
                 break;
             case 1:
                 if (this.aBt.aBs) {
-                    this.aBt.FY();
+                    this.aBt.Ga();
                     break;
                 }
                 break;

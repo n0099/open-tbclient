@@ -22,16 +22,16 @@ public class ci implements TbRichTextView.e {
         com.baidu.tieba.pb.data.e eVar;
         com.baidu.tieba.pb.data.e eVar2;
         com.baidu.tieba.pb.data.e eVar3;
-        if (!TextUtils.isEmpty(str) && com.baidu.tbadk.core.util.bg.us().c(this.dky.dhY.getPageContext(), new String[]{str})) {
+        if (!TextUtils.isEmpty(str) && com.baidu.tbadk.core.util.bg.ut().c(this.dky.dhY.getPageContext(), new String[]{str})) {
             j = this.dky.dkx;
             if (j != 0) {
                 j2 = this.dky.dkx;
                 eVar = this.dky.dfK;
-                String id = eVar.avA().getId();
+                String id = eVar.avD().getId();
                 eVar2 = this.dky.dfK;
-                String name = eVar2.avA().getName();
+                String name = eVar2.avD().getName();
                 eVar3 = this.dky.dfK;
-                com.baidu.tieba.pb.b.a(j2, str, "PB", "LINK_IMAGE", "CLICK", "tpoint", id, name, eVar3.avB().getTid());
+                com.baidu.tieba.pb.b.a(j2, str, "PB", "LINK_IMAGE", "CLICK", "tpoint", id, name, eVar3.avE().getTid());
             }
         }
     }

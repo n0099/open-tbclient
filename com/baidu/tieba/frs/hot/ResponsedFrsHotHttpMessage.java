@@ -55,7 +55,7 @@ public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
                         ax axVar = new ax();
                         axVar.setUserMap(hashMap);
                         axVar.a(list2.get(i3));
-                        axVar.bI(0);
+                        axVar.bH(0);
                         axVar.parser_title();
                         if (axVar.getThreadType() == 33) {
                             if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {

@@ -38,19 +38,19 @@ public class j extends CustomMessageListener {
                     replyInfo.setFriendId(friendId);
                     replyInfo.setMessage(content);
                     bgVar3 = this.this$0.dyP;
-                    bgVar3.aDA().getReplyInfo().add(replyInfo);
+                    bgVar3.aDD().getReplyInfo().add(replyInfo);
                     bgVar4 = this.this$0.dyP;
-                    bgVar4.aDF();
+                    bgVar4.aDI();
                 }
             } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                 bgVar = this.this$0.dyP;
-                if (bgVar.aDA() != null) {
+                if (bgVar.aDD() != null) {
                     bjVar = this.this$0.dFA;
                     if (bjVar != null) {
                         bgVar2 = this.this$0.dyP;
-                        bgVar2.aDA().setIsFriend(1);
+                        bgVar2.aDD().setIsFriend(1);
                         bjVar2 = this.this$0.dFA;
-                        bjVar2.aEj();
+                        bjVar2.aEm();
                     }
                 }
             }

@@ -34,11 +34,11 @@ public class x implements View.OnClickListener {
                 }
             }
         }
-        if (this.bpM.JM() != null) {
-            by<ax> JM = this.bpM.JM();
+        if (this.bpM.JO() != null) {
+            by<ax> JO = this.bpM.JO();
             axVar2 = this.bpM.aab;
-            JM.a(view, axVar2);
+            JO.a(view, axVar2);
         }
-        this.bpM.Kd();
+        this.bpM.Kf();
     }
 }

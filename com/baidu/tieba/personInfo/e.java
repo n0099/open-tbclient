@@ -30,7 +30,7 @@ class e extends CustomMessageListener {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             bool2 = this.dFy.dFw;
             if (!bool2.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("member_close_ad_mine_clicked", true);
+                com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("member_close_ad_mine_clicked", true);
             }
         }
     }

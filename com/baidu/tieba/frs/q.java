@@ -45,7 +45,7 @@ class q implements bi {
         cnVar = this.bhl.bgo;
         if (i != cnVar.Ra().Rt()) {
             cnVar2 = this.bhl.bgo;
-            if (i != cnVar2.Ra().Px()) {
+            if (i != cnVar2.Ra().Pz()) {
                 cnVar3 = this.bhl.bgo;
                 if (i != cnVar3.Ra().Ru()) {
                     cnVar4 = this.bhl.bgo;
@@ -67,10 +67,10 @@ class q implements bi {
                                     if (i == cnVar10.Ra().Sz()) {
                                         TiebaStatic.log("c10417");
                                         oVar = this.bhl.bgq;
-                                        oVar.aSN();
+                                        oVar.aST();
                                         cnVar11 = this.bhl.bgo;
                                         cnVar11.QS();
-                                        b.sQ().putLong("frs_storecard_closetime", System.currentTimeMillis());
+                                        b.sR().putLong("frs_storecard_closetime", System.currentTimeMillis());
                                         return;
                                     }
                                     return;
@@ -85,10 +85,10 @@ class q implements bi {
                             oVar2 = this.bhl.bgq;
                             if (oVar2 != null) {
                                 oVar3 = this.bhl.bgq;
-                                if (oVar3.avA() != null) {
+                                if (oVar3.avD() != null) {
                                     oVar4 = this.bhl.bgq;
-                                    ForumData avA = oVar4.avA();
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.bhl.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(avA.getId(), 0L), avA.getName(), avA.getImage_url(), 0)));
+                                    ForumData avD = oVar4.avD();
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.bhl.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(avD.getId(), 0L), avD.getName(), avD.getImage_url(), 0)));
                                     return;
                                 }
                                 return;
@@ -122,18 +122,18 @@ class q implements bi {
                 }
                 return;
             }
-            if (this.bhl.bgC.Tr() == 2) {
+            if (this.bhl.bgC.Tt() == 2) {
                 com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10077");
-                awVar.s("obj_source", this.bhl.bgC.Tr());
+                awVar.s("obj_source", this.bhl.bgC.Tt());
                 awVar.ac("tid", axVar.getId());
                 awVar.ac("fid", this.bhl.getForumId());
                 TiebaStatic.log(awVar);
             }
             this.bhl.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.bhl.getPageContext().getPageActivity()).createFromThreadCfg(axVar, this.bhl.bgf, null, 18003, true, false, false)));
-        } else if (this.bhl.checkUpIsLogin() && axVar != null && axVar.qU() != null && axVar.qU().get(0) != null && !StringUtils.isNull(axVar.qU().get(0).getUrl())) {
-            com.baidu.tbadk.core.util.bg.us().c(this.bhl.getPageContext(), new String[]{axVar.qU().get(0).getUrl()});
+        } else if (this.bhl.checkUpIsLogin() && axVar != null && axVar.qV() != null && axVar.qV().get(0) != null && !StringUtils.isNull(axVar.qV().get(0).getUrl())) {
+            com.baidu.tbadk.core.util.bg.ut().c(this.bhl.getPageContext(), new String[]{axVar.qV().get(0).getUrl()});
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (axVar.qU().get(0).or() == 1) {
+            if (axVar.qV().get(0).or() == 1) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aw("lottery").ac("fid", this.bhl.forumId).ac("tid", axVar.getTid()).ac("uid", currentAccount));
             }
         }

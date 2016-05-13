@@ -22,7 +22,7 @@ public class i {
         this.num = i;
     }
 
-    public void eR(int i) {
+    public void eQ(int i) {
         this.myItem = i;
     }
 }

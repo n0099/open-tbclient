@@ -34,7 +34,7 @@ public class y extends CustomMessageListener {
                     qVar = this.dEY.dEV;
                     qVar.hr(false);
                     aVar = this.dEY.dEX;
-                    aVar.OJ();
+                    aVar.OL();
                 }
             }
             if (TbadkCoreApplication.isMyLive) {

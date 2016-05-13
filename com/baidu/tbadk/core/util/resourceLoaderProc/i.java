@@ -27,18 +27,18 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean uI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean uJ() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a fM = com.baidu.tbadk.imageManager.c.CH().fM(str);
+        com.baidu.adp.widget.a.a fM = com.baidu.tbadk.imageManager.c.CI().fM(str);
         if (fM == null || fM.iY() == null) {
             return null;
         }
@@ -55,7 +55,7 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
+    public int uK() {
         return this.Xc;
     }
 }

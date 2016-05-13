@@ -24,10 +24,10 @@ public class dl extends dh {
     @Override // com.baidu.tieba.pb.pb.main.dh
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.s sVar, dk dkVar) {
         super.a(i, view, viewGroup, sVar, dkVar);
-        if (sVar == null || sVar.aUc() == null) {
+        if (sVar == null || sVar.aUi() == null) {
             return null;
         }
-        ((dm) dkVar).a(this.mContext, sVar.aUc(), this.ddo);
+        ((dm) dkVar).a(this.mContext, sVar.aUi(), this.ddo);
         return view;
     }
 }

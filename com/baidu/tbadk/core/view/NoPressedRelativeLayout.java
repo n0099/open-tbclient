@@ -100,7 +100,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
         this.abP = view;
     }
 
-    private boolean uY() {
+    private boolean uZ() {
         if (this.abP == null) {
             return false;
         }
@@ -111,7 +111,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     }
 
     private Rect getTopViewRect() {
-        if (uY()) {
+        if (uZ()) {
             int[] iArr = new int[2];
             if (this.abP != null) {
                 this.abP.getLocationOnScreen(iArr);

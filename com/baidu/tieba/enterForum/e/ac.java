@@ -38,7 +38,7 @@ public class ac extends NoPressedLinearLayout {
         super(context, attributeSet);
         setOrientation(1);
         this.aZH = new ArrayList();
-        Nz();
+        NB();
         addView(this.acg);
     }
 
@@ -82,7 +82,7 @@ public class ac extends NoPressedLinearLayout {
         }
     }
 
-    private void Nz() {
+    private void NB() {
         this.acg = LayoutInflater.from(getContext()).inflate(t.h.enter_forum_recommendinfo_notice, (ViewGroup) null);
         this.acg.findViewById(t.g.iv_dismiss).setOnClickListener(new ad(this));
         this.aZK = this.acg.findViewById(t.g.enterforum_forumrecommendinfo_change);
@@ -101,8 +101,8 @@ public class ac extends NoPressedLinearLayout {
     private void h(TbPageContext<BaseFragmentActivity> tbPageContext) {
         int size;
         if (this.aZH != null && this.aZH.size() != 0) {
-            NC();
-            NB();
+            NE();
+            ND();
             List<ab> allRecomItemView = getAllRecomItemView();
             for (int i = 0; i < this.aZH.size(); i++) {
                 com.baidu.tieba.enterForum.b.f fVar = this.aZH.get(i);
@@ -121,14 +121,14 @@ public class ac extends NoPressedLinearLayout {
             if (TbadkCoreApplication.isLogin()) {
                 this.mEmptyView.setVisibility(0);
                 this.aZJ.setVisibility(0);
-                NC();
-                NB();
+                NE();
+                ND();
                 return;
             }
             this.mEmptyView.setVisibility(8);
             this.aZJ.setVisibility(8);
-            ND();
-            NA();
+            NF();
+            NC();
         }
     }
 
@@ -144,27 +144,27 @@ public class ac extends NoPressedLinearLayout {
         return arrayList;
     }
 
-    private void NA() {
+    private void NC() {
         this.aYK = new View(getContext());
         this.aYK.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.adp.lib.util.k.c(getContext(), t.e.ds120)));
         this.aYK.setVisibility(TbadkCoreApplication.m11getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE) ? 0 : 8);
         addView(this.aYK);
     }
 
-    private void NB() {
+    private void ND() {
         if (this.aYK != null) {
             removeView(this.aYK);
             this.aYK = null;
         }
     }
 
-    private void NC() {
+    private void NE() {
         if (this.aZI != null && indexOfChild(this.aZI) > -1) {
             removeView(this.aZI);
         }
     }
 
-    private void ND() {
+    private void NF() {
         if (this.aZI == null) {
             this.aZI = new TextView(getContext());
             this.aZI.setText(t.j.discover_more_bar);
@@ -186,13 +186,13 @@ public class ac extends NoPressedLinearLayout {
         this.aZI.setVisibility(TbadkCoreApplication.m11getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE) ? 0 : 8);
     }
 
-    public void NE() {
+    public void NG() {
         if (indexOfChild(this.aZI) >= 0) {
             this.aZI.setVisibility(0);
         }
     }
 
-    public void NF() {
+    public void NH() {
         if (indexOfChild(this.aYK) >= 0) {
             this.aYK.setVisibility(0);
         }

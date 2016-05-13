@@ -109,30 +109,30 @@ public class a extends com.baidu.adp.base.e {
         this.evE = writeData;
     }
 
-    public WriteData aVa() {
+    public WriteData aVg() {
         return this.evE;
     }
 
-    public boolean aVb() {
+    public boolean aVh() {
         if (this.evE == null) {
             return false;
         }
-        if (!i.fq() || i.fr() || this.evE.getWriteImagesInfo() == null || this.evE.getWriteImagesInfo().size() == 0 || !this.evE.getWriteImagesInfo().isOriginalImg() || com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("original_img_up_tip", false)) {
-            aVc();
+        if (!i.fq() || i.fr() || this.evE.getWriteImagesInfo() == null || this.evE.getWriteImagesInfo().size() == 0 || !this.evE.getWriteImagesInfo().isOriginalImg() || com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("original_img_up_tip", false)) {
+            aVi();
         } else {
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("original_img_up_tip", true);
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("original_img_up_tip", true);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.bLj.getPageActivity());
-            aVar.bM(t.j.original_img_up_no_wifi_tip);
+            aVar.bL(t.j.original_img_up_no_wifi_tip);
             aVar.a(t.j.alert_yes_button, new com.baidu.tieba.tbadkCore.writeModel.b(this, aVar));
             aVar.b(t.j.alert_no_button, new com.baidu.tieba.tbadkCore.writeModel.c(this, aVar));
             aVar.b(this.bLj);
-            aVar.rU();
+            aVar.rV();
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aVc() {
+    public void aVi() {
         if (this.evC == null) {
             this.evC = new e();
             this.evC.execute(new Integer[0]);
@@ -164,13 +164,13 @@ public class a extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void aVd() {
+    public void aVj() {
         if (this.evD != null && !this.evD.isCancelled()) {
             this.evD.cancel();
         }
     }
 
-    public boolean aVe() {
+    public boolean aVk() {
         if (this.evE == null) {
             return true;
         }
@@ -216,22 +216,22 @@ public class a extends com.baidu.adp.base.e {
             this.evO = new com.baidu.tieba.tbadkCore.c.a();
             this.evO.a(a.this.evM);
             this.evP = this.evO.a(a.this.evE, a.this.evL);
-            ErrorData aUm = this.evO.aUm();
+            ErrorData aUs = this.evO.aUs();
             if (this.evO.nZ() && this.evP != null) {
-                AntiData aUl = this.evO.aUl();
-                String error_msg = aUm.getError_msg();
+                AntiData aUr = this.evO.aUr();
+                String error_msg = aUs.getError_msg();
                 if (j.isEmpty(error_msg)) {
                     error_msg = TbadkCoreApplication.m11getInst().getApp().getString(t.j.send_success);
                 }
-                com.baidu.tieba.tbadkCore.writeModel.d dVar2 = new com.baidu.tieba.tbadkCore.writeModel.d(aUm.getError_code(), error_msg, aUl);
+                com.baidu.tieba.tbadkCore.writeModel.d dVar2 = new com.baidu.tieba.tbadkCore.writeModel.d(aUs.getError_code(), error_msg, aUr);
                 if (a.this.evE == null || (!(a.this.evE.isHasImages() || a.this.evE.getIsBaobao()) || dVar2.hasError())) {
                     dVar = dVar2;
                 } else {
                     a.this.evE.deleteUploadedTempImages();
                     dVar = dVar2;
                 }
-            } else if (aUm != null && !StringUtils.isNull(aUm.getError_msg())) {
-                dVar = new com.baidu.tieba.tbadkCore.writeModel.d(aUm.getError_code(), aUm.getError_msg(), null);
+            } else if (aUs != null && !StringUtils.isNull(aUs.getError_msg())) {
+                dVar = new com.baidu.tieba.tbadkCore.writeModel.d(aUs.getError_code(), aUs.getError_msg(), null);
             } else {
                 dVar = new com.baidu.tieba.tbadkCore.writeModel.d(-17, TbadkCoreApplication.m11getInst().getApp().getString(t.j.neterror), null);
             }
@@ -355,7 +355,7 @@ public class a extends com.baidu.adp.base.e {
                 if (!dVar.hasError()) {
                     com.baidu.tieba.graffiti.d.b(a.this.evE);
                     if (a.this.evE != null && a.this.evE.isBabaoPosted()) {
-                        com.baidu.tieba.tbadkCore.PbEditor.a.aTf();
+                        com.baidu.tieba.tbadkCore.PbEditor.a.aTl();
                     }
                     if (a.this.evK == null) {
                         if (a.this.evJ != null) {
@@ -394,7 +394,7 @@ public class a extends com.baidu.adp.base.e {
 
         private void b(com.baidu.tieba.tbadkCore.writeModel.d dVar) {
             AntiData antiData = dVar.getAntiData();
-            if (!dVar.aVf()) {
+            if (!dVar.aVl()) {
                 if (a.this.evK == null) {
                     if (a.this.evJ != null) {
                         a.this.evJ.a(false, dVar.getErrorString(), null, null, dVar.getAntiData());
@@ -501,7 +501,7 @@ public class a extends com.baidu.adp.base.e {
         }
     }
 
-    public void Oi() {
+    public void Ok() {
         if (this.evD == null) {
             this.evD = new C0079a();
             this.evD.execute(new Void[0]);
@@ -525,7 +525,7 @@ public class a extends com.baidu.adp.base.e {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         imageFileInfo.clearAllActions();
-        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.D(az.uf().ul(), az.uf().ul()));
+        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.D(az.ug().um(), az.ug().um()));
         return aVar.d(imageFileInfo, true);
     }
 }

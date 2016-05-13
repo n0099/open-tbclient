@@ -15,9 +15,9 @@ public class b implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         FrameLayout frameLayout;
-        Animation ajZ;
+        Animation akb;
         frameLayout = this.cvz.cvl;
-        ajZ = this.cvz.ajZ();
-        frameLayout.startAnimation(ajZ);
+        akb = this.cvz.akb();
+        frameLayout.startAnimation(akb);
     }
 }

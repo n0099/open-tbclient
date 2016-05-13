@@ -30,13 +30,13 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
         void a(WriteCacheRespMsg<List<T>> writeCacheRespMsg, WriteCacheMessage<T> writeCacheMessage);
     }
 
-    public abstract String Dg();
+    public abstract String Dh();
 
-    public abstract Class<T> Du();
-
-    public abstract int Dv();
+    public abstract Class<T> Dv();
 
     public abstract int Dw();
+
+    public abstract int Dx();
 
     public a(TbPageContext<ActivityType> tbPageContext) {
         super(tbPageContext);
@@ -48,48 +48,48 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
         this.avp = false;
     }
 
-    protected boolean Dn() {
+    protected boolean Do() {
         return true;
     }
 
     protected void a(ReadCacheMessage<T> readCacheMessage) {
     }
 
-    public final void Do() {
+    public final void Dp() {
         this.vv = true;
-        Dq();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(Dv());
+        Dr();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(Dw());
         readCacheMessage.setTag(getUniqueId());
-        readCacheMessage.setNeedUid(Dn());
+        readCacheMessage.setNeedUid(Do());
         a(readCacheMessage);
-        Ds();
+        Dt();
         sendMessage(readCacheMessage);
         this.vv = true;
     }
 
     public final void a(com.baidu.tbadk.mvc.b.e eVar) {
         this.vv = true;
-        Dq();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(Dv());
+        Dr();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(Dw());
         readCacheMessage.setTag(getUniqueId());
         readCacheMessage.setRequestData(eVar);
-        readCacheMessage.setNeedUid(Dn());
+        readCacheMessage.setNeedUid(Do());
         a(readCacheMessage);
-        Ds();
+        Dt();
         sendMessage(readCacheMessage);
     }
 
     public final void clearCache() {
         this.avp = true;
-        Dr();
-        Dp();
+        Ds();
+        Dq();
     }
 
-    private final void Dp() {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(Dw());
+    private final void Dq() {
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(Dx());
         writeCacheMessage.setClear(true);
         writeCacheMessage.setTag(getUniqueId());
-        Dt();
+        Du();
         sendMessage(writeCacheMessage);
     }
 
@@ -98,17 +98,17 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
     }
 
     private final void b(T t) {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(Dw());
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(Dx());
         writeCacheMessage.setTag(getUniqueId());
         writeCacheMessage.setData(t);
-        Dt();
+        Du();
         sendMessage(writeCacheMessage);
     }
 
-    private void Dq() {
+    private void Dr() {
         if (!this.avn) {
             if (this.avi == null) {
-                this.avi = new b(this, Dv());
+                this.avi = new b(this, Dw());
                 this.avi.setSelfListener(true);
                 this.avi.setTag(this.unique_id);
             }
@@ -117,10 +117,10 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
         }
     }
 
-    private void Dr() {
+    private void Ds() {
         if (!this.avo) {
             if (this.avj == null) {
-                this.avj = new c(this, Dw());
+                this.avj = new c(this, Dx());
                 this.avj.setSelfListener(true);
                 this.avj.setTag(this.unique_id);
             }
@@ -129,16 +129,16 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
         }
     }
 
-    private void Ds() {
-        if (!this.avl && MessageManager.getInstance().findTask(Dv()) == null) {
-            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Dv(), new com.baidu.tbadk.mvc.e.c(Dv(), Dg(), Du())));
+    private void Dt() {
+        if (!this.avl && MessageManager.getInstance().findTask(Dw()) == null) {
+            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Dw(), new com.baidu.tbadk.mvc.e.c(Dw(), Dh(), Dv())));
             this.avl = true;
         }
     }
 
-    private void Dt() {
-        if (!this.avm && MessageManager.getInstance().findTask(Dw()) == null) {
-            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Dw(), new com.baidu.tbadk.mvc.e.d(Dw(), Dg(), Du())));
+    private void Du() {
+        if (!this.avm && MessageManager.getInstance().findTask(Dx()) == null) {
+            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(Dx(), new com.baidu.tbadk.mvc.e.d(Dx(), Dh(), Dv())));
             this.avm = true;
         }
     }

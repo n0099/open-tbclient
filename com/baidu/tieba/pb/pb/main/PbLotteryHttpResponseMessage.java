@@ -40,9 +40,9 @@ public class PbLotteryHttpResponseMessage extends TbHttpResponsedMessage {
         }
         switch (getLotteryInfo().getStatus()) {
             case 0:
-                return (this.mLotteryInfo.avv() == null || !(this.mLotteryInfo.avv().avs() == 1 || this.mLotteryInfo.avv().avs() == 2)) ? 1 : 0;
+                return (this.mLotteryInfo.avy() == null || !(this.mLotteryInfo.avy().avv() == 1 || this.mLotteryInfo.avy().avv() == 2)) ? 1 : 0;
             case TbErrInfo.ERR_NO_LOTTERY_CHANCE /* 2390003 */:
-                if (this.mLotteryInfo.avw() != null && this.mLotteryInfo.avw().getEnableGetChance() > 0) {
+                if (this.mLotteryInfo.avz() != null && this.mLotteryInfo.avz().getEnableGetChance() > 0) {
                     return 4;
                 }
                 return 3;

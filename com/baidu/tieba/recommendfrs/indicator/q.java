@@ -28,7 +28,7 @@ public class q extends RelativeLayout {
         return this.eaS;
     }
 
-    public void sf() {
+    public void sg() {
         at.k(this.eaS, t.f.icon_news_down_bar_one);
     }
 }

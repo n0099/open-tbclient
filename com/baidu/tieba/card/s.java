@@ -26,7 +26,7 @@ public class s extends com.baidu.adp.base.g {
             }
         }
         xVar = this.aPs.Dp;
-        if (AntiHelper.pw(xVar.getErrorCode())) {
+        if (AntiHelper.pv(xVar.getErrorCode())) {
             Context context = this.aPs.getContext();
             xVar3 = this.aPs.Dp;
             AntiHelper.O(context, xVar3.getErrorString());

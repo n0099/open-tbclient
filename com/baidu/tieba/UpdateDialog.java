@@ -45,7 +45,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
         initData(bundle);
-        HR();
+        HT();
     }
 
     private void initData(Bundle bundle) {
@@ -131,7 +131,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
     }
 
-    private void HR() {
+    private void HT() {
         this.aHN = new b(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
@@ -141,7 +141,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z, boolean z2, boolean z3) {
         if (!com.baidu.tbadk.core.util.m.bF()) {
-            showToast(com.baidu.tbadk.core.util.m.sX());
+            showToast(com.baidu.tbadk.core.util.m.sY());
             return;
         }
         this.aHH = z;
@@ -167,7 +167,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HS() {
+    public void HU() {
         Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
         intent.setAction("action_stop");
         getPageContext().getPageActivity().startService(intent);
@@ -205,7 +205,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         @Override // com.baidu.tieba.u.a
         public void bY(boolean z) {
             boolean z2 = true;
-            if (UpdateDialog.this.HT()) {
+            if (UpdateDialog.this.HV()) {
                 UpdateDialog.this.aHM.dismiss();
                 UpdateDialog.this.finish();
                 return;
@@ -227,18 +227,18 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
 
         @Override // com.baidu.tieba.u.a
-        public void HQ() {
+        public void HS() {
             UpdateDialog.this.aHM.dismiss();
             UpdateDialog.this.finish();
         }
 
         @Override // com.baidu.tieba.u.a
         public void stopService() {
-            UpdateDialog.this.HS();
+            UpdateDialog.this.HU();
         }
 
         @Override // com.baidu.tieba.u.a
-        public void HP() {
+        public void HR() {
             UpdateDialog.this.finish();
         }
     }
@@ -267,11 +267,11 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 UpdateDialog.this.aHM.dismiss();
                 UpdateDialog.this.showToast(UpdateDialog.this.getPageContext().getString(t.j.update_app_error));
                 UpdateDialog.this.finish();
-                UpdateDialog.this.HS();
+                UpdateDialog.this.HU();
             } else {
                 int intExtra = intent.getIntExtra("action_update_download_progress", 0);
                 if (UpdateDialog.this.aHM != null) {
-                    UpdateDialog.this.aHM.fl(intExtra);
+                    UpdateDialog.this.aHM.fk(intExtra);
                 }
             }
         }
@@ -283,7 +283,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean HT() {
+    public boolean HV() {
         boolean z;
         File cS;
         PackageInfo packageArchiveInfo;

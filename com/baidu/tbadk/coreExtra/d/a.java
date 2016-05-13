@@ -94,8 +94,8 @@ public class a {
                     if (!StringUtils.isNull(this.from)) {
                         this.aeI.n(ForumDetailActivityConfig.FROM_TYPE, this.from);
                     }
-                    this.aeI.tA().uu().mIsNeedTbs = true;
-                    this.aeI.tc();
+                    this.aeI.tB().uv().mIsNeedTbs = true;
+                    this.aeI.td();
                     return null;
                 }
                 return null;
@@ -114,7 +114,7 @@ public class a {
             a.this.ahf = null;
             if (this.aeI != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.sZ = this.aeI.tA().uv().nZ();
+                aVar.sZ = this.aeI.tB().uw().nZ();
                 aVar.errorString = this.aeI.getErrorString();
                 aVar.agz = this.agz;
                 aVar.toUid = this.toUid;

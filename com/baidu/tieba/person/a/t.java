@@ -15,6 +15,6 @@ public class t implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdToast.a(this.dxX.mContext, this.dxX.mContext.getResources().getString(t.j.user_set_private)).sc();
+        BdToast.a(this.dxX.mContext, this.dxX.mContext.getResources().getString(t.j.user_set_private)).sd();
     }
 }

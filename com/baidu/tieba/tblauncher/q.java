@@ -26,13 +26,13 @@ class q extends CustomMessageListener {
             if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
                 if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
                     abVar3 = this.this$0.ewE;
-                    abVar3.aVL().cj(1);
+                    abVar3.aVR().ci(1);
                 } else if (TbadkCoreApplication.m11getInst().isThemeIconCover()) {
                     abVar2 = this.this$0.ewE;
-                    abVar2.aVL().cj(2);
+                    abVar2.aVR().ci(2);
                 } else {
                     abVar = this.this$0.ewE;
-                    abVar.aVL().cj(1);
+                    abVar.aVR().ci(1);
                 }
             }
         }

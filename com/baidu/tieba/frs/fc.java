@@ -29,9 +29,9 @@ public class fc implements View.OnClickListener {
             if (com.baidu.tbadk.core.util.y.r(tShowInfoNew) != 0 && com.baidu.tbadk.core.util.y.c(tShowInfoNew, 0) != null && (url = this.bjh.getAuthor().getTShowInfoNew().get(0).getUrl()) != null) {
                 context2 = this.bmw.mContext;
                 if (com.baidu.adp.base.l.s(context2) instanceof TbPageContext) {
-                    com.baidu.tbadk.core.util.bg us = com.baidu.tbadk.core.util.bg.us();
+                    com.baidu.tbadk.core.util.bg ut = com.baidu.tbadk.core.util.bg.ut();
                     context3 = this.bmw.mContext;
-                    us.c((TbPageContext) com.baidu.adp.base.l.s(context3), new String[]{url});
+                    ut.c((TbPageContext) com.baidu.adp.base.l.s(context3), new String[]{url});
                 }
             }
         }

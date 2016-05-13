@@ -42,7 +42,7 @@ public class a extends GridView implements AdapterView.OnItemLongClickListener {
     private void T(int i, int i2) {
         int pointToPosition = pointToPosition(i, i2);
         if (pointToPosition != this.aYr && pointToPosition != -1) {
-            this.aYu.fI(pointToPosition);
+            this.aYu.fH(pointToPosition);
             this.aYu.Q(this.aYr, pointToPosition);
             this.aYr = pointToPosition;
         }
@@ -52,18 +52,18 @@ public class a extends GridView implements AdapterView.OnItemLongClickListener {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         this.aYs = (int) motionEvent.getRawX();
         this.aYt = (int) motionEvent.getRawY();
-        if (com.baidu.tieba.enterForum.c.a.MG().MH()) {
+        if (com.baidu.tieba.enterForum.c.a.MI().MJ()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
                     com.baidu.adp.lib.h.h.dL().removeCallbacks(this.aYw);
-                    com.baidu.tieba.enterForum.c.a.MG().MK();
-                    this.aYu.fI(-1);
-                    this.aYu.Ma();
+                    com.baidu.tieba.enterForum.c.a.MI().MM();
+                    this.aYu.fH(-1);
+                    this.aYu.Mc();
                     break;
                 case 2:
-                    this.mOffset = com.baidu.tieba.enterForum.c.b.ML().a(motionEvent.getY(), this.aYv, getHeight());
-                    com.baidu.tieba.enterForum.c.a.MG().R(this.aYs, this.aYt - this.mOffset);
+                    this.mOffset = com.baidu.tieba.enterForum.c.b.MN().a(motionEvent.getY(), this.aYv, getHeight());
+                    com.baidu.tieba.enterForum.c.a.MI().R(this.aYs, this.aYt - this.mOffset);
                     T((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
                     break;
             }
@@ -76,9 +76,9 @@ public class a extends GridView implements AdapterView.OnItemLongClickListener {
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         TiebaStatic.eventStat(getContext(), "list_drag_order", null);
         this.aYr = i;
-        com.baidu.tieba.enterForum.c.a.MG().a(getContext(), view, this.aYs, this.aYt);
-        this.aYu.fI(i);
-        this.aYu.Ma();
+        com.baidu.tieba.enterForum.c.a.MI().a(getContext(), view, this.aYs, this.aYt);
+        this.aYu.fH(i);
+        this.aYu.Mc();
         this.aYv = view.getHeight();
         com.baidu.adp.lib.h.h.dL().postDelayed(this.aYw, 200L);
         return true;

@@ -58,27 +58,27 @@ public class i {
         return this.templateId;
     }
 
-    public ArrayList<h> aTs() {
+    public ArrayList<h> aTy() {
         return this.esz;
     }
 
-    public ArrayList<k> aTt() {
+    public ArrayList<k> aTz() {
         return this.esA;
     }
 
-    public j aTu() {
+    public j aTA() {
         return this.esB;
     }
 
-    public int aTv() {
+    public int aTB() {
         return this.esy;
     }
 
-    public String aTw() {
+    public String aTC() {
         return this.esw;
     }
 
-    public int aTx() {
+    public int aTD() {
         return this.esC;
     }
 }

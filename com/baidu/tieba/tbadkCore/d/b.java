@@ -25,28 +25,28 @@ public class b {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f aUo;
-        if (this.etO != null && (aUo = aUo()) != null) {
+        f aUu;
+        if (this.etO != null && (aUu = aUu()) != null) {
             if (z) {
-                if (aUo.etW != null) {
-                    aUo.etW.num++;
+                if (aUu.etW != null) {
+                    aUu.etW.num++;
                     if (z2) {
-                        aUo.etW.etT += j2;
-                        aUo.etW.size += j;
+                        aUu.etW.etT += j2;
+                        aUu.etW.size += j;
                     } else {
-                        aUo.etW.etU++;
+                        aUu.etW.etU++;
                     }
                 } else {
                     return;
                 }
-            } else if (aUo.etX != null) {
-                aUo.etX.num++;
+            } else if (aUu.etX != null) {
+                aUu.etX.num++;
                 if (z2) {
-                    aUo.etX.etT += j3;
-                    aUo.etX.size += j;
+                    aUu.etX.etT += j3;
+                    aUu.etX.size += j;
                     j2 = j3;
                 } else {
-                    aUo.etX.etU++;
+                    aUu.etX.etU++;
                     j2 = j3;
                 }
             } else {
@@ -54,7 +54,7 @@ public class b {
             }
             this.etO = null;
             if (z2) {
-                c.a(aUo, 10);
+                c.a(aUu, 10);
             }
             if (this.etR == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -73,19 +73,19 @@ public class b {
     }
 
     public void destory() {
-        f aUo;
-        if (this.etO != null && (aUo = aUo()) != null && aUo.etY != null) {
+        f aUu;
+        if (this.etO != null && (aUu = aUu()) != null && aUu.etY != null) {
             long ee = this.etO.ee();
             if (ee > 3000) {
-                e eVar = aUo.etY;
+                e eVar = aUu.etY;
                 eVar.etT = ee + eVar.etT;
-                aUo.etY.num++;
-                c.a(aUo, 10);
+                aUu.etY.num++;
+                c.a(aUu, 10);
             }
         }
     }
 
-    private f aUo() {
+    private f aUu() {
         return c.i(this.etR, getNetType(), this.Zc);
     }
 

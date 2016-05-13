@@ -22,9 +22,9 @@ public class r implements TabMenuPopView.a {
         jVar = this.btr.btl;
         if (jVar != null) {
             jVar2 = this.btr.btl;
-            jVar2.Tx();
+            jVar2.Tz();
         }
         bVar = this.btr.bto;
-        bVar.gN(ftVar.blZ);
+        bVar.gM(ftVar.blZ);
     }
 }

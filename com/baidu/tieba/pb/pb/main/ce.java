@@ -12,6 +12,6 @@ public class ce extends cf {
 
     @Override // com.baidu.tieba.pb.pb.main.cf
     protected PbRecBaseViewHolder aF(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.aLA().m(this.mContext, 3);
+        return com.baidu.tieba.recapp.a.aLD().m(this.mContext, 3);
     }
 }

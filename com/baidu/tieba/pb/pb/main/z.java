@@ -32,7 +32,7 @@ class z extends CustomMessageListener {
         el elVar3;
         el elVar4;
         cw cwVar5;
-        String awK;
+        String awN;
         boolean z3;
         cw cwVar6;
         el elVar5;
@@ -48,7 +48,7 @@ class z extends CustomMessageListener {
                             cwVar6 = this.djE.dih;
                             if (cwVar6.gE(false)) {
                                 elVar6 = this.djE.diR;
-                                elVar6.azb();
+                                elVar6.aze();
                                 return;
                             }
                             elVar5 = this.djE.diR;
@@ -64,13 +64,13 @@ class z extends CustomMessageListener {
                             elVar2 = this.djE.diR;
                             elVar2.dmZ.dpV.setEnabled(false);
                             elVar3 = this.djE.diR;
-                            elVar3.ago();
-                            this.djE.Pk();
+                            elVar3.agq();
+                            this.djE.Pm();
                             elVar4 = this.djE.diR;
-                            elVar4.aza();
+                            elVar4.azd();
                             cwVar5 = this.djE.dih;
-                            awK = this.djE.awK();
-                            cwVar5.lX(awK);
+                            awN = this.djE.awN();
+                            cwVar5.lX(awN);
                             return;
                         }
                         return;
@@ -80,13 +80,13 @@ class z extends CustomMessageListener {
                             cwVar2 = this.djE.dih;
                             boolean hostMode = cwVar2.getHostMode();
                             cwVar3 = this.djE.dih;
-                            boolean axB = cwVar3.axB();
+                            boolean axE = cwVar3.axE();
                             cwVar4 = this.djE.dih;
                             String threadID = cwVar4.getThreadID();
                             String str = aVar.postId;
                             int i2 = aVar.drA;
                             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.djE.getPageContext().getPageActivity());
-                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, axB, null);
+                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, axE, null);
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
                             this.djE.diV = false;
                             this.djE.finish();
@@ -100,7 +100,7 @@ class z extends CustomMessageListener {
                             i = i3 + 2;
                         }
                         elVar = this.djE.diR;
-                        elVar.KP().setSelection(i);
+                        elVar.KR().setSelection(i);
                         return;
                     default:
                         return;

@@ -13,9 +13,9 @@ class s implements CustomMessageTask.CustomRunnable<r.a> {
             return null;
         }
         r.a data = customMessage.getData();
-        data.axb = aa.EM().EO();
-        data.axc = aa.EM().EQ();
-        data.axt = aa.EM().EP();
+        data.axb = aa.EN().EP();
+        data.axc = aa.EN().ER();
+        data.axt = aa.EN().EQ();
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, data);
     }
 }

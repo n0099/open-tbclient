@@ -28,14 +28,14 @@ public class o implements View.OnClickListener {
         if (view != button) {
             button2 = this.akQ.akH;
             if (view == button2 && currentImageView != null) {
-                currentImageView.FV();
+                currentImageView.FX();
                 return;
             }
             return;
         }
         currentImageView2 = this.akQ.getCurrentImageView();
         if (currentImageView2 != null) {
-            currentImageView2.FU();
+            currentImageView2.FW();
         }
     }
 }

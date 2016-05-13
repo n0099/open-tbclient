@@ -5,15 +5,15 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class d implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteShareActivity fad;
+    final /* synthetic */ WriteShareActivity fac;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(WriteShareActivity writeShareActivity) {
-        this.fad = writeShareActivity;
+        this.fac = writeShareActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
-        if (r4 == r0.bco()) goto L19;
+        if (r4 == r0.bcv()) goto L19;
      */
     @Override // android.view.View.OnFocusChangeListener
     /*
@@ -34,43 +34,43 @@ class d implements View.OnFocusChangeListener {
         o oVar10;
         o oVar11;
         o oVar12;
-        oVar = this.fad.eZN;
+        oVar = this.fac.eZM;
         if (oVar != null) {
-            oVar2 = this.fad.eZN;
-            if (view != oVar2.bcl()) {
-                oVar11 = this.fad.eZN;
-                if (view != oVar11.bcn()) {
-                    oVar12 = this.fad.eZN;
+            oVar2 = this.fac.eZM;
+            if (view != oVar2.bcs()) {
+                oVar11 = this.fac.eZM;
+                if (view != oVar11.bcu()) {
+                    oVar12 = this.fac.eZM;
                 }
             }
             if (!z) {
-                oVar3 = this.fad.eZN;
-                if (view == oVar3.bcl()) {
-                    oVar4 = this.fad.eZN;
-                    if (oVar4.bcp() != null) {
-                        oVar5 = this.fad.eZN;
-                        oVar5.bcp().setVisibility(0);
+                oVar3 = this.fac.eZM;
+                if (view == oVar3.bcs()) {
+                    oVar4 = this.fac.eZM;
+                    if (oVar4.bcw() != null) {
+                        oVar5 = this.fac.eZM;
+                        oVar5.bcw().setVisibility(0);
                     }
                 }
             } else {
-                WriteShareActivity writeShareActivity = this.fad;
-                inputMethodManager = this.fad.mInputManager;
-                oVar6 = this.fad.eZN;
-                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.bcl());
+                WriteShareActivity writeShareActivity = this.fac;
+                inputMethodManager = this.fac.mInputManager;
+                oVar6 = this.fac.eZM;
+                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.bcs());
             }
-            oVar7 = this.fad.eZN;
-            if (view == oVar7.aIW()) {
+            oVar7 = this.fac.eZM;
+            if (view == oVar7.aIZ()) {
                 if (z) {
-                    oVar10 = this.fad.eZN;
-                    oVar10.aIW().setHint((CharSequence) null);
+                    oVar10 = this.fac.eZM;
+                    oVar10.aIZ().setHint((CharSequence) null);
                 } else {
-                    oVar8 = this.fad.eZN;
-                    oVar8.aIW().setHint(t.j.content);
+                    oVar8 = this.fac.eZM;
+                    oVar8.aIZ().setHint(t.j.content);
                 }
-                WriteShareActivity writeShareActivity2 = this.fad;
-                inputMethodManager2 = this.fad.mInputManager;
-                oVar9 = this.fad.eZN;
-                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.bcl());
+                WriteShareActivity writeShareActivity2 = this.fac;
+                inputMethodManager2 = this.fac.mInputManager;
+                oVar9 = this.fac.eZM;
+                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.bcs());
             }
         }
     }

@@ -20,15 +20,15 @@ public class bq {
         return this.icon;
     }
 
-    public String aCt() {
+    public String aCw() {
         return this.dzQ;
     }
 
-    public String aCu() {
+    public String aCx() {
         return this.dzR;
     }
 
-    public List<a> aCv() {
+    public List<a> aCy() {
         return this.dzS;
     }
 
@@ -66,11 +66,11 @@ public class bq {
             return this.pic;
         }
 
-        public String aCu() {
+        public String aCx() {
             return this.dzR;
         }
 
-        public String sd() {
+        public String se() {
             return this.tip;
         }
 

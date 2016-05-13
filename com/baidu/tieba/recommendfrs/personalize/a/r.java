@@ -11,7 +11,7 @@ import com.baidu.tieba.frs.fh;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.n, a> {
     private TbPageContext<?> DV;
-    private BdUniqueId aOT;
+    public BdUniqueId aOT;
     private by bUy;
     private com.baidu.tieba.recommendfrs.control.a.f ebp;
     private com.baidu.tieba.card.z ebw;
@@ -21,10 +21,10 @@ public class r extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.n,
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.bUy = new s(this);
         this.DV = tbPageContext;
-        aMK();
+        aMN();
     }
 
-    private void aMK() {
+    private void aMN() {
         com.baidu.tieba.card.a.n.aSg = "c10708";
         com.baidu.tieba.card.a.n.aSh = "c10735";
         com.baidu.tieba.card.a.n.aSi = "c10756";
@@ -48,11 +48,11 @@ public class r extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.n,
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.n nVar, a aVar) {
         if (nVar != null) {
-            nVar.fx(i + 1);
+            nVar.fw(i + 1);
         }
         aVar.eby.a(nVar);
         if (nVar != null) {
-            bx.Kg().a(nVar.Kw());
+            bx.Ki().a(nVar.Ky());
         }
         return aVar.getView();
     }
@@ -67,8 +67,8 @@ public class r extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.n,
         }
 
         @Override // com.baidu.tieba.frs.fh
-        public void JZ() {
-            this.eby.JZ();
+        public void Kb() {
+            this.eby.Kb();
         }
 
         @Override // com.baidu.tieba.frs.fh
@@ -80,10 +80,6 @@ public class r extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.n,
         public void RH() {
             this.eby.ch(false);
         }
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aOT = bdUniqueId;
     }
 
     public void a(com.baidu.tieba.recommendfrs.control.a.f fVar) {

@@ -43,7 +43,7 @@ public class am extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mu */
+    /* renamed from: mt */
     public bq.a getItem(int i) {
         if (this.dyC == null || this.dyC.size() <= 0 || i < 0 || i >= this.dyC.size()) {
             return null;
@@ -74,11 +74,11 @@ public class am extends BaseAdapter {
         if (item != null) {
             aVar.dyD.c(TextUtils.isEmpty(item.getPic()) ? null : item.getPic(), 10, false);
             aVar.dyE.setText(item.getTitle());
-            if (TextUtils.isEmpty(item.sd())) {
+            if (TextUtils.isEmpty(item.se())) {
                 aVar.dyF.setVisibility(8);
             } else {
                 aVar.dyF.setVisibility(0);
-                aVar.dyF.setText(item.sd());
+                aVar.dyF.setText(item.se());
             }
         }
         com.baidu.tbadk.i.a.a(this.mTbPageContext, view);

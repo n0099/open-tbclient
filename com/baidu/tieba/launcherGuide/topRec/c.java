@@ -32,7 +32,7 @@ class c extends com.baidu.adp.base.g {
                     this.cEJ.aE(this.Sg, this.val$id);
                     return;
                 } else {
-                    this.cEJ.anm();
+                    this.cEJ.anp();
                     TbadkApplication.getInst().addLikeForum(this.cEJ.cED.forum_list[this.Sg].forum_name);
                     return;
                 }

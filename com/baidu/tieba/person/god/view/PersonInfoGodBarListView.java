@@ -45,27 +45,27 @@ public class PersonInfoGodBarListView extends LinearLayout {
             removeAllViews();
             int size = list.size();
             for (int i = 0; i < size; i++) {
-                a aCD = aCD();
+                a aCG = aCG();
                 ForumGodDetailInfo forumGodDetailInfo = list.get(i);
                 if (forumGodDetailInfo != null) {
-                    aCD.aJV.setImageDrawable(at.getDrawable(t.f.icon_shen_mine));
-                    at.c(aCD.aGp, t.d.cp_cont_f, 1);
-                    at.c(aCD.bdq, t.d.cp_cont_c, 1);
-                    aCD.aGp.setText(forumGodDetailInfo.forum_name);
-                    aCD.bdq.setText(forumGodDetailInfo.intro);
+                    aCG.aJV.setImageDrawable(at.getDrawable(t.f.icon_shen_mine));
+                    at.c(aCG.aGp, t.d.cp_cont_f, 1);
+                    at.c(aCG.bdq, t.d.cp_cont_c, 1);
+                    aCG.aGp.setText(forumGodDetailInfo.forum_name);
+                    aCG.bdq.setText(forumGodDetailInfo.intro);
                     if (i < size - 1) {
-                        aCD.view.setPadding(0, 0, 0, this.dxF);
+                        aCG.view.setPadding(0, 0, 0, this.dxF);
                     } else {
-                        aCD.view.setPadding(0, 0, 0, 0);
+                        aCG.view.setPadding(0, 0, 0, 0);
                     }
-                    addView(aCD.view);
-                    this.dAz.add(aCD);
+                    addView(aCG.view);
+                    this.dAz.add(aCG);
                 }
             }
         }
     }
 
-    private a aCD() {
+    private a aCG() {
         View inflate = LayoutInflater.from(this.mContext).inflate(t.h.god_bar_list_item, (ViewGroup) null);
         a aVar = new a(null);
         aVar.aJV = (ImageView) inflate.findViewById(t.g.iv_icon);

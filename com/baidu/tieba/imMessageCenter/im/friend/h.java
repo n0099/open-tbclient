@@ -26,14 +26,14 @@ public class h extends com.baidu.adp.base.f<IMBlackListActivity> {
     public h(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity.getPageContext());
         this.cwx = iMBlackListActivity;
-        vk();
+        vl();
     }
 
-    public void Cs() {
+    public void Ct() {
         this.bDI.setVisibility(0);
     }
 
-    public void akx() {
+    public void akz() {
         this.bDI.setVisibility(8);
     }
 
@@ -49,7 +49,7 @@ public class h extends com.baidu.adp.base.f<IMBlackListActivity> {
         this.cwB.notifyDataSetChanged();
     }
 
-    public void OP() {
+    public void OR() {
         if (this.cwB.getCount() <= 0) {
             this.zu.setVisibility(8);
             this.mNoDataView.setVisibility(0);
@@ -72,7 +72,7 @@ public class h extends com.baidu.adp.base.f<IMBlackListActivity> {
         this.cwB.notifyDataSetChanged();
     }
 
-    private void vk() {
+    private void vl() {
         this.cwx.setContentView(t.h.im_black_list);
         this.KB = this.cwx.findViewById(t.g.root_view);
         this.aWZ = (NoNetworkView) this.KB.findViewById(t.g.view_no_network);
@@ -80,14 +80,14 @@ public class h extends com.baidu.adp.base.f<IMBlackListActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(t.j.chat_black_list_title);
         this.zu = (BdListView) this.KB.findViewById(t.g.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.cwx.getPageContext().getContext(), this.KB, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.azU), NoDataViewFactory.d.cP(t.j.black_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.cwx.getPageContext().getContext(), this.KB, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.azU), NoDataViewFactory.d.cO(t.j.black_list_no_data_text), null);
         this.bDI = (ProgressBar) this.KB.findViewById(t.g.progress);
         this.cwB = new f(this.cwx);
         this.zu.setAdapter((ListAdapter) this.cwB);
-        vl();
+        vm();
     }
 
-    private void vl() {
+    private void vm() {
         int skinType = TbadkCoreApplication.m11getInst().getSkinType();
         this.cwx.getLayoutMode().ae(skinType == 1);
         this.cwx.getLayoutMode().x(this.KB);

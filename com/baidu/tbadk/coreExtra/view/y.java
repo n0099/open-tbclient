@@ -39,12 +39,12 @@ public class y extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
                         this.amC.amm.setImageBitmap(iY);
                         this.amC.amm.setImageData(aVar.jd());
                     }
-                    this.amC.zL();
+                    this.amC.zM();
                 } else if (!this.amE) {
-                    this.amC.amm.FT();
+                    this.amC.amm.FV();
                 }
             } else if (!this.amE) {
-                this.amC.amm.FT();
+                this.amC.amm.FV();
             }
         }
     }

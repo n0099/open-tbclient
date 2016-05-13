@@ -45,10 +45,10 @@ public class d implements com.baidu.tbadk.core.flow.a.d<k> {
     @Override // com.baidu.tbadk.core.flow.a.d
     public void a(int i, k kVar) {
         if (this.ddn != null && kVar != null && this.ddn.dsB != null && this.ddn.dsC != null) {
-            if (ay.isEmpty(kVar.aTy())) {
+            if (ay.isEmpty(kVar.aTE())) {
                 this.ddn.dsB.setVisibility(8);
             } else {
-                this.ddn.dsB.setText(kVar.aTy());
+                this.ddn.dsB.setText(kVar.aTE());
                 this.ddn.dsB.setVisibility(0);
             }
             if (ay.isEmpty(kVar.getSubTitle())) {
@@ -62,7 +62,7 @@ public class d implements com.baidu.tbadk.core.flow.a.d<k> {
             } else {
                 this.ddn.as(kVar.oU(), i);
             }
-            if (this.ddo != null && i <= this.ddo.avh()) {
+            if (this.ddo != null && i <= this.ddo.avk()) {
                 switch (i) {
                     case 2:
                         this.ddo.z(kVar.oU(), "IMAGE2", "VIEW_CAROUSEL");

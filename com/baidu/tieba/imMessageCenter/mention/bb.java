@@ -23,9 +23,9 @@ public class bb implements AbsListView.OnScrollListener {
             pVar = this.czi.czd;
             if (pVar != null) {
                 pVar2 = this.czi.czd;
-                pVar2.Cl();
+                pVar2.Cm();
                 if (this.czi.cyh != null) {
-                    this.czi.cyh.alu();
+                    this.czi.cyh.alw();
                 }
             }
         }

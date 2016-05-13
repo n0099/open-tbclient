@@ -20,7 +20,7 @@ class q extends Handler {
         boolean z;
         MediaController.MediaPlayerControl mediaPlayerControl;
         MediaController.MediaPlayerControl mediaPlayerControl2;
-        int aAP;
+        int aAS;
         int i;
         int i2;
         switch (message.what) {
@@ -33,11 +33,11 @@ class q extends Handler {
                         if (!mediaPlayerControl2.isPlaying()) {
                             return;
                         }
-                        aAP = this.dsR.aAP();
+                        aAS = this.dsR.aAS();
                         Message obtainMessage = obtainMessage(1);
                         i = this.dsR.dsF;
                         i2 = this.dsR.dsF;
-                        sendMessageDelayed(obtainMessage, i - (aAP % i2));
+                        sendMessageDelayed(obtainMessage, i - (aAS % i2));
                         return;
                     }
                     return;

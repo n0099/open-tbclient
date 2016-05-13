@@ -39,7 +39,7 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommend
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendfrs.data.k kVar, a aVar) {
         aVar.a(kVar);
         aVar.onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
-        bx.Kg().he("c10988");
+        bx.Ki().he("c10988");
         return aVar.getView();
     }
 
@@ -155,7 +155,7 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommend
                         if (nu != null) {
                             this.ebL.addView(nu);
                             if (i != kVar.eab.size() - 1) {
-                                this.ebL.addView(aMM());
+                                this.ebL.addView(aMP());
                             }
                         }
                     }
@@ -205,7 +205,7 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.recommend
             return textView;
         }
 
-        private View aMM() {
+        private View aMP() {
             View view = new View(getView().getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;

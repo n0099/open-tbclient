@@ -14,11 +14,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class g implements a.d {
-    final /* synthetic */ WriteVideoActivity faE;
+    final /* synthetic */ WriteVideoActivity faD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(WriteVideoActivity writeVideoActivity) {
-        this.faE = writeVideoActivity;
+        this.faD = writeVideoActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -27,17 +27,17 @@ class g implements a.d {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        this.faE.closeLoadingDialog();
+        this.faD.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.faE.evE;
+            writeData2 = this.faD.evE;
             if (writeData2 != null) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
-                writeData3 = this.faE.evE;
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.sR().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
+                writeData3 = this.faD.evE;
                 if (writeData3 != null) {
-                    writeData4 = this.faE.evE;
+                    writeData4 = this.faD.evE;
                     if (writeData4.getVideoInfo() != null && writeData != null) {
                         if (!z2) {
-                            writeData5 = this.faE.evE;
+                            writeData5 = this.faD.evE;
                             if (writeData5.getVideoInfo().getVideoDuration() > 8) {
                                 writeData.setVideoReviewType(1);
                             }
@@ -50,30 +50,30 @@ class g implements a.d {
                         if (!AntiHelper.g(antiData)) {
                             writeData.setVcodeMD5(oVar.getVcode_md5());
                             writeData.setVcodeUrl(oVar.getVcode_pic_url());
-                            if ("4".equals(oVar.wF())) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.faE.getPageContext().getPageActivity(), 12006, writeData, false)));
+                            if ("4".equals(oVar.wG())) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.faD.getPageContext().getPageActivity(), 12006, writeData, false)));
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.faE.getPageContext().getPageActivity(), writeData, 12006)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.faD.getPageContext().getPageActivity(), writeData, 12006)));
                                 return;
                             }
                         }
-                        this.faE.a(false, postWriteCallBackData);
+                        this.faD.a(false, postWriteCallBackData);
                         return;
                     }
-                    this.faE.a(false, postWriteCallBackData);
+                    this.faD.a(false, postWriteCallBackData);
                     return;
                 }
-                this.faE.bct();
+                this.faD.bcA();
                 if (writeData != null) {
                     if (writeData.getVideoReviewType() == 1) {
-                        postWriteCallBackData.setErrorString(this.faE.getPageContext().getPageActivity().getString(t.j.video_send_success_under_review));
+                        postWriteCallBackData.setErrorString(this.faD.getPageContext().getPageActivity().getString(t.j.video_send_success_under_review));
                     } else {
-                        postWriteCallBackData.setErrorString(this.faE.getPageContext().getPageActivity().getString(t.j.video_send_success));
+                        postWriteCallBackData.setErrorString(this.faD.getPageContext().getPageActivity().getString(t.j.video_send_success));
                     }
                 }
-                this.faE.a(true, postWriteCallBackData);
-                this.faE.b(postWriteCallBackData);
+                this.faD.a(true, postWriteCallBackData);
+                this.faD.b(postWriteCallBackData);
             }
         }
     }

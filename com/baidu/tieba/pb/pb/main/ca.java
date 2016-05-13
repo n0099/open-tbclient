@@ -26,9 +26,9 @@ public class ca extends CustomMessageListener {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.d)) {
-            AbsDelegateAdapterList aTp = ((com.baidu.tieba.tbadkCore.data.d) customResponsedMessage.getData()).aTp();
+            AbsDelegateAdapterList aTv = ((com.baidu.tieba.tbadkCore.data.d) customResponsedMessage.getData()).aTv();
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(aTp);
+            arrayList.addAll(aTv);
             list = this.dkp.dkn;
             list.clear();
             list2 = this.dkp.dkn;

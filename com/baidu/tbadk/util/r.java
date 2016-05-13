@@ -28,6 +28,6 @@ public class r extends Thread {
         if (this.type != null) {
             abVar.n("img_type", this.type);
         }
-        abVar.tc();
+        abVar.td();
     }
 }

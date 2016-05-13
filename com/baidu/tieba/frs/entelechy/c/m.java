@@ -12,9 +12,9 @@ public class m implements TextureVideoView.a {
     }
 
     @Override // com.baidu.tbadk.core.view.TextureVideoView.a
-    public void vt() {
+    public void vu() {
         boolean z;
-        if (com.baidu.tbadk.core.view.at.vD().vH()) {
+        if (com.baidu.tbadk.core.view.at.vE().vI()) {
             z = this.bpG.aPU;
             if (!z) {
                 this.bpG.cg(false);

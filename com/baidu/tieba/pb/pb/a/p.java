@@ -28,12 +28,12 @@ public class p implements a.b {
         eVar = this.dgn.dfK;
         if (eVar != null) {
             eVar2 = this.dgn.dfK;
-            if (eVar2.avA() != null) {
+            if (eVar2.avD() != null) {
                 xVar = this.dgn.Dp;
                 eVar3 = this.dgn.dfK;
-                String name = eVar3.avA().getName();
+                String name = eVar3.avD().getName();
                 eVar4 = this.dgn.dfK;
-                xVar.bH(name, eVar4.avA().getId());
+                xVar.bH(name, eVar4.avD().getId());
                 aw awVar = new aw("c10409");
                 eVar5 = this.dgn.dfK;
                 aw ac = awVar.ac("fid", eVar5.getForumId());

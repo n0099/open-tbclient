@@ -87,7 +87,7 @@ public class d extends b {
         this.bvl.setLayoutParams(layoutParams);
         this.bvk = (CoverFlowView) this.Dn.findViewById(t.g.nomal_frs_coverflowview);
         this.bvn = (ForumHeadSdkView) this.Dn.findViewById(t.g.frs_head_sdk);
-        Uj();
+        Ul();
         this.bva = (RelativeLayout) this.Dn.findViewById(t.g.btn_love_content);
         this.bvv = (ImageView) this.Dn.findViewById(t.g.speed_icon);
         this.bvB = new com.baidu.tieba.frs.view.l(this.Dn, this.Do.getPageActivity());
@@ -156,12 +156,12 @@ public class d extends b {
         this.Do.getLayoutMode().x(this.bvs);
         this.Do.getLayoutMode().x(this.bve);
         if (this.bvT) {
-            gX(1);
+            gW(1);
         } else {
-            gX(0);
+            gW(0);
         }
         if (this.bvk != null) {
-            this.bvk.sf();
+            this.bvk.sg();
         }
         if (this.bvn != null) {
             this.bvn.e(this.Do, i);
@@ -192,7 +192,7 @@ public class d extends b {
             this.biT.changeSkinType(i);
         }
         if (this.bvy != null) {
-            this.bvy.cW(i);
+            this.bvy.cV(i);
         }
         if (this.bvD != null) {
             this.bvD.e(this.Do, i);
@@ -279,7 +279,7 @@ public class d extends b {
     }
 
     protected void Sn() {
-        a(this.bpp.aSb());
+        a(this.bpp.aSe());
     }
 
     protected void So() {
@@ -287,8 +287,8 @@ public class d extends b {
         if (this.bpp != null) {
             Sn();
         }
-        if (this.bpp != null && this.bpp.aSv() != null) {
-            a(this.bpp.aSv());
+        if (this.bpp != null && this.bpp.aSy() != null) {
+            a(this.bpp.aSy());
         }
         if (this.Dg != null) {
             this.Dg.setText(ay.A(this.mMemberNum));
@@ -311,15 +311,15 @@ public class d extends b {
                 this.bvh.setVisibility(8);
             }
         }
-        if (this.bpp != null && this.bpp.avA() != null && this.bpp.avA().getAdKillerData() != null) {
-            BannerListData bannerListData = this.bpp.avA().getBannerListData();
+        if (this.bpp != null && this.bpp.avD() != null && this.bpp.avD().getAdKillerData() != null) {
+            BannerListData bannerListData = this.bpp.avD().getBannerListData();
             if (bannerListData == null || (allAdvertList = bannerListData.getAllAdvertList()) == null || allAdvertList.size() <= 0) {
                 if (this.bvf == null) {
                     this.bvf = (RelativeLayout) ((ViewStub) this.bve.findViewById(t.g.frs_head_adkiller)).inflate();
                     com.baidu.tbadk.i.a.a(this.bjB.getPageContext(), this.bvf);
                     this.bvg = (TextView) this.bvf.findViewById(t.g.adkiller_tip);
                 }
-                com.baidu.tbadk.core.data.b adKillerData = this.bpp.avA().getAdKillerData();
+                com.baidu.tbadk.core.data.b adKillerData = this.bpp.avD().getAdKillerData();
                 int oB = adKillerData.oB();
                 String string = this.bjB.getResources().getString(t.j.adkiller_tip_success);
                 if (oB > 0) {
@@ -333,8 +333,8 @@ public class d extends b {
             }
         }
         if (this.bvi != null && this.bvj != null) {
-            if (this.bpp != null && this.bpp.aSh()) {
-                int dj = com.baidu.tbadk.core.util.n.dj(this.bpp.aSk());
+            if (this.bpp != null && this.bpp.aSk()) {
+                int dj = com.baidu.tbadk.core.util.n.dj(this.bpp.aSn());
                 boolean z = GameDetailActivityConfig.isHaveActivity;
                 if (dj == 1 && !z) {
                     this.bvi.setVisibility(8);
@@ -342,7 +342,7 @@ public class d extends b {
                     this.bvi.setVisibility(0);
                     if (!TextUtils.isEmpty(this.bpp.getGameName()) && !TextUtils.isEmpty(this.bpp.getGameName().trim())) {
                         this.bvj.setText(UtilHelper.getFixedText(this.bpp.getGameName(), 10));
-                        String nZ = com.baidu.tieba.tbadkCore.util.n.nZ(this.bpp.aSk());
+                        String nZ = com.baidu.tieba.tbadkCore.util.n.nZ(this.bpp.aSn());
                         if (!StringUtils.isNull(nZ)) {
                             TiebaStatic.eventStat(this.Do.getPageActivity(), "game_show", "show", 1, "dev_id", nZ, "ref_id", "1000601", "ref_type", "603");
                         }
@@ -354,18 +354,18 @@ public class d extends b {
                 this.bvi.setVisibility(8);
             }
         }
-        if (this.bpp != null && this.bpp.aSi() != null && this.bpp.aSi().size() > 0) {
-            List<com.baidu.tieba.tbadkCore.g> aSi = this.bpp.aSi();
-            ak(aSi);
-            int size = aSi.size();
+        if (this.bpp != null && this.bpp.aSl() != null && this.bpp.aSl().size() > 0) {
+            List<com.baidu.tieba.tbadkCore.g> aSl = this.bpp.aSl();
+            ak(aSl);
+            int size = aSl.size();
             int i = size > 5 ? 5 : size;
             if (i > 0) {
                 this.bvo.setVisibility(0);
                 this.bvo.removeAllViews();
                 for (int i2 = 0; i2 < i; i2++) {
-                    com.baidu.tieba.tbadkCore.g gVar = aSi.get(i2);
+                    com.baidu.tieba.tbadkCore.g gVar = aSl.get(i2);
                     if (gVar != null && !hP(gVar.getUrl())) {
-                        String hO = hO(gVar.aqv());
+                        String hO = hO(gVar.aqy());
                         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.Do.getPageActivity()).inflate(t.h.frs_header_top_item, (ViewGroup) null);
                         ((TextView) viewGroup.findViewById(t.g.top_item_title)).setText(gVar.getTitle());
                         ((TextView) viewGroup.findViewById(t.g.top_item_type)).setText(hO);
@@ -373,8 +373,8 @@ public class d extends b {
                         viewGroup.setTag(gVar);
                         viewGroup.setOnClickListener(this.bwb);
                         this.bvo.addView(viewGroup);
-                        if (this.bvZ.add(gVar.aRX())) {
-                            a.C0075a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", gVar.aRX(), this.bjB.getForumId(), this.bjB.getForumName(), null);
+                        if (this.bvZ.add(gVar.aSa())) {
+                            a.C0075a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", gVar.aSa(), this.bjB.getForumId(), this.bjB.getForumName(), null);
                             a.bK("obj_url", gVar.getUrl());
                             a.save();
                         }
@@ -387,7 +387,7 @@ public class d extends b {
             this.bvo.setVisibility(8);
         }
         if (this.bpp != null) {
-            this.bvC.a(this.bpp.aSa(), this.bpp.avA());
+            this.bvC.a(this.bpp.aSd(), this.bpp.avD());
         } else {
             this.bvC.a(null, null);
         }
@@ -432,12 +432,14 @@ public class d extends b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void Sq() {
-        if (this.bjB != null && this.bjB.getActivity() != null && this.bvx != null && this.bvx.getBdImage() != null && this.bvx.getBdImage().iY() != null && !this.bvx.getBdImage().iY().isRecycled()) {
+        if (this.bjB != null && this.bjB.getActivity() != null) {
             if (this.bnW == null) {
                 this.bnW = new BlurDrawable(this.bjB.getActivity());
-                this.bnW.init(12, 8, this.bvx.getBdImage().iY());
+                if (this.bvx != null && this.bvx.getBdImage() != null && this.bvx.getBdImage().iY() != null && !this.bvx.getBdImage().iY().isRecycled()) {
+                    this.bnW.init(12, 8, this.bvx.getBdImage().iY());
+                }
             }
-            if (this.bnW.getBlurredBitmap() == null && this.bnW.drawBlur()) {
+            if (this.bnW != null && this.bnW.getBlurredBitmap() == null && this.bnW.drawBlur()) {
                 this.aHR.setBackgroundDrawable(new BitmapDrawable(this.bnW.getBlurredBitmap()));
             }
         }
@@ -451,8 +453,8 @@ public class d extends b {
     }
 
     private void Sr() {
-        ViewGroup Un;
-        View Uo;
+        ViewGroup Up;
+        View Uq;
         View findViewById;
         if (this.bvi.getVisibility() == 0) {
             View findViewById2 = this.bvi.findViewById(t.g.top_item_divider);
@@ -463,8 +465,8 @@ public class d extends b {
             if (this.bvo.getChildCount() > 0 && (findViewById = ((ViewGroup) this.bvo.getChildAt(0)).findViewById(t.g.top_item_divider)) != null) {
                 findViewById.setVisibility(8);
             }
-        } else if (this.bvo.getVisibility() == 8 && (Un = this.bvC.Un()) != null && Un.getVisibility() == 0 && (Uo = this.bvC.Uo()) != null) {
-            Uo.setVisibility(8);
+        } else if (this.bvo.getVisibility() == 8 && (Up = this.bvC.Up()) != null && Up.getVisibility() == 0 && (Uq = this.bvC.Uq()) != null) {
+            Uq.setVisibility(8);
         } else {
             this.bnU.dr(true);
         }
@@ -518,11 +520,11 @@ public class d extends b {
             } else {
                 textView3.setVisibility(8);
             }
-            aVar.bN(t.d.cp_link_tip_d);
+            aVar.bM(t.d.cp_link_tip_d);
             b(aVar);
             c(aVar);
             aVar.b(this.Do);
-            aVar.rU();
+            aVar.rV();
         }
     }
 
@@ -571,15 +573,15 @@ public class d extends b {
                     i = this.bvK + 1;
                 }
                 com.baidu.tieba.tbadkCore.o PZ = this.bjB.PZ();
-                if (PZ != null && PZ.avA() != null) {
-                    PZ.avA().setUser_level(i);
+                if (PZ != null && PZ.avD() != null) {
+                    PZ.avD().setUser_level(i);
                 }
                 at.c(this.bvc, BitmapHelper.getSmallGradeResourceIdNew(i));
             } else {
                 this.bvb.setText(this.bvF);
                 at.c(this.bvc, BitmapHelper.getSmallGradeResourceIdNew(this.bvK));
             }
-            this.bvd.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, gx(this.bvK)));
+            this.bvd.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, gw(this.bvK)));
             if (this.bvU) {
                 if (f >= 1.0f) {
                     a(this.Do.getOrignalPage(), this.bvd, this.bvV, f);
@@ -593,7 +595,7 @@ public class d extends b {
         }
     }
 
-    private int[] gx(int i) {
+    private int[] gw(int i) {
         if (i <= 3) {
             return new int[]{-8331843, -10499102};
         }

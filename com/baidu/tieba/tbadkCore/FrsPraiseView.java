@@ -106,7 +106,7 @@ public class FrsPraiseView extends LinearLayout {
         return str;
     }
 
-    public void cW(int i) {
+    public void cV(int i) {
         if (this.drg) {
             if (this.eqv) {
                 at.k(this.bxh, t.f.praise_video_selector);

@@ -62,19 +62,19 @@ public class g extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
         super.B(pVar);
         if (pVar != null) {
             this.ecm = pVar;
-            if (pVar.aMA() != null) {
-                List<String> aMA = pVar.aMA();
-                if (aMA.size() > 3) {
-                    aMA.subList(0, 3);
+            if (pVar.aMD() != null) {
+                List<String> aMD = pVar.aMD();
+                if (aMD.size() > 3) {
+                    aMD.subList(0, 3);
                 }
                 for (int i = 0; i < 3; i++) {
-                    String str = (String) y.c(aMA, i);
+                    String str = (String) y.c(aMD, i);
                     TbImageView tbImageView = this.ecu.get(i);
                     if (StringUtils.isNULL(str)) {
                         tbImageView.setVisibility(4);
                     } else {
                         tbImageView.setVisibility(0);
-                        if (!pVar.aMu()) {
+                        if (!pVar.aMx()) {
                             str = null;
                         }
                         tbImageView.c(str, 10, false);
@@ -83,11 +83,11 @@ public class g extends com.baidu.tbadk.mvc.g.a<p, com.baidu.tbadk.mvc.d.b> {
             }
             this.title.setText(pVar.getTitle());
             this.aSZ.setVisibility(0);
-            String A = ay.A(pVar.aMx());
+            String A = ay.A(pVar.aMA());
             this.aSZ.setText(A);
             this.aSZ.setContentDescription(String.valueOf(this.Do.getString(t.j.zan_num)) + A);
             com.baidu.tieba.graffiti.d.aj(this.aSZ);
-            String A2 = ay.A(pVar.aMy());
+            String A2 = ay.A(pVar.aMB());
             this.aTa.setText(A2);
             this.aTa.setContentDescription(String.valueOf(this.Do.getString(t.j.reply_num)) + A2);
             if (StringUtils.isNull(pVar.getForumName())) {

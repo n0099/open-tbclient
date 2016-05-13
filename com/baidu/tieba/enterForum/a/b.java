@@ -19,18 +19,18 @@ public class b extends d<w, com.baidu.tbadk.mvc.d.b, u> implements c {
 
     @Override // com.baidu.tieba.enterForum.a.c
     public void Q(int i, int i2) {
-        List<w> DR = DR();
-        com.baidu.tieba.enterForum.c.b.ML().b(DR, i, i2);
-        z((List) DR);
+        List<w> DS = DS();
+        com.baidu.tieba.enterForum.c.b.MN().b(DS, i, i2);
+        z((List) DS);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void fI(int i) {
+    public void fH(int i) {
         this.aWA = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void Ma() {
+    public void Mc() {
         notifyDataSetChanged();
     }
 

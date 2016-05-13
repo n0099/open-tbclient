@@ -63,7 +63,7 @@ public class a extends e<FrsActivity> {
         if (!this.brZ) {
             this.brZ = true;
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eM(1000);
+            vVar.eL(1000);
             vVar.axN = true;
             vVar.axK = false;
             vVar.isSuccess = loadMoreResponseSocketMessage.hasError() ? false : true;
@@ -81,7 +81,7 @@ public class a extends e<FrsActivity> {
             vVar.axJ = 0L;
             vVar.axF = System.currentTimeMillis() - this.bsa;
             vVar.sequenceID = loadMoreResponseSocketMessage.sequenceID;
-            vVar.EH();
+            vVar.EI();
         }
     }
 
@@ -90,7 +90,7 @@ public class a extends e<FrsActivity> {
         if (!this.brZ) {
             this.brZ = true;
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eM(1000);
+            vVar.eL(1000);
             vVar.axN = true;
             vVar.axK = true;
             vVar.isSuccess = loadMoreHttpResponseMessage.hasError() ? false : true;
@@ -110,7 +110,7 @@ public class a extends e<FrsActivity> {
             vVar.axJ = loadMoreHttpResponseMessage.getDownSize();
             vVar.axF = System.currentTimeMillis() - this.bsa;
             vVar.axO = loadMoreHttpResponseMessage.getOrginalMessage().getClientLogID();
-            vVar.EH();
+            vVar.EI();
         }
     }
 
@@ -190,10 +190,10 @@ public class a extends e<FrsActivity> {
             this.bqS.clear();
             this.bqT.clear();
         }
-        int wB = TbadkCoreApplication.m11getInst().getListItemRule().wB() - this.bqS.size();
+        int wC = TbadkCoreApplication.m11getInst().getListItemRule().wC() - this.bqS.size();
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
-            if (i < wB) {
+            if (i < wC) {
                 this.bqS.add(arrayList.get(i));
             } else {
                 this.bqT.add(arrayList.get(i));
@@ -219,11 +219,11 @@ public class a extends e<FrsActivity> {
         }
     }
 
-    public ArrayList<v> SW() {
+    public ArrayList<v> SX() {
         int i;
         int size = this.bqT.size() + 30;
-        int wA = TbadkCoreApplication.m11getInst().getListItemRule().wA();
-        if (size > wA && this.bqT.size() > (i = size - wA)) {
+        int wB = TbadkCoreApplication.m11getInst().getListItemRule().wB();
+        if (size > wB && this.bqT.size() > (i = size - wB)) {
             for (int i2 = 0; i2 < i; i2++) {
                 this.bqT.remove(0);
             }

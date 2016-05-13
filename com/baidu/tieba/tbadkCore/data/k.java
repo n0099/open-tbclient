@@ -58,7 +58,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.esF;
     }
 
-    public String aTy() {
+    public String aTE() {
         return this.esH;
     }
 
@@ -74,7 +74,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String aTz() {
+    public String aTF() {
         return this.esG;
     }
 }

@@ -104,17 +104,17 @@ public class InputView extends EditText implements ab {
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof h)) {
                         h hVar = (h) aVar.data;
-                        if ((!this.aqY || hVar.wx() == EmotionGroupType.LOCAL) && hVar.getName() != null) {
+                        if ((!this.aqY || hVar.wy() == EmotionGroupType.LOCAL) && hVar.getName() != null) {
                             String editable = getText().toString();
                             if (this.arc && fr(editable) >= 10 && getContext() != null) {
-                                f.sW().showToast(t.j.too_many_face);
+                                f.sX().showToast(t.j.too_many_face);
                                 return;
                             }
                             String name = hVar.getName();
-                            EmotionGroupType wx = hVar.wx();
-                            if (wx == EmotionGroupType.LOCAL) {
+                            EmotionGroupType wy = hVar.wy();
+                            if (wy == EmotionGroupType.LOCAL) {
                                 if (name != null) {
-                                    com.baidu.adp.lib.g.c.dF().a(name, 20, new d(this, new SpannableStringBuilder(name), wx), 0, 0, BdUniqueId.gen(), null, name, false, null);
+                                    com.baidu.adp.lib.g.c.dF().a(name, 20, new d(this, new SpannableStringBuilder(name), wy), 0, 0, BdUniqueId.gen(), null, name, false, null);
                                     return;
                                 }
                                 return;

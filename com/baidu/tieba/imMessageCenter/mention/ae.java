@@ -21,7 +21,7 @@ public class ae implements FragmentTabWidget.a {
         int i2;
         int i3;
         bfVar = this.cyD.cyh;
-        bfVar.alu();
+        bfVar.alw();
         customViewPager = this.cyD.cyA;
         customViewPager.setCurrentItem(i);
         fragmentTabWidget = this.cyD.cyz;

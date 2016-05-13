@@ -13,11 +13,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract boolean m(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.al
-    public void acm() {
-        abM();
+    public void aco() {
+        abO();
     }
 
-    public void abM() {
+    public void abO() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,11 +33,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (this.caH != null) {
             this.caH.setImageUploadUIProgressCallback(this.caN);
         }
-        act();
+        acv();
         if (a((al) this)) {
             loadDraft();
-            abK();
-            bq.caF = com.baidu.tbadk.util.h.Fq();
+            abM();
+            bq.caF = com.baidu.tbadk.util.h.Fs();
         }
     }
 
@@ -54,7 +54,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(t.d.transparent, false);
-        act();
+        acv();
         if (a((al) this)) {
             loadDraft();
         }
@@ -75,12 +75,12 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         super.onResume();
         if (this.caG != null) {
             this.caG.onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
-            abH();
+            abJ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abH() {
+    public void abJ() {
         if (TbadkCoreApplication.m11getInst().isHeadsetModeOn()) {
             this.caG.showReceiver();
         } else {
@@ -96,14 +96,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        abL();
+        abN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abK() {
+    public void abM() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abL() {
+    public void abN() {
     }
 }

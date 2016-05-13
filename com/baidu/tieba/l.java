@@ -13,7 +13,7 @@ class l implements p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void HM() {
+    public void HO() {
         LogoActivity logoActivity;
         boolean z;
         LogoActivity logoActivity2;
@@ -27,7 +27,7 @@ class l implements p.a {
         if (!z) {
             logoActivity3 = this.aGV.aGQ;
             bitmap = logoActivity3.aGF;
-            if (bitmap != null && com.baidu.tieba.b.a.Lf().Lh()) {
+            if (bitmap != null && com.baidu.tieba.b.a.Lh().Lj()) {
                 com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
                 logoActivity4 = this.aGV.aGQ;
                 runnable = logoActivity4.aGK;

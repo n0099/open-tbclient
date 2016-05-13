@@ -4,11 +4,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class aj implements x {
-    final /* synthetic */ ag eYV;
+    final /* synthetic */ ag eYU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ag agVar) {
-        this.eYV = agVar;
+        this.eYU = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
@@ -19,21 +19,21 @@ class aj implements x {
         o oVar4;
         AlbumActivity albumActivity;
         o oVar5;
-        oVar = this.eYV.eXx;
+        oVar = this.eYU.eXw;
         int maxImagesAllowed = oVar.getMaxImagesAllowed();
-        oVar2 = this.eYV.eXx;
+        oVar2 = this.eYU.eXw;
         if (oVar2.size() < maxImagesAllowed) {
-            oVar3 = this.eYV.eXx;
-            if (oVar3.bbC()) {
-                oVar5 = this.eYV.eXx;
+            oVar3 = this.eYU.eXw;
+            if (oVar3.bbJ()) {
+                oVar5 = this.eYU.eXw;
                 oVar5.pc(String.valueOf(System.currentTimeMillis()));
             }
-            oVar4 = this.eYV.eXx;
-            String bbB = oVar4.bbB();
-            albumActivity = this.eYV.eXM;
-            albumActivity.oZ(bbB);
+            oVar4 = this.eYU.eXw;
+            String bbI = oVar4.bbI();
+            albumActivity = this.eYU.eXL;
+            albumActivity.oZ(bbI);
             return;
         }
-        this.eYV.showToast(String.format(this.eYV.getPageContext().getString(t.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        this.eYU.showToast(String.format(this.eYU.getPageContext().getString(t.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

@@ -25,47 +25,47 @@ public class r {
         setHasMore(false);
     }
 
-    public int aBu() {
+    public int aBx() {
         return this.dvw;
     }
 
-    public void ml(int i) {
+    public void mk(int i) {
         this.dvw = i;
     }
 
-    public void mm(int i) {
+    public void ml(int i) {
         this.dvw += i;
     }
 
-    public int aBv() {
+    public int aBy() {
         return this.dvx;
     }
 
-    public void mn(int i) {
+    public void mm(int i) {
         this.dvx = i;
     }
 
-    public void mo(int i) {
+    public void mn(int i) {
         this.dvx += i;
     }
 
-    public ArrayList<ForumData> aBw() {
+    public ArrayList<ForumData> aBz() {
         return this.dvq;
     }
 
-    public ArrayList<ForumData> aBx() {
+    public ArrayList<ForumData> aBA() {
         return this.dvr;
     }
 
-    public ArrayList<ForumData> aBy() {
+    public ArrayList<ForumData> aBB() {
         return this.dvt;
     }
 
-    public ArrayList<ForumData> aBz() {
+    public ArrayList<ForumData> aBC() {
         return this.dvu;
     }
 
-    public ArrayList<ForumData> aBA() {
+    public ArrayList<ForumData> aBD() {
         return this.dvp;
     }
 
@@ -113,7 +113,7 @@ public class r {
         }
     }
 
-    public ArrayList<ForumData> aBB() {
+    public ArrayList<ForumData> aBE() {
         return this.dvs;
     }
 

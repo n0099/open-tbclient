@@ -17,18 +17,18 @@ public class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean Mw;
+        boolean My;
         boolean z;
         com.baidu.tieba.enterForum.c.c cVar;
         com.baidu.tieba.enterForum.c.c cVar2;
-        this.aXF.aXk.MD();
-        Mw = this.aXF.Mw();
-        if (Mw) {
-            this.aXF.aXk.Nk();
+        this.aXF.aXk.MF();
+        My = this.aXF.My();
+        if (My) {
+            this.aXF.aXk.Nm();
             cVar = this.aXF.aXl;
-            cVar.Q(this.aXF.aXk.Np());
+            cVar.Q(this.aXF.aXk.Nr());
             cVar2 = this.aXF.aXl;
-            cVar2.fQ(this.aXF.aXk.MY());
+            cVar2.fP(this.aXF.aXk.Na());
         }
         z = this.aXF.aXq;
         if (z) {

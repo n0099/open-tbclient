@@ -18,20 +18,20 @@ public class e extends com.baidu.adp.framework.listener.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        boolean agP;
+        boolean agR;
         String str;
         String str2;
         String str3;
         String str4;
         List list;
-        agP = this.cmE.agP();
-        if (agP && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
+        agR = this.cmE.agR();
+        if (agR && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
             PushNotifyMessage pushNotifyMessage = (PushNotifyMessage) socketResponsedMessage;
             if (pushNotifyMessage.getType() != 3 && pushNotifyMessage.getType() != 4) {
                 b bVar = new b();
                 bVar.emitTime = ((PushNotifyMessage) socketResponsedMessage).getEmitTime();
-                bVar.cmp = this.cmE.agK();
-                bVar.cmq = this.cmE.agM();
+                bVar.cmp = this.cmE.agM();
+                bVar.cmq = this.cmE.agO();
                 str = this.cmE.cmw;
                 if (str == null) {
                     this.cmE.cmw = bVar.emitTime;

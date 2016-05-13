@@ -13,11 +13,11 @@ public class n extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, 
     }
 
     @Override // com.baidu.tbadk.mvc.g.b
-    public int eE(int i) {
+    public int eD(int i) {
         Object item = getItem(i);
         if (item instanceof com.baidu.tieba.recommendfrs.data.p) {
             com.baidu.tieba.recommendfrs.data.p pVar = (com.baidu.tieba.recommendfrs.data.p) item;
-            if (pVar.aMB() == 33) {
+            if (pVar.aME() == 33) {
                 return 2;
             }
             return pVar.getType() == 2 ? 1 : 0;
@@ -25,7 +25,7 @@ public class n extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, 
         return 0;
     }
 
-    public com.baidu.tieba.recommendfrs.data.p aLQ() {
+    public com.baidu.tieba.recommendfrs.data.p aLT() {
         com.baidu.tieba.recommendfrs.data.p pVar;
         for (int count = getCount() - 1; count >= 0; count--) {
             Object item = getItem(count);

@@ -5,16 +5,16 @@ import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az implements TextWatcher {
-    final /* synthetic */ WriteActivity feb;
+    final /* synthetic */ WriteActivity fea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(WriteActivity writeActivity) {
-        this.feb = writeActivity;
+        this.fea = writeActivity;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.feb.bcj();
+        this.fea.bcq();
     }
 
     @Override // android.text.TextWatcher

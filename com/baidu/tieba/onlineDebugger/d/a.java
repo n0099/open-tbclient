@@ -23,11 +23,11 @@ public class a {
         this.dbK.put("new", 6);
     }
 
-    public int auB() {
+    public int auE() {
         return this.dbI;
     }
 
-    public String auC() {
+    public String auF() {
         return this.dbJ;
     }
 

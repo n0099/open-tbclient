@@ -25,11 +25,11 @@ public class l extends com.baidu.adp.base.g {
         com.baidu.tieba.pb.data.e eVar2;
         if (obj != null && (obj instanceof com.baidu.tieba.tbadkCore.y) && (yVar = (com.baidu.tieba.tbadkCore.y) obj) != null) {
             eVar = this.dgn.dfK;
-            if (eVar.avA() != null) {
+            if (eVar.avD() != null) {
                 xVar3 = this.dgn.Dp;
                 if (xVar3.getErrorCode() == 0) {
                     eVar2 = this.dgn.dfK;
-                    eVar2.avA().setLike(1);
+                    eVar2.avD().setLike(1);
                     yVar.setLike(1);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));
                     return;

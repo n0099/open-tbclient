@@ -76,9 +76,9 @@ public class w {
 
     public void e(r rVar) {
         if (rVar != null) {
-            f(rVar.ajl(), rVar.ajk().sex.intValue());
-            fc(rVar.ajj());
-            a(rVar.ajk());
+            f(rVar.ajn(), rVar.ajm().sex.intValue());
+            fc(rVar.ajl());
+            a(rVar.ajm());
             f(rVar);
         }
     }
@@ -112,7 +112,7 @@ public class w {
 
     public void f(r rVar) {
         String str;
-        if (rVar != null && rVar.ajk() != null && (str = rVar.ajk().portrait) != null && str.length() > 0) {
+        if (rVar != null && rVar.ajm() != null && (str = rVar.ajm().portrait) != null && str.length() > 0) {
             this.bfG.setImageResource(0);
             this.bfG.c(str, 12, false);
         }

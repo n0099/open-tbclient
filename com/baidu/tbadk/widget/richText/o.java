@@ -44,11 +44,11 @@ public class o {
         return this.height;
     }
 
-    public String Hk() {
+    public String Hm() {
         return this.aED;
     }
 
-    public boolean Hl() {
+    public boolean Hn() {
         return this.aEC == 15;
     }
 
@@ -60,11 +60,11 @@ public class o {
         return this.duration;
     }
 
-    public int Hm() {
+    public int Ho() {
         return this.aEE;
     }
 
-    public void fg(int i) {
+    public void ff(int i) {
         this.aEE = i;
     }
 }

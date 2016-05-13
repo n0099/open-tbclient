@@ -93,8 +93,8 @@ public class fr extends com.baidu.adp.base.f<FrsActivity> {
         this.bmW = (RelativeLayout) this.Dn.findViewById(t.g.eyeshield_mode);
         this.bmX = (BdSwitchView) this.Dn.findViewById(t.g.eyeshield_mode_switch);
         com.baidu.adp.lib.util.k.a(this.mContext.getPageActivity(), this.bmX, 10, 10, 10, 10);
-        this.bmX.a(com.baidu.tbadk.core.util.at.cA(t.f.s_switch_open_bg), com.baidu.tbadk.core.util.at.cA(t.f.s_switch_close_bg), com.baidu.tbadk.core.util.at.cA(t.f.btn_game_handle_2));
-        this.bmY.a(com.baidu.tbadk.core.util.at.cA(t.f.s_switch_open_bg), com.baidu.tbadk.core.util.at.cA(t.f.s_switch_close_bg), com.baidu.tbadk.core.util.at.cA(t.f.btn_game_handle_2));
+        this.bmX.a(com.baidu.tbadk.core.util.at.cz(t.f.s_switch_open_bg), com.baidu.tbadk.core.util.at.cz(t.f.s_switch_close_bg), com.baidu.tbadk.core.util.at.cz(t.f.btn_game_handle_2));
+        this.bmY.a(com.baidu.tbadk.core.util.at.cz(t.f.s_switch_open_bg), com.baidu.tbadk.core.util.at.cz(t.f.s_switch_close_bg), com.baidu.tbadk.core.util.at.cz(t.f.btn_game_handle_2));
         this.bmZ = (TextView) this.Dn.findViewById(t.g.message_btn);
         this.bnb = (LinearLayout) this.Dn.findViewById(t.g.message_layout);
         this.bnc = (TextView) this.Dn.findViewById(t.g.history_tv);
@@ -201,7 +201,7 @@ public class fr extends com.baidu.adp.base.f<FrsActivity> {
         }
         if (edVar != null) {
             j = edVar.Rz() - edVar.RA();
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xF().ya()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xG().yb()) {
                 j -= edVar.RB();
             }
         }
@@ -258,8 +258,8 @@ public class fr extends com.baidu.adp.base.f<FrsActivity> {
             this.bmX.iz();
             this.bmX.setContentDescription(String.valueOf(this.mContext.getString(t.j.eyeshield_mode)) + this.mContext.getString(t.j.now_state_off));
         }
-        this.Dn.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.at.cB(t.f.s_rightbar_bg)));
-        this.bmX.a(com.baidu.tbadk.core.util.at.cA(t.f.s_switch_open_bg), com.baidu.tbadk.core.util.at.cA(t.f.s_switch_close_bg), com.baidu.tbadk.core.util.at.cA(t.f.btn_game_handle_2));
-        this.bmY.a(com.baidu.tbadk.core.util.at.cA(t.f.s_switch_open_bg), com.baidu.tbadk.core.util.at.cA(t.f.s_switch_close_bg), com.baidu.tbadk.core.util.at.cA(t.f.btn_game_handle_2));
+        this.Dn.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.at.cA(t.f.s_rightbar_bg)));
+        this.bmX.a(com.baidu.tbadk.core.util.at.cz(t.f.s_switch_open_bg), com.baidu.tbadk.core.util.at.cz(t.f.s_switch_close_bg), com.baidu.tbadk.core.util.at.cz(t.f.btn_game_handle_2));
+        this.bmY.a(com.baidu.tbadk.core.util.at.cz(t.f.s_switch_open_bg), com.baidu.tbadk.core.util.at.cz(t.f.s_switch_close_bg), com.baidu.tbadk.core.util.at.cz(t.f.btn_game_handle_2));
     }
 }

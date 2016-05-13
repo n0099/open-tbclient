@@ -39,7 +39,7 @@ public abstract class b<T extends v, V extends a.C0035a> {
         this.ael = aVar;
     }
 
-    public a<T, V> vM() {
+    public a<T, V> vN() {
         return this.ael;
     }
 }

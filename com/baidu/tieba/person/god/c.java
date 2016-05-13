@@ -41,7 +41,7 @@ class c implements NoNetworkView.a {
                                     gVar4 = this.dzZ.dzU;
                                     gVar4.jy();
                                     gVar5 = this.dzZ.dzU;
-                                    gVar5.aCy();
+                                    gVar5.aCB();
                                     return;
                                 }
                                 return;
@@ -52,7 +52,7 @@ class c implements NoNetworkView.a {
                         gVar2 = this.dzZ.dzU;
                         gVar2.mj(string);
                         gVar3 = this.dzZ.dzU;
-                        gVar3.aCy();
+                        gVar3.aCB();
                     }
                 }
             }

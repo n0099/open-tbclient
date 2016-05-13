@@ -8,7 +8,7 @@ public class bx {
     private static bx aRr;
     private List<com.baidu.tbadk.core.util.aw> aRq;
 
-    public static bx Kg() {
+    public static bx Ki() {
         if (aRr == null) {
             synchronized (bx.class) {
                 if (aRr == null) {

@@ -73,7 +73,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     private void a(StrangerListActivity strangerListActivity) {
         this.cxP = new i(strangerListActivity);
         this.cxS = new com.baidu.tbadk.core.dialog.a(strangerListActivity.getPageContext().getPageActivity());
-        this.cxS.bM(t.j.sure_to_delete_all_stranger_msg);
+        this.cxS.bL(t.j.sure_to_delete_all_stranger_msg);
         this.cxS.a(t.j.alert_yes_btn, this.cxT);
         this.cxS.b(t.j.cancel, this.cxU);
         this.cxS.b(strangerListActivity.getPageContext());
@@ -93,27 +93,27 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ImMessageCenterShowItemData iR;
-        if (this.cxP != null && this.cxP.ala() != null && (iR = this.cxP.ala().getItem(i)) != null) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.cxR.getPageContext().getContext(), com.baidu.adp.lib.h.b.c(iR.getFriendId(), 0L), iR.getFriendName(), iR.getFriendPortrait(), 0, 0)));
+        ImMessageCenterShowItemData iQ;
+        if (this.cxP != null && this.cxP.alc() != null && (iQ = this.cxP.alc().getItem(i)) != null) {
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.cxR.getPageContext().getContext(), com.baidu.adp.lib.h.b.c(iQ.getFriendId(), 0L), iQ.getFriendName(), iQ.getFriendPortrait(), 0, 0)));
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ImMessageCenterShowItemData iR;
-        if (this.cxP == null || this.cxP.ala() == null || (iR = this.cxP.ala().getItem(i)) == null) {
+        ImMessageCenterShowItemData iQ;
+        if (this.cxP == null || this.cxP.alc() == null || (iQ = this.cxP.alc().getItem(i)) == null) {
             return false;
         }
-        com.baidu.tbadk.coreExtra.e.a.a(getPageContext().getContext(), new h(this, this.cxQ.getData().size(), iR));
+        com.baidu.tbadk.coreExtra.e.a.a(getPageContext().getContext(), new h(this, this.cxQ.getData().size(), iQ));
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.cxP.alb() && this.cxS != null) {
-            this.cxS.rU();
+        if (view == this.cxP.ald() && this.cxS != null) {
+            this.cxS.rV();
         }
     }
 
@@ -121,8 +121,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cxP != null && this.cxP.ala() != null) {
-            this.cxP.ala().notifyDataSetChanged();
+        if (this.cxP != null && this.cxP.alc() != null) {
+            this.cxP.alc().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1001", -7)));
     }

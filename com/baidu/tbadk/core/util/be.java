@@ -44,11 +44,11 @@ public class be {
         return str;
     }
 
-    public static String uq() {
+    public static String ur() {
         return Yc;
     }
 
-    public static String ur() {
+    public static String us() {
         return Yd;
     }
 }

@@ -64,7 +64,7 @@ class e implements Runnable {
                 }
                 relativeLayout3 = this.aGQ.mRootView;
                 relativeLayout3.setFocusable(true);
-                com.baidu.tbadk.performanceLog.ab.ES().ab(System.currentTimeMillis());
+                com.baidu.tbadk.performanceLog.ab.ET().ab(System.currentTimeMillis());
             }
         }
         com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();

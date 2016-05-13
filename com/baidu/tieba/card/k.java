@@ -107,15 +107,15 @@ public class k extends a<com.baidu.tieba.card.a.f> {
             com.baidu.tbadk.core.util.at.l(this.aOD, t.d.cp_bg_line_c);
             com.baidu.tbadk.core.util.at.l(this.DM, t.d.cp_bg_line_c);
             com.baidu.tbadk.core.util.at.c(this.aOK, t.f.icon_play_video);
-            this.aOO.sf();
-            this.aOE.uQ();
+            this.aOO.sg();
+            this.aOE.uR();
             aI(true);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_god_feed;
     }
 
@@ -150,21 +150,21 @@ public class k extends a<com.baidu.tieba.card.a.f> {
             }
             if (fVar.aRG.getAuthor() != null) {
                 this.adG.setText(com.baidu.tbadk.core.util.ay.dw(com.baidu.tbadk.core.util.ay.c(fVar.aRG.getAuthor().getName_show(), 14, "...")));
-                fu(fVar.aRG.getAuthor().getFansNum());
+                ft(fVar.aRG.getAuthor().getFansNum());
             }
             this.aOO.setData(fVar.aRG);
-            if (fVar.aRG.qY() == 1 || StringUtils.isNull(fVar.aRG.getTitle())) {
+            if (fVar.aRG.qZ() == 1 || StringUtils.isNull(fVar.aRG.getTitle())) {
                 this.aOG.setVisibility(8);
             } else {
                 this.aOG.setVisibility(0);
                 this.aOG.setText(fVar.aRG.getTitle());
                 m(this.aOG, t.d.cp_cont_b);
             }
-            if (fVar.aRG.ra() == null || StringUtils.isNull(fVar.aRG.ra().video_url)) {
+            if (fVar.aRG.rb() == null || StringUtils.isNull(fVar.aRG.rb().video_url)) {
                 this.aOI.setVisibility(8);
                 StringBuffer stringBuffer = new StringBuffer();
-                if (fVar.aRG.qS() != null && !StringUtils.isNull(fVar.aRG.qS())) {
-                    stringBuffer.append(fVar.aRG.qS());
+                if (fVar.aRG.qT() != null && !StringUtils.isNull(fVar.aRG.qT())) {
+                    stringBuffer.append(fVar.aRG.qT());
                 }
                 ArrayList<MediaData> medias = fVar.aRG.getMedias();
                 if (medias != null) {
@@ -187,20 +187,20 @@ public class k extends a<com.baidu.tieba.card.a.f> {
                     this.aOM.setVisibility(8);
                     i = 0;
                 }
-                ArrayList<VoiceData.VoiceModel> qX = fVar.aRG.qX();
-                if (qX != null && qX.size() > 0) {
+                ArrayList<VoiceData.VoiceModel> qY = fVar.aRG.qY();
+                if (qY != null && qY.size() > 0) {
                     this.aOL.setVisibility(0);
-                    VoiceData.VoiceModel voiceModel = qX.get(0);
+                    VoiceData.VoiceModel voiceModel = qY.get(0);
                     this.aOL.setVoiceModel(voiceModel);
                     this.aOL.setTag(voiceModel);
-                    this.aOL.aUX();
+                    this.aOL.aVd();
                     if (voiceModel != null) {
-                        this.aOL.jM(voiceModel.voice_status.intValue());
+                        this.aOL.jL(voiceModel.voice_status.intValue());
                     }
                 } else {
                     this.aOL.setVisibility(8);
                 }
-                if (com.baidu.tbadk.core.l.ob().oh() && com.baidu.tbadk.core.util.y.r(medias) != 0 && (qX == null || qX.size() == 0)) {
+                if (com.baidu.tbadk.core.l.ob().oh() && com.baidu.tbadk.core.util.y.r(medias) != 0 && (qY == null || qY.size() == 0)) {
                     int i5 = 0;
                     int i6 = 0;
                     int i7 = 0;
@@ -230,8 +230,8 @@ public class k extends a<com.baidu.tieba.card.a.f> {
                             i8 = i2;
                         }
                         this.aON.setVisibility(0);
-                        this.aON.a(fVar.aRG, fVar.aRG.qP(), new StringBuilder(String.valueOf(fVar.aRG.getFid())).toString(), fVar.aRG.getTid());
-                        this.aON.setShowBig(com.baidu.tbadk.core.util.az.uf().uh());
+                        this.aON.a(fVar.aRG, fVar.aRG.qQ(), new StringBuilder(String.valueOf(fVar.aRG.getFid())).toString(), fVar.aRG.getTid());
+                        this.aON.setShowBig(com.baidu.tbadk.core.util.az.ug().ui());
                         this.aON.a(this.DV, mediaDataArr, i6);
                         this.aON.setFromCDN(this.Zv);
                         this.aON.setImageFrom("other");
@@ -245,9 +245,9 @@ public class k extends a<com.baidu.tieba.card.a.f> {
                 this.aOM.setVisibility(8);
                 this.aOL.setVisibility(8);
                 this.aON.setVisibility(8);
-                if (com.baidu.tbadk.core.l.ob().oh() && !StringUtils.isNull(fVar.aRG.ra().video_url)) {
+                if (com.baidu.tbadk.core.l.ob().oh() && !StringUtils.isNull(fVar.aRG.rb().video_url)) {
                     this.aOI.setVisibility(0);
-                    this.aOJ.c(fVar.aRG.ra().thumbnail_url, 10, true);
+                    this.aOJ.c(fVar.aRG.rb().thumbnail_url, 10, true);
                 } else {
                     this.aOI.setVisibility(8);
                 }
@@ -260,24 +260,24 @@ public class k extends a<com.baidu.tieba.card.a.f> {
     public void onClick(View view) {
         MetaData author;
         if (this.aab != null) {
-            if (JM() != null) {
-                JM().a(view, this.aOS);
+            if (JO() != null) {
+                JO().a(view, this.aOS);
             }
             if (view == this.aOE || view == this.adG || view == this.aOF) {
                 if (this.aab.getAuthor() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.DV.getPageActivity(), this.aab.getAuthor().getUserId(), this.aab.getAuthor().getName_show(), this.aab.qP(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.DV.getPageActivity(), this.aab.getAuthor().getUserId(), this.aab.getAuthor().getName_show(), this.aab.qQ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             } else if (view == getView()) {
                 if (!StringUtils.isNull(this.aab.getId())) {
                     if (this.aOQ == null) {
-                        JR();
+                        JT();
                         return;
                     }
                     com.baidu.tieba.myCollection.baseHistory.b oa = this.aOQ.oa(this.aab.getId());
                     if (oa == null) {
-                        JR();
+                        JT();
                     } else {
-                        this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createHistoryCfg(oa.getThreadId(), oa.BB(), oa.auu(), oa.auv(), null).disablePbKeyPostId()));
+                        this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createHistoryCfg(oa.getThreadId(), oa.BC(), oa.aux(), oa.auy(), null).disablePbKeyPostId()));
                     }
                 }
             } else if (view == this.aOH && com.baidu.tbadk.core.util.bl.ac(this.DV.getPageActivity()) && (author = this.aab.getAuthor()) != null && author.getGodUserData() != null) {
@@ -286,8 +286,8 @@ public class k extends a<com.baidu.tieba.card.a.f> {
         }
     }
 
-    private void JR() {
-        this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aab, this.aab.qP(), au.Kb(), 18003, true, false, false)));
+    private void JT() {
+        this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aab, this.aab.qQ(), au.Kd(), 18003, true, false, false)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -348,7 +348,7 @@ public class k extends a<com.baidu.tieba.card.a.f> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fu(int i) {
+    public void ft(int i) {
         this.aOF.setText(String.format(this.DV.getResources().getString(t.j.fans_default_name_god_user), com.baidu.tbadk.core.util.ay.A(i)));
     }
 }

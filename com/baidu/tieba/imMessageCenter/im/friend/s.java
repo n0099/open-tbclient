@@ -24,7 +24,7 @@ public class s implements View.OnClickListener {
         if (view2 != null) {
             view3 = this.cxj.cxg;
             if (view3.getVisibility() == 0) {
-                this.cxj.akI();
+                this.cxj.akK();
                 return;
             }
         }

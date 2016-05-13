@@ -46,13 +46,13 @@ class fx extends CustomMessageListener {
                 dzVar2 = this.dpB.mReaderManager;
                 dzVar2.a(dyVar.pbData, dyVar.isSquence, dyVar.loadType, dyVar.dmB, false);
                 dzVar3 = this.dpB.mReaderManager;
-                int ays = dzVar3.ays();
-                if (ays == 1 || ays == 3) {
+                int ayv = dzVar3.ayv();
+                if (ayv == 1 || ayv == 3) {
                     dzVar4 = this.dpB.mReaderManager;
-                    dzVar4.lV(0);
+                    dzVar4.lU(0);
                 } else {
                     dzVar6 = this.dpB.mReaderManager;
-                    dzVar6.lV(1);
+                    dzVar6.lU(1);
                 }
                 dzVar5 = this.dpB.mReaderManager;
                 dzVar5.u(dyVar.dmC, dyVar.dmE);

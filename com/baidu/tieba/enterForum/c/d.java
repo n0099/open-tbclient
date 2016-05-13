@@ -33,8 +33,8 @@ public class d implements o.a<byte[]> {
             } catch (Exception e) {
                 this.aYd.av(false);
             }
-            if (this.aYd.isSuccess() && !this.aYd.Mh()) {
-                this.aYd.Mg().Ml();
+            if (this.aYd.isSuccess() && !this.aYd.Mj()) {
+                this.aYd.Mi().Mn();
             }
             handler = this.aYc.mUIHandler;
             handler.post(new e(this, this.aYd));

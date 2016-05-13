@@ -15,14 +15,14 @@ class x extends com.baidu.tbadk.util.s<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: Io */
+    /* renamed from: Iq */
     public Void doInBackground() {
         String str;
         if (this.cbH != null) {
-            com.baidu.tieba.im.settingcache.j aiu = com.baidu.tieba.im.settingcache.j.aiu();
+            com.baidu.tieba.im.settingcache.j aiw = com.baidu.tieba.im.settingcache.j.aiw();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             str = this.cvZ.azX;
-            aiu.b(currentAccount, str, this.cbH);
+            aiw.b(currentAccount, str, this.cbH);
             return null;
         }
         return null;

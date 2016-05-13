@@ -13,37 +13,37 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class p {
-    private static p eYi;
-    private BroadcastReceiver eYj;
-    private ContentObserver eYk;
+    private static p eYh;
+    private BroadcastReceiver eYi;
+    private ContentObserver eYj;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> bH = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable eYl = new q(this);
+    private Runnable eYk = new q(this);
 
     /* loaded from: classes.dex */
     public interface a {
         void ku(boolean z);
     }
 
-    public static p bbD() {
-        if (eYi == null) {
+    public static p bbK() {
+        if (eYh == null) {
             synchronized (p.class) {
-                if (eYi == null) {
-                    eYi = new p();
-                    eYi.init(TbadkCoreApplication.m11getInst());
+                if (eYh == null) {
+                    eYh = new p();
+                    eYh.init(TbadkCoreApplication.m11getInst());
                 }
             }
         }
-        return eYi;
+        return eYh;
     }
 
     private p() {
     }
 
     private void init(Context context) {
-        this.eYj = new r(this);
-        this.eYk = new s(this, this.mHandler);
+        this.eYi = new r(this);
+        this.eYj = new s(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -51,8 +51,8 @@ public class p {
         intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
-        context.registerReceiver(this.eYj, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.eYk);
+        context.registerReceiver(this.eYi, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.eYj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -61,8 +61,8 @@ public class p {
             kt(true);
             return;
         }
-        this.handler.removeCallbacks(this.eYl);
-        this.handler.postDelayed(this.eYl, 2000L);
+        this.handler.removeCallbacks(this.eYk);
+        this.handler.postDelayed(this.eYk, 2000L);
     }
 
     public void kt(boolean z) {
@@ -91,9 +91,9 @@ public class p {
     public void destory() {
         removeAllListeners();
         TbadkCoreApplication m11getInst = TbadkCoreApplication.m11getInst();
-        m11getInst.unregisterReceiver(this.eYj);
-        m11getInst.getContentResolver().unregisterContentObserver(this.eYk);
-        this.handler.removeCallbacks(this.eYl);
-        eYi = null;
+        m11getInst.unregisterReceiver(this.eYi);
+        m11getInst.getContentResolver().unregisterContentObserver(this.eYj);
+        this.handler.removeCallbacks(this.eYk);
+        eYh = null;
     }
 }

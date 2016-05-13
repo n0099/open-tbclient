@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class ao extends JsonHttpResponseHandler {
     final /* synthetic */ IBaiduListener a;
     final /* synthetic */ String b;
-    final /* synthetic */ BaseConfig fgK;
+    final /* synthetic */ BaseConfig fgJ;
 
     public ao(BaseConfig baseConfig, IBaiduListener iBaiduListener, String str) {
-        this.fgK = baseConfig;
+        this.fgJ = baseConfig;
         this.a = iBaiduListener;
         this.b = str;
     }
@@ -29,7 +29,7 @@ public class ao extends JsonHttpResponseHandler {
             this.a.onError(new BaiduException("Load config from server failed, url: " + this.b));
             return;
         }
-        this.fgK.a(jSONObject);
+        this.fgJ.a(jSONObject);
         this.a.onComplete(jSONObject);
     }
 }

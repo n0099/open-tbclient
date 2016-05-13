@@ -11,7 +11,7 @@ public class c extends a {
     private c() {
     }
 
-    public static c air() {
+    public static c ait() {
         return crc;
     }
 
@@ -44,7 +44,7 @@ public class c extends a {
         return groupSettingItemData;
     }
 
-    public void aeo() {
+    public void aeq() {
         super.o(GroupSettingItemData.class);
     }
 
@@ -71,8 +71,8 @@ public class c extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> aiq() {
-        return com.baidu.tbadk.core.b.a.rR().cx("tb.im_group_setting");
+    public o<String> ais() {
+        return com.baidu.tbadk.core.b.a.rS().cx("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -87,13 +87,13 @@ public class c extends a {
                 }
                 return;
             }
-            o<String> aiq = aiq();
+            o<String> ais = ais();
             String str = String.valueOf(uid) + "@" + gid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(groupSettingItemData);
             synchronized (this.cqZ) {
                 this.cqZ.put(str, groupSettingItemData);
             }
-            aiq.e(str, jsonStrWithObject);
+            ais.e(str, jsonStrWithObject);
         }
     }
 

@@ -7,5 +7,5 @@ public interface r {
 
     void b(m mVar);
 
-    void gm(int i);
+    void gl(int i);
 }

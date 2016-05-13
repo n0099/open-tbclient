@@ -51,12 +51,12 @@ public class g extends j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajG() {
+    public void ajI() {
         if (this.cuQ != null) {
             if (SystemClock.elapsedRealtime() - this.cuI > 200) {
-                this.cuQ.ajG();
+                this.cuQ.ajI();
             } else {
-                this.cuQ.ajH();
+                this.cuQ.ajJ();
             }
         }
     }
@@ -66,7 +66,7 @@ public class g extends j {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams ajK() {
+    public WindowManager.LayoutParams ajM() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -2;

@@ -63,8 +63,8 @@ public class ak {
                     this.aeI.n("kw", this.mForumName);
                     this.aeI.n("favo_type", "1");
                     this.aeI.n("st_type", this.Zf);
-                    this.aeI.tA().uu().mIsNeedTbs = true;
-                    this.aeI.tc();
+                    this.aeI.tB().uv().mIsNeedTbs = true;
+                    this.aeI.td();
                 }
                 return 1;
             } catch (Exception e) {
@@ -81,7 +81,7 @@ public class ak {
             super.onPostExecute((b) num);
             if (this.erS != null && (aVar = this.erS.get()) != null) {
                 if (this.aeI != null) {
-                    if (this.aeI.tA().uv().nZ()) {
+                    if (this.aeI.tB().uw().nZ()) {
                         if (num.intValue() == 1) {
                             TbadkCoreApplication.m11getInst().delLikeForum(this.mForumName);
                             aVar.g(this.mForumName, this.mForumId);

@@ -52,9 +52,9 @@ public class u extends Dialog {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void HP();
+        void HR();
 
-        void HQ();
+        void HS();
 
         void bX(boolean z);
 
@@ -143,10 +143,10 @@ public class u extends Dialog {
         this.aHr.setOnClickListener(new w(this));
         this.aHo.setOnClickListener(new x(this));
         this.aHn.setOnClickListener(new y(this));
-        HN();
+        HP();
     }
 
-    private void HN() {
+    private void HP() {
         WindowManager.LayoutParams attributes;
         Window window = getWindow();
         if (window != null && (attributes = window.getAttributes()) != null) {
@@ -195,7 +195,7 @@ public class u extends Dialog {
         }
     }
 
-    public void fl(int i) {
+    public void fk(int i) {
         this.aHp.setVisibility(8);
         this.aHt.setVisibility(8);
         this.aHo.setVisibility(8);
@@ -218,7 +218,7 @@ public class u extends Dialog {
             this.aHu.setVisibility(0);
             return;
         }
-        this.aHA.HQ();
+        this.aHA.HS();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, a aVar) {
@@ -227,7 +227,7 @@ public class u extends Dialog {
         this.aHA = aVar;
     }
 
-    public void HO() {
+    public void HQ() {
         this.aHu.setVisibility(8);
         this.aHi.setVisibility(0);
     }

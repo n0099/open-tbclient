@@ -13,12 +13,12 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BdExpandListView extends BdTypeListView {
-    private b eVY;
-    public a eVZ;
+    private b eVX;
+    public a eVY;
+    private long eVZ;
     private long eWa;
-    private long eWb;
-    private Runnable eWc;
-    private int eWd;
+    private Runnable eWb;
+    private int eWc;
     private final Context mContext;
     private Handler mHandler;
     private final Scroller mScroller;
@@ -44,11 +44,11 @@ public class BdExpandListView extends BdTypeListView {
     public BdExpandListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.yv = false;
+        this.eVZ = 0L;
         this.eWa = 0L;
-        this.eWb = 0L;
         this.mHandler = new Handler();
-        this.eWc = new com.baidu.tieba.view.b(this);
-        this.eWd = 0;
+        this.eWb = new com.baidu.tieba.view.b(this);
+        this.eWc = 0;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
         this.yy = ViewConfiguration.get(context).getScaledTouchSlop();
@@ -71,8 +71,8 @@ public class BdExpandListView extends BdTypeListView {
             this.yt = motionEvent.getY();
             switch (action) {
                 case 0:
-                    this.eWa = System.currentTimeMillis() - this.eWb;
-                    this.eWb = System.currentTimeMillis();
+                    this.eVZ = System.currentTimeMillis() - this.eWa;
+                    this.eWa = System.currentTimeMillis();
                     this.yv = false;
                     setClickEventEnabled(true);
                     if (this.yr == 0) {
@@ -80,7 +80,7 @@ public class BdExpandListView extends BdTypeListView {
                     }
                     int height = this.yq.getHeight();
                     this.ys = this.yt;
-                    this.eVY = new b(0, height, 0, this.yz + height);
+                    this.eVX = new b(0, height, 0, this.yz + height);
                     break;
                 case 1:
                 case 3:
@@ -88,26 +88,26 @@ public class BdExpandListView extends BdTypeListView {
                         setClickEventEnabled(false);
                         jj();
                         this.yv = false;
-                    } else if (this.eVZ != null) {
-                        this.eVZ.jl();
+                    } else if (this.eVY != null) {
+                        this.eVY.jl();
                     }
-                    this.mHandler.removeCallbacks(this.eWc);
-                    this.mHandler.postDelayed(this.eWc, 200L);
+                    this.mHandler.removeCallbacks(this.eWb);
+                    this.mHandler.postDelayed(this.eWb, 200L);
                     break;
                 case 2:
                     float f = this.yt - this.ys;
-                    if (this.yq.getParent() == this && this.eVY != null && this.yq.isShown() && this.yq.getTop() >= 0 && Math.abs(f) >= this.yy && this.eWa > 400) {
-                        int l = this.eVY.l(this.yt - this.ys);
-                        if (l > this.eVY.yD && l <= this.eVY.yF) {
+                    if (this.yq.getParent() == this && this.eVX != null && this.yq.isShown() && this.yq.getTop() >= 0 && Math.abs(f) >= this.yy && this.eVZ > 400) {
+                        int l = this.eVX.l(this.yt - this.ys);
+                        if (l > this.eVX.yD && l <= this.eVX.yF) {
                             this.yv = true;
                             setClickEventEnabled(false);
                             this.yq.setLayoutParams(new AbsListView.LayoutParams(this.yq.getWidth(), l));
-                            j(l - this.eVY.yD);
+                            j(l - this.eVX.yD);
                             break;
-                        } else if (l <= this.eVY.yD) {
+                        } else if (l <= this.eVX.yD) {
                             this.yv = false;
                             break;
-                        } else if (l > this.eVY.yF) {
+                        } else if (l > this.eVX.yF) {
                             this.yv = true;
                             setClickEventEnabled(false);
                             break;
@@ -149,25 +149,25 @@ public class BdExpandListView extends BdTypeListView {
     }
 
     public void jj() {
-        if (this.eVY != null) {
-            if (this.yq.getHeight() >= this.eVY.yF - (this.yz / 2)) {
+        if (this.eVX != null) {
+            if (this.yq.getHeight() >= this.eVX.yF - (this.yz / 2)) {
                 jk();
-            } else if (this.eVZ != null) {
-                this.eVZ.jl();
+            } else if (this.eVY != null) {
+                this.eVY.jl();
             }
-            this.mScroller.startScroll(0, this.yq.getHeight(), 0, this.eVY.yD - this.yq.getHeight(), 200);
+            this.mScroller.startScroll(0, this.yq.getHeight(), 0, this.eVX.yD - this.yq.getHeight(), 200);
             invalidate();
         }
     }
 
     public void jk() {
-        if (this.eVZ != null) {
-            this.eVZ.jm();
+        if (this.eVY != null) {
+            this.eVY.jm();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.eVZ = aVar;
+        this.eVY = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView
@@ -181,8 +181,8 @@ public class BdExpandListView extends BdTypeListView {
             this.mScroller.startScroll(0, getOriginalHeight() + this.yz, 0, -this.yz, 200);
             jk();
             invalidate();
-            this.mHandler.removeCallbacks(this.eWc);
-            this.mHandler.postDelayed(this.eWc, 200L);
+            this.mHandler.removeCallbacks(this.eWb);
+            this.mHandler.postDelayed(this.eWb, 200L);
             this.yv = false;
         }
     }
@@ -198,8 +198,8 @@ public class BdExpandListView extends BdTypeListView {
     public void computeScroll() {
         if (this.mScroller.computeScrollOffset()) {
             int currY = this.mScroller.getCurrY();
-            if (Math.abs(this.eWd - currY) > this.yy * 2) {
-                this.eWd = currY;
+            if (Math.abs(this.eWc - currY) > this.yy * 2) {
+                this.eWc = currY;
                 this.yq.setLayoutParams(new AbsListView.LayoutParams(this.yq.getWidth(), currY));
                 return;
             }
@@ -211,8 +211,8 @@ public class BdExpandListView extends BdTypeListView {
 
     private void j(float f) {
         float f2 = 360.0f - ((f * 360.0f) / this.yz);
-        if (this.eVZ != null) {
-            this.eVZ.k(f2);
+        if (this.eVY != null) {
+            this.eVY.k(f2);
         }
     }
 

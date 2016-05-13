@@ -19,9 +19,9 @@ public class f implements c.b {
         cVar.dismiss();
         com.baidu.tieba.tbadkCore.data.s sVar = null;
         apVar = this.dqn.dqc;
-        if (apVar.aAn() != null) {
+        if (apVar.aAq() != null) {
             apVar2 = this.dqn.dqc;
-            sVar = apVar2.aAn().avO();
+            sVar = apVar2.aAq().avR();
         }
         if (sVar != null) {
             if (i == 0) {

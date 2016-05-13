@@ -8,11 +8,11 @@ public class CoreSearchRequestStatic {
     private static com.baidu.tieba.enterForum.c.c aWW;
 
     static {
-        Mp();
+        Mr();
     }
 
-    private static void Mp() {
-        com.baidu.tieba.tbadkCore.d.c.aUp();
+    private static void Mr() {
+        com.baidu.tieba.tbadkCore.d.c.aUv();
         if (aWW == null) {
             aWW = new com.baidu.tieba.enterForum.c.c(null);
             aWW.a(new a());

@@ -18,7 +18,7 @@ public class s {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
                 if (this.evm.size() >= this.evl) {
-                    aHz();
+                    aHC();
                 }
                 this.evk++;
                 this.evm.put(valueOf, Integer.valueOf(this.evk));
@@ -28,7 +28,7 @@ public class s {
         }
     }
 
-    public void aHz() {
+    public void aHC() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
@@ -70,7 +70,7 @@ public class s {
         }
     }
 
-    public void aUR() {
+    public void aUX() {
         synchronized (this) {
             this.evm.clear();
         }

@@ -15,8 +15,8 @@ class ax implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.tbadk.core.util.ab abVar = new com.baidu.tbadk.core.util.ab(this.bhE);
-        abVar.tA().uu().mIsNeedAddCommenParam = false;
-        abVar.tA().uu().mIsUseCurrentBDUSS = false;
-        abVar.td();
+        abVar.tB().uv().mIsNeedAddCommenParam = false;
+        abVar.tB().uv().mIsUseCurrentBDUSS = false;
+        abVar.te();
     }
 }

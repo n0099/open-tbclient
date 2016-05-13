@@ -20,11 +20,11 @@ class i extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.tbadkCore.o oVar;
         com.baidu.tieba.tbadkCore.o oVar2;
-        if (customResponsedMessage != null && b.sQ().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1) != -1) {
+        if (customResponsedMessage != null && b.sR().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1) != -1) {
             oVar = this.bhl.bgq;
-            if (oVar.avA() != null) {
+            if (oVar.avD() != null) {
                 oVar2 = this.bhl.bgq;
-                oVar2.avA().setCanAddPhotoLivePost(true);
+                oVar2.avD().setCanAddPhotoLivePost(true);
             }
         }
     }

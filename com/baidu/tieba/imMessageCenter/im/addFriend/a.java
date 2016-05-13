@@ -41,7 +41,7 @@ public class a extends com.baidu.adp.framework.listener.e {
                     this.csV.showToast(this.csV.getPageContext().getPageActivity().getString(t.j.group_apply_succ), false);
                 }
                 this.csV.finish();
-            } else if (AntiHelper.pw(error)) {
+            } else if (AntiHelper.pv(error)) {
                 AntiHelper.O(this.csV.getPageContext().getPageActivity(), errorString);
             } else {
                 com.baidu.adp.lib.util.k.showToast(this.csV.getPageContext().getPageActivity(), errorString);

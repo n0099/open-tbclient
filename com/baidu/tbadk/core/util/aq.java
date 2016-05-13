@@ -49,6 +49,6 @@ public class aq extends Thread {
         if (this.mObjTp != null) {
             abVar.n("obj_tp", this.mObjTp);
         }
-        abVar.tc();
+        abVar.td();
     }
 }

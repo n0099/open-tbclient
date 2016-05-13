@@ -20,7 +20,7 @@ class j extends CustomMessageListener {
         af afVar;
         if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && num.intValue() == 2) {
             afVar = this.ejs.ejk;
-            afVar.aQD().setHasPrivilege(true);
+            afVar.aQG().setHasPrivilege(true);
         }
     }
 }

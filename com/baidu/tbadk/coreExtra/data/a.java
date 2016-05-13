@@ -23,15 +23,15 @@ public class a {
         return this.mContext;
     }
 
-    public int wo() {
+    public int wp() {
         return this.afv;
     }
 
-    public int wp() {
+    public int wq() {
         return this.afw;
     }
 
-    public boolean wq() {
+    public boolean wr() {
         return this.afx;
     }
 

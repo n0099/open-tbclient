@@ -110,7 +110,7 @@ public class dx extends y.a {
         this.dhi = view.findViewById(t.g.new_pb_list_item_line_top);
         this.dhj = view.findViewById(t.g.new_pb_list_item_line_top_full);
         this.dhk = view.findViewById(t.g.new_pb_list_item_blank_top);
-        this.dfT.Ho();
+        this.dfT.Hq();
         this.dfT.setImageViewStretch(true);
         this.bkY = (TbImageView) view.findViewById(t.g.game_activity_banner);
         this.dmy = (TextView) view.findViewById(t.g.action_button);

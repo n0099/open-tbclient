@@ -18,13 +18,13 @@ public class az extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        PersonFriendActivity aBR;
+        PersonFriendActivity aBU;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001186) {
             z = this.dwQ.bIW;
             if (z) {
                 com.baidu.tbadk.core.data.af personListData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonListData();
-                aBR = this.dwQ.aBR();
-                if (aBR != null) {
+                aBU = this.dwQ.aBU();
+                if (aBU != null) {
                     this.dwQ.dwK = personListData;
                     this.dwQ.a(personListData, true);
                 }

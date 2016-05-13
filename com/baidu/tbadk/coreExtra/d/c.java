@@ -35,19 +35,19 @@ public class c {
         }
     }
 
-    public int yd() {
+    public int ye() {
         return this.ahj;
     }
 
-    public int ye() {
+    public int yf() {
         return this.ahk;
     }
 
-    public int yf() {
+    public int yg() {
         return this.ahl;
     }
 
-    public int[] yg() {
+    public int[] yh() {
         return this.ahm;
     }
 }

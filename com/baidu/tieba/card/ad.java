@@ -19,7 +19,7 @@ public class ad implements Runnable {
         com.baidu.tieba.card.a.n nVar2;
         com.baidu.tieba.card.a.n nVar3;
         TextureVideoView textureVideoView;
-        boolean JY;
+        boolean Ka;
         com.baidu.tieba.card.a.n nVar4;
         TextureVideoView textureVideoView2;
         boolean z;
@@ -35,21 +35,21 @@ public class ad implements Runnable {
             nVar2 = this.aQe.aPR;
             if (nVar2.aRZ != null) {
                 nVar3 = this.aQe.aPR;
-                if (nVar3.aRZ.ra() != null) {
+                if (nVar3.aRZ.rb() != null) {
                     textureVideoView = this.aQe.aPL;
-                    if (textureVideoView == null || com.baidu.tbadk.core.view.at.vD().vG() > 0) {
+                    if (textureVideoView == null || com.baidu.tbadk.core.view.at.vE().vH() > 0) {
                         return;
                     }
-                    JY = this.aQe.JY();
-                    if (JY && com.baidu.tbadk.core.view.at.vD().vH() && TbadkCoreApplication.m11getInst().getVideoAutoPlay() == 0) {
+                    Ka = this.aQe.Ka();
+                    if (Ka && com.baidu.tbadk.core.view.at.vE().vI() && TbadkCoreApplication.m11getInst().getVideoAutoPlay() == 0) {
                         nVar4 = this.aQe.aPR;
-                        String str = nVar4.aRZ.ra().video_url;
+                        String str = nVar4.aRZ.rb().video_url;
                         textureVideoView2 = this.aQe.aPL;
                         if (textureVideoView2.isPlaying() && str != null) {
                             textureVideoView4 = this.aQe.aPL;
                             if (str.equals(textureVideoView4.getVideoPath())) {
                                 z = true;
-                                if (StringUtils.isNull(str) && !z && com.baidu.tbadk.core.view.at.vD().vG() == 0) {
+                                if (StringUtils.isNull(str) && !z && com.baidu.tbadk.core.view.at.vE().vH() == 0) {
                                     this.aQe.e(true, 2);
                                     textureVideoView3 = this.aQe.aPL;
                                     textureVideoView3.setVideoPath(str);
@@ -57,7 +57,7 @@ public class ad implements Runnable {
                                     if (aVar != null) {
                                         aVar2 = this.aQe.aPY;
                                         nVar5 = this.aQe.aPR;
-                                        String str2 = nVar5.aRZ.ra().video_md5;
+                                        String str2 = nVar5.aRZ.rb().video_md5;
                                         nVar6 = this.aQe.aPR;
                                         String tid = nVar6.aRZ.getTid();
                                         nVar7 = this.aQe.aPR;

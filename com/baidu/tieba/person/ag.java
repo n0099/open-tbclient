@@ -17,27 +17,27 @@ class ag implements View.OnClickListener {
         int i;
         boolean z;
         com.baidu.tbadk.core.dialog.a aVar;
-        int sex = this.dwD.dwu.aBP().getSex();
+        int sex = this.dwD.dwu.aBS().getSex();
         i = this.dwD.mSex;
         if (sex != i) {
             this.dwD.duV = true;
         }
         z = this.dwD.duV;
         if (!z) {
-            if (this.dwD.dwu != null && this.dwD.dwu.aBP().getPhotoChanged()) {
+            if (this.dwD.dwu != null && this.dwD.dwu.aBS().getPhotoChanged()) {
                 Intent intent = new Intent();
                 if (this.dwD.dwg.booleanValue()) {
-                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.dwD.dwu.aBP());
+                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.dwD.dwu.aBS());
                 } else {
-                    intent.putExtra("data", this.dwD.dwu.aBP());
+                    intent.putExtra("data", this.dwD.dwu.aBS());
                 }
-                this.dwD.aBO();
+                this.dwD.aBR();
                 this.dwD.setResult(-1, intent);
             }
             this.dwD.finish();
             return;
         }
         aVar = this.dwD.dwz;
-        aVar.rU();
+        aVar.rV();
     }
 }

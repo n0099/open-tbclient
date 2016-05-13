@@ -34,11 +34,11 @@ public class r extends n {
         return false;
     }
 
-    public long aMs() {
+    public long aMv() {
         return this.eae;
     }
 
-    public int aME() {
+    public int aMH() {
         return this.ean;
     }
 }

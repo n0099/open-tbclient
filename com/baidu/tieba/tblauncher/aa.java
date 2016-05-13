@@ -36,12 +36,12 @@ public class aa implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> sJ() {
+    public Class<?> sK() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String sK() {
+    public String sL() {
         return MainTabActivity.class.getName();
     }
 

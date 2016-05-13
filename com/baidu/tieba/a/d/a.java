@@ -66,7 +66,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     protected void finalize() {
         try {
             if (this.aMG != null) {
-                this.aMG.Ju();
+                this.aMG.Jw();
             }
         } finally {
             super.finalize();
@@ -98,7 +98,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     }
 
     public void setRenderer(GLSurfaceView.Renderer renderer) {
-        Jg();
+        Ji();
         if (this.aMI == null) {
             this.aMI = new m(true);
         }
@@ -114,17 +114,17 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     }
 
     public void setEGLContextFactory(f fVar) {
-        Jg();
+        Ji();
         this.aMJ = fVar;
     }
 
     public void setEGLWindowSurfaceFactory(g gVar) {
-        Jg();
+        Ji();
         this.aMK = gVar;
     }
 
     public void setEGLConfigChooser(e eVar) {
-        Jg();
+        Ji();
         this.aMI = eVar;
     }
 
@@ -133,7 +133,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     }
 
     public void setEGLContextClientVersion(int i2) {
-        Jg();
+        Ji();
         this.aMN = i2;
     }
 
@@ -151,7 +151,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        this.aMG.Js();
+        this.aMG.Ju();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -167,7 +167,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        this.aMG.Jt();
+        this.aMG.Jv();
         return true;
     }
 
@@ -201,7 +201,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         if (this.aMG != null) {
-            this.aMG.Ju();
+            this.aMG.Jw();
         }
         this.mDetached = true;
         try {
@@ -408,7 +408,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             this.aMU = null;
         }
 
-        public boolean Ji() {
+        public boolean Jk() {
             if (this.aMS == null) {
                 throw new RuntimeException("egl not initialized");
             }
@@ -418,7 +418,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             if (this.aMV == null) {
                 throw new RuntimeException("mEglConfig not initialized");
             }
-            Jm();
+            Jo();
             a aVar = this.aMR.get();
             if (aVar != null) {
                 this.aMU = aVar.aMK.createWindowSurface(this.aMS, this.aMT, this.aMV, aVar.getSurfaceTexture());
@@ -438,7 +438,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        GL Jj() {
+        GL Jl() {
             l lVar;
             GL gl = this.aMW.getGL();
             a aVar = this.aMR.get();
@@ -463,18 +463,18 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             return gl;
         }
 
-        public int Jk() {
+        public int Jm() {
             if (this.aMS.eglSwapBuffers(this.aMT, this.aMU)) {
                 return 12288;
             }
             return this.aMS.eglGetError();
         }
 
-        public void Jl() {
-            Jm();
+        public void Jn() {
+            Jo();
         }
 
-        private void Jm() {
+        private void Jo() {
             if (this.aMU != null && this.aMU != EGL10.EGL_NO_SURFACE) {
                 this.aMS.eglMakeCurrent(this.aMT, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
                 a aVar = this.aMR.get();
@@ -552,10 +552,10 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             setName("GLThread " + getId());
             try {
                 try {
-                    Jp();
+                    Jr();
                     a.aME.a(this);
                 } catch (Exception e) {
-                    al.tN().ay(false);
+                    al.tO().ay(false);
                     a.aME.a(this);
                 }
             } catch (Throwable th) {
@@ -564,14 +564,14 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        private void Jn() {
+        private void Jp() {
             if (this.aNf) {
                 this.aNf = false;
-                this.aNn.Jl();
+                this.aNn.Jn();
             }
         }
 
-        private void Jo() {
+        private void Jq() {
             if (this.aNe) {
                 this.aNn.finish();
                 this.aNe = false;
@@ -581,7 +581,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1392=5] */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-        private void Jp() {
+        private void Jr() {
             boolean z;
             boolean z2;
             boolean z3;
@@ -632,31 +632,31 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                                     z9 = false;
                                 }
                                 if (this.aNh) {
-                                    Jn();
-                                    Jo();
+                                    Jp();
+                                    Jq();
                                     this.aNh = false;
                                     z16 = true;
                                 }
                                 if (z20) {
-                                    Jn();
-                                    Jo();
+                                    Jp();
+                                    Jq();
                                     z20 = false;
                                 }
                                 if (z9 && this.aNf) {
-                                    Jn();
+                                    Jp();
                                 }
                                 if (z9 && this.aNe) {
                                     a aVar = this.aMR.get();
-                                    if (!(aVar == null ? false : aVar.aMO) || a.aME.Jw()) {
-                                        Jo();
+                                    if (!(aVar == null ? false : aVar.aMO) || a.aME.Jy()) {
+                                        Jq();
                                     }
                                 }
-                                if (z9 && a.aME.Jx()) {
+                                if (z9 && a.aME.Jz()) {
                                     this.aNn.finish();
                                 }
                                 if (!this.aNb && !this.aNd) {
                                     if (this.aNf) {
-                                        Jn();
+                                        Jp();
                                     }
                                     this.aNd = true;
                                     this.aNc = false;
@@ -672,7 +672,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                                     this.aNk = true;
                                     a.aME.notifyAll();
                                 }
-                                if (Jr()) {
+                                if (Jt()) {
                                     if (!this.aNe) {
                                         if (z16) {
                                             z16 = false;
@@ -745,8 +745,8 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                             }
                         }
                         synchronized (a.aME) {
-                            Jn();
-                            Jo();
+                            Jp();
+                            Jq();
                         }
                         return;
                     }
@@ -765,7 +765,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                     } else {
                         if (!z) {
                             z8 = z;
-                        } else if (this.aNn.Ji()) {
+                        } else if (this.aNn.Jk()) {
                             synchronized (a.aME) {
                                 this.aNg = true;
                                 a.aME.notifyAll();
@@ -789,7 +789,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                             z22 = z;
                         }
                         if (z2) {
-                            GL10 gl103 = (GL10) this.aNn.Jj();
+                            GL10 gl103 = (GL10) this.aNn.Jl();
                             a.aME.b(gl103);
                             z2 = false;
                             gl10 = gl103;
@@ -814,15 +814,15 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                         if (aVar4 != null) {
                             aVar4.aMH.onDrawFrame(gl10);
                         }
-                        int Jk = this.aNn.Jk();
-                        switch (Jk) {
+                        int Jm = this.aNn.Jm();
+                        switch (Jm) {
                             case 12288:
                                 break;
                             case 12302:
                                 z3 = true;
                                 break;
                             default:
-                                h.e("GLThread", "eglSwapBuffers", Jk);
+                                h.e("GLThread", "eglSwapBuffers", Jm);
                                 synchronized (a.aME) {
                                     this.aNc = true;
                                     a.aME.notifyAll();
@@ -859,19 +859,19 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                     }
                 } catch (Throwable th) {
                     synchronized (a.aME) {
-                        Jn();
-                        Jo();
+                        Jp();
+                        Jq();
                         throw th;
                     }
                 }
             }
         }
 
-        public boolean Jq() {
-            return this.aNe && this.aNf && Jr();
+        public boolean Js() {
+            return this.aNe && this.aNf && Jt();
         }
 
-        private boolean Jr() {
+        private boolean Jt() {
             return !this.aNa && this.aNb && !this.aNc && this.mWidth > 0 && this.mHeight > 0 && (this.aNj || this.aNi == 1);
         }
 
@@ -900,7 +900,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        public void Js() {
+        public void Ju() {
             synchronized (a.aME) {
                 this.aNb = true;
                 this.aNg = false;
@@ -915,7 +915,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        public void Jt() {
+        public void Jv() {
             synchronized (a.aME) {
                 this.aNb = false;
                 a.aME.notifyAll();
@@ -967,7 +967,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                 this.aNj = true;
                 this.aNk = false;
                 a.aME.notifyAll();
-                while (!this.aMY && !this.aNa && !this.aNk && Jq()) {
+                while (!this.aMY && !this.aNa && !this.aNk && Js()) {
                     try {
                         a.aME.wait();
                     } catch (InterruptedException e) {
@@ -977,7 +977,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        public void Ju() {
+        public void Jw() {
             synchronized (a.aME) {
                 this.aMX = true;
                 a.aME.notifyAll();
@@ -991,7 +991,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        public void Jv() {
+        public void Jx() {
             this.aNh = true;
             a.aME.notifyAll();
         }
@@ -1035,7 +1035,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    private void Jg() {
+    private void Ji() {
         if (this.aMG != null) {
             throw new IllegalStateException("setRenderer has already been called for this instance.");
         }
@@ -1073,12 +1073,12 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
                 notifyAll();
                 return true;
             }
-            Jy();
+            JA();
             if (this.aNr) {
                 return true;
             }
             if (this.aNt != null) {
-                this.aNt.Jv();
+                this.aNt.Jx();
             }
             return false;
         }
@@ -1090,19 +1090,19 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             notifyAll();
         }
 
-        public synchronized boolean Jw() {
+        public synchronized boolean Jy() {
             return this.aNs;
         }
 
-        public synchronized boolean Jx() {
-            Jy();
+        public synchronized boolean Jz() {
+            JA();
             return !this.aNr;
         }
 
         public synchronized void b(GL10 gl10) {
             synchronized (this) {
                 if (!this.aNq) {
-                    Jy();
+                    JA();
                     String glGetString = gl10.glGetString(7937);
                     if (this.aNp < 131072) {
                         this.aNr = !glGetString.startsWith("Q3Dimension MSM7500 ");
@@ -1114,7 +1114,7 @@ public class a extends TextureView implements TextureView.SurfaceTextureListener
             }
         }
 
-        private void Jy() {
+        private void JA() {
             if (!this.aNo) {
                 this.aNr = true;
                 this.aNo = true;

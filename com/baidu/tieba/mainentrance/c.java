@@ -18,11 +18,11 @@ public class c {
         return this.forumName;
     }
 
-    public String aov() {
+    public String aoy() {
         return this.forumAvatar;
     }
 
-    public long aow() {
+    public long aoz() {
         return this.cLw;
     }
 

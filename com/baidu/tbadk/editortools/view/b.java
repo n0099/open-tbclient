@@ -33,7 +33,7 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
         public int asx;
     }
 
-    public abstract void Bp();
+    public abstract void Bq();
 
     public abstract int getCount();
 
@@ -53,7 +53,7 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
         }
     }
 
-    public C0041b Cm() {
+    public C0041b Cn() {
         return this.asq;
     }
 
@@ -61,7 +61,7 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
         this.asq = c0041b;
     }
 
-    public a Cn() {
+    public a Co() {
         return this.asr;
     }
 
@@ -69,11 +69,11 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
         this.asr = aVar;
     }
 
-    public int Co() {
+    public int Cp() {
         return this.column;
     }
 
-    public void et(int i) {
+    public void es(int i) {
         this.column = i;
     }
 
@@ -81,7 +81,7 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
         return this.row;
     }
 
-    public void eu(int i) {
+    public void et(int i) {
         this.row = i;
     }
 
@@ -109,15 +109,15 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
         return this.ast;
     }
 
-    public int Cp() {
+    public int Cq() {
         return this.asv;
     }
 
-    public void ev(int i) {
+    public void eu(int i) {
         this.asv = i;
     }
 
-    public c.a Cq() {
+    public c.a Cr() {
         return this.asu;
     }
 
@@ -125,7 +125,7 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
         this.asl = cVar;
     }
 
-    public CommonTabContentView.c Cr() {
+    public CommonTabContentView.c Cs() {
         return this.asl;
     }
 }

@@ -30,7 +30,7 @@ class r implements af.a {
                     i = 0;
                 }
             }
-            this.bhl.gh(i);
+            this.bhl.gg(i);
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
     }
@@ -40,7 +40,7 @@ class r implements af.a {
         boolean z;
         z = this.bhl.beS;
         if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.pw(i)) {
+            if (AntiHelper.pv(i)) {
                 AntiHelper.O(this.bhl.getPageContext().getPageActivity(), str);
             } else {
                 this.bhl.showToast(str);

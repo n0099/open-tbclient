@@ -8,7 +8,7 @@ public class c {
     private static c aul = new c();
     private final HashMap<String, Class<? extends b>> aum = new HashMap<>();
 
-    public static c CO() {
+    public static c CP() {
         return aul;
     }
 

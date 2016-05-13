@@ -11,11 +11,11 @@ public class am implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.sharedPref.b.sQ().remove("pull_image_url");
-        com.baidu.tbadk.core.sharedPref.b.sQ().remove("pull_image_num");
-        com.baidu.tbadk.core.sharedPref.b.sQ().remove("pullview_background_color_day");
-        com.baidu.tbadk.core.sharedPref.b.sQ().remove("pullview_background_color_night");
-        this.Xo.tU();
-        this.Xo.tP();
+        com.baidu.tbadk.core.sharedPref.b.sR().remove("pull_image_url");
+        com.baidu.tbadk.core.sharedPref.b.sR().remove("pull_image_num");
+        com.baidu.tbadk.core.sharedPref.b.sR().remove("pullview_background_color_day");
+        com.baidu.tbadk.core.sharedPref.b.sR().remove("pullview_background_color_night");
+        this.Xo.tV();
+        this.Xo.tQ();
     }
 }

@@ -24,7 +24,7 @@ public class bl implements View.OnClickListener {
         TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10601"));
         this.dHR.dHB.setImageDrawable(null);
         this.dHR.dHB.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.sQ().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+        com.baidu.tbadk.core.sharedPref.b.sR().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
         MessageManager messageManager = MessageManager.getInstance();
         baseFragmentActivity = this.dHR.cSp;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(baseFragmentActivity.getPageContext().getPageActivity())));

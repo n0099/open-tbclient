@@ -29,9 +29,9 @@ public class br implements a.b {
         aVar.dismiss();
         if (this.djE.checkUpIsLogin()) {
             cwVar = this.djE.dih;
-            if (cwVar.axW() != null) {
+            if (cwVar.axZ() != null) {
                 cwVar2 = this.djE.dih;
-                cwVar2.axW().bE(this.djO);
+                cwVar2.axZ().bE(this.djO);
             }
         }
     }

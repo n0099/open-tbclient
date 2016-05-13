@@ -62,7 +62,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         setContentView(t.h.image_activity_2);
         initData(bundle);
         nq();
-        abF();
+        abH();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -79,7 +79,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        abF();
+        abH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,7 +87,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.bYA.setBackgroundColor(com.baidu.tbadk.core.util.at.cy(i));
+            this.bYA.setBackgroundColor(com.baidu.tbadk.core.util.at.cx(i));
         } else {
             this.bYA.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         }
@@ -164,7 +164,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.bYA.A(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.bYA.setOnPageChangeListener(this.mOnPageChangeListener);
         this.bYA.setItemOnclickListener(this.mOnClickListener);
-        this.bYA.setCurrentItem(abE(), false);
+        this.bYA.setCurrentItem(abG(), false);
         this.bYA.setOnScrollOutListener(this.bYB);
         this.bYA.setItemOnLongClickListener(fVar);
         this.bYA.setHasNext(false);
@@ -176,7 +176,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abD() {
+    public void abF() {
         if (this.bYw != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.ni > 0) {
@@ -192,7 +192,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    private int abE() {
+    private int abG() {
         if (this.bYw != null && this.bYw.size() > 0) {
             int size = this.bYw.size();
             if (this.mIndex >= size) {
@@ -245,7 +245,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.bYJ = new HashMap<>();
     }
 
-    private void abF() {
+    private void abH() {
         if (TextUtils.isEmpty(this.id)) {
             finish();
         }
@@ -289,7 +289,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.m.a(this.mUrl, this.hx, AbsMsgImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.m.sX();
+                    return com.baidu.tbadk.core.util.m.sY();
                 case -1:
                 default:
                     return AbsMsgImageActivity.this.getPageContext().getString(t.j.save_error);

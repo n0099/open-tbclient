@@ -137,7 +137,7 @@ public class h {
 
     private boolean eF(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(",");
-        if (bg.us().dG(str)) {
+        if (bg.ut().dG(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

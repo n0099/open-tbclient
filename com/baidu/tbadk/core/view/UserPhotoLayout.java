@@ -26,16 +26,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void cY(int i);
+        void cX(int i);
     }
 
     /* loaded from: classes.dex */
     public interface d {
         ListView getListView();
 
-        int vB();
+        int vC();
 
-        com.baidu.adp.lib.f.b<HeadImageView> vC();
+        com.baidu.adp.lib.f.b<HeadImageView> vD();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -75,9 +75,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(t.e.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.vC();
+            this.mUserPhotoPool = dVar.vD();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.vB());
+                this.mTbRecyclerListener = new c(dVar.vC());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
@@ -188,7 +188,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.cY(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.cX(this.mIndex);
             }
         }
     }

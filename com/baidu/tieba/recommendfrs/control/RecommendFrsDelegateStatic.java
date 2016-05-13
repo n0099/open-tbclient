@@ -20,7 +20,7 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Dc() {
+    public com.baidu.tbadk.mainTab.c Dd() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.auW = new a();
         cVar.type = 2;
@@ -36,7 +36,7 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Db() {
+    public void Dc() {
         this.dYY = new l(this, CmdConfigCustom.CMD_RECOMMEND_FRS_TIP_SHOW);
         MessageManager.getInstance().registerListener(this.dYY);
     }

@@ -21,7 +21,7 @@ public class m implements by {
         com.baidu.tieba.frs.entelechy.c.s sVar;
         com.baidu.tieba.frs.entelechy.c.s sVar2;
         com.baidu.tieba.frs.entelechy.c.s sVar3;
-        bx.Kg().ci(true);
+        bx.Ki().ci(true);
         sVar = this.bpa.boY;
         if (sVar != null && view != null && (bVar instanceof com.baidu.tieba.card.a.l)) {
             com.baidu.tieba.card.a.l lVar = (com.baidu.tieba.card.a.l) bVar;

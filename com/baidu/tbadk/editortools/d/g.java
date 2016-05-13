@@ -12,7 +12,7 @@ public class g implements d.b {
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.b
-    public void Ce() {
+    public void Cf() {
         this.arM.a(0, false, (String) null);
     }
 

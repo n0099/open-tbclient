@@ -33,12 +33,12 @@ public class n {
     }
 
     private static n a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new n(i, str, str2, map, null, z ? sC() : null, j);
+        return new n(i, str, str2, map, null, z ? sD() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static n a(Map<String, Object> map, long j, l lVar) {
-        return new a(1, null, null, map, null, sC(), lVar, j, null);
+        return new a(1, null, null, map, null, sD(), lVar, j, null);
     }
 
     public static n a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -49,14 +49,14 @@ public class n {
         if (lVar == null) {
             throw new IllegalArgumentException("handler can't be null.");
         }
-        return new a(2, str, str2, map, null, sC(), lVar, j, null);
+        return new a(2, str, str2, map, null, sD(), lVar, j, null);
     }
 
     public static n b(String str, Map<String, Object> map) {
         return new n(3, null, null, null, map, str, -1L);
     }
 
-    private String sA() {
+    private String sB() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -69,7 +69,7 @@ public class n {
         }
     }
 
-    public String sB() {
+    public String sC() {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put(IntentConfig.CMD, this.cmd);
@@ -87,7 +87,7 @@ public class n {
             a(this.TL, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", sA());
+        jSONObject.put("messageType", sB());
         if (!TextUtils.isEmpty(this.TM)) {
             jSONObject.put("callbackId", this.TM);
         }
@@ -98,7 +98,7 @@ public class n {
     public void i(JSONObject jSONObject) {
     }
 
-    private static String sC() {
+    private static String sD() {
         return "TBCWebViewJsBridge_callback_ID_" + TJ.getAndIncrement();
     }
 

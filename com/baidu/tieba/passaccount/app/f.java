@@ -17,6 +17,6 @@ public class f implements j.a {
     public void i(AccountData accountData) {
         com.baidu.tbadk.core.a.b.b(accountData);
         TbadkCoreApplication.setCurrentAccount(accountData, this.dbP.getPageContext().getPageActivity());
-        this.dbP.auF();
+        this.dbP.auI();
     }
 }

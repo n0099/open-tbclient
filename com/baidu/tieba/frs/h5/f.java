@@ -19,7 +19,7 @@ public class f implements BaseWebView.c {
         this.brD.avz = false;
         z = this.brD.isError;
         if (!z) {
-            this.brD.Tg();
+            this.brD.Th();
             ViewGroup.LayoutParams layoutParams = this.brD.getLayoutParams();
             layoutParams.height = -2;
             this.brD.setLayoutParams(layoutParams);

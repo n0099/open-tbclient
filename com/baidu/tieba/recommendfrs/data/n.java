@@ -63,7 +63,7 @@ public class n implements com.baidu.tbadk.mvc.b.b, com.baidu.tbadk.mvc.b.j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Df() {
+    public byte[] Dg() {
         return null;
     }
 
@@ -78,7 +78,7 @@ public class n implements com.baidu.tbadk.mvc.b.b, com.baidu.tbadk.mvc.b.j {
         }
     }
 
-    public boolean aMu() {
+    public boolean aMx() {
         return this.dfI;
     }
 }

@@ -16,7 +16,7 @@ public class g implements j.a {
     public void nx() {
         PbActivity pbActivity;
         pbActivity = this.dqa.dhY;
-        pbActivity.awz();
+        pbActivity.awC();
     }
 
     @Override // com.baidu.tbadk.core.view.j.a

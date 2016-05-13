@@ -117,7 +117,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.bYc = z;
     }
 
-    public void acM() {
+    public void acO() {
         this.ccX.gQ();
         this.ccX.F(true);
     }

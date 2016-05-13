@@ -51,7 +51,7 @@ public class e {
         this.dpW.setVisibility(z ? 0 : 8);
     }
 
-    public NavigationBar azL() {
+    public NavigationBar azO() {
         return this.mNavigationBar;
     }
 
@@ -73,7 +73,7 @@ public class e {
         }
     }
 
-    public void azM() {
+    public void azP() {
         this.dpV.setVisibility(4);
         this.dpV.setEnabled(false);
     }
@@ -102,7 +102,7 @@ public class e {
                 this.dpZ = new df((PbActivity) this.dhY.getPageContext().getOrignalPage(), this.dhY.bjV);
                 this.dpY = new j(this.dhY.getPageContext().getPageActivity(), this.dpZ.getView(), at.getDrawable(t.f.bg_pull_down_right_n), new g(this));
             }
-            this.dpZ.ayo();
+            this.dpZ.ayr();
             this.dpY.showAtLocation(this.dhY.findViewById(t.g.pb_layout), 17, 0, 0);
             if (z4) {
                 this.dpZ.gL(false);
@@ -115,9 +115,9 @@ public class e {
                 this.dpZ.gK(true);
             }
             if (com.baidu.tbadk.coreExtra.share.h.af(this.dhY.getPageContext().getPageActivity())) {
-                this.dpZ.ayh().setVisibility(0);
+                this.dpZ.ayk().setVisibility(0);
             } else {
-                this.dpZ.ayh().setVisibility(8);
+                this.dpZ.ayk().setVisibility(8);
             }
             r(z, z2);
         }
@@ -125,25 +125,25 @@ public class e {
 
     private void r(boolean z, boolean z2) {
         if (this.dpZ != null) {
-            this.dpZ.ayq();
+            this.dpZ.ayt();
             if (!z) {
-                this.dpZ.ayj().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_see_down_selector), (Drawable) null, (Drawable) null);
-                this.dpZ.ayj().setText(this.dhY.getResources().getString(t.j.view_positive_sequence));
+                this.dpZ.aym().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_see_down_selector), (Drawable) null, (Drawable) null);
+                this.dpZ.aym().setText(this.dhY.getResources().getString(t.j.view_positive_sequence));
             } else {
-                this.dpZ.ayj().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_see_selector), (Drawable) null, (Drawable) null);
-                this.dpZ.ayj().setText(this.dhY.getResources().getString(t.j.view_reverse));
+                this.dpZ.aym().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_see_selector), (Drawable) null, (Drawable) null);
+                this.dpZ.aym().setText(this.dhY.getResources().getString(t.j.view_reverse));
             }
             if (z2) {
-                this.dpZ.axY().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_collect_h_selector), (Drawable) null, (Drawable) null);
+                this.dpZ.ayb().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_collect_h_selector), (Drawable) null, (Drawable) null);
             } else {
-                this.dpZ.axY().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_collect_selector), (Drawable) null, (Drawable) null);
+                this.dpZ.ayb().setCompoundDrawablesWithIntrinsicBounds((Drawable) null, at.getDrawable(t.f.icon_recommend_collect_selector), (Drawable) null, (Drawable) null);
             }
         }
     }
 
     public void nv() {
         if (this.dpZ != null) {
-            this.dpZ.ayp();
+            this.dpZ.ays();
         }
         if (this.zT == null) {
             this.zT = new h(this);
@@ -151,15 +151,15 @@ public class e {
         com.baidu.adp.lib.h.h.dL().postDelayed(this.zT, 100L);
     }
 
-    public df azN() {
+    public df azQ() {
         return this.dpZ;
     }
 
-    public boolean azO() {
+    public boolean azR() {
         return this.dpY != null && this.dpY.isShowing();
     }
 
-    public void anh() {
+    public void ank() {
         if (this.dpZ != null) {
             this.dpZ.release();
         }
@@ -168,7 +168,7 @@ public class e {
         com.baidu.adp.lib.h.h.dL().removeCallbacks(this.zT);
     }
 
-    public void azP() {
+    public void azS() {
         this.dpV.setVisibility(8);
         this.dpW.setVisibility(8);
     }

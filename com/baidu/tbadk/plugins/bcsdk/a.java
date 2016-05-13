@@ -5,7 +5,7 @@ import android.app.Service;
 public class a {
     private static Service azp;
 
-    public static Service Fe() {
+    public static Service Fg() {
         return azp;
     }
 

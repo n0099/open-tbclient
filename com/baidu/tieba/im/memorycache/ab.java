@@ -19,9 +19,9 @@ public class ab extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
             this.this$0.cmX = null;
+            com.baidu.tieba.im.c.a.jE(0);
             com.baidu.tieba.im.c.a.jF(0);
-            com.baidu.tieba.im.c.a.jG(0);
-            b.agY().init();
+            b.aha().init();
         }
     }
 }

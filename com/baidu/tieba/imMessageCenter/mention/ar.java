@@ -19,7 +19,7 @@ class ar implements View.OnClickListener {
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9486, this.cyR.getData(), null, null);
         bVar.setView(this.cyR.getRootView());
         i = this.cyR.position;
-        bVar.eC(i);
+        bVar.eB(i);
         kL = this.cyR.kL();
         kL.dispatchMvcEvent(bVar);
         TiebaStatic.log("c10096");

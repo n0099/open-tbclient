@@ -93,21 +93,21 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
                 this.SQ.setCount(size);
                 this.SP.setCurrentItem(1, false);
                 this.SQ.setPosition(0.0f);
-                sj();
+                sk();
                 return;
             }
             this.SQ.setVisibility(8);
-            sk();
+            sl();
         }
     }
 
     public void setCoverFlowFactory(com.baidu.tbadk.core.flow.b bVar) {
         if (bVar != null) {
             this.ST = bVar;
-            this.SR = bVar.sg();
+            this.SR = bVar.sh();
             this.SR.g(this.SQ);
-            bVar.sh().a(this.SP);
-            this.mCustomView = bVar.si();
+            bVar.si().a(this.SP);
+            this.mCustomView = bVar.sj();
             if (this.mCustomView != null) {
                 removeAllViews();
                 addView(this.SP);
@@ -117,22 +117,22 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         }
     }
 
-    public void sj() {
-        sl();
-    }
-
     public void sk() {
-        this.SU.removeMessages(1);
+        sm();
     }
 
     public void sl() {
+        this.SU.removeMessages(1);
+    }
+
+    public void sm() {
         this.SU.removeMessages(1);
         this.SU.sendEmptyMessageDelayed(1, this.SY);
     }
 
     public void setMarqueenTime(long j) {
         this.SY = j;
-        sl();
+        sm();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -150,7 +150,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    CoverFlowView.this.sm();
+                    CoverFlowView.this.sn();
                     return;
                 default:
                     return;
@@ -159,7 +159,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sm() {
+    public void sn() {
         int count;
         if (this.SP != null && this.SS != null && (count = this.SS.getCount()) > 1) {
             int currentItem = this.SP.getCurrentItem();
@@ -175,7 +175,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         }
     }
 
-    private boolean sn() {
+    private boolean so() {
         int count;
         if (this.SS != null && (count = this.SS.getCount()) > 1) {
             int currentItem = this.SP.getCurrentItem();
@@ -223,7 +223,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             if (CoverFlowView.this.SS != null) {
                 int count = CoverFlowView.this.SS.getCount();
                 if (i >= 0 && i < count && CoverFlowView.this.SV != null) {
-                    CoverFlowView.this.SV.a(i, CoverFlowView.this.SS.cd(i));
+                    CoverFlowView.this.SV.a(i, CoverFlowView.this.SS.cc(i));
                 }
             }
         }
@@ -235,7 +235,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             }
             switch (i) {
                 case 0:
-                    CoverFlowView.this.so();
+                    CoverFlowView.this.sp();
                     return;
                 default:
                     return;
@@ -244,9 +244,9 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void so() {
-        if (sn()) {
-            sl();
+    public void sp() {
+        if (so()) {
+            sm();
         }
     }
 
@@ -263,18 +263,18 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            com.baidu.tbadk.core.flow.a.a cd;
-            if (CoverFlowView.this.SV != null && (view.getTag() instanceof Integer) && (cd = CoverFlowView.this.SS.cd((intValue = ((Integer) view.getTag()).intValue()))) != null) {
-                CoverFlowView.this.SV.g(intValue, cd.oU());
+            com.baidu.tbadk.core.flow.a.a cc;
+            if (CoverFlowView.this.SV != null && (view.getTag() instanceof Integer) && (cc = CoverFlowView.this.SS.cc((intValue = ((Integer) view.getTag()).intValue()))) != null) {
+                CoverFlowView.this.SV.g(intValue, cc.oU());
             }
         }
     }
 
-    public void sf() {
-        this.SS.sf();
+    public void sg() {
+        this.SS.sg();
         if (this.SQ != null && this.SR != null) {
-            this.SQ.setDrawable(at.getDrawable(this.SR.sp()));
-            this.SQ.setSelector(at.getDrawable(this.SR.sq()));
+            this.SQ.setDrawable(at.getDrawable(this.SR.sq()));
+            this.SQ.setSelector(at.getDrawable(this.SR.sr()));
         }
     }
 

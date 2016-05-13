@@ -33,7 +33,7 @@ public class c extends y.a implements View.OnClickListener {
         this.dfW = (FrsPraiseView) view.findViewById(t.g.pb_item_praise_view);
         this.dfX = (ImageView) view.findViewById(t.g.pb_item_praise_bottomline);
         this.dfV = (PbGiftListView) view.findViewById(t.g.gift_list_view);
-        this.dfT.Ho();
+        this.dfT.Hq();
         this.dfT.setImageViewStretch(true);
         int min = Math.min(((((com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.dfT.getPaddingLeft()) - this.dfT.getPaddingRight()) - ((int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds60)), i);
         this.dfT.setMaxImageWidth(min);

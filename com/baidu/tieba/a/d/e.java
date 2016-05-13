@@ -25,6 +25,6 @@ public class e implements Runnable {
             aVar2.j(this.aNA, false);
         }
         this.aNy.a(this.aNz, true);
-        this.aNz.JB();
+        this.aNz.JD();
     }
 }

@@ -71,7 +71,7 @@ public class n extends BaseAdapter {
         }
         aVar.ede.setText(pVar.content);
         aVar.ecB.setText(pVar.groupName);
-        aVar.edf.setText(oB(pVar.edp));
+        aVar.edf.setText(oA(pVar.edp));
         aVar.ecC.setText(bY(pVar.lastTime));
         if (z) {
             aVar.aiu.setVisibility(0);
@@ -140,7 +140,7 @@ public class n extends BaseAdapter {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String oB(int i) {
+    public String oA(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 

@@ -75,16 +75,16 @@ public class a implements GLSurfaceView.Renderer {
         gl10.glTexCoordPointer(2, 5132, 0, this.aMf);
         gl10.glTranslatef(this.aMp, this.aMq, this.aMr);
         if (this.aMu != null && this.aMu.size() != 0 && (peek = this.aMu.peek()) != null) {
-            if (peek.IX() == 2) {
+            if (peek.IZ() == 2) {
                 peek.d(this.aMp, this.aMq, this.aMr, this.aMs);
                 this.aMu.poll();
-            } else if (peek.IX() == -1) {
-                if (!peek.IW()) {
-                    peek.fp(2);
+            } else if (peek.IZ() == -1) {
+                if (!peek.IY()) {
+                    peek.fo(2);
                 } else {
-                    peek.fp(0);
+                    peek.fo(0);
                 }
-            } else if (peek.IX() == 0) {
+            } else if (peek.IZ() == 0) {
                 peek.a(this.aMp, this.aMq, this.aMr, this.aMs);
                 float f = peek.f(this.aMp, this.aMq, this.aMr, this.aMs);
                 float g = peek.g(this.aMp, this.aMq, this.aMr, this.aMs);
@@ -92,10 +92,10 @@ public class a implements GLSurfaceView.Renderer {
                 this.aMp = f;
                 this.aMq = g;
                 this.aMr = h;
-                peek.fp(1);
-            } else if (peek.IX() == 1) {
+                peek.fo(1);
+            } else if (peek.IZ() == 1) {
                 if (peek.b(this.aMp, this.aMq, this.aMr, this.aMs)) {
-                    peek.fp(2);
+                    peek.fo(2);
                 } else {
                     peek.c(this.aMp, this.aMq, this.aMr, this.aMs);
                     float f2 = peek.f(this.aMp, this.aMq, this.aMr, this.aMs);
@@ -139,39 +139,39 @@ public class a implements GLSurfaceView.Renderer {
         if (this.aMt != null && this.aMt.size() != 0) {
             com.baidu.tieba.a.a.b peek2 = this.aMt.peek();
             if (peek2 != null) {
-                if (peek2.IX() == 2) {
+                if (peek2.IZ() == 2) {
                     peek2.d(this.aMg, this.aMh, this.aMi, this.aMs);
                     this.aMt.poll();
                     return;
-                } else if (peek2.IX() == -1) {
-                    if (!peek2.IW()) {
-                        peek2.fp(2);
+                } else if (peek2.IZ() == -1) {
+                    if (!peek2.IY()) {
+                        peek2.fo(2);
                         return;
                     } else {
-                        peek2.fp(0);
+                        peek2.fo(0);
                         return;
                     }
                 } else {
-                    if (peek2.IX() == 0) {
+                    if (peek2.IZ() == 0) {
                         peek2.a(this.aMg, this.aMh, this.aMi, this.aMs);
                         double e = peek2.e(this.aMg, this.aMh, this.aMi, this.aMs);
-                        peek2.fp(1);
+                        peek2.fo(1);
                         d = e;
-                    } else if (peek2.IX() == 1) {
+                    } else if (peek2.IZ() == 1) {
                         if (peek2.b(this.aMg, this.aMh, this.aMi, this.aMs)) {
-                            peek2.fp(2);
+                            peek2.fo(2);
                             return;
                         } else {
                             peek2.c(this.aMg, this.aMh, this.aMi, this.aMs);
                             d = peek2.e(this.aMg, this.aMh, this.aMi, this.aMs);
                         }
                     }
-                    IY();
+                    Ja();
                     d2 = d;
                 }
             }
             d = 0.0d;
-            IY();
+            Ja();
             d2 = d;
         }
         this.aMg = (float) (this.aMg + d2);
@@ -231,26 +231,26 @@ public class a implements GLSurfaceView.Renderer {
         gl10.glTexParameterf(3553, 10240, 9729.0f);
     }
 
-    public void IY() {
+    public void Ja() {
         this.aMs++;
     }
 
-    public boolean IZ() {
+    public boolean Jb() {
         this.aMs = 0;
         return true;
     }
 
-    public void Ja() {
+    public void Jc() {
         this.aMg = 0.0f;
         this.aMh = 0.0f;
         this.aMi = 0.0f;
     }
 
-    public void uE() {
+    public void uF() {
         this.aMu.clear();
         this.aMt.clear();
-        IZ();
-        Ja();
+        Jb();
+        Jc();
     }
 
     public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {
@@ -278,7 +278,7 @@ public class a implements GLSurfaceView.Renderer {
         }
     }
 
-    public void fq(int i) {
+    public void fp(int i) {
         this.bgColor = i;
     }
 

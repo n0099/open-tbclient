@@ -14,7 +14,7 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.aep(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
+        a(com.baidu.tieba.im.db.c.aer(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {
@@ -25,16 +25,16 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage)) {
-            return jJ(this.mCmd);
+            return jI(this.mCmd);
         }
         if (this.crt == null) {
-            return jJ(this.mCmd);
+            return jI(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
         LinkedList<ChatMessage> a = this.crt.a(data.id, data.coj, data.cok, data.limit);
         if (a == null) {
-            return jJ(this.mCmd);
+            return jI(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
         if (data.coj == null) {
@@ -52,7 +52,7 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage jJ(int i) {
+    private LoadHistoryResponsedMessage jI(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

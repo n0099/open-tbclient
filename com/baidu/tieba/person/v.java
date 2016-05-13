@@ -17,14 +17,14 @@ class v implements BdListView.e {
     public void jA() {
         String str;
         boolean z;
-        PersonBarActivity aBC;
+        PersonBarActivity aBF;
         if (this.dvP.hasMore) {
             z = this.dvP.cMs;
             if (!z) {
                 this.dvP.cMs = true;
-                this.dvP.dvy.OJ();
-                aBC = this.dvP.aBC();
-                if (aBC.getRequestCode() == 23011) {
+                this.dvP.dvy.OL();
+                aBF = this.dvP.aBF();
+                if (aBF.getRequestCode() == 23011) {
                     RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                     requestGetLivableForumList.setGetLikeForum(1);
                     requestGetLivableForumList.setPageNo(this.dvP.dvC);
@@ -33,7 +33,7 @@ class v implements BdListView.e {
                     this.dvP.sendMessage(requestGetLivableForumList);
                     return;
                 }
-                this.dvP.jd(this.dvP.dvC);
+                this.dvP.jc(this.dvP.dvC);
                 return;
             }
             return;

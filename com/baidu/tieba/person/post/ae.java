@@ -9,7 +9,7 @@ public class ae {
     BdListView Ed;
     com.baidu.tbadk.core.view.q mNoDataView = null;
 
-    public BdListView PC() {
+    public BdListView PE() {
         return this.Ed;
     }
 

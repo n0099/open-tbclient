@@ -54,11 +54,11 @@ public class a {
                 aVar.a(t.j.open_now, new b(baseActivity));
                 aVar.b(t.j.group_create_private_isee, new c());
                 aVar.b(baseActivity.getPageContext());
-                aVar.rU();
+                aVar.rV();
                 return;
             }
             int i = (defaultBubbleEndTime - currentTimeMillis) / 86400;
-            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != com.baidu.tbadk.core.sharedPref.b.sQ().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != com.baidu.tbadk.core.sharedPref.b.sR().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                 int i2 = t.d.cp_cont_g;
                 int i3 = t.d.cp_link_tip_d;
                 int i4 = t.f.pop_float_arrow;
@@ -84,7 +84,7 @@ public class a {
                 gVar.v(false);
                 erU = gVar.cV();
                 new Handler().postDelayed(new f(baseActivity, z), 300L);
-                com.baidu.tbadk.core.sharedPref.b.sQ().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
+                com.baidu.tbadk.core.sharedPref.b.sR().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
             }
         }
     }

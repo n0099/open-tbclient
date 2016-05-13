@@ -15,7 +15,7 @@ public class b {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.c.CH().fM(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.c.CI().fM(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.a.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.b bVar, boolean z, boolean z2) {
@@ -29,7 +29,7 @@ public class b {
             aVar.atY = imageFileInfo;
             aVar.aua = z;
             this.atW.add(aVar);
-            CM();
+            CN();
             return null;
         }
         return a2;
@@ -39,14 +39,14 @@ public class b {
         return a(imageFileInfo, bVar, z, false);
     }
 
-    protected void CM() {
+    protected void CN() {
         if (this.atX == null && !this.atW.isEmpty()) {
             this.atX = new C0045b(this.atW);
             this.atX.execute(new Void[0]);
         }
     }
 
-    public void CN() {
+    public void CO() {
         this.atW = new ConcurrentLinkedQueue();
         if (this.atX != null) {
             this.atX.cancel(true);
@@ -78,7 +78,7 @@ public class b {
                     this.aue.add(poll);
                     break;
                 } else {
-                    com.baidu.adp.widget.a.a fM = com.baidu.tbadk.imageManager.c.CH().fM(poll.atY.toCachedKey(poll.aua));
+                    com.baidu.adp.widget.a.a fM = com.baidu.tbadk.imageManager.c.CI().fM(poll.atY.toCachedKey(poll.aua));
                     if (fM != null) {
                         poll.aub = fM;
                         poll.auc = true;
@@ -101,7 +101,7 @@ public class b {
         public void onPostExecute(a aVar) {
             super.onPostExecute(aVar);
             b.this.atX = null;
-            b.this.CM();
+            b.this.CN();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,7 +113,7 @@ public class b {
                 for (a aVar : aVarArr) {
                     com.baidu.adp.widget.a.a aVar2 = aVar.aub;
                     if (aVar2 != null && !aVar.auc) {
-                        com.baidu.tbadk.imageManager.c.CH().c(aVar.atY.toCachedKey(aVar.aua), aVar2);
+                        com.baidu.tbadk.imageManager.c.CI().c(aVar.atY.toCachedKey(aVar.aua), aVar2);
                     }
                     if (aVar.atZ != null) {
                         aVar.atZ.a(aVar2, aVar.atY.toCachedKey(aVar.aua), aVar.auc);
@@ -153,14 +153,14 @@ public class b {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.CO().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList);
+                return com.baidu.tbadk.img.effect.c.CP().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.CO().c(imageFileInfo.getFilePath(), linkedList);
+                return com.baidu.tbadk.img.effect.c.CP().c(imageFileInfo.getFilePath(), linkedList);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;

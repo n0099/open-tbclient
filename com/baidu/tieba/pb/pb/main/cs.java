@@ -24,7 +24,7 @@ public class cs extends ft {
     @Override // com.baidu.tieba.pb.pb.main.ft
     protected void a(e eVar) {
         this.dkR = this.mRootView.findViewById(t.g.pb_editor_tool_comment_graffiti_icon);
-        axr();
+        axu();
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ft
@@ -34,7 +34,7 @@ public class cs extends ft {
         }
     }
 
-    private void axr() {
+    private void axu() {
         CustomResponsedMessage runTask;
         if (this.bek != null && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GRAFFITI_QUICK_VOTE_VIEW, this.bek.getPageContext().getPageActivity()), com.baidu.tieba.pb.a.class)) != null && runTask.getData() != null) {
             this.dkS = (com.baidu.tieba.pb.a) runTask.getData();
@@ -45,11 +45,11 @@ public class cs extends ft {
         }
     }
 
-    public void axs() {
+    public void axv() {
         com.baidu.adp.lib.h.h.dL().postDelayed(new ct(this), 50L);
     }
 
-    public void Bn() {
+    public void Bo() {
         if (this.dkQ != null) {
             this.dkQ.dismiss();
             this.dkQ = null;
@@ -62,25 +62,25 @@ public class cs extends ft {
         }
     }
 
-    public boolean axt() {
+    public boolean axw() {
         return this.dkS != null && this.dkS.getVisibility() == 0;
     }
 
-    public void axu() {
+    public void axx() {
         if (this.dkS != null && this.dkR != null) {
-            this.dkS.Uq();
+            this.dkS.Us();
             this.dkR.setSelected(true);
         }
     }
 
-    public void axv() {
+    public void axy() {
         if (this.dkS != null && this.dkR != null) {
-            this.dkS.YZ();
+            this.dkS.Zb();
             this.dkR.setSelected(false);
         }
     }
 
-    public View axw() {
+    public View axz() {
         return this.dkR;
     }
 }

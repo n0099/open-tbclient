@@ -21,7 +21,7 @@ public class as extends com.baidu.adp.base.e<bf> {
         super(com.baidu.adp.base.l.s(bfVar.getPageContext().getPageActivity()));
         this.cyS = BdUniqueId.gen();
         this.cyq = bfVar;
-        als();
+        alu();
     }
 
     public void a(long j, int i, String str) {
@@ -33,7 +33,7 @@ public class as extends com.baidu.adp.base.e<bf> {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void als() {
+    public void alu() {
         at atVar = new at(this, 303010);
         atVar.setTag(this.cyq.getUniqueId());
         atVar.setSelfListener(true);

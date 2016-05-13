@@ -8,7 +8,7 @@ public class a {
     private a() {
     }
 
-    public static a DX() {
+    public static a DY() {
         return awn;
     }
 

@@ -23,12 +23,12 @@ class m implements af.a {
         if (afVar != null) {
             cwVar = this.djE.dih;
             com.baidu.tieba.pb.data.e pbData = cwVar.getPbData();
-            if (pbData.avB().getPraise().getIsLike() == 1) {
-                this.djE.gh(0);
+            if (pbData.avE().getPraise().getIsLike() == 1) {
+                this.djE.gg(0);
             } else {
-                this.djE.gh(1);
+                this.djE.gg(1);
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.avB()));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.avE()));
         }
     }
 
@@ -38,7 +38,7 @@ class m implements af.a {
         this.djE.beQ = false;
         afVar = this.djE.bfd;
         if (afVar != null && str != null) {
-            if (AntiHelper.pw(i)) {
+            if (AntiHelper.pv(i)) {
                 AntiHelper.O(this.djE.getPageContext().getPageActivity(), str);
             } else {
                 this.djE.showToast(str);

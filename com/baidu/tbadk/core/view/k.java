@@ -45,7 +45,7 @@ public class k {
         b(activity, i, z);
     }
 
-    public void cN(int i) {
+    public void cM(int i) {
         if (this.abe) {
             if (i != this.mSkinType && this.abc != null) {
                 com.baidu.tbadk.core.util.at.l(this.abc, this.abd);
@@ -87,43 +87,43 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uT() {
+    public void uU() {
         if (this.aaY != null) {
             int height = this.aaY.getHeight();
             if (height > this.mScreenHeight) {
                 this.mScreenHeight = height;
             }
-            int uU = uU();
-            if (uU != this.aaZ) {
+            int uV = uV();
+            if (uV != this.aaZ) {
                 int i = this.mScreenHeight;
-                int i2 = i - uU;
+                int i2 = i - uV;
                 if (i2 == 0) {
                     this.aba.height = i;
-                    uV();
+                    uW();
                 } else {
                     this.aba.height = i - i2;
-                    cO(200);
+                    cN(200);
                     if (TbadkCoreApplication.m11getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.m11getInst().getKeyboardHeight() != i2) {
                         TbadkCoreApplication.m11getInst().setKeyboardHeight(i2);
                     }
                 }
-                this.aaZ = uU;
+                this.aaZ = uV;
             }
         }
     }
 
-    private int uU() {
+    private int uV() {
         Rect rect = new Rect();
         this.aaY.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uV() {
+    public void uW() {
         this.aaY.requestLayout();
     }
 
-    private void cO(int i) {
+    private void cN(int i) {
         if (this.abb != null) {
             TbadkCoreApplication.m11getInst().handler.removeCallbacks(this.abb);
             this.abb = null;

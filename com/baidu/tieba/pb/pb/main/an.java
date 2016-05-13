@@ -13,9 +13,9 @@ class an implements c.a {
     @Override // com.baidu.tieba.c.c.a
     public void co(boolean z) {
         if (z) {
-            com.baidu.tieba.pb.a.c.avY();
+            com.baidu.tieba.pb.a.c.awb();
         } else {
-            com.baidu.tieba.pb.a.c.avX();
+            com.baidu.tieba.pb.a.c.awa();
         }
     }
 }

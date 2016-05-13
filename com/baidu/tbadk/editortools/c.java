@@ -48,7 +48,7 @@ public class c extends ImageView implements s {
 
     @Override // com.baidu.tbadk.editortools.s
     public void hide() {
-        Ba();
+        Bb();
         setVisibility(8);
     }
 
@@ -83,7 +83,7 @@ public class c extends ImageView implements s {
         }
     }
 
-    public void Ba() {
+    public void Bb() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,7 +98,7 @@ public class c extends ImageView implements s {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Ba();
+                Bb();
             } else if (aVar.data instanceof String) {
                 fg((String) aVar.data);
             }

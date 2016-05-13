@@ -466,7 +466,7 @@ public class y extends ViewGroup {
             this.aqk = 0;
         }
 
-        public void ek(int i) {
+        public void ej(int i) {
             this.aqk = i;
         }
     }
@@ -474,7 +474,7 @@ public class y extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: Bq */
+    /* renamed from: Br */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 19, 0);
     }

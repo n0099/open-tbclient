@@ -51,7 +51,7 @@ public class w implements a.InterfaceC0032a {
                         apVar3.gN(true);
                         apVar4 = this.dqn.dqc;
                         apVar5 = this.dqn.dqc;
-                        apVar4.mn(apVar5.BB());
+                        apVar4.mn(apVar5.BC());
                         this.dqn.showToast(MessageFormat.format(this.dqn.getPageContext().getString(t.j.add_mark_on_pb), Integer.valueOf(mS.getFloor())));
                     } else {
                         this.dqn.showToast(this.dqn.getPageContext().getString(t.j.add_mark));

@@ -14,16 +14,16 @@ class u implements t.b {
 
     @Override // com.baidu.tbadk.core.view.t.b
     public void aG(boolean z) {
-        PersonBarActivity aBC;
-        PersonBarActivity aBC2;
-        PersonBarActivity aBC3;
-        aBC = this.dvP.aBC();
-        if (aBC != null) {
+        PersonBarActivity aBF;
+        PersonBarActivity aBF2;
+        PersonBarActivity aBF3;
+        aBF = this.dvP.aBF();
+        if (aBF != null) {
             this.dvP.dvC = 1;
-            aBC2 = this.dvP.aBC();
-            if (aBC2 != null) {
-                aBC3 = this.dvP.aBC();
-                if (aBC3.getRequestCode() == 23011) {
+            aBF2 = this.dvP.aBF();
+            if (aBF2 != null) {
+                aBF3 = this.dvP.aBF();
+                if (aBF3.getRequestCode() == 23011) {
                     RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                     requestGetLivableForumList.setGetLikeForum(1);
                     requestGetLivableForumList.setPageNo(this.dvP.dvC);
@@ -33,7 +33,7 @@ class u implements t.b {
                     return;
                 }
             }
-            this.dvP.OP();
+            this.dvP.OR();
         }
     }
 }

@@ -111,15 +111,15 @@ public class bd extends a {
         this.dGO = (TextView) this.mRootView.findViewById(t.g.my_tdou_get);
         this.dGP = (TextView) this.mRootView.findViewById(t.g.tdou_divider);
         this.dGQ = (ImageView) this.mRootView.findViewById(t.g.my_tdou_arrow);
-        aCK();
-        aCL();
+        aCN();
+        aCO();
     }
 
     @Override // com.baidu.tieba.personInfo.a
     public void setBackBitmap(UserData userData) {
         String bg_pic = userData != null ? userData.getBg_pic() : null;
         if (StringUtils.isNull(bg_pic)) {
-            com.baidu.tbadk.imageManager.c.CH().ez(1152000);
+            com.baidu.tbadk.imageManager.c.CI().ey(1152000);
             Bitmap logoBitmap = BitmapHelper.getLogoBitmap(this.cSp.getApplicationContext(), t.f.pic_mycenter_bg_def);
             if (logoBitmap == null) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
@@ -137,14 +137,14 @@ public class bd extends a {
     }
 
     @Override // com.baidu.tieba.personInfo.a
-    public void aCJ() {
+    public void aCM() {
         if (this.cDt != null) {
-            this.cDt.CE();
+            this.cDt.CF();
         }
         this.dGt.setImageBitmap(null);
     }
 
-    private void aCK() {
+    private void aCN() {
         if (TbadkCoreApplication.m11getInst().isGiftSwitchOn()) {
             this.dGL.setVisibility(0);
         } else {
@@ -164,7 +164,7 @@ public class bd extends a {
     @Override // com.baidu.tieba.personInfo.a
     public void kU() {
         com.baidu.tbadk.core.util.at.l(this.bxh, t.d.cp_bg_line_c);
-        UserData userData = this.dxd.aDb().getUserData();
+        UserData userData = this.dxd.aDe().getUserData();
         if (userData != null) {
             if (userData.getIsMem() > 0) {
                 this.cDv.setTextColor(this.cSp.getResources().getColor(t.d.cp_other_b));
@@ -210,7 +210,7 @@ public class bd extends a {
         this.dAY.setCompoundDrawablesWithIntrinsicBounds(this.cSp.getResources().getDrawable(t.f.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
-    private void aCL() {
+    private void aCO() {
         this.cDt.setIsRound(true);
         this.cDt.setDrawBorder(false);
         this.cDt.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -252,7 +252,7 @@ public class bd extends a {
     }
 
     @Override // com.baidu.tieba.personInfo.a
-    public void Pl() {
+    public void Pn() {
         this.dGu.clearAnimation();
         this.dGu.setImageDrawable(null);
         this.dGu.setVisibility(8);
@@ -268,17 +268,17 @@ public class bd extends a {
     }
 
     @Override // com.baidu.tieba.personInfo.a
-    public void aBX() {
-        bg aDb = this.dxd.aDb();
-        UserData userData = aDb.getUserData();
+    public void aCa() {
+        bg aDe = this.dxd.aDe();
+        UserData userData = aDe.getUserData();
         setBackBitmap(userData);
         i(userData);
         h(userData);
-        aDb.aDA();
+        aDe.aDD();
     }
 
     public void h(UserData userData) {
-        if (!aCM()) {
+        if (!aCP()) {
             this.dGN.setVisibility(8);
             return;
         }
@@ -386,7 +386,7 @@ public class bd extends a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.personInfo.a
-    /* renamed from: aDx */
+    /* renamed from: aDA */
     public LinearLayout getAttentionView() {
         return this.dGF;
     }
@@ -406,7 +406,7 @@ public class bd extends a {
         return this.mRootView;
     }
 
-    private boolean aCM() {
+    private boolean aCP() {
         return TbadkCoreApplication.m11getInst().appResponseToIntentClass(BuyTBeanActivityConfig.class);
     }
 

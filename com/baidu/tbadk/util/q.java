@@ -21,6 +21,6 @@ public class q extends CustomMessageListener {
         if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
             return;
         }
-        this.aAg.Fz();
+        this.aAg.FB();
     }
 }

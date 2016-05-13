@@ -70,7 +70,7 @@ public class cl extends y.a {
         this.dkF = (ImageView) view.findViewById(t.g.landmark_icon);
         this.dkG = (TextView) view.findViewById(t.g.landmark_content);
         this.dkH = (ImageView) view.findViewById(t.g.ad_icon);
-        this.dfT.Ho();
+        this.dfT.Hq();
         this.dfT.setImageViewStretch(true);
         int min = Math.min(((((com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.dfT.getPaddingLeft()) - this.dfT.getPaddingRight()) - ((int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds60)), i);
         this.dfT.setMaxImageWidth(min);

@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnTouchListener {
-    final /* synthetic */ o faw;
+    final /* synthetic */ o fav;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(o oVar) {
-        this.faw = oVar;
+        this.fav = oVar;
     }
 
     @Override // android.view.View.OnTouchListener

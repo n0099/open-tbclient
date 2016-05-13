@@ -16,7 +16,7 @@ public class ad implements View.OnClickListener {
         boolean z;
         z = this.this$0.aHg;
         if (z) {
-            this.this$0.HS();
+            this.this$0.HU();
         }
         this.this$0.aHM.dismiss();
         this.this$0.finish();

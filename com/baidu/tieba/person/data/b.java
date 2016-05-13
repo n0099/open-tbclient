@@ -7,11 +7,11 @@ public class b implements v {
     public static final BdUniqueId dzh = BdUniqueId.gen();
     private int dzi = 0;
 
-    public int aCe() {
+    public int aCh() {
         return this.dzi;
     }
 
-    public void mv(int i) {
+    public void mu(int i) {
         this.dzi = i;
     }
 

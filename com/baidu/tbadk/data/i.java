@@ -14,7 +14,7 @@ public class i implements v {
         return aoj;
     }
 
-    public String AF() {
+    public String AG() {
         return this.aok;
     }
 
@@ -30,7 +30,7 @@ public class i implements v {
         this.aol = str;
     }
 
-    public boolean AG() {
+    public boolean AH() {
         return this.aom;
     }
 

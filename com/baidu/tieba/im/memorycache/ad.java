@@ -19,9 +19,9 @@ class ad implements CustomMessageTask.CustomRunnable<String> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        com.baidu.tieba.im.db.i.aex().a(this.cmS, 2);
+        com.baidu.tieba.im.db.i.aez().a(this.cmS, 2);
         if (this.cnM != null) {
-            com.baidu.tieba.im.db.i.aex().a(this.cnM, 2);
+            com.baidu.tieba.im.db.i.aez().a(this.cnM, 2);
             return null;
         }
         return null;

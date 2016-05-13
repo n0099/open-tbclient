@@ -26,7 +26,7 @@ public class db extends com.baidu.adp.base.g {
         TbPageContext tbPageContext;
         com.baidu.tieba.tbadkCore.x xVar4;
         xVar = this.bkB.Dp;
-        if (AntiHelper.pw(xVar.getErrorCode())) {
+        if (AntiHelper.pv(xVar.getErrorCode())) {
             tbPageContext = this.bkB.Do;
             Activity pageActivity = tbPageContext.getPageActivity();
             xVar4 = this.bkB.Dp;

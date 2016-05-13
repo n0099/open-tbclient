@@ -7,10 +7,10 @@ public class e {
 
     public e(int i) {
         this.mType = i;
-        mw(i);
+        mv(i);
     }
 
-    private void mw(int i) {
+    private void mv(int i) {
         switch (i) {
             case 0:
                 this.dzo = "我的好友";

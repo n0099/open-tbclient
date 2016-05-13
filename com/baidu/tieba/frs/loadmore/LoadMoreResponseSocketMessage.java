@@ -94,8 +94,8 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     if (cVar != null && cVar.oF() && com.baidu.adp.lib.h.b.g(cVar.MT, 0) - 1 >= 0 && !hashSet.contains(Integer.valueOf(g)) && g < r) {
                         if (cVar.oG()) {
                             if (!ah.isInstalledPackage(m11getInst, cVar.MS) && !TextUtils.isEmpty(cVar.MS) && !TextUtils.isEmpty(cVar.MO)) {
-                                boolean fa = com.baidu.tbadk.download.b.AQ().fa(cVar.MS);
-                                boolean fd = com.baidu.tbadk.download.b.AQ().fd(cVar.MS);
+                                boolean fa = com.baidu.tbadk.download.b.AR().fa(cVar.MS);
+                                boolean fd = com.baidu.tbadk.download.b.AR().fd(cVar.MS);
                                 if (fa) {
                                     cVar.MM = 1;
                                 } else if (fd) {

@@ -39,7 +39,7 @@ public class o extends s {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.s
-    public void aHz() {
+    public void aHC() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;

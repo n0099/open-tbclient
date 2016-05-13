@@ -173,10 +173,10 @@ public class fk {
     }
 
     private void a(int i, com.baidu.tbadk.util.e<Boolean> eVar) {
-        if (this.bmO && this.mNavigationBar != null && this.mNavigationBar.getBarBgView() != null && this.mContext != null && this.bmK != null && this.bmK.TJ() != null && this.bmK.TJ().getView() != null) {
-            int measuredHeight = this.bmK.TJ().getView().getMeasuredHeight();
+        if (this.bmO && this.mNavigationBar != null && this.mNavigationBar.getBarBgView() != null && this.mContext != null && this.bmK != null && this.bmK.TL() != null && this.bmK.TL().getView() != null) {
+            int measuredHeight = this.bmK.TL().getView().getMeasuredHeight();
             int measuredHeight2 = this.mNavigationBar.getMeasuredHeight();
-            int i2 = measuredHeight - (-this.bmK.TJ().getView().getTop());
+            int i2 = measuredHeight - (-this.bmK.TL().getView().getTop());
             if (i2 < measuredHeight2) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);

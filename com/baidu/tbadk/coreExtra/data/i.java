@@ -5,7 +5,7 @@ public class i {
     private int afX;
     private int afY;
 
-    public int wz() {
+    public int wA() {
         if (this.afW == 0) {
             return Integer.MAX_VALUE;
         }
@@ -16,7 +16,7 @@ public class i {
         this.afW = com.baidu.adp.lib.h.b.g(str, 0);
     }
 
-    public int wA() {
+    public int wB() {
         return this.afX;
     }
 
@@ -24,7 +24,7 @@ public class i {
         this.afX = com.baidu.adp.lib.h.b.g(str, 0);
     }
 
-    public int wB() {
+    public int wC() {
         return this.afY;
     }
 

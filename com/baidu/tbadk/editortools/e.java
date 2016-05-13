@@ -94,7 +94,7 @@ public class e extends RelativeLayout implements s {
         }
     }
 
-    public void Ba() {
+    public void Bb() {
         this.VC = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
@@ -105,7 +105,7 @@ public class e extends RelativeLayout implements s {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Ba();
+                Bb();
             } else if (aVar.data instanceof String) {
                 fg((String) aVar.data);
             }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements Runnable {
+class ad implements Runnable {
     final /* synthetic */ FloatingPersonalChatView cwo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +10,7 @@ public class ad implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajw().fe(false);
-        this.cwo.akn();
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b.ajy().fe(false);
+        this.cwo.akp();
     }
 }

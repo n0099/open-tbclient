@@ -9,7 +9,7 @@ public class i extends al implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Di() {
+    public String Dj() {
         return null;
     }
 

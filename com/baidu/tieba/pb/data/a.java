@@ -19,7 +19,7 @@ public class a {
         }
     }
 
-    public int avs() {
+    public int avv() {
         return this.deT;
     }
 
@@ -27,11 +27,11 @@ public class a {
         return this.mLink;
     }
 
-    public String avt() {
+    public String avw() {
         return this.deU;
     }
 
-    public String avu() {
+    public String avx() {
         return this.deV;
     }
 

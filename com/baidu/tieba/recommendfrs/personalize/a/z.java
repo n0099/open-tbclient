@@ -6,8 +6,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.recommendfrs.personalize.a.y;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class z implements View.OnClickListener {
+public class z implements View.OnClickListener {
     final /* synthetic */ y.a ebR;
 
     /* JADX INFO: Access modifiers changed from: package-private */

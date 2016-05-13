@@ -36,9 +36,9 @@ public class a {
                     case '$':
                         int length = "$.getInstance().get( )".length() + i2;
                         try {
-                            Object aux = com.baidu.tieba.onlineDebugger.e.b.lE("get " + this.code.substring(i2, length)).aux();
-                            if (aux != null) {
-                                this.dbp.add(aux);
+                            Object auA = com.baidu.tieba.onlineDebugger.e.b.lE("get " + this.code.substring(i2, length)).auA();
+                            if (auA != null) {
+                                this.dbp.add(auA);
                             }
                         } catch (Exception e) {
                             BdLog.e(e);

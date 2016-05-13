@@ -14,8 +14,8 @@ public class z implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         int[] iArr = new int[2];
-        if (this.erw != null && this.erw.Bb() != null) {
-            this.erw.Bb().getLocationInWindow(iArr);
+        if (this.erw != null && this.erw.Bc() != null) {
+            this.erw.Bc().getLocationInWindow(iArr);
             this.erx.setSelectionFromTop(this.position + this.erx.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.ery) - com.baidu.adp.lib.util.k.g(this.activity));
             this.erx.invalidate();
         }

@@ -14,12 +14,12 @@ class x implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean aoz;
+        boolean aoC;
         boolean z;
         if (this.cMQ.cMj == null || this.cMQ.cMj.trim().length() < 1) {
             com.baidu.adp.lib.util.k.a(this.cMQ.getPageContext().getPageActivity(), this.cMQ.cLO);
-            aoz = this.cMQ.aoz();
-            if (!aoz) {
+            aoC = this.cMQ.aoC();
+            if (!aoC) {
                 this.cMQ.showToast(this.cMQ.getResources().getString(t.j.write_keyword));
             }
         } else if (this.cMQ.mMode != 0) {
@@ -36,7 +36,7 @@ class x implements View.OnClickListener {
         } else {
             z = this.cMQ.aqS;
             if (z) {
-                this.cMQ.aoI();
+                this.cMQ.aoL();
             }
         }
     }

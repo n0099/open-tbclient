@@ -19,7 +19,7 @@ public class t {
         this.aWn = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c LN() {
+    public com.baidu.tbadk.editortools.emotiontool.c LP() {
         return this.aWn;
     }
 
@@ -27,11 +27,11 @@ public class t {
         this.aWi = emotionGroupType;
     }
 
-    public EmotionGroupType LO() {
+    public EmotionGroupType LQ() {
         return this.aWi;
     }
 
-    public void eu(int i) {
+    public void et(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class t {
         return this.row;
     }
 
-    public void et(int i) {
+    public void es(int i) {
         this.column = i;
     }
 
-    public int LP() {
+    public int LR() {
         return this.column;
     }
 
-    public void fD(int i) {
+    public void fC(int i) {
         this.aWp = i;
     }
 
-    public int LQ() {
+    public int LS() {
         return this.aWp;
     }
 
-    public void fE(int i) {
+    public void fD(int i) {
         this.aWo = i;
     }
 
-    public int LR() {
+    public int LT() {
         return this.aWo;
     }
 
-    public void fF(int i) {
+    public void fE(int i) {
         this.aWj = i;
     }
 
-    public int LS() {
+    public int LU() {
         return this.aWj;
     }
 
-    public void fG(int i) {
+    public void fF(int i) {
         this.aWl = i;
     }
 
-    public int LT() {
+    public int LV() {
         return this.aWl;
     }
 
@@ -91,11 +91,11 @@ public class t {
         return this.index;
     }
 
-    public void fH(int i) {
+    public void fG(int i) {
         this.aWk = i;
     }
 
-    public int LU() {
+    public int LW() {
         return this.aWk;
     }
 }

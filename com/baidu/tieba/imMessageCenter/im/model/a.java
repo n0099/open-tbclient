@@ -29,7 +29,7 @@ public class a extends CustomMessageListener {
             } else if (customResponsedMessage.getCmd() == 2001150) {
                 processHistory = this.cxq.processHistory(customResponsedMessage);
                 if ((customResponsedMessage.getOrginalMessage() instanceof LoadHistoryMessage) && processHistory && (callback = ((LoadHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                    callback.acm();
+                    callback.aco();
                 }
             }
         }

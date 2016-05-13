@@ -12,8 +12,8 @@ public class c implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         boolean canScroll;
-        int aUr;
-        int aUr2;
+        int aUx;
+        int aUx2;
         boolean z;
         this.euH.euC = false;
         int childCount = this.euH.getChildCount();
@@ -25,11 +25,11 @@ public class c implements Runnable {
             this.euH.scrollTo(0, 0);
         } else {
             int scrollX = this.euH.getScrollX();
-            aUr = this.euH.aUr();
-            if (scrollX > aUr) {
+            aUx = this.euH.aUx();
+            if (scrollX > aUx) {
                 DragHorizonScrollView dragHorizonScrollView = this.euH;
-                aUr2 = this.euH.aUr();
-                dragHorizonScrollView.scrollTo(aUr2, 0);
+                aUx2 = this.euH.aUx();
+                dragHorizonScrollView.scrollTo(aUx2, 0);
             }
         }
         z = this.euH.euD;

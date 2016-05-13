@@ -276,7 +276,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void vl() {
+    public void vm() {
         com.baidu.tbadk.core.util.at.l(this, t.d.cp_bg_line_d);
         int i = 0;
         while (true) {

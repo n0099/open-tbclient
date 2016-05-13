@@ -40,11 +40,11 @@ public class as implements View.OnClickListener {
                     axVar4 = this.aQm.aab;
                     if (!StringUtils.isNull(axVar4.getAuthor().getUserId())) {
                         axVar5 = this.aQm.aab;
-                        if (axVar5.qP() != null) {
-                            if (this.aQm.JM() != null) {
-                                by<com.baidu.tieba.card.a.l> JM = this.aQm.JM();
+                        if (axVar5.qQ() != null) {
+                            if (this.aQm.JO() != null) {
+                                by<com.baidu.tieba.card.a.l> JO = this.aQm.JO();
                                 lVar = this.aQm.aQl;
-                                JM.a(view, lVar);
+                                JO.a(view, lVar);
                             }
                             MessageManager messageManager = MessageManager.getInstance();
                             tbPageContext = this.aQm.DV;
@@ -54,7 +54,7 @@ public class as implements View.OnClickListener {
                             axVar7 = this.aQm.aab;
                             String name_show = axVar7.getAuthor().getName_show();
                             axVar8 = this.aQm.aab;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, axVar8.qP(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, axVar8.qQ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }
                 }

@@ -4,8 +4,9 @@ import com.baidu.tbadk.util.s;
 import com.baidu.tieba.im.db.l;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e extends s<Boolean> {
+public class e extends s<Boolean> {
     final /* synthetic */ ChatVoiceView csF;
     private final /* synthetic */ PersonalChatMessage csG;
     private final /* synthetic */ LinkedList val$list;
@@ -21,6 +22,6 @@ class e extends s<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
-        return Boolean.valueOf(l.aeD().a(com.baidu.tieba.im.util.h.o(this.csG), this.val$list, false));
+        return Boolean.valueOf(l.aeF().a(com.baidu.tieba.im.util.h.o(this.csG), this.val$list, false));
     }
 }

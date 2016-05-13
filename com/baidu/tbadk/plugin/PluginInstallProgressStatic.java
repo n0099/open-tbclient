@@ -23,7 +23,7 @@ public class PluginInstallProgressStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void EU() {
+    public static final void EV() {
         if (TbadkCoreApplication.m11getInst().isMainProcess(true)) {
             h.dL().removeCallbacks(avC);
             h.dL().postDelayed(avC, 120000L);
@@ -36,7 +36,7 @@ public class PluginInstallProgressStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void EV() {
+    public static final void EW() {
         if (TbadkCoreApplication.m11getInst().isMainProcess(true)) {
             ayR = false;
             h.dL().removeCallbacks(avC);

@@ -45,20 +45,20 @@ public class c {
         cmz = null;
     }
 
-    public String agE() {
+    public String agG() {
         return this.cmx;
     }
 
-    public String agF() {
+    public String agH() {
         return this.cmw;
     }
 
-    public void agG() {
+    public void agI() {
         this.cmw = null;
         this.cmx = null;
     }
 
-    public static synchronized c agH() {
+    public static synchronized c agJ() {
         c cVar;
         synchronized (c.class) {
             if (cmz == null) {
@@ -70,19 +70,19 @@ public class c {
     }
 
     public void start() {
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), agV());
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), agT());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), agX());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), agV());
     }
 
     public c() {
         this.cmu = null;
         this.cmv = null;
-        agI();
+        agK();
         this.cmv = new ArrayList();
         this.cmu = new ArrayList();
     }
 
-    private void agI() {
+    private void agK() {
         MessageManager.getInstance().registerListener(this.nT);
         MessageManager.getInstance().registerListener(this.cmA);
         MessageManager.getInstance().registerListener(this.cmB);
@@ -90,22 +90,22 @@ public class c {
         MessageManager.getInstance().registerListener(this.cmD);
     }
 
-    public void agJ() {
+    public void agL() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(4));
     }
 
     public void jB(String str) {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
-        if (agR() && System.currentTimeMillis() - this.nv > agT()) {
+        if (agT() && System.currentTimeMillis() - this.nv > agV()) {
             this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
         }
     }
 
-    public String agK() {
+    public String agM() {
         return String.valueOf(com.baidu.adp.lib.util.i.fw());
     }
 
-    public String agL() {
+    public String agN() {
         switch (com.baidu.adp.lib.util.i.fw()) {
             case 1:
                 return "wifi";
@@ -120,12 +120,12 @@ public class c {
         }
     }
 
-    public int agM() {
+    public int agO() {
         return TbadkCoreApplication.m11getInst().isInBackground() ? 2 : 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agN() {
+    public void agP() {
         if (!this.cmy) {
             if (this.cmu != null && this.cmu.size() > 0) {
                 ArrayList arrayList = new ArrayList();
@@ -159,16 +159,16 @@ public class c {
                 }
             }
             this.cmu.clear();
-            if (this.cmv.size() > agU() && agQ() && com.baidu.adp.lib.util.i.fq()) {
+            if (this.cmv.size() > agW() && agS() && com.baidu.adp.lib.util.i.fq()) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
             }
-            if (this.cmv.size() > 100 && !agR() && !agQ()) {
+            if (this.cmv.size() > 100 && !agT() && !agS()) {
                 this.cmv.clear();
             }
         }
     }
 
-    public void agO() {
+    public void agQ() {
         if (this.cmv.size() > 0) {
             this.cmy = true;
             ArrayList arrayList = new ArrayList();
@@ -187,54 +187,54 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean agP() {
-        String str;
-        com.baidu.tbadk.data.e agS = agS();
-        return (agS == null || (str = agS.anY) == null || !str.equals("1")) ? false : true;
-    }
-
-    private boolean agQ() {
-        String str;
-        com.baidu.tbadk.data.e agS = agS();
-        return agS == null || (str = agS.anW.get(agL())) == null || !str.equals("-1");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public boolean agR() {
         String str;
-        com.baidu.tbadk.data.e agS = agS();
-        return agS == null || (str = agS.anV.get(agL())) == null || !str.equals("-1");
+        com.baidu.tbadk.data.e agU = agU();
+        return (agU == null || (str = agU.anY) == null || !str.equals("1")) ? false : true;
     }
 
-    private com.baidu.tbadk.data.e agS() {
-        return com.baidu.tbadk.data.e.Ay();
+    private boolean agS() {
+        String str;
+        com.baidu.tbadk.data.e agU = agU();
+        return agU == null || (str = agU.anW.get(agN())) == null || !str.equals("-1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long agT() {
+    public boolean agT() {
         String str;
-        com.baidu.tbadk.data.e agS = agS();
-        if (agS != null && (str = agS.anV.get(agL())) != null && str.length() > 0) {
-            long c = com.baidu.adp.lib.h.b.c(str, 0L);
-            if (c > 2) {
-                return c * 1000;
-            }
-        }
-        return cmr.get(agL()).longValue() * 1000;
+        com.baidu.tbadk.data.e agU = agU();
+        return agU == null || (str = agU.anV.get(agN())) == null || !str.equals("-1");
     }
 
-    private int agU() {
-        String str;
-        int g;
-        com.baidu.tbadk.data.e agS = agS();
-        return (agS == null || (str = agS.anW.get(agL())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.h.b.g(str, 0)) < 2) ? cms.get(agL()).intValue() : g;
+    private com.baidu.tbadk.data.e agU() {
+        return com.baidu.tbadk.data.e.Az();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public long agV() {
         String str;
+        com.baidu.tbadk.data.e agU = agU();
+        if (agU != null && (str = agU.anV.get(agN())) != null && str.length() > 0) {
+            long c = com.baidu.adp.lib.h.b.c(str, 0L);
+            if (c > 2) {
+                return c * 1000;
+            }
+        }
+        return cmr.get(agN()).longValue() * 1000;
+    }
+
+    private int agW() {
+        String str;
         int g;
-        com.baidu.tbadk.data.e agS = agS();
-        return (agS == null || (str = agS.anX.get(agL())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.h.b.g(str, 0)) < 2) ? cmt.get(agL()).longValue() * 1000 : g * 1000;
+        com.baidu.tbadk.data.e agU = agU();
+        return (agU == null || (str = agU.anW.get(agN())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.h.b.g(str, 0)) < 2) ? cms.get(agN()).intValue() : g;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public long agX() {
+        String str;
+        int g;
+        com.baidu.tbadk.data.e agU = agU();
+        return (agU == null || (str = agU.anX.get(agN())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.h.b.g(str, 0)) < 2) ? cmt.get(agN()).longValue() * 1000 : g * 1000;
     }
 }

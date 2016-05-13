@@ -49,12 +49,6 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);

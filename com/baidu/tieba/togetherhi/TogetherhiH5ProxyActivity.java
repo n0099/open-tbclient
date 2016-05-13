@@ -13,7 +13,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.plugins.d;
+import com.baidu.tbadk.plugins.g;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TogetherhiH5ProxyActivity extends BaseActivity {
@@ -31,11 +31,11 @@ public class TogetherhiH5ProxyActivity extends BaseActivity {
     private void g(Intent intent) {
         Uri data = intent.getData();
         if (data == null || TextUtils.isEmpty(data.getScheme())) {
-            aYg();
+            aYn();
             return;
         }
         String scheme = intent.getScheme();
-        if (d.Fb()) {
+        if (g.Fd()) {
             if ("thactivity".equals(scheme)) {
                 ThActivityDetailActivityConfig thActivityDetailActivityConfig = new ThActivityDetailActivityConfig(getActivity());
                 thActivityDetailActivityConfig.createActivityDetailConfig(oA(data.getPath()), "FROM_H5");
@@ -48,7 +48,7 @@ public class TogetherhiH5ProxyActivity extends BaseActivity {
             finish();
             return;
         }
-        aYg();
+        aYn();
     }
 
     private String oA(String str) {
@@ -73,10 +73,10 @@ public class TogetherhiH5ProxyActivity extends BaseActivity {
         return 0L;
     }
 
-    private void aYg() {
+    private void aYn() {
         a aVar = new a(getActivity());
         aVar.cA(getResources().getString(t.j.th_plugin_not_install_tips));
         aVar.b(t.j.know, new du(this));
-        aVar.b(getPageContext()).rU();
+        aVar.b(getPageContext()).rV();
     }
 }

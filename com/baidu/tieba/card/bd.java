@@ -80,14 +80,14 @@ public class bd extends a<com.baidu.tieba.card.a.l> {
         if (this.mSkinType != i) {
             com.baidu.tbadk.core.util.at.k(getView(), t.f.home_thread_card_item_bg);
             com.baidu.tbadk.core.util.at.l(this.aOD, t.d.cp_bg_line_b);
-            this.aQp.sf();
-            this.aOO.sf();
+            this.aQp.sg();
+            this.aOO.sg();
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_home_page_normal_thread;
     }
 
@@ -122,9 +122,9 @@ public class bd extends a<com.baidu.tieba.card.a.l> {
         this.aQp.setUserAfterClickListener(this.adK);
         this.aOO.setData(lVar.aRG);
         this.aOO.setForumAfterClickListener(this.adn);
-        this.aOO.setStType(au.Kb());
-        this.aOO.setYuelaouLocate("feed#" + lVar.Kh());
-        if (StringUtils.isNull(lVar.aRG.getTitle()) || lVar.aRG.qY() == 1) {
+        this.aOO.setStType(au.Kd());
+        this.aOO.setYuelaouLocate("feed#" + lVar.Kj());
+        if (StringUtils.isNull(lVar.aRG.getTitle()) || lVar.aRG.qZ() == 1) {
             this.aOG.setVisibility(8);
         } else {
             this.aOG.setVisibility(0);
@@ -135,15 +135,15 @@ public class bd extends a<com.baidu.tieba.card.a.l> {
                 lVar.aRG.parser_title();
                 this.aOG.setText(lVar.aRG.getSpan_str());
             }
-            if (!JT()) {
-                au.a(this.aOG, lVar.Kl().getId(), t.d.cp_cont_b, t.d.cp_cont_d);
+            if (!JV()) {
+                au.a(this.aOG, lVar.Kn().getId(), t.d.cp_cont_b, t.d.cp_cont_d);
             } else {
                 com.baidu.tbadk.core.util.at.j((View) this.aOG, t.d.cp_cont_b);
             }
         }
         StringBuffer stringBuffer = new StringBuffer();
-        if (lVar.aRG.qS() != null && !StringUtils.isNull(lVar.aRG.qS())) {
-            stringBuffer.append(lVar.aRG.qS());
+        if (lVar.aRG.qT() != null && !StringUtils.isNull(lVar.aRG.qT())) {
+            stringBuffer.append(lVar.aRG.qT());
         }
         ArrayList<MediaData> medias = lVar.aRG.getMedias();
         if (medias != null) {
@@ -158,7 +158,7 @@ public class bd extends a<com.baidu.tieba.card.a.l> {
             if (stringBuffer.length() > 0) {
                 this.aOM.setText(stringBuffer.toString());
                 this.aOM.setVisibility(0);
-                if (!JT()) {
+                if (!JV()) {
                     au.a(this.aOM, lVar.aRG.getId(), t.d.cp_cont_j, t.d.cp_cont_d);
                 } else {
                     com.baidu.tbadk.core.util.at.j((View) this.aOM, t.d.cp_cont_j);
@@ -170,15 +170,15 @@ public class bd extends a<com.baidu.tieba.card.a.l> {
             this.aOM.setVisibility(8);
             i = 0;
         }
-        ArrayList<VoiceData.VoiceModel> qX = lVar.aRG.qX();
-        if (qX != null && qX.size() > 0) {
+        ArrayList<VoiceData.VoiceModel> qY = lVar.aRG.qY();
+        if (qY != null && qY.size() > 0) {
             this.aQo.setVisibility(0);
-            VoiceData.VoiceModel voiceModel = qX.get(0);
+            VoiceData.VoiceModel voiceModel = qY.get(0);
             this.aQo.setVoiceModel(voiceModel);
             this.aQo.setTag(voiceModel);
-            this.aQo.aUX();
+            this.aQo.aVd();
             if (voiceModel != null) {
-                this.aQo.jM(voiceModel.voice_status.intValue());
+                this.aQo.jL(voiceModel.voice_status.intValue());
             }
             z = true;
         } else {
@@ -217,8 +217,8 @@ public class bd extends a<com.baidu.tieba.card.a.l> {
                     i8 = i2;
                 }
                 this.aON.setVisibility(0);
-                this.aON.a(lVar.aRG, lVar.aRG.qP(), new StringBuilder(String.valueOf(lVar.aRG.getFid())).toString(), lVar.aRG.getTid());
-                this.aON.setShowBig(com.baidu.tbadk.core.util.az.uf().uh());
+                this.aON.a(lVar.aRG, lVar.aRG.qQ(), new StringBuilder(String.valueOf(lVar.aRG.getFid())).toString(), lVar.aRG.getTid());
+                this.aON.setShowBig(com.baidu.tbadk.core.util.az.ug().ui());
                 this.aON.a(this.DV, mediaDataArr, i6);
                 this.aON.setFromCDN(this.Zv);
                 this.aON.setImageFrom("other");
@@ -228,10 +228,10 @@ public class bd extends a<com.baidu.tieba.card.a.l> {
         } else {
             this.aON.setVisibility(8);
         }
-        Kc();
+        Ke();
     }
 
-    private void Kc() {
+    private void Ke() {
         if (!this.aQq.aqS) {
             this.aON.setOnChildClickListener(this.aQt);
             this.aQo.setClickable(false);
@@ -267,17 +267,17 @@ public class bd extends a<com.baidu.tieba.card.a.l> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kd() {
+    public void Kf() {
         if (this.aQq != null && this.aQq.aRG != null) {
-            if (!JT()) {
+            if (!JV()) {
                 au.hb(this.aQq.aRG.getId());
             }
-            this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aQq.aRG, this.aQq.aRG.qP(), au.Kb(), 18003, true, false, false).addLocateParam(this.aQq.Ki()).addFrom(getClass().getName())));
+            this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.DV.getPageActivity()).createFromThreadCfg(this.aQq.aRG, this.aQq.aRG.qQ(), au.Kd(), 18003, true, false, false).addLocateParam(this.aQq.Kk()).addFrom(getClass().getName())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean JT() {
+    public boolean JV() {
         return this.aQq.aRY && !this.aQq.aqS;
     }
 

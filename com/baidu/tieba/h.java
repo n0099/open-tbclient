@@ -14,6 +14,6 @@ class h implements Runnable {
         LogoActivity logoActivity;
         fVar = this.aGT.aGS;
         logoActivity = fVar.aGQ;
-        logoActivity.HK();
+        logoActivity.HM();
     }
 }

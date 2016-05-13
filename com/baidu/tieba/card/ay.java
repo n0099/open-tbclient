@@ -12,7 +12,7 @@ public class ay implements FrsCommonImageLayout.b {
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.b
-    public void cY(int i) {
-        this.aQv.Kd();
+    public void cX(int i) {
+        this.aQv.Kf();
     }
 }

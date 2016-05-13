@@ -30,13 +30,13 @@ public class v implements CustomMessageTask.CustomRunnable<String> {
             return null;
         }
         try {
-            com.baidu.tieba.im.db.g.aet().aeu();
-            com.baidu.tieba.im.db.i.aex().a(this.cnH, 3);
-            com.baidu.tieba.im.db.c.aep().b(this.cnI.getGroupId(), String.valueOf(this.cnI.getRecordId()), String.valueOf(this.cnI.getMsgId()), this.cnI.getLocalData().getStatus().shortValue());
+            com.baidu.tieba.im.db.g.aev().aew();
+            com.baidu.tieba.im.db.i.aez().a(this.cnH, 3);
+            com.baidu.tieba.im.db.c.aer().b(this.cnI.getGroupId(), String.valueOf(this.cnI.getRecordId()), String.valueOf(this.cnI.getMsgId()), this.cnI.getLocalData().getStatus().shortValue());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            com.baidu.tieba.im.db.g.aet().endTransaction();
+            com.baidu.tieba.im.db.g.aev().endTransaction();
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.cnJ);
     }

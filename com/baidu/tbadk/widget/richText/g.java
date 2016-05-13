@@ -104,7 +104,7 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public String GS() {
+    public String GU() {
         return this.aEu;
     }
 
@@ -116,7 +116,7 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         return this.mWidth;
     }
 
-    public boolean GT() {
+    public boolean GV() {
         return this.aEv;
     }
 
@@ -124,15 +124,15 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         return this.aEs;
     }
 
-    public String GU() {
+    public String GW() {
         return this.aEt;
     }
 
-    public boolean GV() {
+    public boolean GX() {
         return this.aEw;
     }
 
-    public String GW() {
+    public String GY() {
         return this.aEx;
     }
 

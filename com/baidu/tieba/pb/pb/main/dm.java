@@ -23,19 +23,19 @@ public class dm extends dk {
     }
 
     public void a(Context context, com.baidu.tieba.tbadkCore.data.i iVar, b.a aVar) {
-        if (iVar != null && iVar.aTv() == 1) {
+        if (iVar != null && iVar.aTB() == 1) {
             if (!com.baidu.adp.lib.g.c.dF().V(17)) {
                 com.baidu.tbadk.core.util.at.c(this.dmp, t.d.cp_cont_b, 1);
                 this.dmp.setVisibility(0);
                 return;
             }
             this.ddo = aVar;
-            List<com.baidu.tieba.tbadkCore.data.k> aTt = iVar.aTt();
-            if (aTt != null && aTt.size() > 0) {
+            List<com.baidu.tieba.tbadkCore.data.k> aTz = iVar.aTz();
+            if (aTz != null && aTz.size() > 0) {
                 com.baidu.adp.lib.util.k.c(context, t.e.ds320);
                 int B = (com.baidu.adp.lib.util.k.B(context) - com.baidu.adp.lib.util.k.c(context, t.e.ds104)) - com.baidu.adp.lib.util.k.c(context, t.e.ds32);
                 int i = (int) (B / 1.7777778f);
-                int m = m(aTt, B);
+                int m = m(aTz, B);
                 if (i > m) {
                     i = m;
                 }
@@ -45,13 +45,13 @@ public class dm extends dk {
                 mVar.setLayoutParams(layoutParams);
                 this.bvk.setCallback(new com.baidu.tieba.pb.d(mVar, context, aVar));
                 this.bvk.setVisibility(0);
-                if (aTt.size() > 3) {
-                    aTt = aTt.subList(0, 3);
+                if (aTz.size() > 3) {
+                    aTz = aTz.subList(0, 3);
                 }
                 this.bvk.setDisableParentEvent(false);
-                com.baidu.tieba.tbadkCore.data.k kVar = aTt.get(0);
-                if (!com.baidu.tbadk.core.util.ay.isEmpty(kVar.aTy())) {
-                    mVar.dsB.setText(kVar.aTy());
+                com.baidu.tieba.tbadkCore.data.k kVar = aTz.get(0);
+                if (!com.baidu.tbadk.core.util.ay.isEmpty(kVar.aTE())) {
+                    mVar.dsB.setText(kVar.aTE());
                     mVar.dsB.setVisibility(0);
                 } else {
                     mVar.dsB.setVisibility(8);
@@ -71,7 +71,7 @@ public class dm extends dk {
                     this.ddo.z(kVar.oU(), "IMAGE1", "VIEW_CAROUSEL");
                 }
                 this.bvk.setCoverFlowFactory(new com.baidu.tieba.pb.e(mVar, i));
-                this.bvk.setData(aTt);
+                this.bvk.setData(aTz);
                 if (this.dmo.getVisibility() == 8) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.bvk.getLayoutParams();
                     layoutParams2.setMargins(com.baidu.adp.lib.util.k.c(context, t.e.ds104), 0, com.baidu.adp.lib.util.k.c(context, t.e.ds32), com.baidu.adp.lib.util.k.c(context, t.e.ds32));

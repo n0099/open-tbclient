@@ -13,6 +13,6 @@ public class h implements Runnable {
     public void run() {
         com.baidu.tbadk.core.dialog.a aVar;
         aVar = this.dsp.dsi;
-        aVar.rU();
+        aVar.rV();
     }
 }

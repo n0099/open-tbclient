@@ -1,7 +1,7 @@
 package com.baidu.tbadk.e;
 /* loaded from: classes.dex */
 public interface a {
-    boolean CR();
+    boolean CS();
 
     void e(boolean z, String str);
 }

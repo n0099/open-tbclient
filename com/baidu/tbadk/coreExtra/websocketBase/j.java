@@ -19,8 +19,8 @@ public class j implements g.a {
         i = this.anv.anq;
         if (i >= 5) {
             com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.j.getUrl());
-            a.zR().eO(com.baidu.adp.framework.client.socket.j.getUrl());
-            a.zR().zV();
+            a.zS().eO(com.baidu.adp.framework.client.socket.j.getUrl());
+            a.zS().zW();
         }
         this.anv.anq = 0;
     }
@@ -36,7 +36,7 @@ public class j implements g.a {
             i3 = this.anv.anq;
             if (i3 >= 5) {
                 com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist");
-                this.anv.An();
+                this.anv.Ao();
             }
         }
     }

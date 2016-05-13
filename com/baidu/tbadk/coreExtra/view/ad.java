@@ -67,7 +67,7 @@ public class ad implements com.baidu.tbadk.download.d {
         u uVar = this.amC;
         bn = this.amC.bn(false);
         uVar.amv = bn;
-        this.amC.zN();
+        this.amC.zO();
     }
 
     @Override // com.baidu.tbadk.download.d
@@ -78,7 +78,7 @@ public class ad implements com.baidu.tbadk.download.d {
         String str3;
         ImageUrlData imageUrlData3;
         this.amC.amw = false;
-        BdToast.a(this.amC.mContext, str).sa().sc();
+        BdToast.a(this.amC.mContext, str).sb().sd();
         imageUrlData = this.amC.amu;
         imageUrlData.originalProcess = -1;
         imageUrlData2 = this.amC.amu;

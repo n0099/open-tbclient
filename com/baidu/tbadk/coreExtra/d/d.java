@@ -67,27 +67,27 @@ public class d {
         }
     }
 
-    public f yh() {
+    public f yi() {
         return this.ahp;
     }
 
-    public String yi() {
+    public String yj() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload yj() {
+    public CombineDownload yk() {
         return this.ahq;
     }
 
-    public VersionData yk() {
+    public VersionData yl() {
         return this.ahn;
     }
 
-    public com.baidu.tbadk.coreExtra.data.e yl() {
+    public com.baidu.tbadk.coreExtra.data.e ym() {
         return this.aho;
     }
 
-    public p ym() {
+    public p yn() {
         return this.ahs;
     }
 }

@@ -23,7 +23,7 @@ public class bs extends CustomMessageListener {
         com.baidu.tieba.card.a.n nVar2;
         com.baidu.tieba.card.a.n nVar3;
         com.baidu.tieba.card.a.n nVar4;
-        boolean JT;
+        boolean JV;
         com.baidu.tieba.card.a.n nVar5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
             nVar = this.aQP.aPR;
@@ -34,8 +34,8 @@ public class bs extends CustomMessageListener {
                     if (nVar3.aRZ.getTid() != null && this.aQP.aQO != null && this.aQP.aQO.mTextTitle != null) {
                         nVar4 = this.aQP.aPR;
                         if (((String) customResponsedMessage.getData()).equals(nVar4.aRZ.getTid())) {
-                            JT = this.aQP.JT();
-                            if (!JT) {
+                            JV = this.aQP.JV();
+                            if (!JV) {
                                 TextView textView = this.aQP.aQO.mTextTitle;
                                 nVar5 = this.aQP.aPR;
                                 au.a(textView, nVar5.aRZ.getId(), t.d.cp_cont_b, t.d.cp_cont_d);

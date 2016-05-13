@@ -20,7 +20,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
     private int cwD;
     private int cwE;
     private HeadImageView cwF;
-    private a fcw;
+    private a fcv;
     private final Context mContext;
 
     /* loaded from: classes.dex */
@@ -36,7 +36,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         this.bNW = 4;
         this.aTj = new o(this);
         this.mContext = context;
-        vk();
+        vl();
     }
 
     public AtSelectFriendList(Context context, AttributeSet attributeSet) {
@@ -47,7 +47,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         this.bNW = 4;
         this.aTj = new o(this);
         this.mContext = context;
-        vk();
+        vl();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -57,10 +57,10 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setItemOPerationHandler(a aVar) {
-        this.fcw = aVar;
+        this.fcv = aVar;
     }
 
-    private void vk() {
+    private void vl() {
         this.Vr = this.mContext.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_item_width);
         this.cwD = this.mContext.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_item_height);
         this.cwE = this.mContext.getResources().getDimensionPixelSize(t.e.invite_friend_candidate_item_margin);
@@ -71,30 +71,30 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         this.cwC.setLayoutParams(layoutParams);
         this.cwC.setHorizontalScrollBarEnabled(true);
         this.cwC.setOrientation(0);
-        aky();
+        akA();
         addView(this.cwC);
         setSmoothScrollingEnabled(true);
         setFocusable(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aky() {
+    public void akA() {
         if (this.cwF == null) {
-            this.cwF = akC();
+            this.cwF = akE();
             this.cwF.setDrawBorder(false);
         }
-        this.cwF.setImageBitmap(com.baidu.tbadk.core.util.at.cA(t.f.icon_add_pop));
+        this.cwF.setImageBitmap(com.baidu.tbadk.core.util.at.cz(t.f.icon_add_pop));
         this.cwC.addView(this.cwF);
     }
 
-    private void akz() {
-        if (akA()) {
+    private void akB() {
+        if (akC()) {
             this.cwC.removeView(this.cwF);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean akA() {
+    public boolean akC() {
         int childCount = this.cwC.getChildCount();
         return childCount > 0 && this.cwC.getChildAt(childCount + (-1)) == this.cwF;
     }
@@ -102,18 +102,18 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(MetaData metaData) {
         if (getItemLength() < this.bNW) {
-            HeadImageView akC = akC();
-            akC.setIsRound(false);
-            akC.c(metaData.getPortrait(), 12, false);
-            if (akA()) {
-                akC.setTag(metaData);
-                akC.setOnClickListener(this.aTj);
-                this.cwC.addView(akC, getItemLength());
+            HeadImageView akE = akE();
+            akE.setIsRound(false);
+            akE.c(metaData.getPortrait(), 12, false);
+            if (akC()) {
+                akE.setTag(metaData);
+                akE.setOnClickListener(this.aTj);
+                this.cwC.addView(akE, getItemLength());
                 scrollTo(getItemLength() * (this.Vr + this.cwE), 0);
                 this.cwC.requestLayout();
             }
             if (getItemLength() >= this.bNW) {
-                akz();
+                akB();
             }
         }
     }
@@ -155,13 +155,13 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         View findViewWithTag = this.cwC.findViewWithTag(metaData);
         if (findViewWithTag != null) {
             this.cwC.removeView(findViewWithTag);
-            if (!akA()) {
-                aky();
+            if (!akC()) {
+                akA();
             }
         }
     }
 
-    private HeadImageView akC() {
+    private HeadImageView akE() {
         HeadImageView headImageView = new HeadImageView(this.mContext);
         headImageView.setIsRound(false);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.Vr, this.cwD);
@@ -173,6 +173,6 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getItemLength() {
-        return akA() ? this.cwC.getChildCount() - 1 : this.cwC.getChildCount();
+        return akC() ? this.cwC.getChildCount() - 1 : this.cwC.getChildCount();
     }
 }

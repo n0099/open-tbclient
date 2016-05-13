@@ -48,11 +48,11 @@ public class b {
         this.status = i;
     }
 
-    public int aeg() {
+    public int aei() {
         return this.cfa;
     }
 
-    public void iY(int i) {
+    public void iX(int i) {
         this.cfa = i;
     }
 }

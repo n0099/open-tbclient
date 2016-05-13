@@ -63,11 +63,11 @@ public class c {
         }
     }
 
-    public void fh(int i) {
+    public void fg(int i) {
         if (i >= 0) {
             if (this.aFN != null) {
-                int Hy = this.aFN.Hy();
-                i = ((Hy <= 100 ? Hy : 100) * i) / 100;
+                int HA = this.aFN.HA();
+                i = ((HA <= 100 ? HA : 100) * i) / 100;
             }
             ViewGroup.LayoutParams layoutParams = this.aFK.getLayoutParams();
             if (layoutParams == null) {
@@ -86,21 +86,21 @@ public class c {
         if (aVar == null) {
             return 0;
         }
-        if (aVar.Hx() <= 0) {
+        if (aVar.Hz() <= 0) {
             this.aFJ.setImageDrawable(null);
             this.aFJ.setVisibility(8);
             intrinsicWidth = 0;
         } else {
-            Drawable drawable = at.getDrawable(aVar.Hx());
+            Drawable drawable = at.getDrawable(aVar.Hz());
             this.aFJ.setImageDrawable(drawable);
             intrinsicWidth = drawable.getIntrinsicWidth() + this.aFI.getResources().getDimensionPixelSize(t.e.ds24);
             this.aFJ.setVisibility(0);
         }
-        if (StringUtils.isNull(aVar.Hu())) {
+        if (StringUtils.isNull(aVar.Hw())) {
             this.title.setText((CharSequence) null);
             this.title.setVisibility(8);
         } else {
-            this.title.setText(UtilHelper.getFixedText(aVar.Hu(), 15, false));
+            this.title.setText(UtilHelper.getFixedText(aVar.Hw(), 15, false));
             this.title.setVisibility(0);
         }
         if (aVar.isSelected()) {
@@ -108,8 +108,8 @@ public class c {
         } else {
             at.l(this.aFM, t.d.vote_progress_unselected_color);
         }
-        boolean isNull = StringUtils.isNull(aVar.Hv());
-        boolean isNull2 = StringUtils.isNull(aVar.Hw());
+        boolean isNull = StringUtils.isNull(aVar.Hx());
+        boolean isNull2 = StringUtils.isNull(aVar.Hy());
         if (isNull && isNull2) {
             this.aFL.setText((CharSequence) null);
             this.aFL.setVisibility(8);
@@ -117,13 +117,13 @@ public class c {
         } else {
             this.aFL.setVisibility(0);
             if (isNull) {
-                string = aVar.Hw();
+                string = aVar.Hy();
                 this.aFL.setText(string);
             } else if (isNull2) {
-                string = aVar.Hv();
+                string = aVar.Hx();
                 this.aFL.setText(string);
             } else {
-                string = TbadkCoreApplication.m11getInst().getString(t.j.vote_number_text, new Object[]{aVar.Hv(), aVar.Hw()});
+                string = TbadkCoreApplication.m11getInst().getString(t.j.vote_number_text, new Object[]{aVar.Hx(), aVar.Hy()});
                 this.aFL.setText(string);
             }
         }
@@ -151,8 +151,8 @@ public class c {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aFN != null && this.aFN.Hx() > 0) {
-            at.b(this.aFJ, this.aFN.Hx(), i);
+        if (this.aFN != null && this.aFN.Hz() > 0) {
+            at.b(this.aFJ, this.aFN.Hz(), i);
         }
         at.c(this.title, t.d.cp_cont_b, 1);
         at.c(this.aFL, this.aFP, 1);

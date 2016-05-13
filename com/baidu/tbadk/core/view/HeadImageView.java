@@ -70,11 +70,11 @@ public class HeadImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void uR() {
+    public void uS() {
         if (!this.aBW) {
             this.aBW = true;
         } else if (this.aBZ != null && this.aBZ.axv) {
-            this.aBZ.EF();
+            this.aBZ.EG();
         }
     }
 }

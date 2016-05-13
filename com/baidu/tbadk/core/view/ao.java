@@ -40,7 +40,7 @@ class ao implements View.OnClickListener {
                     axVar4 = this.adQ.aab;
                     if (!StringUtils.isNull(axVar4.getAuthor().getUserId())) {
                         axVar5 = this.adQ.aab;
-                        if (axVar5.qP() != null) {
+                        if (axVar5.qQ() != null) {
                             MessageManager messageManager = MessageManager.getInstance();
                             context = this.adQ.mContext;
                             axVar6 = this.adQ.aab;
@@ -48,7 +48,7 @@ class ao implements View.OnClickListener {
                             axVar7 = this.adQ.aab;
                             String name_show = axVar7.getAuthor().getName_show();
                             axVar8 = this.adQ.aab;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, axVar8.qP(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, axVar8.qQ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                             onClickListener = this.adQ.adK;
                             if (onClickListener != null) {
                                 onClickListener2 = this.adQ.adK;

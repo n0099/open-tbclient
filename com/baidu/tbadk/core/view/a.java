@@ -53,7 +53,7 @@ public class a extends CustomMessageListener {
                     }
                 }
                 if (downloadData2 != null) {
-                    this.ZS.cF((int) ((downloadData2.getLength() * 100) / downloadData2.getSize()));
+                    this.ZS.cE((int) ((downloadData2.getLength() * 100) / downloadData2.getSize()));
                     this.ZS.postInvalidate();
                 }
             }

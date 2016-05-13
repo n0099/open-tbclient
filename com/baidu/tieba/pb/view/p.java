@@ -27,7 +27,7 @@ class p implements SeekBar.OnSeekBarChangeListener {
         MediaController.MediaPlayerControl mediaPlayerControl2;
         TextView textView;
         TextView textView2;
-        String mf;
+        String me;
         if (z) {
             mediaPlayerControl = this.dsP.dsG;
             long duration = (mediaPlayerControl.getDuration() * i) / 10000;
@@ -36,8 +36,8 @@ class p implements SeekBar.OnSeekBarChangeListener {
             textView = this.dsP.dsH;
             if (textView != null) {
                 textView2 = this.dsP.dsH;
-                mf = this.dsP.mf((int) duration);
-                textView2.setText(mf);
+                me = this.dsP.me((int) duration);
+                textView2.setText(me);
             }
         }
     }
@@ -46,7 +46,7 @@ class p implements SeekBar.OnSeekBarChangeListener {
     public void onStopTrackingTouch(SeekBar seekBar) {
         Handler handler;
         this.dsP.dsJ = false;
-        this.dsP.aAP();
+        this.dsP.aAS();
         handler = this.dsP.mHandler;
         handler.sendEmptyMessage(1);
     }

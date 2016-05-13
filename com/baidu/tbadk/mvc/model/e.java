@@ -14,7 +14,7 @@ public class e implements Runnable {
         this.this$0 = netModel;
     }
 
-    static /* synthetic */ int[] DF() {
+    static /* synthetic */ int[] DG() {
         int[] iArr = avD;
         if (iArr == null) {
             iArr = new int[NetModel.NetModelType.valuesCustom().length];
@@ -45,9 +45,9 @@ public class e implements Runnable {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
-        int[] DF = DF();
+        int[] DG = DG();
         netModelType = this.this$0.avu;
-        switch (DF[netModelType.ordinal()]) {
+        switch (DG[netModelType.ordinal()]) {
             case 1:
             case 4:
                 NetModel netModel = this.this$0;

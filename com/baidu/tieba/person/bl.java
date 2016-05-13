@@ -11,6 +11,6 @@ class bl implements BaseViewPager.a {
     }
 
     @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-    public void cG(int i) {
+    public void cF(int i) {
     }
 }

@@ -104,7 +104,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = f.sW();
+        this.customToast = f.sX();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -357,19 +357,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i).sc();
+        BdToast.b(getActivity(), str, i).sd();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2).sc();
+        BdToast.a(getActivity(), str, i, i2).sd();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).sc();
+        BdToast.a(getActivity(), str, defaultIcon).sd();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).sc();
+        BdToast.a(getActivity(), str, defaultIcon, i).sd();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -524,10 +524,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
 
     protected void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.sf();
+            this.loadingView.sg();
         }
         if (this.refreshView != null) {
-            this.refreshView.sf();
+            this.refreshView.sg();
         }
         if (this.mSwipeBackLayout != null) {
             this.mSwipeBackLayout.onChangeSkinType(i);
@@ -793,7 +793,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.CS();
+        return this.loadingView.CT();
     }
 
     public void hideLoadingView(View view) {
@@ -821,8 +821,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     protected void setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(boolean z) {
-        if (this.refreshView != null && this.refreshView.CS() && this.refreshView.CY() != null && (this.refreshView.CY().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ((ViewGroup.MarginLayoutParams) this.refreshView.CY().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        if (this.refreshView != null && this.refreshView.CT() && this.refreshView.CZ() != null && (this.refreshView.CZ().getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ((ViewGroup.MarginLayoutParams) this.refreshView.CZ().getLayoutParams()).topMargin = z ? BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT, false) : BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         }
     }
 

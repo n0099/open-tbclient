@@ -28,7 +28,7 @@ public class b {
     private b() {
     }
 
-    public static b AQ() {
+    public static b AR() {
         synchronized (b.class) {
             if (aoI == null) {
                 aoI = new b();
@@ -62,7 +62,7 @@ public class b {
 
     public void g(DownloadData downloadData) {
         if (downloadData != null) {
-            List<DownloadData> hZ = e.AT().hZ();
+            List<DownloadData> hZ = e.AU().hZ();
             if (hZ != null && hZ.size() >= 5) {
                 downloadData.setStatus(2);
                 downloadData.setStatusMsg(TbadkCoreApplication.m11getInst().getApp().getString(t.j.download_fail_over_max));
@@ -71,12 +71,12 @@ public class b {
                 return;
             }
             aoM.add(downloadData);
-            AR();
+            AS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AR() {
+    public void AS() {
         if (aoL == null && !aoM.isEmpty()) {
             aoL = aoM.get(0);
             if (aoL != null) {
@@ -162,7 +162,7 @@ public class b {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            for (DownloadData downloadData : e.AT().hZ()) {
+            for (DownloadData downloadData : e.AU().hZ()) {
                 Iterator<com.baidu.tbadk.core.data.c> it = this.aoO.iterator();
                 while (it.hasNext()) {
                     if (TextUtils.equals(it.next().MS, downloadData.getId())) {
@@ -244,7 +244,7 @@ public class b {
                         UtilHelper.install_apk(TbadkCoreApplication.m11getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
                     }
                 } else {
-                    e.AT().a(downloadData, 5);
+                    e.AU().a(downloadData, 5);
                     int al = b.this.al(downloadData.getId(), downloadData.getName());
                     if (downloadData.isNeedNotify() && al <= 0) {
                         String string = TbadkCoreApplication.m11getInst().getApp().getResources().getString(t.j.download_will_begin);
@@ -256,7 +256,7 @@ public class b {
                 b.aoL = null;
                 if (!b.aoM.isEmpty()) {
                     b.aoM.remove(0);
-                    b.this.AR();
+                    b.this.AS();
                 }
             }
         }
@@ -303,7 +303,7 @@ public class b {
     }
 
     public boolean fa(String str) {
-        for (DownloadData downloadData : e.AT().hZ()) {
+        for (DownloadData downloadData : e.AU().hZ()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
             }
@@ -324,7 +324,7 @@ public class b {
     }
 
     public boolean fb(String str) {
-        for (DownloadData downloadData : e.AT().hZ()) {
+        for (DownloadData downloadData : e.AU().hZ()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
                 return true;
             }
@@ -335,15 +335,15 @@ public class b {
     public void e(String str, String str2, boolean z) {
         if (!StringUtils.isNull(str)) {
             DownloadData downloadData = null;
-            for (DownloadData downloadData2 : e.AT().hZ()) {
+            for (DownloadData downloadData2 : e.AU().hZ()) {
                 if (downloadData2.getId() != null && downloadData2.getId().equals(str2)) {
                     downloadData = downloadData2;
                 }
             }
             if (z) {
-                e.AT().r(str, true);
+                e.AU().r(str, true);
             } else {
-                e.AT().fe(str);
+                e.AU().fe(str);
             }
             if (downloadData != null) {
                 int al = al(downloadData.getId(), downloadData.getName());
@@ -357,7 +357,7 @@ public class b {
 
     public void fc(String str) {
         if (!StringUtils.isNull(str)) {
-            e.AT().fe(str);
+            e.AU().fe(str);
         }
     }
 

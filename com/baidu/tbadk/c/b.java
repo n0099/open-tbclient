@@ -33,7 +33,7 @@ public abstract class b extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aN(int i) {
+    public void aM(int i) {
         Bundle bundle = new Bundle();
         this.Ld = !nC() && i.fq();
         bundle.putBoolean("is_enable_edit", this.Ld);

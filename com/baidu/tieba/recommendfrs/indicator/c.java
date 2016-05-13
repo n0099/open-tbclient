@@ -18,7 +18,7 @@ public class c extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         int intValue;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016327 && (customResponsedMessage.getData() instanceof Integer) && com.baidu.tieba.recommendfrs.control.a.q.aMp().cyC == (intValue = ((Integer) customResponsedMessage.getData()).intValue()) && intValue == com.baidu.tieba.recommendfrs.control.a.q.aMp().dZI && com.baidu.tieba.recommendfrs.control.a.q.aMp().dZJ != 0) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016327 && (customResponsedMessage.getData() instanceof Integer) && com.baidu.tieba.recommendfrs.control.a.q.aMs().cyC == (intValue = ((Integer) customResponsedMessage.getData()).intValue()) && intValue == com.baidu.tieba.recommendfrs.control.a.q.aMs().dZI && com.baidu.tieba.recommendfrs.control.a.q.aMs().dZJ != 0) {
             this.eas.iR(false);
         }
     }

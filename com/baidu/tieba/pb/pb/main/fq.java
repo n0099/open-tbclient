@@ -28,7 +28,7 @@ public class fq implements View.OnClickListener {
         if (pbActivity.checkUpIsLogin()) {
             lVar = this.dpu.BV;
             if (lVar != null) {
-                this.dpu.ayS();
+                this.dpu.ayV();
             }
             lVar2 = this.dpu.BV;
             if (lVar2 != null) {
@@ -36,7 +36,7 @@ public class fq implements View.OnClickListener {
                 pbActivity2 = this.dpu.dhY;
                 lVar3 = this.dpu.BV;
                 interfaceC0073a = this.dpu.doS;
-                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) lVar3.ei(3).aps, false, interfaceC0073a);
+                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) lVar3.eh(3).aps, false, interfaceC0073a);
             }
             view2 = this.dpu.doq;
             if (view2 != null) {
@@ -44,7 +44,7 @@ public class fq implements View.OnClickListener {
                 view3.setVisibility(8);
                 this.dpu.dov = false;
             }
-            this.dpu.axv();
+            this.dpu.axy();
             return;
         }
         com.baidu.tbadk.core.util.aw s = new com.baidu.tbadk.core.util.aw("c10517").s("obj_locate", 2);

@@ -24,16 +24,16 @@ public class d extends com.baidu.adp.framework.listener.e {
         if ((socketResponsedMessage instanceof ResponseUpdateForumMask) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateForumMask)) {
             RequestUpdateForumMask requestUpdateForumMask = (RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage();
             boolean flag = requestUpdateForumMask != null ? requestUpdateForumMask.getFlag() : false;
-            int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgChat();
-            int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgReplyme();
-            int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgAtme();
-            int xp = com.baidu.tbadk.coreExtra.messageCenter.a.xi().xp();
-            com.baidu.tbadk.coreExtra.d.e xD = com.baidu.tbadk.coreExtra.messageCenter.a.xi().xD();
-            if (xD != null && flag) {
-                i = xD.yN();
+            int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgChat();
+            int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgReplyme();
+            int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgAtme();
+            int xq = com.baidu.tbadk.coreExtra.messageCenter.a.xj().xq();
+            com.baidu.tbadk.coreExtra.d.e xE = com.baidu.tbadk.coreExtra.messageCenter.a.xj().xE();
+            if (xE != null && flag) {
+                i = xE.yO();
             }
             textView = this.ctz.amh;
-            ImMessageCenterDelegateStatic.r(textView, (((msgChat - i) + msgReplyme) + msgAtme) - xp);
+            ImMessageCenterDelegateStatic.r(textView, (((msgChat - i) + msgReplyme) + msgAtme) - xq);
         }
     }
 }

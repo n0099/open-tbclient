@@ -72,7 +72,7 @@ public class cz extends BaseAdapter {
         ceVar.biP.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         ceVar.biP.c(feedForumData.getAvatar(), 15, false);
         ceVar.aOG.setText(feedForumData.getForumName());
-        ceVar.biQ.setText(String.format(this.Do.getPageActivity().getString(t.j.attention_post_count), gp(feedForumData.getMemberCount()), gp(feedForumData.getPostNum())));
+        ceVar.biQ.setText(String.format(this.Do.getPageActivity().getString(t.j.attention_post_count), go(feedForumData.getMemberCount()), go(feedForumData.getPostNum())));
         ceVar.biR.setText(feedForumData.getReason());
         if (feedForumData.getIsLike() == 0) {
             ceVar.biS.setClickable(true);
@@ -115,7 +115,7 @@ public class cz extends BaseAdapter {
         }
     }
 
-    private String gp(int i) {
+    private String go(int i) {
         if (i < 0) {
             return "0";
         }

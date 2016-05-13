@@ -38,7 +38,7 @@ public class h extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fm */
+    /* renamed from: fl */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
         if (this.aJI == null || i < 0 || i >= this.aJI.size()) {
             return null;
@@ -62,7 +62,7 @@ public class h extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.yV()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) {
+        if (!TextUtils.isEmpty(item.yW()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) {
             return 0;
         }
         return 1;
@@ -88,8 +88,8 @@ public class h extends BaseAdapter {
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.yV() != null) {
-                bVar.aJU.setText(item.yV());
+            if (item.yW() != null) {
+                bVar.aJU.setText(item.yW());
             }
             at.c(bVar.aJU, this.aJM, 1);
             at.l(bVar.SI, t.d.cp_bg_line_b);

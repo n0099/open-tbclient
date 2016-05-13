@@ -23,7 +23,7 @@ class d implements View.OnClickListener {
         com.baidu.tbadk.core.util.TiebaStatic.log(new aw("c10793"));
         Intent intent = new Intent();
         intent.putExtra("class", 30);
-        intent.putExtra("jump_url", "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + com.baidu.tieba.b.a.Lf().Lm());
+        intent.putExtra("jump_url", "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + com.baidu.tieba.b.a.Lh().Lo());
         intent.putExtra("is_ad", true);
         TbadkCoreApplication.setIntent(intent);
         com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
@@ -33,6 +33,6 @@ class d implements View.OnClickListener {
         logoActivity2 = this.aGR.aGQ;
         logoActivity2.aGH = true;
         logoActivity3 = this.aGR.aGQ;
-        logoActivity3.HI();
+        logoActivity3.HK();
     }
 }

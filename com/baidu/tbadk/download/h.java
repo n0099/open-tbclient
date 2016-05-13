@@ -22,7 +22,7 @@ public class h {
     private static List<DownloadData> apb = new LinkedList();
     private SparseArray<c> aoZ = new SparseArray<>();
 
-    public static h AY() {
+    public static h AZ() {
         synchronized (h.class) {
             if (aoY == null) {
                 aoY = new h();
@@ -32,7 +32,7 @@ public class h {
     }
 
     private h() {
-        AZ();
+        Ba();
     }
 
     public void b(String str, String str2, String str3, int i, int i2) {
@@ -52,11 +52,11 @@ public class h {
     private void o(DownloadData downloadData) {
         if (downloadData != null) {
             apb.add(downloadData);
-            AR();
+            AS();
         }
     }
 
-    private void AR() {
+    private void AS() {
         if (apa == null && !apb.isEmpty()) {
             apa = apb.get(0);
             if (apa != null) {
@@ -72,17 +72,17 @@ public class h {
     }
 
     private String z(String str, int i) {
-        c ed = ed(i);
+        c ec = ec(i);
         StringBuilder sb = new StringBuilder();
-        sb.append(ed.aoQ).append("/").append(ed.aoR).append("/").append(str);
-        if (!StringUtils.isNull(ed.aoS)) {
-            sb.append(".").append(ed.aoS);
+        sb.append(ec.aoQ).append("/").append(ec.aoR).append("/").append(str);
+        if (!StringUtils.isNull(ec.aoS)) {
+            sb.append(".").append(ec.aoS);
         }
         return sb.toString();
     }
 
-    public void ec(int i) {
-        List<DownloadData> hZ = e.AT().hZ();
+    public void eb(int i) {
+        List<DownloadData> hZ = e.AU().hZ();
         if (hZ != null && hZ.size() != 0) {
             for (DownloadData downloadData : hZ) {
                 if (downloadData.getType() == i) {
@@ -124,12 +124,12 @@ public class h {
                     UtilHelper.install_apk(TbadkCoreApplication.m11getInst().getApp(), downloadData.getPath());
                 }
             } else {
-                e.AT().a(downloadData, ed(downloadData.getType()).maxSize);
+                e.AU().a(downloadData, ec(downloadData.getType()).maxSize);
             }
             apa = null;
             if (!apb.isEmpty()) {
                 apb.remove(0);
-                AR();
+                AS();
             }
         }
     }
@@ -180,7 +180,7 @@ public class h {
     }
 
     public boolean ff(String str) {
-        for (DownloadData downloadData : e.AT().hZ()) {
+        for (DownloadData downloadData : e.AU().hZ()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
             }
@@ -189,7 +189,7 @@ public class h {
     }
 
     public boolean fb(String str) {
-        for (DownloadData downloadData : e.AT().hZ()) {
+        for (DownloadData downloadData : e.AU().hZ()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
                 return true;
             }
@@ -199,12 +199,12 @@ public class h {
 
     public void A(String str, int i) {
         DownloadData downloadData = null;
-        for (DownloadData downloadData2 : e.AT().hZ()) {
+        for (DownloadData downloadData2 : e.AU().hZ()) {
             if (downloadData2.getId() != null && downloadData2.getId().equals(str)) {
                 downloadData = downloadData2;
             }
         }
-        e.AT().y(str, i);
+        e.AU().y(str, i);
         if (downloadData != null) {
             int al = al(downloadData.getId(), downloadData.getName());
             String str2 = String.valueOf(al) + "%";
@@ -250,7 +250,7 @@ public class h {
         this.aoZ.put(i, cVar);
     }
 
-    public c ed(int i) {
+    public c ec(int i) {
         c cVar = this.aoZ.get(i);
         if (cVar == null) {
             return this.aoZ.get(10);
@@ -258,9 +258,9 @@ public class h {
         return cVar;
     }
 
-    private void AZ() {
+    private void Ba() {
         c cVar = new c();
-        cVar.aoQ = new File(m.sZ());
+        cVar.aoQ = new File(m.ta());
         cVar.aoR = "common";
         cVar.aoS = "";
         this.aoZ.put(10, cVar);

@@ -29,9 +29,9 @@ public class c extends g implements CommonTabWidgetView.a {
 
     /* loaded from: classes.dex */
     public interface a {
-        void Cs();
-
         void Ct();
+
+        void Cu();
 
         void c(b bVar);
     }
@@ -103,7 +103,7 @@ public class c extends g implements CommonTabWidgetView.a {
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabWidgetView.a
-    public void ew(int i) {
+    public void ev(int i) {
         setCurrentTab(i);
     }
 
@@ -129,7 +129,7 @@ public class c extends g implements CommonTabWidgetView.a {
         super.onDetachedFromWindow();
         Iterator<b> it = this.SE.iterator();
         while (it.hasNext()) {
-            it.next().Bp();
+            it.next().Bq();
         }
     }
 

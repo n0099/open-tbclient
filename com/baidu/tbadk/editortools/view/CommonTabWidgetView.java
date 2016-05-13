@@ -19,7 +19,7 @@ public class CommonTabWidgetView extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void ew(int i);
+        void ev(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -72,7 +72,7 @@ public class CommonTabWidgetView extends LinearLayout {
 
     public void onChangeSkinType(int i) {
         at.l(this, t.d.editor_tool_container_bg);
-        this.asL.cW(i);
+        this.asL.cV(i);
         at.c(this.asM, t.f.but_face_close);
         at.l(this.asM, t.d.emotion_delete_bg);
     }

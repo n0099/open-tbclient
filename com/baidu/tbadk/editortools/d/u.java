@@ -41,13 +41,13 @@ class u implements com.baidu.tbadk.editortools.b {
                 default:
                     return;
                 case 7:
-                    this.asb.Cf().showToast(t.j.over_limit_tip);
+                    this.asb.Cg().showToast(t.j.over_limit_tip);
                     this.asa.arP = true;
                     return;
                 case 8:
-                    b = this.asa.b(this.asb.Cf(), 11001);
+                    b = this.asa.b(this.asb.Cg(), 11001);
                     if (b) {
-                        this.asb.Ch();
+                        this.asb.Ci();
                         TiebaStatic.log("c10090");
                         return;
                     }
@@ -65,11 +65,11 @@ class u implements com.baidu.tbadk.editortools.b {
                 case 16:
                     z = this.asa.arP;
                     if (z) {
-                        this.asb.Cf().showToast(t.j.over_limit_tip);
+                        this.asb.Cg().showToast(t.j.over_limit_tip);
                     }
-                    b2 = this.asa.b(this.asb.Cf(), 11025);
+                    b2 = this.asa.b(this.asb.Cg(), 11025);
                     if (b2) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.asb.Cf().getPageActivity(), 12005, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.asb.Cg().getPageActivity(), 12005, true)));
                         return;
                     }
                     return;

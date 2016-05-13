@@ -15,6 +15,6 @@ public class ac implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdToast.a(this.dyg.mContext, this.dyg.mContext.getResources().getString(t.j.user_set_private)).sc();
+        BdToast.a(this.dyg.mContext, this.dyg.mContext.getResources().getString(t.j.user_set_private)).sd();
     }
 }

@@ -3,16 +3,16 @@ package com.baidu.tieba.im.db;
 public class b {
     private static b cfi = new b();
 
-    public static b aen() {
+    public static b aep() {
         return cfi;
     }
 
     private b() {
     }
 
-    public synchronized void aeo() {
-        com.baidu.tieba.im.settingcache.j.aiu().aeo();
-        com.baidu.tieba.im.settingcache.h.ait().aeo();
-        com.baidu.tieba.im.settingcache.c.air().aeo();
+    public synchronized void aeq() {
+        com.baidu.tieba.im.settingcache.j.aiw().aeq();
+        com.baidu.tieba.im.settingcache.h.aiv().aeq();
+        com.baidu.tieba.im.settingcache.c.ait().aeq();
     }
 }

@@ -28,7 +28,7 @@ public class j extends a<com.baidu.tieba.card.a.g> {
         linearLayout.addView(this.aOB.getView());
     }
 
-    public k JQ() {
+    public k JS() {
         return this.aOB;
     }
 
@@ -43,7 +43,7 @@ public class j extends a<com.baidu.tieba.card.a.g> {
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JN() {
+    public int JP() {
         return t.h.card_god_feed_unfollowed;
     }
 

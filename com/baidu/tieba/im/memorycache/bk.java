@@ -22,7 +22,7 @@ public class bk implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.agY().a(3, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        b.aha().a(3, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b

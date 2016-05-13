@@ -15,11 +15,11 @@ public class b {
         this.deW = dataRes.status_msg;
     }
 
-    public a avv() {
+    public a avy() {
         return this.deY;
     }
 
-    public LotteryUserChanceInfo avw() {
+    public LotteryUserChanceInfo avz() {
         return this.deX;
     }
 

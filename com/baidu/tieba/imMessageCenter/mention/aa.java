@@ -19,17 +19,17 @@ public class aa extends com.baidu.adp.framework.listener.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        com.baidu.tbadk.mvc.f.a.b DK;
+        com.baidu.tbadk.mvc.f.a.b DL;
         if ((socketResponsedMessage instanceof ResponseUpdateForumMask) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateForumMask)) {
             RequestUpdateForumMask requestUpdateForumMask = (RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage();
             boolean flag = requestUpdateForumMask != null ? requestUpdateForumMask.getFlag() : false;
             for (int i = 0; i < 3; i++) {
-                com.baidu.tbadk.mvc.f.a.a ke = this.cyD.ke(i);
-                if ((ke instanceof k) && (DK = ke.DK()) != null && DK.DO() != null && (DK.DO().view instanceof TextView)) {
-                    TextView textView = (TextView) DK.DO().view;
-                    int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.xi().getMsgChat();
-                    com.baidu.tbadk.coreExtra.d.e xD = com.baidu.tbadk.coreExtra.messageCenter.a.xi().xD();
-                    this.cyD.r(textView, msgChat - ((xD == null || !flag) ? 0 : xD.yN()));
+                com.baidu.tbadk.mvc.f.a.a kd = this.cyD.kd(i);
+                if ((kd instanceof k) && (DL = kd.DL()) != null && DL.DP() != null && (DL.DP().view instanceof TextView)) {
+                    TextView textView = (TextView) DL.DP().view;
+                    int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.xj().getMsgChat();
+                    com.baidu.tbadk.coreExtra.d.e xE = com.baidu.tbadk.coreExtra.messageCenter.a.xj().xE();
+                    this.cyD.r(textView, msgChat - ((xE == null || !flag) ? 0 : xE.yO()));
                 }
             }
         }

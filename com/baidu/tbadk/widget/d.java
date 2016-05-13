@@ -51,7 +51,7 @@ public class d extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
             j = this.aCi.aCb;
             uVar.xK = currentTimeMillis - j;
         }
-        this.aCi.uR();
+        this.aCi.uS();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

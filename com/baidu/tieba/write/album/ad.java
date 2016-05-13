@@ -6,26 +6,26 @@ import com.baidu.tieba.write.album.ab;
 /* loaded from: classes.dex */
 class ad implements View.OnClickListener {
     private final /* synthetic */ int Sg;
-    final /* synthetic */ ab eYJ;
-    private final /* synthetic */ ab.a eYK;
-    private final /* synthetic */ ImageFileInfo eYL;
+    final /* synthetic */ ab eYI;
+    private final /* synthetic */ ab.a eYJ;
+    private final /* synthetic */ ImageFileInfo eYK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ab abVar, ab.a aVar, int i, ImageFileInfo imageFileInfo) {
-        this.eYJ = abVar;
-        this.eYK = aVar;
+        this.eYI = abVar;
+        this.eYJ = aVar;
         this.Sg = i;
-        this.eYL = imageFileInfo;
+        this.eYK = imageFileInfo;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         z zVar;
         z zVar2;
-        zVar = this.eYJ.eYG;
-        if (zVar != null && this.eYK.eYO) {
-            zVar2 = this.eYJ.eYG;
-            zVar2.a(this.Sg, this.eYL);
+        zVar = this.eYI.eYF;
+        if (zVar != null && this.eYJ.eYN) {
+            zVar2 = this.eYI.eYF;
+            zVar2.a(this.Sg, this.eYK);
         }
     }
 }

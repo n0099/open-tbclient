@@ -25,7 +25,7 @@ public class ax extends CustomMessageListener {
         TextView textView;
         TextView textView2;
         com.baidu.tieba.card.a.l lVar4;
-        boolean JT;
+        boolean JV;
         TextView textView3;
         com.baidu.tieba.card.a.l lVar5;
         TextView textView4;
@@ -43,11 +43,11 @@ public class ax extends CustomMessageListener {
                             if (textView2 != null) {
                                 lVar4 = this.aQv.aQq;
                                 if (((String) customResponsedMessage.getData()).equals(lVar4.aRG.getTid())) {
-                                    JT = this.aQv.JT();
-                                    if (!JT) {
+                                    JV = this.aQv.JV();
+                                    if (!JV) {
                                         textView3 = this.aQv.aOG;
                                         lVar5 = this.aQv.aQq;
-                                        au.a(textView3, lVar5.Kl().getId(), t.d.cp_cont_b, t.d.cp_cont_d);
+                                        au.a(textView3, lVar5.Kn().getId(), t.d.cp_cont_b, t.d.cp_cont_d);
                                         textView4 = this.aQv.aOM;
                                         lVar6 = this.aQv.aQq;
                                         au.a(textView4, lVar6.aRG.getId(), t.d.cp_cont_j, t.d.cp_cont_d);

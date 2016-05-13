@@ -13,27 +13,27 @@ public class fx implements a {
     private int[] bnE = {t.f.icon_grade_vote_no1, t.f.icon_grade_vote_no2, t.f.icon_grade_vote_no3};
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Hx() {
+    public int Hz() {
         return this.bnz;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Hu() {
+    public String Hw() {
         return this.bnA;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Hv() {
+    public String Hx() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Hy() {
+    public int HA() {
         return this.bnB;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Hw() {
+    public String Hy() {
         return String.valueOf(this.bnB) + "%";
     }
 
@@ -71,7 +71,7 @@ public class fx implements a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Hz() {
+    public String HB() {
         return null;
     }
 

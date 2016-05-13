@@ -11,7 +11,7 @@ public class d {
     private long pid;
     private long tid;
 
-    public List<String> Eg() {
+    public List<String> Eh() {
         return this.awq;
     }
 
@@ -47,7 +47,7 @@ public class d {
         return this.pid;
     }
 
-    public long Eh() {
+    public long Ei() {
         return this.aws;
     }
 
@@ -55,7 +55,7 @@ public class d {
         this.aws = j;
     }
 
-    public boolean Ei() {
+    public boolean Ej() {
         return StringUtils.isNull(this.awr) || this.aws <= 0;
     }
 }

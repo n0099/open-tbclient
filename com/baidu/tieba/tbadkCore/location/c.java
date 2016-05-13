@@ -3,10 +3,10 @@ package com.baidu.tieba.tbadkCore.location;
 public class c {
     private static c euN;
     private a mLocationData;
-    private boolean mNoLongerShowAddress = com.baidu.tbadk.core.sharedPref.b.sQ().getBoolean("no_longer_show_address", false);
+    private boolean mNoLongerShowAddress = com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("no_longer_show_address", false);
     private long mTimeStamp;
 
-    public static c aUz() {
+    public static c aUF() {
         if (euN == null) {
             synchronized (c.class) {
                 if (euN == null) {

@@ -49,7 +49,7 @@ public class j extends c<com.baidu.tieba.person.data.g, com.baidu.tieba.person.b
             this.userId = gVar.getUserId();
             if (this.isSelf) {
                 c(hVar, gVar);
-            } else if (gVar.aCg() == 1 || (gVar.aCg() == 2 && gVar.getIsFriend() == 1)) {
+            } else if (gVar.aCj() == 1 || (gVar.aCj() == 2 && gVar.getIsFriend() == 1)) {
                 c(hVar, gVar);
             } else {
                 b(hVar, gVar);
@@ -105,50 +105,50 @@ public class j extends c<com.baidu.tieba.person.data.g, com.baidu.tieba.person.b
             hVar.dBQ.setVisibility(8);
             hVar.dBL.setText(string);
             hVar.dBR.setText(string);
-            if (com.baidu.tbadk.core.util.y.r(gVar.aCf()) > 0) {
+            if (com.baidu.tbadk.core.util.y.r(gVar.aCi()) > 0) {
                 hVar.dBO.setText(new StringBuilder(String.valueOf(gVar.getCount())).toString());
-                if (com.baidu.tbadk.core.util.y.r(gVar.aCf()) <= 3) {
+                if (com.baidu.tbadk.core.util.y.r(gVar.aCi()) <= 3) {
                     hVar.dBT.setVisibility(8);
                 } else {
                     hVar.dBT.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.c(gVar.aCf(), 0) != null) {
-                    hVar.dBF.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 0)).getForumName()));
+                if (com.baidu.tbadk.core.util.y.c(gVar.aCi(), 0) != null) {
+                    hVar.dBF.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 0)).getForumName()));
                     hVar.dBF.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.c(gVar.aCf(), 1) != null) {
-                    hVar.dBG.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 1)).getForumName()));
+                if (com.baidu.tbadk.core.util.y.c(gVar.aCi(), 1) != null) {
+                    hVar.dBG.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 1)).getForumName()));
                     hVar.dBG.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.c(gVar.aCf(), 2) != null) {
-                    hVar.dBH.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 2)).getForumName()));
+                if (com.baidu.tbadk.core.util.y.c(gVar.aCi(), 2) != null) {
+                    hVar.dBH.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 2)).getForumName()));
                     hVar.dBH.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.c(gVar.aCf(), 3) != null) {
-                    hVar.dBI.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 3)).getForumName()));
+                if (com.baidu.tbadk.core.util.y.c(gVar.aCi(), 3) != null) {
+                    hVar.dBI.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 3)).getForumName()));
                     hVar.dBI.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.c(gVar.aCf(), 4) != null) {
-                    hVar.dBJ.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 4)).getForumName()));
+                if (com.baidu.tbadk.core.util.y.c(gVar.aCi(), 4) != null) {
+                    hVar.dBJ.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 4)).getForumName()));
                     hVar.dBJ.setVisibility(0);
                 }
-                if (com.baidu.tbadk.core.util.y.c(gVar.aCf(), 5) != null) {
-                    hVar.dBK.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 5)).getForumName()));
+                if (com.baidu.tbadk.core.util.y.c(gVar.aCi(), 5) != null) {
+                    hVar.dBK.setText(ms(((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 5)).getForumName()));
                     hVar.dBK.setVisibility(0);
                 }
-                hVar.dBM.setOnClickListener(aBV());
-                hVar.dBF.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 0)));
-                hVar.dBG.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 1)));
-                hVar.dBH.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 2)));
-                hVar.dBI.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 3)));
-                hVar.dBJ.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 4)));
-                hVar.dBK.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCf(), 5)));
+                hVar.dBM.setOnClickListener(aBY());
+                hVar.dBF.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 0)));
+                hVar.dBG.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 1)));
+                hVar.dBH.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 2)));
+                hVar.dBI.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 3)));
+                hVar.dBJ.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 4)));
+                hVar.dBK.setOnClickListener(a((MyLikeForum) com.baidu.tbadk.core.util.y.c(gVar.aCi(), 5)));
             } else {
                 hVar.dBQ.setVisibility(0);
                 hVar.dBP.setVisibility(8);
                 hVar.dBM.setVisibility(8);
             }
-            hVar.dBQ.setOnClickListener(aBV());
+            hVar.dBQ.setOnClickListener(aBY());
         }
     }
 
@@ -185,7 +185,7 @@ public class j extends c<com.baidu.tieba.person.data.g, com.baidu.tieba.person.b
         this.dxI = wVar;
     }
 
-    public View.OnClickListener aBV() {
+    public View.OnClickListener aBY() {
         return new l(this);
     }
 

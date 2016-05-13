@@ -30,7 +30,7 @@ public class v implements View.OnClickListener {
             this.dZi.iQ(false);
             imageView = this.dZi.dZd;
             imageView.setVisibility(8);
-            com.baidu.tbadk.core.sharedPref.b.sQ().putBoolean("game_is_show_tip", false);
+            com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("game_is_show_tip", false);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP, false));
             MessageManager messageManager = MessageManager.getInstance();
             context2 = this.dZi.mContext;

@@ -1,66 +1,82 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.t;
+import android.support.v4.view.ViewPager;
+import android.widget.ImageView;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements com.baidu.adp.lib.guide.b {
-    private final /* synthetic */ String dkV;
-    final /* synthetic */ an exh;
+public class ao implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ ab exg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar, String str) {
-        this.exh = anVar;
-        this.dkV = str;
+    public ao(ab abVar) {
+        this.exg = abVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        ab abVar;
-        MainTabActivity mainTabActivity;
-        ab abVar2;
-        MainTabActivity mainTabActivity2;
-        ab abVar3;
-        MainTabActivity mainTabActivity3;
-        ab abVar4;
-        MainTabActivity mainTabActivity4;
-        abVar = this.exh.exg;
-        mainTabActivity = abVar.ewR;
-        TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
-        textView.setText(this.dkV);
-        textView.setGravity(17);
-        com.baidu.tbadk.core.util.at.j((View) textView, t.d.cp_cont_i);
-        abVar2 = this.exh.exg;
-        mainTabActivity2 = abVar2.ewR;
-        textView.setTextSize(0, mainTabActivity2.getResources().getDimensionPixelSize(t.e.fontsize28));
-        abVar3 = this.exh.exg;
-        mainTabActivity3 = abVar3.ewR;
-        textView.setWidth(mainTabActivity3.getResources().getDimensionPixelSize(t.e.ds300));
-        abVar4 = this.exh.exg;
-        mainTabActivity4 = abVar4.ewR;
-        textView.setHeight(mainTabActivity4.getResources().getDimensionPixelSize(t.e.ds76));
-        com.baidu.tbadk.core.util.at.k(textView, t.f.pic_sign_tip);
-        return textView;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        FragmentTabHost fragmentTabHost;
+        FragmentTabHost fragmentTabHost2;
+        FragmentTabHost fragmentTabHost3;
+        FragmentTabHost fragmentTabHost4;
+        FragmentTabHost fragmentTabHost5;
+        FragmentTabHost fragmentTabHost6;
+        FragmentTabHost fragmentTabHost7;
+        FragmentTabHost fragmentTabHost8;
+        ImageView imageView;
+        ImageView imageView2;
+        FragmentTabHost fragmentTabHost9;
+        fragmentTabHost = this.exg.aTo;
+        if (fragmentTabHost.getCurrentTabType() == 2) {
+            TiebaStatic.log("kantie_entry");
+        }
+        this.exg.aVS();
+        fragmentTabHost2 = this.exg.aTo;
+        int currentTabType = fragmentTabHost2.getCurrentTabType();
+        fragmentTabHost3 = this.exg.aTo;
+        if (currentTabType != fragmentTabHost3.ck(i).mType) {
+            fragmentTabHost9 = this.exg.aTo;
+            fragmentTabHost9.setCurrentTab(i);
+        }
+        fragmentTabHost4 = this.exg.aTo;
+        if (fragmentTabHost4.getCurrentTabType() != 1) {
+            imageView = this.exg.ewT;
+            imageView.setVisibility(8);
+            imageView2 = this.exg.dZe;
+            imageView2.setVisibility(0);
+            this.exg.jG(false);
+        } else {
+            this.exg.jG(true);
+        }
+        ab abVar = this.exg;
+        fragmentTabHost5 = this.exg.aTo;
+        abVar.dag = fragmentTabHost5.getCurrentTabType();
+        this.exg.aVO();
+        if (com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("enter_forum_edit_mode", false)) {
+            fragmentTabHost6 = this.exg.aTo;
+            if (fragmentTabHost6.getCurrentTabType() != 6) {
+                fragmentTabHost7 = this.exg.aTo;
+                if (fragmentTabHost7.getCurrentTabType() != 3) {
+                    fragmentTabHost8 = this.exg.aTo;
+                    if (fragmentTabHost8.getCurrentTabType() == 2) {
+                        TiebaStatic.log("c10098");
+                        return;
+                    }
+                    return;
+                }
+                TiebaStatic.log("c10149");
+                return;
+            }
+            TiebaStatic.log("c10150");
+        }
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int cT() {
-        return 4;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int cU() {
-        return 48;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getXOffset() {
-        return 5;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getYOffset() {
-        return 0;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

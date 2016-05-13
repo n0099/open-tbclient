@@ -17,11 +17,11 @@ public abstract class a {
         this.aoq = i4;
     }
 
-    public int AI() {
+    public int AJ() {
         return this.iconId;
     }
 
-    public int AJ() {
+    public int AK() {
         return this.aop;
     }
 }

@@ -15,6 +15,6 @@ class c implements RadioGroup.OnCheckedChangeListener {
         RadioGroup radioGroup2;
         ForbidActivity forbidActivity = this.ddx;
         radioGroup2 = this.ddx.ddq;
-        forbidActivity.lz(radioGroup2.getCheckedRadioButtonId());
+        forbidActivity.ly(radioGroup2.getCheckedRadioButtonId());
     }
 }

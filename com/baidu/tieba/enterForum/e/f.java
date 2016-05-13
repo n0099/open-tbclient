@@ -15,7 +15,7 @@ public class f extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, 
     }
 
     @Override // com.baidu.tbadk.mvc.g.b
-    public int eE(int i) {
+    public int eD(int i) {
         Object item = getItem(i);
         if (item instanceof com.baidu.tieba.tbadkCore.w) {
             if (((com.baidu.tieba.tbadkCore.w) item).getType() == 1) {

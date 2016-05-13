@@ -19,23 +19,23 @@ public interface m {
 
     void E(Context context, String str);
 
-    int Hd();
+    int Hf();
 
-    com.baidu.adp.lib.f.b<ImageView> He();
+    com.baidu.adp.lib.f.b<ImageView> Hg();
 
-    com.baidu.adp.lib.f.b<TextView> Hf();
+    com.baidu.adp.lib.f.b<TextView> Hh();
 
-    com.baidu.adp.lib.f.b<GifView> Hg();
-
-    com.baidu.adp.lib.f.b<View> Hh();
-
-    com.baidu.adp.lib.f.b<LinearLayout> Hi();
+    com.baidu.adp.lib.f.b<GifView> Hi();
 
     com.baidu.adp.lib.f.b<View> Hj();
 
+    com.baidu.adp.lib.f.b<LinearLayout> Hk();
+
+    com.baidu.adp.lib.f.b<View> Hl();
+
     void d(Context context, String str, String str2);
 
-    com.baidu.adp.lib.f.b<View> ff(int i);
+    com.baidu.adp.lib.f.b<View> fe(int i);
 
     ListView getListView();
 

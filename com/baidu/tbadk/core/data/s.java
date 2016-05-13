@@ -70,7 +70,7 @@ public class s {
         return this.Oc;
     }
 
-    public void br(int i) {
+    public void bq(int i) {
         this.Oc = i;
     }
 
@@ -110,11 +110,11 @@ public class s {
         this.Oh = j;
     }
 
-    public void bs(int i) {
+    public void br(int i) {
         this.Oj = i;
     }
 
-    public void bt(int i) {
+    public void bs(int i) {
         this.Oi = i;
     }
 
@@ -122,7 +122,7 @@ public class s {
         return this.Ok;
     }
 
-    public void bu(int i) {
+    public void bt(int i) {
         this.Ok = i;
     }
 

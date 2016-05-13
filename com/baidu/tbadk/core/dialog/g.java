@@ -60,7 +60,7 @@ public class g extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.SF.setText(hVar.sd());
+        aVar.SF.setText(hVar.se());
         if (StringUtils.isNull(hVar.getDesc())) {
             aVar.SG.setVisibility(8);
         } else {
@@ -69,7 +69,7 @@ public class g extends BaseAdapter {
         }
         aVar.SH.setChecked(hVar.isChecked());
         aVar.SH.setButtonDrawable(hVar.isChecked() ? at.getDrawable(t.f.icon_set_list_ok_s) : new ColorDrawable(t.d.transparent));
-        if (cc(i)) {
+        if (cb(i)) {
             aVar.SI.setVisibility(8);
             at.k(view, t.f.dialog_single_button_bg_selector);
         } else {
@@ -82,7 +82,7 @@ public class g extends BaseAdapter {
         return view;
     }
 
-    private boolean cc(int i) {
+    private boolean cb(int i) {
         return this.SE != null && i == this.SE.size() + (-1);
     }
 

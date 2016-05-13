@@ -52,14 +52,14 @@ public class d extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tg() {
+    public void Th() {
         this.mWebView.setVisibility(0);
         this.brC.setVisibility(8);
         this.zg.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Th() {
+    public void Ti() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.height = (com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst()) - TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds90);
         setLayoutParams(layoutParams);
@@ -72,7 +72,7 @@ public class d extends FrameLayout {
         return this.mWebView;
     }
 
-    public boolean Ti() {
+    public boolean Tj() {
         return this.avz;
     }
 

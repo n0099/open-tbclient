@@ -10,7 +10,7 @@ public class a extends com.baidu.tbadk.core.util.a {
     @Override // com.baidu.tbadk.core.util.a
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(aef());
+        arrayList.add(aeh());
         return arrayList;
     }
 
@@ -30,7 +30,7 @@ public class a extends com.baidu.tbadk.core.util.a {
         this.userName = str;
     }
 
-    public String aef() {
+    public String aeh() {
         return this.ceX;
     }
 

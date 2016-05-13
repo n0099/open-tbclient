@@ -14,7 +14,7 @@ public class av implements View.OnFocusChangeListener {
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            this.dwD.aBG();
+            this.dwD.aBJ();
         }
     }
 }

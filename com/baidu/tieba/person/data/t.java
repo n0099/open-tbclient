@@ -29,7 +29,7 @@ public class t implements v {
         this.icon = str;
     }
 
-    public String aCt() {
+    public String aCw() {
         return this.dzQ;
     }
 
@@ -37,7 +37,7 @@ public class t implements v {
         this.dzQ = str;
     }
 
-    public String aCu() {
+    public String aCx() {
         return this.dzR;
     }
 
@@ -45,7 +45,7 @@ public class t implements v {
         this.dzR = str;
     }
 
-    public List<bq.a> aCv() {
+    public List<bq.a> aCy() {
         return this.dzS;
     }
 

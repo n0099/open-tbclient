@@ -24,7 +24,7 @@ public class b implements af.b {
         ae aeVar;
         ae aeVar2;
         try {
-            a.aio().l(chatMessage);
+            a.aiq().l(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
                     VoiceMsgData v = com.baidu.tieba.im.util.h.v(chatMessage);
@@ -33,11 +33,11 @@ public class b implements af.b {
                         chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(v) + "]");
                     }
                     com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
-                    a.aio().n(chatMessage);
+                    a.aiq().n(chatMessage);
                     aeVar = this.cqG.mSendCallback;
                     if (aeVar != null) {
                         aeVar2 = this.cqG.mSendCallback;
-                        aeVar2.jH(2);
+                        aeVar2.jG(2);
                         return;
                     }
                     return;

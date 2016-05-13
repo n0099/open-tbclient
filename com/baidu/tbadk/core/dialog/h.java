@@ -14,7 +14,7 @@ public class h {
         this.SK = z;
     }
 
-    public String sd() {
+    public String se() {
         return this.tip;
     }
 

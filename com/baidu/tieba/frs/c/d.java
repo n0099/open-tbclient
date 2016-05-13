@@ -31,9 +31,9 @@ public class d implements View.OnClickListener {
         oVar = this.brR.bgq;
         if (oVar != null) {
             oVar2 = this.brR.bgq;
-            if (oVar2.avA() != null) {
+            if (oVar2.avD() != null) {
                 oVar3 = this.brR.bgq;
-                str = oVar3.avA().getName();
+                str = oVar3.avD().getName();
             }
         }
         MessageManager messageManager = MessageManager.getInstance();

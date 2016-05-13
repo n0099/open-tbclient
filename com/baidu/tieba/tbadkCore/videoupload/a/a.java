@@ -45,7 +45,7 @@ public class a {
         if (StringUtils.isNull(str) || file == null) {
             return null;
         }
-        b.aUT();
+        b.aUZ();
         VideoFinishResult videoFinishResult = new VideoFinishResult();
         String d = t.d(m.m(file));
         if (!StringUtils.isNull(d)) {
@@ -203,16 +203,16 @@ public class a {
     }
 
     private VideoBlockUploadResult a(ab abVar) {
-        int tF;
+        int tG;
         String errMsg;
         VideoBlockUploadResult videoBlockUploadResult = new VideoBlockUploadResult();
         if (this.aeP) {
-            tF = abVar.tE();
+            tG = abVar.tF();
             errMsg = abVar.getErrorString();
         } else {
-            String tf = abVar.tf();
-            if (abVar.tA().uv().nZ()) {
-                i objectWithJsonStr = i.objectWithJsonStr(tf, VideoBlockUploadResult.class);
+            String tg = abVar.tg();
+            if (abVar.tB().uw().nZ()) {
+                i objectWithJsonStr = i.objectWithJsonStr(tg, VideoBlockUploadResult.class);
                 if (objectWithJsonStr instanceof VideoBlockUploadResult) {
                     VideoBlockUploadResult videoBlockUploadResult2 = (VideoBlockUploadResult) objectWithJsonStr;
                     if (videoBlockUploadResult2.isSuccess()) {
@@ -221,20 +221,20 @@ public class a {
                         videoBlockUploadResult.upload_id = videoBlockUploadResult2.upload_id;
                         videoBlockUploadResult.video_url = videoBlockUploadResult2.video_url;
                         errMsg = errorMessage;
-                        tF = errorCode;
+                        tG = errorCode;
                     }
                 }
                 errMsg = null;
-                tF = 0;
-            } else if (abVar.tF() == 0) {
-                tF = abVar.tE();
+                tG = 0;
+            } else if (abVar.tG() == 0) {
+                tG = abVar.tF();
                 errMsg = abVar.getErrorString();
             } else {
-                tF = abVar.tF();
+                tG = abVar.tG();
                 errMsg = TbErrInfo.getErrMsg(-7);
             }
         }
-        videoBlockUploadResult.setErrorNo(tF);
+        videoBlockUploadResult.setErrorNo(tG);
         videoBlockUploadResult.setErrorMessage(errMsg);
         return videoBlockUploadResult;
     }

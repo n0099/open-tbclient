@@ -20,7 +20,7 @@ class s extends com.baidu.tbadk.core.c.o {
         return "TBHY_COMMON_Share";
     }
 
-    @com.baidu.tbadk.core.c.p(sD = TbConfig.TMP_SHARE_DIR_NAME, sE = false)
+    @com.baidu.tbadk.core.c.p(sE = TbConfig.TMP_SHARE_DIR_NAME, sF = false)
     private void share(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");

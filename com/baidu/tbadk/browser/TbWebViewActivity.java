@@ -192,7 +192,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.aUy();
+            this.jsBridge.aUE();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -250,7 +250,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 return false;
             }
             com.baidu.tieba.adkiller.b.gR(str);
-            int b = bg.us().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
+            int b = bg.ut().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -340,7 +340,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            com.baidu.tbadk.core.c.g.st().a(16, new w(this));
+            com.baidu.tbadk.core.c.g.su().a(16, new w(this));
         }
     }
 }
