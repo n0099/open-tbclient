@@ -1,33 +1,13 @@
 package com.baidu.tieba.graffiti;
 /* loaded from: classes.dex */
 public class r {
-    private int errorCode;
-    private String errorString;
-    public int height;
-    private String picId;
-    public int width;
+    public String fid;
+    public String gid;
+    public String threadId;
 
-    public String getErrorString() {
-        return this.errorString;
-    }
-
-    public void setErrorString(String str) {
-        this.errorString = str;
-    }
-
-    public int getErrorCode() {
-        return this.errorCode;
-    }
-
-    public void setErrorCode(int i) {
-        this.errorCode = i;
-    }
-
-    public void setPicId(String str) {
-        this.picId = str;
-    }
-
-    public String getPicId() {
-        return this.picId;
+    public r(String str, String str2, String str3) {
+        this.threadId = str;
+        this.fid = str2;
+        this.gid = str3;
     }
 }

@@ -2,26 +2,26 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tbadk.widget.layout.h {
-    final /* synthetic */ z cyD;
+public class ad implements com.baidu.tbadk.widget.layout.i {
+    final /* synthetic */ z ddZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(z zVar) {
-        this.cyD = zVar;
+        this.ddZ = zVar;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.h
+    @Override // com.baidu.tbadk.widget.layout.i
     public void a(View view, int i, int i2, int i3, int i4) {
         bf bfVar;
         bf bfVar2;
         if (i2 != i4) {
             int lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-            bfVar = this.cyD.cyh;
-            bfVar2 = this.cyD.cyh;
-            bfVar2.jZ(lightStatusBarHeight + com.baidu.adp.lib.util.k.c(bfVar.getPageContext().getPageActivity(), t.e.ds98) + i2);
+            bfVar = this.ddZ.ddD;
+            bfVar2 = this.ddZ.ddD;
+            bfVar2.lB(lightStatusBarHeight + com.baidu.adp.lib.util.k.c(bfVar.getPageContext().getPageActivity(), u.e.ds98) + i2);
         }
     }
 }

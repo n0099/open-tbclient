@@ -1,13 +1,13 @@
 package com.baidu.adp.newwidget.a;
 /* loaded from: classes.dex */
 public class f {
-    public static f sJ = new f();
+    public static f sK = new f();
 
     private f() {
     }
 
-    public static f gP() {
-        return sJ;
+    public static f gR() {
+        return sK;
     }
 
     public a al(int i) {
@@ -15,15 +15,17 @@ public class f {
             case 0:
                 return new c();
             case 1:
-                return new k();
+                return new l();
             case 2:
                 return new h();
             case 3:
-                return new m();
+                return new n();
             case 4:
-                return new l();
+                return new m();
             case 5:
                 return new g();
+            case 6:
+                return new j();
             default:
                 return new c();
         }

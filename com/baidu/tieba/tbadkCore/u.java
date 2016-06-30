@@ -1,28 +1,27 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import android.app.Dialog;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 /* loaded from: classes.dex */
-public class u {
-    private static boolean nN(String str) {
-        String[] stringArray = TbadkCoreApplication.m11getInst().getApp().getResources().getStringArray(t.b.voice_black_frs_list);
-        String string = TbadkCoreApplication.m11getInst().getApp().getResources().getString(t.j.forum);
-        int length = stringArray.length;
-        for (int i = 0; i < length; i++) {
-            if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {
-                return true;
-            }
-        }
-        return false;
+public class u extends Dialog {
+    private View.OnTouchListener aGb;
+    private View dq;
+    private ProgressBar mProgressBar;
+
+    @Override // android.app.Dialog
+    protected void onStop() {
+        super.onStop();
+        this.mProgressBar.setVisibility(8);
     }
 
-    public static boolean a(String str, Boolean bool) {
-        if (com.baidu.adp.lib.c.e.cS().Z("voice") == 0) {
-            if ((str == null || !nN(str)) && bool != null) {
-                return bool.booleanValue();
-            }
-            return false;
-        }
-        return false;
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(this.dq);
+        setCanceledOnTouchOutside(true);
+        setCancelable(true);
+        getWindow().getDecorView().setOnTouchListener(this.aGb);
     }
 }

@@ -1,29 +1,28 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import android.content.Context;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m {
-    private final boolean afx;
-    private final Context mContext;
-    private final int mHeight;
-    private final int mWidth;
+    private String agE;
+    private ArrayList<Object> agF;
 
-    public m(Context context, int i, int i2, boolean z) {
-        this.mContext = context;
-        this.mHeight = i;
-        this.mWidth = i2;
-        this.afx = z;
+    public m() {
+        l(new ArrayList<>());
     }
 
-    public Context getContext() {
-        return this.mContext;
+    public String wG() {
+        return this.agE;
     }
 
-    public int getHeight() {
-        return this.mHeight;
+    public void ei(String str) {
+        this.agE = str;
     }
 
-    public int getWidth() {
-        return this.mWidth;
+    public ArrayList<Object> wH() {
+        return this.agF;
+    }
+
+    public void l(ArrayList<Object> arrayList) {
+        this.agF = arrayList;
     }
 }

@@ -39,10 +39,10 @@ public class k {
     public interface a {
         void aR(String str);
 
-        View fN();
+        View fO();
     }
 
-    public static void A(Context context) {
+    public static void z(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -58,30 +58,30 @@ public class k {
         pr = true;
     }
 
-    public static int B(Context context) {
+    public static int A(Context context) {
         if (!pr) {
-            A(context);
+            z(context);
         }
         return pt;
     }
 
-    public static int C(Context context) {
+    public static int B(Context context) {
         if (!pr) {
-            A(context);
+            z(context);
         }
         return pu;
     }
 
     public static int dip2px(Context context, float f) {
         if (!pr) {
-            A(context);
+            z(context);
         }
         return (int) ((ps * f) + 0.5f);
     }
 
-    public static float D(Context context) {
+    public static float C(Context context) {
         if (!pr) {
-            A(context);
+            z(context);
         }
         return ps;
     }
@@ -90,17 +90,17 @@ public class k {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
             if (pv == null) {
-                if (pw == null || pw.fN() == null) {
+                if (pw == null || pw.fO() == null) {
                     pv = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
                     pv = new Toast(BdBaseApplication.getInst().getApp());
                     pv.setDuration(0);
                     pw.aR(str);
-                    pv.setView(pw.fN());
+                    pv.setView(pw.fO());
                 }
                 pv.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else if (!str.equals(px)) {
-                if (pw == null || pw.fN() == null) {
+                if (pw == null || pw.fO() == null) {
                     pv.setText(str);
                 } else {
                     pw.aR(str);
@@ -120,12 +120,12 @@ public class k {
         showToast(context, context.getResources().getString(i));
     }
 
-    public static void l(Context context, String str) {
+    public static void m(Context context, String str) {
         showToast(context, str, 3500);
     }
 
     public static void b(Context context, int i) {
-        l(context, context.getResources().getString(i));
+        m(context, context.getResources().getString(i));
     }
 
     public static void a(Context context, View view) {
@@ -148,7 +148,7 @@ public class k {
         }
     }
 
-    public static int g(Activity activity) {
+    public static int i(Activity activity) {
         Rect rect = new Rect();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
         int i = rect.top;
@@ -182,7 +182,7 @@ public class k {
         return i;
     }
 
-    public static int[] E(Context context) {
+    public static int[] D(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         return new int[]{defaultDisplay.getWidth(), defaultDisplay.getHeight()};
     }
@@ -221,7 +221,7 @@ public class k {
         }
     }
 
-    public static DisplayMetrics h(Activity activity) {
+    public static DisplayMetrics j(Activity activity) {
         DisplayMetrics displayMetrics;
         Exception e;
         try {
@@ -292,7 +292,7 @@ public class k {
         return context.getResources().getDimensionPixelSize(i);
     }
 
-    public static boolean m(Context context, String str) {
+    public static boolean n(Context context, String str) {
         List<PackageInfo> installedPackages;
         if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
             return false;
@@ -305,9 +305,9 @@ public class k {
         return false;
     }
 
-    public static void fF() {
+    public static void fG() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (fG() ? false : true) {
+            if (fH() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -324,12 +324,12 @@ public class k {
         }
     }
 
-    public static boolean fG() {
+    public static boolean fH() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean fH() {
-        return i.fq();
+    public static boolean fI() {
+        return i.fr();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -341,7 +341,7 @@ public class k {
         view2.post(new m(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String fI() {
+    public static String fJ() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -350,16 +350,16 @@ public class k {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream()));
                 try {
                     str = bufferedReader.readLine();
-                    o.a((Reader) bufferedReader);
+                    o.b((Reader) bufferedReader);
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    o.a((Reader) bufferedReader);
+                    o.b((Reader) bufferedReader);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                o.a((Reader) bufferedReader);
+                o.b((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
@@ -368,13 +368,13 @@ public class k {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            o.a((Reader) bufferedReader);
+            o.b((Reader) bufferedReader);
             throw th;
         }
         return str;
     }
 
-    public static String fJ() {
+    public static String fK() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -383,16 +383,16 @@ public class k {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream()));
                 try {
                     str = bufferedReader.readLine();
-                    o.a((Reader) bufferedReader);
+                    o.b((Reader) bufferedReader);
                 } catch (Exception e) {
                     e = e;
                     BdLog.e(e.getMessage());
-                    o.a((Reader) bufferedReader);
+                    o.b((Reader) bufferedReader);
                     return str;
                 }
             } catch (Throwable th2) {
                 th = th2;
-                o.a((Reader) bufferedReader);
+                o.b((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
@@ -401,13 +401,13 @@ public class k {
         } catch (Throwable th3) {
             bufferedReader = null;
             th = th3;
-            o.a((Reader) bufferedReader);
+            o.b((Reader) bufferedReader);
             throw th;
         }
         return str;
     }
 
-    public static boolean fK() {
+    public static boolean fL() {
         String aQ;
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme") && (aQ = aQ(str)) != null && aQ.length() >= 3) {
@@ -430,7 +430,7 @@ public class k {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a fL() {
+    public static a fM() {
         return pw;
     }
 

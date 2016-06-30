@@ -1,62 +1,70 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.card.at;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId aSe = BdUniqueId.gen();
-    public static final BdUniqueId aSf = BdUniqueId.gen();
-    public static String aSg = "";
-    public static String aSh = "";
-    public static String aSi = "";
-    public static String aSj = "";
-    public static String aSk = "";
-    public ax aRZ;
-    public boolean aRY = false;
-    public boolean aSl = true;
-
-    public n(ax axVar) {
-        this.aRZ = axVar;
-    }
-
-    public static boolean b(ax axVar) {
-        return (axVar == null || axVar.rb() == null) ? false : true;
-    }
+    public static final BdUniqueId Op = BdUniqueId.gen();
+    public az aVc;
+    private ay aVv;
+    private ay aVw;
+    private ay aVx;
+    private ay aVy;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.aRZ == null) {
-            return aSe;
-        }
-        if (this.aRZ.qP()) {
-            return aSf;
-        }
-        return aSe;
+        return Op;
+    }
+
+    public n(az azVar) {
+        this.aVc = azVar;
+    }
+
+    public static boolean c(az azVar) {
+        return azVar != null && azVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public ax Kn() {
-        return this.aRZ;
+    public az Ix() {
+        return this.aVc;
     }
 
-    public aw Ky() {
-        return hh(aSj);
+    public int LB() {
+        return (this.aVc == null || StringUtils.isNull(this.aVc.getPhotoLiveCover())) ? 0 : 1;
     }
 
-    public aw Kz() {
-        return hh(aSk);
+    public void b(ay ayVar) {
+        this.aVv = ayVar;
     }
 
-    public aw KA() {
-        return hh(aSh);
+    public void c(ay ayVar) {
+        this.aVw = ayVar;
     }
 
-    public aw KB() {
-        return hh(aSg);
+    public void d(ay ayVar) {
+        this.aVx = ayVar;
     }
 
-    public aw KJ() {
-        return hh(aSi);
+    public void e(ay ayVar) {
+        this.aVy = ayVar;
+    }
+
+    public ay LC() {
+        return this.aVv != null ? this.aVv.ab("obj_param3", at.La()) : this.aVv;
+    }
+
+    public ay LD() {
+        return this.aVw != null ? this.aVw.ab("obj_param3", at.La()) : this.aVw;
+    }
+
+    public ay LE() {
+        return this.aVy != null ? this.aVy.ab("obj_param3", at.La()) : this.aVy;
+    }
+
+    public ay LF() {
+        return this.aVx != null ? this.aVx.ab("obj_param3", at.La()) : this.aVx;
     }
 }

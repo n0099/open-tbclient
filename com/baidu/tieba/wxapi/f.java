@@ -1,42 +1,29 @@
 package com.baidu.tieba.wxapi;
 
-import android.content.Intent;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
-import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
-public class f {
-    private static f feT = null;
-    private IWXAPIEventHandler feW;
-    private IWXAPIEventHandler feX = new g(this);
-    private IWXAPI feU = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
-    private ConcurrentHashMap<String, IWXAPIEventHandler> feV = new ConcurrentHashMap<>();
+class f implements Runnable {
+    final /* synthetic */ WXEntryActivity fKn;
 
-    public static f beo() {
-        if (feT == null) {
-            synchronized (f.class) {
-                if (feT == null) {
-                    feT = new f();
-                }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(WXEntryActivity wXEntryActivity) {
+        this.fKn = wXEntryActivity;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        SapiWebView sapiWebView;
+        SapiWebView sapiWebView2;
+        try {
+            sapiWebView = this.fKn.dIy;
+            if (sapiWebView != null) {
+                sapiWebView2 = this.fKn.dIy;
+                sapiWebView2.destroy();
+                this.fKn.dIy = null;
             }
+        } catch (Throwable th) {
+            BdLog.e(th);
         }
-        return feT;
-    }
-
-    private f() {
-        if (isAvailable()) {
-            this.feU.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
-        }
-    }
-
-    public boolean isAvailable() {
-        return this.feU.isWXAppInstalled() && this.feU.isWXAppSupportAPI();
-    }
-
-    public void G(Intent intent) {
-        this.feU.handleIntent(intent, this.feX);
     }
 }

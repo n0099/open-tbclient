@@ -5,15 +5,15 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Thread {
-    final /* synthetic */ e Hn;
+    final /* synthetic */ e Hl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(e eVar) {
-        this.Hn = eVar;
+        this.Hl = eVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.Hn.a(new File(Environment.getExternalStorageDirectory() + "/baidu/tempdata", "intime.dat"), "http://itsdata.map.baidu.com/long-conn-gps/sdk.php");
+        this.Hl.a(new File(Environment.getExternalStorageDirectory() + "/baidu/tempdata", "intime.dat"), "http://itsdata.map.baidu.com/long-conn-gps/sdk.php");
     }
 }

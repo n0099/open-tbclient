@@ -15,10 +15,10 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class UploadCommand implements d {
+public class UploadCommand implements h {
     public static final String URL = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/debugupload";
-    private static /* synthetic */ int[] dbF;
-    private EnumUploadType dbE;
+    private static /* synthetic */ int[] dIm;
+    private EnumUploadType dIl;
     private String path;
 
     /* loaded from: classes.dex */
@@ -27,9 +27,11 @@ public class UploadCommand implements d {
         DB,
         File,
         List,
-        ANR;
+        ANR,
+        DataFile,
+        DataList;
 
-        /* JADX DEBUG: Replace access to removed values field (dbG) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (dIn) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static EnumUploadType[] valuesCustom() {
             EnumUploadType[] valuesCustom = values();
@@ -40,8 +42,8 @@ public class UploadCommand implements d {
         }
     }
 
-    static /* synthetic */ int[] auD() {
-        int[] iArr = dbF;
+    static /* synthetic */ int[] aCI() {
+        int[] iArr = dIm;
         if (iArr == null) {
             iArr = new int[EnumUploadType.valuesCustom().length];
             try {
@@ -53,51 +55,70 @@ public class UploadCommand implements d {
             } catch (NoSuchFieldError e2) {
             }
             try {
-                iArr[EnumUploadType.File.ordinal()] = 3;
+                iArr[EnumUploadType.DataFile.ordinal()] = 6;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                iArr[EnumUploadType.List.ordinal()] = 4;
+                iArr[EnumUploadType.DataList.ordinal()] = 7;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                iArr[EnumUploadType.SharePerference.ordinal()] = 1;
+                iArr[EnumUploadType.File.ordinal()] = 3;
             } catch (NoSuchFieldError e5) {
             }
-            dbF = iArr;
+            try {
+                iArr[EnumUploadType.List.ordinal()] = 4;
+            } catch (NoSuchFieldError e6) {
+            }
+            try {
+                iArr[EnumUploadType.SharePerference.ordinal()] = 1;
+            } catch (NoSuchFieldError e7) {
+            }
+            dIm = iArr;
         }
         return iArr;
     }
 
     public UploadCommand(EnumUploadType enumUploadType, String str) {
-        this.dbE = enumUploadType;
+        this.dIl = enumUploadType;
         this.path = str;
     }
 
-    @Override // com.baidu.tieba.onlineDebugger.command.d
-    public Object auA() {
+    @Override // com.baidu.tieba.onlineDebugger.command.h
+    public Object aCF() {
         String str = null;
         try {
-            switch (auD()[this.dbE.ordinal()]) {
+            switch (aCI()[this.dIl.ordinal()]) {
                 case 1:
-                    str = c(lv(this.path), this.path);
+                    str = c(mV(this.path), this.path);
                     break;
                 case 2:
-                    str = c(lw(this.path), this.path);
+                    str = c(mW(this.path), this.path);
                     break;
                 case 3:
                     if (!this.path.contains("..")) {
-                        str = c(w(m.cS(this.path)), this.path);
+                        str = c(w(m.cR(this.path)), this.path);
                         break;
                     } else {
                         str = "illegal path ..";
                         break;
                     }
                 case 4:
-                    str = lu(this.path);
+                    str = mT(this.path);
                     break;
                 case 5:
                     str = c(w(new File("/data/anr/traces.txt")), "traces.txt");
+                    break;
+                case 6:
+                    if (!this.path.contains("..")) {
+                        str = c(mX(this.path), this.path);
+                        break;
+                    } else {
+                        str = "illegal path ..";
+                        break;
+                    }
+                case 7:
+                    str = mU(this.path);
                     break;
             }
         } catch (Exception e) {
@@ -114,28 +135,48 @@ public class UploadCommand implements d {
         return str;
     }
 
-    private String lu(String str) {
-        File cS = m.cS(str);
-        if (cS == null) {
+    private String mT(String str) {
+        File cR = m.cR(str);
+        if (cR == null) {
             return String.valueOf(str) + " not exist.";
         }
-        if (cS != null && cS.isDirectory()) {
-            String[] list = cS.list();
+        if (cR != null && cR.isDirectory()) {
+            String[] list = cR.list();
             if (list == null) {
                 return "";
             }
             for (int i = 0; i < list.length; i++) {
-                if (new File(cS.getAbsolutePath(), list[i]).isDirectory()) {
+                if (new File(cR.getAbsolutePath(), list[i]).isDirectory()) {
                     list[i] = String.valueOf(list[i]) + "(d)";
                 }
             }
-            return com.baidu.tieba.onlineDebugger.c.K(list);
+            return com.baidu.tieba.onlineDebugger.d.M(list);
         }
-        return cS.getName();
+        return cR.getName();
     }
 
-    private byte[] lv(String str) {
-        SharedPreferences sharedPreferences = TbadkCoreApplication.m11getInst().getSharedPreferences(str, 0);
+    private String mU(String str) {
+        File file = new File(Environment.getDataDirectory(), "//data//" + TbadkCoreApplication.m9getInst().getApplicationContext().getPackageName() + "//" + str);
+        if (file == null) {
+            return String.valueOf(str) + " not exist.";
+        }
+        if (file != null && file.isDirectory()) {
+            String[] list = file.list();
+            if (list == null) {
+                return "";
+            }
+            for (int i = 0; i < list.length; i++) {
+                if (new File(file.getAbsolutePath(), list[i]).isDirectory()) {
+                    list[i] = String.valueOf(list[i]) + "(d)";
+                }
+            }
+            return com.baidu.tieba.onlineDebugger.d.M(list);
+        }
+        return file.getName();
+    }
+
+    private byte[] mV(String str) {
+        SharedPreferences sharedPreferences = TbadkCoreApplication.m9getInst().getSharedPreferences(str, 0);
         try {
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<String, ?> entry : sharedPreferences.getAll().entrySet()) {
@@ -148,8 +189,12 @@ public class UploadCommand implements d {
         }
     }
 
-    private byte[] lw(String str) {
-        return w(new File(Environment.getDataDirectory(), "//data//" + TbadkCoreApplication.m11getInst().getApplicationContext().getPackageName() + "//databases//" + str));
+    private byte[] mW(String str) {
+        return mX("databases//" + str);
+    }
+
+    private byte[] mX(String str) {
+        return w(new File(Environment.getDataDirectory(), "//data//" + TbadkCoreApplication.m9getInst().getApplicationContext().getPackageName() + "//" + str));
     }
 
     private byte[] w(File file) {
@@ -169,14 +214,14 @@ public class UploadCommand implements d {
 
     private String c(byte[] bArr, String str) {
         ab abVar = new ab(String.valueOf(URL) + "?fn=" + str.replace("/", "_"));
-        abVar.c("debugfile", bArr);
-        abVar.n("tbs", TbadkCoreApplication.m11getInst().getTbs());
+        abVar.d("debugfile", bArr);
+        abVar.n("tbs", TbadkCoreApplication.m9getInst().getTbs());
         abVar.n("type", SocialConstants.ANDROID_CLIENT_TYPE);
-        return abVar.tg();
+        return abVar.td();
     }
 
-    @Override // com.baidu.tieba.onlineDebugger.command.d
-    public boolean auB() {
+    @Override // com.baidu.tieba.onlineDebugger.command.h
+    public boolean aCG() {
         return !this.path.contains("..");
     }
 }

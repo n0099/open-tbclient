@@ -6,18 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.List;
 import tbclient.High;
 /* loaded from: classes.dex */
 public class ah extends BaseAdapter {
-    private View.OnClickListener Fn;
-    private List<High> aZH;
+    private List<High> aJj;
+    private View.OnClickListener aew;
     private Context mContext;
 
     /* loaded from: classes.dex */
     public static class a {
-        public TbImageView aFZ;
+        public TbImageView aGB;
     }
 
     public ah(Context context) {
@@ -26,20 +26,20 @@ public class ah extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aZH != null) {
-            return this.aZH.size();
+        if (this.aJj != null) {
+            return this.aJj.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ms */
+    /* renamed from: nT */
     public High getItem(int i) {
-        if (this.aZH == null || i >= this.aZH.size() || i < 0) {
+        if (this.aJj == null || i >= this.aJj.size() || i < 0) {
             return null;
         }
-        return this.aZH.get(i);
+        return this.aJj.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,26 +53,26 @@ public class ah extends BaseAdapter {
         if (getItem(i) != null) {
             if (view == null) {
                 a aVar2 = new a();
-                view = LayoutInflater.from(this.mContext).inflate(t.h.user_pic_nomal_item, (ViewGroup) null);
-                aVar2.aFZ = (TbImageView) view.findViewById(t.g.photo_image_view);
-                aVar2.aFZ.setDefaultErrorResource(t.d.cp_bg_line_e);
-                aVar2.aFZ.setDefaultBgResource(t.d.cp_bg_line_e);
+                view = LayoutInflater.from(this.mContext).inflate(u.h.user_pic_nomal_item, (ViewGroup) null);
+                aVar2.aGB = (TbImageView) view.findViewById(u.g.photo_image_view);
+                aVar2.aGB.setDefaultErrorResource(u.d.cp_bg_line_e);
+                aVar2.aGB.setDefaultBgResource(u.d.cp_bg_line_e);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.aFZ.c(getItem(i).pic_url, 13, false);
-            view.setOnClickListener(this.Fn);
+            aVar.aGB.c(getItem(i).pic_url, 13, false);
+            view.setOnClickListener(this.aew);
         }
         return view;
     }
 
     public void setData(List<High> list) {
-        this.aZH = list;
+        this.aJj = list;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.Fn = onClickListener;
+        this.aew = onClickListener;
     }
 }

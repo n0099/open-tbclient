@@ -19,7 +19,7 @@ public class a {
         }
     }
 
-    public static void a(Closeable closeable) {
+    public static void b(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
@@ -29,7 +29,7 @@ public class a {
         }
     }
 
-    public static void a(OutputStream outputStream) {
+    public static void b(OutputStream outputStream) {
         if (outputStream != null) {
             try {
                 outputStream.close();

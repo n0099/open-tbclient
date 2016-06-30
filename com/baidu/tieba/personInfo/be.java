@@ -1,36 +1,23 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.widget.ListView.BdExpandImageView;
+import android.content.DialogInterface;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ bd dGT;
+public class be implements DialogInterface.OnCancelListener {
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(bd bdVar) {
-        this.dGT = bdVar;
+    public be(f fVar) {
+        this.this$0 = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        BdExpandImageView bdExpandImageView;
-        if (aVar != null) {
-            bdExpandImageView = this.dGT.dGt;
-            aVar.a(bdExpandImageView);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void onProgressUpdate(Object... objArr) {
-        super.onProgressUpdate(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void af(String str) {
-        super.af(str);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        BdUniqueId bdUniqueId;
+        MessageManager messageManager = MessageManager.getInstance();
+        bdUniqueId = this.this$0.eoX;
+        messageManager.removeMessage(bdUniqueId);
     }
 }

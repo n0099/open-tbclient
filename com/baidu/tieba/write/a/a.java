@@ -4,27 +4,27 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.editortools.ab;
 import com.baidu.tbadk.editortools.editorinfotool.LocationInfoView;
 import com.baidu.tbadk.editortools.l;
-import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class a extends LinearLayout implements ab {
-    private int BU;
-    private l BV;
-    private boolean ccY;
-    protected LocationInfoView eYZ;
-    private EditorInfoView eZa;
-    private EditorInfoView eZb;
-    private EditorInfoView eZc;
-    private EditorInfoView eZd;
-    private int eZe;
-    private int eZf;
-    private int eZg;
-    private int eZh;
-    private int eZi;
+    private int BV;
+    private l BW;
+    private boolean cIu;
+    protected LocationInfoView fEd;
+    private EditorInfoView fEe;
+    private EditorInfoView fEf;
+    private EditorInfoView fEg;
+    private EditorInfoView fEh;
+    private int fEi;
+    private int fEj;
+    private int fEk;
+    private int fEl;
+    private int fEm;
 
     public a(Context context) {
         this(context, null);
@@ -32,46 +32,46 @@ public class a extends LinearLayout implements ab {
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eZe = 0;
-        this.eZf = 0;
-        this.eZg = 0;
-        this.eZh = 0;
-        this.eZi = 0;
-        this.ccY = true;
+        this.fEi = 0;
+        this.fEj = 0;
+        this.fEk = 0;
+        this.fEl = 0;
+        this.fEm = 0;
+        this.cIu = true;
         setOrientation(0);
-        int dimension = (int) context.getResources().getDimension(t.e.ds36);
+        int dimension = (int) context.getResources().getDimension(u.e.ds20);
         setPadding(dimension, 0, dimension, 0);
         setGravity(48);
-        this.eYZ = new LocationInfoView(context);
-        this.eZa = new EditorInfoView(context);
-        this.eZb = new EditorInfoView(context);
-        this.eZc = new EditorInfoView(context);
-        this.eZc.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.eZd = new EditorInfoView(context);
-        this.eZd.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.fEd = new LocationInfoView(context);
+        this.fEe = new EditorInfoView(context);
+        this.fEf = new EditorInfoView(context);
+        this.fEg = new EditorInfoView(context);
+        this.fEg.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.fEh = new EditorInfoView(context);
+        this.fEh.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.rightMargin = getResources().getDimensionPixelSize(t.e.ds16);
-        addView(this.eYZ, layoutParams);
-        addView(this.eZa, layoutParams);
-        addView(this.eZb, layoutParams);
-        addView(this.eZc, layoutParams);
-        addView(this.eZd, layoutParams);
+        layoutParams.rightMargin = getResources().getDimensionPixelSize(u.e.ds16);
+        addView(this.fEd, layoutParams);
+        addView(this.fEe, layoutParams);
+        addView(this.fEf, layoutParams);
+        addView(this.fEg, layoutParams);
+        addView(this.fEh, layoutParams);
         new LinearLayout.LayoutParams(-1, -2).weight = 1.0f;
-        this.eZa.setVisibility(8);
-        this.eZb.setVisibility(8);
-        this.eZc.setVisibility(8);
-        this.eZd.setVisibility(8);
-        this.eYZ.setOnClickListener(new b(this));
+        this.fEe.setVisibility(8);
+        this.fEf.setVisibility(8);
+        this.fEg.setVisibility(8);
+        this.fEh.setVisibility(8);
+        this.fEd.setOnClickListener(new b(this));
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(t.e.ds62));
+        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(u.e.ds62));
     }
 
     public LocationInfoView getLocationInfoView() {
-        return this.eYZ;
+        return this.fEd;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -79,84 +79,84 @@ public class a extends LinearLayout implements ab {
         if (aVar != null) {
             switch (aVar.code) {
                 case 9:
-                    this.eZe = 0;
-                    this.eZi = 0;
-                    this.eZg = 0;
-                    this.eZh = 0;
-                    this.eZi = 0;
+                    this.fEi = 0;
+                    this.fEm = 0;
+                    this.fEk = 0;
+                    this.fEl = 0;
+                    this.fEm = 0;
                     break;
                 case 10:
-                    this.eZi++;
+                    this.fEm++;
                     break;
                 case 11:
-                    this.eZi--;
+                    this.fEm--;
                     break;
                 case 12:
                     if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a)) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aqy != null && aVar2.aqy.getChosedFiles() != null) {
-                            this.eZg = aVar2.aqy.getChosedFiles().size();
+                        if (aVar2.aro != null && aVar2.aro.getChosedFiles() != null) {
+                            this.fEk = aVar2.aro.getChosedFiles().size();
                             break;
                         }
                     }
                     break;
                 case 13:
-                    this.eZg--;
+                    this.fEk--;
                     break;
                 case 19:
                     if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.editortools.c.a)) {
                         com.baidu.tbadk.editortools.c.a aVar3 = (com.baidu.tbadk.editortools.c.a) aVar.data;
-                        this.eYZ.setVisibility(aVar3.arl ? 0 : 8);
-                        this.eYZ.k(aVar3.state, aVar3.addr);
+                        this.fEd.setVisibility(aVar3.asb ? 0 : 8);
+                        this.fEd.k(aVar3.state, aVar3.addr);
                         break;
                     }
                     break;
                 case 20:
-                    this.eYZ.setVisibility(8);
+                    this.fEd.setVisibility(8);
                     break;
                 case 22:
-                    this.eZh = 1;
+                    this.fEl = 1;
                     break;
                 case 23:
-                    this.eZh = 0;
+                    this.fEl = 0;
                     break;
             }
-            bbV();
+            bkr();
         }
     }
 
-    private void bbV() {
-        if (this.eZe > 0) {
-            this.eZa.setVisibility(0);
-            this.eZa.setText(String.valueOf(this.eZe));
+    private void bkr() {
+        if (this.fEi > 0) {
+            this.fEe.setVisibility(0);
+            this.fEe.setText(String.valueOf(this.fEi));
         } else {
-            this.eZa.setVisibility(8);
+            this.fEe.setVisibility(8);
         }
-        if (this.eZf > 0) {
-            this.eZb.setVisibility(0);
-            this.eZb.setText(String.valueOf(this.eZe));
+        if (this.fEj > 0) {
+            this.fEf.setVisibility(0);
+            this.fEf.setText(String.valueOf(this.fEi));
         } else {
-            this.eZb.setVisibility(8);
+            this.fEf.setVisibility(8);
         }
-        int i = this.eZg + this.eZh;
+        int i = this.fEk + this.fEl;
         if (i > 0) {
-            this.eZc.setVisibility(0);
-            this.eZc.setText(String.valueOf(i));
+            this.fEg.setVisibility(0);
+            this.fEg.setText(String.valueOf(i));
         } else {
-            this.eZc.setVisibility(8);
+            this.fEg.setVisibility(8);
         }
-        if (this.eZi > 0) {
-            this.eZd.setVisibility(0);
-            this.eZd.setText(String.valueOf(this.eZi));
+        if (this.fEm > 0) {
+            this.fEh.setVisibility(0);
+            this.fEh.setText(String.valueOf(this.fEm));
             return;
         }
-        this.eZd.setVisibility(8);
+        this.fEh.setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.editortools.ab
-    public void kC() {
-        if (this.ccY) {
-            this.ccY = false;
+    public void kF() {
+        if (this.cIu) {
+            this.cIu = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, "first"));
         }
         setVisibility(0);
@@ -164,7 +164,7 @@ public class a extends LinearLayout implements ab {
 
     @Override // com.baidu.tbadk.editortools.ab
     public int getToolId() {
-        return this.BU;
+        return this.BV;
     }
 
     @Override // com.baidu.tbadk.editortools.ab
@@ -178,39 +178,39 @@ public class a extends LinearLayout implements ab {
 
     @Override // com.baidu.tbadk.editortools.ab
     public void onChangeSkinType(int i) {
-        if (this.eYZ != null) {
-            this.eYZ.vm();
+        if (this.fEd != null) {
+            this.fEd.vm();
         }
-        if (this.eZa != null) {
-            this.eZa.vm();
+        if (this.fEe != null) {
+            this.fEe.vm();
         }
-        if (this.eZb != null) {
-            this.eZb.vm();
+        if (this.fEf != null) {
+            this.fEf.vm();
         }
-        if (this.eZc != null) {
-            this.eZc.vm();
-            this.eZc.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.fEg != null) {
+            this.fEg.vm();
+            this.fEg.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        if (this.eZd != null) {
-            this.eZd.vm();
-            this.eZd.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.fEh != null) {
+            this.fEh.vm();
+            this.fEh.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.ab
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.BV != null) {
-            this.BV.b(aVar);
+        if (this.BW != null) {
+            this.BW.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.ab
     public void setEditorTools(l lVar) {
-        this.BV = lVar;
+        this.BW = lVar;
     }
 
     @Override // com.baidu.tbadk.editortools.ab
     public void setToolId(int i) {
-        this.BU = i;
+        this.BV = i;
     }
 }

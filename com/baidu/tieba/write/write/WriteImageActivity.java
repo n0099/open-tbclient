@@ -38,47 +38,47 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.plugins.MotuPlugin;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
-    private static String[] duz = null;
-    private RadioButton duJ;
-    private RadioButton duK;
-    private LinearLayout duU;
-    private HashMap<String, Bitmap> duW;
-    private HashMap<String, ImageView> duX;
-    private View duY;
-    private View fel;
-    private View fem;
-    private String feq;
+    private static String[] ecR = null;
+    private RadioButton edb;
+    private RadioButton edc;
+    private LinearLayout edm;
+    private HashMap<String, Bitmap> edo;
+    private HashMap<String, ImageView> edp;
+    private View edq;
+    private View fJG;
+    private View fJH;
+    private String fJL;
     private int requestCode;
-    private ImageView aIH = null;
+    private ImageView aMe = null;
     private Bitmap mBitmap = null;
-    private TextView fcc = null;
-    private View Dn = null;
-    private HorizontalScrollView duG = null;
-    private ProgressBar bDI = null;
-    private b fen = null;
-    private a feo = null;
-    private RadioGroup EA = null;
-    private LinearLayout duL = null;
-    private LinearLayout duM = null;
-    private TextView Di = null;
+    private TextView fHG = null;
+    private View Do = null;
+    private HorizontalScrollView ecY = null;
+    private ProgressBar cbl = null;
+    private b fJI = null;
+    private a fJJ = null;
+    private RadioGroup EH = null;
+    private LinearLayout edd = null;
+    private LinearLayout ede = null;
+    private TextView Dj = null;
     private NavigationBar mNavigationBar = null;
-    private Bitmap duO = null;
-    private c fep = null;
-    private int duQ = 0;
-    private int duR = 0;
+    private Bitmap edg = null;
+    private c fJK = null;
+    private int edi = 0;
+    private int edj = 0;
     private int mDisplaySize = 0;
-    private boolean duS = true;
-    private String duT = null;
-    private boolean duV = false;
-    private boolean dlk = false;
+    private boolean edk = true;
+    private String edl = null;
+    private boolean edn = false;
+    private boolean dQZ = false;
     private final Handler mHandler = new Handler();
-    private final Object fer = new Object();
-    private final View.OnClickListener fes = new br(this);
+    private final Object fJM = new Object();
+    private final View.OnClickListener fJN = new bn(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -86,80 +86,80 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         super.onCreate(bundle);
         WriteImageActivityConfig.isActivityInStack = true;
         setSwipeBackEnabled(false);
-        if (com.baidu.adp.lib.c.e.cS().Z("motu_sdk") == 1 || PluginPackageManager.hF().bs(PluginCenter.NAME_MOTUSDK) == PluginPackageManager.PluginStatus.DISABLE) {
-            this.duS = false;
+        if (com.baidu.adp.lib.c.e.cT().Z("motu_sdk") == 1 || PluginPackageManager.hH().bs(PluginCenter.NAME_MOTUSDK) == PluginPackageManager.PluginStatus.DISABLE) {
+            this.edk = false;
         } else {
-            this.duS = true;
+            this.edk = true;
         }
-        TbadkCoreApplication.m11getInst().addRemoteActivity((BaseActivity) getPageContext().getOrignalPage());
-        setContentView(t.h.write_image_activity);
+        TbadkCoreApplication.m9getInst().addRemoteActivity((BaseActivity) getPageContext().getOrignalPage());
+        setContentView(u.h.write_image_activity);
         Intent intent = getIntent();
         this.requestCode = intent.getIntExtra("request", 0);
         this.mDisplaySize = intent.getIntExtra(WriteImageActivityConfig.DISPLAY_SIZE, 0);
-        this.feq = intent.getStringExtra(WriteImageActivityConfig.FINISH_TEXT);
-        if (this.duS) {
-            TbadkCoreApplication.m11getInst().sendImagePv(1, 1, "motu_pic");
+        this.fJL = intent.getStringExtra(WriteImageActivityConfig.FINISH_TEXT);
+        if (this.edk) {
+            TbadkCoreApplication.m9getInst().sendImagePv(1, 1, "motu_pic");
         }
         if (intent.getStringExtra("from") != null && intent.getStringExtra("from").equals("frs")) {
-            this.dlk = true;
+            this.dQZ = true;
         }
         String stringExtra = intent.getStringExtra("file_name");
         if (this.requestCode == 12002 || this.requestCode == 12001) {
-            nq();
+            nl();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.requestCode, intent.getData(), com.baidu.tbadk.core.util.az.ug().um(), this.mDisplaySize);
+                TiebaPrepareImageService.StartService(this.requestCode, intent.getData(), com.baidu.tbadk.core.util.bb.uf().ul(), this.mDisplaySize);
             } else {
-                TiebaPrepareImageService.StartService(this.requestCode, null, com.baidu.tbadk.core.util.az.ug().um(), this.mDisplaySize, stringExtra);
+                TiebaPrepareImageService.StartService(this.requestCode, null, com.baidu.tbadk.core.util.bb.uf().ul(), this.mDisplaySize, stringExtra);
             }
-            abM();
+            ajY();
         } else {
-            nq();
+            nl();
             initData();
         }
-        duz = getResources().getStringArray(t.b.fiter_name);
+        ecR = getResources().getStringArray(u.b.fiter_name);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        if (this.fen != null) {
-            this.fen.cancel();
+        if (this.fJI != null) {
+            this.fJI.cancel();
         }
-        this.aIH.setImageDrawable(null);
-        aBt();
+        this.aMe.setImageDrawable(null);
+        aKl();
     }
 
-    private void aBt() {
-        synchronized (this.fer) {
-            if (this.duX != null) {
-                for (Map.Entry<String, ImageView> entry : this.duX.entrySet()) {
+    private void aKl() {
+        synchronized (this.fJM) {
+            if (this.edp != null) {
+                for (Map.Entry<String, ImageView> entry : this.edp.entrySet()) {
                     ImageView value = entry.getValue();
                     if (value != null) {
                         value.setImageDrawable(null);
                     }
                 }
-                this.duX.clear();
-                this.duX = null;
+                this.edp.clear();
+                this.edp = null;
             }
-            if (this.duW != null) {
-                for (Map.Entry<String, Bitmap> entry2 : this.duW.entrySet()) {
+            if (this.edo != null) {
+                for (Map.Entry<String, Bitmap> entry2 : this.edo.entrySet()) {
                     Bitmap value2 = entry2.getValue();
                     if (value2 != null && !value2.isRecycled()) {
                         value2.recycle();
                     }
                 }
-                this.duW.clear();
-                this.duW = null;
+                this.edo.clear();
+                this.edo = null;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initData() {
-        if (this.fen != null) {
-            this.fen.cancel();
+        if (this.fJI != null) {
+            this.fJI.cancel();
         }
-        this.fen = new b(this, null);
-        this.fen.execute(new Object[0]);
+        this.fJI = new b(this, null);
+        this.fJI.execute(new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -173,25 +173,25 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             this.mBitmap.recycle();
             this.mBitmap = null;
         }
-        if (this.duO != null && !this.duO.isRecycled()) {
-            this.duO.recycle();
-            this.duO = null;
+        if (this.edg != null && !this.edg.isRecycled()) {
+            this.edg.recycle();
+            this.edg = null;
         }
-        if (this.fen != null) {
-            this.fen.cancel();
-            this.fen = null;
+        if (this.fJI != null) {
+            this.fJI.cancel();
+            this.fJI = null;
         }
-        this.bDI.setVisibility(8);
+        this.cbl.setVisibility(8);
         if (this.requestCode == 12002 || this.requestCode == 12001) {
-            unregisterReceiver(this.fep);
+            unregisterReceiver(this.fJK);
         }
-        TbadkCoreApplication.m11getInst().delRemoteActivity(this);
+        TbadkCoreApplication.m9getInst().delRemoteActivity(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.fes.onClick(null);
+            this.fJN.onClick(null);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -200,87 +200,87 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        getLayoutMode().ae(i == 1);
-        getLayoutMode().x(this.Dn);
-        com.baidu.tbadk.core.util.at.l(this.mNavigationBar, t.d.alpha80_black);
-        com.baidu.tbadk.core.util.at.c(this.Di, t.d.cp_cont_g, 1);
-        if (this.fem.isEnabled()) {
-            this.fcc.setTextColor(getResources().getColor(t.d.navi_done_text));
+        getLayoutMode().ad(i == 1);
+        getLayoutMode().w(this.Do);
+        com.baidu.tbadk.core.util.av.l(this.mNavigationBar, u.d.common_color_10222);
+        com.baidu.tbadk.core.util.av.c(this.Dj, u.d.cp_cont_g, 1);
+        if (this.fJH.isEnabled()) {
+            this.fHG.setTextColor(getResources().getColor(u.d.navi_done_text));
         } else {
-            this.fcc.setTextColor(getResources().getColor(t.d.navi_done_text_d));
+            this.fHG.setTextColor(getResources().getColor(u.d.common_color_10231));
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onBackBtnOnChangeSkin();
         }
-        com.baidu.tbadk.core.util.at.a((ImageView) ((ViewGroup) this.fel).getChildAt(0), t.f.icon_return_s, t.f.icon_return_s);
+        com.baidu.tbadk.core.util.av.a((ImageView) ((ViewGroup) this.fJG).getChildAt(0), u.f.icon_return_s, u.f.icon_return_s);
     }
 
-    private void nq() {
-        this.Dn = findViewById(t.g.write_image_root_layout);
-        this.bDI = (ProgressBar) findViewById(t.g.progress);
-        this.bDI.setVisibility(8);
-        this.aIH = (ImageView) findViewById(t.g.image);
-        this.aIH.setOnClickListener(new bs(this));
+    private void nl() {
+        this.Do = findViewById(u.g.write_image_root_layout);
+        this.cbl = (ProgressBar) findViewById(u.g.progress);
+        this.cbl.setVisibility(8);
+        this.aMe = (ImageView) findViewById(u.g.image);
+        this.aMe.setOnClickListener(new bo(this));
         if (this.mBitmap != null) {
-            this.aIH.setImageBitmap(this.mBitmap);
+            this.aMe.setImageBitmap(this.mBitmap);
         }
-        this.duG = (HorizontalScrollView) findViewById(t.g.filters_layout);
-        this.mNavigationBar = (NavigationBar) findViewById(t.g.view_navigation_bar);
-        this.fel = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bt(this));
-        this.fem = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, t.h.image_activity_save_button, (View.OnClickListener) null);
-        this.fem.setOnClickListener(new bu(this));
-        this.fcc = (TextView) this.fem.findViewById(t.g.save);
-        if (TextUtils.isEmpty(this.feq)) {
-            if (this.dlk || this.requestCode != 12003) {
-                this.fcc.setText(getPageContext().getString(t.j.done));
+        this.ecY = (HorizontalScrollView) findViewById(u.g.filters_layout);
+        this.mNavigationBar = (NavigationBar) findViewById(u.g.view_navigation_bar);
+        this.fJG = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bp(this));
+        this.fJH = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, u.h.image_activity_save_button, (View.OnClickListener) null);
+        this.fJH.setOnClickListener(new bq(this));
+        this.fHG = (TextView) this.fJH.findViewById(u.g.save);
+        if (TextUtils.isEmpty(this.fJL)) {
+            if (this.dQZ || this.requestCode != 12003) {
+                this.fHG.setText(getPageContext().getString(u.j.done));
             } else {
-                this.fcc.setText(getPageContext().getString(t.j.delete));
+                this.fHG.setText(getPageContext().getString(u.j.delete));
             }
         } else {
-            this.fcc.setText(this.feq);
+            this.fHG.setText(this.fJL);
         }
-        this.duU = (LinearLayout) findViewById(t.g.filters);
-        this.duQ = com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), 2.0f);
-        this.Di = this.mNavigationBar.setTitleText(getPageContext().getString(t.j.beautify));
-        this.duM = (LinearLayout) findViewById(t.g.beautify_rotate);
-        this.duL = (LinearLayout) findViewById(t.g.rotate);
-        this.duJ = (RadioButton) findViewById(t.g.beautify_btn);
-        this.duK = (RadioButton) findViewById(t.g.rotate_btn);
-        this.EA = (RadioGroup) findViewById(t.g.beautify_tabs);
-        bv bvVar = new bv(this);
-        this.duJ.setOnCheckedChangeListener(bvVar);
-        this.duK.setOnCheckedChangeListener(bvVar);
-        this.duJ.setChecked(true);
-        Button button = (Button) findViewById(t.g.rotate_left);
-        Button button2 = (Button) findViewById(t.g.rotate_right);
-        Button button3 = (Button) findViewById(t.g.rotate_left_right);
-        Button button4 = (Button) findViewById(t.g.rotate_up_down);
+        this.edm = (LinearLayout) findViewById(u.g.filters);
+        this.edi = com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), 2.0f);
+        this.Dj = this.mNavigationBar.setTitleText(getPageContext().getString(u.j.beautify));
+        this.ede = (LinearLayout) findViewById(u.g.beautify_rotate);
+        this.edd = (LinearLayout) findViewById(u.g.rotate);
+        this.edb = (RadioButton) findViewById(u.g.beautify_btn);
+        this.edc = (RadioButton) findViewById(u.g.rotate_btn);
+        this.EH = (RadioGroup) findViewById(u.g.beautify_tabs);
+        br brVar = new br(this);
+        this.edb.setOnCheckedChangeListener(brVar);
+        this.edc.setOnCheckedChangeListener(brVar);
+        this.edb.setChecked(true);
+        Button button = (Button) findViewById(u.g.rotate_left);
+        Button button2 = (Button) findViewById(u.g.rotate_right);
+        Button button3 = (Button) findViewById(u.g.rotate_left_right);
+        Button button4 = (Button) findViewById(u.g.rotate_up_down);
         button.setTag(0);
         button2.setTag(1);
         button3.setTag(2);
         button4.setTag(3);
-        bw bwVar = new bw(this);
-        button.setOnClickListener(bwVar);
-        button2.setOnClickListener(bwVar);
-        button3.setOnClickListener(bwVar);
-        button4.setOnClickListener(bwVar);
-        this.duM.setVisibility(0);
-        if (Build.VERSION.SDK_INT < 7 || !this.duS) {
-            this.duK.setPadding(0, this.duK.getPaddingTop(), this.duK.getPaddingRight(), this.duK.getPaddingBottom());
-            this.duK.setChecked(true);
-            this.duG.setVisibility(8);
-            this.duJ.setVisibility(8);
-            this.EA.setVisibility(8);
+        bs bsVar = new bs(this);
+        button.setOnClickListener(bsVar);
+        button2.setOnClickListener(bsVar);
+        button3.setOnClickListener(bsVar);
+        button4.setOnClickListener(bsVar);
+        this.ede.setVisibility(0);
+        if (Build.VERSION.SDK_INT < 7 || !this.edk) {
+            this.edc.setPadding(0, this.edc.getPaddingTop(), this.edc.getPaddingRight(), this.edc.getPaddingBottom());
+            this.edc.setChecked(true);
+            this.ecY.setVisibility(8);
+            this.edb.setVisibility(8);
+            this.EH.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ps(String str) {
-        if (this.feo != null) {
-            this.feo.cancel();
+    public void rc(String str) {
+        if (this.fJJ != null) {
+            this.fJJ.cancel();
         }
-        this.feo = new a(this, null);
-        this.feo.execute(str);
+        this.fJJ = new a(this, null);
+        this.fJJ.execute(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -300,37 +300,37 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         public Bitmap doInBackground(Object... objArr) {
             Bitmap bitmap = null;
             try {
-                Bitmap Y = com.baidu.tbadk.core.util.m.Y(null, TbConfig.IMAGE_RESIZED_FILE);
+                Bitmap X = com.baidu.tbadk.core.util.m.X(null, TbConfig.IMAGE_RESIZED_FILE);
                 try {
-                    if (isCancelled() && Y != null && !Y.isRecycled()) {
-                        Y.recycle();
+                    if (isCancelled() && X != null && !X.isRecycled()) {
+                        X.recycle();
                         return null;
                     }
-                    if (Y != null) {
+                    if (X != null) {
                         int dip2px = com.baidu.adp.lib.util.k.dip2px(WriteImageActivity.this.getPageContext().getPageActivity(), 63.5f);
-                        if (Build.VERSION.SDK_INT >= 7 && WriteImageActivity.this.duS) {
-                            Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(Y, dip2px);
+                        if (Build.VERSION.SDK_INT >= 7 && WriteImageActivity.this.edk) {
+                            Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(X, dip2px);
                             if (resizedBitmap != null) {
-                                if (resizedBitmap.equals(Y)) {
-                                    Y = BitmapHelper.Bytes2Bitmap(BitmapHelper.Bitmap2Bytes(Y, 100));
+                                if (resizedBitmap.equals(X)) {
+                                    X = BitmapHelper.Bytes2Bitmap(BitmapHelper.Bitmap2Bytes(X, 100));
                                 }
                                 Bitmap roundedCornerBitmap = BitmapHelper.getRoundedCornerBitmap(resizedBitmap, com.baidu.adp.lib.util.k.dip2px(WriteImageActivity.this.getPageContext().getPageActivity(), 5.0f), true);
                                 if (roundedCornerBitmap != null) {
-                                    synchronized (WriteImageActivity.this.fer) {
-                                        WriteImageActivity.this.duW = new HashMap();
-                                        WriteImageActivity.this.duX = new HashMap();
-                                        WriteImageActivity.this.duW.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, roundedCornerBitmap);
+                                    synchronized (WriteImageActivity.this.fJM) {
+                                        WriteImageActivity.this.edo = new HashMap();
+                                        WriteImageActivity.this.edp = new HashMap();
+                                        WriteImageActivity.this.edo.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, roundedCornerBitmap);
                                     }
-                                    return Y;
+                                    return X;
                                 }
                                 return null;
                             }
                             return null;
                         }
                     }
-                    return Y;
+                    return X;
                 } catch (Exception e) {
-                    bitmap = Y;
+                    bitmap = X;
                     e = e;
                     e.printStackTrace();
                     BdLog.e(e.toString());
@@ -344,15 +344,15 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            WriteImageActivity.this.bDI.setVisibility(0);
-            WriteImageActivity.this.fem.setEnabled(false);
+            WriteImageActivity.this.cbl.setVisibility(0);
+            WriteImageActivity.this.fJH.setEnabled(false);
             super.onPreExecute();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            WriteImageActivity.this.fen = null;
-            WriteImageActivity.this.bDI.setVisibility(8);
+            WriteImageActivity.this.fJI = null;
+            WriteImageActivity.this.cbl.setVisibility(8);
             super.cancel(true);
         }
 
@@ -361,32 +361,32 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((b) bitmap);
-            WriteImageActivity.this.fem.setEnabled(true);
-            WriteImageActivity.this.fen = null;
+            WriteImageActivity.this.fJH.setEnabled(true);
+            WriteImageActivity.this.fJI = null;
             WriteImageActivity.this.mBitmap = bitmap;
-            WriteImageActivity.this.bDI.setVisibility(8);
+            WriteImageActivity.this.cbl.setVisibility(8);
             if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-                WriteImageActivity.this.aIH.setImageBitmap(bitmap);
-                if (Build.VERSION.SDK_INT < 7 || !WriteImageActivity.this.duS) {
+                WriteImageActivity.this.aMe.setImageBitmap(bitmap);
+                if (Build.VERSION.SDK_INT < 7 || !WriteImageActivity.this.edk) {
                     return;
                 }
-                WriteImageActivity.this.E(WriteImageActivity.duz);
+                WriteImageActivity.this.E(WriteImageActivity.ecR);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean pt(String str) {
+    public boolean rd(String str) {
         try {
-            com.baidu.tbadk.core.util.m.a(TbConfig.LOCAL_PIC_DIR, str, this.duO, 90);
-            this.aIH.setImageDrawable(null);
+            com.baidu.tbadk.core.util.m.a(TbConfig.LOCAL_PIC_DIR, str, this.edg, 90);
+            this.aMe.setImageDrawable(null);
             int i = 100;
             if (this.mDisplaySize > 0) {
                 i = this.mDisplaySize;
             }
-            Bitmap resizeBitmap = BitmapHelper.resizeBitmap(this.duO, i);
+            Bitmap resizeBitmap = BitmapHelper.resizeBitmap(this.edg, i);
             if (resizeBitmap != null && com.baidu.tbadk.core.util.m.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 80) != null) {
-                TiebaStatic.eventStat(TbadkCoreApplication.m11getInst().getApp(), "motu_pic", null, 1, "st_param", String.valueOf(this.duR));
+                TiebaStatic.eventStat(TbadkCoreApplication.m9getInst().getApp(), "motu_pic", null, 1, "st_param", String.valueOf(this.edj));
                 return true;
             }
         } catch (Exception e) {
@@ -397,12 +397,12 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void E(String[] strArr) {
-        if (this.duW != null && strArr != null) {
-            this.duU.removeAllViews();
-            this.duM.setVisibility(0);
-            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(t.h.filter_item, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(t.g.filter_immage);
-            TextView textView = (TextView) inflate.findViewById(t.g.filter_text);
+        if (this.edo != null && strArr != null) {
+            this.edm.removeAllViews();
+            this.ede.setVisibility(0);
+            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(u.h.filter_item, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate.findViewById(u.g.filter_immage);
+            TextView textView = (TextView) inflate.findViewById(u.g.filter_text);
             int length = strArr.length;
             int i = 0;
             int i2 = 0;
@@ -410,53 +410,53 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 String str = strArr[i];
                 String substring = str.substring(0, str.indexOf("|"));
                 String substring2 = str.substring(str.indexOf("|") + 1);
-                View inflate2 = LayoutInflater.from(getPageContext().getPageActivity()).inflate(t.h.filter_item, (ViewGroup) null);
-                ImageView imageView2 = (ImageView) inflate2.findViewById(t.g.filter_immage);
-                TextView textView2 = (TextView) inflate2.findViewById(t.g.filter_text);
+                View inflate2 = LayoutInflater.from(getPageContext().getPageActivity()).inflate(u.h.filter_item, (ViewGroup) null);
+                ImageView imageView2 = (ImageView) inflate2.findViewById(u.g.filter_immage);
+                TextView textView2 = (TextView) inflate2.findViewById(u.g.filter_text);
                 textView2.setText(substring2);
-                imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.c.eG(substring));
+                imageView2.setImageResource(com.baidu.tbadk.coreExtra.view.c.eK(substring));
                 imageView2.setTag(textView2);
                 int i3 = i2 + 1;
                 if (substring.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-                    imageView2.setOnClickListener(new bx(this, substring, i2));
-                    this.duY = imageView2;
+                    imageView2.setOnClickListener(new bt(this, substring, i2));
+                    this.edq = imageView2;
                 } else {
-                    imageView2.setOnClickListener(new by(this, substring, i2));
+                    imageView2.setOnClickListener(new bu(this, substring, i2));
                 }
-                this.duU.addView(inflate2);
-                synchronized (this.fer) {
-                    this.duX.put(substring, imageView2);
+                this.edm.addView(inflate2);
+                synchronized (this.fJM) {
+                    this.edp.put(substring, imageView2);
                 }
                 i++;
                 i2 = i3;
             }
-            mo(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+            nT(WriteImageActivityConfig.FILTER_NAME_NORMAL);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mo(String str) {
+    public void nT(String str) {
         ImageView imageView;
         if (str != null) {
-            if (this.duT != null && (imageView = this.duX.get(this.duT)) != null) {
+            if (this.edl != null && (imageView = this.edp.get(this.edl)) != null) {
                 imageView.setBackgroundDrawable(null);
-                imageView.setPadding(this.duQ, this.duQ, this.duQ, this.duQ);
+                imageView.setPadding(this.edi, this.edi, this.edi, this.edi);
                 Object tag = imageView.getTag();
                 if (tag instanceof TextView) {
                     ((TextView) tag).setSelected(false);
                 }
             }
-            if (this.duX != null) {
-                ImageView imageView2 = this.duX.get(str);
+            if (this.edp != null) {
+                ImageView imageView2 = this.edp.get(str);
                 if (imageView2 != null) {
-                    imageView2.setBackgroundResource(t.f.bg_choose_filter);
-                    imageView2.setPadding(this.duQ, this.duQ, this.duQ, this.duQ);
+                    imageView2.setBackgroundResource(u.f.bg_choose_filter);
+                    imageView2.setPadding(this.edi, this.edi, this.edi, this.edi);
                     Object tag2 = imageView2.getTag();
                     if (tag2 instanceof TextView) {
                         ((TextView) tag2).setSelected(true);
                     }
                 }
-                this.duT = str;
+                this.edl = str;
             }
         }
     }
@@ -465,13 +465,13 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Void, Bitmap> {
         private Bitmap bitmap;
-        private Boolean dvd;
-        private Boolean dve;
+        private Boolean edv;
+        private Boolean edw;
         private String mLabel;
 
         private a() {
-            this.dvd = false;
-            this.dve = false;
+            this.edv = false;
+            this.edw = false;
         }
 
         /* synthetic */ a(WriteImageActivity writeImageActivity, a aVar) {
@@ -481,21 +481,21 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            if (WriteImageActivity.this.duS) {
-                PluginPackageManager.PluginStatus bs = PluginPackageManager.hF().bs(PluginCenter.NAME_MOTUSDK);
+            if (WriteImageActivity.this.edk) {
+                PluginPackageManager.PluginStatus bs = PluginPackageManager.hH().bs(PluginCenter.NAME_MOTUSDK);
                 if (!PluginCenter.getInstance().isEnable(PluginCenter.NAME_MOTUSDK) && bs != PluginPackageManager.PluginStatus.NROMAL) {
                     if (bs == PluginPackageManager.PluginStatus.DISABLE) {
-                        WriteImageActivity.this.mHandler.postDelayed(new bz(this), 500L);
-                        WriteImageActivity.this.showToast(t.j.plugin_config_not_found);
+                        WriteImageActivity.this.mHandler.postDelayed(new bv(this), 500L);
+                        WriteImageActivity.this.showToast(u.j.plugin_config_not_found);
                         return;
                     } else if (bs == PluginPackageManager.PluginStatus.UNINSTALLED) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(WriteImageActivity.this.getPageContext().getPageActivity(), PluginPackageManager.hF().getPluginConfig(PluginCenter.NAME_MOTUSDK))));
-                        WriteImageActivity.this.mHandler.postDelayed(new ca(this), 500L);
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(WriteImageActivity.this.getPageContext().getPageActivity(), PluginPackageManager.hH().getPluginConfig(PluginCenter.NAME_MOTUSDK))));
+                        WriteImageActivity.this.mHandler.postDelayed(new bw(this), 500L);
                         cancel();
                         return;
                     } else if (bs == PluginPackageManager.PluginStatus.FORBIDDEN) {
-                        com.baidu.tbadk.coreExtra.e.a.a(WriteImageActivity.this.getPageContext(), t.j.plugin_muto_not_install, new cb(this), new cc(this));
-                        WriteImageActivity.this.mHandler.postDelayed(new cd(this), 500L);
+                        com.baidu.tbadk.coreExtra.e.a.a(WriteImageActivity.this.getPageContext(), u.j.plugin_muto_not_install, new bx(this), new by(this));
+                        WriteImageActivity.this.mHandler.postDelayed(new bz(this), 500L);
                         cancel();
                         return;
                     }
@@ -503,8 +503,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            WriteImageActivity.this.bDI.setVisibility(0);
-            WriteImageActivity.this.fem.setEnabled(false);
+            WriteImageActivity.this.cbl.setVisibility(0);
+            WriteImageActivity.this.fJH.setEnabled(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -513,32 +513,32 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         /* renamed from: y */
         public Bitmap doInBackground(String... strArr) {
             this.mLabel = strArr[0];
-            if (WriteImageActivity.this.mBitmap == null && WriteImageActivity.this.duO == null) {
+            if (WriteImageActivity.this.mBitmap == null && WriteImageActivity.this.edg == null) {
                 return null;
             }
             if (this.mLabel.equals("0") || this.mLabel.equals("1")) {
-                this.dvd = true;
+                this.edv = true;
             } else if (this.mLabel.equals("2") || this.mLabel.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                this.dve = true;
+                this.edw = true;
             }
-            if (!this.dvd.booleanValue() && !this.dve.booleanValue()) {
+            if (!this.edv.booleanValue() && !this.edw.booleanValue()) {
                 if (!WriteImageActivity.this.mBitmap.isRecycled()) {
                     this.bitmap = WriteImageActivity.this.mBitmap.copy(WriteImageActivity.this.mBitmap.getConfig(), true);
                 }
-            } else if (WriteImageActivity.this.duO == null || WriteImageActivity.this.duO.isRecycled()) {
+            } else if (WriteImageActivity.this.edg == null || WriteImageActivity.this.edg.isRecycled()) {
                 if (!WriteImageActivity.this.mBitmap.isRecycled()) {
                     this.bitmap = WriteImageActivity.this.mBitmap.copy(WriteImageActivity.this.mBitmap.getConfig(), true);
                 }
             } else {
-                this.bitmap = WriteImageActivity.this.duO.copy(WriteImageActivity.this.duO.getConfig(), true);
+                this.bitmap = WriteImageActivity.this.edg.copy(WriteImageActivity.this.edg.getConfig(), true);
             }
             if (this.bitmap != null) {
                 if (this.bitmap.getWidth() > 900 || this.bitmap.getHeight() > 900) {
                     this.bitmap = BitmapHelper.resizeBitmap(this.bitmap, (int) TbConfig.POST_IMAGE_BIG);
                 }
-                if (this.dvd.booleanValue()) {
+                if (this.edv.booleanValue()) {
                     this.bitmap = BitmapHelper.rotateBitmap(this.bitmap, Integer.parseInt(this.mLabel));
-                } else if (this.dve.booleanValue()) {
+                } else if (this.edw.booleanValue()) {
                     this.bitmap = BitmapHelper.reversalBitmap(this.bitmap, Integer.parseInt(this.mLabel));
                 } else {
                     MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
@@ -553,12 +553,12 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.bitmap != null && !this.bitmap.isRecycled() && WriteImageActivity.this.duO != this.bitmap) {
+            if (this.bitmap != null && !this.bitmap.isRecycled() && WriteImageActivity.this.edg != this.bitmap) {
                 this.bitmap.recycle();
             }
             this.bitmap = null;
-            WriteImageActivity.this.bDI.setVisibility(8);
-            WriteImageActivity.this.fem.setEnabled(true);
+            WriteImageActivity.this.cbl.setVisibility(8);
+            WriteImageActivity.this.fJH.setEnabled(true);
             super.cancel(true);
         }
 
@@ -566,34 +566,34 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
-            WriteImageActivity.this.bDI.setVisibility(8);
-            WriteImageActivity.this.fem.setEnabled(true);
+            WriteImageActivity.this.cbl.setVisibility(8);
+            WriteImageActivity.this.fJH.setEnabled(true);
             if (bitmap != null && !bitmap.isRecycled()) {
-                WriteImageActivity.this.duV = true;
-                WriteImageActivity.this.aIH.setImageBitmap(bitmap);
-                if (WriteImageActivity.this.mBitmap != null && (this.dvd.booleanValue() || this.dve.booleanValue())) {
+                WriteImageActivity.this.edn = true;
+                WriteImageActivity.this.aMe.setImageBitmap(bitmap);
+                if (WriteImageActivity.this.mBitmap != null && (this.edv.booleanValue() || this.edw.booleanValue())) {
                     if (WriteImageActivity.this.mBitmap.getWidth() > 900 || WriteImageActivity.this.mBitmap.getHeight() > 900) {
                         WriteImageActivity.this.mBitmap = BitmapHelper.resizeBitmap(WriteImageActivity.this.mBitmap, (int) TbConfig.POST_IMAGE_BIG);
                     }
-                    if (this.dvd.booleanValue()) {
+                    if (this.edv.booleanValue()) {
                         WriteImageActivity.this.mBitmap = BitmapHelper.rotateBitmap(WriteImageActivity.this.mBitmap, Integer.parseInt(this.mLabel));
-                    } else if (this.dve.booleanValue()) {
+                    } else if (this.edw.booleanValue()) {
                         WriteImageActivity.this.mBitmap = BitmapHelper.reversalBitmap(WriteImageActivity.this.mBitmap, Integer.parseInt(this.mLabel));
                     }
                 }
-                if (WriteImageActivity.this.duO != null && !WriteImageActivity.this.duO.isRecycled()) {
-                    WriteImageActivity.this.duO.recycle();
+                if (WriteImageActivity.this.edg != null && !WriteImageActivity.this.edg.isRecycled()) {
+                    WriteImageActivity.this.edg.recycle();
                 }
-                WriteImageActivity.this.duO = bitmap;
+                WriteImageActivity.this.edg = bitmap;
             }
         }
     }
 
-    private void abM() {
-        this.fep = new c(this, null);
+    private void ajY() {
+        this.fJK = new c(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionImageResized());
-        registerReceiver(this.fep, intentFilter);
+        registerReceiver(this.fJK, intentFilter);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -614,8 +614,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 return;
             }
             WriteImageActivity.this.showToast(intent.getStringExtra("error"));
-            if (WriteImageActivity.this.fem != null) {
-                WriteImageActivity.this.fem.setEnabled(false);
+            if (WriteImageActivity.this.fJH != null) {
+                WriteImageActivity.this.fJH.setEnabled(false);
             }
         }
     }

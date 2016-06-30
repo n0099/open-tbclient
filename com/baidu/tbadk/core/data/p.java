@@ -1,71 +1,75 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
-public class p {
-    private int NN;
-    private String NP;
-    private String NQ;
-    private int NR;
-    private String NS;
-    private int mType;
-    private String mValue;
+public class p implements com.baidu.tbadk.core.flow.a.a {
+    private String NH;
+    private String NI;
+    private String NJ;
+    private boolean NK;
+    private String mImageUrl;
+    private String mTitle;
 
-    public int oX() {
-        return this.NN;
+    public p(String str, String str2, String str3) {
+        this.mImageUrl = str;
+        this.NH = str2;
+        this.mTitle = str3;
     }
 
-    public String oY() {
-        return this.NP;
+    public p() {
     }
 
-    public String getValue() {
-        return this.mValue;
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.mImageUrl;
     }
 
-    public int getType() {
-        return this.mType;
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicLinkUrl() {
+        return this.NH;
     }
 
-    public String oT() {
-        return this.NS;
+    public String getLinkUrl() {
+        return this.NH;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.NN = jSONObject.optInt("bannerType");
-                this.NP = jSONObject.optString("bannerUrl");
-                this.mValue = jSONObject.optString("value");
-                this.mType = jSONObject.optInt("type");
-                this.NQ = jSONObject.optString("desc");
-                this.NR = jSONObject.optInt("template_id");
-                this.NS = jSONObject.optString("obj_id");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+    public String getTitle() {
+        return this.mTitle;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: oM */
+    public p clone() {
+        p pVar = new p();
+        pVar.mImageUrl = this.mImageUrl;
+        pVar.NH = this.NH;
+        pVar.mTitle = this.mTitle;
+        pVar.NI = this.NI;
+        pVar.NJ = this.NJ;
+        return pVar;
+    }
+
+    public void a(HeadImgs headImgs) {
+        if (headImgs != null) {
+            this.mImageUrl = headImgs.img_url;
+            this.NH = headImgs.pc_url;
+            if (headImgs.title != null) {
+                this.mTitle = headImgs.title.trim();
+            }
+            if (headImgs.subtitle != null) {
+                this.NI = headImgs.subtitle.trim();
+            }
+            if (headImgs.btn_text != null) {
+                this.NJ = headImgs.btn_text.trim();
             }
         }
     }
 
-    public void a(Banner banner) {
-        if (banner != null) {
-            this.NN = banner.banner_type.intValue();
-            this.NP = banner.banner_url;
-            this.mValue = banner.value;
-            this.mType = banner.type.intValue();
-            this.NQ = banner.desc;
-            this.NR = banner.template_id.intValue();
-            this.NS = banner.obj_id;
-        }
+    public boolean oN() {
+        return this.NK;
     }
 
-    public boolean isValid() {
-        if (StringUtils.isNull(this.mValue)) {
-            return false;
-        }
-        return this.mType == 1 ? this.NN == 1 || this.NN == 4 || this.NN == 2 || this.NN == 3 : this.mType == 2 && !StringUtils.isNull(this.NQ);
+    public void ah(boolean z) {
+        this.NK = z;
     }
 }

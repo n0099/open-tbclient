@@ -5,17 +5,17 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.r;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ r cuf;
+    final /* synthetic */ r cZu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(r rVar, int i) {
         super(i);
-        this.cuf = rVar;
+        this.cZu = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,29 +32,29 @@ public class t extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.cuf.cud;
+                personalTalkSettingActivity = this.cZu.cZs;
                 if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.cuf.cud;
+                    personalTalkSettingActivity2 = this.cZu.cZs;
                     personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.cuf.agz = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.cuf.cud;
+            this.cZu.ahd = updateAttentionMessage.isAttention();
+            personalTalkSettingActivity3 = this.cZu.cZs;
             if (personalTalkSettingActivity3 != null) {
-                z = this.cuf.agz;
+                z = this.cZu.ahd;
                 if (z) {
-                    personalTalkSettingActivity5 = this.cuf.cud;
-                    personalTalkSettingActivity5.showToast(t.j.add_succ);
+                    personalTalkSettingActivity5 = this.cZu.cZs;
+                    personalTalkSettingActivity5.showToast(u.j.add_succ);
                 } else {
-                    personalTalkSettingActivity4 = this.cuf.cud;
-                    personalTalkSettingActivity4.showToast(t.j.remove_succ);
+                    personalTalkSettingActivity4 = this.cZu.cZs;
+                    personalTalkSettingActivity4.showToast(u.j.remove_succ);
                 }
             }
-            aVar = this.cuf.cue;
+            aVar = this.cZu.cZt;
             if (aVar != null) {
-                aVar2 = this.cuf.cue;
+                aVar2 = this.cZu.cZt;
                 aVar2.uY();
             }
         }

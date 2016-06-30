@@ -17,6 +17,6 @@ public class aa extends com.baidu.tbadk.util.s<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tbadk.core.util.c.N(this.val$context));
+        return Boolean.valueOf(com.baidu.tbadk.core.util.c.M(this.val$context));
     }
 }

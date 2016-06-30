@@ -10,7 +10,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 class d {
     public static String a(com.baidu.adp.lib.stats.base.a aVar, f fVar) {
-        if (aVar.eB() != null && (aVar.eB().equals("omp") || aVar.eB().equals("mon"))) {
+        if (aVar.eC() != null && (aVar.eC().equals("omp") || aVar.eC().equals("mon"))) {
             return a(fVar);
         }
         return a(true, fVar);
@@ -143,9 +143,8 @@ class d {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0082  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x00b4  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x00d3  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -173,9 +172,8 @@ class d {
                 a(sb, "_client_version", str, z);
                 a(sb, "_phone_imei", fVar.mS, z);
                 a(sb, "_client_id", fVar.mClientId, z);
-                if (!TextUtils.isEmpty(fVar.mT)) {
-                    a(sb, "subapp_type", fVar.mT, z);
-                }
+                a(sb, "subapp_type", fVar.mT, z);
+                a(sb, "os_version", fVar.nb, z);
                 a(sb, "from", fVar.mP, z);
                 a(sb, "cfrom", fVar.mQ, z);
                 a(sb, "net_type", fVar.na, z);
@@ -195,8 +193,8 @@ class d {
         a(sb, "_client_version", str, z);
         a(sb, "_phone_imei", fVar.mS, z);
         a(sb, "_client_id", fVar.mClientId, z);
-        if (!TextUtils.isEmpty(fVar.mT)) {
-        }
+        a(sb, "subapp_type", fVar.mT, z);
+        a(sb, "os_version", fVar.nb, z);
         a(sb, "from", fVar.mP, z);
         a(sb, "cfrom", fVar.mQ, z);
         a(sb, "net_type", fVar.na, z);

@@ -17,9 +17,26 @@ public class ad extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null) {
-            return;
+        boolean z;
+        bp bpVar;
+        bp bpVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            z = this.this$0.dyP;
+            if (z) {
+                if (intValue == 0) {
+                    bpVar2 = this.this$0.eht;
+                    if (bpVar2.eqc) {
+                        this.this$0.aMu();
+                        return;
+                    }
+                }
+                bpVar = this.this$0.eht;
+                if (bpVar.eqc) {
+                    return;
+                }
+                this.this$0.aMu();
+            }
         }
-        this.this$0.aDz();
     }
 }

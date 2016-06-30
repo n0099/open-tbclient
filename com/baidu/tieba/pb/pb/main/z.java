@@ -1,111 +1,103 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
-class z extends CustomMessageListener {
-    final /* synthetic */ PbActivity djE;
+class z implements a.d {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z(PbActivity pbActivity, int i) {
-        super(i);
-        this.djE = pbActivity;
+    public z(PbActivity pbActivity) {
+        this.dPF = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        cw cwVar;
-        int i;
-        el elVar;
-        cw cwVar2;
-        cw cwVar3;
-        cw cwVar4;
-        boolean z2;
-        el elVar2;
-        el elVar3;
-        el elVar4;
-        cw cwVar5;
-        String awN;
-        boolean z3;
-        cw cwVar6;
-        el elVar5;
-        cw cwVar7;
-        el elVar6;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.pb.b.a)) {
-            com.baidu.tieba.pb.b.a aVar = (com.baidu.tieba.pb.b.a) customResponsedMessage.getData();
-            if (aVar.tag == this.djE.getUniqueId()) {
-                switch (aVar.drz) {
-                    case 0:
-                        z3 = this.djE.mIsLogin;
-                        if (z3) {
-                            cwVar6 = this.djE.dih;
-                            if (cwVar6.gE(false)) {
-                                elVar6 = this.djE.diR;
-                                elVar6.aze();
-                                return;
+    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.p pVar, WriteData writeData, AntiData antiData) {
+        es esVar;
+        es esVar2;
+        com.baidu.tbadk.editortools.d.e eVar;
+        es esVar3;
+        es esVar4;
+        dg dgVar;
+        dg dgVar2;
+        dg dgVar3;
+        es esVar5;
+        dg dgVar4;
+        String userId;
+        dg dgVar5;
+        es esVar6;
+        dg dgVar6;
+        dg dgVar7;
+        dg dgVar8;
+        es esVar7;
+        es esVar8;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        this.dPF.UR();
+        esVar = this.dPF.dOO;
+        esVar.hN(z);
+        String str = "";
+        int i = -1;
+        if (postWriteCallBackData != null) {
+            i = postWriteCallBackData.getErrorCode();
+            str = postWriteCallBackData.getErrorString();
+        }
+        if (z) {
+            esVar2 = this.dPF.dOO;
+            esVar2.avf();
+            eVar = this.dPF.dOX;
+            if (eVar != null) {
+                esVar8 = this.dPF.dOO;
+                eVar2 = this.dPF.dOX;
+                esVar8.gb(eVar2.BW());
+            }
+            esVar3 = this.dPF.dOO;
+            esVar3.aGS();
+            esVar4 = this.dPF.dOO;
+            esVar4.gc(true);
+            dgVar = this.dPF.dOf;
+            dgVar.aFY();
+            this.dPF.a(antiData, postWriteCallBackData);
+            if (writeData != null) {
+                String floor = writeData.getFloor();
+                if (writeData == null || writeData.getType() != 2) {
+                    dgVar2 = this.dPF.dOf;
+                    if (dgVar2.getHostMode()) {
+                        dgVar4 = this.dPF.dOf;
+                        com.baidu.tieba.pb.data.h pbData = dgVar4.getPbData();
+                        if (pbData != null && pbData.aDO() != null && pbData.aDO().getAuthor() != null && (userId = pbData.aDO().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            dgVar5 = this.dPF.dOf;
+                            if (dgVar5.aFR()) {
+                                esVar6 = this.dPF.dOO;
+                                esVar6.aHn();
                             }
-                            elVar5 = this.djE.diR;
-                            cwVar7 = this.djE.dih;
-                            elVar5.n(cwVar7.getPbData());
-                            return;
                         }
-                        return;
-                    case 1:
-                        z2 = this.djE.mIsLoading;
-                        if (!z2) {
-                            this.djE.mIsLoading = true;
-                            elVar2 = this.djE.diR;
-                            elVar2.dmZ.dpV.setEnabled(false);
-                            elVar3 = this.djE.diR;
-                            elVar3.agq();
-                            this.djE.Pm();
-                            elVar4 = this.djE.diR;
-                            elVar4.azd();
-                            cwVar5 = this.djE.dih;
-                            awN = this.djE.awN();
-                            cwVar5.lX(awN);
-                            return;
+                    } else {
+                        dgVar3 = this.dPF.dOf;
+                        if (dgVar3.aFR()) {
+                            esVar5 = this.dPF.dOO;
+                            esVar5.aHn();
                         }
-                        return;
-                    case 2:
-                        z = this.djE.diA;
-                        if (z) {
-                            cwVar2 = this.djE.dih;
-                            boolean hostMode = cwVar2.getHostMode();
-                            cwVar3 = this.djE.dih;
-                            boolean axE = cwVar3.axE();
-                            cwVar4 = this.djE.dih;
-                            String threadID = cwVar4.getThreadID();
-                            String str = aVar.postId;
-                            int i2 = aVar.drA;
-                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.djE.getPageContext().getPageActivity());
-                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, axE, null);
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
-                            this.djE.diV = false;
-                            this.djE.finish();
-                            return;
-                        }
-                        int i3 = aVar.drA;
-                        cwVar = this.djE.dih;
-                        if (cwVar.getHostMode()) {
-                            i = i3 + 3;
-                        } else {
-                            i = i3 + 2;
-                        }
-                        elVar = this.djE.diR;
-                        elVar.KR().setSelection(i);
-                        return;
-                    default:
-                        return;
+                    }
+                } else if (floor != null) {
+                    dgVar8 = this.dPF.dOf;
+                    com.baidu.tieba.pb.data.h pbData2 = dgVar8.getPbData();
+                    esVar7 = this.dPF.dOO;
+                    esVar7.j(pbData2);
+                }
+                dgVar6 = this.dPF.dOf;
+                if (dgVar6.aFO()) {
+                    com.baidu.tbadk.core.util.ay ayVar = new com.baidu.tbadk.core.util.ay("c10369");
+                    dgVar7 = this.dPF.dOf;
+                    TiebaStatic.log(ayVar.ab("tid", dgVar7.getThreadID()));
                 }
             }
+        } else if (pVar != null) {
+        } else {
+            this.dPF.a(i, antiData, str);
         }
     }
 }

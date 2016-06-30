@@ -5,6 +5,6 @@ import com.baidu.tieba.person.data.PersonFriendActivityConfig;
 /* loaded from: classes.dex */
 public class PersonFriendActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(PersonFriendActivityConfig.class, PersonFriendActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(PersonFriendActivityConfig.class, PersonFriendActivity.class);
     }
 }

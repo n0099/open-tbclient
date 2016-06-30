@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.entelechy;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class h implements TbImageView.a {
-    final /* synthetic */ d bnY;
+    final /* synthetic */ d bIu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(d dVar) {
-        this.bnY = dVar;
+        this.bIu = dVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
     public void t(String str, boolean z) {
         if (z) {
-            this.bnY.Sq();
+            this.bIu.XL();
         }
     }
 

@@ -1,23 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class bi implements DialogInterface.OnDismissListener {
-    final /* synthetic */ WriteActivity fea;
+class bi extends CustomMessageListener {
+    final /* synthetic */ WriteActivity fJw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(WriteActivity writeActivity) {
-        this.fea = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bi(WriteActivity writeActivity, int i) {
+        super(i);
+        this.fJw = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        boolean z;
-        z = this.fea.fdT;
-        if (z) {
-            com.baidu.adp.lib.util.k.a(this.fea.getPageContext().getPageActivity(), this.fea.getCurrentFocus());
-            this.fea.fdU = System.currentTimeMillis();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
+            this.fJw.agJ();
         }
     }
 }

@@ -13,7 +13,7 @@ public class e extends BitmapDrawable {
     private Context mContext;
     private int mId;
     private String mKey;
-    private Rect hJ = null;
+    private Rect hI = null;
     private Matrix mMatrix = null;
 
     public e(Context context, int i) {
@@ -27,21 +27,21 @@ public class e extends BitmapDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(int i, int i2, int i3, int i4) {
-        this.hJ = new Rect(i, i2, i3, i4);
+        this.hI = new Rect(i, i2, i3, i4);
         this.mMatrix = null;
         super.setBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(Rect rect) {
-        this.hJ = new Rect(rect);
+        this.hI = new Rect(rect);
         this.mMatrix = null;
         super.setBounds(rect);
     }
 
     public void I(int i, int i2) {
-        if (this.hJ != null) {
-            super.setBounds(this.hJ.left, this.hJ.top, this.hJ.right + i, this.hJ.bottom + i2);
+        if (this.hI != null) {
+            super.setBounds(this.hI.left, this.hI.top, this.hI.right + i, this.hI.bottom + i2);
         }
     }
 
@@ -49,32 +49,32 @@ public class e extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.c CI = com.baidu.tbadk.imageManager.c.CI();
-            com.baidu.adp.widget.a.a fM = (CI == null || this.mKey == null) ? null : CI.fM(this.mKey);
-            if (fM == null) {
+            com.baidu.tbadk.imageManager.c CQ = com.baidu.tbadk.imageManager.c.CQ();
+            com.baidu.adp.widget.a.a fS = (CQ == null || this.mKey == null) ? null : CQ.fS(this.mKey);
+            if (fS == null) {
                 Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
                 if (resBitmap != null) {
-                    fM = new com.baidu.adp.widget.a.a(resBitmap, false, null);
+                    fS = new com.baidu.adp.widget.a.a(resBitmap, false, null);
                 }
-                if (CI != null && fM != null && this.mKey != null) {
-                    CI.c(this.mKey, fM);
+                if (CQ != null && fS != null && this.mKey != null) {
+                    CQ.c(this.mKey, fS);
                 }
-                aVar = fM;
+                aVar = fS;
             } else {
-                aVar = fM;
+                aVar = fS;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();
                 int height = aVar.getHeight();
-                if (width > 0 && height > 0 && this.hJ != null) {
+                if (width > 0 && height > 0 && this.hI != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > this.hJ.bottom - this.hJ.top || width > this.hJ.right - this.hJ.left) {
+                    if (height > this.hI.bottom - this.hI.top || width > this.hI.right - this.hI.left) {
                         if (this.mMatrix == null) {
                             this.mMatrix = new Matrix();
                             this.mMatrix.postTranslate(0.0f, 0.0f);
-                            float f = (this.hJ.right - this.hJ.left) / width;
-                            float f2 = (this.hJ.bottom - this.hJ.top) / height;
+                            float f = (this.hI.right - this.hI.left) / width;
+                            float f2 = (this.hI.bottom - this.hI.top) / height;
                             if (f >= f2) {
                                 f = f2;
                             }

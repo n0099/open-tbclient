@@ -4,14 +4,14 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a dUO;
+    final /* synthetic */ PluginDownloadActivity.a eEj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PluginDownloadActivity.a aVar) {
-        this.dUO = aVar;
+        this.eEj = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,21 +22,21 @@ class n implements View.OnClickListener {
         TextView textView3;
         PluginDownloadActivity pluginDownloadActivity2;
         PluginDownloadActivity pluginDownloadActivity3;
-        if (!com.baidu.adp.lib.util.i.fq()) {
+        if (!com.baidu.adp.lib.util.i.fr()) {
             pluginDownloadActivity3 = PluginDownloadActivity.this;
-            pluginDownloadActivity3.showToast(t.j.neterror);
+            pluginDownloadActivity3.showToast(u.j.neterror);
             return;
         }
         pluginDownloadActivity = PluginDownloadActivity.this;
-        pluginDownloadActivity.dUE = true;
-        textView = this.dUO.dUI;
+        pluginDownloadActivity.eDZ = true;
+        textView = this.eEj.eEd;
         textView.setVisibility(8);
-        textView2 = this.dUO.aJD;
+        textView2 = this.eEj.aNb;
         textView2.setVisibility(8);
-        textView3 = this.dUO.cRq;
+        textView3 = this.eEj.dxa;
         textView3.setVisibility(0);
-        PluginPackageManager hF = PluginPackageManager.hF();
+        PluginPackageManager hH = PluginPackageManager.hH();
         pluginDownloadActivity2 = PluginDownloadActivity.this;
-        hF.a(pluginDownloadActivity2.dUB, new o(this));
+        hH.a(pluginDownloadActivity2.eDW, new o(this));
     }
 }

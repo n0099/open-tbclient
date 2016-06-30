@@ -1,18 +1,19 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity fcU;
+public class y implements a.b {
+    final /* synthetic */ WriteActivity fJw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(VcodeActivity vcodeActivity) {
-        this.fcU = vcodeActivity;
+    public y(WriteActivity writeActivity) {
+        this.fJw = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.fcU.pp(null);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        this.fJw.a(0, true, (String) null);
+        aVar.dismiss();
     }
 }

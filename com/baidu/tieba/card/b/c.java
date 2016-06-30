@@ -4,45 +4,45 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private TextView aOG;
-    private View aOz;
-    private View aSD;
+    private View aRW;
+    private TextView aSd;
+    private View aVY;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.aOz = getView().findViewById(t.g.card_divider_top_margin);
-        this.aOG = (TextView) getView().findViewById(t.g.card_divider_tv);
-        this.aSD = getView().findViewById(t.g.bottom_line);
+        this.aRW = getView().findViewById(u.g.card_divider_top_margin);
+        this.aSd = (TextView) getView().findViewById(u.g.card_divider_tv);
+        this.aVY = getView().findViewById(u.g.bottom_line);
     }
 
     public void d(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            at.j((View) this.aOG, t.d.cp_cont_d);
-            at.l(this.aSD, t.d.cp_bg_line_b);
-            at.l(this.aOz, t.d.cp_bg_line_c);
+            av.j((View) this.aSd, u.d.cp_cont_d);
+            av.l(this.aVY, u.d.cp_bg_line_b);
+            av.l(this.aRW, u.d.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JP() {
-        return t.h.card_divider_view;
+    public int getLayout() {
+        return u.h.card_divider_view;
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            if (bVar.aRx) {
-                this.aOz.setVisibility(0);
+            if (bVar.aUT) {
+                this.aRW.setVisibility(0);
             } else {
-                this.aOz.setVisibility(8);
+                this.aRW.setVisibility(8);
             }
-            this.aOG.setText(bVar.title);
-            d(null, TbadkCoreApplication.m11getInst().getSkinType());
+            this.aSd.setText(bVar.title);
+            d(null, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 

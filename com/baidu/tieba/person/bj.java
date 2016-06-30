@@ -1,26 +1,17 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements View.OnLongClickListener {
-    final /* synthetic */ PersonImageActivity dwV;
+class bj implements View.OnClickListener {
+    final /* synthetic */ PersonImageActivity efn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(PersonImageActivity personImageActivity) {
-        this.dwV = personImageActivity;
+        this.efn = personImageActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        c.b bVar;
-        String[] strArr = {this.dwV.getPageContext().getString(t.j.save)};
-        PersonImageActivity personImageActivity = this.dwV;
-        bVar = this.dwV.cAI;
-        personImageActivity.createListMenu(strArr, bVar);
-        this.dwV.showListMenu();
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.efn.finish();
     }
 }

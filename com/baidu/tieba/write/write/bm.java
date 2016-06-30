@@ -1,21 +1,37 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tieba.tbadkCore.b.a;
+import android.view.View;
+import com.baidu.tbadk.BaseActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements a.InterfaceC0073a {
-    final /* synthetic */ WriteActivity fea;
+public class bm implements Runnable {
+    final /* synthetic */ bl fJF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteActivity writeActivity) {
-        this.fea = writeActivity;
+    public bm(bl blVar) {
+        this.fJF = blVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0073a
-    public void jm() {
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.editortools.j jVar;
         com.baidu.tbadk.editortools.l lVar;
-        this.fea.cSm = null;
-        this.fea.kB(false);
-        lVar = this.fea.apy;
-        lVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
+        com.baidu.tbadk.editortools.l lVar2;
+        com.baidu.tbadk.editortools.j jVar2;
+        BaseActivity baseActivity;
+        jVar = this.fJF.fJC;
+        if (jVar != null) {
+            lVar = this.fJF.aqo;
+            if (lVar != null) {
+                lVar2 = this.fJF.aqo;
+                com.baidu.tbadk.editortools.s ej = lVar2.ej(24);
+                if (ej instanceof View) {
+                    jVar2 = this.fJF.fJC;
+                    baseActivity = this.fJF.bkc;
+                    jVar2.c(baseActivity.getPageContext().getPageActivity(), (View) ej);
+                }
+                this.fJF.fJD = true;
+            }
+        }
     }
 }

@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bi;
 /* loaded from: classes.dex */
-public class ab implements DialogInterface.OnDismissListener {
-    final /* synthetic */ UpdateDialog this$0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
-    }
-
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.this$0.aHM.dismiss();
-        this.this$0.mHandler.postDelayed(new ac(this), 100L);
+class ab implements bi.a {
+    @Override // com.baidu.tbadk.core.util.bi.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        String gD;
+        if (strArr == null || strArr.length == 0) {
+            return 3;
+        }
+        String str = strArr[0];
+        if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
+            gD = TiebaStatic.gD(str);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, gD));
+            if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
+                ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
+            }
+            return 0;
+        }
+        return 3;
     }
 }

@@ -1,26 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
-public class ah extends ax {
-    public static final BdUniqueId Pc = BdUniqueId.gen();
-    private PhotoLiveCardData Pd;
+public class ah {
+    public String Fg;
+    public String OV;
+    public int OW;
+    public String OX;
+    public int position = 0;
+    public String subtitle;
+    public String summary;
 
-    public PhotoLiveCardData pR() {
-        return this.Pd;
-    }
-
-    public void a(PhotoLiveCardData photoLiveCardData) {
-        this.Pd = photoLiveCardData;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ax, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Pc;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ax
-    public String getTid() {
-        return this.Pd != null ? String.valueOf(this.Pd.getThreadId()) : super.getTid();
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.OV = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+            this.OW = newsInfo.news_type.intValue();
+            this.OX = newsInfo.news_icon;
+            this.subtitle = newsInfo.subtitle;
+            this.Fg = newsInfo.button_text;
+        }
     }
 }

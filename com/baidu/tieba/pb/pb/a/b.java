@@ -1,16 +1,11 @@
 package com.baidu.tieba.pb.pb.a;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
-    final /* synthetic */ a dfR;
+public interface b extends a {
+    boolean aEp();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.dfR = aVar;
-    }
+    void pause();
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-    }
+    void release();
+
+    void resume();
 }

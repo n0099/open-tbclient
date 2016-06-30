@@ -14,6 +14,14 @@ public class GraffitiPaintActivityConfig extends IntentConfig {
         getIntent().putExtra("from", i);
     }
 
+    public GraffitiPaintActivityConfig(Context context, int i, String str, String str2) {
+        super(context);
+        getIntent().putExtra("user_id", TbadkCoreApplication.getCurrentAccount());
+        getIntent().putExtra("from", i);
+        getIntent().putExtra("thread_id", str);
+        getIntent().putExtra("forum_id", str2);
+    }
+
     public GraffitiPaintActivityConfig(Context context, String str, int i) {
         super(context);
         if (!StringUtils.isNull(str)) {

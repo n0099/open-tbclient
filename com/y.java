@@ -31,7 +31,7 @@ public class y implements CompoundButton.OnCheckedChangeListener {
                     aVar = this.dh.dd;
                     aVar.onCheckStatusChanged(z, shareMediaItem.getMediaType());
                 }
-                this.dg.b.setImageResource(shareMediaItem.isChecked() ? p.h(this.dh.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.h(this.dh.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
+                this.dg.b.setImageResource(shareMediaItem.isChecked() ? p.i(this.dh.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.i(this.dh.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
             } else if (shareMediaItem.isAuthorized() || !z) {
             } else {
                 Bundle bundle = new Bundle();

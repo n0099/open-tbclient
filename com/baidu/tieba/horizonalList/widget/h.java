@@ -7,14 +7,14 @@ import com.baidu.tieba.horizonalList.widget.ExpandableHListConnector;
 class h implements Parcelable.Creator<ExpandableHListConnector.GroupMetadata> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: h */
+    /* renamed from: l */
     public ExpandableHListConnector.GroupMetadata createFromParcel(Parcel parcel) {
         return ExpandableHListConnector.GroupMetadata.a(parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readLong());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: ir */
+    /* renamed from: jQ */
     public ExpandableHListConnector.GroupMetadata[] newArray(int i) {
         return new ExpandableHListConnector.GroupMetadata[i];
     }

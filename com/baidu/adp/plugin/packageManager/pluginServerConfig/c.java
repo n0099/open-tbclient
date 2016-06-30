@@ -5,13 +5,13 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class c {
-    private List<BasicNameValuePair> vg = new ArrayList();
+    private List<BasicNameValuePair> vi = new ArrayList();
 
-    public List<BasicNameValuePair> ib() {
-        return this.vg;
+    public List<BasicNameValuePair> id() {
+        return this.vi;
     }
 
     public void f(List<BasicNameValuePair> list) {
-        this.vg = list;
+        this.vi = list;
     }
 }

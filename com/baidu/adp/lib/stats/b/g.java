@@ -16,7 +16,7 @@ class g extends com.baidu.adp.lib.Disk.ops.d {
     public void k(boolean z) {
         super.k(z);
         if (z) {
-            this.ob.g(bV().length());
+            this.ob.g(bW().length());
         }
     }
 }

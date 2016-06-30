@@ -1,49 +1,41 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private ArrayList<String> OG;
-    private UserData mUser;
+    private final int afY;
+    private final int afZ;
+    private final boolean aga;
+    private final Context mContext;
 
-    public b() {
-        this.mUser = null;
-        this.OG = null;
-        this.mUser = new UserData();
-        this.OG = new ArrayList<>(3);
+    public b(Context context, int i, int i2, boolean z) {
+        this.mContext = context;
+        this.afY = i;
+        this.afZ = i2;
+        this.aga = z;
     }
 
-    public UserData getUser() {
-        return this.mUser;
+    public b(Context context, int i, int i2) {
+        this(context, i, i2, false);
     }
 
-    public ArrayList<String> ws() {
-        return this.OG;
+    public Context getContext() {
+        return this.mContext;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int ws() {
+        return this.afY;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.mUser.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.OG.add(optJSONArray.optString(i, null));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int wt() {
+        return this.afZ;
+    }
+
+    public boolean wu() {
+        return this.aga;
+    }
+
+    public boolean isAvailable() {
+        return this.mContext != null && this.afY > 0 && this.afZ > 0;
     }
 }

@@ -1,45 +1,39 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.t;
 import com.baidu.tieba.im.message.RequestGetLivableForumList;
-import com.baidu.tieba.person.s;
 /* loaded from: classes.dex */
-class v implements BdListView.e {
-    final /* synthetic */ s dvP;
+class v implements t.b {
+    final /* synthetic */ t eeh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(s sVar) {
-        this.dvP = sVar;
+    public v(t tVar) {
+        this.eeh = tVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void jA() {
-        String str;
-        boolean z;
-        PersonBarActivity aBF;
-        if (this.dvP.hasMore) {
-            z = this.dvP.cMs;
-            if (!z) {
-                this.dvP.cMs = true;
-                this.dvP.dvy.OL();
-                aBF = this.dvP.aBF();
-                if (aBF.getRequestCode() == 23011) {
+    @Override // com.baidu.tbadk.core.view.t.b
+    public void aE(boolean z) {
+        PersonBarActivity aKx;
+        PersonBarActivity aKx2;
+        PersonBarActivity aKx3;
+        aKx = this.eeh.aKx();
+        if (aKx != null) {
+            this.eeh.edU = 1;
+            aKx2 = this.eeh.aKx();
+            if (aKx2 != null) {
+                aKx3 = this.eeh.aKx();
+                if (aKx3.getRequestCode() == 23011) {
                     RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                     requestGetLivableForumList.setGetLikeForum(1);
-                    requestGetLivableForumList.setPageNo(this.dvP.dvC);
-                    requestGetLivableForumList.setPageSize(this.dvP.pageSize);
+                    requestGetLivableForumList.setPageNo(this.eeh.edU);
+                    requestGetLivableForumList.setPageSize(this.eeh.pageSize);
                     requestGetLivableForumList.setUserId(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-                    this.dvP.sendMessage(requestGetLivableForumList);
+                    this.eeh.sendMessage(requestGetLivableForumList);
                     return;
                 }
-                this.dvP.jc(this.dvP.dvC);
-                return;
             }
-            return;
+            this.eeh.refreshData();
         }
-        s.a aVar = this.dvP.dvy;
-        str = this.dvP.dvF;
-        aVar.mp(str);
     }
 }

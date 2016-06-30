@@ -1,26 +1,73 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.PushStatus;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private List<aj> Pe;
-    private int mStatus;
+    private ArrayList<UserData> OY = new ArrayList<>();
+    private ArrayList<UserData> OZ = new ArrayList<>();
+    private af mPage = new af();
+    private int friendNum = 0;
+    private int Pa = 0;
 
-    public int getStatus() {
-        return this.mStatus;
+    public void a(af afVar) {
+        this.mPage = afVar;
     }
 
-    public void a(PushStatus pushStatus) {
-        if (pushStatus != null) {
-            this.mStatus = pushStatus.status.intValue();
-            this.Pe = new ArrayList();
-            int size = pushStatus.types.size();
-            for (int i = 0; i < size; i++) {
-                aj ajVar = new aj();
-                ajVar.a(pushStatus.types.get(i));
-                this.Pe.add(ajVar);
+    public af getPage() {
+        return this.mPage;
+    }
+
+    public ArrayList<UserData> pI() {
+        return this.OY;
+    }
+
+    public ArrayList<UserData> pJ() {
+        return this.OZ;
+    }
+
+    public int getFriendNum() {
+        return this.friendNum;
+    }
+
+    public int pK() {
+        return this.Pa;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        this.OY.add(userData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.OZ.add(userData2);
+                    }
+                }
+                this.mPage.parserJson(jSONObject.optJSONObject("page"));
+                this.friendNum = jSONObject.optInt("tafriendnum", 0);
+                this.Pa = jSONObject.optInt("commonfriendnum", 0);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }

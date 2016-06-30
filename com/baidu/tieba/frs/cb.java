@@ -1,52 +1,43 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.Iterator;
-import java.util.List;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class cb implements Runnable {
-    final /* synthetic */ ca biN;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.y biO;
+public class cb extends bj<cc, cd> {
+    private final int bqB;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(ca caVar, com.baidu.tieba.tbadkCore.y yVar) {
-        this.biN = caVar;
-        this.biO = yVar;
+    public cb(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
+        this.bqB = (com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds90);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        by byVar;
-        List list;
-        by byVar2;
-        List list2;
-        by byVar3;
-        by byVar4;
-        by byVar5;
-        List list3;
-        byVar = this.biN.biM;
-        list = byVar.biJ;
-        Iterator it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            FeedForumData feedForumData = (FeedForumData) it.next();
-            if (feedForumData.getForumId().equals(this.biO.getFid())) {
-                byVar5 = this.biN.biM;
-                list3 = byVar5.biJ;
-                list3.remove(feedForumData);
-                break;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: r */
+    public cd a(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(u.h.frs_no_list_item_view, viewGroup, false);
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.bqB));
+        return new cd(inflate);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.bj, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, cc ccVar, cd cdVar) {
+        super.a(i, view, viewGroup, (ViewGroup) ccVar, (cc) cdVar);
+        if (ccVar.WQ() == 6) {
+            cdVar.bFN.setText(u.j.attention_no_post_tip);
+        } else {
+            cdVar.bFN.setText(u.j.no_data_text);
         }
-        byVar2 = this.biN.biM;
-        list2 = byVar2.biJ;
-        if (list2.size() > 0) {
-            byVar4 = this.biN.biM;
-            byVar4.uQ();
-            return;
-        }
-        byVar3 = this.biN.biM;
-        byVar3.hide();
+        com.baidu.tbadk.core.util.av.c(cdVar.bFN, u.d.cp_cont_d, 1);
+        return view;
     }
 }

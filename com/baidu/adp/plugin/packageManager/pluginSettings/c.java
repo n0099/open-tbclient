@@ -20,23 +20,23 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c vB;
-    private Messenger vC;
-    public f vD;
-    private PluginSettings vu = new PluginSettings();
+    private static volatile c vD;
+    private Messenger vE;
+    public f vF;
+    private PluginSettings vw = new PluginSettings();
     private Messenger mReplyMessenger = new Messenger(new a(this, null));
     private ServiceConnection mServiceConnection = new b();
-    private ArrayList<Message> vE = new ArrayList<>();
+    private ArrayList<Message> vG = new ArrayList<>();
 
-    public static c ii() {
-        if (vB == null) {
+    public static c ik() {
+        if (vD == null) {
             synchronized (c.class) {
-                if (vB == null) {
-                    vB = new c();
+                if (vD == null) {
+                    vD = new c();
                 }
             }
         }
-        return vB;
+        return vD;
     }
 
     private c() {
@@ -53,24 +53,23 @@ public class c {
         }
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public PluginSettings m9if() {
-        return this.vu;
+    public PluginSettings ih() {
+        return this.vw;
     }
 
     public PluginSetting findPluginSetting(String str) {
-        return this.vu.findPluginSetting(str);
+        return this.vw.findPluginSetting(str);
     }
 
     public void a(String str, PluginSetting pluginSetting) {
-        if (this.vu.insertOrUpdatePluginSetting(str, pluginSetting)) {
+        if (this.vw.insertOrUpdatePluginSetting(str, pluginSetting)) {
             save();
         }
     }
 
     public void a(String str, PluginSetting pluginSetting, boolean z) {
-        if (this.vu.insertOrUpdatePluginSetting(str, pluginSetting) && z) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.b.ie().save(this.vu.m7clone(), null);
+        if (this.vw.insertOrUpdatePluginSetting(str, pluginSetting) && z) {
+            com.baidu.adp.plugin.packageManager.pluginSettings.b.ig().save(this.vw.m7clone(), null);
         }
     }
 
@@ -78,8 +77,8 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        if (TextUtils.isEmpty(this.vu.getContainerVersion()) || !this.vu.getContainerVersion().equals(str)) {
-            this.vu.setContainerSetting(str);
+        if (TextUtils.isEmpty(this.vw.getContainerVersion()) || !this.vw.getContainerVersion().equals(str)) {
+            this.vw.setContainerSetting(str);
             Bundle bundle = new Bundle();
             bundle.putString(PluginSettingIOService.KEY_VERSION, str);
             a(10, bundle);
@@ -87,7 +86,7 @@ public class c {
     }
 
     public void by(String str) {
-        if (this.vu.removePluginSetting(str)) {
+        if (this.vw.removePluginSetting(str)) {
             Bundle bundle = new Bundle();
             bundle.putString(PluginSettingIOService.KEY_SETTING_NAME, str);
             a(7, bundle);
@@ -143,13 +142,13 @@ public class c {
         if (findPluginSetting != null) {
             findPluginSetting.setAbandon_apk_path(str2);
             if (z) {
-                com.baidu.adp.plugin.packageManager.pluginSettings.b.ie().save(this.vu.m7clone(), null);
+                com.baidu.adp.plugin.packageManager.pluginSettings.b.ig().save(this.vw.m7clone(), null);
             }
         }
     }
 
-    public String am(int i) {
-        PluginSetting findPluginSettingByCmd = this.vu.findPluginSettingByCmd(i);
+    public String an(int i) {
+        PluginSetting findPluginSettingByCmd = this.vw.findPluginSettingByCmd(i);
         if (findPluginSettingByCmd != null) {
             return findPluginSettingByCmd.packageName;
         }
@@ -157,10 +156,10 @@ public class c {
     }
 
     public void setForbiddenFeatures(String str) {
-        String forbiddenFeatures = this.vu.getForbiddenFeatures();
+        String forbiddenFeatures = this.vw.getForbiddenFeatures();
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(forbiddenFeatures)) {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(forbiddenFeatures) || !str.equals(forbiddenFeatures)) {
-                this.vu.setForbiddenFeatures(str);
+                this.vw.setForbiddenFeatures(str);
                 Bundle bundle = new Bundle();
                 bundle.putString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE, str);
                 a(12, bundle);
@@ -177,7 +176,7 @@ public class c {
     }
 
     public void J(boolean z) {
-        if (this.vu.setAllPluginEnable(z)) {
+        if (this.vw.setAllPluginEnable(z)) {
             Bundle bundle = new Bundle();
             bundle.putBoolean(PluginSettingIOService.KEY_ENABLE, z);
             a(8, bundle);
@@ -185,14 +184,14 @@ public class c {
     }
 
     public void bB(String str) {
-        if (this.vu.findPluginSetting(str) != null) {
+        if (this.vw.findPluginSetting(str) != null) {
             by(str);
             bx("");
         }
     }
 
     public void bC(String str) {
-        if (this.vu.findPluginSetting(str) != null) {
+        if (this.vw.findPluginSetting(str) != null) {
             by(str);
             bx("");
         }
@@ -201,15 +200,15 @@ public class c {
     private void save() {
         Message obtain = Message.obtain((Handler) null, 4);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("plugin_settings", this.vu.m7clone());
+        bundle.putSerializable("plugin_settings", this.vw.m7clone());
         if (obtain != null) {
             obtain.setData(bundle);
             try {
-                if (this.vC == null || !ik()) {
-                    this.vE.add(obtain);
+                if (this.vE == null || !im()) {
+                    this.vG.add(obtain);
                     i.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.mServiceConnection, 1);
                 } else {
-                    this.vC.send(obtain);
+                    this.vE.send(obtain);
                 }
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -222,11 +221,11 @@ public class c {
         if (obtain != null) {
             obtain.setData(bundle);
             try {
-                if (this.vC == null || !ik()) {
-                    this.vE.add(obtain);
+                if (this.vE == null || !im()) {
+                    this.vG.add(obtain);
                     i.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.mServiceConnection, 1);
                 } else {
-                    this.vC.send(obtain);
+                    this.vE.send(obtain);
                 }
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -251,11 +250,11 @@ public class c {
                     case 5:
                         Bundle data = message.getData();
                         if (data != null && (serializable = data.getSerializable("plugin_settings")) != null && (serializable instanceof PluginSettings)) {
-                            c.this.vu = (PluginSettings) data.getSerializable("plugin_settings");
+                            c.this.vw = (PluginSettings) data.getSerializable("plugin_settings");
                         }
-                        if (c.this.vD != null) {
-                            c.this.vD.a(c.this.vu);
-                            c.this.vD = null;
+                        if (c.this.vF != null) {
+                            c.this.vF.a(c.this.vw);
+                            c.this.vF = null;
                             return;
                         }
                         return;
@@ -264,7 +263,7 @@ public class c {
                         if (data2 != null) {
                             boolean z = data2.getBoolean(PluginSettingIOService.KEY_FORBIDDEN);
                             String string = data2.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                            PluginSetting findPluginSetting = c.this.vu.findPluginSetting(string);
+                            PluginSetting findPluginSetting = c.this.vw.findPluginSetting(string);
                             if (findPluginSetting != null && findPluginSetting.forbidden != z) {
                                 findPluginSetting.forbidden = z;
                             }
@@ -278,14 +277,14 @@ public class c {
                     case 7:
                         Bundle data3 = message.getData();
                         if (data3 != null) {
-                            c.this.vu.removePluginSetting(data3.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                            c.this.vw.removePluginSetting(data3.getString(PluginSettingIOService.KEY_SETTING_NAME));
                             return;
                         }
                         return;
                     case 8:
                         Bundle data4 = message.getData();
                         if (data4 != null) {
-                            c.this.vu.setAllPluginEnable(data4.getBoolean(PluginSettingIOService.KEY_ENABLE));
+                            c.this.vw.setAllPluginEnable(data4.getBoolean(PluginSettingIOService.KEY_ENABLE));
                             return;
                         }
                         return;
@@ -293,7 +292,7 @@ public class c {
                         Bundle data5 = message.getData();
                         if (data5 != null) {
                             boolean z2 = data5.getBoolean(PluginSettingIOService.KEY_ENABLE);
-                            PluginSetting findPluginSetting2 = c.this.vu.findPluginSetting(data5.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                            PluginSetting findPluginSetting2 = c.this.vw.findPluginSetting(data5.getString(PluginSettingIOService.KEY_SETTING_NAME));
                             if (findPluginSetting2 != null && findPluginSetting2.enable != z2) {
                                 findPluginSetting2.enable = z2;
                             }
@@ -312,8 +311,8 @@ public class c {
                         Bundle data6 = message.getData();
                         if (data6 != null) {
                             String string2 = data6.getString(PluginSettingIOService.KEY_VERSION);
-                            if ((TextUtils.isEmpty(string2) && !TextUtils.isEmpty(c.this.vu.getContainerVersion())) || ((!TextUtils.isEmpty(string2) && TextUtils.isEmpty(c.this.vu.getContainerVersion())) || (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(c.this.vu.getContainerVersion()) && !string2.equals(c.this.vu.getContainerVersion())))) {
-                                c.this.vu.setContainerSetting(string2);
+                            if ((TextUtils.isEmpty(string2) && !TextUtils.isEmpty(c.this.vw.getContainerVersion())) || ((!TextUtils.isEmpty(string2) && TextUtils.isEmpty(c.this.vw.getContainerVersion())) || (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(c.this.vw.getContainerVersion()) && !string2.equals(c.this.vw.getContainerVersion())))) {
+                                c.this.vw.setContainerSetting(string2);
                                 return;
                             }
                             return;
@@ -323,7 +322,7 @@ public class c {
                         Bundle data7 = message.getData();
                         if (data7 != null) {
                             int i = data7.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
-                            PluginSetting findPluginSetting3 = c.this.vu.findPluginSetting(data7.getString(PluginSettingIOService.KEY_SETTING_NAME));
+                            PluginSetting findPluginSetting3 = c.this.vw.findPluginSetting(data7.getString(PluginSettingIOService.KEY_SETTING_NAME));
                             if (findPluginSetting3 != null && findPluginSetting3.installStatus != i) {
                                 findPluginSetting3.installStatus = i;
                                 return;
@@ -334,7 +333,7 @@ public class c {
                     case 12:
                         Bundle data8 = message.getData();
                         if (data8 != null) {
-                            c.this.vu.setForbiddenFeatures(data8.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
+                            c.this.vw.setForbiddenFeatures(data8.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE));
                             return;
                         }
                         return;
@@ -353,59 +352,59 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            c.this.vC = new Messenger(iBinder);
-            c.this.ij();
-            if (c.this.vE.size() > 0) {
-                Iterator it = c.this.vE.iterator();
+            c.this.vE = new Messenger(iBinder);
+            c.this.il();
+            if (c.this.vG.size() > 0) {
+                Iterator it = c.this.vG.iterator();
                 while (it.hasNext()) {
                     try {
-                        c.this.vC.send((Message) it.next());
+                        c.this.vE.send((Message) it.next());
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
                 }
-                c.this.vE.clear();
+                c.this.vG.clear();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.vC = null;
-            c.this.vE.clear();
+            c.this.vE = null;
+            c.this.vG.clear();
         }
     }
 
     public void a(f fVar) {
-        com.baidu.adp.plugin.packageManager.pluginSettings.b.ie().a(new d(this, fVar));
-        if (this.vC == null || !ik()) {
+        com.baidu.adp.plugin.packageManager.pluginSettings.b.ig().a(new d(this, fVar));
+        if (this.vE == null || !im()) {
             i.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.mServiceConnection, 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ij() {
+    public void il() {
         Message obtain = Message.obtain(null, 1, null);
         if (obtain != null) {
             try {
                 obtain.replyTo = this.mReplyMessenger;
-                this.vC.send(obtain);
+                this.vE.send(obtain);
             } catch (RemoteException e) {
             } catch (Throwable th) {
-                com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dN().al("dbg");
+                com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dO().al("dbg");
                 al.q("loc", String.valueOf(getClass().getName()) + "-sendMsgConnect");
-                com.baidu.adp.lib.stats.a.dN().b("PARCEL_NULLPOINT", al);
+                com.baidu.adp.lib.stats.a.dO().b("PARCEL_NULLPOINT", al);
             }
         }
     }
 
-    private boolean ik() {
+    private boolean im() {
         List<ActivityManager.RunningServiceInfo> list;
         try {
             list = ((ActivityManager) BdBaseApplication.getInst().getSystemService("activity")).getRunningServices(100);
         } catch (Exception e) {
-            com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dN().al("dbg");
+            com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dO().al("dbg");
             al.q("loc", String.valueOf(getClass().getName()) + "-isPluginIOServiceStart-getRunningServices");
-            com.baidu.adp.lib.stats.a.dN().b("PARCEL_NULLPOINT", al);
+            com.baidu.adp.lib.stats.a.dO().b("PARCEL_NULLPOINT", al);
             list = null;
         }
         if (list != null) {

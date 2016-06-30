@@ -4,33 +4,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tbadk.mvc.g.d;
-import com.baidu.tieba.enterForum.e.u;
-import com.baidu.tieba.tbadkCore.w;
+import com.baidu.tieba.enterForum.view.u;
+import com.baidu.tieba.tbadkCore.x;
 import java.util.List;
 /* loaded from: classes.dex */
-public class b extends d<w, com.baidu.tbadk.mvc.d.b, u> implements c {
-    private int aWA;
+public class b extends com.baidu.tbadk.mvc.g.d<x, com.baidu.tbadk.mvc.d.b, u> implements d {
+    private int bsh;
 
     public b(TbPageContext<?> tbPageContext, Class<u> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.aWA = -1;
+        this.bsh = -1;
     }
 
-    @Override // com.baidu.tieba.enterForum.a.c
-    public void Q(int i, int i2) {
-        List<w> DS = DS();
-        com.baidu.tieba.enterForum.c.b.MN().b(DS, i, i2);
-        z((List) DS);
+    @Override // com.baidu.tieba.enterForum.a.d
+    public void U(int i, int i2) {
+        List<x> Eb = Eb();
+        com.baidu.tieba.enterForum.c.b.Sp().c(Eb, i, i2);
+        A((List) Eb);
     }
 
-    @Override // com.baidu.tieba.enterForum.a.c
-    public void fH(int i) {
-        this.aWA = i;
+    @Override // com.baidu.tieba.enterForum.a.d
+    public void gH(int i) {
+        this.bsh = i;
     }
 
-    @Override // com.baidu.tieba.enterForum.a.c
-    public void Mc() {
+    @Override // com.baidu.tieba.enterForum.a.d
+    public void RE() {
         notifyDataSetChanged();
     }
 
@@ -38,7 +37,7 @@ public class b extends d<w, com.baidu.tbadk.mvc.d.b, u> implements c {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.aWA) {
+            if (i == this.bsh) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

@@ -9,8 +9,8 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class h {
-    private static h Hk = null;
-    private a Hl = null;
+    private static h Hi = null;
+    private a Hj = null;
     private boolean d = false;
     private boolean e = false;
     private boolean f = false;
@@ -41,17 +41,17 @@ public class h {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (h.this.d && com.baidu.location.c.b.lT().e() && com.baidu.location.e.d.mb().d()) {
+            if (h.this.d && com.baidu.location.c.b.lN().e() && com.baidu.location.e.d.lV().d()) {
                 new l(this).start();
             }
-            if (h.this.d && com.baidu.location.c.b.lT().e()) {
-                f.lX().d();
+            if (h.this.d && com.baidu.location.c.b.lN().e()) {
+                f.lR().d();
             }
             if (!h.this.d || !h.this.g) {
                 h.this.f = false;
                 return;
             }
-            h.this.a.postDelayed(this, com.baidu.location.h.i.Jq);
+            h.this.a.postDelayed(this, com.baidu.location.h.i.N);
             h.this.f = true;
         }
     }
@@ -73,18 +73,18 @@ public class h {
         } else if (this.d) {
         } else {
             this.d = true;
-            this.a.postDelayed(new b(), com.baidu.location.h.i.Jq);
+            this.a.postDelayed(new b(), com.baidu.location.h.i.N);
             this.f = true;
         }
     }
 
-    public static synchronized h lZ() {
+    public static synchronized h lT() {
         h hVar;
         synchronized (h.class) {
-            if (Hk == null) {
-                Hk = new h();
+            if (Hi == null) {
+                Hi = new h();
             }
-            hVar = Hk;
+            hVar = Hi;
         }
         return hVar;
     }
@@ -92,10 +92,10 @@ public class h {
     public synchronized void b() {
         if (com.baidu.location.f.isServing && !this.h) {
             try {
-                this.Hl = new a();
+                this.Hj = new a();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                com.baidu.location.f.getServiceContext().registerReceiver(this.Hl, intentFilter);
+                com.baidu.location.f.getServiceContext().registerReceiver(this.Hj, intentFilter);
                 this.e = true;
                 f();
             } catch (Exception e) {
@@ -108,13 +108,13 @@ public class h {
     public synchronized void c() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Hl);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Hj);
             } catch (Exception e) {
             }
             this.g = false;
             this.h = false;
             this.f = false;
-            this.Hl = null;
+            this.Hj = null;
         }
     }
 
@@ -124,7 +124,7 @@ public class h {
             if (this.f || !this.g) {
                 return;
             }
-            this.a.postDelayed(new b(), com.baidu.location.h.i.Jq);
+            this.a.postDelayed(new b(), com.baidu.location.h.i.N);
             this.f = true;
         }
     }

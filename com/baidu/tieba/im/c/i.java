@@ -5,14 +5,14 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.tbadk.util.s<Boolean> {
-    final /* synthetic */ a cqG;
-    private final /* synthetic */ CommonGroupChatMessage cqL;
+    final /* synthetic */ a cVW;
+    private final /* synthetic */ CommonGroupChatMessage cWb;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
-        this.cqG = aVar;
-        this.cqL = commonGroupChatMessage;
+        this.cVW = aVar;
+        this.cWb = commonGroupChatMessage;
         this.val$list = linkedList;
     }
 
@@ -20,6 +20,6 @@ public class i extends com.baidu.tbadk.util.s<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.aer().b(this.cqL.getGroupId(), this.val$list, false));
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.amG().b(this.cWb.getGroupId(), this.val$list, false));
     }
 }

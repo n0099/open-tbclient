@@ -1,32 +1,69 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.List;
+import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
-public class h implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId eqr = BdUniqueId.gen();
-    private List<FeedForumData> biJ;
-    private String forumId;
+public class h {
+    private String dvz;
+    private String icon;
+    private String obj_id;
+    private int time;
+    private String title;
+    private int type;
+    private String url;
+    private int weight;
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return eqr;
+    public String getIcon() {
+        return this.icon;
     }
 
-    public List<FeedForumData> aSb() {
-        return this.biJ;
+    public void setIcon(String str) {
+        this.icon = str;
     }
 
-    public void cp(List<FeedForumData> list) {
-        this.biJ = list;
+    public void qp(int i) {
+        this.weight = i;
     }
 
-    public String getForumId() {
-        return this.forumId;
+    public String getTitle() {
+        return this.title;
     }
 
-    public void setForumId(String str) {
-        this.forumId = str;
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public void setTime(int i) {
+        this.time = i;
+    }
+
+    public String bai() {
+        return this.obj_id;
+    }
+
+    public String ayw() {
+        return this.dvz;
+    }
+
+    public void a(StarEnter starEnter) {
+        setIcon(starEnter.icon);
+        setTime(starEnter.time.intValue());
+        setTitle(starEnter.title);
+        setType(starEnter.type.intValue());
+        setUrl(starEnter.url);
+        qp(starEnter.weight.intValue());
+        this.obj_id = starEnter.obj_id;
+        this.dvz = starEnter.text;
     }
 }

@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private List<v> aem;
-    private List<v> aen;
-    private boolean aeo;
-    private boolean aep;
-    private int aer;
-    private int aeq = 2;
-    private int aes = 1;
+    private List<v> aeN;
+    private List<v> aeO;
+    private boolean aeP;
+    private boolean aeQ;
+    private int aeS;
+    private int aeR = 2;
+    private int aeT = 1;
 
     public c(List<v> list, boolean z, int i) {
-        this.aer = 2;
-        this.aem = list;
-        this.aep = z;
-        this.aer = i;
-        t(list);
+        this.aeS = 2;
+        this.aeN = list;
+        this.aeQ = z;
+        this.aeS = i;
+        u(list);
     }
 
-    public void t(List<v> list) {
-        if (list != null && list.size() >= this.aeq && list.size() <= this.aer) {
-            this.aeo = true;
-        } else if (list.size() > this.aer && this.aep) {
-            this.aeo = true;
+    public void u(List<v> list) {
+        if (list != null && list.size() >= this.aeR && list.size() <= this.aeS) {
+            this.aeP = true;
+        } else if (list.size() > this.aeS && this.aeQ) {
+            this.aeP = true;
         } else {
-            this.aeo = false;
+            this.aeP = false;
         }
-        this.aen = vO();
+        this.aeO = vR();
     }
 
-    private List<v> vO() {
+    private List<v> vR() {
         ArrayList arrayList = new ArrayList();
-        if (this.aem != null) {
-            if (this.aeo) {
-                if (this.aem.size() > this.aer && this.aem.size() >= this.aes) {
-                    arrayList.addAll(this.aem.subList(0, this.aer));
-                    arrayList.addAll(0, this.aem.subList(this.aer - this.aes, this.aer));
-                    arrayList.addAll(this.aem.subList(0, this.aes));
+        if (this.aeN != null) {
+            if (this.aeP) {
+                if (this.aeN.size() > this.aeS && this.aeN.size() >= this.aeT) {
+                    arrayList.addAll(this.aeN.subList(0, this.aeS));
+                    arrayList.addAll(0, this.aeN.subList(this.aeS - this.aeT, this.aeS));
+                    arrayList.addAll(this.aeN.subList(0, this.aeT));
                 } else {
-                    arrayList.addAll(this.aem);
-                    arrayList.addAll(0, this.aem.subList(this.aem.size() - this.aes, this.aem.size()));
-                    arrayList.addAll(this.aem.subList(0, this.aes));
+                    arrayList.addAll(this.aeN);
+                    arrayList.addAll(0, this.aeN.subList(this.aeN.size() - this.aeT, this.aeN.size()));
+                    arrayList.addAll(this.aeN.subList(0, this.aeT));
                 }
-            } else if (this.aem != null && this.aem.size() > 0 && this.aem.size() >= this.aes) {
-                arrayList.addAll(this.aem.subList(0, this.aes));
+            } else if (this.aeN != null && this.aeN.size() > 0 && this.aeN.size() >= this.aeT) {
+                arrayList.addAll(this.aeN.subList(0, this.aeT));
             }
         }
         return arrayList;
     }
 
-    public int cZ(int i) {
-        if (this.aeo) {
-            int size = this.aen.size();
+    public int db(int i) {
+        if (this.aeP) {
+            int size = this.aeO.size();
             if (i == 0) {
-                return (size - 1) - this.aes;
+                return (size - 1) - this.aeT;
             }
-            if (i == size - this.aes) {
-                return this.aes;
+            if (i == size - this.aeT) {
+                return this.aeT;
             }
             return i;
         }
         return i;
     }
 
-    public int da(int i) {
-        if (this.aeo) {
-            return i - this.aes;
+    public int dc(int i) {
+        if (this.aeP) {
+            return i - this.aeT;
         }
         return i;
     }
 
-    public int vP() {
-        if (this.aem == null) {
+    public int vS() {
+        if (this.aeN == null) {
             return 0;
         }
-        return this.aem.size();
+        return this.aeN.size();
     }
 
-    public int vQ() {
-        if (this.aeo) {
-            return this.aes;
+    public int vT() {
+        if (this.aeP) {
+            return this.aeT;
         }
         return 0;
     }
 
-    public void db(int i) {
-        this.aer = i;
-        t(this.aem);
-    }
-
-    public void dc(int i) {
-        this.aeq = i;
-        t(this.aem);
-    }
-
-    public List<v> vR() {
-        return this.aen;
-    }
-
     public void dd(int i) {
-        this.aes = i;
-        t(this.aem);
+        this.aeS = i;
+        u(this.aeN);
+    }
+
+    public void de(int i) {
+        this.aeR = i;
+        u(this.aeN);
+    }
+
+    public List<v> vU() {
+        return this.aeO;
+    }
+
+    public void df(int i) {
+        this.aeT = i;
+        u(this.aeN);
     }
 }

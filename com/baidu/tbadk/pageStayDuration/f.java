@@ -2,22 +2,22 @@ package com.baidu.tbadk.pageStayDuration;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends b {
-    final /* synthetic */ e aww;
+    final /* synthetic */ e axm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.aww = eVar;
+        this.axm = eVar;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean Ee() {
+    public boolean En() {
         return true;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public int Ef() {
+    public int Eo() {
         int i;
-        i = this.aww.awv;
+        i = this.axm.axl;
         return i;
     }
 }

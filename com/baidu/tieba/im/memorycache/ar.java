@@ -9,25 +9,25 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ ao cnS;
-    private final /* synthetic */ ImMessageCenterPojo cnU;
+    final /* synthetic */ ao cTh;
+    private final /* synthetic */ ImMessageCenterPojo cTj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(ao aoVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.cnS = aoVar;
-        this.cnU = imMessageCenterPojo;
+        this.cTh = aoVar;
+        this.cTj = imMessageCenterPojo;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.g.aev().aew();
-            com.baidu.tieba.im.db.c.aer().jf(this.cnU.getGid());
-            com.baidu.tieba.im.db.i.aez().c(this.cnU);
+            com.baidu.tieba.im.db.g.amK().amL();
+            com.baidu.tieba.im.db.c.amG().ky(this.cTj.getGid());
+            com.baidu.tieba.im.db.i.amO().c(this.cTj);
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
-            com.baidu.tieba.im.db.g.aev().endTransaction();
+            com.baidu.tieba.im.db.g.amK().endTransaction();
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_GROUP_CONFIRM_PASSED);
     }

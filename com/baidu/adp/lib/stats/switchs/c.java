@@ -12,12 +12,12 @@ public class c {
     public long nN = 0;
     public String nO = null;
 
-    public boolean eM() {
+    public boolean eN() {
         String str = null;
         d dVar = new d("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
         dVar.p(false);
         dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.bG().b(dVar);
+        com.baidu.adp.lib.Disk.d.bH().b(dVar);
         if (dVar.isSuccess()) {
             str = dVar.getContent();
         }
@@ -45,7 +45,7 @@ public class c {
                 dVar.p(false);
                 dVar.setContent(jSONObject.toString());
                 dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-                com.baidu.adp.lib.Disk.d.bG().b(dVar);
+                com.baidu.adp.lib.Disk.d.bH().b(dVar);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

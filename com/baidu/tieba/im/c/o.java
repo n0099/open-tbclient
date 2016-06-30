@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.c {
-    final /* synthetic */ a cqG;
+    final /* synthetic */ a cVW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.cqG = aVar;
+        this.cVW = aVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -32,10 +32,10 @@ public class o implements a.c {
         int i2 = 0;
         synchronized (this) {
             synchronized (a.class) {
-                hashMap = this.cqG.cqB;
+                hashMap = this.cVW.cVR;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.CK()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.CS()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     if (imageUploadResult != null) {
                         com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
@@ -60,17 +60,17 @@ public class o implements a.c {
                         str2 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.cqG.be(str, str2);
+                        this.cVW.be(str, str2);
                     } else {
                         i = 0;
                         str2 = null;
                     }
-                    chatMessage.setContent(a.b(str3, str2, i2, i));
-                    a.aiq().n(chatMessage);
-                    aeVar = this.cqG.mSendCallback;
+                    chatMessage.setContent(a.c(str3, str2, i2, i));
+                    a.aqE().o(chatMessage);
+                    aeVar = this.cVW.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.cqG.mSendCallback;
-                        aeVar2.jG(1);
+                        aeVar2 = this.cVW.mSendCallback;
+                        aeVar2.li(1);
                     }
                 }
             }

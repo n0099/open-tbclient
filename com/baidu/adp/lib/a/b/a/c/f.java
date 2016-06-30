@@ -12,7 +12,7 @@ public class f implements c {
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> cg() {
+    public Set<String> ch() {
         return this.map.keySet();
     }
 
@@ -26,7 +26,7 @@ public class f implements c {
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Object a(String str, Type type) {
+    public Object b(String str, Type type) {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.a.b.a.e.c cVar = new com.baidu.adp.lib.a.b.a.e.c(type);

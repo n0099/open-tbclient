@@ -1,69 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
 import android.view.View;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
-import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu implements View.OnClickListener {
+    private final /* synthetic */ String edt;
     final /* synthetic */ WriteImageActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(WriteImageActivity writeImageActivity) {
+    public bu(WriteImageActivity writeImageActivity, String str, int i) {
         this.this$0 = writeImageActivity;
+        this.edt = str;
+        this.val$id = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        boolean pt;
-        boolean z3;
-        boolean pt2;
-        z = this.this$0.dlk;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                intent.putExtra(WriteImageActivityConfig.DELET_FLAG, true);
-                this.this$0.setResult(-1, intent);
-            } else {
-                Intent intent2 = new Intent();
-                z2 = this.this$0.duV;
-                if (z2) {
-                    if (this.this$0.duO != null && !this.this$0.duO.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        pt = this.this$0.pt(str);
-                        if (pt) {
-                            intent2.putExtra("change", true);
-                            intent2.putExtra("file_name", str);
-                        } else {
-                            intent2.putExtra("change", false);
-                        }
-                    } else {
-                        intent2.putExtra("change", false);
-                    }
-                } else {
-                    intent2.setData(this.this$0.getIntent().getData());
-                    this.this$0.setResult(-1, intent2);
-                }
-                this.this$0.setResult(-1, intent2);
-            }
-            this.this$0.finish();
-            return;
-        }
-        Intent intent3 = new Intent();
-        z3 = this.this$0.duV;
-        if (z3 && this.this$0.duO != null && !this.this$0.duO.isRecycled()) {
-            String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-            pt2 = this.this$0.pt(str2);
-            if (pt2) {
-                intent3.putExtra("filename", str2);
+        String str;
+        if (this.this$0.cbl.getVisibility() != 0) {
+            String str2 = this.edt;
+            str = this.this$0.edl;
+            if (!str2.equals(str)) {
+                this.this$0.rc(this.edt);
+                this.this$0.nT(this.edt);
+                this.this$0.edj = this.val$id;
             }
         }
-        this.this$0.setResult(-1, intent3);
-        this.this$0.finish();
     }
 }

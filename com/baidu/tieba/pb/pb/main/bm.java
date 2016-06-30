@@ -1,28 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.FileDownloader;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements View.OnClickListener {
-    final /* synthetic */ PbActivity djE;
+public class bm implements a.b {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(PbActivity pbActivity) {
-        this.djE = pbActivity;
+        this.dPF = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        cw cwVar;
-        this.djE.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.djE.getPageContext().getPageActivity(), 23007)));
-        com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10125");
-        cwVar = this.djE.dih;
-        TiebaStatic.log(awVar.ac("tid", cwVar.getThreadID()).s("obj_type", 1));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        if (!com.baidu.tbadk.core.util.m.bG()) {
+            this.dPF.showToast(com.baidu.tbadk.core.util.m.sV());
+        } else {
+            FileDownloader.download(this.dPF.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.dPF.getPageContext().getString(u.j.download_baidu_video));
+        }
     }
 }

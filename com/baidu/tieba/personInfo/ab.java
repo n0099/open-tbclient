@@ -18,24 +18,24 @@ public class ab extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        bg bgVar;
-        bg bgVar2;
+        bp bpVar;
+        bp bpVar2;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            z = this.this$0.cST;
+            z = this.this$0.dyP;
             if (z) {
                 if (intValue == 0) {
-                    bgVar2 = this.this$0.dyP;
-                    if (bgVar2.dGX) {
-                        this.this$0.aDz();
+                    bpVar2 = this.this$0.eht;
+                    if (bpVar2.eqb) {
+                        this.this$0.aMu();
                         return;
                     }
                 }
-                bgVar = this.this$0.dyP;
-                if (bgVar.dGX) {
+                bpVar = this.this$0.eht;
+                if (bpVar.eqb) {
                     return;
                 }
-                this.this$0.aDz();
+                this.this$0.aMu();
             }
         }
     }

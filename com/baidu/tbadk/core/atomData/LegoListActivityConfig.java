@@ -23,8 +23,8 @@ public class LegoListActivityConfig extends IntentConfig {
 
     public LegoListActivityConfig createNormalCfg(long j, int i, String str, int i2, String str2) {
         Intent intent = getIntent();
-        intent.putExtra(PAGE_ID, j);
-        intent.putExtra(PAGE_TYPE, i);
+        intent.putExtra("page_id", j);
+        intent.putExtra("page_type", i);
         if (!TextUtils.isEmpty(str)) {
             intent.putExtra(ITEM_ID, str);
         }

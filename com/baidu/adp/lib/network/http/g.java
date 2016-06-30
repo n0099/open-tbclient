@@ -39,14 +39,14 @@ public class g {
         }
     }
 
-    public boolean dy() {
+    public boolean dz() {
         return this.lC != null && this.lC.size() > 0;
     }
 
     public String c(e eVar) {
         if (this.lB.size() == 0) {
             if (eVar != null) {
-                eVar.lg = this.url.length();
+                eVar.le = this.url.length();
             }
             return this.url;
         }
@@ -72,7 +72,7 @@ public class g {
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.lg = sb.length();
+            eVar.le = sb.length();
         }
         return sb.toString();
     }
@@ -88,7 +88,7 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, e eVar) {
-        dA();
+        dB();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
@@ -128,35 +128,35 @@ public class g {
                 dataOutputStream.flush();
                 i = dataOutputStream.size();
             } finally {
-                com.baidu.adp.lib.h.a.a((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.h.a.b((OutputStream) dataOutputStream);
             }
         }
         if (eVar != null) {
-            eVar.lg = i;
+            eVar.le = i;
         }
     }
 
     public void a(HttpURLConnection httpURLConnection, e eVar) {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = dz().toString();
+            String sb = dA().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
                 dataOutputStream.flush();
-                com.baidu.adp.lib.h.a.a((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.h.a.b((OutputStream) dataOutputStream);
                 i = sb.length();
             } catch (Throwable th) {
-                com.baidu.adp.lib.h.a.a((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.h.a.b((OutputStream) dataOutputStream);
                 throw th;
             }
         }
         if (eVar != null) {
-            eVar.lg = i;
+            eVar.le = i;
         }
     }
 
-    private StringBuilder dz() {
+    private StringBuilder dA() {
         StringBuilder sb = new StringBuilder(1024);
         if (this.lB != null) {
             Iterator<BasicNameValuePair> it = this.lB.iterator();
@@ -178,7 +178,7 @@ public class g {
         return sb;
     }
 
-    protected void dA() {
+    protected void dB() {
     }
 
     public void d(HashMap<String, String> hashMap) {
@@ -209,7 +209,7 @@ public class g {
         }
     }
 
-    public void c(String str, byte[] bArr) {
+    public void d(String str, byte[] bArr) {
         this.lC.put(str, bArr);
     }
 

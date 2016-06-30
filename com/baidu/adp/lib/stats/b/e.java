@@ -19,8 +19,8 @@ public class e extends com.baidu.adp.lib.Disk.ops.d {
     public void k(boolean z) {
         super.k(z);
         if (z) {
-            this.ob.g(bV().length());
-            if (this.oc || this.ob.ev() > 102400) {
+            this.ob.g(bW().length());
+            if (this.oc || this.ob.ew() > 102400) {
                 d.c(this.ob, false, false, false);
             }
         }

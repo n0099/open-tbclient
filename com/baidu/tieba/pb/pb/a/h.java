@@ -1,34 +1,57 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements a.b {
-    private final /* synthetic */ String cqS;
-    final /* synthetic */ d dgb;
+public class h extends CustomMessageListener {
+    final /* synthetic */ e dML;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(d dVar, String str) {
-        this.dgb = dVar;
-        this.cqS = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(e eVar, int i) {
+        super(i);
+        this.dML = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.pb.data.e eVar;
-        com.baidu.tieba.pb.data.e eVar2;
-        com.baidu.tieba.pb.data.e eVar3;
-        aVar.dismiss();
-        this.dgb.lE(1);
-        eVar = this.dgb.dfY;
-        if (eVar != null) {
-            aw awVar = new aw("c10398");
-            eVar2 = this.dgb.dfY;
-            aw ac = awVar.ac("fid", eVar2.getForumId());
-            eVar3 = this.dgb.dfY;
-            TiebaStatic.log(ac.ac("tid", eVar3.getThreadId()).ac("uid", this.cqS).ac("is_like", "1"));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.pb.data.h hVar;
+        com.baidu.tieba.pb.data.h hVar2;
+        com.baidu.tieba.pb.data.h hVar3;
+        y yVar;
+        boolean a;
+        com.baidu.tieba.pb.data.h hVar4;
+        com.baidu.tieba.pb.data.h hVar5;
+        if (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.r) {
+            hVar = this.dML.dMC;
+            if (hVar != null) {
+                com.baidu.tieba.graffiti.r rVar = (com.baidu.tieba.graffiti.r) customResponsedMessage.getData();
+                if (rVar.threadId != null) {
+                    String str = rVar.threadId;
+                    hVar2 = this.dML.dMC;
+                    if (str.equals(hVar2.getThreadId())) {
+                        UserData userData = new UserData();
+                        userData.setName_show(TbadkCoreApplication.getCurrentAccountName());
+                        hVar3 = this.dML.dMC;
+                        if (hVar3.aDL() != null) {
+                            hVar4 = this.dML.dMC;
+                            if (hVar4.aDL().pj() != null) {
+                                hVar5 = this.dML.dMC;
+                                hVar5.aDL().pj().add(0, userData);
+                            }
+                        }
+                        e eVar = this.dML;
+                        e eVar2 = this.dML;
+                        yVar = this.dML.dMD;
+                        a = eVar2.a(yVar, userData);
+                        eVar.hk(a);
+                    }
+                }
+            }
         }
     }
 }

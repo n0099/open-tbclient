@@ -1,37 +1,32 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
-import com.baidu.tbadk.core.data.PraiseData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.FeedForumData;
+import java.util.List;
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView eqw;
+public class i implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId eVb = BdUniqueId.gen();
+    private List<FeedForumData> bLJ;
+    private String forumId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(FrsPraiseView frsPraiseView) {
-        this.eqw = frsPraiseView;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return eVb;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        String str;
-        String str2;
-        boolean z;
-        PraiseData praiseData2;
-        String str3 = "";
-        praiseData = this.eqw.equ;
-        if (praiseData != null) {
-            praiseData2 = this.eqw.equ;
-            str3 = praiseData2.getTitle();
-        }
-        context = this.eqw.mContext;
-        str = this.eqw.mThreadId;
-        str2 = this.eqw.mPostId;
-        z = this.eqw.drg;
-        com.baidu.tbadk.util.k.a(new PraiseListActivityConfig(context, str, str2, str3, z));
+    public List<FeedForumData> baj() {
+        return this.bLJ;
+    }
+
+    public void cF(List<FeedForumData> list) {
+        this.bLJ = list;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
     }
 }

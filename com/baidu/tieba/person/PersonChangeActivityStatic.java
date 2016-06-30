@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 /* loaded from: classes.dex */
 public class PersonChangeActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(PersonChangeActivityConfig.class, PersonChangeActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(PersonChangeActivityConfig.class, PersonChangeActivity.class);
     }
 }

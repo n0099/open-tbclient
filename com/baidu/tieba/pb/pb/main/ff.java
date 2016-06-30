@@ -1,38 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.t;
+import android.widget.CompoundButton;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ff implements View.OnClickListener {
-    private final /* synthetic */ String aQH;
-    private final /* synthetic */ MetaData bje;
-    final /* synthetic */ el dpu;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.d.a dpz;
+public class ff implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ff(el elVar, String str, com.baidu.tbadk.coreExtra.d.a aVar, MetaData metaData) {
-        this.dpu = elVar;
-        this.aQH = str;
-        this.dpz = aVar;
-        this.bje = metaData;
+    public ff(es esVar) {
+        this.dVR = esVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        if (!com.baidu.adp.lib.util.i.fq()) {
-            pbActivity2 = this.dpu.dhY;
-            pbActivity2.showToast(t.j.neterror);
-            return;
-        }
-        pbActivity = this.dpu.dhY;
-        if (com.baidu.tbadk.core.util.bl.ac(pbActivity.getApplicationContext())) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10803").ac("tid", this.aQH).s("obj_locate", 3));
-            this.dpz.a(true, this.bje.getPortrait(), this.bje.getUserId());
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        List list;
+        List<com.baidu.tieba.pb.pb.main.b.a> list2;
+        String str;
+        String str2;
+        if (z) {
+            this.dVR.dUH = (String) compoundButton.getTag();
+            list = this.dVR.dTu;
+            if (list != null) {
+                list2 = this.dVR.dTu;
+                for (com.baidu.tieba.pb.pb.main.b.a aVar : list2) {
+                    String str3 = (String) aVar.getTag();
+                    if (str3 != null) {
+                        str = this.dVR.dUH;
+                        if (str != null) {
+                            str2 = this.dVR.dUH;
+                            if (!str3.equals(str2)) {
+                                aVar.setChecked(false);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

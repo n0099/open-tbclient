@@ -1,46 +1,34 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
-class w implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity bhl;
+class w extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(FrsActivity frsActivity) {
-        this.bhl = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bDB = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aF(boolean z) {
-        cn cnVar;
-        com.baidu.tieba.tbadkCore.o oVar;
-        cn cnVar2;
-        boolean z2;
-        cn cnVar3;
-        cn cnVar4;
-        com.baidu.tieba.tbadkCore.o oVar2;
-        if (z) {
-            cnVar = this.bhl.bgo;
-            if (!cnVar.Qa()) {
-                oVar = this.bhl.bgq;
-                if (oVar != null) {
-                    oVar2 = this.bhl.bgq;
-                    if (oVar2.getThreadList().size() != 0) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof UpdateAttentionMessage) {
+            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
+                if (!updateAttentionMessage.getData().tb) {
+                    if (updateAttentionMessage.getData().errorString != null) {
+                        this.bDB.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
+                    return;
                 }
-                FrsActivity frsActivity = this.bhl;
-                cnVar2 = this.bhl.bgo;
-                frsActivity.hideNetRefreshView(cnVar2.getRootView());
-                z2 = this.bhl.bfZ;
-                if (!z2) {
-                    FrsActivity frsActivity2 = this.bhl;
-                    cnVar3 = this.bhl.bgo;
-                    frsActivity2.showLoadingView(cnVar3.getRootView(), true);
-                    cnVar4 = this.bhl.bgo;
-                    cnVar4.cT(false);
-                }
-                this.bhl.refresh();
+                this.bDB.b(updateAttentionMessage);
+                this.bDB.a(updateAttentionMessage);
             }
         }
     }

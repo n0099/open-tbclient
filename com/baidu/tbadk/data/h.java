@@ -2,52 +2,53 @@ package com.baidu.tbadk.data;
 
 import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import org.json.JSONObject;
-import tbclient.PrivSets;
+import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.lib.a.b.a.a.i {
-    private int aoe = 1;
-    private int aof = 1;
-    private int aog = 1;
-    private int aoh = 1;
-    private int aoi = 1;
+public class h {
+    private int Mp;
+    private int aoS;
+    private String expire_remind;
+    private String url;
 
-    public int AC() {
-        return this.aof;
-    }
-
-    public int AD() {
-        return this.aog;
-    }
-
-    public int AE() {
-        return this.aoh;
-    }
-
-    public int AF() {
-        return this.aoi;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aoe = jSONObject.optInt(ThActivityDetailActivityConfig.LOCATION, 1);
-            this.aof = jSONObject.optInt("like", 1);
-            this.aog = jSONObject.optInt("group", 1);
-            this.aoh = jSONObject.optInt("post", 1);
-            this.aoi = jSONObject.optInt("friend", 1);
+            this.aoS = jSONObject.optInt("props_id");
+            this.Mp = jSONObject.optInt(ThActivityDetailActivityConfig.END_TIME, 0);
+            this.url = jSONObject.optString(this.url, "");
+            this.expire_remind = jSONObject.optString("expire_remind");
         }
     }
 
-    public void a(PrivSets privSets) {
-        if (privSets != null) {
-            try {
-                this.aoe = privSets.location.intValue();
-                this.aof = privSets.like.intValue();
-                this.aog = privSets.group.intValue();
-                this.aoh = privSets.post.intValue();
-                this.aoi = privSets.friend.intValue();
-            } catch (Exception e) {
-                e.printStackTrace();
+    public void a(PayMemberInfo payMemberInfo) {
+        if (payMemberInfo != null) {
+            if (payMemberInfo.props_id != null) {
+                this.aoS = payMemberInfo.props_id.intValue();
             }
+            if (payMemberInfo.end_time != null) {
+                this.Mp = payMemberInfo.end_time.intValue();
+            }
+            this.url = payMemberInfo.url;
+            this.expire_remind = payMemberInfo.expire_remind;
         }
+    }
+
+    public int AJ() {
+        return this.aoS;
+    }
+
+    public int oo() {
+        return this.Mp;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public String AK() {
+        return this.expire_remind;
+    }
+
+    public void fb(String str) {
+        this.expire_remind = str;
     }
 }

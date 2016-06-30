@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 class p implements AdapterView.OnItemSelectedListener {
-    final /* synthetic */ BdListView zp;
+    final /* synthetic */ BdListView zo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(BdListView bdListView) {
-        this.zp = bdListView;
+        this.zo = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
@@ -18,16 +18,16 @@ class p implements AdapterView.OnItemSelectedListener {
         e eVar2;
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        eVar = this.zp.yQ;
+        eVar = this.zo.yP;
         int headersCount = eVar.getHeadersCount();
         if (i >= headersCount) {
             int i2 = i - headersCount;
-            eVar2 = this.zp.yQ;
+            eVar2 = this.zo.yP;
             ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
             if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-                onItemSelectedListener = this.zp.yT;
+                onItemSelectedListener = this.zo.yS;
                 if (onItemSelectedListener != null) {
-                    onItemSelectedListener2 = this.zp.yT;
+                    onItemSelectedListener2 = this.zo.yS;
                     onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
                 }
             }
@@ -38,9 +38,9 @@ class p implements AdapterView.OnItemSelectedListener {
     public void onNothingSelected(AdapterView<?> adapterView) {
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        onItemSelectedListener = this.zp.yT;
+        onItemSelectedListener = this.zo.yS;
         if (onItemSelectedListener != null) {
-            onItemSelectedListener2 = this.zp.yT;
+            onItemSelectedListener2 = this.zo.yS;
             onItemSelectedListener2.onNothingSelected(adapterView);
         }
     }

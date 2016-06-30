@@ -10,18 +10,18 @@ import com.baidu.tbadk.util.PageType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements a.b {
-    private final /* synthetic */ PageType eve;
+    private final /* synthetic */ PageType eZU;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(Context context, PageType pageType) {
         this.val$context = context;
-        this.eve = pageType;
+        this.eZU = pageType;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountRestoreActivityConfig(this.val$context, this.eve)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountRestoreActivityConfig(this.val$context, this.eZU)));
     }
 }

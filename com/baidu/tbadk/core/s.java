@@ -12,7 +12,7 @@ class s implements c.a {
     }
 
     @Override // com.baidu.tbadk.util.c.a
-    public void ai(boolean z) {
+    public void ag(boolean z) {
         if (!z) {
             BdSocketLinkService.startService(false, "restart");
         }

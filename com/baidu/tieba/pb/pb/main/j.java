@@ -1,55 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.cj;
-import com.baidu.tieba.t;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.widget.richText.h;
 /* loaded from: classes.dex */
-class j implements cj.a {
-    final /* synthetic */ PbActivity djE;
+class j extends CustomMessageListener {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(PbActivity pbActivity) {
-        this.djE = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(PbActivity pbActivity, int i) {
+        super(i);
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cj.a
-    public void i(int i, long j) {
-        cw cwVar;
-        cw cwVar2;
-        el elVar;
-        cw cwVar3;
-        if (i == 0) {
-            ee.ayD().reset();
-            cwVar = this.djE.dih;
-            cwVar.axT();
-            cwVar2 = this.djE.dih;
-            ArrayList<com.baidu.tieba.tbadkCore.data.s> avF = cwVar2.getPbData().avF();
-            if (avF != null) {
-                Iterator<com.baidu.tieba.tbadkCore.data.s> it = avF.iterator();
-                boolean z = false;
-                while (it.hasNext()) {
-                    com.baidu.tieba.tbadkCore.data.s next = it.next();
-                    if (ek.g(next) && next.aUi().getTemplateId() == j) {
-                        it.remove();
-                        z = true;
-                    }
-                }
-                if (z) {
-                    elVar = this.djE.diR;
-                    cwVar3 = this.djE.dih;
-                    elVar.j(cwVar3.getPbData());
-                }
-                this.djE.showToast(t.j.operation_success);
-                return;
-            }
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof h.a)) {
+            h.a aVar = (h.a) customResponsedMessage.getData();
+            com.baidu.tbadk.widget.richText.h.a(this.dPF.getPageContext(), aVar.type, aVar.url, aVar.subType);
         }
-        this.djE.showToast(t.j.operation_failed);
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.cj.a
-    public void onError(int i, String str) {
-        this.djE.showToast(t.j.operation_failed);
     }
 }

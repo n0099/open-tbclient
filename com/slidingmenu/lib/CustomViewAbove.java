@@ -1,15 +1,11 @@
 package com.slidingmenu.lib;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Build;
 import android.support.v4.view.KeyEventCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.VelocityTrackerCompat;
-import android.support.v4.view.ViewConfigurationCompat;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.util.AttributeSet;
 import android.util.FloatMath;
 import android.view.FocusFinder;
 import android.view.KeyEvent;
@@ -17,14 +13,12 @@ import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.VelocityTracker;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 import com.baidu.location.BDLocation;
 import com.baidu.tbadk.TbConfig;
 import com.slidingmenu.lib.SlidingMenu;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CustomViewAbove extends ViewGroup {
@@ -76,64 +70,6 @@ public class CustomViewAbove extends ViewGroup {
         max_settle_duration = i;
     }
 
-    /* loaded from: classes.dex */
-    public static class SimpleOnPageChangeListener implements OnPageChangeListener {
-        @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-        }
-
-        @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
-        public void onPageSelected(int i) {
-        }
-    }
-
-    public CustomViewAbove(Context context) {
-        this(context, null);
-    }
-
-    public CustomViewAbove(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mActivePointerId = -1;
-        this.mEnabled = true;
-        this.mCurrentTime = 0L;
-        this.mIgnoredViews = new ArrayList();
-        this.mTouchMode = 0;
-        this.mQuickReturn = false;
-        this.mScrollX = 0.0f;
-        initCustomViewAbove();
-    }
-
-    void initCustomViewAbove() {
-        setWillNotDraw(false);
-        setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-        setFocusable(true);
-        Context context = getContext();
-        this.mScroller = new Scroller(context, sInterpolator);
-        ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-        this.mTouchSlop = ViewConfigurationCompat.getScaledPagingTouchSlop(viewConfiguration);
-        this.mMinimumVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
-        this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
-        setInternalPageChangeListener(new SimpleOnPageChangeListener() { // from class: com.slidingmenu.lib.CustomViewAbove.2
-            @Override // com.slidingmenu.lib.CustomViewAbove.SimpleOnPageChangeListener, com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
-            public void onPageSelected(int i) {
-                if (CustomViewAbove.this.mViewBehind != null) {
-                    switch (i) {
-                        case 0:
-                        case 2:
-                            CustomViewAbove.this.mViewBehind.setChildrenEnabled(true);
-                            return;
-                        case 1:
-                            CustomViewAbove.this.mViewBehind.setChildrenEnabled(false);
-                            return;
-                        default:
-                            return;
-                    }
-                }
-            }
-        });
-        this.mFlingDistance = (int) (context.getResources().getDisplayMetrics().density * 25.0f);
-    }
-
     public void setCurrentItem(int i) {
         setCurrentItemInternal(i, true, false);
     }
@@ -183,12 +119,6 @@ public class CustomViewAbove extends ViewGroup {
 
     public void setOnClosedListener(SlidingMenu.OnClosedListener onClosedListener) {
         this.mClosedListener = onClosedListener;
-    }
-
-    OnPageChangeListener setInternalPageChangeListener(OnPageChangeListener onPageChangeListener) {
-        OnPageChangeListener onPageChangeListener2 = this.mInternalPageChangeListener;
-        this.mInternalPageChangeListener = onPageChangeListener;
-        return onPageChangeListener2;
     }
 
     float distanceInfluenceForSnapDuration(float f) {

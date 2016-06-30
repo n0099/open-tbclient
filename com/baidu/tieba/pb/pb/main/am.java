@@ -1,75 +1,58 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.c.c;
-import com.baidu.tieba.t;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class am implements c.InterfaceC0053c {
-    final int bhm;
-    final /* synthetic */ PbActivity djE;
+class am implements View.OnLongClickListener {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PbActivity pbActivity) {
-        this.djE = pbActivity;
-        this.bhm = (int) pbActivity.getResources().getDimension(t.e.ds98);
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.tieba.c.c.InterfaceC0053c
-    public void O(int i, int i2) {
-        el elVar;
-        com.baidu.tieba.pb.pb.main.a.f fVar;
-        el elVar2;
-        com.baidu.tieba.pb.pb.main.a.f fVar2;
-        com.baidu.tieba.pb.pb.main.a.f fVar3;
-        if (v(i2)) {
-            elVar = this.djE.diR;
-            if (elVar != null) {
-                fVar = this.djE.diy;
-                if (fVar != null) {
-                    elVar2 = this.djE.diR;
-                    elVar2.azD();
-                    fVar2 = this.djE.diy;
-                    fVar2.cX(false);
-                    fVar3 = this.djE.diy;
-                    fVar3.RS();
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        SparseArray sparseArray;
+        com.baidu.tbadk.baseEditMark.a aVar;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        boolean z;
+        es esVar;
+        c.b bVar;
+        dg dgVar;
+        try {
+            sparseArray = (SparseArray) view.getTag();
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            sparseArray = null;
+        }
+        if (sparseArray != null) {
+            this.dPF.dPw = (com.baidu.tieba.tbadkCore.data.s) sparseArray.get(u.g.tag_clip_board);
+            if (this.dPF.dPw != null) {
+                aVar = this.dPF.dvH;
+                if (aVar != null) {
+                    aVar2 = this.dPF.dvH;
+                    if (aVar2.mK() && this.dPF.dPw.getId() != null) {
+                        String id = this.dPF.dPw.getId();
+                        dgVar = this.dPF.dOf;
+                        if (id.equals(dgVar.qP())) {
+                            z = true;
+                            boolean booleanValue = ((Boolean) sparseArray.get(u.g.tag_is_subpb)).booleanValue();
+                            esVar = this.dPF.dOO;
+                            bVar = this.dPF.dPx;
+                            esVar.a(bVar, z, booleanValue);
+                        }
+                    }
+                    z = false;
+                    boolean booleanValue2 = ((Boolean) sparseArray.get(u.g.tag_is_subpb)).booleanValue();
+                    esVar = this.dPF.dOO;
+                    bVar = this.dPF.dPx;
+                    esVar.a(bVar, z, booleanValue2);
                 }
             }
         }
-    }
-
-    @Override // com.baidu.tieba.c.c.InterfaceC0053c
-    public void P(int i, int i2) {
-        el elVar;
-        com.baidu.tieba.pb.pb.main.a.f fVar;
-        com.baidu.tieba.pb.pb.main.a.f fVar2;
-        el elVar2;
-        el elVar3;
-        el elVar4;
-        com.baidu.tieba.pb.pb.main.a.f fVar3;
-        if (v(i2)) {
-            elVar = this.djE.diR;
-            if (elVar != null) {
-                fVar = this.djE.diy;
-                if (fVar != null) {
-                    fVar2 = this.djE.diy;
-                    fVar2.cX(true);
-                    if (Math.abs(i2) > this.bhm) {
-                        elVar4 = this.djE.diR;
-                        elVar4.azC();
-                        fVar3 = this.djE.diy;
-                        fVar3.RR();
-                    }
-                    if (this.djE.awP()) {
-                        elVar2 = this.djE.diR;
-                        elVar2.ayQ();
-                        elVar3 = this.djE.diR;
-                        elVar3.ayR();
-                    }
-                }
-            }
-        }
-    }
-
-    private boolean v(float f) {
-        return Math.abs(f) >= 1.0f;
+        return true;
     }
 }

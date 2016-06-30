@@ -10,31 +10,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.bi;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class e {
-    private static e awB = null;
+    private static e axr = null;
 
     private e() {
     }
 
-    public static synchronized e Eq() {
+    public static synchronized e Ez() {
         e eVar;
         synchronized (e.class) {
-            if (awB == null) {
-                awB = new e();
+            if (axr == null) {
+                axr = new e();
             }
-            eVar = awB;
+            eVar = axr;
         }
         return eVar;
     }
 
-    public boolean Er() {
-        return TbadkCoreApplication.m11getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m11getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Es();
+    public boolean EA() {
+        return TbadkCoreApplication.m9getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m9getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && EB();
     }
 
-    public boolean Es() {
+    public boolean EB() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -46,21 +46,21 @@ public class e {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            bg.ut().c(tbPageContext, new String[]{str});
+            bi.us().c(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
-            showToast(t.j.plugin_pay_error);
-        } else if (!Er()) {
-            showToast(t.j.plugin_pay_wallet_not_found);
+            showToast(u.j.plugin_pay_error);
+        } else if (!EA()) {
+            showToast(u.j.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PayWalletActivityConfig(context, payConfig)));
         }
     }
 
     private void showToast(int i) {
-        k.showToast(TbadkCoreApplication.m11getInst().getContext(), i);
+        k.showToast(TbadkCoreApplication.m9getInst().getContext(), i);
     }
 }

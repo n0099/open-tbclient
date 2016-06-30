@@ -1,17 +1,15 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class cd implements a.b {
-    final /* synthetic */ by biM;
+public class cd extends y.a {
+    public TextView bFN;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(by byVar) {
-        this.biM = byVar;
-    }
-
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
-        aVar.dismiss();
+    public cd(View view) {
+        super(view);
+        this.bFN = (TextView) view.findViewById(u.g.no_data_tips);
     }
 }

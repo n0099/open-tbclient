@@ -1,81 +1,68 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.BdUniqueId;
+import android.widget.TextView;
+import com.baidu.tbadk.core.data.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.AppDownloadView;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.frs.utils.a;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class y implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ FrsActivity bhl;
+class y extends AppDownloadView.a {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(FrsActivity frsActivity) {
-        this.bhl = frsActivity;
+        this.bDB = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public boolean b(View view, com.baidu.adp.widget.ListView.v vVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
-        com.baidu.tbadk.core.data.ax axVar;
-        com.baidu.tbadk.core.data.ax axVar2;
-        com.baidu.tbadk.core.data.ax axVar3;
-        com.baidu.tbadk.core.data.ax axVar4;
-        com.baidu.tbadk.core.data.ax axVar5;
-        com.baidu.tbadk.core.data.ax axVar6;
-        com.baidu.tbadk.core.data.ax axVar7;
-        cn cnVar;
-        if (bdUniqueId == null) {
-            return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bq bqVar;
+        int i;
+        if (!com.baidu.adp.lib.util.i.ff()) {
+            this.bDB.showToast(u.j.neterror);
+            return;
         }
-        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.MG.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.MH.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.MI.getId()) {
-            this.bhl.bgt = (com.baidu.tbadk.core.data.ax) vVar;
-            axVar = this.bhl.bgt;
-            if (axVar instanceof com.baidu.tbadk.core.data.c) {
-                axVar2 = this.bhl.bgt;
-                com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) axVar2;
-                if (cVar.oH()) {
-                    return false;
-                }
-                if (cVar.MM == 0) {
-                    this.bhl.a(cVar, i, true);
-                }
-                TiebaStatic.eventStat(this.bhl.getPageContext().getPageActivity(), "frs_tb_arc", "");
-            }
-        } else if (bdUniqueId.getId() != com.baidu.tieba.tbadkCore.aa.erz.getId()) {
-            if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.MJ.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.MK.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.ML.getId()) {
-                if (vVar instanceof com.baidu.tbadk.core.data.c) {
-                    com.baidu.tbadk.core.data.c cVar2 = (com.baidu.tbadk.core.data.c) vVar;
-                    if (cVar2.oG()) {
-                        if (cVar2.MM == 0) {
-                            this.bhl.a(cVar2, i, true);
+        int intValue = ((Integer) view.getTag()).intValue();
+        bqVar = this.bDB.bCD;
+        com.baidu.adp.widget.ListView.v at = bqVar.Ww().at(intValue);
+        if (at instanceof b) {
+            b bVar = (b) at;
+            FrsActivity frsActivity = this.bDB;
+            i = this.bDB.mPn;
+            frsActivity.a(bVar, false, i);
+            DownloadData downloadData = new DownloadData(bVar.MN);
+            downloadData.setUrl(bVar.MK);
+            downloadData.setName(bVar.MH);
+            downloadData.setPosition(intValue);
+            downloadData.setNotifyId(com.baidu.adp.lib.h.b.g(bVar.MG, 0));
+            switch (AppDownloadView.b(downloadData)) {
+                case 1:
+                case 5:
+                    com.baidu.tieba.tbadkCore.al.f(bVar);
+                    ((TextView) view).setText(u.j.frs_new_style_download_pause);
+                    break;
+                case 3:
+                    a.G(this.bDB.getPageContext().getPageActivity(), bVar.MN);
+                    break;
+                case 6:
+                case 7:
+                    if (com.baidu.adp.lib.util.i.fr() && !com.baidu.adp.lib.util.i.fs()) {
+                        this.bDB.a(bVar, intValue, false);
+                        break;
+                    } else if (this.bDB.d((b) at, intValue)) {
+                        if (this.aak != null) {
+                            this.aak.setVisibility(0);
                         }
-                        TiebaStatic.eventStat(this.bhl.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                        ((TextView) view).setText(u.j.downloading2);
+                        this.bDB.a(bVar, "btn_download");
+                        break;
                     }
-                }
-            } else if (vVar instanceof com.baidu.tbadk.core.data.ax) {
-                this.bhl.bgt = (com.baidu.tbadk.core.data.ax) vVar;
-                axVar3 = this.bhl.bgt;
-                if (!axVar3.isPhotoLiveThread()) {
-                    axVar4 = this.bhl.bgt;
-                    if (!(axVar4 instanceof com.baidu.tbadk.core.data.ah)) {
-                        FrsActivity frsActivity = this.bhl;
-                        axVar5 = this.bhl.bgt;
-                        frsActivity.mThreadId = axVar5.getId();
-                        axVar6 = this.bhl.bgt;
-                        String qS = axVar6.qS();
-                        if (qS == null || qS.equals("")) {
-                            this.bhl.bgm = false;
-                        } else {
-                            this.bhl.bgm = true;
-                        }
-                        FrsActivity frsActivity2 = this.bhl;
-                        axVar7 = this.bhl.bgt;
-                        frsActivity2.c(axVar7);
-                        cnVar = this.bhl.bgo;
-                        cnVar.QL();
-                    }
-                }
+                    break;
             }
+            TiebaStatic.eventStat(this.bDB.getPageContext().getPageActivity(), "frs_tb_btc", "");
         }
-        return true;
     }
 }

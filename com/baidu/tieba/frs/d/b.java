@@ -1,28 +1,49 @@
 package com.baidu.tieba.frs.d;
 
-import android.view.View;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.frs.cy;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends y.a {
-    TextView aGp;
-    HeadImageView aLx;
-    LinearLayout bsc;
-    TextView bsd;
-    TbImageView bse;
-    TextView title;
+public class b implements com.baidu.adp.lib.f.c<cy> {
+    final /* synthetic */ a bPu;
 
-    public b(View view) {
-        super(view);
-        this.bsc = (LinearLayout) view.findViewById(t.g.frs_locality_big_image_parent);
-        this.aLx = (HeadImageView) view.findViewById(t.g.frs_locality_big_iamge_head);
-        this.aGp = (TextView) view.findViewById(t.g.frs_locality_big_iamge_name);
-        this.bsd = (TextView) view.findViewById(t.g.frs_app_time);
-        this.title = (TextView) view.findViewById(t.g.frs_locality_big_iamge_title);
-        this.bse = (TbImageView) view.findViewById(t.g.frs_locality_big_iamge_pic);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.bPu = aVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: Zy */
+    public cy dF() {
+        Context context;
+        context = this.bPu.mContext;
+        cy cyVar = new cy(LayoutInflater.from(context).inflate(u.h.frs_item_single_photolivecard, (ViewGroup) null));
+        ((LinearLayout.LayoutParams) cyVar.bGI.getLayoutParams()).topMargin = 0;
+        return cyVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void l(cy cyVar) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public cy m(cy cyVar) {
+        return cyVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public cy n(cy cyVar) {
+        return cyVar;
     }
 }

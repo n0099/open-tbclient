@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.CustomViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements FragmentTabWidget.a {
-    final /* synthetic */ z cyD;
+    final /* synthetic */ z ddZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(z zVar) {
-        this.cyD = zVar;
+        this.ddZ = zVar;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
@@ -20,16 +20,16 @@ public class ae implements FragmentTabWidget.a {
         FragmentTabWidget fragmentTabWidget;
         int i2;
         int i3;
-        bfVar = this.cyD.cyh;
-        bfVar.alw();
-        customViewPager = this.cyD.cyA;
+        bfVar = this.ddZ.ddD;
+        bfVar.atJ();
+        customViewPager = this.ddZ.ddX;
         customViewPager.setCurrentItem(i);
-        fragmentTabWidget = this.cyD.cyz;
+        fragmentTabWidget = this.ddZ.ddW;
         fragmentTabWidget.f(i, true);
-        this.cyD.cyC = i;
-        i2 = this.cyD.cyC;
+        this.ddZ.cpM = i;
+        i2 = this.ddZ.cpM;
         if (i2 != 0) {
-            i3 = this.cyD.cyC;
+            i3 = this.ddZ.cpM;
             if (i3 == 1) {
                 TiebaStatic.log("c10526");
                 return;

@@ -1,91 +1,67 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.frs.bq;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends LinearLayout {
-    private TextView aGp;
-    private LinearLayout azz;
-    private HeadImageView bwA;
-    private TextView bwB;
-    private TextView bwC;
-    private ShareFromFrsMsgData bwD;
-    private EditText bwz;
-    private Context context;
+public class v extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ t bUD;
+    private final /* synthetic */ String bUE;
 
-    public EditText getChatMsgView() {
-        return this.bwz;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(t tVar, String str) {
+        this.bUD = tVar;
+        this.bUE = str;
     }
 
-    public void z(String str, boolean z) {
-        if (this.bwA != null) {
-            this.bwA.c(str, 15, false);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        bq bqVar;
+        bq bqVar2;
+        bq bqVar3;
+        bq bqVar4;
+        bq bqVar5;
+        bq bqVar6;
+        bq bqVar7;
+        bq bqVar8;
+        bq bqVar9;
+        bq bqVar10;
+        if (aVar == null) {
+            bqVar9 = this.bUD.bUx;
+            bqVar9.WF().setVisibility(8);
+            bqVar10 = this.bUD.bUx;
+            bqVar10.WE().setVisibility(8);
+            return;
         }
-    }
-
-    public v(Context context) {
-        super(context);
-        this.context = context;
-        ar(context);
-    }
-
-    private void ar(Context context) {
-        LayoutInflater.from(context).inflate(t.h.frs_share_card_view, this);
-        setOrientation(1);
-        this.azz = (LinearLayout) findViewById(t.g.share_content);
-        this.aGp = (TextView) findViewById(t.g.frs_card_name);
-        this.bwz = (EditText) findViewById(t.g.chat_msg);
-        this.bwA = (HeadImageView) findViewById(t.g.frs_card_img);
-        this.bwC = (TextView) findViewById(t.g.frs_card_member_num);
-        this.bwB = (TextView) findViewById(t.g.frs_card_post_num);
-        at.c(this.aGp, t.d.cp_cont_b, 1);
-        at.c(this.bwz, t.d.cp_cont_b, 2);
-        this.bwz.setHintTextColor(at.getColor(t.d.cp_cont_e));
-        this.bwz.setPadding(context.getResources().getDimensionPixelSize(t.e.ds20), 0, 0, 0);
-        Uo();
-    }
-
-    public void Uo() {
-        this.azz.setFocusable(true);
-        this.azz.setFocusableInTouchMode(true);
-        this.azz.requestFocus();
-    }
-
-    public String getLeaveMsg() {
-        if (this.bwz != null) {
-            return com.baidu.adp.lib.util.j.a(this.bwz.getText(), null);
+        if (aVar.ce()) {
+            bqVar5 = this.bUD.bUx;
+            bqVar5.WF().setVisibility(0);
+            bqVar6 = this.bUD.bUx;
+            bqVar6.WE().setVisibility(8);
+            com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
+            aVar2.atR = this.bUE;
+            aVar2.atP = this.bUE;
+            bqVar7 = this.bUD.bUx;
+            bqVar7.WF().a(aVar2);
+            t tVar = this.bUD;
+            bqVar8 = this.bUD.bUx;
+            tVar.bUB = bqVar8.WF();
+        } else {
+            bqVar = this.bUD.bUx;
+            bqVar.WF().setVisibility(8);
+            bqVar2 = this.bUD.bUx;
+            bqVar2.WE().setVisibility(0);
+            bqVar3 = this.bUD.bUx;
+            bqVar3.WE().c(this.bUE, 17, false);
+            t tVar2 = this.bUD;
+            bqVar4 = this.bUD.bUx;
+            tVar2.bUB = bqVar4.WE();
         }
-        return null;
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        return new LinearLayout.LayoutParams(-1, -2);
-    }
-
-    public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.bwD = shareFromFrsMsgData;
-        uY();
-    }
-
-    private void uY() {
-        this.aGp.setText(dA(this.bwD.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.bwD.getImageUrl());
-        this.bwA.c(this.bwD.getImageUrl(), 15, false);
-        this.bwC.setText(ay.B(this.bwD.getMemberNum()));
-        this.bwB.setText(ay.B(this.bwD.getPostNum()));
-    }
-
-    private String dA(String str) {
-        return String.valueOf(ay.j(str, 18)) + this.context.getString(t.j.forum);
+        this.bUD.aI("c11103", null);
+        if (this.bUD.bUB != null) {
+            this.bUD.bUB.setOnClickListener(new w(this));
+            this.bUD.aX(8000L);
+        }
     }
 }

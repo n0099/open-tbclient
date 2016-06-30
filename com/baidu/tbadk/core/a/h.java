@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class h {
     public static HashMap<String, Integer> Ml = new HashMap<>();
 
-    public static int bn(int i) {
+    public static int bo(int i) {
         String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i;
         if (Ml.containsKey(str)) {
             return Ml.get(str).intValue();

@@ -3,17 +3,17 @@ package com.baidu.tieba.imMessageCenter.mention;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.imMessageCenter.mention.as;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ as cyU;
+    final /* synthetic */ as deq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public at(as asVar, int i) {
         super(i);
-        this.cyU = asVar;
+        this.deq = asVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,19 +26,19 @@ public class at extends com.baidu.adp.framework.listener.e {
         bf bfVar4;
         bf bfVar5;
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-            bfVar = this.cyU.cyq;
-            bfVar.showToast(t.j.neterror);
+            bfVar = this.deq.ddM;
+            bfVar.showToast(u.j.neterror);
             return;
         }
         CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
         if (checkPostResponseMessage.hasError()) {
             if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                bfVar5 = this.cyU.cyq;
+                bfVar5 = this.deq.ddM;
                 bfVar5.showToast(checkPostResponseMessage.getErrorString());
                 return;
             }
-            bfVar4 = this.cyU.cyq;
-            bfVar4.showToast(t.j.neterror);
+            bfVar4 = this.deq.ddM;
+            bfVar4.showToast(u.j.neterror);
             return;
         }
         long forumId = checkPostResponseMessage.getForumId();
@@ -46,14 +46,14 @@ public class at extends com.baidu.adp.framework.listener.e {
         long quoteId = checkPostResponseMessage.getQuoteId();
         long repostId = checkPostResponseMessage.getRepostId();
         if (postState == 1) {
-            aVar = this.cyU.cyT;
+            aVar = this.deq.dep;
             aVar.b(forumId, quoteId, repostId);
         } else if (postState == 0) {
-            bfVar3 = this.cyU.cyq;
-            bfVar3.showToast(t.j.thread_delete_tip);
+            bfVar3 = this.deq.ddM;
+            bfVar3.showToast(u.j.thread_delete_tip);
         } else if (postState == -1) {
-            bfVar2 = this.cyU.cyq;
-            bfVar2.showToast(t.j.thread_shield_tip);
+            bfVar2 = this.deq.ddM;
+            bfVar2.showToast(u.j.thread_shield_tip);
         }
     }
 }

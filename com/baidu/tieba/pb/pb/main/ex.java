@@ -1,24 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ex extends CustomMessageListener {
-    final /* synthetic */ el dpu;
+public class ex implements Animation.AnimationListener {
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ex(el elVar, int i) {
-        super(i);
-        this.dpu = elVar;
+    public ex(es esVar) {
+        this.dVR = esVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.dpu.dov = false;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.dVR.dTq.setTitleVisibility(false);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ObservedChangeLinearLayout observedChangeLinearLayout;
+        boolean z;
+        PbActivity pbActivity;
+        observedChangeLinearLayout = this.dVR.dUg;
+        observedChangeLinearLayout.setVisibility(0);
+        this.dVR.dTq.setTitleVisibility(true);
+        this.dVR.hL(false);
+        z = this.dVR.dVu;
+        if (z) {
+            this.dVR.aHP();
         }
+        pbActivity = this.dVR.dOg;
+        pbActivity.hs(true);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

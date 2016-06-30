@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView aVQ;
+    final /* synthetic */ EmotionTabHorizonScrollView brx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.aVQ = emotionTabHorizonScrollView;
+        this.brx = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,19 +24,19 @@ public class n implements View.OnClickListener {
         String str;
         com.baidu.tbadk.editortools.l lVar2;
         h hVar;
-        textView = this.aVQ.asE;
+        textView = this.brx.atu;
         if (textView != null) {
-            hVar = this.aVQ.aVI;
+            hVar = this.brx.brp;
             hVar.setNewViewVisible(false);
         }
-        TbadkCoreApplication.m11getInst().setFaceShopVersion(TbadkCoreApplication.m11getInst().getTempFaceShopVersion());
-        TbadkCoreApplication.m11getInst().setFaceShopNew(false);
-        lVar = this.aVQ.BV;
+        TbadkCoreApplication.m9getInst().setFaceShopVersion(TbadkCoreApplication.m9getInst().getTempFaceShopVersion());
+        TbadkCoreApplication.m9getInst().setFaceShopNew(false);
+        lVar = this.brx.BW;
         if (lVar != null) {
-            lVar2 = this.aVQ.BV;
+            lVar2 = this.brx.BW;
             lVar2.b(new com.baidu.tbadk.editortools.a(2, 5, null));
         }
-        switch (this.aVQ.from) {
+        switch (this.brx.from) {
             case 1:
                 str = "faceshop_from_write_shop";
                 break;
@@ -50,6 +50,6 @@ public class n implements View.OnClickListener {
                 str = "";
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP, new FaceShopActivityConfig(this.aVQ.getContext(), str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceShopActivityConfig(this.brx.getContext(), str)));
     }
 }

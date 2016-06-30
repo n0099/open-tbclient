@@ -3,9 +3,9 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class as extends com.baidu.adp.base.e<bf> {
-    private BdUniqueId cyS;
-    private a cyT;
-    private bf cyq;
+    private bf ddM;
+    private BdUniqueId deo;
+    private a dep;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -19,25 +19,25 @@ public class as extends com.baidu.adp.base.e<bf> {
 
     public as(bf bfVar) {
         super(com.baidu.adp.base.l.s(bfVar.getPageContext().getPageActivity()));
-        this.cyS = BdUniqueId.gen();
-        this.cyq = bfVar;
-        alu();
+        this.deo = BdUniqueId.gen();
+        this.ddM = bfVar;
+        atH();
     }
 
-    public void a(long j, int i, String str) {
+    public void b(long j, int i, String str) {
         CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTag(this.cyq.getUniqueId());
+        checkPostRequestMessage.setTag(this.ddM.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void alu() {
+    public void atH() {
         at atVar = new at(this, 303010);
-        atVar.setTag(this.cyq.getUniqueId());
+        atVar.setTag(this.ddM.getUniqueId());
         atVar.setSelfListener(true);
-        this.cyq.registerListener(atVar);
+        this.ddM.registerListener(atVar);
     }
 
     @Override // com.baidu.adp.base.e
@@ -51,6 +51,6 @@ public class as extends com.baidu.adp.base.e<bf> {
     }
 
     public void a(a aVar) {
-        this.cyT = aVar;
+        this.dep = aVar;
     }
 }

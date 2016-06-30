@@ -1,21 +1,19 @@
 package com.baidu.tieba;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements Runnable {
-    final /* synthetic */ ab aHO;
+public class ac implements DialogInterface.OnCancelListener {
+    final /* synthetic */ UpdateDialog this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar) {
-        this.aHO = abVar;
+    public ac(UpdateDialog updateDialog) {
+        this.this$0 = updateDialog;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        UpdateDialog updateDialog;
-        UpdateDialog updateDialog2;
-        updateDialog = this.aHO.this$0;
-        if (updateDialog.aHK.forceUpdate()) {
-            updateDialog2 = this.aHO.this$0;
-            com.baidu.tbadk.core.e.b.d(updateDialog2.getPageContext().getPageActivity(), 200);
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.this$0.aIo.dismiss();
+        this.this$0.finish();
     }
 }

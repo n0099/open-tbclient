@@ -4,17 +4,17 @@ import android.widget.ImageView;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends HttpMessageListener {
-    final /* synthetic */ BasePersonInfoActivity duv;
+    final /* synthetic */ BasePersonInfoActivity ecN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(BasePersonInfoActivity basePersonInfoActivity, int i) {
         super(i);
-        this.duv = basePersonInfoActivity;
+        this.ecN = basePersonInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,31 @@ public class b extends HttpMessageListener {
         int i2;
         int[] iArr3;
         int i3;
+        int[] iArr4;
+        int i4;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                int aBq = this.duv.aBq();
-                iArr = BasePersonInfoActivity.coZ;
-                i = this.duv.coQ;
-                com.baidu.tbadk.core.a.h.n(aBq, iArr[i]);
-                imageView = this.duv.coT;
-                iArr2 = BasePersonInfoActivity.coX;
-                i2 = this.duv.coQ;
-                com.baidu.tbadk.core.util.at.c(imageView, iArr2[i2]);
-                BasePersonInfoActivity basePersonInfoActivity = this.duv;
-                TbPageContext pageContext = this.duv.getPageContext();
-                iArr3 = BasePersonInfoActivity.coY;
-                i3 = this.duv.coQ;
-                basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr3[i3]), t.f.icon_toast_info);
+                int aKi = this.ecN.aKi();
+                iArr = BasePersonInfoActivity.cUp;
+                i = this.ecN.cUf;
+                com.baidu.tbadk.core.a.h.n(aKi, iArr[i]);
+                imageView = this.ecN.cUi;
+                iArr2 = BasePersonInfoActivity.ecK;
+                i2 = this.ecN.cUf;
+                int i5 = iArr2[i2];
+                iArr3 = BasePersonInfoActivity.cUm;
+                i3 = this.ecN.cUf;
+                com.baidu.tbadk.core.util.av.a(imageView, i5, iArr3[i3]);
+                BasePersonInfoActivity basePersonInfoActivity = this.ecN;
+                TbPageContext pageContext = this.ecN.getPageContext();
+                iArr4 = BasePersonInfoActivity.cUo;
+                i4 = this.ecN.cUf;
+                basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr4[i4]), u.f.icon_toast_info);
                 return;
             }
-            this.duv.showToast(httpResponsedMessage.getErrorString());
+            this.ecN.showToast(httpResponsedMessage.getErrorString());
             return;
         }
-        this.duv.showToast(this.duv.getPageContext().getString(t.j.neterror));
+        this.ecN.showToast(this.ecN.getPageContext().getString(u.j.neterror));
     }
 }

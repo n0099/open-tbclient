@@ -109,15 +109,15 @@ public class m {
 
     /* loaded from: classes.dex */
     public static class a extends h {
+        public long eC;
         public long eD;
-        public long eE;
         public byte[] qT;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
             this.qT = bArr;
-            this.eD = j;
-            this.eE = j2;
+            this.eC = j;
+            this.eD = j2;
         }
     }
 

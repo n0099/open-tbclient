@@ -6,15 +6,17 @@ import java.util.List;
 import tbclient.ActBtn;
 import tbclient.TPointPost;
 import tbclient.Timgs;
+import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class i {
-    private ArrayList<k> esA;
-    private j esB;
-    private int esC;
-    public String esw;
-    public boolean esx;
-    private int esy;
-    private ArrayList<h> esz;
+    public String eXk;
+    public boolean eXl;
+    private int eXm;
+    private ArrayList<h> eXn;
+    private ArrayList<k> eXo;
+    private j eXp;
+    private int eXq;
+    private VideoInfo eXr;
     public String position;
     public long templateId;
 
@@ -23,27 +25,28 @@ public class i {
             try {
                 this.position = tPointPost.position;
                 this.templateId = tPointPost.template_id.longValue();
-                this.esx = tPointPost.is_tuiguang.intValue() != 0;
-                this.esy = tPointPost.template_type.intValue();
+                this.eXl = tPointPost.is_tuiguang.intValue() != 0;
+                this.eXm = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.esz = new ArrayList<>();
+                    this.eXn = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.esz.add(new h(list.get(i)));
+                        this.eXn.add(new h(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.esA = new ArrayList<>();
+                    this.eXo = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.esA.add(new k(list2.get(i2)));
+                        this.eXo.add(new k(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.esB = new j(tPointPost.detail_info);
+                    this.eXp = new j(tPointPost.detail_info);
                 }
-                this.esw = tPointPost.monitor_id;
-                this.esC = tPointPost.hidden_day.intValue();
+                this.eXk = tPointPost.monitor_id;
+                this.eXq = tPointPost.hidden_day.intValue();
+                this.eXr = tPointPost.t_video;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -58,27 +61,31 @@ public class i {
         return this.templateId;
     }
 
-    public ArrayList<h> aTy() {
-        return this.esz;
+    public ArrayList<h> bbL() {
+        return this.eXn;
     }
 
-    public ArrayList<k> aTz() {
-        return this.esA;
+    public ArrayList<k> bbM() {
+        return this.eXo;
     }
 
-    public j aTA() {
-        return this.esB;
+    public j bbN() {
+        return this.eXp;
     }
 
-    public int aTB() {
-        return this.esy;
+    public int bbO() {
+        return this.eXm;
     }
 
-    public String aTC() {
-        return this.esw;
+    public String bbP() {
+        return this.eXk;
     }
 
-    public int aTD() {
-        return this.esC;
+    public int bbQ() {
+        return this.eXq;
+    }
+
+    public VideoInfo bbR() {
+        return this.eXr;
     }
 }

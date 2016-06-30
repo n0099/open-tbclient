@@ -1,27 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
 import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ez implements View.OnClickListener {
-    final /* synthetic */ el dpu;
+public class ez implements Animation.AnimationListener {
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ez(el elVar) {
-        this.dpu = elVar;
+    public ez(es esVar) {
+        this.dVR = esVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        PbActivity pbActivity;
-        dialog = this.dpu.doe;
-        if (dialog instanceof Dialog) {
-            dialog2 = this.dpu.doe;
-            pbActivity = this.dpu.dhY;
-            com.baidu.adp.lib.h.j.b(dialog2, pbActivity.getPageContext());
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        com.baidu.tbadk.editortools.l lVar;
+        com.baidu.tbadk.editortools.l lVar2;
+        View view;
+        boolean z2;
+        z = this.dVR.dUS;
+        if (!z) {
+            lVar = this.dVR.BW;
+            if (lVar != null) {
+                lVar2 = this.dVR.BW;
+                lVar2.kF();
+                return;
+            }
+            return;
         }
+        view = this.dVR.dUN;
+        if (view != null) {
+            z2 = this.dVR.diC;
+            if (z2 && !this.dVR.aHZ()) {
+                this.dVR.gd(false);
+            } else {
+                this.dVR.ge(false);
+            }
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -1,28 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class dh implements View.OnClickListener {
-    final /* synthetic */ df bkM;
-    private final /* synthetic */ ThemeCardInUserData bkN;
+public class dh {
+    private static final dh bGV = new dh();
+    private LongSparseArray<LinkedList<String>> bGU = new LongSparseArray<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(df dfVar, ThemeCardInUserData themeCardInUserData) {
-        this.bkM = dfVar;
-        this.bkN = themeCardInUserData;
+    private dh() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseActivity baseActivity;
-        baseActivity = this.bkM.bek;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(baseActivity.getPageContext().getPageActivity(), this.bkN.getCardId())));
+    public static dh WY() {
+        return bGV;
+    }
+
+    public void d(long j, String str) {
+        LinkedList<String> linkedList = this.bGU.get(j);
+        if (linkedList == null) {
+            linkedList = new LinkedList<>();
+            this.bGU.put(j, linkedList);
+        }
+        linkedList.add(str);
+    }
+
+    public boolean e(long j, String str) {
+        LinkedList<String> linkedList = this.bGU.get(j);
+        return linkedList != null && linkedList.contains(str);
+    }
+
+    public void aW(long j) {
+        LinkedList<String> linkedList = this.bGU.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
+        }
     }
 }

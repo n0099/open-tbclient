@@ -7,39 +7,17 @@ import tbclient.VipShowInfo;
 /* loaded from: classes.dex */
 public class MembershipUserInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 1;
-    private String mContent;
-    private String mLink;
-    private String mVipIcon;
-
-    public void setVipIcon(String str) {
-        this.mVipIcon = str;
-    }
-
-    public String getVipIcon() {
-        return this.mVipIcon;
-    }
-
-    public void setVipLink(String str) {
-        this.mLink = str;
-    }
-
-    public String getVipLink() {
-        return this.mLink;
-    }
-
-    public void setVipContent(String str) {
-        this.mContent = str;
-    }
-
-    public String getVipContent() {
-        return this.mContent;
-    }
+    public String mContent;
+    public String mLink;
+    public String mTitle;
+    public String mVipIcon;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mVipIcon = jSONObject.optString("vip_icon");
             this.mLink = jSONObject.optString("link");
             this.mContent = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+            this.mTitle = jSONObject.optString("title");
         }
     }
 
@@ -48,6 +26,7 @@ public class MembershipUserInfo extends com.baidu.adp.lib.a.b.a.a.i implements S
             this.mVipIcon = vipShowInfo.vip_icon;
             this.mLink = vipShowInfo.link;
             this.mContent = vipShowInfo.content;
+            this.mTitle = vipShowInfo.title;
         }
     }
 }

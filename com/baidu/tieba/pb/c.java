@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 class c extends Handler {
-    final /* synthetic */ FileDownloader ddm;
+    final /* synthetic */ FileDownloader dJP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(FileDownloader fileDownloader) {
-        this.ddm = fileDownloader;
+        this.dJP = fileDownloader;
     }
 
     @Override // android.os.Handler
@@ -22,22 +22,22 @@ class c extends Handler {
         super.handleMessage(message);
         if (message.what == 900002) {
             if (message.arg2 > 0) {
-                this.ddm.progress = (int) ((message.arg1 * 100) / message.arg2);
+                this.dJP.progress = (int) ((message.arg1 * 100) / message.arg2);
                 StringBuffer stringBuffer = new StringBuffer(20);
                 stringBuffer.append(String.valueOf(message.arg1 / 1000));
                 stringBuffer.append("K/");
                 stringBuffer.append(String.valueOf(message.arg2 / 1000));
                 stringBuffer.append("K");
-                this.ddm.schedule = stringBuffer.toString();
-                Context baseContext = this.ddm.getBaseContext();
-                int i = this.ddm.progress;
-                str = this.ddm.schedule;
-                str2 = this.ddm.mInfo;
+                this.dJP.schedule = stringBuffer.toString();
+                Context baseContext = this.dJP.getBaseContext();
+                int i = this.dJP.progress;
+                str = this.dJP.schedule;
+                str2 = this.dJP.mInfo;
                 NotificationHelper.showProgressNotification(baseContext, 10, null, i, str, str2, true);
             }
         } else if (message.what == 1) {
-            UtilHelper.install_apk(TbadkCoreApplication.m11getInst().getApp(), (String) message.obj);
-            this.ddm.stopSelf();
+            UtilHelper.install_apk(TbadkCoreApplication.m9getInst().getApp(), (String) message.obj);
+            this.dJP.stopSelf();
         }
     }
 }

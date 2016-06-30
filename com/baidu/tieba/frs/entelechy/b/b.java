@@ -2,31 +2,30 @@ package com.baidu.tieba.frs.entelechy.b;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tieba.frs.cn;
-import com.baidu.tieba.frs.h.m;
-import com.baidu.tieba.tbadkCore.l;
-import com.baidu.tieba.tbadkCore.o;
-import com.baidu.tieba.view.BdExpandListView;
+import com.baidu.tieba.frs.bq;
+import com.baidu.tieba.frs.i.p;
+import com.baidu.tieba.tbadkCore.m;
 /* loaded from: classes.dex */
 public interface b {
-    int a(int i, l lVar);
+    int a(int i, m mVar);
 
-    View a(Context context, BdExpandListView bdExpandListView);
+    View a(Context context, BdTypeListView bdTypeListView);
 
-    void a(m mVar, o oVar);
+    void a(BdTypeListView bdTypeListView, BannerView bannerView);
 
-    void a(BdExpandListView bdExpandListView, BannerView bannerView);
+    void a(BdTypeListView bdTypeListView, com.baidu.tieba.frs.view.c cVar);
 
-    void a(BdExpandListView bdExpandListView, com.baidu.tieba.frs.view.c cVar);
+    void a(p pVar, com.baidu.tieba.tbadkCore.p pVar2);
 
-    void a(boolean z, d dVar, m mVar, cn cnVar, o oVar);
+    void a(boolean z, d dVar, p pVar, bq bqVar, com.baidu.tieba.tbadkCore.p pVar2);
 
-    void ad(View view);
+    void af(View view);
 
-    BannerView aq(Context context);
+    BannerView at(Context context);
 
-    void b(BdExpandListView bdExpandListView, BannerView bannerView);
+    void b(BdTypeListView bdTypeListView, BannerView bannerView);
 
-    boolean gx(int i);
+    boolean hz(int i);
 }

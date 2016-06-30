@@ -1,92 +1,90 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrequentlyForumInfo;
 /* loaded from: classes.dex */
-public class e {
-    private static e anU;
-    public final String anQ = "2g";
-    public final String anR = "3g";
-    public final String anS = "4g";
-    public final String anT = "wifi";
-    public HashMap<String, String> anV = new HashMap<>();
-    public HashMap<String, String> anW = new HashMap<>();
-    public HashMap<String, String> anX = new HashMap<>();
-    public String anY;
+public class e implements com.baidu.tbadk.mvc.b.a {
+    private int aoA;
+    private int aoB;
+    private int aoC;
+    private int aoD;
+    private List<String> aoE = new ArrayList();
+    private String aox;
+    private String aoy;
+    private long aoz;
+    private long mForumId;
+    private String mForumName;
 
-    public static synchronized e Az() {
-        e eVar;
-        synchronized (e.class) {
-            if (anU == null) {
-                anU = new e();
-            }
-            eVar = anU;
-        }
-        return eVar;
+    public long getForumId() {
+        return this.mForumId;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public void setForumId(long j) {
+        this.mForumId = j;
+    }
+
+    public String getForumName() {
+        return this.mForumName;
+    }
+
+    public void eZ(String str) {
+        this.mForumName = str;
+    }
+
+    public String AE() {
+        return this.aox;
+    }
+
+    public void fa(String str) {
+        this.aox = str;
+    }
+
+    public String AF() {
+        return this.aoy;
+    }
+
+    public int AG() {
+        return this.aoA;
+    }
+
+    public void dZ(int i) {
+        this.aoA = i;
+    }
+
+    public void ea(int i) {
+        this.aoD = i;
+    }
+
+    public boolean isSign() {
+        return this.aoD == 1;
+    }
+
+    public List<String> AH() {
+        return this.aoE;
+    }
+
+    public void a(FrequentlyForumInfo frequentlyForumInfo) {
+        if (frequentlyForumInfo != null) {
             try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("2g");
-                    String optString2 = optJSONObject.optString("3g");
-                    String optString3 = optJSONObject.optString("4g");
-                    String optString4 = optJSONObject.optString("wifi");
-                    if (optString != null) {
-                        this.anV.put("2g", optString);
-                    }
-                    if (optString2 != null) {
-                        this.anV.put("3g", optString2);
-                    }
-                    if (optString3 != null) {
-                        this.anV.put("4g", optString3);
-                    }
-                    if (optString4 != null) {
-                        this.anV.put("wifi", optString4);
+                this.aox = frequentlyForumInfo.avatar;
+                this.mForumId = frequentlyForumInfo.forum_id.longValue();
+                this.mForumName = frequentlyForumInfo.forum_name;
+                this.aoB = frequentlyForumInfo.forum_state.intValue();
+                this.aoC = frequentlyForumInfo.access_flag.intValue();
+                this.aoz = frequentlyForumInfo.last_access_time.longValue();
+                this.aoA = frequentlyForumInfo.level_id.intValue();
+                this.aoy = frequentlyForumInfo.new_thread_num;
+                this.aoD = frequentlyForumInfo.is_sign.intValue();
+                if (frequentlyForumInfo.user_list != null && frequentlyForumInfo.user_list.size() > 0) {
+                    int size = frequentlyForumInfo.user_list.size();
+                    for (int i = 0; i < size; i++) {
+                        if (frequentlyForumInfo.user_list.get(i) != null) {
+                            this.aoE.add(frequentlyForumInfo.user_list.get(i).portrait);
+                        }
                     }
                 }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
-                if (optJSONObject2 != null) {
-                    String optString5 = optJSONObject2.optString("2g");
-                    String optString6 = optJSONObject2.optString("3g");
-                    String optString7 = optJSONObject2.optString("4g");
-                    String optString8 = optJSONObject2.optString("wifi");
-                    if (optString5 != null) {
-                        this.anW.put("2g", optString5);
-                    }
-                    if (optString6 != null) {
-                        this.anW.put("3g", optString6);
-                    }
-                    if (optString7 != null) {
-                        this.anW.put("4g", optString7);
-                    }
-                    if (optString8 != null) {
-                        this.anW.put("wifi", optString8);
-                    }
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
-                if (optJSONObject3 != null) {
-                    String optString9 = optJSONObject3.optString("2g");
-                    String optString10 = optJSONObject3.optString("3g");
-                    String optString11 = optJSONObject3.optString("4g");
-                    String optString12 = optJSONObject3.optString("wifi");
-                    if (optString9 != null) {
-                        this.anX.put("2g", optString9);
-                    }
-                    if (optString10 != null) {
-                        this.anX.put("3g", optString10);
-                    }
-                    if (optString11 != null) {
-                        this.anX.put("4g", optString11);
-                    }
-                    if (optString12 != null) {
-                        this.anX.put("wifi", optString12);
-                    }
-                }
-                this.anY = jSONObject.optString("is_on");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

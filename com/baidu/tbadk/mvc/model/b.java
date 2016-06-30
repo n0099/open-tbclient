@@ -8,13 +8,13 @@ import com.baidu.tbadk.mvc.model.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a avq;
+    final /* synthetic */ a awg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.avq = aVar;
+        this.awg = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,16 +22,16 @@ public class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         a.InterfaceC0046a interfaceC0046a;
         a.InterfaceC0046a interfaceC0046a2;
-        this.avq.vv = false;
+        this.awg.vx = false;
         if (customResponsedMessage != null && (customResponsedMessage instanceof ReadCacheRespMsg)) {
             ReadCacheRespMsg readCacheRespMsg = (ReadCacheRespMsg) customResponsedMessage;
             ReadCacheMessage readCacheMessage = null;
             if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                 readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
             }
-            interfaceC0046a = this.avq.avk;
+            interfaceC0046a = this.awg.awa;
             if (interfaceC0046a != null) {
-                interfaceC0046a2 = this.avq.avk;
+                interfaceC0046a2 = this.awg.awa;
                 interfaceC0046a2.a(readCacheRespMsg, readCacheMessage);
             }
         }

@@ -1,43 +1,64 @@
 package com.baidu.tieba.enterForum.c;
 
-import android.os.Handler;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.cache.o;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.enterForum.c.c;
 import com.squareup.wire.Wire;
-import tbclient.ForumRecommend.DataRes;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements o.a<byte[]> {
-    final /* synthetic */ c aYc;
-    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aYd;
+public class d extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
+    final /* synthetic */ c btW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, com.baidu.tieba.enterForum.b.b bVar) {
-        this.aYc = cVar;
-        this.aYd = bVar;
+    public d(c cVar) {
+        this.btW = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.cache.o.a
-    /* renamed from: i */
-    public void g(String str, byte[] bArr) {
-        Handler handler;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: e */
+    public com.baidu.tieba.enterForum.b.b doInBackground(Void... voidArr) {
+        o<byte[]> M = com.baidu.tbadk.core.b.a.rP().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.tieba.enterForum.b.b bVar = new com.baidu.tieba.enterForum.b.b();
+        byte[] bArr = M.get("forumRecommend_cache_key");
         if (bArr != null) {
-            this.aYd.av(true);
+            bVar.at(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
-                if (forumRecommendResIdl.data != null && (forumRecommendResIdl.data instanceof DataRes)) {
-                    this.aYd.a(forumRecommendResIdl.data);
-                    this.aYd.cp(true);
+                if (forumRecommendResIdl.data != null) {
+                    bVar.a(forumRecommendResIdl.data);
+                    bVar.cK(true);
                 }
             } catch (Exception e) {
-                this.aYd.av(false);
+                bVar.at(false);
             }
-            if (this.aYd.isSuccess() && !this.aYd.Mj()) {
-                this.aYd.Mi().Mn();
+            if (bVar.isSuccess() && !bVar.RM()) {
+                bVar.RL().RR();
             }
-            handler = this.aYc.mUIHandler;
-            handler.post(new e(this, this.aYd));
         }
+        return bVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: f */
+    public void onPostExecute(com.baidu.tieba.enterForum.b.b bVar) {
+        c.b bVar2;
+        super.onPostExecute(bVar);
+        c.a aVar = new c.a();
+        aVar.type = 0;
+        if (bVar != null && bVar.isSuccess()) {
+            aVar.btY = true;
+            aVar.btZ = bVar;
+        } else {
+            aVar.btY = false;
+            aVar.btZ = bVar;
+        }
+        bVar2 = this.btW.btQ;
+        bVar2.a(aVar);
     }
 }

@@ -17,9 +17,9 @@ class c extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.g)) {
-            this.this$0.a((com.baidu.tbadk.data.g) customResponsedMessage.getData());
-            TbadkCoreApplication.m11getInst().setPaymemberInfo((com.baidu.tbadk.data.g) customResponsedMessage.getData());
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.h)) {
+            this.this$0.a((com.baidu.tbadk.data.h) customResponsedMessage.getData());
+            TbadkCoreApplication.m9getInst().setPaymemberInfo((com.baidu.tbadk.data.h) customResponsedMessage.getData());
         }
     }
 }

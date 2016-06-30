@@ -11,8 +11,8 @@ public class ay implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bg bgVar;
-        bgVar = this.this$0.dyP;
-        bgVar.aDI();
+        bp bpVar;
+        bpVar = this.this$0.eht;
+        bpVar.aMD();
     }
 }

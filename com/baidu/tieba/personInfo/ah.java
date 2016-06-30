@@ -1,7 +1,8 @@
 package com.baidu.tieba.personInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class ah implements b {
+class ah implements NoNetworkView.a {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +10,29 @@ public class ah implements b {
         this.this$0 = fVar;
     }
 
-    @Override // com.baidu.tieba.personInfo.b
-    public void a(com.baidu.tieba.person.data.e eVar) {
-        this.this$0.b(eVar);
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aD(boolean z) {
+        bp bpVar;
+        bp bpVar2;
+        com.baidu.tbadk.g.f fVar;
+        bp bpVar3;
+        com.baidu.tbadk.g.h hVar;
+        if (z) {
+            bpVar = this.this$0.eht;
+            if (bpVar != null) {
+                bpVar2 = this.this$0.eht;
+                if (!bpVar2.getIsSelf()) {
+                    fVar = this.this$0.cok;
+                    if (fVar == null) {
+                        hVar = this.this$0.refreshView;
+                        if (hVar == null) {
+                            return;
+                        }
+                    }
+                    bpVar3 = this.this$0.eht;
+                    bpVar3.aMD();
+                }
+            }
+        }
     }
 }

@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class d {
-    public static void sW() {
+    public static void sT() {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
             mainDBDatabaseManager.b("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
         }
     }
 
-    public static void cN(String str) {
+    public static void cM(String str) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
@@ -22,23 +22,23 @@ public class d {
         }
     }
 
-    public static boolean a(com.baidu.tbadk.coreExtra.data.c cVar) {
+    public static boolean a(com.baidu.tbadk.coreExtra.data.d dVar) {
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return false;
         }
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         Date date = new Date();
-        if (cVar == null || mainDBDatabaseManager == null) {
+        if (dVar == null || mainDBDatabaseManager == null) {
             return false;
         }
-        mainDBDatabaseManager.b("delete from chunk_upload_data where md5=? and account=?", new String[]{cVar.getMd5(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.b("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{cVar.getMd5(), Long.valueOf(cVar.getTotalLength()), Integer.valueOf(cVar.wt()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.b("delete from chunk_upload_data where md5=? and account=?", new String[]{dVar.getMd5(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.b("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{dVar.getMd5(), Long.valueOf(dVar.getTotalLength()), Integer.valueOf(dVar.ww()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.c cO(String str) {
+    public static com.baidu.tbadk.coreExtra.data.d cN(String str) {
         Cursor cursor;
         Exception e;
-        com.baidu.tbadk.coreExtra.data.c cVar;
+        com.baidu.tbadk.coreExtra.data.d dVar;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return null;
         }
@@ -48,23 +48,23 @@ public class d {
             try {
                 try {
                     if (cursor.moveToFirst()) {
-                        cVar = new com.baidu.tbadk.coreExtra.data.c();
+                        dVar = new com.baidu.tbadk.coreExtra.data.d();
                         try {
-                            cVar.setMd5(str);
-                            cVar.di(cursor.getInt(3));
-                            cVar.M(cursor.getLong(2));
+                            dVar.setMd5(str);
+                            dVar.dk(cursor.getInt(3));
+                            dVar.P(cursor.getLong(2));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.d(e, "getChunkUploadDataByMd5");
                             com.baidu.adp.lib.h.a.a(cursor);
-                            return cVar;
+                            return dVar;
                         }
                     } else {
-                        cVar = null;
+                        dVar = null;
                     }
                     com.baidu.adp.lib.h.a.a(cursor);
                 } catch (Exception e3) {
-                    cVar = null;
+                    dVar = null;
                     e = e3;
                 }
             } catch (Throwable th) {
@@ -75,11 +75,11 @@ public class d {
         } catch (Exception e4) {
             cursor = null;
             e = e4;
-            cVar = null;
+            dVar = null;
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
         }
-        return cVar;
+        return dVar;
     }
 }

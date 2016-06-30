@@ -1,9 +1,8 @@
 package com.baidu.tbadk.browser;
 
 import android.webkit.JsPromptResult;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements com.baidu.tieba.tbadkCore.e.c {
+class q implements com.baidu.tieba.tbadkCore.e.c {
     final /* synthetic */ TbWebViewActivity Kx;
 
     /* JADX INFO: Access modifiers changed from: package-private */

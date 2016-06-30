@@ -14,13 +14,13 @@ public class c implements a.InterfaceC0008a {
     }
 
     @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0008a
-    public void eb() {
+    public void ec() {
         Handler handler;
         Handler handler2;
         Handler handler3;
         this.this$0.mF = true;
         if (this.this$0.mE) {
-            j.eQ().eX();
+            j.eR().eY();
         }
         handler = a.mHandler;
         handler.removeMessages(2);

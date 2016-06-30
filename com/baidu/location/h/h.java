@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h Jl = null;
-    public static String a = mJ().b() + "/baidu/tempdata";
+    private static volatile h Jn = null;
+    public static String a = mE().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
 
@@ -99,22 +99,22 @@ public final class h {
         return this.b;
     }
 
-    public static h mJ() {
-        if (Jl == null) {
+    public static h mE() {
+        if (Jn == null) {
             synchronized (h.class) {
-                if (Jl == null) {
-                    Jl = new h(com.baidu.location.f.getServiceContext());
+                if (Jn == null) {
+                    Jn = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return Jl;
+        return Jn;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:42:0x00ad  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private List<g> mK() {
+    private List<g> mF() {
         Scanner scanner;
         String[] split;
         String[] split2;
@@ -214,6 +214,6 @@ public final class h {
 
     public List<g> c() {
         List<g> d = Build.VERSION.SDK_INT >= 14 ? d() : null;
-        return (d == null || d.size() <= 0) ? mK() : d;
+        return (d == null || d.size() <= 0) ? mF() : d;
     }
 }

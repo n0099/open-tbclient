@@ -1,103 +1,62 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.writeModel.a;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.u;
+import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
-class w implements a.d {
-    final /* synthetic */ PbActivity djE;
+class w extends CustomMessageListener {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(PbActivity pbActivity) {
-        this.djE = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(PbActivity pbActivity, int i) {
+        super(i);
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.o oVar, WriteData writeData, AntiData antiData) {
-        el elVar;
-        el elVar2;
-        com.baidu.tbadk.editortools.d.e eVar;
-        el elVar3;
-        el elVar4;
-        cw cwVar;
-        cw cwVar2;
-        cw cwVar3;
-        el elVar5;
-        cw cwVar4;
-        String userId;
-        cw cwVar5;
-        el elVar6;
-        cw cwVar6;
-        cw cwVar7;
-        cw cwVar8;
-        el elVar7;
-        el elVar8;
-        com.baidu.tbadk.editortools.d.e eVar2;
-        this.djE.Pm();
-        elVar = this.djE.diR;
-        elVar.gU(z);
-        String str = "";
-        int i = -1;
-        if (postWriteCallBackData != null) {
-            i = postWriteCallBackData.getErrorCode();
-            str = postWriteCallBackData.getErrorString();
-        }
-        if (z) {
-            elVar2 = this.djE.diR;
-            elVar2.amT();
-            eVar = this.djE.dja;
-            if (eVar != null) {
-                elVar8 = this.djE.diR;
-                eVar2 = this.djE.dja;
-                elVar8.fn(eVar2.BN());
-            }
-            elVar3 = this.djE.diR;
-            elVar3.ayJ();
-            elVar4 = this.djE.diR;
-            elVar4.fo(true);
-            cwVar = this.djE.dih;
-            cwVar.axQ();
-            this.djE.a(antiData, postWriteCallBackData);
-            if (writeData != null) {
-                String floor = writeData.getFloor();
-                if (writeData == null || writeData.getType() != 2) {
-                    cwVar2 = this.djE.dih;
-                    if (cwVar2.getHostMode()) {
-                        cwVar4 = this.djE.dih;
-                        com.baidu.tieba.pb.data.e pbData = cwVar4.getPbData();
-                        if (pbData != null && pbData.avE() != null && pbData.avE().getAuthor() != null && (userId = pbData.avE().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                            cwVar5 = this.djE.dih;
-                            if (cwVar5.axK()) {
-                                elVar6 = this.djE.diR;
-                                elVar6.azd();
-                            }
-                        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        es esVar;
+        Object obj;
+        es esVar2;
+        boolean z = false;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.dPF.dPc;
+            if (tag == bdUniqueId) {
+                com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
+                esVar = this.dPF.dOO;
+                esVar.aHL();
+                obj = this.dPF.mExtra;
+                SparseArray<Object> sparseArray = (SparseArray) obj;
+                DataRes dataRes = aVar.fAd;
+                if (aVar.error == 0 && dataRes != null) {
+                    int g = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0);
+                    String str = dataRes.mute_confirm;
+                    boolean z2 = g == 1;
+                    if (com.baidu.tbadk.core.util.ba.isEmpty(str)) {
+                        sparseArray.put(u.g.tag_user_mute_msg, "确定禁言？");
                     } else {
-                        cwVar3 = this.djE.dih;
-                        if (cwVar3.axK()) {
-                            elVar5 = this.djE.diR;
-                            elVar5.azd();
-                        }
+                        sparseArray.put(u.g.tag_user_mute_msg, str);
                     }
-                } else if (floor != null) {
-                    cwVar8 = this.djE.dih;
-                    com.baidu.tieba.pb.data.e pbData2 = cwVar8.getPbData();
-                    elVar7 = this.djE.diR;
-                    elVar7.j(pbData2);
+                    sparseArray.put(u.g.tag_user_mute_visible, true);
+                    z = z2;
+                } else {
+                    sparseArray.put(u.g.tag_user_mute_visible, false);
                 }
-                cwVar6 = this.djE.dih;
-                if (cwVar6.axG()) {
-                    com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10369");
-                    cwVar7 = this.djE.dih;
-                    TiebaStatic.log(awVar.ac("tid", cwVar7.getThreadID()));
+                int intValue = ((Integer) sparseArray.get(u.g.tag_from)).intValue();
+                if (intValue == 0) {
+                    this.dPF.a(z, sparseArray);
+                } else if (intValue == 1) {
+                    esVar2 = this.dPF.dOO;
+                    esVar2.a(sparseArray, z);
                 }
             }
-        } else if (oVar != null) {
-        } else {
-            this.djE.a(i, antiData, str);
         }
     }
 }

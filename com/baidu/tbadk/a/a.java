@@ -44,7 +44,7 @@ public class a {
         }
     }
 
-    public void mM() {
+    public void mH() {
         if (this.Ka != null && this.Kb != null) {
             if (this.Kc <= 0) {
                 this.Kc = 3600000L;
@@ -53,7 +53,7 @@ public class a {
         }
     }
 
-    public long mN() {
+    public long mI() {
         if (this.Kc <= 0) {
             this.Kc = 3600000L;
         }

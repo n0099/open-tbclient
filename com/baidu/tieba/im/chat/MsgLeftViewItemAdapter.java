@@ -15,16 +15,16 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void ee(boolean z) {
+    public void eS(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ah */
-    public ap.a<MsgleftView> b(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.DV);
+    /* renamed from: aH */
+    public ap.a<MsgleftView> a(ViewGroup viewGroup) {
+        MsgleftView msgleftView = new MsgleftView(this.Ea);
         return new a(msgleftView.ac(), msgleftView);
     }
 
@@ -32,19 +32,19 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        MsgleftView acs = aVar.acs();
-        acs.iO(this.bZO);
-        acs.ee(this.mNeedShowName);
+        MsgleftView akE = aVar.akE();
+        akE.kq(this.cEY);
+        akE.eS(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        acs.a(this.bZF);
-        acs.setOnItemViewLongClickListener(this.bZG);
-        acs.setPosition(i);
-        acs.aW(this.mCurrentTime);
-        acs.setLastTime(chatMessage.getCacheData().getLastMsgTime());
-        acs.a(viewGroup, chatMessage);
-        acs.b(viewGroup, chatMessage);
-        this.DV.getLayoutMode().ae(false);
-        this.DV.getLayoutMode().x(view);
+        akE.a(this.cEP);
+        akE.setOnItemViewLongClickListener(this.cEQ);
+        akE.setPosition(i);
+        akE.by(this.mCurrentTime);
+        akE.bx(chatMessage.getCacheData().getLastMsgTime());
+        akE.a(viewGroup, chatMessage);
+        akE.b(viewGroup, chatMessage);
+        this.Ea.getLayoutMode().ad(false);
+        this.Ea.getLayoutMode().w(view);
         return view;
     }
 

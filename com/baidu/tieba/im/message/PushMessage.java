@@ -78,6 +78,8 @@ public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
             i = CmdConfigCustom.CMD_UPLOAD_STAT;
         } else if (cmd.equals("plugin_config_sync")) {
             i = CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC;
+        } else if (cmd.equals("offline_debug")) {
+            i = CmdConfigCustom.CMD_OFFLINE_DEBUG;
         } else {
             return null;
         }

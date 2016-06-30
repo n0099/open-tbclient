@@ -6,23 +6,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ k aXF;
-    private final /* synthetic */ String aXH;
-    private final /* synthetic */ boolean aXI;
+    final /* synthetic */ k btA;
+    private final /* synthetic */ String btC;
+    private final /* synthetic */ boolean btD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(k kVar, String str, boolean z) {
-        this.aXF = kVar;
-        this.aXH = str;
-        this.aXI = z;
+        this.btA = kVar;
+        this.btC = str;
+        this.btD = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        if (!TextUtils.isEmpty(this.aXH)) {
-            com.baidu.tieba.im.settingcache.h.aiv().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aXH), this.aXI);
+        if (!TextUtils.isEmpty(this.btC)) {
+            com.baidu.tieba.im.settingcache.h.aqJ().g(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.btC), this.btD);
         }
         return null;
     }

@@ -32,7 +32,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001221 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                         ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                         if (CommonPersonalMsglistModel.this.mUser != null && CommonPersonalMsglistModel.this.mUser.getUserId() != null) {
-                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(h.o(chatMessage)))) {
+                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(h.p(chatMessage)))) {
                                 CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
                             }
                         }
@@ -60,7 +60,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001221 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                         ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                         if (CommonPersonalMsglistModel.this.mUser != null && CommonPersonalMsglistModel.this.mUser.getUserId() != null) {
-                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(h.o(chatMessage)))) {
+                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(h.p(chatMessage)))) {
                                 CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
                             }
                         }

@@ -29,19 +29,19 @@ public abstract class l {
         return null;
     }
 
-    public WifiInfo mB() {
+    public WifiInfo mw() {
         return null;
     }
 
-    public i mC() {
+    public i mx() {
         return null;
     }
 
-    public i mD() {
+    public i my() {
         return null;
     }
 
-    public i mE() {
+    public i mz() {
         return null;
     }
 }

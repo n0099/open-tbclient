@@ -1,23 +1,40 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.media.MediaPlayer;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements MediaPlayer.OnCompletionListener {
-    final /* synthetic */ r dgC;
-    private final /* synthetic */ an dgD;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dgE;
+public class w extends CustomMessageListener {
+    final /* synthetic */ e dML;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(r rVar, an anVar, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dgC = rVar;
-        this.dgD = anVar;
-        this.dgE = sVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(e eVar, int i) {
+        super(i);
+        this.dML = eVar;
     }
 
-    @Override // android.media.MediaPlayer.OnCompletionListener
-    public void onCompletion(MediaPlayer mediaPlayer) {
-        this.dgD.dgW.setVisibility(0);
-        this.dgC.a(this.dgE, this.dgD);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        y yVar;
+        y yVar2;
+        y yVar3;
+        y yVar4;
+        y yVar5;
+        yVar = this.dML.dMD;
+        if (yVar != null) {
+            yVar2 = this.dML.dMD;
+            if (yVar2.cBT != null) {
+                yVar3 = this.dML.dMD;
+                if (yVar3.aJJ != null) {
+                    yVar4 = this.dML.dMD;
+                    yVar4.cBT.setVisibility(0);
+                    yVar5 = this.dML.dMD;
+                    yVar5.aJJ.vr();
+                    this.dML.d(false, 0);
+                }
+            }
+        }
     }
 }

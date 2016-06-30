@@ -1,31 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.ResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ek {
-    public static Intent J(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
-        }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
+public class ek extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ ej dTh;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ek(ej ejVar, int i, int i2) {
+        super(i, i2);
+        this.dTh = ejVar;
     }
 
-    public static boolean g(com.baidu.tieba.tbadkCore.data.s sVar) {
-        if (sVar == null || sVar.aUi() == null) {
-            return false;
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean z;
+        BdUniqueId bdUniqueId;
+        if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
+            z = this.dTh.dTf;
+            if (!z) {
+                BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
+                bdUniqueId = this.dTh.mTag;
+                if (tag == bdUniqueId && !responsedMessage.hasError()) {
+                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
+                        this.dTh.a((pbPageSocketResponseMessage) responsedMessage);
+                    }
+                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
+                        this.dTh.a((pbPageHttpResponseMessage) responsedMessage);
+                    }
+                }
+            }
         }
-        com.baidu.tieba.tbadkCore.data.i aUi = sVar.aUi();
-        if (aUi.esx) {
-            int aTB = aUi.aTB();
-            return aTB == 2 || aTB == 1;
-        }
-        return false;
     }
 }

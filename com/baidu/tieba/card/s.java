@@ -6,34 +6,34 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.base.g {
-    final /* synthetic */ p aPs;
+    final /* synthetic */ p aSO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.aPs = pVar;
+        this.aSO = pVar;
     }
 
     @Override // com.baidu.adp.base.g
     public void d(Object obj) {
-        com.baidu.tieba.tbadkCore.x xVar;
-        com.baidu.tieba.tbadkCore.x xVar2;
-        com.baidu.tieba.tbadkCore.x xVar3;
-        com.baidu.tieba.tbadkCore.x xVar4;
-        if (obj instanceof com.baidu.tieba.tbadkCore.y) {
-            xVar4 = this.aPs.Dp;
-            if (xVar4.getErrorCode() == 0) {
+        com.baidu.tieba.tbadkCore.y yVar;
+        com.baidu.tieba.tbadkCore.y yVar2;
+        com.baidu.tieba.tbadkCore.y yVar3;
+        com.baidu.tieba.tbadkCore.y yVar4;
+        if (obj instanceof com.baidu.tieba.tbadkCore.z) {
+            yVar4 = this.aSO.Dq;
+            if (yVar4.getErrorCode() == 0) {
                 return;
             }
         }
-        xVar = this.aPs.Dp;
-        if (AntiHelper.pv(xVar.getErrorCode())) {
-            Context context = this.aPs.getContext();
-            xVar3 = this.aPs.Dp;
-            AntiHelper.O(context, xVar3.getErrorString());
+        yVar = this.aSO.Dq;
+        if (AntiHelper.qL(yVar.getErrorCode())) {
+            Context context = this.aSO.getContext();
+            yVar3 = this.aSO.Dq;
+            AntiHelper.O(context, yVar3.getErrorString());
             return;
         }
-        TbPageContext<?> tbPageContext = this.aPs.getTbPageContext();
-        xVar2 = this.aPs.Dp;
-        tbPageContext.showToast(xVar2.getErrorString());
+        TbPageContext<?> KN = this.aSO.KN();
+        yVar2 = this.aSO.Dq;
+        KN.showToast(yVar2.getErrorString());
     }
 }

@@ -18,35 +18,27 @@ class d extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> nA;
+        ArrayList<com.baidu.tbadk.mainTab.b> nv;
         ab abVar;
         boolean z;
         ab abVar2;
-        int i;
         ab abVar3;
-        boolean z2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (nA = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).nA()) != null && nA.size() != 0) {
-            abVar = this.this$0.ewE;
-            abVar.U(nA);
-            z = this.this$0.isUserChanged;
-            if (!z) {
-                z2 = this.this$0.ewz;
-                if (!z2) {
-                    this.this$0.y(this.this$0.getIntent());
-                    this.this$0.isUserChanged = false;
-                    this.this$0.ewz = false;
-                    abVar3 = this.this$0.ewE;
-                    abVar3.aVO();
-                }
+        int i;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (nv = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).nv()) != null && nv.size() != 0) {
+            abVar = this.this$0.fbu;
+            abVar.ae(nv);
+            z = this.this$0.fbp;
+            if (z) {
+                abVar3 = this.this$0.fbu;
+                FragmentTabHost bed = abVar3.bed();
+                i = this.this$0.fbo;
+                bed.setCurrentTabByType(i);
+            } else {
+                this.this$0.B(this.this$0.getIntent());
             }
-            abVar2 = this.this$0.ewE;
-            FragmentTabHost aVR = abVar2.aVR();
-            i = this.this$0.ewy;
-            aVR.setCurrentTabByType(i);
-            this.this$0.isUserChanged = false;
-            this.this$0.ewz = false;
-            abVar3 = this.this$0.ewE;
-            abVar3.aVO();
+            this.this$0.fbp = false;
+            abVar2 = this.this$0.fbu;
+            abVar2.bea();
         }
     }
 }

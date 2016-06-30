@@ -16,7 +16,7 @@ public abstract class a {
 
         void b(String str, int i, String str2);
 
-        void ce(String str);
+        void cd(String str);
     }
 
     /* loaded from: classes.dex */
@@ -28,13 +28,13 @@ public abstract class a {
 
     public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, InterfaceC0033a interfaceC0033a);
 
-    public abstract b cd(String str);
+    public abstract b cc(String str);
 
-    public abstract AccountData l(String str, String str2, String str3);
+    public abstract void of();
 
-    public abstract void ok();
+    public abstract AccountData p(String str, String str2, String str3);
 
-    public static a oj() {
+    public static a oe() {
         return Mf;
     }
 

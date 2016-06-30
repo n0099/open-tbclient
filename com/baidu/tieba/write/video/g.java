@@ -8,36 +8,37 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.coreExtra.data.p;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class g implements a.d {
-    final /* synthetic */ WriteVideoActivity faD;
+    final /* synthetic */ WriteVideoActivity fGf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(WriteVideoActivity writeVideoActivity) {
-        this.faD = writeVideoActivity;
+        this.fGf = writeVideoActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.o oVar, WriteData writeData, AntiData antiData) {
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, p pVar, WriteData writeData, AntiData antiData) {
         WriteData writeData2;
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        this.faD.closeLoadingDialog();
+        this.fGf.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.faD.evE;
+            writeData2 = this.fGf.fau;
             if (writeData2 != null) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.sR().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
-                writeData3 = this.faD.evE;
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.sO().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
+                writeData3 = this.fGf.fau;
                 if (writeData3 != null) {
-                    writeData4 = this.faD.evE;
+                    writeData4 = this.fGf.fau;
                     if (writeData4.getVideoInfo() != null && writeData != null) {
                         if (!z2) {
-                            writeData5 = this.faD.evE;
+                            writeData5 = this.fGf.fau;
                             if (writeData5.getVideoInfo().getVideoDuration() > 8) {
                                 writeData.setVideoReviewType(1);
                             }
@@ -46,34 +47,35 @@ class g implements a.d {
                     }
                 }
                 if (!z) {
-                    if (oVar != null && writeData != null && oVar.getVcode_pic_url() != null) {
+                    if (pVar != null && writeData != null && pVar.getVcode_pic_url() != null) {
                         if (!AntiHelper.g(antiData)) {
-                            writeData.setVcodeMD5(oVar.getVcode_md5());
-                            writeData.setVcodeUrl(oVar.getVcode_pic_url());
-                            if ("4".equals(oVar.wG())) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.faD.getPageContext().getPageActivity(), 12006, writeData, false)));
+                            writeData.setVcodeMD5(pVar.getVcode_md5());
+                            writeData.setVcodeUrl(pVar.getVcode_pic_url());
+                            writeData.setVcodeExtra(pVar.wK());
+                            if (com.baidu.tbadk.k.a.gA(pVar.wJ())) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.fGf.getPageContext().getPageActivity(), 12006, writeData, false, pVar.wJ())));
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.faD.getPageContext().getPageActivity(), writeData, 12006)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.fGf.getPageContext().getPageActivity(), writeData, 12006)));
                                 return;
                             }
                         }
-                        this.faD.a(false, postWriteCallBackData);
+                        this.fGf.a(false, postWriteCallBackData);
                         return;
                     }
-                    this.faD.a(false, postWriteCallBackData);
+                    this.fGf.a(false, postWriteCallBackData);
                     return;
                 }
-                this.faD.bcA();
+                this.fGf.bkY();
                 if (writeData != null) {
                     if (writeData.getVideoReviewType() == 1) {
-                        postWriteCallBackData.setErrorString(this.faD.getPageContext().getPageActivity().getString(t.j.video_send_success_under_review));
+                        postWriteCallBackData.setErrorString(this.fGf.getPageContext().getPageActivity().getString(u.j.video_send_success_under_review));
                     } else {
-                        postWriteCallBackData.setErrorString(this.faD.getPageContext().getPageActivity().getString(t.j.video_send_success));
+                        postWriteCallBackData.setErrorString(this.fGf.getPageContext().getPageActivity().getString(u.j.video_send_success));
                     }
                 }
-                this.faD.a(true, postWriteCallBackData);
-                this.faD.b(postWriteCallBackData);
+                this.fGf.a(true, postWriteCallBackData);
+                this.fGf.b(postWriteCallBackData);
             }
         }
     }

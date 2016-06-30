@@ -26,7 +26,7 @@ public class h {
         }
     }
 
-    public boolean dB() {
+    public boolean dC() {
         return this.responseCode == 200;
     }
 }

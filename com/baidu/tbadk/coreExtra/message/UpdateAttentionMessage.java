@@ -7,10 +7,10 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean agA = false;
-        public boolean agz;
+        public boolean ahd;
+        public boolean ahe = false;
         public String errorString;
-        public boolean sZ;
+        public boolean tb;
         public String toUid;
     }
 
@@ -22,20 +22,20 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().sZ;
+        return getData().tb;
     }
 
     public boolean isAttention() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().agz;
+        return getData().ahd;
     }
 
     public boolean isGod() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().agA;
+        return getData().ahe;
     }
 }

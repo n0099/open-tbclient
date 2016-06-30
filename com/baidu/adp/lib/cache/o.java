@@ -9,19 +9,19 @@ public interface o<T> {
 
     /* loaded from: classes.dex */
     public static class b<T> {
-        public T iz;
-        public long jE;
-        public long jp;
+        public T ix;
+        public long jC;
+        public long jn;
         public String key;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends o<T> {
-        String cI();
+        String cJ();
 
-        n<T> cJ();
+        n<T> cK();
 
-        void cK();
+        void cL();
     }
 
     b<T> Q(String str);

@@ -5,21 +5,21 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class GetOnLineInfoStatic {
-    private static boolean awo = true;
+    private static boolean axe = true;
     private static Runnable mRunnable = new a();
 
     static {
-        DZ();
-        Ea();
-        Eb();
-        Ec();
+        Ei();
+        Ej();
+        Ek();
+        El();
     }
 
-    private static void DZ() {
+    private static void Ei() {
         MessageManager.getInstance().registerListener(new b(1001));
     }
 
-    private static void Ea() {
+    private static void Ej() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(205005);
         bVar.setResponsedClass(GetOnLineInfoSocketResMessage.class);
         bVar.i(false);
@@ -27,13 +27,13 @@ public class GetOnLineInfoStatic {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private static void Eb() {
+    private static void Ek() {
         c cVar = new c(205005);
         cVar.setSelfListener(true);
         MessageManager.getInstance().registerListener(cVar);
     }
 
-    private static void Ec() {
+    private static void El() {
         MessageManager.getInstance().registerListener(new d(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
     }
 }

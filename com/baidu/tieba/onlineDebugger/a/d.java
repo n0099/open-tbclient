@@ -1,14 +1,15 @@
 package com.baidu.tieba.onlineDebugger.a;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.onlineDebugger.command.h;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class d implements b {
-    private String dbt;
+    private String dHZ;
     private String fieldName;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
-    public Object L(Object obj) {
+    public Object N(Object obj) {
         Field b;
         String str = null;
         if (obj != null) {
@@ -22,21 +23,21 @@ public class d implements b {
                     if (!b.isAccessible()) {
                         b.setAccessible(true);
                     }
-                    if (this.dbt.contains(".") || (this.dbt.contains("(") && this.dbt.contains(")"))) {
-                        com.baidu.tieba.onlineDebugger.command.d lE = com.baidu.tieba.onlineDebugger.e.b.lE("get " + this.dbt);
-                        if (lE != null) {
-                            Object auA = lE.auA();
-                            if (auA != null) {
-                                str = auA.toString();
+                    if (this.dHZ.contains(".") || (this.dHZ.contains("(") && this.dHZ.contains(")"))) {
+                        h nf = com.baidu.tieba.onlineDebugger.e.b.nf("get " + this.dHZ);
+                        if (nf != null) {
+                            Object aCF = nf.aCF();
+                            if (aCF != null) {
+                                str = aCF.toString();
                             }
                         } else {
-                            str = this.dbt;
+                            str = this.dHZ;
                         }
                     } else {
-                        str = this.dbt;
+                        str = this.dHZ;
                     }
                     BdLog.e(String.valueOf(obj.toString()) + " before setField " + this.fieldName + " value = " + (str == null ? "null" : str.toString()));
-                    com.baidu.tieba.onlineDebugger.c.a(b, obj, str);
+                    com.baidu.tieba.onlineDebugger.d.a(b, obj, str);
                     Object obj2 = b.get(obj);
                     BdLog.e(String.valueOf(obj.toString()) + " after setField " + this.fieldName + " success value = " + (obj2 == null ? "null" : obj2.toString()));
                     return true;
@@ -53,11 +54,11 @@ public class d implements b {
         return null;
     }
 
-    public void lp(String str) {
+    public void mO(String str) {
         this.fieldName = str;
     }
 
-    public void lr(String str) {
-        this.dbt = str;
+    public void mQ(String str) {
+        this.dHZ = str;
     }
 }

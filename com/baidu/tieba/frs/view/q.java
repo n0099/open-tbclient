@@ -1,21 +1,23 @@
 package com.baidu.tieba.frs.view;
 
+import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView bwi;
+public class q implements View.OnKeyListener {
+    final /* synthetic */ p bUt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(FrsHeaderView frsHeaderView) {
-        this.bwi = frsHeaderView;
+    public q(p pVar) {
+        this.bUt = pVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.lib.h.j.a(this.bwi.bvw, this.bwi.Do.getPageActivity());
-        this.bwi.bjB.bgb = false;
-        com.baidu.tbadk.browser.f.a(this.bwi.Do.getPageActivity(), this.bwi.Do.getResources().getString(t.j.experion_speed), String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            this.bUt.aaG();
+            return true;
+        }
+        return false;
     }
 }

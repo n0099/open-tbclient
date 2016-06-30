@@ -5,82 +5,82 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class i extends com.baidu.tieba.horizonalList.widget.n {
-    public BarImageView aOv;
-    public TextView aOw;
-    public TextView aOx;
-    private com.baidu.tieba.card.a.e aOy;
+    public BarImageView aRS;
+    public TextView aRT;
+    public TextView aRU;
+    private com.baidu.tieba.card.a.e aRV;
     private int mSkinType;
 
     public i(View view) {
         super(view);
-        this.aOv = null;
-        this.aOw = null;
-        this.aOx = null;
+        this.aRS = null;
+        this.aRT = null;
+        this.aRU = null;
         this.mSkinType = 3;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.n
     public void a(com.baidu.tieba.horizonalList.widget.l lVar) {
         if (lVar != null && (lVar instanceof com.baidu.tieba.card.a.e)) {
-            this.aOy = (com.baidu.tieba.card.a.e) lVar;
-            this.aOv.setTag(this.aOy.forumAvatar);
-            this.aOv.setTag(t.g.tag_forum_name, this.aOy.forumName);
-            this.aOv.c(this.aOy.forumAvatar, 15, false);
-            this.aOw.setText(String.valueOf(com.baidu.tbadk.core.util.ay.getFixedText(this.aOy.forumName, 4, true)) + getView().getContext().getResources().getString(t.j.forum));
-            this.aOw.setTag(t.g.tag_forum_name, this.aOy.forumName);
-            this.aOx.setTag(t.g.tag_forum_id, Long.valueOf(this.aOy.forumId));
-            this.aOx.setTag(t.g.tag_forum_name, this.aOy.forumName);
-            getView().setTag(t.g.tag_forum_id, Long.valueOf(this.aOy.forumId));
-            getView().setTag(t.g.tag_forum_name, this.aOy.forumName);
-            b(this.aOx, this.aOy.isLiked);
-            this.aOv.setOnClickListener(this.ajv);
-            this.aOx.setOnClickListener(this.ajv);
-            this.aOw.setOnClickListener(this.ajv);
-            getView().setOnClickListener(this.ajv);
+            this.aRV = (com.baidu.tieba.card.a.e) lVar;
+            this.aRS.setTag(this.aRV.forumAvatar);
+            this.aRS.setTag(u.g.tag_forum_name, this.aRV.forumName);
+            this.aRS.c(this.aRV.forumAvatar, 15, false);
+            this.aRT.setText(String.valueOf(com.baidu.tbadk.core.util.ba.getFixedText(this.aRV.forumName, 4, true)) + getView().getContext().getResources().getString(u.j.forum));
+            this.aRT.setTag(u.g.tag_forum_name, this.aRV.forumName);
+            this.aRU.setTag(u.g.tag_forum_id, Long.valueOf(this.aRV.forumId));
+            this.aRU.setTag(u.g.tag_forum_name, this.aRV.forumName);
+            getView().setTag(u.g.tag_forum_id, Long.valueOf(this.aRV.forumId));
+            getView().setTag(u.g.tag_forum_name, this.aRV.forumName);
+            b(this.aRU, this.aRV.isLiked);
+            this.aRS.setOnClickListener(this.akb);
+            this.aRU.setOnClickListener(this.akb);
+            this.aRT.setOnClickListener(this.akb);
+            getView().setOnClickListener(this.akb);
         }
-        onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
+        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.n
-    public com.baidu.tieba.horizonalList.widget.n S(View view) {
+    public com.baidu.tieba.horizonalList.widget.n T(View view) {
         i iVar = new i(view);
-        iVar.aOv = (BarImageView) view.findViewById(t.g.forum_avatar);
-        iVar.aOv.setGifIconSupport(false);
-        iVar.aOw = (TextView) view.findViewById(t.g.m_forum_name_textview);
-        iVar.aOx = (TextView) view.findViewById(t.g.forum_add_love);
-        iVar.bTM = 16908308;
+        iVar.aRS = (BarImageView) view.findViewById(u.g.forum_avatar);
+        iVar.aRS.setGifIconSupport(false);
+        iVar.aRT = (TextView) view.findViewById(u.g.m_forum_name_textview);
+        iVar.aRU = (TextView) view.findViewById(u.g.forum_add_love);
+        iVar.cxM = 16908308;
         return iVar;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.n
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.at.l(getView(), t.d.cp_bg_line_d);
-            com.baidu.tbadk.core.util.at.j((View) this.aOw, t.d.cp_cont_b);
-            b(this.aOx, this.aOy.isLiked);
+            com.baidu.tbadk.core.util.av.l(getView(), u.d.cp_bg_line_d);
+            com.baidu.tbadk.core.util.av.j((View) this.aRT, u.d.cp_cont_b);
+            b(this.aRU, this.aRV.isLiked);
         }
         this.mSkinType = i;
     }
 
     private void b(TextView textView, boolean z) {
-        textView.setTag(t.g.forum_follow, Boolean.valueOf(z));
+        textView.setTag(u.g.forum_follow, Boolean.valueOf(z));
         if (z) {
             textView.setEnabled(false);
-            com.baidu.tbadk.core.util.at.c(textView, t.d.cp_cont_d, 1);
-            textView.setText(TbadkCoreApplication.m11getInst().getString(t.j.relate_forum_is_followed));
+            com.baidu.tbadk.core.util.av.c(textView, u.d.cp_cont_d, 1);
+            textView.setText(TbadkCoreApplication.m9getInst().getString(u.j.relate_forum_is_followed));
             textView.setBackgroundDrawable(null);
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setPadding(0, 0, 0, 0);
             return;
         }
-        com.baidu.tbadk.core.util.at.c(textView, t.d.btn_forum_focus_color, 1);
-        textView.setText(TbadkCoreApplication.m11getInst().getString(t.j.forum_list_attention_tv));
-        com.baidu.tbadk.core.util.at.k(textView, t.f.btn_focus_border_bg);
-        textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.at.getDrawable(t.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+        com.baidu.tbadk.core.util.av.c(textView, u.d.btn_forum_focus_color, 1);
+        textView.setText(TbadkCoreApplication.m9getInst().getString(u.j.forum_list_attention_tv));
+        com.baidu.tbadk.core.util.av.k(textView, u.f.btn_focus_border_bg);
+        textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.av.getDrawable(u.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
         textView.setEnabled(true);
-        textView.setPadding(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds18), 0, TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds10), 0);
+        textView.setPadding(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds18), 0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds10), 0);
     }
 }

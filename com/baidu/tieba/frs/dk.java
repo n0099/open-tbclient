@@ -1,83 +1,11 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.tbadk.core.data.b;
 /* loaded from: classes.dex */
-public class dk extends y.a {
-    public TextView aOG;
-    public UserIconBox adH;
-    public UserIconBox adI;
-    public TextView adg;
-    public TextView adj;
-    public int aej;
-    public LinearLayout bfB;
-    public TextView bfC;
-    public PlayVoiceBnt bfD;
-    public FrsCommonImageLayout bfE;
-    public TextView bfF;
-    public HeadImageView bfG;
-    public TextView bfK;
-    public TextView bfM;
-    public TextView bji;
-    public int bkO;
-    public FrameLayout bkP;
-    public RelativeLayout bkQ;
-    public TbImageView bkR;
-    public TextView bkS;
-    public RelativeLayout bkT;
-    public LinearLayout bkU;
-    public LinearLayout bkV;
-    public LinearLayout bkW;
-    public View bkX;
-    public TbImageView bkY;
-    public RelativeLayout bkZ;
-    public TbImageView bla;
-    public TextView blb;
+public interface dk {
+    void WZ();
 
-    public dk(View view, int i) {
-        super(view);
-        this.aej = 3;
-        this.bkO = 0;
-        this.bkO = i;
-        this.bkP = (FrameLayout) view.findViewById(t.g.frs_list);
-        this.bkT = (RelativeLayout) view.findViewById(t.g.frs_item_user_info_view);
-        this.bkU = (LinearLayout) view.findViewById(t.g.frs_item_base_user_info);
-        this.bfB = (LinearLayout) view.findViewById(t.g.frs_list_item_top_linear_layout);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bfB.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.bfB.setLayoutParams(layoutParams);
-        this.bkQ = (RelativeLayout) view.findViewById(t.g.frs_list_item_top_card);
-        this.bkR = (TbImageView) view.findViewById(t.g.frs_normal_item_theme_card);
-        this.bfG = (HeadImageView) view.findViewById(t.g.frs_photo);
-        this.adH = (UserIconBox) view.findViewById(t.g.frs_user_tshow_icon_box);
-        this.adI = (UserIconBox) view.findViewById(t.g.frs_user_icon_box);
-        this.bfF = (TextView) view.findViewById(t.g.frs_lv_author);
-        this.adg = (TextView) view.findViewById(t.g.frs_lv_reply_time);
-        this.aOG = (TextView) view.findViewById(t.g.frs_lv_title);
-        this.bfC = (TextView) view.findViewById(t.g.abstract_text);
-        this.bfD = (PlayVoiceBnt) view.findViewById(t.g.abstract_voice);
-        this.bfE = (FrsCommonImageLayout) view.findViewById(t.g.abstract_img_layout);
-        this.adj = (TextView) view.findViewById(t.g.frs_praise_num);
-        this.bkS = (TextView) view.findViewById(t.g.action_button);
-        this.bfK = (TextView) view.findViewById(t.g.frs_reply_num);
-        this.bfM = (TextView) view.findViewById(t.g.frs_more_abstract);
-        this.bkV = (LinearLayout) view.findViewById(t.g.frs_item_num);
-        this.bkW = (LinearLayout) view.findViewById(t.g.frs_item_loc_view);
-        this.bji = (TextView) view.findViewById(t.g.frs_item_location_address);
-        this.bkX = view.findViewById(t.g.frs_item_location_sep);
-        this.bkY = (TbImageView) view.findViewById(t.g.game_activity_banner);
-        this.bla = (TbImageView) view.findViewById(t.g.app_code_banner);
-        this.blb = (TextView) view.findViewById(t.g.app_code_btn);
-        this.bkZ = (RelativeLayout) view.findViewById(t.g.app_code_wrapper);
-    }
+    void a(b bVar, String str);
+
+    void b(b bVar, String str);
 }

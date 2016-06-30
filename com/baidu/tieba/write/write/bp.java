@@ -1,30 +1,53 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.t;
+import android.content.Intent;
+import android.view.View;
+import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp {
-    private com.baidu.tbadk.editortools.l apy;
-    private BaseActivity<?> bek;
-    private com.baidu.tbadk.editortools.j feh;
-    private boolean fei = false;
-    private boolean fej = false;
+public class bp implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity this$0;
 
-    public bp(BaseActivity<?> baseActivity, com.baidu.tbadk.editortools.l lVar) {
-        this.bek = baseActivity;
-        this.apy = lVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bp(WriteImageActivity writeImageActivity) {
+        this.this$0 = writeImageActivity;
     }
 
-    public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.fei) {
-            if (this.feh != null) {
-                this.feh.Bi();
-                this.feh = null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        boolean z2;
+        boolean rd;
+        z = this.this$0.dQZ;
+        if (!z) {
+            i = this.this$0.requestCode;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                if (this.this$0.cbl.getVisibility() != 0) {
+                    z2 = this.this$0.edn;
+                    if (z2 && this.this$0.edg != null && !this.this$0.edg.isRecycled()) {
+                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                        rd = this.this$0.rd(str);
+                        if (rd) {
+                            intent.putExtra("change", true);
+                            intent.putExtra("file_name", str);
+                        } else {
+                            intent.putExtra("change", false);
+                        }
+                    } else {
+                        intent.putExtra("change", false);
+                    }
+                    this.this$0.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.this$0.setResult(0, new Intent());
             }
-        } else if (!this.fej && z) {
-            this.fej = true;
-            this.feh = new com.baidu.tbadk.editortools.j(this.bek.getResources().getString(t.j.graffiti_write_tips), "graffiti_write_tip_show", 24, 24);
-            this.bek.getSafeHandler().postDelayed(new bq(this), 500L);
+        } else {
+            this.this$0.setResult(0, new Intent());
         }
+        this.this$0.finish();
     }
 }

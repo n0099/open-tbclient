@@ -102,11 +102,11 @@ public class d {
         }
     }
 
-    public void ed() {
+    public void ee() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long ee() {
+    public long ef() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 

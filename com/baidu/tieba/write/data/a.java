@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private final ArrayList<MetaData> eYW = new ArrayList<>();
-    private HashMap<String, String> eYX = null;
+    private final ArrayList<MetaData> fEa = new ArrayList<>();
+    private HashMap<String, String> fEb = null;
 
-    public void c(JSONObject jSONObject, boolean z) {
+    public void b(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.eYX == null) {
-                        this.eYX = new HashMap<>();
+                    if (this.fEb == null) {
+                        this.fEb = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class a {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.eYW.add(metaData);
+                        this.fEa.add(metaData);
                         if (z) {
-                            this.eYX.put(metaData.getName_show(), metaData.getPortrait());
+                            this.fEb.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,19 +40,19 @@ public class a {
         }
     }
 
-    public void pe(String str) {
+    public void qO(String str) {
         try {
-            c(new JSONObject(str), true);
+            b(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> bbS() {
-        return this.eYW;
+    public ArrayList<MetaData> bko() {
+        return this.fEa;
     }
 
-    public HashMap<String, String> bbT() {
-        return this.eYX;
+    public HashMap<String, String> bkp() {
+        return this.fEb;
     }
 }

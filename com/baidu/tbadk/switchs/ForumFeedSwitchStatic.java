@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ForumFeedSwitchStatic extends a {
     static {
-        e.cS().f(ForumFeedSwitchStatic.class);
+        e.cT().n(ForumFeedSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

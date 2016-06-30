@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a dpM;
+    final /* synthetic */ a dWj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dpM = aVar;
+        this.dWj = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,13 +33,13 @@ public class b implements View.OnClickListener {
             str2 = ((HeadImageView) view).getUserName();
             str3 = userId;
         } else {
-            if (view.getTag(t.g.tag_user_id) instanceof String) {
-                str = (String) view.getTag(t.g.tag_user_id);
+            if (view.getTag(u.g.tag_user_id) instanceof String) {
+                str = (String) view.getTag(u.g.tag_user_id);
             } else {
                 str = view.getTag() instanceof String ? (String) view.getTag() : null;
             }
-            if (view.getTag(t.g.tag_user_name) instanceof String) {
-                str2 = (String) view.getTag(t.g.tag_user_name);
+            if (view.getTag(u.g.tag_user_name) instanceof String) {
+                str2 = (String) view.getTag(u.g.tag_user_name);
                 str3 = str;
             } else {
                 str2 = null;
@@ -47,13 +47,13 @@ public class b implements View.OnClickListener {
             }
         }
         if (str3 != null) {
-            pbActivity = this.dpM.dhY;
-            if (pbActivity.awx() != null) {
+            pbActivity = this.dWj.dOg;
+            if (pbActivity.aEE() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                pbActivity2 = this.dpM.dhY;
+                pbActivity2 = this.dWj.dOg;
                 Activity pageActivity = pbActivity2.getPageContext().getPageActivity();
-                pbActivity3 = this.dpM.dhY;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.awx().axD(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                pbActivity3 = this.dWj.dOg;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.aEE().aFL(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }

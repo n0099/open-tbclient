@@ -10,13 +10,18 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String BACK_SPECIAL = "back_special";
     public static final String CONTENT_SHOW = "content_show";
     public static final String FLAG = "flag";
+    public static final String FOLLOWED_HAS_NEW = "followed_has_new";
     public static final String FROM = "from";
     public static final String FROM_SHORT_CUT = "from_short_cut";
     public static final int FRS_FLAG_ADD_SEARCH_HIS = 1;
     public static final int FRS_FLAG_NORMAL = 0;
+    public static final String FRS_FORUM_FREQUENTLY_FORUM = "frequently_forum";
     public static final String FRS_FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
+    public static final String FRS_FROM_ECOMM_ORDER_DETAIL = "from_ecomm_order_detail";
     public static final String FRS_FROM_ENTERFORUM_RECOMMEND = "recom_flist";
     public static final String FRS_FROM_FOLLOWED_RECOMMEND = "followed_recommend_forumlist";
+    public static final String FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD = "frequently_forum_new_thread";
+    public static final String FRS_FROM_FREQUENTLY_FORUM_POST_THREAD = "frequently_forum_post_thread";
     public static final String FRS_FROM_LIKE = "tb_forumlist";
     public static final String FRS_FROM_MANGA_COVER = "form_manga_cover";
     public static final String FRS_FROM_PB = "tb_pb";
@@ -46,6 +51,10 @@ public class FrsActivityConfig extends IntentConfig {
         return createBackSpecialCfg(str, str2, false, false);
     }
 
+    public FrsActivityConfig createNormalCfg(String str, String str2, boolean z) {
+        return createBackSpecialCfg(str, str2, false, false, z);
+    }
+
     public FrsActivityConfig createCfgForpersonalized(String str, String str2, String str3) {
         Intent intent = getIntent();
         intent.putExtra("name", str);
@@ -65,11 +74,16 @@ public class FrsActivityConfig extends IntentConfig {
     }
 
     public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
+        return createBackSpecialCfg(str, str2, z, z2, false);
+    }
+
+    public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2, boolean z3) {
         Intent intent = getIntent();
         intent.putExtra("name", str);
         intent.putExtra("from", str2);
         intent.putExtra("back_special", z);
         intent.putExtra(GOOD, z2);
+        intent.putExtra(FOLLOWED_HAS_NEW, z3);
         if (!(getContext() instanceof Activity)) {
             intent.addFlags(268435456);
         }

@@ -1,16 +1,16 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.view.BaseViewPager;
 /* loaded from: classes.dex */
-class bm implements CustomMessageTask.CustomRunnable<PersonInfoActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            PersonInfoActivityStatic.a(customMessage.getData());
-        }
-        return null;
+class bm implements BaseViewPager.a {
+    final /* synthetic */ PersonImageActivity efn;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bm(PersonImageActivity personImageActivity) {
+        this.efn = personImageActivity;
+    }
+
+    @Override // com.baidu.tbadk.core.view.BaseViewPager.a
+    public void cH(int i) {
     }
 }

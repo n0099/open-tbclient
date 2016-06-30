@@ -1,35 +1,46 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.app.Dialog;
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.t;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fb implements View.OnClickListener {
-    final /* synthetic */ el dpu;
-    private final /* synthetic */ String val$url;
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fb(el elVar, String str) {
-        this.dpu = elVar;
-        this.val$url = str;
+    public fb(es esVar) {
+        this.dVR = esVar;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        Dialog dialog;
+        PbActivity.a aVar;
+        PbActivity.a aVar2;
+        Dialog dialog2;
+        Dialog dialog3;
         PbActivity pbActivity;
-        PbActivity pbActivity2;
-        PbActivity pbActivity3;
-        if (!com.baidu.adp.lib.util.k.fH()) {
-            pbActivity = this.dpu.dhY;
-            pbActivity.showToast(t.j.neterror);
+        dialog = this.dVR.dUp;
+        if (dialog != null) {
+            dialog2 = this.dVR.dUp;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.dVR.dUp;
+                pbActivity = this.dVR.dOg;
+                com.baidu.adp.lib.h.j.b(dialog3, pbActivity.getPageContext());
+            }
+        }
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray == null) {
             return;
         }
-        com.baidu.tbadk.core.util.bg ut = com.baidu.tbadk.core.util.bg.ut();
-        pbActivity2 = this.dpu.dhY;
-        ut.c(pbActivity2.getPageContext(), new String[]{this.val$url});
-        pbActivity3 = this.dpu.dhY;
-        pbActivity3.finish();
+        aVar = this.dVR.dVK;
+        if (aVar == null) {
+            return;
+        }
+        aVar2 = this.dVR.dVK;
+        aVar2.d(new Object[]{sparseArray.get(u.g.tag_manage_user_identity), sparseArray.get(u.g.tag_forbid_user_name), sparseArray.get(u.g.tag_forbid_user_post_id)});
     }
 }

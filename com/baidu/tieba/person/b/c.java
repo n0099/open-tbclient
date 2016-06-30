@@ -6,44 +6,44 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class c extends y.a {
-    private View.OnClickListener Fn;
-    public View awk;
-    public ImageView dBj;
-    public TextView dBk;
-    private v dBl;
+    private View.OnClickListener aew;
+    public View axa;
+    public ImageView ejM;
+    public TextView ejN;
+    private v ejO;
     private int mSkinType;
 
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.awk = view.findViewById(t.g.add_pic_root);
-        this.dBj = (ImageView) view.findViewById(t.g.add_image_view);
-        this.dBk = (TextView) view.findViewById(t.g.tip_left_count_view);
+        this.axa = view.findViewById(u.g.add_pic_root);
+        this.ejM = (ImageView) view.findViewById(u.g.add_image_view);
+        this.ejN = (TextView) view.findViewById(u.g.tip_left_count_view);
     }
 
     public void c(v vVar) {
         if (vVar instanceof com.baidu.tieba.person.data.b) {
-            this.dBl = vVar;
+            this.ejO = vVar;
             com.baidu.tieba.person.data.b bVar = (com.baidu.tieba.person.data.b) vVar;
-            at.c(this.dBj, t.f.icon_pic_add);
-            if (bVar.aCh() > 0) {
-                this.dBk.setText(String.format(TbadkCoreApplication.m11getInst().getString(t.j.have_left_some_picture_upload), Integer.valueOf(bVar.aCh())));
-                at.c(this.dBk, t.d.cp_cont_c, 1);
+            av.c(this.ejM, u.f.icon_pic_add);
+            if (bVar.aLa() > 0) {
+                this.ejN.setText(String.format(TbadkCoreApplication.m9getInst().getString(u.j.have_left_some_picture_upload), Integer.valueOf(bVar.aLa())));
+                av.c(this.ejN, u.d.cp_cont_c, 1);
             }
-            at.k(getView(), t.f.add_pic_item_bg);
-            getView().setOnClickListener(this.Fn);
+            av.k(getView(), u.f.add_pic_item_bg);
+            getView().setOnClickListener(this.aew);
         }
     }
 
-    public v vM() {
-        return this.dBl;
+    public v vP() {
+        return this.ejO;
     }
 
     public void I(View.OnClickListener onClickListener) {
-        this.Fn = onClickListener;
+        this.aew = onClickListener;
     }
 }

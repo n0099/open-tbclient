@@ -34,16 +34,16 @@ public class af extends ArrayAdapter {
         a aVar;
         if (view == null || view.getTag() == null) {
             aVar = new a();
-            view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.a(getContext(), "bdsocialshare_sharemenulistitem"), (ViewGroup) null);
-            view.setBackgroundResource(p.g(getContext(), "bdsocialshare_sharemenu_item_click"));
-            aVar.b = (ImageView) view.findViewById(p.i(getContext(), "sharemenulist_iconview"));
-            aVar.c = (TextView) view.findViewById(p.i(getContext(), "sharemenulist_icontext"));
+            view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.g(getContext(), "bdsocialshare_sharemenulistitem"), (ViewGroup) null);
+            view.setBackgroundResource(p.h(getContext(), "bdsocialshare_sharemenu_item_click"));
+            aVar.b = (ImageView) view.findViewById(p.j(getContext(), "sharemenulist_iconview"));
+            aVar.c = (TextView) view.findViewById(p.j(getContext(), "sharemenulist_icontext"));
             aVar.c.setTextColor(Color.parseColor(p.a(getContext())));
         } else {
             aVar = (a) view.getTag();
         }
         MediaType mediaType = (MediaType) getItem(i);
-        aVar.b.setImageResource(p.h(getContext(), "bdsocialshare_" + mediaType.toString()));
+        aVar.b.setImageResource(p.i(getContext(), "bdsocialshare_" + mediaType.toString()));
         aVar.c.setText(this.a.getString(mediaType.toString()));
         return view;
     }

@@ -1,33 +1,33 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
+import android.os.Handler;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements a.b {
-    private final /* synthetic */ String cqS;
-    final /* synthetic */ d dgb;
+public class g extends CustomMessageListener {
+    final /* synthetic */ e dML;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(d dVar, String str) {
-        this.dgb = dVar;
-        this.cqS = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(e eVar, int i) {
+        super(i);
+        this.dML = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.pb.data.e eVar;
-        com.baidu.tieba.pb.data.e eVar2;
-        com.baidu.tieba.pb.data.e eVar3;
-        aVar.dismiss();
-        eVar = this.dgb.dfY;
-        if (eVar != null) {
-            aw awVar = new aw("c10398");
-            eVar2 = this.dgb.dfY;
-            aw ac = awVar.ac("fid", eVar2.getForumId());
-            eVar3 = this.dgb.dfY;
-            TiebaStatic.log(ac.ac("tid", eVar3.getThreadId()).ac("uid", this.cqS).ac("is_like", "2"));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Runnable runnable;
+        Handler handler;
+        Handler handler2;
+        com.baidu.adp.lib.h.h dM = com.baidu.adp.lib.h.h.dM();
+        runnable = this.dML.dMJ;
+        dM.removeCallbacks(runnable);
+        handler = this.dML.mHandler;
+        if (handler != null) {
+            handler2 = this.dML.mHandler;
+            handler2.removeMessages(1);
         }
     }
 }

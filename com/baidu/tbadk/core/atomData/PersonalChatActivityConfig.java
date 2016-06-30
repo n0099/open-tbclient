@@ -2,12 +2,14 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.tbadk.core.data.DealInfoIMData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PersonalChatActivityConfig extends IntentConfig {
     public static final int IS_FRIEND = 1;
     public static final int IS_NOT_FRIEND = 0;
+    public static final String KEY_ECOMM_INFO = "key_ecomm_info";
     public static final String KEY_IS_FRIEND = "key_is_friend";
     public static final String KEY_LEAVE_MSG = "key_leave_msg";
     public static final String KEY_REPLY_CONTENT = "key_reply_content";
@@ -46,6 +48,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra("key_is_friend", i2);
         intent.putExtra(KEY_REPLY_CONTENT, str3);
+    }
+
+    public static PersonalChatActivityConfig buildPersonalChatActivityConfigByEcomm(Context context, long j, String str, String str2, int i, int i2, DealInfoIMData dealInfoIMData) {
+        String jSONString = dealInfoIMData.toJSONString();
+        PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(context, j, str, str2, i, i2);
+        personalChatActivityConfig.getIntent().putExtra(KEY_ECOMM_INFO, jSONString);
+        return personalChatActivityConfig;
     }
 
     public PersonalChatActivityConfig(Context context, long j, String str, String str2, int i, String str3, String str4) {

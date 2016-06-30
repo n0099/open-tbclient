@@ -5,6 +5,6 @@ import com.baidu.tieba.person.data.PersonImageActivityConfig;
 /* loaded from: classes.dex */
 public class PersonImageActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(PersonImageActivityConfig.class, PersonImageActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(PersonImageActivityConfig.class, PersonImageActivity.class);
     }
 }

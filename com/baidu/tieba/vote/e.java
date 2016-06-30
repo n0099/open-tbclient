@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ b eWC;
+    final /* synthetic */ b fBq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.eWC = bVar;
+        this.fBq = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,31 +31,31 @@ public class e implements View.OnClickListener {
         PbActivity pbActivity4;
         List list;
         VoteDataInfo voteDataInfo3;
-        if (view.getId() == t.g.btn_pb_vote) {
-            pbActivity = this.eWC.dhY;
+        if (view.getId() == u.g.btn_pb_vote) {
+            pbActivity = this.fBq.dOg;
             if (pbActivity != null) {
-                pbActivity2 = this.eWC.dhY;
+                pbActivity2 = this.fBq.dOg;
                 if (pbActivity2.checkUpIsLogin()) {
-                    voteDataInfo = this.eWC.eWx;
+                    voteDataInfo = this.fBq.fBl;
                     if (voteDataInfo != null) {
-                        j = this.eWC.mForumId;
+                        j = this.fBq.mForumId;
                         if (j > 0) {
-                            j2 = this.eWC.mThreadId;
+                            j2 = this.fBq.mThreadId;
                             if (j2 > 0) {
-                                z = this.eWC.eWz;
+                                z = this.fBq.fBn;
                                 if (!z) {
-                                    pbActivity3 = this.eWC.dhY;
+                                    pbActivity3 = this.fBq.dOg;
                                     a aVar = new a(pbActivity3);
                                     StringBuilder sb = new StringBuilder();
-                                    voteDataInfo2 = this.eWC.eWx;
+                                    voteDataInfo2 = this.fBq.fBl;
                                     List<com.baidu.tbadk.widget.vote.a> options = voteDataInfo2.getOptions();
                                     if (options != null) {
                                         for (com.baidu.tbadk.widget.vote.a aVar2 : options) {
                                             if (aVar2 != null && aVar2.isSelected()) {
                                                 sb.append(aVar2.getId()).append(",");
-                                                list = this.eWC.eWy;
+                                                list = this.fBq.fBm;
                                                 list.add((f) aVar2);
-                                                voteDataInfo3 = this.eWC.eWx;
+                                                voteDataInfo3 = this.fBq.fBl;
                                                 if (voteDataInfo3.getIsMulti() != 1) {
                                                     break;
                                                 }
@@ -65,14 +65,14 @@ public class e implements View.OnClickListener {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
                                         if (TextUtils.isEmpty(sb.toString())) {
-                                            pbActivity4 = this.eWC.dhY;
-                                            UtilHelper.showToast(pbActivity4.getActivity(), t.j.vote_checked_less_one);
+                                            pbActivity4 = this.fBq.dOg;
+                                            UtilHelper.showToast(pbActivity4.getActivity(), u.j.vote_checked_less_one);
                                             return;
                                         }
-                                        j3 = this.eWC.mForumId;
-                                        j4 = this.eWC.mThreadId;
+                                        j3 = this.fBq.mForumId;
+                                        j4 = this.fBq.mThreadId;
                                         aVar.b(j3, j4, sb.toString());
-                                        this.eWC.eWz = true;
+                                        this.fBq.fBn = true;
                                     }
                                 }
                             }

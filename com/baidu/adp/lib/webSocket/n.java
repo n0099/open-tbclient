@@ -37,15 +37,15 @@ public class n {
         this.qw = nVar.qw;
     }
 
-    public boolean gu() {
+    public boolean gw() {
         return this.rl;
     }
 
-    public int gv() {
+    public int gx() {
         return this.rj;
     }
 
-    public int gw() {
+    public int gy() {
         return this.rk;
     }
 
@@ -53,23 +53,23 @@ public class n {
         return this.rm;
     }
 
-    public int gx() {
+    public int gz() {
         return this.ro;
     }
 
-    public int gy() {
+    public int gA() {
         return this.rp;
     }
 
-    public boolean gz() {
+    public boolean gB() {
         return this.rq;
     }
 
-    public boolean gA() {
+    public boolean gC() {
         return this.rr;
     }
 
-    public String gB() {
+    public String gD() {
         return this.qw;
     }
 

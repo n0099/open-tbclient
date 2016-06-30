@@ -1,11 +1,16 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.data.DealInfoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.EcommSwitchStatic;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
@@ -19,8 +24,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int dxb = 0;
-    private static String dxc = "";
+    private static int eft = 0;
+    private static String efu = "";
     public int hide_post;
     private int mLastChooseStyle;
     public final List<PostInfoList> post_list;
@@ -58,26 +63,26 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i) {
-        if (z || !str.equals(dxc)) {
-            dxb = 1;
-            dxc = str;
+        if (z || !str.equals(efu)) {
+            eft = 1;
+            efu = str;
         } else {
-            dxb++;
+            eft++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(dxc);
-        userPostPageRequestMessage.setPn(dxb);
+        userPostPageRequestMessage.setUid(efu);
+        userPostPageRequestMessage.setPn(eft);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
-        int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst().getApp());
-        int C = com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getApp());
-        float f = TbadkCoreApplication.m11getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = com.baidu.tbadk.core.util.az.ug().ui() ? 2 : 1;
-        userPostPageRequestMessage.set_scr_w(B);
-        userPostPageRequestMessage.set_scr_h(C);
+        int A = com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m9getInst().getApp());
+        int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m9getInst().getApp());
+        float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
+        int i2 = com.baidu.tbadk.core.util.bb.uf().uh() ? 2 : 1;
+        userPostPageRequestMessage.set_scr_w(A);
+        userPostPageRequestMessage.set_scr_h(B);
         userPostPageRequestMessage.set_scr_dip(f);
         userPostPageRequestMessage.set_q_type(i2);
         userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(aVar));
@@ -96,7 +101,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
                     postInfoList2.parseProtobuf(postInfoList, random);
                     if (postInfoList2.thread_type != 33) {
                         this.post_list.add(postInfoList2);
-                    } else if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                    } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                         this.post_list.add(postInfoList2);
                     }
                 }
@@ -126,8 +131,17 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
         }
     }
 
+    public void deferEcommThread(long j) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ECOMM_DEFER_THREAD);
+        httpMessage.addParam("thread_id", new StringBuilder(String.valueOf(j)).toString());
+        httpMessage.setExtra(Long.valueOf(j));
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
     /* loaded from: classes.dex */
-    public static class PostInfoList extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.util.ak, Serializable {
+    public static class PostInfoList extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.util.al, Serializable {
+        public DealInfoData dealInfoData;
+        public boolean isDeal;
         public long forum_id = 0;
         public long thread_id = 0;
         public long post_id = 0;
@@ -198,19 +212,26 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
                 if (postInfoList.twzhibo_info != null) {
                     this.twzhibo_info.parseProtobuf(postInfoList.twzhibo_info, i);
                 }
+                if (EcommSwitchStatic.Fq()) {
+                    this.isDeal = postInfoList.is_deal.booleanValue();
+                    if (postInfoList.deal_info != null) {
+                        this.dealInfoData = new DealInfoData();
+                        this.dealInfoData.parserProtobuf(postInfoList.deal_info);
+                    }
+                }
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.ak
-        public ArrayList<com.baidu.tbadk.core.util.aj> getImages() {
+        @Override // com.baidu.tbadk.core.util.al
+        public ArrayList<com.baidu.tbadk.core.util.ak> getImages() {
             Media[] mediaArr;
-            ArrayList<com.baidu.tbadk.core.util.aj> arrayList = new ArrayList<>();
+            ArrayList<com.baidu.tbadk.core.util.ak> arrayList = new ArrayList<>();
             for (Media media : this.media) {
                 if (media.big_pic != null) {
-                    com.baidu.tbadk.core.util.aj ajVar = new com.baidu.tbadk.core.util.aj();
-                    ajVar.imgUrl = media.big_pic;
-                    ajVar.Xc = 10;
-                    arrayList.add(ajVar);
+                    com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak();
+                    akVar.imgUrl = media.big_pic;
+                    akVar.Xu = 10;
+                    arrayList.add(akVar);
                 }
             }
             return arrayList;

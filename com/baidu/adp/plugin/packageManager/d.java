@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d uD;
-    private a uE;
-    private ArrayList<String> us = new ArrayList<>();
+    private static volatile d uF;
+    private a uG;
+    private ArrayList<String> uu = new ArrayList<>();
 
-    public static d hD() {
-        if (uD == null) {
+    public static d hF() {
+        if (uF == null) {
             synchronized (d.class) {
-                if (uD == null) {
-                    uD = new d();
+                if (uF == null) {
+                    uF = new d();
                 }
             }
         }
-        return uD;
+        return uF;
     }
 
     private d() {
@@ -30,7 +30,7 @@ public class d {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.us.iterator();
+            Iterator<String> it = this.uu.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -43,17 +43,17 @@ public class d {
                 }
             }
             if (!z) {
-                this.us.add(pluginSetting.packageName);
+                this.uu.add(pluginSetting.packageName);
             }
-            hz();
+            hB();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hz() {
-        if (this.us.size() > 0 && this.uE == null) {
-            this.uE = new a(this.us.get(0));
-            this.uE.execute(new String[0]);
+    public void hB() {
+        if (this.uu.size() > 0 && this.uG == null) {
+            this.uG = new a(this.uu.get(0));
+            this.uG.execute(new String[0]);
         }
     }
 
@@ -83,36 +83,36 @@ public class d {
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            d.this.uE = null;
-            if (d.this.us.size() > 0) {
-                Iterator it = d.this.us.iterator();
+            d.this.uG = null;
+            if (d.this.uu.size() > 0) {
+                Iterator it = d.this.uu.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        d.this.us.remove(str);
+                        d.this.uu.remove(str);
                         break;
                     }
                 }
             }
-            d.this.hz();
+            d.this.hB();
         }
 
         private void bh(String str) {
             File[] listFiles;
-            File is = Util.is();
+            File iv = Util.iv();
             String bI = Util.bI(str);
-            if (is != null && is.exists() && (listFiles = is.listFiles()) != null) {
+            if (iv != null && iv.exists() && (listFiles = iv.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bI)) {
                         try {
                             com.baidu.adp.lib.util.e.g(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.hs().e("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.hu().e("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.hs().f("plugin_del_temp", "deltmp_fail", str, String.valueOf(listFiles[i].getName()) + "-" + th.getMessage());
+                            com.baidu.adp.plugin.b.a.hu().f("plugin_del_temp", "deltmp_fail", str, String.valueOf(listFiles[i].getName()) + "-" + th.getMessage());
                         }
                     }
                 }

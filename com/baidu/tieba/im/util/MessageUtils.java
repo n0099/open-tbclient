@@ -41,7 +41,7 @@ import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class MessageUtils {
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(b.aha().af(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(b.apn().am(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -79,12 +79,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            a.aiq().n(personalChatMessage);
+            a.aqE().o(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(b.aha().af(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(b.apn().am(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -116,16 +116,16 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            a.aiq().n(groupChatMessage);
+            a.aqE().o(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
-        ImMessageCenterPojo aa;
-        if (!StringUtils.isNull(str) && i == 2 && (aa = b.aha().aa(str, 2)) != null) {
-            long pulled_msgId = aa.getPulled_msgId();
-            if (pulled_msgId > aa.getSent_msgId()) {
-                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(g.bl(pulled_msgId), Long.parseLong(str));
+        ImMessageCenterPojo ah;
+        if (!StringUtils.isNull(str) && i == 2 && (ah = b.apn().ah(str, 2)) != null) {
+            long pulled_msgId = ah.getPulled_msgId();
+            if (pulled_msgId > ah.getSent_msgId()) {
+                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(g.bN(pulled_msgId), Long.parseLong(str));
                 if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                     MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
                 }
@@ -235,10 +235,10 @@ public class MessageUtils {
         long longValue;
         long longValue2;
         int i;
-        VoiceMsgData v;
+        VoiceMsgData w;
         if (list != null && linkedList != null && hashMap != null && hashMap2 != null && chatMessage != null && msgInfo != null) {
-            long bk = g.bk(msgInfo.msgId.longValue());
-            chatMessage.setMsgId(bk);
+            long bM = g.bM(msgInfo.msgId.longValue());
+            chatMessage.setMsgId(bM);
             chatMessage.setSid(msgInfo.sid.longValue());
             chatMessage.setGroupId(String.valueOf(msgInfo.groupId));
             chatMessage.setMsgType(msgInfo.msgType.intValue());
@@ -247,7 +247,7 @@ public class MessageUtils {
             if (TbadkCoreApplication.isLogin() && String.valueOf(longValue3).equals(TbadkCoreApplication.getCurrentAccount())) {
                 chatMessage.setRecordId(msgInfo.recordId.longValue());
             } else {
-                chatMessage.setRecordId(bk);
+                chatMessage.setRecordId(bM);
             }
             UserData userData = new UserData();
             chatMessage.setUserInfo(userData);
@@ -285,13 +285,13 @@ public class MessageUtils {
             }
             chatMessage.setToUserId(msgInfo.toUid.longValue());
             chatMessage.setContent(msgInfo.content);
-            if (msgInfo.msgType.intValue() == 3 && (v = h.v(chatMessage)) != null) {
-                if (h.s(chatMessage)) {
-                    v.setHas_read(1);
+            if (msgInfo.msgType.intValue() == 3 && (w = h.w(chatMessage)) != null) {
+                if (h.t(chatMessage)) {
+                    w.setHas_read(1);
                 } else {
-                    v.setHas_read(0);
+                    w.setHas_read(0);
                 }
-                chatMessage.setContent("[" + i.jsonStrWithObject(v) + "]");
+                chatMessage.setContent("[" + i.jsonStrWithObject(w) + "]");
             }
             chatMessage.setTime(msgInfo.createTime.intValue());
             chatMessage.setIsFriend(msgInfo.isFriend.intValue());
@@ -331,14 +331,14 @@ public class MessageUtils {
                     if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                         groupMsgData.getGroupInfo().setGroupId(l.longValue());
                     }
-                    if (!com.baidu.tieba.im.push.f.ahX().bh(chatMessage.getMsgId())) {
-                        int gid = com.baidu.tieba.im.push.f.ahX().getGid();
+                    if (!com.baidu.tieba.im.push.f.aql().bJ(chatMessage.getMsgId())) {
+                        int gid = com.baidu.tieba.im.push.f.aql().getGid();
                         if (msgInfo.groupId != null) {
-                            if (gid == 0 || msgInfo.groupId.intValue() == com.baidu.tieba.im.push.f.ahX().getGid()) {
-                                Long ahY = com.baidu.tieba.im.push.f.ahX().ahY();
-                                if (ahY == null || msgInfo.msgId == null || ahY.longValue() < msgInfo.msgId.longValue()) {
+                            if (gid == 0 || msgInfo.groupId.intValue() == com.baidu.tieba.im.push.f.aql().getGid()) {
+                                Long aqm = com.baidu.tieba.im.push.f.aql().aqm();
+                                if (aqm == null || msgInfo.msgId == null || aqm.longValue() < msgInfo.msgId.longValue()) {
                                     chatMessage.setIsPushForOperateAccount(true);
-                                    com.baidu.tieba.im.push.f.ahX().h(msgInfo.groupId.intValue(), chatMessage.getMsgId());
+                                    com.baidu.tieba.im.push.f.aql().h(msgInfo.groupId.intValue(), chatMessage.getMsgId());
                                 } else {
                                     return;
                                 }
@@ -359,7 +359,7 @@ public class MessageUtils {
                         linkedList.remove(0);
                         linkedList.add(chatMessage);
                     }
-                    if (TbadkCoreApplication.m11getInst().getCustomizedFilter() == null || TbadkCoreApplication.m11getInst().getCustomizedFilter().bi(4)) {
+                    if (TbadkCoreApplication.m9getInst().getCustomizedFilter() == null || TbadkCoreApplication.m9getInst().getCustomizedFilter().bj(4)) {
                         if (hashMap2.get(String.valueOf(longValue2)) == null) {
                             GroupMsgData groupMsgData2 = new GroupMsgData(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD);
                             groupMsgData2.getGroupInfo().setUserType(i);
@@ -385,7 +385,7 @@ public class MessageUtils {
                         linkedList.remove(0);
                         linkedList.add(chatMessage);
                     }
-                    if (TbadkCoreApplication.m11getInst().getCustomizedFilter() == null || TbadkCoreApplication.m11getInst().getCustomizedFilter().bi(2)) {
+                    if (TbadkCoreApplication.m9getInst().getCustomizedFilter() == null || TbadkCoreApplication.m9getInst().getCustomizedFilter().bj(2)) {
                         if (hashMap.get(String.valueOf(longValue)) == null) {
                             GroupMsgData groupMsgData3 = new GroupMsgData(CmdConfigCustom.MESSAGE_LIST_PERSONAL_CMD);
                             groupMsgData3.getGroupInfo().setCustomType(2);
@@ -411,7 +411,7 @@ public class MessageUtils {
             imMessageCenterPojo.setCustomGroupType(i);
             imMessageCenterPojo.setGid(String.valueOf(j));
             if (bundle.containsKey("lastMid")) {
-                imMessageCenterPojo.setPulled_msgId(g.bk(bundle.getLong("lastMid") - 1));
+                imMessageCenterPojo.setPulled_msgId(g.bM(bundle.getLong("lastMid") - 1));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
         }
@@ -443,12 +443,12 @@ public class MessageUtils {
         }
         NewpushRepair.Builder builder = new NewpushRepair.Builder();
         for (int i = 0; i < sparseArray.size(); i++) {
-            NewpushGroupRepair bf = com.baidu.tieba.im.push.a.ahV().bf(sparseArray.keyAt(i));
-            if (bf != null) {
+            NewpushGroupRepair bH = com.baidu.tieba.im.push.a.aqj().bH(sparseArray.keyAt(i));
+            if (bH != null) {
                 if (builder.groups == null) {
                     builder.groups = new ArrayList();
                 }
-                builder.groups.add(bf);
+                builder.groups.add(bH);
             }
         }
         if (builder.groups == null || builder.groups.size() <= 0) {
@@ -463,7 +463,7 @@ public class MessageUtils {
             HashMap hashMap2 = new HashMap();
             GroupMsgData obtainGroupData = obtainGroupData(i);
             if (obtainGroupData != null) {
-                if (TbadkCoreApplication.m11getInst().getCustomizedFilter() == null || TbadkCoreApplication.m11getInst().getCustomizedFilter().bi(obtainGroupData.getGroupInfo().getCustomType())) {
+                if (TbadkCoreApplication.m9getInst().getCustomizedFilter() == null || TbadkCoreApplication.m9getInst().getCustomizedFilter().bj(obtainGroupData.getGroupInfo().getCustomType())) {
                     list.add(obtainGroupData);
                     LinkedList<ChatMessage> linkedList = new LinkedList<>();
                     obtainGroupData.setListMessageData(linkedList);

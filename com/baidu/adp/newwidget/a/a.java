@@ -96,7 +96,7 @@ public abstract class a {
     }
 
     public void a(Canvas canvas, d dVar, ImageView imageView) {
-        gJ();
+        gL();
         int save = canvas.save();
         int scrollX = imageView.getScrollX();
         int scrollY = imageView.getScrollY();
@@ -111,26 +111,26 @@ public abstract class a {
         canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + right) - left) - paddingRight, ((scrollY + bottom) - top) - paddingBottom);
         canvas.translate(paddingLeft, paddingTop);
         int save2 = canvas.save();
-        if (this.sa.sG != null) {
-            canvas.concat(this.sa.sG);
+        if (this.sa.sH != null) {
+            canvas.concat(this.sa.sH);
         }
-        if (dVar.sx != null && dVar.sx.jf()) {
-            if ((dVar.sx.iY().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.sx.iY().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.rU != null) {
+        if (dVar.sy != null && dVar.sy.ji()) {
+            if ((dVar.sy.jb().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.sy.jb().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.rU != null) {
                 canvas.concat(this.rU);
             }
             this.rZ.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            dVar.sx.a(canvas, this.rZ);
+            dVar.sy.a(canvas, this.rZ);
         } else {
             b(canvas, dVar, imageView);
         }
         canvas.restoreToCount(save2);
-        if (this.sa.sE && this.sa.sF != null && dVar.cd()) {
-            if (!this.sa.sI) {
-                this.sa.sF.setBounds(0, 0, this.sa.sF.getIntrinsicWidth(), this.sa.sF.getIntrinsicHeight());
-                this.sa.sF.draw(canvas);
+        if (this.sa.sF && this.sa.sG != null && dVar.ce()) {
+            if (!this.sa.sJ) {
+                this.sa.sG.setBounds(0, 0, this.sa.sG.getIntrinsicWidth(), this.sa.sG.getIntrinsicHeight());
+                this.sa.sG.draw(canvas);
             } else {
-                this.sa.sF.setBounds((right - 15) - this.sa.sF.getIntrinsicWidth(), (bottom - 15) - this.sa.sF.getIntrinsicHeight(), right - 15, bottom - 15);
-                this.sa.sF.draw(canvas);
+                this.sa.sG.setBounds((right - 15) - this.sa.sG.getIntrinsicWidth(), (bottom - 15) - this.sa.sG.getIntrinsicHeight(), right - 15, bottom - 15);
+                this.sa.sG.draw(canvas);
             }
         }
         b(canvas, imageView);
@@ -160,7 +160,7 @@ public abstract class a {
         this.sa = eVar;
     }
 
-    public Matrix gH() {
+    public Matrix gJ() {
         return this.rU;
     }
 
@@ -168,19 +168,19 @@ public abstract class a {
         this.rU = matrix;
     }
 
-    public RectF gI() {
+    public RectF gK() {
         return this.rV;
     }
 
-    private void gJ() {
+    private void gL() {
         this.mPaint.setAlpha((int) (255.0f * this.sa.mAlpha));
-        if (this.sa.sC) {
+        if (this.sa.sD) {
             this.mPaint.setColorFilter(rR);
         } else {
             this.mPaint.setColorFilter(null);
         }
-        this.rS.setColor(this.sa.sB);
-        this.rS.setStrokeWidth(this.sa.sA);
+        this.rS.setColor(this.sa.sC);
+        this.rS.setStrokeWidth(this.sa.sB);
     }
 
     private static Matrix.ScaleToFit a(ImageView.ScaleType scaleType) {

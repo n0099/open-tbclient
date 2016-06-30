@@ -8,32 +8,32 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.a.a.a implements Runnable {
-    public static String awJ = "logcat ";
-    private static Map<String, c> awL = new HashMap();
-    private Process awG;
-    private InputStream awH;
-    private OutputStream awI;
-    private a awK;
+    private a axA;
+    private Process axw;
+    private InputStream axx;
+    private OutputStream axy;
+    public static String axz = "logcat ";
+    private static Map<String, c> axB = new HashMap();
 
     public static void a(String str, c cVar) {
-        awL.put(str, cVar);
-        awJ = String.valueOf(awJ) + " -s " + str;
+        axB.put(str, cVar);
+        axz = String.valueOf(axz) + " -s " + str;
     }
 
-    public void fY(String str) {
+    public void ge(String str) {
         String[] split = str.split("\n");
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, c>> it = awL.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = axB.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
                     if (split[i2].contains(next.getKey().toString())) {
-                        next.getValue().fX(split[i2]);
+                        next.getValue().gd(split[i2]);
                         break;
                     }
                 }
@@ -49,11 +49,11 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.awG = Runtime.getRuntime().exec(awJ);
-            this.awI = this.awG.getOutputStream();
-            this.awH = this.awG.getInputStream();
-            Et();
-            this.awI.flush();
+            this.axw = Runtime.getRuntime().exec(axz);
+            this.axy = this.axw.getOutputStream();
+            this.axx = this.axw.getInputStream();
+            EC();
+            this.axy.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -61,26 +61,26 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         }
     }
 
-    private void Et() {
-        this.awK = new a(this.awH);
-        this.awK.start();
+    private void EC() {
+        this.axA = new a(this.axx);
+        this.axA.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.awG != null) {
-                this.awG.destroy();
+            if (this.axw != null) {
+                this.axw.destroy();
             }
-            if (this.awK != null) {
-                this.awK.finish();
+            if (this.axA != null) {
+                this.axA.finish();
             }
-            if (this.awH != null) {
-                this.awH.close();
+            if (this.axx != null) {
+                this.axx.close();
             }
-            if (this.awI != null) {
-                this.awI.close();
+            if (this.axy != null) {
+                this.axy.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends Thread {
-        private boolean awM = false;
+        private boolean axC = false;
         private InputStream in;
 
         public a(InputStream inputStream) {
@@ -101,11 +101,11 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         public void run() {
             int read;
             byte[] bArr = new byte[8192];
-            while (!this.awM && (read = this.in.read(bArr)) != -1) {
+            while (!this.axC && (read = this.in.read(bArr)) != -1) {
                 try {
                     String str = new String(bArr, 0, read);
                     if (str != null) {
-                        d.this.fY(str);
+                        d.this.ge(str);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -115,7 +115,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         }
 
         public synchronized void finish() {
-            this.awM = true;
+            this.axC = true;
         }
     }
 }

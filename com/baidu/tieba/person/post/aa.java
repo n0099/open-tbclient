@@ -1,44 +1,34 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.person.PersonPostModel;
+import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
+import com.baidu.tieba.person.UserPostPageRequestMessage;
 /* loaded from: classes.dex */
-class aa implements AdapterView.OnItemClickListener {
-    final /* synthetic */ v dEY;
+class aa extends HttpMessageListener {
+    final /* synthetic */ x eob;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(v vVar) {
-        this.dEY = vVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(x xVar, int i) {
+        super(i);
+        this.eob = xVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        q qVar;
-        q qVar2;
-        q qVar3;
-        if (i >= 0) {
-            qVar = this.dEY.dEV;
-            if (qVar != null) {
-                qVar2 = this.dEY.dEV;
-                if (i < qVar2.getCount()) {
-                    qVar3 = this.dEY.dEV;
-                    PersonPostModel.PostInfoList item = qVar3.getItem(i);
-                    if (item != null) {
-                        if (item.thread_type == 33) {
-                            TiebaStatic.log("c10254");
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.dEY.getActivity(), String.valueOf(item.thread_id)).ch(String.valueOf(item.post_id)).bo(18005).oq()));
-                            return;
-                        }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.dEY.getActivity()).createCfgForPersonCenter(String.valueOf(item.thread_id), String.valueOf(item.post_id), "person_post", 18005)));
-                    }
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonPostModel.a aVar;
+        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
+                this.eob.b(null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            if (userPostPageRequestMessage.isThread() && (aVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                aVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
             }
         }
     }

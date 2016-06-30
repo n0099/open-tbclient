@@ -1,10 +1,11 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tieba.person.a;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
+public class as implements a.b {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +13,18 @@ public class as implements View.OnClickListener {
         this.this$0 = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TiebaStatic.eventStat(this.this$0.getActivity(), "notlogin_10", "click", 1, new Object[0]);
-        com.baidu.tbadk.core.util.bl.aa(this.this$0.getActivity());
+    @Override // com.baidu.tieba.person.a.b
+    public void a(int i, String str, ImageUploadResult imageUploadResult) {
+        List list;
+        if (i == 0 && imageUploadResult != null) {
+            String str2 = null;
+            if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
+                str2 = imageUploadResult.picInfo.bigPic.picUrl;
+            }
+            f fVar = this.this$0;
+            list = this.this$0.eoO;
+            fVar.h(str2, list);
+            this.this$0.it(true);
+        }
     }
 }

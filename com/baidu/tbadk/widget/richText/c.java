@@ -6,54 +6,54 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.lib.a.b.a.a.i {
-    private SpannableStringBuilder aDZ;
-    private g aEa;
-    private ArrayList<e> aEb;
-    private z aEc;
-    private a aEd;
-    private d aEe;
-    private o aEf;
-    private l aEg;
-    private k aEh;
-    private f aEi;
-    private n aEj;
-    private int aEk;
+    private SpannableStringBuilder aEA;
+    private g aEB;
+    private ArrayList<e> aEC;
+    private z aED;
+    private a aEE;
+    private d aEF;
+    private o aEG;
+    private l aEH;
+    private k aEI;
+    private f aEJ;
+    private n aEK;
+    private int aEL;
     private int mType;
 
     public c() {
         this.mType = 0;
-        this.aDZ = null;
-        this.aEa = null;
-        this.aEb = null;
-        this.aEc = null;
-        this.aEd = null;
+        this.aEA = null;
+        this.aEB = null;
+        this.aEC = null;
+        this.aED = null;
+        this.aEE = null;
     }
 
     public c(int i) {
         this.mType = 0;
-        this.aDZ = null;
-        this.aEa = null;
-        this.aEb = null;
-        this.aEc = null;
-        this.aEd = null;
+        this.aEA = null;
+        this.aEB = null;
+        this.aEC = null;
+        this.aED = null;
+        this.aEE = null;
         this.mType = i;
-        this.aEd = new a();
+        this.aEE = new a();
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public ArrayList<e> GI() {
-        if (this.aEb == null) {
-            this.aEb = new ArrayList<>();
+    public ArrayList<e> GJ() {
+        if (this.aEC == null) {
+            this.aEC = new ArrayList<>();
         }
-        return this.aEb;
+        return this.aEC;
     }
 
     public void G(int i, int i2) {
-        if (this.aEb != null) {
-            Iterator<e> it = this.aEb.iterator();
+        if (this.aEC != null) {
+            Iterator<e> it = this.aEC.iterator();
             while (it.hasNext()) {
                 e next = it.next();
                 Rect bounds = next.getBounds();
@@ -65,8 +65,8 @@ public class c extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public void H(int i, int i2) {
-        if (this.aEb != null) {
-            Iterator<e> it = this.aEb.iterator();
+        if (this.aEC != null) {
+            Iterator<e> it = this.aEC.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
@@ -75,157 +75,157 @@ public class c extends com.baidu.adp.lib.a.b.a.a.i {
 
     public void append(CharSequence charSequence) {
         if ((this.mType == 1 || this.mType == 768) && charSequence != null) {
-            if (this.aDZ == null) {
-                this.aDZ = new SpannableStringBuilder("");
+            if (this.aEA == null) {
+                this.aEA = new SpannableStringBuilder("");
             }
-            this.aDZ.append(charSequence);
-            this.aEd.aEl = this.aDZ.length();
+            this.aEA.append(charSequence);
+            this.aEE.aEM = this.aEA.length();
         }
     }
 
     public void setVideoUrl(String str) {
         if (this.mType == 32 && str != null) {
-            this.aDZ = new SpannableStringBuilder(str);
+            this.aEA = new SpannableStringBuilder(str);
         }
     }
 
-    public g GJ() {
+    public g GK() {
         if (this.mType != 8) {
             return null;
         }
-        return this.aEa;
+        return this.aEB;
     }
 
     public void a(g gVar) {
         if (this.mType == 8) {
-            this.aEa = gVar;
+            this.aEB = gVar;
         }
     }
 
-    public SpannableStringBuilder GK() {
-        return this.aDZ;
+    public SpannableStringBuilder GL() {
+        return this.aEA;
     }
 
     public void b(SpannableStringBuilder spannableStringBuilder) {
-        if (this.aDZ != null) {
-            this.aDZ.clear();
-            this.aDZ.append((CharSequence) spannableStringBuilder);
+        if (this.aEA != null) {
+            this.aEA.clear();
+            this.aEA.append((CharSequence) spannableStringBuilder);
         }
     }
 
-    public z GL() {
+    public z GM() {
         if (this.mType == 512 || this.mType == 768) {
-            return this.aEc;
+            return this.aED;
         }
         return null;
     }
 
     public void a(z zVar) {
         if (this.mType == 512 || this.mType == 768) {
-            this.aEc = zVar;
+            this.aED = zVar;
         }
     }
 
     public String toString() {
         if (this.mType == 1) {
-            if (this.aDZ != null) {
-                return this.aDZ.toString();
+            if (this.aEA != null) {
+                return this.aEA.toString();
             }
         } else if (this.mType == 8) {
-            if (this.aEa != null) {
-                return this.aEa.GW();
+            if (this.aEB != null) {
+                return this.aEB.GX();
             }
-        } else if (this.mType == 17 && this.aEe != null) {
-            return this.aEe.aty.asZ;
+        } else if (this.mType == 17 && this.aEF != null) {
+            return this.aEF.auo.atP;
         }
         return "";
     }
 
     /* loaded from: classes.dex */
     public class a extends com.baidu.adp.lib.a.b.a.a.i {
-        public int aEl = 0;
-        public int aEm = 0;
-        public int aEn = 0;
-        public boolean aEo;
+        public int aEM = 0;
+        public int aEN = 0;
+        public int aEO = 0;
+        public boolean aEP;
 
         public a() {
         }
     }
 
-    public a GM() {
+    public a GN() {
         if (this.mType != 1) {
             return null;
         }
-        return this.aEd;
+        return this.aEE;
     }
 
     public void a(o oVar) {
         if (this.mType == 32) {
-            this.aEf = oVar;
+            this.aEG = oVar;
         }
     }
 
-    public o GN() {
+    public o GO() {
         if (this.mType != 32) {
             return null;
         }
-        return this.aEf;
+        return this.aEG;
     }
 
     public void a(d dVar) {
         if (this.mType == 17) {
-            this.aEe = dVar;
+            this.aEF = dVar;
         }
     }
 
-    public d GO() {
-        return this.aEe;
+    public d GP() {
+        return this.aEF;
     }
 
-    public int GP() {
-        return this.aEk;
+    public int GQ() {
+        return this.aEL;
     }
 
-    public void fa(int i) {
-        this.aEk = i;
+    public void fg(int i) {
+        this.aEL = i;
     }
 
-    public l GQ() {
+    public l GR() {
         if (this.mType != 1280) {
             return null;
         }
-        return this.aEg;
+        return this.aEH;
     }
 
     public void a(l lVar) {
-        this.aEg = lVar;
+        this.aEH = lVar;
     }
 
-    public k GR() {
-        return this.aEh;
+    public k GS() {
+        return this.aEI;
     }
 
     public void a(k kVar) {
-        this.aEh = kVar;
+        this.aEI = kVar;
     }
 
-    public f GS() {
-        return this.aEi;
+    public f GT() {
+        return this.aEJ;
     }
 
     public void a(f fVar) {
         if (this.mType == 1536) {
-            this.aEi = fVar;
+            this.aEJ = fVar;
         }
     }
 
-    public n GT() {
-        return this.aEj;
+    public n GU() {
+        return this.aEK;
     }
 
     public void a(n nVar) {
         if (this.mType == 1792) {
-            this.aEj = nVar;
+            this.aEK = nVar;
         }
     }
 }

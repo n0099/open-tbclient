@@ -4,16 +4,16 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 /* loaded from: classes.dex */
 class a implements com.baidu.adp.plugin.install.b {
-    final /* synthetic */ LoadingActivity vO;
+    final /* synthetic */ LoadingActivity vQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(LoadingActivity loadingActivity) {
-        this.vO = loadingActivity;
+        this.vQ = loadingActivity;
     }
 
     @Override // com.baidu.adp.plugin.install.b
     public void B(String str, String str2) {
-        this.vO.showToast(PluginCenter.getInstance().getCommonErrorShowText());
+        this.vQ.showToast(PluginCenter.getInstance().getCommonErrorShowText());
     }
 
     @Override // com.baidu.adp.plugin.install.b

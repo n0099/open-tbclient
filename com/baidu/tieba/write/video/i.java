@@ -2,20 +2,20 @@ package com.baidu.tieba.write.video;
 
 import com.baidu.tieba.tbadkCore.c.a;
 /* loaded from: classes.dex */
-class i implements a.InterfaceC0074a {
-    final /* synthetic */ WriteVideoActivity faD;
+class i implements a.InterfaceC0076a {
+    final /* synthetic */ WriteVideoActivity fGf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(WriteVideoActivity writeVideoActivity) {
-        this.faD = writeVideoActivity;
+        this.fGf = writeVideoActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0074a
-    public void pq(int i) {
+    @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0076a
+    public void qG(int i) {
         Runnable runnable;
-        this.faD.faA = i;
-        com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
-        runnable = this.faD.faC;
-        dL.post(runnable);
+        this.fGf.fGc = i;
+        com.baidu.adp.lib.h.h dM = com.baidu.adp.lib.h.h.dM();
+        runnable = this.fGf.fGe;
+        dM.post(runnable);
     }
 }

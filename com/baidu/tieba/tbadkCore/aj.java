@@ -1,42 +1,67 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.core.data.az;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class aj extends ax {
-    public static final BdUniqueId erN = BdUniqueId.gen();
-    private az erO;
-    private bc erP;
-    private boolean erQ = false;
+public class aj extends com.baidu.adp.base.e {
+    private static final String aOk = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask aOl = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aOk);
+    private final HttpMessageListener aOm;
+    private a eWy;
 
-    @Override // com.baidu.tbadk.core.data.ax, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return erN;
+    /* loaded from: classes.dex */
+    public interface a {
+        void gR(String str);
+
+        void u(int i, String str);
     }
 
-    public boolean aTm() {
-        return this.erQ;
+    static {
+        aOl.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(aOl);
     }
 
-    public void jy(boolean z) {
-        this.erQ = z;
+    public aj(TbPageContext tbPageContext, a aVar) {
+        super(tbPageContext);
+        this.eWy = null;
+        this.aOm = new ak(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.eWy = aVar;
     }
 
-    public az aTn() {
-        return this.erO;
+    public void registerListener() {
+        this.aOm.setSelfListener(true);
+        this.aOm.setTag(getUniqueId());
+        registerListener(this.aOm);
     }
 
-    public void a(az azVar) {
-        this.erO = azVar;
+    public void a(String str, String str2, int i, String str3) {
+        String str4;
+        if (i == 1) {
+            str4 = "unlike";
+        } else {
+            str4 = "like";
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        httpMessage.addParam("st_type", str4);
+        httpMessage.addParam("action", str4);
+        httpMessage.addParam("post_id", new StringBuilder(String.valueOf(str)).toString());
+        httpMessage.addParam("thread_id", new StringBuilder(String.valueOf(str2)).toString());
+        httpMessage.addParam("st_param", str3);
+        sendMessage(httpMessage);
     }
 
-    public bc aTo() {
-        return this.erP;
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
     }
 
-    public void a(bc bcVar) {
-        this.erP = bcVar;
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

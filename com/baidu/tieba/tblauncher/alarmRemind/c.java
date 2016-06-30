@@ -6,26 +6,26 @@ import tbclient.GetClientConfig.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.clientConfig.c {
-    final /* synthetic */ b exn;
+    final /* synthetic */ b fca;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.exn = bVar;
+        this.fca = bVar;
     }
 
     @Override // com.baidu.tbadk.clientConfig.c
     public void w(Object obj) {
-        this.exn.exl = false;
+        this.fca.fbY = false;
         if (obj != null && (obj instanceof DataRes)) {
             DataRes dataRes = (DataRes) obj;
             if (dataRes.local_dialog != null) {
                 String c = a.c(dataRes);
                 if (!TextUtils.isEmpty(c)) {
-                    TbadkSettings.getInst().saveString(this.exn.ol("remind_recommend_info"), c);
-                    TbadkSettings.getInst().saveInt(this.exn.ol("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                    TbadkSettings.getInst().saveString(this.exn.ol("remind_recommend_dialog_time"), dataRes.local_dialog.time);
-                    this.exn.jH(true);
-                    TbadkSettings.getInst().saveLong(this.exn.ol("remind_recommend_data_time"), System.currentTimeMillis());
+                    TbadkSettings.getInst().saveString(this.fca.pS("remind_recommend_info"), c);
+                    TbadkSettings.getInst().saveInt(this.fca.pS("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                    TbadkSettings.getInst().saveString(this.fca.pS("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                    this.fca.kr(true);
+                    TbadkSettings.getInst().saveLong(this.fca.pS("remind_recommend_data_time"), System.currentTimeMillis());
                 }
             }
         }
@@ -33,6 +33,6 @@ public class c implements com.baidu.tbadk.clientConfig.c {
 
     @Override // com.baidu.tbadk.clientConfig.c
     public void onError(String str) {
-        this.exn.exl = false;
+        this.fca.fbY = false;
     }
 }

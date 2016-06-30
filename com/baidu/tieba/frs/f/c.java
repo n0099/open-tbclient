@@ -1,20 +1,57 @@
 package com.baidu.tieba.frs.f;
 
-import com.slidingmenu.lib.SlidingMenu;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.d;
+import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
+import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
+import com.baidu.tieba.tbadkCore.m;
+import com.baidu.tieba.tbadkCore.n;
 /* loaded from: classes.dex */
-public class c implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ a bsF;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.bsF = aVar;
+public class c<T> extends d<m, n, T> {
+    public c(TbPageContext<T> tbPageContext, m mVar) {
+        super(tbPageContext, mVar);
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public void onClosed() {
-        if (this.bsF.bsC != null) {
-            this.bsF.bsC.onClosed();
-        }
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcProtobufHttpResponsedMessage> lg() {
+        return FrsPageHttpResponseMessage.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcSocketResponsedMessage> lf() {
+        return FRSPageSocketResponsedMessage.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<n> getResponseDataClass() {
+        return n.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int lc() {
+        return CmdConfigHttp.FRS_HTTP_CMD;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int le() {
+        return 301001;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected String ld() {
+        return TbConfig.FRS_ADDRESS;
+    }
+
+    public void a(m mVar) {
+        this.awj = mVar;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public boolean isNeedCache() {
+        return super.isNeedCache();
     }
 }

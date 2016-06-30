@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class HybridBridgeSwitchStatic extends a {
     static {
-        e.cS().f(HybridBridgeSwitchStatic.class);
+        e.cT().n(HybridBridgeSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

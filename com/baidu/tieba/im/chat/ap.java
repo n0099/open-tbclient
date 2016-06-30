@@ -9,12 +9,12 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected TbPageContext<MsglistActivity<?>> DV;
-    protected com.baidu.adp.lib.d.a bZF;
-    protected com.baidu.adp.lib.d.b bZG;
-    private boolean bZM;
-    private boolean bZN;
-    protected int bZO;
+    protected TbPageContext<MsglistActivity<?>> Ea;
+    protected com.baidu.adp.lib.d.a cEP;
+    protected com.baidu.adp.lib.d.b cEQ;
+    private boolean cEW;
+    private boolean cEX;
+    protected int cEY;
     protected long mCurrentTime;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.y$a] */
@@ -25,44 +25,44 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
 
     public ap(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bZF = null;
-        this.bZG = null;
+        this.cEP = null;
+        this.cEQ = null;
         this.mCurrentTime = 0L;
-        this.bZM = false;
-        this.bZN = false;
-        this.DV = tbPageContext;
+        this.cEW = false;
+        this.cEX = false;
+        this.Ea = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.d.a aVar) {
-        this.bZF = aVar;
+        this.cEP = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.d.b bVar) {
-        this.bZG = bVar;
+        this.cEQ = bVar;
     }
 
-    private void acp() {
+    private void akB() {
         this.mCurrentTime = System.currentTimeMillis() / 1000;
     }
 
-    public boolean acq() {
-        return this.bZM;
+    public boolean akC() {
+        return this.cEW;
     }
 
-    public void ec(boolean z) {
-        this.bZM = z;
+    public void eQ(boolean z) {
+        this.cEW = z;
     }
 
-    public boolean acr() {
-        return this.bZN;
+    public boolean akD() {
+        return this.cEX;
     }
 
-    public void ed(boolean z) {
-        this.bZN = z;
+    public void eR(boolean z) {
+        this.cEX = z;
     }
 
-    public void iO(int i) {
-        this.bZO = i;
+    public void kq(int i) {
+        this.cEY = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,21 +70,21 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        acp();
+        akB();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends y.a {
-        private T bZP;
+        private T cEZ;
 
         public a(View view, T t) {
             super(view);
-            this.bZP = t;
+            this.cEZ = t;
         }
 
-        public T acs() {
-            return this.bZP;
+        public T akE() {
+            return this.cEZ;
         }
     }
 }

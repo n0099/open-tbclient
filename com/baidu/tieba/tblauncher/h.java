@@ -27,23 +27,23 @@ public class h extends CustomMessageListener {
         if (customResponsedMessage.getData() instanceof Integer) {
             Integer num = (Integer) customResponsedMessage.getData();
             if (num.intValue() == 2) {
-                abVar6 = this.this$0.ewE;
-                abVar6.jF(true);
-                abVar7 = this.this$0.ewE;
-                abVar7.fX(true);
+                abVar6 = this.this$0.fbu;
+                abVar6.kq(true);
+                abVar7 = this.this$0.fbu;
+                abVar7.gN(true);
             } else if (num.intValue() == 1) {
-                abVar3 = this.this$0.ewE;
-                abVar3.jF(true);
-                abVar4 = this.this$0.ewE;
-                abVar4.fX(false);
+                abVar3 = this.this$0.fbu;
+                abVar3.kq(true);
+                abVar4 = this.this$0.fbu;
+                abVar4.gN(false);
             } else {
-                abVar = this.this$0.ewE;
-                abVar.jF(false);
-                abVar2 = this.this$0.ewE;
-                abVar2.fX(false);
+                abVar = this.this$0.fbu;
+                abVar.kq(false);
+                abVar2 = this.this$0.fbu;
+                abVar2.gN(false);
             }
-            abVar5 = this.this$0.ewE;
-            abVar5.aVS();
+            abVar5 = this.this$0.fbu;
+            abVar5.bee();
         }
     }
 }

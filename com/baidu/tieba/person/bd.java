@@ -1,38 +1,26 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class bd implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ay dwQ;
+class bd implements View.OnClickListener {
+    final /* synthetic */ az efi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(ay ayVar) {
-        this.dwQ = ayVar;
+    public bd(az azVar) {
+        this.efi = azVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bg bgVar;
-        bg bgVar2;
-        bg bgVar3;
-        PersonFriendActivity aBU;
-        bgVar = this.dwQ.dwJ;
-        if (bgVar != null) {
-            bgVar2 = this.dwQ.dwJ;
-            if (bgVar2.getItemViewType(i) == 0) {
-                bgVar3 = this.dwQ.dwJ;
-                UserData userData = (UserData) bgVar3.getItem(i);
-                if (userData != null && userData.getUserId() != null) {
-                    ay ayVar = this.dwQ;
-                    aBU = this.dwQ.aBU();
-                    ayVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(aBU.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        bi biVar;
+        z = this.efi.efe;
+        if (!z) {
+            az azVar = this.efi;
+            biVar = this.efi.efa;
+            azVar.pageNum = biVar.getData().getPage().pC() + 1;
+            this.efi.efe = true;
+            this.efi.aBV();
         }
     }
 }

@@ -22,10 +22,10 @@ public class ac extends HttpMessageListener {
             SetUserPicsResponse setUserPicsResponse = (SetUserPicsResponse) httpResponsedMessage;
             if (setUserPicsResponse.getErrCode() != 0) {
                 this.this$0.showToast(setUserPicsResponse.getErrorString());
-                this.this$0.hy(false);
+                this.this$0.it(false);
                 return;
             }
-            this.this$0.aDn();
+            this.this$0.aMi();
         }
     }
 }

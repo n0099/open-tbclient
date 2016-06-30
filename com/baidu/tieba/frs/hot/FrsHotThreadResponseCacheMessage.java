@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.hot;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ad;
-import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.af;
+import com.baidu.tbadk.core.data.az;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Object> {
-    private final ad mPage;
+    private final af mPage;
     private final ArrayList<v> mThreadList;
 
     public FrsHotThreadResponseCacheMessage() {
         super(CmdConfigCustom.CMD_FRS_HOT_CACHE);
         this.mThreadList = new ArrayList<>();
-        this.mPage = new ad();
+        this.mPage = new af();
     }
 
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -47,12 +47,12 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
                 List<ThreadInfo> list2 = getHotThreadResIdl.data.thread_list;
                 if (list2 != null) {
                     for (int i3 = 0; i3 < list2.size(); i3++) {
-                        ax axVar = new ax();
-                        axVar.setUserMap(hashMap);
-                        axVar.a(list2.get(i3));
-                        axVar.bH(0);
-                        axVar.parser_title();
-                        this.mThreadList.add(axVar);
+                        az azVar = new az();
+                        azVar.setUserMap(hashMap);
+                        azVar.a(list2.get(i3));
+                        azVar.bI(0);
+                        azVar.parser_title();
+                        this.mThreadList.add(azVar);
                     }
                 }
                 this.mPage.a(getHotThreadResIdl.data.page);
@@ -64,7 +64,7 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
         return this.mThreadList;
     }
 
-    public ad getPage() {
+    public af getPage() {
         return this.mPage;
     }
 }

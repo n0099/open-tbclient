@@ -18,7 +18,7 @@ class c extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-            this.Le.aM(this.Le.getType());
+            this.Le.aN(this.Le.getType());
             if (!this.Le.Ld) {
                 this.Le.a(false, this.Le.getType());
             }

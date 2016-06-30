@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements SapiWebView.VoiceLoginHandler {
-    final /* synthetic */ LoginActivity dbZ;
+    final /* synthetic */ LoginActivity dIF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(LoginActivity loginActivity) {
-        this.dbZ = loginActivity;
+        this.dIF = loginActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.VoiceLoginHandler
     public void handleVoiceLogin() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_voice_start", 0, "", new Object[0]);
-        this.dbZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceCheckActivityConfig(this.dbZ.getPageContext().getPageActivity())));
+        this.dIF.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceCheckActivityConfig(this.dIF.getPageContext().getPageActivity())));
     }
 }

@@ -6,11 +6,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends GetPopularPortraitsCallback {
-    final /* synthetic */ ChangeSystemPhotoActivity azJ;
+    final /* synthetic */ ChangeSystemPhotoActivity aAB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.azJ = changeSystemPhotoActivity;
+        this.aAB = changeSystemPhotoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,16 +27,16 @@ public class e extends GetPopularPortraitsCallback {
                     i iVar = new i();
                     iVar.setUrl(popularPortraitsInfo.url);
                     iVar.setNum(popularPortraitsInfo.num);
-                    iVar.eQ(popularPortraitsInfo.myItem);
-                    iVar.ge(popularPortraitsInfo.series);
-                    arrayList2 = this.azJ.azB;
+                    iVar.eV(popularPortraitsInfo.myItem);
+                    iVar.gk(popularPortraitsInfo.series);
+                    arrayList2 = this.aAB.aAt;
                     arrayList2.add(iVar);
                 }
             }
-            hVar = this.azJ.azA;
-            arrayList = this.azJ.azB;
+            hVar = this.aAB.aAs;
+            arrayList = this.aAB.aAt;
             hVar.r(arrayList);
-            hVar2 = this.azJ.azA;
+            hVar2 = this.aAB.aAs;
             hVar2.notifyDataSetChanged();
         }
     }

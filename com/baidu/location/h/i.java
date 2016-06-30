@@ -44,12 +44,12 @@ public class i {
     public static String l = "gcj02";
     public static boolean m = true;
     public static int n = 3;
+    public static double Gm = 0.0d;
+    public static double Gn = 0.0d;
+    public static double Go = 0.0d;
     public static double Gp = 0.0d;
-    public static double Gq = 0.0d;
-    public static double Gr = 0.0d;
-    public static double Gs = 0.0d;
     public static int s = 0;
-    public static byte[] Jm = null;
+    public static byte[] Jo = null;
     public static boolean u = false;
     public static int v = 0;
     public static float w = 1.1f;
@@ -65,20 +65,20 @@ public class i {
     public static int G = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
     public static float H = 2.0f;
     public static float I = 10.0f;
-    public static float Jn = 50.0f;
-    public static float Jo = 200.0f;
+    public static float Jp = 50.0f;
+    public static float Jq = 200.0f;
     public static int L = 16;
-    public static float Jp = 0.9f;
-    public static int Jq = 10000;
-    public static float Jr = 0.5f;
-    public static float Js = 0.0f;
-    public static float Jt = 0.1f;
-    public static int Ju = 30;
-    public static int Jv = 100;
-    public static int Jw = 0;
+    public static float Jr = 0.9f;
+    public static int N = 10000;
+    public static float Js = 0.5f;
+    public static float Jt = 0.0f;
+    public static float Ju = 0.1f;
+    public static int Jv = 30;
+    public static int Jw = 100;
     public static int Jx = 0;
     public static int Jy = 0;
-    public static int Jz = 420000;
+    public static int Jz = 0;
+    public static int W = 420000;
     public static boolean JA = true;
     public static boolean JB = true;
     public static int JC = 20;
@@ -111,7 +111,7 @@ public class i {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.f.b.mr().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.f.b.mm().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (iVar != null) {
@@ -126,20 +126,20 @@ public class i {
                 stringBuffer.append(h2);
             }
         }
-        String Z = c.mG().Z(i2 == 0);
-        if (Z != null) {
-            stringBuffer.append(Z);
+        String a2 = c.mB().a(i2 == 0);
+        if (a2 != null) {
+            stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.c.b.lT().d();
+        String d2 = com.baidu.location.c.b.lN().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
         if (i2 == 0) {
         }
-        if (aVar != null && (f2 = com.baidu.location.f.c.mw().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.f.c.mr().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -150,11 +150,11 @@ public class i {
                 float speed = location.getSpeed();
                 int i3 = d;
                 int d3 = iVar.d();
-                int a2 = iVar.a();
+                int a3 = iVar.a();
                 boolean e2 = iVar.e();
                 if (speed < JP && ((i3 == 1 || i3 == 0) && (d3 < JR || e2))) {
                     n = 1;
-                } else if (speed >= JQ || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= JS && a2 <= JT))) {
+                } else if (speed >= JQ || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= JS && a3 <= JT))) {
                     n = 3;
                 } else {
                     n = 2;
@@ -318,7 +318,7 @@ public class i {
         }
     }
 
-    public static int k(String str, String str2, String str3) {
+    public static int o(String str, String str2, String str3) {
         int indexOf;
         int length;
         int indexOf2;
@@ -333,7 +333,7 @@ public class i {
         }
     }
 
-    public static Object p(Context context, String str) {
+    public static Object q(Context context, String str) {
         if (context == null) {
             return null;
         }

@@ -54,7 +54,7 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
             dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             dVar.H(3);
         }
-        com.baidu.adp.lib.Disk.d.bG().b(dVar);
+        com.baidu.adp.lib.Disk.d.bH().b(dVar);
         if (dVar.isSuccess()) {
             return dVar.getContent();
         }

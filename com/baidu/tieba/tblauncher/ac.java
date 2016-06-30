@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* loaded from: classes.dex */
 class ac implements FragmentTabHost.b {
-    final /* synthetic */ ab exg;
+    final /* synthetic */ ab fbT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ab abVar) {
-        this.exg = abVar;
+        this.fbT = abVar;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b

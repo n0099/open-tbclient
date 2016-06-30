@@ -1,44 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public abstract class ft {
-    protected BaseActivity bek;
-    protected View mRootView;
+class ft implements a.b {
+    final /* synthetic */ es dVR;
 
-    protected abstract void a(e eVar);
-
-    protected abstract void onChangeSkinType(int i);
-
-    public ft(BaseActivity baseActivity, View view) {
-        this.bek = baseActivity;
-        this.mRootView = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ft(es esVar) {
+        this.dVR = esVar;
     }
 
-    public void init() {
-        b(null);
-    }
-
-    public void b(e eVar) {
-        if (this.bek != null && this.mRootView != null) {
-            a(eVar);
-        }
-    }
-
-    public void changeSkinType(int i) {
-        onChangeSkinType(i);
-    }
-
-    public void a(View view, View.OnClickListener onClickListener) {
-        if (view != null) {
-            view.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void g(View view, boolean z) {
-        if (view != null) {
-            view.setVisibility(z ? 0 : 8);
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

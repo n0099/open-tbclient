@@ -18,7 +18,7 @@ public class b {
         return this.distance;
     }
 
-    public void eD(String str) {
+    public void eH(String str) {
         this.distance = str;
     }
 
@@ -30,11 +30,11 @@ public class b {
         this.time = j;
     }
 
-    public int yX() {
+    public int zc() {
         return this.hide;
     }
 
-    public void dJ(int i) {
+    public void dL(int i) {
         this.hide = i;
     }
 }

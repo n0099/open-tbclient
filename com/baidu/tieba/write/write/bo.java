@@ -1,15 +1,36 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bg;
-import java.util.Map;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.view.NavigationBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bo implements bg.b {
-    @Override // com.baidu.tbadk.core.util.bg.b
-    public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
-        if (tbPageContext == null) {
+public class bo implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bo(WriteImageActivity writeImageActivity) {
+        this.this$0 = writeImageActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        NavigationBar navigationBar;
+        NavigationBar navigationBar2;
+        LinearLayout linearLayout;
+        NavigationBar navigationBar3;
+        LinearLayout linearLayout2;
+        navigationBar = this.this$0.mNavigationBar;
+        if (navigationBar.getVisibility() == 0) {
+            navigationBar3 = this.this$0.mNavigationBar;
+            navigationBar3.setVisibility(8);
+            linearLayout2 = this.this$0.ede;
+            linearLayout2.setVisibility(8);
             return;
         }
-        WriteActivityStatic.q(tbPageContext);
+        navigationBar2 = this.this$0.mNavigationBar;
+        navigationBar2.setVisibility(0);
+        linearLayout = this.this$0.ede;
+        linearLayout.setVisibility(0);
     }
 }

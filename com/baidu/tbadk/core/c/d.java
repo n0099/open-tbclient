@@ -3,18 +3,18 @@ package com.baidu.tbadk.core.c;
 import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d {
-    private static final b To = new a(null);
-    private static final b Tp = new c(null);
-    private static final boolean Tq;
+    private static final b TF = new a(null);
+    private static final b TG = new c(null);
+    private static final boolean TH;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void m(String str, String str2, String str3);
+        void q(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class d {
         }
 
         @Override // com.baidu.tbadk.core.c.d.b
-        public void m(String str, String str2, String str3) {
+        public void q(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -45,35 +45,35 @@ public class d {
         }
 
         @Override // com.baidu.tbadk.core.c.d.b
-        public void m(String str, String str2, String str3) {
-            aw awVar = new aw("c10729");
-            awVar.ac("obj_param1", str);
-            awVar.ac("obj_param2", str2);
-            awVar.ac("obj_param3", str3);
+        public void q(String str, String str2, String str3) {
+            ay ayVar = new ay("c10729");
+            ayVar.ab("obj_param1", str);
+            ayVar.ab("obj_param2", str2);
+            ayVar.ab("obj_param3", str3);
             if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(awVar);
+                TiebaStatic.log(ayVar);
             }
         }
     }
 
-    public static void m(String str, String str2, String str3) {
-        if (Tq) {
-            To.m(str, str2, str3);
+    public static void q(String str, String str2, String str3) {
+        if (TH) {
+            TF.q(str, str2, str3);
         }
-        Tp.m(str, str2, str3);
+        TG.q(str, str2, str3);
     }
 
-    public static void cD(String str) {
-        if (Tq) {
-            To.m(null, null, str);
+    public static void cC(String str) {
+        if (TH) {
+            TF.q(null, null, str);
         }
     }
 
-    public static void n(String str, String str2, String str3) {
-        cD(str3);
+    public static void r(String str, String str2, String str3) {
+        cC(str3);
     }
 
     static {
-        Tq = BdBaseApplication.getInst() == null ? true : BdBaseApplication.getInst().isDebugMode();
+        TH = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

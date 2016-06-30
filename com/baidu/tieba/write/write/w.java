@@ -1,37 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.tieba.write.write.VcodeActivity;
+import com.baidu.tieba.tbadkCore.b.a;
 /* loaded from: classes.dex */
-class w implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity fcU;
+class w implements a.InterfaceC0075a {
+    final /* synthetic */ WriteActivity fJw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(VcodeActivity vcodeActivity) {
-        this.fcU = vcodeActivity;
+    public w(WriteActivity writeActivity) {
+        this.fJw = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        VcodeActivity.b bVar;
-        VcodeActivity.b bVar2;
-        VcodeActivity.b bVar3;
-        VcodeActivity.b bVar4;
-        VcodeActivity vcodeActivity = this.fcU;
-        inputMethodManager = this.fcU.mInputManager;
-        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.fcU.dwo);
-        this.fcU.Fk();
-        bVar = this.fcU.fcQ;
-        if (bVar != null) {
-            bVar4 = this.fcU.fcQ;
-            bVar4.cancel();
-        }
-        this.fcU.fcQ = new VcodeActivity.b(this.fcU.fcP);
-        bVar2 = this.fcU.fcQ;
-        bVar2.setPriority(3);
-        bVar3 = this.fcU.fcQ;
-        bVar3.execute(0);
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0075a
+    public void jp() {
+        com.baidu.tbadk.editortools.l lVar;
+        this.fJw.dxW = null;
+        this.fJw.ln(false);
+        lVar = this.fJw.aqo;
+        lVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
     }
 }

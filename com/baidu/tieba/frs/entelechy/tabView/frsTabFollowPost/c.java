@@ -4,18 +4,18 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.em;
+import com.baidu.tieba.frs.dc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements c.b {
-    final /* synthetic */ a bpB;
+    final /* synthetic */ a bKk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bpB = aVar;
+        this.bKk = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -27,39 +27,40 @@ public class c implements c.b {
         FrsActivity frsActivity2;
         FrsActivity frsActivity3;
         FrsActivity frsActivity4;
-        aVar = this.bpB.bpw;
-        em emVar = (em) y.c(aVar.SK(), i);
-        if (emVar != null) {
-            i2 = this.bpB.bpx;
-            if (i2 == emVar.blZ) {
+        aVar = this.bKk.bKe;
+        dc dcVar = (dc) y.c(aVar.Yl(), i);
+        if (dcVar != null) {
+            i2 = this.bKk.bKf;
+            if (i2 == dcVar.bGN) {
                 cVar.dismiss();
                 return;
             }
-            aw awVar = new aw("c10990");
-            if (emVar.blZ == 2) {
-                awVar.s("obj_locate", 1);
-            } else if (emVar.blZ == 3) {
-                awVar.s("obj_locate", 2);
-            } else if (emVar.blZ == 4) {
-                awVar.s("obj_locate", 3);
-            } else if (emVar.blZ == 5) {
-                awVar.s("obj_locate", 4);
-            } else if (emVar.blZ == 6) {
-                awVar.s("obj_locate", 5);
+            ay ayVar = new ay("c10990");
+            if (dcVar.bGN == 2) {
+                ayVar.s("obj_locate", 1);
+            } else if (dcVar.bGN == 3) {
+                ayVar.s("obj_locate", 2);
+            } else if (dcVar.bGN == 4) {
+                ayVar.s("obj_locate", 3);
+            } else if (dcVar.bGN == 5) {
+                ayVar.s("obj_locate", 4);
+            } else if (dcVar.bGN == 6) {
+                ayVar.s("obj_locate", 5);
             }
-            TiebaStatic.log(awVar);
-            textView = this.bpB.bpu;
-            textView.setText(emVar.name);
-            this.bpB.bpx = emVar.blZ;
+            TiebaStatic.log(ayVar);
+            this.bKk.bKg = true;
+            textView = this.bKk.bKc;
+            textView.setText(dcVar.name);
+            this.bKk.bKf = dcVar.bGN;
             cVar.dismiss();
-            frsActivity = this.bpB.bpt;
-            if (frsActivity.Qd() != null) {
-                frsActivity2 = this.bpB.bpt;
-                if (frsActivity2.Qn() != null) {
-                    frsActivity3 = this.bpB.bpt;
-                    frsActivity3.Qd().gG(emVar.blZ);
-                    frsActivity4 = this.bpB.bpt;
-                    frsActivity4.Qn().jy();
+            frsActivity = this.bKk.bKb;
+            if (frsActivity.VG() != null) {
+                frsActivity2 = this.bKk.bKb;
+                if (frsActivity2.VQ() != null) {
+                    frsActivity3 = this.bKk.bKb;
+                    frsActivity3.VG().hs(dcVar.bGN);
+                    frsActivity4 = this.bKk.bKb;
+                    frsActivity4.VQ().jB();
                     return;
                 }
                 return;

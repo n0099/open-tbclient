@@ -1,29 +1,31 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import com.baidu.tbadk.core.view.t;
 /* loaded from: classes.dex */
-public class p implements com.baidu.tbadk.util.e<Boolean> {
-    final /* synthetic */ o bho;
+class p implements t.a {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar) {
-        this.bho = oVar;
+    public p(FrsActivity frsActivity) {
+        this.bDB = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.e
-    /* renamed from: d */
-    public void C(Boolean bool) {
-        FrsActivity frsActivity;
-        cn cnVar;
-        FrsActivity frsActivity2;
-        cn cnVar2;
-        if (bool != null) {
-            frsActivity = this.bho.bhl;
-            cnVar = frsActivity.bgo;
-            if (cnVar != null) {
-                frsActivity2 = this.bho.bhl;
-                cnVar2 = frsActivity2.bgo;
-                cnVar2.Ro();
+    @Override // com.baidu.tbadk.core.view.t.a
+    public void E(View view) {
+        com.baidu.tieba.frs.i.p pVar;
+        com.baidu.tieba.frs.i.p pVar2;
+        com.baidu.tieba.frs.i.p pVar3;
+        com.baidu.tieba.frs.i.p pVar4;
+        pVar = this.bDB.bCR;
+        if (pVar != null) {
+            pVar2 = this.bDB.bCR;
+            if (pVar2.aac() != null) {
+                pVar3 = this.bDB.bCR;
+                if (pVar3.aac().aay() != null) {
+                    pVar4 = this.bDB.bCR;
+                    pVar4.aac().aay().setDoingPullRefresh(false);
+                }
             }
         }
     }

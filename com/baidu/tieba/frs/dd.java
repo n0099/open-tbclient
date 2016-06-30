@@ -1,12 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
-public class dd implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId bkD = BdUniqueId.gen();
+public class dd {
+    private static dd bGP = new dd();
+    private SparseArray<de> bGO = new SparseArray<>();
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return bkD;
+    private dd() {
+    }
+
+    public static dd WW() {
+        return bGP;
+    }
+
+    public void a(int i, de deVar) {
+        this.bGO.put(i, deVar);
+    }
+
+    public de ht(int i) {
+        return this.bGO.get(i);
     }
 }

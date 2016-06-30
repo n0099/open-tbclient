@@ -3,11 +3,11 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class GraffitiSwitchStatic extends BaseNormalSwitchStatic {
-    private static final GraffitiSwitchStatic azt;
+    private static final GraffitiSwitchStatic aAl;
 
     static {
-        e.cS().f(GraffitiSwitchStatic.class);
-        azt = new GraffitiSwitchStatic();
+        e.cT().n(GraffitiSwitchStatic.class);
+        aAl = new GraffitiSwitchStatic();
     }
 
     @Override // com.baidu.tbadk.switchs.BaseNormalSwitchStatic, com.baidu.adp.lib.c.a

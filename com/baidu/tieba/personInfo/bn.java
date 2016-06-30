@@ -1,43 +1,36 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import android.widget.AbsListView;
+import com.baidu.adp.widget.ListView.BdExpandImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements AbsListView.OnScrollListener {
-    final /* synthetic */ bj dHR;
+public class bn extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ bm epX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(bj bjVar) {
-        this.dHR = bjVar;
+    public bn(bm bmVar) {
+        this.epX = bmVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        View view;
-        View view2;
-        View view3;
-        View view4;
-        if (i == 0) {
-            view3 = this.dHR.aGr;
-            if (view3 != null) {
-                view4 = this.dHR.aGr;
-                view4.setVisibility(0);
-                return;
-            }
-            return;
-        }
-        view = this.dHR.aGr;
-        if (view != null) {
-            view2 = this.dHR.aGr;
-            view2.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        BdExpandImageView bdExpandImageView;
+        if (aVar != null) {
+            bdExpandImageView = this.epX.epz;
+            aVar.a(bdExpandImageView);
         }
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.dHR.aEh();
-        this.dHR.aEi();
-        this.dHR.aEg();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void onProgressUpdate(Object... objArr) {
+        super.onProgressUpdate(objArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void af(String str) {
+        super.af(str);
     }
 }

@@ -11,17 +11,17 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ ImMessageCenterPojo cnH;
-    private final /* synthetic */ SocketResponsedMessage cnJ;
-    final /* synthetic */ al cnQ;
-    private final /* synthetic */ ChatMessage cnR;
+    private final /* synthetic */ ImMessageCenterPojo cSW;
+    private final /* synthetic */ SocketResponsedMessage cSY;
+    final /* synthetic */ al cTf;
+    private final /* synthetic */ ChatMessage cTg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(al alVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
-        this.cnQ = alVar;
-        this.cnH = imMessageCenterPojo;
-        this.cnR = chatMessage;
-        this.cnJ = socketResponsedMessage;
+        this.cTf = alVar;
+        this.cSW = imMessageCenterPojo;
+        this.cTg = chatMessage;
+        this.cSY = socketResponsedMessage;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -31,17 +31,17 @@ public class am implements CustomMessageTask.CustomRunnable<String> {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                com.baidu.tieba.im.db.g.aev().endTransaction();
+                com.baidu.tieba.im.db.g.amK().endTransaction();
             }
             if (customMessage instanceof CustomMessage) {
-                com.baidu.tieba.im.db.g.aev().aew();
-                com.baidu.tieba.im.db.i.aez().a(this.cnH, 3);
-                if (this.cnH.getCustomGroupType() == 2) {
-                    com.baidu.tieba.im.db.l.aeF().a(this.cnR.getUserId(), this.cnR.getToUserId(), String.valueOf(this.cnR.getRecordId()), String.valueOf(this.cnR.getMsgId()), this.cnR.getLocalData().getStatus().shortValue());
+                com.baidu.tieba.im.db.g.amK().amL();
+                com.baidu.tieba.im.db.i.amO().a(this.cSW, 3);
+                if (this.cSW.getCustomGroupType() == 2) {
+                    com.baidu.tieba.im.db.l.amU().a(this.cTg.getUserId(), this.cTg.getToUserId(), String.valueOf(this.cTg.getRecordId()), String.valueOf(this.cTg.getMsgId()), this.cTg.getLocalData().getStatus().shortValue());
                 } else {
-                    com.baidu.tieba.im.db.k.aeE().a(this.cnR.getUserId(), this.cnR.getToUserId(), String.valueOf(this.cnR.getRecordId()), String.valueOf(this.cnR.getMsgId()), this.cnR.getLocalData().getStatus().shortValue());
+                    com.baidu.tieba.im.db.k.amT().a(this.cTg.getUserId(), this.cTg.getToUserId(), String.valueOf(this.cTg.getRecordId()), String.valueOf(this.cTg.getMsgId()), this.cTg.getLocalData().getStatus().shortValue());
                 }
-                return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.cnJ);
+                return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.cSY);
             }
         }
         return null;

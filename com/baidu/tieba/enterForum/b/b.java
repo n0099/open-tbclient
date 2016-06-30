@@ -5,72 +5,72 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private h aWF;
-    private int aWH;
-    private int aWI;
-    private int aWJ;
-    private String aWK;
-    private c aWL;
-    private boolean auc;
+    private boolean auS;
+    private i bsB;
+    private int bsE;
+    private int bsF;
+    private int bsG;
+    private String bsH;
+    private d bsI;
     private int isMem;
-    int redirect;
-    private boolean sZ;
+    private boolean tb;
     private int time = 0;
-    private d aWD = new d();
-    private h aWE = new h();
-    private g aWG = new g();
+    private e bsz = new e();
+    private i bsA = new i();
+    private h bsC = new h();
+    private c bsD = new c();
 
-    public int getRedirect() {
-        return this.redirect;
-    }
-
-    public void fI(int i) {
-        this.redirect = i;
-    }
-
-    public void cp(boolean z) {
-        this.auc = z;
+    public void cK(boolean z) {
+        this.auS = z;
     }
 
     public b() {
-        this.sZ = true;
-        this.sZ = false;
+        this.tb = true;
+        this.tb = false;
     }
 
     public void setTime(int i) {
         this.time = i;
     }
 
-    public void fJ(int i) {
-        this.aWJ = i;
+    public void gJ(int i) {
+        this.bsG = i;
     }
 
     public void setIsMem(int i) {
         this.isMem = i;
     }
 
-    public void fK(int i) {
-        this.aWH = i;
+    public void gK(int i) {
+        this.bsE = i;
     }
 
-    public void fL(int i) {
-        this.aWI = i;
+    public void gL(int i) {
+        this.bsF = i;
     }
 
-    public void hm(String str) {
-        this.aWK = str;
+    public void iv(String str) {
+        this.bsH = str;
     }
 
-    public void a(g gVar) {
-        this.aWG = gVar;
+    public void a(h hVar) {
+        this.bsC = hVar;
     }
 
-    public g Mf() {
-        return this.aWG;
+    public h RH() {
+        return this.bsC;
     }
 
-    public c getHotSearchInfoData() {
-        return this.aWL;
+    public c RI() {
+        return this.bsD;
+    }
+
+    public void a(c cVar) {
+        this.bsD = cVar;
+    }
+
+    public d getHotSearchInfoData() {
+        return this.bsI;
     }
 
     public void a(DataRes dataRes) {
@@ -82,25 +82,28 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                fK(dataRes.msign_valid.intValue());
-                fL(dataRes.msign_level.intValue());
-                fJ(dataRes.is_login.intValue());
-                hm(dataRes.msign_text);
+                gK(dataRes.msign_valid.intValue());
+                gL(dataRes.msign_level.intValue());
+                gJ(dataRes.is_login.intValue());
+                iv(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.aWD.setLevel(this.aWI);
+                this.bsz.setLevel(this.bsF);
                 if (dataRes.like_forum != null) {
-                    this.aWD.N(dataRes.like_forum);
+                    this.bsz.aa(dataRes.like_forum);
                 }
                 if (dataRes.banner != null) {
-                    this.aWE.N(dataRes.banner);
+                    this.bsA.aa(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.aWG.O(dataRes.recommend_forum_info);
+                    this.bsC.Z(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.aWL = new c();
-                    this.aWL.a(dataRes.hot_search);
+                    this.bsI = new d();
+                    this.bsI.a(dataRes.hot_search);
+                }
+                if (dataRes.frequently_forum_info != null) {
+                    this.bsD.Z(dataRes.frequently_forum_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -108,43 +111,43 @@ public class b {
         }
     }
 
-    public h Mg() {
-        return this.aWE;
+    public i RJ() {
+        return this.bsA;
     }
 
-    public void a(h hVar) {
-        this.aWE = hVar;
+    public void a(i iVar) {
+        this.bsA = iVar;
     }
 
-    public h Mh() {
-        return this.aWF;
+    public i RK() {
+        return this.bsB;
     }
 
-    public void b(h hVar) {
-        this.aWF = hVar;
+    public void b(i iVar) {
+        this.bsB = iVar;
     }
 
-    public d Mi() {
-        return this.aWD;
+    public e RL() {
+        return this.bsz;
     }
 
-    public void a(d dVar) {
-        this.aWD = dVar;
+    public void a(e eVar) {
+        this.bsz = eVar;
     }
 
-    public void av(boolean z) {
-        this.sZ = z;
+    public void at(boolean z) {
+        this.tb = z;
     }
 
     public boolean isSuccess() {
-        return this.sZ;
+        return this.tb;
     }
 
-    public boolean Mj() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.d.anL.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.anL.longValue();
+    public boolean RM() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.d.aos.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.aos.longValue();
     }
 
-    public void a(c cVar) {
-        this.aWL = cVar;
+    public void a(d dVar) {
+        this.bsI = dVar;
     }
 }

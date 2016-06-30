@@ -1,29 +1,25 @@
 package com.baidu.tieba.pb.view;
 
-import android.os.CountDownTimer;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends CountDownTimer {
-    private final /* synthetic */ com.baidu.tieba.pb.data.e dlQ;
-    final /* synthetic */ PbInterviewStatusView dsp;
-    private final /* synthetic */ PbActivity dsq;
+public class e implements View.OnClickListener {
+    final /* synthetic */ d dYD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity, com.baidu.tieba.pb.data.e eVar) {
-        super(j, j2);
-        this.dsp = pbInterviewStatusView;
-        this.dsq = pbActivity;
-        this.dlQ = eVar;
+    public e(d dVar) {
+        this.dYD = dVar;
     }
 
-    @Override // android.os.CountDownTimer
-    public void onTick(long j) {
-    }
-
-    @Override // android.os.CountDownTimer
-    public void onFinish() {
-        this.dsp.b(this.dsq, this.dlQ);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        tbPageContext = this.dYD.Ea;
+        ((PbActivity) tbPageContext.getOrignalPage()).skipToRegisterActivity();
+        tbPageContext2 = this.dYD.Ea;
+        ((PbActivity) tbPageContext2.getOrignalPage()).hq(true);
     }
 }

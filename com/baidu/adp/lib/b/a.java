@@ -13,36 +13,36 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a jM = null;
-    private final String jN = "c.tieba.baidu.com";
+    private static a jK = null;
+    private final String jL = "c.tieba.baidu.com";
+    private long jM;
+    private String jN;
     private long jO;
-    private String jP;
-    private long jQ;
 
-    public static final a cN() {
-        if (jM == null) {
+    public static final a cO() {
+        if (jK == null) {
             synchronized (a.class) {
-                if (jM == null) {
-                    jM = new a();
+                if (jK == null) {
+                    jK = new a();
                 }
             }
         }
-        return jM;
+        return jK;
     }
 
     private a() {
+        this.jM = 0L;
+        this.jN = null;
         this.jO = 0L;
-        this.jP = null;
-        this.jQ = 0L;
-        SharedPreferences cO = cO();
-        this.jO = cO.getLong(V("c.tieba.baidu.com"), 0L);
-        this.jP = cO.getString(W("c.tieba.baidu.com"), null);
-        this.jQ = cO.getLong(X("c.tieba.baidu.com"), 0L);
+        SharedPreferences cP = cP();
+        this.jM = cP.getLong(V("c.tieba.baidu.com"), 0L);
+        this.jN = cP.getString(W("c.tieba.baidu.com"), null);
+        this.jO = cP.getLong(X("c.tieba.baidu.com"), 0L);
     }
 
     public void b(String str, String str2, boolean z, boolean z2) {
         String host;
-        if (!TextUtils.isEmpty(str) && i.fq()) {
+        if (!TextUtils.isEmpty(str) && i.fr()) {
             try {
                 URL url = new URL(str);
                 String host2 = url.getHost();
@@ -54,9 +54,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.jO;
-                    long j2 = this.jQ;
-                    String str3 = this.jP;
+                    long j = this.jM;
+                    long j2 = this.jO;
+                    String str3 = this.jN;
                     if (currentTimeMillis - j > 43200000) {
                         a(host, host2, z, "12hour", z2);
                         return;
@@ -74,7 +74,7 @@ public class a {
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             a(host, host2, z, "ipchange", z2);
                         } else {
-                            this.jQ = System.currentTimeMillis();
+                            this.jO = System.currentTimeMillis();
                         }
                     }
                 }
@@ -91,24 +91,24 @@ public class a {
             if (str2 != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 long currentTimeMillis2 = System.currentTimeMillis();
-                d al = com.baidu.adp.lib.stats.a.dN().al("dbg");
+                d al = com.baidu.adp.lib.stats.a.dO().al("dbg");
                 al.q("host", str);
                 al.q("hostip", str2);
                 al.b("issuc", Boolean.valueOf(z));
                 al.b("isuseip", Boolean.valueOf(z2));
-                Address b = com.baidu.adp.lib.e.a.cZ().b(false, false);
+                Address b = com.baidu.adp.lib.e.a.da().b(false, false);
                 if (b != null) {
                     al.b("lati", Double.valueOf(b.getLatitude()));
                     al.b("longi", Double.valueOf(b.getLongitude()));
                 }
-                com.baidu.adp.lib.stats.a.dN().b("dnsproxy", al);
-                SharedPreferences cO = cO();
-                EditorHelper.putLong(cO, V(str), currentTimeMillis);
-                EditorHelper.putString(cO, W(str), str2);
-                EditorHelper.putLong(cO, X(str), currentTimeMillis2);
-                this.jO = currentTimeMillis;
-                this.jQ = currentTimeMillis2;
-                this.jP = str2;
+                com.baidu.adp.lib.stats.a.dO().b("dnsproxy", al);
+                SharedPreferences cP = cP();
+                EditorHelper.putLong(cP, V(str), currentTimeMillis);
+                EditorHelper.putString(cP, W(str), str2);
+                EditorHelper.putLong(cP, X(str), currentTimeMillis2);
+                this.jM = currentTimeMillis;
+                this.jO = currentTimeMillis2;
+                this.jN = str2;
             }
         }
     }
@@ -123,7 +123,7 @@ public class a {
         }
     }
 
-    private SharedPreferences cO() {
+    private SharedPreferences cP() {
         return BdBaseApplication.getInst().getSharedPreferences("adp", 0);
     }
 

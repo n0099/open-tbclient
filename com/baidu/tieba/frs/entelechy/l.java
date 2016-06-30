@@ -6,11 +6,11 @@ import android.widget.PopupWindow;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 class l implements View.OnTouchListener {
-    final /* synthetic */ d bnY;
+    final /* synthetic */ d bIu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(d dVar) {
-        this.bnY = dVar;
+        this.bIu = dVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -18,10 +18,10 @@ class l implements View.OnTouchListener {
         PopupWindow popupWindow;
         FrsActivity frsActivity;
         if (motionEvent.getAction() == 4) {
-            popupWindow = this.bnY.bvw;
+            popupWindow = this.bIu.bTh;
             com.baidu.adp.lib.h.j.a(popupWindow);
-            frsActivity = this.bnY.bjB;
-            frsActivity.bgb = false;
+            frsActivity = this.bIu.bET;
+            frsActivity.bCq = false;
         }
         return false;
     }

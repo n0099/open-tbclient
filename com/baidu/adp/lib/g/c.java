@@ -20,7 +20,7 @@ public class c {
     private final BdUniqueId lV = BdUniqueId.gen();
     private SparseArray<e<?>> lW;
 
-    public static c dF() {
+    public static c dG() {
         if (lX == null) {
             synchronized (c.class) {
                 if (lX == null) {
@@ -108,7 +108,7 @@ public class c {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return false;
         }
-        return eVar.dI();
+        return eVar.dJ();
     }
 
     public Object a(String str, int i, Object... objArr) {
@@ -160,26 +160,26 @@ public class c {
         if (ag != null && ag.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             ag.a(bVar, bdUniqueId);
         } else {
-            boolean fr = i.fr();
-            boolean ft = i.ft();
+            boolean fs = i.fs();
+            boolean fu = i.fu();
             com.baidu.adp.lib.stats.d dVar = null;
-            if (fr) {
-                dVar = d.dG();
-                dVar.ed();
+            if (fs) {
+                dVar = d.dH();
+                dVar.ee();
             }
             a aVar = new a(str, i, i2, i3, bdUniqueId, bVar, z, dVar, objArr);
             aVar.setKey(f);
             aVar.setTag(this.lV);
-            int dK = eVar.dK();
-            if (dK == 0) {
-                dK = 1;
+            int dL = eVar.dL();
+            if (dL == 0) {
+                dL = 1;
             }
-            aVar.setPriority(dK);
-            if (fr || ft) {
-                if (eVar.dJ() == null) {
+            aVar.setPriority(dL);
+            if (fs || fu) {
+                if (eVar.dK() == null) {
                     aVar.setParallel(lZ);
                 } else {
-                    aVar.setParallel(eVar.dJ());
+                    aVar.setParallel(eVar.dK());
                 }
             } else {
                 aVar.setParallel(lY);
@@ -219,14 +219,14 @@ public class c {
         }
 
         public void a(b<T> bVar, BdUniqueId bdUniqueId) {
-            k.fF();
+            k.fG();
             if (!this.mg.containsKey(bVar)) {
                 this.mg.put(bVar, bdUniqueId);
             }
         }
 
         public void a(b<T> bVar) {
-            k.fF();
+            k.fG();
             this.mg.remove(bVar);
             if (bVar != null) {
                 bVar.af(this.ma);
@@ -237,7 +237,7 @@ public class c {
         }
 
         public void b(BdUniqueId bdUniqueId, b<T> bVar) {
-            k.fF();
+            k.fG();
             if (this.mg.size() == 0) {
                 cancel();
                 return;
@@ -257,7 +257,7 @@ public class c {
         }
 
         public void f(BdUniqueId bdUniqueId) {
-            k.fF();
+            k.fG();
             if (this.mg.size() == 0) {
                 cancel();
                 return;
@@ -285,9 +285,9 @@ public class c {
             Exception e2;
             Object obj;
             if (this.md != null) {
-                com.baidu.adp.lib.stats.d dG = d.dG();
-                dG.ed();
-                dVar = dG;
+                com.baidu.adp.lib.stats.d dH = d.dH();
+                dH.ee();
+                dVar = dH;
             } else {
                 dVar = null;
             }

@@ -26,9 +26,9 @@ public class s {
             try {
                 o.b bVar = new o.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.jE = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.jp = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.iz = cursor.getString(cursor.getColumnIndex("m_value"));
+                bVar.jC = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.jn = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.ix = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -47,7 +47,7 @@ public class s {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
     public static List<o.b<byte[]>> c(com.baidu.adp.lib.cache.o<byte[]> oVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -64,9 +64,9 @@ public class s {
             try {
                 o.b bVar = new o.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.jE = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.jp = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.iz = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                bVar.jC = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.jn = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.ix = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -87,9 +87,9 @@ public class s {
     private static Cursor d(com.baidu.adp.lib.cache.o<?> oVar) {
         if (oVar != null && (oVar instanceof o.c)) {
             o.c cVar = (o.c) oVar;
-            if (cVar.cJ() instanceof com.baidu.adp.lib.cache.k) {
-                com.baidu.adp.lib.cache.c cF = ((com.baidu.adp.lib.cache.k) cVar.cJ()).cF();
-                return cF.d(cF.cx().ae(), cVar.cI());
+            if (cVar.cK() instanceof com.baidu.adp.lib.cache.k) {
+                com.baidu.adp.lib.cache.c cG = ((com.baidu.adp.lib.cache.k) cVar.cK()).cG();
+                return cG.d(cG.cy().ae(), cVar.cJ());
             }
             return null;
         }
@@ -109,10 +109,10 @@ public class s {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(o.b<?> bVar, o.b<?> bVar2) {
-            if (bVar.jE == bVar2.jE) {
+            if (bVar.jC == bVar2.jC) {
                 return 0;
             }
-            return bVar.jE > bVar2.jE ? -1 : 1;
+            return bVar.jC > bVar2.jC ? -1 : 1;
         }
     }
 }

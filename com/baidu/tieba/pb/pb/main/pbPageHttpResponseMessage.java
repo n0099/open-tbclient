@@ -11,15 +11,15 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     private Context context;
     private boolean hasNetworkError;
     private boolean isFromMark;
-    private com.baidu.tieba.pb.data.d mAppealInfo;
-    private com.baidu.tieba.pb.data.e pbData;
+    private com.baidu.tieba.pb.data.g mAppealInfo;
+    private com.baidu.tieba.pb.data.h pbData;
     private int updateType;
 
     public pbPageHttpResponseMessage(int i) {
         super(i);
     }
 
-    public com.baidu.tieba.pb.data.d getAppealInfo() {
+    public com.baidu.tieba.pb.data.g getAppealInfo() {
         return this.mAppealInfo;
     }
 
@@ -35,7 +35,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         return this.isFromMark;
     }
 
-    public com.baidu.tieba.pb.data.e getPbData() {
+    public com.baidu.tieba.pb.data.h getPbData() {
         return this.pbData;
     }
 
@@ -67,10 +67,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() != 0) {
             if (getError() == 4 && pbPageResIdl.data != null) {
-                this.mAppealInfo = new com.baidu.tieba.pb.data.d();
+                this.mAppealInfo = new com.baidu.tieba.pb.data.g();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.deZ = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.dLL = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -80,7 +80,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             }
             return;
         }
-        this.pbData = new com.baidu.tieba.pb.data.e();
+        this.pbData = new com.baidu.tieba.pb.data.h();
         this.pbData.a(pbPageResIdl.data, this.context);
         BdLog.detailException(null);
     }
@@ -90,10 +90,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                cg.axk().a(this.cacheKey, this.isFromMark, bArr);
+                co.aFs().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                cg.axk().l(this.cacheKey, bArr);
+                co.aFs().l(this.cacheKey, bArr);
                 return;
             default:
                 return;

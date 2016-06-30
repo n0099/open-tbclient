@@ -6,13 +6,13 @@ import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ TbImageView aCi;
+    final /* synthetic */ TbImageView aCI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(TbImageView tbImageView, int i) {
         super(i);
-        this.aCi = tbImageView;
+        this.aCI = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,46 +26,46 @@ public class e extends CustomMessageListener {
         Method method4;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
             String str2 = (String) customResponsedMessage.getData();
-            com.baidu.adp.lib.g.c dF = com.baidu.adp.lib.g.c.dF();
-            str = this.aCi.mUrl;
-            i = this.aCi.mType;
-            String f = dF.f(str, i);
+            com.baidu.adp.lib.g.c dG = com.baidu.adp.lib.g.c.dG();
+            str = this.aCI.mUrl;
+            i = this.aCI.mType;
+            String f = dG.f(str, i);
             if (f != null && f.equals(str2)) {
-                this.aCi.destroyDrawingCache();
-                Gl();
-                method = TbImageView.aCe;
-                com.baidu.adp.lib.a.a.a.a(method, this.aCi, TbImageView.class);
-                method2 = TbImageView.aCf;
-                com.baidu.adp.lib.a.a.a.a(method2, this.aCi, TbImageView.class, false);
-                method3 = TbImageView.aCg;
-                com.baidu.adp.lib.a.a.a.a(method3, this.aCi, TbImageView.class);
-                method4 = TbImageView.aCh;
-                com.baidu.adp.lib.a.a.a.a(method4, this.aCi, TbImageView.class);
-                this.aCi.invalidate();
+                this.aCI.destroyDrawingCache();
+                Gm();
+                method = TbImageView.aCE;
+                com.baidu.adp.lib.a.a.a.a(method, this.aCI, TbImageView.class);
+                method2 = TbImageView.aCF;
+                com.baidu.adp.lib.a.a.a.a(method2, this.aCI, TbImageView.class, false);
+                method3 = TbImageView.aCG;
+                com.baidu.adp.lib.a.a.a.a(method3, this.aCI, TbImageView.class);
+                method4 = TbImageView.aCH;
+                com.baidu.adp.lib.a.a.a.a(method4, this.aCI, TbImageView.class);
+                this.aCI.invalidate();
             }
         }
     }
 
-    private void Gl() {
+    private void Gm() {
         Method method;
         Method method2;
         Method method3;
         Method method4;
-        method = TbImageView.aCe;
+        method = TbImageView.aCE;
         if (method == null) {
-            TbImageView.aCe = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "destroyLayer", new Object[0]);
+            TbImageView.aCE = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "destroyLayer", new Object[0]);
         }
-        method2 = TbImageView.aCf;
+        method2 = TbImageView.aCF;
         if (method2 == null) {
-            TbImageView.aCf = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "destroyLayer", false);
+            TbImageView.aCF = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "destroyLayer", false);
         }
-        method3 = TbImageView.aCg;
+        method3 = TbImageView.aCG;
         if (method3 == null) {
-            TbImageView.aCg = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "clearDisplayList", new Object[0]);
+            TbImageView.aCG = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "clearDisplayList", new Object[0]);
         }
-        method4 = TbImageView.aCh;
+        method4 = TbImageView.aCH;
         if (method4 == null) {
-            TbImageView.aCh = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "resetDisplayList", new Object[0]);
+            TbImageView.aCH = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "resetDisplayList", new Object[0]);
         }
     }
 }

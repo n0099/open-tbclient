@@ -65,15 +65,15 @@ public class a {
         this.nu = System.currentTimeMillis();
     }
 
-    public int eo() {
+    public int ep() {
         return this.ns;
     }
 
-    public int ep() {
+    public int eq() {
         return this.nt;
     }
 
-    public long eq() {
+    public long er() {
         return this.nv;
     }
 
@@ -81,19 +81,19 @@ public class a {
         this.nv = j;
     }
 
-    public long er() {
+    public long es() {
         return this.ng;
     }
 
-    public long es() {
+    public long et() {
         return this.nu;
     }
 
-    public String et() {
+    public String eu() {
         if (TextUtils.isEmpty(this.nB)) {
             StringBuilder sb = new StringBuilder(30);
             sb.append(this.nz);
-            sb.append(com.baidu.adp.lib.stats.a.dN().dT());
+            sb.append(com.baidu.adp.lib.stats.a.dO().dU());
             sb.append("Writing");
             sb.append(".log");
             this.nB = sb.toString();
@@ -101,21 +101,21 @@ public class a {
         return this.nB;
     }
 
-    public String eu() {
+    public String ev() {
         StringBuilder sb = new StringBuilder(40);
         sb.append(this.nz);
         sb.append(System.currentTimeMillis());
-        sb.append(com.baidu.adp.lib.stats.a.dN().dT());
+        sb.append(com.baidu.adp.lib.stats.a.dO().dU());
         sb.append("Uploading");
         sb.append(".log");
         return sb.toString();
     }
 
-    public long ev() {
+    public long ew() {
         return this.nw;
     }
 
-    public long ew() {
+    public long ex() {
         return this.nx;
     }
 
@@ -127,13 +127,13 @@ public class a {
         this.nx = j;
     }
 
-    public synchronized void ex() {
+    public synchronized void ey() {
         this.nq = new StringBuffer();
         this.ns = 0;
         this.nw = 0L;
     }
 
-    public synchronized void ey() {
+    public synchronized void ez() {
         this.nr = new StringBuffer();
         this.nt = 0;
         this.nx = 0L;
@@ -145,11 +145,11 @@ public class a {
         }
     }
 
-    public String ez() {
+    public String eA() {
         return this.np;
     }
 
-    public boolean eA() {
+    public boolean eB() {
         return this.isUploading;
     }
 
@@ -157,27 +157,27 @@ public class a {
         this.isUploading = z;
     }
 
-    public String eB() {
+    public String eC() {
         return "omp";
     }
 
-    public StringBuffer eC() {
+    public StringBuffer eD() {
         return this.nq;
     }
 
-    public StringBuffer eD() {
+    public StringBuffer eE() {
         return this.nr;
     }
 
-    public boolean eE() {
+    public boolean eF() {
         return this.mUseSdCard;
     }
 
-    public boolean eF() {
+    public boolean eG() {
         return this.mMustSuccess;
     }
 
-    public String eG() {
+    public String eH() {
         return this.nz;
     }
 

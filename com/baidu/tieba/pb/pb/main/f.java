@@ -1,57 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.t;
+import android.webkit.WebView;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
-public class f extends ft {
-    private TextView dik;
+public interface f {
+    public static final AtomicReference<a> dOi = new AtomicReference<>(null);
 
-    public f(BaseActivity baseActivity, View view) {
-        super(baseActivity, view);
-        this.dik = null;
+    /* loaded from: classes.dex */
+    public interface a {
+        f a(PbActivity pbActivity);
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ft
-    protected void a(e eVar) {
-        this.dik = (TextView) this.mRootView.findViewById(t.g.icon_push);
-        this.dik.setVisibility(8);
-    }
+    void L(int i, String str);
 
-    @Override // com.baidu.tieba.pb.pb.main.ft
-    protected void onChangeSkinType(int i) {
-    }
+    WebView aEw();
 
-    public void gt(boolean z) {
-        if (this.dik != null) {
-            if (z) {
-                this.dik.setText(t.j.push);
-                com.baidu.tbadk.core.util.at.j((View) this.dik, t.f.push_text_selector);
-                com.baidu.tbadk.core.util.at.k(this.dik, t.f.push_bg_selector);
-                this.dik.setClickable(true);
-            } else {
-                this.dik.setText(t.j.already_push);
-                com.baidu.tbadk.core.util.at.k(this.dik, t.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.at.j((View) this.dik, t.d.cp_cont_d);
-                this.dik.setClickable(false);
-            }
-            this.dik.setVisibility(0);
-        }
-    }
-
-    public void m(com.baidu.tbadk.core.data.ax axVar) {
-        if (axVar != null && axVar.rd() != null) {
-            int status = axVar.rd().getStatus();
-            if (status == 1) {
-                gt(true);
-            } else if (status == 2) {
-                gt(false);
-            }
-        }
-    }
-
-    public TextView awt() {
-        return this.dik;
-    }
+    void aEx();
 }

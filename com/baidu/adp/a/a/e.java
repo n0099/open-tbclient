@@ -7,23 +7,23 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int dS;
-    private a dT;
+    private int dR;
+    private a dS;
 
     public a ak() {
         a aVar = new a();
-        aVar.dV = t(String.valueOf("/proc/uid_stat/") + this.dS + "/tcp_rcv");
-        aVar.dW = t(String.valueOf("/proc/uid_stat/") + this.dS + "/tcp_snd");
-        aVar.dU = d.a(aVar.dV + aVar.dW);
+        aVar.dU = t(String.valueOf("/proc/uid_stat/") + this.dR + "/tcp_rcv");
+        aVar.dV = t(String.valueOf("/proc/uid_stat/") + this.dR + "/tcp_snd");
+        aVar.dT = d.a(aVar.dU + aVar.dV);
         return aVar;
     }
 
     public a al() {
         a ak = ak();
-        this.dT.dV = d.a(ak.dV - d.aj().dV);
-        this.dT.dW = d.a(ak.dW - d.aj().dW);
-        this.dT.dU = d.a(ak.dU - d.aj().dU);
-        return this.dT;
+        this.dS.dU = d.a(ak.dU - d.aj().dU);
+        this.dS.dV = d.a(ak.dV - d.aj().dV);
+        this.dS.dT = d.a(ak.dT - d.aj().dT);
+        return this.dS;
     }
 
     public double t(String str) {
@@ -33,15 +33,15 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
             bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("cat " + str).getInputStream()));
             try {
                 d = d.a(Long.valueOf(Long.parseLong(bufferedReader.readLine())).longValue() / 1024.0d);
-                o.a((Reader) bufferedReader);
+                o.b((Reader) bufferedReader);
             } catch (Throwable th) {
                 th = th;
                 try {
                     th.printStackTrace();
-                    o.a((Reader) bufferedReader);
+                    o.b((Reader) bufferedReader);
                     return d;
                 } catch (Throwable th2) {
-                    o.a((Reader) bufferedReader);
+                    o.b((Reader) bufferedReader);
                     throw th2;
                 }
             }
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
+        double dT = 0.0d;
         double dU = 0.0d;
         double dV = 0.0d;
-        double dW = 0.0d;
 
         public a() {
         }

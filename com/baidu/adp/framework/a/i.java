@@ -18,23 +18,23 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
-    private final LinkedList<d> fY = new LinkedList<>();
-    private final LinkedList<k> fZ = new LinkedList<>();
-    private final LinkedList<b> ga = new LinkedList<>();
-    private final LinkedList<c> gb = new LinkedList<>();
-    private final LinkedList<j> gc = new LinkedList<>();
-    private final LinkedList<a> gd = new LinkedList<>();
-    private final LinkedList<e> ge = new LinkedList<>();
+    private final LinkedList<d> fX = new LinkedList<>();
+    private final LinkedList<k> fY = new LinkedList<>();
+    private final LinkedList<b> fZ = new LinkedList<>();
+    private final LinkedList<c> ga = new LinkedList<>();
+    private final LinkedList<j> gb = new LinkedList<>();
+    private final LinkedList<a> gc = new LinkedList<>();
+    private final LinkedList<e> gd = new LinkedList<>();
 
     public void addMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            com.baidu.adp.lib.util.k.fF();
+            com.baidu.adp.lib.util.k.fG();
             if (fVar instanceof d) {
-                FrameHelper.a(this.fY, (d) fVar);
+                FrameHelper.a(this.fX, (d) fVar);
             } else if (fVar instanceof k) {
-                FrameHelper.a(this.fZ, (k) fVar);
+                FrameHelper.a(this.fY, (k) fVar);
             } else if (fVar instanceof b) {
-                FrameHelper.a(this.ga, (b) fVar);
+                FrameHelper.a(this.fZ, (b) fVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -43,13 +43,13 @@ public class i {
 
     public void removeMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            com.baidu.adp.lib.util.k.fF();
+            com.baidu.adp.lib.util.k.fG();
             if (fVar instanceof d) {
-                this.fY.remove(fVar);
+                this.fX.remove(fVar);
             } else if (fVar instanceof k) {
-                this.fZ.remove(fVar);
+                this.fY.remove(fVar);
             } else if (fVar instanceof b) {
-                this.ga.remove(fVar);
+                this.fZ.remove(fVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -58,13 +58,13 @@ public class i {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.k.fF();
+            com.baidu.adp.lib.util.k.fG();
             if (gVar instanceof c) {
-                FrameHelper.a(this.gb, (c) gVar);
+                FrameHelper.a(this.ga, (c) gVar);
             } else if (gVar instanceof j) {
-                FrameHelper.a(this.gc, (j) gVar);
+                FrameHelper.a(this.gb, (j) gVar);
             } else if (gVar instanceof a) {
-                FrameHelper.a(this.gd, (a) gVar);
+                FrameHelper.a(this.gc, (a) gVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -73,13 +73,13 @@ public class i {
 
     public void b(g<?> gVar) {
         if (gVar != null) {
-            com.baidu.adp.lib.util.k.fF();
+            com.baidu.adp.lib.util.k.fG();
             if (gVar instanceof c) {
-                this.gb.remove(gVar);
+                this.ga.remove(gVar);
             } else if (gVar instanceof j) {
-                this.gc.remove(gVar);
+                this.gb.remove(gVar);
             } else if (gVar instanceof a) {
-                this.gd.remove(gVar);
+                this.gc.remove(gVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -87,15 +87,15 @@ public class i {
     }
 
     public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        return (HttpMessage) a(this.fY, httpMessage, httpMessageTask);
+        return (HttpMessage) a(this.fX, httpMessage, httpMessageTask);
     }
 
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return (SocketMessage) a(this.fZ, socketMessage, socketMessageTask);
+        return (SocketMessage) a(this.fY, socketMessage, socketMessageTask);
     }
 
     public CustomMessage<?> b(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        return (CustomMessage) a(this.ga, customMessage, customMessageTask);
+        return (CustomMessage) a(this.fZ, customMessage, customMessageTask);
     }
 
     private <M extends Message<?>, T extends MessageTask> M a(LinkedList<? extends f<M, T>> linkedList, M m, T t) {
@@ -120,15 +120,15 @@ public class i {
     }
 
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        return (HttpResponsedMessage) a(this.gb, httpResponsedMessage);
+        return (HttpResponsedMessage) a(this.ga, httpResponsedMessage);
     }
 
     public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        return (SocketResponsedMessage) a(this.gc, socketResponsedMessage);
+        return (SocketResponsedMessage) a(this.gb, socketResponsedMessage);
     }
 
     public CustomResponsedMessage<?> b(CustomResponsedMessage<?> customResponsedMessage) {
-        return (CustomResponsedMessage) a(this.gd, customResponsedMessage);
+        return (CustomResponsedMessage) a(this.gc, customResponsedMessage);
     }
 
     private <M extends ResponsedMessage<?>> M a(LinkedList<? extends g<M>> linkedList, M m) {
@@ -153,24 +153,24 @@ public class i {
     }
 
     public void a(e eVar) {
-        this.ge.add(eVar);
+        this.gd.add(eVar);
     }
 
     public void b(e eVar) {
-        this.ge.remove(eVar);
+        this.gd.remove(eVar);
     }
 
     public void c(int i, BdUniqueId bdUniqueId) {
-        int size = this.ge.size();
+        int size = this.gd.size();
         for (int i2 = 0; i2 < size; i2++) {
-            this.ge.get(i2).b(i, bdUniqueId);
+            this.gd.get(i2).b(i, bdUniqueId);
         }
     }
 
     public void c(BdUniqueId bdUniqueId) {
-        int size = this.ge.size();
+        int size = this.gd.size();
         for (int i = 0; i < size; i++) {
-            this.ge.get(i).b(bdUniqueId);
+            this.gd.get(i).b(bdUniqueId);
         }
     }
 }

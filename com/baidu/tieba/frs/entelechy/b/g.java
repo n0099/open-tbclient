@@ -5,19 +5,19 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public interface g {
-    void SG();
+    void Yh();
 
     void a(Activity activity, View view, View view2);
 
     void a(f fVar);
 
-    void df(boolean z);
+    void dC(boolean z);
+
+    void dD(boolean z);
 
     boolean isMenuShowing();
 
-    ViewGroup n(Activity activity);
+    ViewGroup p(Activity activity);
 
     void showContent(boolean z);
-
-    void toggle(boolean z);
 }

@@ -29,6 +29,7 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer mark;
     private String message_click;
     private Integer message_id;
+    private String objParam1;
     private long opMessageID;
     private int opStat;
     private String opType;
@@ -56,6 +57,7 @@ public class PbPageRequestMessage extends NetMessage {
         this.jumpFloorNum = 0;
         this.opType = null;
         this.opUrl = null;
+        this.objParam1 = "";
     }
 
     public Context getContext() {
@@ -350,6 +352,10 @@ public class PbPageRequestMessage extends NetMessage {
         this.jumpFloorNum = i;
     }
 
+    public void setObjParam1(String str) {
+        this.objParam1 = str;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -390,6 +396,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.st_stat = Integer.valueOf(this.opStat);
                 builder.st_task = Long.valueOf(this.opMessageID);
             }
+            builder.obj_param1 = this.objParam1;
             if (z) {
                 com.baidu.tbadk.util.o.a(builder, true);
             }

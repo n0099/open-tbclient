@@ -12,11 +12,11 @@ class r extends com.baidu.tbadk.core.c.o {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.c.o
-    public String nj() {
+    public String ne() {
         return "TBHY_COMMON_Performance";
     }
 
-    @com.baidu.tbadk.core.c.p(sE = "trackFPS", sF = false)
+    @com.baidu.tbadk.core.c.p(sC = false, value = "trackFPS")
     private void trackFPS() {
         this.Kx.trackFPS();
     }

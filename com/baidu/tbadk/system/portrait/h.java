@@ -7,47 +7,47 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private TbPageContext<?> Do;
-    private ArrayList<i> azK;
-    private int azN;
-    private int azO;
+    private TbPageContext<?> Dp;
+    private ArrayList<i> aAC;
+    private int aAF;
+    private int aAG;
     private int padding;
-    private int azC = -1;
-    private int azP = 0;
-    private int azL = at.getColor(t.d.black_alpha10);
-    private int azM = at.getColor(t.d.cp_link_tip_a);
+    private int aAu = -1;
+    private int rowSize = 0;
+    private int aAD = av.getColor(u.d.common_color_10043);
+    private int aAE = av.getColor(u.d.cp_link_tip_a);
 
     public h(TbPageContext<?> tbPageContext) {
-        this.azK = null;
-        this.Do = null;
+        this.aAC = null;
+        this.Dp = null;
         this.padding = 0;
-        this.Do = tbPageContext;
-        this.azK = new ArrayList<>();
-        this.azN = k.c(tbPageContext.getPageActivity(), t.e.ds1);
-        this.azO = k.c(this.Do.getPageActivity(), t.e.ds4);
-        this.padding = k.c(this.Do.getPageActivity(), t.e.ds36);
+        this.Dp = tbPageContext;
+        this.aAC = new ArrayList<>();
+        this.aAF = k.c(tbPageContext.getPageActivity(), u.e.ds1);
+        this.aAG = k.c(this.Dp.getPageActivity(), u.e.ds4);
+        this.padding = k.c(this.Dp.getPageActivity(), u.e.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.azK != null) {
-            return this.azK.size();
+        if (this.aAC != null) {
+            return this.aAC.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.azK == null || i >= this.azK.size()) {
+        if (this.aAC == null || i >= this.aAC.size()) {
             return null;
         }
-        return this.azK.get(i);
+        return this.aAC.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -60,42 +60,42 @@ public class h extends BaseAdapter {
         a aVar;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = LayoutInflater.from(this.Do.getPageActivity()).inflate(t.h.recommend_system_photo_item, viewGroup, false);
+            view = LayoutInflater.from(this.Dp.getPageActivity()).inflate(u.h.recommend_system_photo_item, viewGroup, false);
             aVar = new a(this, null);
-            aVar.amf = (LinearLayout) view.findViewById(t.g.photo_container);
-            aVar.azQ = (TbImageView) view.findViewById(t.g.photo);
+            aVar.amL = (LinearLayout) view.findViewById(u.g.photo_container);
+            aVar.aAH = (TbImageView) view.findViewById(u.g.photo);
         } else {
             aVar = (a) view.getTag();
         }
-        if (eO(i) == 1) {
-            aVar.amf.setPadding(0, this.padding, 0, 0);
-        } else if (eO(i) == 2) {
-            aVar.amf.setPadding(0, 0, 0, this.padding);
+        if (eT(i) == 1) {
+            aVar.amL.setPadding(0, this.padding, 0, 0);
+        } else if (eT(i) == 2) {
+            aVar.amL.setPadding(0, 0, 0, this.padding);
         } else {
-            aVar.amf.setPadding(0, 0, 0, 0);
+            aVar.amL.setPadding(0, 0, 0, 0);
         }
-        aVar.azQ.setDrawerType(0);
-        aVar.azQ.setBorderSurroundContent(true);
-        aVar.azQ.setDrawBorder(true);
+        aVar.aAH.setDrawerType(0);
+        aVar.aAH.setBorderSurroundContent(true);
+        aVar.aAH.setDrawBorder(true);
         if (itemViewType == 0) {
-            aVar.azQ.setBorderColor(this.azL);
-            aVar.azQ.setBorderWidth(this.azN);
+            aVar.aAH.setBorderColor(this.aAD);
+            aVar.aAH.setBorderWidth(this.aAF);
         } else {
-            aVar.azQ.setBorderColor(this.azM);
-            aVar.azQ.setBorderWidth(this.azO);
+            aVar.aAH.setBorderColor(this.aAE);
+            aVar.aAH.setBorderWidth(this.aAG);
         }
-        aVar.azQ.setDefaultResource(t.f.transparent_bg);
-        aVar.azQ.setDefaultErrorResource(t.f.icon_default_avatar100);
-        aVar.azQ.c(this.azK.get(i).getUrl(), 10, false);
+        aVar.aAH.setDefaultResource(u.f.transparent_bg);
+        aVar.aAH.setDefaultErrorResource(u.f.icon_default_avatar100);
+        aVar.aAH.c(this.aAC.get(i).getUrl(), 10, false);
         view.setTag(aVar);
         return view;
     }
 
-    public int eO(int i) {
+    public int eT(int i) {
         if (i / 4 == 0) {
             return 1;
         }
-        if (i / 4 == this.azP - 1) {
+        if (i / 4 == this.rowSize - 1) {
             return 2;
         }
         return 3;
@@ -103,7 +103,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.azC ? 1 : 0;
+        return i == this.aAu ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -112,24 +112,24 @@ public class h extends BaseAdapter {
     }
 
     public void r(ArrayList<i> arrayList) {
-        this.azK = arrayList;
+        this.aAC = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
-                this.azP = arrayList.size() / 4;
+                this.rowSize = arrayList.size() / 4;
             } else {
-                this.azP = (arrayList.size() / 4) + 1;
+                this.rowSize = (arrayList.size() / 4) + 1;
             }
         }
     }
 
-    public void eP(int i) {
-        this.azC = i;
+    public void eU(int i) {
+        this.aAu = i;
     }
 
     /* loaded from: classes.dex */
     private class a {
-        LinearLayout amf;
-        TbImageView azQ;
+        TbImageView aAH;
+        LinearLayout amL;
 
         private a() {
         }

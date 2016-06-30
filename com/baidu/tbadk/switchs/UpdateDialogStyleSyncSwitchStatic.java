@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class UpdateDialogStyleSyncSwitchStatic extends a {
     static {
-        e.cS().f(UpdateDialogStyleSyncSwitchStatic.class);
+        e.cT().n(UpdateDialogStyleSyncSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

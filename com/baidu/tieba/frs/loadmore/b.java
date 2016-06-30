@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a bsb;
+    final /* synthetic */ a bPE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.bsb = aVar;
+        this.bPE = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,31 +25,31 @@ public class b extends com.baidu.adp.framework.listener.a {
         FrsActivity frsActivity5;
         FrsActivity frsActivity6;
         FrsActivity frsActivity7;
-        this.bsb.avz = false;
+        this.bPE.awp = false;
         if (responsedMessage == null) {
-            frsActivity6 = this.bsb.bjB;
-            frsActivity7 = this.bsb.bjB;
-            frsActivity6.hK(frsActivity7.getPageContext().getString(t.j.neterror));
+            frsActivity6 = this.bPE.bET;
+            frsActivity7 = this.bPE.bET;
+            frsActivity6.iV(frsActivity7.getPageContext().getString(u.j.neterror));
         } else if (responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                frsActivity5 = this.bsb.bjB;
-                frsActivity5.hK(responsedMessage.getErrorString());
+                frsActivity5 = this.bPE.bET;
+                frsActivity5.iV(responsedMessage.getErrorString());
                 return;
             }
-            frsActivity3 = this.bsb.bjB;
-            frsActivity4 = this.bsb.bjB;
-            frsActivity3.hK(frsActivity4.getPageContext().getString(t.j.neterror));
+            frsActivity3 = this.bPE.bET;
+            frsActivity4 = this.bPE.bET;
+            frsActivity3.iV(frsActivity4.getPageContext().getString(u.j.neterror));
         } else {
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
-                frsActivity2 = this.bsb.bjB;
-                frsActivity2.B(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
-                this.bsb.a((LoadMoreHttpResponseMessage) responsedMessage);
+                frsActivity2 = this.bPE.bET;
+                frsActivity2.K(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
+                this.bPE.a((LoadMoreHttpResponseMessage) responsedMessage);
             } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
-                frsActivity = this.bsb.bjB;
-                frsActivity.B(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
-                this.bsb.a((LoadMoreResponseSocketMessage) responsedMessage);
+                frsActivity = this.bPE.bET;
+                frsActivity.K(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
+                this.bPE.a((LoadMoreResponseSocketMessage) responsedMessage);
             }
-            this.bsb.bqR++;
+            this.bPE.bMx++;
         }
     }
 }

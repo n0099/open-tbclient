@@ -1,38 +1,38 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class f extends a {
-    private int Xc;
+    private int Xu;
     private int height;
     private int width;
 
     public f(boolean z, int i) {
         this.width = 0;
         this.height = 0;
-        this.Xc = 0;
-        this.Xc = i;
+        this.Xu = 0;
+        this.Xu = i;
         if (z) {
-            this.width = TbadkCoreApplication.m11getInst().getApp().getResources().getDimensionPixelSize(t.e.frs_starheader_photo_width);
+            this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(u.e.ds176);
             this.height = this.width;
             return;
         }
-        this.width = TbadkCoreApplication.m11getInst().getApp().getResources().getDimensionPixelSize(t.e.frs_header_photo_width);
-        this.height = TbadkCoreApplication.m11getInst().getApp().getResources().getDimensionPixelSize(t.e.frs_header_photo_height);
+        this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(u.e.ds184);
+        this.height = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(u.e.ds184);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a b = super.b(str, str2, objArr);
-        if (b != null && b.iY() != null && b.iY().isRecycled()) {
+        if (b != null && b.jb() != null && b.jb().isRecycled()) {
             return null;
         }
         return b;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.g.e
-    public boolean dI() {
+    public boolean dJ() {
         return true;
     }
 
@@ -52,17 +52,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean uH() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean uI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uJ() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uK() {
-        return this.Xc;
+    public int uJ() {
+        return this.Xu;
     }
 }

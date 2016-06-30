@@ -17,71 +17,71 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HorizontalCustomScrollView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class t extends com.baidu.adp.base.f<BaseFragmentActivity> {
-    private static final String eYl = TbadkCoreApplication.m11getInst().getResources().getString(t.j.original_img);
-    private Runnable ajA;
-    private ViewGroup cwT;
-    private AlbumActivity eXL;
-    private String eYm;
-    private String eYn;
-    private Button eYo;
-    private View eYp;
-    private HorizontalCustomScrollView eYq;
-    private LinearLayout eYr;
-    private RelativeLayout eYs;
-    private ImageView eYt;
-    private TextView eYu;
-    private Fragment[] eYv;
-    private String[] eYw;
-    private FrameLayout[] eYx;
-    private View[] eYy;
-    private int eYz;
+    private static final String fDp = TbadkCoreApplication.m9getInst().getResources().getString(u.j.original_img);
+    private Runnable akg;
+    private ViewGroup dci;
+    private AlbumActivity fCP;
+    private String[] fDA;
+    private FrameLayout[] fDB;
+    private View[] fDC;
+    private int fDD;
+    private String fDq;
+    private String fDr;
+    private Button fDs;
+    private View fDt;
+    private HorizontalCustomScrollView fDu;
+    private LinearLayout fDv;
+    private RelativeLayout fDw;
+    private ImageView fDx;
+    private TextView fDy;
+    private Fragment[] fDz;
     private Handler mHandler;
 
     public t(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.eYm = "tag_image";
-        this.eYn = "tag_b_image";
+        this.fDq = "tag_image";
+        this.fDr = "tag_b_image";
         this.mHandler = new Handler();
-        this.eXL = albumActivity;
+        this.fCP = albumActivity;
         d(albumActivity);
     }
 
     private void d(AlbumActivity albumActivity) {
-        View inflate = LayoutInflater.from(albumActivity.getPageContext().getPageActivity()).inflate(t.h.album_activity, (ViewGroup) null);
+        View inflate = LayoutInflater.from(albumActivity.getPageContext().getPageActivity()).inflate(u.h.album_activity, (ViewGroup) null);
         if (Build.VERSION.SDK_INT < 16) {
             inflate.setLayerType(1, null);
         }
         albumActivity.setContentView(inflate);
-        this.cwT = (ViewGroup) albumActivity.findViewById(t.g.parent);
-        this.eYo = (Button) albumActivity.findViewById(t.g.btn_done);
-        this.eYo.setOnClickListener(albumActivity);
-        this.eYq = (HorizontalCustomScrollView) albumActivity.findViewById(t.g.bottom_scroll);
-        this.eYr = (LinearLayout) albumActivity.findViewById(t.g.bottom_container);
-        this.eYs = (RelativeLayout) albumActivity.findViewById(t.g.lay_bottom);
-        this.eYt = (ImageView) albumActivity.findViewById(t.g.add_more);
-        this.eYp = albumActivity.findViewById(t.g.bottom_shadow);
-        this.eYu = (TextView) albumActivity.findViewById(t.g.original_select_btn);
-        this.eYu.setOnClickListener(albumActivity);
-        this.eYz = (int) this.eXL.getResources().getDimension(t.e.ds90);
+        this.dci = (ViewGroup) albumActivity.findViewById(u.g.parent);
+        this.fDs = (Button) albumActivity.findViewById(u.g.btn_done);
+        this.fDs.setOnClickListener(albumActivity);
+        this.fDu = (HorizontalCustomScrollView) albumActivity.findViewById(u.g.bottom_scroll);
+        this.fDv = (LinearLayout) albumActivity.findViewById(u.g.bottom_container);
+        this.fDw = (RelativeLayout) albumActivity.findViewById(u.g.lay_bottom);
+        this.fDx = (ImageView) albumActivity.findViewById(u.g.add_more);
+        this.fDt = albumActivity.findViewById(u.g.bottom_shadow);
+        this.fDy = (TextView) albumActivity.findViewById(u.g.original_select_btn);
+        this.fDy.setOnClickListener(albumActivity);
+        this.fDD = (int) this.fCP.getResources().getDimension(u.e.ds90);
     }
 
-    public void qN(int i) {
-        this.eYx = new FrameLayout[i];
-        this.eYy = new View[i * 4];
+    public void se(int i) {
+        this.fDB = new FrameLayout[i];
+        this.fDC = new View[i * 4];
         for (int i2 = 0; i2 < i; i2++) {
-            this.eYx[i2] = (FrameLayout) LayoutInflater.from(this.eXL.getPageContext().getPageActivity()).inflate(t.h.album_bottom_item_view, (ViewGroup) null);
-            this.eYy[i2 * 4] = this.eYx[i2].findViewById(t.g.line_top);
-            this.eYy[(i2 * 4) + 1] = this.eYx[i2].findViewById(t.g.line_left);
-            this.eYy[(i2 * 4) + 2] = this.eYx[i2].findViewById(t.g.line_right);
-            this.eYy[(i2 * 4) + 3] = this.eYx[i2].findViewById(t.g.line_bottom);
+            this.fDB[i2] = (FrameLayout) LayoutInflater.from(this.fCP.getPageContext().getPageActivity()).inflate(u.h.album_bottom_item_view, (ViewGroup) null);
+            this.fDC[i2 * 4] = this.fDB[i2].findViewById(u.g.line_top);
+            this.fDC[(i2 * 4) + 1] = this.fDB[i2].findViewById(u.g.line_left);
+            this.fDC[(i2 * 4) + 2] = this.fDB[i2].findViewById(u.g.line_right);
+            this.fDC[(i2 * 4) + 3] = this.fDB[i2].findViewById(u.g.line_bottom);
         }
     }
 
@@ -90,96 +90,96 @@ public class t extends com.baidu.adp.base.f<BaseFragmentActivity> {
         if (frameLayout == null) {
             return null;
         }
-        return (TbImageView) frameLayout.findViewById(t.g.item_iv);
+        return (TbImageView) frameLayout.findViewById(u.g.item_iv);
     }
 
-    public void bbL() {
-        this.eYv = new Fragment[2];
-        this.eYw = new String[2];
-        this.eYv[0] = new ag();
-        this.eYw[0] = this.eYm;
-        this.eYv[1] = new e();
-        this.eYw[1] = this.eYn;
+    public void bkh() {
+        this.fDz = new Fragment[2];
+        this.fDA = new String[2];
+        this.fDz[0] = new ag();
+        this.fDA[0] = this.fDq;
+        this.fDz[1] = new e();
+        this.fDA[1] = this.fDr;
     }
 
-    public Fragment qO(int i) {
+    public Fragment sf(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.eYv[i];
+        return this.fDz[i];
     }
 
-    public String qP(int i) {
+    public String sg(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.eYw[i];
+        return this.fDA[i];
     }
 
     public void onChangeSkinType(int i) {
-        this.eXL.getLayoutMode().ae(i == 1);
-        this.eXL.getLayoutMode().x(this.cwT);
-        for (int i2 = 0; i2 < this.eYv.length; i2++) {
-            if (this.eYv[i2] != null && (this.eYv[i2] instanceof ag)) {
-                ((ag) this.eYv[i2]).onChangeSkinType(i);
+        this.fCP.getLayoutMode().ad(i == 1);
+        this.fCP.getLayoutMode().w(this.dci);
+        for (int i2 = 0; i2 < this.fDz.length; i2++) {
+            if (this.fDz[i2] != null && (this.fDz[i2] instanceof ag)) {
+                ((ag) this.fDz[i2]).onChangeSkinType(i);
             }
         }
     }
 
-    public Button bbM() {
-        return this.eYo;
+    public Button bki() {
+        return this.fDs;
     }
 
-    public View bbN() {
-        Fragment qO = qO(0);
-        if (qO == null || !(qO instanceof ag)) {
+    public View bkj() {
+        Fragment sf = sf(0);
+        if (sf == null || !(sf instanceof ag)) {
             return null;
         }
-        return ((ag) qO).aEr();
+        return ((ag) sf).aNm();
     }
 
-    public View bbO() {
-        Fragment qO = qO(1);
-        if (qO == null || !(qO instanceof e)) {
+    public View bkk() {
+        Fragment sf = sf(1);
+        if (sf == null || !(sf instanceof e)) {
             return null;
         }
-        return ((e) qO).aEr();
+        return ((e) sf).aNm();
     }
 
     public void p(boolean z, String str) {
-        this.eYo.setEnabled(z);
+        this.fDs.setEnabled(z);
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        this.eYo.setText(str);
+        this.fDs.setText(str);
     }
 
-    public void g(ImageFileInfo imageFileInfo) {
+    public void h(ImageFileInfo imageFileInfo) {
         TbImageView a;
         if (imageFileInfo != null) {
-            int length = this.eYx.length;
+            int length = this.fDB.length;
             for (int i = 0; i < length; i++) {
-                if (this.eYx[i] != null && (a = a(this.eYx[i])) != null && a.getTag() == null) {
+                if (this.fDB[i] != null && (a = a(this.fDB[i])) != null && a.getTag() == null) {
                     a.setDefaultResource(0);
                     a.setDefaultBgResource(0);
-                    a.setLayoutParams(new FrameLayout.LayoutParams(this.eYz, this.eYz));
+                    a.setLayoutParams(new FrameLayout.LayoutParams(this.fDD, this.fDD));
                     a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.eYz, this.eYz);
-                    layoutParams.rightMargin = (int) this.eXL.getResources().getDimension(t.e.ds10);
-                    this.eYx[i].setLayoutParams(layoutParams);
-                    this.eYr.addView(this.eYx[i], this.eYr.getChildCount() - 1);
-                    a((HorizontalScrollView) this.eYq);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fDD, this.fDD);
+                    layoutParams.rightMargin = (int) this.fCP.getResources().getDimension(u.e.ds10);
+                    this.fDB[i].setLayoutParams(layoutParams);
+                    this.fDv.addView(this.fDB[i], this.fDv.getChildCount() - 1);
+                    a((HorizontalScrollView) this.fDu);
                     a.setOnClickListener(new u(this, imageFileInfo));
                     a.setTag(null);
                     imageFileInfo.clearPageActions();
-                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.D(this.eYz, this.eYz));
+                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.D(this.fDD, this.fDD));
                     a.setTag(imageFileInfo.toCachedKey(false));
-                    com.baidu.adp.widget.a.a a2 = this.eXL.YK().a(imageFileInfo, false);
+                    com.baidu.adp.widget.a.a a2 = this.fCP.afd().a(imageFileInfo, false);
                     if (a2 != null) {
                         a2.a(a);
                         return;
                     } else {
-                        this.eXL.YK().a(imageFileInfo, new v(this, imageFileInfo), false);
+                        this.fCP.afd().a(imageFileInfo, new v(this, imageFileInfo), false);
                         return;
                     }
                 }
@@ -187,19 +187,19 @@ public class t extends com.baidu.adp.base.f<BaseFragmentActivity> {
         }
     }
 
-    public void h(ImageFileInfo imageFileInfo) {
+    public void i(ImageFileInfo imageFileInfo) {
         FrameLayout frameLayout;
         TbImageView a;
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.D(this.eYz, this.eYz));
+            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.D(this.fDD, this.fDD));
             if (!TextUtils.isEmpty(imageFileInfo.toCachedKey(false))) {
-                int childCount = this.eYr.getChildCount();
+                int childCount = this.fDv.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    if (this.eYr.getChildAt(i) != null && (this.eYr.getChildAt(i) instanceof FrameLayout) && (a = a((frameLayout = (FrameLayout) this.eYr.getChildAt(i)))) != null && a.getTag() != null && a.getTag().equals(imageFileInfo.toCachedKey(false))) {
+                    if (this.fDv.getChildAt(i) != null && (this.fDv.getChildAt(i) instanceof FrameLayout) && (a = a((frameLayout = (FrameLayout) this.fDv.getChildAt(i)))) != null && a.getTag() != null && a.getTag().equals(imageFileInfo.toCachedKey(false))) {
                         a.setTag(null);
                         a.setImageDrawable(null);
-                        this.eYr.removeView(frameLayout);
+                        this.fDv.removeView(frameLayout);
                         return;
                     }
                 }
@@ -207,82 +207,82 @@ public class t extends com.baidu.adp.base.f<BaseFragmentActivity> {
         }
     }
 
-    public void kv(boolean z) {
-        if (this.eYt != null) {
+    public void lf(boolean z) {
+        if (this.fDx != null) {
             if (z) {
-                this.eYt.setVisibility(0);
+                this.fDx.setVisibility(0);
             } else {
-                this.eYt.setVisibility(8);
+                this.fDx.setVisibility(8);
             }
         }
     }
 
     private void a(HorizontalScrollView horizontalScrollView) {
-        if (this.eYq != null) {
-            if (this.ajA == null) {
-                this.ajA = new w(this, horizontalScrollView);
+        if (this.fDu != null) {
+            if (this.akg == null) {
+                this.akg = new w(this, horizontalScrollView);
             }
-            this.mHandler.removeCallbacks(this.ajA);
-            this.mHandler.postDelayed(this.ajA, 10L);
+            this.mHandler.removeCallbacks(this.akg);
+            this.mHandler.postDelayed(this.akg, 10L);
         }
     }
 
     public void onDestroy() {
-        if (this.mHandler != null && this.ajA != null) {
-            this.mHandler.removeCallbacks(this.ajA);
+        if (this.mHandler != null && this.akg != null) {
+            this.mHandler.removeCallbacks(this.akg);
         }
-        if (this.eXL.YK() != null) {
-            this.eXL.YK().CO();
+        if (this.fCP.afd() != null) {
+            this.fCP.afd().CW();
         }
     }
 
-    public void qQ(int i) {
+    public void sh(int i) {
         if (i == 1) {
-            at.d(this.eYs, t.d.album_list_bottom_bigimage_bg, 0);
-            at.k(this.eYo, t.f.post_button_bg_bigimage);
-            at.d(this.eYt, t.f.btn_add_pic_bigimage, 0);
-            at.e(this.eYp, t.d.album_list_bottom_bigimage_line, 0);
-            for (View view : this.eYy) {
-                at.e(view, t.d.album_list_bottom_bigimage_line, 0);
+            av.d(this.fDw, u.d.common_color_10100, 0);
+            av.k(this.fDs, u.f.post_button_bg_bigimage);
+            av.d(this.fDx, u.f.btn_add_pic_bigimage, 0);
+            av.e(this.fDt, u.d.common_color_10101, 0);
+            for (View view : this.fDC) {
+                av.e(view, u.d.common_color_10101, 0);
             }
             return;
         }
-        at.k(this.eYs, t.d.album_list_bottom_bg);
-        at.k(this.eYo, t.f.post_button_bg);
-        at.k(this.eYt, t.f.btn_add_pic);
-        at.l(this.eYp, t.d.album_list_bottom_line);
-        for (View view2 : this.eYy) {
-            at.l(view2, t.d.album_list_bottom_line);
+        av.k(this.fDw, u.d.common_color_10099);
+        av.k(this.fDs, u.f.post_button_bg);
+        av.k(this.fDx, u.f.btn_add_pic);
+        av.l(this.fDt, u.d.cp_cont_e);
+        for (View view2 : this.fDC) {
+            av.l(view2, u.d.cp_cont_e);
         }
     }
 
-    public void y(boolean z, boolean z2) {
+    public void z(boolean z, boolean z2) {
         if (z) {
-            this.eYu.setVisibility(0);
+            this.fDy.setVisibility(0);
             a(z2, 0L);
             return;
         }
-        this.eYu.setVisibility(8);
+        this.fDy.setVisibility(8);
     }
 
     public void a(boolean z, long j) {
         if (z) {
-            this.eYu.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_check_yuantu_h), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.fDy.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.icon_check_yuantu_h), (Drawable) null, (Drawable) null, (Drawable) null);
             StringBuilder sb = new StringBuilder();
-            sb.append(eYl);
+            sb.append(fDp);
             if (j > 0) {
                 sb.append("(");
-                sb.append(ay.I(j));
+                sb.append(ba.L(j));
                 sb.append(")");
             }
-            this.eYu.setText(sb.toString());
+            this.fDy.setText(sb.toString());
             return;
         }
-        this.eYu.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_check_yuantu_n), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.eYu.setText(eYl);
+        this.fDy.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.icon_check_yuantu_n), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.fDy.setText(fDp);
     }
 
-    public View bbP() {
-        return this.eYu;
+    public View bkl() {
+        return this.fDy;
     }
 }

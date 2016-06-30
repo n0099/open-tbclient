@@ -1,30 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import android.widget.RelativeLayout;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fe implements Runnable {
-    final /* synthetic */ fd dpy;
+public class fe extends CustomMessageListener {
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fe(fd fdVar) {
-        this.dpy = fdVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fe(es esVar, int i) {
+        super(i);
+        this.dVR = esVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        el elVar;
-        PbActivity pbActivity;
-        el elVar2;
-        PbActivity pbActivity2;
-        el elVar3;
-        RelativeLayout relativeLayout;
-        elVar = this.dpy.dpu;
-        pbActivity = elVar.dhY;
-        elVar2 = this.dpy.dpu;
-        pbActivity2 = elVar2.dhY;
-        elVar3 = this.dpy.dpu;
-        relativeLayout = elVar3.dbg;
-        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            this.dVR.dUS = false;
+        }
     }
 }

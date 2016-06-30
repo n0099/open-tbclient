@@ -1,15 +1,14 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tieba.personInfo.bq;
+import com.baidu.tieba.person.bs;
 import java.util.List;
 /* loaded from: classes.dex */
-public class t implements v {
-    public static final BdUniqueId dzP = BdUniqueId.gen();
-    private String dzQ;
-    private String dzR;
-    private List<bq.a> dzS;
+public class t implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId eit = BdUniqueId.gen();
+    private String efv;
+    private String efw;
+    private List<bs.a> efx;
     private String icon;
     private String name;
 
@@ -29,32 +28,32 @@ public class t implements v {
         this.icon = str;
     }
 
-    public String aCw() {
-        return this.dzQ;
+    public String aLp() {
+        return this.efv;
     }
 
-    public void mv(String str) {
-        this.dzQ = str;
+    public void ob(String str) {
+        this.efv = str;
     }
 
-    public String aCx() {
-        return this.dzR;
+    public String aLq() {
+        return this.efw;
     }
 
-    public void mw(String str) {
-        this.dzR = str;
+    public void oc(String str) {
+        this.efw = str;
     }
 
-    public List<bq.a> aCy() {
-        return this.dzS;
+    public List<bs.a> aLr() {
+        return this.efx;
     }
 
-    public void bN(List<bq.a> list) {
-        this.dzS = list;
+    public void ck(List<bs.a> list) {
+        this.efx = list;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dzP;
+        return eit;
     }
 }

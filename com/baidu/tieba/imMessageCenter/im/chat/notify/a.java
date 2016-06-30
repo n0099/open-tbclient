@@ -3,31 +3,31 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 import android.os.Build;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class a {
     public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
-        if (TbadkCoreApplication.m11getInst().appResponseToCmd(i)) {
+        if (TbadkCoreApplication.m9getInst().appResponseToCmd(i)) {
             return true;
         }
-        f(baseFragmentActivity);
+        g(baseFragmentActivity);
         return false;
     }
 
     public static boolean a(BaseFragmentActivity baseFragmentActivity, Class<?> cls) {
-        if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(cls)) {
+        if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(cls)) {
             return true;
         }
-        f(baseFragmentActivity);
+        g(baseFragmentActivity);
         return false;
     }
 
-    private static void f(BaseFragmentActivity baseFragmentActivity) {
+    private static void g(BaseFragmentActivity baseFragmentActivity) {
         if (baseFragmentActivity != null) {
             if (Build.VERSION.SDK_INT <= 10) {
-                baseFragmentActivity.showToast(t.j.plugin_not_exit_for_2_3);
+                baseFragmentActivity.showToast(u.j.plugin_not_exit_for_2_3);
             } else {
-                baseFragmentActivity.showToast(t.j.plugin_not_exit);
+                baseFragmentActivity.showToast(u.j.plugin_not_exit);
             }
         }
     }

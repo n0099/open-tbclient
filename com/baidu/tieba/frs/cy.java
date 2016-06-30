@@ -1,29 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.List;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class cy extends CustomMessageListener {
-    final /* synthetic */ FrsMoreFeedForumsActivity bkA;
+public class cy extends y.a {
+    public int aeK;
+    public TbImageView bFR;
+    public FrameLayout bGH;
+    public PhotoLiveCardView bGI;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cy(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i) {
-        super(i);
-        this.bkA = frsMoreFeedForumsActivity;
+    public cy(View view) {
+        super(view);
+        this.aeK = 3;
+        this.bGH = (FrameLayout) view.findViewById(u.g.live_card_layout);
+        this.bFR = (TbImageView) view.findViewById(u.g.frs_single_livecard_theme_card);
+        this.bGI = (PhotoLiveCardView) view.findViewById(u.g.item_live_card);
+        this.bGI.setAllowGreyState(true);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        cz czVar;
-        List<FeedForumData> list;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.y)) {
-            czVar = this.bkA.bky;
-            list = this.bkA.biJ;
-            czVar.a(list, (com.baidu.tieba.tbadkCore.y) customResponsedMessage.getData());
+    public void vm() {
+        if (this.bGI != null) {
+            this.bGI.vm();
         }
     }
 }

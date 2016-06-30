@@ -8,76 +8,76 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private ViewEventCenter aXs;
-    private boolean bIW;
-    private bd dFn;
-    private com.baidu.tieba.person.god.view.a dFo;
-    private a dFp;
-    private int dFq;
-    private LinearLayout dFr;
-    private UserIconBox dFs;
-    private HeadImageView dFt;
-    private BdExpandImageView dFu;
-    private f dxd;
+    private ViewEventCenter bfx;
+    private boolean cgJ;
+    private f efz;
+    private bm eor;
+    private com.baidu.tieba.person.god.view.a eos;
+    private a eot;
+    private int eou;
+    private LinearLayout eov;
+    private UserIconBox eow;
+    private HeadImageView eox;
+    private BdExpandImageView eoy;
 
     public c(f fVar, boolean z, ViewEventCenter viewEventCenter) {
         super(fVar.getActivity());
-        this.dFq = -1;
-        this.dxd = fVar;
-        this.bIW = z;
-        this.aXs = viewEventCenter;
-        this.dFr = new LinearLayout(this.dxd.getActivity());
-        this.dFs = new UserIconBox(this.dxd.getActivity());
-        this.dFt = new HeadImageView(this.dxd.getActivity());
-        this.dFu = new BdExpandImageView(this.dxd.getActivity(), null);
+        this.eou = -1;
+        this.efz = fVar;
+        this.cgJ = z;
+        this.bfx = viewEventCenter;
+        this.eov = new LinearLayout(this.efz.getActivity());
+        this.eow = new UserIconBox(this.efz.getActivity());
+        this.eox = new HeadImageView(this.efz.getActivity());
+        this.eoy = new BdExpandImageView(this.efz.getActivity(), null);
     }
 
-    public void mB(int i) {
-        if (this.dxd != null) {
+    public void od(int i) {
+        if (this.efz != null) {
             if (i == 2) {
-                if (this.dFo == null) {
-                    this.dFo = new com.baidu.tieba.person.god.view.a(this.dxd, this.bIW, this.aXs);
+                if (this.eos == null) {
+                    this.eos = new com.baidu.tieba.person.god.view.a(this.efz, this.cgJ, this.bfx);
                 }
-                if (this.bIW) {
-                    this.dxd.aDu().a(2, this.dFo);
-                    if (this.dxd.dFR > 0) {
-                        this.dxd.aDu().j(true, 2);
+                if (this.cgJ) {
+                    this.efz.aMp().a(2, this.eos);
+                    if (this.efz.eoV > 0) {
+                        this.efz.aMp().m(true, 2);
                     }
                 }
-                this.dFp = this.dFo;
+                this.eot = this.eos;
             } else {
-                if (this.dFn == null) {
-                    this.dFn = new bd(this.dxd, this.bIW);
-                    setLayoutParams(new AbsListView.LayoutParams(-1, this.dxd.getResources().getDimensionPixelOffset(t.e.ds618)));
+                if (this.eor == null) {
+                    this.eor = new bm(this.efz, this.cgJ);
+                    setLayoutParams(new AbsListView.LayoutParams(-1, this.efz.getResources().getDimensionPixelOffset(u.e.ds618)));
                 }
-                this.dFp = this.dFn;
+                this.eot = this.eor;
             }
-            if (this.dFq != i && this.dFp != null) {
+            if (this.eou != i && this.eot != null) {
                 removeAllViews();
-                addView(this.dFp.getRootView());
+                addView(this.eot.getRootView());
             }
-            kU();
-            this.dFq = i;
+            kX();
+            this.eou = i;
         }
     }
 
     public LinearLayout getMyGiftIcon() {
-        return (this.dFp == null || this.dFp.getMyGiftIcon() == null) ? this.dFr : this.dFp.getMyGiftIcon();
+        return (this.eot == null || this.eot.getMyGiftIcon() == null) ? this.eov : this.eot.getMyGiftIcon();
     }
 
     public View getAttentionView() {
-        return (this.dFp == null || this.dFp.getAttentionView() == null) ? this.dFr : this.dFp.getAttentionView();
+        return (this.eot == null || this.eot.getAttentionView() == null) ? this.eov : this.eot.getAttentionView();
     }
 
     public UserIconBox getVipIcon() {
-        return (this.dFp == null || this.dFp.getVipIcon() == null) ? this.dFs : this.dFp.getVipIcon();
+        return (this.eot == null || this.eot.getVipIcon() == null) ? this.eow : this.eot.getVipIcon();
     }
 
     public LinearLayout getYinjiWraper() {
-        return (this.dFp == null || this.dFp.getYinjiWraper() == null) ? this.dFr : this.dFp.getYinjiWraper();
+        return (this.eot == null || this.eot.getYinjiWraper() == null) ? this.eov : this.eot.getYinjiWraper();
     }
 
     @Override // android.view.View
@@ -86,73 +86,73 @@ public class c extends LinearLayout {
     }
 
     public HeadImageView getHeadImage() {
-        return (this.dFp == null || this.dFp.getHeadImage() == null) ? this.dFt : this.dFp.getHeadImage();
+        return (this.eot == null || this.eot.getHeadImage() == null) ? this.eox : this.eot.getHeadImage();
     }
 
     public a getHeadView() {
-        if (this.dFp == null) {
+        if (this.eot == null) {
             return null;
         }
-        return this.dFp.getHeadView();
+        return this.eot.getHeadView();
     }
 
-    public bd getNormalHeadView() {
-        return this.dFn;
+    public bm getNormalHeadView() {
+        return this.eor;
     }
 
-    public void Pn() {
-        if (this.dFp != null) {
-            this.dFp.Pn();
+    public void US() {
+        if (this.eot != null) {
+            this.eot.US();
         }
     }
 
     public UserIconBox getUserIcon() {
-        return (this.dFp == null || this.dFp.getUserIcon() == null) ? this.dFs : this.dFp.getUserIcon();
+        return (this.eot == null || this.eot.getUserIcon() == null) ? this.eow : this.eot.getUserIcon();
     }
 
-    public void aCM() {
-        if (this.dFp != null) {
-            this.dFp.aCM();
+    public void aLG() {
+        if (this.eot != null) {
+            this.eot.aLG();
         }
     }
 
-    public void kU() {
-        if (this.dFp != null) {
-            this.dFp.kU();
+    public void kX() {
+        if (this.eot != null) {
+            this.eot.kX();
         }
     }
 
-    public void aCa() {
-        if (this.dFp != null) {
-            this.dFp.aCa();
+    public void Ri() {
+        if (this.eot != null) {
+            this.eot.Ri();
         }
     }
 
     public void setBackBitmap(UserData userData) {
-        if (this.dFp != null) {
-            this.dFp.setBackBitmap(userData);
+        if (this.eot != null) {
+            this.eot.setBackBitmap(userData);
         }
     }
 
     public void j(float f) {
-        if (this.dFp != null) {
-            this.dFp.j(f);
+        if (this.eot != null) {
+            this.eot.j(f);
         }
     }
 
-    public void jk() {
-        if (this.dFp != null) {
-            this.dFp.jk();
+    public void jn() {
+        if (this.eot != null) {
+            this.eot.jn();
         }
     }
 
     public void setGiftIcon(boolean z) {
-        if (this.dFp != null) {
-            this.dFp.setGiftIcon(z);
+        if (this.eot != null) {
+            this.eot.setGiftIcon(z);
         }
     }
 
     public BdExpandImageView getExpandImg() {
-        return this.dFp == null ? this.dFu : this.dFp.getExpandImg();
+        return this.eot == null ? this.eoy : this.eot.getExpandImg();
     }
 }

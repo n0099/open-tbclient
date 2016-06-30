@@ -19,7 +19,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,7 +47,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.BaseActivity
     public boolean getGpuSwitch() {
-        return TbadkCoreApplication.m11getInst().isGpuOpen();
+        return TbadkCoreApplication.m9getInst().isGpuOpen();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -118,7 +118,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 addJavascriptInterface();
             }
             CompatibleUtile.getInstance().removeJavascriptInterface(this.mWebView);
-            boolean isHybridBridgeEnabled = TbadkCoreApplication.m11getInst().isHybridBridgeEnabled();
+            boolean isHybridBridgeEnabled = TbadkCoreApplication.m9getInst().isHybridBridgeEnabled();
             com.baidu.tbadk.core.c.m a2 = com.baidu.tbadk.core.c.r.a(isHybridBridgeEnabled, this.mWebView, (com.baidu.tbadk.core.c.a) null);
             this.mHybridBridge = a2;
             if (isHybridBridgeEnabled) {
@@ -184,7 +184,6 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void loadUrl(String str) {
         if (this.mWebView != null) {
-            com.baidu.tieba.adkiller.b.gR(str);
             CompatibleUtile.getInstance().loadUrl(this.mWebView, str);
         }
     }
@@ -192,12 +191,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.aUE();
+            this.jsBridge.bcS();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            com.baidu.adp.lib.h.h.dL().postDelayed(new v(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+            com.baidu.adp.lib.h.h.dM().postDelayed(new v(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
@@ -214,9 +213,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 if (StringUtils.isNull(TbWebViewActivity.this.mUrlTitle)) {
                     TbWebViewActivity.this.mUrlTitle = TbWebViewActivity.this.mWebView.getTitle();
                 }
-                TbWebViewActivity.this.mView.bX(TbWebViewActivity.this.mUrlTitle);
+                TbWebViewActivity.this.mView.bW(TbWebViewActivity.this.mUrlTitle);
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
-                TbWebViewActivity.this.mView.ac(TbWebViewActivity.this.isNeedShowShareItem());
+                TbWebViewActivity.this.mView.ab(TbWebViewActivity.this.isNeedShowShareItem());
                 TbWebViewActivity.this.hideProgressBar();
                 TbWebViewActivity.this.stopLoadTimer();
             }
@@ -249,8 +248,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            com.baidu.tieba.adkiller.b.gR(str);
-            int b = bg.ut().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
+            int b = bi.us().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -295,7 +293,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void initCookie() {
-        f.I(getApplicationContext());
+        f.H(getApplicationContext());
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -340,7 +338,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            com.baidu.tbadk.core.c.g.su().a(16, new w(this));
+            com.baidu.tbadk.core.c.g.ss().a(16, new w(this));
         }
     }
 }

@@ -7,7 +7,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int cyZ;
+    private int dew;
     private String ids;
     private int mPn = 1;
 
@@ -19,25 +19,25 @@ public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.cyZ = 4;
+        this.dew = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.cyZ = 1;
+        this.dew = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.cyZ;
+        return this.dew;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> ld() {
+    public HashMap<String, Object> lh() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.cyZ == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.dew == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
@@ -66,12 +66,12 @@ public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Dh() {
+    public String Dp() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Di() {
+    public boolean Dq() {
         return true;
     }
 

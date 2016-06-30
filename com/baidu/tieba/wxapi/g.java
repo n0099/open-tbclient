@@ -1,44 +1,42 @@
 package com.baidu.tieba.wxapi;
 
-import com.tencent.mm.sdk.modelbase.BaseReq;
-import com.tencent.mm.sdk.modelbase.BaseResp;
+import android.content.Intent;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import java.util.concurrent.ConcurrentHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements IWXAPIEventHandler {
-    final /* synthetic */ f feY;
+public class g {
+    private static g fKp = null;
+    private IWXAPIEventHandler fKs;
+    private IWXAPIEventHandler fKt = new h(this);
+    private IWXAPI fKq = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+    private ConcurrentHashMap<String, IWXAPIEventHandler> fKr = new ConcurrentHashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.feY = fVar;
-    }
-
-    @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
-    public void onReq(BaseReq baseReq) {
-        IWXAPIEventHandler iWXAPIEventHandler;
-        IWXAPIEventHandler iWXAPIEventHandler2;
-        iWXAPIEventHandler = this.feY.feW;
-        if (iWXAPIEventHandler != null) {
-            iWXAPIEventHandler2 = this.feY.feW;
-            iWXAPIEventHandler2.onReq(baseReq);
-        }
-    }
-
-    @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
-    public void onResp(BaseResp baseResp) {
-        ConcurrentHashMap concurrentHashMap;
-        ConcurrentHashMap concurrentHashMap2;
-        try {
-            concurrentHashMap = this.feY.feV;
-            IWXAPIEventHandler iWXAPIEventHandler = (IWXAPIEventHandler) concurrentHashMap.get(baseResp.transaction);
-            if (iWXAPIEventHandler != null) {
-                iWXAPIEventHandler.onResp(baseResp);
-                concurrentHashMap2 = this.feY.feV;
-                concurrentHashMap2.remove(baseResp.transaction);
+    public static g bmJ() {
+        if (fKp == null) {
+            synchronized (g.class) {
+                if (fKp == null) {
+                    fKp = new g();
+                }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+        return fKp;
+    }
+
+    private g() {
+        if (isAvailable()) {
+            this.fKq.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
+        }
+    }
+
+    public boolean isAvailable() {
+        return this.fKq.isWXAppInstalled() && this.fKq.isWXAppSupportAPI();
+    }
+
+    public void J(Intent intent) {
+        this.fKq.handleIntent(intent, this.fKt);
     }
 }

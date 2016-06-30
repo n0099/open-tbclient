@@ -3,118 +3,118 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class c implements b {
-    private Point cuZ;
-    private Point cva;
-    private Point cvb;
-    private final int cvc;
-    private final int cvd;
-    private a cve;
-    private int cvf;
+    private Point dao;
+    private Point dap;
+    private Point daq;
+    private final int dar;
+    private final int das;
+    private a dau;
+    private int dav;
     private float k;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(Point point);
 
-        void ajK();
+        void arY();
     }
 
-    private int jO(int i) {
-        return (int) (((this.k * i) + this.cuZ.y) - (this.k * this.cuZ.x));
+    private int lq(int i) {
+        return (int) (((this.k * i) + this.dao.y) - (this.k * this.dao.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.cvb.equals(this.cva)) {
-            switch (this.cvf) {
+        if (!this.daq.equals(this.dap)) {
+            switch (this.dav) {
                 case 0:
-                    ajR();
+                    asf();
                     break;
                 case 1:
-                    ajT();
+                    ash();
                     break;
                 case 2:
-                    ajS();
+                    asg();
                     break;
                 case 3:
-                    ajU();
+                    asi();
                     break;
                 case 4:
-                    ajV();
+                    asj();
                     break;
                 case 5:
-                    ajW();
+                    ask();
                     break;
             }
             return false;
         }
-        if (this.cve != null) {
-            this.cve.ajK();
+        if (this.dau != null) {
+            this.dau.arY();
         }
         return true;
     }
 
-    private void ajR() {
-        this.cvb.y += this.cvd;
-        if (this.cvb.y > this.cva.y) {
-            this.cvb.y = this.cva.y;
+    private void asf() {
+        this.daq.y += this.das;
+        if (this.daq.y > this.dap.y) {
+            this.daq.y = this.dap.y;
         }
-        if (this.cve != null) {
-            this.cve.a(this.cvb);
-        }
-    }
-
-    private void ajS() {
-        this.cvb.x += this.cvc;
-        if (this.cvb.x > this.cva.x) {
-            this.cvb.x = this.cva.x;
-        }
-        if (this.cve != null) {
-            this.cve.a(this.cvb);
+        if (this.dau != null) {
+            this.dau.a(this.daq);
         }
     }
 
-    private void ajT() {
-        this.cvb.y -= this.cvd;
-        if (this.cvb.y < this.cva.y) {
-            this.cvb.y = this.cva.y;
+    private void asg() {
+        this.daq.x += this.dar;
+        if (this.daq.x > this.dap.x) {
+            this.daq.x = this.dap.x;
         }
-        if (this.cve != null) {
-            this.cve.a(this.cvb);
-        }
-    }
-
-    private void ajU() {
-        this.cvb.x -= this.cvc;
-        if (this.cvb.x < this.cva.x) {
-            this.cvb.x = this.cva.x;
-        }
-        if (this.cve != null) {
-            this.cve.a(this.cvb);
+        if (this.dau != null) {
+            this.dau.a(this.daq);
         }
     }
 
-    private void ajV() {
-        this.cvb.x -= this.cvc;
-        this.cvb.y = jO(this.cvb.x);
-        if (this.cvb.x < this.cva.x && this.cvb.y < this.cva.y) {
-            this.cvb.x = this.cva.x;
-            this.cvb.y = this.cva.y;
+    private void ash() {
+        this.daq.y -= this.das;
+        if (this.daq.y < this.dap.y) {
+            this.daq.y = this.dap.y;
         }
-        if (this.cve != null) {
-            this.cve.a(this.cvb);
+        if (this.dau != null) {
+            this.dau.a(this.daq);
         }
     }
 
-    private void ajW() {
-        this.cvb.x += this.cvc;
-        this.cvb.y = jO(this.cvb.x);
-        if (this.cvb.x > this.cva.x && this.cvb.y > this.cva.y) {
-            this.cvb.x = this.cva.x;
-            this.cvb.y = this.cva.y;
+    private void asi() {
+        this.daq.x -= this.dar;
+        if (this.daq.x < this.dap.x) {
+            this.daq.x = this.dap.x;
         }
-        if (this.cve != null) {
-            this.cve.a(this.cvb);
+        if (this.dau != null) {
+            this.dau.a(this.daq);
+        }
+    }
+
+    private void asj() {
+        this.daq.x -= this.dar;
+        this.daq.y = lq(this.daq.x);
+        if (this.daq.x < this.dap.x && this.daq.y < this.dap.y) {
+            this.daq.x = this.dap.x;
+            this.daq.y = this.dap.y;
+        }
+        if (this.dau != null) {
+            this.dau.a(this.daq);
+        }
+    }
+
+    private void ask() {
+        this.daq.x += this.dar;
+        this.daq.y = lq(this.daq.x);
+        if (this.daq.x > this.dap.x && this.daq.y > this.dap.y) {
+            this.daq.x = this.dap.x;
+            this.daq.y = this.dap.y;
+        }
+        if (this.dau != null) {
+            this.dau.a(this.daq);
         }
     }
 }

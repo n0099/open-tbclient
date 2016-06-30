@@ -1,66 +1,64 @@
 package com.baidu.tieba.person;
 
 import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
-import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.a;
-import com.baidu.tieba.t;
+import android.graphics.Bitmap;
+import android.view.View;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j implements a.c {
-    final /* synthetic */ i dva;
+public class j implements View.OnClickListener {
+    final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar) {
-        this.dva = iVar;
+    public j(EditHeadActivity editHeadActivity) {
+        this.this$0 = editHeadActivity;
     }
 
-    @Override // com.baidu.tbadk.img.a.c
-    public void a(String str, ImageUploadResult imageUploadResult) {
-        EditHeadActivity editHeadActivity;
-        EditHeadActivity editHeadActivity2;
-        EditHeadActivity editHeadActivity3;
-        EditHeadActivity editHeadActivity4;
-        EditHeadActivity editHeadActivity5;
-        String str2;
-        EditHeadActivity editHeadActivity6;
-        EditHeadActivity editHeadActivity7;
-        editHeadActivity = this.dva.this$0;
-        editHeadActivity.closeLoadingDialog();
-        editHeadActivity2 = this.dva.this$0;
-        Intent intent = editHeadActivity2.getIntent();
-        if (imageUploadResult != null) {
-            if (imageUploadResult.error_code != 0) {
-                editHeadActivity7 = this.dva.this$0;
-                editHeadActivity7.showToast(t.j.upload_pic_error, false);
-            } else {
-                PhotoUrlData photoUrlData = new PhotoUrlData();
-                photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
-                if (imageUploadResult.picInfo != null) {
-                    if (imageUploadResult.picInfo.bigPic != null) {
-                        photoUrlData.setBigurl(imageUploadResult.picInfo.bigPic.picUrl);
-                    }
-                    if (imageUploadResult.picInfo.smallPic != null) {
-                        photoUrlData.setSmallurl(imageUploadResult.picInfo.smallPic.picUrl);
-                    }
-                    if (imageUploadResult.getUploadedPicInfo() != null && !StringUtils.isNull(imageUploadResult.getUploadedPicInfo().toPostString())) {
-                        photoUrlData.setToServerPhotoInfo(imageUploadResult.getUploadedPicInfo().toPostString());
-                    }
-                }
-                editHeadActivity5 = this.dva.this$0;
-                str2 = editHeadActivity5.duA;
-                if (EditHeadActivityConfig.FROM_MISSON_SET_COVER.equals(str2)) {
-                    editHeadActivity6 = this.dva.this$0;
-                    editHeadActivity6.c(photoUrlData);
-                }
-                intent.putExtra(EditHeadActivity.PHOTO_RESOURCE, String.valueOf(imageUploadResult.picId));
-                intent.putExtra(EditHeadActivity.PIC_INFO, photoUrlData);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        boolean z;
+        int i2;
+        boolean b;
+        int i3;
+        boolean z2;
+        String str = TbConfig.PERSON_HEAD_FILE;
+        i = this.this$0.cWM;
+        if (i == 0) {
+            z = this.this$0.aAy;
+            if (!z) {
+                str = TbConfig.PERSON_USER_PIC_TEMP_FILE;
             }
+        } else {
+            str = TbConfig.GROUP_HEAD_FILE;
         }
-        editHeadActivity3 = this.dva.this$0;
-        editHeadActivity3.setResult(-1, intent);
-        editHeadActivity4 = this.dva.this$0;
-        editHeadActivity4.finish();
+        EditHeadsImageView editHeadsImageView = this.this$0.ecT;
+        i2 = this.this$0.cWM;
+        Bitmap ie = editHeadsImageView.ie(i2 == 0);
+        if (ie == null) {
+            return;
+        }
+        b = this.this$0.b(str, ie);
+        if (b) {
+            i3 = this.this$0.cWM;
+            if (i3 == 0) {
+                z2 = this.this$0.aAy;
+                if (z2) {
+                    this.this$0.aKm();
+                    return;
+                }
+                Intent intent = this.this$0.getIntent();
+                intent.putExtra("upload_image_type", 2);
+                this.this$0.setResult(-1, intent);
+                this.this$0.closeActivity();
+                return;
+            }
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.m.cQ(str), "head");
+            aVar.CT();
+            aVar.a(new k(this));
+            aVar.bD(false);
+            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(u.j.uploading));
+        }
     }
 }

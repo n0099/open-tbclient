@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements a.b {
-    final /* synthetic */ k aXF;
+    final /* synthetic */ k btA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(k kVar) {
-        this.aXF = kVar;
+        this.btA = kVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.aXF.Mz();
-        com.baidu.tbadk.core.sharedPref.b.sR().putBoolean("enter_forum_edit_mode", false);
+        this.btA.Sc();
+        com.baidu.tbadk.core.sharedPref.b.sO().putBoolean("enter_forum_edit_mode", false);
     }
 }

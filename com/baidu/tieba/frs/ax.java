@@ -1,22 +1,16 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* loaded from: classes.dex */
-class ax implements Runnable {
-    final /* synthetic */ FrsActivity.b bhD;
-    private final /* synthetic */ String bhE;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(FrsActivity.b bVar, String str) {
-        this.bhD = bVar;
-        this.bhE = str;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.util.ab abVar = new com.baidu.tbadk.core.util.ab(this.bhE);
-        abVar.tB().uv().mIsNeedAddCommenParam = false;
-        abVar.tB().uv().mIsUseCurrentBDUSS = false;
-        abVar.te();
+class ax implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().startActivity(FrsActivity.class);
+        }
+        return null;
     }
 }

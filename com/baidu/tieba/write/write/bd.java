@@ -1,32 +1,39 @@
 package com.baidu.tieba.write.write;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.style.ImageSpan;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
-import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.location.d;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class bd implements TbFaceManager.a {
-    final /* synthetic */ WriteActivity fea;
+class bd implements d.a {
+    final /* synthetic */ WriteActivity fJw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(WriteActivity writeActivity) {
-        this.fea = writeActivity;
+        this.fJw = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
-    public ImageSpan fJ(String str) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.a.a.class);
-        com.baidu.adp.widget.a.a aVar = runTask != null ? (com.baidu.adp.widget.a.a) runTask.getData() : null;
-        if (aVar == null) {
-            return null;
+    @Override // com.baidu.tieba.tbadkCore.location.d.a
+    public void Cm() {
+        this.fJw.showToast(u.j.no_network_guide);
+        this.fJw.a(0, true, (String) null);
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.location.d.a
+    public void fF(String str) {
+        WriteActivity writeActivity = this.fJw;
+        if (StringUtils.isNull(str)) {
+            str = this.fJw.getPageContext().getString(u.j.location_fail);
         }
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.iY());
-        int width = aVar.getWidth();
-        bitmapDrawable.setBounds(0, 0, width, width);
-        bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
-        return new ImageSpan(bitmapDrawable, 0);
+        writeActivity.showToast(str);
+        this.fJw.a(0, true, (String) null);
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.location.d.a
+    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
+        if (aVar == null || StringUtils.isNull(aVar.getFormatted_address())) {
+            fF(null);
+        } else {
+            this.fJw.a(2, true, aVar.getFormatted_address());
+        }
     }
 }

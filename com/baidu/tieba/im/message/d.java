@@ -9,40 +9,40 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class d implements a.b {
-    final /* synthetic */ ResponsePullMessage cou;
-    private final /* synthetic */ ImMessageCenterPojo cov;
+    final /* synthetic */ ResponsePullMessage cTJ;
+    private final /* synthetic */ ImMessageCenterPojo cTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-        this.cou = responsePullMessage;
-        this.cov = imMessageCenterPojo;
+        this.cTJ = responsePullMessage;
+        this.cTK = imMessageCenterPojo;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         int i2 = 2;
         if (imMessageCenterPojo != null) {
-            i.aez().a(imMessageCenterPojo, 2);
-            if (imMessageCenterPojo.getIsFriend() == 0 && this.cov != null) {
-                this.cov.setGid(String.valueOf("-1001"));
-                this.cov.setCustomGroupType(-7);
+            i.amO().a(imMessageCenterPojo, 2);
+            if (imMessageCenterPojo.getIsFriend() == 0 && this.cTK != null) {
+                this.cTK.setGid(String.valueOf("-1001"));
+                this.cTK.setCustomGroupType(-7);
                 if (i == 0) {
-                    this.cov.setUnread_count(0);
+                    this.cTK.setUnread_count(0);
                 } else if (i == 1) {
-                    this.cov.setUnread_count(1);
+                    this.cTK.setUnread_count(1);
                 } else {
                     i2 = 1;
                 }
                 if (z) {
-                    this.cov.setIs_hidden(0);
+                    this.cTK.setIs_hidden(0);
                 }
-                i.aez().a(this.cov, i2);
+                i.amO().a(this.cTK, i2);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void e(String str, List<CommonMsgPojo> list) {
-        l.aeF().a(b.c(str, 0L), list, true);
+    public void f(String str, List<CommonMsgPojo> list) {
+        l.amU().a(b.c(str, 0L), list, true);
     }
 }

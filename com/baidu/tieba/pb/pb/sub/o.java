@@ -1,42 +1,40 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-class o implements com.baidu.adp.lib.f.c<View> {
-    final /* synthetic */ NewSubPbActivity dqn;
+class o implements com.baidu.adp.lib.f.c<GifView> {
+    final /* synthetic */ NewSubPbActivity dWP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NewSubPbActivity newSubPbActivity) {
-        this.dqn = newSubPbActivity;
+        this.dWP = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Yd */
-    public View dE() {
-        return new PlayVoiceBnt(this.dqn.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
+    /* renamed from: aFi */
+    public GifView dF() {
+        return new GifView(this.dWP.getPageContext().getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ak */
-    public void l(View view) {
-        ((PlayVoiceBnt) view).reset();
+    /* renamed from: g */
+    public void l(GifView gifView) {
+        gifView.onDestroy();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: al */
-    public View m(View view) {
-        return view;
+    /* renamed from: h */
+    public GifView m(GifView gifView) {
+        return gifView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: am */
-    public View n(View view) {
-        ((PlayVoiceBnt) view).reset();
-        return view;
+    /* renamed from: i */
+    public GifView n(GifView gifView) {
+        return gifView;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.base.e;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a extends e {
@@ -29,7 +29,7 @@ public class a extends e {
         return false;
     }
 
-    public void bY(String str) {
+    public void bX(String str) {
         ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
         clientConfigNetMessage.setType(str);
         sendMessage(clientConfigNetMessage);
@@ -44,7 +44,7 @@ public class a extends e {
     public void a(DataRes dataRes) {
         if (dataRes == null) {
             if (this.KZ != null) {
-                this.KZ.onError(TbadkCoreApplication.m11getInst().getString(t.j.data_load_error));
+                this.KZ.onError(TbadkCoreApplication.m9getInst().getString(u.j.data_load_error));
             }
         } else if (this.KZ != null) {
             this.KZ.w(dataRes);

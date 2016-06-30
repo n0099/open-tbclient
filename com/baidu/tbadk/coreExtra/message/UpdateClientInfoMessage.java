@@ -25,9 +25,9 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         super(1001);
         this.device = new HashMap();
         try {
-            if (TbadkCoreApplication.m11getInst().getLocationShared()) {
-                this.lat = b.a(TbadkCoreApplication.m11getInst().getLocationLat(), 0.0d);
-                this.lng = b.a(TbadkCoreApplication.m11getInst().getLocationLng(), 0.0d);
+            if (TbadkCoreApplication.m9getInst().getLocationShared()) {
+                this.lat = b.a(TbadkCoreApplication.m9getInst().getLocationLat(), 0.0d);
+                this.lng = b.a(TbadkCoreApplication.m9getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

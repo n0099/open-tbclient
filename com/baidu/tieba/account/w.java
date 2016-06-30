@@ -1,19 +1,19 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.coreExtra.view.j;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class w implements j.a {
-    final /* synthetic */ NotLoginGuideActivity aIP;
+class w implements DialogInterface.OnCancelListener {
+    final /* synthetic */ v aMn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(NotLoginGuideActivity notLoginGuideActivity) {
-        this.aIP = notLoginGuideActivity;
+    public w(v vVar) {
+        this.aMn = vVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.j.a
-    public void i(AccountData accountData) {
-        this.aIP.o(accountData);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        NotLoginGuideActivity notLoginGuideActivity;
+        notLoginGuideActivity = this.aMn.aMm;
+        notLoginGuideActivity.destroyWaitingDialog();
     }
 }

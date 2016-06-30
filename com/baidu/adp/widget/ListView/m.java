@@ -7,11 +7,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BdListView zp;
+    final /* synthetic */ BdListView zo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(BdListView bdListView) {
-        this.zp = bdListView;
+        this.zo = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -30,50 +30,50 @@ public class m implements AdapterView.OnItemClickListener {
         BdListView.b bVar2;
         c cVar5;
         c cVar6;
-        eVar = this.zp.yQ;
+        eVar = this.zo.yP;
         int headersCount = eVar.getHeadersCount();
         if (i < headersCount) {
-            cVar4 = this.zp.ze;
+            cVar4 = this.zo.zd;
             if (cVar4 != null) {
-                cVar5 = this.zp.ze;
+                cVar5 = this.zo.zd;
                 if (view == cVar5.getView()) {
-                    cVar6 = this.zp.ze;
+                    cVar6 = this.zo.zd;
                     cVar6.onClick();
                     return;
                 }
             }
-            bVar = this.zp.yU;
+            bVar = this.zo.yT;
             if (bVar != null) {
-                bVar2 = this.zp.yU;
+                bVar2 = this.zo.yT;
                 bVar2.onClick(view);
                 return;
             }
             return;
         }
         int i2 = i - headersCount;
-        eVar2 = this.zp.yQ;
+        eVar2 = this.zo.yP;
         ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
         if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-            onItemClickListener = this.zp.yR;
+            onItemClickListener = this.zo.yQ;
             if (onItemClickListener != null) {
-                onItemClickListener2 = this.zp.yR;
+                onItemClickListener2 = this.zo.yQ;
                 onItemClickListener2.onItemClick(adapterView, view, i2, j);
                 return;
             }
             return;
         }
-        cVar = this.zp.zf;
+        cVar = this.zo.ze;
         if (cVar != null) {
-            cVar2 = this.zp.zf;
+            cVar2 = this.zo.ze;
             if (view == cVar2.getView()) {
-                cVar3 = this.zp.zf;
+                cVar3 = this.zo.ze;
                 cVar3.onClick();
                 return;
             }
         }
-        aVar = this.zp.yV;
+        aVar = this.zo.yU;
         if (aVar != null) {
-            aVar2 = this.zp.yV;
+            aVar2 = this.zo.yU;
             aVar2.onClick(view);
         }
     }

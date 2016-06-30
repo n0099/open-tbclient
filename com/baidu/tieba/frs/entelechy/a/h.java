@@ -1,28 +1,27 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bkN;
-    final /* synthetic */ g boQ;
+public class h extends CustomMessageListener {
+    final /* synthetic */ c bJd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar, ThemeCardInUserData themeCardInUserData) {
-        this.boQ = gVar;
-        this.bkN = themeCardInUserData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(c cVar, int i) {
+        super(i);
+        this.bJd = cVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        tbPageContext = this.boQ.DV;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bkN.getCardId())));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
+            com.baidu.tieba.lego.c.b bVar = new com.baidu.tieba.lego.c.b();
+            bVar.fid = String.valueOf(customResponsedMessage.getData());
+            bVar.doF = false;
+            this.bJd.E(bVar);
+        }
     }
 }

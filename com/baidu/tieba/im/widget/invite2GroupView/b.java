@@ -13,11 +13,11 @@ import com.baidu.tieba.im.data.InviteMsgData;
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
     private final /* synthetic */ TbPageContext Kq;
-    final /* synthetic */ Invite2GroupView csL;
+    final /* synthetic */ Invite2GroupView cYa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Invite2GroupView invite2GroupView, TbPageContext tbPageContext) {
-        this.csL = invite2GroupView;
+        this.cYa = invite2GroupView;
         this.Kq = tbPageContext;
     }
 
@@ -26,11 +26,11 @@ public class b implements View.OnClickListener {
         InviteMsgData inviteMsgData;
         InviteMsgData inviteMsgData2;
         InviteMsgData inviteMsgData3;
-        Context context = this.csL.getContext();
-        inviteMsgData = this.csL.csK;
-        inviteMsgData2 = this.csL.csK;
+        Context context = this.cYa.getContext();
+        inviteMsgData = this.cYa.cXZ;
+        inviteMsgData2 = this.cYa.cXZ;
         String text = inviteMsgData2.getText();
-        inviteMsgData3 = this.csL.csK;
+        inviteMsgData3 = this.cYa.cXZ;
         GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(context, inviteMsgData.getGroupId(), 7, text, inviteMsgData3.getFromUid());
         if (this.Kq.getOrignalPage() instanceof BaseActivity) {
             this.Kq.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, groupInfoActivityConfig));

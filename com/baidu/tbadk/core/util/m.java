@@ -16,7 +16,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,28 +28,28 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class m {
     public static final File oH = Environment.getExternalStorageDirectory();
-    private static final File VF = TbadkCoreApplication.m11getInst().getApp().getCacheDir();
+    private static final File VV = TbadkCoreApplication.m9getInst().getApp().getCacheDir();
 
-    public static boolean bF() {
+    public static boolean bG() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static String sY() {
+    public static String sV() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
-            return TbadkCoreApplication.m11getInst().getApp().getString(t.j.error_no_sdcard);
+            return TbadkCoreApplication.m9getInst().getApp().getString(u.j.error_no_sdcard);
         }
         if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable")) {
-            return TbadkCoreApplication.m11getInst().getApp().getString(t.j.error_sd_unmount);
+            return TbadkCoreApplication.m9getInst().getApp().getString(u.j.error_sd_unmount);
         }
         if (externalStorageState.equals("shared")) {
-            return TbadkCoreApplication.m11getInst().getApp().getString(t.j.error_sd_shared);
+            return TbadkCoreApplication.m9getInst().getApp().getString(u.j.error_sd_shared);
         }
-        return TbadkCoreApplication.m11getInst().getApp().getString(t.j.error_sd_error);
+        return TbadkCoreApplication.m9getInst().getApp().getString(u.j.error_sd_error);
     }
 
-    public static boolean cP(String str) {
-        if (bF()) {
+    public static boolean cO(String str) {
+        if (bG()) {
             File file = new File(str);
             if (file.exists()) {
                 return true;
@@ -64,12 +64,12 @@ public class m {
         return false;
     }
 
-    public static boolean sZ() {
-        return cP(oH + "/" + TbConfig.getTempDirName() + "/");
+    public static boolean sW() {
+        return cO(oH + "/" + TbConfig.getTempDirName() + "/");
     }
 
-    public static boolean cQ(String str) {
-        if (bF()) {
+    public static boolean cP(String str) {
+        if (bG()) {
             try {
                 return new File(new StringBuilder().append(oH).append("/").append(TbConfig.getTempDirName()).append("/").append(str).toString()).exists();
             } catch (Exception e) {
@@ -81,8 +81,8 @@ public class m {
         return false;
     }
 
-    public static long W(String str, String str2) {
-        if (bF()) {
+    public static long V(String str, String str2) {
+        if (bG()) {
             try {
                 if (new File(oH + "/" + TbConfig.getTempDirName() + "/" + str + "/" + str2).exists()) {
                     return TbConfig.getBigImageSize();
@@ -97,15 +97,15 @@ public class m {
         return -1L;
     }
 
-    public static String cR(String str) {
+    public static String cQ(String str) {
         if (str == null) {
             return null;
         }
         return oH + "/" + TbConfig.getTempDirName() + "/" + str;
     }
 
-    public static File cS(String str) {
-        if (sZ()) {
+    public static File cR(String str) {
+        if (sW()) {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -121,7 +121,7 @@ public class m {
         return null;
     }
 
-    public static String cT(String str) {
+    public static String cS(String str) {
         PackageInfo packageArchiveInfo;
         if (StringUtils.isNull(str)) {
             return null;
@@ -134,7 +134,7 @@ public class m {
         return packageArchiveInfo.packageName;
     }
 
-    public static PackageInfo cU(String str) {
+    public static PackageInfo cT(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -146,15 +146,15 @@ public class m {
         return null;
     }
 
-    public static File cV(String str) {
-        if (!sZ()) {
+    public static File cU(String str) {
+        if (!sW()) {
             return null;
         }
         return new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
     }
 
-    public static File cW(String str) {
-        if (sZ()) {
+    public static File cV(String str) {
+        if (sW()) {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (!file.exists() || file.delete()) {
@@ -173,8 +173,8 @@ public class m {
         return null;
     }
 
-    public static File cX(String str) {
-        if (sZ()) {
+    public static File cW(String str) {
+        if (sW()) {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -203,7 +203,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean X(String str, String str2) {
+    public static boolean W(String str, String str2) {
         FileInputStream fileInputStream;
         IOException e;
         boolean z;
@@ -302,7 +302,7 @@ public class m {
         } else {
             str3 = oH + "/" + TbConfig.getTempDirName() + "/";
         }
-        if (!cP(str3) || bitmap == null) {
+        if (!cO(str3) || bitmap == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -332,7 +332,7 @@ public class m {
         } else {
             str3 = oH + "/" + TbConfig.getTempDirName() + "/";
         }
-        if (!cP(str3) || bitmap == null) {
+        if (!cO(str3) || bitmap == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -357,7 +357,7 @@ public class m {
         if (bitmap == null) {
             return null;
         }
-        if (bF()) {
+        if (bG()) {
             dataDirectory = new File(oH + "/" + TbConfig.getTempDirName());
         } else {
             dataDirectory = Environment.getDataDirectory();
@@ -398,7 +398,7 @@ public class m {
         } else {
             str6 = oH + "/" + TbConfig.getTempDirName() + "/";
         }
-        if (cP(str5) && cP(str6)) {
+        if (cO(str5) && cO(str6)) {
             File file = new File(String.valueOf(str5) + str2);
             File file2 = new File(String.valueOf(str6) + str4);
             if (!file.renameTo(file2)) {
@@ -410,7 +410,7 @@ public class m {
         return null;
     }
 
-    public static Bitmap Y(String str, String str2) {
+    public static Bitmap X(String str, String str2) {
         String str3;
         if (str != null) {
             str3 = oH + "/" + TbConfig.getTempDirName() + "/" + str + "/";
@@ -433,14 +433,14 @@ public class m {
         }
     }
 
-    public static String f(String str, byte[] bArr) {
+    public static String g(String str, byte[] bArr) {
         return d(null, str, bArr);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [832=10, 833=5, 826=5, 827=5, 829=5, 830=5, 831=10] */
     public static String d(String str, String str2, byte[] bArr) {
         String str3 = str != null ? oH + "/" + TbConfig.getTempDirName() + "/" + str + "/" : oH + "/" + TbConfig.getTempDirName() + "/";
-        if (!cP(str3) || bArr == null || str2 == null) {
+        if (!cO(str3) || bArr == null || str2 == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -541,7 +541,7 @@ public class m {
     public static String a(String str, String str2, InputStream inputStream) {
         String str3;
         FileOutputStream fileOutputStream;
-        if (!cP(str != null ? oH + "/" + TbConfig.getTempDirName() + "/" + str + "/" : oH + "/" + TbConfig.getTempDirName() + "/") || inputStream == null || str2 == null) {
+        if (!cO(str != null ? oH + "/" + TbConfig.getTempDirName() + "/" + str + "/" : oH + "/" + TbConfig.getTempDirName() + "/") || inputStream == null || str2 == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -560,10 +560,10 @@ public class m {
         try {
             try {
                 if (file.exists() && !file.delete()) {
-                    com.baidu.adp.lib.util.o.a((OutputStream) null);
+                    com.baidu.adp.lib.util.o.b((OutputStream) null);
                     return null;
                 } else if (!file.createNewFile()) {
-                    com.baidu.adp.lib.util.o.a((OutputStream) null);
+                    com.baidu.adp.lib.util.o.b((OutputStream) null);
                     return null;
                 } else {
                     fileOutputStream = new FileOutputStream(file);
@@ -574,7 +574,7 @@ public class m {
                             if (read == -1) {
                                 fileOutputStream.flush();
                                 String path = file.getPath();
-                                com.baidu.adp.lib.util.o.a((OutputStream) fileOutputStream);
+                                com.baidu.adp.lib.util.o.b((OutputStream) fileOutputStream);
                                 return path;
                             }
                             fileOutputStream.write(bArr, 0, read);
@@ -583,13 +583,13 @@ public class m {
                         e = e;
                         BdLog.e(e.getMessage());
                         TiebaStatic.file(e, "FileHelper.saveFile " + str + "/" + str2);
-                        com.baidu.adp.lib.util.o.a((OutputStream) fileOutputStream);
+                        com.baidu.adp.lib.util.o.b((OutputStream) fileOutputStream);
                         return null;
                     }
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.util.o.a((OutputStream) r2);
+                com.baidu.adp.lib.util.o.b((OutputStream) r2);
                 throw th;
             }
         } catch (IOException e2) {
@@ -598,14 +598,14 @@ public class m {
         } catch (Throwable th2) {
             th = th2;
             r2 = 0;
-            com.baidu.adp.lib.util.o.a((OutputStream) r2);
+            com.baidu.adp.lib.util.o.b((OutputStream) r2);
             throw th;
         }
     }
 
-    public static byte[] Z(String str, String str2) {
+    public static byte[] Y(String str, String str2) {
         String str3;
-        if (!sZ() || str2 == null) {
+        if (!sW() || str2 == null) {
             return null;
         }
         if (str != null) {
@@ -922,12 +922,12 @@ public class m {
         }
     }
 
-    public static boolean aa(String str, String str2) {
+    public static boolean Z(String str, String str2) {
         return b(str, str2, false);
     }
 
-    public static InputStream cY(String str) {
-        return m(cS(str));
+    public static InputStream cX(String str) {
+        return m(cR(str));
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x000a, code lost:
@@ -936,7 +936,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static InputStream cZ(String str) {
+    public static InputStream cY(String str) {
         File file = null;
         File file2 = new File(str);
         try {
@@ -965,8 +965,8 @@ public class m {
         return null;
     }
 
-    public static boolean da(String str) {
-        if (sZ()) {
+    public static boolean cZ(String str) {
+        if (sW()) {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -982,7 +982,7 @@ public class m {
         return false;
     }
 
-    public static boolean db(String str) {
+    public static boolean da(String str) {
         try {
             File file = new File(oH + "/" + TbConfig.getTempDirName() + "/" + str);
             if (file.exists()) {
@@ -1025,11 +1025,11 @@ public class m {
         return oH + "/" + TbConfig.getTempDirName() + "/";
     }
 
-    public static String ta() {
+    public static String sX() {
         return oH + "/tieba/download";
     }
 
-    public static boolean ab(String str, String str2) {
+    public static boolean aa(String str, String str2) {
         File file = new File(str);
         File file2 = new File(str2);
         String parent = file2.getParent();
@@ -1045,9 +1045,9 @@ public class m {
         return false;
     }
 
-    public static long tb() {
+    public static long sY() {
         String absolutePath;
-        if (bF()) {
+        if (bG()) {
             absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
         } else {
             absolutePath = Environment.getRootDirectory().getAbsolutePath();
@@ -1064,13 +1064,13 @@ public class m {
     }
 
     private static String a(int i, String str, boolean z) {
-        if (VF == null) {
+        if (VV == null) {
             return null;
         }
-        File[] listFiles = VF.listFiles();
-        String cm = cm(i);
+        File[] listFiles = VV.listFiles();
+        String cn = cn(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
-            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cm)) {
+            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cn)) {
                 if (listFiles[i2].getName().endsWith(str)) {
                     return listFiles[i2].getAbsolutePath();
                 }
@@ -1082,7 +1082,7 @@ public class m {
         return null;
     }
 
-    public static String cm(int i) {
+    public static String cn(int i) {
         switch (i) {
             case 1:
                 return "voice";
@@ -1099,8 +1099,8 @@ public class m {
         if (str == null) {
             return null;
         }
-        if (bF()) {
-            if (cQ(b(str, i, false))) {
+        if (bG()) {
+            if (cP(b(str, i, false))) {
                 return b(str, i, true);
             }
             return null;
@@ -1109,20 +1109,20 @@ public class m {
     }
 
     public static String b(String str, int i, boolean z) {
-        if (!bF()) {
+        if (!bG()) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         if (z) {
             sb.append(getCacheDir());
         }
-        sb.append(cm(i));
+        sb.append(cn(i));
         sb.append(File.separator);
         sb.append(str);
         return sb.toString();
     }
 
-    public static long dc(String str) {
+    public static long db(String str) {
         if (StringUtils.isNull(str)) {
             return 0L;
         }
@@ -1218,7 +1218,7 @@ public class m {
         return j;
     }
 
-    public static void dd(String str) {
+    public static void dc(String str) {
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -1231,11 +1231,11 @@ public class m {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static final String VG = TbadkCoreApplication.m11getInst().getApp().getFileStreamPath("").getAbsolutePath();
+        public static final String VW = TbadkCoreApplication.m9getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
-        public static boolean dg(String str) {
+        public static boolean df(String str) {
             try {
-                return new File(new StringBuilder(String.valueOf(VG)).append("/").append(str).toString()).exists();
+                return new File(new StringBuilder(String.valueOf(VW)).append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -1243,9 +1243,9 @@ public class m {
             }
         }
 
-        public static boolean dh(String str) {
+        public static boolean createFile(String str) {
             try {
-                File file = new File(String.valueOf(VG) + "/" + str);
+                File file = new File(String.valueOf(VW) + "/" + str);
                 if (file.exists()) {
                     return false;
                 }
@@ -1279,9 +1279,9 @@ public class m {
             }
         }
 
-        public static boolean db(String str) {
+        public static boolean da(String str) {
             try {
-                File file = new File(String.valueOf(VG) + "/" + str);
+                File file = new File(String.valueOf(VW) + "/" + str);
                 if (file.exists()) {
                     if (!file.isDirectory()) {
                         return false;
@@ -1296,10 +1296,10 @@ public class m {
             }
         }
 
-        public static String di(String str) {
+        public static String dg(String str) {
             String str2 = null;
             try {
-                File file = new File(String.valueOf(VG) + "/" + str);
+                File file = new File(String.valueOf(VW) + "/" + str);
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
@@ -1321,7 +1321,7 @@ public class m {
 
     public static int a(String str, byte[] bArr, Context context) {
         String str2;
-        String dy;
+        String dB;
         Bitmap decodeByteArray;
         int i = -1;
         if (bArr == null || str == null || str.length() == 0 || context == null) {
@@ -1334,17 +1334,17 @@ public class m {
                 str2 = ".gif";
             }
             if (com.baidu.adp.lib.util.k.k(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.d.eY().Bitmap2Bytes(decodeByteArray, 100);
+                bArr = com.baidu.adp.lib.util.d.eZ().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
-            if (ba.dy(str) != null) {
-                String str3 = String.valueOf(dy) + str2;
-                for (int i2 = 0; cQ(str3) && i2 < 10000; i2++) {
-                    str3 = String.valueOf(dy) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
+            if (bc.dB(str) != null) {
+                String str3 = String.valueOf(dB) + str2;
+                for (int i2 = 0; cP(str3) && i2 < 10000; i2++) {
+                    str3 = String.valueOf(dB) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
                 }
-                String f = f(str3, bArr);
-                if (f != null) {
-                    new z(context).dn(f);
+                String g = g(str3, bArr);
+                if (g != null) {
+                    new z(context).dl(g);
                     i = 0;
                     return 0;
                 }
@@ -1407,14 +1407,14 @@ public class m {
         }
     }
 
-    public static boolean de(String str) {
+    public static boolean dd(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String df(String str) {
+    public static String de(String str) {
         String[] split;
         if (StringUtils.isNull(str, true) || (split = str.split(".")) == null || split.length <= 1) {
             return null;

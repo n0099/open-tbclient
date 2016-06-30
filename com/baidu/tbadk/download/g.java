@@ -7,7 +7,7 @@ public class g implements d {
     @Override // com.baidu.tbadk.download.d
     public void d(DownloadData downloadData) {
         if (downloadData != null) {
-            h.AZ().h(downloadData);
+            h.Bi().h(downloadData);
         }
     }
 
@@ -32,16 +32,16 @@ public class g implements d {
     @Override // com.baidu.tbadk.download.d
     public void f(DownloadData downloadData) {
         if (downloadData != null) {
-            h.AZ().h(downloadData);
+            h.Bi().h(downloadData);
             if (downloadData.isNeedInvokeApk()) {
-                UtilHelper.install_apk(TbadkCoreApplication.m11getInst().getApp(), downloadData.getPath());
+                UtilHelper.install_apk(TbadkCoreApplication.m9getInst().getApp(), downloadData.getPath());
             }
         }
     }
 
     @Override // com.baidu.tbadk.download.d
     public void a(DownloadData downloadData, int i, String str) {
-        h.AZ().j(downloadData);
-        h.AZ().h(downloadData);
+        h.Bi().j(downloadData);
+        h.Bi().h(downloadData);
     }
 }

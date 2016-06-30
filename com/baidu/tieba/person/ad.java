@@ -1,58 +1,35 @@
 package com.baidu.tieba.person;
 
-import android.content.Intent;
 import android.view.View;
-import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class ad implements AdapterView.OnItemClickListener {
-    final /* synthetic */ s dvP;
+class ad implements View.OnClickListener {
+    final /* synthetic */ t eeh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(s sVar) {
-        this.dvP = sVar;
+    public ad(t tVar) {
+        this.eeh = tVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ae aeVar;
-        boolean z;
-        ae aeVar2;
-        PersonBarActivity aBF;
-        boolean z2;
-        PersonBarActivity aBF2;
-        PersonBarActivity aBF3;
-        PersonBarActivity aBF4;
-        aeVar = this.dvP.dvz;
-        if (aeVar.getItem(i) != null) {
-            z = this.dvP.dvE;
-            if (!z) {
-                this.dvP.dar = i;
-                aeVar2 = this.dvP.dvz;
-                ForumData forumData = (ForumData) aeVar2.getItem(i);
-                if (forumData != null) {
-                    aBF = this.dvP.aBF();
-                    if (aBF != null) {
-                        z2 = this.dvP.dur;
-                        if (z2) {
-                            Intent intent = new Intent();
-                            intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
-                            intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
-                            aBF3 = this.dvP.aBF();
-                            this.dvP.aBF();
-                            aBF3.setResult(-1, intent);
-                            aBF4 = this.dvP.aBF();
-                            aBF4.finish();
-                            return;
-                        }
-                        s sVar = this.dvP;
-                        aBF2 = this.dvP.aBF();
-                        sVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(aBF2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
-                    }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        af afVar;
+        af afVar2;
+        PersonBarActivity aKx;
+        PersonBarActivity aKx2;
+        int intValue = ((Integer) view.getTag()).intValue();
+        if (intValue >= 0) {
+            afVar = this.eeh.edR;
+            if (intValue < afVar.getCount()) {
+                afVar2 = this.eeh.edR;
+                ForumData forumData = (ForumData) afVar2.getItem(intValue);
+                aKx = this.eeh.aKx();
+                if (aKx != null) {
+                    aKx2 = this.eeh.aKx();
+                    this.eeh.sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(aKx2.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
                 }
             }
         }

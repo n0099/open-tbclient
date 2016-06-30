@@ -9,24 +9,23 @@ public interface t {
 
     boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    void c(String str, byte[] bArr);
+    void d(String str, byte[] bArr);
 
-    void dl();
+    void dm();
 
-    /* renamed from: do */
-    void mo15do();
+    void dp();
 
     void k(ArrayList<BasicNameValuePair> arrayList);
 
     void n(String str, String str2);
 
-    ArrayList<BasicNameValuePair> tc();
+    ArrayList<BasicNameValuePair> sZ();
+
+    String ta();
+
+    byte[] tb();
+
+    String tc();
 
     String td();
-
-    byte[] te();
-
-    String tf();
-
-    String tg();
 }

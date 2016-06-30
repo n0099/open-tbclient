@@ -1,15 +1,15 @@
 package com.baidu.tbadk.widget.richText;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.lib.a.b.a.a.i {
-    static final int aEq = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m11getInst(), t.e.ds360);
-    static final int aEr = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m11getInst(), t.e.ds300);
+    static final int aER = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds360);
+    static final int aES = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds300);
     public long gid;
     public String url;
-    public int width = aEr;
+    public int width = aES;
     public int height = this.width;
 
     public void a(PbContent pbContent) {
@@ -25,12 +25,12 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public void fb(int i) {
+    public void fh(int i) {
         if (i == 1) {
-            this.width = aEq;
+            this.width = aER;
             this.height = this.width;
-        } else if (this.width != this.height || this.width <= 0 || this.width > aEr) {
-            this.width = aEr;
+        } else if (this.width != this.height || this.width <= 0 || this.width > aES) {
+            this.width = aES;
             this.height = this.width;
         }
     }

@@ -1,27 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
-import com.baidu.tieba.usermute.data.MuteUser;
-import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class r implements UserMuteAddAndDelModel.a {
-    final /* synthetic */ PbActivity djE;
+class r extends CustomMessageListener {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(PbActivity pbActivity) {
-        this.djE = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(PbActivity pbActivity, int i) {
+        super(i);
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
-    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
-        cw cwVar;
-        String str = (String) userMuteAddResponseMessage.getOrginalMessage().getExtra();
-        cwVar = this.djE.dih;
-        com.baidu.tieba.pb.data.e pbData = cwVar.getPbData();
-        if (pbData != null) {
-            MuteUser muteUser = new MuteUser();
-            muteUser.setUserId(str);
-            pbData.avM().add(muteUser);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()).getId() != this.dPF.getUniqueId().getId()) {
+            this.dPF.dOS = false;
         }
     }
 }

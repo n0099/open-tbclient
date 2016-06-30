@@ -8,7 +8,7 @@ public interface e {
 
     void a(m.a aVar);
 
-    void c(Map<String, String> map);
+    void d(Map<String, String> map);
 
     boolean d(int i, String str);
 

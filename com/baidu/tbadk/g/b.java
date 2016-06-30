@@ -1,26 +1,16 @@
 package com.baidu.tbadk.g;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.FrameLayout;
 /* loaded from: classes.dex */
-public class b extends Handler {
-    final /* synthetic */ a ayV;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.ayV = aVar;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        if (message.what == 900002 && message.arg2 > 0 && a.ayT != null) {
-            a.ayT.setLength(message.arg1);
-            a.ayT.setSize(message.arg2);
-            if (a.ayT.getCallback() != null) {
-                a.ayT.getCallback().e(a.ayT);
-            }
+public class b implements c {
+    @Override // com.baidu.tbadk.g.c
+    public void a(View view, View view2, boolean z) {
+        FrameLayout frameLayout = (FrameLayout) view;
+        if (z) {
+            frameLayout.addView(view2, 0);
+        } else {
+            frameLayout.addView(view2);
         }
     }
 }

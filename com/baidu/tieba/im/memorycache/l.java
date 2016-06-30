@@ -8,32 +8,32 @@ import java.util.List;
 import protobuf.NewpushRepair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements a.InterfaceC0059a {
-    final /* synthetic */ b cmP;
-    private final /* synthetic */ List cmV;
-    private final /* synthetic */ NewpushRepair.Builder cmW;
+public class l implements a.InterfaceC0064a {
+    final /* synthetic */ b cSe;
+    private final /* synthetic */ List cSk;
+    private final /* synthetic */ NewpushRepair.Builder cSl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(b bVar, List list, NewpushRepair.Builder builder) {
-        this.cmP = bVar;
-        this.cmV = list;
-        this.cmW = builder;
+        this.cSe = bVar;
+        this.cSk = list;
+        this.cSl = builder;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0059a
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0064a
     public void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
             long c = com.baidu.adp.lib.h.b.c(next.getGid(), 0L);
             long sid = next.getSid();
             if (sid > 0) {
-                this.cmV.add(MessageUtils.makeNewpushGroupRepair(c, next.getUserType(), sid, 0L, com.baidu.tieba.im.util.g.bl(next.getPulled_msgId())));
+                this.cSk.add(MessageUtils.makeNewpushGroupRepair(c, next.getUserType(), sid, 0L, com.baidu.tieba.im.util.g.bN(next.getPulled_msgId())));
             }
         }
-        if (this.cmV.size() <= 10) {
-            this.cmW.groups = this.cmV;
+        if (this.cSk.size() <= 10) {
+            this.cSl.groups = this.cSk;
             return;
         }
-        this.cmW.followType = "0";
+        this.cSl.followType = "0";
     }
 }

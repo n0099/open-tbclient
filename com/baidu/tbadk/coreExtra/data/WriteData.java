@@ -12,6 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
     public static final int NEW = 0;
+    public static final int NEW_ECOMM = 7;
     public static final int NEW_PHOTO_LIVE = 4;
     public static final int NEW_VOTE = 6;
     public static final int REPLY = 1;
@@ -69,12 +70,15 @@ public class WriteData implements Serializable {
     private String mTitle;
     private int mType;
     private String mVcode;
+    private VcodeExtra mVcodeExtra;
     private String mVcodeMD5;
+    private String mVcodeType;
     private String mVcodeUrl;
     private VideoInfo mVideoInfo;
     private int mVideoReviewType;
     private String mVoiceMd5;
     private VoteInfo mVoteInfo;
+    public long productId;
     private WriteImagesInfo writeImagesInfo;
 
     public boolean isBabaoPosted() {
@@ -746,5 +750,21 @@ public class WriteData implements Serializable {
 
     public String getGraffitiImageId() {
         return this.mGraffitiImageId;
+    }
+
+    public VcodeExtra getVcodeExtra() {
+        return this.mVcodeExtra;
+    }
+
+    public void setVcodeExtra(VcodeExtra vcodeExtra) {
+        this.mVcodeExtra = vcodeExtra;
+    }
+
+    public void setVcodeType(String str) {
+        this.mVcodeType = str;
+    }
+
+    public String getVcodeType() {
+        return this.mVcodeType;
     }
 }

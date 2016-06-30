@@ -1,40 +1,29 @@
 package com.baidu.tieba.enterForum.b;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.as;
+import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.ForumRecommend.Banner;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class h {
-    private ArrayList<as> aWV = new ArrayList<>();
+    ArrayList<g> bsR = new ArrayList<>();
 
-    public ArrayList<as> Mq() {
-        return this.aWV;
+    public List<g> RT() {
+        return this.bsR;
     }
 
-    public void N(List<?> list) {
-        if (list != null && !list.isEmpty()) {
-            a(list, null);
-        }
-    }
-
-    public void a(List<?> list, Context context) {
-        if (list != null && !list.isEmpty()) {
-            try {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) instanceof Banner) {
-                        as asVar = new as();
-                        asVar.a((Banner) list.get(i));
-                        this.aWV.add(asVar);
-                    } else {
-                        return;
+    public void Z(List<RecommendForumInfo> list) {
+        if (list != null && list.size() > 0) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (list.get(i) instanceof RecommendForumInfo) {
+                    RecommendForumInfo recommendForumInfo = list.get(i);
+                    g gVar = new g();
+                    if (recommendForumInfo != null && recommendForumInfo.forum_id != null && recommendForumInfo.forum_id.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && recommendForumInfo.is_like != null && recommendForumInfo.is_like.intValue() != 1) {
+                        gVar.b(recommendForumInfo);
+                        this.bsR.add(gVar);
                     }
                 }
-            } catch (Exception e) {
-                BdLog.detailException(e);
             }
         }
     }

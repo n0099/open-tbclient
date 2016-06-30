@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 import android.view.KeyEvent;
 /* loaded from: classes.dex */
 class k implements DialogInterface.OnKeyListener {
-    final /* synthetic */ WriteShareActivity fac;
+    final /* synthetic */ WriteShareActivity fFg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(WriteShareActivity writeShareActivity) {
-        this.fac = writeShareActivity;
+        this.fFg = writeShareActivity;
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -19,27 +19,27 @@ class k implements DialogInterface.OnKeyListener {
         o oVar3;
         o oVar4;
         if (i == 4) {
-            oVar = this.fac.eZM;
+            oVar = this.fFg.fEQ;
             if (oVar != null) {
-                oVar2 = this.fac.eZM;
-                if (oVar2.bct() != null) {
-                    oVar3 = this.fac.eZM;
-                    if (oVar3.bct().isShowing()) {
-                        oVar4 = this.fac.eZM;
-                        com.baidu.adp.lib.h.j.a(oVar4.bct(), this.fac.getPageContext().getPageActivity());
+                oVar2 = this.fFg.fEQ;
+                if (oVar2.bkO() != null) {
+                    oVar3 = this.fFg.fEQ;
+                    if (oVar3.bkO().isShowing()) {
+                        oVar4 = this.fFg.fEQ;
+                        com.baidu.adp.lib.h.j.a(oVar4.bkO(), this.fFg.getPageContext().getPageActivity());
                         return true;
                     }
                 }
             }
-            this.fac.bci();
-            z = this.fac.eZP;
+            this.fFg.bkD();
+            z = this.fFg.fET;
             if (z) {
-                this.fac.setResult(-1);
+                this.fFg.setResult(-1);
             } else {
-                this.fac.setResult(0);
+                this.fFg.setResult(0);
             }
-            com.baidu.tbadk.core.e.b.b(this.fac.getPageContext().getPageActivity(), 200, false);
-            this.fac.finish();
+            com.baidu.tbadk.core.d.b.c(this.fFg.getPageContext().getPageActivity(), 200, false);
+            this.fFg.finish();
             return true;
         }
         return false;

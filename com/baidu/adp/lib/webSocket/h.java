@@ -17,7 +17,7 @@ public class h {
     private j qx = null;
     private ArrayList<g.a> qy = new ArrayList<>();
 
-    public static h gf() {
+    public static h gg() {
         if (qs == null) {
             synchronized (h.class) {
                 if (qs == null) {
@@ -33,7 +33,7 @@ public class h {
         this.qw = str2;
         this.qv = strArr;
         this.qu = list;
-        isDebug();
+        gl();
     }
 
     private h() {
@@ -41,13 +41,13 @@ public class h {
         this.qz = new i(this);
     }
 
-    public boolean gg() {
-        if (isDebug()) {
-            com.baidu.adp.lib.util.k.fF();
+    public boolean gh() {
+        if (gl()) {
+            com.baidu.adp.lib.util.k.fG();
         }
         if (this.qx != null) {
-            if (this.qx.gj() || this.qx.isOpen()) {
-                isDebug();
+            if (this.qx.gk() || this.qx.isOpen()) {
+                gl();
                 return true;
             }
             this.qx.close(1, null);
@@ -77,32 +77,32 @@ public class h {
         }
     }
 
-    public boolean gh() {
-        if (isDebug()) {
-            com.baidu.adp.lib.util.k.fF();
+    public boolean gi() {
+        if (gl()) {
+            com.baidu.adp.lib.util.k.fG();
         }
-        return (this.qx == null || !this.qx.isOpen() || this.qx.gq()) ? false : true;
+        return (this.qx == null || !this.qx.isOpen() || this.qx.gs()) ? false : true;
     }
 
-    public boolean gi() {
-        if (isDebug()) {
-            com.baidu.adp.lib.util.k.fF();
+    public boolean gj() {
+        if (gl()) {
+            com.baidu.adp.lib.util.k.fG();
         }
         return this.qx != null && this.qx.isOpen();
     }
 
-    public boolean gj() {
-        if (isDebug()) {
-            com.baidu.adp.lib.util.k.fF();
+    public boolean gk() {
+        if (gl()) {
+            com.baidu.adp.lib.util.k.fG();
         }
-        return this.qx != null && this.qx.gj();
+        return this.qx != null && this.qx.gk();
     }
 
     public synchronized boolean sendMessage(c cVar) {
         boolean z = false;
         synchronized (this) {
             if (cVar != null) {
-                com.baidu.adp.lib.util.k.fF();
+                com.baidu.adp.lib.util.k.fG();
                 if (this.qx != null) {
                     z = this.qx.sendMessage(cVar);
                 } else if (cVar != null) {
@@ -124,13 +124,13 @@ public class h {
         return false;
     }
 
-    private boolean isDebug() {
+    private boolean gl() {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void gk() {
+    public void gm() {
         if (this.qx != null) {
-            this.qx.gk();
+            this.qx.gm();
         }
     }
 
@@ -141,9 +141,9 @@ public class h {
         return -1L;
     }
 
-    public void gl() {
+    public void gn() {
         if (this.qx != null) {
-            this.qx.gl();
+            this.qx.gn();
         }
     }
 
@@ -154,37 +154,37 @@ public class h {
         return -1L;
     }
 
-    public long gb() {
-        if (this.qx != null) {
-            return this.qx.gr();
-        }
-        return -1L;
-    }
-
-    public String ga() {
-        if (this.qx != null) {
-            return this.qx.gs();
-        }
-        return null;
-    }
-
-    public long gm() {
+    public long gd() {
         if (this.qx != null) {
             return this.qx.gt();
         }
         return -1L;
     }
 
-    public String fI() {
+    public String gb() {
         if (this.qx != null) {
-            return this.qx.fI();
+            return this.qx.gu();
         }
         return null;
+    }
+
+    public long go() {
+        if (this.qx != null) {
+            return this.qx.gv();
+        }
+        return -1L;
     }
 
     public String fJ() {
         if (this.qx != null) {
             return this.qx.fJ();
+        }
+        return null;
+    }
+
+    public String fK() {
+        if (this.qx != null) {
+            return this.qx.fK();
         }
         return null;
     }

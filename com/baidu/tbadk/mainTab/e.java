@@ -13,11 +13,11 @@ public class e {
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.De() != null) {
+        if (bVar != null && bVar.Dm() != null) {
             Iterator<b> it = this.Lc.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.De() != null && next.De().type == bVar.De().type) {
+                if (next != null && next.Dm() != null && next.Dm().type == bVar.Dm().type) {
                     return;
                 }
             }
@@ -25,7 +25,7 @@ public class e {
         }
     }
 
-    public ArrayList<b> nA() {
+    public ArrayList<b> nv() {
         return this.Lc;
     }
 

@@ -12,14 +12,14 @@ class d implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<String> run(CustomMessage<HashMap<String, String>> customMessage) {
         HashMap<String, String> data = customMessage.getData();
-        Intent intent = new Intent(TbadkCoreApplication.m11getInst().getContext(), FatalErrorService.class);
+        Intent intent = new Intent(TbadkCoreApplication.m9getInst().getContext(), FatalErrorService.class);
         if (data != null && IntentConfig.START.equals(data.get("type"))) {
             intent.putExtra("uname", data.get("uname"));
             intent.putExtra("uid", data.get("uid"));
-            TbadkCoreApplication.m11getInst().getContext().startService(intent);
+            TbadkCoreApplication.m9getInst().getContext().startService(intent);
             return null;
         } else if (IntentConfig.STOP.equals(data)) {
-            TbadkCoreApplication.m11getInst().getContext().stopService(intent);
+            TbadkCoreApplication.m9getInst().getContext().stopService(intent);
             return null;
         } else {
             return null;

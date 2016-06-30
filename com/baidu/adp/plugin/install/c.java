@@ -4,11 +4,11 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.lib.a.b.a.a.i {
     protected String apkFilePath;
-    protected String pkgName;
-    protected boolean tD;
-    protected long tE;
+    protected boolean tF;
+    protected long tG;
+    protected String tc;
 
-    public long gZ() {
-        return Math.max(Math.min(this.tE * 80, 240000L), (long) TbConfig.USE_TIME_INTERVAL);
+    public long hb() {
+        return Math.max(Math.min(this.tG * 80, 240000L), (long) TbConfig.USE_TIME_INTERVAL);
     }
 }

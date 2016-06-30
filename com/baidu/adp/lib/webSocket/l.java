@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class l implements g.a {
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void d(Map<String, String> map) {
+    public void e(Map<String, String> map) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
@@ -30,7 +30,7 @@ public class l implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void ge() {
+    public void gf() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

@@ -14,82 +14,82 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.UserLikeButton;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class o extends a<com.baidu.tieba.card.a.h> {
-    private View DM;
-    private TbPageContext<?> DV;
-    public UserLikeButton aOX;
-    public ClickableHeaderImageView aOY;
-    private TextView aPa;
-    private TextView aPb;
-    private MetaData aPd;
-    private com.baidu.tieba.card.a.h aPe;
-    private TextView aPf;
+public class o extends a<com.baidu.tieba.card.a.i> {
+    private View DO;
+    private TbPageContext<?> Ea;
+    private com.baidu.tieba.card.a.i aSA;
+    private TextView aSB;
+    public UserLikeButton aSe;
+    public ClickableHeaderImageView aSu;
+    private TextView aSw;
+    private TextView aSx;
+    private MetaData aSz;
 
     public o(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.DV = tbPageContext;
+        this.Ea = tbPageContext;
         getView().setOnClickListener(this);
-        this.aOY = (ClickableHeaderImageView) getView().findViewById(t.g.god_header_view);
-        this.aOY.setGodIconMargin(t.e.ds6);
-        this.aOY.setAfterClickListener(this);
-        this.aPa = (TextView) getView().findViewById(t.g.god_name);
-        this.aPb = (TextView) getView().findViewById(t.g.god_describe);
-        this.aPf = (TextView) getView().findViewById(t.g.rec_reason);
-        this.aOX = (UserLikeButton) getView().findViewById(t.g.god_like_btn);
-        this.aOX.setAfterClickListener(this);
-        this.DM = getView().findViewById(t.g.bottom_line);
+        this.aSu = (ClickableHeaderImageView) getView().findViewById(u.g.god_header_view);
+        this.aSu.setGodIconMargin(u.e.ds6);
+        this.aSu.setAfterClickListener(this);
+        this.aSw = (TextView) getView().findViewById(u.g.god_name);
+        this.aSx = (TextView) getView().findViewById(u.g.god_describe);
+        this.aSB = (TextView) getView().findViewById(u.g.rec_reason);
+        this.aSe = (UserLikeButton) getView().findViewById(u.g.god_like_btn);
+        this.aSe.setAfterClickListener(this);
+        this.DO = getView().findViewById(u.g.bottom_line);
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.aOX != null) {
-            this.aOX.i(bdUniqueId);
+        if (bdUniqueId != null && this.aSe != null) {
+            this.aSe.i(bdUniqueId);
         }
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.at.k(getView(), t.f.home_thread_card_item_bg);
-            com.baidu.tbadk.core.util.at.j((View) this.aPa, t.d.cp_cont_b);
-            com.baidu.tbadk.core.util.at.j((View) this.aPb, t.d.cp_cont_d);
-            com.baidu.tbadk.core.util.at.j((View) this.aPf, t.d.cp_cont_d);
-            com.baidu.tbadk.core.util.at.l(this.DM, t.d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.av.k(getView(), u.f.home_thread_card_item_bg);
+            com.baidu.tbadk.core.util.av.j((View) this.aSw, u.d.cp_cont_b);
+            com.baidu.tbadk.core.util.av.j((View) this.aSx, u.d.cp_cont_d);
+            com.baidu.tbadk.core.util.av.j((View) this.aSB, u.d.cp_cont_d);
+            com.baidu.tbadk.core.util.av.l(this.DO, u.d.cp_bg_line_b);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
-    public int JP() {
-        return t.h.card_god_square_rec_god;
+    public int getLayout() {
+        return u.h.card_god_square_rec_god;
     }
 
-    public void a(com.baidu.tieba.card.a.h hVar) {
-        if (hVar != null && hVar.author != null && hVar.author.getGodUserData() != null) {
-            this.aPe = hVar;
-            this.aPd = hVar.author;
-            this.aOY.setData(hVar.author);
-            this.aPa.setText(hVar.author.getName_show());
-            this.aPb.setText(hVar.author.getGodUserData().getIntro());
-            String string = this.DV.getResources().getString(t.j.recommend_reason);
-            String recommendReason = hVar.author.getGodUserData().getRecommendReason();
+    public void a(com.baidu.tieba.card.a.i iVar) {
+        if (iVar != null && iVar.author != null && iVar.author.getGodUserData() != null) {
+            this.aSA = iVar;
+            this.aSz = iVar.author;
+            this.aSu.setData(iVar.author);
+            this.aSw.setText(iVar.author.getName_show());
+            this.aSx.setText(iVar.author.getGodUserData().getIntro());
+            String string = this.Ea.getResources().getString(u.j.recommend_reason);
+            String recommendReason = iVar.author.getGodUserData().getRecommendReason();
             if (StringUtils.isNull(recommendReason)) {
-                this.aPf.setText("");
+                this.aSB.setText("");
             } else {
-                this.aPf.setText(String.format(string, recommendReason));
+                this.aSB.setText(String.format(string, recommendReason));
             }
-            this.aOX.setData(hVar.author);
-            d(null, TbadkCoreApplication.m11getInst().getSkinType());
+            this.aSe.setData(iVar.author);
+            d(null, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (JO() != null) {
-            JO().a(view, this.aPe);
+        if (KO() != null) {
+            KO().a(view, this.aSA);
         }
-        if (view == getView() && this.aPd != null && !StringUtils.isNull(this.aPd.getName_show()) && !StringUtils.isNull(this.aPd.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.DV.getPageActivity(), this.aPd.getUserId(), this.aPd.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        if (view == getView() && this.aSz != null && !StringUtils.isNull(this.aSz.getName_show()) && !StringUtils.isNull(this.aSz.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.Ea.getPageActivity(), this.aSz.getUserId(), this.aSz.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 }

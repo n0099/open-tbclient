@@ -18,19 +18,19 @@ public class i extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bg bgVar;
-        bj bjVar;
-        bg bgVar2;
-        bj bjVar2;
+        bp bpVar;
+        bs bsVar;
+        bp bpVar2;
+        bs bsVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
-            bgVar = this.this$0.dyP;
-            if (bgVar.aDD() != null) {
-                bjVar = this.this$0.dFA;
-                if (bjVar != null) {
-                    bgVar2 = this.this$0.dyP;
-                    bgVar2.aDD().setIsFriend(1);
-                    bjVar2 = this.this$0.dFA;
-                    bjVar2.aEm();
+            bpVar = this.this$0.eht;
+            if (bpVar.aMy() != null) {
+                bsVar = this.this$0.eoE;
+                if (bsVar != null) {
+                    bpVar2 = this.this$0.eht;
+                    bpVar2.aMy().setIsFriend(1);
+                    bsVar2 = this.this$0.eoE;
+                    bsVar2.aNg();
                 }
             }
         }

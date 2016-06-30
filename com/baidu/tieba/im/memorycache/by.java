@@ -11,17 +11,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class by implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ bx cof;
-    private final /* synthetic */ List cog;
-    private final /* synthetic */ MemoryClearStrangerItemsMessage.a coh;
-    private final /* synthetic */ MemoryClearStrangerItemsMessage coi;
+    final /* synthetic */ bx cTu;
+    private final /* synthetic */ List cTv;
+    private final /* synthetic */ MemoryClearStrangerItemsMessage.a cTw;
+    private final /* synthetic */ MemoryClearStrangerItemsMessage cTx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public by(bx bxVar, List list, MemoryClearStrangerItemsMessage.a aVar, MemoryClearStrangerItemsMessage memoryClearStrangerItemsMessage) {
-        this.cof = bxVar;
-        this.cog = list;
-        this.coh = aVar;
-        this.coi = memoryClearStrangerItemsMessage;
+        this.cTu = bxVar;
+        this.cTv = list;
+        this.cTw = aVar;
+        this.cTx = memoryClearStrangerItemsMessage;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -29,25 +29,25 @@ public class by implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage != null) {
             try {
                 if (customMessage instanceof CustomMessage) {
-                    com.baidu.tieba.im.db.g.aev().aew();
-                    for (ImMessageCenterPojo imMessageCenterPojo : this.cog) {
-                        com.baidu.tieba.im.db.i.aez().c(imMessageCenterPojo);
+                    com.baidu.tieba.im.db.g.amK().amL();
+                    for (ImMessageCenterPojo imMessageCenterPojo : this.cTv) {
+                        com.baidu.tieba.im.db.i.amO().c(imMessageCenterPojo);
                     }
-                    for (MemoryModifyVisibilityMessage.a aVar : this.coh.datas) {
-                        com.baidu.tieba.im.db.l.aeF().jd(aVar.id);
+                    for (MemoryModifyVisibilityMessage.a aVar : this.cTw.datas) {
+                        com.baidu.tieba.im.db.l.amU().kw(aVar.id);
                     }
-                    if (this.coi.isAllClear()) {
+                    if (this.cTx.isAllClear()) {
                         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                         imMessageCenterPojo2.setGid("-1001");
                         imMessageCenterPojo2.setCustomGroupType(-7);
                         imMessageCenterPojo2.setIs_hidden(1);
-                        com.baidu.tieba.im.db.i.aez().c(imMessageCenterPojo2);
+                        com.baidu.tieba.im.db.i.amO().c(imMessageCenterPojo2);
                     }
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                com.baidu.tieba.im.db.g.aev().endTransaction();
+                com.baidu.tieba.im.db.g.amK().endTransaction();
             }
         }
         return null;

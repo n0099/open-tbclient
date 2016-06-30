@@ -18,117 +18,117 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ImMemoryCacheRegisterStatic {
-    private static volatile ImMemoryCacheRegisterStatic cmY;
-    private ResponseOnlineMessage cmX;
-    private com.baidu.adp.framework.listener.e cmZ = new u(this, 0);
-    private com.baidu.adp.framework.listener.e cna = new al(this, 0);
-    private CustomMessageListener cnb = new bh(this, 0);
-    private CustomMessageListener cnc = new bq(this, 0);
-    private CustomMessageListener cnd = new br(this, 0);
-    private CustomMessageListener cne = new bs(this, 0);
-    private CustomMessageListener cnf = new bu(this, 0);
-    private CustomMessageListener cng = new bv(this, 0);
-    private CustomMessageListener cnh = new bx(this, 0);
-    private CustomMessageListener cni = new w(this, 0);
-    private CustomMessageListener cnj = new x(this, 0);
-    private com.baidu.adp.framework.listener.e cnk = new z(this, 0);
-    private CustomMessageListener cnl = new aa(this, 0);
-    private CustomMessageListener aIO = new ab(this, 0);
-    private CustomMessageListener cnm = new ac(this, 0);
-    private CustomMessageListener cnn = new ae(this, 0);
-    private CustomMessageListener cno = new af(this, 0);
-    private CustomMessageListener cnp = new ah(this, 0);
-    private CustomMessageListener cnq = new aj(this, CmdConfigCustom.MEMORY_UPDATE_ITEM_CREATE_GROUP);
-    private CustomMessageTask.CustomRunnable<Integer> cnr = new an(this);
-    private CustomMessageListener cns = new ao(this, 0);
-    CustomMessageListener cnt = new as(this, 0);
-    private com.baidu.adp.framework.listener.e cnu = new av(this, 0);
-    private CustomMessageListener cnv = new ax(this, 0);
-    private CustomMessageListener cnw = new az(this, CmdConfigCustom.MEMORY_UPDATE_GROUP_HEAD_NAME);
-    private CustomMessageListener cnx = new bb(this, CmdConfigCustom.MEMORY_UPDATE_PULL_MSG_ID);
-    private CustomMessageListener cny = new bd(this, CmdConfigCustom.CMD_CLEAR_TASK_ID);
-    private a.b cnz = new bf(this);
-    private a.b cnA = new bg(this);
-    private a.b cnB = new bi(this);
-    private a.b cnC = new bj(this);
-    private a.b cnD = new bk(this);
-    private a.b cnE = new bl(this);
-    private a.b cnF = new bm(this);
+    private static volatile ImMemoryCacheRegisterStatic cSn;
+    private ResponseOnlineMessage cSm;
+    private com.baidu.adp.framework.listener.e cSo = new u(this, 0);
+    private com.baidu.adp.framework.listener.e cSp = new al(this, 0);
+    private CustomMessageListener cSq = new bh(this, 0);
+    private CustomMessageListener cSr = new bq(this, 0);
+    private CustomMessageListener cSs = new br(this, 0);
+    private CustomMessageListener cSt = new bs(this, 0);
+    private CustomMessageListener cSu = new bu(this, 0);
+    private CustomMessageListener cSv = new bv(this, 0);
+    private CustomMessageListener cSw = new bx(this, 0);
+    private CustomMessageListener cSx = new w(this, 0);
+    private CustomMessageListener cSy = new x(this, 0);
+    private com.baidu.adp.framework.listener.e cSz = new z(this, 0);
+    private CustomMessageListener cSA = new aa(this, 0);
+    private CustomMessageListener aMl = new ab(this, 0);
+    private CustomMessageListener cSB = new ac(this, 0);
+    private CustomMessageListener cSC = new ae(this, 0);
+    private CustomMessageListener cSD = new af(this, 0);
+    private CustomMessageListener cSE = new ah(this, 0);
+    private CustomMessageListener cSF = new aj(this, CmdConfigCustom.MEMORY_UPDATE_ITEM_CREATE_GROUP);
+    private CustomMessageTask.CustomRunnable<Integer> cSG = new an(this);
+    private CustomMessageListener cSH = new ao(this, 0);
+    CustomMessageListener cSI = new as(this, 0);
+    private com.baidu.adp.framework.listener.e cSJ = new av(this, 0);
+    private CustomMessageListener cSK = new ax(this, 0);
+    private CustomMessageListener cSL = new az(this, CmdConfigCustom.MEMORY_UPDATE_GROUP_HEAD_NAME);
+    private CustomMessageListener cSM = new bb(this, CmdConfigCustom.MEMORY_UPDATE_PULL_MSG_ID);
+    private CustomMessageListener cSN = new bd(this, CmdConfigCustom.CMD_CLEAR_TASK_ID);
+    private a.b cSO = new bf(this);
+    private a.b cSP = new bg(this);
+    private a.b cSQ = new bi(this);
+    private a.b cSR = new bj(this);
+    private a.b cSS = new bk(this);
+    private a.b cST = new bl(this);
+    private a.b cSU = new bm(this);
 
     private ImMemoryCacheRegisterStatic() {
-        Bt();
+        BC();
     }
 
-    private static ImMemoryCacheRegisterStatic ahm() {
-        com.baidu.adp.lib.util.k.fF();
-        if (cmY == null) {
+    private static ImMemoryCacheRegisterStatic apz() {
+        com.baidu.adp.lib.util.k.fG();
+        if (cSn == null) {
             synchronized (ImMemoryCacheRegisterStatic.class) {
-                if (cmY == null) {
-                    cmY = new ImMemoryCacheRegisterStatic();
+                if (cSn == null) {
+                    cSn = new ImMemoryCacheRegisterStatic();
                 }
             }
         }
-        return cmY;
+        return cSn;
     }
 
     static {
-        ahm();
+        apz();
     }
 
-    private void Bt() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_GROUP_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_LIVE_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_NOTIFY_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_SNAP_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_SYSTEM_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_YY_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_GROUP_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_GROUP_CMD, this.cnj);
-        MessageManager.getInstance().registerListener(1001, this.cnk);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, this.aIO);
+    private void BC() {
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_GROUP_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_LIVE_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_NOTIFY_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_SNAP_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_SYSTEM_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_YY_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_GROUP_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_GROUP_CMD, this.cSy);
+        MessageManager.getInstance().registerListener(1001, this.cSz);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, this.aMl);
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.MEMORY_INIT_COMPLETED);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.cnl);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_LAST_MESSAGE, this.cnm);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.IM_CLEAR_MSG, this.cnn);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_VISIBILITY, this.cno);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_UNREAD_COUNT, this.cnp);
-        MessageManager.getInstance().registerListener(this.cnq);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REMOVE_ITEM, this.cni);
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.cnr);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.cSA);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_LAST_MESSAGE, this.cSB);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.IM_CLEAR_MSG, this.cSC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_VISIBILITY, this.cSD);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_UNREAD_COUNT, this.cSE);
+        MessageManager.getInstance().registerListener(this.cSF);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REMOVE_ITEM, this.cSx);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.cSG);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_GROUP_UPDATE, this.cnb);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_VALIDATE, this.cnc);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_LIVE_BROADCAST, this.cnd);
-        MessageManager.getInstance().registerListener(202001, this.cmZ);
-        MessageManager.getInstance().registerListener(205001, this.cna);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NOTICE_CHANGE, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_EVENT_INFO, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP_WARN, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LIVE_NOTIFY_LOCAL, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LIVE_MSG_NOTIFY, this.cns);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_UPDATE_ITEM_JOIN_LIVE, this.cne);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_QUIT_LIVE_GROUP, this.cng);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_UPDATE_ITEM_ENTER_CHAT_ROOM, this.cnf);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MODIFY_LOTS_VISIBILITY, this.cnh);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL, this.cnt);
-        MessageManager.getInstance().registerListener(205006, this.cnu);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_NOTIFY_UPDATA_GROUP, this.cnv);
-        MessageManager.getInstance().registerListener(this.cnw);
-        MessageManager.getInstance().registerListener(this.cnx);
-        MessageManager.getInstance().registerListener(this.cny);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_GROUP_UPDATE, this.cSq);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_VALIDATE, this.cSr);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_LIVE_BROADCAST, this.cSs);
+        MessageManager.getInstance().registerListener(202001, this.cSo);
+        MessageManager.getInstance().registerListener(205001, this.cSp);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NOTICE_CHANGE, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_EVENT_INFO, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP_WARN, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LIVE_NOTIFY_LOCAL, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LIVE_MSG_NOTIFY, this.cSH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_UPDATE_ITEM_JOIN_LIVE, this.cSt);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_QUIT_LIVE_GROUP, this.cSv);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_UPDATE_ITEM_ENTER_CHAT_ROOM, this.cSu);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MODIFY_LOTS_VISIBILITY, this.cSw);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL, this.cSI);
+        MessageManager.getInstance().registerListener(205006, this.cSJ);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_NOTIFY_UPDATA_GROUP, this.cSK);
+        MessageManager.getInstance().registerListener(this.cSL);
+        MessageManager.getInstance().registerListener(this.cSM);
+        MessageManager.getInstance().registerListener(this.cSN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -138,11 +138,11 @@ public class ImMemoryCacheRegisterStatic {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void ahn() {
+    public void apA() {
         StringBuilder sb;
-        if (this.cmX != null) {
+        if (this.cSm != null) {
             StringBuilder sb2 = null;
-            for (GroupUpdateMessage groupUpdateMessage : this.cmX.getGroupInfos()) {
+            for (GroupUpdateMessage groupUpdateMessage : this.cSm.getGroupInfos()) {
                 if (groupUpdateMessage != null) {
                     if (sb2 == null) {
                         sb = new StringBuilder(50);
@@ -156,25 +156,25 @@ public class ImMemoryCacheRegisterStatic {
                     BdLog.i("gid-serverMaxMid:" + groupUpdateMessage.getGroupId() + "-" + groupUpdateMessage.getLastMsgId());
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGid(String.valueOf(groupUpdateMessage.getGroupId()));
-                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.b.a.jw(groupUpdateMessage.getGroupType()));
+                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.b.a.kY(groupUpdateMessage.getGroupType()));
                     imMessageCenterPojo.setGroup_head(groupUpdateMessage.getPortrait());
                     imMessageCenterPojo.setGroup_name(groupUpdateMessage.getName());
-                    imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.bk(groupUpdateMessage.getLastMsgId()));
+                    imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.bM(groupUpdateMessage.getLastMsgId()));
                     if (imMessageCenterPojo.getCustomGroupType() == -2 || imMessageCenterPojo.getCustomGroupType() == -1 || imMessageCenterPojo.getCustomGroupType() == -9 || imMessageCenterPojo.getCustomGroupType() == 5 || imMessageCenterPojo.getCustomGroupType() == 6) {
                         imMessageCenterPojo.setIs_hidden(1);
                     }
-                    b.aha().k(imMessageCenterPojo);
-                    b.aha().j(imMessageCenterPojo);
+                    b.apn().k(imMessageCenterPojo);
+                    b.apn().j(imMessageCenterPojo);
                     sb2 = sb;
                 }
             }
             long j = -1;
-            if (this.cmX.getOrginalMessage() != null) {
-                j = this.cmX.getOrginalMessage().getClientLogID();
+            if (this.cSm.getOrginalMessage() != null) {
+                j = this.cSm.getOrginalMessage().getClientLogID();
             }
-            int cmd = this.cmX.getCmd();
-            int error = this.cmX.getError();
-            String errorString = this.cmX.getErrorString();
+            int cmd = this.cSm.getCmd();
+            int error = this.cSm.getError();
+            String errorString = this.cSm.getErrorString();
             Object[] objArr = new Object[2];
             objArr[0] = "comment";
             objArr[1] = sb2 == null ? "" : sb2.toString();
@@ -186,15 +186,15 @@ public class ImMemoryCacheRegisterStatic {
             ImMessageCenterPojo imMessageCenterPojo4 = null;
             ImMessageCenterPojo imMessageCenterPojo5 = null;
             ArrayList arrayList3 = null;
-            for (ImMessageCenterPojo imMessageCenterPojo6 : b.aha().ahg()) {
+            for (ImMessageCenterPojo imMessageCenterPojo6 : b.apn().apt()) {
                 if (imMessageCenterPojo6.getCustomGroupType() == 1) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
                     arrayList.add(imMessageCenterPojo6);
                     boolean z = true;
-                    for (GroupUpdateMessage groupUpdateMessage2 : this.cmX.getGroupInfos()) {
-                        if (com.baidu.tieba.im.b.a.jw(groupUpdateMessage2.getGroupType()) == 1 && imMessageCenterPojo6.getGid().equals(String.valueOf(groupUpdateMessage2.getGroupId()))) {
+                    for (GroupUpdateMessage groupUpdateMessage2 : this.cSm.getGroupInfos()) {
+                        if (com.baidu.tieba.im.b.a.kY(groupUpdateMessage2.getGroupType()) == 1 && imMessageCenterPojo6.getGid().equals(String.valueOf(groupUpdateMessage2.getGroupId()))) {
                             z = false;
                         }
                     }
@@ -204,13 +204,13 @@ public class ImMemoryCacheRegisterStatic {
                         arrayList2 = arrayList4;
                     }
                 } else if (imMessageCenterPojo6.getCustomGroupType() == -2) {
-                    com.baidu.tieba.im.pushNotify.d.aie().jF(imMessageCenterPojo6.getGid());
+                    com.baidu.tieba.im.pushNotify.d.aqs().kY(imMessageCenterPojo6.getGid());
                     imMessageCenterPojo3 = imMessageCenterPojo6;
                 } else if (imMessageCenterPojo6.getCustomGroupType() == -1) {
-                    com.baidu.tieba.im.c.a.jE(com.baidu.adp.lib.h.b.g(imMessageCenterPojo6.getGid(), 0));
+                    com.baidu.tieba.im.c.a.lg(com.baidu.adp.lib.h.b.g(imMessageCenterPojo6.getGid(), 0));
                     imMessageCenterPojo4 = imMessageCenterPojo6;
                 } else if (imMessageCenterPojo6.getCustomGroupType() == -9) {
-                    com.baidu.tieba.im.c.a.jF(com.baidu.adp.lib.h.b.g(imMessageCenterPojo6.getGid(), 0));
+                    com.baidu.tieba.im.c.a.lh(com.baidu.adp.lib.h.b.g(imMessageCenterPojo6.getGid(), 0));
                     imMessageCenterPojo5 = imMessageCenterPojo6;
                 } else if (imMessageCenterPojo6.getCustomGroupType() == 6 || imMessageCenterPojo6.getCustomGroupType() == 7 || imMessageCenterPojo6.getCustomGroupType() == 8) {
                     ArrayList arrayList5 = arrayList3;
@@ -221,7 +221,7 @@ public class ImMemoryCacheRegisterStatic {
                 }
             }
             if (arrayList2 != null) {
-                b.aha().bj(arrayList2);
+                b.apn().bJ(arrayList2);
             }
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bn(this));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
@@ -234,11 +234,11 @@ public class ImMemoryCacheRegisterStatic {
             onlineToDbCustomMessage.privateChatGroup = imMessageCenterPojo4;
             onlineToDbCustomMessage.officialChatGroup = imMessageCenterPojo5;
             onlineToDbCustomMessage.yyGroupList = arrayList3;
-            if (this.cmX.isUserAvailable()) {
+            if (this.cSm.isUserAvailable()) {
                 onlineToDbCustomMessage.needDeleteGroupList = arrayList2;
             }
             MessageManager.getInstance().sendMessage(onlineToDbCustomMessage, customMessageTask);
-            this.cmX = null;
+            this.cSm = null;
         }
     }
 
@@ -266,14 +266,14 @@ public class ImMemoryCacheRegisterStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jE(String str) {
-        HashMap<String, String> yE;
+    public void kX(String str) {
+        HashMap<String, String> yJ;
         if (!TextUtils.isEmpty(str)) {
-            b.aha().ab(str, 1);
-            if (com.baidu.tbadk.coreExtra.messageCenter.a.xj().xE() != null && (yE = com.baidu.tbadk.coreExtra.messageCenter.a.xj().xE().yE()) != null && yE.size() == 1 && yE.containsKey(str)) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.xj().ek(str);
+            b.apn().ai(str, 1);
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI() != null && (yJ = com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yJ()) != null && yJ.size() == 1 && yJ.containsKey(str)) {
+                com.baidu.tbadk.coreExtra.messageCenter.a.xn().eo(str);
             }
-            com.baidu.tieba.im.settingcache.c.ait().b(TbadkCoreApplication.getCurrentAccount(), str, null);
+            com.baidu.tieba.im.settingcache.c.aqH().b(TbadkCoreApplication.getCurrentAccount(), str, null);
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bo(this, str));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
@@ -285,7 +285,7 @@ public class ImMemoryCacheRegisterStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public void m(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            b.aha().i(imMessageCenterPojo);
+            b.apn().i(imMessageCenterPojo);
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bp(this, imMessageCenterPojo));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

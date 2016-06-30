@@ -4,26 +4,26 @@ import com.baidu.tbadk.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends s<Boolean> {
-    private final /* synthetic */ String coc;
-    private final /* synthetic */ String cqS;
-    final /* synthetic */ c crd;
-    private final /* synthetic */ long cre;
+    private final /* synthetic */ String cTr;
+    private final /* synthetic */ String cWi;
+    final /* synthetic */ c cWt;
+    private final /* synthetic */ long cWu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, String str2, long j) {
-        this.crd = cVar;
-        this.cqS = str;
-        this.coc = str2;
-        this.cre = j;
+        this.cWt = cVar;
+        this.cWi = str;
+        this.cTr = str2;
+        this.cWu = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
-        GroupSettingItemData bf = this.crd.bf(this.cqS, this.coc);
+        GroupSettingItemData bf = this.cWt.bf(this.cWi, this.cTr);
         if (bf != null && bf.isAlreadyApply()) {
-            if (System.currentTimeMillis() - bf.getLastApplyTimeStamp() <= this.cre) {
+            if (System.currentTimeMillis() - bf.getLastApplyTimeStamp() <= this.cWu) {
                 return false;
             }
         }

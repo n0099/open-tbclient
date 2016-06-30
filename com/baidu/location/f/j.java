@@ -16,15 +16,15 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends l {
-    private static j IU = null;
+    private static j IX = null;
     public static long a = 0;
-    private WifiManager IW = null;
-    private a IX = null;
-    private i IY = null;
+    private WifiManager IY = null;
+    private a IZ = null;
+    private i Ja = null;
     private long f = 0;
     private long g = 0;
     private boolean h = false;
-    private Object IZ = null;
+    private Object Jb = null;
     private boolean j = true;
     private Handler k = new Handler();
 
@@ -47,9 +47,9 @@ public class j extends l {
             if (action.equals("android.net.wifi.SCAN_RESULTS")) {
                 j.a = System.currentTimeMillis() / 1000;
                 j.this.m();
-                com.baidu.location.a.e.lD().h();
+                com.baidu.location.a.e.ly().h();
                 if (System.currentTimeMillis() - com.baidu.location.a.h.b() <= TbConfig.NOTIFY_SOUND_INTERVAL) {
-                    com.baidu.location.a.j.a(com.baidu.location.a.h.lL(), j.this.mC(), com.baidu.location.a.h.lM(), com.baidu.location.a.h.a());
+                    com.baidu.location.a.j.a(com.baidu.location.a.h.lF(), j.this.mx(), com.baidu.location.a.h.lG(), com.baidu.location.a.h.a());
                 }
             } else if (action.equals("android.net.wifi.STATE_CHANGE") && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.b >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 this.b = System.currentTimeMillis();
@@ -114,25 +114,25 @@ public class j extends l {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        if (this.IW == null) {
+        if (this.IY == null) {
             return;
         }
         try {
-            i iVar = new i(this.IW.getScanResults(), System.currentTimeMillis());
-            if (this.IY == null || !iVar.a(this.IY)) {
-                this.IY = iVar;
+            i iVar = new i(this.IY.getScanResults(), System.currentTimeMillis());
+            if (this.Ja == null || !iVar.a(this.Ja)) {
+                this.Ja = iVar;
             }
         } catch (Exception e) {
         }
     }
 
-    public static synchronized j mA() {
+    public static synchronized j mv() {
         j jVar;
         synchronized (j.class) {
-            if (IU == null) {
-                IU = new j();
+            if (IX == null) {
+                IX = new j();
             }
-            jVar = IU;
+            jVar = IX;
         }
         return jVar;
     }
@@ -140,10 +140,10 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public synchronized void b() {
         if (!this.h && com.baidu.location.f.isServing) {
-            this.IW = (WifiManager) com.baidu.location.f.getServiceContext().getSystemService("wifi");
-            this.IX = new a();
+            this.IY = (WifiManager) com.baidu.location.f.getServiceContext().getSystemService("wifi");
+            this.IZ = new a();
             try {
-                com.baidu.location.f.getServiceContext().registerReceiver(this.IX, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
+                com.baidu.location.f.getServiceContext().registerReceiver(this.IZ, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
             } catch (Exception e) {
             }
             this.h = true;
@@ -151,8 +151,8 @@ public class j extends l {
                 Field declaredField = Class.forName("android.net.wifi.WifiManager").getDeclaredField("mService");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.IZ = declaredField.get(this.IW);
-                    this.IZ.getClass();
+                    this.Jb = declaredField.get(this.IY);
+                    this.Jb.getClass();
                 }
             } catch (Exception e2) {
             }
@@ -163,12 +163,12 @@ public class j extends l {
     public synchronized void c() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.IX);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.IZ);
                 a = 0L;
             } catch (Exception e) {
             }
-            this.IX = null;
-            this.IW = null;
+            this.IZ = null;
+            this.IY = null;
             this.h = false;
         }
     }
@@ -185,7 +185,7 @@ public class j extends l {
 
     @Override // com.baidu.location.f.l
     public boolean e() {
-        if (this.IW == null) {
+        if (this.IY == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -201,8 +201,8 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public boolean f() {
         try {
-            if (this.IW.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.IW.isScanAlwaysAvailable())) {
-                this.IW.startScan();
+            if (this.IY.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.IY.isScanAlwaysAvailable())) {
+                this.IY.startScan();
                 this.f = System.currentTimeMillis();
                 return true;
             }
@@ -232,7 +232,7 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public String l() {
         try {
-            WifiInfo connectionInfo = this.IW.getConnectionInfo();
+            WifiInfo connectionInfo = this.IY.getConnectionInfo();
             if (connectionInfo != null) {
                 return connectionInfo.getMacAddress();
             }
@@ -243,12 +243,12 @@ public class j extends l {
     }
 
     @Override // com.baidu.location.f.l
-    public WifiInfo mB() {
-        if (this.IW == null) {
+    public WifiInfo mw() {
+        if (this.IY == null) {
             return null;
         }
         try {
-            WifiInfo connectionInfo = this.IW.getConnectionInfo();
+            WifiInfo connectionInfo = this.IY.getConnectionInfo();
             if (connectionInfo == null || connectionInfo.getBSSID() == null) {
                 return null;
             }
@@ -269,20 +269,20 @@ public class j extends l {
     }
 
     @Override // com.baidu.location.f.l
-    public i mC() {
-        return (this.IY == null || !this.IY.f()) ? mE() : this.IY;
+    public i mx() {
+        return (this.Ja == null || !this.Ja.f()) ? mz() : this.Ja;
     }
 
     @Override // com.baidu.location.f.l
-    public i mD() {
-        return (this.IY == null || !this.IY.g()) ? mE() : this.IY;
+    public i my() {
+        return (this.Ja == null || !this.Ja.g()) ? mz() : this.Ja;
     }
 
     @Override // com.baidu.location.f.l
-    public i mE() {
-        if (this.IW != null) {
+    public i mz() {
+        if (this.IY != null) {
             try {
-                return new i(this.IW.getScanResults(), this.f);
+                return new i(this.IY.getScanResults(), this.f);
             } catch (Exception e) {
             }
         }

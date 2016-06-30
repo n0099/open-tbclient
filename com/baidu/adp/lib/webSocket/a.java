@@ -20,7 +20,7 @@ public class a extends OutputStream {
         this.qh.clear();
     }
 
-    public ByteBuffer fX() {
+    public ByteBuffer fY() {
         return this.qh;
     }
 
@@ -73,7 +73,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void fY() {
+    public synchronized void fZ() {
         write(13);
         write(10);
     }

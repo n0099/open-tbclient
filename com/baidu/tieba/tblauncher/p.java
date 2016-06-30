@@ -21,8 +21,8 @@ class p extends CustomMessageListener {
             Object data = customResponsedMessage.getData();
             if (data instanceof Boolean) {
                 boolean booleanValue = ((Boolean) data).booleanValue();
-                abVar = this.this$0.ewE;
-                abVar.aVR().setWidgetLayerVisible(booleanValue);
+                abVar = this.this$0.fbu;
+                abVar.bed().setWidgetLayerVisible(booleanValue);
             }
         }
     }

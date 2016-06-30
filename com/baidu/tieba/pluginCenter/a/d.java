@@ -9,22 +9,22 @@ import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInf
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.mvc.g.a<PluginNetConfigInfos.PluginConfig, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView El;
-    private TextView aFL;
-    private TextView dUW;
-    private ImageView dUX;
+    private TbImageView Er;
+    private TextView aGn;
+    private TextView eEr;
+    private ImageView eEs;
     private TextView title;
 
     public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.El = (TbImageView) view.findViewById(t.g.icon);
-        this.title = (TextView) view.findViewById(t.g.title);
-        this.aFL = (TextView) view.findViewById(t.g.desc);
-        this.dUW = (TextView) view.findViewById(t.g.status);
-        this.dUX = (ImageView) view.findViewById(t.g.new_mark);
+        this.Er = (TbImageView) view.findViewById(u.g.icon);
+        this.title = (TextView) view.findViewById(u.g.title);
+        this.aGn = (TextView) view.findViewById(u.g.desc);
+        this.eEr = (TextView) view.findViewById(u.g.status);
+        this.eEs = (ImageView) view.findViewById(u.g.new_mark);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,33 +34,33 @@ public class d extends com.baidu.tbadk.mvc.g.a<PluginNetConfigInfos.PluginConfig
         super.B(pluginConfig);
         if (pluginConfig != null) {
             if (!StringUtils.isNull(pluginConfig.icon)) {
-                this.El.c(pluginConfig.icon, 10, false);
+                this.Er.c(pluginConfig.icon, 10, false);
             }
             this.title.setText(pluginConfig.display_name);
-            this.aFL.setText(pluginConfig.verbose);
-            if (PluginPackageManager.hF().bn(pluginConfig.package_name)) {
-                if (PluginPackageManager.hF().bp(pluginConfig.package_name)) {
-                    this.dUX.setVisibility(0);
-                    this.dUW.setText(t.j.plugin_update);
+            this.aGn.setText(pluginConfig.verbose);
+            if (PluginPackageManager.hH().bn(pluginConfig.package_name)) {
+                if (PluginPackageManager.hH().bp(pluginConfig.package_name)) {
+                    this.eEs.setVisibility(0);
+                    this.eEr.setText(u.j.plugin_update);
                     return;
                 }
-                this.dUX.setVisibility(8);
-                if (PluginPackageManager.hF().bo(pluginConfig.package_name)) {
-                    this.dUW.setText(t.j.plugin_unenabled);
+                this.eEs.setVisibility(8);
+                if (PluginPackageManager.hH().bo(pluginConfig.package_name)) {
+                    this.eEr.setText(u.j.plugin_unenabled);
                     return;
                 } else {
-                    this.dUW.setText(t.j.plugin_enabled);
+                    this.eEr.setText(u.j.plugin_enabled);
                     return;
                 }
             }
-            this.dUX.setVisibility(8);
-            this.dUW.setText(t.j.plugin_disabled);
+            this.eEs.setVisibility(8);
+            this.eEr.setText(u.j.plugin_disabled);
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.s
+    @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
+        com.baidu.tbadk.j.a.a(tbPageContext, getRootView());
         return true;
     }
 }

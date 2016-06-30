@@ -30,7 +30,7 @@ public class b<T> {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.lT.m(this.lT.dE());
+                    t = this.lT.m(this.lT.dF());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
@@ -42,14 +42,14 @@ public class b<T> {
         }
     }
 
-    public T dD() {
+    public T dE() {
         T t = null;
         synchronized (this) {
             try {
                 if (this.lS.size() > 0) {
                     t = this.lT.m(this.lS.poll());
                 } else {
-                    t = this.lT.m(this.lT.dE());
+                    t = this.lT.m(this.lT.dF());
                 }
                 U(this.lR - this.lS.size());
             } catch (Exception e) {

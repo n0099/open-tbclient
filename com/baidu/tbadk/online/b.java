@@ -20,20 +20,20 @@ public class b extends e {
         boolean z;
         Runnable runnable2;
         if (!(socketResponsedMessage instanceof ResponseOnlineMessage) || socketResponsedMessage.hasError()) {
-            h dL = h.dL();
+            h dM = h.dM();
             runnable = GetOnLineInfoStatic.mRunnable;
-            dL.removeCallbacks(runnable);
+            dM.removeCallbacks(runnable);
             return;
         }
-        long j = com.baidu.tbadk.core.sharedPref.b.sR().getLong("get_online_info_last_time", 0L);
+        long j = com.baidu.tbadk.core.sharedPref.b.sO().getLong("get_online_info_last_time", 0L);
         long currentTimeMillis = System.currentTimeMillis();
-        z = GetOnLineInfoStatic.awo;
+        z = GetOnLineInfoStatic.axe;
         if (z || currentTimeMillis - j >= 3600000) {
-            GetOnLineInfoStatic.awo = false;
-            com.baidu.tbadk.core.sharedPref.b.sR().putLong("get_online_info_last_time", currentTimeMillis);
-            h dL2 = h.dL();
+            GetOnLineInfoStatic.axe = false;
+            com.baidu.tbadk.core.sharedPref.b.sO().putLong("get_online_info_last_time", currentTimeMillis);
+            h dM2 = h.dM();
             runnable2 = GetOnLineInfoStatic.mRunnable;
-            dL2.postDelayed(runnable2, TbConfig.NOTIFY_SOUND_INTERVAL);
+            dM2.postDelayed(runnable2, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 }

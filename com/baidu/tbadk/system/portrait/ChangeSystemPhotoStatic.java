@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
 /* loaded from: classes.dex */
 public class ChangeSystemPhotoStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(ChangeSystemPhotoActivityConfig.class, ChangeSystemPhotoActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(ChangeSystemPhotoActivityConfig.class, ChangeSystemPhotoActivity.class);
     }
 }

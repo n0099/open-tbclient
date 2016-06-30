@@ -1,45 +1,30 @@
 package com.baidu.tieba.pb.data;
 
-import tbclient.Lottery.DrawInfo;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.core.data.DealInfoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.pb.main.cr;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private long Nr;
-    private int deT;
-    private String deU;
-    private String deV;
-    private String mLink;
+    public List<com.baidu.adp.widget.ListView.a> bAz;
+    public ArrayList<v> brq;
+    public PbActivity dLv;
+    public DealInfoData dLw;
+    public View.OnClickListener dLx;
+    public cr dLy;
+    public int id;
 
-    private a(DrawInfo drawInfo) {
-        if (drawInfo != null) {
-            this.deT = drawInfo.draw_res_type.intValue();
-            this.mLink = drawInfo.link;
-            this.deV = drawInfo.award_des;
-            this.deU = drawInfo.award_imgsrc;
-            this.Nr = drawInfo.award_id.longValue();
-        }
+    public a(int i) {
+        this.id = i;
     }
 
-    public int avv() {
-        return this.deT;
-    }
-
-    public String getLink() {
-        return this.mLink;
-    }
-
-    public String avw() {
-        return this.deU;
-    }
-
-    public String avx() {
-        return this.deV;
-    }
-
-    public long oJ() {
-        return this.Nr;
-    }
-
-    public static a a(DrawInfo drawInfo) {
-        return new a(drawInfo);
+    public void aDA() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.ECOMM_PB_ADAPTER, this));
     }
 }

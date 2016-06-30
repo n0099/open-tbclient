@@ -4,11 +4,11 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements MediaPlayer.OnVideoSizeChangedListener {
-    final /* synthetic */ TextureVideoView ade;
+    final /* synthetic */ TextureVideoView adC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(TextureVideoView textureVideoView) {
-        this.ade = textureVideoView;
+        this.adC = textureVideoView;
     }
 
     @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
@@ -16,13 +16,13 @@ public class aa implements MediaPlayer.OnVideoSizeChangedListener {
         int i3;
         int i4;
         try {
-            this.ade.acF = mediaPlayer.getVideoWidth();
-            this.ade.acG = mediaPlayer.getVideoHeight();
-            i3 = this.ade.acF;
+            this.adC.ada = mediaPlayer.getVideoWidth();
+            this.adC.adb = mediaPlayer.getVideoHeight();
+            i3 = this.adC.ada;
             if (i3 != 0) {
-                i4 = this.ade.acG;
+                i4 = this.adC.adb;
                 if (i4 != 0) {
-                    this.ade.requestLayout();
+                    this.adC.requestLayout();
                 }
             }
         } catch (IllegalStateException e) {

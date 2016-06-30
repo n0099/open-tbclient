@@ -1,30 +1,59 @@
 package com.baidu.tieba.enterForum.b;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
-public class g {
-    ArrayList<f> aWU = new ArrayList<>();
+public class g implements com.baidu.tbadk.mvc.b.a {
+    private String aox;
+    private int bsO;
+    private int bsP;
+    private String bsQ;
+    private long mForumId;
+    private String mForumName;
+    private int mThreadNum;
+    private int mType;
 
-    public List<f> Mp() {
-        return this.aWU;
+    public String getAvatar() {
+        return this.aox;
     }
 
-    public void O(List<RecommendForumInfo> list) {
-        if (list != null && list.size() > 0) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (list.get(i) instanceof RecommendForumInfo) {
-                    RecommendForumInfo recommendForumInfo = list.get(i);
-                    f fVar = new f();
-                    if (recommendForumInfo != null && recommendForumInfo.forum_id != null && recommendForumInfo.forum_id.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && recommendForumInfo.is_like != null && recommendForumInfo.is_like.intValue() != 1) {
-                        fVar.b(recommendForumInfo);
-                        this.aWU.add(fVar);
-                    }
-                }
+    public long getForumId() {
+        return this.mForumId;
+    }
+
+    public String getForumName() {
+        return this.mForumName;
+    }
+
+    public int RS() {
+        return this.bsP;
+    }
+
+    public int getThreadNum() {
+        return this.mThreadNum;
+    }
+
+    public String getSlogan() {
+        return this.bsQ;
+    }
+
+    public void b(RecommendForumInfo recommendForumInfo) {
+        if (recommendForumInfo != null) {
+            try {
+                this.aox = recommendForumInfo.avatar;
+                this.mForumId = recommendForumInfo.forum_id.longValue();
+                this.mForumName = recommendForumInfo.forum_name;
+                this.bsO = recommendForumInfo.is_like.intValue();
+                this.bsP = recommendForumInfo.member_count.intValue();
+                this.mThreadNum = recommendForumInfo.thread_count.intValue();
+                this.bsQ = recommendForumInfo.slogan;
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public int getType() {
+        return this.mType;
     }
 }

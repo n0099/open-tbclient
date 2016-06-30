@@ -1,39 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dr implements View.OnClickListener {
-    private final /* synthetic */ String dgG;
-    private final /* synthetic */ String dgH;
-    private final /* synthetic */ String dgI;
-    final /* synthetic */ dq dmt;
+public class dr extends com.baidu.tieba.tbadkCore.data.s {
+    public static final BdUniqueId dSc = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.ah dSd;
+    public com.baidu.tbadk.core.data.ah dSe;
+    public com.baidu.tbadk.core.data.ah dSf;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dr(dq dqVar, String str, String str2, String str3) {
-        this.dmt = dqVar;
-        this.dgG = str;
-        this.dgH = str2;
-        this.dgI = str3;
+    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return dSc;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m11getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.dgG) && !StringUtils.isNull(this.dgH)) {
-            if (com.baidu.adp.lib.util.i.fq()) {
-                context = this.dmt.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.dgG) + "," + this.dgH, this.dgI, this.dgI, context.getString(t.j.app_info_for_map));
-                context2 = this.dmt.mContext;
-                com.baidu.tbadk.browser.f.t(context2, format);
-                return;
+    public boolean hasData() {
+        if (this.dSd == null || StringUtils.isNull(this.dSd.summary)) {
+            if (this.dSe == null || StringUtils.isNull(this.dSe.summary)) {
+                return (this.dSf == null || StringUtils.isNull(this.dSf.summary)) ? false : true;
             }
-            this.dmt.dhY.showToast(t.j.neterror);
+            return true;
         }
+        return true;
     }
 }

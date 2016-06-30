@@ -14,7 +14,7 @@ public class BdNativeCrash {
 
     /* loaded from: classes.dex */
     public interface NativeCrashCallback {
-        void onNativeCrashed(int i, int i2, int i3, String str);
+        void onNativeCrashed(int i, int i2, int i3, String str, String str2);
 
         boolean onSoFound(String str);
     }
@@ -34,7 +34,7 @@ public class BdNativeCrash {
 
     static {
         mbLibLoaded = false;
-        mbLibLoaded = g.fc().i("nativecrashlog", 1);
+        mbLibLoaded = g.fd().i("nativecrashlog", 1);
     }
 
     private BdNativeCrash() {
@@ -63,7 +63,7 @@ public class BdNativeCrash {
 
     public void initCrash(String str, String str2) {
         this.mCrashLogPath = str2;
-        d.bG().C(str);
+        d.bH().C(str);
         if (!TextUtils.isEmpty(this.mCrashLogPath)) {
             b bVar = new b();
             bVar.B(str);
@@ -75,9 +75,9 @@ public class BdNativeCrash {
         return this.mCrashLogPath;
     }
 
-    public static void onNativeCrashed(int i, int i2, int i3, String str) {
+    public static void onNativeCrashed(int i, int i2, int i3, String str, String str2) {
         if (mCallback != null) {
-            mCallback.onNativeCrashed(i, i2, i3, str);
+            mCallback.onNativeCrashed(i, i2, i3, str, str2);
         }
     }
 }

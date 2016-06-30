@@ -5,14 +5,14 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int aej;
-    private GradientDrawable erE;
-    protected int erF;
-    protected int erG;
+    private int aeK;
+    private GradientDrawable eWs;
+    protected int eWt;
+    protected int eWu;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -24,37 +24,36 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aej = 3;
-        this.erF = (int) context.getResources().getDimension(t.e.ds18);
-        this.erG = (int) context.getResources().getDimension(t.e.ds6);
-        setPadding(this.erF, this.erG, this.erF, this.erG);
+        this.aeK = 3;
+        this.eWt = (int) context.getResources().getDimension(u.e.ds18);
+        this.eWu = (int) context.getResources().getDimension(u.e.ds6);
+        setPadding(this.eWt, this.eWu, this.eWt, this.eWu);
         setGravity(16);
         setSingleLine(true);
-        setTextSize(0, context.getResources().getDimension(t.e.ds24));
+        setTextSize(0, context.getResources().getDimension(u.e.ds24));
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(t.e.ds48));
+        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(u.e.ds48));
     }
 
     public void vm() {
-        int skinType = TbadkCoreApplication.m11getInst().getSkinType();
-        if (skinType != this.aej) {
-            this.aej = skinType;
-            sg();
+        int skinType = TbadkCoreApplication.m9getInst().getSkinType();
+        if (skinType != this.aeK) {
+            this.aeK = skinType;
+            se();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sg() {
-        if (this.erE == null) {
-            this.erE = new GradientDrawable();
-            this.erE.setCornerRadius(getContext().getResources().getDimension(t.e.ds24));
+    public void se() {
+        if (this.eWs == null) {
+            this.eWs = new GradientDrawable();
+            this.eWs.setCornerRadius(getContext().getResources().getDimension(u.e.ds24));
         }
-        at.c(this, t.d.cp_cont_c, 1);
-        this.erE.setColor(at.getColor(t.d.cp_bg_line_e));
-        setBackgroundDrawable(this.erE);
+        av.c(this, u.d.cp_cont_c, 1);
+        this.eWs.setColor(av.getColor(u.d.cp_bg_line_e));
     }
 }

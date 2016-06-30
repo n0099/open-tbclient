@@ -11,7 +11,7 @@ public class h {
     private HashMap<String, b> nd = new HashMap<>();
     private Handler mHandler = new i(this, Looper.getMainLooper());
 
-    public static h ef() {
+    public static h eg() {
         if (ne == null) {
             synchronized (h.class) {
                 if (ne == null) {
@@ -48,50 +48,52 @@ public class h {
         this.nd.put("dbg", bVar3);
     }
 
-    public boolean ao(String str) {
+    public synchronized boolean ao(String str) {
         a aVar;
+        boolean z;
         b bVar = this.nd.get(str);
         if (bVar == null) {
-            return false;
-        }
-        a aVar2 = this.nc.get(str);
-        long currentTimeMillis = System.currentTimeMillis();
-        if (aVar2 == null) {
-            a aVar3 = new a(this, null);
-            aVar3.B(false);
-            aVar3.A(false);
-            aVar3.e(currentTimeMillis);
-            this.nc.put(str, aVar3);
-            aVar = aVar3;
+            z = false;
         } else {
-            aVar = aVar2;
-        }
-        if (aVar.eg()) {
-            return true;
-        }
-        if (aVar.ek()) {
-            aVar.W(aVar.ei() + 1);
-            if (currentTimeMillis - aVar.eh() < bVar.em()) {
-                if (aVar.ei() >= bVar.en()) {
-                    aVar.A(true);
-                    com.baidu.adp.lib.stats.a.dN().a(false, "d", "logfast", (String) null, 0L, 99999, str, new Object[0]);
-                    a(aVar);
-                    return true;
-                }
-                return false;
+            a aVar2 = this.nc.get(str);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (aVar2 == null) {
+                a aVar3 = new a(this, null);
+                aVar3.B(false);
+                aVar3.A(false);
+                aVar3.e(currentTimeMillis);
+                this.nc.put(str, aVar3);
+                aVar = aVar3;
+            } else {
+                aVar = aVar2;
             }
-            aVar.B(false);
-            aVar.W(0);
-            aVar.e(currentTimeMillis);
-            return false;
-        } else if (currentTimeMillis - aVar.ej() < bVar.el()) {
-            aVar.B(true);
-            aVar.d(currentTimeMillis);
-            return false;
-        } else {
-            aVar.e(currentTimeMillis);
-            return false;
+            if (aVar.eh()) {
+                z = true;
+            } else {
+                if (aVar.el()) {
+                    aVar.W(aVar.ej() + 1);
+                    if (currentTimeMillis - aVar.ei() < bVar.en()) {
+                        if (aVar.ej() >= bVar.eo()) {
+                            aVar.A(true);
+                            com.baidu.adp.lib.stats.a.dO().a(false, "d", "logfast", (String) null, 0L, 99999, str, new Object[0]);
+                            a(aVar);
+                            z = true;
+                        }
+                    } else {
+                        aVar.B(false);
+                        aVar.W(0);
+                        aVar.e(currentTimeMillis);
+                    }
+                } else if (currentTimeMillis - aVar.ek() < bVar.em()) {
+                    aVar.B(true);
+                    aVar.d(currentTimeMillis);
+                } else {
+                    aVar.e(currentTimeMillis);
+                }
+                z = false;
+            }
         }
+        return z;
     }
 
     private void a(a aVar) {
@@ -121,7 +123,7 @@ public class h {
             this();
         }
 
-        public boolean eg() {
+        public boolean eh() {
             return this.nk;
         }
 
@@ -129,7 +131,7 @@ public class h {
             this.nk = z;
         }
 
-        public long eh() {
+        public long ei() {
             return this.nj;
         }
 
@@ -137,7 +139,7 @@ public class h {
             this.nj = j;
         }
 
-        public int ei() {
+        public int ej() {
             return this.ni;
         }
 
@@ -145,7 +147,7 @@ public class h {
             this.ni = i;
         }
 
-        public long ej() {
+        public long ek() {
             return this.ng;
         }
 
@@ -153,7 +155,7 @@ public class h {
             this.ng = j;
         }
 
-        public boolean ek() {
+        public boolean el() {
             return this.nh;
         }
 
@@ -176,7 +178,7 @@ public class h {
             this();
         }
 
-        public int el() {
+        public int em() {
             return this.nl;
         }
 
@@ -184,7 +186,7 @@ public class h {
             this.nl = i;
         }
 
-        public int em() {
+        public int en() {
             return this.nm;
         }
 
@@ -192,7 +194,7 @@ public class h {
             this.nm = i;
         }
 
-        public int en() {
+        public int eo() {
             return this.nn;
         }
 

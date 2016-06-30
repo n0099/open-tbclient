@@ -1,21 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.c.c;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class an implements c.a {
-    final /* synthetic */ PbActivity djE;
+class an implements NoNetworkView.a {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.djE = pbActivity;
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.tieba.c.c.a
-    public void co(boolean z) {
-        if (z) {
-            com.baidu.tieba.pb.a.c.awb();
-        } else {
-            com.baidu.tieba.pb.a.c.awa();
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aD(boolean z) {
+        boolean z2;
+        dg dgVar;
+        z2 = this.dPF.dOz;
+        if (!z2 && z) {
+            dgVar = this.dPF.dOf;
+            if (!dgVar.aFQ()) {
+                this.dPF.OQ();
+            }
         }
+        this.dPF.setNetRefreshViewEmotionDefMarginTop();
     }
 }

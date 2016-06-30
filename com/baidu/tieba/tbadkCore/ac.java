@@ -1,39 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.tbadkCore.ab;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class ac extends Handler {
-    final /* synthetic */ ab erD;
+public class ac implements View.OnTouchListener {
+    private a eWq;
+    private int count = 0;
+    private long dMt = 0;
+    private long dMu = 0;
+    private long dMw = 500;
+    private Handler mHandler = new ad(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar) {
-        this.erD = abVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void WO();
+
+        void WP();
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        ab.a aVar;
-        ab.a aVar2;
-        if (message.what == 2) {
-            this.erD.count = 0;
-            this.erD.dfA = 0L;
-            this.erD.dfB = 0L;
-        } else if (message.what == 1) {
-            i = this.erD.count;
-            if (i == 1) {
-                aVar = this.erD.erC;
-                if (aVar != null) {
-                    aVar2 = this.erD.erC;
-                    aVar2.Rr();
+    public ac(a aVar) {
+        this.eWq = aVar;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            if (this.eWq == null) {
+                return false;
+            }
+            this.count++;
+            if (this.count == 1) {
+                this.dMt = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.dMw);
+                return true;
+            } else if (this.count == 2) {
+                this.dMu = System.currentTimeMillis();
+                if (this.dMu - this.dMt < this.dMw) {
+                    this.eWq.WP();
                 }
-                this.erD.count = 0;
-                this.erD.dfA = 0L;
-                this.erD.dfB = 0L;
+                this.mHandler.sendEmptyMessage(2);
+                return true;
+            } else {
+                return true;
             }
         }
+        return true;
     }
 }

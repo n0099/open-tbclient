@@ -16,8 +16,8 @@ public class b extends Thread {
     public void run() {
         super.run();
         try {
-            d.sW();
-            ClearResourceStatic.k(TbadkCoreApplication.m11getInst().getCacheDir());
+            d.sT();
+            ClearResourceStatic.k(TbadkCoreApplication.m9getInst().getCacheDir());
         } catch (Exception e) {
         }
     }

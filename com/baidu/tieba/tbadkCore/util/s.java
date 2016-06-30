@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class s {
-    protected volatile int evl;
-    protected volatile HashMap<Long, Integer> evm = new HashMap<>();
-    private volatile int evk = 0;
+    protected volatile int fab;
+    protected volatile HashMap<Long, Integer> fac = new HashMap<>();
+    private volatile int faa = 0;
 
     public s(int i) {
-        this.evl = i;
+        this.fab = i;
     }
 
-    public void oc(String str) {
+    public void pK(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.evm.size() >= this.evl) {
-                    aHC();
+                if (this.fac.size() >= this.fab) {
+                    aQw();
                 }
-                this.evk++;
-                this.evm.put(valueOf, Integer.valueOf(this.evk));
+                this.faa++;
+                this.fac.put(valueOf, Integer.valueOf(this.faa));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void aHC() {
+    public void aQw() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.evm.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.fac.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.evm.remove(l);
+                this.fac.remove(l);
             } else {
-                this.evm.clear();
+                this.fac.clear();
             }
         }
     }
 
-    public boolean od(String str) {
+    public boolean pL(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.evm.get(valueOf) != null) {
+                if (this.fac.get(valueOf) != null) {
                     z = true;
                 }
             }
@@ -61,18 +61,18 @@ public class s {
         return z;
     }
 
-    public boolean oe(String str) {
+    public boolean pM(String str) {
         try {
-            return this.evm.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.fac.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void aUX() {
+    public void bdl() {
         synchronized (this) {
-            this.evm.clear();
+            this.fac.clear();
         }
     }
 }

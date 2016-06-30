@@ -36,20 +36,20 @@ public class a {
         return null;
     }
 
-    public void Pn() {
+    public void US() {
     }
 
     public UserIconBox getUserIcon() {
         return null;
     }
 
-    public void aCM() {
+    public void aLG() {
     }
 
-    public void kU() {
+    public void kX() {
     }
 
-    public void aCa() {
+    public void Ri() {
     }
 
     public void setBackBitmap(UserData userData) {
@@ -58,7 +58,7 @@ public class a {
     public void j(float f) {
     }
 
-    public void jk() {
+    public void jn() {
     }
 
     public void setGiftIcon(boolean z) {

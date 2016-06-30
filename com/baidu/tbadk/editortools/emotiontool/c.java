@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a aqv;
-    private com.baidu.adp.widget.a.a aqw;
-    private int aqx;
+    private com.baidu.adp.widget.a.a arl;
+    private com.baidu.adp.widget.a.a arm;
+    private int arn;
     private int cols;
 
-    public abstract boolean Bv();
+    public abstract boolean BE();
 
-    public abstract EmotionGroupType Bw();
+    public abstract EmotionGroupType BF();
 
-    public abstract String ek(int i);
+    public abstract String eo(int i);
 
-    public abstract boolean fl(String str);
+    public abstract boolean fr(String str);
 
-    public abstract com.baidu.adp.widget.a.a fm(String str);
+    public abstract com.baidu.adp.widget.a.a fs(String str);
 
-    public abstract com.baidu.adp.widget.a.a fn(String str);
+    public abstract com.baidu.adp.widget.a.a ft(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,26 +30,26 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a Bx() {
-        return this.aqv;
+    public com.baidu.adp.widget.a.a BG() {
+        return this.arl;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.iY();
+            aVar.jb();
         }
-        this.aqv = aVar;
+        this.arl = aVar;
     }
 
-    public com.baidu.adp.widget.a.a By() {
-        return this.aqw;
+    public com.baidu.adp.widget.a.a BH() {
+        return this.arm;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.iY();
+            aVar.jb();
         }
-        this.aqw = aVar;
+        this.arm = aVar;
     }
 
     public int getCols() {
@@ -57,16 +57,16 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void setCols(int i) {
+    public void ep(int i) {
         this.cols = i;
     }
 
-    public int Bz() {
-        return this.aqx;
+    public int BI() {
+        return this.arn;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void el(int i) {
-        this.aqx = i;
+    public void eq(int i) {
+        this.arn = i;
     }
 }

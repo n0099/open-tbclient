@@ -5,23 +5,23 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class d extends y.a {
-    public int aej;
-    public RelativeLayout dBm;
-    public TextView dBn;
-    public TextView dBo;
-    public TextView dBp;
-    public ImageView dBq;
+    public int aeK;
+    public RelativeLayout ejP;
+    public TextView ejQ;
+    public TextView ejR;
+    public TextView ejS;
+    public ImageView ejT;
 
     public d(View view) {
         super(view);
-        this.aej = 3;
-        this.dBm = (RelativeLayout) view;
-        this.dBn = (TextView) view.findViewById(t.g.attention_title);
-        this.dBo = (TextView) view.findViewById(t.g.attention_num);
-        this.dBp = (TextView) view.findViewById(t.g.attention_none_msg);
-        this.dBq = (ImageView) view.findViewById(t.g.bar_head_arrow);
+        this.aeK = 3;
+        this.ejP = (RelativeLayout) view;
+        this.ejQ = (TextView) view.findViewById(u.g.attention_title);
+        this.ejR = (TextView) view.findViewById(u.g.attention_num);
+        this.ejS = (TextView) view.findViewById(u.g.attention_none_msg);
+        this.ejT = (ImageView) view.findViewById(u.g.bar_head_arrow);
     }
 }

@@ -1,35 +1,38 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dx implements View.OnClickListener {
-    final /* synthetic */ dv blu;
-    private final /* synthetic */ com.baidu.tbadk.core.data.am blv;
+public class dx implements BdSwitchView.a {
+    final /* synthetic */ dw bHF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dx(dv dvVar, com.baidu.tbadk.core.data.am amVar) {
-        this.blu = dvVar;
-        this.blv = amVar;
+    public dx(dw dwVar) {
+        this.bHF = dwVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        com.baidu.tbadk.core.data.ao pX = this.blv.pX();
-        if (com.baidu.adp.lib.util.i.fq()) {
-            MessageManager messageManager = MessageManager.getInstance();
-            context = this.blu.mContext;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(pX.getUserId()), pX.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
-            return;
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
+        com.baidu.adp.base.h hVar3;
+        com.baidu.adp.base.h hVar4;
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            hVar3 = this.bHF.mContext;
+            StringBuilder sb = new StringBuilder(String.valueOf(hVar3.getString(u.j.image_show_setting)));
+            hVar4 = this.bHF.mContext;
+            view.setContentDescription(sb.append(hVar4.getString(u.j.now_state_on)).toString());
+            com.baidu.tbadk.core.l.nW().bn(0);
+            com.baidu.tbadk.core.l.nW().ae(true);
+        } else {
+            hVar = this.bHF.mContext;
+            StringBuilder sb2 = new StringBuilder(String.valueOf(hVar.getString(u.j.image_show_setting)));
+            hVar2 = this.bHF.mContext;
+            view.setContentDescription(sb2.append(hVar2.getString(u.j.now_state_off)).toString());
+            com.baidu.tbadk.core.l.nW().ae(false);
         }
-        this.blu.bek.showToast(t.j.im_error_default);
+        this.bHF.bHC = true;
     }
 }

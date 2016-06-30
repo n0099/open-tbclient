@@ -1,17 +1,28 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class s implements Runnable {
-    final /* synthetic */ ActivationActivity aIG;
+class s implements View.OnFocusChangeListener {
+    final /* synthetic */ ActivationActivity aMd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ActivationActivity activationActivity) {
-        this.aIG = activationActivity;
+        this.aMd = activationActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TbadkCoreApplication.m11getInst().setUsed();
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        ImageView imageView;
+        ImageView imageView2;
+        if (view == this.aMd.aLO) {
+            if (z) {
+                imageView2 = this.aMd.aLK;
+                imageView2.setVisibility(0);
+                return;
+            }
+            imageView = this.aMd.aLK;
+            imageView.setVisibility(8);
+        }
     }
 }

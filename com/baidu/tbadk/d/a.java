@@ -5,9 +5,9 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
     private ArrayList<c> Lc;
-    private Context aon;
+    private Context apb;
 
-    public ArrayList<c> AI() {
+    public ArrayList<c> AR() {
         return this.Lc;
     }
 
@@ -18,6 +18,6 @@ public class a {
     }
 
     public Context getContext() {
-        return this.aon;
+        return this.apb;
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.adp.lib.a.b.a.d;
 import com.squareup.wire.Message;
 /* loaded from: classes.dex */
 public class p implements h {
-    private Message iA;
+    private Message iy;
 
     public p(Message message) {
-        this.iA = message;
+        this.iy = message;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h

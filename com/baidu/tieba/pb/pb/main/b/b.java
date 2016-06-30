@@ -5,20 +5,20 @@ import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a dpR;
+    final /* synthetic */ a dWp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dpR = aVar;
+        this.dWp = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         RadioButton radioButton;
         RadioButton radioButton2;
-        radioButton = this.dpR.dpQ;
+        radioButton = this.dWp.dWo;
         if (radioButton != null) {
-            radioButton2 = this.dpR.dpQ;
+            radioButton2 = this.dWp.dWo;
             radioButton2.toggle();
         }
     }

@@ -16,7 +16,7 @@ import java.net.URL;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends com.baidu.location.h.f {
-    private static g Go = null;
+    private static g Gk = null;
     String a = null;
     String b = null;
     String c = null;
@@ -29,7 +29,7 @@ public class g extends com.baidu.location.h.f {
         this.f = new Handler();
     }
 
-    public static boolean L(String str, String str2) {
+    public static boolean a(String str, String str2) {
         File file = new File(com.baidu.location.h.i.g() + File.separator + "tmp");
         if (file.exists()) {
             file.delete();
@@ -106,6 +106,10 @@ public class g extends com.baidu.location.h.f {
         }
     }
 
+    private Handler f() {
+        return this.f;
+    }
+
     private void g() {
         try {
             File file = new File(com.baidu.location.h.h.a + "/grtcf.dat");
@@ -152,7 +156,7 @@ public class g extends com.baidu.location.h.f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.a != null && com.baidu.location.f.k.mF().g()) {
+        if (this.a != null && com.baidu.location.f.k.mA().g()) {
             new o(this).start();
         }
     }
@@ -162,7 +166,7 @@ public class g extends com.baidu.location.h.f {
         if (this.c == null || new File(com.baidu.location.h.i.g() + File.separator + this.c).exists()) {
             return true;
         }
-        return L("http://" + this.a + "/" + this.c, this.c);
+        return a("http://" + this.a + "/" + this.c, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -171,7 +175,7 @@ public class g extends com.baidu.location.h.f {
             return;
         }
         File file = new File(com.baidu.location.h.i.g() + File.separator + this.b);
-        if (file.exists() || !L("http://" + this.a + "/" + this.b, this.b)) {
+        if (file.exists() || !a("http://" + this.a + "/" + this.b, this.b)) {
             return;
         }
         String a = com.baidu.location.h.i.a(file);
@@ -189,15 +193,11 @@ public class g extends com.baidu.location.h.f {
         }
     }
 
-    public static g lJ() {
-        if (Go == null) {
-            Go = new g();
+    public static g lE() {
+        if (Gk == null) {
+            Gk = new g();
         }
-        return Go;
-    }
-
-    private Handler lK() {
-        return this.f;
+        return Gk;
     }
 
     @Override // com.baidu.location.h.f
@@ -211,12 +211,12 @@ public class g extends com.baidu.location.h.f {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.h.c.mG().b == null) {
+        if (com.baidu.location.h.c.mB().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.h.c.mG().a);
+            stringBuffer.append(com.baidu.location.h.c.mB().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.h.c.mG().b);
+            stringBuffer.append(com.baidu.location.h.c.mB().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -267,7 +267,7 @@ public class g extends com.baidu.location.h.f {
                     if (jSONObject.has("u1_md5")) {
                         this.d = jSONObject.getString("u1_md5");
                     }
-                    lK().post(new n(this));
+                    f().post(new n(this));
                 }
                 if (jSONObject.has("ison")) {
                     this.e = jSONObject.getInt("ison");
@@ -276,13 +276,13 @@ public class g extends com.baidu.location.h.f {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.h.d.mH().a(System.currentTimeMillis());
+        com.baidu.location.h.d.mC().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.h.d.mH().b() > 86400000) {
-            lK().postDelayed(new l(this), 10000L);
-            lK().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
+        if (System.currentTimeMillis() - com.baidu.location.h.d.mC().b() > 86400000) {
+            f().postDelayed(new l(this), 10000L);
+            f().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 }

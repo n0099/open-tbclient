@@ -1,55 +1,32 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.widget.ImageView;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.adp.lib.f.c<TbImageView> {
-    private final /* synthetic */ Context val$context;
+public class f implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ FrsCommonImageLayout eVa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(Context context) {
-        this.val$context = context;
+    public f(FrsCommonImageLayout frsCommonImageLayout) {
+        this.eVa = frsCommonImageLayout;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: vx */
-    public TbImageView dE() {
-        TbImageView tbImageView = new TbImageView(this.val$context);
-        tbImageView.setSupportNoImage(true);
-        tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        tbImageView.setDrawBorder(true);
-        tbImageView.setBorderWidth(1);
-        return tbImageView;
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        com.baidu.adp.lib.f.b bVar;
+        com.baidu.adp.lib.f.b bVar2;
+        if (view2 instanceof TbImageView) {
+            bVar = this.eVa.eUR;
+            if (bVar != null) {
+                bVar2 = this.eVa.eUR;
+                bVar2.k((TbImageView) view2);
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: a */
-    public void l(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public TbImageView m(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public TbImageView n(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

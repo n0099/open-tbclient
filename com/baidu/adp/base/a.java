@@ -40,7 +40,7 @@ public final class a {
         return dk.size();
     }
 
-    public void b(Activity activity) {
+    public void d(Activity activity) {
         if (activity != null) {
             dk.add(new SoftReference<>(activity));
             p(this.dn);
@@ -62,7 +62,7 @@ public final class a {
         return remove.get();
     }
 
-    public void c(Activity activity) {
+    public void e(Activity activity) {
         if (activity != null) {
             int size = dk.size();
             if (size == 0) {

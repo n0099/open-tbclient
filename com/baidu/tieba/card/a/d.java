@@ -3,102 +3,102 @@ package com.baidu.tieba.card.a;
 import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
-public class d extends b implements r {
-    public static final BdUniqueId aRC = BdUniqueId.gen();
-    public boolean aRD;
-    public com.baidu.tbadk.core.data.c aRE;
-    public String aRF;
+public class d extends b implements s {
+    public static final BdUniqueId aUY = BdUniqueId.gen();
+    public String aIZ;
+    public boolean aUZ;
+    public com.baidu.tbadk.core.data.b aVa;
     public int mPn;
 
-    public d(com.baidu.tbadk.core.data.c cVar) {
-        this.aRF = "";
+    public d(com.baidu.tbadk.core.data.b bVar) {
+        this.aIZ = "";
         this.mPn = 0;
-        this.aRE = cVar;
+        this.aVa = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d() {
-        this.aRF = "";
+        this.aIZ = "";
         this.mPn = 0;
-        this.aRE = null;
+        this.aVa = null;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return aRC;
+        return aUY;
     }
 
-    @Override // com.baidu.tieba.card.a.r
+    @Override // com.baidu.tieba.card.a.s
     public int getPosition() {
-        return com.baidu.adp.lib.h.b.g(this.aRE != null ? this.aRE.MT : "-1", -1);
+        return com.baidu.adp.lib.h.b.g(this.aVa != null ? this.aVa.MO : "-1", -1);
     }
 
-    @Override // com.baidu.tieba.card.a.r
-    public boolean Kp() {
+    @Override // com.baidu.tieba.card.a.s
+    public boolean Lm() {
         return false;
     }
 
-    @Override // com.baidu.tieba.card.a.r
-    public void cj(boolean z) {
-        this.aRD = z;
+    @Override // com.baidu.tieba.card.a.s
+    public void ck(boolean z) {
+        this.aUZ = z;
     }
 
-    public String Kq() {
-        if (this.aRE == null || this.aRE.Nb == null) {
+    public String Ln() {
+        if (this.aVa == null || this.aVa.MW == null) {
             return null;
         }
-        return this.aRE.Nb.userPortrait;
+        return this.aVa.MW.userPortrait;
     }
 
     public String getUserName() {
-        if (this.aRE == null || this.aRE.Nb == null) {
+        if (this.aVa == null || this.aVa.MW == null) {
             return null;
         }
-        return this.aRE.Nb.userName;
+        return this.aVa.MW.userName;
     }
 
-    public String Kr() {
-        if (this.aRE == null || this.aRE.Nb == null) {
+    public String Lo() {
+        if (this.aVa == null || this.aVa.MW == null) {
             return null;
         }
-        return this.aRE.Nb.Ni;
+        return this.aVa.MW.Ne;
     }
 
-    public String Ks() {
-        if (this.aRE == null || this.aRE.Nb == null) {
+    public String Lp() {
+        if (this.aVa == null || this.aVa.MW == null) {
             return null;
         }
-        return this.aRE.Nb.EZ;
+        return this.aVa.MW.Fg;
     }
 
-    public String Kt() {
-        if (this.aRE == null || this.aRE.Nb == null) {
+    public String Lq() {
+        if (this.aVa == null || this.aVa.MW == null) {
             return null;
         }
-        return this.aRE.Nb.Nk;
+        return this.aVa.MW.Ng;
     }
 
-    public List<String> Ku() {
-        if (this.aRE == null || this.aRE.Nb == null) {
+    public List<String> Lr() {
+        if (this.aVa == null || this.aVa.MW == null) {
             return null;
         }
-        return this.aRE.Nb.Np;
+        return this.aVa.MW.Nl;
     }
 
-    public com.baidu.tbadk.core.data.c Kv() {
-        return this.aRE;
+    public com.baidu.tbadk.core.data.b Ls() {
+        return this.aVa;
     }
 
-    public boolean oH() {
-        if (this.aRE != null) {
-            return this.aRE.oH();
+    public boolean ox() {
+        if (this.aVa != null) {
+            return this.aVa.ox();
         }
         return false;
     }
 
-    public boolean oG() {
-        if (this.aRE != null) {
-            return this.aRE.oG();
+    public boolean ow() {
+        if (this.aVa != null) {
+            return this.aVa.ow();
         }
         return false;
     }

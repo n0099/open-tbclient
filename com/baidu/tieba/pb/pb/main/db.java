@@ -1,19 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class db implements Runnable {
-    final /* synthetic */ cw dlN;
-    private final /* synthetic */ com.baidu.tieba.pb.data.e dlR;
+public class db extends CustomMessageListener {
+    final /* synthetic */ cz dQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(cw cwVar, com.baidu.tieba.pb.data.e eVar) {
-        this.dlN = cwVar;
-        this.dlR = eVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public db(cz czVar, int i) {
+        super(i);
+        this.dQG = czVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.dlN.a(this.dlR, 3, false, 0, "", false, 0, 0L, 0L, true);
-        this.dlN.avz = false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.dQG.j(customResponsedMessage);
     }
 }

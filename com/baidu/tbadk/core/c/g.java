@@ -9,22 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a Tt = null;
+    private a TK = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g TG = new g();
+        private static final g TY = new g();
     }
 
-    public static g su() {
-        return c.TG;
+    public static g ss() {
+        return c.TY;
     }
 
     public void a(int i, k kVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.Tt = new a(i, kVar, null);
-                this.Tt.sw();
+                this.TK = new a(i, kVar, null);
+                this.TK.su();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -34,12 +34,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        private final List<Long> TE = new ArrayList(240);
-        private final List<Integer> TF = new ArrayList(15);
-        protected a Tt;
+        protected a TK;
+        private final List<Long> TW = new ArrayList(240);
+        private final List<Integer> TX = new ArrayList(15);
 
         public b(a aVar) {
-            this.Tt = aVar;
+            this.TK = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -62,86 +62,86 @@ public class g {
         }
 
         private void v(long j) {
-            this.TE.add(Long.valueOf(j));
-            this.Tt.sw();
+            this.TW.add(Long.valueOf(j));
+            this.TK.su();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.Tt = null;
-            this.TE.clear();
-            this.TF.clear();
+            this.TK = null;
+            this.TW.clear();
+            this.TX.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private final b TA;
-        private final int TB;
-        private final k TC;
-        private final Class<?> Tu;
-        private final Object Tv;
-        private final Class<?> Tw;
-        private final Method Tx;
-        private final Object Ty;
-        private final Method Tz;
+        private final Class<?> TL;
+        private final Object TM;
+        private final Class<?> TO;
+        private final Method TP;
+        private final Object TQ;
+        private final Method TR;
+        private final b TS;
+        private final int TT;
+        private final k TU;
         private int index;
 
         private a(int i, k kVar) {
             this.index = 0;
-            this.Tw = Class.forName("android.view.Choreographer");
-            this.Tu = Class.forName("android.view.Choreographer$FrameCallback");
-            this.TA = new b(this);
-            this.Tv = Proxy.newProxyInstance(this.Tu.getClassLoader(), new Class[]{this.Tu}, this.TA);
-            this.Tx = this.Tw.getMethod("getInstance", new Class[0]);
-            this.Ty = this.Tx.invoke(null, new Object[0]);
-            this.Tz = this.Tw.getMethod("postFrameCallback", this.Tu);
-            this.TB = i <= 0 ? 16 : i;
-            this.TC = kVar;
+            this.TO = Class.forName("android.view.Choreographer");
+            this.TL = Class.forName("android.view.Choreographer$FrameCallback");
+            this.TS = new b(this);
+            this.TM = Proxy.newProxyInstance(this.TL.getClassLoader(), new Class[]{this.TL}, this.TS);
+            this.TP = this.TO.getMethod("getInstance", new Class[0]);
+            this.TQ = this.TP.invoke(null, new Object[0]);
+            this.TR = this.TO.getMethod("postFrameCallback", this.TL);
+            this.TT = i <= 0 ? 16 : i;
+            this.TU = kVar;
         }
 
         /* synthetic */ a(int i, k kVar, a aVar) {
             this(i, kVar);
         }
 
-        private void sv() {
-            this.Tz.invoke(this.Ty, this.Tv);
+        private void st() {
+            this.TR.invoke(this.TQ, this.TM);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void sw() {
-            if (this.index >= this.TB) {
-                com.baidu.adp.lib.h.h.dL().post(new h(this));
+        public void su() {
+            if (this.index >= this.TT) {
+                com.baidu.adp.lib.h.h.dM().post(new h(this));
                 return;
             }
             this.index++;
             try {
-                sv();
+                st();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> sx() {
-            return this.TA.TE;
+        private List<Long> sv() {
+            return this.TS.TW;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.TA.destroy();
+            this.TS.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> sy() {
+        public List<Long> sw() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> sx = sx();
-            int size = sx.size();
+            List<Long> sv = sv();
+            int size = sv.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(sx.get(i2 + 1).longValue() - sx.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(sv.get(i2 + 1).longValue() - sv.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

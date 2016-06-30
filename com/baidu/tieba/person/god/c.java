@@ -1,61 +1,54 @@
 package com.baidu.tieba.person.god;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.t;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.az;
+import com.baidu.tieba.card.a.m;
+import com.baidu.tieba.card.a.n;
+import com.baidu.tieba.card.a.o;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
-class c implements NoNetworkView.a {
-    final /* synthetic */ GodThreadListActivity dzZ;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(GodThreadListActivity godThreadListActivity) {
-        this.dzZ = godThreadListActivity;
+public class c {
+    public static com.baidu.tieba.card.a.c b(az azVar, boolean z) {
+        if (n.c(azVar)) {
+            return null;
+        }
+        if (o.c(azVar)) {
+            o oVar = new o(azVar);
+            oVar.aVu = true;
+            oVar.aVG = z;
+            return oVar;
+        } else if (com.baidu.tieba.card.a.f.c(azVar)) {
+            return new com.baidu.tieba.card.a.f(azVar);
+        } else {
+            if (m.c(azVar)) {
+                m mVar = new m();
+                mVar.threadData = azVar;
+                mVar.aVu = true;
+                mVar.arI = z;
+                return mVar;
+            }
+            return null;
+        }
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aF(boolean z) {
-        h hVar;
-        g gVar;
-        List list;
-        List list2;
-        g gVar2;
-        g gVar3;
-        h hVar2;
-        h hVar3;
-        g gVar4;
-        g gVar5;
-        hVar = this.dzZ.dzV;
-        if (hVar != null) {
-            gVar = this.dzZ.dzU;
-            if (gVar != null) {
-                list = this.dzZ.dzW;
-                if (list != null) {
-                    list2 = this.dzZ.dzW;
-                    if (list2.isEmpty()) {
-                        if (z) {
-                            hVar2 = this.dzZ.dzV;
-                            if (!hVar2.isLoading()) {
-                                hVar3 = this.dzZ.dzV;
-                                if (hVar3.hasMore()) {
-                                    gVar4 = this.dzZ.dzU;
-                                    gVar4.jy();
-                                    gVar5 = this.dzZ.dzU;
-                                    gVar5.aCB();
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        String string = TbadkCoreApplication.m11getInst().getString(t.j.neterror);
-                        gVar2 = this.dzZ.dzU;
-                        gVar2.mj(string);
-                        gVar3 = this.dzZ.dzU;
-                        gVar3.aCB();
-                    }
+    public static List<com.baidu.tieba.card.a.c> a(List<ThreadInfo> list, MetaData metaData, boolean z) {
+        ArrayList arrayList = new ArrayList();
+        for (ThreadInfo threadInfo : list) {
+            if (threadInfo != null) {
+                az azVar = new az();
+                azVar.a(threadInfo);
+                if (metaData != null && (azVar.getAuthor() == null || TextUtils.isEmpty(azVar.getAuthor().getUserId()))) {
+                    azVar.setAuthor(metaData);
+                }
+                com.baidu.tieba.card.a.c b = b(azVar, z);
+                if (b != null && b.isValid()) {
+                    arrayList.add(b);
                 }
             }
         }
+        return arrayList;
     }
 }

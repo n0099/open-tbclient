@@ -1,25 +1,18 @@
 package com.baidu.tieba.pb.view;
 
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.pb.b;
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ b drS;
+public interface c {
+    void Ye();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.drS = bVar;
-    }
+    void a(com.baidu.tieba.tbadkCore.data.s sVar, b.a aVar);
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        tbPageContext = this.drS.DV;
-        ((PbActivity) tbPageContext.getOrignalPage()).skipToRegisterActivity();
-        tbPageContext2 = this.drS.DV;
-        ((PbActivity) tbPageContext2.getOrignalPage()).gx(true);
-    }
+    void aIF();
+
+    void atv();
+
+    View getView();
+
+    void onActivityDestroy();
 }

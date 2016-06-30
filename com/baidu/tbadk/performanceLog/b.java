@@ -4,21 +4,21 @@ import com.baidu.tbadk.performanceLog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a awE;
+    final /* synthetic */ a axu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.awE = aVar;
+        this.axu = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         a.b bVar;
         a.b bVar2;
-        if (this.awE.ah()) {
-            bVar = this.awE.awC;
+        if (this.axu.ah()) {
+            bVar = this.axu.axs;
             bVar.invalidate();
-            bVar2 = this.awE.awC;
+            bVar2 = this.axu.axs;
             bVar2.post(this);
         }
     }

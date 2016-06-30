@@ -1,37 +1,33 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes.dex */
-public class q extends b implements r {
-    public static final BdUniqueId aSr = BdUniqueId.gen();
-    public boolean aRD;
-    public long aSs;
-    public String aSt;
-    public String aSu;
-    public String aSv;
-    public String aSw;
-    public String aSx;
-    public long aSy;
-    public String aSz;
-    public String userName;
+public class q extends b implements s {
+    public static final BdUniqueId aVI = BdUniqueId.gen();
+    public boolean aUZ = true;
+    public String aVJ;
+    public List<p> aVK;
+    public int aVL;
+    public int position;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return aSr;
+        return aVI;
     }
 
-    @Override // com.baidu.tieba.card.a.r
+    @Override // com.baidu.tieba.card.a.s
     public int getPosition() {
-        return (int) this.aSy;
+        return this.position;
     }
 
-    @Override // com.baidu.tieba.card.a.r
-    public boolean Kp() {
-        return false;
+    @Override // com.baidu.tieba.card.a.s
+    public boolean Lm() {
+        return true;
     }
 
-    @Override // com.baidu.tieba.card.a.r
-    public void cj(boolean z) {
-        this.aRD = z;
+    @Override // com.baidu.tieba.card.a.s
+    public void ck(boolean z) {
+        this.aUZ = z;
     }
 }

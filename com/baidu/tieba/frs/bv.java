@@ -1,29 +1,22 @@
 package com.baidu.tieba.frs;
-
-import android.graphics.drawable.Drawable;
-import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv {
-    private HashMap<String, Drawable> biv = new HashMap<>();
+public class bv implements Runnable {
+    final /* synthetic */ bq bFI;
 
-    public Drawable o(int i, int i2) {
-        String U = U(i, i2);
-        Drawable drawable = this.biv.get(U);
-        if (drawable == null) {
-            Drawable o = com.baidu.tbadk.core.util.at.o(i2, i);
-            this.biv.put(U, o);
-            return o.getConstantState().newDrawable();
-        }
-        return drawable.getConstantState().newDrawable();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bv(bq bqVar) {
+        this.bFI = bqVar;
     }
 
-    private String U(int i, int i2) {
-        return String.valueOf(i) + "_" + i2;
-    }
-
-    public void destory() {
-        if (!this.biv.isEmpty()) {
-            this.biv.clear();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
+        com.baidu.adp.lib.guide.d dVar2;
+        dVar = this.bFI.EF;
+        if (dVar != null) {
+            dVar2 = this.bFI.EF;
+            dVar2.dismiss();
         }
     }
 }

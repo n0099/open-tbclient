@@ -1,26 +1,33 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.t;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.tieba.pb.a.d;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao extends PbListView {
-    TbPageContext<?> context;
+public class ao implements d.a {
+    final /* synthetic */ af dXy;
 
-    public ao(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
-        this.context = tbPageContext;
-        getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(t.e.ds16), 0, 0);
-        va();
-        vc();
-        vd();
-        setTextSize(t.e.ds32);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ao(af afVar) {
+        this.dXy = afVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.PbListView
-    public void vi() {
-        super.vi();
-        setText(this.context.getResources().getString(t.j.list_no_more));
-        getView().setVisibility(0);
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.dXy.hK(false);
+        this.dXy.aY(view);
+        this.dXy.hK(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        return true;
     }
 }

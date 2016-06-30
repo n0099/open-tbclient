@@ -1,53 +1,53 @@
 package com.baidu.tbadk.core.data;
-
-import java.util.ArrayList;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class ae {
-    private int OT;
-    private ArrayList<a> OU;
+    private long OM;
+    private String OO;
+    private String content;
+    private String link;
+    private String stat;
+    private long taskId;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public String EV;
-        public int giftId;
-        public int num;
-        public String thumbnailUrl;
+    public ae() {
+        this.OM = -1L;
+        this.link = null;
+        this.content = null;
+        this.OO = null;
+        this.stat = "";
+        this.taskId = -1L;
     }
 
-    public void a(PbPresent pbPresent) {
-        if (pbPresent != null) {
-            this.OT = pbPresent.total.intValue();
-            if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.OU = new ArrayList<>();
-                for (PbPresentList pbPresentList : pbPresent.list) {
-                    if (pbPresentList != null) {
-                        a aVar = new a();
-                        aVar.giftId = pbPresentList.gift_id.intValue();
-                        aVar.EV = pbPresentList.gift_name;
-                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
-                        aVar.num = pbPresentList.num.intValue();
-                        this.OU.add(aVar);
-                    }
-                }
-            }
-        }
+    public ae(long j, long j2, String str, String str2, String str3) {
+        this.OM = -1L;
+        this.link = null;
+        this.content = null;
+        this.OO = null;
+        this.stat = "";
+        this.taskId = -1L;
+        this.OM = j;
+        this.taskId = j2;
+        this.link = str;
+        this.content = str2;
+        this.stat = str3;
     }
 
-    public int pM() {
-        return this.OT;
+    public String getStat() {
+        return this.stat;
     }
 
-    public void bE(int i) {
-        this.OT = i;
+    public long py() {
+        return this.OM;
     }
 
-    public ArrayList<a> pN() {
-        return this.OU;
+    public long getTaskId() {
+        return this.taskId;
     }
 
-    public void g(ArrayList<a> arrayList) {
-        this.OU = arrayList;
+    public String getLink() {
+        return this.link;
+    }
+
+    public String getContent() {
+        return this.content;
     }
 }

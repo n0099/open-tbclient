@@ -1,63 +1,52 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tieba.frs.fh;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.a.m;
+import com.baidu.tieba.card.bw;
+import com.baidu.tieba.card.bx;
+import com.baidu.tieba.frs.entelechy.view.q;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends com.baidu.adp.widget.ListView.a<ax, a> {
-    private TbPageContext<?> DV;
-    private com.baidu.tieba.frs.entelechy.c.a bph;
+public class u implements bx {
+    final /* synthetic */ t bJI;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public u(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.DV = tbPageContext;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(t tVar) {
+        this.bJI = tVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: L */
-    public a b(ViewGroup viewGroup) {
-        this.bph = new com.baidu.tieba.frs.entelechy.c.a(this.DV);
-        this.bph.j(this.DV.getUniqueId());
-        return new a(this.bph);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ax axVar, a aVar) {
-        aVar.bpi.h(axVar);
-        return aVar.getView();
-    }
-
-    /* loaded from: classes.dex */
-    public static class a extends y.a implements fh {
-        public com.baidu.tieba.frs.entelechy.c.a bpi;
-
-        public a(com.baidu.tieba.frs.entelechy.c.a aVar) {
-            super(aVar.getView());
-            this.bpi = aVar;
-        }
-
-        @Override // com.baidu.tieba.frs.fh
-        public void Kb() {
-            this.bpi.Kb();
-        }
-
-        @Override // com.baidu.tieba.frs.fh
-        public void RG() {
-            this.bpi.ch(true);
-        }
-
-        @Override // com.baidu.tieba.frs.fh
-        public void RH() {
-            this.bpi.ch(false);
+    @Override // com.baidu.tieba.card.bx
+    public void a(View view, com.baidu.tieba.card.a.b bVar) {
+        q qVar;
+        q qVar2;
+        q qVar3;
+        bw.Lg().cj(true);
+        qVar = this.bJI.bJG;
+        if (qVar != null && view != null && (bVar instanceof m)) {
+            m mVar = (m) bVar;
+            if (mVar.threadData != null) {
+                if (view instanceof TbImageView) {
+                    TiebaStatic.log(new ay("c11004").ab("tid", mVar.threadData.getTid()));
+                    return;
+                }
+                int id = view.getId();
+                qVar2 = this.bJI.bJG;
+                if (id == qVar2.aSe.getId()) {
+                    TiebaStatic.log(new ay("c10803").s("obj_locate", 7).ab("tid", mVar.threadData.getTid()));
+                    return;
+                }
+                int id2 = view.getId();
+                qVar3 = this.bJI.bJG;
+                if (id2 == qVar3.getView().getId()) {
+                    TiebaStatic.log(new ay("c11004").ab("tid", mVar.threadData.getTid()));
+                    TiebaStatic.log(new ay("c10806").s("obj_locate", 1).ab("tid", mVar.threadData.getId()));
+                    return;
+                }
+                TiebaStatic.log(new ay("c11004").ab("tid", mVar.threadData.getTid()));
+            }
         }
     }
 }

@@ -1,133 +1,143 @@
 package com.baidu.tieba.person.god;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.k;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.t;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GodThreadList.DataRes;
-import tbclient.ThreadInfo;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.t;
+import com.baidu.tbadk.core.view.w;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.base.e {
-    private int Or;
-    private boolean avz;
-    private int curPage;
-    private int dAc;
-    private int dAd;
-    private a dAe;
-    private final com.baidu.adp.framework.listener.a dAf;
-    private final List<ThreadInfo> mDatas;
+public class h {
+    private NoNetworkView Ev;
+    private PbListView biC;
+    private final BaseActivity<?> bkc;
+    private BdTypeListView bou;
+    private int eiH;
+    private int eiI = u.d.cp_bg_line_d;
+    private NavigationBar mNavigationBar;
+    private q mNoDataView;
+    private w mPullView;
+    private View mRootView;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void d(int i, List<ThreadInfo> list);
-
-        void fz(String str);
+    public BdTypeListView aLu() {
+        return this.bou;
     }
 
-    public boolean isLoading() {
-        return this.avz;
+    public h(BaseActivity<?> baseActivity) {
+        this.bou = null;
+        this.mPullView = null;
+        this.bkc = baseActivity;
+        baseActivity.setContentView(u.h.activity_god_thread_list);
+        this.mRootView = baseActivity.findViewById(u.g.root_layout);
+        this.Ev = (NoNetworkView) this.mRootView.findViewById(u.g.view_no_network);
+        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(u.g.navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(baseActivity.getPageContext().getString(u.j.title_god_thread_list));
+        this.bou = (BdTypeListView) this.mRootView.findViewById(u.g.listview);
+        this.bou.setDividerHeight(0);
+        this.mPullView = new w(baseActivity.getPageContext());
+        this.mPullView.setTag(this.bkc.getUniqueId());
+        this.bou.setPullRefresh(this.mPullView);
+        this.biC = new PbListView(baseActivity.getActivity());
+        this.biC.jq();
+        this.biC.cS(u.d.cp_bg_line_c);
+        this.biC.setTextColor(av.getColor(u.d.cp_cont_d));
+        this.biC.cT(TbadkCoreApplication.m9getInst().getSkinType());
+        this.bou.setNextPage(this.biC);
+        this.eiH = this.bkc.getResources().getDimensionPixelOffset(u.e.ds120);
+        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
-    public boolean hasMore() {
-        return this.Or == 1;
-    }
-
-    public void mx(int i) {
-        reset();
-        this.dAd = i;
-        this.curPage = this.dAd;
-    }
-
-    public void a(a aVar) {
-        this.dAe = aVar;
-    }
-
-    public h(com.baidu.adp.base.h<?> hVar) {
-        super(hVar);
-        this.curPage = 0;
-        this.Or = 1;
-        this.avz = false;
-        this.dAd = 0;
-        this.dAf = new i(this, CmdConfigHttp.CMD_GOD_THREAD_LIST, 309291);
-        this.mDatas = new ArrayList();
-        hVar.registerListener(this.dAf);
-    }
-
-    @Override // com.baidu.adp.base.e
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        super.setUniqueId(bdUniqueId);
-        this.dAf.setTag(bdUniqueId);
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    private GodThreadListRequestMessage aCC() {
-        return new GodThreadListRequestMessage();
-    }
-
-    public void bG(long j) {
-        GodThreadListRequestMessage aCC = aCC();
-        aCC.setUserId(j);
-        aCC.setPn(this.curPage + 1);
-        aCC.setNum(20);
-        sendMessage(aCC);
-        this.avz = true;
-    }
-
-    public void j(int i, long j) {
-        GodThreadListRequestMessage aCC = aCC();
-        aCC.setUserId(j);
-        this.curPage = i;
-        aCC.setPn(this.curPage);
-        aCC.setNum(20);
-        sendMessage(aCC);
-        this.avz = true;
-    }
-
-    public void reset() {
-        this.curPage = this.dAd;
-        this.dAc = 0;
-        this.Or = 1;
-        this.mDatas.clear();
-        this.avz = false;
-    }
-
-    public void a(DataRes dataRes) {
-        if (dataRes == null) {
-            if (this.dAe != null) {
-                this.dAe.fz(aCD());
-                return;
-            }
-            return;
+    public void onChangeSkinType(int i) {
+        av.l(this.mRootView, this.eiI);
+        if (this.mPullView != null) {
+            this.mPullView.cT(i);
         }
-        if (this.curPage == this.dAd) {
-            this.mDatas.clear();
+        if (this.biC != null) {
+            this.biC.cT(i);
         }
-        this.mDatas.addAll(dataRes.thread_list);
-        if (this.dAe != null) {
-            this.dAe.d(this.curPage, dataRes.thread_list);
+        if (this.Ev != null) {
+            this.Ev.onChangeSkinType(this.bkc.getPageContext(), i);
         }
-        this.curPage = dataRes.cur_page.intValue();
-        this.Or = dataRes.has_more.intValue();
-        this.dAc = dataRes.thread_num.intValue();
+        if (this.mNoDataView != null) {
+            this.mNoDataView.onChangeSkinType(this.bkc.getPageContext(), i);
+        }
+        if (this.mNavigationBar != null) {
+            this.mNavigationBar.onChangeSkinType(this.bkc.getPageContext(), i);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String aCD() {
-        if (k.fH()) {
-            return TbadkCoreApplication.m11getInst().getString(t.j.no_data_text);
+    public void a(NoNetworkView.a aVar) {
+        this.Ev.a(aVar);
+    }
+
+    public void a(t.b bVar) {
+        this.mPullView.a(bVar);
+    }
+
+    public void setOnSrollToBottomListener(BdListView.e eVar) {
+        this.bou.setOnSrollToBottomListener(eVar);
+    }
+
+    public void jB() {
+        this.bou.jB();
+    }
+
+    public void SQ() {
+        this.bou.k(2000L);
+    }
+
+    public void hideNoDataView() {
+        if (this.mNoDataView != null) {
+            this.mNoDataView.setVisibility(8);
+            this.bou.removeHeaderView(this.mNoDataView);
         }
-        return TbadkCoreApplication.m11getInst().getString(t.j.neterror);
+    }
+
+    public void nK(String str) {
+        if (this.mNoDataView == null) {
+            this.mNoDataView = NoDataViewFactory.a(this.bkc.getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.eiH), NoDataViewFactory.d.dT(str), null);
+        }
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dT(str));
+        this.mNoDataView.onChangeSkinType(this.bkc.getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
+        this.mNoDataView.setVisibility(0);
+        this.bou.removeHeaderView(this.mNoDataView);
+        this.bou.addHeaderView(this.mNoDataView);
+        aLw();
+        this.eiI = u.d.cp_bg_line_d;
+        av.l(this.mRootView, this.eiI);
+    }
+
+    public void Un() {
+        if (this.biC != null && this.biC.getView() != null) {
+            this.biC.getView().setVisibility(0);
+            this.biC.vh();
+            this.eiI = u.d.cp_bg_line_c;
+            av.l(this.mRootView, this.eiI);
+        }
+    }
+
+    public void aLv() {
+        if (this.biC != null && this.biC.getView() != null) {
+            this.biC.getView().setVisibility(0);
+            this.biC.setText(this.bkc.getResources().getString(u.j.list_no_more_god_threads));
+            this.biC.vi();
+            this.eiI = u.d.cp_bg_line_c;
+            av.l(this.mRootView, this.eiI);
+        }
+    }
+
+    public void aLw() {
+        if (this.biC != null && this.biC.getView() != null) {
+            this.biC.getView().setVisibility(8);
+        }
     }
 }

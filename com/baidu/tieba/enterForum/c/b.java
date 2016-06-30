@@ -5,23 +5,23 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b aXT;
+    private static b btO;
 
-    public static b MN() {
-        if (aXT == null) {
+    public static b Sp() {
+        if (btO == null) {
             synchronized (b.class) {
-                if (aXT == null) {
-                    aXT = new b();
+                if (btO == null) {
+                    btO = new b();
                 }
             }
         }
-        return aXT;
+        return btO;
     }
 
     private b() {
     }
 
-    public <T> void b(List<T> list, int i, int i2) {
+    public <T> void c(List<T> list, int i, int i2) {
         if (list != null && i != i2 && i >= 0 && i < list.size() && i2 >= 0 && i2 < list.size()) {
             if (i < i2) {
                 while (i < i2) {
@@ -40,10 +40,10 @@ public class b {
     public int a(float f, int i, int i2) {
         int i3 = 0;
         if (f < i / 2) {
-            i3 = (int) (f - (i / 2));
+            i3 = ((int) f) - (i / 2);
         }
         if (f > i2 - (i / 2)) {
-            return (int) ((f - i2) + (i / 2));
+            return (((int) f) - i2) + (i / 2);
         }
         return i3;
     }

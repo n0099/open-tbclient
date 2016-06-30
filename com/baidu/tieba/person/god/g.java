@@ -1,143 +1,96 @@
 package com.baidu.tieba.person.god;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.core.view.q;
-import com.baidu.tbadk.core.view.t;
-import com.baidu.tbadk.core.view.w;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tieba.person.god.i;
+import com.baidu.tieba.u;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
-public class g {
-    private NoNetworkView Ep;
-    private BdTypeListView bej;
-    private final BaseActivity<?> bek;
-    private PbListView bkd;
-    private int dAa;
-    private int dAb = t.d.cp_bg_line_d;
-    private NavigationBar mNavigationBar;
-    private q mNoDataView;
-    private w mPullView;
-    private View mRootView;
+class g implements i.a {
+    final /* synthetic */ GodThreadListActivity eiG;
 
-    public BdTypeListView aCz() {
-        return this.bej;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(GodThreadListActivity godThreadListActivity) {
+        this.eiG = godThreadListActivity;
     }
 
-    public g(BaseActivity<?> baseActivity) {
-        this.bej = null;
-        this.mPullView = null;
-        this.bek = baseActivity;
-        baseActivity.setContentView(t.h.activity_god_thread_list);
-        this.mRootView = baseActivity.findViewById(t.g.root_layout);
-        this.Ep = (NoNetworkView) this.mRootView.findViewById(t.g.view_no_network);
-        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(t.g.navigation_bar);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(baseActivity.getPageContext().getString(t.j.title_god_thread_list));
-        this.bej = (BdTypeListView) this.mRootView.findViewById(t.g.listview);
-        this.bej.setDividerHeight(0);
-        this.mPullView = new w(baseActivity.getPageContext());
-        this.mPullView.setTag(this.bek.getUniqueId());
-        this.bej.setPullRefresh(this.mPullView);
-        this.bkd = new PbListView(baseActivity.getActivity());
-        this.bkd.jn();
-        this.bkd.cQ(t.d.cp_bg_line_c);
-        this.bkd.setTextColor(at.getColor(t.d.cp_cont_d));
-        this.bkd.cR(TbadkCoreApplication.m11getInst().getSkinType());
-        this.bej.setNextPage(this.bkd);
-        this.dAa = this.bek.getResources().getDimensionPixelOffset(t.e.ds120);
-        onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
-    }
-
-    public void onChangeSkinType(int i) {
-        at.l(this.mRootView, this.dAb);
-        if (this.mPullView != null) {
-            this.mPullView.cR(i);
-        }
-        if (this.bkd != null) {
-            this.bkd.cR(i);
-        }
-        if (this.Ep != null) {
-            this.Ep.onChangeSkinType(this.bek.getPageContext(), i);
-        }
-        if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.bek.getPageContext(), i);
-        }
-        if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.bek.getPageContext(), i);
-        }
-    }
-
-    public void a(NoNetworkView.a aVar) {
-        this.Ep.a(aVar);
-    }
-
-    public void a(t.b bVar) {
-        this.mPullView.a(bVar);
-    }
-
-    public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.bej.setOnSrollToBottomListener(eVar);
-    }
-
-    public void jy() {
-        this.bej.jy();
-    }
-
-    public void Np() {
-        this.bej.k(2000L);
-    }
-
-    public void hideNoDataView() {
-        if (this.mNoDataView != null) {
-            this.mNoDataView.setVisibility(8);
-            this.bej.removeHeaderView(this.mNoDataView);
+    @Override // com.baidu.tieba.person.god.i.a
+    public void c(int i, List<ThreadInfo> list) {
+        i iVar;
+        h hVar;
+        List list2;
+        h hVar2;
+        h hVar3;
+        h hVar4;
+        a aVar;
+        MetaData metaData;
+        h hVar5;
+        List list3;
+        a aVar2;
+        List<v> list4;
+        List list5;
+        iVar = this.eiG.eiC;
+        if (iVar != null) {
+            hVar = this.eiG.eiB;
+            if (hVar != null) {
+                list2 = this.eiG.eiD;
+                if (list2 != null) {
+                    hVar2 = this.eiG.eiB;
+                    hVar2.SQ();
+                    hVar3 = this.eiG.eiB;
+                    hVar3.aLv();
+                    hVar4 = this.eiG.eiB;
+                    hVar4.hideNoDataView();
+                    aVar = this.eiG.eiA;
+                    if (aVar != null) {
+                        metaData = this.eiG.eiE;
+                        List<com.baidu.tieba.card.a.c> a = c.a(list, metaData, true);
+                        if (y.s(a) > 0) {
+                            if (i == 0) {
+                                list5 = this.eiG.eiD;
+                                list5.clear();
+                            }
+                            list3 = this.eiG.eiD;
+                            list3.addAll(a);
+                            aVar2 = this.eiG.eiA;
+                            list4 = this.eiG.eiD;
+                            aVar2.cm(list4);
+                            return;
+                        }
+                        String string = TbadkCoreApplication.m9getInst().getString(u.j.no_data_text);
+                        hVar5 = this.eiG.eiB;
+                        hVar5.nK(string);
+                    }
+                }
+            }
         }
     }
 
-    public void mj(String str) {
-        if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.bek.getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.dAa), NoDataViewFactory.d.dP(str), null);
-        }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dP(str));
-        this.mNoDataView.onChangeSkinType(this.bek.getPageContext(), TbadkCoreApplication.m11getInst().getSkinType());
-        this.mNoDataView.setVisibility(0);
-        this.bej.removeHeaderView(this.mNoDataView);
-        this.bej.addHeaderView(this.mNoDataView);
-        aCB();
-        this.dAb = t.d.cp_bg_line_d;
-        at.l(this.mRootView, this.dAb);
-    }
-
-    public void OL() {
-        if (this.bkd != null && this.bkd.getView() != null) {
-            this.bkd.getView().setVisibility(0);
-            this.bkd.vh();
-            this.dAb = t.d.cp_bg_line_c;
-            at.l(this.mRootView, this.dAb);
-        }
-    }
-
-    public void aCA() {
-        if (this.bkd != null && this.bkd.getView() != null) {
-            this.bkd.getView().setVisibility(0);
-            this.bkd.setText(this.bek.getResources().getString(t.j.list_no_more_god_threads));
-            this.bkd.vi();
-            this.dAb = t.d.cp_bg_line_c;
-            at.l(this.mRootView, this.dAb);
-        }
-    }
-
-    public void aCB() {
-        if (this.bkd != null && this.bkd.getView() != null) {
-            this.bkd.getView().setVisibility(8);
+    @Override // com.baidu.tieba.person.god.i.a
+    public void fF(String str) {
+        i iVar;
+        h hVar;
+        h hVar2;
+        List list;
+        h hVar3;
+        h hVar4;
+        iVar = this.eiG.eiC;
+        if (iVar != null) {
+            hVar = this.eiG.eiB;
+            if (hVar != null) {
+                hVar2 = this.eiG.eiB;
+                hVar2.SQ();
+                list = this.eiG.eiD;
+                if (list.isEmpty()) {
+                    hVar3 = this.eiG.eiB;
+                    hVar3.aLw();
+                    hVar4 = this.eiG.eiB;
+                    hVar4.nK(str);
+                }
+            }
         }
     }
 }

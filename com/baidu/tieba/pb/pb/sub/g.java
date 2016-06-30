@@ -1,36 +1,32 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements View.OnLongClickListener {
-    final /* synthetic */ NewSubPbActivity dqn;
+public class g implements AbsListView.OnScrollListener {
+    final /* synthetic */ NewSubPbActivity dWP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NewSubPbActivity newSubPbActivity) {
-        this.dqn = newSubPbActivity;
+        this.dWP = newSubPbActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        SparseArray sparseArray;
-        y yVar;
-        c.b bVar;
-        ap apVar;
-        try {
-            sparseArray = (SparseArray) view.getTag();
-        } catch (ClassCastException e) {
-            e.printStackTrace();
-            sparseArray = null;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        af afVar;
+        com.baidu.tbadk.editortools.d.p pVar;
+        if (i == 2 || i == 1) {
+            afVar = this.dWP.dWE;
+            afVar.avf();
         }
-        if (sparseArray != null) {
-            yVar = this.dqn.dqe;
-            bVar = this.dqn.djw;
-            apVar = this.dqn.dqc;
-            yVar.a(bVar, apVar.isMarked());
-        }
-        return true;
+        pVar = this.dWP.deA;
+        pVar.Cu();
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        af afVar;
+        afVar = this.dWP.dWE;
+        afVar.aIF();
     }
 }

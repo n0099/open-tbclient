@@ -1,28 +1,38 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.ImageView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class r implements View.OnFocusChangeListener {
-    final /* synthetic */ ActivationActivity aIG;
+class r implements TextWatcher {
+    final /* synthetic */ ActivationActivity aMd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ActivationActivity activationActivity) {
-        this.aIG = activationActivity;
+        this.aMd = activationActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        ImageView imageView;
-        ImageView imageView2;
-        if (view == this.aIG.aIr) {
-            if (z) {
-                imageView2 = this.aIG.aIn;
-                imageView2.setVisibility(0);
-                return;
-            }
-            imageView = this.aIG.aIn;
-            imageView.setVisibility(8);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        int i;
+        if (editable.length() == 6) {
+            this.aMd.aLP.setEnabled(true);
+        } else {
+            this.aMd.aLP.setEnabled(false);
         }
+        i = this.aMd.aMa;
+        if (i != 0) {
+            this.aMd.aMa = 0;
+            this.aMd.aLJ.setBackgroundResource(u.f.pass_input);
+            this.aMd.aLJ.setPadding(this.aMd.aLY, 0, this.aMd.aLZ, 0);
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

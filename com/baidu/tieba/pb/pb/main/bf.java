@@ -1,85 +1,56 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import android.content.Intent;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bf implements com.baidu.adp.lib.f.c<ImageView> {
-    final /* synthetic */ PbActivity djE;
+public class bf implements a.b {
+    final /* synthetic */ PbActivity dPF;
+    private final /* synthetic */ MarkData dPM;
+    private final /* synthetic */ MarkData dPN;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a dPO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(PbActivity pbActivity) {
-        this.djE = pbActivity;
+    public bf(PbActivity pbActivity, MarkData markData, MarkData markData2, com.baidu.tbadk.core.dialog.a aVar) {
+        this.dPF = pbActivity;
+        this.dPM = markData;
+        this.dPN = markData2;
+        this.dPO = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: awZ */
-    public ImageView dE() {
-        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.djE.getPageContext().getPageActivity());
-        boolean oh = com.baidu.tbadk.core.l.ob().oh();
-        foreDrawableImageView.setDefaultBg(com.baidu.tbadk.core.util.at.getDrawable(t.d.pb_default_image_bg));
-        if (oh) {
-            foreDrawableImageView.setAdjustViewBounds(false);
-            foreDrawableImageView.setInterceptOnClick(false);
-        } else {
-            foreDrawableImageView.setDefaultResource(t.f.icon_click);
-            foreDrawableImageView.setAdjustViewBounds(true);
-            foreDrawableImageView.setInterceptOnClick(true);
-        }
-        return foreDrawableImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public void l(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof ForeDrawableImageView) {
-            ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-            ((ForeDrawableImageView) imageView).stopLoading();
-            foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(t.d.cp_bg_line_c);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public ImageView m(ImageView imageView) {
-        if (imageView instanceof TbImageView) {
-            TbImageView tbImageView = (TbImageView) imageView;
-            tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.l.ob().oh()) {
-                tbImageView.setAdjustViewBounds(false);
-                tbImageView.setInterceptOnClick(false);
-            } else {
-                tbImageView.setDefaultResource(t.f.icon_click);
-                tbImageView.setAdjustViewBounds(true);
-                tbImageView.setInterceptOnClick(true);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        com.baidu.tbadk.baseEditMark.a aVar4;
+        com.baidu.tbadk.baseEditMark.a aVar5;
+        com.baidu.tbadk.baseEditMark.a aVar6;
+        com.baidu.tbadk.baseEditMark.a aVar7;
+        com.baidu.tbadk.baseEditMark.a aVar8;
+        aVar.dismiss();
+        aVar2 = this.dPF.dvH;
+        if (aVar2 != null) {
+            aVar3 = this.dPF.dvH;
+            if (aVar3.mK()) {
+                aVar7 = this.dPF.dvH;
+                aVar7.mL();
+                aVar8 = this.dPF.dvH;
+                aVar8.Z(false);
             }
+            aVar4 = this.dPF.dvH;
+            aVar4.a(this.dPM);
+            aVar5 = this.dPF.dvH;
+            aVar5.Z(true);
+            aVar6 = this.dPF.dvH;
+            aVar6.mM();
         }
-        return imageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: d */
-    public ImageView n(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof ForeDrawableImageView) {
-            ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-            ((ForeDrawableImageView) imageView).stopLoading();
-            foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(t.d.cp_bg_line_c);
-        }
-        return imageView;
+        this.dPN.setPostId(this.dPM.getPostId());
+        Intent intent = new Intent();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.dPN);
+        this.dPF.setResult(-1, intent);
+        this.dPO.dismiss();
+        this.dPF.aEL();
     }
 }

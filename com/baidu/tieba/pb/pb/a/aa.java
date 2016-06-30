@@ -1,23 +1,42 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements a.b {
-    final /* synthetic */ r dgC;
-    private final /* synthetic */ an dgD;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dgE;
+public class aa implements View.OnClickListener {
+    private final /* synthetic */ String dMP;
+    private final /* synthetic */ String dMQ;
+    private final /* synthetic */ String dMR;
+    final /* synthetic */ z dNn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(r rVar, an anVar, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dgC = rVar;
-        this.dgD = anVar;
-        this.dgE = sVar;
+    public aa(z zVar, String str, String str2, String str3) {
+        this.dNn = zVar;
+        this.dMP = str;
+        this.dMQ = str2;
+        this.dMR = str3;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        this.dgC.b(this.dgD, this.dgE);
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        PbActivity pbActivity;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.dMP) && !StringUtils.isNull(this.dMQ)) {
+            if (!com.baidu.adp.lib.util.i.fr()) {
+                pbActivity = this.dNn.dOg;
+                pbActivity.showToast(u.j.neterror);
+                return;
+            }
+            context = this.dNn.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.dMP) + "," + this.dMQ, this.dMR, this.dMR, context.getString(u.j.app_info_for_map));
+            context2 = this.dNn.mContext;
+            com.baidu.tbadk.browser.f.u(context2, format);
+        }
     }
 }

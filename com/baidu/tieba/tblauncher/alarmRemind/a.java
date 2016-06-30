@@ -13,11 +13,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean aMT() {
+    public static boolean aUY() {
         return TbadkSettings.getInst().loadInt(new StringBuilder(String.valueOf(TbadkCoreApplication.getCurrentAccount())).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage ok(String str) {
+    public static RemindRecommendMessage pR(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -51,7 +51,7 @@ public class a {
         }
     }
 
-    public static long ca(long j) {
+    public static long cB(long j) {
         int i;
         int i2;
         int i3;
@@ -81,7 +81,7 @@ public class a {
         calendar.setTimeInMillis(j);
         calendar.set(12, i2);
         calendar.set(13, i);
-        Application app = TbadkCoreApplication.m11getInst().getApp();
+        Application app = TbadkCoreApplication.m9getInst().getApp();
         if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
             calendar.set(11, i4);
         } else {
@@ -96,11 +96,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long aVT() {
-        return ca(System.currentTimeMillis());
+    public static long bef() {
+        return cB(System.currentTimeMillis());
     }
 
-    public static boolean cb(long j) {
+    public static boolean cC(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -110,7 +110,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean aVU() {
-        return com.baidu.tbadk.core.sharedPref.b.sR().getInt("sync_local_dialog", 1) == 1;
+    public static boolean beg() {
+        return com.baidu.tbadk.core.sharedPref.b.sO().getInt("sync_local_dialog", 1) == 1;
     }
 }

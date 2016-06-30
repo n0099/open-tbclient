@@ -1,33 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dl extends dh {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public dl(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class dl implements Runnable {
+    final /* synthetic */ dg dRE;
+    private final /* synthetic */ com.baidu.tieba.pb.data.h dRI;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dl(dg dgVar, com.baidu.tieba.pb.data.h hVar) {
+        this.dRE = dgVar;
+        this.dRI = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.dh
-    /* renamed from: aI */
-    public dm aH(ViewGroup viewGroup) {
-        return new dm(LayoutInflater.from(this.mContext).inflate(t.h.pb_newchudian_multi_img_item, viewGroup, false), this.dfJ, this.dfI, this.dfH);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.dh
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.s sVar, dk dkVar) {
-        super.a(i, view, viewGroup, sVar, dkVar);
-        if (sVar == null || sVar.aUi() == null) {
-            return null;
-        }
-        ((dm) dkVar).a(this.mContext, sVar.aUi(), this.ddo);
-        return view;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.dRE.a(this.dRI, 3, false, 0, "", false, 0, 0L, 0L, true);
+        this.dRE.awp = false;
     }
 }

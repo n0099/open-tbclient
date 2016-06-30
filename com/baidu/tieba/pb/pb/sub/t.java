@@ -1,21 +1,26 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements TbRichTextView.c {
-    final /* synthetic */ NewSubPbActivity dqn;
+public class t implements a.b {
+    final /* synthetic */ NewSubPbActivity dWP;
+    private final /* synthetic */ UserMuteAddAndDelCustomMessage dWQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(NewSubPbActivity newSubPbActivity) {
-        this.dqn = newSubPbActivity;
+    public t(NewSubPbActivity newSubPbActivity, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+        this.dWP = newSubPbActivity;
+        this.dWQ = userMuteAddAndDelCustomMessage;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.c
-    public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-        this.dqn.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(this.dqn.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        af afVar;
+        afVar = this.dWP.dWE;
+        afVar.asK();
+        MessageManager.getInstance().sendMessage(this.dWQ);
+        aVar.dismiss();
     }
 }

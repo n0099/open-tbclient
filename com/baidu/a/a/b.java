@@ -28,6 +28,6 @@ public class b implements Runnable {
         for (int i = 0; i < length; i++) {
             iArr[i] = packageManager.checkPermission(this.JW[i], packageName);
         }
-        this.JY.a(this.JZ, this.JW, iArr);
+        this.JY.onRequestPermissionsResult(this.JZ, this.JW, iArr);
     }
 }

@@ -6,33 +6,33 @@ import com.baidu.tieba.pb.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a dfE;
+    final /* synthetic */ a dMx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dfE = aVar;
+        this.dMx = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         int i;
-        a.InterfaceC0067a interfaceC0067a;
-        a.InterfaceC0067a interfaceC0067a2;
+        a.InterfaceC0071a interfaceC0071a;
+        a.InterfaceC0071a interfaceC0071a2;
         if (message.what == 2) {
-            this.dfE.count = 0;
-            this.dfE.dfA = 0L;
-            this.dfE.dfB = 0L;
+            this.dMx.count = 0;
+            this.dMx.dMt = 0L;
+            this.dMx.dMu = 0L;
         } else if (message.what == 1) {
-            i = this.dfE.count;
+            i = this.dMx.count;
             if (i == 1) {
-                interfaceC0067a = this.dfE.dfC;
-                if (interfaceC0067a != null) {
-                    interfaceC0067a2 = this.dfE.dfC;
-                    interfaceC0067a2.Rr();
+                interfaceC0071a = this.dMx.dMv;
+                if (interfaceC0071a != null) {
+                    interfaceC0071a2 = this.dMx.dMv;
+                    interfaceC0071a2.WO();
                 }
-                this.dfE.count = 0;
-                this.dfE.dfA = 0L;
-                this.dfE.dfB = 0L;
+                this.dMx.count = 0;
+                this.dMx.dMt = 0L;
+                this.dMx.dMu = 0L;
             }
         }
     }

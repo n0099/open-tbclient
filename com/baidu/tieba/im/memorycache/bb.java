@@ -25,20 +25,20 @@ public class bb extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImMessageCenterPojo aa;
+        ImMessageCenterPojo ah;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             if (customResponsedMessage.getData() instanceof PersonalChatMessage) {
-                b.aha().a(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.cqy));
-                aa = b.aha().aa(String.valueOf(com.baidu.tieba.im.c.a.cqy), -1);
+                b.apn().a(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.cVO));
+                ah = b.apn().ah(String.valueOf(com.baidu.tieba.im.c.a.cVO), -1);
             } else if (customResponsedMessage.getData() instanceof OfficialChatMessage) {
-                b.aha().a(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.cqz));
-                aa = b.aha().aa(String.valueOf(com.baidu.tieba.im.c.a.cqz), -9);
+                b.apn().a(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.cVP));
+                ah = b.apn().ah(String.valueOf(com.baidu.tieba.im.c.a.cVP), -9);
             } else {
                 ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
-                b.aha().a(1, chatMessage.getMsgId(), chatMessage.getGroupId());
-                aa = b.aha().aa(chatMessage.getGroupId(), 1);
+                b.apn().a(1, chatMessage.getMsgId(), chatMessage.getGroupId());
+                ah = b.apn().ah(chatMessage.getGroupId(), 1);
             }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bc(this, aa));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bc(this, ah));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);

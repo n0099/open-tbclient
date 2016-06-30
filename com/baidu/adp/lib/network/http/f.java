@@ -10,15 +10,15 @@ public class f {
     private LinkedList<e> lw = new LinkedList<>();
     private e lx = null;
 
-    public g du() {
+    public g dv() {
         return this.lt;
     }
 
-    public h dv() {
+    public h dw() {
         return this.lu;
     }
 
-    public List<e> dw() {
+    public List<e> dx() {
         return Collections.unmodifiableList(this.lw);
     }
 
@@ -28,7 +28,7 @@ public class f {
         }
     }
 
-    public e dx() {
+    public e dy() {
         return this.lx;
     }
 

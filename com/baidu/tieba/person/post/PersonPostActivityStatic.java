@@ -7,8 +7,8 @@ import com.baidu.tieba.person.god.GodThreadListActivityConfig;
 /* loaded from: classes.dex */
 public class PersonPostActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(PersonPostActivityConfig.class, PersonPostActivity.class);
-        TbadkCoreApplication.m11getInst().RegisterIntent(GodThreadListActivityConfig.class, GodThreadListActivity.class);
-        ag.init();
+        TbadkCoreApplication.m9getInst().RegisterIntent(PersonPostActivityConfig.class, PersonPostActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(GodThreadListActivityConfig.class, GodThreadListActivity.class);
+        ak.init();
     }
 }

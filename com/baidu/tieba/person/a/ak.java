@@ -8,42 +8,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ak {
-    private List<com.baidu.adp.widget.ListView.a> bei = new ArrayList();
-    private BaseFragmentActivity cSp;
-    private d dyA;
-    private HTypeListView dyy;
-    private ai dyz;
+    private List<com.baidu.adp.widget.ListView.a> bAz = new ArrayList();
+    private BaseFragmentActivity bfw;
+    private HTypeListView egU;
+    private ai egV;
+    private c egW;
     private BdUniqueId mId;
 
     public ak(BaseFragmentActivity baseFragmentActivity, HTypeListView hTypeListView) {
-        this.cSp = baseFragmentActivity;
-        this.dyy = hTypeListView;
+        this.bfw = baseFragmentActivity;
+        this.egU = hTypeListView;
         this.mId = baseFragmentActivity.getUniqueId();
-        acu();
+        akG();
     }
 
-    private void acu() {
-        this.dyz = new ai(this.cSp, com.baidu.tbadk.data.i.aoj);
-        this.dyA = new d(this.cSp, com.baidu.tieba.person.data.b.dzh);
-        this.bei.add(this.dyz);
-        this.bei.add(this.dyA);
-        this.dyy.g(this.bei);
+    private void akG() {
+        this.egV = new ai(this.bfw, com.baidu.tbadk.data.k.aoZ);
+        this.egW = new c(this.bfw, com.baidu.tieba.person.data.b.ehL);
+        this.bAz.add(this.egV);
+        this.bAz.add(this.egW);
+        this.egU.g(this.bAz);
     }
 
     public void setDatas(List<com.baidu.adp.widget.ListView.v> list) {
-        if (this.dyy != null) {
-            this.dyy.setData(list);
+        if (this.egU != null) {
+            this.egU.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.dyy != null && (this.dyy.getAdapter() instanceof com.baidu.adp.widget.ListView.y)) {
-            ((com.baidu.adp.widget.ListView.y) this.dyy.getAdapter()).notifyDataSetChanged();
+        if (this.egU != null && (this.egU.getAdapter() instanceof com.baidu.adp.widget.ListView.y)) {
+            ((com.baidu.adp.widget.ListView.y) this.egU.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.dyz.I(onClickListener);
-        this.dyA.I(onClickListener);
+        this.egV.I(onClickListener);
+        this.egW.I(onClickListener);
     }
 }

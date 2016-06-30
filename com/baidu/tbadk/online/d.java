@@ -15,8 +15,8 @@ public class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Runnable runnable;
-        h dL = h.dL();
+        h dM = h.dM();
         runnable = GetOnLineInfoStatic.mRunnable;
-        dL.removeCallbacks(runnable);
+        dM.removeCallbacks(runnable);
     }
 }

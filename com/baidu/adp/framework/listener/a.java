@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class a {
-    private HttpMessageListener gf = null;
-    private e gg = null;
+    private HttpMessageListener ge = null;
+    private e gf = null;
 
     public abstract void onMessage(ResponsedMessage<?> responsedMessage);
 
@@ -15,27 +15,27 @@ public abstract class a {
     }
 
     private void b(int i, int i2, int i3) {
-        this.gf = new b(this, i);
-        this.gg = new c(this, i2);
+        this.ge = new b(this, i);
+        this.gf = new c(this, i2);
     }
 
-    public HttpMessageListener bm() {
+    public HttpMessageListener bn() {
+        return this.ge;
+    }
+
+    public e bo() {
         return this.gf;
     }
 
-    public e bn() {
-        return this.gg;
-    }
-
     public BdUniqueId getTag() {
-        if (this.gf.getTag() != this.gg.getTag()) {
+        if (this.ge.getTag() != this.gf.getTag()) {
             throw new InvalidParameterException("tag invalid");
         }
-        return this.gf.getTag();
+        return this.ge.getTag();
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
+        this.ge.setTag(bdUniqueId);
         this.gf.setTag(bdUniqueId);
-        this.gg.setTag(bdUniqueId);
     }
 }

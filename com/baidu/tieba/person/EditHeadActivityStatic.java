@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 /* loaded from: classes.dex */
 public class EditHeadActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(EditHeadActivityConfig.class, EditHeadActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(EditHeadActivityConfig.class, EditHeadActivity.class);
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.TextureVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements TextureView.SurfaceTextureListener {
-    final /* synthetic */ TextureVideoView ade;
+    final /* synthetic */ TextureVideoView adC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(TextureVideoView textureVideoView) {
-        this.ade = textureVideoView;
+        this.adC = textureVideoView;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -19,17 +19,17 @@ public class z implements TextureView.SurfaceTextureListener {
         boolean z;
         TextureVideoView.a aVar;
         TextureVideoView.a aVar2;
-        this.ade.mSurfaceTexture = surfaceTexture;
-        this.ade.acU = true;
-        z = this.ade.acV;
+        this.adC.mSurfaceTexture = surfaceTexture;
+        this.adC.adq = true;
+        z = this.adC.adr;
         if (z) {
-            this.ade.acV = false;
-            this.ade.vq();
+            this.adC.adr = false;
+            this.adC.vs();
         }
-        aVar = this.ade.acW;
+        aVar = this.adC.adu;
         if (aVar != null) {
-            aVar2 = this.ade.acW;
-            aVar2.vu();
+            aVar2 = this.adC.adu;
+            aVar2.vw();
         }
     }
 
@@ -43,19 +43,19 @@ public class z implements TextureView.SurfaceTextureListener {
         MediaController mediaController;
         MediaController mediaController2;
         TextureVideoView.b bVar2;
-        bVar = this.ade.acR;
+        bVar = this.adC.adn;
         if (bVar != null) {
-            bVar2 = this.ade.acR;
-            bVar2.vv();
+            bVar2 = this.adC.adn;
+            bVar2.vx();
         }
-        this.ade.mSurfaceTexture = null;
-        mediaController = this.ade.acH;
+        this.adC.mSurfaceTexture = null;
+        mediaController = this.adC.adc;
         if (mediaController != null) {
-            mediaController2 = this.ade.acH;
+            mediaController2 = this.adC.adc;
             mediaController2.hide();
         }
-        this.ade.aH(true);
-        this.ade.acV = false;
+        this.adC.stopPlayback();
+        this.adC.adr = false;
         return false;
     }
 

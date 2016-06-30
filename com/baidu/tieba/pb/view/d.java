@@ -1,51 +1,38 @@
 package com.baidu.tieba.pb.view;
 
-import android.app.Activity;
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bl;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ PbGiftListView drZ;
+public class d extends com.baidu.adp.widget.ListView.c {
+    private TbPageContext<PbActivity> Ea;
+    private TextView dYB;
+    private View.OnClickListener dYC = new e(this);
+    private View mRootView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(PbGiftListView pbGiftListView) {
-        this.drZ = pbGiftListView;
+    public d(TbPageContext<PbActivity> tbPageContext) {
+        this.Ea = tbPageContext;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        String str;
-        long j;
-        String str2;
-        long j2;
-        long j3;
-        context = this.drZ.mContext;
-        TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.l.s(context);
-        if (tbPageContext != null) {
-            if (TbadkCoreApplication.isLogin()) {
-                str = this.drZ.toUserName;
-                if (!StringUtils.isNull(str)) {
-                    Activity pageActivity = tbPageContext.getPageActivity();
-                    j = this.drZ.toUserId;
-                    str2 = this.drZ.toUserName;
-                    j2 = this.drZ.threadId;
-                    j3 = this.drZ.postId;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
-                    return;
-                }
-                return;
-            }
-            bl.ac(tbPageContext.getPageActivity());
-        }
+    @Override // com.baidu.adp.widget.ListView.c
+    public View jq() {
+        this.mRootView = LayoutInflater.from(this.Ea.getPageActivity()).inflate(u.h.login_see_more_layout, (ViewGroup) null);
+        this.dYB = (TextView) this.mRootView.findViewById(u.g.login_button);
+        this.dYB.setOnClickListener(this.dYC);
+        cT(TbadkCoreApplication.m9getInst().getSkinType());
+        return this.mRootView;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void onClick() {
+    }
+
+    public void cT(int i) {
+        com.baidu.tbadk.j.a.a(this.Ea, this.mRootView);
     }
 }

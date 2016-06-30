@@ -2,7 +2,7 @@ package com.baidu.tieba.tblauncher;
 
 import android.content.Intent;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements a.b {
@@ -19,7 +19,7 @@ public class j implements a.b {
             this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
             aVar.dismiss();
         } catch (Exception e) {
-            this.this$0.showToast(t.j.goto_developActivity_error_toast);
+            this.this$0.showToast(u.j.goto_developActivity_error_toast);
         }
     }
 }

@@ -1,39 +1,43 @@
 package com.baidu.tieba.write.album;
 
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class aj implements x {
-    final /* synthetic */ ag eYU;
+    final /* synthetic */ ag fDY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ag agVar) {
-        this.eYU = agVar;
+        this.fDY = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
-    public void a(int i, ImageFileInfo imageFileInfo) {
+    public void b(int i, ImageFileInfo imageFileInfo) {
         o oVar;
         o oVar2;
         o oVar3;
         o oVar4;
         AlbumActivity albumActivity;
         o oVar5;
-        oVar = this.eYU.eXw;
+        AlbumActivity albumActivity2;
+        oVar = this.fDY.fCA;
         int maxImagesAllowed = oVar.getMaxImagesAllowed();
-        oVar2 = this.eYU.eXw;
-        if (oVar2.size() < maxImagesAllowed) {
-            oVar3 = this.eYU.eXw;
-            if (oVar3.bbJ()) {
-                oVar5 = this.eYU.eXw;
-                oVar5.pc(String.valueOf(System.currentTimeMillis()));
+        oVar2 = this.fDY.fCA;
+        if (oVar2.size() >= maxImagesAllowed) {
+            albumActivity2 = this.fDY.fCP;
+            if (!albumActivity2.bjP()) {
+                this.fDY.showToast(String.format(this.fDY.getPageContext().getString(u.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+                return;
             }
-            oVar4 = this.eYU.eXw;
-            String bbI = oVar4.bbI();
-            albumActivity = this.eYU.eXL;
-            albumActivity.oZ(bbI);
-            return;
         }
-        this.eYU.showToast(String.format(this.eYU.getPageContext().getString(t.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        oVar3 = this.fDY.fCA;
+        if (oVar3.bkf()) {
+            oVar5 = this.fDY.fCA;
+            oVar5.qM(String.valueOf(System.currentTimeMillis()));
+        }
+        oVar4 = this.fDY.fCA;
+        String bke = oVar4.bke();
+        albumActivity = this.fDY.fCP;
+        albumActivity.qJ(bke);
     }
 }

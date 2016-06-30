@@ -1,24 +1,25 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.View;
+import com.baidu.tbadk.core.data.b;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf implements a.b {
-    private final /* synthetic */ TbPageContext azf;
+public class bf implements View.OnClickListener {
+    final /* synthetic */ be bDY;
+    private final /* synthetic */ b bDZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(TbPageContext tbPageContext) {
-        this.azf = tbPageContext;
+    public bf(be beVar, b bVar) {
+        this.bDY = beVar;
+        this.bDZ = bVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.azf.getPageActivity(), "com.baidu.tieba.pluginHomework")));
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.util.ay ayVar = new com.baidu.tbadk.core.util.ay("c10827");
+        ayVar.ab("obj_id", new StringBuilder(String.valueOf(this.bDZ.getFid())).toString());
+        TiebaStatic.log(ayVar);
+        com.baidu.tbadk.browser.f.a(this.bDY.bkc.getPageContext().getPageActivity(), true, this.bDZ.MZ);
     }
 }

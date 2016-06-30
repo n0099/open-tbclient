@@ -6,34 +6,34 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tieba.person.data.PersonPostActivityConfig;
 /* loaded from: classes.dex */
 public class g extends FragmentPagerAdapter {
-    private int[] cpg;
-    private v dEp;
-    private k dEq;
+    private int[] cUw;
+    private x enj;
+    private k enk;
 
     public g(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.aCR());
-        this.dEq = new k();
-        this.dEq.setArguments(bundle);
-        this.dEp = new v();
-        this.dEp.setArguments(bundle);
-        this.cpg = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.aLN());
+        this.enk = new k();
+        this.enk.setArguments(bundle);
+        this.enj = new x();
+        this.enj.setArguments(bundle);
+        this.cUw = new int[]{0, 1};
     }
 
-    public v aCT() {
-        return this.dEp;
+    public x aLO() {
+        return this.enj;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.dEp;
+                return this.enj;
             case 1:
-                return this.dEq;
+                return this.enk;
             default:
                 return null;
         }
@@ -44,7 +44,7 @@ public class g extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int jC(int i) {
-        return this.cpg[i];
+    public int le(int i) {
+        return this.cUw[i];
     }
 }

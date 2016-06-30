@@ -2,15 +2,15 @@ package com.baidu.tbadk.core.frameworkData;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.u;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class f {
     public static void initial() {
         try {
-            if (bd.loadStaticClasses()) {
+            if (bf.loadStaticClasses()) {
                 BdLog.i("loadStaticClasses success");
             } else {
-                u.fS();
+                u.fT();
             }
         } catch (Exception e) {
             e.printStackTrace();

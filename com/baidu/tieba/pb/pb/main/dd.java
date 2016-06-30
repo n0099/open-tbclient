@@ -1,137 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.t;
-import java.util.ArrayList;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dd extends com.baidu.tbadk.core.dialog.c {
-    private TbPageContext<?> Do;
-    private View.OnClickListener ber;
-    private TextView dlS;
-    private TextView dlT;
-    private TextView dlU;
-    private TextView dlV;
-    private TextView dlW;
-    private TextView dlX;
-    private boolean dlY;
+public class dd implements Runnable {
+    final /* synthetic */ dc dQK;
 
-    public dd(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity());
-        this.Do = tbPageContext;
-        this.ber = onClickListener;
-        ayg();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dd(dc dcVar) {
+        this.dQK = dcVar;
     }
 
-    public TextView ayb() {
-        return this.dlS;
-    }
-
-    public TextView ayc() {
-        return this.dlT;
-    }
-
-    public TextView ayd() {
-        return this.dlV;
-    }
-
-    public TextView aye() {
-        return this.dlW;
-    }
-
-    public TextView ayf() {
-        return this.dlX;
-    }
-
-    private void ayg() {
-        a(new CharSequence[]{this.Do.getString(t.j.no_interesting), this.Do.getString(t.j.mark), this.Do.getString(t.j.mute), this.Do.getString(t.j.read_post_floor), this.Do.getString(t.j.pb_user_report_text), this.Do.getString(t.j.delete)}, new de(this));
-        d(this.Do);
-        this.dlX = ap(bS(0));
-        this.dlS = ap(bS(1));
-        this.dlT = ap(bS(2));
-        this.dlU = ap(bS(3));
-        this.dlV = ap(bS(4));
-        this.dlW = ap(bS(5));
-    }
-
-    public void Fk() {
-        rY();
-    }
-
-    private TextView ap(View view) {
-        return (TextView) view.findViewById(t.g.dialog_item_btn);
-    }
-
-    private View aP(View view) {
-        if (view == null) {
-            return null;
-        }
-        return view.findViewById(t.g.line);
-    }
-
-    public void gI(boolean z) {
-        this.dlV.setVisibility(z ? 0 : 8);
-    }
-
-    public void gJ(boolean z) {
-        this.dlY = z;
-    }
-
-    public void uQ() {
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
         View view;
-        TextView ap;
-        int itemCount = getItemCount();
-        ArrayList arrayList = new ArrayList();
-        boolean z = true;
-        for (int i = itemCount - 1; i >= 0; i--) {
-            View bS = bS(i);
-            if (bS != null) {
-                TextView ap2 = ap(bS(i));
-                View aP = aP(bS(i));
-                if (ap2 != null) {
-                    if (ap2.getVisibility() == 8) {
-                        aP.setVisibility(8);
-                    } else {
-                        arrayList.add(bS);
-                        if (z) {
-                            aP.setVisibility(8);
-                            com.baidu.tbadk.core.util.at.k(bS, t.f.dialog_single_button_bg_selector);
-                            z = false;
-                        } else {
-                            aP.setVisibility(0);
-                        }
-                    }
-                }
+        com.baidu.adp.lib.guide.d dVar2;
+        com.baidu.adp.lib.guide.d dVar3;
+        dVar = this.dQK.dQH;
+        if (dVar == null && this.dQK.bkc != null) {
+            String string = this.dQK.bkc.getResources().getString(u.j.graffiti_pb_bottom_tips);
+            if (!StringUtils.isNull(string)) {
+                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+                view = this.dQK.dQI;
+                gVar.o(view).N(0).u(true).v(true);
+                gVar.a(new de(this, string));
+                this.dQK.dQH = gVar.cW();
+                dVar2 = this.dQK.dQH;
+                dVar2.s(false);
+                dVar3 = this.dQK.dQH;
+                dVar3.f(this.dQK.bkc.getPageContext().getPageActivity());
+                com.baidu.adp.lib.h.h.dM().postDelayed(new df(this), 3000L);
             }
         }
-        int i2 = 0;
-        while (true) {
-            if (i2 >= itemCount) {
-                break;
-            }
-            View bS2 = bS(i2);
-            if (bS2 == null || (ap = ap(bS(i2))) == null || ap.getVisibility() != 0) {
-                i2++;
-            } else {
-                com.baidu.tbadk.core.util.at.k(bS2, t.f.dialog_single_button_first_bg_selector);
-                break;
-            }
-        }
-        if (com.baidu.tbadk.core.util.y.r(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
-            com.baidu.tbadk.core.util.at.k(view, t.f.dialog_single_button_only_one_bg_selector);
-        }
-    }
-
-    public TextView ayh() {
-        return this.dlU;
-    }
-
-    public void ayi() {
-        this.dlU.setVisibility(8);
-    }
-
-    public void ayj() {
-        this.dlU.setVisibility(0);
     }
 }

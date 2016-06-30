@@ -1,29 +1,39 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.widget.AbsListView;
+import com.baidu.tieba.tbadkCore.f.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements AbsListView.OnScrollListener {
-    final /* synthetic */ NewSubPbActivity dqn;
+public class e extends com.baidu.adp.base.g {
+    final /* synthetic */ NewSubPbActivity dWP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NewSubPbActivity newSubPbActivity) {
-        this.dqn = newSubPbActivity;
+        this.dWP = newSubPbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        y yVar;
-        com.baidu.tbadk.editortools.d.p pVar;
-        if (i == 2 || i == 1) {
-            yVar = this.dqn.dqe;
-            yVar.amT();
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        af afVar;
+        com.baidu.tieba.tbadkCore.f.a aVar;
+        com.baidu.tieba.tbadkCore.f.a aVar2;
+        af afVar2;
+        if (obj != null) {
+            aVar2 = this.dWP.dWD;
+            switch (aVar2.getLoadDataMode()) {
+                case 0:
+                    this.dWP.a((a.b) obj);
+                    return;
+                case 1:
+                    a.d dVar = (a.d) obj;
+                    afVar2 = this.dWP.dWE;
+                    afVar2.a(1, dVar.rg, dVar.eZR, true);
+                    return;
+                default:
+                    return;
+            }
         }
-        pVar = this.dqn.czd;
-        pVar.Cm();
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        afVar = this.dWP.dWE;
+        aVar = this.dWP.dWD;
+        afVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

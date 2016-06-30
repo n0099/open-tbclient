@@ -1,46 +1,32 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends HttpMessageListener {
-    final /* synthetic */ ay dwQ;
+public class ba extends CustomMessageListener {
+    final /* synthetic */ az efi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ba(ay ayVar, int i) {
+    public ba(az azVar, int i) {
         super(i);
-        this.dwQ = ayVar;
+        this.efi = azVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonFriendActivity aBU;
-        PersonFriendActivity aBU2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
-            this.dwQ.dwM = false;
-            aBU = this.dwQ.aBU();
-            if (aBU != null) {
-                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                aBU2 = this.dwQ.aBU();
-                if (tag == aBU2.getUniqueId()) {
-                    this.dwQ.zu.k(2000L);
-                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
-                        PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
-                        if (personFriendResponseMessage.getError() == 0) {
-                            this.dwQ.a(personFriendResponseMessage.getPersonListData(), false);
-                            return;
-                        } else {
-                            this.dwQ.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.dwQ.getResources().getString(t.j.neterror) : httpResponsedMessage.getErrorString());
-                            return;
-                        }
-                    }
-                    this.dwQ.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.dwQ.getResources().getString(t.j.neterror) : httpResponsedMessage.getErrorString());
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        PersonFriendActivity aKM;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001186) {
+            z = this.efi.cgJ;
+            if (z) {
+                com.baidu.tbadk.core.data.ai personListData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonListData();
+                aKM = this.efi.aKM();
+                if (aKM != null) {
+                    this.efi.efc = personListData;
+                    this.efi.a(personListData, true);
                 }
             }
         }

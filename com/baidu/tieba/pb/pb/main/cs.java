@@ -1,86 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-public class cs extends ft {
-    private com.baidu.adp.lib.guide.d dkQ;
-    private View dkR;
-    private com.baidu.tieba.pb.a dkS;
+public class cs {
+    private BaseActivity bkc;
+    private dg dOf;
+    private a dPA = null;
+    protected final HttpMessageListener dQz = new ct(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
 
-    public cs(BaseActivity baseActivity, View view) {
-        super(baseActivity, view);
-        this.dkR = null;
-        this.dkS = null;
+    /* loaded from: classes.dex */
+    public interface a {
+        void h(int i, String str, String str2);
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ft
-    protected void a(e eVar) {
-        this.dkR = this.mRootView.findViewById(t.g.pb_editor_tool_comment_graffiti_icon);
-        axu();
+    public cs(dg dgVar, BaseActivity baseActivity) {
+        this.dOf = dgVar;
+        this.bkc = baseActivity;
+        this.bkc.registerListener(this.dQz);
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ft
-    protected void onChangeSkinType(int i) {
-        if (this.dkS != null) {
-            this.dkS.changeSkinType(i);
+    public void a(a aVar) {
+        this.dPA = aVar;
+    }
+
+    public void nk(int i) {
+        if (this.dOf != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+            httpMessage.addParam("thread_id", this.dOf.getThreadID());
+            httpMessage.addParam("status", String.valueOf(i));
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-    }
-
-    private void axu() {
-        CustomResponsedMessage runTask;
-        if (this.bek != null && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GRAFFITI_QUICK_VOTE_VIEW, this.bek.getPageContext().getPageActivity()), com.baidu.tieba.pb.a.class)) != null && runTask.getData() != null) {
-            this.dkS = (com.baidu.tieba.pb.a) runTask.getData();
-            ViewGroup viewGroup = (ViewGroup) this.bek.findViewById(t.g.pb_comment_container);
-            if (this.dkS != null && viewGroup != null) {
-                viewGroup.addView(this.dkS, 0, new LinearLayout.LayoutParams(-1, -2));
-            }
-        }
-    }
-
-    public void axv() {
-        com.baidu.adp.lib.h.h.dL().postDelayed(new ct(this), 50L);
-    }
-
-    public void Bo() {
-        if (this.dkQ != null) {
-            this.dkQ.dismiss();
-            this.dkQ = null;
-        }
-    }
-
-    public void b(com.baidu.tbadk.core.data.v vVar) {
-        if (this.dkS != null) {
-            this.dkS.a(vVar);
-        }
-    }
-
-    public boolean axw() {
-        return this.dkS != null && this.dkS.getVisibility() == 0;
-    }
-
-    public void axx() {
-        if (this.dkS != null && this.dkR != null) {
-            this.dkS.Us();
-            this.dkR.setSelected(true);
-        }
-    }
-
-    public void axy() {
-        if (this.dkS != null && this.dkR != null) {
-            this.dkS.Zb();
-            this.dkR.setSelected(false);
-        }
-    }
-
-    public View axz() {
-        return this.dkR;
     }
 }

@@ -53,7 +53,7 @@ public class k extends Handler {
             if (aVar19 != null) {
                 aVar20 = this.qS.qL;
                 aVar20.o(c0010m.qT);
-            } else if (this.qS.isDebug()) {
+            } else if (this.qS.gl()) {
                 BdLog.d("could not call onRawTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof m.a) {
@@ -62,7 +62,7 @@ public class k extends Handler {
             if (aVar17 != null) {
                 aVar18 = this.qS.qL;
                 aVar18.b(aVar23);
-            } else if (this.qS.isDebug()) {
+            } else if (this.qS.gl()) {
                 BdLog.d("could not call onBinaryMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof m.j) {
@@ -74,7 +74,7 @@ public class k extends Handler {
             aVar15 = this.qS.qL;
             if (aVar15 != null) {
                 aVar16 = this.qS.qL;
-                aVar16.ge();
+                aVar16.gf();
             }
         } else if (message.obj instanceof m.c) {
             this.qS.close(1, null);
@@ -84,7 +84,7 @@ public class k extends Handler {
                 aVar11 = this.qS.qL;
                 if (aVar11 != null) {
                     aVar12 = this.qS.qL;
-                    aVar12.d(qVar.rh);
+                    aVar12.e(qVar.rh);
                     this.qS.qN = true;
                     this.qS.qO = false;
                     aVar13 = this.qS.qL;

@@ -1,41 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
-import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ep implements Animation.AnimationListener {
-    final /* synthetic */ el dpu;
-    private final /* synthetic */ View dpw;
-
+class ep extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ep(el elVar, View view) {
-        this.dpu = elVar;
-        this.dpw = view;
+    public ep(int i) {
+        super(i);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.dpu.dmZ.setTitleVisibility(false);
-        this.dpw.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ObservedChangeLinearLayout observedChangeLinearLayout;
-        PbActivity pbActivity;
-        observedChangeLinearLayout = this.dpu.dnI;
-        observedChangeLinearLayout.setVisibility(8);
-        this.dpu.dmZ.setTitleVisibility(true);
-        this.dpw.setVisibility(8);
-        this.dpu.gS(true);
-        this.dpu.azC();
-        pbActivity = this.dpu.dhY;
-        pbActivity.gz(false);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        el.aGM().a(0, customResponsedMessage);
     }
 }

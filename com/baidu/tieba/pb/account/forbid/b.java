@@ -1,14 +1,14 @@
 package com.baidu.tieba.pb.account.forbid;
 
 import com.baidu.tieba.pb.account.forbid.f;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class b implements f.b {
-    final /* synthetic */ a ddy;
+    final /* synthetic */ a dKa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ddy = aVar;
+        this.dKa = aVar;
     }
 
     @Override // com.baidu.tieba.pb.account.forbid.f.b
@@ -16,10 +16,10 @@ class b implements f.b {
         ForbidActivity forbidActivity;
         ForbidActivity forbidActivity2;
         ForbidActivity forbidActivity3;
-        forbidActivity = this.ddy.ddx;
-        forbidActivity2 = this.ddy.ddx;
-        forbidActivity.showToast(forbidActivity2.getPageContext().getString(t.j.forbid_success));
-        forbidActivity3 = this.ddy.ddx;
+        forbidActivity = this.dKa.dJZ;
+        forbidActivity2 = this.dKa.dJZ;
+        forbidActivity.showToast(forbidActivity2.getPageContext().getString(u.j.forbid_success));
+        forbidActivity3 = this.dKa.dJZ;
         forbidActivity3.finish();
     }
 
@@ -27,8 +27,8 @@ class b implements f.b {
     public void b(ForbidResultData forbidResultData) {
         ForbidActivity forbidActivity;
         ForbidActivity forbidActivity2;
-        forbidActivity = this.ddy.ddx;
-        forbidActivity2 = this.ddy.ddx;
-        forbidActivity.showToast(forbidActivity2.getPageContext().getString(t.j.forbid_failure));
+        forbidActivity = this.dKa.dJZ;
+        forbidActivity2 = this.dKa.dJZ;
+        forbidActivity.showToast(forbidActivity2.getPageContext().getString(u.j.forbid_failure));
     }
 }

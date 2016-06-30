@@ -1,69 +1,55 @@
 package com.baidu.tieba.tbadkCore;
 
-import tbclient.FrsPage.StarEnter;
+import android.content.Context;
+import android.widget.ImageView;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
-    private String cPO;
-    private String icon;
-    private String obj_id;
-    private int time;
-    private String title;
-    private int type;
-    private String url;
-    private int weight;
+public class g implements com.baidu.adp.lib.f.c<TbImageView> {
+    private final /* synthetic */ Context val$context;
 
-    public String getIcon() {
-        return this.icon;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(Context context) {
+        this.val$context = context;
     }
 
-    public void setIcon(String str) {
-        this.icon = str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: vz */
+    public TbImageView dF() {
+        TbImageView tbImageView = new TbImageView(this.val$context);
+        tbImageView.setSupportNoImage(true);
+        tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        tbImageView.setDrawBorder(true);
+        tbImageView.setBorderWidth(1);
+        return tbImageView;
     }
 
-    public void pa(int i) {
-        this.weight = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void l(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
     }
 
-    public String getTitle() {
-        return this.title;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public TbImageView m(TbImageView tbImageView) {
+        return tbImageView;
     }
 
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public void setTime(int i) {
-        this.time = i;
-    }
-
-    public String aSa() {
-        return this.obj_id;
-    }
-
-    public String aqy() {
-        return this.cPO;
-    }
-
-    public void a(StarEnter starEnter) {
-        setIcon(starEnter.icon);
-        setTime(starEnter.time.intValue());
-        setTitle(starEnter.title);
-        setType(starEnter.type.intValue());
-        setUrl(starEnter.url);
-        pa(starEnter.weight.intValue());
-        this.obj_id = starEnter.obj_id;
-        this.cPO = starEnter.text;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public TbImageView n(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

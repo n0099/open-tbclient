@@ -8,20 +8,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, com.baidu.tieba.im.pushNotify.a> cqZ = new HashMap<>();
+    protected HashMap<String, com.baidu.tieba.im.pushNotify.a> cWp = new HashMap<>();
 
     public abstract void a(com.baidu.tieba.im.pushNotify.a aVar);
 
     public abstract void a(com.baidu.tieba.im.pushNotify.a aVar, com.baidu.tbadk.util.g<Void> gVar);
 
-    protected abstract o<String> ais();
+    protected abstract o<String> aqG();
 
     public abstract com.baidu.tieba.im.pushNotify.a bf(String str, String str2);
 
-    public void o(Class<? extends com.baidu.tieba.im.pushNotify.a> cls) {
+    public void v(Class<? extends com.baidu.tieba.im.pushNotify.a> cls) {
         String str;
-        synchronized (this.cqZ) {
-            this.cqZ.clear();
+        synchronized (this.cWp) {
+            this.cWp.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -29,14 +29,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = String.valueOf(str2) + "@";
-            synchronized (this.cqZ) {
-                o<String> ais = ais();
-                List<o.b<String>> b = s.b(ais);
+            synchronized (this.cWp) {
+                o<String> aqG = aqG();
+                List<o.b<String>> b = s.b(aqG);
                 if (b != null) {
                     for (o.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = ais.get(str4)) != null) {
-                            this.cqZ.put(str4, (com.baidu.tieba.im.pushNotify.a) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = aqG.get(str4)) != null) {
+                            this.cWp.put(str4, (com.baidu.tieba.im.pushNotify.a) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -44,7 +44,7 @@ public abstract class a {
         }
     }
 
-    public void f(String str, String str2, boolean z) {
+    public void g(String str, String str2, boolean z) {
         com.baidu.tieba.im.pushNotify.a bf = bf(str, str2);
         if (bf != null) {
             bf.setAcceptNotify(z);

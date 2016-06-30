@@ -1,23 +1,22 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.MyGift;
 import java.util.List;
 /* loaded from: classes.dex */
-public class j implements v {
-    public static final BdUniqueId dzw = BdUniqueId.gen();
-    private boolean bJq = true;
-    private boolean dzx = false;
+public class j implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId eia = BdUniqueId.gen();
+    private boolean chd = true;
+    private boolean eib = false;
     private UserData mUserData;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dzw;
+        return eia;
     }
 
-    public List<MyGift> aCk() {
+    public List<MyGift> aLd() {
         if (this.mUserData != null) {
             return this.mUserData.getGift();
         }
@@ -47,11 +46,11 @@ public class j implements v {
     }
 
     public void setIsSelf(boolean z) {
-        this.bJq = z;
+        this.chd = z;
     }
 
     public boolean getIsSelf() {
-        return this.bJq;
+        return this.chd;
     }
 
     public String getUserId() {
@@ -61,11 +60,11 @@ public class j implements v {
         return null;
     }
 
-    public boolean aCl() {
-        return this.dzx;
+    public boolean aLe() {
+        return this.eib;
     }
 
-    public void ho(boolean z) {
-        this.dzx = z;
+    public void ij(boolean z) {
+        this.eib = z;
     }
 }

@@ -1,41 +1,32 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.dz;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.pb.a.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fw extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService dpB;
+public class fw implements a.InterfaceC0071a {
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw(ReaderPbService readerPbService, int i) {
-        super(i);
-        this.dpB = readerPbService;
+    public fw(es esVar) {
+        this.dVR = esVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        dz.a aVar;
-        dz.a aVar2;
-        dz dzVar;
-        dz dzVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            if (intValue == 1) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10833").ac("obj_locate", "1"));
-                aVar2 = this.dpB.mRefreshCallback;
-                dzVar = this.dpB.mReaderManager;
-                int i = dzVar.dmC;
-                dzVar2 = this.dpB.mReaderManager;
-                aVar2.aM(i, dzVar2.ayw());
-            } else if (intValue == 2) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10833").ac("obj_locate", "2"));
-                aVar = this.dpB.mRefreshCallback;
-                aVar.ayz();
-            }
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
+    public void WP() {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        bdTypeListView = this.dVR.bou;
+        if (bdTypeListView != null) {
+            bdTypeListView2 = this.dVR.bou;
+            bdTypeListView2.setSelection(0);
         }
+    }
+
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
+    public void WO() {
+        PbActivity pbActivity;
+        pbActivity = this.dVR.dOg;
+        pbActivity.VB();
     }
 }

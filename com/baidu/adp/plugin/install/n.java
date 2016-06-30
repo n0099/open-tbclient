@@ -7,13 +7,13 @@ import android.os.RemoteException;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class n extends Handler {
-    final /* synthetic */ PluginInstallerService ui;
+    final /* synthetic */ PluginInstallerService uk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(PluginInstallerService pluginInstallerService, Looper looper) {
         super(looper);
-        this.ui = pluginInstallerService;
+        this.uk = pluginInstallerService;
     }
 
     @Override // android.os.Handler

@@ -1,15 +1,15 @@
 package com.baidu.adp.plugin.pluginBase;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ PluginAdpBaseActivity vM;
+    final /* synthetic */ PluginAdpBaseActivity vO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
-        this.vM = pluginAdpBaseActivity;
+        this.vO = pluginAdpBaseActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.vM.onPreLoad(this.vM.onGetPreLoadListView());
+        this.vO.onPreLoad(this.vO.onGetPreLoadListView());
     }
 }

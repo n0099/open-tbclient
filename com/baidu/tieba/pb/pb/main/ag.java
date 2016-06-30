@@ -1,63 +1,61 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
-class ag implements BdListView.e {
-    final /* synthetic */ PbActivity djE;
+class ag extends com.baidu.adp.base.g {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(PbActivity pbActivity) {
-        this.djE = pbActivity;
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void jA() {
-        boolean z;
-        boolean z2;
-        cw cwVar;
-        el elVar;
-        cw cwVar2;
-        cw cwVar3;
-        el elVar2;
-        cw cwVar4;
-        cw cwVar5;
-        el elVar3;
-        cw cwVar6;
-        el elVar4;
-        z = this.djE.djr;
-        if (z && this.djE.awP()) {
-            this.djE.awR();
-        }
-        z2 = this.djE.mIsLogin;
-        if (z2) {
-            cwVar = this.djE.dih;
-            if (cwVar.gE(false)) {
-                elVar4 = this.djE.diR;
-                elVar4.aze();
-                TiebaStatic.eventStat(this.djE.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
-            } else {
-                elVar = this.djE.diR;
-                cwVar2 = this.djE.dih;
-                elVar.n(cwVar2.getPbData());
-                cwVar3 = this.djE.dih;
-                if (cwVar3 != null) {
-                    elVar2 = this.djE.diR;
-                    if (elVar2 != null) {
-                        cwVar4 = this.djE.dih;
-                        if (cwVar4.axY() != null) {
-                            cwVar5 = this.djE.dih;
-                            if (cwVar5.axY().axm()) {
-                                elVar3 = this.djE.diR;
-                                elVar3.axx();
-                                cwVar6 = this.djE.dih;
-                                cwVar6.axY().axo();
-                            }
-                        }
-                    }
-                }
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        es esVar;
+        com.baidu.tieba.tbadkCore.f.a aVar;
+        com.baidu.tieba.tbadkCore.f.a aVar2;
+        com.baidu.tieba.tbadkCore.f.a aVar3;
+        es esVar2;
+        com.baidu.tieba.tbadkCore.f.a aVar4;
+        es esVar3;
+        es esVar4;
+        dg dgVar;
+        if (obj != null) {
+            aVar2 = this.dPF.dON;
+            switch (aVar2.getLoadDataMode()) {
+                case 0:
+                    dgVar = this.dPF.dOf;
+                    dgVar.aFY();
+                    this.dPF.a((a.b) obj);
+                    return;
+                case 1:
+                    a.d dVar = (a.d) obj;
+                    esVar4 = this.dPF.dOO;
+                    esVar4.a(1, dVar.rg, dVar.eZR, true);
+                    return;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    PbActivity pbActivity = this.dPF;
+                    aVar3 = this.dPF.dON;
+                    pbActivity.a(aVar3.getLoadDataMode(), (a.f) obj);
+                    return;
+                case 6:
+                    a.f fVar = (a.f) obj;
+                    esVar2 = this.dPF.dOO;
+                    aVar4 = this.dPF.dON;
+                    esVar2.a(aVar4.getLoadDataMode(), fVar.rg, fVar.eZR, false);
+                    esVar3 = this.dPF.dOO;
+                    esVar3.ak(fVar.eZT);
+                    return;
+                default:
+                    return;
             }
-            this.djE.djr = true;
         }
+        esVar = this.dPF.dOO;
+        aVar = this.dPF.dON;
+        esVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

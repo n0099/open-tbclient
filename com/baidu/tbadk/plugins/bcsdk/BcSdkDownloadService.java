@@ -8,8 +8,8 @@ import android.os.IBinder;
 public class BcSdkDownloadService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        if (a.Fg() != null) {
-            return a.Fg().onBind(intent);
+        if (a.Fn() != null) {
+            return a.Fn().onBind(intent);
         }
         return null;
     }
@@ -17,58 +17,58 @@ public class BcSdkDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        if (a.Fg() != null) {
-            a.Fg().onCreate();
+        if (a.Fn() != null) {
+            a.Fn().onCreate();
         }
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (a.Fg() != null) {
-            a.Fg().onStart(intent, i);
+        if (a.Fn() != null) {
+            a.Fn().onStart(intent, i);
         }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        return a.Fg() != null ? a.Fg().onStartCommand(intent, i, i2) : super.onStartCommand(intent, i, i2);
+        return a.Fn() != null ? a.Fn().onStartCommand(intent, i, i2) : super.onStartCommand(intent, i, i2);
     }
 
     @Override // android.app.Service
     public void onRebind(Intent intent) {
         super.onRebind(intent);
-        if (a.Fg() != null) {
-            a.Fg().onRebind(intent);
+        if (a.Fn() != null) {
+            a.Fn().onRebind(intent);
         }
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return a.Fg() != null ? a.Fg().onUnbind(intent) : super.onUnbind(intent);
+        return a.Fn() != null ? a.Fn().onUnbind(intent) : super.onUnbind(intent);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (a.Fg() != null) {
-            a.Fg().onDestroy();
+        if (a.Fn() != null) {
+            a.Fn().onDestroy();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        if (a.Fg() != null) {
-            a.Fg().onLowMemory();
+        if (a.Fn() != null) {
+            a.Fn().onLowMemory();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (a.Fg() != null) {
-            a.Fg().onConfigurationChanged(configuration);
+        if (a.Fn() != null) {
+            a.Fn().onConfigurationChanged(configuration);
         }
     }
 }

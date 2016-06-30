@@ -5,11 +5,11 @@ import android.content.Context;
 import android.view.Window;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class e extends AlertDialog {
-    private TextView Sm;
-    private CircleView Sn;
+    private TextView SD;
+    private CircleView SE;
     private String mMessage;
 
     public e(Context context) {
@@ -21,21 +21,21 @@ public class e extends AlertDialog {
         super.show();
         Window window = getWindow();
         if (window != null) {
-            window.setContentView(t.h.progress_dialog);
+            window.setContentView(u.h.progress_dialog);
             if (!StringUtils.isNull(this.mMessage)) {
-                ((TextView) window.findViewById(t.g.text_progress_dialog_message)).setText(this.mMessage);
+                ((TextView) window.findViewById(u.g.text_progress_dialog_message)).setText(this.mMessage);
             }
-            this.Sm = (TextView) window.findViewById(t.g.text_progress_dialog_percent);
-            this.Sn = (CircleView) window.findViewById(t.g.circle_progress_dialog);
+            this.SD = (TextView) window.findViewById(u.g.text_progress_dialog_percent);
+            this.SE = (CircleView) window.findViewById(u.g.circle_progress_dialog);
         }
     }
 
     public void setPercent(int i) {
-        if (this.Sm != null) {
-            this.Sm.setText(String.valueOf(i) + "%");
+        if (this.SD != null) {
+            this.SD.setText(String.valueOf(i) + "%");
         }
-        if (this.Sn != null) {
-            this.Sn.setProgress(i);
+        if (this.SE != null) {
+            this.SE.setProgress(i);
         }
     }
 }

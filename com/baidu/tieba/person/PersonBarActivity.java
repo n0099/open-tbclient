@@ -2,80 +2,80 @@ package com.baidu.tieba.person;
 
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private q dvn = null;
-    private af dvo = null;
+    private r edF = null;
+    private ag edG = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.dur && this.requestCode != 23011) {
+        if (this.ecI && this.requestCode != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.dvo = new af(getPageContext(), ahP());
-        this.dvo.setSex(getSex());
-        this.dvo.setId(getUid());
-        this.dvo.setUniqueId(getUniqueId());
+        this.edG = new ag(getPageContext(), aqc());
+        this.edG.setSex(getSex());
+        this.edG.setId(getUid());
+        this.edG.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public e a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.dvn == null) {
-            this.dvn = new q(this, ahP());
+        if (this.edF == null) {
+            this.edF = new r(this, aqc());
         }
-        return this.dvn;
+        return this.edF;
     }
 
-    public af aBw() {
-        return this.dvo;
-    }
-
-    @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aBh() {
-        return getPageContext().getString(t.j.person_bar_title);
+    public ag aKo() {
+        return this.edG;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aBi() {
-        return getPageContext().getString(t.j.person_bar_no_personal_title);
+    public String aJZ() {
+        return getPageContext().getString(u.j.person_bar_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aBj() {
-        return getPageContext().getString(t.j.person_bar_no_common_title);
+    public String aKa() {
+        return getPageContext().getString(u.j.person_bar_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aBk() {
-        return getPageContext().getString(t.j.person_bar_personal);
+    public String aKb() {
+        return getPageContext().getString(u.j.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aBl() {
-        return getPageContext().getString(t.j.person_bar_common);
+    public String aKc() {
+        return getPageContext().getString(u.j.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aBp() {
+    public String aKd() {
+        return getPageContext().getString(u.j.person_bar_common);
+    }
+
+    @Override // com.baidu.tieba.person.BasePersonInfoActivity
+    public String aKh() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int aBq() {
+    public int aKi() {
         return 2;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        ae aBG;
+        af aKy;
         super.onPageSelected(i);
-        if (this.dvn != null && this.dvn.getItem(i) != null && (baseFragment = (BaseFragment) this.dvn.getItem(i)) != null && (baseFragment instanceof s) && (aBG = ((s) baseFragment).aBG()) != null) {
-            aBG.setEditState(false);
-            aBG.notifyDataSetChanged();
+        if (this.edF != null && this.edF.getItem(i) != null && (baseFragment = (BaseFragment) this.edF.getItem(i)) != null && (baseFragment instanceof t) && (aKy = ((t) baseFragment).aKy()) != null) {
+            aKy.setEditState(false);
+            aKy.notifyDataSetChanged();
         }
     }
 
