@@ -1,27 +1,28 @@
 package com.baidu.tieba.pb.pb.main.b;
 
+import com.baidu.adp.lib.h.j;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.view.j;
+import com.baidu.tieba.pb.view.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
-    final /* synthetic */ e dqa;
+    final /* synthetic */ e dWA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.dqa = eVar;
+        this.dWA = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        j jVar;
-        j jVar2;
+        s sVar;
+        s sVar2;
         PbActivity pbActivity;
-        jVar = this.dqa.dpY;
-        if (jVar != null) {
-            jVar2 = this.dqa.dpY;
-            pbActivity = this.dqa.dhY;
-            com.baidu.adp.lib.h.j.a(jVar2, pbActivity.getPageContext().getPageActivity());
+        sVar = this.dWA.dWw;
+        if (sVar != null) {
+            sVar2 = this.dWA.dWw;
+            pbActivity = this.dWA.dOg;
+            j.a(sVar2, pbActivity.getPageContext().getPageActivity());
         }
     }
 }

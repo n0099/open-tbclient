@@ -7,13 +7,13 @@ import android.graphics.Rect;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class c extends a {
-    private Rect sv = new Rect();
+    private Rect sw = new Rect();
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(d dVar, ImageView imageView) {
-        if (this.sa.sz) {
-            float f = this.sa.sA / 2.0f;
-            if (!this.sa.sD) {
+        if (this.sa.sA) {
+            float f = this.sa.sB / 2.0f;
+            if (!this.sa.sE) {
                 this.rW.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
                 return;
             }
@@ -30,31 +30,31 @@ public class c extends a {
         if (this.rU != null) {
             canvas.concat(this.rU);
         }
-        if (dVar.gN()) {
-            Bitmap bitmap = dVar.sw.getBitmap();
-            this.sv.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.sv, this.rV, this.mPaint);
+        if (dVar.gP()) {
+            Bitmap bitmap = dVar.sx.getBitmap();
+            this.sw.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            canvas.drawBitmap(bitmap, this.sw, this.rV, this.mPaint);
             return;
         }
-        this.sv.set(0, 0, dVar.getWidth(), dVar.getHeight());
-        dVar.sx.a(canvas, this.sv, this.rV, this.mPaint);
+        this.sw.set(0, 0, dVar.getWidth(), dVar.getHeight());
+        dVar.sy.a(canvas, this.sw, this.rV, this.mPaint);
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void b(Canvas canvas, ImageView imageView) {
-        if (this.sa.sz) {
+        if (this.sa.sA) {
             canvas.drawRect(this.rW, this.rS);
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, ImageView imageView) {
-        if (this.sa.sH != 0) {
+        if (this.sa.sI != 0) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();
             canvas.translate(scrollX, scrollY);
             this.sd.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            this.rT.setColor(this.sa.sH);
+            this.rT.setColor(this.sa.sI);
             canvas.drawRect(this.sd, this.rT);
             canvas.translate(-scrollX, -scrollY);
         }

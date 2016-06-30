@@ -21,7 +21,7 @@ public class o {
         }
     }
 
-    public static void a(Closeable closeable) {
+    public static void b(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
@@ -31,7 +31,7 @@ public class o {
         }
     }
 
-    public static void a(OutputStream outputStream) {
+    public static void b(OutputStream outputStream) {
         if (outputStream != null) {
             try {
                 outputStream.close();
@@ -51,7 +51,7 @@ public class o {
         }
     }
 
-    public static void a(Reader reader) {
+    public static void b(Reader reader) {
         if (reader != null) {
             try {
                 reader.close();

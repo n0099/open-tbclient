@@ -58,6 +58,8 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
     public static final BdUniqueId TYPE_MSG_MULTI_PIC_TEXT = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_REPLY_CARD = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_PHOTOLIVE = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_ECOMM_LEFT = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_ECOMM_RIGHT = BdUniqueId.gen();
 
     public ChatMessage(int i) {
         super(i);
@@ -131,15 +133,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.asY = false;
-                aVar.asZ = optString;
-                aVar.ata = optString2;
-                aVar.atb = optString3;
+                aVar.atO = false;
+                aVar.atP = optString;
+                aVar.atQ = optString2;
+                aVar.atR = optString3;
                 aVar.mGid = optString4;
-                aVar.atc = optInt;
-                aVar.atd = optInt2;
+                aVar.atS = optInt;
+                aVar.atT = optInt2;
                 aVar.mPackageName = optString5;
-                aVar.NM = optString6;
+                aVar.mIcon = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }
@@ -390,7 +392,14 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
         if (this.msgType == 25) {
             return TYPE_MSG_PHOTOLIVE;
         }
-        if (getUserInfo() != null && getUserInfo().getUserId() != null) {
+        if (this.msgType == 26) {
+            if (getUserInfo() != null && getUserInfo().getUserId() != null) {
+                if (getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    return TYPE_MSG_ECOMM_RIGHT;
+                }
+                return TYPE_MSG_ECOMM_LEFT;
+            }
+        } else if (getUserInfo() != null && getUserInfo().getUserId() != null) {
             if (getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                 return TYPE_MSG_RIGHT;
             }

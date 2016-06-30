@@ -1,28 +1,65 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.bx;
+import com.baidu.tieba.frs.entelechy.view.q;
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bkN;
-    final /* synthetic */ q bpf;
+public class t extends com.baidu.adp.widget.ListView.a<az, a> {
+    private TbPageContext<?> Ea;
+    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> bHW;
+    private com.baidu.adp.lib.f.b<TbImageView> bHX;
+    private q bJG;
+    private bx bJH;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(q qVar, ThemeCardInUserData themeCardInUserData) {
-        this.bpf = qVar;
-        this.bkN = themeCardInUserData;
+    public t(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.bJH = new u(this);
+        this.bHW = new com.baidu.adp.lib.f.b<>(new v(this), 6, 0);
+        this.bHX = new com.baidu.adp.lib.f.b<>(new w(this), 12, 0);
+        this.Ea = tbPageContext;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        tbPageContext = this.bpf.DV;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bkN.getCardId())));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: F */
+    public a a(ViewGroup viewGroup) {
+        this.bJG = new q(this.Ea);
+        this.bJG.setConstrainLayoutPool(this.bHW);
+        this.bJG.setConstrainImagePool(this.bHX);
+        this.bJG.j(this.Ea.getUniqueId());
+        return new a(this.bJG);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, az azVar, a aVar) {
+        aVar.bJJ.h(azVar);
+        aVar.bJJ.a(this.bJH);
+        return aVar.getView();
+    }
+
+    public void setFromCDN(boolean z) {
+        if (this.bJG != null) {
+            this.bJG.setFromCDN(z);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a extends y.a {
+        public q bJJ;
+
+        public a(q qVar) {
+            super(qVar.getView());
+            this.bJJ = qVar;
+        }
     }
 }

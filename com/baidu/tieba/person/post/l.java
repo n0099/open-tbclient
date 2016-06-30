@@ -5,15 +5,15 @@ import android.widget.ProgressBar;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.person.PersonPostModel;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements PersonPostModel.a {
-    final /* synthetic */ k dEJ;
+    final /* synthetic */ k enD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.dEJ = kVar;
+        this.enD = kVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x003d, code lost:
@@ -34,59 +34,59 @@ public class l implements PersonPostModel.a {
         View view2;
         BdListView bdListView4;
         boolean z2;
-        if (this.dEJ.isAdded()) {
-            progressBar = this.dEJ.mProgressBar;
+        if (this.enD.isAdded()) {
+            progressBar = this.enD.mProgressBar;
             progressBar.setVisibility(8);
-            bdListView = this.dEJ.dEz;
+            bdListView = this.enD.ent;
             bdListView.k(2000L);
             if (personPostModel != null) {
-                if (k.bP(personPostModel.post_list) == 0) {
-                    z2 = this.dEJ.dEG;
+                if (k.cn(personPostModel.post_list) == 0) {
+                    z2 = this.enD.enA;
                     if (z2) {
                     }
                 }
-                if (k.bP(personPostModel.post_list) == 0) {
-                    bdListView4 = this.dEJ.dEz;
+                if (k.cn(personPostModel.post_list) == 0) {
+                    bdListView4 = this.enD.ent;
                     bdListView4.setVisibility(8);
-                    this.dEJ.hl(true);
+                    this.enD.ig(true);
                 } else {
-                    bdListView3 = this.dEJ.dEz;
+                    bdListView3 = this.enD.ent;
                     bdListView3.setVisibility(0);
-                    this.dEJ.hl(false);
+                    this.enD.ig(false);
                 }
                 if (personPostModel.getErrorCode() != 0) {
-                    com.baidu.adp.lib.util.k.showToast(this.dEJ.getActivity(), personPostModel.getErrorString());
+                    com.baidu.adp.lib.util.k.showToast(this.enD.getActivity(), personPostModel.getErrorString());
                 }
-                int bP = k.bP(personPostModel.post_list);
-                if (bP < 20) {
-                    if (!com.baidu.adp.lib.util.i.fq() || bP <= 0) {
-                        view = this.dEJ.dED;
+                int cn = k.cn(personPostModel.post_list);
+                if (cn < 20) {
+                    if (!com.baidu.adp.lib.util.i.fr() || cn <= 0) {
+                        view = this.enD.enx;
                         view.setVisibility(8);
                     } else {
-                        this.dEJ.dEE = false;
-                        pbListView2 = this.dEJ.dEC;
-                        pbListView2.setText(this.dEJ.getResources().getString(t.j.person_post_reply_no_more));
-                        view2 = this.dEJ.dED;
+                        this.enD.eny = false;
+                        pbListView2 = this.enD.enw;
+                        pbListView2.setText(this.enD.getResources().getString(u.j.person_post_reply_no_more));
+                        view2 = this.enD.enx;
                         view2.setVisibility(0);
                     }
                 }
-                pbListView = this.dEJ.dEC;
+                pbListView = this.enD.enw;
                 pbListView.vi();
                 if (z) {
-                    if (k.bP(personPostModel.post_list) < 20) {
-                        this.dEJ.dEE = false;
+                    if (k.cn(personPostModel.post_list) < 20) {
+                        this.enD.eny = false;
                     } else {
-                        this.dEJ.dEE = true;
+                        this.enD.eny = true;
                     }
-                    this.dEJ.dEF = 0;
-                    this.dEJ.dEG = false;
+                    this.enD.enz = 0;
+                    this.enD.enA = false;
                     return;
                 }
                 return;
             }
-            bdListView2 = this.dEJ.dEz;
+            bdListView2 = this.enD.ent;
             bdListView2.setVisibility(0);
-            this.dEJ.hl(true);
+            this.enD.ig(true);
         }
     }
 }

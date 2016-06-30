@@ -1,57 +1,43 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity dqn;
+public class x implements a.b {
+    final /* synthetic */ NewSubPbActivity dWP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(NewSubPbActivity newSubPbActivity) {
-        this.dqn = newSubPbActivity;
+        this.dWP = newSubPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
-    public void d(Object obj) {
-        ap apVar;
-        ap apVar2;
-        ap apVar3;
-        ap apVar4;
-        ap apVar5;
-        ap apVar6;
-        ap apVar7;
-        Object[] objArr = (Object[]) obj;
-        String str = "";
-        apVar = this.dqn.dqc;
-        if (apVar.aAq() != null) {
-            apVar5 = this.dqn.dqc;
-            if (apVar5.aAq().Kn() != null) {
-                apVar6 = this.dqn.dqc;
-                if (apVar6.aAq().Kn().getAuthor() != null) {
-                    apVar7 = this.dqn.dqc;
-                    str = String.valueOf(apVar7.aAq().Kn().getAuthor().getUserId());
-                }
-            }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
+        if (Build.VERSION.SDK_INT < 11) {
+            aVar.dismiss();
+            hVar2 = this.dWP.dPa;
+            ((TbPageContext) hVar2).showToast(u.j.frs_header_games_unavailable);
+            return;
         }
-        String str2 = "";
-        if (objArr.length > 1) {
-            str2 = String.valueOf(objArr[1]);
+        TiebaStatic.log("c10025");
+        aVar.dismiss();
+        hVar = this.dWP.dPa;
+        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) hVar.getPageActivity(), 2, true, 4);
+        if (!StringUtils.isNULL("4010001001")) {
+            memberPayActivityConfig.setSceneId("4010001001");
         }
-        String str3 = "";
-        if (objArr.length > 2) {
-            str3 = String.valueOf(objArr[2]);
-        }
-        NewSubPbActivity newSubPbActivity = this.dqn;
-        Activity pageActivity = this.dqn.getPageContext().getPageActivity();
-        apVar2 = this.dqn.dqc;
-        String id = apVar2.aAq().avY().getId();
-        apVar3 = this.dqn.dqc;
-        String name = apVar3.aAq().avY().getName();
-        apVar4 = this.dqn.dqc;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, apVar4.aAq().Kn().getId(), str, str2, str3)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
     }
 }

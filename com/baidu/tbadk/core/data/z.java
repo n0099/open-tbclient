@@ -1,27 +1,33 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
-public class z {
-    private String OH;
-    private List<Integer> OI;
+public class z extends com.baidu.tieba.card.a.b {
+    public static final BdUniqueId Op = BdUniqueId.gen();
+    private boolean OC;
+    private ICardInfo OD;
+    private String card;
 
-    public String pA() {
-        return this.OH;
+    public void cm(String str) {
+        this.card = str;
     }
 
-    public List<Integer> pB() {
-        return this.OI;
+    public void pr() {
+        this.OD = com.baidu.tieba.lego.card.a.lV(this.card);
+        this.OC = this.OD != null;
     }
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.OH = lotteryRegular.regular;
-        this.OI = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.OI.add(lotteryRegular.chance.get(i));
-        }
+    public ICardInfo ps() {
+        return this.OD;
+    }
+
+    public boolean isValid() {
+        return this.OC;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Op;
     }
 }

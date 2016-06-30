@@ -37,7 +37,7 @@ public class k extends Thread {
             try {
                 URL url = new URL(this.JV.h);
                 StringBuffer stringBuffer = new StringBuffer();
-                for (Map.Entry<String, Object> entry : this.JV.Jj.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.JV.Jl.entrySet()) {
                     stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
                     stringBuffer.append(entry.getValue());
@@ -110,7 +110,7 @@ public class k extends Thread {
                 byteArrayOutputStream.close();
                 this.JV.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                 if (this.a) {
-                    this.JV.Jk = byteArrayOutputStream.toByteArray();
+                    this.JV.Jm = byteArrayOutputStream.toByteArray();
                 }
                 this.JV.a(true);
                 httpURLConnection.disconnect();

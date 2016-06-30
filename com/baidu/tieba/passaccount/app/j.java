@@ -3,15 +3,15 @@ package com.baidu.tieba.passaccount.app;
 import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
 class j implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ ForgetPwdActivity dbQ;
+    final /* synthetic */ ForgetPwdActivity dIx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(ForgetPwdActivity forgetPwdActivity) {
-        this.dbQ = forgetPwdActivity;
+        this.dIx = forgetPwdActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
     public void onFinish() {
-        this.dbQ.finish();
+        this.dIx.finish();
     }
 }

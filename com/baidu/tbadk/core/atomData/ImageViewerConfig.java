@@ -59,7 +59,7 @@ public class ImageViewerConfig extends IntentConfig {
         if (arrayList != null && arrayList.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
             intent.putStringArrayListExtra("url", arrayList);
-            intent.putExtra(INDEX, i);
+            intent.putExtra("index", i);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
             intent.putExtra(PARAM_IS_CDN, z);
@@ -88,7 +88,7 @@ public class ImageViewerConfig extends IntentConfig {
         if (arrayList != null && arrayList.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
             intent.putStringArrayListExtra("url", arrayList);
-            intent.putExtra(INDEX, i);
+            intent.putExtra("index", i);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
             intent.putExtra(PARAM_IS_CDN, z);

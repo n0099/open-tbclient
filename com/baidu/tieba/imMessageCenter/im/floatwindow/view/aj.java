@@ -11,29 +11,29 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aj {
-    private a cwr;
-    private final CustomMessageListener cwq = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
-    private final HashMap<String, Integer> cwp = new HashMap<>();
+    private a dbH;
+    private final CustomMessageListener dbG = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
+    private final HashMap<String, Integer> dbF = new HashMap<>();
 
     /* loaded from: classes.dex */
     public interface a {
-        void akv();
+        void asJ();
     }
 
     public void a(a aVar) {
-        this.cwr = aVar;
+        this.dbH = aVar;
     }
 
     public void a(CommonPersonalChatActivity<FloatingPersonalChatActivity> commonPersonalChatActivity) {
-        commonPersonalChatActivity.registerListener(this.cwq);
+        commonPersonalChatActivity.registerListener(this.dbG);
     }
 
-    public void bp(List<UserData> list) {
+    public void bP(List<UserData> list) {
         if (list != null && !list.isEmpty()) {
             for (UserData userData : list) {
                 if (userData != null) {
                     if (userData.getIsFriend() == 1) {
-                        this.cwp.put(userData.getUserId(), 1);
+                        this.dbF.put(userData.getUserId(), 1);
                     } else {
                         d(userData);
                     }
@@ -46,24 +46,24 @@ public class aj {
         if (userData == null) {
             return 0;
         }
-        return kh(userData.getUserId());
+        return lA(userData.getUserId());
     }
 
-    public boolean kf(String str) {
-        int kh = kh(str);
-        return kh == 1 || kh == 3;
+    public boolean ly(String str) {
+        int lA = lA(str);
+        return lA == 1 || lA == 3;
     }
 
-    public int kh(String str) {
-        if (!StringUtils.isNull(str) && this.cwp.containsKey(str)) {
-            return this.cwp.get(str).intValue();
+    public int lA(String str) {
+        if (!StringUtils.isNull(str) && this.dbF.containsKey(str)) {
+            return this.dbF.get(str).intValue();
         }
         return 0;
     }
 
-    public void ai(String str, int i) {
+    public void ap(String str, int i) {
         if (!StringUtils.isNull(str)) {
-            this.cwp.put(str, Integer.valueOf(i));
+            this.dbF.put(str, Integer.valueOf(i));
         }
     }
 
@@ -85,9 +85,9 @@ public class aj {
             }
         }
         if (bVar != null && bVar.getId() != 0) {
-            this.cwp.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
-            if (this.cwr != null) {
-                this.cwr.akv();
+            this.dbF.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
+            if (this.dbH != null) {
+                this.dbH.asJ();
             }
         }
     }

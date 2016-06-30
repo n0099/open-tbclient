@@ -4,49 +4,48 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class e extends FragmentPagerAdapter {
-    private int[] cpg;
-    private ArrayList<BaseFragment> duw;
+    private int[] cUw;
+    private ArrayList<BaseFragment> ecO;
 
-    protected abstract BaseFragment aBs();
+    protected abstract BaseFragment aKk();
 
     public e(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.duw = new ArrayList<>();
+        this.ecO = new ArrayList<>();
         Bundle bundle = new Bundle();
-        bundle.putInt(LegoListActivityConfig.PAGE_TYPE, 0);
-        BaseFragment aBs = aBs();
-        aBs.setArguments(bundle);
-        this.duw.add(aBs);
+        bundle.putInt("page_type", 0);
+        BaseFragment aKk = aKk();
+        aKk.setArguments(bundle);
+        this.ecO.add(aKk);
         if (z) {
-            this.cpg = new int[1];
+            this.cUw = new int[1];
             return;
         }
         Bundle bundle2 = new Bundle();
-        bundle2.putInt(LegoListActivityConfig.PAGE_TYPE, 1);
-        BaseFragment aBs2 = aBs();
-        aBs2.setArguments(bundle2);
-        this.duw.add(aBs2);
-        this.cpg = new int[]{0, 1};
+        bundle2.putInt("page_type", 1);
+        BaseFragment aKk2 = aKk();
+        aKk2.setArguments(bundle2);
+        this.ecO.add(aKk2);
+        this.cUw = new int[]{0, 1};
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.cpg.length || i < 0) {
+        if (i >= this.cUw.length || i < 0) {
             return null;
         }
-        return this.duw.get(i);
+        return this.ecO.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.cpg.length;
+        return this.cUw.length;
     }
 
-    public int jC(int i) {
-        return this.cpg[i];
+    public int le(int i) {
+        return this.cUw[i];
     }
 }

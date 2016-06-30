@@ -13,17 +13,17 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class al implements com.baidu.tbadk.mvc.b.j {
-    protected ArrayList<FeedData> cyK = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.ad cyL = new com.baidu.tbadk.core.data.ad();
-    protected ah cyM = new ah();
-    protected boolean sZ;
+    protected ArrayList<FeedData> deg = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.af deh = new com.baidu.tbadk.core.data.af();
+    protected ah dei = new ah();
+    protected boolean tb;
 
-    public ArrayList<FeedData> alt() {
-        return this.cyK;
+    public ArrayList<FeedData> atG() {
+        return this.deg;
     }
 
-    public com.baidu.tbadk.core.data.ad getPage() {
-        return this.cyL;
+    public com.baidu.tbadk.core.data.af getPage() {
+        return this.deh;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -36,25 +36,25 @@ public class al implements com.baidu.tbadk.mvc.b.j {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
                     if (feedData.getThread_Type() == 33) {
-                        if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.cyK.add(feedData);
+                        if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                            this.deg.add(feedData);
                         }
                     } else {
-                        this.cyK.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.aj(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.Yb())) {
-                            this.cyK.remove(feedData);
+                        this.deg.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.an(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.aet())) {
+                            this.deg.remove(feedData);
                         }
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.y.r(feedData.getPraiseList()) == 0) {
-                            this.cyK.remove(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.y.s(feedData.getPraiseList()) == 0) {
+                            this.deg.remove(feedData);
                         }
                     }
                 }
             }
-            this.cyM.parserJson(jSONObject.optJSONObject("message"));
-            this.cyL.parserJson(jSONObject.optJSONObject("page"));
-            this.sZ = true;
+            this.dei.parserJson(jSONObject.optJSONObject("message"));
+            this.deh.parserJson(jSONObject.optJSONObject("page"));
+            this.tb = true;
         } catch (Exception e) {
-            this.sZ = false;
+            this.tb = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -70,24 +70,24 @@ public class al implements com.baidu.tbadk.mvc.b.j {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
                         if (feedData.getThread_Type() == 33) {
-                            if (TbadkCoreApplication.m11getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.cyK.add(feedData);
+                            if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                                this.deg.add(feedData);
                             }
                         } else {
-                            this.cyK.add(feedData);
-                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.aj(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.Yb())) {
-                                this.cyK.remove(feedData);
+                            this.deg.add(feedData);
+                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.an(null)) || (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.d.aet())) {
+                                this.deg.remove(feedData);
                             }
-                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.y.r(feedData.getPraiseList()) == 0) {
-                                this.cyK.remove(feedData);
+                            if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.y.s(feedData.getPraiseList()) == 0) {
+                                this.deg.remove(feedData);
                             }
                         }
                     }
                 }
-                this.cyL.a(dataRes.page);
-                this.sZ = true;
+                this.deh.a(dataRes.page);
+                this.tb = true;
             } catch (Exception e) {
-                this.sZ = false;
+                this.tb = false;
                 BdLog.e(e.getMessage());
             }
         }

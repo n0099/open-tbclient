@@ -7,10 +7,10 @@ import android.content.IntentFilter;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b {
-    private static b GK = null;
+    private static b GG = null;
     private boolean a = false;
     private String b = null;
-    private a GJ = null;
+    private a GF = null;
     private int e = -1;
 
     /* loaded from: classes.dex */
@@ -66,30 +66,30 @@ public class b {
     private b() {
     }
 
-    public static synchronized b lT() {
+    public static synchronized b lN() {
         b bVar;
         synchronized (b.class) {
-            if (GK == null) {
-                GK = new b();
+            if (GG == null) {
+                GG = new b();
             }
-            bVar = GK;
+            bVar = GG;
         }
         return bVar;
     }
 
     public void b() {
-        this.GJ = new a();
-        com.baidu.location.f.getServiceContext().registerReceiver(this.GJ, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        this.GF = new a();
+        com.baidu.location.f.getServiceContext().registerReceiver(this.GF, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public void c() {
-        if (this.GJ != null) {
+        if (this.GF != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.GJ);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.GF);
             } catch (Exception e) {
             }
         }
-        this.GJ = null;
+        this.GF = null;
     }
 
     public String d() {

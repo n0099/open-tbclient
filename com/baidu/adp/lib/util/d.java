@@ -19,7 +19,7 @@ public class d {
     private Context mContext = null;
     private Bitmap.Config oF = Bitmap.Config.RGB_565;
 
-    public static synchronized d eY() {
+    public static synchronized d eZ() {
         d dVar;
         synchronized (d.class) {
             if (oE == null) {
@@ -30,7 +30,7 @@ public class d {
         return dVar;
     }
 
-    public synchronized void z(Context context) {
+    public synchronized void y(Context context) {
         this.mContext = context;
     }
 

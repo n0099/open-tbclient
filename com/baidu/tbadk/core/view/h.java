@@ -9,43 +9,43 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class h {
-    private View aaR;
-    private TextView aaS;
-    private ImageView aaT;
+    private View abk;
+    private TextView abl;
+    private ImageView abm;
     private Context mContext;
     private Toast pv;
-    public long aaO = 3000;
-    private int aaP = -1;
-    private int aaQ = -1;
-    private Runnable aaV = new i(this);
-    private Handler aaU = new Handler();
+    public long abh = 3000;
+    private int abi = -1;
+    private int abj = -1;
+    private Runnable abo = new i(this);
+    private Handler abn = new Handler();
 
     public h() {
         this.mContext = null;
-        this.aaR = null;
-        this.aaS = null;
-        this.aaT = null;
-        this.mContext = TbadkCoreApplication.m11getInst().getContext();
-        this.aaR = LayoutInflater.from(this.mContext).inflate(t.h.image_toast_view, (ViewGroup) null);
-        this.aaS = (TextView) this.aaR.findViewById(t.g.tip_text);
-        this.aaT = (ImageView) this.aaR.findViewById(t.g.tip_iamge);
+        this.abk = null;
+        this.abl = null;
+        this.abm = null;
+        this.mContext = TbadkCoreApplication.m9getInst().getContext();
+        this.abk = LayoutInflater.from(this.mContext).inflate(u.h.image_toast_view, (ViewGroup) null);
+        this.abl = (TextView) this.abk.findViewById(u.g.tip_text);
+        this.abm = (ImageView) this.abk.findViewById(u.g.tip_iamge);
     }
 
     public void showToast(int i, int i2) {
-        this.aaS.setText(i2);
-        this.aaT.setImageResource(i);
-        E(this.aaR);
+        this.abl.setText(i2);
+        this.abm.setImageResource(i);
+        D(this.abk);
     }
 
-    public void E(View view) {
-        this.aaU.removeCallbacks(this.aaV);
+    public void D(View view) {
+        this.abn.removeCallbacks(this.abo);
         if (this.pv == null) {
             this.pv = new Toast(this.mContext);
         }
-        this.aaU.postDelayed(this.aaV, this.aaO);
+        this.abn.postDelayed(this.abo, this.abh);
         this.pv.setView(view);
         this.pv.setDuration(1);
         this.pv.setGravity(17, 0, 0);
@@ -53,15 +53,15 @@ public class h {
     }
 
     public void c(CharSequence charSequence) {
-        this.aaS.setText(charSequence);
-        this.aaT.setImageResource(t.f.icon_toast_game_ok);
-        E(this.aaR);
+        this.abl.setText(charSequence);
+        this.abm.setImageResource(u.f.icon_toast_game_ok);
+        D(this.abk);
     }
 
     public void d(CharSequence charSequence) {
-        this.aaS.setText(charSequence);
-        this.aaT.setImageResource(t.f.icon_toast_game_error);
-        E(this.aaR);
+        this.abl.setText(charSequence);
+        this.abm.setImageResource(u.f.icon_toast_game_error);
+        D(this.abk);
     }
 
     public void uT() {

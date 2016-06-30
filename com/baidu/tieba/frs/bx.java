@@ -1,30 +1,32 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.tbadkCore.ac;
+import com.baidu.tieba.view.BdExpandListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId biz = BdUniqueId.gen();
-    private int height = 0;
-    private int biA = 0;
+public class bx implements ac.a {
+    final /* synthetic */ bq bFI;
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return biz;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bx(bq bqVar) {
+        this.bFI = bqVar;
     }
 
-    public int getHeight() {
-        return this.height;
+    @Override // com.baidu.tieba.tbadkCore.ac.a
+    public void WO() {
+        FrsActivity frsActivity;
+        frsActivity = this.bFI.bET;
+        frsActivity.VB();
     }
 
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public int Qu() {
-        return this.biA;
-    }
-
-    public void gn(int i) {
-        this.biA = i;
+    @Override // com.baidu.tieba.tbadkCore.ac.a
+    public void WP() {
+        BdExpandListView bdExpandListView;
+        BdExpandListView bdExpandListView2;
+        bdExpandListView = this.bFI.bFa;
+        if (bdExpandListView != null) {
+            bdExpandListView2 = this.bFI.bFa;
+            bdExpandListView2.setSelection(0);
+        }
     }
 }

@@ -1,38 +1,52 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import com.baidu.tieba.u;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class cn {
-    private BaseActivity bek;
-    private cw dih;
-    private a djz = null;
-    protected final HttpMessageListener dkK = new co(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+public class cn extends cr<com.baidu.tieba.tbadkCore.data.r, PbRecBaseViewHolder> {
+    private WeakReference<PbRecBaseViewHolder> dQp;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void h(int i, String str, String str2);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cn(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+        this.dQp = null;
     }
 
-    public cn(cw cwVar, BaseActivity baseActivity) {
-        this.dih = cwVar;
-        this.bek = baseActivity;
-        this.bek.registerListener(this.dkK);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bf */
+    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
+        return com.baidu.tieba.recapp.a.aUI().n(this.mContext, 2);
     }
 
-    public void a(a aVar) {
-        this.djz = aVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.cr, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.r rVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) rVar, (com.baidu.tieba.tbadkCore.data.r) pbRecBaseViewHolder);
+        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
+        this.dOg.getLayoutMode().ad(this.mSkinType == 1);
+        this.dOg.getLayoutMode().w(view);
+        if (pbRecBaseViewHolder.getRootView() != null) {
+            com.baidu.tbadk.core.util.av.l(pbRecBaseViewHolder.getRootView(), u.d.cp_bg_line_d);
+        }
+        pbRecBaseViewHolder.update((com.baidu.tieba.tbadkCore.data.r) at(i), i, this.mIsFromCDN);
+        if (this.dQp == null || this.dQp.get() != pbRecBaseViewHolder) {
+            this.dQp = new WeakReference<>(pbRecBaseViewHolder);
+        }
+        return view;
     }
 
-    public void lL(int i) {
-        if (this.dih != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.dih.getThreadID());
-            httpMessage.addParam("status", String.valueOf(i));
-            MessageManager.getInstance().sendMessage(httpMessage);
+    public void updateFontSize() {
+        PbRecBaseViewHolder pbRecBaseViewHolder = this.dQp != null ? this.dQp.get() : null;
+        if (pbRecBaseViewHolder != null) {
+            pbRecBaseViewHolder.updateFontSize();
         }
     }
 }

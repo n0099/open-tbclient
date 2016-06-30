@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 public class b implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        byte[] hC = new a().hC(customMessage.getData());
+        byte[] iN = new a().iN(customMessage.getData());
         FrsHotThreadResponseCacheMessage frsHotThreadResponseCacheMessage = new FrsHotThreadResponseCacheMessage();
         try {
-            frsHotThreadResponseCacheMessage.decodeInBackGround(CmdConfigCustom.CMD_FRS_HOT_CACHE, hC);
+            frsHotThreadResponseCacheMessage.decodeInBackGround(CmdConfigCustom.CMD_FRS_HOT_CACHE, iN);
         } catch (Exception e) {
             BdLog.e(e);
         }

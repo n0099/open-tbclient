@@ -2,16 +2,16 @@ package com.baidu.tieba.wxapi;
 
 import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
-class b implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ WXEntryActivity feR;
+class b implements SapiWebView.OnBackCallback {
+    final /* synthetic */ WXEntryActivity fKn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(WXEntryActivity wXEntryActivity) {
-        this.feR = wXEntryActivity;
+        this.fKn = wXEntryActivity;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-    public void onFinish() {
-        this.feR.closeActivity();
+    @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
+    public void onBack() {
+        this.fKn.closeActivity();
     }
 }

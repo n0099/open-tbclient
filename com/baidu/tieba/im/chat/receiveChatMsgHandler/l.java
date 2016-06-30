@@ -5,16 +5,16 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements a.InterfaceC0058a {
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.InterfaceC0058a
+public class l implements a.InterfaceC0063a {
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.InterfaceC0063a
     public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
         if (chatMessage != null && chatMessage.getMsgType() == 22) {
-            if (com.baidu.tieba.im.util.h.s(chatMessage)) {
+            if (com.baidu.tieba.im.util.h.t(chatMessage)) {
                 return true;
             }
-            long g = j.g(chatMessage);
-            if (g > imMessageCenterPojo.getRead_msgId()) {
-                imMessageCenterPojo.setRead_msgId(g);
+            long h = j.h(chatMessage);
+            if (h > imMessageCenterPojo.getRead_msgId()) {
+                imMessageCenterPojo.setRead_msgId(h);
                 return true;
             }
             return true;

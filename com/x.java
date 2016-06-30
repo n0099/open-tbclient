@@ -82,19 +82,19 @@ public class x extends ArrayAdapter {
         b bVar;
         if (view == null || view.getTag() == null) {
             bVar = new b(this, null);
-            view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.a(getContext(), "bdsocialshare_sharedialogmediaitemlayout"), (ViewGroup) null);
-            bVar.b = (ImageView) view.findViewById(p.i(getContext(), "sharedialog_mediaitem_iconview"));
-            bVar.c = (TextView) view.findViewById(p.i(getContext(), "sharedialog_mediaitem_nameview"));
+            view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.g(getContext(), "bdsocialshare_sharedialogmediaitemlayout"), (ViewGroup) null);
+            bVar.b = (ImageView) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_iconview"));
+            bVar.c = (TextView) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_nameview"));
             bVar.c.setTextColor(Color.parseColor(p.a(getContext())));
-            bVar.d = (TextView) view.findViewById(p.i(getContext(), "sharedialog_mediaitem_desview"));
+            bVar.d = (TextView) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_desview"));
             bVar.d.setTextColor(Color.parseColor(p.p(getContext())));
-            bVar.de = (SwitchButton) view.findViewById(p.i(getContext(), "sharedialog_mediaitem_switchbutton"));
+            bVar.de = (SwitchButton) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_switchbutton"));
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
         ShareMediaItem shareMediaItem = (ShareMediaItem) getItem(i);
-        bVar.b.setImageResource(shareMediaItem.isChecked() ? p.h(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.h(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
+        bVar.b.setImageResource(shareMediaItem.isChecked() ? p.i(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.i(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
         bVar.c.setText(this.b.getString(shareMediaItem.getMediaType().toString()));
         bVar.d.setText(shareMediaItem.getUserName());
         bVar.de.setTag(shareMediaItem);

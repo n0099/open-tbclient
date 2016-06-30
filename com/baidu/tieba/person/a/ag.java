@@ -9,10 +9,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ThUserActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bl;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class ag extends c<com.baidu.tieba.person.data.s, com.baidu.tieba.person.b.p> {
+public class ag extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.s, com.baidu.tieba.person.b.p> {
     /* JADX INFO: Access modifiers changed from: protected */
     public ag(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
@@ -21,9 +21,9 @@ public class ag extends c<com.baidu.tieba.person.data.s, com.baidu.tieba.person.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
-    public com.baidu.tieba.person.b.p b(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.p(LayoutInflater.from(this.mContext).inflate(t.h.person_info_togetherhi_user_item, viewGroup, false), this.mContext);
+    /* renamed from: bH */
+    public com.baidu.tieba.person.b.p a(ViewGroup viewGroup) {
+        return new com.baidu.tieba.person.b.p(LayoutInflater.from(this.mContext).inflate(u.h.person_info_togetherhi_user_item, viewGroup, false), this.mContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,17 +31,17 @@ public class ag extends c<com.baidu.tieba.person.data.s, com.baidu.tieba.person.
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.s sVar, com.baidu.tieba.person.b.p pVar) {
         if (sVar != null && pVar != null) {
-            pVar.aCQ();
-            String string = this.mContext.getResources().getString(t.j.person_user_togetherhi_him);
+            pVar.aLM();
+            String string = this.mContext.getResources().getString(u.j.person_user_togetherhi_him);
             if (sVar.getSex() == 2) {
-                string = this.mContext.getResources().getString(t.j.person_user_togetherhi_her);
+                string = this.mContext.getResources().getString(u.j.person_user_togetherhi_her);
             }
             pVar.KC.setText(string);
             a(view, sVar);
-            pVar.dDL.setClickListener(new a(sVar));
-            if (this.bUL) {
+            pVar.emx.setClickListener(new a(sVar));
+            if (this.aMF) {
                 pVar.a(sVar);
-                this.bUL = false;
+                this.aMF = false;
             }
         }
         return view;
@@ -54,17 +54,17 @@ public class ag extends c<com.baidu.tieba.person.data.s, com.baidu.tieba.person.
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
-        private com.baidu.tieba.person.data.s dyv;
+        private com.baidu.tieba.person.data.s egR;
 
         public a(com.baidu.tieba.person.data.s sVar) {
-            this.dyv = sVar;
+            this.egR = sVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (bl.ac(ag.this.mContext)) {
+            if (bn.ab(ag.this.mContext)) {
                 ThUserActivityConfig thUserActivityConfig = new ThUserActivityConfig(ag.this.mContext);
-                thUserActivityConfig.initUserActivityConfig(this.dyv.aCv());
+                thUserActivityConfig.initUserActivityConfig(this.egR.aLo());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, thUserActivityConfig));
             }
         }

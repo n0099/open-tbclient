@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int ZU;
-    private int ZV;
+    private int aal;
+    private int aam;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -25,8 +25,8 @@ public class HeadImageView extends TbClipImageView {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.ZU = t.f.transparent_bg;
-        this.ZV = t.d.cp_bg_line_e;
+        this.aal = u.f.transparent_bg;
+        this.aam = u.d.cp_bg_line_e;
         init();
     }
 
@@ -34,9 +34,9 @@ public class HeadImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.ZV);
-        setDefaultResource(this.ZU);
-        setDefaultErrorResource(t.f.icon_default_avatar100);
+        setDefaultBgResource(this.aam);
+        setDefaultResource(this.aal);
+        setDefaultErrorResource(u.f.icon_default_avatar100);
     }
 
     public void setUrl(String str) {
@@ -57,10 +57,10 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setUserName(String str) {
-        af(str, String.valueOf(str) + getResources().getString(t.j.whose_head_image));
+        ae(str, String.valueOf(str) + getResources().getString(u.j.whose_head_image));
     }
 
-    public void af(String str, String str2) {
+    public void ae(String str, String str2) {
         this.user_name = str;
         setContentDescription(str2);
     }
@@ -71,10 +71,10 @@ public class HeadImageView extends TbClipImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public void uS() {
-        if (!this.aBW) {
-            this.aBW = true;
-        } else if (this.aBZ != null && this.aBZ.axv) {
-            this.aBZ.EG();
+        if (!this.aCw) {
+            this.aCw = true;
+        } else if (this.aCz != null && this.aCz.ayl) {
+            this.aCz.EP();
         }
     }
 }

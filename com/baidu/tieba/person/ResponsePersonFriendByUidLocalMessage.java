@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
-    private com.baidu.tbadk.core.data.af mData;
+    private com.baidu.tbadk.core.data.ai mData;
 
     public ResponsePersonFriendByUidLocalMessage() {
         super(CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY);
@@ -14,11 +14,11 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         super(i);
     }
 
-    public void setPersonListData(com.baidu.tbadk.core.data.af afVar) {
-        this.mData = afVar;
+    public void setPersonListData(com.baidu.tbadk.core.data.ai aiVar) {
+        this.mData = aiVar;
     }
 
-    public com.baidu.tbadk.core.data.af getPersonListData() {
+    public com.baidu.tbadk.core.data.ai getPersonListData() {
         return this.mData;
     }
 
@@ -26,7 +26,7 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, String str) {
         if (str != null) {
-            this.mData = new com.baidu.tbadk.core.data.af();
+            this.mData = new com.baidu.tbadk.core.data.ai();
             this.mData.parserJson(str);
         }
     }

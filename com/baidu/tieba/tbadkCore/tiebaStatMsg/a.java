@@ -30,7 +30,7 @@ class a extends CustomMessageListener {
                     if (jSONObject.optLong("continue_time") > 0) {
                         bdUploadStatMsgData.deadLineTime = System.currentTimeMillis() + (jSONObject.optLong("continue_time") * 1000);
                     }
-                    com.baidu.adp.lib.stats.a.dN().a(bdUploadStatMsgData.parentType, bdUploadStatMsgData.childType, bdUploadStatMsgData);
+                    com.baidu.adp.lib.stats.a.dO().a(bdUploadStatMsgData.parentType, bdUploadStatMsgData.childType, bdUploadStatMsgData);
                 } catch (Exception e) {
                 }
             }

@@ -1,21 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tieba.t;
-import java.io.File;
-import java.io.FileFilter;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements FileFilter {
-    final /* synthetic */ LogoActivity aGQ;
+public class o implements Animation.AnimationListener {
+    final /* synthetic */ LogoActivity aHs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(LogoActivity logoActivity) {
-        this.aGQ = logoActivity;
+        this.aHs = logoActivity;
     }
 
-    @Override // java.io.FileFilter
-    public boolean accept(File file) {
-        String name = file.getName();
-        return !TextUtils.isEmpty(name) && name.contains(this.aGQ.getPageContext().getString(t.j.app_name)) && name.endsWith(".apk");
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        int i;
+        int i2;
+        RelativeLayout relativeLayout2;
+        relativeLayout = this.aHs.mRootView;
+        if (relativeLayout != null) {
+            relativeLayout2 = this.aHs.mRootView;
+            relativeLayout2.setVisibility(8);
+        }
+        i = this.aHs.aHg;
+        if (i >= 0) {
+            LogoActivity logoActivity = this.aHs;
+            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this.aHs.getPageContext().getPageActivity());
+            i2 = this.aHs.aHg;
+            logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig.createNormalCfg(i2)));
+        } else {
+            this.aHs.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.aHs.getPageContext().getPageActivity()).createNormalCfg(2)));
+        }
+        this.aHs.finish();
     }
 }

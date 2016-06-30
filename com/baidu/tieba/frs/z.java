@@ -1,31 +1,47 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class z extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bhl;
+class z implements NoNetworkView.a {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bhl = frsActivity;
+    public z(FrsActivity frsActivity) {
+        this.bDB = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String str;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.ax)) {
-            com.baidu.tbadk.core.data.ax axVar = (com.baidu.tbadk.core.data.ax) customResponsedMessage.getData();
-            this.bhl.beT = axVar.getId();
-            str = this.bhl.beT;
-            if (TextUtils.isEmpty(str) || axVar.getPraise() == null) {
-                return;
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aD(boolean z) {
+        bq bqVar;
+        com.baidu.tieba.tbadkCore.p pVar;
+        bq bqVar2;
+        boolean z2;
+        bq bqVar3;
+        bq bqVar4;
+        com.baidu.tieba.tbadkCore.p pVar2;
+        if (z) {
+            bqVar = this.bDB.bCD;
+            if (!bqVar.VD()) {
+                pVar = this.bDB.bCF;
+                if (pVar != null) {
+                    pVar2 = this.bDB.bCF;
+                    if (pVar2.getThreadList().size() != 0) {
+                        return;
+                    }
+                }
+                FrsActivity frsActivity = this.bDB;
+                bqVar2 = this.bDB.bCD;
+                frsActivity.hideNetRefreshView(bqVar2.getRootView());
+                z2 = this.bDB.bCo;
+                if (!z2) {
+                    FrsActivity frsActivity2 = this.bDB;
+                    bqVar3 = this.bDB.bCD;
+                    frsActivity2.showLoadingView(bqVar3.getRootView(), true);
+                    bqVar4 = this.bDB.bCD;
+                    bqVar4.m12do(false);
+                }
+                this.bDB.refresh();
             }
-            this.bhl.gg(axVar.getPraise().getIsLike());
         }
     }
 }

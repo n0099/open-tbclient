@@ -7,9 +7,8 @@ public abstract class BaseNormalSwitchStatic extends a {
     @Override // com.baidu.adp.lib.c.a
     protected abstract String getName();
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.c.a
-    public void changeSettingByType(int i) {
+    protected void changeSettingByType(int i) {
     }
 
     @Override // com.baidu.adp.lib.c.a
@@ -32,7 +31,7 @@ public abstract class BaseNormalSwitchStatic extends a {
         return 10;
     }
 
-    public boolean ec() {
-        return e.cS().Z(getName()) == getDefaultType();
+    public boolean ed() {
+        return e.cT().Z(getName()) == getDefaultType();
     }
 }

@@ -3,68 +3,84 @@ package com.baidu.tieba.launcherGuide.tblauncher;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GuideActivity cEy;
+    final /* synthetic */ GuideActivity djY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GuideActivity guideActivity) {
-        this.cEy = guideActivity;
+        this.djY = guideActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         int i2;
         View view;
-        IndicatorView indicatorView;
-        View view2;
-        IndicatorView indicatorView2;
-        View view3;
         int i3;
+        IndicatorView indicatorView;
+        IndicatorView indicatorView2;
+        IndicatorView indicatorView3;
+        View view2;
+        IndicatorView indicatorView4;
+        View view3;
+        int i4;
         View view4;
         View view5;
         View view6;
-        IndicatorView indicatorView3;
+        IndicatorView indicatorView5;
         View view7;
-        i2 = this.cEy.cEt;
+        i2 = this.djY.djT;
         if (i != i2 - 1) {
-            view = this.cEy.cEm;
+            view = this.djY.djM;
             view.setVisibility(8);
-            this.cEy.kk(t.e.ds120);
-            indicatorView = this.cEy.cEl;
-            indicatorView.setVisibility(0);
-        } else {
-            i3 = this.cEy.cEs;
+            this.djY.lM(u.e.ds120);
+            i3 = this.djY.djS;
             switch (i3) {
                 case 1:
-                    this.cEy.kk(t.e.ds60);
-                    view6 = this.cEy.cEm;
-                    view6.setVisibility(0);
-                    indicatorView3 = this.cEy.cEl;
+                    indicatorView3 = this.djY.djL;
                     indicatorView3.setVisibility(8);
                     break;
                 case 2:
-                    view5 = this.cEy.cEm;
+                    indicatorView2 = this.djY.djL;
+                    indicatorView2.setVisibility(0);
+                    break;
+                case 3:
+                    indicatorView = this.djY.djL;
+                    indicatorView.setVisibility(0);
+                    break;
+            }
+        } else {
+            i4 = this.djY.djS;
+            switch (i4) {
+                case 1:
+                    this.djY.lM(u.e.ds60);
+                    view6 = this.djY.djM;
+                    view6.setVisibility(0);
+                    indicatorView5 = this.djY.djL;
+                    indicatorView5.setVisibility(8);
+                    break;
+                case 2:
+                    view5 = this.djY.djM;
                     view5.setVisibility(0);
                     break;
                 case 3:
-                    view4 = this.cEy.cEm;
+                    view4 = this.djY.djM;
                     view4.setVisibility(8);
                     break;
                 default:
-                    view7 = this.cEy.cEm;
+                    view7 = this.djY.djM;
                     view7.setVisibility(8);
                     break;
             }
         }
-        view2 = this.cEy.cEm;
+        view2 = this.djY.djM;
         if (view2.getVisibility() == 0) {
-            view3 = this.cEy.cEm;
+            view3 = this.djY.djM;
             view3.requestFocus();
         }
-        indicatorView2 = this.cEy.cEl;
-        indicatorView2.setPosition(i);
+        indicatorView4 = this.djY.djL;
+        indicatorView4.setPosition(i);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

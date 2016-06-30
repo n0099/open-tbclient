@@ -6,9 +6,9 @@ import android.view.View;
 public interface b {
     View a(LayoutInflater layoutInflater);
 
-    int cT();
-
     int cU();
+
+    int cV();
 
     int getXOffset();
 

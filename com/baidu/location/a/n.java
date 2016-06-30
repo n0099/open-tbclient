@@ -1,15 +1,15 @@
 package com.baidu.location.a;
 /* loaded from: classes.dex */
 class n implements Runnable {
-    final /* synthetic */ g GC;
+    final /* synthetic */ g Gy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(g gVar) {
-        this.GC = gVar;
+        this.Gy = gVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.GC.h();
+        this.Gy.h();
     }
 }

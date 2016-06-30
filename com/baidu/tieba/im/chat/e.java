@@ -4,15 +4,15 @@ import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity bYM;
+    final /* synthetic */ AbsMsgImageActivity cDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.bYM = absMsgImageActivity;
+        this.cDW = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,22 +21,22 @@ public class e implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.bYM.getListMenu();
+        listMenu = this.cDW.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.bYM.bYA;
+                        multiImageView = this.cDW.cDK;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.bYM.bYA;
+                            multiImageView2 = this.cDW.cDK;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.bYM.bYx = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.bYM.bYx;
+                            this.cDW.cDH = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.cDW.cDH;
                             aVar.execute(new String[0]);
-                            this.bYM.bYy.setClickable(false);
+                            this.cDW.cDI.setClickable(false);
                         } else {
-                            this.bYM.showToast(this.bYM.getPageContext().getString(t.j.no_data));
+                            this.cDW.showToast(this.cDW.getPageContext().getString(u.j.no_data));
                         }
                         break;
                     } catch (Exception e) {

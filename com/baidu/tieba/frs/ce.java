@@ -1,28 +1,86 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.t;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class ce {
-    public View aJB;
-    public TextView aOG;
-    public View aPI;
-    public int aej = 3;
-    public BarImageView biP;
-    public TextView biQ;
-    public TextView biR;
-    public TextView biS;
-    public int position;
+public class ce extends y.a {
+    public TextView aSd;
+    public TextView adE;
+    public TextView adH;
+    public int aeK;
+    public UserIconBox aef;
+    public UserIconBox aeg;
+    public LinearLayout bBN;
+    public TextView bBO;
+    public PlayVoiceBnt bBP;
+    public FrsCommonImageLayout bBQ;
+    public TextView bBR;
+    public HeadImageView bBS;
+    public TextView bBW;
+    public TextView bBY;
+    public TextView bEN;
+    public int bFO;
+    public FrameLayout bFP;
+    public RelativeLayout bFQ;
+    public TbImageView bFR;
+    public TextView bFS;
+    public RelativeLayout bFT;
+    public LinearLayout bFU;
+    public LinearLayout bFV;
+    public LinearLayout bFW;
+    public View bFX;
+    public TbImageView bFY;
+    public RelativeLayout bFZ;
+    public TbImageView bGa;
+    public TextView bGb;
+    public ThreadSkinView bGc;
 
-    public ce(View view) {
-        this.aJB = view;
-        this.biP = (BarImageView) view.findViewById(t.g.frs_feed_forum_image);
-        this.aOG = (TextView) view.findViewById(t.g.frs_feed_forum_title);
-        this.biQ = (TextView) view.findViewById(t.g.frs_feed_forum_other_info);
-        this.biR = (TextView) view.findViewById(t.g.frs_feed_forum_related);
-        this.biS = (TextView) view.findViewById(t.g.frs_feed_forum_attention);
-        this.aPI = view.findViewById(t.g.frs_feed_forum_divider);
+    public ce(View view, int i) {
+        super(view);
+        this.aeK = 3;
+        this.bFO = 0;
+        this.bFO = i;
+        this.bFP = (FrameLayout) view.findViewById(u.g.frs_list);
+        this.bFT = (RelativeLayout) view.findViewById(u.g.frs_item_user_info_view);
+        this.bFU = (LinearLayout) view.findViewById(u.g.frs_item_base_user_info);
+        this.bBN = (LinearLayout) view.findViewById(u.g.frs_list_item_top_linear_layout);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bBN.getLayoutParams();
+        layoutParams.topMargin = i;
+        this.bBN.setLayoutParams(layoutParams);
+        this.bFQ = (RelativeLayout) view.findViewById(u.g.frs_list_item_top_card);
+        this.bFR = (TbImageView) view.findViewById(u.g.frs_normal_item_theme_card);
+        this.bBS = (HeadImageView) view.findViewById(u.g.frs_photo);
+        this.aef = (UserIconBox) view.findViewById(u.g.frs_user_tshow_icon_box);
+        this.aeg = (UserIconBox) view.findViewById(u.g.frs_user_icon_box);
+        this.bBR = (TextView) view.findViewById(u.g.frs_lv_author);
+        this.adE = (TextView) view.findViewById(u.g.frs_lv_reply_time);
+        this.aSd = (TextView) view.findViewById(u.g.frs_lv_title);
+        this.bBO = (TextView) view.findViewById(u.g.abstract_text);
+        this.bBP = (PlayVoiceBnt) view.findViewById(u.g.abstract_voice);
+        this.bBQ = (FrsCommonImageLayout) view.findViewById(u.g.abstract_img_layout);
+        this.adH = (TextView) view.findViewById(u.g.frs_praise_num);
+        this.bFS = (TextView) view.findViewById(u.g.action_button);
+        this.bBW = (TextView) view.findViewById(u.g.frs_reply_num);
+        this.bBY = (TextView) view.findViewById(u.g.frs_more_abstract);
+        this.bFV = (LinearLayout) view.findViewById(u.g.frs_item_num);
+        this.bFW = (LinearLayout) view.findViewById(u.g.frs_item_loc_view);
+        this.bEN = (TextView) view.findViewById(u.g.frs_item_location_address);
+        this.bFX = view.findViewById(u.g.frs_item_location_sep);
+        this.bFY = (TbImageView) view.findViewById(u.g.game_activity_banner);
+        this.bGa = (TbImageView) view.findViewById(u.g.app_code_banner);
+        this.bGb = (TextView) view.findViewById(u.g.app_code_btn);
+        this.bFZ = (RelativeLayout) view.findViewById(u.g.app_code_wrapper);
+        this.bGc = (ThreadSkinView) view.findViewById(u.g.frs_thread_skin);
     }
 }

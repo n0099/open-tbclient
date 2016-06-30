@@ -1,28 +1,37 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dr implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bkN;
-    final /* synthetic */ dp blk;
+public class dr implements Animation.AnimationListener {
+    final /* synthetic */ Cdo bHg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dr(dp dpVar, ThemeCardInUserData themeCardInUserData) {
-        this.blk = dpVar;
-        this.bkN = themeCardInUserData;
+    public dr(Cdo cdo) {
+        this.bHg = cdo;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseActivity baseActivity;
-        baseActivity = this.blk.bek;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(baseActivity.getPageContext().getPageActivity(), this.bkN.getCardId())));
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        View view2;
+        View view3;
+        view = this.bHg.bGY;
+        if (view != null) {
+            view2 = this.bHg.bGY;
+            view2.clearAnimation();
+            view3 = this.bHg.bGY;
+            view3.setVisibility(0);
+            this.bHg.dv(false);
+        }
     }
 }

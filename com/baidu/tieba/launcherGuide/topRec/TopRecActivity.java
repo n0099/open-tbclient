@@ -12,80 +12,80 @@ import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.view.t;
 import com.baidu.tieba.launcherGuide.topRec.TRForumListData;
 import com.baidu.tieba.launcherGuide.topRec.h;
-import com.baidu.tieba.t;
-import com.baidu.tieba.tbadkCore.x;
+import com.baidu.tieba.tbadkCore.y;
+import com.baidu.tieba.u;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TopRecActivity extends BaseActivity<TopRecActivity> {
-    private x Dp;
-    private d cEA;
-    private h cEB;
-    private a cEC;
-    private TRForumListData cED;
-    private List<a> cEF;
-    private List<x> cEG;
-    private e cEz;
-    private int cEE = 0;
-    private int cEH = 0;
-    private h.b cEI = new com.baidu.tieba.launcherGuide.topRec.a(this);
-    private t.b bqy = new b(this);
+    private y Dq;
+    private e djZ;
+    private d dka;
+    private h dkb;
+    private a dkc;
+    private TRForumListData dkd;
+    private List<a> dkf;
+    private List<y> dkg;
+    private int dke = 0;
+    private int dkh = 0;
+    private h.b dki = new com.baidu.tieba.launcherGuide.topRec.a(this);
+    private t.b bMd = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        nq();
+        nl();
         initData();
     }
 
-    private void nq() {
-        this.cEz = new e(this);
-        this.cEz.eB(true);
+    private void nl() {
+        this.djZ = new e(this);
+        this.djZ.fp(true);
     }
 
     private void initData() {
-        this.cEA = new d(this);
-        this.cEz.a(this.cEA);
-        this.cEB = new h(this);
-        this.cEB.a(this.cEI);
-        this.cEB.LoadData();
-        this.cEF = new LinkedList();
-        this.cEG = new LinkedList();
-        this.cEz.b(this.bqy);
+        this.dka = new d(this);
+        this.djZ.a(this.dka);
+        this.dkb = new h(this);
+        this.dkb.a(this.dki);
+        this.dkb.LoadData();
+        this.dkf = new LinkedList();
+        this.dkg = new LinkedList();
+        this.djZ.b(this.bMd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aD(int i, int i2) {
-        if (this.cED != null && i < this.cED.forum_list.length) {
-            this.cED.forum_list[i].is_like = 1;
-            this.cEA.notifyDataSetChanged();
-            this.cEE++;
-            this.cEz.km(this.cEE);
+    public void aU(int i, int i2) {
+        if (this.dkd != null && i < this.dkd.forum_list.length) {
+            this.dkd.forum_list[i].is_like = 1;
+            this.dka.notifyDataSetChanged();
+            this.dke++;
+            this.djZ.lO(this.dke);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aE(int i, int i2) {
-        if (this.cED != null && i < this.cED.forum_list.length) {
-            this.cED.forum_list[i].is_like = 0;
-            this.cEA.notifyDataSetChanged();
-            if (this.cEE != 0) {
-                this.cEE--;
+    public void aV(int i, int i2) {
+        if (this.dkd != null && i < this.dkd.forum_list.length) {
+            this.dkd.forum_list[i].is_like = 0;
+            this.dka.notifyDataSetChanged();
+            if (this.dke != 0) {
+                this.dke--;
             }
-            this.cEz.km(this.cEE);
+            this.djZ.lO(this.dke);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void anp() {
-        this.cEH++;
+    public synchronized void avB() {
+        this.dkh++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void anq() {
-        if (this.cEH != 0) {
-            this.cEH--;
+    public synchronized void avC() {
+        if (this.dkh != 0) {
+            this.dkh--;
         }
     }
 
@@ -93,16 +93,16 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        int size = this.cEF.size();
+        int size = this.dkf.size();
         for (int i = 0; i < size; i++) {
-            if (this.cEF.get(i) != null) {
-                this.cEF.get(i).cancel();
+            if (this.dkf.get(i) != null) {
+                this.dkf.get(i).cancel();
             }
         }
-        int size2 = this.cEG.size();
+        int size2 = this.dkg.size();
         for (int i2 = 0; i2 < size2; i2++) {
-            if (this.cEG.get(i2) != null) {
-                this.cEG.get(i2).aTc();
+            if (this.dkg.get(i2) != null) {
+                this.dkg.get(i2).bbp();
             }
         }
     }
@@ -111,14 +111,14 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cEA != null) {
-            int ant = this.cEA.ant();
-            if (ant != 0) {
-                this.cEE += ant;
-                this.cEH = ant + this.cEH;
-                this.cEz.km(this.cEE);
+        if (this.dka != null) {
+            int avF = this.dka.avF();
+            if (avF != 0) {
+                this.dke += avF;
+                this.dkh = avF + this.dkh;
+                this.djZ.lO(this.dke);
             }
-            this.cEA.notifyDataSetChanged();
+            this.dka.notifyDataSetChanged();
         }
     }
 
@@ -126,17 +126,17 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cEz.onChangeSkinType(i);
-        this.cEA.aF(t.f.btn_add, t.f.btn_add_end);
+        this.djZ.onChangeSkinType(i);
+        this.dka.aW(u.f.btn_add, u.f.btn_add_end);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int kl(int i) {
-        if (this.cED == null) {
+    public int lN(int i) {
+        if (this.dkd == null) {
             return -1;
         }
-        for (int i2 = 0; i2 < this.cED.forum_list.length; i2++) {
-            if (this.cED.forum_list[i2].forum_id == i) {
+        for (int i2 = 0; i2 < this.dkd.forum_list.length; i2++) {
+            if (this.dkd.forum_list[i2].forum_id == i) {
                 return i2;
             }
         }
@@ -146,38 +146,38 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.cEz.anu()) {
-            this.cEA.anr();
-            if (this.cEA.ans()) {
-                this.cEz.anx();
+        if (view == this.djZ.avG()) {
+            this.dka.avD();
+            if (this.dka.avE()) {
+                this.djZ.avJ();
             }
-        } else if (view == this.cEz.anv()) {
-            if (this.cEH != 0) {
-                showToast(String.valueOf(getPageContext().getString(t.j.top_rec_like_finish_a)) + this.cEH + getPageContext().getString(t.j.top_rec_like_finish_b));
+        } else if (view == this.djZ.avH()) {
+            if (this.dkh != 0) {
+                showToast(String.valueOf(getPageContext().getString(u.j.top_rec_like_finish_a)) + this.dkh + getPageContext().getString(u.j.top_rec_like_finish_b));
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "top_rec_have_like", "people_number", 1, new Object[0]);
             } else {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "top_rec_no_like", "people_number", 1, new Object[0]);
             }
             finish();
-            com.baidu.tbadk.core.e.b.d(getPageContext().getPageActivity(), 1);
-        } else if (this.cED != null && this.cED.forum_list.length != 0) {
+            com.baidu.tbadk.core.d.b.d(getPageContext().getPageActivity(), 1);
+        } else if (this.dkd != null && this.dkd.forum_list.length != 0) {
             int intValue = ((Integer) view.getTag()).intValue();
-            int kl = kl(intValue);
-            if (this.cED.forum_list[kl].is_like == 1) {
-                aE(kl, intValue);
-                this.cEC = new a(this, null);
-                this.cEF.add(this.cEC);
-                this.cEC.setPriority(2);
-                this.cEC.execute(Integer.valueOf(intValue));
+            int lN = lN(intValue);
+            if (this.dkd.forum_list[lN].is_like == 1) {
+                aV(lN, intValue);
+                this.dkc = new a(this, null);
+                this.dkf.add(this.dkc);
+                this.dkc.setPriority(2);
+                this.dkc.execute(Integer.valueOf(intValue));
                 return;
             }
-            this.Dp = new x(getPageContext());
-            if (!this.Dp.aTd()) {
-                this.cEG.add(this.Dp);
-                aD(kl, intValue);
-                this.Dp.setLoadDataCallBack(new c(this, kl, intValue));
-                this.Dp.setFrom("from_topRec");
-                this.Dp.bH(this.cED.forum_list[kl].forum_name, String.valueOf(this.cED.forum_list[kl].forum_id));
+            this.Dq = new y(getPageContext());
+            if (!this.Dq.bbq()) {
+                this.dkg.add(this.Dq);
+                aU(lN, intValue);
+                this.Dq.setLoadDataCallBack(new c(this, lN, intValue));
+                this.Dq.setFrom("from_topRec");
+                this.Dq.bJ(this.dkd.forum_list[lN].forum_name, String.valueOf(this.dkd.forum_list[lN].forum_id));
             }
         }
     }
@@ -185,13 +185,13 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Integer, Integer, String> {
-        private ab aeI;
-        TRForumListData.TRForum cEK;
+        private ab afj;
+        TRForumListData.TRForum dkk;
         int id;
         int position;
 
         private a() {
-            this.aeI = null;
+            this.afj = null;
             this.position = -1;
             this.id = 0;
         }
@@ -206,19 +206,19 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
         /* renamed from: a */
         public String doInBackground(Integer... numArr) {
             this.id = numArr[0].intValue();
-            this.position = TopRecActivity.this.kl(this.id);
+            this.position = TopRecActivity.this.lN(this.id);
             if (this.position >= 0) {
-                this.cEK = TopRecActivity.this.cED.forum_list[this.position];
+                this.dkk = TopRecActivity.this.dkd.forum_list[this.position];
             }
             try {
-                if (this.cEK != null && this.cEK.forum_id != 0 && this.cEK.forum_name != null) {
-                    this.aeI = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
-                    this.aeI.n("fid", String.valueOf(this.cEK.forum_id));
-                    this.aeI.n("kw", this.cEK.forum_name);
-                    this.aeI.n("favo_type", "1");
-                    this.aeI.n("st_type", "from_topRec");
-                    this.aeI.tB().uv().mIsNeedTbs = true;
-                    this.aeI.td();
+                if (this.dkk != null && this.dkk.forum_id != 0 && this.dkk.forum_name != null) {
+                    this.afj = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
+                    this.afj.n("fid", String.valueOf(this.dkk.forum_id));
+                    this.afj.n("kw", this.dkk.forum_name);
+                    this.afj.n("favo_type", "1");
+                    this.afj.n("st_type", "from_topRec");
+                    this.afj.ty().uu().mIsNeedTbs = true;
+                    this.afj.ta();
                     return null;
                 }
                 return null;
@@ -231,30 +231,30 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: eo */
+        /* renamed from: es */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            TopRecActivity.this.cEC = null;
-            if (this.aeI == null) {
-                TopRecActivity.this.aD(this.position, this.cEK.forum_id);
-            } else if (!this.aeI.tB().uw().nZ()) {
-                TopRecActivity.this.aD(this.position, this.cEK.forum_id);
+            TopRecActivity.this.dkc = null;
+            if (this.afj == null) {
+                TopRecActivity.this.aU(this.position, this.dkk.forum_id);
+            } else if (!this.afj.ty().uv().nU()) {
+                TopRecActivity.this.aU(this.position, this.dkk.forum_id);
             } else if (str == null) {
-                TopRecActivity.this.aD(this.position, this.cEK.forum_id);
+                TopRecActivity.this.aU(this.position, this.dkk.forum_id);
             } else {
-                TbadkApplication.getInst().delLikeForum(this.cEK.forum_name);
-                TopRecActivity.this.anq();
+                TbadkApplication.getInst().delLikeForum(this.dkk.forum_name);
+                TopRecActivity.this.avC();
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.aeI != null) {
-                this.aeI.dl();
-                this.aeI = null;
+            if (this.afj != null) {
+                this.afj.dm();
+                this.afj = null;
             }
-            TopRecActivity.this.cEz.eB(false);
-            TopRecActivity.this.cEC = null;
+            TopRecActivity.this.djZ.fp(false);
+            TopRecActivity.this.dkc = null;
             super.cancel(true);
         }
     }
@@ -262,13 +262,13 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     @Override // android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        if (this.cEH != 0) {
-            showToast(String.valueOf(getPageContext().getString(t.j.top_rec_like_finish_a)) + this.cEH + getPageContext().getString(t.j.top_rec_like_finish_b));
+        if (this.dkh != 0) {
+            showToast(String.valueOf(getPageContext().getString(u.j.top_rec_like_finish_a)) + this.dkh + getPageContext().getString(u.j.top_rec_like_finish_b));
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "top_rec_have_like", "people_number", 1, new Object[0]);
         } else {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "top_rec_no_like", "people_number", 1, new Object[0]);
         }
         finish();
-        com.baidu.tbadk.core.e.b.d(getPageContext().getPageActivity(), 1);
+        com.baidu.tbadk.core.d.b.d(getPageContext().getPageActivity(), 1);
     }
 }

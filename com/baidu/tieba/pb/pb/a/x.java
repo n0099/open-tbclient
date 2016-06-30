@@ -1,31 +1,39 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ r dgC;
-    private final /* synthetic */ an dgD;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dgE;
+public class x extends CustomMessageListener {
+    final /* synthetic */ e dML;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(r rVar, an anVar, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dgC = rVar;
-        this.dgD = anVar;
-        this.dgE = sVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(e eVar, int i) {
+        super(i);
+        this.dML = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.dgD.dgT.isPlaying()) {
-            this.dgD.dgT.pause();
-            this.dgD.dgY.setVisibility(0);
-        } else {
-            this.dgC.a(this.dgD, this.dgE);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        y yVar;
+        y yVar2;
+        y yVar3;
+        y yVar4;
+        yVar = this.dML.dMD;
+        if (yVar != null) {
+            yVar2 = this.dML.dMD;
+            if (yVar2.aJJ != null) {
+                int[] iArr = new int[2];
+                yVar3 = this.dML.dMD;
+                yVar3.aJJ.getLocationInWindow(iArr);
+                int i = iArr[1];
+                yVar4 = this.dML.dMD;
+                if (i + yVar4.aJJ.getHeight() < 0) {
+                    this.dML.aiQ();
+                }
+            }
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 }

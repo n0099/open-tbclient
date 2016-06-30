@@ -21,25 +21,25 @@ public class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        PluginSettings m9if;
-        PluginNetConfigInfos id;
+        PluginSettings ih;
+        PluginNetConfigInfos m5if;
         List<PluginNetConfigInfos.PluginConfig> configs;
         String e;
         String str;
         boolean H;
         boolean z = false;
         Object data = customResponsedMessage.getData();
-        if (data != null && (data instanceof PluginNetConfigInfos.PluginConfig) && (m9if = com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if()) != null) {
-            if (m9if != null) {
+        if (data != null && (data instanceof PluginNetConfigInfos.PluginConfig) && (ih = com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().ih()) != null) {
+            if (ih != null) {
                 PluginPackageManager pluginPackageManager = this.this$0;
-                str = this.this$0.uL;
-                H = pluginPackageManager.H(str, m9if.getContainerVersion());
+                str = this.this$0.uN;
+                H = pluginPackageManager.H(str, ih.getContainerVersion());
                 if (H) {
                     return;
                 }
             }
             PluginNetConfigInfos.PluginConfig pluginConfig = (PluginNetConfigInfos.PluginConfig) data;
-            if (!TextUtils.isEmpty(pluginConfig.package_name) && (id = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ic().id()) != null && (configs = id.getConfigs()) != null) {
+            if (!TextUtils.isEmpty(pluginConfig.package_name) && (m5if = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ie().m5if()) != null && (configs = m5if.getConfigs()) != null) {
                 int i = 0;
                 while (true) {
                     if (i >= configs.size()) {
@@ -55,10 +55,10 @@ public class o extends CustomMessageListener {
                 if (z) {
                     configs.add(pluginConfig);
                 }
-                this.this$0.a(com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ic().c(com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().m9if()), pluginConfig);
+                this.this$0.a(com.baidu.adp.plugin.packageManager.pluginServerConfig.d.ie().c(com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().ih()), pluginConfig);
                 e = this.this$0.e(configs);
-                com.baidu.adp.plugin.packageManager.pluginSettings.c.ii().setForbiddenFeatures(e);
-                this.this$0.hQ();
+                com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().setForbiddenFeatures(e);
+                this.this$0.hS();
             }
         }
     }

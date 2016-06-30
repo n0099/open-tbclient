@@ -7,19 +7,19 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 /* loaded from: classes.dex */
 class ag implements CustomMessageTask.CustomRunnable<MemoryModifyVisibilityMessage.a> {
-    private final /* synthetic */ ImMessageCenterPojo cmS;
-    final /* synthetic */ af cnN;
+    private final /* synthetic */ ImMessageCenterPojo cSh;
+    final /* synthetic */ af cTc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(af afVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.cnN = afVar;
-        this.cmS = imMessageCenterPojo;
+        this.cTc = afVar;
+        this.cSh = imMessageCenterPojo;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<MemoryModifyVisibilityMessage.a> customMessage) {
         if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tieba.im.db.i.aez().c(this.cmS);
+            com.baidu.tieba.im.db.i.amO().c(this.cSh);
         }
         return null;
     }

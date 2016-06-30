@@ -1,27 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.dialog.a;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class cc implements a.b {
-    final /* synthetic */ by biM;
+public class cc implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId bFL = BdUniqueId.gen();
+    private int bFM;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(by byVar) {
-        this.biM = byVar;
+    public int WQ() {
+        return this.bFM;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
-        List list;
-        List list2;
-        list = this.biM.biJ;
-        if (list != null) {
-            list2 = this.biM.biJ;
-            list2.clear();
-        }
-        this.biM.hide();
-        aVar.dismiss();
+    public void hs(int i) {
+        this.bFM = i;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return bFL;
     }
 }

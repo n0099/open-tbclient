@@ -14,31 +14,31 @@ import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements a.d {
-    final /* synthetic */ p arZ;
+    final /* synthetic */ p asP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.arZ = pVar;
+        this.asP = pVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.o oVar, WriteData writeData, AntiData antiData) {
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.p pVar, WriteData writeData, AntiData antiData) {
         a.d dVar;
         com.baidu.tieba.tbadkCore.writeModel.a aVar;
         com.baidu.tieba.tbadkCore.writeModel.a aVar2;
         com.baidu.tieba.tbadkCore.writeModel.a aVar3;
         a aVar4;
         a.d dVar2;
-        dVar = this.arZ.arY;
+        dVar = this.asP.asO;
         if (dVar != null) {
-            dVar2 = this.arZ.arY;
-            dVar2.callback(z, postWriteCallBackData, oVar, writeData, antiData);
+            dVar2 = this.asP.asO;
+            dVar2.callback(z, postWriteCallBackData, pVar, writeData, antiData);
         }
         if (z) {
-            this.arZ.arp = null;
-            this.arZ.arU = null;
-            this.arZ.bC(true);
-            this.arZ.Ck();
+            this.asP.asf = null;
+            this.asP.asK = null;
+            this.asP.bB(true);
+            this.asP.Cs();
         }
         int i = -1;
         String str = "";
@@ -47,29 +47,30 @@ public class q implements a.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            aVar = this.arZ.aru;
-            WriteData aVg = aVar.aVg();
-            aVar2 = this.arZ.aru;
+            aVar = this.asP.ask;
+            WriteData bdu = aVar.bdu();
+            aVar2 = this.asP.ask;
             aVar2.d((WriteData) null);
-            aVar3 = this.arZ.aru;
-            aVar3.jC(false);
-            this.arZ.arq = null;
-            if (aVg != null && aVg != null && aVg.getType() == 2) {
-                aVar4 = this.arZ.arW;
-                aVar4.BB();
+            aVar3 = this.asP.ask;
+            aVar3.kn(false);
+            this.asP.asg = null;
+            if (bdu != null && bdu != null && bdu.getType() == 2) {
+                aVar4 = this.asP.asM;
+                aVar4.BK();
             }
-        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.pv(i)) {
-            this.arZ.l(i, str);
-        } else if (oVar != null && writeData != null && !StringUtils.isNull(oVar.getVcode_pic_url())) {
-            writeData.setVcodeMD5(oVar.getVcode_md5());
-            writeData.setVcodeUrl(oVar.getVcode_pic_url());
-            if (oVar.wG().equals("4")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.arZ.Cg().getPageActivity(), 12006, writeData, false)));
+        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.qL(i)) {
+            this.asP.l(i, str);
+        } else if (pVar != null && writeData != null && !StringUtils.isNull(pVar.getVcode_pic_url())) {
+            writeData.setVcodeMD5(pVar.getVcode_md5());
+            writeData.setVcodeUrl(pVar.getVcode_pic_url());
+            writeData.setVcodeExtra(pVar.wK());
+            if (com.baidu.tbadk.k.a.gA(pVar.wJ())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.asP.Co().getPageActivity(), 12006, writeData, false, pVar.wJ())));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.arZ.Cg().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.asP.Co().getPageActivity(), writeData, 12006)));
             }
         } else {
-            this.arZ.Cg().showToast(str);
+            this.asP.Co().showToast(str);
         }
     }
 }

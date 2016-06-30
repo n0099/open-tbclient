@@ -7,14 +7,14 @@ import com.baidu.tieba.horizonalList.widget.ExpandableHListView;
 class j implements Parcelable.Creator<ExpandableHListView.SavedState> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: i */
+    /* renamed from: m */
     public ExpandableHListView.SavedState createFromParcel(Parcel parcel) {
         return new ExpandableHListView.SavedState(parcel, (ExpandableHListView.SavedState) null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: iw */
+    /* renamed from: jV */
     public ExpandableHListView.SavedState[] newArray(int i) {
         return new ExpandableHListView.SavedState[i];
     }

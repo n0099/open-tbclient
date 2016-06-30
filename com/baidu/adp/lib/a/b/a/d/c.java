@@ -3,10 +3,10 @@ package com.baidu.adp.lib.a.b.a.d;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 public class c implements h {
-    private Bundle iq;
+    private Bundle im;
 
     public c(Bundle bundle) {
-        this.iq = bundle;
+        this.im = bundle;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h

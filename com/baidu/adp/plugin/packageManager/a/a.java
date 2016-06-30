@@ -6,14 +6,14 @@ import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 public class a extends i {
     int errorCode;
     String errorMsg;
-    String pkgName;
     int priority;
-    PluginPackageManager.PluginStatus vH;
-    String vI;
-    boolean vJ;
+    String tc;
+    PluginPackageManager.PluginStatus vJ;
+    String vK;
+    boolean vL;
 
-    public String getPkgName() {
-        return this.pkgName;
+    public String ip() {
+        return this.tc;
     }
 
     public int getPriority() {
@@ -28,7 +28,7 @@ public class a extends i {
         return this.errorMsg;
     }
 
-    public String in() {
-        return this.vI;
+    public String iq() {
+        return this.vK;
     }
 }

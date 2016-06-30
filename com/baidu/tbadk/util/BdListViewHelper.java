@@ -7,18 +7,18 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class BdListViewHelper {
-    public static final int azU = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m11getInst().getContext(), t.e.ds320);
-    private static /* synthetic */ int[] azV;
+    public static final int aAL = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst().getContext(), u.e.ds320);
+    private static /* synthetic */ int[] aAM;
 
     /* loaded from: classes.dex */
     public enum HeadType {
         DEFAULT,
         HASTAB;
 
-        /* JADX DEBUG: Replace access to removed values field (azW) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aAN) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HeadType[] valuesCustom() {
             HeadType[] valuesCustom = values();
@@ -29,8 +29,8 @@ public class BdListViewHelper {
         }
     }
 
-    static /* synthetic */ int[] Fp() {
-        int[] iArr = azV;
+    static /* synthetic */ int[] Fx() {
+        int[] iArr = aAM;
         if (iArr == null) {
             iArr = new int[HeadType.valuesCustom().length];
             try {
@@ -41,20 +41,20 @@ public class BdListViewHelper {
                 iArr[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
-            azV = iArr;
+            aAM = iArr;
         }
         return iArr;
     }
 
     public static int a(HeadType headType) {
-        Context context = TbadkCoreApplication.m11getInst().getContext();
-        switch (Fp()[headType.ordinal()]) {
+        Context context = TbadkCoreApplication.m9getInst().getContext();
+        switch (Fx()[headType.ordinal()]) {
             case 1:
-                return com.baidu.adp.lib.util.k.c(context, t.e.ds98) + UtilHelper.getLightStatusBarHeight();
+                return com.baidu.adp.lib.util.k.c(context, u.e.ds98) + UtilHelper.getLightStatusBarHeight();
             case 2:
-                return com.baidu.adp.lib.util.k.c(context, t.e.ds176) + UtilHelper.getLightStatusBarHeight();
+                return com.baidu.adp.lib.util.k.c(context, u.e.ds176) + UtilHelper.getLightStatusBarHeight();
             default:
-                return com.baidu.adp.lib.util.k.c(context, t.e.ds98) + UtilHelper.getLightStatusBarHeight();
+                return com.baidu.adp.lib.util.k.c(context, u.e.ds98) + UtilHelper.getLightStatusBarHeight();
         }
     }
 
@@ -67,27 +67,27 @@ public class BdListViewHelper {
 
     public static void a(View view, HeadType headType, boolean z) {
         if (view != null && headType != null) {
-            Context context = TbadkCoreApplication.m11getInst().getContext();
+            Context context = TbadkCoreApplication.m9getInst().getContext();
             AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
             if (z) {
                 layoutParams.height = a(headType);
             } else if (HeadType.DEFAULT == headType) {
-                layoutParams.height = com.baidu.adp.lib.util.k.c(context, t.e.ds170) + UtilHelper.getLightStatusBarHeight();
+                layoutParams.height = com.baidu.adp.lib.util.k.c(context, u.e.ds170) + UtilHelper.getLightStatusBarHeight();
             } else {
-                layoutParams.height = com.baidu.adp.lib.util.k.c(context, t.e.ds240) + UtilHelper.getLightStatusBarHeight();
+                layoutParams.height = com.baidu.adp.lib.util.k.c(context, u.e.ds240) + UtilHelper.getLightStatusBarHeight();
             }
             view.setLayoutParams(layoutParams);
         }
     }
 
     public static int a(HeadType headType, boolean z) {
-        Context context = TbadkCoreApplication.m11getInst().getContext();
+        Context context = TbadkCoreApplication.m9getInst().getContext();
         if (z) {
             return a(headType);
         }
         if (HeadType.DEFAULT == headType) {
-            return com.baidu.adp.lib.util.k.c(context, t.e.ds170) + UtilHelper.getLightStatusBarHeight();
+            return com.baidu.adp.lib.util.k.c(context, u.e.ds170) + UtilHelper.getLightStatusBarHeight();
         }
-        return com.baidu.adp.lib.util.k.c(context, t.e.ds240) + UtilHelper.getLightStatusBarHeight();
+        return com.baidu.adp.lib.util.k.c(context, u.e.ds240) + UtilHelper.getLightStatusBarHeight();
     }
 }

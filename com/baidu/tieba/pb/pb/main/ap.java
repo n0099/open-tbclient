@@ -1,33 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.pb.pb.main.cn;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ap implements cn.a {
-    final /* synthetic */ PbActivity djE;
+class ap extends CustomMessageListener {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(PbActivity pbActivity) {
-        this.djE = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ap(PbActivity pbActivity, int i) {
+        super(i);
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cn.a
-    public void h(int i, String str, String str2) {
-        el elVar;
-        if (StringUtils.isNull(str)) {
-            if (i == 0) {
-                this.djE.showToast(t.j.upgrage_toast_dialog);
-            } else {
-                this.djE.showToast(t.j.neterror);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        dg dgVar;
+        com.baidu.tbadk.editortools.d.e eVar;
+        es esVar;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        es esVar2;
+        es esVar3;
+        com.baidu.tbadk.editortools.d.e eVar3;
+        dgVar = this.dPF.dOf;
+        if (dgVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            eVar = this.dPF.dOX;
+            if (eVar != null) {
+                esVar3 = this.dPF.dOO;
+                eVar3 = this.dPF.dOX;
+                esVar3.gb(eVar3.BW());
             }
-        } else if (i != 0 && !TextUtils.isEmpty(str2)) {
-            this.djE.djy = str2;
-            elVar = this.djE.diR;
-            elVar.mc(str);
-        } else {
-            this.djE.showToast(str);
+            esVar = this.dPF.dOO;
+            esVar.aGT();
+            eVar2 = this.dPF.dOX;
+            eVar2.BZ();
+            esVar2 = this.dPF.dOO;
+            esVar2.avf();
         }
     }
 }

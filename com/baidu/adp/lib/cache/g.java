@@ -10,7 +10,7 @@ public class g {
         return z ? new b(i) : new a(i);
     }
 
-    public static f cE() {
+    public static f cF() {
         return new c();
     }
 
@@ -25,14 +25,14 @@ public class g {
         }
 
         @Override // com.baidu.adp.lib.cache.f
-        public boolean cz() {
+        public boolean cA() {
             return false;
         }
     }
 
     /* loaded from: classes.dex */
     static class a implements f.a {
-        private LinkedList<h<?>> jj;
+        private LinkedList<h<?>> jh;
         private final int maxSize;
 
         public a(int i) {
@@ -45,8 +45,8 @@ public class g {
         }
 
         @Override // com.baidu.adp.lib.cache.f.a
-        public void cA() {
-            this.jj = new LinkedList<>();
+        public void cB() {
+            this.jh = new LinkedList<>();
         }
 
         @Override // com.baidu.adp.lib.cache.f.a
@@ -55,19 +55,19 @@ public class g {
             long j;
             int i;
             String str2 = null;
-            if (hVar.jp < System.currentTimeMillis()) {
-                return hVar.jl;
+            if (hVar.jn < System.currentTimeMillis()) {
+                return hVar.jj;
             }
-            this.jj.add(hVar);
-            if (this.jj.size() > getMaxSize()) {
+            this.jh.add(hVar);
+            if (this.jh.size() > getMaxSize()) {
                 long j2 = 0;
                 int i2 = 0;
                 int i3 = -1;
-                while (i2 < this.jj.size()) {
-                    h<?> hVar2 = this.jj.get(i2);
-                    if (i3 == -1 || hVar2.jo < j2) {
-                        String str3 = hVar2.jl;
-                        long j3 = hVar2.jo;
+                while (i2 < this.jh.size()) {
+                    h<?> hVar2 = this.jh.get(i2);
+                    if (i3 == -1 || hVar2.jm < j2) {
+                        String str3 = hVar2.jj;
+                        long j3 = hVar2.jm;
                         str = str3;
                         j = j3;
                         i = i2;
@@ -81,27 +81,27 @@ public class g {
                     j2 = j;
                     str2 = str;
                 }
-                this.jj.remove(i3);
+                this.jh.remove(i3);
                 return str2;
             }
             return null;
         }
 
         @Override // com.baidu.adp.lib.cache.f.a
-        public void cB() {
-            this.jj.clear();
-            this.jj = null;
+        public void cC() {
+            this.jh.clear();
+            this.jh = null;
         }
 
         @Override // com.baidu.adp.lib.cache.f
-        public boolean cz() {
+        public boolean cA() {
             return true;
         }
     }
 
     /* loaded from: classes.dex */
     static class b implements f.b {
-        private HashMap<String, Long> jk = new HashMap<>();
+        private HashMap<String, Long> ji = new HashMap<>();
         private final int maxSize;
 
         public b(int i) {
@@ -114,17 +114,17 @@ public class g {
         }
 
         @Override // com.baidu.adp.lib.cache.f
-        public boolean cz() {
+        public boolean cA() {
             return true;
         }
 
         public String N(String str) {
             String str2;
-            if (!this.jk.containsKey(str) && this.jk.size() >= this.maxSize) {
+            if (!this.ji.containsKey(str) && this.ji.size() >= this.maxSize) {
                 synchronized (this) {
                     long j = -1;
                     str2 = null;
-                    for (Map.Entry<String, Long> entry : this.jk.entrySet()) {
+                    for (Map.Entry<String, Long> entry : this.ji.entrySet()) {
                         long longValue = entry.getValue().longValue();
                         if (j == -1 || j > longValue) {
                             j = longValue;
@@ -132,7 +132,7 @@ public class g {
                         }
                     }
                     if (str2 != null) {
-                        this.jk.remove(str2);
+                        this.ji.remove(str2);
                     }
                 }
                 return str2;
@@ -142,20 +142,11 @@ public class g {
 
         @Override // com.baidu.adp.lib.cache.f.b
         public String e(h<?> hVar) {
-            String N = N(hVar.jl);
+            String N = N(hVar.jj);
             synchronized (this) {
-                this.jk.put(hVar.jl, Long.valueOf(hVar.jo));
+                this.ji.put(hVar.jj, Long.valueOf(hVar.jm));
             }
             return N;
-        }
-
-        @Override // com.baidu.adp.lib.cache.f.b
-        public void cC() {
-        }
-
-        @Override // com.baidu.adp.lib.cache.f.b
-        public String f(h<?> hVar) {
-            return hVar.jp < System.currentTimeMillis() ? hVar.jl : e(hVar);
         }
 
         @Override // com.baidu.adp.lib.cache.f.b
@@ -163,9 +154,18 @@ public class g {
         }
 
         @Override // com.baidu.adp.lib.cache.f.b
+        public String f(h<?> hVar) {
+            return hVar.jn < System.currentTimeMillis() ? hVar.jj : e(hVar);
+        }
+
+        @Override // com.baidu.adp.lib.cache.f.b
+        public void cE() {
+        }
+
+        @Override // com.baidu.adp.lib.cache.f.b
         public void release() {
             synchronized (this) {
-                this.jk.clear();
+                this.ji.clear();
             }
         }
     }

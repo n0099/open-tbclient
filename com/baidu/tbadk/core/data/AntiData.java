@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CommonVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Anti;
@@ -162,8 +162,8 @@ public class AntiData implements Serializable {
             this.ifposta = anti.ifposta.intValue();
             this.forbid_flag = anti.forbid_flag.intValue();
             this.tbs = anti.tbs;
-            if (TbadkCoreApplication.m11getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                TbadkCoreApplication.m11getInst().setTbs(this.tbs);
+            if (TbadkCoreApplication.m9getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                TbadkCoreApplication.m9getInst().setTbs(this.tbs);
             }
             this.need_vcode = anti.need_vcode.intValue();
             this.vcode_md5 = anti.vcode_md5;
@@ -197,12 +197,12 @@ public class AntiData implements Serializable {
                 this.ifposta = jSONObject.optInt("ifposta", 0);
                 this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
                 this.tbs = jSONObject.optString("tbs");
-                if (TbadkCoreApplication.m11getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                    TbadkCoreApplication.m11getInst().setTbs(this.tbs);
+                if (TbadkCoreApplication.m9getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                    TbadkCoreApplication.m9getInst().setTbs(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
-                this.vcode_md5 = jSONObject.optString(CommonVcodeActivityConfig.VCODE_MD5);
-                this.vcode_pic_url = jSONObject.optString(CommonVcodeActivityConfig.VCODE_PIC_URL);
+                this.vcode_md5 = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_MD5);
+                this.vcode_pic_url = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_PIC_URL);
                 this.forbid_info = jSONObject.optString("forbid_info");
                 this.ifvoice = jSONObject.optInt("ifvoice", 1);
                 this.voice_message = jSONObject.optString("voice_message");

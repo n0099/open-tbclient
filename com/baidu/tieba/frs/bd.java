@@ -1,16 +1,19 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class bd implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().startActivity(FrsActivity.class);
-        }
-        return null;
+class bd extends com.baidu.adp.lib.h.d {
+    final /* synthetic */ bb bDS;
+    private final /* synthetic */ com.baidu.adp.lib.guide.d bDU;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bd(bb bbVar, com.baidu.adp.lib.guide.d dVar) {
+        this.bDS = bbVar;
+        this.bDU = dVar;
+    }
+
+    @Override // com.baidu.adp.lib.h.d
+    public void b(Animation animation) {
+        this.bDU.dismiss();
     }
 }

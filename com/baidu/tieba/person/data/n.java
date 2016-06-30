@@ -1,39 +1,19 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class n implements v {
-    public static final BdUniqueId dzF = BdUniqueId.gen();
-    private boolean bJq;
-    private String mContent;
-    private String mLink;
-    private UserData mUserData;
-    private String mVipIcon;
-
-    public UserData getUserData() {
-        return this.mUserData;
-    }
-
-    public boolean getIsSelf() {
-        return this.bJq;
-    }
-
-    public String getVipIcon() {
-        return this.mVipIcon;
-    }
-
-    public String getVipLink() {
-        return this.mLink;
-    }
-
-    public String getVipContent() {
-        return this.mContent;
-    }
+public class n implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId eij = BdUniqueId.gen();
+    public boolean chd;
+    public String mContent;
+    public String mLink;
+    public String mTitle;
+    public UserData mUserData;
+    public String mVipIcon;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dzF;
+        return eij;
     }
 }

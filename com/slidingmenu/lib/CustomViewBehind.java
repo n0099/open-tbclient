@@ -1,14 +1,11 @@
 package com.slidingmenu.lib;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,18 +32,6 @@ public class CustomViewBehind extends ViewGroup {
     private SlidingMenu.CanvasTransformer mTransformer;
     private CustomViewAbove mViewAbove;
     private int mWidthOffset;
-
-    public CustomViewBehind(Context context) {
-        this(context, null);
-    }
-
-    public CustomViewBehind(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mTouchMode = 0;
-        this.mFadePaint = new Paint();
-        this.mSelectorEnabled = true;
-        this.mMarginThreshold = (int) TypedValue.applyDimension(1, 48.0f, getResources().getDisplayMetrics());
-    }
 
     public void setCustomViewAbove(CustomViewAbove customViewAbove) {
         this.mViewAbove = customViewAbove;

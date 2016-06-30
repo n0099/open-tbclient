@@ -22,7 +22,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             return;
         }
         initLoadingView(stringExtra);
-        PluginPackageManager.hF().a(stringExtra, new a(this));
+        PluginPackageManager.hH().a(stringExtra, new a(this));
     }
 
     private void initLoadingView(String str) {

@@ -2,39 +2,39 @@ package com.baidu.tieba.onlineDebugger.e;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.onlineDebugger.a.d;
-import com.baidu.tieba.onlineDebugger.c;
+import com.baidu.tieba.onlineDebugger.a.c;
+import com.baidu.tieba.onlineDebugger.d;
 import com.baidu.tieba.onlineDebugger.framework.LoopQueue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class a {
-    private Class<?> dbu;
-    private Stack<com.baidu.tieba.onlineDebugger.a.b> dbv;
-    private String dbw;
+    private Class<?> dIb;
+    private Stack<com.baidu.tieba.onlineDebugger.a.b> dIc;
+    private String dId;
 
-    public void lz(String str) {
-        this.dbw = str;
-        String[] lA = lA(str);
-        if (lA == null || lA.length != 2) {
+    public void na(String str) {
+        this.dId = str;
+        String[] nb = nb(str);
+        if (nb == null || nb.length != 2) {
             throw new RuntimeException("anaylze class name return error");
         }
-        this.dbu = com.baidu.tieba.onlineDebugger.c.a.findClass(lA[0]);
-        if (this.dbu == null) {
-            this.dbu = c.lo(lA[0]);
+        this.dIb = com.baidu.tieba.onlineDebugger.c.a.findClass(nb[0]);
+        if (this.dIb == null) {
+            this.dIb = d.mN(nb[0]);
         }
-        if (this.dbu == null) {
+        if (this.dIb == null) {
             throw new RuntimeException("cannot find class for command " + str);
         }
-        this.dbv = new Stack<>();
-        List<String> lB = lB(lA[1]);
-        for (int size = lB.size() - 1; size >= 0; size--) {
-            this.dbv.push(lD(lB.get(size)));
+        this.dIc = new Stack<>();
+        List<String> nc = nc(nb[1]);
+        for (int size = nc.size() - 1; size >= 0; size--) {
+            this.dIc.push(ne(nc.get(size)));
         }
     }
 
-    private String[] lA(String str) {
+    private String[] nb(String str) {
         if (str.startsWith("$")) {
             String[] strArr = new String[2];
             strArr[0] = LoopQueue.class.getName();
@@ -61,7 +61,7 @@ public class a {
         throw new RuntimeException("cannot find class");
     }
 
-    private List<String> lB(String str) {
+    private List<String> nc(String str) {
         char[] charArray = str.toCharArray();
         ArrayList<String> arrayList = new ArrayList();
         int i = 0;
@@ -122,7 +122,7 @@ public class a {
         return cArr2;
     }
 
-    private String[] lC(String str) {
+    private String[] nd(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -174,7 +174,7 @@ public class a {
         return new String[]{str};
     }
 
-    private com.baidu.tieba.onlineDebugger.a.b lD(String str) {
+    private com.baidu.tieba.onlineDebugger.a.b ne(String str) {
         if (str != null) {
             int indexOf = str.indexOf(40);
             int lastIndexOf = str.lastIndexOf(41);
@@ -183,33 +183,33 @@ public class a {
             if (z) {
                 String[] split = str.split("=");
                 if (split != null && split.length == 2) {
-                    d dVar = new d();
-                    dVar.lp(split[0]);
-                    dVar.lr(split[1]);
+                    com.baidu.tieba.onlineDebugger.a.d dVar = new com.baidu.tieba.onlineDebugger.a.d();
+                    dVar.mO(split[0]);
+                    dVar.mQ(split[1]);
                     return dVar;
                 }
                 throw new RuntimeException("parser action error " + str);
             } else if (z2) {
                 String substring = str.substring(0, indexOf);
-                String[] lC = lC(str.substring(indexOf + 1, lastIndexOf));
-                com.baidu.tieba.onlineDebugger.a.c cVar = new com.baidu.tieba.onlineDebugger.a.c();
-                cVar.lq(substring);
-                cVar.B(lC);
+                String[] nd = nd(str.substring(indexOf + 1, lastIndexOf));
+                c cVar = new c();
+                cVar.mP(substring);
+                cVar.B(nd);
                 return cVar;
             } else {
                 com.baidu.tieba.onlineDebugger.a.a aVar = new com.baidu.tieba.onlineDebugger.a.a();
-                aVar.lp(str);
+                aVar.mO(str);
                 return aVar;
             }
         }
         return null;
     }
 
-    public Class<?> auG() {
-        return this.dbu;
+    public Class<?> aCL() {
+        return this.dIb;
     }
 
-    public Stack<com.baidu.tieba.onlineDebugger.a.b> auH() {
-        return this.dbv;
+    public Stack<com.baidu.tieba.onlineDebugger.a.b> aCM() {
+        return this.dIc;
     }
 }

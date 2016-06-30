@@ -1,82 +1,32 @@
 package com.baidu.tieba.tblauncher;
 
-import android.support.v4.view.ViewPager;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ab exg;
+public class ao implements a.b {
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a anl;
+    private final /* synthetic */ int cGS;
+    final /* synthetic */ ab fbT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(ab abVar) {
-        this.exg = abVar;
+    public ao(ab abVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
+        this.fbT = abVar;
+        this.anl = aVar;
+        this.cGS = i;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        FragmentTabHost fragmentTabHost;
-        FragmentTabHost fragmentTabHost2;
-        FragmentTabHost fragmentTabHost3;
-        FragmentTabHost fragmentTabHost4;
-        FragmentTabHost fragmentTabHost5;
-        FragmentTabHost fragmentTabHost6;
-        FragmentTabHost fragmentTabHost7;
-        FragmentTabHost fragmentTabHost8;
-        ImageView imageView;
-        ImageView imageView2;
-        FragmentTabHost fragmentTabHost9;
-        fragmentTabHost = this.exg.aTo;
-        if (fragmentTabHost.getCurrentTabType() == 2) {
-            TiebaStatic.log("kantie_entry");
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2;
+        this.anl.dismiss();
+        if (this.cGS == 0) {
+            mainTabActivity2 = this.fbT.fbI;
+            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
+        } else if (this.cGS == 1) {
+            mainTabActivity = this.fbT.fbI;
+            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
         }
-        this.exg.aVS();
-        fragmentTabHost2 = this.exg.aTo;
-        int currentTabType = fragmentTabHost2.getCurrentTabType();
-        fragmentTabHost3 = this.exg.aTo;
-        if (currentTabType != fragmentTabHost3.ck(i).mType) {
-            fragmentTabHost9 = this.exg.aTo;
-            fragmentTabHost9.setCurrentTab(i);
-        }
-        fragmentTabHost4 = this.exg.aTo;
-        if (fragmentTabHost4.getCurrentTabType() != 1) {
-            imageView = this.exg.ewT;
-            imageView.setVisibility(8);
-            imageView2 = this.exg.dZe;
-            imageView2.setVisibility(0);
-            this.exg.jG(false);
-        } else {
-            this.exg.jG(true);
-        }
-        ab abVar = this.exg;
-        fragmentTabHost5 = this.exg.aTo;
-        abVar.dag = fragmentTabHost5.getCurrentTabType();
-        this.exg.aVO();
-        if (com.baidu.tbadk.core.sharedPref.b.sR().getBoolean("enter_forum_edit_mode", false)) {
-            fragmentTabHost6 = this.exg.aTo;
-            if (fragmentTabHost6.getCurrentTabType() != 6) {
-                fragmentTabHost7 = this.exg.aTo;
-                if (fragmentTabHost7.getCurrentTabType() != 3) {
-                    fragmentTabHost8 = this.exg.aTo;
-                    if (fragmentTabHost8.getCurrentTabType() == 2) {
-                        TiebaStatic.log("c10098");
-                        return;
-                    }
-                    return;
-                }
-                TiebaStatic.log("c10149");
-                return;
-            }
-            TiebaStatic.log("c10150");
-        }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
     }
 }

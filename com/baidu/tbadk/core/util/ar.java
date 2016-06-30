@@ -1,43 +1,54 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class ar {
-    private static final ar Xy = new ar();
-    private final HashMap<Class<?>, Class<?>> Xz = new HashMap<>();
+public class ar extends Thread {
+    private String XO;
+    private boolean XP;
+    private String mObjTp;
+    private String mParam;
+    private String mType;
 
-    public static final ar tX() {
-        return Xy;
+    public ar(String str, boolean z) {
+        this.mType = null;
+        this.mParam = null;
+        this.XO = null;
+        this.mObjTp = null;
+        this.XP = false;
+        this.mType = str;
+        this.XP = z;
     }
 
-    private ar() {
+    public ar(String str, String str2) {
+        this.mType = null;
+        this.mParam = null;
+        this.XO = null;
+        this.mObjTp = null;
+        this.XP = false;
+        this.mType = str;
+        this.mParam = str2;
     }
 
-    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
-        this.Xz.put(cls, cls2);
-    }
-
-    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
-        if (!this.Xz.containsKey(cls)) {
-            this.Xz.put(cls, cls2);
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String str;
+        super.run();
+        if (this.XP) {
+            str = TbConfig.IN_PV_ADDRESS;
         } else {
-            BdLog.e("register Intent failed, " + cls.getName() + " exist");
+            str = TbConfig.LOAD_REG_PV_ADDRESS;
         }
-    }
-
-    public boolean appResponseToIntentClass(Class<?> cls) {
-        return getIntentClass(cls) != null;
-    }
-
-    public int tY() {
-        return this.Xz.size();
-    }
-
-    public Class<?> getIntentClass(Class<?> cls) {
-        if (this.Xz != null) {
-            return this.Xz.get(cls);
+        ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+        abVar.n("st_type", this.mType);
+        if (this.mParam != null) {
+            abVar.n("st_param", this.mParam);
         }
-        return null;
+        if (this.XO != null) {
+            abVar.n("obj", this.XO);
+        }
+        if (this.mObjTp != null) {
+            abVar.n("obj_tp", this.mObjTp);
+        }
+        abVar.ta();
     }
 }

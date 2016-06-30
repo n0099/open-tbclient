@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.tieba.enterForum.home.e;
 /* loaded from: classes.dex */
 public interface d {
-    void ME();
+    void MJ();
 
-    void cr(boolean z);
-
-    void fO(int i);
+    void cM(boolean z);
 
     void g(e eVar);
+
+    void gO(int i);
 
     View getView();
 

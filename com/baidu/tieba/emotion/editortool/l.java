@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import com.baidu.tieba.emotion.editortool.EmotionTabContentView;
 /* loaded from: classes.dex */
 class l implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EmotionTabContentView.b aVH;
+    final /* synthetic */ EmotionTabContentView.b bro;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(EmotionTabContentView.b bVar) {
-        this.aVH = bVar;
+        this.bro = bVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,23 +20,23 @@ class l implements AdapterView.OnItemClickListener {
         com.baidu.tbadk.editortools.l lVar2;
         adapterView.setSelection(-1);
         emotionTabContentView = EmotionTabContentView.this;
-        lVar = emotionTabContentView.BV;
+        lVar = emotionTabContentView.BW;
         if (lVar != null) {
-            com.baidu.tbadk.coreExtra.data.h hVar = new com.baidu.tbadk.coreExtra.data.h();
+            com.baidu.tbadk.coreExtra.data.i iVar = new com.baidu.tbadk.coreExtra.data.i();
             EmotionTabContentView.a aVar = (EmotionTabContentView.a) adapterView.getAdapter();
-            if (aVar != null && aVar.LM() != null) {
-                t LM = aVar.LM();
-                int LL = aVar.LL();
-                com.baidu.tbadk.editortools.emotiontool.c LP = LM.LP();
-                hVar.setName(LM.LP().ek(LL + i));
-                hVar.a(LP.Bw());
-                hVar.dY(LP.getGroupName());
-                hVar.dZ(LP.getGroupId());
-                hVar.setWidth(LP.getWidth());
-                hVar.setHeight(LP.getHeight());
+            if (aVar != null && aVar.Ro() != null) {
+                t Ro = aVar.Ro();
+                int Rn = aVar.Rn();
+                com.baidu.tbadk.editortools.emotiontool.c Rr = Ro.Rr();
+                iVar.setName(Ro.Rr().eo(Rn + i));
+                iVar.a(Rr.BF());
+                iVar.ec(Rr.getGroupName());
+                iVar.ed(Rr.getGroupId());
+                iVar.setWidth(Rr.getWidth());
+                iVar.setHeight(Rr.getHeight());
                 emotionTabContentView2 = EmotionTabContentView.this;
-                lVar2 = emotionTabContentView2.BV;
-                lVar2.b(new com.baidu.tbadk.editortools.a(24, -1, hVar));
+                lVar2 = emotionTabContentView2.BW;
+                lVar2.b(new com.baidu.tbadk.editortools.a(24, -1, iVar));
             }
         }
     }

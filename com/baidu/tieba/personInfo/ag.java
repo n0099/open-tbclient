@@ -1,68 +1,46 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.person.listview.BdPersonListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.UserMuteCheck.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements BdPersonListView.a {
+public class ag extends CustomMessageListener {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(f fVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ag(f fVar, int i) {
+        super(i);
         this.this$0 = fVar;
     }
 
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void jm() {
-        bj bjVar;
-        bg bgVar;
-        bj bjVar2;
-        boolean z;
-        com.baidu.tieba.person.god.h hVar;
-        com.baidu.tieba.person.god.h hVar2;
-        bj bjVar3;
-        if (!com.baidu.adp.lib.util.i.fq()) {
-            bjVar = this.this$0.dFA;
-            bjVar.Pn();
-            return;
-        }
-        bgVar = this.this$0.dyP;
-        bgVar.aDI();
-        bjVar2 = this.this$0.dFA;
-        if (bjVar2.aEk() != null) {
-            bjVar3 = this.this$0.dFA;
-            bjVar3.aEk().jk();
-        }
-        z = this.this$0.bIW;
-        if (!z && TbadkCoreApplication.isLogin()) {
-            this.this$0.aDh();
-        }
-        hVar = this.this$0.dzV;
-        if (hVar != null) {
-            hVar2 = this.this$0.dzV;
-            hVar2.reset();
-        }
-    }
-
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void jl() {
-        bj bjVar;
-        bj bjVar2;
-        bjVar = this.this$0.dFA;
-        if (bjVar.aEk() != null) {
-            bjVar2 = this.this$0.dFA;
-            bjVar2.aEk().Pn();
-        }
-    }
-
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void k(float f) {
-        bj bjVar;
-        bj bjVar2;
-        bjVar = this.this$0.dFA;
-        if (bjVar.aEk() != null) {
-            bjVar2 = this.this$0.dFA;
-            bjVar2.aEk().j(f);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        String str;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.this$0.eoX;
+            if (tag == bdUniqueId) {
+                com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
+                DataRes dataRes = aVar.fAd;
+                if (aVar.error == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
+                    if (dataRes.is_mute.equals("0")) {
+                        this.this$0.eoQ = 0;
+                        this.this$0.eoR = dataRes.mute_confirm;
+                        str = this.this$0.eoR;
+                        if (com.baidu.tbadk.core.util.ba.isEmpty(str)) {
+                            this.this$0.eoR = "确定禁言？";
+                        }
+                    } else if (dataRes.is_mute.equals("1")) {
+                        this.this$0.eoQ = 1;
+                    }
+                }
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.personInfo;
 
+import android.support.v4.view.MotionEventCompat;
+import android.view.MotionEvent;
 import android.view.View;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
+class ai implements View.OnTouchListener {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,28 +12,13 @@ public class ai implements View.OnClickListener {
         this.this$0 = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        List list;
-        List list2;
-        List list3;
-        if (view != null) {
-            list = this.this$0.dFK;
-            if (list != null) {
-                com.baidu.adp.widget.ListView.v vVar = null;
-                if (view.getTag() instanceof com.baidu.tieba.person.b.q) {
-                    vVar = ((com.baidu.tieba.person.b.q) view.getTag()).vM();
-                } else if (view.getTag() instanceof com.baidu.tieba.person.b.c) {
-                    vVar = ((com.baidu.tieba.person.b.c) view.getTag()).vM();
-                }
-                list2 = this.this$0.dFK;
-                int a = com.baidu.tbadk.core.util.y.a(list2, vVar);
-                if (a >= 0) {
-                    f fVar = this.this$0;
-                    list3 = this.this$0.dFK;
-                    fVar.a(vVar, list3, a);
-                }
-            }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
+            case 0:
+                return true;
+            default:
+                return false;
         }
     }
 }

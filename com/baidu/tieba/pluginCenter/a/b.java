@@ -5,27 +5,27 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class b implements BdSwitchView.a {
-    final /* synthetic */ a dUV;
+    final /* synthetic */ a eEq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dUV = aVar;
+        this.eEq = aVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        ViewEventCenter kL;
-        ViewEventCenter kL2;
-        ViewEventCenter kL3;
-        kL = this.dUV.kL();
-        if (kL != null && switchState != null) {
+        ViewEventCenter kO;
+        ViewEventCenter kO2;
+        ViewEventCenter kO3;
+        kO = this.eEq.kO();
+        if (kO != null && switchState != null) {
             if (switchState == BdSwitchView.SwitchState.OFF) {
-                kL3 = this.dUV.kL();
-                kL3.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(0, this.dUV.getData(), null, null));
+                kO3 = this.eEq.kO();
+                kO3.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(0, this.eEq.getData(), null, null));
                 return;
             }
-            kL2 = this.dUV.kL();
-            kL2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, this.dUV.getData(), null, null));
+            kO2 = this.eEq.kO();
+            kO2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, this.eEq.getData(), null, null));
         }
     }
 }

@@ -5,22 +5,22 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ BdListView zp;
+    final /* synthetic */ BdListView zo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(BdListView bdListView) {
-        this.zp = bdListView;
+        this.zo = bdListView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int childCount = this.zp.getChildCount();
+        int childCount = this.zo.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            refreshImage(this.zp.getChildAt(i));
+            refreshImage(this.zo.getChildAt(i));
         }
-        com.baidu.adp.base.k q = com.baidu.adp.base.l.q(this.zp.getContext());
+        com.baidu.adp.base.k q = com.baidu.adp.base.l.q(this.zo.getContext());
         if (q != null) {
-            q.onPreLoad(this.zp);
+            q.onPreLoad(this.zo);
         }
     }
 

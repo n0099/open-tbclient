@@ -5,7 +5,7 @@ import android.os.HandlerThread;
 public class i {
     private static HandlerThread a = null;
 
-    public static synchronized HandlerThread lN() {
+    public static synchronized HandlerThread lH() {
         HandlerThread handlerThread;
         synchronized (i.class) {
             if (a == null) {

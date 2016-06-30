@@ -5,38 +5,38 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a dT(String str) {
+    public static a dX(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.de(aVar.error_code);
-        } else if (!m.cP(String.valueOf(m.getCacheDir()) + "voice")) {
+            aVar.error_msg = a.dg(aVar.error_code);
+        } else if (!m.cO(String.valueOf(m.getCacheDir()) + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.de(aVar.error_code);
+            aVar.error_msg = a.dg(aVar.error_code);
         } else {
-            String d = t.d(m.cZ(str));
+            String d = t.d(m.cY(str));
             if (d == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.de(aVar.error_code);
+                aVar.error_msg = a.dg(aVar.error_code);
             } else {
                 String b = m.b(d, 1, true);
-                if (m.ab(str, b)) {
+                if (m.aa(str, b)) {
                     aVar.path = b;
                     aVar.md5 = d;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.de(aVar.error_code);
+                    aVar.error_msg = a.dg(aVar.error_code);
                 }
             }
         }
         return aVar;
     }
 
-    public static boolean ah(String str, String str2) {
-        return m.ab(str, m.b(str2, 1, true));
+    public static boolean ag(String str, String str2) {
+        return m.aa(str, m.b(str2, 1, true));
     }
 
-    public static synchronized void vU() {
+    public static synchronized void vX() {
         synchronized (b.class) {
             File file = new File(String.valueOf(m.getCacheDir()) + "voice");
             if (file.exists() && file.isDirectory()) {

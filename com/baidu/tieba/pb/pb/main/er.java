@@ -1,40 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
-public class er implements Animation.AnimationListener {
-    final /* synthetic */ el dpu;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public er(el elVar) {
-        this.dpu = elVar;
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        com.baidu.tbadk.editortools.l lVar;
-        View view2;
-        com.baidu.tbadk.editortools.l lVar2;
-        el elVar = this.dpu;
-        view = this.dpu.doq;
-        elVar.dov = view.getVisibility() == 0;
-        lVar = this.dpu.BV;
-        if (lVar != null) {
-            lVar2 = this.dpu.BV;
-            lVar2.hide();
+public class er {
+    public static Intent K(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
         }
-        view2 = this.dpu.doq;
-        view2.setVisibility(8);
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        return intent;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public static boolean f(com.baidu.tieba.tbadkCore.data.s sVar) {
+        if (sVar == null || sVar.bcw() == null) {
+            return false;
+        }
+        com.baidu.tieba.tbadkCore.data.i bcw = sVar.bcw();
+        if (bcw.eXl) {
+            int bbO = bcw.bbO();
+            return bbO == 2 || bbO == 1 || bbO == 3;
+        }
+        return false;
     }
 }

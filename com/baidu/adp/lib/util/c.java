@@ -55,7 +55,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static byte[] c(byte[] bArr, byte[] bArr2, int i, int i2) {
+    public static byte[] d(byte[] bArr, byte[] bArr2, int i, int i2) {
         c(bArr2, 0, i, bArr, 0, i2);
         return bArr;
     }
@@ -499,7 +499,7 @@ public class c {
                 this.position = i2 + 1;
                 bArr[i2] = (byte) i;
                 if (this.position >= this.ox) {
-                    this.out.write(c.c(this.oA, this.buffer, this.ox, this.oC));
+                    this.out.write(c.d(this.oA, this.buffer, this.ox, this.oC));
                     this.oy += 4;
                     if (this.oz && this.oy >= 76) {
                         this.out.write(10);
@@ -535,7 +535,7 @@ public class c {
         public void flushBase64() {
             if (this.position > 0) {
                 if (this.ow) {
-                    this.out.write(c.c(this.oA, this.buffer, this.position, this.oC));
+                    this.out.write(c.d(this.oA, this.buffer, this.position, this.oC));
                     this.position = 0;
                     return;
                 }

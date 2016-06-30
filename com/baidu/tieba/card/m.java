@@ -1,74 +1,65 @@
 package com.baidu.tieba.card;
 
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.message.HistoryMessage;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends CustomMessageListener {
-    final /* synthetic */ k aOW;
+    final /* synthetic */ k aSt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(k kVar, int i) {
         super(i);
-        this.aOW = kVar;
+        this.aSt = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.core.data.ax axVar;
-        com.baidu.tbadk.core.data.ax axVar2;
-        com.baidu.tbadk.core.data.ax axVar3;
-        com.baidu.tbadk.core.data.ax axVar4;
-        TbPageContext tbPageContext;
-        com.baidu.tbadk.core.data.ax axVar5;
-        com.baidu.tbadk.core.data.ax axVar6;
-        int fansNum;
-        com.baidu.tbadk.core.data.ax axVar7;
-        com.baidu.tbadk.core.data.ax axVar8;
-        com.baidu.tbadk.core.data.ax axVar9;
-        com.baidu.tbadk.core.data.ax axVar10;
-        if (this.aOW.aOC && (customResponsedMessage instanceof UpdateAttentionMessage)) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            axVar = this.aOW.aab;
-            if (axVar != null) {
-                axVar2 = this.aOW.aab;
-                if (axVar2.getAuthor() != null) {
-                    axVar3 = this.aOW.aab;
-                    if (!StringUtils.isNull(axVar3.getAuthor().getUserId()) && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                        String str = updateAttentionMessage.getData().toUid;
-                        axVar4 = this.aOW.aab;
-                        if (str.equals(axVar4.getAuthor().getUserId())) {
-                            if (!updateAttentionMessage.getData().sZ) {
-                                tbPageContext = this.aOW.DV;
-                                com.baidu.adp.lib.util.k.showToast(tbPageContext.getPageActivity(), updateAttentionMessage.getData().errorString);
-                                return;
-                            }
-                            if (updateAttentionMessage.getData().agz) {
-                                axVar9 = this.aOW.aab;
-                                axVar9.getAuthor().getGodUserData().setFollowed(1);
-                                axVar10 = this.aOW.aab;
-                                fansNum = axVar10.getAuthor().getFansNum() + 1;
-                            } else {
-                                axVar5 = this.aOW.aab;
-                                axVar5.getAuthor().getGodUserData().setFollowed(0);
-                                axVar6 = this.aOW.aab;
-                                fansNum = axVar6.getAuthor().getFansNum() - 1;
-                            }
-                            axVar7 = this.aOW.aab;
-                            axVar7.getAuthor().setFansNum(fansNum);
-                            axVar8 = this.aOW.aab;
-                            axVar8.getAuthor().getGodUserData().setIsFromNetWork(false);
-                            this.aOW.ft(fansNum);
-                            this.aOW.aI(false);
-                        }
-                    }
+        HistoryMessage historyMessage;
+        com.baidu.tieba.tbadkCore.util.o oVar;
+        TextView textView;
+        TextView textView2;
+        com.baidu.tieba.myCollection.baseHistory.a aVar;
+        com.baidu.tieba.myCollection.baseHistory.a aVar2;
+        BdUniqueId bdUniqueId;
+        com.baidu.tieba.myCollection.baseHistory.a aVar3;
+        if ((customResponsedMessage instanceof HistoryMessage) && (historyMessage = (HistoryMessage) customResponsedMessage) != null && historyMessage.Activity != null) {
+            com.baidu.tieba.myCollection.baseHistory.b bVar = new com.baidu.tieba.myCollection.baseHistory.b();
+            bVar.setThreadId(historyMessage.threadId);
+            bVar.setForumName(historyMessage.forumName);
+            bVar.mK(historyMessage.threadName);
+            bVar.mL(historyMessage.postID);
+            bVar.gU(historyMessage.isHostOnly);
+            bVar.gV(historyMessage.isSquence);
+            bVar.setThreadType(historyMessage.threadType);
+            if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(PbHistoryActivityConfig.class)) {
+                aVar = this.aSt.aSm;
+                if (aVar == null) {
+                    this.aSt.aSm = new com.baidu.tieba.myCollection.baseHistory.a(historyMessage.Activity.getPageContext());
                 }
+                aVar2 = this.aSt.aSm;
+                bdUniqueId = this.aSt.aSq;
+                aVar2.setUniqueId(bdUniqueId);
+                aVar3 = this.aSt.aSm;
+                aVar3.a((com.baidu.tieba.myCollection.baseHistory.a) bVar);
             }
+            oVar = this.aSt.aSn;
+            oVar.a(historyMessage.threadId, bVar);
+            at.hb(historyMessage.threadId);
+            k kVar = this.aSt;
+            textView = this.aSt.aSd;
+            kVar.m(textView, u.d.cp_cont_b);
+            k kVar2 = this.aSt;
+            textView2 = this.aSt.aSj;
+            kVar2.m(textView2, u.d.cp_cont_j);
         }
     }
 }

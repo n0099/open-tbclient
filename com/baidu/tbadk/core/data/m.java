@@ -1,41 +1,35 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes.dex */
 public class m {
-    private String NF;
-    private int NG;
-    private ArrayList<n> NH = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+    private ArrayList<String> NC = new ArrayList<>();
+    private int ND;
 
-    public ArrayList<n> oS() {
-        return this.NH;
+    public ArrayList<String> oI() {
+        return this.NC;
     }
 
-    public void f(ArrayList<n> arrayList) {
-        this.NH = arrayList;
+    public int oJ() {
+        return this.ND;
     }
 
-    public String oT() {
-        return this.obj_id;
-    }
-
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
-            this.NG = activityHead.activity_type.intValue();
-            this.NF = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            for (HeadImgs headImgs : activityHead.head_imgs) {
-                n nVar = new n();
-                nVar.a(headImgs);
-                this.NH.add(nVar);
+    public boolean a(ColorEgg colorEgg) {
+        this.ND = 0;
+        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
+            return false;
+        }
+        for (String str : colorEgg.holiday_words) {
+            if (!StringUtils.isNull(str)) {
+                this.NC.add(str);
             }
         }
+        if (this.NC.size() <= 0) {
+            return false;
+        }
+        this.ND = colorEgg.style_flag.intValue();
+        return true;
     }
 }

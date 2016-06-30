@@ -1,30 +1,30 @@
 package com.baidu.tieba.frs.entelechy;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ d bnY;
-    private final /* synthetic */ com.baidu.tbadk.core.data.b bnZ;
+    final /* synthetic */ d bIu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar, com.baidu.tbadk.core.data.b bVar) {
-        this.bnY = dVar;
-        this.bnZ = bVar;
+    public f(d dVar) {
+        this.bIu = dVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.tbadkCore.o oVar;
-        FrsActivity frsActivity;
-        aw awVar = new aw("c10826");
-        oVar = this.bnY.bpp;
-        awVar.ac("obj_id", oVar.avD().getId());
-        TiebaStatic.log(awVar);
-        frsActivity = this.bnY.bjB;
-        com.baidu.tbadk.browser.f.a(frsActivity.getPageContext().getPageActivity(), true, this.bnZ.oA());
+        TbPageContext tbPageContext;
+        String str;
+        MessageManager messageManager = MessageManager.getInstance();
+        tbPageContext = this.bIu.Dp;
+        Context context = tbPageContext.getContext();
+        str = this.bIu.mForumId;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_DETAIL, new ForumDetailActivityConfig(context, str, ForumDetailActivityConfig.FromType.FRS)));
     }
 }

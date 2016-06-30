@@ -8,39 +8,39 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.editortools.view.CommonTabWidgetView;
 import com.baidu.tbadk.editortools.view.b;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CommonTabHorizonScrollView extends HorizontalScrollView {
-    private CommonTabWidgetView.a asA;
-    private LinearLayout.LayoutParams asB;
-    private int asC;
-    private int asD;
-    private TextView asE;
-    private View asF;
-    private f asy;
-    private int asz;
+    private f ato;
+    private int atp;
+    private CommonTabWidgetView.a atq;
+    private LinearLayout.LayoutParams atr;
+    private int ats;
+    private int att;
+    private TextView atu;
+    private View atv;
     private List<b> mDatas;
 
     public CommonTabHorizonScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.asz = -1;
+        this.atp = -1;
         init();
     }
 
     public CommonTabHorizonScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.asz = -1;
+        this.atp = -1;
         init();
     }
 
     public CommonTabHorizonScrollView(Context context) {
         super(context);
-        this.asz = -1;
+        this.atp = -1;
         init();
     }
 
@@ -48,21 +48,21 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         removeAllViews();
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
-        this.asy = new f(getContext());
-        this.asy.setOrientation(0);
-        this.asy.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.asy.setBaselineAligned(false);
-        addView(this.asy);
-        this.asC = getResources().getDimensionPixelSize(t.e.face_tab_widget_tb_padding);
-        this.asD = getResources().getDimensionPixelSize(t.e.face_tab_widget_lr_padding);
-        this.asy.setPadding(0, getResources().getDimensionPixelSize(t.e.default_gap_6), 0, 0);
-        this.asB = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(t.e.face_tab_widget_width), -1);
-        this.asF = new View(getContext());
+        this.ato = new f(getContext());
+        this.ato.setOrientation(0);
+        this.ato.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.ato.setBaselineAligned(false);
+        addView(this.ato);
+        this.ats = getResources().getDimensionPixelSize(u.e.ds8);
+        this.att = getResources().getDimensionPixelSize(u.e.ds10);
+        this.ato.setPadding(0, getResources().getDimensionPixelSize(u.e.ds10), 0, 0);
+        this.atr = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(u.e.ds106), -1);
+        this.atv = new View(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
         layoutParams.weight = 1.0f;
-        this.asF.setLayoutParams(layoutParams);
-        at.k(this.asF, t.f.bg_expression_bar_n);
-        this.asy.addView(this.asF);
+        this.atv.setLayoutParams(layoutParams);
+        av.k(this.atv, u.f.bg_expression_bar_n);
+        this.ato.addView(this.atv);
     }
 
     public void setDatas(List<b> list) {
@@ -76,13 +76,13 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
         LinearLayout linearLayout = new LinearLayout(getContext());
         TbImageView tbImageView = new TbImageView(getContext());
         linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(-1, -1));
-        at.k(linearLayout, t.f.bg_expression_bar);
-        tbImageView.setPadding(this.asD, this.asC, this.asD, this.asC);
+        av.k(linearLayout, u.f.bg_expression_bar);
+        tbImageView.setPadding(this.att, this.ats, this.att, this.ats);
         linearLayout.setClickable(true);
         linearLayout.setFocusable(true);
-        at.c(tbImageView, c0041b.asx);
-        linearLayout.setOnClickListener(new a(this, this.asy.getChildCount() - 1, null));
-        this.asy.addView(linearLayout, this.asy.getChildCount() - 1, this.asB);
+        av.c(tbImageView, c0041b.atn);
+        linearLayout.setOnClickListener(new a(this, this.ato.getChildCount() - 1, null));
+        this.ato.addView(linearLayout, this.ato.getChildCount() - 1, this.atr);
         return tbImageView;
     }
 
@@ -92,47 +92,47 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     }
 
     public void setCurrentTab(int i) {
-        if (i != this.asz) {
-            if (this.asz != -1) {
-                LinearLayout linearLayout = (LinearLayout) this.asy.getChildAt(this.asz);
+        if (i != this.atp) {
+            if (this.atp != -1) {
+                LinearLayout linearLayout = (LinearLayout) this.ato.getChildAt(this.atp);
                 if (linearLayout != null) {
                     linearLayout.setSelected(false);
-                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.asz).Cn().asx);
+                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.atp).Cv().atn);
                 } else {
                     return;
                 }
             }
-            this.asz = i;
-            LinearLayout linearLayout2 = (LinearLayout) this.asy.getChildAt(this.asz);
+            this.atp = i;
+            LinearLayout linearLayout2 = (LinearLayout) this.ato.getChildAt(this.atp);
             if (linearLayout2 != null) {
                 linearLayout2.setSelected(true);
-                at.c((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.asz).Cn().asw);
+                av.c((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.atp).Cv().atm);
             }
         }
     }
 
     public void reset() {
-        this.asz = -1;
-        this.asy.removeAllViews();
+        this.atp = -1;
+        this.ato.removeAllViews();
     }
 
-    public void cV(int i) {
-        if (this.asE != null) {
-            at.k(this.asE, t.f.icon_news_head_prompt_one);
-            this.asE.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
+    public void cX(int i) {
+        if (this.atu != null) {
+            av.k(this.atu, u.f.icon_news_head_prompt_one);
+            this.atu.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
         }
-        int childCount = this.asy.getChildCount();
+        int childCount = this.ato.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = this.asy.getChildAt(i2);
+            View childAt = this.ato.getChildAt(i2);
             if (childAt != null) {
-                at.k(childAt, t.f.bg_expression_bar);
+                av.k(childAt, u.f.bg_expression_bar);
                 if (i2 != childCount - 1) {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
-                        if (i2 == this.asz) {
-                            at.c(tbImageView, this.mDatas.get(i2).Cn().asw);
+                        if (i2 == this.atp) {
+                            av.c(tbImageView, this.mDatas.get(i2).Cv().atm);
                         } else {
-                            at.c(tbImageView, this.mDatas.get(i2).Cn().asx);
+                            av.c(tbImageView, this.mDatas.get(i2).Cv().atn);
                         }
                     }
                 } else {
@@ -143,16 +143,16 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
     }
 
     public void setOnTabSelectedListener(CommonTabWidgetView.a aVar) {
-        this.asA = aVar;
+        this.atq = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
-        private final int Vw;
+        private final int VM;
 
         private a(int i) {
-            this.Vw = i;
+            this.VM = i;
         }
 
         /* synthetic */ a(CommonTabHorizonScrollView commonTabHorizonScrollView, int i, a aVar) {
@@ -161,7 +161,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CommonTabHorizonScrollView.this.asA.ev(this.Vw);
+            CommonTabHorizonScrollView.this.atq.eA(this.VM);
         }
     }
 }

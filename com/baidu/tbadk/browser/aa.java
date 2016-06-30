@@ -12,11 +12,11 @@ public class aa implements j.a {
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void nx() {
-        this.KN.nu();
+    public void ns() {
+        this.KN.np();
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void ny() {
+    public void nt() {
     }
 }

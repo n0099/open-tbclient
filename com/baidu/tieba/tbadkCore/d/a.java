@@ -7,137 +7,126 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class a {
-    public static C0075a a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0075a c0075a = new C0075a(str, str2, str3, str4, str5, null);
-        c0075a.c(str6, str7, str8, str9, str10);
-        return c0075a;
+    public static C0077a a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0077a c0077a = new C0077a(str, str2, str3, str4, str5, null);
+        c0077a.d(str6, str7, str8, str9, str10);
+        return c0077a;
+    }
+
+    public static C0077a a(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0077a c0077a = new C0077a("ad_tpoint", "PT", str, str2, "tpoint", null);
+        c0077a.d(null, null, str3, str4, str5);
+        if (!ba.isEmpty(str6)) {
+            c0077a.bM("obj_ref", str6);
+        }
+        return c0077a;
     }
 
     @Deprecated
-    public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        aw awVar = new aw("ad_tpoint");
-        if (str != null) {
-            awVar = awVar.ac("page", str);
-        }
-        if (str2 != null) {
-            awVar = awVar.ac("loc_param", str2);
-        }
-        if (str3 != null) {
-            awVar = awVar.ac("action_type", str3);
-        }
-        if (str4 != null) {
-            awVar = awVar.ac("fid", str4);
-        }
-        if (str5 != null) {
-            awVar = awVar.ac(ImageViewerConfig.FORUM_NAME, str5);
-        }
-        if (str6 != null) {
-            awVar = awVar.ac("tid", str6);
-        }
-        if (str8 != null) {
-            awVar = awVar.ac("obj_url", str8);
-        }
-        if (str9 != null) {
-            awVar = awVar.ac("obj_id", str9);
-        }
-        aw ac = awVar.ac("task", "ad_plat").ac("line", "PT").ac("locate", "c0122").s("obj_cpid", 0).s("obj_good_id", 0).ac("obj_throw_type", "BY_POST").ac(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").ac("user_timestamp", String.valueOf(System.currentTimeMillis())).ac("os", SocialConstants.ANDROID_CLIENT_TYPE).ac("os_version", Build.VERSION.RELEASE).ac("log_ver", "1.1");
-        if (str7 != null) {
-            ac = ac.ac("link", str7);
-        }
-        TiebaStatic.log(ac);
+    public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        C0077a c0077a = new C0077a("ad_tpoint", "PT", str, "c0122", "ad_plat", null);
+        c0077a.d(str2, str7, str3, str4, str5);
+        c0077a.bM("obj_url", str6);
+        c0077a.save();
     }
 
     @Deprecated
-    public static void bJ(String str, String str2) {
-        if (!ay.isEmpty(str)) {
-            aw awVar = new aw(str);
+    public static void bL(String str, String str2) {
+        if (!ba.isEmpty(str)) {
+            ay ayVar = new ay(str);
             if (str2 != null) {
-                awVar = awVar.ac("obj_type", str2);
+                ayVar = ayVar.ab("obj_type", str2);
             }
-            TiebaStatic.log(awVar);
+            TiebaStatic.log(ayVar);
         }
     }
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0075a {
-        private final boolean OD;
-        private final aw cFJ;
-        private final String etL;
-        private final String etM;
-        private final String etN;
+    public static class C0077a {
+        private final boolean OC;
+        private final ay dla;
+        private final String eYB;
+        private final String eYC;
+        private final String eYD;
         private final String key;
         private final String locate;
 
-        private C0075a(String str, String str2, String str3, String str4, String str5) {
+        private C0077a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.etL = str2;
-            this.etM = str3;
+            this.eYB = str2;
+            this.eYC = str3;
             this.locate = str4;
-            this.etN = str5;
-            this.OD = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.cFJ = aUt();
+            this.eYD = str5;
+            this.OC = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.dla = bcH();
         }
 
-        /* synthetic */ C0075a(String str, String str2, String str3, String str4, String str5, C0075a c0075a) {
+        /* synthetic */ C0077a(String str, String str2, String str3, String str4, String str5, C0077a c0077a) {
             this(str, str2, str3, str4, str5);
         }
 
-        private aw aUt() {
-            aw awVar = new aw(this.key);
-            if (!StringUtils.isNull(this.etL)) {
-                awVar = awVar.ac("line", this.etL);
+        private ay bcH() {
+            ay ayVar = new ay(this.key);
+            if (!StringUtils.isNull(this.eYB)) {
+                ayVar = ayVar.ab("line", this.eYB);
             }
-            if (!StringUtils.isNull(this.etM)) {
-                awVar = awVar.ac("page", this.etM);
+            if (!StringUtils.isNull(this.eYC)) {
+                ayVar = ayVar.ab("page", this.eYC);
             }
             if (!StringUtils.isNull(this.locate)) {
-                awVar = awVar.ac("locate", this.locate);
+                ayVar = ayVar.ab("locate", this.locate);
             }
-            if (!StringUtils.isNull(this.etN)) {
-                return awVar.ac("task", this.etN);
+            if (!StringUtils.isNull(this.eYD)) {
+                return ayVar.ab("task", this.eYD);
             }
-            return awVar;
+            return ayVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public aw c(String str, String str2, String str3, String str4, String str5) {
+        public ay d(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.cFJ.ac("action_type", str);
+                this.dla.ab("action_type", str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.cFJ.ac("obj_id", str2);
+                this.dla.ab("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.cFJ.ac("fid", str3);
+                this.dla.ab("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.cFJ.ac(ImageViewerConfig.FORUM_NAME, str4);
+                this.dla.ab(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.cFJ.ac("tid", str5);
+                this.dla.ab("tid", str5);
             }
-            this.cFJ.ac("uid", TbadkCoreApplication.getCurrentAccount()).ac("uname", TbadkCoreApplication.getCurrentAccountName()).s("obj_cpid", 0).s("obj_good_id", 0).ac("obj_throw_type", "BY_POST").ac(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").ac("user_timestamp", String.valueOf(System.currentTimeMillis())).ac("os", SocialConstants.ANDROID_CLIENT_TYPE).ac("os_version", Build.VERSION.RELEASE).ac("log_ver", "1.1");
-            return this.cFJ;
+            this.dla.s("obj_cpid", 0).s("obj_good_id", 0).ab("obj_throw_type", "BY_POST").ab(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").ab("user_timestamp", String.valueOf(System.currentTimeMillis())).ab("os", SocialConstants.ANDROID_CLIENT_TYPE).ab("os_version", Build.VERSION.RELEASE).ab("log_ver", "1.1");
+            return this.dla;
         }
 
-        public C0075a bK(String str, String str2) {
-            this.cFJ.ac(str, str2);
+        public C0077a bM(String str, String str2) {
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                this.dla.ab(str, str2);
+            }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.cFJ);
-            if (!this.OD) {
-                if (TbadkCoreApplication.m11getInst().isDebugMode()) {
+            TiebaStatic.log(this.dla);
+            if (!this.OC) {
+                if (TbadkCoreApplication.m9getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
                 BdLog.e("Invalid parameter.");
             }
+        }
+
+        public void du(String str) {
+            this.dla.du(str);
         }
     }
 }

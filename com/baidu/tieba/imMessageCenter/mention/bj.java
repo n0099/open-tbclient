@@ -16,9 +16,9 @@ class bj extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
             if (TbadkCoreApplication.isLogin()) {
-                ai.alq().start();
+                ai.atD().start();
             } else {
-                ai.alq().destroy();
+                ai.atD().destroy();
             }
         }
     }

@@ -3,15 +3,15 @@ package com.baidu.tbadk.widget.vote;
 public interface a {
     int HA();
 
-    String HB();
+    int HB();
 
-    String Hw();
+    String HC();
 
     String Hx();
 
     String Hy();
 
-    int Hz();
+    String Hz();
 
     int getId();
 

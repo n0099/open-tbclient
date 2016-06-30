@@ -20,46 +20,46 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.q;
 import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
-    NavigationBar aKU;
-    BdListView aSP;
-    private LinearLayout azz;
-    h cxv;
-    private CustomMessageListener cxw;
+    private LinearLayout aAr;
+    NavigationBar aOs;
+    BdListView aWk;
+    h dcQ;
+    private CustomMessageListener dcR;
     private q mNoDataView;
-    private HttpMessageListener cxt = new a(this, CmdConfigHttp.CMD_GET_FRIEND_LIST);
-    private int cxu = -1;
-    private CustomMessageListener cxx = new b(this, CmdConfigCustom.CMD_QUERY_CONTACT_LIST);
-    private AdapterView.OnItemClickListener bzG = new c(this);
+    private HttpMessageListener dcO = new a(this, CmdConfigHttp.CMD_GET_FRIEND_LIST);
+    private int dcP = -1;
+    private CustomMessageListener dcS = new b(this, CmdConfigCustom.CMD_QUERY_CONTACT_LIST);
+    private AdapterView.OnItemClickListener bXj = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(t.h.select_friend_main);
-        this.azz = (LinearLayout) findViewById(t.g.select_friend_root_view);
-        this.aKU = (NavigationBar) findViewById(t.g.select_friend_nevigation_bar);
-        this.aKU.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-        this.aKU.setTitleText(t.j.select_friend_title);
-        this.aSP = (BdListView) findViewById(t.g.select_friend_listview);
-        this.cxv = new h(getPageContext().getPageActivity());
-        this.aSP.setAdapter((ListAdapter) this.cxv);
-        this.aSP.setOnItemClickListener(this.bzG);
-        registerListener(this.cxx);
-        registerListener(this.cxt);
-        if (TbadkCoreApplication.m11getInst().getIntentClass(AddressListActivityConfig.class) == null) {
+        setContentView(u.h.select_friend_main);
+        this.aAr = (LinearLayout) findViewById(u.g.select_friend_root_view);
+        this.aOs = (NavigationBar) findViewById(u.g.select_friend_nevigation_bar);
+        this.aOs.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
+        this.aOs.setTitleText(u.j.select_friend_title);
+        this.aWk = (BdListView) findViewById(u.g.select_friend_listview);
+        this.dcQ = new h(getPageContext().getPageActivity());
+        this.aWk.setAdapter((ListAdapter) this.dcQ);
+        this.aWk.setOnItemClickListener(this.bXj);
+        registerListener(this.dcS);
+        registerListener(this.dcO);
+        if (TbadkCoreApplication.m9getInst().getIntentClass(AddressListActivityConfig.class) == null) {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FRIEND_LIST));
         } else {
             MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
         }
-        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, k.c(getActivity(), t.e.ds220)), NoDataViewFactory.d.cO(t.j.select_friend_no_data_tip), null);
-        this.azz.addView(this.mNoDataView, 1);
+        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, k.c(getActivity(), u.e.ds220)), NoDataViewFactory.d.cQ(u.j.select_friend_no_data_tip), null);
+        this.aAr.addView(this.mNoDataView, 1);
         if (bundle != null) {
-            this.cxu = bundle.getInt("key_from_where");
+            this.dcP = bundle.getInt("key_from_where");
         } else if (getIntent() != null) {
-            this.cxu = getIntent().getIntExtra("key_from_where", -1);
+            this.dcP = getIntent().getIntExtra("key_from_where", -1);
         }
     }
 
@@ -67,20 +67,20 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.cxw != null) {
-            this.cxw = null;
+        if (this.dcR != null) {
+            this.dcR = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aKU.onChangeSkinType(getPageContext(), i);
+        this.aOs.onChangeSkinType(getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        getLayoutMode().ae(i == 1);
-        getLayoutMode().x(findViewById(t.g.select_friend_root_view));
+        getLayoutMode().ad(i == 1);
+        getLayoutMode().w(findViewById(u.g.select_friend_root_view));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -100,12 +100,12 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareFromGameCenterMsgData shareFromGameCenterMsgData, long j, String str, String str2) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.bN(1);
+        aVar.bO(1);
         com.baidu.tieba.im.widget.b bVar = new com.baidu.tieba.im.widget.b(getPageContext().getPageActivity());
         bVar.setData(shareFromGameCenterMsgData);
-        aVar.z(bVar);
-        aVar.a(t.j.share, new f(this, j, shareFromGameCenterMsgData, str, str2, bVar));
-        aVar.b(t.j.alert_no_button, new g(this, bVar));
-        aVar.b(getPageContext()).rV();
+        aVar.y(bVar);
+        aVar.a(u.j.share, new f(this, j, shareFromGameCenterMsgData, str, str2, bVar));
+        aVar.b(u.j.alert_no_button, new g(this, bVar));
+        aVar.b(getPageContext()).rT();
     }
 }

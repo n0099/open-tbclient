@@ -49,12 +49,12 @@ public class GodThreadListRequestMessage extends NetMessage {
             builder.user_id = Long.valueOf(this.userId);
             builder.pn = Integer.valueOf(this.pn);
             builder.num = Integer.valueOf(this.num);
-            int B = k.B(TbadkCoreApplication.m11getInst().getApp());
-            int C = k.C(TbadkCoreApplication.m11getInst().getApp());
-            int viewImageQuality = l.ob().getViewImageQuality();
-            builder.scr_w = Integer.valueOf(B);
-            builder.scr_h = Integer.valueOf(C);
-            builder.scr_dip = Double.valueOf(k.D(TbadkCoreApplication.m11getInst().getApp()));
+            int A = k.A(TbadkCoreApplication.m9getInst().getApp());
+            int B = k.B(TbadkCoreApplication.m9getInst().getApp());
+            int viewImageQuality = l.nW().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(A);
+            builder.scr_h = Integer.valueOf(B);
+            builder.scr_dip = Double.valueOf(k.C(TbadkCoreApplication.m9getInst().getApp()));
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
                 o.a(builder, true);

@@ -1,61 +1,64 @@
 package com.baidu.tbadk.core.view;
 
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class at {
-    private static at adZ = new at();
-    private Handler aec;
-    private int aea = 0;
-    private boolean aeb = true;
-    private Handler.Callback aed = new au(this);
+    private static at aeA = new at();
+    private Handler aeD;
+    private int aeB = 0;
+    private boolean aeC = true;
+    private Handler.Callback aeE = new au(this);
 
-    public static at vE() {
-        return adZ;
+    public static at vG() {
+        return aeA;
     }
 
     private at() {
         HandlerThread handlerThread = new HandlerThread("release_media");
         handlerThread.start();
-        this.aec = new Handler(handlerThread.getLooper(), this.aed);
+        this.aeD = new Handler(handlerThread.getLooper(), this.aeE);
     }
 
-    public void a(MediaPlayer mediaPlayer) {
-        if (mediaPlayer != null) {
+    public void q(TextureVideoView textureVideoView) {
+        if (textureVideoView != null) {
             Message obtain = Message.obtain();
             obtain.what = 1;
-            obtain.obj = mediaPlayer;
-            this.aec.sendMessage(obtain);
+            obtain.obj = textureVideoView;
+            this.aeD.sendMessage(obtain);
         }
     }
 
-    public void vF() {
-        this.aea++;
+    public void vH() {
+        this.aeB++;
     }
 
-    public void vG() {
-        this.aea--;
-        if (this.aea < 0) {
-            this.aea = 0;
+    public void vI() {
+        this.aeB--;
+        if (this.aeB < 0) {
+            this.aeB = 0;
         }
     }
 
-    public int vH() {
-        return this.aea;
+    public int vJ() {
+        return this.aeB;
     }
 
-    public void aK(boolean z) {
-        this.aeb = z;
+    public void aI(boolean z) {
+        this.aeC = z;
     }
 
-    public boolean vI() {
-        return this.aeb;
+    public boolean vK() {
+        return this.aeC;
     }
 
-    public boolean vJ() {
+    public boolean vL() {
         return Build.MODEL != null && Build.MODEL.equals("MI 5");
+    }
+
+    public boolean vM() {
+        return "2014811".equals(Build.MODEL);
     }
 }

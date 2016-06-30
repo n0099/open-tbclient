@@ -56,12 +56,12 @@ public class UserData extends MetaData {
     private long mTDouNum;
     private int managerLevel;
     private int markCount;
-    private MembershipUserInfo membershipInfo;
+    public MembershipUserInfo membershipInfo;
     private int newMarkCount;
     private String password;
-    private g payMemberInfo;
+    private h payMemberInfo;
     private Permission permission;
-    private h personPrivate;
+    private j personPrivate;
     private String position;
     private int posts_num;
     private int sex;
@@ -85,12 +85,12 @@ public class UserData extends MetaData {
         this.newMarkCount = i;
     }
 
-    public h getPersonPrivate() {
+    public j getPersonPrivate() {
         return this.personPrivate;
     }
 
-    public void setPersonPrivate(h hVar) {
-        this.personPrivate = hVar;
+    public void setPersonPrivate(j jVar) {
+        this.personPrivate = jVar;
     }
 
     public List<MyLikeForum> getLikeForum() {
@@ -99,14 +99,6 @@ public class UserData extends MetaData {
 
     public void setLikeForum(List<MyLikeForum> list) {
         this.mLikeForum = list;
-    }
-
-    public MembershipUserInfo getMembershipUserInfo() {
-        return this.membershipInfo;
-    }
-
-    public void setMembershipUserInfo(MembershipUserInfo membershipUserInfo) {
-        this.membershipInfo = membershipUserInfo;
     }
 
     public List<MyGroup> getGroup() {
@@ -269,19 +261,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            i iVar = new i();
-            iVar.eW(getPortraitH());
-            iVar.eX(getPortrait());
-            iVar.bq(true);
-            this.mPhotoAlbum.add(iVar);
+            k kVar = new k();
+            kVar.fc(getPortraitH());
+            kVar.fd(getPortrait());
+            kVar.bn(true);
+            this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        i iVar2 = new i();
-                        iVar2.eW(userPics.big);
-                        iVar2.eX(userPics.small);
-                        iVar2.bq(false);
-                        this.mPhotoAlbum.add(iVar2);
+                        k kVar2 = new k();
+                        kVar2.fc(userPics.big);
+                        kVar2.fd(userPics.small);
+                        kVar2.bn(false);
+                        this.mPhotoAlbum.add(kVar2);
                     }
                 }
             }
@@ -317,12 +309,12 @@ public class UserData extends MetaData {
             this.isFriend = user.is_friend.intValue();
             PrivSets privSets = user.priv_sets;
             if (privSets != null) {
-                this.personPrivate = new h();
+                this.personPrivate = new j();
                 this.personPrivate.a(privSets);
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
             if (payMemberInfo != null) {
-                this.payMemberInfo = new g();
+                this.payMemberInfo = new h();
                 this.payMemberInfo.a(payMemberInfo);
             }
             if (user.is_mask.intValue() == 1) {
@@ -438,12 +430,12 @@ public class UserData extends MetaData {
                 this.mGiftNum = jSONObject.optInt("gift_num");
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("priv_sets");
                 if (optJSONObject4 != null) {
-                    this.personPrivate = new h();
+                    this.personPrivate = new j();
                     this.personPrivate.parserJson(optJSONObject4);
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("pay_member_info");
                 if (optJSONObject5 != null) {
-                    this.payMemberInfo = new g();
+                    this.payMemberInfo = new h();
                     this.payMemberInfo.parseJson(optJSONObject5);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
@@ -455,22 +447,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                i iVar = new i();
-                iVar.eW(getPortraitH());
-                iVar.eX(getPortrait());
-                iVar.bq(true);
-                this.mPhotoAlbum.add(iVar);
+                k kVar = new k();
+                kVar.fc(getPortraitH());
+                kVar.fd(getPortrait());
+                kVar.bn(true);
+                this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            i iVar2 = new i();
-                            iVar2.eW(jSONObject2.optString("big"));
-                            iVar2.eX(jSONObject2.optString("small"));
-                            iVar2.bq(false);
-                            this.mPhotoAlbum.add(iVar2);
+                            k kVar2 = new k();
+                            kVar2.fc(jSONObject2.optString("big"));
+                            kVar2.fd(jSONObject2.optString("small"));
+                            kVar2.bn(false);
+                            this.mPhotoAlbum.add(kVar2);
                         }
                     }
                 }
@@ -581,7 +573,7 @@ public class UserData extends MetaData {
         return this.sex;
     }
 
-    public g getPayMemberInfoData() {
+    public h getPayMemberInfoData() {
         return this.payMemberInfo;
     }
 

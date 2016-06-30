@@ -55,8 +55,8 @@ public class j implements g {
                     try {
                         if (j.this.qE.isConnected()) {
                             j.this.qQ = System.currentTimeMillis() - currentTimeMillis;
-                            j.this.gp();
-                            j.this.go();
+                            j.this.gr();
+                            j.this.gq();
                             m.b bVar = new m.b(String.valueOf(j.this.qH) + ":" + j.this.qI);
                             bVar.mPath = j.this.qJ;
                             bVar.qV = j.this.qK;
@@ -71,7 +71,7 @@ public class j implements g {
                         }
                         return;
                     } catch (Throwable th) {
-                        if (j.this.isDebug()) {
+                        if (j.this.gl()) {
                             BdLog.e("----WebSocketConnector error. e:" + th.getMessage());
                         }
                         j.this.o(new m.f(new Exception(th)));
@@ -86,7 +86,7 @@ public class j implements g {
     }
 
     public j() {
-        gn();
+        gp();
     }
 
     public boolean sendMessage(c cVar) {
@@ -94,7 +94,7 @@ public class j implements g {
             return false;
         }
         if (this.qR != null || !isOpen()) {
-            isDebug();
+            gl();
             if (cVar != null) {
                 cVar.x(1);
                 return false;
@@ -128,7 +128,7 @@ public class j implements g {
             try {
                 this.qE.close();
             } catch (Throwable th) {
-                if (isDebug()) {
+                if (gl()) {
                     th.printStackTrace();
                 }
             }
@@ -140,7 +140,7 @@ public class j implements g {
             try {
                 aVar.e(i, str);
             } catch (Exception e) {
-                if (isDebug()) {
+                if (gl()) {
                     BdLog.d(e.getMessage());
                 }
             }
@@ -201,7 +201,7 @@ public class j implements g {
         this.qB.sendMessage(obtainMessage);
     }
 
-    protected void gn() {
+    protected void gp() {
         this.qB = new k(this);
     }
 
@@ -209,22 +209,22 @@ public class j implements g {
     public void p(Object obj) {
     }
 
-    protected void go() {
+    protected void gq() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
         this.qD = new q(handlerThread.getLooper(), this.qB, this.qE, this.qM);
     }
 
-    protected void gp() {
+    protected void gr() {
         this.qC = new o(this.qB, this.qE, this.qM, "WebSocketReader");
         this.qC.start();
     }
 
-    public boolean gq() {
+    public boolean gs() {
         return this.qR != null;
     }
 
-    public boolean gj() {
+    public boolean gk() {
         return this.qO;
     }
 
@@ -233,13 +233,13 @@ public class j implements g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean isDebug() {
+    public boolean gl() {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void gk() {
+    public void gm() {
         if (this.qD != null) {
-            this.qD.gk();
+            this.qD.gm();
         }
     }
 
@@ -250,9 +250,9 @@ public class j implements g {
         return 0L;
     }
 
-    public void gl() {
+    public void gn() {
         if (this.qC != null) {
-            this.qC.gl();
+            this.qC.gn();
         }
     }
 
@@ -263,34 +263,34 @@ public class j implements g {
         return 0L;
     }
 
-    public long gr() {
+    public long gt() {
         if (this.qE != null) {
-            return this.qE.gb();
+            return this.qE.gd();
         }
         return 0L;
     }
 
-    public String gs() {
+    public String gu() {
         if (this.qE != null) {
-            return this.qE.ga();
+            return this.qE.gb();
         }
         return null;
     }
 
-    public long gt() {
+    public long gv() {
         return this.qQ;
-    }
-
-    public String fI() {
-        if (this.qE != null) {
-            return this.qE.fI();
-        }
-        return null;
     }
 
     public String fJ() {
         if (this.qE != null) {
             return this.qE.fJ();
+        }
+        return null;
+    }
+
+    public String fK() {
+        if (this.qE != null) {
+            return this.qE.fK();
         }
         return null;
     }

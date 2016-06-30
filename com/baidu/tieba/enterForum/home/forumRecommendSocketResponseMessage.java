@@ -8,11 +8,13 @@ import tbclient.ForumRecommend.Banner;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
 import tbclient.ForumRecommend.LikeForum;
 import tbclient.ForumRecommend.NewRecommend;
+import tbclient.FrequentlyForumInfo;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
     private List<Banner> banner;
-    private com.baidu.tieba.enterForum.b.c hotSearchInfo;
+    private List<FrequentlyForumInfo> frequently_forum_info;
+    private com.baidu.tieba.enterForum.b.d hotSearchInfo;
     private Integer is_login;
     private Integer is_mem;
     private List<LikeForum> like_forum;
@@ -77,8 +79,12 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         return this.recommend_forum_info;
     }
 
-    public com.baidu.tieba.enterForum.b.c getHotSearchInfoData() {
+    public com.baidu.tieba.enterForum.b.d getHotSearchInfoData() {
         return this.hotSearchInfo;
+    }
+
+    public List<FrequentlyForumInfo> getFrequentlyForumInfo() {
+        return this.frequently_forum_info;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -105,8 +111,9 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
                 this.recommend_forum_info = forumRecommendResIdl.data.recommend_forum_info;
                 this.redirect = forumRecommendResIdl.data.redirect.intValue();
                 this.new_banner_info = forumRecommendResIdl.data.new_banner_info;
+                this.frequently_forum_info = forumRecommendResIdl.data.frequently_forum_info;
                 if (forumRecommendResIdl.data.hot_search != null) {
-                    this.hotSearchInfo = new com.baidu.tieba.enterForum.b.c();
+                    this.hotSearchInfo = new com.baidu.tieba.enterForum.b.d();
                     this.hotSearchInfo.a(forumRecommendResIdl.data.hot_search);
                 }
             }
@@ -117,7 +124,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.b.a.rS().N("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).f("forumRecommend_cache_key", bArr);
+            com.baidu.tbadk.core.b.a.rP().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).f("forumRecommend_cache_key", bArr);
         }
     }
 }

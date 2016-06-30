@@ -2,9 +2,8 @@ package com.baidu.tbadk.browser;
 
 import java.util.Iterator;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tbadk.core.c.k {
+class w implements com.baidu.tbadk.core.c.k {
     final /* synthetic */ TbWebViewActivity Kx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,9 +24,9 @@ public class w implements com.baidu.tbadk.core.c.k {
                     sb.append(it.next());
                     str = "_";
                 } else {
-                    com.baidu.adp.lib.stats.d dG = com.baidu.tbadk.performanceLog.z.dG();
-                    dG.a("frame_delta", sb.toString());
-                    com.baidu.adp.lib.stats.a.dN().a("webview", dG);
+                    com.baidu.adp.lib.stats.d dH = com.baidu.tbadk.performanceLog.z.dH();
+                    dH.a("frame_delta", sb.toString());
+                    com.baidu.adp.lib.stats.a.dO().a("webview", dH);
                     return;
                 }
             }

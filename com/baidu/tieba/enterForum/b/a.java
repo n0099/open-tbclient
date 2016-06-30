@@ -1,21 +1,21 @@
 package com.baidu.tieba.enterForum.b;
 
-import com.baidu.tieba.tbadkCore.w;
+import com.baidu.tieba.tbadkCore.x;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.mvc.b.a {
-    private w aWB;
-    private w aWC;
+    private x bsx;
+    private x bsy;
 
-    public a(w wVar, w wVar2) {
-        this.aWB = wVar;
-        this.aWC = wVar2;
+    public a(x xVar, x xVar2) {
+        this.bsx = xVar;
+        this.bsy = xVar2;
     }
 
-    public w Md() {
-        return this.aWB;
+    public x RF() {
+        return this.bsx;
     }
 
-    public w Me() {
-        return this.aWC;
+    public x RG() {
+        return this.bsy;
     }
 }

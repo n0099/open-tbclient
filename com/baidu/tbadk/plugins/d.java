@@ -1,10 +1,74 @@
 package com.baidu.tbadk.plugins;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ThCreateAllActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class d implements a.b {
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+public class d {
+    public static boolean Fj() {
+        return Fk() && TbadkCoreApplication.m9getInst().appResponseToIntentClass(ThCreateAllActivityConfig.class);
+    }
+
+    public static boolean Fk() {
+        PluginNetConfigInfos.PluginConfig pluginConfig;
+        PluginSetting findPluginSetting;
+        if (1 == com.baidu.adp.lib.c.e.cT().Z("switch_togetherhi") && TbadkCoreApplication.m9getInst().isTogetherHiAvaliable() && Build.VERSION.SDK_INT >= 14 && Fl() && (pluginConfig = PluginPackageManager.hH().getPluginConfig("com.baidu.tieba.pluginTogetherHi")) != null && !TextUtils.isEmpty(pluginConfig.display_name) && pluginConfig.forbidden != 1 && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().findPluginSetting("com.baidu.tieba.pluginTogetherHi")) != null) {
+            return pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code;
+        }
+        return false;
+    }
+
+    public static void showGoPluginDetailDialog(TbPageContext<?> tbPageContext, String str, String str2) {
+        Activity pageActivity;
+        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
+            aVar.cz(str);
+            if (TextUtils.isEmpty(str2)) {
+                aVar.b(u.j.know, new e());
+            } else {
+                aVar.a(str2, new f(pageActivity, tbPageContext));
+                aVar.b(u.j.cancel, new g());
+            }
+            aVar.b(tbPageContext).rT();
+        }
+    }
+
+    public static boolean Fl() {
+        return PluginPackageManager.hH().bi("com.baidu.tieba.pluginTogetherHi");
+    }
+
+    public static boolean Fm() {
+        return PluginPackageManager.hH().bo("com.baidu.tieba.pluginTogetherHi");
+    }
+
+    public static void g(Context context, int i) {
+        if (context != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ThCreateAllActivityConfig(context, i)));
+        }
+    }
+
+    public static boolean f(TbPageContext<?> tbPageContext) {
+        if (Fk()) {
+            return true;
+        }
+        if (Fl() && Fm()) {
+            showGoPluginDetailDialog(tbPageContext, tbPageContext.getResources().getString(u.j.plugin_togetherhi_not_active), tbPageContext.getResources().getString(u.j.setup));
+        } else if (PluginPackageManager.hH().getPluginConfig("com.baidu.tieba.pluginTogetherHi") != null && !Fl()) {
+            showGoPluginDetailDialog(tbPageContext, tbPageContext.getResources().getString(u.j.plugin_togetherhi_install_tips), tbPageContext.getResources().getString(u.j.plugin_go_install));
+        } else {
+            showGoPluginDetailDialog(tbPageContext, tbPageContext.getResources().getString(u.j.plugin_togetherhi_not_install), null);
+        }
+        return false;
     }
 }

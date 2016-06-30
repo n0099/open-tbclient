@@ -7,42 +7,42 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.im.data.a> SE;
-    private View.OnClickListener bxd = new g(this);
-    private IMBlackListActivity cwx;
+    private ArrayList<com.baidu.tieba.im.data.a> SV;
+    private View.OnClickListener aKO = new g(this);
+    private IMBlackListActivity dbN;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(IMBlackListActivity iMBlackListActivity) {
-        this.cwx = iMBlackListActivity;
+        this.dbN = iMBlackListActivity;
     }
 
     public void setData(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.SE = arrayList;
+        this.SV = arrayList;
     }
 
     public void b(com.baidu.tieba.im.data.a aVar) {
-        if (this.SE != null) {
-            this.SE.remove(aVar);
+        if (this.SV != null) {
+            this.SV.remove(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.SE != null) {
-            return this.SE.size();
+        if (this.SV != null) {
+            return this.SV.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.SE != null) {
-            return this.SE.get(i);
+        if (this.SV != null) {
+            return this.SV.get(i);
         }
         return null;
     }
@@ -62,51 +62,51 @@ public class f extends BaseAdapter {
             aVar = null;
         }
         if (aVar != null) {
-            return aVar.awk;
+            return aVar.axa;
         }
         return null;
     }
 
-    private a aky() {
+    private a asL() {
         a aVar = new a(this, null);
-        aVar.awk = LayoutInflater.from(this.cwx.getPageContext().getContext()).inflate(t.h.im_black_list_item, (ViewGroup) null);
-        aVar.cwz = (HeadImageView) aVar.awk.findViewById(t.g.header_view);
-        aVar.cwz.setIsRound(true);
-        aVar.aLz = (TextView) aVar.awk.findViewById(t.g.user_name);
-        aVar.cwA = (Button) aVar.awk.findViewById(t.g.remove_button);
-        aVar.awk.setTag(aVar);
-        aVar.cwA.setOnClickListener(this.bxd);
+        aVar.axa = LayoutInflater.from(this.dbN.getPageContext().getContext()).inflate(u.h.im_black_list_item, (ViewGroup) null);
+        aVar.dbP = (HeadImageView) aVar.axa.findViewById(u.g.header_view);
+        aVar.dbP.setIsRound(true);
+        aVar.aOX = (TextView) aVar.axa.findViewById(u.g.user_name);
+        aVar.dbQ = (Button) aVar.axa.findViewById(u.g.remove_button);
+        aVar.axa.setTag(aVar);
+        aVar.dbQ.setOnClickListener(this.aKO);
         return aVar;
     }
 
     private a a(Object obj, com.baidu.tieba.im.data.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = aky();
+            aVar2 = asL();
         } else {
             aVar2 = (a) obj;
         }
-        a(aVar2, aVar.aeh());
-        aVar2.aLz.setText(aVar.getUserName());
-        aVar2.cwA.setTag(aVar);
-        this.cwx.getLayoutMode().x(aVar2.awk);
+        a(aVar2, aVar.amw());
+        aVar2.aOX.setText(aVar.getUserName());
+        aVar2.dbQ.setTag(aVar);
+        this.dbN.getLayoutMode().w(aVar2.axa);
         return aVar2;
     }
 
     private void a(a aVar, String str) {
         if (str != null) {
-            aVar.cwz.setTag(str);
-            aVar.cwz.c(str, 12, false);
+            aVar.dbP.setTag(str);
+            aVar.dbP.c(str, 12, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public TextView aLz;
-        public View awk;
-        public Button cwA;
-        public HeadImageView cwz;
+        public TextView aOX;
+        public View axa;
+        public HeadImageView dbP;
+        public Button dbQ;
 
         private a() {
         }

@@ -2,15 +2,16 @@ package com.baidu.tieba.person;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.person.bs;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
+import tbclient.DealWindow;
 import tbclient.Highlist;
 import tbclient.PostInfoList;
 import tbclient.Profile.ProfileResIdl;
 import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserGodInfo;
-import tbclient.UcCard;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
@@ -23,9 +24,10 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     private int pageNum;
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
-    private UcCard ucCard;
+    public bs ucCardData;
     private User user;
     private UserGodInfo userGodInfo;
+    public DealWindow window;
 
     public ProfileHttpResponseMessage(int i) {
         super(i);
@@ -71,14 +73,6 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
         return this.post_list;
     }
 
-    public UcCard getUcCard() {
-        return this.ucCard;
-    }
-
-    public void setUcCard(UcCard ucCard) {
-        this.ucCard = ucCard;
-    }
-
     public boolean isSelf() {
         return this.isSelf;
     }
@@ -103,17 +97,38 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
             this.anti_stat = profileResIdl.data.anti_stat;
             this.tainfo = profileResIdl.data.tainfo;
             this.post_list = profileResIdl.data.post_list;
-            this.ucCard = profileResIdl.data.uc_card;
+            if (profileResIdl.data.uc_card != null) {
+                this.ucCardData = new bs();
+                this.ucCardData.a(profileResIdl.data.uc_card);
+            }
             this.highlist = profileResIdl.data.highs;
+            this.window = profileResIdl.data.window;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<byte[]> N = com.baidu.tbadk.core.b.a.rS().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.o<byte[]> M = com.baidu.tbadk.core.b.a.rP().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            N.e(PROFILE_CACHE_KEY, bArr);
+            M.e(PROFILE_CACHE_KEY, bArr);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+        com.baidu.adp.lib.cache.o<String> N;
+        List<bs.a> list;
+        super.beforeDispatchInBackGround(i, (int) bArr);
+        if (this.ucCardData != null && (N = com.baidu.tbadk.core.b.a.rP().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf && (list = this.ucCardData.efx) != null) {
+            for (bs.a aVar : list) {
+                if (aVar.xF > com.baidu.adp.lib.h.b.c(N.get(aVar.title), 0L)) {
+                    aVar.efy = true;
+                } else {
+                    aVar.efy = false;
+                }
+            }
         }
     }
 }

@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.passaccount.a.f;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a dcf = null;
-    private InterfaceC0066a dcg = null;
-    private final a.InterfaceC0033a dch = new b(this);
-    private final f.a dci = new d(this);
+    private static a dIL = null;
+    private InterfaceC0070a dIM = null;
+    private final a.InterfaceC0033a dIN = new b(this);
+    private final f.a dIO = new d(this);
 
     /* renamed from: com.baidu.tieba.passaccount.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0066a {
-        void ce(String str);
+    public interface InterfaceC0070a {
+        void cd(String str);
 
         void onSuccess();
     }
@@ -25,15 +25,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a auN() {
-        if (dcf == null) {
-            dcf = new a();
+    public static a aCS() {
+        if (dIL == null) {
+            dIL = new a();
         }
-        return dcf;
+        return dIL;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b cd(String str) {
+    public a.b cc(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -63,11 +63,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void ok() {
+    public void of() {
         AccountData currentAccountObj;
-        a.b cd;
-        if (i.fq() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (cd = cd(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.a.a(currentAccountObj.getAccount(), cd.mZ, cd.Mg, this.dch);
+        a.b cc;
+        if (i.fr() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (cc = cc(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.a.a(currentAccountObj.getAccount(), cc.mZ, cc.Mg, this.dIN);
         }
     }
 
@@ -77,7 +77,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public AccountData l(String str, String str2, String str3) {
-        return com.baidu.tieba.model.a.l(str, str2, str3);
+    public AccountData p(String str, String str2, String str3) {
+        return com.baidu.tieba.model.a.p(str, str2, str3);
     }
 }

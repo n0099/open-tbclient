@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int dF = 0;
+    private static int dE = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
@@ -29,11 +29,11 @@ public class b {
             } else {
                 stringBuffer.append(String.valueOf(str) + " = {\n");
             }
-            while (cls != null && b(cls)) {
+            while (cls != null && j(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    dF++;
+                    dE++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    dF--;
+                    dE--;
                 }
                 cls = cls.getSuperclass();
             }
@@ -44,7 +44,7 @@ public class b {
         return stringBuffer.toString();
     }
 
-    private static boolean b(Class<?> cls) {
+    private static boolean j(Class<?> cls) {
         for (String str : new String[]{"activity", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, "listener", "view", "drawable"}) {
             if (cls.getSimpleName().toLowerCase().endsWith(str)) {
                 return false;
@@ -64,7 +64,7 @@ public class b {
 
     private static String ai() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < dF; i++) {
+        for (int i = 0; i < dE; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -231,7 +231,7 @@ public class b {
 
     public static void c(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.dR) {
+        if (d.dQ) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(b("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

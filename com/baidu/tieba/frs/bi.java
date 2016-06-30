@@ -1,7 +1,29 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import android.graphics.drawable.Drawable;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public interface bi {
-    void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.ax axVar);
+public class bi {
+    private HashMap<String, Drawable> bEr = new HashMap<>();
+
+    public Drawable o(int i, int i2) {
+        String Y = Y(i, i2);
+        Drawable drawable = this.bEr.get(Y);
+        if (drawable == null) {
+            Drawable o = com.baidu.tbadk.core.util.av.o(i2, i);
+            this.bEr.put(Y, o);
+            return o.getConstantState().newDrawable();
+        }
+        return drawable.getConstantState().newDrawable();
+    }
+
+    private String Y(int i, int i2) {
+        return String.valueOf(i) + "_" + i2;
+    }
+
+    public void destory() {
+        if (!this.bEr.isEmpty()) {
+            this.bEr.clear();
+        }
+    }
 }

@@ -6,11 +6,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ p cxj;
+    final /* synthetic */ p dcA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.cxj = pVar;
+        this.dcA = pVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,19 +20,19 @@ public class s implements View.OnClickListener {
         EditText editText;
         InviteFriendListActivity inviteFriendListActivity2;
         View view3;
-        view2 = this.cxj.cxg;
+        view2 = this.dcA.dcw;
         if (view2 != null) {
-            view3 = this.cxj.cxg;
+            view3 = this.dcA.dcw;
             if (view3.getVisibility() == 0) {
-                this.cxj.akK();
+                this.dcA.asX();
                 return;
             }
         }
-        inviteFriendListActivity = this.cxj.cwX;
+        inviteFriendListActivity = this.dcA.dcm;
         Activity pageActivity = inviteFriendListActivity.getPageContext().getPageActivity();
-        editText = this.cxj.crz;
+        editText = this.dcA.cWP;
         com.baidu.adp.lib.util.k.a(pageActivity, editText);
-        inviteFriendListActivity2 = this.cxj.cwX;
+        inviteFriendListActivity2 = this.dcA.dcm;
         inviteFriendListActivity2.finish();
     }
 }

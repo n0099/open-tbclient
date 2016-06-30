@@ -7,13 +7,13 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ t eYA;
-    private final /* synthetic */ ImageFileInfo eYB;
+    final /* synthetic */ t fDE;
+    private final /* synthetic */ ImageFileInfo fDF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar, ImageFileInfo imageFileInfo) {
-        this.eYA = tVar;
-        this.eYB = imageFileInfo;
+        this.fDE = tVar;
+        this.fDF = imageFileInfo;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
@@ -24,16 +24,16 @@ public class v implements com.baidu.tbadk.imageManager.b {
         LinearLayout linearLayout4;
         TbImageView a;
         if (aVar != null) {
-            linearLayout = this.eYA.eYr;
+            linearLayout = this.fDE.fDv;
             int childCount = linearLayout.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                linearLayout2 = this.eYA.eYr;
+                linearLayout2 = this.fDE.fDv;
                 if (linearLayout2.getChildAt(i) != null) {
-                    linearLayout3 = this.eYA.eYr;
+                    linearLayout3 = this.fDE.fDv;
                     if (linearLayout3.getChildAt(i) instanceof FrameLayout) {
-                        linearLayout4 = this.eYA.eYr;
-                        a = this.eYA.a((FrameLayout) linearLayout4.getChildAt(i));
-                        if (a != null && a.getTag() != null && a.getTag().equals(this.eYB.toCachedKey(false))) {
+                        linearLayout4 = this.fDE.fDv;
+                        a = this.fDE.a((FrameLayout) linearLayout4.getChildAt(i));
+                        if (a != null && a.getTag() != null && a.getTag().equals(this.fDF.toCachedKey(false))) {
                             aVar.a(a);
                             return;
                         }

@@ -6,11 +6,11 @@ import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ k cys;
+    final /* synthetic */ k ddP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(k kVar) {
-        this.cys = kVar;
+        this.ddP = kVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -23,23 +23,23 @@ public class s implements com.baidu.tieba.im.chat.notify.a {
         boolean z;
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterModel imMessageCenterModel4;
-        bdListView = this.cys.ctD;
+        bdListView = this.ddP.cYT;
         if (bdListView != null) {
-            imMessageCenterModel = this.cys.ctA;
+            imMessageCenterModel = this.ddP.cYQ;
             if (imMessageCenterModel != null) {
-                bdListView2 = this.cys.ctD;
+                bdListView2 = this.ddP.cYT;
                 bdListView2.k(2000L);
-                imMessageCenterModel2 = this.cys.ctA;
+                imMessageCenterModel2 = this.ddP.cYQ;
                 if (imMessageCenterModel2.getData() != null) {
-                    imMessageCenterListAdapter = this.cys.ctE;
-                    imMessageCenterModel4 = this.cys.ctA;
+                    imMessageCenterListAdapter = this.ddP.cYU;
+                    imMessageCenterModel4 = this.ddP.cYQ;
                     imMessageCenterListAdapter.setData(imMessageCenterModel4.getData());
                 }
-                imMessageCenterModel3 = this.cys.ctA;
-                if (com.baidu.tbadk.core.util.y.s(imMessageCenterModel3.getData())) {
-                    k kVar = this.cys;
-                    z = this.cys.aXV;
-                    kVar.n(z, true);
+                imMessageCenterModel3 = this.ddP.cYQ;
+                if (com.baidu.tbadk.core.util.y.t(imMessageCenterModel3.getData())) {
+                    k kVar = this.ddP;
+                    z = this.ddP.ddN;
+                    kVar.o(z, true);
                 }
             }
         }

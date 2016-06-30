@@ -5,19 +5,18 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class m implements TextWatcher {
-    final /* synthetic */ e arM;
-    private final /* synthetic */ int arN;
-    private final /* synthetic */ EditText arO;
+class m implements TextWatcher {
+    final /* synthetic */ e asC;
+    private final /* synthetic */ int asD;
+    private final /* synthetic */ EditText asE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(e eVar, int i, EditText editText) {
-        this.arM = eVar;
-        this.arN = i;
-        this.arO = editText;
+        this.asC = eVar;
+        this.asD = i;
+        this.asE = editText;
     }
 
     @Override // android.text.TextWatcher
@@ -31,10 +30,10 @@ public class m implements TextWatcher {
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         String editable2 = editable.toString();
-        if (!StringUtils.isNull(editable2) && com.baidu.tbadk.util.u.gp(editable2) > this.arN) {
-            this.arO.setText(com.baidu.tbadk.util.u.d(editable2, 0, this.arN - 1));
-            this.arO.setSelection(this.arO.getText().length());
-            UtilHelper.showToast(this.arM.BS().getApplication(), this.arM.BS().getResources().getString(t.j.show_pic_over_limit_tip));
+        if (!StringUtils.isNull(editable2) && com.baidu.tbadk.util.u.gx(editable2) > this.asD) {
+            this.asE.setText(com.baidu.tbadk.util.u.d(editable2, 0, this.asD - 1));
+            this.asE.setSelection(this.asE.getText().length());
+            UtilHelper.showToast(this.asC.getContext().getApplication(), this.asC.getContext().getResources().getString(u.j.show_pic_over_limit_tip));
         }
     }
 }

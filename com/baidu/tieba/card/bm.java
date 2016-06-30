@@ -4,20 +4,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bm implements View.OnClickListener {
-    final /* synthetic */ bl aQG;
+    final /* synthetic */ bk aUd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bl blVar) {
-        this.aQG = blVar;
+    public bm(bk bkVar) {
+        this.aUd = bkVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.card.a.m mVar;
-        if (this.aQG.JO() != null) {
-            by<com.baidu.tieba.card.a.m> JO = this.aQG.JO();
-            mVar = this.aQG.aQC;
-            JO.a(view, mVar);
+        com.baidu.tieba.card.a.n nVar;
+        if (this.aUd.KO() != null) {
+            bx<com.baidu.tieba.card.a.n> KO = this.aUd.KO();
+            nVar = this.aUd.aTZ;
+            KO.a(view, nVar);
         }
     }
 }

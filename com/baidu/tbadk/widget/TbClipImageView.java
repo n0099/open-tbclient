@@ -8,13 +8,13 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class TbClipImageView extends TbImageView {
-    private static Method aBM;
-    private boolean aBN;
+    private static Method aCm;
+    private boolean aCn;
 
     static {
-        aBM = null;
+        aCm = null;
         try {
-            aBM = TbClipImageView.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            aCm = TbClipImageView.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException e) {
         }
     }
@@ -25,15 +25,15 @@ public class TbClipImageView extends TbImageView {
 
     public TbClipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aBN = false;
-        a(context, attributeSet, i);
+        this.aCn = false;
+        b(context, attributeSet, i);
     }
 
     public TbClipImageView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    private void a(Context context, AttributeSet attributeSet, int i) {
+    private void b(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         boolean z2;
         boolean z3;
@@ -76,16 +76,16 @@ public class TbClipImageView extends TbImageView {
         if (Build.VERSION.SDK_INT >= 11) {
             CompatibleUtile.getInstance().closeViewGpu(this);
             try {
-                if (aBM != null) {
-                    aBM.invoke(this, 1, null);
+                if (aCm != null) {
+                    aCm.invoke(this, 1, null);
                 }
             } catch (Exception e) {
             }
         }
         if (z2 || z) {
-            this.aBN = false;
+            this.aCn = false;
         } else {
-            this.aBN = true;
+            this.aCn = true;
         }
     }
 
@@ -94,7 +94,7 @@ public class TbClipImageView extends TbImageView {
         if (i == 0) {
             super.setDrawerType(i);
         } else if (i == 1) {
-            super.setDrawerType(this.aBN ? 4 : 5);
+            super.setDrawerType(this.aCn ? 4 : 5);
         } else {
             super.setDrawerType(i);
         }

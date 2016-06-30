@@ -4,41 +4,41 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
-    private SettingTextSwitchView cun;
+    private SettingTextSwitchView cZC;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        nq();
+        nl();
     }
 
     public PersonalTalkSettingViewSettingView(Context context) {
         super(context);
-        nq();
+        nl();
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        if (this.cun != null) {
-            this.cun.setSwitchStateChangeListener(aVar);
+        if (this.cZC != null) {
+            this.cZC.setSwitchStateChangeListener(aVar);
         }
     }
 
-    private void nq() {
+    private void nl() {
         setOrientation(1);
-        inflate(getContext(), t.h.p2ptalk_setting_detail_view, this);
-        this.cun = (SettingTextSwitchView) findViewById(t.g.sv_person_msg_notify);
-        at.l(this.cun.getView(), t.d.square_list_middle_bg_n);
+        inflate(getContext(), u.h.p2ptalk_setting_detail_view, this);
+        this.cZC = (SettingTextSwitchView) findViewById(u.g.sv_person_msg_notify);
+        av.l(this.cZC.getView(), u.d.common_color_10163);
     }
 
-    public void fc(boolean z) {
+    public void fQ(boolean z) {
         if (z) {
-            this.cun.K(false);
+            this.cZC.K(false);
         } else {
-            this.cun.L(false);
+            this.cZC.L(false);
         }
     }
 }

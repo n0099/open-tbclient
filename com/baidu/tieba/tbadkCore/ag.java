@@ -1,50 +1,30 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.af;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends HttpMessageListener {
-    final /* synthetic */ af erJ;
+public class ag extends BdAsyncTask<Void, Void, Void> {
+    private final /* synthetic */ String btC;
+    private final /* synthetic */ WriteData eWv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(af afVar, int i) {
-        super(i);
-        this.erJ = afVar;
+    public ag(WriteData writeData, String str) {
+        this.eWv = writeData;
+        this.btC = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        af.a aVar;
-        af.a aVar2;
-        af.a aVar3;
-        af.a aVar4;
-        af.a aVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
-            int statusCode = httpResponsedMessage.getStatusCode();
-            if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.erJ.erI;
-                if (aVar != null) {
-                    aVar2 = this.erJ.erI;
-                    aVar2.q(statusCode, null);
-                    return;
-                }
-                return;
-            }
-            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
-            if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.erJ.erI;
-                aVar5.gK(praiseResponseMessage.getErrMsg());
-                return;
-            }
-            aVar3 = this.erJ.erI;
-            if (aVar3 != null) {
-                aVar4 = this.erJ.erI;
-                aVar4.q(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        com.baidu.adp.lib.cache.o<String> cw = com.baidu.tbadk.core.b.a.rP().cw("tb.pb_editor");
+        if (this.eWv != null && this.eWv.hasContentToSave()) {
+            cw.a(af.pB(this.btC), this.eWv.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+            return null;
         }
+        cw.remove(af.pB(this.btC));
+        return null;
     }
 }

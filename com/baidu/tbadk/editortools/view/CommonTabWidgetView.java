@@ -6,20 +6,20 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.editortools.l;
 import com.baidu.tbadk.editortools.view.b;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
-    private l BV;
-    private CommonTabHorizonScrollView asL;
-    private ImageView asM;
+    private l BW;
+    private CommonTabHorizonScrollView atB;
+    private ImageView atC;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ev(int i);
+        void eA(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -33,20 +33,20 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setEditorTools(l lVar) {
-        this.BV = lVar;
+        this.BW = lVar;
     }
 
     private void init(Context context) {
         setVisibility(8);
         removeAllViews();
-        LayoutInflater.from(context).inflate(t.h.common_tab_widget, (ViewGroup) this, true);
-        this.asL = (CommonTabHorizonScrollView) findViewById(t.g.privilege_tab_scroll_view);
-        this.asM = (ImageView) findViewById(t.g.privilege_tab_delete);
-        this.asM.setOnClickListener(new e(this));
+        LayoutInflater.from(context).inflate(u.h.common_tab_widget, (ViewGroup) this, true);
+        this.atB = (CommonTabHorizonScrollView) findViewById(u.g.privilege_tab_scroll_view);
+        this.atC = (ImageView) findViewById(u.g.privilege_tab_delete);
+        this.atC.setOnClickListener(new e(this));
     }
 
     public void setDatas(ArrayList<b> arrayList) {
-        this.asL.setDatas(arrayList);
+        this.atB.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
         } else {
@@ -55,33 +55,33 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void c(b.C0041b c0041b) {
-        this.asL.c(c0041b);
+        this.atB.c(c0041b);
     }
 
     public void setCurrentTab(int i) {
-        this.asL.setCurrentTab(i);
+        this.atB.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.asL.setOnTabSelectedListener(aVar);
+        this.atB.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.asL.reset();
+        this.atB.reset();
     }
 
     public void onChangeSkinType(int i) {
-        at.l(this, t.d.editor_tool_container_bg);
-        this.asL.cV(i);
-        at.c(this.asM, t.f.but_face_close);
-        at.l(this.asM, t.d.emotion_delete_bg);
+        av.l(this, u.d.common_color_10223);
+        this.atB.cX(i);
+        av.c(this.atC, u.f.but_face_close);
+        av.l(this.atC, u.d.common_color_10224);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.asM.setVisibility(0);
+            this.atC.setVisibility(0);
         } else {
-            this.asM.setVisibility(8);
+            this.atC.setVisibility(8);
         }
     }
 }

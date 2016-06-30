@@ -42,15 +42,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b GE;
-    private PublicKey GD;
+    private static volatile b GA;
+    private PublicKey Gz;
     private final Context a;
     private int b = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public ApplicationInfo GF;
+        public ApplicationInfo GB;
         public int b;
         public boolean c;
         public boolean d;
@@ -99,7 +99,7 @@ public final class c {
                 bVar.c = i;
                 return bVar;
             } catch (JSONException e) {
-                c.a(e);
+                c.b(e);
                 return null;
             }
         }
@@ -108,7 +108,7 @@ public final class c {
             try {
                 return new JSONObject().put("deviceid", this.a).put("imei", this.b).put("ver", this.c).toString();
             } catch (JSONException e) {
-                c.a(e);
+                c.b(e);
                 return null;
             }
         }
@@ -127,30 +127,21 @@ public final class c {
         a();
     }
 
-    private static b H(Context context) {
-        if (GE == null) {
+    private static b G(Context context) {
+        if (GA == null) {
             synchronized (b.class) {
-                if (GE == null) {
+                if (GA == null) {
                     SystemClock.uptimeMillis();
-                    GE = new c(context).lP();
+                    GA = new c(context).lJ();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return GE;
-    }
-
-    private boolean L(String str, String str2) {
-        try {
-            return Settings.System.putString(this.a.getContentResolver(), str, str2);
-        } catch (Exception e) {
-            a(e);
-            return false;
-        }
+        return GA;
     }
 
     public static String a(Context context) {
-        return H(context).b();
+        return G(context).b();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
@@ -191,18 +182,18 @@ public final class c {
                             fileReader.close();
                             str = charArrayWriter2;
                         } catch (Exception e) {
-                            a(e);
+                            b(e);
                             str = charArrayWriter2;
                         }
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    a(e);
+                    b(e);
                     if (fileReader != null) {
                         try {
                             fileReader.close();
                         } catch (Exception e3) {
-                            a(e3);
+                            b(e3);
                         }
                     }
                     return str;
@@ -213,7 +204,7 @@ public final class c {
                     try {
                         str.close();
                     } catch (Exception e4) {
-                        a(e4);
+                        b(e4);
                     }
                 }
                 throw th;
@@ -258,7 +249,7 @@ public final class c {
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 a aVar = new a(null);
                                 aVar.b = jSONObject.getInt("priority");
-                                aVar.GF = resolveInfo.activityInfo.applicationInfo;
+                                aVar.GB = resolveInfo.activityInfo.applicationInfo;
                                 if (this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     aVar.d = true;
                                 }
@@ -272,7 +263,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.GD);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Gz);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -302,12 +293,12 @@ public final class c {
             th = th;
         }
         try {
-            this.GD = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.Gz = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
                 } catch (Exception e2) {
-                    a(e2);
+                    b(e2);
                 }
             }
         } catch (Exception e3) {
@@ -315,7 +306,7 @@ public final class c {
                 try {
                     byteArrayInputStream.close();
                 } catch (Exception e4) {
-                    a(e4);
+                    b(e4);
                 }
             }
         } catch (Throwable th2) {
@@ -325,15 +316,11 @@ public final class c {
                 try {
                     byteArrayInputStream2.close();
                 } catch (Exception e5) {
-                    a(e5);
+                    b(e5);
                 }
             }
             throw th;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void a(Throwable th) {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -349,18 +336,18 @@ public final class c {
                         fileOutputStream.close();
                         return true;
                     } catch (Exception e) {
-                        a(e);
+                        b(e);
                         return true;
                     }
                 }
                 return true;
             } catch (Exception e2) {
-                a(e2);
+                b(e2);
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
                     } catch (Exception e3) {
-                        a(e3);
+                        b(e3);
                     }
                 }
                 return false;
@@ -370,10 +357,19 @@ public final class c {
                 try {
                     fileOutputStream.close();
                 } catch (Exception e4) {
-                    a(e4);
+                    b(e4);
                 }
             }
             throw th;
+        }
+    }
+
+    private boolean a(String str, String str2) {
+        try {
+            return Settings.System.putString(this.a.getContentResolver(), str, str2);
+        } catch (Exception e) {
+            b(e);
+            return false;
         }
     }
 
@@ -415,7 +411,7 @@ public final class c {
         try {
             return Settings.System.getString(this.a.getContentResolver(), str);
         } catch (Exception e) {
-            a(e);
+            b(e);
             return null;
         }
     }
@@ -446,6 +442,10 @@ public final class c {
         } catch (IOException e) {
         } catch (Exception e2) {
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(Throwable th) {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x004f  */
@@ -537,10 +537,10 @@ public final class c {
         try {
             return com.baidu.location.b.a.b.a(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException e) {
-            a(e);
+            b(e);
             return "";
         } catch (Exception e2) {
-            a(e2);
+            b(e2);
             return "";
         }
     }
@@ -552,7 +552,7 @@ public final class c {
         try {
             return new String(com.baidu.location.b.a.a.c("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(str.getBytes())));
         } catch (Exception e) {
-            a(e);
+            b(e);
             return "";
         }
     }
@@ -610,7 +610,7 @@ public final class c {
         return (str == null || !str.contains(":")) ? str : "";
     }
 
-    private b lP() {
+    private b lJ() {
         boolean z;
         b bVar;
         b bVar2;
@@ -650,7 +650,7 @@ public final class c {
                 }
                 for (a aVar2 : a3) {
                     if (!aVar2.d) {
-                        File file2 = new File(new File(aVar2.GF.dataDir, str2), "libcuid.so");
+                        File file2 = new File(new File(aVar2.GB.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
                             bVar = b.bM(f(a(file2)));
                             if (bVar != null) {
@@ -671,13 +671,13 @@ public final class c {
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
         if (bVar == null && c) {
             this.b |= 2;
-            bVar2 = lR();
+            bVar2 = lL();
         } else {
             bVar2 = bVar;
         }
         if (bVar2 == null) {
             this.b |= 8;
-            bVar2 = lQ();
+            bVar2 = lK();
         }
         if (bVar2 == null && c) {
             this.b |= 1;
@@ -711,7 +711,7 @@ public final class c {
             if (TextUtils.isEmpty(str3)) {
                 str3 = e(bVar3.a());
             }
-            L("com.baidu.deviceid.v2", str3);
+            a("com.baidu.deviceid.v2", str3);
         }
         if (c("android.permission.WRITE_EXTERNAL_STORAGE")) {
             File file4 = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
@@ -723,8 +723,8 @@ public final class c {
             }
         }
         if (c2 && ((this.b & 1) != 0 || TextUtils.isEmpty(b("com.baidu.deviceid")))) {
-            L("com.baidu.deviceid", bVar3.a);
-            L("bd_setting_i", bVar3.b);
+            a("com.baidu.deviceid", bVar3.a);
+            a("bd_setting_i", bVar3.b);
         }
         if (c2 && !TextUtils.isEmpty(bVar3.b)) {
             File file5 = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid");
@@ -735,13 +735,13 @@ public final class c {
         return bVar3;
     }
 
-    private b lQ() {
+    private b lK() {
         String b2 = b("com.baidu.deviceid");
         String b3 = b("bd_setting_i");
         if (TextUtils.isEmpty(b3)) {
             b3 = h("");
             if (!TextUtils.isEmpty(b3)) {
-                L("bd_setting_i", b3);
+                a("bd_setting_i", b3);
             }
         }
         if (TextUtils.isEmpty(b2)) {
@@ -756,7 +756,7 @@ public final class c {
         return bVar;
     }
 
-    private b lR() {
+    private b lL() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
             String a2 = a(file);

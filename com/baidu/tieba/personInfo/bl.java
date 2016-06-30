@@ -1,32 +1,54 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.DressupCenterActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tieba.im.model.BlackListModel;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl implements View.OnClickListener {
-    final /* synthetic */ bj dHR;
+public class bl extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(bj bjVar) {
-        this.dHR = bjVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl(f fVar, int i) {
+        super(i);
+        this.this$0 = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseFragmentActivity baseFragmentActivity;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10601"));
-        this.dHR.dHB.setImageDrawable(null);
-        this.dHR.dHB.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.sR().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
-        MessageManager messageManager = MessageManager.getInstance();
-        baseFragmentActivity = this.dHR.cSp;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(baseFragmentActivity.getPageContext().getPageActivity())));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
+        Message<?> orginalMessage;
+        BlackListModel blackListModel;
+        BlackListModel blackListModel2;
+        BlackListModel blackListModel3;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage)) {
+            RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
+            if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
+                if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
+                    blackListModel3 = this.this$0.eoF;
+                    blackListModel3.setMaskType(1);
+                } else {
+                    blackListModel = this.this$0.eoF;
+                    blackListModel.setMaskType(0);
+                }
+                if (responseUpdateMaskInfoMessage.getError() == 0) {
+                    blackListModel2 = this.this$0.eoF;
+                    if (blackListModel2.getMaskType() == 1) {
+                        this.this$0.showToast(this.this$0.getPageContext().getString(u.j.chat_message_blocked));
+                        return;
+                    } else {
+                        this.this$0.showToast(this.this$0.getPageContext().getString(u.j.block_chat_remove_success));
+                        return;
+                    }
+                }
+                this.this$0.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.this$0.getResources().getString(u.j.neterror) : responseUpdateMaskInfoMessage.getErrorString());
+            }
+        }
     }
 }

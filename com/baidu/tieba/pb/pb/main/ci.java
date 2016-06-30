@@ -1,37 +1,60 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.frs.AbsDelegateAdapterList;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ci implements TbRichTextView.e {
-    final /* synthetic */ ch dky;
+public class ci extends CustomMessageListener {
+    final /* synthetic */ ch dQo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(ch chVar) {
-        this.dky = chVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ci(ch chVar, int i) {
+        super(i);
+        this.dQo = chVar;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
-    public void b(View view, String str) {
-        long j;
-        long j2;
-        com.baidu.tieba.pb.data.e eVar;
-        com.baidu.tieba.pb.data.e eVar2;
-        com.baidu.tieba.pb.data.e eVar3;
-        if (!TextUtils.isEmpty(str) && com.baidu.tbadk.core.util.bg.ut().c(this.dky.dhY.getPageContext(), new String[]{str})) {
-            j = this.dky.dkx;
-            if (j != 0) {
-                j2 = this.dky.dkx;
-                eVar = this.dky.dfK;
-                String id = eVar.avD().getId();
-                eVar2 = this.dky.dfK;
-                String name = eVar2.avD().getName();
-                eVar3 = this.dky.dfK;
-                com.baidu.tieba.pb.b.a(j2, str, "PB", "LINK_IMAGE", "CLICK", "tpoint", id, name, eVar3.avE().getTid());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        List list2;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        PbActivity pbActivity;
+        ArrayList arrayList;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.d)) {
+            AbsDelegateAdapterList bbI = ((com.baidu.tieba.tbadkCore.data.d) customResponsedMessage.getData()).bbI();
+            Iterator it = bbI.iterator();
+            while (it.hasNext()) {
+                com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
+                if (aVar instanceof cr) {
+                    pbActivity = this.dQo.dOg;
+                    ((cr) aVar).ab(pbActivity);
+                    if (aVar instanceof com.baidu.tieba.pb.pb.a.a) {
+                        arrayList = this.dQo.dQi;
+                        arrayList.add((com.baidu.tieba.pb.pb.a.a) aVar);
+                    }
+                    if (aVar instanceof com.baidu.tieba.pb.pb.a.b) {
+                        this.dQo.dQd = (com.baidu.tieba.pb.pb.a.b) aVar;
+                    }
+                }
+            }
+            ArrayList arrayList2 = new ArrayList();
+            arrayList2.addAll(bbI);
+            list = this.dQo.dQm;
+            list.clear();
+            list2 = this.dQo.dQm;
+            list2.addAll(arrayList2);
+            bdTypeListView = this.dQo.bou;
+            if (bdTypeListView != null) {
+                bdTypeListView2 = this.dQo.bou;
+                bdTypeListView2.g(arrayList2);
             }
         }
     }

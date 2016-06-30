@@ -38,7 +38,7 @@ public class a {
     private boolean mF = false;
     private a.InterfaceC0008a mI = new c(this);
 
-    public static a dN() {
+    public static a dO() {
         if (mz == null) {
             synchronized (a.class) {
                 if (mz == null) {
@@ -49,7 +49,7 @@ public class a {
         return mz;
     }
 
-    public e dO() {
+    public e dP() {
         return this.mG;
     }
 
@@ -59,15 +59,15 @@ public class a {
         this.mD = String.valueOf(this.mB) + "/notUpload";
         this.mE = z;
         this.mG = eVar;
-        com.baidu.adp.lib.Disk.d.bG().C(str2);
-        com.baidu.adp.lib.stats.switchs.a.eI().a(z, str, this.mContext, this.mI);
-        com.baidu.adp.lib.stats.upload.b.eO().a(fVar, str4);
-        j.eQ().init();
+        com.baidu.adp.lib.Disk.d.bH().C(str2);
+        com.baidu.adp.lib.stats.switchs.a.eJ().a(z, str, this.mContext, this.mI);
+        com.baidu.adp.lib.stats.upload.b.eP().a(fVar, str4);
+        j.eR().init();
         if (fVar != null) {
             this.mAppVersion = fVar.mAppVersion;
         }
         if (TextUtils.isEmpty(this.mA)) {
-            this.mA = dQ();
+            this.mA = dR();
             if (z && this.mA == null) {
                 this.mA = "44f94582";
             }
@@ -83,14 +83,14 @@ public class a {
         } catch (Exception e) {
             BdLog.e(e);
         }
-        dY();
+        dZ();
     }
 
-    public long dP() {
-        return com.baidu.adp.lib.stats.a.a.eH().dP();
+    public long dQ() {
+        return com.baidu.adp.lib.stats.a.a.eI().dQ();
     }
 
-    private String dQ() {
+    private String dR() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (this.mContext == null) {
             return null;
@@ -125,34 +125,34 @@ public class a {
         return null;
     }
 
-    public String dR() {
+    public String dS() {
         return this.mB;
     }
 
-    public String dS() {
+    public String dT() {
         return this.mD;
     }
 
-    public String dT() {
+    public String dU() {
         return this.mA;
     }
 
-    public void f(String str, String str2, String str3) {
-        com.baidu.adp.lib.stats.upload.b.eO().f(str, str2, str3);
+    public void k(String str, String str2, String str3) {
+        com.baidu.adp.lib.stats.upload.b.eP().k(str, str2, str3);
     }
 
     public void save() {
-        j.eQ().eR();
+        j.eR().eS();
     }
 
-    public boolean dU() {
+    public boolean dV() {
         return this.mE;
     }
 
     public void a(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
         if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && bdUploadStatMsgData != null) {
-            dW();
-            com.baidu.adp.lib.stats.switchs.a.eI().b(str, str2, bdUploadStatMsgData);
+            dX();
+            com.baidu.adp.lib.stats.switchs.a.eJ().b(str, str2, bdUploadStatMsgData);
         }
     }
 
@@ -171,7 +171,7 @@ public class a {
             if (intent != null) {
                 String action = intent.getAction();
                 if ("com.baidu.adp.stats.uploadallfile".equals(action) && !a.this.mE) {
-                    j.eQ().eU();
+                    j.eR().eV();
                 }
                 if ("com.baidu.adp.stats.upload.alertlog".equals(action) && a.this.mE) {
                     Bundle extras = intent.getExtras();
@@ -186,15 +186,15 @@ public class a {
     }
 
     public void ah(String str) {
-        j.eQ().d(j.eQ().r(str, null));
-    }
-
-    public void dV() {
-        j.eQ().eS();
+        j.eR().d(j.eR().r(str, null));
     }
 
     public void dW() {
-        j.eQ().eU();
+        j.eR().eT();
+    }
+
+    public void dX() {
+        j.eR().eV();
         if (this.mE) {
             Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -203,12 +203,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dX() {
-        j.eQ().eW();
+    public void dY() {
+        j.eR().eX();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dY() {
+    public void dZ() {
         mHandler.removeMessages(1);
         mHandler.sendMessageDelayed(mHandler.obtainMessage(1), 3600000L);
     }
@@ -221,7 +221,7 @@ public class a {
 
     public void a(String str, d dVar) {
         if (dVar != null) {
-            Address b = com.baidu.adp.lib.e.a.cZ().b(false, false);
+            Address b = com.baidu.adp.lib.e.a.da().b(false, false);
             if (b != null) {
                 dVar.q(ThActivityDetailActivityConfig.LOCATION, b.getLocality());
             }
@@ -261,7 +261,7 @@ public class a {
             if (!TextUtils.isEmpty(str2) && str2.getBytes().length > 524288) {
                 str2 = str2.substring(0, 1024);
             }
-            if (dU()) {
+            if (dV()) {
                 c(str, str2, null);
                 return;
             }
@@ -279,9 +279,9 @@ public class a {
     }
 
     private void c(String str, String str2, Object[] objArr) {
-        if (com.baidu.adp.lib.stats.switchs.a.eI().isUpload("alert", str) && !aj(str)) {
+        if (com.baidu.adp.lib.stats.switchs.a.eJ().isUpload("alert", str) && !aj(str)) {
             ak(str);
-            com.baidu.adp.lib.stats.base.a r = j.eQ().r("alert", null);
+            com.baidu.adp.lib.stats.base.a r = j.eR().r("alert", null);
             d dVar = new d("alert");
             dVar.q("module", "alert");
             if (!TextUtils.isEmpty(str)) {
@@ -296,7 +296,7 @@ public class a {
             }
             r.a(dVar);
             BdLog.i("alert item = " + dVar.toString());
-            com.baidu.adp.lib.stats.upload.b.eO().a(r, dVar.toString());
+            com.baidu.adp.lib.stats.upload.b.eP().a(r, dVar.toString());
         }
     }
 
@@ -304,16 +304,16 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return System.currentTimeMillis() - cO().getLong(str, 0L) < ((long) (((com.baidu.adp.lib.stats.switchs.a.eI().geUploadCycle(str, 24) * 60) * 60) * 1000));
+        return System.currentTimeMillis() - cP().getLong(str, 0L) < ((long) (((com.baidu.adp.lib.stats.switchs.a.eJ().geUploadCycle(str, 24) * 60) * 60) * 1000));
     }
 
     private void ak(String str) {
         if (!TextUtils.isEmpty(str)) {
-            EditorHelper.putLong(cO(), str, System.currentTimeMillis());
+            EditorHelper.putLong(cP(), str, System.currentTimeMillis());
         }
     }
 
-    private SharedPreferences cO() {
+    private SharedPreferences cP() {
         return BdBaseApplication.getInst().getSharedPreferences("alert", 0);
     }
 
@@ -336,18 +336,18 @@ public class a {
     }
 
     private void a(String str, String str2, long j, String str3, d dVar, Object... objArr) {
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !h.ef().ao(str)) {
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !h.eg().ao(str)) {
             if (j == -1) {
-                j.eQ().a(str, str2, null, str3, dVar, objArr);
+                j.eR().a(str, str2, null, str3, dVar, objArr);
             } else {
-                j.eQ().a(str, str2, String.valueOf(j), str3, dVar, objArr);
+                j.eR().a(str, str2, String.valueOf(j), str3, dVar, objArr);
             }
         }
     }
 
     public void f(String str, Object... objArr) {
-        com.baidu.adp.lib.stats.base.a r = j.eQ().r(str, null);
-        if (r != null && com.baidu.adp.lib.stats.switchs.a.eI().isWrite(str, null)) {
+        com.baidu.adp.lib.stats.base.a r = j.eR().r(str, null);
+        if (r != null && com.baidu.adp.lib.stats.switchs.a.eJ().isWrite(str, null)) {
             d dVar = new d(str);
             if (objArr != null && objArr.length > 0) {
                 dVar.b(objArr);
@@ -357,7 +357,7 @@ public class a {
     }
 
     public void a(String str, String str2, long j, long j2, long j3, long j4, long j5, int i, int i2, String str3, Object... objArr) {
-        if ((i2 != 0 && i2 != 200) || (j3 > 2000 && "WIFI".equals(g.w(this.mContext)))) {
+        if ((i2 != 0 && i2 != 200) || (j3 > 2000 && "WIFI".equals(g.v(this.mContext)))) {
             a("img", str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
         }
     }
@@ -381,31 +381,31 @@ public class a {
     }
 
     public void a(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.ef().ao("file")) {
+        if (!h.eg().ao("file")) {
             a(true, "file", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void b(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.ef().ao("db")) {
+        if (!h.eg().ao("db")) {
             a(true, "db", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void c(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.ef().ao("voice")) {
+        if (!h.eg().ao("voice")) {
             a(true, "voice", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void d(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.ef().ao("live")) {
+        if (!h.eg().ao("live")) {
             a(true, "live", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void e(String str, String str2, int i, String str3, Object... objArr) {
-        if (!h.ef().ao("aladin_port_error")) {
+        if (!h.eg().ao("aladin_port_error")) {
             a(true, "aladin_port_error", str, str2, 0L, i, str3, objArr);
         }
     }
@@ -433,7 +433,7 @@ public class a {
         return new d(str);
     }
 
-    public String dZ() {
-        return g.w(BdBaseApplication.getInst());
+    public String ea() {
+        return g.v(BdBaseApplication.getInst());
     }
 }

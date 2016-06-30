@@ -1,61 +1,53 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.BdExpandListView;
+import com.baidu.adp.framework.listener.a;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class l implements BdExpandListView.a {
-    final /* synthetic */ FrsActivity bhl;
+class l extends a {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(FrsActivity frsActivity) {
-        this.bhl = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(FrsActivity frsActivity, int i, int i2) {
+        super(i, i2);
+        this.bDB = frsActivity;
     }
 
-    @Override // com.baidu.tieba.view.BdExpandListView.a
-    public void k(float f) {
-        cn cnVar;
-        cn cnVar2;
-        cnVar = this.bhl.bgo;
-        if (cnVar.QC() instanceof com.baidu.tieba.frs.tab.h) {
-            cnVar2 = this.bhl.bgo;
-            ((com.baidu.tieba.frs.tab.h) cnVar2.QC()).j(f);
-        }
-    }
-
-    @Override // com.baidu.tieba.view.BdExpandListView.a
-    public void jl() {
-        cn cnVar;
-        cn cnVar2;
-        cnVar = this.bhl.bgo;
-        if (cnVar.QC() instanceof com.baidu.tieba.frs.tab.h) {
-            cnVar2 = this.bhl.bgo;
-            ((com.baidu.tieba.frs.tab.h) cnVar2.QC()).Pn();
-        }
-    }
-
-    @Override // com.baidu.tieba.view.BdExpandListView.a
-    public void jm() {
-        cn cnVar;
-        cn cnVar2;
-        cn cnVar3;
-        cn cnVar4;
-        cn cnVar5;
-        if (com.baidu.adp.lib.util.i.fq()) {
-            cnVar3 = this.bhl.bgo;
-            if (cnVar3.QC() instanceof com.baidu.tieba.frs.tab.h) {
-                cnVar4 = this.bhl.bgo;
-                ((com.baidu.tieba.frs.tab.h) cnVar4.QC()).jk();
-                cnVar5 = this.bhl.bgo;
-                cnVar5.cQ(true);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        com.baidu.tieba.frs.i.aa aaVar;
+        com.baidu.tieba.tbadkCore.p pVar;
+        com.baidu.tieba.tbadkCore.p pVar2;
+        com.baidu.tieba.tbadkCore.p pVar3;
+        com.baidu.tieba.frs.i.aa aaVar2;
+        com.baidu.tieba.tbadkCore.p pVar4;
+        com.baidu.tieba.tbadkCore.p pVar5;
+        com.baidu.tieba.tbadkCore.p pVar6;
+        if (responsedMessage instanceof ResponseSetCommForumStateHttpMessage) {
+            if (((ResponseSetCommForumStateHttpMessage) responsedMessage).getError() == 0) {
+                pVar5 = this.bDB.bCF;
+                pVar6 = this.bDB.bCF;
+                pVar5.qs(1 - pVar6.bal());
+                this.bDB.Vm();
+            } else {
+                this.bDB.showToast(u.j.setdefualt_error);
             }
-            TiebaStatic.eventStat(this.bhl.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
-            this.bhl.refresh();
-            return;
-        }
-        cnVar = this.bhl.bgo;
-        if (cnVar.QC() instanceof com.baidu.tieba.frs.tab.h) {
-            cnVar2 = this.bhl.bgo;
-            ((com.baidu.tieba.frs.tab.h) cnVar2.QC()).Pn();
+            aaVar2 = this.bDB.bCS;
+            pVar4 = this.bDB.bCF;
+            aaVar2.dM(pVar4.bal() == 1);
+        } else if (responsedMessage instanceof ResponseSetCommForumStateSocketMessage) {
+            if (((ResponseSetCommForumStateSocketMessage) responsedMessage).getError() == 0) {
+                pVar2 = this.bDB.bCF;
+                pVar3 = this.bDB.bCF;
+                pVar2.qs(1 - pVar3.bal());
+                this.bDB.Vm();
+            } else {
+                this.bDB.showToast(u.j.setdefualt_error);
+            }
+            aaVar = this.bDB.bCS;
+            pVar = this.bDB.bCF;
+            aaVar.dM(pVar.bal() == 1);
         }
     }
 }

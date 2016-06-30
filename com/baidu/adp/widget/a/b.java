@@ -7,13 +7,13 @@ import android.graphics.drawable.BitmapDrawable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BitmapDrawable {
-    final /* synthetic */ a xI;
+    final /* synthetic */ a xK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, Bitmap bitmap) {
         super(bitmap);
-        this.xI = aVar;
+        this.xK = aVar;
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
@@ -21,9 +21,9 @@ public class b extends BitmapDrawable {
         Bitmap bitmap;
         Bitmap bitmap2;
         Bitmap bitmap3;
-        bitmap = this.xI.xu;
+        bitmap = this.xK.xw;
         if (bitmap != null && (bitmap2 = getBitmap()) != null && !bitmap2.isRecycled()) {
-            bitmap3 = this.xI.xu;
+            bitmap3 = this.xK.xw;
             canvas.drawBitmap(bitmap3, (Rect) null, getBounds(), getPaint());
         }
     }

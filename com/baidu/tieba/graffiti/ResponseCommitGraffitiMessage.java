@@ -3,18 +3,17 @@ package com.baidu.tieba.graffiti;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.u;
-import com.baidu.tbadk.coreExtra.data.o;
+import com.baidu.tbadk.coreExtra.data.p;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
     private boolean isNeedVcode;
     private int mErrCode;
     private String mErrMsg;
-    private u mGraffitiInfo;
-    private o vCodeData;
+    private com.baidu.tbadk.core.data.w mGraffitiInfo;
+    private p vCodeData;
 
     public int getErrCode() {
         return this.mErrCode;
@@ -32,7 +31,7 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
         this.mErrMsg = str;
     }
 
-    public o getVCodeData() {
+    public p getVCodeData() {
         return this.vCodeData;
     }
 
@@ -40,7 +39,7 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
         return this.isNeedVcode;
     }
 
-    public u getGraffitiInfo() {
+    public com.baidu.tbadk.core.data.w getGraffitiInfo() {
         return this.mGraffitiInfo;
     }
 
@@ -48,7 +47,7 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
         super(i);
         this.mErrCode = -1;
         this.isNeedVcode = false;
-        this.mErrMsg = TbadkCoreApplication.m11getInst().getResources().getString(t.j.graffiti_upload_fail);
+        this.mErrMsg = TbadkCoreApplication.m9getInst().getResources().getString(u.j.graffiti_upload_fail);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -64,16 +63,16 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
                 if (optJSONObject2 != null) {
                     this.isNeedVcode = optJSONObject2.optInt("need_vcode", 0) == 1;
                     if (this.isNeedVcode) {
-                        this.vCodeData = new o();
+                        this.vCodeData = new p();
                         this.vCodeData.parserJson(optJSONObject2);
                     }
                 }
                 if (!this.isNeedVcode && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                    this.mGraffitiInfo = new u();
+                    this.mGraffitiInfo = new com.baidu.tbadk.core.data.w();
                     this.mGraffitiInfo.parserJson(optJSONObject);
                     this.mGraffitiInfo.setType(1);
                     long c = com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), -1L);
-                    if (!this.mGraffitiInfo.pq() || c != this.mGraffitiInfo.getUid()) {
+                    if (!this.mGraffitiInfo.pi() || c != this.mGraffitiInfo.getUid()) {
                         setError(-3);
                         setErrCode(-3);
                         setErrorString(this.mErrMsg);

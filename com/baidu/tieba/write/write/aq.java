@@ -1,46 +1,54 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import com.baidu.tieba.t;
-import java.util.ArrayList;
+import android.os.Handler;
+import android.widget.EditText;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq extends com.baidu.adp.base.g {
-    final /* synthetic */ WriteActivity fea;
+public class aq implements a.b {
+    final /* synthetic */ WriteActivity fJw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(WriteActivity writeActivity) {
-        this.fea = writeActivity;
+        this.fJw = writeActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        View view;
-        FeedBackTopListView feedBackTopListView2;
-        View view2;
-        FeedBackTopListView feedBackTopListView3;
-        this.fea.hideProgressBar();
-        if (obj == null || !(obj instanceof p)) {
-            feedBackTopListView = this.fea.fdc;
-            feedBackTopListView.setVisibility(8);
-            view = this.fea.fdd;
-            view.setVisibility(8);
-            this.fea.showToast(t.j.neterror);
-            return;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        WriteData writeData;
+        EditText bmq;
+        WriteData writeData2;
+        EditText bmp;
+        WriteData writeData3;
+        WriteData writeData4;
+        WriteData writeData5;
+        Handler handler;
+        WriteData writeData6;
+        WriteData writeData7;
+        aVar.dismiss();
+        writeData = this.fJw.fau;
+        bmq = this.fJw.bmq();
+        writeData.setTitle(bmq.getText().toString());
+        writeData2 = this.fJw.fau;
+        bmp = this.fJw.bmp();
+        writeData2.setContent(bmp.getText().toString());
+        writeData3 = this.fJw.fau;
+        int type = writeData3.getType();
+        if (type == 0) {
+            writeData6 = this.fJw.fau;
+            String forumId = writeData6.getForumId();
+            writeData7 = this.fJw.fau;
+            com.baidu.tieba.tbadkCore.af.b(forumId, writeData7);
+        } else if (type == 1) {
+            writeData4 = this.fJw.fau;
+            String threadId = writeData4.getThreadId();
+            writeData5 = this.fJw.fau;
+            com.baidu.tieba.tbadkCore.af.c(threadId, writeData5);
         }
-        p pVar = (p) obj;
-        if (pVar.getErrCode() != 0) {
-            feedBackTopListView2 = this.fea.fdc;
-            feedBackTopListView2.setVisibility(8);
-            view2 = this.fea.fdd;
-            view2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tbadk.core.data.ax> bdu = pVar.bdu();
-        feedBackTopListView3 = this.fea.fdc;
-        feedBackTopListView3.a(bdu, this.fea.getPageContext());
+        this.fJw.showToast(u.j.draft_save_success);
+        handler = this.fJw.mHandler;
+        handler.postDelayed(new ar(this), 1000L);
     }
 }

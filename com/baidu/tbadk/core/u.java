@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements k.a {
@@ -18,18 +18,18 @@ public class u implements k.a {
 
     @Override // com.baidu.adp.lib.util.k.a
     public void aR(String str) {
-        if (fN() instanceof TextView) {
-            ((TextView) fN()).setText(str);
+        if (fO() instanceof TextView) {
+            ((TextView) fO()).setText(str);
         }
     }
 
     @Override // com.baidu.adp.lib.util.k.a
-    public View fN() {
+    public View fO() {
         View view;
         View view2;
         view = this.this$0.mCustomToastView;
         if (view == null) {
-            this.this$0.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.m11getInst()).inflate(t.h.custom_toast_textview, (ViewGroup) null);
+            this.this$0.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.m9getInst()).inflate(u.h.custom_toast_textview, (ViewGroup) null);
         }
         view2 = this.this$0.mCustomToastView;
         return view2;

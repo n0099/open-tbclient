@@ -18,15 +18,15 @@ public class m extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.person.a.as asVar;
-        com.baidu.tieba.person.a.as asVar2;
+        com.baidu.tieba.person.a.at atVar;
+        com.baidu.tieba.person.a.at atVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                this.this$0.cST = false;
-                asVar = this.this$0.dFI;
-                if (asVar != null) {
-                    asVar2 = this.this$0.dFI;
-                    asVar2.hn(false);
+                this.this$0.dyP = false;
+                atVar = this.this$0.eoM;
+                if (atVar != null) {
+                    atVar2 = this.this$0.eoM;
+                    atVar2.ii(false);
                     return;
                 }
                 return;

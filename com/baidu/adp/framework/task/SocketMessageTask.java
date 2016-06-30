@@ -4,10 +4,10 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
+    private boolean gP;
     private boolean gQ;
     private boolean gR;
-    private boolean gS;
-    private DupLicateMode gT;
+    private DupLicateMode gS;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
 
     /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public class SocketMessageTask extends MessageTask {
         REMOVE_WAITING,
         REMOVE_ALL;
 
-        /* JADX DEBUG: Replace access to removed values field (gU) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (gT) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DupLicateMode[] valuesCustom() {
             DupLicateMode[] valuesCustom = values();
@@ -30,10 +30,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
+        this.gP = false;
         this.gQ = false;
-        this.gR = false;
-        this.gS = true;
-        this.gT = DupLicateMode.NONE;
+        this.gR = true;
+        this.gS = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -42,19 +42,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void h(boolean z) {
-        this.gQ = z;
-    }
-
-    public boolean bx() {
-        return this.gQ;
+        this.gP = z;
     }
 
     public boolean by() {
-        return this.gR;
+        return this.gP;
+    }
+
+    public boolean bz() {
+        return this.gQ;
     }
 
     public void i(boolean z) {
-        this.gR = z;
+        this.gQ = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -65,19 +65,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean bz() {
-        return this.gS;
+    public boolean bA() {
+        return this.gR;
     }
 
     public void j(boolean z) {
-        this.gS = z;
+        this.gR = z;
     }
 
-    public DupLicateMode bA() {
-        return this.gT;
+    public DupLicateMode bB() {
+        return this.gS;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.gT = dupLicateMode;
+        this.gS = dupLicateMode;
     }
 }

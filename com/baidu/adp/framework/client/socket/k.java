@@ -1,6 +1,7 @@
 package com.baidu.adp.framework.client.socket;
 
 import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
@@ -40,7 +41,7 @@ public class k {
                 linkedList.add("comment");
                 linkedList.add(str3);
             }
-            com.baidu.adp.lib.stats.a.dN().a("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
+            com.baidu.adp.lib.stats.a.dO().a("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -52,7 +53,19 @@ public class k {
 
     public static void aY() {
         try {
-            com.baidu.adp.lib.stats.a.dN().c("socket", "url", com.baidu.adp.lib.webSocket.h.gf().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.gf().gb()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.gf().gm()), "remote_ip", com.baidu.adp.lib.webSocket.h.gf().ga(), "local_dns", com.baidu.adp.lib.webSocket.h.gf().fI(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.gf().fJ(), "net", com.baidu.adp.lib.stats.a.dN().dZ());
+            com.baidu.adp.lib.stats.a.dO().c("socket", "url", com.baidu.adp.lib.webSocket.h.gg().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.gg().gd()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.gg().go()), "remote_ip", com.baidu.adp.lib.webSocket.h.gg().gb(), "local_dns", com.baidu.adp.lib.webSocket.h.gg().fJ(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.gg().fK(), "net", com.baidu.adp.lib.stats.a.dO().ea());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public static void aZ() {
+        try {
+            com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dO().al("pfmonitor");
+            al.q("action", "imconn");
+            al.q(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.gg().go()));
+            al.q("nettype", com.baidu.adp.lib.stats.g.v(BdBaseApplication.getInst()));
+            com.baidu.adp.lib.stats.a.dO().a("im", al);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

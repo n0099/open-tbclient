@@ -2,96 +2,37 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.sub.SubPbLayout;
-import com.baidu.tieba.t;
+import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class cl extends y.a {
-    public TextView aLz;
-    UserIconBox adH;
-    public UserIconBox bvy;
-    public TbRichTextView dfT;
-    public TextView dhP;
-    public View dhh;
-    public View dhi;
-    public View dhj;
-    public View dhk;
-    public View dhl;
-    public HeadImageView dhm;
-    public ImageView dhn;
-    public ImageView dhp;
-    public TextView dhq;
-    public TextView dhr;
-    public ImageView dhs;
-    public ImageView dht;
-    public RelativeLayout dhu;
-    public LinearLayout dhv;
-    public ImageView dhw;
-    public SubPbLayout dhx;
-    public ImageView dkC;
-    public RelativeLayout dkD;
-    public LinearLayout dkE;
-    public ImageView dkF;
-    public TextView dkG;
-    public ImageView dkH;
+public class cl extends cr<com.baidu.tieba.tbadkCore.data.r, PbRecBaseViewHolder> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cl(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+    }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [99=5] */
-    public cl(View view, boolean z, boolean z2, int i) {
-        super(view);
-        this.dhl = view.findViewById(t.g.sub_pb_more);
-        this.dhm = (HeadImageView) view.findViewById(t.g.photo);
-        this.aLz = (TextView) view.findViewById(t.g.user_name);
-        this.dhn = (ImageView) view.findViewById(t.g.user_rank);
-        this.dhp = (ImageView) view.findViewById(t.g.user_gender);
-        this.dht = (ImageView) view.findViewById(t.g.reply);
-        this.dfT = (TbRichTextView) view.findViewById(t.g.richText);
-        this.dhs = (ImageView) view.findViewById(t.g.floor_owner);
-        this.dhq = (TextView) view.findViewById(t.g.floor);
-        this.dhr = (TextView) view.findViewById(t.g.time);
-        this.dhu = (RelativeLayout) view.findViewById(t.g.pb_post_header_layout);
-        this.dhx = (SubPbLayout) view.findViewById(t.g.pb_post_footer_layout);
-        this.dhv = (LinearLayout) view.findViewById(t.g.pb_subpb_layout_root);
-        this.dhw = (ImageView) view.findViewById(t.g.pb_post_footer_layout_line_top);
-        this.dhh = view;
-        this.dhi = view.findViewById(t.g.new_pb_list_item_line_top);
-        this.dhj = view.findViewById(t.g.new_pb_list_item_line_top_full);
-        this.dhk = view.findViewById(t.g.new_pb_list_item_blank_top);
-        this.dkD = (RelativeLayout) view.findViewById(t.g.chudian_info_container);
-        this.dkE = (LinearLayout) view.findViewById(t.g.landmark_container);
-        this.dkF = (ImageView) view.findViewById(t.g.landmark_icon);
-        this.dkG = (TextView) view.findViewById(t.g.landmark_content);
-        this.dkH = (ImageView) view.findViewById(t.g.ad_icon);
-        this.dfT.Hq();
-        this.dfT.setImageViewStretch(true);
-        int min = Math.min(((((com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.dfT.getPaddingLeft()) - this.dfT.getPaddingRight()) - ((int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds60)), i);
-        this.dfT.setMaxImageWidth(min);
-        this.dfT.setMaxImageHeight((int) (min * 1.618f));
-        this.dfT.setTextSize(TbConfig.getContentSize());
-        if (z) {
-            ViewGroup.LayoutParams layoutParams = this.dhm.getLayoutParams();
-            layoutParams.width = (int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds60);
-            this.dhm.setLayoutParams(layoutParams);
-            this.dhm.setVisibility(0);
-        } else {
-            ViewGroup.LayoutParams layoutParams2 = this.dhm.getLayoutParams();
-            layoutParams2.width = (int) TbadkCoreApplication.m11getInst().getResources().getDimension(t.e.ds30);
-            this.dhm.setLayoutParams(layoutParams2);
-            this.dhm.setVisibility(4);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bf */
+    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
+        return com.baidu.tieba.recapp.a.aUI().n(this.mContext, 1);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.cr, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.r rVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) rVar, (com.baidu.tieba.tbadkCore.data.r) pbRecBaseViewHolder);
+        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
+        this.dOg.getLayoutMode().ad(this.mSkinType == 1);
+        this.dOg.getLayoutMode().w(view);
+        if (pbRecBaseViewHolder.getRootView() != null) {
+            com.baidu.tbadk.core.util.av.l(pbRecBaseViewHolder.getRootView(), u.d.cp_bg_line_d);
         }
-        this.dfT.h(z2, false);
-        this.dfT.setVoiceViewRes(t.h.voice_play_btn);
-        this.bvy = (UserIconBox) view.findViewById(t.g.user_icon_box);
-        this.adH = (UserIconBox) view.findViewById(t.g.user_tshow_icon_box);
-        this.dhP = (TextView) view.findViewById(t.g.pb_item_tail_content);
-        this.dkC = (ImageView) view.findViewById(t.g.replybtn);
+        pbRecBaseViewHolder.update((com.baidu.tieba.tbadkCore.data.r) at(i), i, this.mIsFromCDN);
+        return view;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.clientConfig;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
@@ -34,7 +34,7 @@ public class b extends com.baidu.adp.framework.listener.a {
             }
         } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
             String errorString = responsedMessage.getErrorString();
-            String string = TbadkCoreApplication.m11getInst().getString(t.j.neterror);
+            String string = TbadkCoreApplication.m9getInst().getString(u.j.neterror);
             if (!StringUtils.isNull(errorString)) {
                 string = errorString;
             }

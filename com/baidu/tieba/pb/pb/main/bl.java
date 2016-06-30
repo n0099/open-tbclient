@@ -1,28 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class bl implements View.OnClickListener {
-    final /* synthetic */ PbActivity djE;
+class bl extends CustomMessageListener {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(PbActivity pbActivity) {
-        this.djE = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl(PbActivity pbActivity, int i) {
+        super(i);
+        this.dPF = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        cw cwVar;
-        this.djE.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.djE.getPageContext().getPageActivity(), 23003)));
-        com.baidu.tbadk.core.util.aw awVar = new com.baidu.tbadk.core.util.aw("c10125");
-        cwVar = this.djE.dih;
-        TiebaStatic.log(awVar.ac("tid", cwVar.getThreadID()).s("obj_type", 2));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.editortools.d.e eVar;
+        es esVar;
+        es esVar2;
+        com.baidu.tbadk.editortools.d.e eVar2;
+        if (customResponsedMessage != null) {
+            eVar = this.dPF.dOX;
+            if (eVar != null) {
+                esVar2 = this.dPF.dOO;
+                eVar2 = this.dPF.dOX;
+                esVar2.gb(eVar2.BW());
+            }
+            esVar = this.dPF.dOO;
+            esVar.gc(false);
+        }
     }
 }

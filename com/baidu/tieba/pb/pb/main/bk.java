@@ -1,34 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class bk extends CustomMessageListener {
-    final /* synthetic */ PbActivity djE;
+class bk implements com.baidu.adp.lib.f.c<View> {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bk(PbActivity pbActivity, int i) {
-        super(i);
-        this.djE = pbActivity;
+    public bk(PbActivity pbActivity) {
+        this.dPF = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.editortools.d.e eVar;
-        el elVar;
-        el elVar2;
-        com.baidu.tbadk.editortools.d.e eVar2;
-        if (customResponsedMessage != null) {
-            eVar = this.djE.dja;
-            if (eVar != null) {
-                elVar2 = this.djE.diR;
-                eVar2 = this.djE.dja;
-                elVar2.fn(eVar2.BN());
-            }
-            elVar = this.djE.diR;
-            elVar.fo(false);
-        }
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: aev */
+    public View dF() {
+        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.dPF.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
+        playVoiceBntNew.setPlayTimeTextView(u.e.fontsize28);
+        return playVoiceBntNew;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: ao */
+    public void l(View view) {
+        ((PlayVoiceBntNew) view).reset();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: ap */
+    public View m(View view) {
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: aq */
+    public View n(View view) {
+        ((PlayVoiceBntNew) view).reset();
+        return view;
     }
 }

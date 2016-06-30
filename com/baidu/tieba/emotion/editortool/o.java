@@ -2,19 +2,19 @@ package com.baidu.tieba.emotion.editortool;
 
 import android.view.View;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView aVQ;
+    final /* synthetic */ EmotionTabHorizonScrollView brx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.aVQ = emotionTabHorizonScrollView;
+        this.brx = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        BdToast.a(this.aVQ.getContext(), this.aVQ.getContext().getResources().getString(t.j.emotion_cant_show)).sd();
+        BdToast.a(this.brx.getContext(), this.brx.getContext().getResources().getString(u.j.emotion_cant_show)).sb();
     }
 }

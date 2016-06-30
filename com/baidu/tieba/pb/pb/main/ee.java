@@ -1,141 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.os.Parcelable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class ee {
-    private com.baidu.tieba.pb.data.e dfY;
-    private boolean dla;
-    private boolean dlc;
-    private String dmR;
-    private boolean dmS;
-    private boolean dmT;
-    private Parcelable dmU;
-
-    static {
-        MessageManager.getInstance().registerListener(new ef(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
-        MessageManager.getInstance().registerListener(new eg(CmdConfigCustom.PB_RECORDER_RESET_CMD));
-        MessageManager.getInstance().registerListener(new eh(CmdConfigCustom.CMD_LIKE_FORUM));
-        MessageManager.getInstance().registerListener(new ei(CmdConfigCustom.CMD_UNLIKE_FORUM));
+public class ee extends cr<dr, ec> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ee(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a {
-        private static ee dmV = new ee(null);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bk */
+    public ec a(ViewGroup viewGroup) {
+        return new ec(this.dOg.getPageContext(), LayoutInflater.from(this.mContext).inflate(u.h.pb_page_news, viewGroup, false));
     }
 
-    public static ee ayD() {
-        return a.dmV;
-    }
-
-    private ee() {
-        this.dmR = null;
-        this.dmS = false;
-        this.dfY = null;
-        this.dmT = false;
-        this.dmU = null;
-        this.dlc = true;
-        this.dla = false;
-    }
-
-    /* synthetic */ ee(ee eeVar) {
-        this();
-    }
-
-    public void F(String str, boolean z) {
-        this.dmS = false;
-        if (z) {
-            str = null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.cr, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, dr drVar, ec ecVar) {
+        super.a(i, view, viewGroup, (ViewGroup) drVar, (dr) ecVar);
+        if (drVar != null) {
+            ecVar.a(drVar);
+            ecVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
-        if (str == null || str.length() < 1) {
-            reset();
-            this.dmR = null;
-        } else if (!str.equals(this.dmR)) {
-            reset();
-            this.dmR = str;
-        } else {
-            this.dmS = true;
-        }
-    }
-
-    public com.baidu.tieba.pb.data.e getPbData() {
-        if (!this.dmS) {
-            this.dmT = false;
-            return null;
-        } else if (this.dfY != null && this.dfY.avF() != null && this.dfY.avF().size() > 0) {
-            this.dmT = true;
-            com.baidu.tieba.pb.data.e eVar = this.dfY;
-            this.dfY = null;
-            return eVar;
-        } else {
-            this.dmT = false;
-            this.dfY = null;
-            return null;
-        }
-    }
-
-    public Parcelable ayE() {
-        if (this.dmT) {
-            this.dmT = false;
-            Parcelable parcelable = this.dmU;
-            this.dmU = null;
-            return parcelable;
-        }
-        this.dmU = null;
-        return null;
-    }
-
-    public boolean axE() {
-        return this.dlc;
-    }
-
-    public boolean ayF() {
-        return this.dla;
-    }
-
-    public boolean a(com.baidu.tieba.pb.data.e eVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.dmS = false;
-        if (this.dmR == null) {
-            reset();
-            return false;
-        } else if (eVar == null) {
-            reset();
-            return false;
-        } else if (eVar.avF() == null) {
-            reset();
-            return false;
-        } else if (eVar.avF().size() < 1) {
-            reset();
-            return false;
-        } else if (parcelable == null) {
-            reset();
-            return false;
-        } else {
-            this.dfY = eVar;
-            this.dmT = false;
-            this.dmU = parcelable;
-            this.dlc = z;
-            this.dla = z2;
-            return true;
-        }
-    }
-
-    public void reset() {
-        this.dmS = false;
-        this.dfY = null;
-        this.dmT = false;
-        this.dmU = null;
-    }
-
-    public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.dfY != null && this.dfY.avD() != null) {
-            Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.h.b.c(this.dfY.avD().getId(), 0L)) {
-                this.dfY.avD().setLike(i);
-            }
-        }
+        return view;
     }
 }

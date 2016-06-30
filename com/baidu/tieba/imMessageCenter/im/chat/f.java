@@ -4,20 +4,20 @@ import android.os.Handler;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsInfoMessage;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonalChatActivity cth;
+    final /* synthetic */ PersonalChatActivity cYx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(PersonalChatActivity personalChatActivity, int i, boolean z) {
         super(i, z);
-        this.cth = personalChatActivity;
+        this.cYx = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,37 +35,37 @@ class f extends com.baidu.adp.framework.listener.e {
         Runnable runnable;
         long j2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.cth.csY = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.cth.csY;
+            this.cYx.cYo = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+            bVar = this.cYx.cYo;
             if (bVar != null) {
-                msglistModel = this.cth.caH;
+                msglistModel = this.cYx.cFR;
                 UserData user = ((PersonalMsglistModel) msglistModel).getUser();
                 if (user != null) {
-                    absMsglistView = this.cth.caG;
+                    absMsglistView = this.cYx.cFQ;
                     String userName = user.getUserName();
-                    bVar2 = this.cth.csY;
+                    bVar2 = this.cYx.cYo;
                     absMsglistView.refreshPersonalHeadFooter(userName, bVar2);
-                    PersonalChatActivity personalChatActivity = this.cth;
-                    PersonalChatActivity personalChatActivity2 = this.cth;
-                    bVar3 = this.cth.csY;
-                    personalChatActivity.csX = personalChatActivity2.jR(ay.w(bVar3.getTime()));
-                    j = this.cth.csX;
+                    PersonalChatActivity personalChatActivity = this.cYx;
+                    PersonalChatActivity personalChatActivity2 = this.cYx;
+                    bVar3 = this.cYx.cYo;
+                    personalChatActivity.cYn = personalChatActivity2.lk(ba.x(bVar3.getTime()));
+                    j = this.cYx.cYn;
                     if (j != 0) {
-                        handler = this.cth.mHandler;
-                        runnable = this.cth.ctc;
-                        j2 = this.cth.csX;
+                        handler = this.cYx.mHandler;
+                        runnable = this.cYx.cYs;
+                        j2 = this.cYx.cYn;
                         handler.postDelayed(runnable, j2);
                     }
-                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e aja = PersonalChatActivityStatic.aja();
-                    str = this.cth.csZ;
+                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e aro = PersonalChatActivityStatic.aro();
+                    str = this.cYx.cYp;
                     String str2 = String.valueOf(str) + "&" + user.getUserId();
-                    bVar4 = this.cth.csY;
-                    aja.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                    bVar4 = this.cYx.cYo;
+                    aro.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
                 } else {
                     return;
                 }
             }
-            TbadkCoreApplication.m11getInst().getAlarmManager().mM();
+            TbadkCoreApplication.m9getInst().getAlarmManager().mH();
         }
     }
 }

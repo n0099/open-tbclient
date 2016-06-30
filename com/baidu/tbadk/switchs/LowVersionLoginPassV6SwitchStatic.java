@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class LowVersionLoginPassV6SwitchStatic extends a {
     static {
-        e.cS().f(LowVersionLoginPassV6SwitchStatic.class);
+        e.cT().n(LowVersionLoginPassV6SwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

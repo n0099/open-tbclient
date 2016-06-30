@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.T5WebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String M(String str, String str2) {
+    public static String L(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -38,7 +38,7 @@ public class f {
         return str.concat(str3);
     }
 
-    public static void t(Context context, String str) {
+    public static void u(Context context, String str) {
         a(context, true, str);
     }
 
@@ -50,7 +50,7 @@ public class f {
         a(context, str, str2, true, true, true, true, true);
     }
 
-    public static void a(Context context, String str, String str2, boolean z) {
+    public static void b(Context context, String str, String str2, boolean z) {
         a(context, str, str2, true, z, true, true, true);
     }
 
@@ -59,7 +59,7 @@ public class f {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        nh();
+        nc();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -74,11 +74,11 @@ public class f {
         }
     }
 
-    public static void u(Context context, String str) {
-        t(context, str);
+    public static void v(Context context, String str) {
+        u(context, str);
     }
 
-    public static void v(Context context, String str) {
+    public static void w(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -93,7 +93,7 @@ public class f {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ay.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!ba.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -102,7 +102,7 @@ public class f {
                 sb.append("?");
             }
             sb.append("cuid=");
-            sb.append(TbadkCoreApplication.m11getInst().getCuid());
+            sb.append(TbadkCoreApplication.m9getInst().getCuid());
             sb.append("&timestamp=");
             sb.append(Long.toString(System.currentTimeMillis()));
             return sb.toString();
@@ -111,27 +111,34 @@ public class f {
     }
 
     public static String appendVersionCode(String str) {
-        return (ay.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ba.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void I(Context context) {
-        a.b cd = com.baidu.tbadk.core.a.a.oj().cd(TbadkCoreApplication.getCurrentBduss());
-        CookieSyncManager.createInstance(TbadkCoreApplication.m11getInst());
-        CookieManager cookieManager = CookieManager.getInstance();
-        if (cd != null) {
-            cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m11getInst().getCuid() + "; domain=.baidu.com;");
-        } else {
-            try {
-                cookieManager.removeAllCookie();
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-        }
+    public static void H(Context context) {
+        a.b cc = com.baidu.tbadk.core.a.a.oe().cc(TbadkCoreApplication.getCurrentBduss());
+        CookieSyncManager.createInstance(TbadkCoreApplication.m9getInst());
+        CookieManager cookieManager = null;
         try {
-            CookieSyncManager.getInstance().sync();
-        } catch (Exception e2) {
-            BdLog.e(e2);
+            cookieManager = CookieManager.getInstance();
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
+        if (cookieManager != null) {
+            if (cc != null) {
+                cookieManager.setAcceptCookie(true);
+                cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m9getInst().getCuid() + "; domain=.baidu.com;");
+            } else {
+                try {
+                    cookieManager.removeAllCookie();
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                }
+            }
+            try {
+                CookieSyncManager.getInstance().sync();
+            } catch (Exception e3) {
+                BdLog.e(e3);
+            }
         }
     }
 
@@ -139,7 +146,7 @@ public class f {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void nh() {
-        new aq("open_webview", true).start();
+    private static void nc() {
+        new ar("open_webview", true).start();
     }
 }

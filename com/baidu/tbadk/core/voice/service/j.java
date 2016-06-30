@@ -6,14 +6,14 @@ import android.os.Parcelable;
 class j implements Parcelable.Creator<Voice> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: dg */
+    /* renamed from: di */
     public Voice[] newArray(int i) {
         return new Voice[i];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: d */
+    /* renamed from: e */
     public Voice createFromParcel(Parcel parcel) {
         Voice voice = new Voice();
         voice.setDuration((int) parcel.readLong());

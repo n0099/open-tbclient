@@ -3,99 +3,99 @@ package com.baidu.tieba.frs.entelechy.tabView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.fg;
-import com.baidu.tieba.frs.fi;
-import com.baidu.tieba.frs.fo;
+import com.baidu.tieba.frs.dl;
+import com.baidu.tieba.frs.dm;
+import com.baidu.tieba.frs.ds;
 import com.baidu.tieba.frs.tab.HorizontalTabView;
 import java.net.URI;
 import java.net.URISyntaxException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements fg {
-    final /* synthetic */ a bps;
+public class b implements dl {
+    final /* synthetic */ a bKa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bps = aVar;
+        this.bKa = aVar;
     }
 
-    @Override // com.baidu.tieba.frs.fg
-    public void a(fi fiVar) {
+    @Override // com.baidu.tieba.frs.dl
+    public void a(dm dmVar) {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: com.baidu.tieba.frs.FrsActivity */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.frs.fg
-    public void a(int i, int i2, fo foVar) {
+    @Override // com.baidu.tieba.frs.dl
+    public void a(int i, int i2, ds dsVar) {
         FrsActivity frsActivity;
         com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a aVar;
-        fg fgVar;
+        dl dlVar;
         com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a aVar2;
-        fg fgVar2;
-        fg fgVar3;
+        dl dlVar2;
+        dl dlVar3;
         com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a aVar3;
         FrsActivity frsActivity2;
         URI uri;
         if (i > 100) {
-            if (foVar != null && (foVar.bmS instanceof String)) {
+            if (dsVar != null && (dsVar.bHh instanceof String)) {
                 try {
-                    uri = new URI((String) foVar.bmS);
+                    uri = new URI((String) dsVar.bHh);
                 } catch (URISyntaxException e) {
                     BdLog.e(e);
                     uri = null;
                 }
                 if (uri != null) {
                     String host = uri.getHost();
-                    aw awVar = new aw("c10079");
-                    awVar.ac("obj_type", host);
-                    TiebaStatic.log(awVar);
+                    ay ayVar = new ay("c10079");
+                    ayVar.ab("obj_type", host);
+                    TiebaStatic.log(ayVar);
                 }
             }
         } else {
-            aw awVar2 = new aw("c10074");
-            awVar2.s("obj_type", i);
-            frsActivity = this.bps.bpj;
-            awVar2.ac("fid", frsActivity.getForumId());
-            TiebaStatic.log(awVar2);
+            ay ayVar2 = new ay("c10074");
+            ayVar2.s("obj_type", i);
+            frsActivity = this.bKa.bJR;
+            ayVar2.ab("fid", frsActivity.getForumId());
+            TiebaStatic.log(ayVar2);
         }
-        if (HorizontalTabView.gL(i) && foVar != null) {
-            String str = (String) foVar.bmS;
+        if (HorizontalTabView.hQ(i) && dsVar != null) {
+            String str = (String) dsVar.bHh;
             if (!StringUtils.isNull(str)) {
-                bg ut = bg.ut();
-                frsActivity2 = this.bps.bpj;
-                ut.c(frsActivity2.getPageContext(), new String[]{str});
+                bi us = bi.us();
+                frsActivity2 = this.bKa.bJR;
+                us.c(frsActivity2.getPageContext(), new String[]{str});
                 return;
             }
             return;
         }
         if (i == 1) {
-            aVar3 = this.bps.bpl;
-            aVar3.SI();
+            aVar3 = this.bKa.bJT;
+            aVar3.Yj();
         } else {
-            aVar = this.bps.bpl;
-            aVar.SJ();
+            aVar = this.bKa.bJT;
+            aVar.Yk();
         }
-        fgVar = this.bps.bpm;
-        if (fgVar != null) {
-            aVar2 = this.bps.bpl;
-            if (aVar2.SH() != 4 || i != 1) {
-                fgVar2 = this.bps.bpm;
-                fgVar2.a(i, i2, foVar);
+        dlVar = this.bKa.bJU;
+        if (dlVar != null) {
+            aVar2 = this.bKa.bJT;
+            if (aVar2.Yi() != 4 || i != 1) {
+                dlVar2 = this.bKa.bJU;
+                dlVar2.a(i, i2, dsVar);
                 return;
             }
-            fgVar3 = this.bps.bpm;
-            fgVar3.a(2, i2, foVar);
+            dlVar3 = this.bKa.bJU;
+            dlVar3.a(2, i2, dsVar);
         }
     }
 
-    @Override // com.baidu.tieba.frs.fg
+    @Override // com.baidu.tieba.frs.dl
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.fg
-    public void Pa() {
+    @Override // com.baidu.tieba.frs.dl
+    public void UC() {
     }
 }

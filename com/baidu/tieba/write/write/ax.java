@@ -1,86 +1,32 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.SpannableStringBuilder;
 import android.widget.EditText;
-import android.widget.TextView;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements TextWatcher {
-    private int dMC;
-    final /* synthetic */ WriteActivity fea;
-    private EditText crz = null;
-    private TextView Sm = null;
+public class ax extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    private final /* synthetic */ SpannableStringBuilder arW;
+    private final /* synthetic */ EmotionGroupType arX;
+    final /* synthetic */ WriteActivity fJw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(WriteActivity writeActivity) {
-        this.fea = writeActivity;
+    public ax(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
+        this.fJw = writeActivity;
+        this.arW = spannableStringBuilder;
+        this.arX = emotionGroupType;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        boolean z;
-        this.fea.bcq();
-        z = this.fea.fdJ;
-        if (z) {
-            this.dMC = this.crz.getSelectionStart();
-            this.crz.setSelection(this.dMC);
-            this.fea.b(this.Sm, this.crz);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        EditText bmp;
+        super.a((ax) aVar, str, i);
+        if (aVar == null) {
+            return;
         }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        boolean z2;
-        EditText editText;
-        EditText editText2;
-        TextView textView;
-        TextView textView2;
-        boolean z3;
-        EditText editText3;
-        EditText editText4;
-        TextView textView3;
-        TextView textView4;
-        z = this.fea.fdJ;
-        if (z) {
-            z3 = this.fea.fdK;
-            if (z3) {
-                EditText editText5 = this.crz;
-                editText3 = this.fea.fdE;
-                if (editText5 == editText3) {
-                    TextView textView5 = this.Sm;
-                    textView4 = this.fea.fdF;
-                    if (textView5 == textView4) {
-                        return;
-                    }
-                }
-                editText4 = this.fea.fdE;
-                this.crz = editText4;
-                textView3 = this.fea.fdF;
-                this.Sm = textView3;
-                return;
-            }
-        }
-        z2 = this.fea.fdJ;
-        if (z2) {
-            EditText editText6 = this.crz;
-            editText = this.fea.fdA;
-            if (editText6 == editText) {
-                TextView textView6 = this.Sm;
-                textView2 = this.fea.fdG;
-                if (textView6 == textView2) {
-                    return;
-                }
-            }
-            editText2 = this.fea.fdA;
-            this.crz = editText2;
-            textView = this.fea.fdG;
-            this.Sm = textView;
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        bmp = this.fJw.bmp();
+        this.fJw.a(this.arW, bmp.getSelectionStart(), aVar, this.arX);
     }
 }

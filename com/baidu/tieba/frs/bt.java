@@ -1,35 +1,53 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.t;
+import android.os.Handler;
+import android.widget.ImageView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt extends y.a {
-    TextView aOG;
-    public ViewStub bih;
-    public ViewGroup bii;
-    public ViewStub bij;
-    public ViewGroup bik;
-    LinearLayout bin;
-    TextView bio;
-    HeadImageView bip;
-    TextView biq;
-    TextView bir;
+public class bt implements Runnable {
+    final /* synthetic */ bq bFI;
 
-    public bt(View view) {
-        super(view);
-        this.bin = (LinearLayout) view.findViewById(t.g.app_parent);
-        this.aOG = (TextView) view.findViewById(t.g.app_name);
-        this.biq = (TextView) view.findViewById(t.g.app_desc);
-        this.bip = (HeadImageView) view.findViewById(t.g.app_icon);
-        this.bir = (TextView) view.findViewById(t.g.app_download);
-        this.bio = (TextView) view.findViewById(t.g.recommend_app);
-        this.bih = (ViewStub) view.findViewById(t.g.frs_item_adkiller_tip);
-        this.bij = (ViewStub) view.findViewById(t.g.item_adkiller_close);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bt(bq bqVar) {
+        this.bFI = bqVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
+        FrsActivity frsActivity;
+        ImageView imageView;
+        com.baidu.adp.lib.guide.d dVar2;
+        com.baidu.adp.lib.guide.d dVar3;
+        FrsActivity frsActivity2;
+        Handler handler;
+        Runnable runnable;
+        dVar = this.bFI.EF;
+        if (dVar == null) {
+            frsActivity = this.bFI.bET;
+            String string = frsActivity.getPageContext().getPageActivity().getResources().getString(u.j.add_frequently_forum_tips);
+            if (!StringUtils.isNull(string)) {
+                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+                imageView = this.bFI.bFf;
+                gVar.o(imageView).N(0).u(true).v(true);
+                bu buVar = new bu(this, string);
+                gVar.t(true);
+                gVar.v(false);
+                gVar.a(buVar);
+                this.bFI.EF = gVar.cW();
+                dVar2 = this.bFI.EF;
+                dVar2.s(false);
+                dVar3 = this.bFI.EF;
+                frsActivity2 = this.bFI.bET;
+                dVar3.f(frsActivity2.getPageContext().getPageActivity());
+                this.bFI.WL();
+                handler = this.bFI.mHandler;
+                runnable = this.bFI.bFG;
+                handler.postDelayed(runnable, TbConfig.NOTIFY_SOUND_INTERVAL);
+            }
+        }
     }
 }

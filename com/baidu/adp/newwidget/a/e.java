@@ -5,16 +5,16 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class e {
     public float mRadius;
-    public int sA;
+    public boolean sA;
     public int sB;
-    public boolean sC;
+    public int sC;
     public boolean sD;
-    public Drawable sF;
-    public Matrix sG;
-    public int sH;
-    public boolean sy;
+    public boolean sE;
+    public Drawable sG;
+    public Matrix sH;
+    public int sI;
     public boolean sz;
-    public boolean sE = true;
+    public boolean sF = true;
     public float mAlpha = 1.0f;
-    public boolean sI = false;
+    public boolean sJ = false;
 }

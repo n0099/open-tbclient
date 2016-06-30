@@ -1,16 +1,23 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements Runnable {
-    final /* synthetic */ FrsActivity bhl;
+class ag implements Runnable {
+    final /* synthetic */ af bDF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(FrsActivity frsActivity) {
-        this.bhl = frsActivity;
+    public ag(af afVar) {
+        this.bDF = afVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.tbadkCore.util.m.nX(this.bhl.bgf);
+        FrsActivity frsActivity;
+        bq bqVar;
+        FrsActivity frsActivity2;
+        frsActivity = this.bDF.bDB;
+        bqVar = frsActivity.bCD;
+        if (bqVar.Vf()) {
+            frsActivity2 = this.bDF.bDB;
+            frsActivity2.UU();
+        }
     }
 }

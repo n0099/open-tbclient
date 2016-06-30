@@ -165,11 +165,11 @@ public class SwitchButton extends CheckBox {
         Resources resources = context.getApplicationContext().getResources();
         this.u = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
         this.v = ViewConfiguration.get(context).getScaledTouchSlop();
-        this.c = BitmapFactory.decodeResource(resources, p.g(context, "bdsocialshare_switch_background"));
-        this.e = BitmapFactory.decodeResource(resources, p.h(context, "bdsocialshare_switch_round"));
+        this.c = BitmapFactory.decodeResource(resources, p.h(context, "bdsocialshare_switch_background"));
+        this.e = BitmapFactory.decodeResource(resources, p.i(context, "bdsocialshare_switch_round"));
         this.f = this.e;
-        this.g = BitmapFactory.decodeResource(resources, p.g(context, "bdsocialshare_switch_frame"));
-        this.h = BitmapFactory.decodeResource(resources, p.h(context, "bdsocialshare_switch_mask"));
+        this.g = BitmapFactory.decodeResource(resources, p.h(context, "bdsocialshare_switch_frame"));
+        this.h = BitmapFactory.decodeResource(resources, p.i(context, "bdsocialshare_switch_mask"));
         this.d = this.f;
         this.s = this.e.getWidth();
         this.q = this.h.getWidth();

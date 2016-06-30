@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
 /* loaded from: classes.dex */
 public class ChatMessageActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
     }
 }

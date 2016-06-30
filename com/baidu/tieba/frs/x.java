@@ -1,35 +1,28 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.data.b;
 /* loaded from: classes.dex */
-class x extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bhl;
+class x implements View.OnClickListener {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bhl = frsActivity;
+    public x(FrsActivity frsActivity) {
+        this.bDB = frsActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2001124) {
-                if (customResponsedMessage.getCmd() != 2001122) {
-                    return;
-                }
-                this.bhl.e(customResponsedMessage);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bq bqVar;
+        int intValue = ((Integer) view.getTag()).intValue();
+        bqVar = this.bDB.bCD;
+        com.baidu.adp.widget.ListView.v at = bqVar.Ww().at(intValue);
+        if (at instanceof b) {
+            b bVar = (b) at;
+            if (!bVar.ox()) {
                 return;
             }
-            this.bhl.d(customResponsedMessage);
+            this.bDB.b(bVar);
         }
     }
 }

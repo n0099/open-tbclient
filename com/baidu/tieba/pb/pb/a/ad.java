@@ -1,85 +1,146 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.BaobaoTailView;
+import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class ad extends Handler {
-    final /* synthetic */ r dgC;
+public class ad extends y.a {
+    public TextView aOX;
+    UserIconBox aef;
+    public UserIconBox bTj;
+    public TextView dNA;
+    public ImageView dNB;
+    public ImageView dNC;
+    public TbRichTextView dND;
+    public FrsPraiseView dNE;
+    public ImageView dNF;
+    public PbGiftListView dNG;
+    public RelativeLayout dNH;
+    public LinearLayout dNI;
+    public ImageView dNJ;
+    public SubPbLayout dNK;
+    public BaobaoTailView dNL;
+    public RelativeLayout dNM;
+    public RelativeLayout dNN;
+    public LinearLayout dNO;
+    public TextView dNP;
+    public LinearLayout dNQ;
+    public Button dNR;
+    public LinearLayout dNS;
+    public TextView dNT;
+    public View dNU;
+    public View dNV;
+    public LinearLayout dNW;
+    public ImageView dNX;
+    public TextView dNY;
+    public LinearLayout dNZ;
+    public View dNq;
+    public View dNr;
+    public View dNs;
+    public View dNt;
+    public View dNu;
+    public HeadImageView dNv;
+    public ImageView dNw;
+    public ImageView dNx;
+    public ImageView dNy;
+    public TextView dNz;
+    public ImageView dOa;
+    public TextView dOb;
+    public TextView dOc;
+    public int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad(r rVar, Looper looper) {
-        super(looper);
-        this.dgC = rVar;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        an anVar;
-        an anVar2;
-        an anVar3;
-        an anVar4;
-        an anVar5;
-        an anVar6;
-        Handler handler;
-        Handler handler2;
-        an anVar7;
-        an anVar8;
-        an anVar9;
-        an anVar10;
-        an anVar11;
-        switch (message.what) {
-            case 1:
-                z = this.dgC.dgt;
-                if (!z) {
-                    anVar = this.dgC.dgr;
-                    if (anVar != null) {
-                        anVar2 = this.dgC.dgr;
-                        if (anVar2.dgT != null) {
-                            anVar3 = this.dgC.dgr;
-                            if (anVar3.dgN != null) {
-                                anVar4 = this.dgC.dgr;
-                                if (anVar4.dgW != null) {
-                                    anVar5 = this.dgC.dgr;
-                                    if (anVar5.dgY != null) {
-                                        anVar6 = this.dgC.dgr;
-                                        if (anVar6.dgT.getCurrentPosition() > 0) {
-                                            anVar7 = this.dgC.dgr;
-                                            anVar7.dgN.setVisibility(8);
-                                            anVar8 = this.dgC.dgr;
-                                            anVar8.dgW.setVisibility(8);
-                                            anVar9 = this.dgC.dgr;
-                                            anVar9.dgY.setVisibility(8);
-                                            anVar10 = this.dgC.dgr;
-                                            this.dgC.b((com.baidu.tieba.tbadkCore.data.s) message.obj, anVar10);
-                                            r rVar = this.dgC;
-                                            anVar11 = this.dgC.dgr;
-                                            rVar.c(anVar11);
-                                            return;
-                                        }
-                                        handler = this.dgC.mHandler;
-                                        Message obtainMessage = handler.obtainMessage(1);
-                                        obtainMessage.obj = message.obj;
-                                        handler2 = this.dgC.mHandler;
-                                        handler2.sendMessageDelayed(obtainMessage, 50L);
-                                        return;
-                                    }
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                return;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=5] */
+    public ad(View view, boolean z, boolean z2, int i, boolean z3) {
+        super(view);
+        this.mSkinType = 3;
+        this.dNu = view.findViewById(u.g.sub_pb_more);
+        this.dNM = (RelativeLayout) view.findViewById(u.g.user_head_layout);
+        this.dNN = (RelativeLayout) view.findViewById(u.g.pb_item_floor_layout);
+        this.dNv = (HeadImageView) view.findViewById(u.g.photo);
+        this.aOX = (TextView) view.findViewById(u.g.user_name);
+        this.dNw = (ImageView) view.findViewById(u.g.user_rank);
+        this.dNx = (ImageView) view.findViewById(u.g.user_bawu);
+        this.dNy = (ImageView) view.findViewById(u.g.user_gender);
+        this.dNC = (ImageView) view.findViewById(u.g.reply);
+        this.dND = (TbRichTextView) view.findViewById(u.g.richText);
+        this.dNE = (FrsPraiseView) view.findViewById(u.g.pb_item_praise_view);
+        this.dNF = (ImageView) view.findViewById(u.g.pb_item_praise_bottomline);
+        this.dNG = (PbGiftListView) view.findViewById(u.g.gift_list_view);
+        this.dNW = (LinearLayout) view.findViewById(u.g.pb_item_location_container);
+        this.dNY = (TextView) view.findViewById(u.g.pb_item_location_address);
+        this.dNX = (ImageView) view.findViewById(u.g.pb_item_location_img);
+        this.dNZ = (LinearLayout) view.findViewById(u.g.pb_reply_location_container);
+        this.dOb = (TextView) view.findViewById(u.g.pb_reply_location_address);
+        this.dOa = (ImageView) view.findViewById(u.g.pb_reply_location_img);
+        this.dNB = (ImageView) view.findViewById(u.g.floor_owner);
+        this.dNz = (TextView) view.findViewById(u.g.floor);
+        this.dNA = (TextView) view.findViewById(u.g.time);
+        this.dNH = (RelativeLayout) view.findViewById(u.g.pb_post_header_layout);
+        this.dNK = (SubPbLayout) view.findViewById(u.g.pb_post_footer_layout);
+        this.dNI = (LinearLayout) view.findViewById(u.g.pb_subpb_layout_root);
+        this.dNJ = (ImageView) view.findViewById(u.g.pb_post_footer_layout_line_top);
+        this.dNq = view;
+        this.dNr = view.findViewById(u.g.new_pb_list_item_line_top);
+        this.dNs = view.findViewById(u.g.new_pb_list_item_line_top_full);
+        this.dNt = view.findViewById(u.g.new_pb_list_item_blank_top);
+        this.dND.Hr();
+        this.dND.setImageViewStretch(true);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m9getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.dND.getPaddingLeft()) - this.dND.getPaddingRight()) - ((int) TbadkCoreApplication.m9getInst().getResources().getDimension(u.e.ds60)), i);
+        this.dND.setMaxImageWidth(min);
+        this.dND.setMaxImageHeight((int) (min * 1.618f));
+        this.dND.setTextSize(TbConfig.getContentSize());
+        if (z) {
+            ViewGroup.LayoutParams layoutParams = this.dNv.getLayoutParams();
+            layoutParams.width = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(u.e.ds60);
+            this.dNv.setLayoutParams(layoutParams);
+            this.dNv.setVisibility(0);
+        } else {
+            ViewGroup.LayoutParams layoutParams2 = this.dNv.getLayoutParams();
+            layoutParams2.width = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(u.e.ds30);
+            this.dNv.setLayoutParams(layoutParams2);
+            this.dNv.setVisibility(4);
         }
+        this.dND.i(z2, false);
+        this.dND.setVoiceViewRes(u.h.voice_play_btn);
+        this.bTj = (UserIconBox) view.findViewById(u.g.user_icon_box);
+        this.aef = (UserIconBox) view.findViewById(u.g.user_tshow_icon_box);
+        this.dNO = (LinearLayout) view.findViewById(u.g.add_post_footer_layout);
+        if (z3) {
+            this.dNH.setVisibility(8);
+            this.dNC.setVisibility(8);
+            this.dND.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.dND.getLayoutParams();
+            layoutParams3.leftMargin = 0;
+            layoutParams3.rightMargin = 0;
+            layoutParams3.topMargin = 0;
+            layoutParams3.bottomMargin = 0;
+            this.dND.setLayoutParams(layoutParams3);
+            view.findViewById(u.g.pb_list_item_layout).setPadding(0, 0, 0, 0);
+            this.dNQ = (LinearLayout) view.findViewById(u.g.add_time_container);
+            this.dNP = (TextView) view.findViewById(u.g.add_time);
+            this.dNR = (Button) view.findViewById(u.g.manage_btn);
+            this.dNQ.setVisibility(0);
+        }
+        this.dNS = (LinearLayout) view.findViewById(u.g.addition_more_container);
+        this.dNT = (TextView) this.dNS.findViewById(u.g.addition_more);
+        this.dNU = this.dNS.findViewById(u.g.addition_divider1);
+        this.dNV = this.dNS.findViewById(u.g.addition_divider2);
+        this.dNL = (BaobaoTailView) view.findViewById(u.g.baobao_tail);
+        this.dOc = (TextView) view.findViewById(u.g.pb_item_tail_content);
     }
 }

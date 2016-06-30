@@ -20,17 +20,17 @@ class e extends CustomMessageListener {
         ab abVar2;
         ab abVar3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
-            this.this$0.atW();
-            abVar = this.this$0.ewE;
+            this.this$0.aCb();
+            abVar = this.this$0.fbu;
             if (abVar != null) {
-                abVar2 = this.this$0.ewE;
-                if (abVar2.aVR() != null) {
+                abVar2 = this.this$0.fbu;
+                if (abVar2.bed() != null) {
                     MainTabActivity mainTabActivity = this.this$0;
-                    abVar3 = this.this$0.ewE;
-                    mainTabActivity.ewy = abVar3.aVR().getCurrentTabType();
+                    abVar3 = this.this$0.fbu;
+                    mainTabActivity.fbo = abVar3.bed().getCurrentTabType();
                 }
             }
-            this.this$0.ewz = true;
+            this.this$0.fbp = true;
         }
     }
 }

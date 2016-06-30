@@ -1,35 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class cq implements View.OnTouchListener {
-    final /* synthetic */ cn bkx;
+class cq implements View.OnClickListener {
+    private final /* synthetic */ TbPageContext azW;
+    private final /* synthetic */ String btC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cn cnVar) {
-        this.bkx = cnVar;
+    public cq(TbPageContext tbPageContext, String str) {
+        this.azW = tbPageContext;
+        this.btC = str;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        ImageView imageView;
-        ImageView imageView2;
-        if (view.getId() == t.g.refresh_layout) {
-            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                imageView = this.bkx.bjK;
-                com.baidu.tbadk.core.util.at.c(imageView, t.f.pic_fresh_n);
-            }
-            if (motionEvent.getAction() == 0) {
-                imageView2 = this.bkx.bjK;
-                com.baidu.tbadk.core.util.at.c(imageView2, t.f.pic_fresh_s);
-                return false;
-            }
-            return false;
-        }
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.azW.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.azW.getPageActivity(), 23003)));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10125").ab("fid", this.btC).s("obj_type", 2));
     }
 }

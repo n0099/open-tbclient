@@ -2,8 +2,9 @@ package com.baidu.tbadk.core.a;
 
 import android.view.View;
 import com.baidu.sapi2.SapiWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements View.OnClickListener {
+public class f implements View.OnClickListener {
     private final /* synthetic */ SapiWebView Mi;
     private final /* synthetic */ View Mj;
 

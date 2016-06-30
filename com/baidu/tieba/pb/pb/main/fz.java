@@ -1,46 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.cw;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fz implements cw.a {
-    final /* synthetic */ ReaderPbService dpB;
+public class fz implements View.OnClickListener {
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fz(ReaderPbService readerPbService) {
-        this.dpB = readerPbService;
+    public fz(es esVar) {
+        this.dVR = esVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cw.a
-    public void c(com.baidu.tieba.pb.data.e eVar) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.cw.a
-    public void d(com.baidu.tbadk.performanceLog.v vVar) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.cw.a
-    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.e eVar, String str, int i4) {
-        boolean z2;
-        dz dzVar;
-        ec ecVar;
-        dz dzVar2;
-        ec ecVar2;
-        ec ecVar3;
-        ec ecVar4;
-        z2 = this.dpB.isAlive;
-        if (!z2) {
-            dzVar = this.dpB.mReaderManager;
-            if (dzVar != null) {
-                ecVar = this.dpB.mReaderModel;
-                if (ecVar != null) {
-                    dzVar2 = this.dpB.mReaderManager;
-                    ecVar2 = this.dpB.mReaderModel;
-                    com.baidu.tieba.pb.data.e pbData = ecVar2.getPbData();
-                    ecVar3 = this.dpB.mReaderModel;
-                    boolean ayB = ecVar3.ayB();
-                    ecVar4 = this.dpB.mReaderModel;
-                    dzVar2.b(pbData, ayB, i2, ecVar4.ayC());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            boolean booleanValue = sparseArray.get(u.g.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(u.g.tag_should_manage_visible)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(u.g.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(u.g.tag_user_mute_visible)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(u.g.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(u.g.tag_should_delete_visible)).booleanValue() : false;
+            if (booleanValue) {
+                if (booleanValue2) {
+                    sparseArray.put(u.g.tag_from, 1);
+                    pbActivity2 = this.dVR.dOg;
+                    pbActivity2.d(sparseArray);
+                    return;
                 }
+                this.dVR.aZ(view);
+            } else if (booleanValue2) {
+                sparseArray.put(u.g.tag_from, 0);
+                sparseArray.put(u.g.tag_check_mute_from, 1);
+                pbActivity = this.dVR.dOg;
+                pbActivity.d(sparseArray);
+            } else if (booleanValue3) {
+                this.dVR.a(((Integer) sparseArray.get(u.g.tag_del_post_type)).intValue(), (String) sparseArray.get(u.g.tag_del_post_id), ((Integer) sparseArray.get(u.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(u.g.tag_del_post_is_self)).booleanValue());
             }
         }
     }

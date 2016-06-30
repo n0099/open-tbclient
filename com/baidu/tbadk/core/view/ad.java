@@ -5,11 +5,11 @@ import android.widget.MediaController;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements MediaPlayer.OnErrorListener {
-    final /* synthetic */ TextureVideoView ade;
+    final /* synthetic */ TextureVideoView adC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(TextureVideoView textureVideoView) {
-        this.ade = textureVideoView;
+        this.adC = textureVideoView;
     }
 
     @Override // android.media.MediaPlayer.OnErrorListener
@@ -19,17 +19,17 @@ public class ad implements MediaPlayer.OnErrorListener {
         MediaPlayer.OnErrorListener onErrorListener2;
         MediaPlayer mediaPlayer2;
         MediaController mediaController2;
-        this.ade.acC = -1;
-        this.ade.acD = -1;
-        mediaController = this.ade.acH;
+        this.adC.acX = -1;
+        this.adC.acY = -1;
+        mediaController = this.adC.adc;
         if (mediaController != null) {
-            mediaController2 = this.ade.acH;
+            mediaController2 = this.adC.adc;
             mediaController2.hide();
         }
-        onErrorListener = this.ade.acL;
+        onErrorListener = this.adC.adh;
         if (onErrorListener != null) {
-            onErrorListener2 = this.ade.acL;
-            mediaPlayer2 = this.ade.acE;
+            onErrorListener2 = this.adC.adh;
+            mediaPlayer2 = this.adC.acZ;
             if (onErrorListener2.onError(mediaPlayer2, i, i2)) {
             }
         }

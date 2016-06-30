@@ -6,28 +6,28 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class a extends i {
-    private static volatile a wc = null;
-    private static ArrayList<C0001a> wd = new ArrayList<>();
+    private static volatile a we = null;
+    private static ArrayList<C0001a> wf = new ArrayList<>();
 
     public abstract void a(String str, long j, long j2, String str2);
 
-    public static a iu() {
-        if (wc == null) {
+    public static a ix() {
+        if (we == null) {
             BdLog.e("trafficStatsManaer");
-            wc = new b();
+            we = new b();
         }
-        return wc;
+        return we;
     }
 
     public static void a(a aVar) {
-        wc = aVar;
-        if (wc != null) {
-            Iterator<C0001a> it = wd.iterator();
+        we = aVar;
+        if (we != null) {
+            Iterator<C0001a> it = wf.iterator();
             while (it.hasNext()) {
                 C0001a next = it.next();
-                wc.a(next.contentType, next.we, next.wf, next.url);
+                we.a(next.contentType, next.wg, next.wh, next.url);
             }
-            wd.clear();
+            wf.clear();
         }
     }
 
@@ -41,13 +41,13 @@ public abstract class a extends i {
     public class C0001a {
         public String contentType;
         public String url;
-        public long we;
-        public long wf;
+        public long wg;
+        public long wh;
 
         public C0001a(String str, long j, long j2, String str2) {
             this.contentType = str;
-            this.we = j;
-            this.wf = j2;
+            this.wg = j;
+            this.wh = j2;
             this.url = str2;
         }
     }

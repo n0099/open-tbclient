@@ -33,10 +33,10 @@ public class a {
     /* renamed from: com.baidu.adp.lib.stats.switchs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0008a {
-        void eb();
+        void ec();
     }
 
-    public static a eI() {
+    public static a eJ() {
         if (nJ == null) {
             synchronized (a.class) {
                 if (nJ == null) {
@@ -68,10 +68,10 @@ public class a {
             BdLog.e(e);
         }
         this.nM = interfaceC0008a;
-        eJ();
+        eK();
     }
 
-    public void eJ() {
+    public void eK() {
         c cVar = new c(this, null);
         cVar.setPriority(4);
         cVar.execute(new Object[0]);
@@ -93,16 +93,16 @@ public class a {
         /* renamed from: c */
         public BdStatSwitchData doInBackground(Object... objArr) {
             BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
-            if (a.this.nL.eM()) {
+            if (a.this.nL.eN()) {
                 bdStatSwitchData.parserJson(a.this.nL.nO);
             }
             a.this.nG = false;
             if (a.this.mE && a.this.ar(a.this.nL.nO)) {
-                String eK = a.this.eK();
-                if (!TextUtils.isEmpty(eK) && !eK.equals(a.this.nL.nO)) {
+                String eL = a.this.eL();
+                if (!TextUtils.isEmpty(eL) && !eL.equals(a.this.nL.nO)) {
                     a.this.nG = true;
-                    bdStatSwitchData.parserJson(eK);
-                    a.this.nL.at(eK);
+                    bdStatSwitchData.parserJson(eL);
+                    a.this.nL.at(eL);
                 }
             }
             return bdStatSwitchData;
@@ -117,11 +117,11 @@ public class a {
             if (bdStatSwitchData != null) {
                 a.this.nK = bdStatSwitchData;
                 if (a.this.mE && a.this.nG) {
-                    a.this.eL();
-                    j.eQ().eT();
+                    a.this.eM();
+                    j.eR().eU();
                 }
                 if (a.this.nM != null) {
-                    a.this.nM.eb();
+                    a.this.nM.ec();
                 }
             }
         }
@@ -133,7 +133,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String eK() {
+    public String eL() {
         if (TextUtils.isEmpty(this.nH)) {
             return null;
         }
@@ -149,7 +149,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eL() {
+    public void eM() {
         if (this.mE) {
             Intent intent = new Intent("com.baidu.adp.stats.switch");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -181,14 +181,14 @@ public class a {
             if (intent != null) {
                 String action = intent.getAction();
                 if ("com.baidu.adp.stats.background".equals(action)) {
-                    com.baidu.adp.lib.stats.a.dN().save();
+                    com.baidu.adp.lib.stats.a.dO().save();
                     if (a.this.mE) {
-                        j.eQ().eX();
+                        j.eR().eY();
                     }
                 } else if ("com.baidu.adp.stats.switch".equals(action)) {
                     if (!a.this.mE) {
-                        a.this.eJ();
-                        j.eQ().eT();
+                        a.this.eK();
+                        j.eR().eU();
                     }
                 } else if ("com.baidu.adp.stats.updatecmd".equals(action) && !a.this.mE && (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) != null && (serializableExtra instanceof BdUploadStatMsgData)) {
                     BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) serializableExtra;

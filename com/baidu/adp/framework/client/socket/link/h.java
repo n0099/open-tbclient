@@ -7,30 +7,30 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class h {
-    private boolean fU = false;
-    private int fV = 0;
-    private final Handler fW = new i(this, Looper.getMainLooper());
+    private boolean fT = false;
+    private int fU = 0;
+    private final Handler fV = new i(this, Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void start(String str) {
         if (!BdSocketLinkService.isAvailable()) {
             stop("online failed 5");
-        } else if (!this.fU) {
-            this.fU = true;
-            this.fW.removeMessages(1);
-            if (com.baidu.adp.lib.webSocket.h.gf().gi()) {
+        } else if (!this.fT) {
+            this.fT = true;
+            this.fV.removeMessages(1);
+            if (com.baidu.adp.lib.webSocket.h.gg().gj()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 stop("in Opened");
                 return;
             }
-            bk();
+            bl();
             BdLog.d("启动重连策略");
-            this.fV = 0;
+            this.fU = 0;
             int[] aV = com.baidu.adp.framework.client.socket.j.aV();
             if (aV != null && aV.length >= 1) {
                 BdLog.i("start reconnStrategy... the first will be delay" + aV[0]);
-                k.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, String.valueOf(str) + " retryTimes=" + String.valueOf(this.fV));
-                this.fW.sendMessageDelayed(this.fW.obtainMessage(1), aV[0] * 1000);
+                k.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, String.valueOf(str) + " retryTimes=" + String.valueOf(this.fU));
+                this.fV.sendMessageDelayed(this.fV.obtainMessage(1), aV[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
@@ -40,17 +40,17 @@ public class h {
         }
     }
 
-    private void bk() {
+    private void bl() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void stop(String str) {
-        if (this.fU) {
+        if (this.fT) {
             k.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
-            this.fU = false;
-            this.fV = 0;
+            this.fT = false;
+            this.fU = 0;
             BdLog.i("stop reconnStrategy");
-            this.fW.removeMessages(1);
+            this.fV.removeMessages(1);
         }
     }
 }

@@ -1,41 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ba implements a.b {
-    private final /* synthetic */ int bhA;
-    private final /* synthetic */ String bhB;
-    private final /* synthetic */ long bhC;
-    final /* synthetic */ PbActivity djE;
-    private final /* synthetic */ ga djJ;
-    private final /* synthetic */ ShareFromPBMsgData djK;
+class ba extends CustomMessageListener {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(PbActivity pbActivity, ga gaVar, int i, String str, long j, ShareFromPBMsgData shareFromPBMsgData) {
-        this.djE = pbActivity;
-        this.djJ = gaVar;
-        this.bhA = i;
-        this.bhB = str;
-        this.bhC = j;
-        this.djK = shareFromPBMsgData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ba(PbActivity pbActivity, int i) {
+        super(i);
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        int awB;
-        this.djE.HidenSoftKeyPad((InputMethodManager) this.djE.getSystemService("input_method"), this.djJ.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.djE.getPageContext().getPageActivity(), this.bhA, this.bhB, this.bhC, "from_share", this.djJ.getLeaveMsg(), this.djK.toChatMessageContent())));
-        aVar.dismiss();
-        awB = this.djE.awB();
-        if (awB == 1) {
-            this.djE.awF();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        es esVar;
+        es esVar2;
+        es esVar3;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            esVar = this.dPF.dOO;
+            if (esVar != null) {
+                if (booleanValue) {
+                    esVar3 = this.dPF.dOO;
+                    esVar3.aoD();
+                    return;
+                }
+                esVar2 = this.dPF.dOO;
+                esVar2.aoC();
+            }
         }
     }
 }

@@ -3,18 +3,18 @@ package com.baidu.tieba.frs.view;
 import android.graphics.drawable.Drawable;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tieba.tbadkCore.d.a;
 import java.util.HashMap;
 import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.data.n> {
-    final /* synthetic */ c bwe;
+public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.data.p> {
+    final /* synthetic */ c bTP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar) {
-        this.bwe = cVar;
+        this.bTP = cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
@@ -26,39 +26,39 @@ public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
         int i4;
         HashMap hashMap2;
         String str3;
-        bg.ut().c(this.bwe.Do, new String[]{str});
+        bi.us().c(this.bTP.Dp, new String[]{str});
         String str4 = "";
         String str5 = "";
-        if (this.bwe.bjB != null) {
-            str4 = this.bwe.bjB.getForumId();
-            str5 = this.bwe.bjB.getForumName();
+        if (this.bTP.bET != null) {
+            str4 = this.bTP.bET.getForumId();
+            str5 = this.bTP.bET.getForumName();
         }
         if (i <= 0) {
-            hashMap2 = c.bvW;
-            str3 = this.bwe.NS;
-            a.C0075a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap2.get(1), "ad_plat", "CLICK", str3, str4, str5, null);
-            a.bK("obj_url", str);
+            hashMap2 = c.bTH;
+            str3 = this.bTP.NQ;
+            a.C0077a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap2.get(1), "ad_plat", "CLICK", str3, str4, str5, null);
+            a.bM("obj_url", str);
             a.save();
             return;
         }
-        i2 = this.bwe.bvY;
+        i2 = this.bTP.bTJ;
         if (i2 > 1) {
-            i3 = this.bwe.bvY;
+            i3 = this.bTP.bTJ;
             if (i > i3) {
-                i4 = this.bwe.bvY;
+                i4 = this.bTP.bTJ;
                 i %= i4;
             }
-            hashMap = c.bvW;
-            str2 = this.bwe.NS;
-            a.C0075a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "CLICK", str2, str4, str5, null);
-            a2.bK("obj_url", str);
+            hashMap = c.bTH;
+            str2 = this.bTP.NQ;
+            a.C0077a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "CLICK", str2, str4, str5, null);
+            a2.bM("obj_url", str);
             a2.save();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.flow.a.d
-    public void a(int i, com.baidu.tbadk.core.data.n nVar) {
+    public void a(int i, com.baidu.tbadk.core.data.p pVar) {
         int i2;
         Drawable drawable;
         int i3;
@@ -67,43 +67,43 @@ public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
         HashMap hashMap;
         String str;
         int i5;
-        if (this.bwe.bvl != null) {
+        if (this.bTP.bSS != null) {
             String str2 = "";
-            if (this.bwe.bjB != null) {
-                str2 = this.bwe.bjB.getForumId();
+            if (this.bTP.bET != null) {
+                str2 = this.bTP.bET.getForumId();
             }
             if (i > 0) {
-                i3 = this.bwe.bvY;
+                i3 = this.bTP.bTJ;
                 if (i3 > 1) {
-                    i4 = this.bwe.bvY;
+                    i4 = this.bTP.bTJ;
                     if (i > i4) {
-                        i5 = this.bwe.bvY;
+                        i5 = this.bTP.bTJ;
                         i %= i5;
                     }
-                    hashSet = c.bvX;
+                    hashSet = c.bTI;
                     if (hashSet.add(Integer.valueOf(i))) {
-                        hashMap = c.bvW;
-                        str = this.bwe.NS;
-                        a.C0075a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "VIEW_TRUE", str, str2, "", null);
-                        if (nVar != null) {
-                            a.bK("obj_url", nVar.getLinkUrl());
+                        hashMap = c.bTH;
+                        str = this.bTP.NQ;
+                        a.C0077a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "VIEW_TRUE", str, str2, "", null);
+                        if (pVar != null) {
+                            a.bM("obj_url", pVar.getLinkUrl());
                         }
                         a.save();
                     }
                 }
             }
-            if (nVar == null || StringUtils.isNull(nVar.getTitle(), true)) {
-                this.bwe.bvl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                this.bwe.bvl.setText("");
+            if (pVar == null || StringUtils.isNull(pVar.getTitle(), true)) {
+                this.bTP.bSS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bTP.bSS.setText("");
                 return;
             }
-            TextView textView = this.bwe.bvl;
-            i2 = this.bwe.drawablePadding;
+            TextView textView = this.bTP.bSS;
+            i2 = this.bTP.drawablePadding;
             textView.setCompoundDrawablePadding(i2);
-            TextView textView2 = this.bwe.bvl;
-            drawable = this.bwe.bvm;
+            TextView textView2 = this.bTP.bSS;
+            drawable = this.bTP.bST;
             textView2.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.bwe.bvl.setText(nVar.getTitle());
+            this.bTP.bSS.setText(pVar.getTitle());
         }
     }
 }

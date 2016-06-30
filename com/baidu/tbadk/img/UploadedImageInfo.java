@@ -1,7 +1,7 @@
 package com.baidu.tbadk.img;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.CommonVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -56,9 +56,9 @@ public class UploadedImageInfo implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.pic_id = jSONObject.optString(CommonVcodeActivityConfig.PIC_ID);
-                this.width = jSONObject.optInt(CommonVcodeActivityConfig.WIDTH, 0);
-                this.height = jSONObject.optInt(CommonVcodeActivityConfig.HEIGHT, 0);
+                this.pic_id = jSONObject.optString(GraffitiVcodeActivityConfig.PIC_ID);
+                this.width = jSONObject.optInt(GraffitiVcodeActivityConfig.WIDTH, 0);
+                this.height = jSONObject.optInt(GraffitiVcodeActivityConfig.HEIGHT, 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

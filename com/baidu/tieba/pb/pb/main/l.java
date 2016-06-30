@@ -1,77 +1,55 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.ae;
+import com.baidu.tieba.pb.pb.main.cp;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class l extends CustomMessageListener {
-    final /* synthetic */ PbActivity djE;
+class l implements cp.a {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(PbActivity pbActivity, int i) {
-        super(i);
-        this.djE = pbActivity;
+    public l(PbActivity pbActivity) {
+        this.dPF = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        cw cwVar;
-        cw cwVar2;
-        cw cwVar3;
-        el elVar;
-        cw cwVar4;
-        el elVar2;
-        cw cwVar5;
-        cw cwVar6;
-        cw cwVar7;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.s)) {
-            com.baidu.tbadk.core.data.s sVar = (com.baidu.tbadk.core.data.s) customResponsedMessage.getData();
-            ae.a aVar = new ae.a();
-            aVar.giftId = sVar.getId();
-            aVar.EV = sVar.getName();
-            aVar.thumbnailUrl = sVar.getThumbnailUrl();
-            cwVar = this.djE.dih;
-            com.baidu.tieba.pb.data.e pbData = cwVar.getPbData();
-            if (pbData != null) {
-                cwVar2 = this.djE.dih;
-                if (cwVar2.axL() != null) {
-                    cwVar4 = this.djE.dih;
-                    if (cwVar4.axL().getUserIdLong() == sVar.getToUserId()) {
-                        elVar2 = this.djE.diR;
-                        int sendCount = sVar.getSendCount();
-                        cwVar5 = this.djE.dih;
-                        com.baidu.tieba.pb.data.e pbData2 = cwVar5.getPbData();
-                        cwVar6 = this.djE.dih;
-                        boolean axE = cwVar6.axE();
-                        cwVar7 = this.djE.dih;
-                        elVar2.a(sendCount, pbData2, axE, cwVar7.getRequestType());
-                    }
-                }
-                if (pbData.avF() != null && pbData.avF().size() >= 1 && pbData.avF().get(0) != null) {
-                    long c = com.baidu.adp.lib.h.b.c(pbData.avF().get(0).getId(), 0L);
-                    cwVar3 = this.djE.dih;
-                    long c2 = com.baidu.adp.lib.h.b.c(cwVar3.getThreadID(), 0L);
-                    if (c == sVar.getPostId() && c2 == sVar.getThreadId()) {
-                        com.baidu.tbadk.core.data.ae aUh = pbData.avF().get(0).aUh();
-                        if (aUh == null) {
-                            aUh = new com.baidu.tbadk.core.data.ae();
-                        }
-                        ArrayList<ae.a> pN = aUh.pN();
-                        if (pN == null) {
-                            pN = new ArrayList<>();
-                        }
-                        pN.add(0, aVar);
-                        aUh.bE(sVar.getSendCount() + aUh.pM());
-                        aUh.g(pN);
-                        pbData.avF().get(0).a(aUh);
-                        elVar = this.djE.diR;
-                        elVar.ayX().notifyDataSetChanged();
-                    }
+    @Override // com.baidu.tieba.pb.pb.main.cp.a
+    public void i(int i, long j) {
+        dg dgVar;
+        dg dgVar2;
+        es esVar;
+        dg dgVar3;
+        if (i != 0) {
+            this.dPF.showToast(u.j.operation_failed);
+            return;
+        }
+        this.dPF.ni(2);
+        el.aGM().reset();
+        dgVar = this.dPF.dOf;
+        dgVar.aGc();
+        dgVar2 = this.dPF.dOf;
+        ArrayList<com.baidu.tieba.tbadkCore.data.s> aDP = dgVar2.getPbData().aDP();
+        if (aDP != null) {
+            Iterator<com.baidu.tieba.tbadkCore.data.s> it = aDP.iterator();
+            boolean z = false;
+            while (it.hasNext()) {
+                com.baidu.tieba.tbadkCore.data.s next = it.next();
+                if (er.f(next) && next.bcw().getTemplateId() == j) {
+                    it.remove();
+                    z = true;
                 }
             }
+            if (z) {
+                esVar = this.dPF.dOO;
+                dgVar3 = this.dPF.dOf;
+                esVar.j(dgVar3.getPbData());
+            }
+            this.dPF.showToast(u.j.operation_success);
         }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.cp.a
+    public void onError(int i, String str) {
+        this.dPF.showToast(u.j.operation_failed);
     }
 }

@@ -1,24 +1,25 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements TbImageView.a {
-    final /* synthetic */ r dgC;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.o dgF;
+public class ac implements View.OnClickListener {
+    final /* synthetic */ z dNn;
+    private final /* synthetic */ int dNo;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dNp;
+    private final /* synthetic */ int val$count;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(r rVar, com.baidu.tbadk.widget.richText.o oVar) {
-        this.dgC = rVar;
-        this.dgF = oVar;
+    public ac(z zVar, int i, int i2, com.baidu.tieba.tbadkCore.data.s sVar) {
+        this.dNn = zVar;
+        this.dNo = i;
+        this.val$count = i2;
+        this.dNp = sVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void t(String str, boolean z) {
-        this.dgC.lP(this.dgF.getVideoUrl());
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.dNp.qE(Math.min(this.dNo + 5, this.val$count));
+        this.dNn.notifyDataSetChanged();
     }
 }

@@ -1,9 +1,11 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements a.b {
+public class aw implements View.OnClickListener {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +13,13 @@ public class aw implements a.b {
         this.this$0 = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        baseFragmentActivity = this.this$0.aMU;
+        TiebaStatic.eventStat(baseFragmentActivity.getPageContext().getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
+        baseFragmentActivity2 = this.this$0.aMU;
+        com.baidu.tbadk.core.util.bn.aa(baseFragmentActivity2.getPageContext().getPageActivity());
     }
 }

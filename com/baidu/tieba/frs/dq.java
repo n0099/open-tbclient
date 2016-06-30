@@ -1,29 +1,37 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.t;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dq implements View.OnClickListener {
-    final /* synthetic */ dp blk;
+public class dq implements Animation.AnimationListener {
+    final /* synthetic */ Cdo bHg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dq(dp dpVar) {
-        this.blk = dpVar;
+    public dq(Cdo cdo) {
+        this.bHg = cdo;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.v as;
-        BaseActivity baseActivity;
-        if (this.blk.as(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.ax) {
-            String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.ax) as).getAuthor().getUserId();
-            String string = TbadkCoreApplication.m11getInst().getString(t.j.user_icon_web_view_title);
-            baseActivity = this.blk.bek;
-            com.baidu.tbadk.browser.f.a(baseActivity.getApplicationContext(), string, str, true, true, false);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10134").s("obj_type", 3));
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        View view2;
+        View view3;
+        view = this.bHg.bGY;
+        if (view != null) {
+            view2 = this.bHg.bGY;
+            view2.clearAnimation();
+            view3 = this.bHg.bGY;
+            view3.setVisibility(8);
+            this.bHg.dv(true);
         }
     }
 }

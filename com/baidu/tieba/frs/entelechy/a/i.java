@@ -4,52 +4,51 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.entelechy.c.au;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.aj;
+import com.baidu.tieba.card.bx;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.widget.ListView.a<ax, a> {
-    private BaseActivity<?> boS;
-    private au boT;
-    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> boU;
-    private com.baidu.adp.lib.f.b<TbImageView> boV;
+public class i extends com.baidu.adp.widget.ListView.a<aj, a> {
+    private TbPageContext<?> Ea;
+    private com.baidu.tieba.frs.entelechy.view.ad bJe;
+    private bx bJf;
 
-    public i(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity.getActivity(), bdUniqueId);
-        this.boU = new com.baidu.adp.lib.f.b<>(new j(this), 6, 0);
-        this.boV = new com.baidu.adp.lib.f.b<>(new k(this), 12, 0);
-        this.boS = baseActivity;
+    public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.bJf = new j(this);
+        this.Ea = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: H */
-    public a b(ViewGroup viewGroup) {
-        this.boT = new au(this.boS);
-        this.boT.setConstrainLayoutPool(this.boU);
-        this.boT.setConstrainImagePool(this.boV);
-        this.boT.j(this.boS.getUniqueId());
-        return new a(this.boT);
+    /* renamed from: z */
+    public a a(ViewGroup viewGroup) {
+        this.bJe = new com.baidu.tieba.frs.entelechy.view.ad(this.Ea);
+        this.bJe.i(this.Ea.getUniqueId());
+        return new a(this.bJe);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ax axVar, a aVar) {
-        aVar.boX.h(axVar);
+    public View a(int i, View view, ViewGroup viewGroup, aj ajVar, a aVar) {
+        if (aVar == null || aVar.bJh == null) {
+            return null;
+        }
+        aVar.bJh.a(ajVar);
+        aVar.bJh.a(this.bJf);
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class a extends y.a {
-        au boX;
+    public class a extends y.a {
+        public com.baidu.tieba.frs.entelechy.view.ad bJh;
 
-        public a(au auVar) {
-            super(auVar.getView());
-            this.boX = auVar;
+        public a(com.baidu.tieba.frs.entelechy.view.ad adVar) {
+            super(adVar.getView());
+            this.bJh = adVar;
         }
     }
 }

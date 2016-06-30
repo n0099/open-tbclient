@@ -6,23 +6,23 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private TextView adG;
-    private View aiu;
-    private TextView bbW;
-    private HeadImageView bfG;
-    private TextView cyf;
+    private TextView aee;
+    private View aja;
+    private HeadImageView bBS;
+    private TextView bxR;
+    private TextView ddB;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.bfG = (HeadImageView) view.findViewById(t.g.photo);
-        this.adG = (TextView) view.findViewById(t.g.user_name);
-        this.bbW = (TextView) view.findViewById(t.g.time);
-        this.cyf = (TextView) view.findViewById(t.g.content);
-        this.aiu = view.findViewById(t.g.line);
-        this.bfG.setOnClickListener(new c(this));
+        this.bBS = (HeadImageView) view.findViewById(u.g.photo);
+        this.aee = (TextView) view.findViewById(u.g.user_name);
+        this.bxR = (TextView) view.findViewById(u.g.time);
+        this.ddB = (TextView) view.findViewById(u.g.content);
+        this.aja = view.findViewById(u.g.line);
+        this.bBS.setOnClickListener(new c(this));
         view.setOnClickListener(new d(this));
     }
 
@@ -32,34 +32,34 @@ public class b extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.b
     public void B(FeedData feedData) {
         super.B(feedData);
         if (feedData.getReplyer() != null) {
-            this.adG.setText(feedData.getReplyer().getName_show());
-            this.bfG.setVisibility(0);
+            this.aee.setText(feedData.getReplyer().getName_show());
+            this.bBS.setVisibility(0);
             String portrait = feedData.getReplyer().getPortrait();
-            this.bfG.setTag(null);
+            this.bBS.setTag(null);
             if (portrait != null && portrait.length() > 0) {
-                this.bfG.c(portrait, 12, false);
+                this.bBS.c(portrait, 12, false);
             } else {
-                this.bfG.setImageResource(t.f.photo);
+                this.bBS.setImageResource(u.f.photo);
             }
         }
-        this.bbW.setText(com.baidu.tbadk.core.util.ay.x(feedData.getTime()));
-        this.cyf.setText(feedData.getContent());
+        this.bxR.setText(com.baidu.tbadk.core.util.ba.y(feedData.getTime()));
+        this.ddB.setText(feedData.getContent());
     }
 
-    @Override // com.baidu.tieba.tbadkCore.s
+    @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.core.util.at.k(getRootView(), t.f.list_selector);
-        com.baidu.tbadk.core.util.at.l(this.aiu, t.d.cp_bg_line_b);
+        com.baidu.tbadk.core.util.av.k(getRootView(), u.f.list_selector);
+        com.baidu.tbadk.core.util.av.l(this.aja, u.d.cp_bg_line_b);
         if (i == 1) {
-            this.bbW.setTextColor(getResources().getColor(t.d.c_515865));
-            this.cyf.setTextColor(getResources().getColor(t.d.c_7b8591));
-            this.adG.setTextColor(getResources().getColor(t.d.cp_cont_c_1));
+            this.bxR.setTextColor(getResources().getColor(u.d.common_color_10071));
+            this.ddB.setTextColor(getResources().getColor(u.d.common_color_10069));
+            this.aee.setTextColor(getResources().getColor(u.d.cp_cont_c_1));
         } else {
-            this.bbW.setTextColor(getResources().getColor(t.d.c_b2b6ba));
-            this.cyf.setTextColor(getResources().getColor(t.d.c_262626));
-            this.adG.setTextColor(getResources().getColor(t.d.cp_cont_c));
+            this.bxR.setTextColor(getResources().getColor(u.d.common_color_10070));
+            this.ddB.setTextColor(getResources().getColor(u.d.common_color_10235));
+            this.aee.setTextColor(getResources().getColor(u.d.cp_cont_c));
         }
-        this.bbW.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.at.getDrawable(t.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.bxR.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.av.getDrawable(u.f.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

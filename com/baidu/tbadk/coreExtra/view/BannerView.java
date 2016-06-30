@@ -10,27 +10,27 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private TbPageContext<?> Do;
-    private String ajn;
-    private String ajo;
-    protected Button ajp;
-    protected TbImageView ajq;
-    private boolean ajr;
-    private float ajs;
-    private boolean ajt;
-    private a aju;
-    View.OnClickListener ajv;
+    private TbPageContext<?> Dp;
+    private String ajT;
+    private String ajU;
+    protected Button ajV;
+    protected TbImageView ajW;
+    private boolean ajX;
+    private float ajY;
+    private boolean ajZ;
+    private a aka;
+    View.OnClickListener akb;
     private String link;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void zk();
+        void zp();
 
-        void zl();
+        void zq();
     }
 
     public void setBannerType(String str) {
@@ -39,12 +39,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ajn = "";
-        this.ajo = "";
-        this.ajr = false;
-        this.ajs = 0.1388889f;
-        this.ajt = false;
-        this.ajv = new com.baidu.tbadk.coreExtra.view.a(this);
+        this.ajT = "";
+        this.ajU = "";
+        this.ajX = false;
+        this.ajY = 0.1388889f;
+        this.ajZ = false;
+        this.akb = new com.baidu.tbadk.coreExtra.view.a(this);
         init(context);
     }
 
@@ -53,30 +53,30 @@ public class BannerView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(t.h.bannerview, this);
-        this.ajp = (Button) findViewById(t.g.btn_close);
-        this.ajp.setOnClickListener(this.ajv);
-        this.ajq = (TbImageView) findViewById(t.g.banner_image);
-        this.ajq.setAutoChangeStyle(true);
-        this.ajq.setOnClickListener(this.ajv);
+        LayoutInflater.from(context).inflate(u.h.bannerview, this);
+        this.ajV = (Button) findViewById(u.g.btn_close);
+        this.ajV.setOnClickListener(this.akb);
+        this.ajW = (TbImageView) findViewById(u.g.banner_image);
+        this.ajW.setAutoChangeStyle(true);
+        this.ajW.setOnClickListener(this.akb);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.ajq != null && aVar != null) {
-            this.ajq.setEvent(aVar);
+        if (this.ajW != null && aVar != null) {
+            this.ajW.setEvent(aVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
-        this.Do = tbPageContext;
+        this.Dp = tbPageContext;
         this.link = str2;
-        this.ajt = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.ajZ = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.ajr && this.ajt) {
-            ViewGroup.LayoutParams layoutParams = this.ajq.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.B(getContext()) * this.ajs) + 0.5d);
-            this.ajq.setLayoutParams(layoutParams);
-            this.ajq.a(str, 10, 720, 100, false);
+        if (!this.ajX && this.ajZ) {
+            ViewGroup.LayoutParams layoutParams = this.ajW.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.A(getContext()) * this.ajY) + 0.5d);
+            this.ajW.setLayoutParams(layoutParams);
+            this.ajW.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -86,19 +86,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.aju = aVar;
+        this.aka = aVar;
     }
 
-    public boolean zj() {
-        return this.ajt;
+    public boolean zo() {
+        return this.ajZ;
     }
 
     public void reset() {
-        this.ajr = false;
-        this.ajt = false;
+        this.ajX = false;
+        this.ajZ = false;
     }
 
-    public void kU() {
-        this.ajq.postInvalidate();
+    public void kX() {
+        this.ajW.postInvalidate();
     }
 }

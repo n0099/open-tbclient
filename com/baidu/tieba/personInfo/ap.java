@@ -1,30 +1,38 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tieba.person.a;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements a.b {
+public class ap implements c.b {
+    private final /* synthetic */ int dAs;
+    private final /* synthetic */ com.baidu.tbadk.data.k epw;
+    private final /* synthetic */ List epx;
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(f fVar) {
+    public ap(f fVar, com.baidu.tbadk.data.k kVar, List list, int i) {
         this.this$0 = fVar;
+        this.epw = kVar;
+        this.epx = list;
+        this.dAs = i;
     }
 
-    @Override // com.baidu.tieba.person.a.b
-    public void a(int i, String str, ImageUploadResult imageUploadResult) {
-        List list;
-        if (i == 0 && imageUploadResult != null) {
-            String str2 = null;
-            if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
-                str2 = imageUploadResult.picInfo.bigPic.picUrl;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        this.this$0.eoP = true;
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    this.this$0.aMf();
+                }
+            } else {
+                this.this$0.aMe();
             }
-            f fVar = this.this$0;
-            list = this.this$0.dFK;
-            fVar.g(str2, list);
-            this.this$0.hy(true);
+        } else {
+            this.this$0.c(this.epw, this.epx, this.dAs);
         }
+        cVar.dismiss();
     }
 }

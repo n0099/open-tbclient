@@ -1,68 +1,117 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.h.b;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.AppDownloadView;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.frs.utils.a;
-import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class u extends AppDownloadView.a {
-    final /* synthetic */ FrsActivity bhl;
+class u implements ba {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(FrsActivity frsActivity) {
-        this.bhl = frsActivity;
+        this.bDB = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        cn cnVar;
-        int i;
-        if (!com.baidu.adp.lib.util.i.fe()) {
-            this.bhl.showToast(t.j.neterror);
-            return;
-        }
-        int intValue = ((Integer) view.getTag()).intValue();
-        cnVar = this.bhl.bgo;
-        com.baidu.adp.widget.ListView.v as = cnVar.Ra().as(intValue);
-        if (as instanceof com.baidu.tbadk.core.data.c) {
-            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) as;
-            FrsActivity frsActivity = this.bhl;
-            i = this.bhl.mPn;
-            frsActivity.a(cVar, false, i);
-            DownloadData downloadData = new DownloadData(cVar.MS);
-            downloadData.setUrl(cVar.MR);
-            downloadData.setName(cVar.MO);
-            downloadData.setPosition(intValue);
-            downloadData.setNotifyId(b.g(cVar.MN, 0));
-            switch (AppDownloadView.b(downloadData)) {
-                case 1:
-                case 5:
-                    com.baidu.tieba.tbadkCore.ah.e(cVar);
-                    ((TextView) view).setText(t.j.frs_new_style_download_pause);
-                    break;
-                case 3:
-                    a.F(this.bhl.getPageContext().getPageActivity(), cVar.MS);
-                    break;
-                case 6:
-                case 7:
-                    if (com.baidu.adp.lib.util.i.fq() && !com.baidu.adp.lib.util.i.fr()) {
-                        this.bhl.a(cVar, intValue, false);
-                        break;
-                    } else if (this.bhl.d((com.baidu.tbadk.core.data.c) as, intValue)) {
-                        if (this.ZT != null) {
-                            this.ZT.setVisibility(0);
-                        }
-                        ((TextView) view).setText(t.j.downloading2);
-                        this.bhl.a(cVar, "btn_download");
-                        break;
+    @Override // com.baidu.tieba.frs.ba
+    public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.az azVar) {
+        bq bqVar;
+        bq bqVar2;
+        bq bqVar3;
+        bq bqVar4;
+        bq bqVar5;
+        bq bqVar6;
+        com.baidu.tieba.tbadkCore.p pVar;
+        com.baidu.tieba.tbadkCore.p pVar2;
+        com.baidu.tieba.tbadkCore.p pVar3;
+        com.baidu.tieba.tbadkCore.p pVar4;
+        com.baidu.tieba.tbadkCore.p pVar5;
+        com.baidu.tieba.tbadkCore.p pVar6;
+        com.baidu.tieba.tbadkCore.p pVar7;
+        com.baidu.tieba.tbadkCore.p pVar8;
+        bq bqVar7;
+        bq bqVar8;
+        com.baidu.tieba.tbadkCore.p pVar9;
+        com.baidu.tieba.tbadkCore.p pVar10;
+        com.baidu.tieba.tbadkCore.p pVar11;
+        bqVar = this.bDB.bCD;
+        if (i != bqVar.Ww().XU()) {
+            bqVar2 = this.bDB.bCD;
+            if (i != bqVar2.Ww().XV()) {
+                bqVar3 = this.bDB.bCD;
+                if (i != bqVar3.Ww().XX()) {
+                    bqVar4 = this.bDB.bCD;
+                    if (i == bqVar4.Ww().WS()) {
+                        this.bDB.bCt = azVar;
+                        this.bDB.Vz();
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10179").ab("fid", this.bDB.getForumId()));
+                        return;
                     }
-                    break;
+                    bqVar5 = this.bDB.bCD;
+                    if (i != bqVar5.Ww().XY()) {
+                        bqVar6 = this.bDB.bCD;
+                        if (i == bqVar6.Ww().XW()) {
+                            pVar = this.bDB.bCF;
+                            if (pVar != null) {
+                                pVar2 = this.bDB.bCF;
+                                if (pVar2.getUserData() != null) {
+                                    pVar3 = this.bDB.bCF;
+                                    if (pVar3.getUserData().isBawu()) {
+                                        pVar4 = this.bDB.bCF;
+                                        String baF = pVar4.baF();
+                                        if (!com.baidu.tbadk.core.util.ba.isEmpty(baF)) {
+                                            com.baidu.tbadk.browser.f.u(this.bDB.getPageContext().getPageActivity(), baF);
+                                            pVar5 = this.bDB.bCF;
+                                            if (pVar5.aDN() != null) {
+                                                com.baidu.tbadk.core.util.ay ayVar = new com.baidu.tbadk.core.util.ay("c10502");
+                                                pVar6 = this.bDB.bCF;
+                                                com.baidu.tbadk.core.util.ay ab = ayVar.ab("fid", pVar6.aDN().getId());
+                                                pVar7 = this.bDB.bCF;
+                                                TiebaStatic.log(ab.ab("uid", pVar7.getUserData().getUserId()));
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                        return;
+                                    }
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    TiebaStatic.log("c10417");
+                    pVar8 = this.bDB.bCF;
+                    pVar8.bbf();
+                    bqVar7 = this.bDB.bCD;
+                    bqVar7.Wo();
+                    b.sO().putLong("frs_storecard_closetime", System.currentTimeMillis());
+                    return;
+                }
+                this.bDB.Vy();
+                bqVar8 = this.bDB.bCD;
+                TiebaStatic.log(new com.baidu.tbadk.core.util.ay(i == bqVar8.Ww().XX() ? "c10177" : "c10244").ab("fid", this.bDB.getForumId()));
+            } else if (this.bDB.checkUpIsLogin()) {
+                TiebaStatic.log("my_service_ck");
+                pVar9 = this.bDB.bCF;
+                if (pVar9 != null) {
+                    pVar10 = this.bDB.bCF;
+                    if (pVar10.aDN() != null) {
+                        pVar11 = this.bDB.bCF;
+                        ForumData aDN = pVar11.aDN();
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.bDB.getPageContext().getPageActivity(), com.baidu.adp.lib.h.b.c(aDN.getId(), 0L), aDN.getName(), aDN.getImage_url(), 0)));
+                    }
+                }
             }
-            TiebaStatic.eventStat(this.bhl.getPageContext().getPageActivity(), "frs_tb_btc", "");
+        } else if (this.bDB.checkUpIsLogin()) {
+            TiebaStatic.log("forum_fortune_click");
+            this.bDB.Vx();
         }
     }
 }

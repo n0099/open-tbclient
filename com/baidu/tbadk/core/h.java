@@ -3,45 +3,45 @@ package com.baidu.tbadk.core;
 import com.baidu.tbadk.core.data.NewErrorData;
 /* loaded from: classes.dex */
 public class h {
-    protected com.baidu.tbadk.core.util.ab LL;
+    protected com.baidu.tbadk.core.util.ab LK;
     protected NewErrorData LM = null;
 
     public h() {
-        this.LL = null;
-        this.LL = new com.baidu.tbadk.core.util.ab();
+        this.LK = null;
+        this.LK = new com.baidu.tbadk.core.util.ab();
     }
 
     public void cancel() {
-        if (this.LL != null) {
-            this.LL.dl();
+        if (this.LK != null) {
+            this.LK.dm();
         }
     }
 
     protected void setUrl(String str) {
-        this.LL.setUrl(str);
+        this.LK.setUrl(str);
     }
 
     public void n(String str, String str2) {
-        this.LL.n(str, str2);
+        this.LK.n(str, str2);
     }
 
     protected String getResult() {
-        String td = this.LL.td();
+        String ta = this.LK.ta();
         this.LM = new NewErrorData();
-        this.LM.parserJson(td);
-        return td;
+        this.LM.parserJson(ta);
+        return ta;
     }
 
-    public boolean nZ() {
-        if (this.LL != null) {
-            return this.LL.tB().uw().nZ();
+    public boolean nU() {
+        if (this.LK != null) {
+            return this.LK.ty().uv().nU();
         }
         return false;
     }
 
-    public String oa() {
-        if (this.LL != null) {
-            return this.LL.getErrorString();
+    public String nV() {
+        if (this.LK != null) {
+            return this.LK.getErrorString();
         }
         return null;
     }

@@ -16,14 +16,14 @@ public class b {
     }
 
     public static int copy(InputStream inputStream, OutputStream outputStream) {
-        long a = a(inputStream, outputStream);
-        if (a > 2147483647L) {
+        long b = b(inputStream, outputStream);
+        if (b > 2147483647L) {
             return -1;
         }
-        return (int) a;
+        return (int) b;
     }
 
-    public static long a(InputStream inputStream, OutputStream outputStream) {
+    public static long b(InputStream inputStream, OutputStream outputStream) {
         if (inputStream == null) {
             return -1L;
         }

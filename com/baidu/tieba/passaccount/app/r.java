@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends Handler {
-    final /* synthetic */ LoginActivity dbZ;
+    final /* synthetic */ LoginActivity dIF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(LoginActivity loginActivity) {
-        this.dbZ = loginActivity;
+        this.dIF = loginActivity;
     }
 
     @Override // android.os.Handler
@@ -23,10 +23,10 @@ public class r extends Handler {
         super.handleMessage(message);
         if (message.what == SocialType.WEIXIN.getType()) {
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_weixin_start", 0, "", new Object[0]);
-            this.dbZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WXEntryActivityConfig(this.dbZ.getPageContext().getPageActivity(), 230016)));
+            this.dIF.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WXEntryActivityConfig(this.dIF.getPageContext().getPageActivity(), 230016)));
             return;
         }
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_qq_start", 0, "", new Object[0]);
-        this.dbZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SocialLoginActivityConfig(this.dbZ.getPageContext().getPageActivity(), SocialType.getSocialType(message.what), 230012)));
+        this.dIF.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SocialLoginActivityConfig(this.dIF.getPageContext().getPageActivity(), SocialType.getSocialType(message.what), 230012)));
     }
 }

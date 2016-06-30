@@ -17,7 +17,7 @@ public class CheckImageView extends ImageView {
 
     public CheckImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 0);
-        this.b = BitmapFactory.decodeResource(context.getApplicationContext().getResources(), p.h(context, "bdsocialshare_selected"));
+        this.b = BitmapFactory.decodeResource(context.getApplicationContext().getResources(), p.i(context, "bdsocialshare_selected"));
     }
 
     private Rect a(Canvas canvas) {
@@ -44,7 +44,7 @@ public class CheckImageView extends ImageView {
         }
         if (this.a) {
             if (this.b == null || this.b.isRecycled()) {
-                this.b = BitmapFactory.decodeResource(getContext().getApplicationContext().getResources(), p.h(getContext(), "bdsocialshare_selected"));
+                this.b = BitmapFactory.decodeResource(getContext().getApplicationContext().getResources(), p.i(getContext(), "bdsocialshare_selected"));
             }
             canvas.drawBitmap(this.b, this.c.right - this.b.getWidth(), this.c.bottom - this.b.getHeight(), (Paint) null);
         }

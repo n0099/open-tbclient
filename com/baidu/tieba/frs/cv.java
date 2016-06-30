@@ -1,69 +1,36 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.entelechy.b.b;
-import com.baidu.tieba.view.BdExpandListView;
-import java.util.HashSet;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cv implements TbImageView.a {
-    final /* synthetic */ cn bkx;
+public class cv implements a.b {
+    private final /* synthetic */ String bGA;
+    private final /* synthetic */ long bGB;
+    private final /* synthetic */ FrsActivity bGu;
+    private final /* synthetic */ com.baidu.tieba.frs.view.n bGv;
+    private final /* synthetic */ ShareFromFrsMsgData bGy;
+    private final /* synthetic */ int bGz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(cn cnVar) {
-        this.bkx = cnVar;
+    public cv(FrsActivity frsActivity, com.baidu.tieba.frs.view.n nVar, int i, String str, long j, ShareFromFrsMsgData shareFromFrsMsgData) {
+        this.bGu = frsActivity;
+        this.bGv = nVar;
+        this.bGz = i;
+        this.bGA = str;
+        this.bGB = j;
+        this.bGy = shareFromFrsMsgData;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void t(String str, boolean z) {
-        BannerView bannerView;
-        BannerView bannerView2;
-        boolean z2;
-        BdExpandListView bdExpandListView;
-        com.baidu.tbadk.core.data.p pVar;
-        FrsActivity frsActivity;
-        BdExpandListView bdExpandListView2;
-        BannerView bannerView3;
-        com.baidu.tbadk.core.data.p pVar2;
-        HashSet hashSet;
-        if (z) {
-            bannerView = this.bkx.bjX;
-            if (bannerView != null) {
-                bannerView2 = this.bkx.bjX;
-                if (bannerView2.zj()) {
-                    z2 = this.bkx.bka;
-                    if (!z2) {
-                        bdExpandListView = this.bkx.bjM;
-                        if (bdExpandListView != null) {
-                            this.bkx.bka = true;
-                            pVar = this.bkx.bjZ;
-                            if (pVar != null) {
-                                pVar2 = this.bkx.bjZ;
-                                String oT = pVar2.oT();
-                                if (!StringUtils.isNULL(oT)) {
-                                    hashSet = this.bkx.bkl;
-                                    if (hashSet.add(oT)) {
-                                        this.bkx.hM(oT);
-                                    }
-                                }
-                            }
-                            frsActivity = this.bkx.bjB;
-                            b Qm = frsActivity.Qm();
-                            if (Qm != null) {
-                                bdExpandListView2 = this.bkx.bjM;
-                                bannerView3 = this.bkx.bjX;
-                                Qm.a(bdExpandListView2, bannerView3);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(a aVar) {
+        this.bGu.HidenSoftKeyPad((InputMethodManager) this.bGu.getSystemService("input_method"), this.bGv.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.bGu.getPageContext().getPageActivity(), this.bGz, this.bGA, this.bGB, "from_share", this.bGv.getLeaveMsg(), this.bGy.toChatMessageContent())));
+        aVar.dismiss();
     }
 }

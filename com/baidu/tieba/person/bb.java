@@ -1,29 +1,48 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bb implements View.OnClickListener {
-    final /* synthetic */ ay dwQ;
+public class bb extends HttpMessageListener {
+    final /* synthetic */ az efi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(ay ayVar) {
-        this.dwQ = ayVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bb(az azVar, int i) {
+        super(i);
+        this.efi = azVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.dwQ.cZE = ((Integer) view.getTag()).intValue();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m11getInst().login(this.dwQ.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.dwQ.getBaseFragmentActivity().getPageContext().getPageActivity(), this.dwQ.getString(t.j.login_to_chat), true, 11028)));
-        } else {
-            this.dwQ.atR();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonFriendActivity aKM;
+        PersonFriendActivity aKM2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002001) {
+            this.efi.efe = false;
+            aKM = this.efi.aKM();
+            if (aKM != null) {
+                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
+                aKM2 = this.efi.aKM();
+                if (tag == aKM2.getUniqueId()) {
+                    this.efi.zt.k(2000L);
+                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
+                        PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
+                        if (personFriendResponseMessage.getError() == 0) {
+                            this.efi.a(personFriendResponseMessage.getPersonListData(), false);
+                            return;
+                        } else {
+                            this.efi.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.efi.getResources().getString(u.j.neterror) : httpResponsedMessage.getErrorString());
+                            return;
+                        }
+                    }
+                    this.efi.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.efi.getResources().getString(u.j.neterror) : httpResponsedMessage.getErrorString());
+                }
+            }
         }
     }
 }

@@ -12,18 +12,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private g Hg;
-    private static volatile f He = null;
+    private g Hd;
+    private static volatile f Hb = null;
     private static String c = "LogSDK";
     private static int d = 5;
     private static int e = 1024;
     private static final String f = com.baidu.location.h.h.a + "/llg.dat";
     private static final String g = com.baidu.location.h.h.a + "/ller.dat";
     public static final String a = com.baidu.location.h.h.a + "/llin.dat";
-    private SimpleDateFormat Hf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private g Hh = null;
-    private a Hi = null;
-    private long l = 0;
+    private SimpleDateFormat Hc = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private g He = null;
+    private a Hf = null;
+    private long Hg = 0;
 
     /* loaded from: classes.dex */
     private class a extends com.baidu.location.h.f {
@@ -31,14 +31,14 @@ public class f {
         private boolean c = false;
 
         a() {
-            this.Jj = new HashMap();
+            this.Jl = new HashMap();
         }
 
         @Override // com.baidu.location.h.f
         public void a() {
-            this.Jj.clear();
-            this.Jj.put("qt", "stat");
-            this.Jj.put("req", this.b);
+            this.Jl.clear();
+            this.Jl.put("qt", "stat");
+            this.Jl.put("req", this.b);
             this.h = "http://loc.map.baidu.com/statloc";
         }
 
@@ -54,7 +54,7 @@ public class f {
         public void a(boolean z) {
             this.c = false;
             if (!z || this.j == null) {
-                f.this.l = System.currentTimeMillis();
+                f.this.Hg = System.currentTimeMillis();
                 return;
             }
             try {
@@ -69,9 +69,9 @@ public class f {
     }
 
     private f() {
-        this.Hg = null;
-        if (this.Hg == null) {
-            this.Hg = new g();
+        this.Hd = null;
+        if (this.Hd == null) {
+            this.Hd = new g();
         }
     }
 
@@ -190,15 +190,15 @@ public class f {
         }
     }
 
-    public static f lX() {
-        if (He == null) {
+    public static f lR() {
+        if (Hb == null) {
             synchronized (f.class) {
-                if (He == null) {
-                    He = new f();
+                if (Hb == null) {
+                    Hb = new f();
                 }
             }
         }
-        return He;
+        return Hb;
     }
 
     public void a(g gVar) {
@@ -211,13 +211,13 @@ public class f {
         if (str != null) {
             try {
                 StringBuffer stringBuffer = new StringBuffer();
-                String format = this.Hf.format(new Date());
+                String format = this.Hc.format(new Date());
                 stringBuffer.append("&time=");
                 stringBuffer.append(format);
                 stringBuffer.append("&err=");
                 stringBuffer.append(str);
-                stringBuffer.append(com.baidu.location.h.c.mG().Z(false));
-                stringBuffer.append(com.baidu.location.a.a.lB().c());
+                stringBuffer.append(com.baidu.location.h.c.mB().a(false));
+                stringBuffer.append(com.baidu.location.a.a.lw().c());
                 a(g, Jni.encode(stringBuffer.toString()));
             } catch (Exception e2) {
             }
@@ -225,19 +225,19 @@ public class f {
     }
 
     public void c() {
-        if (this.Hg != null) {
-            a(f, Jni.encode(this.Hg.b()));
-            this.Hg.a();
+        if (this.Hd != null) {
+            a(f, Jni.encode(this.Hd.b()));
+            this.Hd.a();
         }
     }
 
     public void d() {
         boolean z;
         boolean z2;
-        if (this.Hi == null) {
-            this.Hi = new a();
+        if (this.Hf == null) {
+            this.Hf = new a();
         }
-        if (System.currentTimeMillis() - this.l >= 3600000 && !this.Hi.b()) {
+        if (System.currentTimeMillis() - this.Hg >= 3600000 && !this.Hf.b()) {
             try {
                 ArrayList arrayList = new ArrayList();
                 a(g, arrayList);
@@ -269,14 +269,14 @@ public class f {
                     } else {
                         jSONObject.put("loctc", jSONArray);
                     }
-                    this.Hi.a(jSONObject.toString());
+                    this.Hf.a(jSONObject.toString());
                 }
             } catch (Exception e2) {
             }
         }
     }
 
-    public g lY() {
-        return this.Hg;
+    public g lS() {
+        return this.Hd;
     }
 }

@@ -1,17 +1,38 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
+import java.util.ArrayList;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements View.OnClickListener {
-    final /* synthetic */ MsgrightView caD;
+public class bm extends CustomMessageListener {
+    final /* synthetic */ bl cFI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(MsgrightView msgrightView) {
-        this.caD = msgrightView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bm(bl blVar, int i) {
+        super(i);
+        this.cFI = blVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.caD.bZF.a(view, 6, this.caD.aka, 0L);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        BdTypeListView bdTypeListView;
+        List list2;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
+            if (aVar.cEV != null && aVar.context != null) {
+                list = this.cFI.bAz;
+                list.addAll(aVar.cEV);
+                bdTypeListView = this.cFI.bou;
+                list2 = this.cFI.bAz;
+                bdTypeListView.g(new ArrayList(list2));
+            }
+        }
     }
 }

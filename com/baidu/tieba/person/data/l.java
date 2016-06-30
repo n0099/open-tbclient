@@ -7,17 +7,17 @@ import com.baidu.tieba.personInfo.PersonTainInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
-    public static final BdUniqueId dzC = BdUniqueId.gen();
-    private boolean bJq = true;
-    private PersonTainInfo dzD;
+    public static final BdUniqueId eig = BdUniqueId.gen();
+    private boolean chd = true;
+    private PersonTainInfo eih;
     private UserData mUserData;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dzC;
+        return eig;
     }
 
-    public List<MyGroup> aCm() {
+    public List<MyGroup> aLf() {
         if (this.mUserData != null) {
             return this.mUserData.getGroup();
         }
@@ -33,11 +33,11 @@ public class l extends a {
     }
 
     public void setIsSelf(boolean z) {
-        this.bJq = z;
+        this.chd = z;
     }
 
     public boolean getIsSelf() {
-        return this.bJq;
+        return this.chd;
     }
 
     public int getSex() {
@@ -48,14 +48,14 @@ public class l extends a {
     }
 
     public void a(PersonTainInfo personTainInfo) {
-        this.dzD = personTainInfo;
+        this.eih = personTainInfo;
     }
 
-    public PersonTainInfo aCn() {
-        return this.dzD;
+    public PersonTainInfo aLg() {
+        return this.eih;
     }
 
-    public com.baidu.tbadk.data.h aCo() {
+    public com.baidu.tbadk.data.j aLh() {
         if (this.mUserData != null) {
             return this.mUserData.getPersonPrivate();
         }

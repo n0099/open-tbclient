@@ -10,7 +10,7 @@ import com.baidu.tieba.imMessageCenter.ResponseFriendListMessage;
 /* loaded from: classes.dex */
 public class SelectFriendActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(SelectFriendActivityConfig.class, SelectFriendActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(SelectFriendActivityConfig.class, SelectFriendActivity.class);
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FRIEND_LIST, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);

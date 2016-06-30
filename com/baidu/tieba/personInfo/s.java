@@ -2,6 +2,7 @@ package com.baidu.tieba.personInfo;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends CustomMessageListener {
@@ -17,15 +18,13 @@ public class s extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bg bgVar;
-        bg bgVar2;
-        if (customResponsedMessage != null) {
-            Long l = (Long) customResponsedMessage.getData();
-            bgVar = this.this$0.dyP;
-            long c = com.baidu.adp.lib.h.b.c(bgVar.getId(), 0L);
-            if (l != null && c == l.longValue()) {
-                bgVar2 = this.this$0.dyP;
-                bgVar2.aDI();
+        int g;
+        bp bpVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.g) && (g = com.baidu.adp.lib.h.b.g(((com.baidu.tieba.tbadkCore.data.g) customResponsedMessage.getData()).bbK(), 0)) > 0) {
+            bpVar = this.this$0.eht;
+            UserData userData = bpVar.getUserData();
+            if (userData != null) {
+                userData.setTDouNum(userData.getTDouNum() + g);
             }
         }
     }

@@ -3,10 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a ace;
+    private a acy;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -27,31 +28,31 @@ public class TbCheckBox extends ImageView {
 
     public TbCheckBox(Context context) {
         super(context);
-        vl();
+        initialize();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        vl();
+        initialize();
     }
 
-    private void vl() {
+    private void initialize() {
         setOnClickListener(new s(this));
         vm();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.ace = aVar;
+        this.acy = aVar;
     }
 
     public void vm() {
         if (vn()) {
-            com.baidu.tbadk.core.util.at.c(this, t.f.icon_set_list_ok_s);
-            setContentDescription(getResources().getString(t.j.check_box_checked));
+            av.c(this, u.f.icon_set_list_ok_s);
+            setContentDescription(getResources().getString(u.j.check_box_checked));
             return;
         }
-        com.baidu.tbadk.core.util.at.c(this, t.f.icon_set_list_ok_n);
-        setContentDescription(getResources().getString(t.j.check_box_not_checked));
+        av.c(this, u.f.icon_set_list_ok_n);
+        setContentDescription(getResources().getString(u.j.check_box_not_checked));
     }
 
     public boolean isChecked() {
@@ -73,8 +74,8 @@ public class TbCheckBox extends ImageView {
             ((b) tag).setChecked(z);
         }
         vm();
-        if (this.ace != null) {
-            this.ace.a(this, z, getTag());
+        if (this.acy != null) {
+            this.acy.a(this, z, getTag());
         }
     }
 }

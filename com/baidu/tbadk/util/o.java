@@ -28,21 +28,22 @@ public class o {
                 if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
                     builder.subapp_type = TbConfig.getSubappType();
                 }
-                if (!TbadkCoreApplication.m11getInst().isOfficial()) {
+                if (!TbadkCoreApplication.m9getInst().isOfficial()) {
                     builder.apid = TbConfig.SW_APID;
                 }
-                builder._phone_imei = TbadkCoreApplication.m11getInst().getImei();
+                builder._phone_imei = TbadkCoreApplication.m9getInst().getImei();
                 builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.m11getInst().getCuid();
+                builder.cuid = TbadkCoreApplication.m9getInst().getCuid();
                 builder._timestamp = Long.valueOf(System.currentTimeMillis());
                 builder.model = Build.MODEL;
                 if (z) {
                     builder.BDUSS = TbadkCoreApplication.getCurrentBduss();
                 }
                 if (z2) {
-                    builder.tbs = TbadkCoreApplication.m11getInst().getTbs();
+                    builder.tbs = TbadkCoreApplication.m9getInst().getTbs();
                 }
                 builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+                builder.lego_lib_version = TbConfig.getLegoLibVersion();
                 field.set(obj, builder.build(false));
             } catch (Throwable th) {
                 if (BdLog.isDebugMode()) {

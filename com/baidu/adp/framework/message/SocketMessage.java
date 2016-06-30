@@ -9,7 +9,6 @@ public class SocketMessage extends Message<byte[]> {
     private Object mData;
     private String mEncodeName;
     private int mRetryCount;
-    private int squencedId;
 
     public static void setGlobalEncodeName(String str) {
         GLOBAL_ENCODE_NAME = str;
@@ -20,7 +19,6 @@ public class SocketMessage extends Message<byte[]> {
         this.mData = null;
         this.mEncodeName = null;
         this.mRetryCount = 0;
-        this.squencedId = 0;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
     }
 
@@ -33,7 +31,6 @@ public class SocketMessage extends Message<byte[]> {
         this.mData = null;
         this.mEncodeName = null;
         this.mRetryCount = 0;
-        this.squencedId = 0;
         this.mData = obj;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
     }
@@ -43,7 +40,6 @@ public class SocketMessage extends Message<byte[]> {
         this.mData = null;
         this.mEncodeName = null;
         this.mRetryCount = 0;
-        this.squencedId = 0;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
     }
 
@@ -90,13 +86,5 @@ public class SocketMessage extends Message<byte[]> {
 
     public void setmRetryCount(int i) {
         this.mRetryCount = i;
-    }
-
-    public int getSquencedId() {
-        return this.squencedId;
-    }
-
-    public void setSquencedId(int i) {
-        this.squencedId = i;
     }
 }

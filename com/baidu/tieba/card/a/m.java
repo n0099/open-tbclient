@@ -1,70 +1,117 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.card.au;
+import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.y;
 /* loaded from: classes.dex */
 public class m extends c {
-    public static final BdUniqueId Oq = BdUniqueId.gen();
-    public ax aRZ;
-    private aw aSa;
-    private aw aSb;
-    private aw aSc;
-    private aw aSd;
+    public boolean aVt = false;
+    public boolean aVu = false;
+    public boolean arI = true;
+    public az threadData;
+    public static String aVh = "";
+    public static String aVi = "";
+    public static String aVj = "";
+    public static String aVk = "";
+    public static String aVl = "";
+    public static String aVm = "";
+    public static String aVn = "";
+    public static String aVo = "";
+    public static String aVp = "";
+    public static String aVq = "";
+    public static String aVr = "";
+    public static final BdUniqueId Op = BdUniqueId.gen();
+    public static final BdUniqueId aVs = BdUniqueId.gen();
+
+    public static boolean c(az azVar) {
+        if (azVar == null) {
+            return false;
+        }
+        return azVar.getType() == az.TYPE_NORMAL || azVar.getType() == az.Qg;
+    }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return Oq;
-    }
-
-    public m(ax axVar) {
-        this.aRZ = axVar;
-    }
-
-    public static boolean b(ax axVar) {
-        return axVar != null && axVar.getThreadType() == 33;
+        if (this.threadData == null) {
+            return Op;
+        }
+        if (this.aVt) {
+            return aVs;
+        }
+        return Op;
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public ax Kn() {
-        return this.aRZ;
+    public az Ix() {
+        return this.threadData;
     }
 
-    public int KE() {
-        return (this.aRZ == null || StringUtils.isNull(this.aRZ.getPhotoLiveCover())) ? 0 : 1;
+    public boolean Lu() {
+        return (this.threadData == null || y.s(this.threadData.qT()) == 0) ? false : true;
     }
 
-    public void b(aw awVar) {
-        this.aSa = awVar;
+    public ay Lv() {
+        if (Lu()) {
+            return hh(aVm);
+        }
+        ay hh = hh(aVh);
+        if (hh != null) {
+            hh.ab("ab_tag", Lj()).ab("ab_action", "show");
+            return hh;
+        }
+        return hh;
     }
 
-    public void c(aw awVar) {
-        this.aSb = awVar;
+    public ay Lw() {
+        if (Lu()) {
+            return hh(aVn);
+        }
+        ay hh = hh(aVi);
+        if (hh != null) {
+            hh.ab("ab_tag", Lj()).ab("ab_action", "click");
+            return hh;
+        }
+        return hh;
     }
 
-    public void d(aw awVar) {
-        this.aSc = awVar;
+    public ay Lx() {
+        if (Lu()) {
+            return hh(aVo);
+        }
+        ay hh = hh(aVj);
+        if (hh != null) {
+            hh.ab("ab_tag", Lj()).ab("ab_action", "click");
+            return hh;
+        }
+        return hh;
     }
 
-    public void e(aw awVar) {
-        this.aSd = awVar;
+    public ay Ly() {
+        if (Lu()) {
+            return hh(aVp);
+        }
+        ay hh = hh(aVk);
+        if (hh != null) {
+            hh.ab("ab_tag", Lj()).ab("ab_action", "click");
+            return hh;
+        }
+        return hh;
     }
 
-    public aw KF() {
-        return this.aSa != null ? this.aSa.ac("obj_param3", au.Kc()) : this.aSa;
+    public ay Lz() {
+        if (Lu()) {
+            return hh(aVq);
+        }
+        ay hh = hh(aVl);
+        if (hh != null) {
+            hh.ab("ab_tag", Lj()).ab("ab_action", "click");
+            return hh;
+        }
+        return hh;
     }
 
-    public aw KG() {
-        return this.aSb != null ? this.aSb.ac("obj_param3", au.Kc()) : this.aSb;
-    }
-
-    public aw KH() {
-        return this.aSd != null ? this.aSd.ac("obj_param3", au.Kc()) : this.aSd;
-    }
-
-    public aw KI() {
-        return this.aSc != null ? this.aSc.ac("obj_param3", au.Kc()) : this.aSc;
+    public ay LA() {
+        return hh(aVr);
     }
 }

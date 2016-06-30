@@ -4,41 +4,41 @@ import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements g {
-    final /* synthetic */ BdPullRefreshScrollView As;
+    final /* synthetic */ BdPullRefreshScrollView Ar;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(BdPullRefreshScrollView bdPullRefreshScrollView) {
-        this.As = bdPullRefreshScrollView;
+        this.Ar = bdPullRefreshScrollView;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.g
-    public void jE() {
+    public void jH() {
         BdPullRefreshScrollView.State state;
         BdPullRefreshScrollView.State state2;
         a aVar;
         a aVar2;
         BdPullRefreshScrollView.b bVar;
         BdPullRefreshScrollView.b bVar2;
-        state = this.As.zV;
+        state = this.Ar.zU;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
-            state2 = this.As.zV;
+            state2 = this.Ar.zU;
             if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
-                BdPullRefreshScrollView bdPullRefreshScrollView = this.As;
+                BdPullRefreshScrollView bdPullRefreshScrollView = this.Ar;
                 BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
-                aVar = this.As.Ai;
+                aVar = this.Ar.Ah;
                 bdPullRefreshScrollView.a(state3, aVar);
                 return;
             }
             return;
         }
-        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.As;
+        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.Ar;
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
-        aVar2 = this.As.Ai;
+        aVar2 = this.Ar.Ah;
         bdPullRefreshScrollView2.a(state4, aVar2);
-        bVar = this.As.Al;
+        bVar = this.Ar.Ak;
         if (bVar != null) {
-            bVar2 = this.As.Al;
-            bVar2.kb();
+            bVar2 = this.Ar.Ak;
+            bVar2.ke();
         }
     }
 }

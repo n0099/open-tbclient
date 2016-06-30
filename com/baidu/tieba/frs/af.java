@@ -1,18 +1,17 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class af implements a.b {
-    final /* synthetic */ FrsActivity bhl;
+class af implements dm {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(FrsActivity frsActivity) {
-        this.bhl = frsActivity;
+        this.bDB = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
-        aVar.dismiss();
+    @Override // com.baidu.tieba.frs.dm
+    public void a(int i, int i2, dv dvVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
+        com.baidu.adp.lib.h.h.dM().post(new ag(this));
     }
 }

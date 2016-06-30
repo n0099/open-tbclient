@@ -1,6 +1,7 @@
 package com.baidu.tieba.onlineDebugger.a;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.onlineDebugger.command.h;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -8,15 +9,15 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements b {
-    private String dbr;
-    private String[] dbs;
+    private String dHX;
+    private String[] dHY;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
-    public Object L(Object obj) {
+    public Object N(Object obj) {
         Class<?> cls;
         boolean z;
         Class<?>[] parameterTypes;
-        List<Method> d;
+        List<Method> l;
         if (obj != null) {
             if (obj instanceof Class) {
                 cls = (Class) obj;
@@ -25,25 +26,25 @@ public class c implements b {
                 cls = obj.getClass();
                 z = false;
             }
-            List<Method> d2 = com.baidu.adp.lib.a.a.a.d(cls);
-            if (z && (d = com.baidu.adp.lib.a.a.a.d(Class.class)) != null) {
-                d2.addAll(d);
+            List<Method> l2 = com.baidu.adp.lib.a.a.a.l(cls);
+            if (z && (l = com.baidu.adp.lib.a.a.a.l(Class.class)) != null) {
+                l2.addAll(l);
             }
-            if (d2 != null && d2.size() > 0) {
+            if (l2 != null && l2.size() > 0) {
                 ArrayList<Method> arrayList = new ArrayList();
-                for (Method method : d2) {
-                    if (method != null && method.getName().equals(this.dbr) && (parameterTypes = method.getParameterTypes()) != null) {
+                for (Method method : l2) {
+                    if (method != null && method.getName().equals(this.dHX) && (parameterTypes = method.getParameterTypes()) != null) {
                         if (parameterTypes.length == 0) {
-                            if (this.dbs == null || this.dbs.length == 0) {
+                            if (this.dHY == null || this.dHY.length == 0) {
                                 arrayList.add(method);
                             }
-                        } else if (this.dbs != null && this.dbs.length == parameterTypes.length) {
+                        } else if (this.dHY != null && this.dHY.length == parameterTypes.length) {
                             arrayList.add(method);
                         }
                     }
                 }
                 if (arrayList.size() == 0) {
-                    throw new RuntimeException("method not find:" + this.dbr + " for class " + cls.getName());
+                    throw new RuntimeException("method not find:" + this.dHX + " for class " + cls.getName());
                 }
                 if (arrayList.size() == 1) {
                     Method method2 = (Method) arrayList.get(0);
@@ -60,7 +61,7 @@ public class c implements b {
                             throw new RuntimeException(th);
                         }
                     }
-                    throw new RuntimeException("method not find:" + this.dbr + " for class " + cls.getName());
+                    throw new RuntimeException("method not find:" + this.dHX + " for class " + cls.getName());
                 }
                 Exception exc = null;
                 for (Method method3 : arrayList) {
@@ -74,15 +75,15 @@ public class c implements b {
                 }
                 throw new RuntimeException(exc);
             }
-            throw new RuntimeException("method not find:" + this.dbr + " for class " + cls.getName());
+            throw new RuntimeException("method not find:" + this.dHX + " for class " + cls.getName());
         }
         return null;
     }
 
     private Object b(Method method, Object obj) {
-        com.baidu.tieba.onlineDebugger.command.d dVar;
+        h hVar;
         Object obj2;
-        String[] strArr = this.dbs;
+        String[] strArr = this.dHY;
         String[] strArr2 = (strArr == null || strArr.length != 0) ? strArr : null;
         if (strArr2 != null && strArr2.length > 0) {
             for (int i = 0; i < strArr2.length; i++) {
@@ -93,13 +94,13 @@ public class c implements b {
                     } else {
                         if (str.contains(".") || (str.contains("(") && str.contains(")"))) {
                             try {
-                                dVar = com.baidu.tieba.onlineDebugger.e.b.lE("get " + str);
+                                hVar = com.baidu.tieba.onlineDebugger.e.b.nf("get " + str);
                             } catch (Exception e) {
-                                dVar = null;
+                                hVar = null;
                             }
-                            if (dVar != null) {
+                            if (hVar != null) {
                                 try {
-                                    obj2 = dVar.auA();
+                                    obj2 = hVar.aCF();
                                 } catch (Exception e2) {
                                     obj2 = null;
                                 }
@@ -116,17 +117,17 @@ public class c implements b {
         if (!method.isAccessible()) {
             method.setAccessible(true);
         }
-        BdLog.e(String.valueOf(obj.toString()) + " before invokeMethod " + this.dbr + " params " + (strArr2 != null ? Arrays.toString(strArr2) : "null"));
-        Object a = com.baidu.tieba.onlineDebugger.c.a(method, obj, strArr2);
-        BdLog.e(String.valueOf(obj.toString()) + " after invokeMethod " + this.dbr + " params " + (strArr2 != null ? Arrays.toString(strArr2) : "null") + " , result = " + (a != null ? a.toString() : "null"));
+        BdLog.e(String.valueOf(obj.toString()) + " before invokeMethod " + this.dHX + " params " + (strArr2 != null ? Arrays.toString(strArr2) : "null"));
+        Object a = com.baidu.tieba.onlineDebugger.d.a(method, obj, strArr2);
+        BdLog.e(String.valueOf(obj.toString()) + " after invokeMethod " + this.dHX + " params " + (strArr2 != null ? Arrays.toString(strArr2) : "null") + " , result = " + (a != null ? a.toString() : "null"));
         return a;
     }
 
-    public void lq(String str) {
-        this.dbr = str;
+    public void mP(String str) {
+        this.dHX = str;
     }
 
     public void B(String[] strArr) {
-        this.dbs = strArr;
+        this.dHY = strArr;
     }
 }

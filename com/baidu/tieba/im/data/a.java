@@ -3,14 +3,14 @@ package com.baidu.tieba.im.data;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.util.a {
-    private String ceX;
+    private String cKr;
     private long userId;
     private String userName;
 
     @Override // com.baidu.tbadk.core.util.a
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(aeh());
+        arrayList.add(amw());
         return arrayList;
     }
 
@@ -30,11 +30,11 @@ public class a extends com.baidu.tbadk.core.util.a {
         this.userName = str;
     }
 
-    public String aeh() {
-        return this.ceX;
+    public String amw() {
+        return this.cKr;
     }
 
-    public void iY(String str) {
-        this.ceX = str;
+    public void kr(String str) {
+        this.cKr = str;
     }
 }

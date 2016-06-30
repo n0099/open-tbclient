@@ -1,0 +1,11 @@
+package com.baidu.tbadk.coreExtra.data;
+
+import java.io.Serializable;
+/* loaded from: classes.dex */
+public class VcodeExtra implements Serializable {
+    public String endPoint;
+    public String slideEndPoint;
+    public String slideImg;
+    public String successImg;
+    public String textImg;
+}

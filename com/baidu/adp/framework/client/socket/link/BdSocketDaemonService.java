@@ -39,9 +39,9 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startForeground(2147483646, new Notification());
             } catch (Exception e) {
-                com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dN().al("dbg");
+                com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dO().al("dbg");
                 al.q("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
-                com.baidu.adp.lib.stats.a.dN().b("PARCEL_NULLPOINT", al);
+                com.baidu.adp.lib.stats.a.dO().b("PARCEL_NULLPOINT", al);
             }
         }
         bindServiceInternal();
@@ -59,18 +59,18 @@ public class BdSocketDaemonService extends BdBaseService {
         try {
             unbindService(this.conn);
         } catch (Exception e) {
-            com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dN().al("dbg");
+            com.baidu.adp.lib.stats.d al = com.baidu.adp.lib.stats.a.dO().al("dbg");
             al.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-unbindService");
-            com.baidu.adp.lib.stats.a.dN().b("PARCEL_NULLPOINT", al);
+            com.baidu.adp.lib.stats.a.dO().b("PARCEL_NULLPOINT", al);
         }
         Intent intent = new Intent();
         intent.setClass(this, BdSocketDaemonService.class);
         try {
             startService(intent);
         } catch (Exception e2) {
-            com.baidu.adp.lib.stats.d al2 = com.baidu.adp.lib.stats.a.dN().al("dbg");
+            com.baidu.adp.lib.stats.d al2 = com.baidu.adp.lib.stats.a.dO().al("dbg");
             al2.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
-            com.baidu.adp.lib.stats.a.dN().b("PARCEL_NULLPOINT", al2);
+            com.baidu.adp.lib.stats.a.dO().b("PARCEL_NULLPOINT", al2);
         }
     }
 

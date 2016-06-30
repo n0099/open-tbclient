@@ -1,73 +1,105 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.Page;
 /* loaded from: classes.dex */
 public class af {
-    private ArrayList<UserData> OV = new ArrayList<>();
-    private ArrayList<UserData> OW = new ArrayList<>();
-    private ad mPage = new ad();
-    private int friendNum = 0;
-    private int OX = 0;
+    private int OP = 0;
+    private int total_num = 0;
+    private int current_page = 0;
+    private int OR = 0;
+    private int has_more = 0;
+    private int OS = 0;
+    private int total_count = 0;
+    private int OQ = 0;
 
-    public void a(ad adVar) {
-        this.mPage = adVar;
+    public int pz() {
+        return this.OP;
     }
 
-    public ad getPage() {
-        return this.mPage;
+    public void by(int i) {
+        this.OP = i;
     }
 
-    public ArrayList<UserData> pO() {
-        return this.OV;
+    public int op() {
+        return this.total_num;
     }
 
-    public ArrayList<UserData> pP() {
-        return this.OW;
+    public void bz(int i) {
+        this.total_num = i;
     }
 
-    public int getFriendNum() {
-        return this.friendNum;
+    public int pA() {
+        return this.total_count;
     }
 
-    public int pQ() {
-        return this.OX;
+    public int pB() {
+        return this.OQ;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    public void bA(int i) {
+        this.OQ = i;
+    }
+
+    public int pC() {
+        return this.current_page;
+    }
+
+    public void bB(int i) {
+        this.current_page = i;
+    }
+
+    public int pD() {
+        return this.OR;
+    }
+
+    public void bC(int i) {
+        this.OR = i;
+    }
+
+    public void bD(int i) {
+        this.has_more = i;
+    }
+
+    public int pE() {
+        return this.has_more;
+    }
+
+    public void bE(int i) {
+        this.OS = i;
+    }
+
+    public int pF() {
+        return this.OS;
+    }
+
+    public void a(Page page) {
+        if (page != null) {
+            this.OP = page.total_page.intValue();
+            this.total_num = page.total_num.intValue();
+            this.total_count = page.total_count.intValue();
+            this.current_page = page.current_page.intValue();
+            this.OR = page.page_size.intValue();
+            this.has_more = page.has_more.intValue();
+            this.OS = page.has_prev.intValue();
+            this.OQ = page.lz_total_floor.intValue();
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.OV.add(userData);
-                    }
-                }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.OW.add(userData2);
-                    }
-                }
-                this.mPage.parserJson(jSONObject.optJSONObject("page"));
-                this.friendNum = jSONObject.optInt("tafriendnum", 0);
-                this.OX = jSONObject.optInt("commonfriendnum", 0);
+                this.OP = jSONObject.optInt("total_page", 0);
+                this.total_num = jSONObject.optInt("total_num", 0);
+                this.total_count = jSONObject.optInt("total_count", 0);
+                this.current_page = jSONObject.optInt("current_page", 0);
+                this.OR = jSONObject.optInt("page_size", 0);
+                this.has_more = jSONObject.optInt("has_more", 0);
+                this.OS = jSONObject.optInt("has_prev", 0);
+                this.OQ = jSONObject.optInt("lz_total_floor", 0);
             } catch (Exception e) {
-                BdLog.detailException(e);
+                BdLog.e(e.getMessage());
             }
         }
     }

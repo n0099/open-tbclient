@@ -7,47 +7,47 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
-    private int dvi;
-    private int dvj;
-    private float dvk;
-    private float dvl;
-    private int dvm;
+    private int edA;
+    private int edB;
+    private float edC;
+    private float edD;
+    private int edE;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dvi = 0;
-        this.dvj = 0;
-        this.dvk = 0.42857143f;
-        this.dvm = 0;
-        this.dvl = 1.0f;
+        this.edA = 0;
+        this.edB = 0;
+        this.edC = 0.42857143f;
+        this.edE = 0;
+        this.edD = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dvi = 0;
-        this.dvj = 0;
-        this.dvk = 0.42857143f;
-        this.dvm = 0;
-        this.dvl = 1.0f;
+        this.edA = 0;
+        this.edB = 0;
+        this.edC = 0.42857143f;
+        this.edE = 0;
+        this.edD = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.dvi = 0;
-        this.dvj = 0;
-        this.dvk = 0.42857143f;
-        this.dvm = 0;
-        this.dvl = 1.0f;
+        this.edA = 0;
+        this.edB = 0;
+        this.edC = 0.42857143f;
+        this.edE = 0;
+        this.edD = 1.0f;
         init();
     }
 
     private void init() {
-        this.dvm = getResources().getColor(t.d.editimage_bg);
+        this.edE = getResources().getColor(u.d.common_color_10226);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -62,29 +62,29 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
     @Override // com.baidu.tbadk.widget.a, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.dvl * getWidth();
+        float width = this.edD * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.dvi = (int) (((i4 - i2) - width) * this.dvk);
-        this.dvj = (int) (((i4 - i2) - width) * (1.0f - this.dvk));
-        g(0, this.dvi, 0, this.dvj);
+        this.edA = (int) (((i4 - i2) - width) * this.edC);
+        this.edB = (int) (((i4 - i2) - width) * (1.0f - this.edC));
+        g(0, this.edA, 0, this.edB);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.drawColor(this.dvm);
+        canvas.drawColor(this.edE);
         super.onDraw(canvas);
         canvas.restore();
     }
 
-    public Bitmap hj(boolean z) {
+    public Bitmap ie(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.dvi, getWidth(), (getHeight() - this.dvj) - this.dvi);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.edA, getWidth(), (getHeight() - this.edB) - this.edA);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -97,7 +97,7 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.dvl = f;
+        this.edD = f;
         invalidate();
     }
 }

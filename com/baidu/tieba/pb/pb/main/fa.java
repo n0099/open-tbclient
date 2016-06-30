@@ -1,28 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.app.Dialog;
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fa implements View.OnClickListener {
-    final /* synthetic */ el dpu;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dpx;
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fa(el elVar, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dpu = elVar;
-        this.dpx = sVar;
+    public fa(es esVar) {
+        this.dVR = esVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        Dialog dialog3;
         PbActivity pbActivity;
-        PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.aw("c10630").ac("obj_id", this.dpx.getAuthor().getUserId()));
-        pbActivity = this.dpu.dhY;
-        if (pbActivity.diS.dpJ != null) {
-            pbActivity2 = this.dpu.dhY;
-            pbActivity2.diS.dpJ.onClick(view);
+        dialog = this.dVR.dUp;
+        if (dialog != null) {
+            dialog2 = this.dVR.dUp;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.dVR.dUp;
+                pbActivity = this.dVR.dOg;
+                com.baidu.adp.lib.h.j.b(dialog3, pbActivity.getPageContext());
+            }
+        }
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.dVR.a(((Integer) sparseArray.get(u.g.tag_del_post_type)).intValue(), (String) sparseArray.get(u.g.tag_del_post_id), ((Integer) sparseArray.get(u.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(u.g.tag_del_post_is_self)).booleanValue());
         }
     }
 }

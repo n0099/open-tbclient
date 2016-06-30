@@ -1,7 +1,6 @@
 package com.slidingmenu.lib;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,16 +12,13 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import com.slidingmenu.lib.CustomViewAbove;
 /* loaded from: classes.dex */
 public class SlidingMenu extends RelativeLayout {
     private OnAboveViewScrollListener mAboveViewScrollListener;
@@ -40,12 +36,10 @@ public class SlidingMenu extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface OnAboveViewScrollListener {
-        void onPageScrolled(int i, float f, int i2);
     }
 
     /* loaded from: classes.dex */
     public interface OnCloseListener {
-        void onClose();
     }
 
     /* loaded from: classes.dex */
@@ -55,93 +49,11 @@ public class SlidingMenu extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface OnOpenListener {
-        void onOpen();
     }
 
     /* loaded from: classes.dex */
     public interface OnOpenedListener {
         void onOpened();
-    }
-
-    public SlidingMenu(Context context) {
-        this(context, null);
-    }
-
-    public SlidingMenu(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public SlidingMenu(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mActionbarOverlay = false;
-        this.mHandler = new Handler();
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        this.mViewBehind = new CustomViewBehind(context);
-        addView(this.mViewBehind, layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
-        this.mViewAbove = new CustomViewAbove(context);
-        addView(this.mViewAbove, layoutParams2);
-        this.mViewAbove.setCustomViewBehind(this.mViewBehind);
-        this.mViewBehind.setCustomViewAbove(this.mViewAbove);
-        this.mViewAbove.setOnPageChangeListener(new CustomViewAbove.OnPageChangeListener() { // from class: com.slidingmenu.lib.SlidingMenu.1
-            @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
-            public void onPageScrolled(int i2, float f, int i3) {
-                if (SlidingMenu.this.mAboveViewScrollListener != null) {
-                    SlidingMenu.this.mAboveViewScrollListener.onPageScrolled(i2, f, i3);
-                }
-            }
-
-            @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
-            public void onPageSelected(int i2) {
-                if (i2 == 0 && SlidingMenu.this.mOpenListener != null) {
-                    SlidingMenu.this.mOpenListener.onOpen();
-                } else if (i2 == 1 && SlidingMenu.this.mCloseListener != null) {
-                    SlidingMenu.this.mCloseListener.onClose();
-                }
-            }
-        });
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SlidingMenu);
-        setMode(obtainStyledAttributes.getInt(0, 0));
-        int resourceId = obtainStyledAttributes.getResourceId(1, -1);
-        if (resourceId != -1) {
-            setContent(resourceId);
-        } else {
-            setContent(new FrameLayout(context));
-        }
-        int resourceId2 = obtainStyledAttributes.getResourceId(2, -1);
-        if (resourceId2 != -1) {
-            setMenu(resourceId2);
-        } else {
-            setMenu(new FrameLayout(context));
-        }
-        setTouchModeAbove(obtainStyledAttributes.getInt(6, 0));
-        setTouchModeBehind(obtainStyledAttributes.getInt(7, 0));
-        int dimension = (int) obtainStyledAttributes.getDimension(3, -1.0f);
-        int dimension2 = (int) obtainStyledAttributes.getDimension(4, -1.0f);
-        if (dimension != -1 && dimension2 != -1) {
-            throw new IllegalStateException("Cannot set both behindOffset and behindWidth for a SlidingMenu");
-        }
-        if (dimension != -1) {
-            setBehindOffset(dimension);
-        } else if (dimension2 != -1) {
-            setBehindWidth(dimension2);
-        } else {
-            setBehindOffset(0);
-        }
-        setBehindScrollScale(obtainStyledAttributes.getFloat(5, 0.33f));
-        int resourceId3 = obtainStyledAttributes.getResourceId(8, -1);
-        if (resourceId3 != -1) {
-            setShadowDrawable(resourceId3);
-        }
-        setShadowWidth((int) obtainStyledAttributes.getDimension(9, 0.0f));
-        setFadeEnabled(obtainStyledAttributes.getBoolean(10, true));
-        setFadeDegree(obtainStyledAttributes.getFloat(11, 0.33f));
-        setSelectorEnabled(obtainStyledAttributes.getBoolean(12, false));
-        int resourceId4 = obtainStyledAttributes.getResourceId(13, -1);
-        if (resourceId4 != -1) {
-            setSelectorDrawable(resourceId4);
-        }
-        obtainStyledAttributes.recycle();
     }
 
     public void attachToActivity(Activity activity, int i) {
@@ -257,10 +169,6 @@ public class SlidingMenu extends RelativeLayout {
         setSlidingEnabled(true);
     }
 
-    public void showMenu() {
-        showMenu(true);
-    }
-
     public void showMenu(boolean z) {
         this.mViewAbove.setCurrentItem(0, z);
     }
@@ -275,14 +183,6 @@ public class SlidingMenu extends RelativeLayout {
 
     public void showContent(boolean z) {
         this.mViewAbove.setCurrentItem(1, z);
-    }
-
-    public void toggle(boolean z) {
-        if (isMenuShowing()) {
-            showContent(z);
-        } else {
-            showMenu(z);
-        }
     }
 
     public boolean isMenuShowing() {

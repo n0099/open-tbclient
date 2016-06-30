@@ -1,34 +1,38 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.view.t;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class be implements t.b {
-    final /* synthetic */ ay dwQ;
+class be implements AdapterView.OnItemClickListener {
+    final /* synthetic */ az efi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(ay ayVar) {
-        this.dwQ = ayVar;
+    public be(az azVar) {
+        this.efi = azVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.t.b
-    public void aG(boolean z) {
-        PersonFriendActivity aBU;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         bh bhVar;
-        boolean z2;
-        PersonFriendActivity aBU2;
-        int i;
-        int i2;
-        aBU = this.dwQ.aBU();
-        if (aBU != null) {
-            this.dwQ.pageNum = 0;
-            this.dwQ.dwL = true;
-            bhVar = this.dwQ.dwI;
-            z2 = this.dwQ.bIW;
-            aBU2 = this.dwQ.aBU();
-            String uid = aBU2.getUid();
-            i = this.dwQ.pageNum;
-            i2 = this.dwQ.dwN;
-            bhVar.a(z2, uid, i, i2);
+        bh bhVar2;
+        bh bhVar3;
+        PersonFriendActivity aKM;
+        bhVar = this.efi.efb;
+        if (bhVar != null) {
+            bhVar2 = this.efi.efb;
+            if (bhVar2.getItemViewType(i) == 0) {
+                bhVar3 = this.efi.efb;
+                UserData userData = (UserData) bhVar3.getItem(i);
+                if (userData != null && userData.getUserId() != null) {
+                    az azVar = this.efi;
+                    aKM = this.efi.aKM();
+                    azVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(aKM.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
+                }
+            }
         }
     }
 }

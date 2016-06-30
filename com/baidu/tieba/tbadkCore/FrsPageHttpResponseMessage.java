@@ -6,13 +6,13 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
-public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<m, FrsPageResIdl> {
+public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<n, FrsPageResIdl> {
     private boolean hasNetworkError;
     private int mCategoryId;
     private int mIsGood;
     private int mSortType;
     private boolean needCache;
-    private m responseData;
+    private n responseData;
     private int updateType;
 
     public boolean hasNetworkError() {
@@ -36,21 +36,21 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
             this.hasNetworkError = hasError();
         } else if (message.getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) message.getExtra();
-            if (mvcNetMessage.getRequestData() instanceof l) {
-                l lVar = (l) mvcNetMessage.getRequestData();
-                this.updateType = lVar.getUpdateType();
-                this.needCache = lVar.isNeedCache();
-                this.mCategoryId = lVar.getCategoryId();
+            if (mvcNetMessage.getRequestData() instanceof m) {
+                m mVar = (m) mvcNetMessage.getRequestData();
+                this.updateType = mVar.getUpdateType();
+                this.needCache = mVar.isNeedCache();
+                this.mCategoryId = mVar.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = lVar.aSc();
-                this.mIsGood = lVar.getIsGood();
+                this.mSortType = mVar.bak();
+                this.mIsGood = mVar.getIsGood();
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
-        this.responseData = new m();
+        this.responseData = new n();
         FrsPageResIdl A = this.responseData.A(bArr);
         if (A != null && A.error != null) {
             if (A.error.errorno != null) {
@@ -63,8 +63,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.avD() != null) {
-            c.aRZ().a(c.aRZ().d(this.responseData.avD().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aDN() != null) {
+            d.bah().a(d.bah().d(this.responseData.aDN().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
         }
     }
 
@@ -81,11 +81,11 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         this.updateType = i;
     }
 
-    public m getResponseData() {
+    public n getResponseData() {
         return this.responseData;
     }
 
-    public void setResponseData(m mVar) {
-        this.responseData = mVar;
+    public void setResponseData(n nVar) {
+        this.responseData = nVar;
     }
 }

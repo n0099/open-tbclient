@@ -17,6 +17,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final int FROM_PHOTO_LIVE_COVER = 1;
     public static final int FROM_PHOTO_LIVE_UPGRADE_DIALOG = 3;
     public static final int FROM_VOTE = 3;
+    public static final String IS_SELECT_DIRECTLY = "select_directly";
     public static final String LAST_ALBUM_ID = "last_album_id";
     public static final String USE_ORIGINAL_IMG = "use_original_img";
     public static final String WRITE_IMAGES_INFO = "write_images_info";

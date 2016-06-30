@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.MyLiveActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    final /* synthetic */ u dxY;
+    final /* synthetic */ u egu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.dxY = uVar;
+        this.egu = uVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,17 +25,17 @@ public class v implements View.OnClickListener {
         Context context;
         Context context2;
         int id = view.getId();
-        if (id == t.g.live_thread_item) {
-            TiebaStatic.log(new aw("c10591"));
+        if (id == u.g.live_thread_item) {
+            TiebaStatic.log(new ay("c10591"));
             MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.dxY.mContext;
+            context2 = this.egu.mContext;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyLiveActivityConfig(context2)));
-        } else if (id == t.g.live_mission_item && (view.getTag() instanceof com.baidu.tieba.person.data.m)) {
+        } else if (id == u.g.live_mission_item && (view.getTag() instanceof com.baidu.tieba.person.data.m)) {
             TiebaStatic.log("c10784");
             com.baidu.tieba.person.data.m mVar = (com.baidu.tieba.person.data.m) view.getTag();
-            if (mVar.getUser() != null && mVar.aCp() != null && mVar.aCp().pw() != null) {
-                context = this.dxY.mContext;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MissonDetailsActivityConfig(context, 24004, mVar.aCp().pw().anchor_level.intValue(), mVar.getUser().portrait, mVar.getUser().name_show, MissonDetailsActivityConfig.FROM_PERSON)));
+            if (mVar.getUser() != null && mVar.aLi() != null && mVar.aLi().pp() != null) {
+                context = this.egu.mContext;
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MissonDetailsActivityConfig(context, 24004, mVar.aLi().pp().anchor_level.intValue(), mVar.getUser().portrait, mVar.getUser().name_show, MissonDetailsActivityConfig.FROM_PERSON)));
             }
         }
     }

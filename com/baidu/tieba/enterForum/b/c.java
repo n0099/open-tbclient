@@ -1,35 +1,30 @@
 package com.baidu.tieba.enterForum.b;
 
-import tbclient.ForumRecommend.HotSearch;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrequentlyForumInfo;
 /* loaded from: classes.dex */
 public class c {
-    private String aWM;
-    private long aWN;
-    private long mId;
-    private String mName;
+    private ArrayList<com.baidu.tbadk.data.e> bsJ = new ArrayList<>();
 
-    public String Mk() {
-        return this.aWM;
+    public List<com.baidu.tbadk.data.e> RN() {
+        return this.bsJ;
     }
 
-    public long Ml() {
-        return this.aWN;
-    }
-
-    public long getId() {
-        return this.mId;
-    }
-
-    public String getName() {
-        return this.mName;
-    }
-
-    public void a(HotSearch hotSearch) {
-        if (hotSearch != null && hotSearch.search_value != null) {
-            this.aWM = hotSearch.search_title;
-            this.mId = hotSearch.search_value.id.longValue();
-            this.mName = hotSearch.search_value.name;
-            this.aWN = hotSearch.search_value.type.longValue();
+    public void Z(List<FrequentlyForumInfo> list) {
+        if (list != null && list.size() > 0) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (list.get(i) != null) {
+                    FrequentlyForumInfo frequentlyForumInfo = list.get(i);
+                    com.baidu.tbadk.data.e eVar = new com.baidu.tbadk.data.e();
+                    if (frequentlyForumInfo != null && frequentlyForumInfo.forum_id != null && frequentlyForumInfo.forum_id.longValue() != 0 && !StringUtils.isNull(frequentlyForumInfo.forum_name)) {
+                        eVar.a(frequentlyForumInfo);
+                        this.bsJ.add(eVar);
+                    }
+                }
+            }
         }
     }
 }

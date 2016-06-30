@@ -5,23 +5,23 @@ import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.model.MsglistModel;
 /* loaded from: classes.dex */
 class b implements AbsMsglistView.a {
-    final /* synthetic */ PersonalChatActivity cth;
+    final /* synthetic */ PersonalChatActivity cYx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PersonalChatActivity personalChatActivity) {
-        this.cth = personalChatActivity;
+        this.cYx = personalChatActivity;
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView.a
     public void d(VoiceData.VoiceModel voiceModel) {
         MsglistModel msglistModel;
         if (voiceModel != null) {
-            msglistModel = this.cth.caH;
+            msglistModel = this.cYx.cFR;
             msglistModel.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
         }
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView.a
-    public void abI() {
+    public void ajU() {
     }
 }

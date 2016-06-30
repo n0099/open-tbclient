@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     private static final String JS_PROMPT_ACCOUNT_METHOD_EXIT = "exit";
@@ -23,25 +23,25 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     private NavigationBar mNavigationBar;
     private String mPageType;
     private BaseWebView mWebView;
-    private com.baidu.tieba.tbadkCore.e.b jsPromptInterface = new m(this);
-    private com.baidu.tieba.tbadkCore.e.c jsCallback = new n(this);
+    private com.baidu.tieba.tbadkCore.e.b jsPromptInterface = new n(this);
+    private com.baidu.tieba.tbadkCore.e.c jsCallback = new o(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(t.h.account_restore_activity);
+        setContentView(u.h.account_restore_activity);
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
         this.jsBridge.a(this.jsPromptInterface);
         this.mPageType = getIntent().getStringExtra("page_type");
-        this.mNavigationBar = (NavigationBar) findViewById(t.g.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) findViewById(u.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getPageContext().getString(t.j.anti_account_restore));
-        ((LinearLayout.LayoutParams) ((TextView) findViewById(t.g.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mWebView = (BaseWebView) findViewById(t.g.webview_acc_restore);
+        this.mNavigationBar.setTitleText(getPageContext().getString(u.j.anti_account_restore));
+        ((LinearLayout.LayoutParams) ((TextView) findViewById(u.g.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mWebView = (BaseWebView) findViewById(u.g.webview_acc_restore);
         this.mWebView.setOnJsPromptCallback(this.jsCallback);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
-        com.baidu.tbadk.browser.f.I(getPageContext().getPageActivity());
+        com.baidu.tbadk.browser.f.H(getPageContext().getPageActivity());
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }
 

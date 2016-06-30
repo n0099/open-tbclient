@@ -11,6 +11,7 @@ public abstract class Message<T> extends i {
     private Object mExtra = null;
     private long mStartTime = 0;
     private long encodedBinarySize = 0;
+    private int squencedId = 0;
 
     public abstract boolean checkCmd(int i);
 
@@ -25,14 +26,14 @@ public abstract class Message<T> extends i {
     public Message(int i) {
         this.mCmd = i;
         check();
-        this.clientLogID = com.baidu.adp.lib.stats.a.dN().dP();
+        this.clientLogID = com.baidu.adp.lib.stats.a.dO().dQ();
     }
 
     public Message(int i, BdUniqueId bdUniqueId) {
         this.mCmd = i;
         this.mTag = bdUniqueId;
         check();
-        this.clientLogID = com.baidu.adp.lib.stats.a.dN().dP();
+        this.clientLogID = com.baidu.adp.lib.stats.a.dO().dQ();
     }
 
     private void check() {
@@ -75,5 +76,13 @@ public abstract class Message<T> extends i {
 
     public void setClientLogID(long j) {
         this.clientLogID = j;
+    }
+
+    public int getSquencedId() {
+        return this.squencedId;
+    }
+
+    public void setSquencedId(int i) {
+        this.squencedId = i;
     }
 }

@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class f extends PullToRefreshBase<HorizontalScrollView> {
     public f(Context context) {
@@ -41,19 +41,19 @@ public class f extends PullToRefreshBase<HorizontalScrollView> {
         } else {
             horizontalScrollView = new HorizontalScrollView(context, attributeSet);
         }
-        horizontalScrollView.setId(t.g.scrollview);
+        horizontalScrollView.setId(u.g.scrollview);
         return horizontalScrollView;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
-    protected boolean jN() {
-        return ((HorizontalScrollView) this.aCP).getScrollX() == 0;
+    protected boolean jQ() {
+        return ((HorizontalScrollView) this.aDp).getScrollX() == 0;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
-    protected boolean jO() {
-        View childAt = ((HorizontalScrollView) this.aCP).getChildAt(0);
-        return childAt != null && ((HorizontalScrollView) this.aCP).getScrollX() >= childAt.getWidth() - getWidth();
+    protected boolean jR() {
+        View childAt = ((HorizontalScrollView) this.aDp).getChildAt(0);
+        return childAt != null && ((HorizontalScrollView) this.aDp).getScrollX() >= childAt.getWidth() - getWidth();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -66,11 +66,11 @@ public class f extends PullToRefreshBase<HorizontalScrollView> {
         @Override // android.view.View
         protected boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
             boolean overScrollBy = super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
-            c.a(f.this, i, i3, i2, i4, Gx(), z);
+            c.a(f.this, i, i3, i2, i4, Gy(), z);
             return overScrollBy;
         }
 
-        private int Gx() {
+        private int Gy() {
             if (getChildCount() > 0) {
                 return Math.max(0, getChildAt(0).getWidth() - ((getWidth() - getPaddingLeft()) - getPaddingRight()));
             }

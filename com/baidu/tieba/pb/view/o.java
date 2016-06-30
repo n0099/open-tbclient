@@ -1,55 +1,64 @@
 package com.baidu.tieba.pb.view;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.u;
+import java.util.concurrent.TimeUnit;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o extends Handler {
-    final /* synthetic */ PbVideoControllerView dsP;
+public class o extends CountDownTimer {
+    final /* synthetic */ PbInterviewStatusView dZh;
+    private final /* synthetic */ PbActivity dZi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(PbVideoControllerView pbVideoControllerView, Looper looper) {
-        super(looper);
-        this.dsP = pbVideoControllerView;
+    public o(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity) {
+        super(j, j2);
+        this.dZh = pbInterviewStatusView;
+        this.dZi = pbActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        boolean z2;
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        int aAS;
-        int i;
-        int i2;
-        switch (message.what) {
-            case 1:
-                z = this.dsP.dsJ;
-                if (!z) {
-                    z2 = this.dsP.dsK;
-                    if (z2) {
-                        mediaPlayerControl = this.dsP.dsG;
-                        if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.dsP.dsG;
-                            if (!mediaPlayerControl2.isPlaying()) {
-                                return;
-                            }
-                            aAS = this.dsP.aAS();
-                            Message obtainMessage = obtainMessage(1);
-                            i = this.dsP.dsF;
-                            i2 = this.dsP.dsF;
-                            sendMessageDelayed(obtainMessage, i - (aAS % i2));
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                return;
-        }
+    @Override // android.os.CountDownTimer
+    public void onTick(long j) {
+        TextView textView;
+        textView = this.dZh.dYV;
+        textView.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
+    }
+
+    @Override // android.os.CountDownTimer
+    public void onFinish() {
+        String str;
+        TextView textView;
+        TextView textView2;
+        ImageView imageView;
+        View view;
+        ImageView imageView2;
+        FrameLayout frameLayout;
+        ay ayVar = new ay("c11106");
+        str = this.dZh.NQ;
+        TiebaStatic.log(ayVar.ab("obj_id", str));
+        this.dZh.dZe = false;
+        textView = this.dZh.dYS;
+        textView.setText(this.dZi.getPageContext().getPageActivity().getString(u.j.interview_live_start));
+        textView2 = this.dZh.dYS;
+        textView2.setTextSize(0, k.c(this.dZi.getPageContext().getPageActivity(), u.e.fontsize24));
+        imageView = this.dZh.dYT;
+        imageView.setVisibility(0);
+        view = this.dZh.dYY;
+        view.setVisibility(8);
+        imageView2 = this.dZh.dYX;
+        imageView2.setVisibility(0);
+        frameLayout = this.dZh.dYU;
+        frameLayout.setVisibility(8);
+        this.dZh.setClickable(true);
+        this.dZh.dZf = true;
     }
 }

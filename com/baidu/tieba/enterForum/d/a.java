@@ -1,15 +1,15 @@
 package com.baidu.tieba.enterForum.d;
 /* loaded from: classes.dex */
 public class a {
-    private b aYm;
+    private b bue;
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.aYm = bVar;
+            this.bue = bVar;
         }
     }
 
-    public b Ne() {
-        return this.aYm;
+    public b SF() {
+        return this.bue;
     }
 }

@@ -1,29 +1,52 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.location.d;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.view.View;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class bn implements a.b {
-    final /* synthetic */ WriteActivity fea;
+class bn implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(WriteActivity writeActivity) {
-        this.fea = writeActivity;
+    public bn(WriteImageActivity writeImageActivity) {
+        this.this$0 = writeImageActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        d.a aVar2;
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        if (!com.baidu.adp.lib.util.i.fq()) {
-            aVar2 = this.fea.arI;
-            aVar2.Ce();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        boolean z2;
+        boolean rd;
+        z = this.this$0.dQZ;
+        if (!z) {
+            i = this.this$0.requestCode;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                if (this.this$0.cbl.getVisibility() != 0) {
+                    z2 = this.this$0.edn;
+                    if (z2 && this.this$0.edg != null && !this.this$0.edg.isRecycled()) {
+                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                        rd = this.this$0.rd(str);
+                        if (rd) {
+                            intent.putExtra("change", true);
+                            intent.putExtra("file_name", str);
+                        } else {
+                            intent.putExtra("change", false);
+                        }
+                    } else {
+                        intent.putExtra("change", false);
+                    }
+                    this.this$0.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.this$0.setResult(0, new Intent());
+            }
         } else {
-            this.fea.a(1, true, (String) null);
-            dVar = this.fea.art;
-            dVar.aUM();
+            this.this$0.setResult(0, new Intent());
         }
-        aVar.dismiss();
+        this.this$0.finish();
     }
 }

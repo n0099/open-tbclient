@@ -13,12 +13,12 @@ import android.util.Log;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class e extends DynamicDrawableSpan {
-    private Uri Av;
-    private int Aw;
-    private a Ax;
-    private Rect hJ;
+    private Uri Au;
+    private int Av;
+    private a Aw;
+    private Rect hI;
     private Context mContext;
-    private Drawable xP;
+    private Drawable xR;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -26,28 +26,28 @@ public class e extends DynamicDrawableSpan {
     }
 
     public void setDrawable(Drawable drawable) {
-        this.xP = drawable;
+        this.xR = drawable;
     }
 
     public e(a aVar, int i, int i2) {
         super(i2);
-        this.hJ = new Rect();
-        this.Aw = i;
-        this.Ax = aVar;
+        this.hI = new Rect();
+        this.Av = i;
+        this.Aw = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.xP != null || this.Ax == null) {
+        if (this.xR != null || this.Aw == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.hJ.bottom;
+            fontMetricsInt.ascent = -this.hI.bottom;
             fontMetricsInt.descent = 0;
             fontMetricsInt.top = fontMetricsInt.ascent;
             fontMetricsInt.bottom = 0;
         }
-        return this.hJ.right;
+        return this.hI.right;
     }
 
     @Override // android.text.style.DynamicDrawableSpan
@@ -56,17 +56,17 @@ public class e extends DynamicDrawableSpan {
         Drawable drawable2;
         Exception e;
         Drawable drawable3 = null;
-        if (this.xP != null) {
-            drawable3 = this.xP;
-        } else if (this.Ax != null) {
-            drawable3 = this.Ax.a(this);
+        if (this.xR != null) {
+            drawable3 = this.xR;
+        } else if (this.Aw != null) {
+            drawable3 = this.Aw.a(this);
         }
         if (drawable3 != null) {
             return drawable3;
         }
-        if (this.Av != null) {
+        if (this.Au != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.Av);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.Au);
                 drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
@@ -74,7 +74,7 @@ public class e extends DynamicDrawableSpan {
                     return drawable2;
                 } catch (Exception e2) {
                     e = e2;
-                    Log.e("sms", "Failed to loaded content " + this.Av, e);
+                    Log.e("sms", "Failed to loaded content " + this.Au, e);
                     return drawable2;
                 }
             } catch (Exception e3) {
@@ -83,12 +83,12 @@ public class e extends DynamicDrawableSpan {
             }
         } else {
             try {
-                drawable = this.mContext.getResources().getDrawable(this.Aw);
+                drawable = this.mContext.getResources().getDrawable(this.Av);
                 try {
                     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                     return drawable;
                 } catch (Exception e4) {
-                    Log.e("sms", "Unable to find resource: " + this.Aw);
+                    Log.e("sms", "Unable to find resource: " + this.Av);
                     return drawable;
                 }
             } catch (Exception e5) {
@@ -113,6 +113,6 @@ public class e extends DynamicDrawableSpan {
     }
 
     public void c(int i, int i2, int i3, int i4) {
-        this.hJ.set(i, i2, i3, i4);
+        this.hI.set(i, i2, i3, i4);
     }
 }

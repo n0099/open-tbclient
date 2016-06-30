@@ -1,49 +1,28 @@
 package com.baidu.tieba.personInfo;
 
 import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements AbsListView.OnScrollListener {
-    final /* synthetic */ bj dHR;
+public class bo implements View.OnClickListener {
+    final /* synthetic */ bm epX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(bj bjVar) {
-        this.dHR = bjVar;
+    public bo(bm bmVar) {
+        this.epX = bmVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        View view;
-        View view2;
-        View view3;
-        BdListView.e eVar;
-        View view4;
-        if (i == 0) {
-            view3 = this.dHR.aGr;
-            if (view3 != null) {
-                view4 = this.dHR.aGr;
-                view4.setVisibility(0);
-            }
-            if (absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getChildCount() > 0) {
-                eVar = this.dHR.zc;
-                eVar.jA();
-                return;
-            }
-            return;
-        }
-        view = this.dHR.aGr;
-        if (view != null) {
-            view2 = this.dHR.aGr;
-            view2.setVisibility(8);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.dHR.aEh();
-        this.dHR.aEi();
-        this.dHR.aEg();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseFragmentActivity baseFragmentActivity;
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10606"));
+        MessageManager messageManager = MessageManager.getInstance();
+        baseFragmentActivity = this.epX.bfw;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(baseFragmentActivity.getPageContext().getPageActivity(), 0L)));
     }
 }

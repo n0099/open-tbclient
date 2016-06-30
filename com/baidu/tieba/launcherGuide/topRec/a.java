@@ -3,11 +3,11 @@ package com.baidu.tieba.launcherGuide.topRec;
 import com.baidu.tieba.launcherGuide.topRec.h;
 /* loaded from: classes.dex */
 class a implements h.b {
-    final /* synthetic */ TopRecActivity cEJ;
+    final /* synthetic */ TopRecActivity dkj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(TopRecActivity topRecActivity) {
-        this.cEJ = topRecActivity;
+        this.dkj = topRecActivity;
     }
 
     @Override // com.baidu.tieba.launcherGuide.topRec.h.b
@@ -15,16 +15,16 @@ class a implements h.b {
         d dVar;
         d dVar2;
         if (bool.booleanValue() && i == 0) {
-            dVar = this.cEJ.cEA;
+            dVar = this.dkj.dka;
             if (dVar != null) {
-                dVar2 = this.cEJ.cEA;
+                dVar2 = this.dkj.dka;
                 dVar2.a(tRForumListData);
-                this.cEJ.cED = tRForumListData;
+                this.dkj.dkd = tRForumListData;
             }
         } else {
-            this.cEJ.showToast(str);
+            this.dkj.showToast(str);
         }
-        this.cEJ.cEz.eB(false);
-        this.cEJ.cEz.jx();
+        this.dkj.djZ.fp(false);
+        this.dkj.djZ.jA();
     }
 }

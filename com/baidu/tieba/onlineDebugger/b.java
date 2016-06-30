@@ -27,7 +27,7 @@ class b extends e {
                     String optString2 = jSONObject.optString("fromCuid");
                     String optString3 = jSONObject.optString("toCuid");
                     com.baidu.tieba.onlineDebugger.d.a aVar = new com.baidu.tieba.onlineDebugger.d.a();
-                    aVar.lx(optString2);
+                    aVar.mY(optString2);
                     aVar.setToUid(optString3);
                     aVar.setMsgContent(optString);
                     new OnlineDebuggerStatic.a().execute(aVar);

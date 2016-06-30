@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AbsListView.OnScrollListener {
-    final /* synthetic */ BdListView zp;
+    final /* synthetic */ BdListView zo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(BdListView bdListView) {
-        this.zp = bdListView;
+        this.zo = bdListView;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -29,53 +29,53 @@ public class n implements AbsListView.OnScrollListener {
         Runnable runnable3;
         Runnable runnable4;
         Runnable runnable5;
-        com.baidu.adp.base.k q = com.baidu.adp.base.l.q(this.zp.getContext());
+        com.baidu.adp.base.k q = com.baidu.adp.base.l.q(this.zo.getContext());
         if (q != null) {
             if (i == 2) {
-                BdListView bdListView = this.zp;
-                runnable5 = this.zp.zj;
+                BdListView bdListView = this.zo;
+                runnable5 = this.zo.zi;
                 bdListView.removeCallbacks(runnable5);
                 q.setIsScroll(true);
             } else if (q.isScroll()) {
                 q.setIsScroll(false);
-                BdListView bdListView2 = this.zp;
-                runnable3 = this.zp.zj;
+                BdListView bdListView2 = this.zo;
+                runnable3 = this.zo.zi;
                 bdListView2.removeCallbacks(runnable3);
-                BdListView bdListView3 = this.zp;
-                runnable4 = this.zp.zj;
+                BdListView bdListView3 = this.zo;
+                runnable4 = this.zo.zi;
                 bdListView3.postDelayed(runnable4, 100L);
             } else if (i == 0) {
-                BdListView bdListView4 = this.zp;
-                runnable = this.zp.preLoadRunnable;
+                BdListView bdListView4 = this.zo;
+                runnable = this.zo.preLoadRunnable;
                 bdListView4.removeCallbacks(runnable);
-                BdListView bdListView5 = this.zp;
-                runnable2 = this.zp.preLoadRunnable;
+                BdListView bdListView5 = this.zo;
+                runnable2 = this.zo.preLoadRunnable;
                 bdListView5.postDelayed(runnable2, 100L);
             }
         }
-        onScrollListener = this.zp.yW;
+        onScrollListener = this.zo.yV;
         if (onScrollListener != null) {
-            onScrollListener2 = this.zp.yW;
+            onScrollListener2 = this.zo.yV;
             onScrollListener2.onScrollStateChanged(absListView, i);
         }
         if (i == 0) {
-            eVar = this.zp.zc;
+            eVar = this.zo.zb;
             if (eVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                eVar2 = this.zp.zc;
-                eVar2.jA();
+                eVar2 = this.zo.zb;
+                eVar2.jD();
             }
-            fVar = this.zp.zd;
+            fVar = this.zo.zc;
             if (fVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                fVar2 = this.zp.zd;
-                fVar2.t(this.zp);
+                fVar2 = this.zo.zc;
+                fVar2.t(this.zo);
             }
-            hVar = this.zp.za;
+            hVar = this.zo.yZ;
             if (hVar != null) {
                 int firstVisiblePosition = absListView.getFirstVisiblePosition();
-                i2 = this.zp.zb;
+                i2 = this.zo.za;
                 if (firstVisiblePosition <= i2) {
-                    hVar2 = this.zp.za;
-                    hVar2.jB();
+                    hVar2 = this.zo.yZ;
+                    hVar2.jE();
                 }
             }
         }
@@ -90,22 +90,22 @@ public class n implements AbsListView.OnScrollListener {
         Runnable runnable2;
         long j2;
         AbsListView.OnScrollListener onScrollListener2;
-        this.zp.zh = i;
-        onScrollListener = this.zp.yW;
+        this.zo.zg = i;
+        onScrollListener = this.zo.yV;
         if (onScrollListener != null) {
-            onScrollListener2 = this.zp.yW;
+            onScrollListener2 = this.zo.yV;
             onScrollListener2.onScroll(absListView, i, i2, i3);
         }
-        dVar = this.zp.yX;
+        dVar = this.zo.yW;
         if (dVar != null) {
-            j = this.zp.yZ;
+            j = this.zo.yY;
             if (j > 0) {
-                Handler handler = this.zp.getHandler();
-                runnable = this.zp.zi;
+                Handler handler = this.zo.getHandler();
+                runnable = this.zo.zh;
                 handler.removeCallbacks(runnable);
-                Handler handler2 = this.zp.getHandler();
-                runnable2 = this.zp.zi;
-                j2 = this.zp.yZ;
+                Handler handler2 = this.zo.getHandler();
+                runnable2 = this.zo.zh;
+                j2 = this.zo.yY;
                 handler2.postDelayed(runnable2, j2);
             }
         }

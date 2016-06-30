@@ -1,34 +1,58 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class i {
-    private int afW;
-    private int afX;
-    private int afY;
+    private String agy;
+    private EmotionGroupType agz;
+    private int height;
+    private String name;
+    private String pname;
+    private int width;
 
-    public int wA() {
-        if (this.afW == 0) {
-            return Integer.MAX_VALUE;
-        }
-        return this.afW;
+    public String getName() {
+        return this.name;
     }
 
-    public void ea(String str) {
-        this.afW = com.baidu.adp.lib.h.b.g(str, 0);
+    public void setName(String str) {
+        this.name = str;
     }
 
-    public int wB() {
-        return this.afX;
+    public EmotionGroupType wB() {
+        return this.agz;
     }
 
-    public void eb(String str) {
-        this.afX = com.baidu.adp.lib.h.b.g(str, 0);
+    public void a(EmotionGroupType emotionGroupType) {
+        this.agz = emotionGroupType;
     }
 
-    public int wC() {
-        return this.afY;
+    public String wC() {
+        return this.pname;
     }
 
     public void ec(String str) {
-        this.afY = com.baidu.adp.lib.h.b.g(str, 0);
+        this.pname = str;
+    }
+
+    public String getPid() {
+        return this.agy;
+    }
+
+    public void ed(String str) {
+        this.agy = str;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
     }
 }

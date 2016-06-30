@@ -10,35 +10,35 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.personInfo.PersonUserGodInfo;
-import com.baidu.tieba.personInfo.bg;
-import com.baidu.tieba.t;
+import com.baidu.tieba.personInfo.bp;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PersonInfoBaseGodView extends LinearLayout implements View.OnClickListener {
-    private ViewEventCenter aXs;
-    private UserIconBox adI;
-    private boolean bIW;
-    private View bdg;
-    private View dAl;
-    private View dAm;
-    private View dAn;
-    private TextView dAo;
-    private TextView dAp;
-    private TextView dAq;
-    private View dAr;
-    private View dAs;
-    private View dAt;
-    private TextView dAu;
-    private TextView dAv;
-    private PersonInfoGodBarListView dAw;
-    private ImageView dAx;
-    private bg dAy;
+    private UserIconBox aeg;
+    private ViewEventCenter bfx;
+    private View bzh;
+    private boolean cgJ;
+    private View eiR;
+    private View eiS;
+    private View eiT;
+    private TextView eiU;
+    private TextView eiV;
+    private TextView eiW;
+    private View eiX;
+    private View eiY;
+    private View eiZ;
+    private TextView eja;
+    private TextView ejb;
+    private PersonInfoGodBarListView ejc;
+    private ImageView ejd;
+    private bp eje;
     private Context mContext;
 
     public PersonInfoBaseGodView(Context context, AttributeSet attributeSet) {
@@ -54,134 +54,134 @@ public class PersonInfoBaseGodView extends LinearLayout implements View.OnClickL
     }
 
     private void initView() {
-        View inflate = LayoutInflater.from(this.mContext).inflate(t.h.personinfo_base_god_view, this);
-        this.bdg = inflate.findViewById(t.g.layout_blank_divider);
-        this.dAo = (TextView) inflate.findViewById(t.g.user_sign);
-        this.dAp = (TextView) inflate.findViewById(t.g.user_gender);
-        this.dAq = (TextView) inflate.findViewById(t.g.user_age);
-        this.dAu = (TextView) inflate.findViewById(t.g.user_city);
-        this.dAn = inflate.findViewById(t.g.line_user_yinji);
-        this.dAr = inflate.findViewById(t.g.line_city);
-        this.dAs = inflate.findViewById(t.g.line_gender);
-        this.dAt = inflate.findViewById(t.g.line_age);
-        this.adI = (UserIconBox) inflate.findViewById(t.g.user_icon);
-        this.dAv = (TextView) inflate.findViewById(t.g.user_bar_age_num);
-        this.dAw = (PersonInfoGodBarListView) inflate.findViewById(t.g.god_barlist_view);
-        this.dAx = (ImageView) inflate.findViewById(t.g.god_barlist_icon);
-        this.dAl = (LinearLayout) inflate.findViewById(t.g.layout_yinji);
-        this.dAm = (LinearLayout) inflate.findViewById(t.g.layout_sign);
-        this.adI.setOnClickListener(this);
-        this.dAx.setOnClickListener(this);
+        View inflate = LayoutInflater.from(this.mContext).inflate(u.h.personinfo_base_god_view, this);
+        this.bzh = inflate.findViewById(u.g.layout_blank_divider);
+        this.eiU = (TextView) inflate.findViewById(u.g.user_sign);
+        this.eiV = (TextView) inflate.findViewById(u.g.user_gender);
+        this.eiW = (TextView) inflate.findViewById(u.g.user_age);
+        this.eja = (TextView) inflate.findViewById(u.g.user_city);
+        this.eiT = inflate.findViewById(u.g.line_user_yinji);
+        this.eiX = inflate.findViewById(u.g.line_city);
+        this.eiY = inflate.findViewById(u.g.line_gender);
+        this.eiZ = inflate.findViewById(u.g.line_age);
+        this.aeg = (UserIconBox) inflate.findViewById(u.g.user_icon);
+        this.ejb = (TextView) inflate.findViewById(u.g.user_bar_age_num);
+        this.ejc = (PersonInfoGodBarListView) inflate.findViewById(u.g.god_barlist_view);
+        this.ejd = (ImageView) inflate.findViewById(u.g.god_barlist_icon);
+        this.eiR = (LinearLayout) inflate.findViewById(u.g.layout_yinji);
+        this.eiS = (LinearLayout) inflate.findViewById(u.g.layout_sign);
+        this.aeg.setOnClickListener(this);
+        this.ejd.setOnClickListener(this);
     }
 
-    public void a(bg bgVar, ViewEventCenter viewEventCenter) {
-        if (bgVar != null) {
-            this.dAy = bgVar;
-            this.bIW = bgVar.getIsSelf();
-            this.aXs = viewEventCenter;
-            aCF();
-            aCE();
+    public void a(bp bpVar, ViewEventCenter viewEventCenter) {
+        if (bpVar != null) {
+            this.eje = bpVar;
+            this.cgJ = bpVar.getIsSelf();
+            this.bfx = viewEventCenter;
+            aLz();
+            aLy();
         }
     }
 
-    private void aCE() {
-        PersonUserGodInfo aDB;
-        if (this.dAy != null && (aDB = this.dAy.aDB()) != null && aDB.getForumGodList() != null) {
-            this.dAw.setData(aDB.getForumGodList());
+    private void aLy() {
+        PersonUserGodInfo aMw;
+        if (this.eje != null && (aMw = this.eje.aMw()) != null && aMw.getForumGodList() != null) {
+            this.ejc.setData(aMw.getForumGodList());
         }
     }
 
-    private void aCF() {
-        if (this.dAy != null) {
-            UserData userData = this.dAy.getUserData();
+    private void aLz() {
+        if (this.eje != null) {
+            UserData userData = this.eje.getUserData();
             if (userData != null) {
                 int sex = userData.getSex();
                 if (sex == 1) {
-                    this.dAp.setVisibility(0);
-                    this.dAs.setVisibility(0);
-                    this.dAp.setText(t.j.man);
+                    this.eiV.setVisibility(0);
+                    this.eiY.setVisibility(0);
+                    this.eiV.setText(u.j.man);
                 } else if (sex == 2) {
-                    this.dAp.setVisibility(0);
-                    this.dAs.setVisibility(0);
-                    this.dAp.setText(t.j.woman);
+                    this.eiV.setVisibility(0);
+                    this.eiY.setVisibility(0);
+                    this.eiV.setText(u.j.woman);
                 } else {
-                    this.dAp.setVisibility(8);
-                    this.dAs.setVisibility(8);
+                    this.eiV.setVisibility(8);
+                    this.eiY.setVisibility(8);
                 }
                 String intro = userData.getIntro();
                 if (!TextUtils.isEmpty(intro)) {
-                    this.dAo.setText(intro);
-                    at.c(this.dAo, t.d.cp_cont_f, 1);
+                    this.eiU.setText(intro);
+                    av.c(this.eiU, u.d.cp_cont_f, 1);
                 } else {
-                    this.dAo.setText(t.j.no_person_sign);
-                    at.c(this.dAo, t.d.cp_cont_d, 1);
+                    this.eiU.setText(u.j.no_person_sign);
+                    av.c(this.eiU, u.d.cp_cont_d, 1);
                 }
                 float a = com.baidu.adp.lib.h.b.a(userData.getTb_age(), 0.0f);
                 if (a < 0.0f || a > 100.0f) {
                     a = 0.0f;
                 }
-                this.dAv.setText(String.valueOf(a) + this.mContext.getResources().getString(t.j.user_info_center_head_viewpager_god_tb_age));
+                this.ejb.setText(String.valueOf(a) + this.mContext.getResources().getString(u.j.user_info_center_head_viewpager_god_tb_age));
                 ArrayList<IconData> iconInfo = userData.getIconInfo();
-                if (y.r(iconInfo) > 0) {
-                    this.dAl.setVisibility(0);
-                    this.dAn.setVisibility(0);
-                    int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(t.e.ds34);
-                    this.adI.a(iconInfo, 9, dimensionPixelSize, dimensionPixelSize, this.mContext.getResources().getDimensionPixelSize(t.e.ds10), true);
+                if (y.s(iconInfo) > 0) {
+                    this.eiR.setVisibility(0);
+                    this.eiT.setVisibility(0);
+                    int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(u.e.ds34);
+                    this.aeg.a(iconInfo, 9, dimensionPixelSize, dimensionPixelSize, this.mContext.getResources().getDimensionPixelSize(u.e.ds10), true);
                 } else {
-                    this.dAl.setVisibility(8);
-                    this.dAn.setVisibility(8);
+                    this.eiR.setVisibility(8);
+                    this.eiT.setVisibility(8);
                 }
             }
-            PersonUserGodInfo aDB = this.dAy.aDB();
-            if (aDB != null) {
-                int age = aDB.getAge();
+            PersonUserGodInfo aMw = this.eje.aMw();
+            if (aMw != null) {
+                int age = aMw.getAge();
                 if (age < 1 || age > 100) {
-                    this.dAq.setVisibility(8);
-                    this.dAt.setVisibility(8);
+                    this.eiW.setVisibility(8);
+                    this.eiZ.setVisibility(8);
                 } else {
-                    this.dAq.setVisibility(0);
-                    this.dAt.setVisibility(0);
-                    this.dAq.setText(this.mContext.getResources().getString(t.j.person_age, Integer.valueOf(age)));
+                    this.eiW.setVisibility(0);
+                    this.eiZ.setVisibility(0);
+                    this.eiW.setText(this.mContext.getResources().getString(u.j.person_age, Integer.valueOf(age)));
                 }
-                String address = aDB.getAddress();
+                String address = aMw.getAddress();
                 if (TextUtils.isEmpty(address)) {
-                    this.dAu.setVisibility(8);
-                    this.dAr.setVisibility(8);
+                    this.eja.setVisibility(8);
+                    this.eiX.setVisibility(8);
                     return;
                 }
-                this.dAu.setVisibility(0);
-                this.dAr.setVisibility(0);
+                this.eja.setVisibility(0);
+                this.eiX.setVisibility(0);
                 if (address.length() > 7) {
                     address = String.valueOf(address.substring(0, 7)) + "...";
                 }
-                this.dAu.setText(address);
+                this.eja.setText(address);
             }
         }
     }
 
-    public void g(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.i.a.a(tbPageContext, this);
-        if (this.dAw != null) {
-            this.dAw.g(tbPageContext);
+    public void n(TbPageContext<?> tbPageContext) {
+        com.baidu.tbadk.j.a.a(tbPageContext, this);
+        if (this.ejc != null) {
+            this.ejc.n(tbPageContext);
         }
-        at.c(this.bdg, t.d.cp_cont_j, 1);
-        at.c(this.dAv, t.d.cp_cont_j, 1);
-        at.k(this.dAl, t.d.cp_bg_line_d);
-        at.k(this.dAm, t.d.cp_bg_line_d);
-        at.k(this.dAs, t.d.cp_bg_line_b);
-        at.k(this.dAt, t.d.cp_bg_line_b);
-        at.k(this.dAr, t.d.cp_bg_line_b);
-        at.c(this.dAv, t.d.cp_cont_j, 1);
+        av.c(this.bzh, u.d.cp_cont_j, 1);
+        av.c(this.ejb, u.d.cp_cont_j, 1);
+        av.k(this.eiR, u.d.cp_bg_line_d);
+        av.k(this.eiS, u.d.cp_bg_line_d);
+        av.k(this.eiY, u.d.cp_bg_line_b);
+        av.k(this.eiZ, u.d.cp_bg_line_b);
+        av.k(this.eiX, u.d.cp_bg_line_b);
+        av.c(this.ejb, u.d.cp_cont_j, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.adI) {
-            if (this.aXs != null) {
-                this.aXs.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(3, null, null, null));
+        if (view == this.aeg) {
+            if (this.bfx != null) {
+                this.bfx.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(3, null, null, null));
             }
-        } else if (view == this.dAx && this.aXs != null) {
-            this.aXs.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(5, null, null, null));
+        } else if (view == this.ejd && this.bfx != null) {
+            this.bfx.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(5, null, null, null));
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class aw {
-    public int PS;
-    public int errorCode;
-    public String errorMsg;
+    public boolean PX;
+    public String PY;
+    public String PZ;
+    public com.baidu.tbadk.widget.richText.a Qa;
+    public String threadTitle;
 }

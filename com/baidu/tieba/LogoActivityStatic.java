@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 /* loaded from: classes.dex */
 public class LogoActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
     }
 }

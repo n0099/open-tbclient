@@ -7,7 +7,7 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -16,19 +16,19 @@ public class l {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern esL = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern eXA = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String esJ = null;
-    private SpannableStringBuilder esK = null;
-    private boolean esI = false;
+    private String eXy = null;
+    private SpannableStringBuilder eXz = null;
+    private boolean eXx = false;
 
-    public static boolean aZ(int i, int i2) {
+    public static boolean bh(int i, int i2) {
         return i == 0 && i2 != 3;
     }
 
-    public static boolean ba(int i, int i2) {
+    public static boolean bi(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -44,23 +44,23 @@ public class l {
         return this.text;
     }
 
-    public String aTG() {
+    public String bbU() {
         return this.c;
     }
 
-    public SpannableStringBuilder aTH() {
-        return this.esK;
+    public SpannableStringBuilder bbV() {
+        return this.eXz;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.esK == null) {
-            this.esK = new SpannableStringBuilder();
+        if (this.eXz == null) {
+            this.eXz = new SpannableStringBuilder();
         }
-        this.esK.append((CharSequence) spannableString);
-        return this.esK;
+        this.eXz.append((CharSequence) spannableString);
+        return this.eXz;
     }
 
-    public SpannableString aR(Context context) {
+    public SpannableString aT(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -74,11 +74,11 @@ public class l {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.text) + " ");
-                com.baidu.adp.widget.a.a face = TbadkCoreApplication.m11getInst().getFace(this.text);
+                com.baidu.adp.widget.a.a face = TbadkCoreApplication.m9getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable ja = face.ja();
-                    ja.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(ja, 1), 0, this.text.length(), 33);
+                    BitmapDrawable jd = face.jd();
+                    jd.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(jd, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -102,7 +102,7 @@ public class l {
                 if (!this.text.endsWith(" ")) {
                     this.text = String.valueOf(this.text) + " ";
                 }
-                String string = context.getString(t.j.video);
+                String string = context.getString(u.j.video);
                 SpannableString spannableString4 = new SpannableString(String.valueOf(string) + this.text);
                 spannableString4.setSpan(new m(this, context), string.length(), str.length() - 1, 33);
                 return spannableString4;
@@ -120,7 +120,7 @@ public class l {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.esJ = jSONObject.optString("cdn_src", null);
+                    this.eXy = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -135,7 +135,7 @@ public class l {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.esI = true;
+                        this.eXx = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -145,7 +145,7 @@ public class l {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.CH().fi(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.CP().fo(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

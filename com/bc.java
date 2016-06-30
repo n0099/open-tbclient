@@ -3,17 +3,17 @@ package com;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class bc implements DialogInterface.OnDismissListener {
-    final /* synthetic */ bb fke;
+    final /* synthetic */ bb fQd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(bb bbVar) {
-        this.fke = bbVar;
+        this.fQd = bbVar;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.fke.mShareDialog != null) {
-            this.fke.mShareDialog = null;
+        if (this.fQd.mShareDialog != null) {
+            this.fQd.mShareDialog = null;
         }
     }
 }

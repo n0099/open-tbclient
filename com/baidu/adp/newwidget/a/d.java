@@ -4,49 +4,49 @@ import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
     public volatile boolean isDefault = true;
-    public BitmapDrawable sw;
-    public com.baidu.adp.widget.a.a sx;
+    public BitmapDrawable sx;
+    public com.baidu.adp.widget.a.a sy;
 
-    public boolean gN() {
-        return (this.sw == null || this.sw.getBitmap() == null) ? false : true;
+    public boolean gP() {
+        return (this.sx == null || this.sx.getBitmap() == null) ? false : true;
     }
 
-    public boolean gO() {
-        return this.sx != null && this.sx.iZ();
+    public boolean gQ() {
+        return this.sy != null && this.sy.jc();
     }
 
     public boolean isAvailable() {
-        return gN() || gO();
+        return gP() || gQ();
     }
 
     public int getWidth() {
-        if (gN()) {
-            return this.sw.getIntrinsicWidth();
+        if (gP()) {
+            return this.sx.getIntrinsicWidth();
         }
-        if (gO()) {
-            return this.sx.getWidth();
+        if (gQ()) {
+            return this.sy.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (gN()) {
-            return this.sw.getIntrinsicHeight();
+        if (gP()) {
+            return this.sx.getIntrinsicHeight();
         }
-        if (gO()) {
-            return this.sx.getHeight();
+        if (gQ()) {
+            return this.sy.getHeight();
         }
         return 0;
     }
 
     public void reset() {
+        this.sy = null;
         this.sx = null;
-        this.sw = null;
     }
 
-    public boolean cd() {
-        if (gO()) {
-            return this.sx.cd();
+    public boolean ce() {
+        if (gQ()) {
+            return this.sy.ce();
         }
         return false;
     }

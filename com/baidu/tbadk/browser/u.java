@@ -15,11 +15,11 @@ class u extends com.baidu.tbadk.core.c.o {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.c.o
-    public String nj() {
+    public String ne() {
         return "TBHY_COMMON_UISwitch";
     }
 
-    @com.baidu.tbadk.core.c.p(sE = "viewHideSwitch", sF = false)
+    @com.baidu.tbadk.core.c.p(sC = false, value = "viewHideSwitch")
     private void viewHideSwitch(JSONObject jSONObject) {
         boolean z;
         if (jSONObject != null) {
@@ -31,7 +31,7 @@ class u extends com.baidu.tbadk.core.c.o {
             }
             x xVar = this.Kx.mView;
             z = this.Kx.mShowShareItem;
-            xVar.ac(z);
+            xVar.ab(z);
         }
     }
 }

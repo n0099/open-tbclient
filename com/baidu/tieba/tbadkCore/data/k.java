@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String esD;
-    private int esE;
-    private String esF;
-    private String esG;
-    private String esH;
+    private String eXs;
+    private int eXt;
+    private String eXu;
+    private String eXv;
+    private String eXw;
     private int height;
     private String subTitle;
     private int width;
 
     public k(Timgs timgs) {
-        this.esD = null;
-        this.esE = 0;
-        this.esF = null;
-        this.esG = null;
-        this.esH = null;
+        this.eXs = null;
+        this.eXt = 0;
+        this.eXu = null;
+        this.eXv = null;
+        this.eXw = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.esD = timgs.img_url;
-            this.esE = timgs.flag.intValue();
-            this.esF = timgs.url;
-            this.esG = timgs.big_cdn_url;
-            this.esH = timgs.des_main;
+            this.eXs = timgs.img_url;
+            this.eXt = timgs.flag.intValue();
+            this.eXu = timgs.url;
+            this.eXv = timgs.big_cdn_url;
+            this.eXw = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,16 +50,16 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.esD;
+        return this.eXs;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String oU() {
-        return this.esF;
+    public String getPicLinkUrl() {
+        return this.eXu;
     }
 
-    public String aTE() {
-        return this.esH;
+    public String bbS() {
+        return this.eXw;
     }
 
     public String getSubTitle() {
@@ -74,7 +74,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String aTF() {
-        return this.esG;
+    public String bbT() {
+        return this.eXv;
     }
 }

@@ -5,17 +5,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 class o implements a.b {
-    final /* synthetic */ n boc;
+    final /* synthetic */ n bIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.boc = nVar;
+        this.bIA = nVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         FrsActivity frsActivity;
-        frsActivity = this.boc.bjB;
+        frsActivity = this.bIA.bET;
         TiebaStatic.eventStat(frsActivity.getPageContext().getPageActivity(), "consume_7", "click");
         aVar.dismiss();
     }

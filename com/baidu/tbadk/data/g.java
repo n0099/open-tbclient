@@ -1,54 +1,34 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
-import org.json.JSONObject;
-import tbclient.PayMemberInfo;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.Lbs;
 /* loaded from: classes.dex */
 public class g {
-    private int Mp;
-    private int aod;
-    private String expire_remind;
-    private String url;
+    private String lat;
+    private String lng;
+    private String name = null;
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aod = jSONObject.optInt("props_id");
-            this.Mp = jSONObject.optInt(ThActivityDetailActivityConfig.END_TIME, 0);
-            this.url = jSONObject.optString(this.url, "");
-            this.expire_remind = jSONObject.optString("expire_remind");
-        }
+    public String getLat() {
+        return this.lat;
     }
 
-    public void a(PayMemberInfo payMemberInfo) {
-        if (payMemberInfo != null) {
-            if (payMemberInfo.props_id != null) {
-                this.aod = payMemberInfo.props_id.intValue();
+    public String getLng() {
+        return this.lng;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void a(Lbs lbs) {
+        if (lbs != null) {
+            try {
+                this.name = lbs.name;
+                this.lat = lbs.lat;
+                this.lng = lbs.lng;
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            if (payMemberInfo.end_time != null) {
-                this.Mp = payMemberInfo.end_time.intValue();
-            }
-            this.url = payMemberInfo.url;
-            this.expire_remind = payMemberInfo.expire_remind;
         }
-    }
-
-    public int AA() {
-        return this.aod;
-    }
-
-    public int ot() {
-        return this.Mp;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public String AB() {
-        return this.expire_remind;
-    }
-
-    public void eV(String str) {
-        this.expire_remind = str;
     }
 }

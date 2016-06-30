@@ -4,7 +4,7 @@ import android.support.v4.os.EnvironmentCompat;
 /* loaded from: classes.dex */
 public final class c {
     public static String a(int i) {
-        if (k.mF().g()) {
+        if (k.mA().g()) {
             return "WIFI";
         }
         switch (i) {
@@ -31,7 +31,7 @@ public final class c {
         }
     }
 
-    public static d mw() {
-        return b.mr();
+    public static d mr() {
+        return b.mm();
     }
 }

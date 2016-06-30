@@ -7,7 +7,7 @@ import com.baidu.tieba.im.chat.notify.WindowSwitchResponse;
 /* loaded from: classes.dex */
 public class FloatWindowSwitchStatic extends a {
     static {
-        e.cS().f(FloatWindowSwitchStatic.class);
+        e.cT().n(FloatWindowSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

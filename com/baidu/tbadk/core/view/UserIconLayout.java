@@ -7,51 +7,52 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class UserIconLayout extends LinearLayout {
-    private ax aab;
-    public TextView adG;
-    private UserIconBox adH;
-    private UserIconBox adI;
-    public boolean adJ;
-    private View.OnClickListener adK;
-    private boolean adL;
-    private int adM;
-    private View.OnClickListener adN;
-    private View.OnClickListener adO;
-    private View.OnClickListener adP;
+    private az aas;
+    public TextView aee;
+    private UserIconBox aef;
+    private UserIconBox aeg;
+    public boolean aeh;
+    private View.OnClickListener aei;
+    private boolean aej;
+    private int aek;
+    private View.OnClickListener ael;
+    private View.OnClickListener aem;
+    private View.OnClickListener aen;
     private Context mContext;
 
     public UserIconLayout(Context context) {
         super(context);
-        this.adJ = false;
-        this.adL = false;
-        this.adM = 0;
-        this.adN = new am(this);
-        this.adO = new an(this);
-        this.adP = new ao(this);
+        this.aeh = false;
+        this.aej = false;
+        this.aek = 0;
+        this.ael = new am(this);
+        this.aem = new an(this);
+        this.aen = new ao(this);
         this.mContext = context;
         init();
     }
 
     public UserIconLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.adJ = false;
-        this.adL = false;
-        this.adM = 0;
-        this.adN = new am(this);
-        this.adO = new an(this);
-        this.adP = new ao(this);
+        this.aeh = false;
+        this.aej = false;
+        this.aek = 0;
+        this.ael = new am(this);
+        this.aem = new an(this);
+        this.aen = new ao(this);
         this.mContext = context;
         init();
     }
 
     public void setUserNameTextSizeRid(int i) {
-        this.adG.setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, i));
+        this.aee.setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, i));
     }
 
     private void init() {
@@ -60,84 +61,84 @@ public class UserIconLayout extends LinearLayout {
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 16;
         layoutParams2.gravity = 16;
-        this.adH = new UserIconBox(this.mContext);
-        this.adI = new UserIconBox(this.mContext);
-        this.adG = new TextView(this.mContext);
-        layoutParams.setMargins(0, 0, com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds10), com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds4));
-        layoutParams2.setMargins(com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds14), 0, 0, 0);
-        layoutParams3.setMargins(0, com.baidu.adp.lib.util.k.c(this.mContext, t.e.ds2), 0, 0);
-        this.adG.setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, t.e.fontsize24));
-        if (!this.adL) {
-            this.adG.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
+        this.aef = new UserIconBox(this.mContext);
+        this.aeg = new UserIconBox(this.mContext);
+        this.aee = new TextView(this.mContext);
+        layoutParams.setMargins(0, 0, com.baidu.adp.lib.util.k.c(this.mContext, u.e.ds10), com.baidu.adp.lib.util.k.c(this.mContext, u.e.ds4));
+        layoutParams2.setMargins(com.baidu.adp.lib.util.k.c(this.mContext, u.e.ds14), 0, 0, 0);
+        layoutParams3.setMargins(0, com.baidu.adp.lib.util.k.c(this.mContext, u.e.ds2), 0, 0);
+        this.aee.setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, u.e.fontsize24));
+        if (!this.aej) {
+            this.aee.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
         }
-        this.adH.setLayoutParams(layoutParams);
-        this.adI.setLayoutParams(layoutParams2);
-        this.adG.setLayoutParams(layoutParams3);
-        this.adG.setId(t.g.user_name);
-        this.adI.vw();
-        addView(this.adH);
-        addView(this.adG);
-        addView(this.adI);
+        this.aef.setLayoutParams(layoutParams);
+        this.aeg.setLayoutParams(layoutParams2);
+        this.aee.setLayoutParams(layoutParams3);
+        this.aee.setId(u.g.user_name);
+        this.aeg.vy();
+        addView(this.aef);
+        addView(this.aee);
+        addView(this.aeg);
     }
 
-    public void setData(ax axVar) {
-        if (axVar != null && axVar.getAuthor() != null) {
-            this.aab = axVar;
-            this.adH.setOnClickListener(this.adO);
-            this.adI.setOnClickListener(this.adN);
-            this.adG.setOnClickListener(this.adP);
-            if (StringUtils.isNull(this.aab.getAuthor().getName_show())) {
-                this.adG.setVisibility(8);
+    public void setData(az azVar) {
+        if (azVar != null && azVar.getAuthor() != null) {
+            this.aas = azVar;
+            this.aef.setOnClickListener(this.aem);
+            this.aeg.setOnClickListener(this.ael);
+            this.aee.setOnClickListener(this.aen);
+            if (StringUtils.isNull(this.aas.getAuthor().getName_show())) {
+                this.aee.setVisibility(8);
             } else {
-                this.adG.setVisibility(0);
-                String name_show = this.aab.getAuthor().getName_show();
-                if (this.adL) {
-                    this.adG.setText(com.baidu.tbadk.util.u.G(name_show, 20));
+                this.aee.setVisibility(0);
+                String name_show = this.aas.getAuthor().getName_show();
+                if (this.aej) {
+                    this.aee.setText(com.baidu.tbadk.util.u.I(name_show, 20));
                 } else {
-                    this.adG.setText(name_show);
+                    this.aee.setText(name_show);
                 }
             }
-            ArrayList<IconData> iconInfo = axVar.getAuthor().getIconInfo();
-            if (this.adJ && com.baidu.tbadk.core.util.y.r(iconInfo) != 0) {
-                this.adI.setVisibility(0);
-                this.adI.a(iconInfo, 3, this.mContext.getResources().getDimensionPixelSize(t.e.ds30), this.mContext.getResources().getDimensionPixelSize(t.e.ds30), this.mContext.getResources().getDimensionPixelSize(t.e.ds10), true);
+            ArrayList<IconData> iconInfo = azVar.getAuthor().getIconInfo();
+            if (this.aeh && com.baidu.tbadk.core.util.y.s(iconInfo) != 0) {
+                this.aeg.setVisibility(0);
+                this.aeg.a(iconInfo, 3, this.mContext.getResources().getDimensionPixelSize(u.e.ds30), this.mContext.getResources().getDimensionPixelSize(u.e.ds30), this.mContext.getResources().getDimensionPixelSize(u.e.ds10), true);
             } else {
-                this.adI.setVisibility(8);
+                this.aeg.setVisibility(8);
             }
-            ArrayList<IconData> tShowInfoNew = axVar.getAuthor().getTShowInfoNew();
-            if (com.baidu.tbadk.core.util.y.r(tShowInfoNew) != 0) {
-                this.adH.setVisibility(0);
-                this.adH.a(tShowInfoNew, 2, this.mContext.getResources().getDimensionPixelSize(t.e.ds36), this.mContext.getResources().getDimensionPixelSize(t.e.ds36), this.mContext.getResources().getDimensionPixelSize(t.e.small_icon_margin), true);
+            ArrayList<IconData> tShowInfoNew = azVar.getAuthor().getTShowInfoNew();
+            if (com.baidu.tbadk.core.util.y.s(tShowInfoNew) != 0) {
+                this.aef.setVisibility(0);
+                this.aef.a(tShowInfoNew, 2, this.mContext.getResources().getDimensionPixelSize(u.e.ds36), this.mContext.getResources().getDimensionPixelSize(u.e.ds36), this.mContext.getResources().getDimensionPixelSize(u.e.ds8), true);
             } else {
-                this.adH.setVisibility(8);
+                this.aef.setVisibility(8);
             }
-            vA();
+            vC();
         }
     }
 
-    private void vA() {
-        if (this.aab != null && this.aab.getAuthor() != null) {
-            if (!com.baidu.tbadk.core.util.y.s(this.aab.getAuthor().getTShowInfoNew())) {
-                com.baidu.tbadk.core.util.at.j((View) this.adG, t.d.cp_cont_h);
+    private void vC() {
+        if (this.aas != null && this.aas.getAuthor() != null) {
+            if (!com.baidu.tbadk.core.util.y.t(this.aas.getAuthor().getTShowInfoNew())) {
+                av.j((View) this.aee, u.d.cp_cont_h);
             } else {
-                com.baidu.tbadk.core.util.at.j((View) this.adG, t.d.cp_cont_b);
+                av.j((View) this.aee, u.d.cp_cont_b);
             }
         }
     }
 
-    public void sg() {
-        vA();
+    public void se() {
+        vC();
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
-        this.adK = onClickListener;
+        this.aei = onClickListener;
     }
 
     public void setEntelechyEnabled(boolean z) {
-        this.adL = z;
+        this.aej = z;
     }
 
     public void setPageName(int i) {
-        this.adM = i;
+        this.aek = i;
     }
 }

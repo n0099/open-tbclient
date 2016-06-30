@@ -1,25 +1,20 @@
 package com.baidu.tieba.pb.pb.sub;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.widget.richText.h;
 /* loaded from: classes.dex */
-class s extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity dqn;
+class s extends com.baidu.tbadk.pageStayDuration.b {
+    final /* synthetic */ NewSubPbActivity dWP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(NewSubPbActivity newSubPbActivity, int i) {
-        super(i);
-        this.dqn = newSubPbActivity;
+    public s(NewSubPbActivity newSubPbActivity) {
+        this.dWP = newSubPbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof h.a)) {
-            h.a aVar = (h.a) customResponsedMessage.getData();
-            com.baidu.tbadk.widget.richText.h.a(this.dqn.getPageContext(), aVar.type, aVar.url, aVar.subType);
-        }
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean En() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public int Eo() {
+        return com.baidu.tbadk.pageStayDuration.e.Et().Ev();
     }
 }

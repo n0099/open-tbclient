@@ -1,31 +1,52 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.AppDownloadView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class bh implements a.b {
-    private final /* synthetic */ TbPageContext azf;
-    private final /* synthetic */ PluginNetConfigInfos.PluginConfig bhJ;
+public class bh extends y.a {
+    static final /* synthetic */ boolean $assertionsDisabled;
+    public int aeK;
+    public ViewStub bEf;
+    public ViewGroup bEg;
+    public ViewStub bEh;
+    public ViewGroup bEi;
+    public LinearLayout bEj;
+    public HeadImageView bEk;
+    public TextView bEl;
+    public TextView bEm;
+    public AppDownloadView bEn;
+    public TextView bEo;
+    public TbImageView bEp;
+    public TextView bEq;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(TbPageContext tbPageContext, PluginNetConfigInfos.PluginConfig pluginConfig) {
-        this.azf = tbPageContext;
-        this.bhJ = pluginConfig;
+    static {
+        $assertionsDisabled = !bh.class.desiredAssertionStatus();
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
-        if (com.baidu.adp.lib.util.i.fq()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.azf.getPageActivity(), this.bhJ)));
-        } else {
-            com.baidu.adp.lib.util.k.showToast(this.azf.getPageActivity(), t.j.neterror);
+    public bh(View view) {
+        super(view);
+        this.aeK = 3;
+        if (!$assertionsDisabled && view == null) {
+            throw new AssertionError();
         }
-        aVar.dismiss();
+        this.bEj = (LinearLayout) view.findViewById(u.g.frs_app_item_parent);
+        this.bEk = (HeadImageView) view.findViewById(u.g.frs_app_icon);
+        this.bEl = (TextView) view.findViewById(u.g.frs_app_name);
+        this.bEm = (TextView) view.findViewById(u.g.frs_app_time);
+        this.bEn = (AppDownloadView) view.findViewById(u.g.frs_app_download_view);
+        this.bEo = (TextView) view.findViewById(u.g.frs_app_desc);
+        this.bEp = (TbImageView) view.findViewById(u.g.frs_app_url);
+        this.bEq = (TextView) view.findViewById(u.g.frs_app_download);
+        this.bEf = (ViewStub) view.findViewById(u.g.frs_item_adkiller_tip);
+        this.bEh = (ViewStub) view.findViewById(u.g.item_adkiller_close);
+        this.bEn.uO();
     }
 }

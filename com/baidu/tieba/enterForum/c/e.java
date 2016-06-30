@@ -1,35 +1,24 @@
 package com.baidu.tieba.enterForum.c;
 
-import com.baidu.tieba.enterForum.c.c;
+import com.baidu.tieba.tbadkCore.x;
+import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Runnable {
-    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aYd;
-    final /* synthetic */ d aYe;
+public class e implements Comparator<x> {
+    final /* synthetic */ c btW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, com.baidu.tieba.enterForum.b.b bVar) {
-        this.aYe = dVar;
-        this.aYd = bVar;
+    public e(c cVar) {
+        this.btW = cVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        c cVar;
-        c cVar2;
-        c.b bVar;
-        cVar = this.aYe.aYc;
-        c.a aVar = new c.a();
-        aVar.type = 0;
-        if (this.aYd != null && this.aYd.isSuccess()) {
-            aVar.aYg = true;
-            aVar.aYh = this.aYd;
-        } else {
-            aVar.aYg = false;
-            aVar.aYh = this.aYd;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(x xVar, x xVar2) {
+        if (xVar == null || xVar2 == null) {
+            return 0;
         }
-        cVar2 = this.aYe.aYc;
-        bVar = cVar2.aXW;
-        bVar.a(aVar);
+        return xVar2.getLevel() - xVar.getLevel();
     }
 }

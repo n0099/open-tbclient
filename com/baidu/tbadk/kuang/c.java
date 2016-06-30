@@ -11,7 +11,7 @@ public class c implements j.a {
         com.baidu.tbadk.core.a.b.b(accountData);
         com.baidu.tbadk.core.a.b.c(accountData);
         TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-        TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.m11getInst().getApp());
+        TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.m9getInst().getApp());
         b.c(new ReLoginFromKuangMessage(true));
     }
 }

@@ -22,21 +22,21 @@ public class l extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         NetModel.d dVar;
         NetModel.d dVar2;
-        this.this$0.avz = false;
-        if (this.this$0.avC != null) {
-            com.baidu.adp.lib.h.h.dL().removeCallbacks(this.this$0.avC);
+        this.this$0.awp = false;
+        if (this.this$0.aws != null) {
+            com.baidu.adp.lib.h.h.dM().removeCallbacks(this.this$0.aws);
         }
         if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
             if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                dVar = this.this$0.avs;
+                dVar = this.this$0.awi;
                 if (dVar != null) {
-                    dVar2 = this.this$0.avs;
+                    dVar2 = this.this$0.awi;
                     dVar2.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                 }
-            } else if (TbadkCoreApplication.m11getInst().isDebugMode()) {
+            } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {
                 throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage originaMessage error");
             }
-        } else if (TbadkCoreApplication.m11getInst().isDebugMode()) {
+        } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {
             throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage error");
         }
     }

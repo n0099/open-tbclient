@@ -1,49 +1,65 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.af;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class r implements af.a {
-    final /* synthetic */ FrsActivity bhl;
+class r implements View.OnClickListener {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FrsActivity frsActivity) {
-        this.bhl = frsActivity;
+        this.bDB = frsActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.af.a
-    public void gK(String str) {
-        boolean z;
-        com.baidu.tbadk.core.data.ax axVar;
-        com.baidu.tbadk.core.data.ax axVar2;
-        int i = 1;
-        z = this.bhl.beS;
-        if (z) {
-            axVar = this.bhl.bfY;
-            if (axVar != null) {
-                axVar2 = this.bhl.bfY;
-                if (axVar2.getPraise().getIsLike() == 1) {
-                    i = 0;
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bq bqVar;
+        bq bqVar2;
+        bq bqVar3;
+        cx cxVar;
+        com.baidu.tieba.frs.i.aa aaVar;
+        cx cxVar2;
+        bq bqVar4;
+        com.baidu.tieba.frs.i.y yVar;
+        bq bqVar5;
+        com.baidu.tieba.tbadkCore.p pVar;
+        bq bqVar6;
+        bqVar = this.bDB.bCD;
+        if (view != bqVar.Wi()) {
+            bqVar2 = this.bDB.bCD;
+            if (view == bqVar2.Wg()) {
+                bqVar3 = this.bDB.bCD;
+                cxVar = this.bDB.bCG;
+                bqVar3.a(cxVar);
+                aaVar = this.bDB.bCS;
+                cxVar2 = this.bDB.bCG;
+                aaVar.a(cxVar2);
+                TiebaStatic.log("c10529");
+                TiebaStatic.eventStat(this.bDB.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
+                bqVar4 = this.bDB.bCD;
+                bqVar4.Wq();
+                FrsActivityStatic.bDN = false;
+                yVar = this.bDB.bCT;
+                yVar.Yh();
             }
-            this.bhl.gg(i);
+        } else {
+            this.bDB.closeActivity();
         }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.af.a
-    public void q(int i, String str) {
-        boolean z;
-        z = this.bhl.beS;
-        if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.pv(i)) {
-                AntiHelper.O(this.bhl.getPageContext().getPageActivity(), str);
-            } else {
-                this.bhl.showToast(str);
+        view.getId();
+        if (view.getId() == u.g.game_activity_egg_layout && com.baidu.adp.lib.util.k.fI()) {
+            TiebaStatic.log("c10853");
+            bqVar5 = this.bDB.bCD;
+            if (bqVar5.Wt()) {
+                bqVar6 = this.bDB.bCD;
+                bqVar6.Wu();
+                return;
+            }
+            pVar = this.bDB.bCF;
+            String activityUrl = pVar.aDN().getYuleData().rM().getActivityUrl();
+            if (!StringUtils.isNull(activityUrl)) {
+                com.baidu.tbadk.browser.f.v(this.bDB.getPageContext().getPageActivity(), activityUrl);
             }
         }
     }

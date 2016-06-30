@@ -10,7 +10,7 @@ public interface b {
 
     boolean a(Bitmap bitmap, Canvas canvas);
 
-    int bC();
+    int bD();
 
     void close();
 

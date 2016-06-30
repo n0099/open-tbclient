@@ -1,55 +1,26 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.TwAnchorProfitItem;
+import tbclient.TwZhiBoUser;
 /* loaded from: classes.dex */
 public class y {
-    private ArrayList<String> OG;
-    private int smsCodeTime = 0;
-    private UserData OE = new UserData();
-    private AntiData OF = new AntiData();
+    private TwZhiBoUser OA;
+    private List<TwAnchorProfitItem> OB;
 
-    public y() {
-        this.OG = null;
-        this.OG = new ArrayList<>();
-        setSmsCodeTime(0);
+    public TwZhiBoUser pp() {
+        return this.OA;
     }
 
-    public UserData getUser() {
-        return this.OE;
+    public void a(TwZhiBoUser twZhiBoUser) {
+        this.OA = twZhiBoUser;
     }
 
-    public AntiData pz() {
-        return this.OF;
+    public List<TwAnchorProfitItem> pq() {
+        return this.OB;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.OE.parserJson(jSONObject.optJSONObject("user"));
-            this.OF.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.OG.add(optJSONArray.optString(i, null));
-                }
-            }
-            setSmsCodeTime(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void setSmsCodeTime(int i) {
-        this.smsCodeTime = i;
+    public void o(List<TwAnchorProfitItem> list) {
+        this.OB = list;
     }
 }

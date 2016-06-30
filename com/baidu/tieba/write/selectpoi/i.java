@@ -7,33 +7,33 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.tbadkCore.location.a;
 /* loaded from: classes.dex */
 class i implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SelectLocationActivity eZA;
+    final /* synthetic */ SelectLocationActivity fEE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(SelectLocationActivity selectLocationActivity) {
-        this.eZA = selectLocationActivity;
+        this.fEE = selectLocationActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         l lVar;
         l lVar2;
-        lVar = this.eZA.eZy;
+        lVar = this.fEE.fEC;
         if (lVar != null) {
             MessageManager messageManager = MessageManager.getInstance();
             if (i != 0) {
-                lVar2 = this.eZA.eZy;
+                lVar2 = this.fEE.fEC;
                 Object item = lVar2.getItem(i);
-                if (item instanceof a.C0077a) {
-                    a.C0077a c0077a = (a.C0077a) item;
-                    messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0077a.getName(), c0077a.getAddr(), c0077a.getSn()));
-                    this.eZA.finish();
+                if (item instanceof a.C0079a) {
+                    a.C0079a c0079a = (a.C0079a) item;
+                    messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0079a.getName(), c0079a.getAddr(), c0079a.getSn()));
+                    this.fEE.finish();
                     return;
                 }
                 return;
             }
             messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
-            this.eZA.finish();
+            this.fEE.finish();
         }
     }
 }

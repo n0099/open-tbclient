@@ -1,20 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.LinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class en implements Runnable {
-    final /* synthetic */ el dpu;
-
+class en extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public en(el elVar) {
-        this.dpu = elVar;
+    public en(int i) {
+        super(i);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        LinearLayout linearLayout;
-        linearLayout = this.dpu.dnB;
-        linearLayout.setVisibility(0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        el.aGM().reset();
     }
 }

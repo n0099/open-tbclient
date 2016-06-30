@@ -28,13 +28,13 @@ public class l extends Handler {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        boolean nm;
+        boolean nh;
         super.handleMessage(message);
         if (message.what != 1) {
             return;
         }
-        nm = Static.nm();
-        if (!nm) {
+        nh = Static.nh();
+        if (!nh) {
             TiebaStatic.eventStat(this.Kq.getPageActivity(), "url_3", null);
         } else {
             Static.c(this.Kq, this.val$url, this.Kr, this.Ks, this.Kt, this.Ku, this.Kv);

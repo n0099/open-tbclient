@@ -97,12 +97,14 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "upload_stat";
             } else if ("502".equals(str)) {
                 str2 = "plugin_config_sync";
+            } else if ("503".equals(str)) {
+                str2 = "offline_debug";
             }
             setCmd(str2);
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            aeG();
+            amV();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -120,7 +122,7 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    private void aeG() {
+    private void amV() {
         UpdatesItemData convertToUpdatesItem;
         if (!TextUtils.isEmpty(getCmd())) {
             if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) != null) {

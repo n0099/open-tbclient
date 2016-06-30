@@ -61,10 +61,20 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private int star;
     private String superscript_color;
     private int upStatus;
+    private List<GameInfoData> userRecommendList;
     private String version;
+    public int fromView = 0;
     private String ref_id = "5000901";
     private String ref_type = "606";
     private String is_detail = "0";
+
+    public List<GameInfoData> getUserRecommendList() {
+        return this.userRecommendList;
+    }
+
+    public void setUserRecommendList(List<GameInfoData> list) {
+        this.userRecommendList = list;
+    }
 
     public CodeInfo getCodeInfo() {
         return this.codeInfo;
@@ -159,7 +169,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = fG(str);
+        this.package_size = fM(str);
     }
 
     public String getGameLink() {
@@ -528,7 +538,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String fG(String str) {
+    private String fM(String str) {
         return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.h.b.a(str, 0.0f)));
     }
 

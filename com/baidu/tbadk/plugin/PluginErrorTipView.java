@@ -10,17 +10,17 @@ import com.baidu.adp.base.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.u;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipView extends RelativeLayout implements View.OnClickListener {
-    private TextView abJ;
-    private LinkedList<com.baidu.adp.plugin.packageManager.a.a> ayN;
-    private HashSet<Integer> ayO;
-    MessageListener<?> ayP;
+    private TextView acd;
+    private LinkedList<com.baidu.adp.plugin.packageManager.a.a> azD;
+    private HashSet<Integer> azE;
+    MessageListener<?> azF;
     private Context mContext;
 
     public PluginErrorTipView(Context context) {
@@ -33,21 +33,21 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
     public PluginErrorTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ayN = new LinkedList<>();
-        this.ayO = new HashSet<>(10);
-        this.ayP = new b(this, 0);
+        this.azD = new LinkedList<>();
+        this.azE = new HashSet<>(10);
+        this.azF = new b(this, 0);
         init(context, attributeSet);
     }
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
-        LayoutInflater.from(context).inflate(t.h.plugin_error_tip_view, this);
-        this.abJ = (TextView) findViewById(t.g.plugin_error_guide);
-        findViewById(t.g.plugin_error_close).setOnClickListener(new c(this));
+        LayoutInflater.from(context).inflate(u.h.plugin_error_tip_view, this);
+        this.acd = (TextView) findViewById(u.g.plugin_error_guide);
+        findViewById(u.g.plugin_error_close).setOnClickListener(new c(this));
         setOnClickListener(this);
-        List<com.baidu.adp.plugin.packageManager.a.a> ip = com.baidu.adp.plugin.packageManager.a.b.io().ip();
-        if (ip != null && ip.size() > 0) {
-            this.ayN.addAll(ip);
+        List<com.baidu.adp.plugin.packageManager.a.a> is = com.baidu.adp.plugin.packageManager.a.b.ir().is();
+        if (is != null && is.size() > 0) {
+            this.azD.addAll(is);
             update();
             return;
         }
@@ -57,27 +57,27 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(2000991, this.ayP);
-        MessageManager.getInstance().registerListener(2000990, this.ayP);
+        MessageManager.getInstance().registerListener(2000991, this.azF);
+        MessageManager.getInstance().registerListener(2000990, this.azF);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.ayP);
+        MessageManager.getInstance().unRegisterListener(this.azF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void update() {
-        if (this.ayN.size() > 0) {
-            com.baidu.adp.plugin.packageManager.a.a last = this.ayN.getLast();
-            if (!this.ayO.contains(Integer.valueOf(last.getErrorCode()))) {
+        if (this.azD.size() > 0) {
+            com.baidu.adp.plugin.packageManager.a.a last = this.azD.getLast();
+            if (!this.azE.contains(Integer.valueOf(last.getErrorCode()))) {
                 if (last.getErrorCode() >= 100) {
-                    com.baidu.adp.plugin.b.a.hs().D("plugin_load_tip", last.getPkgName());
+                    com.baidu.adp.plugin.b.a.hu().D("plugin_load_tip", last.ip());
                 } else {
-                    com.baidu.adp.plugin.b.a.hs().D("plugin_install_tip", last.getPkgName());
+                    com.baidu.adp.plugin.b.a.hu().D("plugin_install_tip", last.ip());
                 }
-                this.abJ.setText(String.valueOf(last.getErrorMsg()) + getResources().getString(t.j.pluginstatus_click_detail));
+                this.acd.setText(String.valueOf(last.getErrorMsg()) + getResources().getString(u.j.pluginstatus_click_detail));
                 setVisibility(0);
                 return;
             }
@@ -88,24 +88,24 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ayN != null && !this.ayN.isEmpty()) {
-            com.baidu.adp.plugin.packageManager.a.a last = this.ayN.getLast();
+        if (this.azD != null && !this.azD.isEmpty()) {
+            com.baidu.adp.plugin.packageManager.a.a last = this.azD.getLast();
             PluginErrorTipActivity.a(this.mContext, last);
-            this.ayN.clear();
+            this.azD.clear();
             update();
             if (last.getErrorCode() >= 100) {
-                com.baidu.adp.plugin.b.a.hs().D("plugin_load_tipclick", last.getPkgName());
+                com.baidu.adp.plugin.b.a.hu().D("plugin_load_tipclick", last.ip());
             } else {
-                com.baidu.adp.plugin.b.a.hs().D("plugin_install_tipclick", last.getPkgName());
+                com.baidu.adp.plugin.b.a.hu().D("plugin_install_tipclick", last.ip());
             }
         }
     }
 
     public void onChangeSkinType(h<?> hVar, int i) {
         if (hVar instanceof TbPageContext) {
-            ((TbPageContext) hVar).getLayoutMode().ae(i == 1);
-            ((TbPageContext) hVar).getLayoutMode().x(this);
+            ((TbPageContext) hVar).getLayoutMode().ad(i == 1);
+            ((TbPageContext) hVar).getLayoutMode().w(this);
         }
-        at.d(this, t.f.nonetworkview_bg_selector, i);
+        av.d(this, u.f.nonetworkview_bg_selector, i);
     }
 }

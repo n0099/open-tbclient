@@ -25,7 +25,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (wb) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (wd) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -36,7 +36,7 @@ public final class Util {
         }
     }
 
-    public static boolean ir() {
+    public static boolean iu() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -71,16 +71,16 @@ public final class Util {
     }
 
     public static final boolean j(long j) {
-        long it = it();
+        long iw = iw();
         if (j <= 0) {
-            return it <= 0 || it >= 31457280;
+            return iw <= 0 || iw >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < it;
+        return (j2 <= 31457280 ? j2 : 31457280L) < iw;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
@@ -215,14 +215,14 @@ public final class Util {
     }
 
     public static File bH(String str) {
-        PluginSetting bj = PluginPackageManager.hF().bj(str);
+        PluginSetting bj = PluginPackageManager.hH().bj(str);
         if (bj == null || bj.apkPath == null || bj.apkPath.length() <= ".apk".length()) {
             return null;
         }
         return new File(bj.apkPath.substring(0, bj.apkPath.length() - ".apk".length()));
     }
 
-    public static File is() {
+    public static File iv() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -356,10 +356,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return is() + File.separator + e(pluginSetting);
+        return iv() + File.separator + e(pluginSetting);
     }
 
-    public static long it() {
+    public static long iw() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

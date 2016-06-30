@@ -5,25 +5,23 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
 class au extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bhl;
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au(FrsActivity frsActivity, int i) {
+    public au(int i) {
         super(i);
-        this.bhl = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
-                FrsActivityStatic.bhG = true;
-                FrsActivityStatic.bhF = true;
+                FrsActivityStatic.bDO = true;
+                FrsActivityStatic.bDN = true;
+                return;
             }
-            this.bhl.PH();
+            FrsActivityStatic.bDO = false;
+            FrsActivityStatic.bDN = false;
         }
     }
 }

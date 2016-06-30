@@ -2,18 +2,18 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class d implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteShareActivity fac;
+    final /* synthetic */ WriteShareActivity fFg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(WriteShareActivity writeShareActivity) {
-        this.fac = writeShareActivity;
+        this.fFg = writeShareActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
-        if (r4 == r0.bcv()) goto L19;
+        if (r4 == r0.bkQ()) goto L19;
      */
     @Override // android.view.View.OnFocusChangeListener
     /*
@@ -34,43 +34,43 @@ class d implements View.OnFocusChangeListener {
         o oVar10;
         o oVar11;
         o oVar12;
-        oVar = this.fac.eZM;
+        oVar = this.fFg.fEQ;
         if (oVar != null) {
-            oVar2 = this.fac.eZM;
-            if (view != oVar2.bcs()) {
-                oVar11 = this.fac.eZM;
-                if (view != oVar11.bcu()) {
-                    oVar12 = this.fac.eZM;
+            oVar2 = this.fFg.fEQ;
+            if (view != oVar2.bkN()) {
+                oVar11 = this.fFg.fEQ;
+                if (view != oVar11.bkP()) {
+                    oVar12 = this.fFg.fEQ;
                 }
             }
             if (!z) {
-                oVar3 = this.fac.eZM;
-                if (view == oVar3.bcs()) {
-                    oVar4 = this.fac.eZM;
-                    if (oVar4.bcw() != null) {
-                        oVar5 = this.fac.eZM;
-                        oVar5.bcw().setVisibility(0);
+                oVar3 = this.fFg.fEQ;
+                if (view == oVar3.bkN()) {
+                    oVar4 = this.fFg.fEQ;
+                    if (oVar4.bkR() != null) {
+                        oVar5 = this.fFg.fEQ;
+                        oVar5.bkR().setVisibility(0);
                     }
                 }
             } else {
-                WriteShareActivity writeShareActivity = this.fac;
-                inputMethodManager = this.fac.mInputManager;
-                oVar6 = this.fac.eZM;
-                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.bcs());
+                WriteShareActivity writeShareActivity = this.fFg;
+                inputMethodManager = this.fFg.mInputManager;
+                oVar6 = this.fFg.fEQ;
+                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.bkN());
             }
-            oVar7 = this.fac.eZM;
-            if (view == oVar7.aIZ()) {
+            oVar7 = this.fFg.fEQ;
+            if (view == oVar7.aRU()) {
                 if (z) {
-                    oVar10 = this.fac.eZM;
-                    oVar10.aIZ().setHint((CharSequence) null);
+                    oVar10 = this.fFg.fEQ;
+                    oVar10.aRU().setHint((CharSequence) null);
                 } else {
-                    oVar8 = this.fac.eZM;
-                    oVar8.aIZ().setHint(t.j.content);
+                    oVar8 = this.fFg.fEQ;
+                    oVar8.aRU().setHint(u.j.content);
                 }
-                WriteShareActivity writeShareActivity2 = this.fac;
-                inputMethodManager2 = this.fac.mInputManager;
-                oVar9 = this.fac.eZM;
-                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.bcs());
+                WriteShareActivity writeShareActivity2 = this.fFg;
+                inputMethodManager2 = this.fFg.mInputManager;
+                oVar9 = this.fFg.fEQ;
+                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.bkN());
             }
         }
     }

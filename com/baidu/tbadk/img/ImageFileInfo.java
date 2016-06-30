@@ -5,6 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.atomData.ThFollowActivityConfig;
+import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -26,6 +27,7 @@ public class ImageFileInfo implements Serializable {
     private LinkedList<ImageOperation> pageActionsList;
     private LinkedList<ImageOperation> persistActionsList;
     private String serverImageCode;
+    public ImageUploadResult.picInfo serverPicInfo;
 
     public String toCachedKey(boolean z) {
         int i = 0;

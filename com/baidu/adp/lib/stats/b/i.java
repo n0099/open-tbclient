@@ -10,7 +10,7 @@ public class i extends com.baidu.adp.lib.stats.base.a {
     }
 
     @Override // com.baidu.adp.lib.stats.base.a
-    public String eB() {
+    public String eC() {
         return "stat";
     }
 }

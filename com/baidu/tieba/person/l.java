@@ -1,9 +1,12 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
+public class l implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +14,29 @@ public class l implements View.OnClickListener {
         this.this$0 = editHeadActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.this$0.bDI.getVisibility() != 0) {
-            if ((this.this$0.mBitmap != null || this.this$0.duO != null) && view.getTag() != null) {
-                this.this$0.duV = false;
-                this.this$0.H(view.getTag().toString(), false);
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        HorizontalScrollView horizontalScrollView;
+        LinearLayout linearLayout;
+        HorizontalScrollView horizontalScrollView2;
+        LinearLayout linearLayout2;
+        if (z) {
+            radioButton = this.this$0.edb;
+            if (compoundButton == radioButton) {
+                horizontalScrollView2 = this.this$0.ecY;
+                horizontalScrollView2.setVisibility(0);
+                linearLayout2 = this.this$0.edd;
+                linearLayout2.setVisibility(8);
+                return;
+            }
+            radioButton2 = this.this$0.edc;
+            if (compoundButton == radioButton2) {
+                horizontalScrollView = this.this$0.ecY;
+                horizontalScrollView.setVisibility(8);
+                linearLayout = this.this$0.edd;
+                linearLayout.setVisibility(0);
             }
         }
     }

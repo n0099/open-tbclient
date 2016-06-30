@@ -4,29 +4,29 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements BaseWebView.b {
-    private final /* synthetic */ h brA;
-    final /* synthetic */ a brz;
+    final /* synthetic */ a bOd;
+    private final /* synthetic */ h bOe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, h hVar) {
-        this.brz = aVar;
-        this.brA = hVar;
+        this.bOd = aVar;
+        this.bOe = hVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         BaseActivity baseActivity;
-        bg ut = bg.ut();
-        baseActivity = this.brz.bek;
-        ut.a(baseActivity.getPageContext(), new String[]{str}, true);
-        if (this.brA != null && !TextUtils.isEmpty(this.brA.stType)) {
-            TiebaStatic.log(new aw("c10335").ac("obj_name", this.brA.stType));
+        bi us = bi.us();
+        baseActivity = this.bOd.bkc;
+        us.a(baseActivity.getPageContext(), new String[]{str}, true);
+        if (this.bOe != null && !TextUtils.isEmpty(this.bOe.stType)) {
+            TiebaStatic.log(new ay("c10335").ab("obj_name", this.bOe.stType));
         }
         return true;
     }

@@ -9,12 +9,12 @@ public class i extends al implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Dj() {
+    public String Dr() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean fU(String str) {
+    public boolean ga(String str) {
         try {
             g(new JSONObject(str));
             return true;

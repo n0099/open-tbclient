@@ -1,33 +1,42 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements a.b {
-    private final /* synthetic */ String cqS;
-    final /* synthetic */ k dgn;
+public class o implements View.OnClickListener {
+    final /* synthetic */ e dML;
+    private final /* synthetic */ String dMP;
+    private final /* synthetic */ String dMQ;
+    private final /* synthetic */ String dMR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(k kVar, String str) {
-        this.dgn = kVar;
-        this.cqS = str;
+    public o(e eVar, String str, String str2, String str3) {
+        this.dML = eVar;
+        this.dMP = str;
+        this.dMQ = str2;
+        this.dMR = str3;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.pb.data.e eVar;
-        com.baidu.tieba.pb.data.e eVar2;
-        com.baidu.tieba.pb.data.e eVar3;
-        aVar.dismiss();
-        eVar = this.dgn.dfK;
-        if (eVar != null) {
-            aw awVar = new aw("c10409");
-            eVar2 = this.dgn.dfK;
-            aw ac = awVar.ac("fid", eVar2.getForumId());
-            eVar3 = this.dgn.dfK;
-            TiebaStatic.log(ac.ac("tid", eVar3.getThreadId()).ac("uid", this.cqS).ac("is_like", "2"));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        PbActivity pbActivity;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.dMP) && !StringUtils.isNull(this.dMQ)) {
+            if (!com.baidu.adp.lib.util.i.fr()) {
+                pbActivity = this.dML.dOg;
+                com.baidu.adp.lib.util.k.showToast(pbActivity.getPageContext().getPageActivity(), u.j.neterror);
+                return;
+            }
+            context = this.dML.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.dMP) + "," + this.dMQ, this.dMR, this.dMR, context.getString(u.j.app_info_for_map));
+            context2 = this.dML.mContext;
+            com.baidu.tbadk.browser.f.u(context2, format);
         }
     }
 }

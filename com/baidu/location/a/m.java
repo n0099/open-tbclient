@@ -2,17 +2,17 @@ package com.baidu.location.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements Runnable {
-    final /* synthetic */ g GC;
+    final /* synthetic */ g Gy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(g gVar) {
-        this.GC = gVar;
+        this.Gy = gVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (com.baidu.location.f.k.mF().g()) {
-            com.baidu.location.e.d.mb().m();
+        if (com.baidu.location.f.k.mA().g()) {
+            com.baidu.location.e.d.lV().m();
         }
     }
 }

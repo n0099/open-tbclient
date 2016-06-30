@@ -1,58 +1,35 @@
 package com.baidu.tieba.enterForum.b;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.tbadkCore.w;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.ForumRecommend.LikeForum;
+import tbclient.ForumRecommend.HotSearch;
 /* loaded from: classes.dex */
 public class d {
-    private ArrayList<w> aWO = new ArrayList<>();
-    private boolean aWP;
-    private int level;
+    private String bsK;
+    private long bsL;
+    private long mId;
+    private String mName;
 
-    public ArrayList<w> Mm() {
-        return this.aWO;
+    public String RO() {
+        return this.bsK;
     }
 
-    public void setLevel(int i) {
-        this.level = i;
+    public long RP() {
+        return this.bsL;
     }
 
-    public void Mn() {
-        Iterator<w> it = this.aWO.iterator();
-        while (it.hasNext()) {
-            it.next().ph(0);
-        }
+    public long getId() {
+        return this.mId;
     }
 
-    public void N(List<?> list) {
-        if (list != null) {
-            a(list, null);
-        }
+    public String getName() {
+        return this.mName;
     }
 
-    public void a(List<?> list, Context context) {
-        if (list != null) {
-            try {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) instanceof LikeForum) {
-                        w wVar = new w();
-                        wVar.a((LikeForum) list.get(i));
-                        if (wVar.getLevel() >= this.level) {
-                            this.aWP = true;
-                        }
-                        this.aWO.add(wVar);
-                    } else {
-                        return;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+    public void a(HotSearch hotSearch) {
+        if (hotSearch != null && hotSearch.search_value != null) {
+            this.bsK = hotSearch.search_title;
+            this.mId = hotSearch.search_value.id.longValue();
+            this.mName = hotSearch.search_value.name;
+            this.bsL = hotSearch.search_value.type.longValue();
         }
     }
 }

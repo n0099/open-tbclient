@@ -1,48 +1,55 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import java.util.Iterator;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj {
-    private BaseActivity bek;
-    private cw dih;
-    private a dkz = null;
-    private final HttpMessageListener dkA = new ck(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
+public class cj extends CustomMessageListener {
+    final /* synthetic */ ch dQo;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void i(int i, long j);
-
-        void onError(int i, String str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cj(ch chVar, int i) {
+        super(i);
+        this.dQo = chVar;
     }
 
-    public cj(cw cwVar, BaseActivity baseActivity) {
-        this.dih = cwVar;
-        this.bek = baseActivity;
-        axl();
-        this.bek.registerListener(this.dkA);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
     }
 
-    public void a(a aVar) {
-        this.dkz = aVar;
-    }
-
-    public void axl() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setResponsedClass(HideChudianPostResponseMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-    }
-
-    public void bE(long j) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
-        httpMessage.addParam("template_id", String.valueOf(j));
-        MessageManager.getInstance().sendMessage(httpMessage);
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        com.baidu.tieba.pb.data.h hVar;
+        PbActivity pbActivity;
+        List<DownloadData> data;
+        boolean z;
+        if (customResponsedMessage != null) {
+            hVar = this.dQo.dMC;
+            if (hVar != null) {
+                pbActivity = this.dQo.dOg;
+                if (!com.baidu.adp.base.l.q(pbActivity.getActivity()).isScroll() && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
+                    Iterator<DownloadData> it = data.iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            z = false;
+                            break;
+                        } else if (it.next().getStatus() == 0) {
+                            z = true;
+                            break;
+                        }
+                    }
+                    if (z) {
+                        this.dQo.notifyDataSetChanged();
+                    }
+                }
+            }
+        }
     }
 }

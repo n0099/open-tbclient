@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ AtListActivity fcp;
+    final /* synthetic */ AtListActivity fHT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(AtListActivity atListActivity) {
-        this.fcp = atListActivity;
+        this.fHT = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,22 +19,22 @@ public class l implements View.OnClickListener {
         View view4;
         TextView textView;
         View view5;
-        view2 = this.fcp.cxg;
+        view2 = this.fHT.dcw;
         if (view2 != null) {
-            view3 = this.fcp.cxg;
+            view3 = this.fHT.dcw;
             if (view3.getVisibility() == 0) {
-                com.baidu.adp.lib.util.k.a(this.fcp.getPageContext().getPageActivity(), this.fcp.crz);
-                view4 = this.fcp.cxg;
+                com.baidu.adp.lib.util.k.a(this.fHT.getPageContext().getPageActivity(), this.fHT.cWP);
+                view4 = this.fHT.dcw;
                 view4.setVisibility(8);
-                textView = this.fcp.fck;
+                textView = this.fHT.fHO;
                 textView.setVisibility(0);
-                view5 = this.fcp.cxh;
+                view5 = this.fHT.dcx;
                 view5.setVisibility(0);
-                this.fcp.crz.getText().clear();
+                this.fHT.cWP.getText().clear();
                 return;
             }
         }
-        com.baidu.adp.lib.util.k.a(this.fcp.getPageContext().getPageActivity(), this.fcp.crz);
-        this.fcp.finish();
+        com.baidu.adp.lib.util.k.a(this.fHT.getPageContext().getPageActivity(), this.fHT.cWP);
+        this.fHT.finish();
     }
 }

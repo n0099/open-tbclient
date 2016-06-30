@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.pb.pb.main.a.f;
 /* loaded from: classes.dex */
-class p extends CustomMessageListener {
-    final /* synthetic */ PbActivity djE;
+class p implements f.a {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(PbActivity pbActivity, int i) {
-        super(i);
-        this.djE = pbActivity;
+    public p(PbActivity pbActivity) {
+        this.dPF = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()).getId() != this.djE.getUniqueId().getId()) {
-            this.djE.diV = false;
+    @Override // com.baidu.tieba.pb.pb.main.a.f.a
+    public void ht(boolean z) {
+        es esVar;
+        es esVar2;
+        this.dPF.hs(z);
+        esVar = this.dPF.dOO;
+        if (esVar.aHS() != null && z) {
+            esVar2 = this.dPF.dOO;
+            esVar2.hL(false);
         }
     }
 }

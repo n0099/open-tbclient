@@ -6,37 +6,37 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.q;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private q bDx;
-    private boolean bbU = false;
-    private com.baidu.tieba.write.data.b eZt;
-    private SearchLocationActivity eZu;
+    private boolean bxP = false;
+    private q cba;
+    private com.baidu.tieba.write.data.b fEx;
+    private SearchLocationActivity fEy;
 
     public h(SearchLocationActivity searchLocationActivity) {
-        this.eZu = searchLocationActivity;
+        this.fEy = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eZt == null || this.eZt.getSearchLocationDataList() == null || this.eZt.getSearchLocationDataList().isEmpty()) {
-            this.bbU = false;
+        if (this.fEx == null || this.fEx.getSearchLocationDataList() == null || this.fEx.getSearchLocationDataList().isEmpty()) {
+            this.bxP = false;
             return 1;
         }
-        this.bbU = true;
-        return this.eZt.getSearchLocationDataList().size();
+        this.bxP = true;
+        return this.fEx.getSearchLocationDataList().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eZt == null || this.eZt.getSearchLocationDataList() == null || this.eZt.getSearchLocationDataList().isEmpty()) {
+        if (this.fEx == null || this.fEx.getSearchLocationDataList() == null || this.fEx.getSearchLocationDataList().isEmpty()) {
             return null;
         }
-        return this.eZt.getSearchLocationDataList().get(i);
+        return this.fEx.getSearchLocationDataList().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -46,39 +46,39 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.bbU) {
-            return bF(viewGroup);
+        if (!this.bxP) {
+            return bW(viewGroup);
         }
         a aVar = null;
         if (view != null && (view.getTag() instanceof a)) {
             aVar = (a) view.getTag();
         }
         if (aVar == null) {
-            view = LayoutInflater.from(this.eZu.getPageContext().getPageActivity()).inflate(t.h.location_search_item_layout, viewGroup, false);
-            aVar = bt(view);
+            view = LayoutInflater.from(this.fEy.getPageContext().getPageActivity()).inflate(u.h.location_search_item_layout, viewGroup, false);
+            aVar = bB(view);
             view.setTag(aVar);
         }
         a aVar2 = aVar;
-        aVar2.eZv.setText(this.eZt.getSearchLocationDataList().get(i).getName());
-        at.l(aVar2.aGr, t.d.cp_bg_line_b);
-        at.c(aVar2.eZv, t.d.cp_cont_b, 1);
-        at.k(view, t.f.home_recommend_item_bg);
+        aVar2.fEz.setText(this.fEx.getSearchLocationDataList().get(i).getName());
+        av.l(aVar2.aGT, u.d.cp_bg_line_b);
+        av.c(aVar2.fEz, u.d.cp_cont_b, 1);
+        av.k(view, u.f.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.write.data.b bVar) {
-        this.eZt = bVar;
+        this.fEx = bVar;
     }
 
-    public boolean bbY() {
-        return this.bbU;
+    public boolean bku() {
+        return this.bxP;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        View aGr;
-        TextView eZv;
+        View aGT;
+        TextView fEz;
 
         private a() {
         }
@@ -88,18 +88,18 @@ public class h extends BaseAdapter {
         }
     }
 
-    public a bt(View view) {
+    public a bB(View view) {
         a aVar = new a(this, null);
-        aVar.eZv = (TextView) view.findViewById(t.g.location_search_address_name);
-        aVar.aGr = view.findViewById(t.g.location_search_line);
+        aVar.fEz = (TextView) view.findViewById(u.g.location_search_address_name);
+        aVar.aGT = view.findViewById(u.g.location_search_line);
         return aVar;
     }
 
-    public View bF(ViewGroup viewGroup) {
-        int skinType = TbadkCoreApplication.m11getInst().getSkinType();
-        this.bDx = NoDataViewFactory.a(this.eZu.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cO(t.j.text_try_to_chage_location), null);
-        this.bDx.onChangeSkinType(this.eZu.getPageContext(), skinType);
-        this.bDx.setVisibility(0);
-        return this.bDx;
+    public View bW(ViewGroup viewGroup) {
+        int skinType = TbadkCoreApplication.m9getInst().getSkinType();
+        this.cba = NoDataViewFactory.a(this.fEy.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cQ(u.j.text_try_to_chage_location), null);
+        this.cba.onChangeSkinType(this.fEy.getPageContext(), skinType);
+        this.cba.setVisibility(0);
+        return this.cba;
     }
 }

@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ c ajI;
+    final /* synthetic */ c ako;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.ajI = cVar;
+        this.ako = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.ajI.mContext;
+        context = this.ako.mContext;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(context, PluginCenter.NAME_MOTUSDK)));
         aVar.dismiss();
     }

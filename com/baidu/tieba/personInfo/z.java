@@ -17,9 +17,10 @@ public class z extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null) {
-            return;
+        bs bsVar;
+        if (customResponsedMessage != null) {
+            bsVar = this.this$0.eoE;
+            bsVar.aNh().h(this.this$0.getBaseFragmentActivity());
         }
-        this.this$0.aDz();
     }
 }

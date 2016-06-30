@@ -1,7 +1,8 @@
 package com.baidu.tieba.personInfo;
 
 import android.view.View;
-import android.widget.FrameLayout;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements View.OnClickListener {
@@ -14,13 +15,11 @@ public class ax implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        FrameLayout frameLayout;
-        bg bgVar;
-        f fVar = this.this$0;
-        frameLayout = this.this$0.dFH;
-        fVar.a((View) frameLayout, false, -1);
-        this.this$0.Pg();
-        bgVar = this.this$0.dyP;
-        bgVar.aDI();
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        baseFragmentActivity = this.this$0.aMU;
+        TiebaStatic.eventStat(baseFragmentActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        baseFragmentActivity2 = this.this$0.aMU;
+        com.baidu.tbadk.core.util.bn.Z(baseFragmentActivity2.getPageContext().getPageActivity());
     }
 }

@@ -19,7 +19,7 @@ public class o extends com.baidu.adp.lib.Disk.ops.d {
     public void k(boolean z) {
         super.k(z);
         if (z) {
-            this.om.h(bV().length());
+            this.om.h(bW().length());
         }
     }
 }

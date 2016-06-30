@@ -32,10 +32,10 @@ public class d implements Runnable {
                 }
             } catch (NullPointerException e) {
             }
-            int fU = this.qa.fU() + 0;
+            int fV = this.qa.fV() + 0;
             i = this.qa.mElapsedTime;
-            if (fU != i) {
-                this.qa.mElapsedTime = fU;
+            if (fV != i) {
+                this.qa.mElapsedTime = fV;
                 handler2 = this.qa.mHandler;
                 Message obtainMessage = handler2.obtainMessage(6);
                 i2 = this.qa.mElapsedTime;

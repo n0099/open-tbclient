@@ -1,65 +1,69 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.b.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fx extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService dpB;
+public class fx implements View.OnClickListener {
+    final /* synthetic */ es dVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fx(ReaderPbService readerPbService, int i) {
-        super(i);
-        this.dpB = readerPbService;
+    public fx(es esVar) {
+        this.dVR = esVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        dz dzVar;
-        dz dzVar2;
-        dz dzVar3;
-        dz dzVar4;
-        dz dzVar5;
-        dz dzVar6;
-        BdUniqueId bdUniqueId;
-        ec ecVar;
-        BdUniqueId bdUniqueId2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof dy)) {
-            dy dyVar = (dy) customResponsedMessage.getData();
-            BdUniqueId bdUniqueId3 = dyVar.tag;
-            if (bdUniqueId3 != null) {
-                bdUniqueId = this.dpB.mTagId;
-                if (bdUniqueId.getId() != bdUniqueId3.getId()) {
-                    this.dpB.mTagId = bdUniqueId3;
-                    ecVar = this.dpB.mReaderModel;
-                    bdUniqueId2 = this.dpB.mTagId;
-                    ecVar.m(bdUniqueId2);
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        com.baidu.tbadk.editortools.l lVar;
+        com.baidu.tbadk.editortools.l lVar2;
+        View view2;
+        PbActivity pbActivity2;
+        PbActivity pbActivity3;
+        View view3;
+        PbActivity pbActivity4;
+        com.baidu.tbadk.editortools.l lVar3;
+        a.InterfaceC0075a interfaceC0075a;
+        String str;
+        pbActivity = this.dVR.dOg;
+        if (pbActivity.checkUpIsLogin()) {
+            lVar = this.dVR.BW;
+            if (lVar != null) {
+                this.dVR.aHe();
             }
-            this.dpB.threadId = dyVar.threadId;
-            this.dpB.postId = dyVar.postId;
-            this.dpB.isAlive = dyVar.isAlive;
-            this.dpB.setReadModel(dyVar);
-            if (dyVar.dmC >= 0) {
-                dzVar2 = this.dpB.mReaderManager;
-                dzVar2.a(dyVar.pbData, dyVar.isSquence, dyVar.loadType, dyVar.dmB, false);
-                dzVar3 = this.dpB.mReaderManager;
-                int ayv = dzVar3.ayv();
-                if (ayv == 1 || ayv == 3) {
-                    dzVar4 = this.dpB.mReaderManager;
-                    dzVar4.lU(0);
-                } else {
-                    dzVar6 = this.dpB.mReaderManager;
-                    dzVar6.lU(1);
+            lVar2 = this.dVR.BW;
+            if (lVar2 != null) {
+                this.dVR.dUS = false;
+                pbActivity4 = this.dVR.dOg;
+                lVar3 = this.dVR.BW;
+                interfaceC0075a = this.dVR.dVr;
+                com.baidu.tieba.tbadkCore.b.a.a(pbActivity4, (View) lVar3.el(3).aqi, false, interfaceC0075a);
+            }
+            view2 = this.dVR.dUN;
+            if (view2 != null) {
+                view3 = this.dVR.dUN;
+                view3.setVisibility(8);
+                this.dVR.dUS = false;
+            }
+            this.dVR.aFG();
+            try {
+                com.baidu.tbadk.core.util.ay ayVar = new com.baidu.tbadk.core.util.ay("c11425");
+                pbActivity2 = this.dVR.dOg;
+                ayVar.ab("tid", pbActivity2.aEE().getPbData().aDO().getTid());
+                pbActivity3 = this.dVR.dOg;
+                ayVar.ab("obj_id", new StringBuilder(String.valueOf(pbActivity3.aEE().getPbData().aDO().rt().productId)).toString());
+                if (ayVar != null) {
+                    TiebaStatic.log(ayVar);
+                    return;
                 }
-                dzVar5 = this.dpB.mReaderManager;
-                dzVar5.u(dyVar.dmC, dyVar.dmE);
+                return;
+            } catch (Exception e) {
                 return;
             }
-            dzVar = this.dpB.mReaderManager;
-            dzVar.a(dyVar.pbData, dyVar.isSquence, dyVar.loadType, dyVar.dmB, true);
         }
+        com.baidu.tbadk.core.util.ay s = new com.baidu.tbadk.core.util.ay("c10517").s("obj_locate", 2);
+        str = this.dVR.mForumId;
+        TiebaStatic.log(s.ab("fid", str));
     }
 }

@@ -1,53 +1,28 @@
 package com.baidu.tieba.pb.view;
 
-import android.os.Handler;
-import android.widget.MediaController;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.os.CountDownTimer;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ PbVideoControllerView dsP;
+public class p implements a.b {
+    final /* synthetic */ PbInterviewStatusView dZh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(PbVideoControllerView pbVideoControllerView) {
-        this.dsP = pbVideoControllerView;
+    public p(PbInterviewStatusView pbInterviewStatusView) {
+        this.dZh = pbInterviewStatusView;
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        Handler handler;
-        this.dsP.dsJ = true;
-        handler = this.dsP.mHandler;
-        handler.removeMessages(1);
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        TextView textView;
-        TextView textView2;
-        String me;
-        if (z) {
-            mediaPlayerControl = this.dsP.dsG;
-            long duration = (mediaPlayerControl.getDuration() * i) / 10000;
-            mediaPlayerControl2 = this.dsP.dsG;
-            mediaPlayerControl2.seekTo((int) duration);
-            textView = this.dsP.dsH;
-            if (textView != null) {
-                textView2 = this.dsP.dsH;
-                me = this.dsP.me((int) duration);
-                textView2.setText(me);
-            }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        CountDownTimer countDownTimer;
+        com.baidu.tbadk.core.dialog.a aVar2;
+        CountDownTimer countDownTimer2;
+        countDownTimer = this.dZh.dZd;
+        if (countDownTimer != null) {
+            countDownTimer2 = this.dZh.dZd;
+            countDownTimer2.cancel();
         }
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        Handler handler;
-        this.dsP.dsJ = false;
-        this.dsP.aAS();
-        handler = this.dsP.mHandler;
-        handler.sendEmptyMessage(1);
+        aVar2 = this.dZh.dZa;
+        aVar2.dismiss();
     }
 }

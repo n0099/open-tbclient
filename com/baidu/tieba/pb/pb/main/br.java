@@ -1,38 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class br implements a.b {
-    private final /* synthetic */ String ccv;
-    final /* synthetic */ PbActivity djE;
-    private final /* synthetic */ long djO;
-    private final /* synthetic */ String djP;
-    private final /* synthetic */ String djQ;
-    private final /* synthetic */ String djR;
+class br implements com.baidu.adp.lib.f.c<LinearLayout> {
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
-        this.djE = pbActivity;
-        this.djO = j;
-        this.djP = str;
-        this.ccv = str2;
-        this.djQ = str3;
-        this.djR = str4;
+    public br(PbActivity pbActivity) {
+        this.dPF = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        cw cwVar;
-        cw cwVar2;
-        com.baidu.tieba.pb.b.a(this.djO, this.djP, null, "PB", "BTN_FBOK", "CLICK_FEEDBACK", "tpoint", this.ccv, this.djQ, this.djR);
-        aVar.dismiss();
-        if (this.djE.checkUpIsLogin()) {
-            cwVar = this.djE.dih;
-            if (cwVar.axZ() != null) {
-                cwVar2 = this.djE.dih;
-                cwVar2.axZ().bE(this.djO);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: aFj */
+    public LinearLayout dF() {
+        LinearLayout linearLayout = new LinearLayout(this.dPF.getPageContext().getPageActivity());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        linearLayout.setLayoutParams(layoutParams);
+        linearLayout.setGravity(16);
+        linearLayout.setBaselineAligned(true);
+        linearLayout.setOrientation(0);
+        linearLayout.setLayoutParams(layoutParams);
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public void l(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: d */
+    public LinearLayout m(LinearLayout linearLayout) {
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: e */
+    public LinearLayout n(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+        return linearLayout;
     }
 }

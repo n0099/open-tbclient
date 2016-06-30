@@ -10,74 +10,75 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.person.PersonPostModel;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class a implements View.OnClickListener {
-    private static com.baidu.adp.widget.a.a dEb;
-    private static String dEc;
-    private TbPageContext<?> DV;
-    public TextView aZB;
-    public TextView adg;
-    public TextView cQR;
-    private final LinearLayout cwC;
-    protected final LinearLayout dDX;
-    private final LinearLayout dDY;
-    protected final ColumnLayout dDZ;
-    protected final ColumnLayout dEa;
-    private InterfaceC0070a dEd;
-    private int dEe;
-    public LinearLayout dEf;
-    public HeadImageView dEg;
-    public TextView dEh;
+public class a implements View.OnClickListener {
+    private static com.baidu.adp.widget.a.a emU;
+    private static String emV;
+    private TbPageContext<?> Ea;
+    public TextView adE;
+    public TextView bad;
+    public TextView dwB;
+    protected final LinearLayout emQ;
+    private final LinearLayout emR;
+    protected final ColumnLayout emS;
+    protected final ColumnLayout emT;
+    private InterfaceC0074a emW;
+    private int emX;
+    public LinearLayout emY;
+    public HeadImageView emZ;
+    public TextView ena;
+    private final LinearLayout mLayout;
 
     /* renamed from: com.baidu.tieba.person.post.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0070a {
-        void aU(View view);
+    public interface InterfaceC0074a {
+        void bc(View view);
     }
 
     public a(View view, TbPageContext<?> tbPageContext) {
-        this.DV = tbPageContext;
-        this.dEf = (LinearLayout) view.findViewById(t.g.top_line);
-        this.dEg = (HeadImageView) view.findViewById(t.g.portrait);
-        this.dEh = (TextView) view.findViewById(t.g.username);
-        this.adg = (TextView) view.findViewById(t.g.reply_time);
-        this.aZB = (TextView) view.findViewById(t.g.forum_name);
-        this.cQR = (TextView) view.findViewById(t.g.reply_count);
-        this.dDY = (LinearLayout) view.findViewById(t.g.item_content);
-        this.dDZ = (ColumnLayout) view.findViewById(t.g.item_header);
-        this.dEa = (ColumnLayout) view.findViewById(t.g.item_footer);
-        this.cwC = (LinearLayout) view.findViewById(t.g.person_thread);
-        this.dDX = (LinearLayout) view.findViewById(t.g.person_child);
-        this.dEe = com.baidu.adp.lib.util.k.dip2px(view.getContext(), 42.0f);
-        if (this.dDY != null) {
-            this.dDY.setOnClickListener(this);
+        this.Ea = tbPageContext;
+        this.emY = (LinearLayout) view.findViewById(u.g.top_line);
+        this.emZ = (HeadImageView) view.findViewById(u.g.portrait);
+        this.ena = (TextView) view.findViewById(u.g.username);
+        this.adE = (TextView) view.findViewById(u.g.reply_time);
+        this.bad = (TextView) view.findViewById(u.g.forum_name);
+        this.dwB = (TextView) view.findViewById(u.g.reply_count);
+        this.emR = (LinearLayout) view.findViewById(u.g.item_content);
+        this.emS = (ColumnLayout) view.findViewById(u.g.item_header);
+        this.emT = (ColumnLayout) view.findViewById(u.g.item_footer);
+        this.mLayout = (LinearLayout) view.findViewById(u.g.person_thread);
+        this.emQ = (LinearLayout) view.findViewById(u.g.person_child);
+        this.emX = com.baidu.adp.lib.util.k.dip2px(view.getContext(), 42.0f);
+        if (this.emR != null) {
+            this.emR.setOnClickListener(this);
         }
-        this.dEg.setOnClickListener(this);
-        this.dEh.setOnClickListener(this);
-        this.aZB.setOnClickListener(this);
-        this.cQR.setOnClickListener(this);
-        this.dDZ.setOnClickListener(this);
-        this.dEa.setOnClickListener(this);
+        this.emZ.setOnClickListener(this);
+        this.ena.setOnClickListener(this);
+        this.bad.setOnClickListener(this);
+        this.dwB.setOnClickListener(this);
+        this.emS.setOnClickListener(this);
+        this.emT.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == t.g.forum_name) {
-            if (this.DV != null) {
-                this.DV.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.DV.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
+        if (view.getId() == u.g.forum_name) {
+            if (this.Ea != null) {
+                this.Ea.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.Ea.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (this.dEd != null) {
-            this.dEd.aU(view);
+        } else if (this.emW != null) {
+            this.emW.bc(view);
         }
     }
 
-    public void a(InterfaceC0070a interfaceC0070a) {
-        this.dEd = interfaceC0070a;
+    public void a(InterfaceC0074a interfaceC0074a) {
+        this.emW = interfaceC0074a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00cc */
@@ -110,12 +111,12 @@ class a implements View.OnClickListener {
                             String str7 = postInfoList.user_name;
                             strArr[0] = String.valueOf(postInfoList.thread_id);
                             strArr[1] = String.valueOf(postInfoList.post_id);
-                            String x = ay.x(postInfoList.create_time * 1000);
+                            String y = ba.y(postInfoList.create_time * 1000);
                             String str8 = postInfoList.forum_name;
                             String valueOf = String.valueOf(postInfoList.reply_num);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
                             str4 = str7;
-                            str3 = x;
+                            str3 = y;
                             str2 = str8;
                             str6 = valueOf;
                             str5 = 1;
@@ -126,7 +127,7 @@ class a implements View.OnClickListener {
                             strArr[2] = String.valueOf(postInfoList.content[0].post_type);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
                             str4 = str9;
-                            str3 = ay.x(postInfoList.create_time * 1000);
+                            str3 = ba.y(postInfoList.create_time * 1000);
                             str2 = postInfoList.forum_name;
                             str6 = String.valueOf(postInfoList.reply_num);
                             str5 = 1;
@@ -174,41 +175,41 @@ class a implements View.OnClickListener {
             }
         }
         if (str5 != null) {
-            this.dEh.setText(str4);
-            this.adg.setText(str3);
-            this.aZB.setText(str2);
-            this.aZB.setTag(str2);
-            this.cQR.setText(str6);
-            this.aZB.setOnClickListener(this);
-            eK(str);
-            if (this.dDY != null) {
-                this.dDY.setTag(strArr);
+            this.ena.setText(str4);
+            this.adE.setText(str3);
+            this.bad.setText(str2);
+            this.bad.setTag(str2);
+            this.dwB.setText(str6);
+            this.bad.setOnClickListener(this);
+            eO(str);
+            if (this.emR != null) {
+                this.emR.setTag(strArr);
             }
-            this.dDZ.setTag(strArr);
-            this.dEa.setTag(strArr);
+            this.emS.setTag(strArr);
+            this.emT.setTag(strArr);
         }
     }
 
-    private void eK(String str) {
-        if (dEc != null && !dEc.equals(str)) {
-            dEb = null;
+    private void eO(String str) {
+        if (emV != null && !emV.equals(str)) {
+            emU = null;
         }
-        if (dEb != null) {
-            this.dEg.setImageBitmap(dEb.iY());
-            dEc = str;
+        if (emU != null) {
+            this.emZ.setImageBitmap(emU.jb());
+            emV = str;
             return;
         }
-        this.dEg.a(str, 12, this.dEe, this.dEe, false);
+        this.emZ.a(str, 12, this.emX, this.emX, false);
     }
 
-    public void cR(int i) {
-        at.c(this.aZB, t.d.cp_cont_d, 1);
-        at.c(this.adg, t.d.cp_cont_d, 1);
-        at.c(this.dEh, t.d.cp_cont_f, 1);
-        at.k(this.cwC, t.d.cp_bg_line_c);
-        at.k(this.dDX, t.f.daily_recommend_item_selector);
-        TbadkCoreApplication.m11getInst().getSkinType();
-        this.cQR.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(t.f.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        at.c(this.cQR, t.d.cp_link_tip_c, 1);
+    public void cT(int i) {
+        av.c(this.bad, u.d.cp_cont_d, 1);
+        av.c(this.adE, u.d.cp_cont_d, 1);
+        av.c(this.ena, u.d.cp_cont_f, 1);
+        av.k(this.mLayout, u.d.cp_bg_line_c);
+        av.k(this.emQ, u.f.daily_recommend_item_selector);
+        TbadkCoreApplication.m9getInst().getSkinType();
+        this.dwB.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        av.c(this.dwB, u.d.cp_link_tip_c, 1);
     }
 }

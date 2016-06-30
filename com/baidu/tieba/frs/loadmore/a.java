@@ -6,125 +6,92 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.performanceLog.aa;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.tbadkCore.data.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends e<FrsActivity> {
-    public boolean avz;
-    private FrsActivity bjB;
-    public boolean bqQ;
-    public int bqR;
-    private ArrayList<v> bqS;
-    private ArrayList<v> bqT;
-    private final com.baidu.adp.framework.listener.a bqU;
-    private boolean brZ;
-    private long bsa;
+    public boolean awp;
+    private FrsActivity bET;
+    private final com.baidu.adp.framework.listener.a bMA;
+    public boolean bMw;
+    public int bMx;
+    private ArrayList<v> bMy;
+    private ArrayList<v> bMz;
+    private boolean bPC;
+    private long bPD;
 
     public a(FrsActivity frsActivity) {
         super(frsActivity.getPageContext());
-        this.avz = false;
-        this.bqQ = false;
-        this.bqR = 0;
-        this.brZ = false;
-        this.bsa = 0L;
-        this.bqS = new ArrayList<>();
-        this.bqT = new ArrayList<>();
-        this.bqU = new b(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
-        this.bjB = frsActivity;
+        this.awp = false;
+        this.bMw = false;
+        this.bMx = 0;
+        this.bPC = false;
+        this.bPD = 0L;
+        this.bMy = new ArrayList<>();
+        this.bMz = new ArrayList<>();
+        this.bMA = new b(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
+        this.bET = frsActivity;
     }
 
     public void registerListener() {
-        registerListener(this.bqU);
+        registerListener(this.bMA);
     }
 
     public void a(long j, List<Long> list, String str, int i) {
         if (j == 0 || list == null || list.size() == 0) {
-            this.bqQ = true;
+            this.bMw = true;
             return;
         }
-        String ah = ah(list);
-        if (!TextUtils.isEmpty(ah)) {
+        String as = as(list);
+        if (!TextUtils.isEmpty(as)) {
             LoadMoreRequestMessage loadMoreRequestMessage = new LoadMoreRequestMessage();
             loadMoreRequestMessage.setForumId(j);
-            loadMoreRequestMessage.setThreadIds(ah);
+            loadMoreRequestMessage.setThreadIds(as);
             loadMoreRequestMessage.setNeedAbstract(0);
             loadMoreRequestMessage.setForumName(str);
             loadMoreRequestMessage.setPageNumber(i);
             sendMessage(loadMoreRequestMessage);
-            this.avz = true;
-            this.bsa = System.currentTimeMillis();
+            this.awp = true;
+            this.bPD = System.currentTimeMillis();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LoadMoreResponseSocketMessage loadMoreResponseSocketMessage) {
-        if (!this.brZ) {
-            this.brZ = true;
-            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eL(1000);
-            vVar.axN = true;
-            vVar.axK = false;
-            vVar.isSuccess = loadMoreResponseSocketMessage.hasError() ? false : true;
-            vVar.axy = loadMoreResponseSocketMessage.performanceData.gv;
-            vVar.axz = loadMoreResponseSocketMessage.performanceData.gw;
-            vVar.axA = loadMoreResponseSocketMessage.performanceData.gx;
-            vVar.eD = loadMoreResponseSocketMessage.performanceData.gy;
-            vVar.eE = loadMoreResponseSocketMessage.performanceData.gz;
-            vVar.axB = loadMoreResponseSocketMessage.performanceData.gA;
-            vVar.axC = loadMoreResponseSocketMessage.performanceData.gB;
-            vVar.axD = loadMoreResponseSocketMessage.performanceData.gC;
-            vVar.axD += loadMoreResponseSocketMessage.getProcessTime() - loadMoreResponseSocketMessage.getStartTime();
-            vVar.axI = loadMoreResponseSocketMessage.getDownSize();
-            vVar.errCode = loadMoreResponseSocketMessage.getError();
-            vVar.axJ = 0L;
-            vVar.axF = System.currentTimeMillis() - this.bsa;
-            vVar.sequenceID = loadMoreResponseSocketMessage.sequenceID;
-            vVar.EI();
+        com.baidu.tbadk.performanceLog.v vVar;
+        if (!this.bPC) {
+            this.bPC = true;
+            if (aa.EW().EX() && (vVar = new com.baidu.tbadk.performanceLog.v(1000, false, loadMoreResponseSocketMessage, 0L, 0L, 0L, true, System.currentTimeMillis() - this.bPD)) != null) {
+                vVar.ER();
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LoadMoreHttpResponseMessage loadMoreHttpResponseMessage) {
-        if (!this.brZ) {
-            this.brZ = true;
-            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eL(1000);
-            vVar.axN = true;
-            vVar.axK = true;
-            vVar.isSuccess = loadMoreHttpResponseMessage.hasError() ? false : true;
-            vVar.axy = loadMoreHttpResponseMessage.performanceData.gv;
-            vVar.axz = loadMoreHttpResponseMessage.performanceData.gw;
-            vVar.axA = loadMoreHttpResponseMessage.performanceData.gx;
-            vVar.eD = loadMoreHttpResponseMessage.performanceData.gy;
-            vVar.eE = loadMoreHttpResponseMessage.performanceData.gz;
-            vVar.axB = loadMoreHttpResponseMessage.performanceData.gA;
-            vVar.axC = loadMoreHttpResponseMessage.performanceData.gB;
-            vVar.axD = loadMoreHttpResponseMessage.performanceData.gC;
-            vVar.axD += loadMoreHttpResponseMessage.getProcessTime() - loadMoreHttpResponseMessage.getStartTime();
-            vVar.axL = loadMoreHttpResponseMessage.performanceData.gF;
-            vVar.axM = loadMoreHttpResponseMessage.performanceData.gG;
-            vVar.axI = 0L;
-            vVar.errCode = loadMoreHttpResponseMessage.getError();
-            vVar.axJ = loadMoreHttpResponseMessage.getDownSize();
-            vVar.axF = System.currentTimeMillis() - this.bsa;
-            vVar.axO = loadMoreHttpResponseMessage.getOrginalMessage().getClientLogID();
-            vVar.EI();
+        com.baidu.tbadk.performanceLog.v vVar;
+        if (!this.bPC) {
+            this.bPC = true;
+            if (aa.EW().EX() && (vVar = new com.baidu.tbadk.performanceLog.v(1000, true, loadMoreHttpResponseMessage, 0L, 0L, 0L, true, System.currentTimeMillis() - this.bPD)) != null) {
+                vVar.ER();
+            }
         }
     }
 
-    private String ah(List<Long> list) {
+    private String as(List<Long> list) {
         int i = 30;
         if (list == null || list.size() == 0) {
-            this.bqQ = true;
+            this.bMw = true;
             return "";
         }
         StringBuilder sb = new StringBuilder();
         int size = list.size();
         int i2 = 0;
-        if (this.bqR != 0) {
-            if (this.bqR != 1) {
+        if (this.bMx != 0) {
+            if (this.bMx != 1) {
                 return "";
             }
             i2 = 30;
@@ -134,12 +101,12 @@ public class a extends e<FrsActivity> {
             i = list.size();
         }
         if (i2 >= list.size()) {
-            this.bqQ = true;
+            this.bMw = true;
             return "";
         }
         for (int i3 = i2; i3 < i; i3++) {
             if (i3 == list.size() - 1) {
-                this.bqQ = true;
+                this.bMw = true;
             }
             Long l = list.get(i3);
             if (l != null) {
@@ -164,17 +131,17 @@ public class a extends e<FrsActivity> {
     }
 
     public void resetData() {
-        this.bqR = 0;
-        this.bqQ = false;
-        this.bqS.clear();
-        this.bqT.clear();
+        this.bMx = 0;
+        this.bMw = false;
+        this.bMy.clear();
+        this.bMz.clear();
     }
 
-    public boolean ai(List<Long> list) {
+    public boolean at(List<Long> list) {
         if (list != null && list.size() != 0) {
-            return (this.bqR == 2 || this.bqQ) ? false : true;
+            return (this.bMx == 2 || this.bMw) ? false : true;
         }
-        this.bqQ = true;
+        this.bMw = true;
         return false;
     }
 
@@ -187,21 +154,21 @@ public class a extends e<FrsActivity> {
             return null;
         }
         if (z) {
-            this.bqS.clear();
-            this.bqT.clear();
+            this.bMy.clear();
+            this.bMz.clear();
         }
-        int wC = TbadkCoreApplication.m11getInst().getListItemRule().wC() - this.bqS.size();
+        int wF = TbadkCoreApplication.m9getInst().getListItemRule().wF() - this.bMy.size();
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
-            if (i < wC) {
-                this.bqS.add(arrayList.get(i));
+            if (i < wF) {
+                this.bMy.add(arrayList.get(i));
             } else {
-                this.bqT.add(arrayList.get(i));
+                this.bMz.add(arrayList.get(i));
             }
         }
         ArrayList<v> arrayList2 = new ArrayList<>();
-        arrayList2.addAll(this.bqS);
-        arrayList2.addAll(this.bqT);
+        arrayList2.addAll(this.bMy);
+        arrayList2.addAll(this.bMz);
         a(fVar, arrayList, arrayList2);
         return arrayList2;
     }
@@ -209,28 +176,28 @@ public class a extends e<FrsActivity> {
     private void a(f fVar, List<v> list, List<v> list2) {
         int[] iArr;
         int indexOf;
-        if (fVar != null && y.r(list) > 0 && y.r(list2) > 0) {
-            for (int i : f.esr) {
+        if (fVar != null && y.s(list) > 0 && y.s(list2) > 0) {
+            for (int i : f.eXf) {
                 v vVar = (v) y.c(list, i);
                 if (vVar != null && (indexOf = list2.indexOf(vVar)) >= 0) {
-                    fVar.aY(i, indexOf);
+                    fVar.bg(i, indexOf);
                 }
             }
         }
     }
 
-    public ArrayList<v> SX() {
+    public ArrayList<v> YJ() {
         int i;
-        int size = this.bqT.size() + 30;
-        int wB = TbadkCoreApplication.m11getInst().getListItemRule().wB();
-        if (size > wB && this.bqT.size() > (i = size - wB)) {
+        int size = this.bMz.size() + 30;
+        int wE = TbadkCoreApplication.m9getInst().getListItemRule().wE();
+        if (size > wE && this.bMz.size() > (i = size - wE)) {
             for (int i2 = 0; i2 < i; i2++) {
-                this.bqT.remove(0);
+                this.bMz.remove(0);
             }
         }
         ArrayList<v> arrayList = new ArrayList<>();
-        arrayList.addAll(this.bqS);
-        arrayList.addAll(this.bqT);
+        arrayList.addAll(this.bMy);
+        arrayList.addAll(this.bMz);
         return arrayList;
     }
 }

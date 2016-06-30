@@ -1,54 +1,59 @@
 package com.baidu.tieba.person.god;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.t;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.u;
+import java.util.List;
 /* loaded from: classes.dex */
-class d implements t.b {
-    final /* synthetic */ GodThreadListActivity dzZ;
+class d implements NoNetworkView.a {
+    final /* synthetic */ GodThreadListActivity eiG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(GodThreadListActivity godThreadListActivity) {
-        this.dzZ = godThreadListActivity;
+        this.eiG = godThreadListActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.t.b
-    public void aG(boolean z) {
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aD(boolean z) {
+        i iVar;
         h hVar;
-        g gVar;
+        List list;
+        List list2;
         h hVar2;
-        g gVar2;
-        g gVar3;
         h hVar3;
-        int i;
-        long j;
-        g gVar4;
-        g gVar5;
-        g gVar6;
-        hVar = this.dzZ.dzV;
-        if (hVar != null) {
-            gVar = this.dzZ.dzU;
-            if (gVar != null) {
-                if (!com.baidu.adp.lib.util.i.fq()) {
-                    gVar4 = this.dzZ.dzU;
-                    gVar4.Np();
-                    String string = TbadkCoreApplication.m11getInst().getString(t.j.neterror);
-                    gVar5 = this.dzZ.dzU;
-                    gVar5.mj(string);
-                    gVar6 = this.dzZ.dzU;
-                    gVar6.aCB();
-                    return;
-                }
-                hVar2 = this.dzZ.dzV;
-                if (!hVar2.isLoading()) {
-                    gVar2 = this.dzZ.dzU;
-                    gVar2.aCB();
-                    gVar3 = this.dzZ.dzU;
-                    gVar3.hideNoDataView();
-                    hVar3 = this.dzZ.dzV;
-                    i = this.dzZ.dfw;
-                    j = this.dzZ.mUserId;
-                    hVar3.j(i, j);
+        i iVar2;
+        i iVar3;
+        h hVar4;
+        h hVar5;
+        iVar = this.eiG.eiC;
+        if (iVar != null) {
+            hVar = this.eiG.eiB;
+            if (hVar != null) {
+                list = this.eiG.eiD;
+                if (list != null) {
+                    list2 = this.eiG.eiD;
+                    if (list2.isEmpty()) {
+                        if (z) {
+                            iVar2 = this.eiG.eiC;
+                            if (!iVar2.DK()) {
+                                iVar3 = this.eiG.eiC;
+                                if (iVar3.hasMore()) {
+                                    hVar4 = this.eiG.eiB;
+                                    hVar4.jB();
+                                    hVar5 = this.eiG.eiB;
+                                    hVar5.aLw();
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        }
+                        String string = TbadkCoreApplication.m9getInst().getString(u.j.neterror);
+                        hVar2 = this.eiG.eiB;
+                        hVar2.nK(string);
+                        hVar3 = this.eiG.eiB;
+                        hVar3.aLw();
+                    }
                 }
             }
         }

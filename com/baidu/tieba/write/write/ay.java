@@ -1,30 +1,19 @@
 package com.baidu.tieba.write.write;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.EditText;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity fea;
+public class ay implements DialogInterface.OnCancelListener {
+    final /* synthetic */ WriteActivity fJw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(WriteActivity writeActivity) {
-        this.fea = writeActivity;
+        this.fJw = writeActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tbadk.editortools.l lVar;
-        EditText editText;
-        if (motionEvent.getAction() == 1) {
-            view.requestFocus();
-            lVar = this.fea.apy;
-            lVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-            editText = this.fea.fah;
-            editText.requestFocus();
-            return false;
-        }
-        return false;
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.fJw.destroyWaitingDialog();
+        this.fJw.bkD();
     }
 }

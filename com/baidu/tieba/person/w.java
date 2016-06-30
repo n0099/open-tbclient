@@ -1,58 +1,45 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.RequestGetLivableForumList;
+import com.baidu.tieba.person.t;
 /* loaded from: classes.dex */
-public class w extends CustomMessageListener {
-    final /* synthetic */ s dvP;
+class w implements BdListView.e {
+    final /* synthetic */ t eeh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(s sVar, int i) {
-        super(i);
-        this.dvP = sVar;
+    public w(t tVar) {
+        this.eeh = tVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void jD() {
+        String str;
         boolean z;
-        PersonBarActivity aBF;
-        PersonBarActivity aBF2;
-        boolean z2;
-        View view;
-        View view2;
-        View view3;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
-            z = this.dvP.bIW;
-            if (z) {
-                r personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                aBF = this.dvP.aBF();
-                if (aBF != null) {
-                    if (personBarData != null) {
-                        this.dvP.dvI = true;
-                    }
-                    aBF2 = this.dvP.aBF();
-                    if (aBF2.getRequestCode() != 23011) {
-                        view3 = this.dvP.dvG;
-                        view3.setVisibility(8);
-                    } else {
-                        z2 = this.dvP.dvJ;
-                        if (!z2) {
-                            this.dvP.dvJ = true;
-                            BdListView bdListView = this.dvP.zu;
-                            view2 = this.dvP.dvG;
-                            bdListView.addHeaderView(view2);
-                        }
-                        view = this.dvP.dvG;
-                        view.setVisibility(0);
-                    }
-                    this.dvP.a(personBarData, true);
+        PersonBarActivity aKx;
+        if (this.eeh.hasMore) {
+            z = this.eeh.dsg;
+            if (!z) {
+                this.eeh.dsg = true;
+                this.eeh.edQ.Un();
+                aKx = this.eeh.aKx();
+                if (aKx.getRequestCode() == 23011) {
+                    RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
+                    requestGetLivableForumList.setGetLikeForum(1);
+                    requestGetLivableForumList.setPageNo(this.eeh.edU);
+                    requestGetLivableForumList.setPageSize(this.eeh.pageSize);
+                    requestGetLivableForumList.setUserId(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+                    this.eeh.sendMessage(requestGetLivableForumList);
+                    return;
                 }
+                this.eeh.kE(this.eeh.edU);
+                return;
             }
+            return;
         }
+        t.a aVar = this.eeh.edQ;
+        str = this.eeh.edX;
+        aVar.nU(str);
     }
 }

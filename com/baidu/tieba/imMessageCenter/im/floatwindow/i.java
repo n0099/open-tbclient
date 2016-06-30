@@ -1,11 +1,11 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow;
 /* loaded from: classes.dex */
 public interface i {
-    void ajI();
+    void aO(int i, int i2);
 
-    void ajJ();
+    void aP(int i, int i2);
 
-    void ax(int i, int i2);
+    void arW();
 
-    void ay(int i, int i2);
+    void arX();
 }

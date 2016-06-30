@@ -109,7 +109,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.f((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.h((Activity) BaseWebView.this.getContext())) {
                 return super.onJsAlert(webView, str, str2, jsResult);
             }
             return true;
@@ -117,7 +117,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.f((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.h((Activity) BaseWebView.this.getContext())) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -125,7 +125,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.f((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.h((Activity) BaseWebView.this.getContext())) {
                 return super.onJsConfirm(webView, str, str2, jsResult);
             }
             return true;
@@ -134,7 +134,7 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if (BaseWebView.this.jsCallback == null || !BaseWebView.this.jsCallback.onJsPrompt(str2, jsPromptResult)) {
-                if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.f((Activity) BaseWebView.this.getContext())) {
+                if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.h((Activity) BaseWebView.this.getContext())) {
                     return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
                 }
                 return true;

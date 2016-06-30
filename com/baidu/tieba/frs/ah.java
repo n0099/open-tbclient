@@ -1,28 +1,33 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements a.b {
-    private final /* synthetic */ int Sg;
-    private final /* synthetic */ com.baidu.tbadk.core.data.c aOu;
-    final /* synthetic */ FrsActivity bhl;
-    private final /* synthetic */ boolean bhu;
+public class ah implements Runnable {
+    final /* synthetic */ FrsActivity bDB;
+    private final /* synthetic */ long bDG;
+    private final /* synthetic */ long bDH;
+    private final /* synthetic */ long bDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(FrsActivity frsActivity, com.baidu.tbadk.core.data.c cVar, boolean z, int i) {
-        this.bhl = frsActivity;
-        this.aOu = cVar;
-        this.bhu = z;
-        this.Sg = i;
+    public ah(FrsActivity frsActivity, long j, long j2, long j3) {
+        this.bDB = frsActivity;
+        this.bDG = j;
+        this.bDH = j2;
+        this.bDI = j3;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
-        if (this.aOu.oG()) {
-            this.bhl.a(this.aOu, this.bhu ? "area_download" : "btn_download");
-            this.bhl.d(this.aOu, this.Sg);
-            aVar.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        int A = com.baidu.adp.lib.util.k.A(this.bDB.getPageContext().getPageActivity());
+        int B = com.baidu.adp.lib.util.k.B(this.bDB.getPageContext().getPageActivity());
+        float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
+        int i = 1;
+        if (com.baidu.tbadk.core.util.bb.uf().uh()) {
+            i = 2;
         }
+        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+        requestGetMyPostNetMessage.setParams(this.bDG, this.bDH, this.bDI, A, B, f, i);
+        this.bDB.sendMessage(requestGetMyPostNetMessage);
     }
 }

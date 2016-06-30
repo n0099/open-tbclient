@@ -26,7 +26,7 @@ public class j {
         if (hVar == null) {
             return false;
         }
-        return f(hVar.getPageActivity());
+        return h(hVar.getPageActivity());
     }
 
     public static final boolean a(Dialog dialog, Activity activity) {
@@ -114,7 +114,7 @@ public class j {
         }
     }
 
-    public static final boolean f(Activity activity) {
+    public static final boolean h(Activity activity) {
         if (activity == null || u(activity)) {
             return false;
         }

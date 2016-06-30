@@ -10,11 +10,11 @@ public interface a {
 
     void bK(String str);
 
-    boolean kA();
+    void kC();
 
-    void kB();
+    boolean kD();
 
-    void kz();
+    void kE();
 
     void release();
 }

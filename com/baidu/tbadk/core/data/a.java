@@ -17,13 +17,13 @@ public class a {
     private int Mu = 1;
     private int Mv = 1;
     private int Mw;
-    private aq Mx;
+    private as Mx;
     private boolean mIsSenior;
     private int status;
     private int total_num;
     private String url;
 
-    public int or() {
+    public int om() {
         return this.Mn;
     }
 
@@ -31,11 +31,11 @@ public class a {
         return this.status;
     }
 
-    public int os() {
+    public int on() {
         return this.Mo;
     }
 
-    public int ot() {
+    public int oo() {
         return this.Mp;
     }
 
@@ -43,7 +43,7 @@ public class a {
         return this.url;
     }
 
-    public int ou() {
+    public int op() {
         return this.total_num;
     }
 
@@ -51,11 +51,11 @@ public class a {
         return this.Mq;
     }
 
-    public int ov() {
+    public int oq() {
         return this.Mr;
     }
 
-    public int ow() {
+    public int or() {
         return this.Ms;
     }
 
@@ -63,15 +63,15 @@ public class a {
         return this.mIsSenior;
     }
 
-    public String ox() {
+    public String os() {
         return this.Mt;
     }
 
-    public int oy() {
+    public int ot() {
         return this.Mw;
     }
 
-    public aq oz() {
+    public as ou() {
         return this.Mx;
     }
 
@@ -90,7 +90,7 @@ public class a {
             this.Mt = actInfo.banner_img;
             this.Mw = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
-            if (!com.baidu.tbadk.core.util.ay.isEmpty(str)) {
+            if (!com.baidu.tbadk.core.util.ba.isEmpty(str)) {
                 try {
                     String[] split = str.split(",");
                     this.Mu = com.baidu.adp.lib.h.b.g(split[0], 1);
@@ -105,7 +105,7 @@ public class a {
             if (this.Mv <= 0) {
                 this.Mv = 1;
             }
-            this.Mx = new aq();
+            this.Mx = new as();
             this.Mx.a(actInfo.lottery_senior);
         }
     }
@@ -126,7 +126,7 @@ public class a {
                 this.Mt = jSONObject.optString("banner_img");
                 this.Mw = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
-                if (!com.baidu.tbadk.core.util.ay.isEmpty(optString)) {
+                if (!com.baidu.tbadk.core.util.ba.isEmpty(optString)) {
                     String[] split = optString.split(",");
                     this.Mu = com.baidu.adp.lib.h.b.g(split[0], 1);
                     this.Mv = com.baidu.adp.lib.h.b.g(split[1], 1);

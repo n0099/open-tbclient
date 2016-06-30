@@ -6,43 +6,44 @@ import java.util.List;
 /* loaded from: classes.dex */
 class n implements BdNativeCrash.NativeCrashCallback {
     @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
-    public void onNativeCrashed(int i, int i2, int i3, String str) {
+    public void onNativeCrashed(int i, int i2, int i3, String str, String str2) {
         v vVar = new v();
         Thread thread = new Thread();
         thread.setName("NativeCrashThread");
         vVar.a(thread, (Throwable) new Exception(str), true);
+        l.gr(str2);
     }
 
     @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
     public boolean onSoFound(String str) {
         List list;
         List list2;
-        boolean gl;
-        boolean gm;
+        boolean gs;
+        boolean gt;
         boolean aq;
         List list3;
         try {
-            list2 = l.aAc;
+            list2 = l.aAU;
             if (list2.indexOf(str) >= 0) {
                 return false;
             }
-            gl = l.gl(str);
-            if (gl) {
+            gs = l.gs(str);
+            if (gs) {
                 return true;
             }
-            gm = l.gm(str);
-            if (gm) {
+            gt = l.gt(str);
+            if (gt) {
                 return true;
             }
-            aq = l.aq(str, TbadkCoreApplication.m11getInst().getApp().getApplicationInfo().sourceDir);
+            aq = l.aq(str, TbadkCoreApplication.m9getInst().getApp().getApplicationInfo().sourceDir);
             if (aq) {
                 return true;
             }
-            list3 = l.aAc;
+            list3 = l.aAU;
             list3.add(str);
             return false;
         } catch (Throwable th) {
-            list = l.aAc;
+            list = l.aAU;
             list.add(str);
             return false;
         }

@@ -1,25 +1,35 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ab extends com.baidu.adp.base.g {
-    final /* synthetic */ FrsActivity bhl;
+class ab extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(FrsActivity frsActivity) {
-        this.bhl = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bDB = frsActivity;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        com.baidu.tieba.frs.h.y yVar;
-        boolean z = false;
-        if (obj instanceof Boolean) {
-            z = ((Boolean) obj).booleanValue();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2001124) {
+                if (customResponsedMessage.getCmd() != 2001122) {
+                    return;
+                }
+                this.bDB.e(customResponsedMessage);
+                return;
+            }
+            this.bDB.d(customResponsedMessage);
         }
-        if (z) {
-            yVar = this.bhl.bgF;
-            yVar.dn(true);
-            return;
-        }
-        this.bhl.refresh();
     }
 }

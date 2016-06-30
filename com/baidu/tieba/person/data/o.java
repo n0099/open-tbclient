@@ -1,14 +1,13 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.personInfo.PersonTainInfo;
 /* loaded from: classes.dex */
-public class o implements v {
-    public static final BdUniqueId dzG = BdUniqueId.gen();
-    private boolean bJq;
-    private PersonTainInfo dzH;
+public class o implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId eik = BdUniqueId.gen();
+    private boolean chd;
+    private PersonTainInfo eil;
     private UserData mUserData;
 
     public UserData getUserData() {
@@ -20,23 +19,23 @@ public class o implements v {
     }
 
     public boolean getIsSelf() {
-        return this.bJq;
+        return this.chd;
     }
 
     public void setIsSelf(boolean z) {
-        this.bJq = z;
+        this.chd = z;
     }
 
     public void b(PersonTainInfo personTainInfo) {
-        this.dzH = personTainInfo;
+        this.eil = personTainInfo;
     }
 
-    public PersonTainInfo aCq() {
-        return this.dzH;
+    public PersonTainInfo aLj() {
+        return this.eil;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dzG;
+        return eik;
     }
 }

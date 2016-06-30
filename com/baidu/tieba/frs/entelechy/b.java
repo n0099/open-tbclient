@@ -5,74 +5,73 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.w;
 import com.baidu.adp.widget.ListView.x;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.az;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.frs.view.AdapterLinearLayout;
-import com.baidu.tieba.frs.view.af;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b extends com.baidu.tieba.frs.view.c {
-    protected w bhh;
-    protected x bhi;
-    protected AdapterLinearLayout bnS;
-    protected TextView bnT;
-    protected af bnU;
+    protected w bDw;
+    protected x bDx;
+    protected AdapterLinearLayout bIo;
+    protected TextView bIp;
+    protected com.baidu.tieba.frs.view.x bIq;
 
-    public void Sc() {
-        this.bnS = (AdapterLinearLayout) this.bve.findViewById(t.g.top_layout);
-        this.bnT = (TextView) this.bve.findViewById(t.g.top_item_type);
-        this.bnT.setText(TbadkCoreApplication.m11getInst().getString(t.j.game));
-        this.bnU = new af(this.Do.getPageActivity());
+    public void Xv() {
+        this.bIo = (AdapterLinearLayout) this.bSP.findViewById(u.g.top_layout);
+        this.bIp = (TextView) this.bSP.findViewById(u.g.top_item_type);
+        this.bIp.setText(TbadkCoreApplication.m9getInst().getString(u.j.game));
+        this.bIq = new com.baidu.tieba.frs.view.x(this.Dp.getPageActivity());
     }
 
     public void b(w wVar) {
-        this.bhh = wVar;
+        this.bDw = wVar;
     }
 
     public void b(x xVar) {
-        this.bhi = xVar;
+        this.bDx = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Sd() {
-        if (this.bjB != null && this.bjB.PZ() != null && this.bnU != null) {
+    public void Xw() {
+        if (this.bET != null && this.bET.VC() != null && this.bIq != null) {
             ArrayList arrayList = new ArrayList();
-            List<v> aSX = this.bjB.PZ().aSX();
-            if (aSX != null) {
+            List<v> bbj = this.bET.VC().bbj();
+            if (bbj != null) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= y.r(aSX)) {
+                    if (i2 >= y.s(bbj)) {
                         break;
                     }
-                    v vVar = (v) y.c(aSX, i2);
-                    if (vVar instanceof ax) {
-                        arrayList.add((ax) vVar);
+                    v vVar = (v) y.c(bbj, i2);
+                    if (vVar instanceof az) {
+                        arrayList.add((az) vVar);
                     }
                     i = i2 + 1;
                 }
             }
-            this.bnS.setAdapter(this.bnU);
-            this.bnU.c(this.bhh);
-            this.bnU.c(this.bhi);
-            this.bnU.setData(arrayList);
-            this.bnU.notifyDataSetChanged();
+            this.bIo.setAdapter(this.bIq);
+            this.bIq.c(this.bDw);
+            this.bIq.c(this.bDx);
+            this.bIq.setData(arrayList);
+            this.bIq.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Se() {
-        if (this.bnU != null) {
-            this.bnU.notifyDataSetChanged();
+    public void Xx() {
+        if (this.bIq != null) {
+            this.bIq.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.view.c
-    public void Sf() {
-        if (this.bnU != null) {
-            this.bnU.notifyDataSetChanged();
+    public void Xy() {
+        if (this.bIq != null) {
+            this.bIq.notifyDataSetChanged();
         }
     }
 }

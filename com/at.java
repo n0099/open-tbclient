@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as fjW;
+    final /* synthetic */ as fPV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.fjW = asVar;
+        this.fPV = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.fjW.a = asInterface.getPackageName();
-            this.fjW.b = asInterface.getActivityName();
-            if (!this.fjW.startSingleSignOn()) {
-                this.fjW.startAuthDialog();
+            this.fPV.a = asInterface.getPackageName();
+            this.fPV.b = asInterface.getActivityName();
+            if (!this.fPV.startSingleSignOn()) {
+                this.fPV.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.fjW.startAuthDialog();
+            this.fPV.startAuthDialog();
         } finally {
-            Context applicationContext = this.fjW.mActivity.getApplicationContext();
-            serviceConnection = this.fjW.fjV;
+            Context applicationContext = this.fPV.mActivity.getApplicationContext();
+            serviceConnection = this.fPV.fPU;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.fjW.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.fPV.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.fjW.startAuthDialog();
+            this.fPV.startAuthDialog();
         }
     }
 }

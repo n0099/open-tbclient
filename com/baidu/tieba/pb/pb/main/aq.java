@@ -1,42 +1,75 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tieba.t;
-import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.d.c;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class aq implements c.b {
-    final /* synthetic */ PbActivity djE;
-    private final /* synthetic */ SparseArray djF;
-    private final /* synthetic */ boolean djG;
-    private final /* synthetic */ String djH;
-    private final /* synthetic */ String djI;
+class aq implements c.InterfaceC0054c {
+    final int bDC;
+    final /* synthetic */ PbActivity dPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str, String str2) {
-        this.djE = pbActivity;
-        this.djF = sparseArray;
-        this.djG = z;
-        this.djH = str;
-        this.djI = str2;
+    public aq(PbActivity pbActivity) {
+        this.dPF = pbActivity;
+        this.bDC = (int) pbActivity.getResources().getDimension(u.e.ds98);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        UserMuteAddAndDelModel userMuteAddAndDelModel;
-        el elVar;
-        switch (i) {
-            case 0:
-                elVar = this.djE.diR;
-                elVar.a(((Integer) this.djF.get(t.g.tag_del_post_type)).intValue(), (String) this.djF.get(t.g.tag_del_post_id), ((Integer) this.djF.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) this.djF.get(t.g.tag_del_post_is_self)).booleanValue());
-                break;
-            case 1:
-                userMuteAddAndDelModel = this.djE.diP;
-                userMuteAddAndDelModel.a(this.djG, this.djH, (String) this.djF.get(t.g.tag_user_mute_mute_username), (String) this.djF.get(t.g.tag_user_mute_thread_id), (String) this.djF.get(t.g.tag_user_mute_post_id), UserMuteAddAndDelModel.From.PB, this.djI);
-                break;
+    @Override // com.baidu.tieba.d.c.InterfaceC0054c
+    public void K(int i, int i2) {
+        es esVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar;
+        es esVar2;
+        com.baidu.tieba.pb.pb.main.a.f fVar2;
+        com.baidu.tieba.pb.pb.main.a.f fVar3;
+        if (B(i2)) {
+            esVar = this.dPF.dOO;
+            if (esVar != null) {
+                fVar = this.dPF.dOx;
+                if (fVar != null) {
+                    esVar2 = this.dPF.dOO;
+                    esVar2.aHP();
+                    fVar2 = this.dPF.dOx;
+                    fVar2.dt(false);
+                    fVar3 = this.dPF.dOx;
+                    fVar3.Xk();
+                }
+            }
         }
-        cVar.dismiss();
+    }
+
+    @Override // com.baidu.tieba.d.c.InterfaceC0054c
+    public void L(int i, int i2) {
+        es esVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar2;
+        es esVar2;
+        es esVar3;
+        es esVar4;
+        com.baidu.tieba.pb.pb.main.a.f fVar3;
+        if (B(i2)) {
+            esVar = this.dPF.dOO;
+            if (esVar != null) {
+                fVar = this.dPF.dOx;
+                if (fVar != null) {
+                    fVar2 = this.dPF.dOx;
+                    fVar2.dt(true);
+                    if (Math.abs(i2) > this.bDC) {
+                        esVar4 = this.dPF.dOO;
+                        esVar4.aHO();
+                        fVar3 = this.dPF.dOx;
+                        fVar3.Xj();
+                    }
+                    if (this.dPF.aEV()) {
+                        esVar2 = this.dPF.dOO;
+                        esVar2.aGZ();
+                        esVar3 = this.dPF.dOO;
+                        esVar3.aHa();
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean B(float f) {
+        return Math.abs(f) >= 1.0f;
     }
 }

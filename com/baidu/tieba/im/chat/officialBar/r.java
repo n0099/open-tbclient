@@ -12,7 +12,7 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String cbs;
+        public String cGO;
         public String fid;
         public long picId;
         public String src;
@@ -53,7 +53,7 @@ public class r {
                 aVar.src = optString3;
                 aVar.fid = str2;
                 aVar.picId = optLong;
-                aVar.cbs = optString5;
+                aVar.cGO = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }

@@ -21,6 +21,6 @@ public class HotTopicActivityConfig extends IntentConfig {
     }
 
     public static boolean isHotTopicAvailable() {
-        return TbadkCoreApplication.m11getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
+        return TbadkCoreApplication.m9getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
     }
 }

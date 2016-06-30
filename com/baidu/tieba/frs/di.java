@@ -1,29 +1,15 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.a;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
-public class di implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.ax bjh;
-    final /* synthetic */ df bkM;
+public interface di {
+    a<? extends com.baidu.tbadk.core.data.az, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public di(df dfVar, com.baidu.tbadk.core.data.ax axVar) {
-        this.bkM = dfVar;
-        this.bjh = axVar;
-    }
+    bj<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.bkM.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bjh.getAuthor().getUserId(), this.bjh.getAuthor().getName_show(), this.bkM.bgq.avD().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
-    }
+    a<? extends com.baidu.tbadk.core.data.az, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 }

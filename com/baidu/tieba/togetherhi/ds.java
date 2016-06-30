@@ -13,21 +13,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.widget.richText.n;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class ds extends FrameLayout implements View.OnClickListener {
-    private TextView aOG;
-    private TextView adi;
-    private TextView bbW;
-    private View eJI;
-    private TextView eJJ;
-    private TextView eJK;
-    private TextView eJL;
-    private PbTogetherhiAvatarList eJM;
+    private TextView aSd;
+    private TextView adG;
+    private TextView bxR;
+    private View foD;
+    private TextView foE;
+    private TextView foF;
+    private TextView foG;
+    private PbTogetherhiAvatarList foH;
     private Context mContext;
     private n togetherHiInfo;
 
@@ -38,17 +38,17 @@ public class ds extends FrameLayout implements View.OnClickListener {
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(t.h.tb_richtext_togetherhi_plan, this);
-        this.eJI = inflate.findViewById(t.g.togetherhi_plan_layout);
-        this.aOG = (TextView) inflate.findViewById(t.g.togetherhi_activity_title);
-        this.adi = (TextView) inflate.findViewById(t.g.togetherhi_activity_location);
-        this.bbW = (TextView) inflate.findViewById(t.g.togetherhi_activity_time);
-        this.eJJ = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number);
-        this.eJK = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number_tv1);
-        this.eJL = (TextView) inflate.findViewById(t.g.togetherhi_activity_user_number_tv2);
-        this.eJM = (PbTogetherhiAvatarList) inflate.findViewById(t.g.togetherhi_avatar_list);
+        View inflate = LayoutInflater.from(context).inflate(u.h.tb_richtext_togetherhi_plan, this);
+        this.foD = inflate.findViewById(u.g.togetherhi_plan_layout);
+        this.aSd = (TextView) inflate.findViewById(u.g.togetherhi_activity_title);
+        this.adG = (TextView) inflate.findViewById(u.g.togetherhi_activity_location);
+        this.bxR = (TextView) inflate.findViewById(u.g.togetherhi_activity_time);
+        this.foE = (TextView) inflate.findViewById(u.g.togetherhi_activity_user_number);
+        this.foF = (TextView) inflate.findViewById(u.g.togetherhi_activity_user_number_tv1);
+        this.foG = (TextView) inflate.findViewById(u.g.togetherhi_activity_user_number_tv2);
+        this.foH = (PbTogetherhiAvatarList) inflate.findViewById(u.g.togetherhi_avatar_list);
         inflate.setOnClickListener(this);
-        onChangeSkinType(TbadkCoreApplication.m11getInst().getSkinType());
+        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     public void setData(n nVar) {
@@ -60,42 +60,42 @@ public class ds extends FrameLayout implements View.OnClickListener {
         if (getVisibility() != 0) {
             setVisibility(0);
         }
-        this.aOG.setText(nVar.QX);
+        this.aSd.setText(nVar.Rp);
         if (TextUtils.isEmpty(nVar.location)) {
-            this.adi.setVisibility(8);
+            this.adG.setVisibility(8);
         } else {
-            this.adi.setVisibility(0);
-            this.adi.setText(nVar.location);
+            this.adG.setVisibility(0);
+            this.adG.setText(nVar.location);
         }
-        this.bbW.setText(new SimpleDateFormat("MM月dd日 HH:mm").format(new Date(nVar.startTime * 1000)));
-        this.eJJ.setText(Integer.toString(nVar.Rb));
-        this.eJM.setPortraitList(nVar.Rc);
+        this.bxR.setText(new SimpleDateFormat("MM月dd日 HH:mm").format(new Date(nVar.startTime * 1000)));
+        this.foE.setText(Integer.toString(nVar.Rt));
+        this.foH.setPortraitList(nVar.Ru);
     }
 
     public void reset() {
-        this.eJM.reset();
-        this.bbW.setText("");
-        this.aOG.setText("");
-        this.adi.setText("");
-        this.eJJ.setText("");
+        this.foH.reset();
+        this.bxR.setText("");
+        this.aSd.setText("");
+        this.adG.setText("");
+        this.foE.setText("");
         setTag(null);
     }
 
     public void onChangeSkinType(int i) {
-        at.k(this.eJI, t.f.pb_togetherhi_content_selector);
-        at.c(this.aOG, t.d.cp_link_tip_a, 1);
-        at.c(this.adi, t.d.cp_cont_c, 1);
-        at.c(this.bbW, t.d.cp_cont_c, 1);
-        at.c(this.eJJ, t.d.cp_cont_b, 1);
-        at.c(this.eJK, t.d.cp_cont_c, 1);
-        at.c(this.eJL, t.d.cp_cont_c, 1);
+        av.k(this.foD, u.f.pb_togetherhi_content_selector);
+        av.c(this.aSd, u.d.cp_link_tip_a, 1);
+        av.c(this.adG, u.d.cp_cont_c, 1);
+        av.c(this.bxR, u.d.cp_cont_c, 1);
+        av.c(this.foE, u.d.cp_cont_b, 1);
+        av.c(this.foF, u.d.cp_cont_c, 1);
+        av.c(this.foG, u.d.cp_cont_c, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TiebaStatic.log("c11151");
         ThActivityDetailActivityConfig thActivityDetailActivityConfig = new ThActivityDetailActivityConfig(this.mContext);
-        thActivityDetailActivityConfig.createActivityDetailConfig(Long.toString(this.togetherHiInfo.QY), this.togetherHiInfo.QX, this.togetherHiInfo.startTime, this.togetherHiInfo.QZ, this.togetherHiInfo.location, this.togetherHiInfo.Rb, ThActivityDetailActivityConfig.TH_FROM_PB);
+        thActivityDetailActivityConfig.createActivityDetailConfig(Long.toString(this.togetherHiInfo.Rq), this.togetherHiInfo.Rp, this.togetherHiInfo.startTime, this.togetherHiInfo.Rr, this.togetherHiInfo.location, this.togetherHiInfo.Rt, ThActivityDetailActivityConfig.TH_FROM_PB);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, thActivityDetailActivityConfig));
     }
 

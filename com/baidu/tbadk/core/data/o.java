@@ -1,38 +1,40 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import java.util.ArrayList;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class o {
-    private String NM;
-    private String mName;
-    private String mUrl;
+    private String NE;
+    private int NF;
+    private ArrayList<p> NG = new ArrayList<>();
+    private int height;
+    private String obj_id;
+    private int width;
 
-    public String getIcon() {
-        return this.NM;
+    public ArrayList<p> oK() {
+        return this.NG;
     }
 
-    public String getUrl() {
-        return this.mUrl;
+    public void f(ArrayList<p> arrayList) {
+        this.NG = arrayList;
     }
 
-    public void a(MemberShowIcon memberShowIcon) {
-        if (memberShowIcon != null) {
-            this.NM = memberShowIcon.icon;
-            this.mName = memberShowIcon.name;
-            this.mUrl = memberShowIcon.url;
-        }
+    public String oL() {
+        return this.obj_id;
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.NM = jSONObject.optString("icon");
-                this.mName = jSONObject.optString("name");
-                this.mUrl = jSONObject.optString("url");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
+            this.NF = activityHead.activity_type.intValue();
+            this.NE = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            this.obj_id = activityHead.obj_id;
+            for (HeadImgs headImgs : activityHead.head_imgs) {
+                p pVar = new p();
+                pVar.a(headImgs);
+                this.NG.add(pVar);
             }
         }
     }

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class d {
-    static d Jc;
+    static d Je;
     String a = "firll.dat";
     int b = 3164;
     int d = 0;
@@ -31,7 +31,7 @@ public class d {
         }
     }
 
-    private long aI(int i) {
+    private long aJ(int i) {
         RandomAccessFile randomAccessFile;
         String g = i.g();
         if (g == null) {
@@ -91,11 +91,11 @@ public class d {
         }
     }
 
-    public static d mH() {
-        if (Jc == null) {
-            Jc = new d();
+    public static d mC() {
+        if (Je == null) {
+            Je = new d();
         }
-        return Jc;
+        return Je;
     }
 
     public void a(long j) {
@@ -103,7 +103,7 @@ public class d {
     }
 
     public long b() {
-        return aI(this.d);
+        return aJ(this.d);
     }
 
     public void b(long j) {
@@ -111,6 +111,6 @@ public class d {
     }
 
     public long c() {
-        return aI(this.g);
+        return aJ(this.g);
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class PraiseSwitchStatic extends BaseNormalSwitchStatic {
     static {
-        e.cS().f(PraiseSwitchStatic.class);
+        e.cT().n(PraiseSwitchStatic.class);
     }
 
     @Override // com.baidu.tbadk.switchs.BaseNormalSwitchStatic, com.baidu.adp.lib.c.a

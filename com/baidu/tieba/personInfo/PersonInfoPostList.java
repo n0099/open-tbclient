@@ -2,6 +2,8 @@ package com.baidu.tieba.personInfo;
 
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
+import com.baidu.tbadk.core.data.DealInfoData;
+import com.baidu.tbadk.switchs.EcommSwitchStatic;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +25,12 @@ public class PersonInfoPostList implements Serializable {
     private PersonInfoPostAnchor anchorInfo;
     private String contentThread;
     private int createTime;
+    public DealInfoData dealInfoData;
     private long forumId;
     private String forumName;
     private int hidePost;
     private String ip;
+    private boolean isDeal;
     private int isPostDeleted;
     private int isThread;
     private PersonInfoPostLbs lbsInfo;
@@ -215,7 +219,16 @@ public class PersonInfoPostList implements Serializable {
                     this.voiceInfo.add(personInfoPostVoice);
                 }
             }
+            this.isDeal = postInfoList.is_deal.booleanValue();
+            if (postInfoList.deal_info != null && EcommSwitchStatic.Fq()) {
+                this.dealInfoData = new DealInfoData();
+                this.dealInfoData.parserProtobuf(postInfoList.deal_info);
+            }
         }
+    }
+
+    public boolean isEcommThread() {
+        return this.isDeal && this.dealInfoData != null;
     }
 
     public long getForumId() {

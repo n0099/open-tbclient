@@ -1,41 +1,46 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.graphics.drawable.NinePatchDrawable;
+import android.text.TextUtils;
 import android.view.View;
-import com.baidu.tieba.t;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements View.OnClickListener {
-    private final /* synthetic */ boolean djG;
-    final /* synthetic */ y dqN;
+public class am extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ af dXy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(y yVar, boolean z) {
-        this.dqN = yVar;
-        this.djG = z;
+    public am(af afVar) {
+        this.dXy = afVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        View view;
         NewSubPbActivity newSubPbActivity;
-        Dialog dialog2;
-        Dialog dialog3;
         NewSubPbActivity newSubPbActivity2;
-        dialog = this.dqN.dnR;
-        if (dialog != null) {
-            dialog2 = this.dqN.dnR;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.dqN.dnR;
-                newSubPbActivity2 = this.dqN.dqr;
-                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity2.getPageContext());
+        if (aVar != null && !TextUtils.isEmpty(str)) {
+            view = this.dXy.dWS;
+            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewWithTag(str);
+            if (tbRichTextView != null) {
+                newSubPbActivity = this.dXy.dWU;
+                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(newSubPbActivity.getResources(), aVar.jb(), aVar.jb().getNinePatchChunk(), aVar.jf(), null);
+                if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
+                    ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ae.mAlpha);
+                }
+                if (tbRichTextView instanceof TbRichTextView) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
+                    newSubPbActivity2 = this.dXy.dWU;
+                    layoutParams.bottomMargin = (int) newSubPbActivity2.getResources().getDimension(u.e.ds20);
+                    tbRichTextView.setLayoutParams(layoutParams);
+                    tbRichTextView.setBackgroundDrawable(ninePatchDrawable);
+                }
             }
-        }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            newSubPbActivity = this.dqN.dqr;
-            newSubPbActivity.a(this.djG, (String) sparseArray.get(t.g.tag_user_mute_mute_userid), sparseArray);
         }
     }
 }

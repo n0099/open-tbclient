@@ -5,31 +5,31 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ c bwe;
+    final /* synthetic */ c bTP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar) {
-        this.bwe = cVar;
+        this.bTP = cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c sh() {
+    public com.baidu.tbadk.core.flow.a.c sf() {
         com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-        cVar.cd(t.f.icon_dot_personal_s);
-        cVar.ce(t.f.icon_dot_personal_n);
-        cVar.setSpacing(t.e.ds10);
+        cVar.ce(u.f.icon_dot_personal_s);
+        cVar.cf(u.f.icon_dot_personal_n);
+        cVar.setSpacing(u.e.ds10);
         cVar.setGravity(85);
-        cVar.cg(t.e.ds20);
-        cVar.cf(t.e.ds16);
+        cVar.ch(u.e.ds20);
+        cVar.cg(u.e.ds16);
         return cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public TbImageView J(Context context) {
+    public TbImageView I(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         tbImageView.setGifIconSupport(false);
@@ -37,14 +37,14 @@ public class j implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e si() {
+    public com.baidu.tbadk.core.flow.a.e sg() {
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
-        eVar.setHeight(TbadkCoreApplication.m11getInst().getResources().getDimensionPixelSize(t.e.ds280));
+        eVar.setHeight(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds280));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View sj() {
-        return this.bwe.bvl;
+    public View sh() {
+        return this.bTP.bSS;
     }
 }

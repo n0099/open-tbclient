@@ -7,24 +7,24 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class j extends DiskFileOperate {
-    protected a VD;
-    protected BitmapFactory.Options hK;
+    protected a VT;
+    protected BitmapFactory.Options hJ;
     protected Bitmap mBitmap;
 
     public j(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.hK = null;
-        this.VD = null;
-        this.VD = new a();
+        this.hJ = null;
+        this.VT = null;
+        this.VT = new a();
     }
 
-    public boolean cd() {
-        return this.VD.hO;
+    public boolean ce() {
+        return this.VT.hN;
     }
 
     public void q(boolean z) {
-        this.VD.hO = z;
+        this.VT.hN = z;
     }
 
     public Bitmap getBitmap() {
@@ -34,17 +34,17 @@ public class j extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!cd() && com.baidu.adp.lib.util.k.j(bArr)) {
+        if (!ce() && com.baidu.adp.lib.util.k.j(bArr)) {
             q(true);
         }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] bQ() {
-        if (this.hx == null) {
+    public byte[] bR() {
+        if (this.hw == null) {
             return null;
         }
-        return this.VD.toByteArray();
+        return this.VT.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -52,18 +52,18 @@ public class j extends DiskFileOperate {
         if (bArr == null) {
             return false;
         }
-        if (this.hK == null) {
-            this.hK = new BitmapFactory.Options();
-            this.hK.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.hJ == null) {
+            this.hJ = new BitmapFactory.Options();
+            this.hJ.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean i = this.VD.i(bArr);
-        if (this.VD.hP == 0 || this.VD.hP >= System.currentTimeMillis()) {
+        boolean i = this.VT.i(bArr);
+        if (this.VT.hO == 0 || this.VT.hO >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
             if (!i) {
                 headerSize = 0;
             }
             try {
-                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.hK);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.hJ);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }
@@ -75,9 +75,9 @@ public class j extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte hM = Byte.MIN_VALUE;
-        boolean hO = false;
-        long hP = 0;
+        private static byte hL = Byte.MIN_VALUE;
+        boolean hN = false;
+        long hO = 0;
 
         a() {
         }
@@ -89,8 +89,8 @@ public class j extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600510);
-            allocate.put(this.hO ? (byte) (0 | hM) : (byte) 0);
-            allocate.putLong(this.hP);
+            allocate.put(this.hN ? (byte) (0 | hL) : (byte) 0);
+            allocate.putLong(this.hO);
             allocate.flip();
             return allocate.array();
         }
@@ -101,10 +101,10 @@ public class j extends DiskFileOperate {
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600510) {
-                if ((wrap.get() & hM) != 0) {
-                    this.hO = true;
+                if ((wrap.get() & hL) != 0) {
+                    this.hN = true;
                 }
-                this.hP = wrap.getLong();
+                this.hO = wrap.getLong();
                 return true;
             }
             return false;

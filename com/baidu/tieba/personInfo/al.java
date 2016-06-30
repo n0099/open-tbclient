@@ -1,38 +1,39 @@
 package com.baidu.tieba.personInfo;
 
 import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements c.b {
-    private final /* synthetic */ int cUj;
-    private final /* synthetic */ com.baidu.tbadk.data.i dGq;
-    private final /* synthetic */ List dGr;
+public class al implements View.OnClickListener {
     final /* synthetic */ f this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(f fVar, com.baidu.tbadk.data.i iVar, List list, int i) {
+    public al(f fVar) {
         this.this$0 = fVar;
-        this.dGq = iVar;
-        this.dGr = list;
-        this.cUj = i;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        this.this$0.dFL = true;
-        if (i != 0) {
-            if (i != 1) {
-                if (i == 2) {
-                    this.this$0.aDk();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        List list;
+        List list2;
+        List list3;
+        if (view != null) {
+            list = this.this$0.eoO;
+            if (list != null) {
+                com.baidu.adp.widget.ListView.v vVar = null;
+                if (view.getTag() instanceof com.baidu.tieba.person.b.q) {
+                    vVar = ((com.baidu.tieba.person.b.q) view.getTag()).vP();
+                } else if (view.getTag() instanceof com.baidu.tieba.person.b.c) {
+                    vVar = ((com.baidu.tieba.person.b.c) view.getTag()).vP();
                 }
-            } else {
-                this.this$0.aDj();
+                list2 = this.this$0.eoO;
+                int a = com.baidu.tbadk.core.util.y.a(list2, vVar);
+                if (a >= 0) {
+                    f fVar = this.this$0;
+                    list3 = this.this$0.eoO;
+                    fVar.a(vVar, list3, a);
+                }
             }
-        } else {
-            this.this$0.c(this.dGq, this.dGr, this.cUj);
         }
-        cVar.dismiss();
     }
 }

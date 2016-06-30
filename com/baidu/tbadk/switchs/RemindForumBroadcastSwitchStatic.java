@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class RemindForumBroadcastSwitchStatic extends a {
     static {
-        e.cS().f(RemindForumBroadcastSwitchStatic.class);
+        e.cT().n(RemindForumBroadcastSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

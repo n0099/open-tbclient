@@ -4,23 +4,23 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.b {
-    private final /* synthetic */ int Sg;
-    final /* synthetic */ f aOt;
-    private final /* synthetic */ com.baidu.tbadk.core.data.c aOu;
+    private final /* synthetic */ int Sx;
+    final /* synthetic */ f aRQ;
+    private final /* synthetic */ com.baidu.tbadk.core.data.b aRR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar, com.baidu.tbadk.core.data.c cVar, int i) {
-        this.aOt = fVar;
-        this.aOu = cVar;
-        this.Sg = i;
+    public g(f fVar, com.baidu.tbadk.core.data.b bVar, int i) {
+        this.aRQ = fVar;
+        this.aRR = bVar;
+        this.Sx = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        if (!this.aOu.oG()) {
+        if (!this.aRR.ow()) {
             return;
         }
-        this.aOt.c(this.aOu, this.Sg);
+        this.aRQ.c(this.aRR, this.Sx);
         aVar.dismiss();
     }
 }

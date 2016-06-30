@@ -123,12 +123,12 @@ public class ProfileRequestMessage extends NetMessage {
             builder.pn = get_pn();
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
-            int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m11getInst().getApp());
-            int C = com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m11getInst().getApp());
-            int viewImageQuality = com.baidu.tbadk.core.l.ob().getViewImageQuality();
-            builder.scr_w = Integer.valueOf(B);
-            builder.scr_h = Integer.valueOf(C);
-            builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.D(TbadkCoreApplication.m11getInst().getApp()));
+            int A = com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m9getInst().getApp());
+            int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m9getInst().getApp());
+            int viewImageQuality = com.baidu.tbadk.core.l.nW().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(A);
+            builder.scr_h = Integer.valueOf(B);
+            builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m9getInst().getApp()));
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
                 com.baidu.tbadk.util.o.a(builder, true);

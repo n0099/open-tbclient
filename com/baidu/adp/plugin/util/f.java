@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static final HashMap<Class<?>, Class<?>> vS = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> vU = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class f {
     }
 
     static {
-        vS.put(Boolean.class, Boolean.TYPE);
-        vS.put(Byte.class, Byte.TYPE);
-        vS.put(Character.class, Character.TYPE);
-        vS.put(Short.class, Short.TYPE);
-        vS.put(Integer.class, Integer.TYPE);
-        vS.put(Float.class, Float.TYPE);
-        vS.put(Long.class, Long.TYPE);
-        vS.put(Double.class, Double.TYPE);
-        vS.put(Boolean.TYPE, Boolean.TYPE);
-        vS.put(Byte.TYPE, Byte.TYPE);
-        vS.put(Character.TYPE, Character.TYPE);
-        vS.put(Short.TYPE, Short.TYPE);
-        vS.put(Integer.TYPE, Integer.TYPE);
-        vS.put(Float.TYPE, Float.TYPE);
-        vS.put(Long.TYPE, Long.TYPE);
-        vS.put(Double.TYPE, Double.TYPE);
+        vU.put(Boolean.class, Boolean.TYPE);
+        vU.put(Byte.class, Byte.TYPE);
+        vU.put(Character.class, Character.TYPE);
+        vU.put(Short.class, Short.TYPE);
+        vU.put(Integer.class, Integer.TYPE);
+        vU.put(Float.class, Float.TYPE);
+        vU.put(Long.class, Long.TYPE);
+        vU.put(Double.class, Double.TYPE);
+        vU.put(Boolean.TYPE, Boolean.TYPE);
+        vU.put(Byte.TYPE, Byte.TYPE);
+        vU.put(Character.TYPE, Character.TYPE);
+        vU.put(Short.TYPE, Short.TYPE);
+        vU.put(Integer.TYPE, Integer.TYPE);
+        vU.put(Float.TYPE, Float.TYPE);
+        vU.put(Long.TYPE, Long.TYPE);
+        vU.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T a(Object obj, String str, Object[] objArr) {
@@ -81,7 +81,7 @@ public class f {
             return false;
         } else {
             for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (vS.containsKey(clsArr[i]) && vS.get(clsArr[i]).equals(vS.get(clsArr2[i])))) {
+                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (vU.containsKey(clsArr[i]) && vU.get(clsArr[i]).equals(vU.get(clsArr2[i])))) {
                     return true;
                 }
             }

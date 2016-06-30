@@ -1,17 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.content.DialogInterface;
+import com.baidu.tieba.person.PersonChangeActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aq implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity dwD;
+public class aq implements DialogInterface.OnCancelListener {
+    final /* synthetic */ PersonChangeActivity eeV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PersonChangeActivity personChangeActivity) {
-        this.dwD = personChangeActivity;
+        this.eeV = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.dwD.aBM();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        PersonChangeActivity.b bVar;
+        PersonChangeActivity.b bVar2;
+        this.eeV.destroyWaitingDialog();
+        bVar = this.eeV.eeO;
+        if (bVar != null) {
+            bVar2 = this.eeV.eeO;
+            bVar2.cancel();
+        }
     }
 }

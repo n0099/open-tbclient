@@ -4,8 +4,8 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class anim {
-        public static final int adp_down_to_up = 0x7f040000;
-        public static final int adp_up_to_down = 0x7f040001;
+        public static final int adp_down_to_up = 0x7f040002;
+        public static final int adp_up_to_down = 0x7f040003;
     }
 
     /* loaded from: classes.dex */
@@ -87,12 +87,12 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class drawable {
         public static final int adp_down_arrow = 0x7f020009;
-        public static final int bg_switch_close = 0x7f020245;
-        public static final int bg_switch_open = 0x7f020246;
-        public static final int btn_handle = 0x7f020404;
-        public static final int icon_gif = 0x7f0209d2;
-        public static final int listview_pull_refresh01 = 0x7f020fa0;
-        public static final int listview_pull_refresh02 = 0x7f020fa2;
+        public static final int bg_switch_close = 0x7f020252;
+        public static final int bg_switch_open = 0x7f020253;
+        public static final int btn_handle = 0x7f020445;
+        public static final int icon_gif = 0x7f020ad6;
+        public static final int listview_pull_refresh01 = 0x7f021146;
+        public static final int listview_pull_refresh02 = 0x7f021148;
     }
 
     /* loaded from: classes.dex */
@@ -100,32 +100,32 @@ public final class R {
         public static final int both = 0x7f070005;
         public static final int common = 0x7f070000;
         public static final int disabled = 0x7f070002;
-        public static final int foot_layout_progress = 0x7f070364;
-        public static final int foot_layout_text = 0x7f070363;
-        public static final int foot_ly = 0x7f070366;
-        public static final int head_layout_left_arrow = 0x7f070361;
-        public static final int head_layout_left_progressbar = 0x7f070362;
-        public static final int head_layout_refresh_time = 0x7f070360;
-        public static final int head_layout_title = 0x7f07035f;
-        public static final int head_ly = 0x7f070365;
-        public static final int head_text_container = 0x7f07035e;
+        public static final int foot_layout_progress = 0x7f070374;
+        public static final int foot_layout_text = 0x7f070373;
+        public static final int foot_ly = 0x7f070376;
+        public static final int head_layout_left_arrow = 0x7f070371;
+        public static final int head_layout_left_progressbar = 0x7f070372;
+        public static final int head_layout_refresh_time = 0x7f070370;
+        public static final int head_layout_title = 0x7f07036f;
+        public static final int head_ly = 0x7f070375;
+        public static final int head_text_container = 0x7f07036e;
         public static final int manualOnly = 0x7f070006;
         public static final int pullFromEnd = 0x7f070004;
         public static final int pullFromStart = 0x7f070003;
-        public static final int pull_content = 0x7f071108;
-        public static final int pull_image = 0x7f071107;
-        public static final int pull_root = 0x7f071106;
-        public static final int pull_text = 0x7f071109;
-        public static final int pull_time = 0x7f07110a;
+        public static final int pull_content = 0x7f071349;
+        public static final int pull_image = 0x7f071348;
+        public static final int pull_root = 0x7f071347;
+        public static final int pull_text = 0x7f07134a;
+        public static final int pull_time = 0x7f07134b;
         public static final int shader = 0x7f070001;
     }
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int adp_default_header_layout = 0x7f030026;
-        public static final int adp_detault_footer_layout = 0x7f030027;
-        public static final int adp_pull_refresh_scroll_view = 0x7f030028;
-        public static final int pull_view = 0x7f03030f;
+        public static final int adp_default_header_layout = 0x7f030028;
+        public static final int adp_detault_footer_layout = 0x7f030029;
+        public static final int adp_pull_refresh_scroll_view = 0x7f03002a;
+        public static final int pull_view = 0x7f03037c;
     }
 
     /* loaded from: classes.dex */

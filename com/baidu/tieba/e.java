@@ -1,77 +1,38 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
+import android.content.Intent;
 import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.LogoActivity;
-import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class e implements Runnable {
-    final /* synthetic */ LogoActivity aGQ;
+class e implements View.OnClickListener {
+    final /* synthetic */ d aHt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(LogoActivity logoActivity) {
-        this.aGQ = logoActivity;
+    public e(d dVar) {
+        this.aHt = dVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LogoActivity logoActivity;
         LogoActivity.a aVar;
-        LogoActivity.a aVar2;
-        RelativeLayout relativeLayout;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        RelativeLayout relativeLayout2;
-        View view2;
-        RelativeLayout relativeLayout3;
-        RelativeLayout relativeLayout4;
-        View view3;
-        view = this.aGQ.aGA;
-        if (view != null) {
-            relativeLayout = this.aGQ.mRootView;
-            if (relativeLayout != null) {
-                this.aGQ.aGB = BitmapHelper.getLogoBitmap(this.aGQ.getPageContext().getPageActivity(), t.f.logo_ad_bg);
-                bitmap = this.aGQ.aGB;
-                if (bitmap == null) {
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inPreferredConfig = TbConfig.BitmapConfig;
-                    options.inSampleSize = 2;
-                    this.aGQ.aGB = BitmapHelper.getResBitmap(this.aGQ.getPageContext().getPageActivity(), t.f.logo_ad_bg, options);
-                }
-                bitmap2 = this.aGQ.aGB;
-                if (bitmap2 != null) {
-                    try {
-                        bitmap3 = this.aGQ.aGB;
-                        BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap3);
-                        relativeLayout2 = this.aGQ.mRootView;
-                        relativeLayout2.setBackgroundDrawable(bitmapDrawable);
-                    } catch (Throwable th) {
-                        BdLog.e(th.getMessage());
-                    }
-                }
-                view2 = this.aGQ.aGA;
-                if (view2.getParent() == null) {
-                    relativeLayout4 = this.aGQ.mRootView;
-                    view3 = this.aGQ.aGA;
-                    relativeLayout4.addView(view3);
-                }
-                relativeLayout3 = this.aGQ.mRootView;
-                relativeLayout3.setFocusable(true);
-                com.baidu.tbadk.performanceLog.ab.ET().ab(System.currentTimeMillis());
-            }
-        }
-        com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
-        aVar = this.aGQ.aGJ;
-        dL.removeCallbacks(aVar);
-        com.baidu.adp.lib.h.h dL2 = com.baidu.adp.lib.h.h.dL();
-        aVar2 = this.aGQ.aGJ;
-        dL2.postDelayed(aVar2, 3000L);
+        LogoActivity logoActivity2;
+        LogoActivity logoActivity3;
+        com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10793"));
+        Intent intent = new Intent();
+        intent.putExtra("class", 30);
+        intent.putExtra("jump_url", "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + com.baidu.tieba.c.a.Me().Ml());
+        intent.putExtra("is_ad", true);
+        TbadkCoreApplication.setIntent(intent);
+        com.baidu.adp.lib.h.h dM = com.baidu.adp.lib.h.h.dM();
+        logoActivity = this.aHt.aHs;
+        aVar = logoActivity.aHl;
+        dM.removeCallbacks(aVar);
+        logoActivity2 = this.aHt.aHs;
+        logoActivity2.aHj = true;
+        logoActivity3 = this.aHt.aHs;
+        logoActivity3.HM();
     }
 }

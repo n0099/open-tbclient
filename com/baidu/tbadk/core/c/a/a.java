@@ -14,11 +14,11 @@ public class a extends o {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.c.o
-    public String nj() {
+    public String ne() {
         return "TBHY_COMMON_Clipboard";
     }
 
-    @p(sE = "copy")
+    @p("copy")
     protected JSONObject copyToClipboard(JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject != null) {

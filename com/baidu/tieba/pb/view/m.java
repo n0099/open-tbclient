@@ -1,74 +1,52 @@
 package com.baidu.tieba.pb.view;
 
+import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.pb.b;
-import com.baidu.tieba.t;
+import com.baidu.adp.base.l;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bn;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends LinearLayout implements View.OnClickListener {
-    private b.a ddo;
-    public TextView dsB;
-    public TextView dsC;
-    private String dsD;
-    private int dsE;
-    private Context mContext;
+public class m implements View.OnClickListener {
+    final /* synthetic */ PbGiftListView dYR;
 
-    public m(Context context, b.a aVar) {
-        super(context);
-        this.dsB = null;
-        this.dsC = null;
-        this.dsE = -1;
-        this.ddo = null;
-        a(context, aVar);
-    }
-
-    public void a(Context context, b.a aVar) {
-        if (context != null) {
-            this.mContext = context;
-            this.ddo = aVar;
-            View inflate = LayoutInflater.from(context).inflate(t.h.pb_newchudian_description, (ViewGroup) this, true);
-            at.l(inflate, t.d.cp_bg_line_c);
-            this.dsB = (TextView) inflate.findViewById(t.g.description_main);
-            at.c(this.dsB, t.d.cp_cont_b, 1);
-            this.dsC = (TextView) inflate.findViewById(t.g.description_sub);
-            at.c(this.dsC, t.d.cp_cont_c, 1);
-            setOnClickListener(this);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(PbGiftListView pbGiftListView) {
+        this.dYR = pbGiftListView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!ay.isEmpty(this.dsD)) {
-            com.baidu.tbadk.browser.f.t(this.mContext, this.dsD);
-            if (this.ddo != null) {
-                switch (this.dsE) {
-                    case 0:
-                        this.ddo.z(this.dsD, "IMAGE1", "LINK_IMAGE");
-                        return;
-                    case 1:
-                        this.ddo.z(this.dsD, "IMAGE1", "LINK_IMAGE");
-                        return;
-                    case 2:
-                        this.ddo.z(this.dsD, "IMAGE2", "LINK_IMAGE");
-                        return;
-                    case 3:
-                        this.ddo.z(this.dsD, "IMAGE3", "LINK_IMAGE");
-                        return;
-                    default:
-                        return;
+        Context context;
+        String str;
+        long j;
+        String str2;
+        long j2;
+        long j3;
+        context = this.dYR.mContext;
+        TbPageContext tbPageContext = (TbPageContext) l.s(context);
+        if (tbPageContext != null) {
+            if (TbadkCoreApplication.isLogin()) {
+                str = this.dYR.toUserName;
+                if (!StringUtils.isNull(str)) {
+                    Activity pageActivity = tbPageContext.getPageActivity();
+                    j = this.dYR.toUserId;
+                    str2 = this.dYR.toUserName;
+                    j2 = this.dYR.threadId;
+                    j3 = this.dYR.postId;
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
+                    return;
                 }
+                return;
             }
+            bn.ab(tbPageContext.getPageActivity());
         }
-    }
-
-    public void as(String str, int i) {
-        this.dsD = str;
-        this.dsE = i;
     }
 }

@@ -1,0 +1,34 @@
+package com.baidu.tieba.homepage.personalize.a;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class ae extends CustomMessageListener {
+    final /* synthetic */ ad csr;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(ad adVar, int i) {
+        super(i);
+        this.csr = adVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        List<com.baidu.adp.widget.ListView.v> list2;
+        if (customResponsedMessage == null) {
+            return;
+        }
+        this.csr.XR();
+        list = this.csr.csc;
+        if (list != null) {
+            ad adVar = this.csr;
+            list2 = this.csr.csc;
+            adVar.bp(list2);
+        }
+    }
+}

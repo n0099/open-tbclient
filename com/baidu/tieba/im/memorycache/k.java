@@ -6,24 +6,24 @@ import com.baidu.tieba.im.memorycache.a;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements a.InterfaceC0059a {
-    final /* synthetic */ b cmP;
-    private final /* synthetic */ SparseArray cmU;
+public class k implements a.InterfaceC0064a {
+    final /* synthetic */ b cSe;
+    private final /* synthetic */ SparseArray cSj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(b bVar, SparseArray sparseArray) {
-        this.cmP = bVar;
-        this.cmU = sparseArray;
+        this.cSe = bVar;
+        this.cSj = sparseArray;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0059a
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0064a
     public void a(Iterator<ImMessageCenterPojo> it) {
         boolean l;
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
-            l = this.cmP.l(next);
+            l = this.cSe.l(next);
             if (l) {
-                this.cmU.put(com.baidu.adp.lib.h.b.g(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.util.g.bl(next.getPulled_msgId())));
+                this.cSj.put(com.baidu.adp.lib.h.b.g(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.util.g.bN(next.getPulled_msgId())));
             }
         }
     }

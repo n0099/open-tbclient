@@ -15,57 +15,57 @@ import com.baidu.tieba.im.util.g;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    private static d cpS = null;
-    private String cpU;
-    private ArrayList<CustomMessageListener> cpT = new ArrayList<>();
-    private com.baidu.adp.framework.listener.e bfe = new e(this, 202006);
-    private CustomMessageListener cpV = new f(this, 0);
+    private static d cVi = null;
+    private String cVk;
+    private ArrayList<CustomMessageListener> cVj = new ArrayList<>();
+    private com.baidu.adp.framework.listener.e bBq = new e(this, 202006);
+    private CustomMessageListener cVl = new f(this, 0);
 
-    public static synchronized d aie() {
+    public static synchronized d aqs() {
         d dVar;
         synchronized (d.class) {
-            if (cpS == null) {
-                cpS = new d();
+            if (cVi == null) {
+                cVi = new d();
             }
-            dVar = cpS;
+            dVar = cVi;
         }
         return dVar;
     }
 
     public void open() {
-        aif();
+        aqt();
     }
 
     private d() {
     }
 
-    private void aif() {
-        MessageManager.getInstance().registerListener(this.bfe);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_RESPONSE_NOTIFY_UPDATA_GROUP, this.cpV);
+    private void aqt() {
+        MessageManager.getInstance().registerListener(this.bBq);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_RESPONSE_NOTIFY_UPDATA_GROUP, this.cVl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushNotifyMessage pushNotifyMessage) {
         if (pushNotifyMessage != null) {
             if (pushNotifyMessage.getType() == 3) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SyncServiceConfig(TbadkCoreApplication.m11getInst())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SyncServiceConfig(TbadkCoreApplication.m9getInst())));
             } else if (pushNotifyMessage.getType() == 4) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DEBUGLOG_SPECIFIED, pushNotifyMessage.getContent()));
-            } else if (com.baidu.tieba.im.memorycache.b.aha().agZ()) {
+            } else if (com.baidu.tieba.im.memorycache.b.apn().apm()) {
                 String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
                 com.baidu.tbadk.core.log.b.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
                 if (!TextUtils.isEmpty(valueOf)) {
                     BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
                     if (pushNotifyMessage.getGroupType() == 0) {
-                        com.baidu.tieba.im.b.b.ahC().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                        com.baidu.tieba.im.b.b.apP().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         return;
                     }
-                    int jw = com.baidu.tieba.im.b.a.jw(pushNotifyMessage.getGroupType());
-                    if (TbadkCoreApplication.m11getInst().getCustomizedFilter() == null || TbadkCoreApplication.m11getInst().getCustomizedFilter().bi(jw)) {
-                        if (com.baidu.tieba.im.memorycache.b.aha().aa(String.valueOf(pushNotifyMessage.getGroupId()), jw) != null) {
-                            com.baidu.tieba.im.b.b.ahC().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                    int kY = com.baidu.tieba.im.b.a.kY(pushNotifyMessage.getGroupType());
+                    if (TbadkCoreApplication.m9getInst().getCustomizedFilter() == null || TbadkCoreApplication.m9getInst().getCustomizedFilter().bj(kY)) {
+                        if (com.baidu.tieba.im.memorycache.b.apn().ah(String.valueOf(pushNotifyMessage.getGroupId()), kY) != null) {
+                            com.baidu.tieba.im.b.b.apP().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         } else {
-                            a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), jw);
+                            a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), kY);
                         }
                     }
                 }
@@ -78,16 +78,16 @@ public class d {
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setCustomGroupType(i);
             imMessageCenterPojo.setGid(String.valueOf(j));
-            imMessageCenterPojo.setPulled_msgId(g.bk(j2 - 1));
+            imMessageCenterPojo.setPulled_msgId(g.bM(j2 - 1));
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
         }
     }
 
-    public String aig() {
-        return this.cpU;
+    public String aqu() {
+        return this.cVk;
     }
 
-    public void jF(String str) {
-        this.cpU = str;
+    public void kY(String str) {
+        this.cVk = str;
     }
 }

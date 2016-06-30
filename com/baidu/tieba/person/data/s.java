@@ -1,40 +1,39 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 import java.util.List;
 import tbclient.High;
 /* loaded from: classes.dex */
-public class s implements v {
-    public static final BdUniqueId dzM = BdUniqueId.gen();
-    private List<High> dzN;
-    private String dzO;
+public class s implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId eiq = BdUniqueId.gen();
+    private List<High> eir;
+    private String eis;
     private boolean hasMore;
     private int sex;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dzM;
+        return eiq;
     }
 
-    public List<High> aCu() {
-        return this.dzN;
+    public List<High> aLn() {
+        return this.eir;
     }
 
-    public void bM(List<High> list) {
-        this.dzN = list;
+    public void cj(List<High> list) {
+        this.eir = list;
     }
 
     public void setHasMore(boolean z) {
         this.hasMore = z;
     }
 
-    public String aCv() {
-        return this.dzO;
+    public String aLo() {
+        return this.eis;
     }
 
-    public void mu(String str) {
-        this.dzO = str;
+    public void oa(String str) {
+        this.eis = str;
     }
 
     public int getSex() {

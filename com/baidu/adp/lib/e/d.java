@@ -5,7 +5,7 @@ import com.baidu.adp.lib.e.a;
 public interface d {
     void a(a.b bVar);
 
-    void dd();
+    void de();
 
     void destroy();
 

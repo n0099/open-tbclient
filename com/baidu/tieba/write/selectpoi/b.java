@@ -5,19 +5,19 @@ import android.widget.AbsListView;
 import android.widget.EditText;
 /* loaded from: classes.dex */
 class b implements AbsListView.OnScrollListener {
-    final /* synthetic */ SearchLocationActivity eZs;
+    final /* synthetic */ SearchLocationActivity fEw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SearchLocationActivity searchLocationActivity) {
-        this.eZs = searchLocationActivity;
+        this.fEw = searchLocationActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         EditText editText;
         if (i == 2 || i == 1) {
-            Activity pageActivity = this.eZs.getPageContext().getPageActivity();
-            editText = this.eZs.cLO;
+            Activity pageActivity = this.fEw.getPageContext().getPageActivity();
+            editText = this.fEw.bmv;
             com.baidu.adp.lib.util.k.a(pageActivity, editText);
         }
     }

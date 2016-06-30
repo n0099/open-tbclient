@@ -1,40 +1,23 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ax;
+import android.app.Activity;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class aa extends ax {
-    public static final BdUniqueId erz = BdUniqueId.gen();
-    private boolean erA;
-    private p erB;
-    private String fortune_desc;
+public class aa implements Runnable {
+    private Activity activity;
+    private int distance;
+    private com.baidu.tbadk.editortools.d.e eWk;
+    private ListView eWl;
+    private int eWm;
+    private int position;
 
-    public boolean aTe() {
-        return this.erA;
-    }
-
-    public void jx(boolean z) {
-        this.erA = z;
-    }
-
-    public String aTf() {
-        return this.fortune_desc;
-    }
-
-    public void nQ(String str) {
-        this.fortune_desc = str;
-    }
-
-    public p aTg() {
-        return this.erB;
-    }
-
-    public void b(p pVar) {
-        this.erB = pVar;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ax, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return erz;
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        if (this.eWk != null && this.eWk.Bl() != null) {
+            this.eWk.Bl().getLocationInWindow(iArr);
+            this.eWl.setSelectionFromTop(this.position + this.eWl.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.eWm) - com.baidu.adp.lib.util.k.i(this.activity));
+            this.eWl.invalidate();
+        }
     }
 }

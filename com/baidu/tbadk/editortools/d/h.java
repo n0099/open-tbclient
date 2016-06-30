@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.ae;
+import com.baidu.tieba.tbadkCore.af;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements a.d {
-    final /* synthetic */ e arM;
+    final /* synthetic */ e asC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.arM = eVar;
+        this.asC = eVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.o oVar, WriteData writeData, AntiData antiData) {
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.p pVar, WriteData writeData, AntiData antiData) {
         WriteData writeData2;
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
@@ -33,44 +33,45 @@ public class h implements a.d {
         String str;
         com.baidu.tieba.tbadkCore.writeModel.a aVar2;
         if (writeData == null) {
-            aVar2 = this.arM.aru;
-            writeData2 = aVar2.aVg();
+            aVar2 = this.asC.ask;
+            writeData2 = aVar2.bdu();
         } else {
             writeData2 = writeData;
         }
         if (!z) {
-            if (writeData2 != null && oVar != null && !TextUtils.isEmpty(oVar.wG())) {
-                writeData2.setVcodeMD5(oVar.getVcode_md5());
-                writeData2.setVcodeUrl(oVar.getVcode_pic_url());
-                if (oVar.wG().equals("4")) {
+            if (writeData2 != null && pVar != null && !TextUtils.isEmpty(pVar.wJ())) {
+                writeData2.setVcodeMD5(pVar.getVcode_md5());
+                writeData2.setVcodeUrl(pVar.getVcode_pic_url());
+                writeData2.setVcodeExtra(pVar.wK());
+                if (com.baidu.tbadk.k.a.gA(pVar.wJ())) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    baseActivity2 = this.arM.arz;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity2.getActivity(), 12006, writeData2, false)));
+                    baseActivity2 = this.asC.asp;
+                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity2.getActivity(), 12006, writeData2, false, pVar.wJ())));
                 } else {
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    baseActivity = this.arM.arz;
+                    baseActivity = this.asC.asp;
                     messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(baseActivity.getActivity(), writeData2, 12006)));
                 }
             }
         } else {
-            this.arM.bC(true);
-            aVar = this.arM.aru;
-            WriteData aVg = aVar.aVg();
-            this.arM.resetData();
-            str = this.arM.mThreadId;
-            ae.c(str, (WriteData) null);
-            if (aVg != null) {
-                if (aVg != null && aVg.getType() == 2) {
-                    ae.a(aVg.getThreadId(), this.arM);
+            this.asC.bB(true);
+            aVar = this.asC.ask;
+            WriteData bdu = aVar.bdu();
+            this.asC.resetData();
+            str = this.asC.mThreadId;
+            af.c(str, (WriteData) null);
+            if (bdu != null) {
+                if (bdu != null && bdu.getType() == 2) {
+                    af.a(bdu.getThreadId(), this.asC);
                 }
             } else {
                 return;
             }
         }
-        dVar = this.arM.arD;
+        dVar = this.asC.ast;
         if (dVar != null) {
-            dVar2 = this.arM.arD;
-            dVar2.callback(z, postWriteCallBackData, oVar, writeData2, antiData);
+            dVar2 = this.asC.ast;
+            dVar2.callback(z, postWriteCallBackData, pVar, writeData2, antiData);
         }
     }
 }

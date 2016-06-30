@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_COOKIE = "tag_cookie";
@@ -23,7 +23,7 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_TITLE, str);
         getIntent().putExtra(TAG_URL, addTiebaParams(str2));
         getIntent().putExtra(TAG_COOKIE, z);
-        getIntent().putExtra(TAG_ENABLE_JS, false);
+        getIntent().putExtra(TAG_ENABLE_JS, true);
         getIntent().putExtra(TAG_NAV_BAR, true);
         if (!(getContext() instanceof Activity)) {
             getIntent().addFlags(268435456);
@@ -47,16 +47,16 @@ public class WebViewActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            k.showToast(getContext(), getContext().getString(t.j.web_view_corrupted));
+            k.showToast(getContext(), getContext().getString(u.j.web_view_corrupted));
             return false;
         }
         return true;
     }
 
     public static String addTiebaParams(String str) {
-        if (!ay.isEmpty(str)) {
+        if (!ba.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (ay.isEmpty(Uri.parse(str).getQuery())) {
+                if (ba.isEmpty(Uri.parse(str).getQuery())) {
                     str = String.valueOf(str) + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = String.valueOf(str) + "&_client_version=" + TbConfig.getVersion();

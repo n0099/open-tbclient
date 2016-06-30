@@ -17,6 +17,6 @@ public class PluginNative {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.fc().i(PLUGIN_NATIVE_HOOK_LIB, 2);
+        bLoadLibrary = com.baidu.adp.lib.util.g.fd().i(PLUGIN_NATIVE_HOOK_LIB, 2);
     }
 }

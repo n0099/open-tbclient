@@ -16,11 +16,11 @@ class s extends com.baidu.tbadk.core.c.o {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.c.o
-    public String nj() {
+    public String ne() {
         return "TBHY_COMMON_Share";
     }
 
-    @com.baidu.tbadk.core.c.p(sE = TbConfig.TMP_SHARE_DIR_NAME, sF = false)
+    @com.baidu.tbadk.core.c.p(sC = false, value = TbConfig.TMP_SHARE_DIR_NAME)
     private void share(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");
@@ -32,7 +32,7 @@ class s extends com.baidu.tbadk.core.c.o {
                 this.Kx.mShareResultToFe = true;
                 this.Kx.mBid = optString5;
             }
-            com.baidu.adp.lib.h.h.dL().post(new t(this, this.Kx.createShareContent(optString, optString4, optString2, optString3)));
+            com.baidu.adp.lib.h.h.dM().post(new t(this, this.Kx.createShareContent(optString, optString4, optString2, optString3)));
         }
     }
 }

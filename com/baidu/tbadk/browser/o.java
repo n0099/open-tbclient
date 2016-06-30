@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements bg.a {
-    @Override // com.baidu.tbadk.core.util.bg.a
+public class o implements bi.a {
+    @Override // com.baidu.tbadk.core.util.bi.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         boolean a;
         if (strArr == null || strArr[0] == null) {

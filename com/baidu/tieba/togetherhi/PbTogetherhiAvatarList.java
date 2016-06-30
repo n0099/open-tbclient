@@ -8,28 +8,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.q;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbTogetherhiAvatarList extends LinearLayout {
-    private List<String> eDD;
-    private int eDE;
-    private int eDF;
-    private int eDG;
+    private int fiA;
+    private int fiy;
+    private int fiz;
+    private List<String> portraitList;
 
     public PbTogetherhiAvatarList(Context context) {
         super(context);
-        this.eDD = new ArrayList();
+        this.portraitList = new ArrayList();
     }
 
     public PbTogetherhiAvatarList(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eDD = new ArrayList();
+        this.portraitList = new ArrayList();
         setOrientation(0);
-        this.eDE = getResources().getDimensionPixelSize(t.e.ds60);
-        this.eDF = getResources().getDimensionPixelSize(t.e.ds12);
-        this.eDG = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth() - getResources().getDimensionPixelSize(t.e.ds162);
+        this.fiy = getResources().getDimensionPixelSize(u.e.ds60);
+        this.fiz = getResources().getDimensionPixelSize(u.e.ds12);
+        this.fiA = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth() - getResources().getDimensionPixelSize(u.e.ds162);
     }
 
     public void setPortraitList(List<String> list) {
@@ -39,13 +39,13 @@ public class PbTogetherhiAvatarList extends LinearLayout {
             return;
         }
         setVisibility(0);
-        if (list.size() == this.eDD.size()) {
+        if (list.size() == this.portraitList.size()) {
             int i = 0;
             while (true) {
                 if (i >= list.size()) {
                     z = false;
                     break;
-                } else if (!this.eDD.get(i).equals(list.get(i))) {
+                } else if (!this.portraitList.get(i).equals(list.get(i))) {
                     z = true;
                     break;
                 } else {
@@ -57,22 +57,22 @@ public class PbTogetherhiAvatarList extends LinearLayout {
             }
         }
         removeAllViews();
-        this.eDD = list;
+        this.portraitList = list;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.eDD.size(); i3++) {
-            String str = this.eDD.get(i3);
+        for (int i3 = 0; i3 < this.portraitList.size(); i3++) {
+            String str = this.portraitList.get(i3);
             if (!TextUtils.isEmpty(str)) {
-                if (i2 <= this.eDG) {
+                if (i2 <= this.fiA) {
                     HeadImageView headImageView = new HeadImageView(getContext());
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.eDE, this.eDE);
-                    layoutParams.setMargins(0, 0, this.eDF, 0);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fiy, this.fiy);
+                    layoutParams.setMargins(0, 0, this.fiz, 0);
                     headImageView.setIsRound(true);
                     headImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     addView(headImageView, layoutParams);
-                    String dk = q.dk(str);
-                    headImageView.setUrl(dk);
-                    headImageView.c(dk, 12, false);
-                    i2 = this.eDF + this.eDE + i2;
+                    String di = q.di(str);
+                    headImageView.setUrl(di);
+                    headImageView.c(di, 12, false);
+                    i2 = this.fiz + this.fiy + i2;
                 } else {
                     return;
                 }
@@ -81,9 +81,9 @@ public class PbTogetherhiAvatarList extends LinearLayout {
     }
 
     public void reset() {
-        if (this.eDD != null) {
-            this.eDD.clear();
-            this.eDD = null;
+        if (this.portraitList != null) {
+            this.portraitList.clear();
+            this.portraitList = null;
         }
         removeAllViews();
     }

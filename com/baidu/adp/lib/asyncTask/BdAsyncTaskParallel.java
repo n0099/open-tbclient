@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId iU;
-    private BdAsyncTaskParallelType iV;
-    private int iW;
+    private BdUniqueId iS;
+    private BdAsyncTaskParallelType iT;
+    private int iU;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -17,7 +17,7 @@ public class BdAsyncTaskParallel {
         CUSTOM_PARALLEL,
         MAX_PARALLEL;
 
-        /* JADX DEBUG: Replace access to removed values field (iX) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (iV) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static BdAsyncTaskParallelType[] valuesCustom() {
             BdAsyncTaskParallelType[] valuesCustom = values();
@@ -29,40 +29,40 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.iU = null;
-        this.iV = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.iW = 1;
+        this.iS = null;
+        this.iT = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.iU = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.iV = bdAsyncTaskParallelType;
-        this.iU = bdUniqueId;
+        this.iT = bdAsyncTaskParallelType;
+        this.iS = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.iU = null;
-        this.iV = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.iW = 1;
+        this.iS = null;
+        this.iT = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.iU = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.iV = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-        this.iW = i;
-        this.iU = bdUniqueId;
+        this.iT = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.iU = i;
+        this.iS = bdUniqueId;
     }
 
-    public int cs() {
-        return this.iW;
+    public int ct() {
+        return this.iU;
     }
 
     public int getTag() {
-        if (this.iU == null) {
+        if (this.iS == null) {
             return 0;
         }
-        return this.iU.getId();
+        return this.iS.getId();
     }
 
-    public BdAsyncTaskParallelType ct() {
-        return this.iV;
+    public BdAsyncTaskParallelType cu() {
+        return this.iT;
     }
 }

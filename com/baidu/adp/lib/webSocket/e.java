@@ -16,15 +16,15 @@ public class e {
     public interface a {
         void close();
 
-        String fI();
-
         String fJ();
 
-        String ga();
+        String fK();
 
-        long gb();
+        String gb();
 
-        int gd();
+        long gd();
+
+        int ge();
 
         boolean isConnected();
 
@@ -46,7 +46,7 @@ public class e {
 
     /* loaded from: classes.dex */
     static class c implements a {
-        private byte[] hx;
+        private byte[] hw;
         private OutputStream mOutputStream;
         private long ql;
         private String qm;
@@ -59,7 +59,7 @@ public class e {
             this.qp = null;
             this.qq = null;
             this.mOutputStream = null;
-            this.hx = null;
+            this.hw = null;
             this.ql = 0L;
             this.qm = null;
             this.qn = null;
@@ -71,14 +71,14 @@ public class e {
                 this.qm = inetSocketAddress.getAddress().getHostAddress();
                 this.ql = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.qp.connect(inetSocketAddress, nVar.gy());
-            this.qp.setSoTimeout(nVar.gx());
+            this.qp.connect(inetSocketAddress, nVar.gA());
+            this.qp.setSoTimeout(nVar.gz());
             this.qp.setTcpNoDelay(nVar.getTcpNoDelay());
             this.qq = this.qp.getInputStream();
             this.mOutputStream = this.qp.getOutputStream();
-            this.hx = new byte[1024];
-            this.qn = com.baidu.adp.lib.util.k.fI();
-            this.qo = com.baidu.adp.lib.util.k.fJ();
+            this.hw = new byte[1024];
+            this.qn = com.baidu.adp.lib.util.k.fJ();
+            this.qo = com.baidu.adp.lib.util.k.fK();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -113,9 +113,9 @@ public class e {
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) {
-            int read = this.qq.read(this.hx);
+            int read = this.qq.read(this.hw);
             if (read > 0) {
-                byteBuffer.put(this.hx, 0, read);
+                byteBuffer.put(this.hw, 0, read);
             }
             return read;
         }
@@ -132,27 +132,27 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String ga() {
+        public String gb() {
             return this.qm;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long gb() {
+        public long gd() {
             return this.ql;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String fI() {
+        public String fJ() {
             return this.qn;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String fJ() {
+        public String fK() {
             return this.qo;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int gd() {
+        public int ge() {
             return 0;
         }
     }
@@ -178,11 +178,11 @@ public class e {
                 this.qm = inetSocketAddress.getAddress().getHostAddress();
                 this.ql = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.qk.socket().connect(inetSocketAddress, nVar.gy());
-            this.qk.socket().setSoTimeout(nVar.gx());
+            this.qk.socket().connect(inetSocketAddress, nVar.gA());
+            this.qk.socket().setSoTimeout(nVar.gz());
             this.qk.socket().setTcpNoDelay(nVar.getTcpNoDelay());
-            this.qn = com.baidu.adp.lib.util.k.fI();
-            this.qo = com.baidu.adp.lib.util.k.fJ();
+            this.qn = com.baidu.adp.lib.util.k.fJ();
+            this.qo = com.baidu.adp.lib.util.k.fK();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -211,27 +211,27 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String ga() {
+        public String gb() {
             return this.qm;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long gb() {
+        public long gd() {
             return this.ql;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String fI() {
+        public String fJ() {
             return this.qn;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String fJ() {
+        public String fK() {
             return this.qo;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int gd() {
+        public int ge() {
             return 0;
         }
     }

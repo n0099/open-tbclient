@@ -1,50 +1,67 @@
 package com.baidu.tieba.tblauncher;
 
-import android.os.Handler;
-import android.widget.ImageView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class ak implements Runnable {
-    final /* synthetic */ ab exg;
+class ak implements com.baidu.adp.lib.guide.b {
+    private final /* synthetic */ String bFK;
+    final /* synthetic */ aj fbU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ab abVar) {
-        this.exg = abVar;
+    public ak(aj ajVar, String str) {
+        this.fbU = ajVar;
+        this.bFK = str;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.adp.lib.guide.d dVar;
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        ab abVar;
         MainTabActivity mainTabActivity;
-        ImageView imageView;
-        com.baidu.adp.lib.guide.d dVar2;
-        com.baidu.adp.lib.guide.d dVar3;
+        ab abVar2;
         MainTabActivity mainTabActivity2;
-        Handler handler;
-        Runnable runnable;
-        dVar = this.exg.Ey;
-        if (dVar == null) {
-            mainTabActivity = this.exg.ewR;
-            String string = mainTabActivity.getPageContext().getPageActivity().getResources().getString(t.j.messge_tab_change_tip);
-            if (!StringUtils.isNull(string)) {
-                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-                imageView = this.exg.ewW;
-                gVar.o(imageView).N(0).u(true).v(true);
-                gVar.a(new al(this, string));
-                this.exg.Ey = gVar.cV();
-                dVar2 = this.exg.Ey;
-                dVar2.s(false);
-                dVar3 = this.exg.Ey;
-                mainTabActivity2 = this.exg.ewR;
-                dVar3.d(mainTabActivity2.getPageContext().getPageActivity());
-                this.exg.ewZ = true;
-                this.exg.aVM();
-                handler = this.exg.mHandler;
-                runnable = this.exg.exf;
-                handler.postDelayed(runnable, 3000L);
-            }
-        }
+        ab abVar3;
+        MainTabActivity mainTabActivity3;
+        ab abVar4;
+        MainTabActivity mainTabActivity4;
+        abVar = this.fbU.fbT;
+        mainTabActivity = abVar.fbI;
+        TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
+        textView.setText(this.bFK);
+        textView.setGravity(17);
+        av.j((View) textView, u.d.cp_cont_i);
+        abVar2 = this.fbU.fbT;
+        mainTabActivity2 = abVar2.fbI;
+        textView.setTextSize(0, mainTabActivity2.getResources().getDimensionPixelSize(u.e.fontsize28));
+        abVar3 = this.fbU.fbT;
+        mainTabActivity3 = abVar3.fbI;
+        textView.setWidth(mainTabActivity3.getResources().getDimensionPixelSize(u.e.ds300));
+        abVar4 = this.fbU.fbT;
+        mainTabActivity4 = abVar4.fbI;
+        textView.setHeight(mainTabActivity4.getResources().getDimensionPixelSize(u.e.ds76));
+        av.k(textView, u.f.pic_sign_tip);
+        return textView;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int cU() {
+        return 4;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int cV() {
+        return 48;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

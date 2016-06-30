@@ -1,23 +1,38 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.lib.util.a;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.EcommSellerErrorActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.view.b;
+import com.baidu.tieba.frs.ecomm.EcommCanSendThreadResponseMessage;
+import com.baidu.tieba.frs.ecomm.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bhl;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bhv;
+public class an implements a.InterfaceC0055a {
+    final /* synthetic */ FrsActivity bDB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(FrsActivity frsActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
-        this.bhl = frsActivity;
-        this.bhv = fVar;
+    public an(FrsActivity frsActivity) {
+        this.bDB = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        a.aw(this.bhv.linkUrl);
-        com.baidu.adp.lib.util.k.showToast(this.bhl.getPageContext().getPageActivity(), view.getResources().getString(t.j.copy_pb_url_success));
+    @Override // com.baidu.tieba.frs.ecomm.a.InterfaceC0055a
+    public void a(int i, String str, EcommCanSendThreadResponseMessage ecommCanSendThreadResponseMessage) {
+        b bVar;
+        b bVar2;
+        bVar = this.bDB.bcn;
+        if (bVar != null) {
+            bVar2 = this.bDB.bcn;
+            bVar2.aB(false);
+        }
+        if (ecommCanSendThreadResponseMessage != null && (ecommCanSendThreadResponseMessage instanceof EcommCanSendThreadResponseMessage)) {
+            if (ecommCanSendThreadResponseMessage.getError() == 0) {
+                this.bDB.bCA = ecommCanSendThreadResponseMessage.address;
+                this.bDB.Vr();
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EcommSellerErrorActivityConfig(this.bDB.getPageContext().getPageActivity(), ecommCanSendThreadResponseMessage.getError(), ecommCanSendThreadResponseMessage.getErrorString())));
+        }
     }
 }

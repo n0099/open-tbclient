@@ -1,37 +1,34 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.t;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements View.OnClickListener {
-    final /* synthetic */ y dqN;
+public class ak implements Runnable {
+    private final /* synthetic */ int Sx;
+    final /* synthetic */ af dXy;
+    private final /* synthetic */ View py;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(y yVar) {
-        this.dqN = yVar;
+    public ak(af afVar, View view, int i) {
+        this.dXy = afVar;
+        this.py = view;
+        this.Sx = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        NewSubPbActivity newSubPbActivity;
-        dialog = this.dqN.dnR;
-        if (dialog != null) {
-            dialog2 = this.dqN.dnR;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.dqN.dnR;
-                newSubPbActivity = this.dqN.dqr;
-                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity.getPageContext());
-            }
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.dqN.a(((Integer) sparseArray.get(t.g.tag_del_post_type)).intValue(), (String) sparseArray.get(t.g.tag_del_post_id), ((Integer) sparseArray.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(t.g.tag_del_post_is_self)).booleanValue());
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.editortools.d.p pVar;
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (this.py != null) {
+            int[] iArr = new int[2];
+            pVar = this.dXy.deA;
+            pVar.Bl().getLocationInWindow(iArr);
+            bdListView = this.dXy.zt;
+            bdListView.setSelectionFromTop(this.Sx + 1, iArr[1] - this.py.getHeight());
+            bdListView2 = this.dXy.zt;
+            bdListView2.invalidate();
         }
     }
 }

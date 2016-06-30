@@ -13,37 +13,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d agy;
+    private static d ahc;
 
     private d() {
     }
 
-    public static synchronized d xh() {
+    public static synchronized d xl() {
         d dVar;
         synchronized (d.class) {
-            if (agy == null) {
-                agy = new d();
+            if (ahc == null) {
+                ahc = new d();
             }
-            dVar = agy;
+            dVar = ahc;
         }
         return dVar;
     }
 
     public boolean b(GameInfoData gameInfoData) {
-        SQLiteDatabase xe = b.xe();
+        SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (gameInfoData == null || xe == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
+        if (gameInfoData == null || xi == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
             return false;
         }
         try {
-            o(xe);
+            o(xi);
             ContentValues contentValues = new ContentValues();
             contentValues.put("game_id", gameInfoData.getGameId());
             contentValues.put("game_package", gameInfoData.getPackageName());
             contentValues.put("game_status", Integer.valueOf(gameInfoData.getUpStatus()));
             contentValues.put("status_up", (Integer) 0);
-            if (xe.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
-                xe.insert("table_game_status" + currentAccount, null, contentValues);
+            if (xi.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
+                xi.insert("table_game_status" + currentAccount, null, contentValues);
                 return true;
             }
             return true;
@@ -53,17 +53,17 @@ public class d {
         }
     }
 
-    public boolean v(String str, int i) {
-        SQLiteDatabase xe = b.xe();
+    public boolean x(String str, int i) {
+        SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || xe == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || xi == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("game_status", Integer.valueOf(i));
             contentValues.put("status_up", (Integer) 0);
-            if (xe.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+            if (xi.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -72,16 +72,16 @@ public class d {
         return false;
     }
 
-    public boolean w(String str, int i) {
-        SQLiteDatabase xe = b.xe();
+    public boolean y(String str, int i) {
+        SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || xe == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || xi == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("status_up", (Integer) 1);
-            if (xe.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+            if (xi.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -91,20 +91,20 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [173=4] */
-    public boolean eh(String str) {
+    public boolean el(String str) {
         Cursor cursor;
-        SQLiteDatabase xe = b.xe();
+        SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || xe == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || xi == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
-            cursor = xe.query("table_game_status" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
+            cursor = xi.query("table_game_status" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     try {
                         if (cursor.getCount() > 0) {
-                            if (xe.delete("table_game_status" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
+                            if (xi.delete("table_game_status" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
                                 o.a(cursor);
                                 return true;
                             }
@@ -136,15 +136,15 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [212=4] */
-    public GameInfoData ei(String str) {
+    public GameInfoData em(String str) {
         Cursor cursor;
-        SQLiteDatabase xe = b.xe();
+        SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (xe == null || TextUtils.isEmpty(currentAccount)) {
+        if (xi == null || TextUtils.isEmpty(currentAccount)) {
             return null;
         }
         try {
-            cursor = xe.query("table_game_status" + currentAccount, null, "game_package= ?", new String[]{str}, null, null, null);
+            cursor = xi.query("table_game_status" + currentAccount, null, "game_package= ?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     try {
@@ -182,15 +182,15 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [249=4] */
-    public GameInfoData ej(String str) {
+    public GameInfoData en(String str) {
         Cursor cursor;
-        SQLiteDatabase xe = b.xe();
+        SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (xe == null || TextUtils.isEmpty(currentAccount)) {
+        if (xi == null || TextUtils.isEmpty(currentAccount)) {
             return null;
         }
         try {
-            cursor = xe.query("table_game_status" + currentAccount, null, "game_id= ?", new String[]{str}, null, null, null);
+            cursor = xi.query("table_game_status" + currentAccount, null, "game_id= ?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     try {
@@ -229,16 +229,16 @@ public class d {
         return null;
     }
 
-    public List<GameInfoData> xi() {
+    public List<GameInfoData> xm() {
         Cursor cursor = null;
-        SQLiteDatabase xe = b.xe();
+        SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (xe == null || TextUtils.isEmpty(currentAccount)) {
+        if (xi == null || TextUtils.isEmpty(currentAccount)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = xe.query("table_game_status" + currentAccount, null, "status_up= ?", new String[]{"0"}, null, null, null);
+            cursor = xi.query("table_game_status" + currentAccount, null, "status_up= ?", new String[]{"0"}, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     GameInfoData gameInfoData = new GameInfoData();

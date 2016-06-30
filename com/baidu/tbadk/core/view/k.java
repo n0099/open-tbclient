@@ -7,21 +7,23 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class k {
-    private View aaY;
-    private int aaZ;
-    private ViewGroup.LayoutParams aba;
-    private Runnable abb;
-    private FrameLayout abc;
+    private View abr;
+    private int abt;
+    private ViewGroup.LayoutParams abu;
+    private Runnable abv;
+    private FrameLayout abw;
     private int mScreenHeight;
     private int mSkinType = 3;
-    private int abd = t.d.usual_page_bg;
-    private boolean abe = false;
-    private ViewTreeObserver.OnGlobalLayoutListener abf = null;
+    private int abx = u.d.cp_bg_line_d;
+    private boolean aby = false;
+    private ViewTreeObserver.OnGlobalLayoutListener abz = null;
+    private int abA = 0;
 
-    public static k l(Activity activity) {
+    public static k n(Activity activity) {
         return new k(activity);
     }
 
@@ -34,101 +36,108 @@ public class k {
     }
 
     private k(Activity activity) {
-        b(activity, t.d.usual_page_bg, true);
+        b(activity, u.d.cp_bg_line_d, true);
     }
 
     private k(Activity activity, boolean z) {
-        b(activity, t.d.usual_page_bg, z);
+        b(activity, u.d.cp_bg_line_d, z);
     }
 
     private k(Activity activity, int i, boolean z) {
         b(activity, i, z);
     }
 
-    public void cM(int i) {
-        if (this.abe) {
-            if (i != this.mSkinType && this.abc != null) {
-                com.baidu.tbadk.core.util.at.l(this.abc, this.abd);
+    public void cO(int i) {
+        if (this.aby) {
+            if (i != this.mSkinType && this.abw != null) {
+                av.l(this.abw, this.abx);
             }
             this.mSkinType = i;
         }
     }
 
     public void onDestory() {
-        if (this.abb != null) {
-            TbadkCoreApplication.m11getInst().handler.removeCallbacks(this.abb);
-            this.abb = null;
+        if (this.abv != null) {
+            TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.abv);
+            this.abv = null;
         }
-        if (this.aaY != null) {
-            this.aaY.getViewTreeObserver().removeGlobalOnLayoutListener(this.abf);
-            this.aaY.getViewTreeObserver().addOnGlobalLayoutListener(null);
-            this.abf = null;
+        if (this.abr != null) {
+            this.abr.getViewTreeObserver().removeGlobalOnLayoutListener(this.abz);
+            this.abr.getViewTreeObserver().addOnGlobalLayoutListener(null);
+            this.abz = null;
         }
-        this.aaY = null;
-        this.abc = null;
+        this.abr = null;
+        this.abw = null;
     }
 
     private void b(Activity activity, int i, boolean z) {
-        this.abd = i;
-        this.abe = z;
-        this.abc = (FrameLayout) activity.findViewById(16908290);
+        this.abx = i;
+        this.aby = z;
+        this.abw = (FrameLayout) activity.findViewById(16908290);
         FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
         if (z) {
-            com.baidu.tbadk.core.util.at.l(frameLayout, i);
+            av.l(frameLayout, i);
         } else {
-            com.baidu.tbadk.core.util.at.e(frameLayout, i, 0);
+            av.e(frameLayout, i, 0);
         }
-        this.aaY = frameLayout.getChildAt(0);
-        if (this.aaY != null) {
-            this.abf = new l(this);
-            this.aaY.getViewTreeObserver().addOnGlobalLayoutListener(this.abf);
-            this.aba = this.aaY.getLayoutParams();
+        this.abr = frameLayout.getChildAt(0);
+        if (this.abr != null) {
+            this.abz = new l(this);
+            this.abr.getViewTreeObserver().addOnGlobalLayoutListener(this.abz);
+            this.abu = this.abr.getLayoutParams();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void uU() {
-        if (this.aaY != null) {
-            int height = this.aaY.getHeight();
+        if (this.abr != null) {
+            int height = this.abr.getHeight();
             if (height > this.mScreenHeight) {
                 this.mScreenHeight = height;
             }
             int uV = uV();
-            if (uV != this.aaZ) {
+            if (this.abA > 0 && this.abA <= this.abu.height) {
+                uV -= this.abA;
+            }
+            if (uV != this.abt) {
                 int i = this.mScreenHeight;
                 int i2 = i - uV;
                 if (i2 == 0) {
-                    this.aba.height = i;
+                    this.abu.height = i;
                     uW();
                 } else {
-                    this.aba.height = i - i2;
-                    cN(200);
-                    if (TbadkCoreApplication.m11getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.m11getInst().getKeyboardHeight() != i2) {
-                        TbadkCoreApplication.m11getInst().setKeyboardHeight(i2);
+                    this.abu.height = i - i2;
+                    cP(200);
+                    if (TbadkCoreApplication.m9getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.m9getInst().getKeyboardHeight() != i2) {
+                        TbadkCoreApplication.m9getInst().setKeyboardHeight(i2);
                     }
                 }
-                this.aaZ = uV;
+                this.abt = uV;
             }
         }
     }
 
     private int uV() {
         Rect rect = new Rect();
-        this.aaY.getWindowVisibleDisplayFrame(rect);
+        this.abr.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
+    }
+
+    public void setExcludeHeight(int i) {
+        this.abA = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void uW() {
-        this.aaY.requestLayout();
+        this.abr.requestLayout();
     }
 
-    private void cN(int i) {
-        if (this.abb != null) {
-            TbadkCoreApplication.m11getInst().handler.removeCallbacks(this.abb);
-            this.abb = null;
+    private void cP(int i) {
+        if (this.abv != null) {
+            TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.abv);
+            this.abv = null;
         }
-        this.abb = new m(this);
-        TbadkCoreApplication.m11getInst().handler.postDelayed(this.abb, i);
+        this.abv = new m(this);
+        TbadkCoreApplication.m9getInst().handler.postDelayed(this.abv, i);
     }
 }

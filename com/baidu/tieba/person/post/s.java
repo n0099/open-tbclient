@@ -1,32 +1,29 @@
 package com.baidu.tieba.person.post;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.person.PersonPostModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements View.OnClickListener {
-    final /* synthetic */ q dEO;
+public class s implements View.OnClickListener {
+    final /* synthetic */ q enJ;
+    private final /* synthetic */ PersonPostModel.PostInfoList enK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.dEO = qVar;
+    public s(q qVar, PersonPostModel.PostInfoList postInfoList) {
+        this.enJ = qVar;
+        this.enK = postInfoList;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        Object tag = view.getTag();
-        if (tag instanceof PersonPostModel.PostInfoList) {
-            TiebaStatic.log("c10254");
-            baseFragmentActivity = this.dEO.cSp;
-            PhotoLiveActivityConfig oq = new PhotoLiveActivityConfig.a(baseFragmentActivity.getPageContext().getContext(), String.valueOf(((PersonPostModel.PostInfoList) tag).thread_id)).cj(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bo(23014).oq();
-            baseFragmentActivity2 = this.dEO.cSp;
-            baseFragmentActivity2.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, oq));
-        }
+        MessageManager messageManager = MessageManager.getInstance();
+        baseFragmentActivity = this.enJ.bfw;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(baseFragmentActivity.getPageContext().getPageActivity(), new StringBuilder(String.valueOf(this.enK.user_id)).toString(), this.enK.user_name)));
     }
 }

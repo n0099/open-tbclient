@@ -3,12 +3,12 @@ package com.baidu.tbadk.widget.richText;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.lib.a.b.a.a.i {
-    public int aEB;
+    public int aFc;
     public String link;
 
     public k(PbContent pbContent) {
         if (pbContent != null) {
-            this.aEB = pbContent.btn_type.intValue();
+            this.aFc = pbContent.btn_type.intValue();
             this.link = pbContent.link;
         }
     }

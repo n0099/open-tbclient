@@ -46,12 +46,12 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void d(Map<String, String> map) {
+    public void e(Map<String, String> map) {
         ArrayList arrayList;
         arrayList = this.qA.qy;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).d(map);
+            ((g.a) it.next()).e(map);
         }
     }
 
@@ -77,12 +77,12 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void ge() {
+    public void gf() {
         ArrayList arrayList;
         arrayList = this.qA.qy;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).ge();
+            ((g.a) it.next()).gf();
         }
     }
 

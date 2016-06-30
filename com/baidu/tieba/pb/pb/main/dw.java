@@ -1,25 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dw implements View.OnClickListener {
-    private final /* synthetic */ int dhf;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dhg;
-    final /* synthetic */ dq dmt;
-    private final /* synthetic */ int val$count;
+    final /* synthetic */ dt dSh;
+    private final /* synthetic */ String dSi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dw(dq dqVar, int i, int i2, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dmt = dqVar;
-        this.dhf = i;
-        this.val$count = i2;
-        this.dhg = sVar;
+    public dw(dt dtVar, String str) {
+        this.dSh = dtVar;
+        this.dSi = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dhg.po(Math.min(this.dhf + 5, this.val$count));
-        this.dmt.notifyDataSetChanged();
+        if (!StringUtils.isNull(this.dSi) && com.baidu.adp.lib.util.k.fI()) {
+            TiebaStatic.log("c10854");
+            com.baidu.tbadk.browser.f.v(this.dSh.dOg.getActivity(), this.dSi);
+        }
     }
 }

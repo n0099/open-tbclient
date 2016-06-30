@@ -2,22 +2,22 @@ package com.baidu.adp.plugin.packageManager.pluginSettings;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements f {
-    final /* synthetic */ c vF;
-    private final /* synthetic */ f vG;
+    final /* synthetic */ c vH;
+    private final /* synthetic */ f vI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, f fVar) {
-        this.vF = cVar;
-        this.vG = fVar;
+        this.vH = cVar;
+        this.vI = fVar;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginSettings.f
     public void a(PluginSettings pluginSettings) {
         if (pluginSettings != null) {
-            this.vF.vu = pluginSettings;
+            this.vH.vw = pluginSettings;
         }
-        if (this.vG != null) {
-            this.vG.a(pluginSettings);
+        if (this.vI != null) {
+            this.vI.a(pluginSettings);
         }
     }
 }

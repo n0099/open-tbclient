@@ -6,25 +6,25 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.SingleForumFeedActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bl;
+import com.baidu.tbadk.core.util.bn;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ n dxL;
+    final /* synthetic */ n egh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.dxL = nVar;
+        this.egh = nVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         Context context2;
-        context = this.dxL.mContext;
-        if (bl.ac(context)) {
+        context = this.egh.mContext;
+        if (bn.ab(context)) {
             MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.dxL.mContext;
+            context2 = this.egh.mContext;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_FEED, new SingleForumFeedActivityConfig(context2)));
         }
     }

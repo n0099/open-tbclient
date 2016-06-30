@@ -12,7 +12,7 @@ public class j {
     private static j ds = null;
     private Resources dt = null;
     private ArrayList<String> du = null;
-    private HashSet<String> dw = null;
+    private HashSet<String> dv = null;
 
     public static j ad() {
         if (ds == null) {
@@ -37,13 +37,13 @@ public class j {
             throw new RuntimeException("hostResources is null");
         }
         if (!TextUtils.isEmpty(str)) {
-            if (this.dw == null) {
-                this.dw = new HashSet<>();
+            if (this.dv == null) {
+                this.dv = new HashSet<>();
             }
-            if (this.dw.contains(str)) {
-                com.baidu.adp.plugin.b.a.hs().e("plugin_load", "repeat_inject_res", str, str2);
+            if (this.dv.contains(str)) {
+                com.baidu.adp.plugin.b.a.hu().e("plugin_load", "repeat_inject_res", str, str2);
             }
-            this.dw.add(str);
+            this.dv.add(str);
         }
         if (this.du == null) {
             this.du = new ArrayList<>();

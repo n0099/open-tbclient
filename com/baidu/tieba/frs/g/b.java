@@ -1,34 +1,59 @@
 package com.baidu.tieba.frs.g;
 
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.browser.f;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.t;
+import com.baidu.tieba.frs.entelechy.b.f;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ a btu;
+public class b implements DrawerLayout.DrawerListener {
+    final /* synthetic */ a bQj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.btu = aVar;
+        this.bQj = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        v as;
-        BaseActivity baseActivity;
-        if (this.btu.as(((Integer) view.getTag()).intValue()) instanceof ax) {
-            String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((ax) as).getAuthor().getUserId();
-            String string = TbadkCoreApplication.m11getInst().getString(t.j.user_icon_web_view_title);
-            baseActivity = this.btu.bek;
-            f.a(baseActivity.getApplicationContext(), string, str, true, true, false);
-            TiebaStatic.log(new aw("c10134").s("obj_type", 3));
+    @Override // android.support.v4.widget.DrawerLayout.DrawerListener
+    public void onDrawerSlide(View view, float f) {
+        f fVar;
+        if (f == 0.0f) {
+            fVar = this.bQj.bQh;
+            fVar.Yg();
+        }
+    }
+
+    @Override // android.support.v4.widget.DrawerLayout.DrawerListener
+    public void onDrawerOpened(View view) {
+        f fVar;
+        f fVar2;
+        fVar = this.bQj.bQh;
+        if (fVar != null) {
+            fVar2 = this.bQj.bQh;
+            fVar2.onOpened();
+        }
+    }
+
+    @Override // android.support.v4.widget.DrawerLayout.DrawerListener
+    public void onDrawerClosed(View view) {
+        f fVar;
+        f fVar2;
+        fVar = this.bQj.bQh;
+        if (fVar != null) {
+            fVar2 = this.bQj.bQh;
+            fVar2.onClosed();
+        }
+    }
+
+    @Override // android.support.v4.widget.DrawerLayout.DrawerListener
+    public void onDrawerStateChanged(int i) {
+        f fVar;
+        f fVar2;
+        if (i == 1) {
+            fVar = this.bQj.bQh;
+            if (fVar != null) {
+                fVar2 = this.bQj.bQh;
+                fVar2.Yf();
+            }
         }
     }
 }

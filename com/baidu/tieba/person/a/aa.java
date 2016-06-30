@@ -9,29 +9,29 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.newFriends.RequestApplyLocalMessage;
 /* loaded from: classes.dex */
 class aa implements a.b {
-    private final /* synthetic */ UserData cbI;
-    final /* synthetic */ w dyb;
-    private final /* synthetic */ EditText dyc;
+    private final /* synthetic */ UserData cHe;
+    final /* synthetic */ w egx;
+    private final /* synthetic */ EditText egy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(w wVar, EditText editText, UserData userData) {
-        this.dyb = wVar;
-        this.dyc = editText;
-        this.cbI = userData;
+        this.egx = wVar;
+        this.egy = editText;
+        this.cHe = userData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        String trim = this.dyc.getText().toString().trim();
+        String trim = this.egy.getText().toString().trim();
         if (!TextUtils.isEmpty(trim)) {
             RequestApplyLocalMessage requestApplyLocalMessage = new RequestApplyLocalMessage();
             requestApplyLocalMessage.setUid(Long.valueOf(TbadkCoreApplication.getCurrentAccount()).longValue());
-            requestApplyLocalMessage.setFriendId(this.cbI.getUserIdLong());
+            requestApplyLocalMessage.setFriendId(this.cHe.getUserIdLong());
             requestApplyLocalMessage.setMessage(trim);
             requestApplyLocalMessage.setContent(trim);
-            requestApplyLocalMessage.setName(this.cbI.getName_show());
-            requestApplyLocalMessage.setPortrait(this.cbI.getPortrait());
-            requestApplyLocalMessage.setId(this.cbI.getUserIdLong());
+            requestApplyLocalMessage.setName(this.cHe.getName_show());
+            requestApplyLocalMessage.setPortrait(this.cHe.getPortrait());
+            requestApplyLocalMessage.setId(this.cHe.getUserIdLong());
             MessageManager.getInstance().dispatchResponsedMessageToUI(requestApplyLocalMessage);
             aVar.dismiss();
         }

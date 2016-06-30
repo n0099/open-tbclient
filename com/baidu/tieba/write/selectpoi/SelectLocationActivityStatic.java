@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.SelectLocationActivityConfig;
 /* loaded from: classes.dex */
 public class SelectLocationActivityStatic {
     static {
-        TbadkCoreApplication.m11getInst().RegisterIntent(SelectLocationActivityConfig.class, SelectLocationActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(SelectLocationActivityConfig.class, SelectLocationActivity.class);
     }
 }

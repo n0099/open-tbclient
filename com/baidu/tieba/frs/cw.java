@@ -1,28 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cw implements c.b {
-    final /* synthetic */ cn bkx;
+public class cw implements a.b {
+    private final /* synthetic */ FrsActivity bGu;
+    private final /* synthetic */ com.baidu.tieba.frs.view.n bGv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cn cnVar) {
-        this.bkx = cnVar;
+    public cw(FrsActivity frsActivity, com.baidu.tieba.frs.view.n nVar) {
+        this.bGu = frsActivity;
+        this.bGv = nVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        cVar.dismiss();
-        if (i == 0) {
-            frsActivity2 = this.bkx.bjB;
-            frsActivity2.Qj();
-        } else if (i == 1) {
-            frsActivity = this.bkx.bjB;
-            com.baidu.tbadk.core.util.as.j(frsActivity.getPageContext().getPageActivity());
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(a aVar) {
+        this.bGu.HidenSoftKeyPad((InputMethodManager) this.bGu.getSystemService("input_method"), this.bGv.getChatMsgView());
+        aVar.dismiss();
     }
 }

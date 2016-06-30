@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.az;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -12,9 +12,10 @@ public class PbActivityConfig extends IntentConfig {
     public static final String FROM_INTERVIEW_LIVE = "from_interview_live";
     public static final String FROM_READER_SERVICE = "from_reader_service";
     public static final String FROM_SEARCHBOX = "from_searchbox";
-    public static final String KEY_FORUM_NAME = "forum_name";
+    public static final String FROM_VIDEO_LIST = "from_video_list";
     public static final int KEY_FOR_PRAISE_DATA_NO_ACTION = -1;
     public static final String KEY_FROM = "from";
+    public static final String KEY_FROM_FORUM_NAME = "from_forum_name";
     public static final String KEY_FROM_FRS = "from_frs";
     public static final String KEY_FROM_MARK = "from_mark";
     public static final String KEY_HOST_ONLY = "host_only";
@@ -26,6 +27,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_INTENT_TOP_DATA = "top_data";
     public static final String KEY_INTENT_TYPE = "type";
     public static final String KEY_IS_AD = "is_ad";
+    public static final String KEY_IS_FROM_INTERVIEW_LIVE_CONFIG = "is_from_interview_live_config";
     public static final String KEY_IS_FROM_THREAD_CONFIG = "is_from_thread_config";
     public static final String KEY_IS_GOOD = "is_good";
     public static final String KEY_IS_PB_KEY_NEED_POSTID = "is_pb_key_need_post_id";
@@ -47,6 +49,12 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_THREAD_ID = "thread_id";
     public static final String KEY_THREAD_TIME = "thread_time";
     public static final String KEY_THREAD_TYPE = "thread_type";
+    public static String KEY_VIDEO_SOURCE = "key_video_source";
+    public static final String KEY_VIDOE_SOURCE_FRS = "frs";
+    public static final String KEY_VIDOE_SOURCE_FRS_5FLOOR = "floor5";
+    public static final String KEY_VIDOE_SOURCE_HOME = "index";
+    public static final String KEY_VIDOE_SOURCE_MID = "midpage";
+    public static final String KEY_VIDOE_SOURCE_PUSH = "push";
     public static final String KYE_IS_START_FOR_RESULT = "is_start_for_result";
     public static final String PRAISE_DATA = "praise_data";
     public static final String QUERY_WORD = "query_word";
@@ -54,10 +62,12 @@ public class PbActivityConfig extends IntentConfig {
     public static final int THREAD_TYPE_NOT_SHOW_IS_TOP = 0;
     public static final int THREAD_TYPE_SHOW_IS_TOP = 1;
     public static final boolean isBottomHaveShared = true;
+    private String key_video_source_value;
     private final Context mContext;
 
     public PbActivityConfig(Context context) {
         super(context);
+        this.key_video_source_value = "";
         this.mContext = context;
     }
 
@@ -74,6 +84,7 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
             }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }
@@ -88,6 +99,7 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
             }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }
@@ -103,6 +115,7 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
             }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }
@@ -112,6 +125,7 @@ public class PbActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.putExtra("thread_id", str);
             intent.putExtra(PRAISE_DATA, i);
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }
@@ -127,6 +141,7 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity) || FROM_SEARCHBOX.equals(str4)) {
                 intent.addFlags(268435456);
             }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }
@@ -143,6 +158,7 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
                 intent.addFlags(268435456);
             }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }
@@ -168,6 +184,7 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
             }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }
@@ -183,6 +200,7 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
             }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }
@@ -198,6 +216,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
         intent.putExtra("request_code", i);
+        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         return this;
     }
 
@@ -209,6 +228,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_SQUENCE, z2);
         intent.putExtra("st_type", str3);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         return this;
     }
 
@@ -221,30 +241,48 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("st_type", str3);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(FROM_READER_SERVICE, true);
+        intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(ax axVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (axVar != null) {
+    public PbActivityConfig createFromThreadCfg(az azVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (azVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", axVar.getId());
-            intent.putExtra(KEY_IS_GOOD, axVar.getIs_good());
-            intent.putExtra(KEY_IS_TOP, axVar.getIs_top());
-            intent.putExtra(KEY_THREAD_TIME, axVar.getLast_time_int());
+            intent.putExtra("thread_id", azVar.getId());
+            intent.putExtra("is_good", azVar.getIs_good());
+            intent.putExtra("is_top", azVar.getIs_top());
+            intent.putExtra(KEY_THREAD_TIME, azVar.getLast_time_int());
             intent.putExtra("st_type", str2);
-            intent.putExtra("from_frs", axVar.getIs_top() != 2);
+            intent.putExtra("from_frs", azVar.getIs_top() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
-            intent.putExtra("forum_name", str);
+            intent.putExtra(KEY_FROM_FORUM_NAME, str);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (axVar.getPraise() == null ? 0L : axVar.getPraise().getNum()));
-            if (axVar.getAuthor() != null && axVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, axVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, axVar.getAuthor().getGodUserData().getFollowed());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (azVar.getPraise() == null ? 0L : azVar.getPraise().getNum()));
+            if (azVar.getAuthor() != null && azVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, azVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, azVar.getAuthor().getGodUserData().getFollowed());
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+        }
+        return this;
+    }
+
+    public PbActivityConfig createFromInterviewCfg(String str, String str2, int i, int i2) {
+        if (str != null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("is_top", i);
+            intent.putExtra("is_good", i2);
+            intent.putExtra("from", str2);
+            intent.putExtra(KEY_IS_FROM_INTERVIEW_LIVE_CONFIG, true);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity) || FROM_SEARCHBOX.equals(str2)) {
+                intent.addFlags(268435456);
             }
         }
         return this;
@@ -254,14 +292,6 @@ public class PbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra("locate", str);
-        }
-        return this;
-    }
-
-    public PbActivityConfig addFrom(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("from", str);
         }
         return this;
     }
@@ -296,5 +326,17 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KEY_MANGA_TITLE, str);
         }
         return this;
+    }
+
+    public void setVideo_source(String str) {
+        this.key_video_source_value = str;
+        getIntent().putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+    }
+
+    public void setFrom(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("from", str);
+        }
     }
 }

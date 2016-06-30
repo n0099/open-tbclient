@@ -33,7 +33,7 @@ public abstract class a {
         c cVar = new c(this.mName, this.mDefaultType, this.mSwitchListener);
         cVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
         cVar.g(getSwitchLibs());
-        e.cS().a(cVar);
+        e.cT().a(cVar);
     }
 
     public a() {

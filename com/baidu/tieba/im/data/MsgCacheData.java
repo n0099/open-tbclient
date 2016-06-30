@@ -6,8 +6,8 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class MsgCacheData extends i implements Serializable {
     private static final long serialVersionUID = -100392737471140589L;
-    private transient VoiceData.VoiceModel ceY;
-    private transient com.baidu.tbadk.widget.richText.a ceZ;
+    private transient VoiceData.VoiceModel cKs;
+    private transient com.baidu.tbadk.widget.richText.a cKt;
     private int is_left;
     private int is_show_time;
     private long lastMsgTime;
@@ -18,11 +18,11 @@ public class MsgCacheData extends i implements Serializable {
     }
 
     public VoiceData.VoiceModel getVoice_model() {
-        return this.ceY;
+        return this.cKs;
     }
 
     public void setVoice_model(VoiceData.VoiceModel voiceModel) {
-        this.ceY = voiceModel;
+        this.cKs = voiceModel;
     }
 
     public void setIs_left(int i) {
@@ -46,11 +46,11 @@ public class MsgCacheData extends i implements Serializable {
     }
 
     public com.baidu.tbadk.widget.richText.a getRich_content() {
-        return this.ceZ;
+        return this.cKt;
     }
 
     public void setRich_content(com.baidu.tbadk.widget.richText.a aVar) {
-        this.ceZ = aVar;
+        this.cKt = aVar;
     }
 
     public long getLastMsgTime() {

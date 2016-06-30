@@ -1,62 +1,43 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.w;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tieba.frs.bi;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.tbadk.TbPageContext;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface v {
-    int Pz();
+public class v implements com.baidu.adp.lib.f.c<com.baidu.tbadk.widget.layout.c> {
+    final /* synthetic */ t bJI;
 
-    int Rt();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(t tVar) {
+        this.bJI = tVar;
+    }
 
-    int Ru();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: Xu */
+    public com.baidu.tbadk.widget.layout.c dF() {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bJI.Ea;
+        return new com.baidu.tbadk.widget.layout.c(tbPageContext.getPageActivity());
+    }
 
-    int Rv();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public void l(com.baidu.tbadk.widget.layout.c cVar) {
+        cVar.removeAllViews();
+    }
 
-    int Rw();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: d */
+    public com.baidu.tbadk.widget.layout.c m(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
+    }
 
-    int Ry();
-
-    HashMap<Integer, ax> Sv();
-
-    void Sw();
-
-    int Sx();
-
-    int Sy();
-
-    int Sz();
-
-    void a(w wVar);
-
-    void a(x xVar);
-
-    void a(bi biVar);
-
-    void a(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, com.baidu.tieba.tbadkCore.o oVar);
-
-    com.baidu.adp.widget.ListView.v as(int i);
-
-    void av(String str, String str2);
-
-    void cG(boolean z);
-
-    List<com.baidu.adp.widget.ListView.v> getDatas();
-
-    void l(View.OnClickListener onClickListener);
-
-    void m(View.OnClickListener onClickListener);
-
-    void n(View.OnClickListener onClickListener);
-
-    void notifyDataSetChanged();
-
-    void onDestory();
-
-    void setFromCDN(boolean z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: e */
+    public com.baidu.tbadk.widget.layout.c n(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
+    }
 }

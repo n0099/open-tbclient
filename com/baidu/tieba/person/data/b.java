@@ -1,22 +1,21 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
-public class b implements v {
-    public static final BdUniqueId dzh = BdUniqueId.gen();
-    private int dzi = 0;
+public class b implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId ehL = BdUniqueId.gen();
+    private int ehM = 0;
 
-    public int aCh() {
-        return this.dzi;
+    public int aLa() {
+        return this.ehM;
     }
 
-    public void mu(int i) {
-        this.dzi = i;
+    public void nV(int i) {
+        this.ehM = i;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dzh;
+        return ehL;
     }
 }

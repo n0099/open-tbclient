@@ -8,65 +8,65 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends j {
-    private int bbF;
-    private long cuI;
-    private Point cuO;
-    protected final int cuP;
-    private i cuQ;
-    private boolean cuR;
+    private int bxA;
+    private long cZX;
+    private Point dad;
+    protected final int dae;
+    private i daf;
+    private boolean dag;
 
     public g(View view) {
         super(view);
-        this.cuR = true;
-        this.bbF = 0;
-        this.cuP = k.B(TbadkCoreApplication.m11getInst());
-        this.cuO = new Point();
-        this.cuT.setOnTouchListener(new h(this));
-        this.bbF = com.baidu.adp.lib.util.a.x(TbadkCoreApplication.m11getInst());
-        if (this.bbF == 0) {
-            this.bbF = 25;
+        this.dag = true;
+        this.bxA = 0;
+        this.dae = k.A(TbadkCoreApplication.m9getInst());
+        this.dad = new Point();
+        this.dai.setOnTouchListener(new h(this));
+        this.bxA = com.baidu.adp.lib.util.a.w(TbadkCoreApplication.m9getInst());
+        if (this.bxA == 0) {
+            this.bxA = 25;
         }
     }
 
     public void setTouchable(boolean z) {
-        this.cuR = z;
+        this.dag = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ay(int i, int i2) {
-        this.cuI = SystemClock.elapsedRealtime();
-        this.cuO.x = i;
-        this.cuO.y = i2;
-        if (this.cuQ != null) {
-            this.cuQ.ay(i, i2);
+    public void aP(int i, int i2) {
+        this.cZX = SystemClock.elapsedRealtime();
+        this.dad.x = i;
+        this.dad.y = i2;
+        if (this.daf != null) {
+            this.daf.aP(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ax(int i, int i2) {
-        aB(this.cuO.x + i, (i2 - this.cuO.y) - this.bbF);
-        if (this.cuQ != null) {
-            this.cuQ.ax(i, i2);
+    public void aO(int i, int i2) {
+        aS(this.dad.x + i, (i2 - this.dad.y) - this.bxA);
+        if (this.daf != null) {
+            this.daf.aO(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajI() {
-        if (this.cuQ != null) {
-            if (SystemClock.elapsedRealtime() - this.cuI > 200) {
-                this.cuQ.ajI();
+    public void arW() {
+        if (this.daf != null) {
+            if (SystemClock.elapsedRealtime() - this.cZX > 200) {
+                this.daf.arW();
             } else {
-                this.cuQ.ajJ();
+                this.daf.arX();
             }
         }
     }
 
     public void a(i iVar) {
-        this.cuQ = iVar;
+        this.daf = iVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams ajM() {
+    public WindowManager.LayoutParams asa() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -2;
@@ -77,29 +77,29 @@ public class g extends j {
         return layoutParams;
     }
 
-    public void aA(int i, int i2) {
-        if (this.cuV != null) {
+    public void aR(int i, int i2) {
+        if (this.dak != null) {
             if (i >= 0) {
-                this.cuV.x = i;
+                this.dak.x = i;
             }
             if (i2 >= 0) {
-                this.cuV.y = i2;
+                this.dak.y = i2;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aB(int i, int i2) {
-        if (this.cuV != null) {
-            int i3 = this.cuP - i;
+    public void aS(int i, int i2) {
+        if (this.dak != null) {
+            int i3 = this.dae - i;
             if (i3 >= 0) {
-                this.cuV.x = i3;
+                this.dak.x = i3;
             }
             if (i2 >= 0) {
-                this.cuV.y = i2;
+                this.dak.y = i2;
             }
-            if (this.cuU != null && this.cuT.getParent() != null) {
-                this.cuU.updateViewLayout(this.cuT, this.cuV);
+            if (this.daj != null && this.dai.getParent() != null) {
+                this.daj.updateViewLayout(this.dai, this.dak);
             }
         }
     }

@@ -22,15 +22,15 @@ class o extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             int a = MainTabActivity.a(newsNotifyMessage);
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xG().yb()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xK().yf()) {
                 a -= newsNotifyMessage.getMsgOfficialMerge();
             }
             if (a == 0) {
-                abVar2 = this.this$0.ewE;
+                abVar2 = this.this$0.fbu;
                 abVar2.b(true, false, 0);
                 return;
             }
-            abVar = this.this$0.ewE;
+            abVar = this.this$0.fbu;
             abVar.b(true, true, a);
         }
     }

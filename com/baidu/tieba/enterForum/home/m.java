@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.view.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements t.b {
-    final /* synthetic */ k aXF;
+    final /* synthetic */ k btA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.aXF = kVar;
+        this.btA = kVar;
     }
 
     @Override // com.baidu.tbadk.core.view.t.b
-    public void aG(boolean z) {
+    public void aE(boolean z) {
         com.baidu.tieba.enterForum.c.c cVar;
         String str;
-        cVar = this.aXF.aXl;
-        str = this.aXF.aXn;
-        cVar.cu(!StringUtils.isNull(str));
+        cVar = this.btA.bth;
+        str = this.btA.btj;
+        cVar.cP(!StringUtils.isNull(str));
     }
 }
