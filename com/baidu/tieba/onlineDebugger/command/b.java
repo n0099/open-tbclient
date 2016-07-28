@@ -25,15 +25,15 @@ public class b implements h {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public Object aCF() {
+    public Object aFP() throws Exception {
         if (this.msgContent.equals("-reboot")) {
-            com.baidu.adp.lib.h.h.dM().postDelayed(new c(this), 2000L);
+            com.baidu.adp.lib.h.h.dL().postDelayed(new c(this), 2000L);
         }
         if (this.msgContent.equals("-startMain")) {
-            com.baidu.adp.lib.h.h.dM().post(new d(this));
+            com.baidu.adp.lib.h.h.dL().post(new d(this));
         }
         if (this.msgContent.equals("-clearCache")) {
-            com.baidu.adp.lib.h.h.dM().post(new e(this));
+            com.baidu.adp.lib.h.h.dL().post(new e(this));
         }
         return true;
     }
@@ -52,7 +52,7 @@ public class b implements h {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: es */
+        /* renamed from: er */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
         }
@@ -65,8 +65,8 @@ public class b implements h {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().ag();
             com.baidu.tbadk.core.voice.a.b.vX();
             try {
-                az.tY().tZ();
-                az.tY().ua();
+                az.tX().tY();
+                az.tX().tZ();
                 MessageManager.getInstance().sendMessageFromBackground(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_CLEARIMAGE, ""));
                 return null;
             } catch (Exception e) {
@@ -77,7 +77,7 @@ public class b implements h {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public boolean aCG() {
+    public boolean aFQ() {
         return !TextUtils.isEmpty(this.msgContent);
     }
 }

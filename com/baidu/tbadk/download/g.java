@@ -34,7 +34,7 @@ public class g implements d {
         if (downloadData != null) {
             h.Bi().h(downloadData);
             if (downloadData.isNeedInvokeApk()) {
-                UtilHelper.install_apk(TbadkCoreApplication.m9getInst().getApp(), downloadData.getPath());
+                UtilHelper.install_apk(TbadkCoreApplication.m10getInst().getApp(), downloadData.getPath());
             }
         }
     }

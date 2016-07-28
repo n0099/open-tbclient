@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements a.b {
-    final /* synthetic */ WriteVideoActivity fGf;
+    final /* synthetic */ WriteVideoActivity fSg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(WriteVideoActivity writeVideoActivity) {
-        this.fGf = writeVideoActivity;
+        this.fSg = writeVideoActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.fGf.bkD();
+        this.fSg.bbm();
         TiebaStatic.log("c10800");
-        this.fGf.bkY();
-        this.fGf.finish();
+        this.fSg.bnU();
+        this.fSg.finish();
     }
 }

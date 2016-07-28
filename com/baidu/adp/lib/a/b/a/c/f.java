@@ -12,7 +12,7 @@ public class f implements c {
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> ch() {
+    public Set<String> cg() {
         return this.map.keySet();
     }
 
@@ -21,7 +21,7 @@ public class f implements c {
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public void d(String str, Object obj) {
+    public void j(String str, Object obj) {
         this.map.put(str, obj);
     }
 
@@ -30,9 +30,9 @@ public class f implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.a.b.a.e.c cVar = new com.baidu.adp.lib.a.b.a.e.c(type);
-            com.baidu.adp.lib.a.b.a.d.h j = com.baidu.adp.lib.a.b.a.e.g.j(object);
-            if (j != null) {
-                return j.g(cVar);
+            com.baidu.adp.lib.a.b.a.d.h m = com.baidu.adp.lib.a.b.a.e.g.m(object);
+            if (m != null) {
+                return m.g(cVar);
             }
             return object;
         }

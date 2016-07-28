@@ -22,7 +22,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Context context;
         com.baidu.tieba.pb.data.m mVar = null;
         Object extra = getOrginalMessage().getExtra();
@@ -38,7 +38,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 mVar = com.baidu.tieba.pb.data.m.a(pbFloorResIdl.data, context);
                 if (mVar != null) {
-                    mVar.dMs = pbFloorResIdl.error;
+                    mVar.dYC = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

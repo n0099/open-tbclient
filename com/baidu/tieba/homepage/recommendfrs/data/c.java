@@ -11,9 +11,9 @@ import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.mvc.b.b, j {
-    protected List<Object> cpm;
-    protected List<Object> ctu;
-    protected boolean ctv = true;
+    protected List<Object> crH;
+    protected List<Object> cwj;
+    protected boolean cwk = true;
     protected boolean mHasMore;
     protected int pn;
 
@@ -22,11 +22,11 @@ public class c implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     public boolean isEmpty() {
-        return this.cpm == null || this.cpm.size() <= 0 || this.ctu == null || this.ctu.size() <= 0;
+        return this.crH == null || this.crH.size() <= 0 || this.cwj == null || this.cwj.size() <= 0;
     }
 
     public List<Object> getThreadList() {
-        return this.ctu;
+        return this.cwj;
     }
 
     public boolean getHasMore() {
@@ -39,23 +39,23 @@ public class c implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void g(JSONObject jSONObject) {
+    public void i(JSONObject jSONObject) {
     }
 
     public void a(Message message) {
         ExcFrsPageResIdl excFrsPageResIdl;
         if ((message instanceof ExcFrsPageResIdl) && (excFrsPageResIdl = (ExcFrsPageResIdl) message) != null && excFrsPageResIdl.error != null && excFrsPageResIdl.error.errorno.intValue() == 0 && excFrsPageResIdl.data != null) {
             if (excFrsPageResIdl.data.thread_list != null) {
-                this.ctu = new ArrayList();
-                this.ctu.addAll(excFrsPageResIdl.data.thread_list);
+                this.cwj = new ArrayList();
+                this.cwj.addAll(excFrsPageResIdl.data.thread_list);
             }
             this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
             this.pn = excFrsPageResIdl.data.pn.intValue();
             if (excFrsPageResIdl.data.tag_list != null) {
-                this.cpm = new ArrayList();
+                this.crH = new ArrayList();
                 for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                     if (excellentTagInfo != null) {
-                        this.cpm.add(excellentTagInfo);
+                        this.crH.add(excellentTagInfo);
                     }
                 }
             }
@@ -63,12 +63,12 @@ public class c implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Do() {
+    public byte[] Dn() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean w(byte[] bArr) {
+    public boolean z(byte[] bArr) {
         try {
             a((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
             return true;
@@ -78,7 +78,7 @@ public class c implements com.baidu.tbadk.mvc.b.b, j {
         }
     }
 
-    public boolean QL() {
-        return this.ctv;
+    public boolean Ru() {
+        return this.cwk;
     }
 }

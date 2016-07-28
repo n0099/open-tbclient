@@ -4,11 +4,11 @@ import com.baidu.tieba.imMessageCenter.mention.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements as.a {
-    final /* synthetic */ az deF;
+    final /* synthetic */ az dhD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(az azVar) {
-        this.deF = azVar;
+        this.dhD = azVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.as.a
@@ -19,29 +19,29 @@ public class ba implements as.a {
         FeedData feedData2;
         com.baidu.tbadk.editortools.d.p pVar3;
         FeedData feedData3;
-        this.deF.mForumId = String.valueOf(j);
-        this.deF.deC = j2;
-        this.deF.deD = j3;
-        pVar = this.deF.deA;
+        this.dhD.mForumId = String.valueOf(j);
+        this.dhD.dhy = j2;
+        this.dhD.dhz = j3;
+        pVar = this.dhD.dhw;
         if (pVar != null) {
-            feedData = this.deF.deB;
+            feedData = this.dhD.dhx;
             if (feedData.getIsFloor()) {
-                feedData2 = this.deF.deB;
+                feedData2 = this.dhD.dhx;
                 if (feedData2.getReplyer() != null) {
-                    if (this.deF.ddD != null) {
-                        this.deF.ddD.atI();
+                    if (this.dhD.dgz != null) {
+                        this.dhD.dgz.auu();
                     }
-                    pVar3 = this.deF.deA;
-                    feedData3 = this.deF.deB;
-                    pVar3.fI(feedData3.getReplyer().getUserName());
+                    pVar3 = this.dhD.dhw;
+                    feedData3 = this.dhD.dhx;
+                    pVar3.fG(feedData3.getReplyer().getUserName());
                     return;
                 }
             }
-            if (this.deF.ddD != null) {
-                this.deF.ddD.atI();
+            if (this.dhD.dgz != null) {
+                this.dhD.dgz.auu();
             }
-            pVar2 = this.deF.deA;
-            pVar2.fI(null);
+            pVar2 = this.dhD.dhw;
+            pVar2.fG(null);
         }
     }
 }

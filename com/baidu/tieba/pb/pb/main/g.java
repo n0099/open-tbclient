@@ -5,53 +5,53 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class g extends ga {
-    private TextView dOj;
+public class g extends ge {
+    private TextView eaw;
 
     public g(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.dOj = null;
+        this.eaw = null;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ga
+    @Override // com.baidu.tieba.pb.pb.main.ge
     protected void a(e eVar) {
-        this.dOj = (TextView) this.mRootView.findViewById(u.g.icon_push);
-        this.dOj.setVisibility(8);
+        this.eaw = (TextView) this.mRootView.findViewById(u.g.icon_push);
+        this.eaw.setVisibility(8);
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ga
+    @Override // com.baidu.tieba.pb.pb.main.ge
     protected void onChangeSkinType(int i) {
     }
 
-    public void hm(boolean z) {
-        if (this.dOj != null) {
+    public void hx(boolean z) {
+        if (this.eaw != null) {
             if (z) {
-                this.dOj.setText(u.j.push);
-                com.baidu.tbadk.core.util.av.j((View) this.dOj, u.f.push_text_selector);
-                com.baidu.tbadk.core.util.av.k(this.dOj, u.f.push_bg_selector);
-                this.dOj.setClickable(true);
+                this.eaw.setText(u.j.push);
+                com.baidu.tbadk.core.util.av.j((View) this.eaw, u.f.push_text_selector);
+                com.baidu.tbadk.core.util.av.k(this.eaw, u.f.push_bg_selector);
+                this.eaw.setClickable(true);
             } else {
-                this.dOj.setText(u.j.already_push);
-                com.baidu.tbadk.core.util.av.k(this.dOj, u.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.av.j((View) this.dOj, u.d.cp_cont_d);
-                this.dOj.setClickable(false);
+                this.eaw.setText(u.j.already_push);
+                com.baidu.tbadk.core.util.av.k(this.eaw, u.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.av.j((View) this.eaw, u.d.cp_cont_d);
+                this.eaw.setClickable(false);
             }
-            this.dOj.setVisibility(0);
+            this.eaw.setVisibility(0);
         }
     }
 
-    public void q(com.baidu.tbadk.core.data.az azVar) {
-        if (azVar != null && azVar.qY() != null) {
-            int status = azVar.qY().getStatus();
+    public void s(com.baidu.tbadk.core.data.be beVar) {
+        if (beVar != null && beVar.qO() != null) {
+            int status = beVar.qO().getStatus();
             if (status == 1) {
-                hm(true);
+                hx(true);
             } else if (status == 2) {
-                hm(false);
+                hx(false);
             }
         }
     }
 
-    public TextView aEy() {
-        return this.dOj;
+    public TextView aHI() {
+        return this.eaw;
     }
 }

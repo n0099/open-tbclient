@@ -27,6 +27,6 @@ public class RecorderManagerStatic {
         CustomMessageTask customMessageTask5 = new CustomMessageTask(CmdConfigCustom.CMD_CHAT_SEND_VOICE_VIEW, new q());
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
-        TbadkCoreApplication.m9getInst().setAudioRecorderExist(true);
+        TbadkCoreApplication.m10getInst().setAudioRecorderExist(true);
     }
 }

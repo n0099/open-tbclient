@@ -162,8 +162,8 @@ public class AntiData implements Serializable {
             this.ifposta = anti.ifposta.intValue();
             this.forbid_flag = anti.forbid_flag.intValue();
             this.tbs = anti.tbs;
-            if (TbadkCoreApplication.m9getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                TbadkCoreApplication.m9getInst().setTbs(this.tbs);
+            if (TbadkCoreApplication.m10getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                TbadkCoreApplication.m10getInst().setTbs(this.tbs);
             }
             this.need_vcode = anti.need_vcode.intValue();
             this.vcode_md5 = anti.vcode_md5;
@@ -197,8 +197,8 @@ public class AntiData implements Serializable {
                 this.ifposta = jSONObject.optInt("ifposta", 0);
                 this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
                 this.tbs = jSONObject.optString("tbs");
-                if (TbadkCoreApplication.m9getInst() != null && this.tbs != null && this.tbs.length() > 0) {
-                    TbadkCoreApplication.m9getInst().setTbs(this.tbs);
+                if (TbadkCoreApplication.m10getInst() != null && this.tbs != null && this.tbs.length() > 0) {
+                    TbadkCoreApplication.m10getInst().setTbs(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
                 this.vcode_md5 = jSONObject.optString(GraffitiVcodeActivityConfig.VCODE_MD5);

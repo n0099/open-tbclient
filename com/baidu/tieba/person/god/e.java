@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.view.t;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class e implements t.b {
-    final /* synthetic */ GodThreadListActivity eiG;
+    final /* synthetic */ GodThreadListActivity esK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(GodThreadListActivity godThreadListActivity) {
-        this.eiG = godThreadListActivity;
+        this.esK = godThreadListActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.t.b
-    public void aE(boolean z) {
+    public void aH(boolean z) {
         i iVar;
         h hVar;
         i iVar2;
@@ -25,30 +25,30 @@ class e implements t.b {
         h hVar4;
         h hVar5;
         h hVar6;
-        iVar = this.eiG.eiC;
+        iVar = this.esK.esG;
         if (iVar != null) {
-            hVar = this.eiG.eiB;
+            hVar = this.esK.esF;
             if (hVar != null) {
-                if (!com.baidu.adp.lib.util.i.fr()) {
-                    hVar4 = this.eiG.eiB;
-                    hVar4.SQ();
-                    String string = TbadkCoreApplication.m9getInst().getString(u.j.neterror);
-                    hVar5 = this.eiG.eiB;
-                    hVar5.nK(string);
-                    hVar6 = this.eiG.eiB;
-                    hVar6.aLw();
+                if (!com.baidu.adp.lib.util.i.fq()) {
+                    hVar4 = this.esK.esF;
+                    hVar4.Ty();
+                    String string = TbadkCoreApplication.m10getInst().getString(u.j.neterror);
+                    hVar5 = this.esK.esF;
+                    hVar5.ox(string);
+                    hVar6 = this.esK.esF;
+                    hVar6.aNZ();
                     return;
                 }
-                iVar2 = this.eiG.eiC;
-                if (!iVar2.DK()) {
-                    hVar2 = this.eiG.eiB;
-                    hVar2.aLw();
-                    hVar3 = this.eiG.eiB;
+                iVar2 = this.esK.esG;
+                if (!iVar2.DJ()) {
+                    hVar2 = this.esK.esF;
+                    hVar2.aNZ();
+                    hVar3 = this.esK.esF;
                     hVar3.hideNoDataView();
-                    iVar3 = this.eiG.eiC;
-                    i = this.eiG.dMp;
-                    j = this.eiG.mUserId;
-                    iVar3.j(i, j);
+                    iVar3 = this.esK.esG;
+                    i = this.esK.dYz;
+                    j = this.esK.mUserId;
+                    iVar3.k(i, j);
                 }
             }
         }

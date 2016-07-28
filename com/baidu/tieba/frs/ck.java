@@ -10,22 +10,22 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ck implements View.OnClickListener {
-    final /* synthetic */ ch bGh;
-    private final /* synthetic */ com.baidu.tbadk.core.data.ao bGj;
+    final /* synthetic */ ch bHD;
+    private final /* synthetic */ com.baidu.tbadk.core.data.at bHF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(ch chVar, com.baidu.tbadk.core.data.ao aoVar) {
-        this.bGh = chVar;
-        this.bGj = aoVar;
+    public ck(ch chVar, com.baidu.tbadk.core.data.at atVar) {
+        this.bHD = chVar;
+        this.bHF = atVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        com.baidu.tbadk.core.data.ao aoVar = (com.baidu.tbadk.core.data.ao) view.getTag(u.g.tag_first);
+        com.baidu.tbadk.core.data.at atVar = (com.baidu.tbadk.core.data.at) view.getTag(u.g.tag_first);
         int intValue = ((Integer) view.getTag(u.g.tag_second)).intValue();
-        BaseActivity<?> baseActivity = this.bGh.bkc;
-        context = this.bGh.mContext;
-        baseActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.bGj.pT(), intValue, this.bGj.pP(), "", "", true, aoVar.pT().get(this.bGj.pT().size() - 1), true)));
+        BaseActivity<?> baseActivity = this.bHD.bem;
+        context = this.bHD.mContext;
+        baseActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.bHF.pC(), intValue, this.bHF.py(), "", "", true, atVar.pC().get(this.bHF.pC().size() - 1), true)));
     }
 }

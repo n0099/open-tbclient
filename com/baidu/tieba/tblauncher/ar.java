@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements View.OnClickListener {
-    final /* synthetic */ ab fbT;
+    final /* synthetic */ ab foX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(ab abVar) {
-        this.fbT = abVar;
+        this.foX = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.fbT.fbI;
+        mainTabActivity = this.foX.foM;
         ChatMessageActivityConfig chatMessageActivityConfig = new ChatMessageActivityConfig(mainTabActivity.getPageContext().getPageActivity());
-        mainTabActivity2 = this.fbT.fbI;
+        mainTabActivity2 = this.foX.foM;
         mainTabActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, chatMessageActivityConfig));
     }
 }

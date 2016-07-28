@@ -7,8 +7,8 @@ import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class a extends aa {
     public a(Context context, int i) {
-        super(context, TbadkCoreApplication.m9getInst().getString(u.j.editor_gift_tab), 22, i);
-        this.arb = u.f.btn_pb_add_gift;
-        this.arg = new int[]{36};
+        super(context, TbadkCoreApplication.m10getInst().getString(u.j.editor_gift_tab), 22, i);
+        this.arQ = u.f.btn_pb_add_gift;
+        this.arV = new int[]{36};
     }
 }

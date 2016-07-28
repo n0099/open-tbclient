@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface f {
-    void Yf();
+    void YA();
 
-    void Yg();
+    void Yz();
 
     void onClosed();
 

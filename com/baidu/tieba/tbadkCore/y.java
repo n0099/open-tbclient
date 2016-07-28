@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.base.e {
-    private String eWd;
-    private a eWe;
-    private String eWf;
+    private String fjf;
+    private a fjg;
+    private String fjh;
     private String from;
     private String mForumId;
     private String mForumName;
@@ -23,8 +23,8 @@ public class y extends com.baidu.adp.base.e {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.eWd = null;
-        this.eWe = null;
+        this.fjf = null;
+        this.fjg = null;
     }
 
     public void setFrom(String str) {
@@ -41,43 +41,43 @@ public class y extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void bbp() {
-        if (this.eWe != null) {
-            this.eWe.cancel();
-            this.eWe = null;
+    public void beD() {
+        if (this.fjg != null) {
+            this.fjg.cancel();
+            this.fjg = null;
         }
     }
 
-    public void H(String str, String str2, String str3) {
-        bJ(str, str2);
-        this.eWd = str3;
+    public void I(String str, String str2, String str3) {
+        bO(str, str2);
+        this.fjf = str3;
     }
 
-    public void bJ(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.eWe == null) {
+    public void bO(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.fjg == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.eWe = new a(this, null);
-            this.eWe.setPriority(2);
-            this.eWe.execute(new Object[0]);
+            this.fjg = new a(this, null);
+            this.fjg.setPriority(2);
+            this.fjg.execute(new Object[0]);
         }
     }
 
-    public boolean bbq() {
-        return this.eWe != null;
+    public boolean beE() {
+        return this.fjg != null;
     }
 
-    public void px(String str) {
-        this.eWf = str;
+    public void qh(String str) {
+        this.fjh = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, z> {
-        private volatile com.baidu.tbadk.core.util.ab afj;
+        private volatile com.baidu.tbadk.core.util.ab afX;
 
         private a() {
-            this.afj = null;
+            this.afX = null;
         }
 
         /* synthetic */ a(y yVar, a aVar) {
@@ -87,35 +87,35 @@ public class y extends com.baidu.adp.base.e {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: E */
+        /* renamed from: G */
         public z doInBackground(Object... objArr) {
             try {
-                this.afj = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
-                this.afj.n("kw", y.this.mForumName);
-                this.afj.n("fid", y.this.mForumId);
-                this.afj.n("st_type", y.this.from);
-                if (!StringUtils.isNull(y.this.eWf)) {
-                    this.afj.n("dev_id", y.this.eWf);
+                this.afX = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
+                this.afX.n("kw", y.this.mForumName);
+                this.afX.n("fid", y.this.mForumId);
+                this.afX.n("st_type", y.this.from);
+                if (!StringUtils.isNull(y.this.fjh)) {
+                    this.afX.n("dev_id", y.this.fjh);
                 }
-                if (!TextUtils.isEmpty(y.this.eWd)) {
-                    this.afj.n("pagefrom", y.this.eWd);
+                if (!TextUtils.isEmpty(y.this.fjf)) {
+                    this.afX.n("pagefrom", y.this.fjf);
                 }
-                this.afj.n("user_name", TbadkCoreApplication.getCurrentAccountName());
-                this.afj.n("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.afj.n("forum_name", y.this.mForumName);
-                this.afj.ty().uu().mIsNeedTbs = true;
-                String ta = this.afj.ta();
-                if (!this.afj.ty().uv().tB()) {
-                    y.this.setErrorCode(this.afj.tD());
-                    y.this.setErrorString(this.afj.tE());
+                this.afX.n("user_name", TbadkCoreApplication.getCurrentAccountName());
+                this.afX.n("user_id", TbadkCoreApplication.getCurrentAccount());
+                this.afX.n("forum_name", y.this.mForumName);
+                this.afX.tx().uu().mIsNeedTbs = true;
+                String sZ = this.afX.sZ();
+                if (!this.afX.tx().uv().tA()) {
+                    y.this.setErrorCode(this.afX.tC());
+                    y.this.setErrorString(this.afX.tD());
                 } else {
-                    y.this.setErrorCode(this.afj.tC());
-                    y.this.setErrorString(this.afj.getErrorString());
+                    y.this.setErrorCode(this.afX.tB());
+                    y.this.setErrorString(this.afX.getErrorString());
                 }
-                if (this.afj.ty().uv().nU() && ta != null) {
+                if (this.afX.tx().uv().nJ() && sZ != null) {
                     z zVar = new z();
-                    zVar.parserJson(ta);
-                    zVar.setFid(y.this.mForumId);
+                    zVar.parserJson(sZ);
+                    zVar.gF(y.this.mForumId);
                     return zVar;
                 }
             } catch (Exception e) {
@@ -123,7 +123,7 @@ public class y extends com.baidu.adp.base.e {
             }
             z zVar2 = new z();
             zVar2.setLike(0);
-            zVar2.setFid(y.this.mForumId);
+            zVar2.gF(y.this.mForumId);
             return zVar2;
         }
 
@@ -132,25 +132,25 @@ public class y extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(z zVar) {
-            y.this.eWe = null;
-            if (this.afj != null && this.afj.ty().uv().nU() && y.this.getErrorCode() == 0 && zVar != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.h.b.c(zVar.getFid(), 0L))));
-                TbadkCoreApplication.m9getInst().addLikeForum(y.this.mForumName);
+            y.this.fjg = null;
+            if (this.afX != null && this.afX.tx().uv().nJ() && y.this.getErrorCode() == 0 && zVar != null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.h.b.c(zVar.beF(), 0L))));
+                TbadkCoreApplication.m10getInst().addLikeForum(y.this.mForumName);
             }
             if (y.this.mLoadDataCallBack != null) {
-                y.this.mLoadDataCallBack.d(zVar);
+                y.this.mLoadDataCallBack.g(zVar);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.afj != null) {
-                this.afj.dm();
-                this.afj = null;
+            if (this.afX != null) {
+                this.afX.dl();
+                this.afX = null;
             }
-            y.this.eWe = null;
+            y.this.fjg = null;
             super.cancel(true);
-            y.this.mLoadDataCallBack.d(null);
+            y.this.mLoadDataCallBack.g(null);
         }
     }
 }

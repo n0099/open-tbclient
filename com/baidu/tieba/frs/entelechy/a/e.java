@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ c bJd;
+    final /* synthetic */ c bKI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, int i) {
         super(i);
-        this.bJd = cVar;
+        this.bKI = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,14 +24,14 @@ public class e extends CustomMessageListener {
         ArrayList<com.baidu.adp.widget.ListView.v> arrayList;
         p pVar;
         if (customResponsedMessage != null) {
-            list = this.bJd.bIY;
+            list = this.bKI.bKC;
             if (!com.baidu.tbadk.core.util.y.t(list)) {
                 return;
             }
-            this.bJd.XR();
-            c cVar = this.bJd;
-            arrayList = this.bJd.brq;
-            pVar = this.bJd.bJa;
+            this.bKI.Yk();
+            c cVar = this.bKI;
+            arrayList = this.bKI.btF;
+            pVar = this.bKI.bKE;
             cVar.a(arrayList, pVar);
         }
     }

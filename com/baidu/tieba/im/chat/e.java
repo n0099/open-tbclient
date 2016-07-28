@@ -8,11 +8,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity cDW;
+    final /* synthetic */ AbsMsgImageActivity cGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.cDW = absMsgImageActivity;
+        this.cGL = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,22 +21,22 @@ public class e implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.cDW.getListMenu();
+        listMenu = this.cGL.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.cDW.cDK;
+                        multiImageView = this.cGL.cGz;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.cDW.cDK;
+                            multiImageView2 = this.cGL.cGz;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.cDW.cDH = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.cDW.cDH;
+                            this.cGL.cGw = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.cGL.cGw;
                             aVar.execute(new String[0]);
-                            this.cDW.cDI.setClickable(false);
+                            this.cGL.cGx.setClickable(false);
                         } else {
-                            this.cDW.showToast(this.cDW.getPageContext().getString(u.j.no_data));
+                            this.cGL.showToast(this.cGL.getPageContext().getString(u.j.no_data));
                         }
                         break;
                     } catch (Exception e) {

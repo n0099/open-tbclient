@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.util.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk implements Runnable {
-    final /* synthetic */ bi YB;
-    private final /* synthetic */ bi.a YC;
+    final /* synthetic */ bi Zk;
+    private final /* synthetic */ bi.a Zl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(bi biVar, bi.a aVar) {
-        this.YB = biVar;
-        this.YC = aVar;
+        this.Zk = biVar;
+        this.Zl = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.YB.b(this.YC);
+        this.Zk.b(this.Zl);
     }
 }

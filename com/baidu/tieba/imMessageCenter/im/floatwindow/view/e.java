@@ -14,116 +14,116 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
-    private com.baidu.adp.lib.h.d cpk;
-    private LinearLayout daR;
-    private ImageView daS;
-    private ScaleAnimation daT;
-    private ScaleAnimation daU;
-    private boolean daV;
-    private boolean daW;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.e daX;
-    private Animation daY;
-    private Animation daZ;
-    private Runnable dba;
+    private com.baidu.adp.lib.h.d crF;
+    private LinearLayout ddO;
+    private ImageView ddP;
+    private ScaleAnimation ddQ;
+    private ScaleAnimation ddR;
+    private boolean ddS;
+    private boolean ddT;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.e ddU;
+    private Animation ddV;
+    private Animation ddW;
+    private Runnable ddX;
 
     public e(Context context) {
         super(LayoutInflater.from(context).inflate(u.h.im_chat_tip_view, (ViewGroup) null));
-        this.daV = false;
-        this.daW = false;
-        this.dba = new f(this);
-        this.cpk = new g(this);
-        this.daS = (ImageView) this.dai.findViewById(u.g.im_chat_tip_view_delete);
-        this.daR = (LinearLayout) this.dai.findViewById(u.g.im_chat_tip_holder);
-        this.daX = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
+        this.ddS = false;
+        this.ddT = false;
+        this.ddX = new f(this);
+        this.crF = new g(this);
+        this.ddP = (ImageView) this.ddg.findViewById(u.g.im_chat_tip_view_delete);
+        this.ddO = (LinearLayout) this.ddg.findViewById(u.g.im_chat_tip_holder);
+        this.ddU = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
     }
 
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.e asq() {
-        if (this.daX.isEmpty()) {
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.e atc() {
+        if (this.ddU.isEmpty()) {
             int[] iArr = new int[2];
-            this.daS.getLocationOnScreen(iArr);
+            this.ddP.getLocationOnScreen(iArr);
             if (iArr[0] != 0 && iArr[1] != 0) {
-                int measuredHeight = (this.daS.getMeasuredHeight() / 2) + 15;
-                this.daX.F(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
+                int measuredHeight = (this.ddP.getMeasuredHeight() / 2) + 15;
+                this.ddU.G(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
             }
         }
-        return this.daX;
+        return this.ddU;
     }
 
     public void b(Handler handler) {
-        if (!asb()) {
-            asc();
+        if (!asN()) {
+            asO();
             if (handler != null) {
-                handler.removeCallbacks(this.dba);
-                handler.post(this.dba);
+                handler.removeCallbacks(this.ddX);
+                handler.post(this.ddX);
             }
         }
     }
 
     public void c(Handler handler) {
-        handler.removeCallbacks(this.dba);
-        this.daS.clearAnimation();
-        this.daW = false;
-        this.daV = false;
-        if (this.daR.getWindowToken() != null) {
-            this.daR.clearAnimation();
-            this.daR.startAnimation(asv());
+        handler.removeCallbacks(this.ddX);
+        this.ddP.clearAnimation();
+        this.ddT = false;
+        this.ddS = false;
+        if (this.ddO.getWindowToken() != null) {
+            this.ddO.clearAnimation();
+            this.ddO.startAnimation(ath());
             return;
         }
-        asd();
+        asP();
     }
 
-    public void asr() {
-        if (!this.daW && !this.daV) {
-            this.daV = true;
-            this.daS.startAnimation(ast());
+    public void atd() {
+        if (!this.ddT && !this.ddS) {
+            this.ddS = true;
+            this.ddP.startAnimation(atf());
         }
     }
 
-    public void ass() {
-        if (!this.daW && this.daV) {
-            this.daV = false;
-            this.daS.startAnimation(asu());
+    public void ate() {
+        if (!this.ddT && this.ddS) {
+            this.ddS = false;
+            this.ddP.startAnimation(atg());
         }
     }
 
-    private ScaleAnimation ast() {
-        if (this.daT == null) {
-            this.daT = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
-            this.daT.setDuration(150L);
-            this.daT.setFillAfter(true);
-            this.daT.setAnimationListener(this.cpk);
+    private ScaleAnimation atf() {
+        if (this.ddQ == null) {
+            this.ddQ = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
+            this.ddQ.setDuration(150L);
+            this.ddQ.setFillAfter(true);
+            this.ddQ.setAnimationListener(this.crF);
         }
-        return this.daT;
+        return this.ddQ;
     }
 
-    private ScaleAnimation asu() {
-        if (this.daU == null) {
-            this.daU = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
-            this.daU.setDuration(150L);
-            this.daU.setFillAfter(true);
-            this.daU.setAnimationListener(this.cpk);
+    private ScaleAnimation atg() {
+        if (this.ddR == null) {
+            this.ddR = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
+            this.ddR.setDuration(150L);
+            this.ddR.setFillAfter(true);
+            this.ddR.setAnimationListener(this.crF);
         }
-        return this.daU;
+        return this.ddR;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation asp() {
-        if (this.daY == null) {
-            this.daY = AnimationUtils.loadAnimation(TbadkCoreApplication.m9getInst(), u.a.float_window_tip_in_anim);
+    public Animation atb() {
+        if (this.ddV == null) {
+            this.ddV = AnimationUtils.loadAnimation(TbadkCoreApplication.m10getInst(), u.a.float_window_tip_in_anim);
         }
-        return this.daY;
+        return this.ddV;
     }
 
-    private Animation asv() {
-        if (this.daZ == null) {
-            this.daZ = AnimationUtils.loadAnimation(TbadkCoreApplication.m9getInst(), u.a.float_window_tip_out_anim);
-            this.daZ.setAnimationListener(this.cpk);
+    private Animation ath() {
+        if (this.ddW == null) {
+            this.ddW = AnimationUtils.loadAnimation(TbadkCoreApplication.m10getInst(), u.a.float_window_tip_out_anim);
+            this.ddW.setAnimationListener(this.crF);
         }
-        return this.daZ;
+        return this.ddW;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams asa() {
+    public WindowManager.LayoutParams asM() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -1;

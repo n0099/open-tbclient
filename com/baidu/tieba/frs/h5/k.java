@@ -16,7 +16,7 @@ class k extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof df)) {
             df dfVar = (df) customResponsedMessage.getData();
             i iVar = new i();
-            iVar.setTag(dfVar.aSq);
+            iVar.setTag(dfVar.aTm);
             dfVar.a(100, iVar);
         }
     }

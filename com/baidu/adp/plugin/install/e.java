@@ -22,14 +22,14 @@ public class e extends Handler {
         c cVar2;
         Handler handler;
         Runnable runnable;
-        cVar = this.this$0.tQ;
+        cVar = this.this$0.ut;
         if (cVar != null && message != null) {
             try {
-                String str = ((c) com.baidu.adp.lib.a.b.a.a.i.objectWithBundle(message.getData(), c.class)).tc;
-                cVar2 = this.this$0.tQ;
-                if (TextUtils.equals(str, cVar2.tc)) {
-                    handler = d.es;
-                    runnable = this.this$0.tX;
+                String str = ((c) com.baidu.adp.lib.a.b.a.a.i.objectWithBundle(message.getData(), c.class)).tG;
+                cVar2 = this.this$0.ut;
+                if (TextUtils.equals(str, cVar2.tG)) {
+                    handler = d.eV;
+                    runnable = this.this$0.uA;
                     handler.removeCallbacks(runnable);
                 }
             } catch (Throwable th) {

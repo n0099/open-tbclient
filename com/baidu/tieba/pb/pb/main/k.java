@@ -8,42 +8,42 @@ import com.baidu.tieba.pb.data.PbEcommRecommendResponsedHttpMessage;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class k extends HttpMessageListener {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(PbActivity pbActivity, int i) {
         super(i);
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        dg dgVar;
-        es esVar;
-        dg dgVar2;
-        dg dgVar3;
+        dh dhVar;
+        ew ewVar;
+        dh dhVar2;
+        dh dhVar3;
         if (httpResponsedMessage instanceof PbEcommRecommendResponsedHttpMessage) {
             PbEcommRecommendResponsedHttpMessage pbEcommRecommendResponsedHttpMessage = (PbEcommRecommendResponsedHttpMessage) httpResponsedMessage;
             if (httpResponsedMessage.hasError() || pbEcommRecommendResponsedHttpMessage.mData == null) {
                 if (!StringUtils.isNULL(httpResponsedMessage.getErrorString())) {
-                    this.dPF.showToast(httpResponsedMessage.getErrorString());
+                    this.ebT.showToast(httpResponsedMessage.getErrorString());
                 } else {
-                    this.dPF.showToast(u.j.neterror);
+                    this.ebT.showToast(u.j.neterror);
                 }
             } else if (pbEcommRecommendResponsedHttpMessage.mData != null && (httpResponsedMessage.getOrginalMessage() instanceof PbEcommRecommendMessage)) {
                 PbEcommRecommendMessage pbEcommRecommendMessage = (PbEcommRecommendMessage) httpResponsedMessage.getOrginalMessage();
                 long j = pbEcommRecommendResponsedHttpMessage.mData.recommendations;
-                dgVar = this.dPF.dOf;
-                dgVar.getPbData().aDO().Rl.recommendations = j;
+                dhVar = this.ebT.eas;
+                dhVar.getPbData().aGY().RO.recommendations = j;
                 if (pbEcommRecommendMessage != null) {
-                    dgVar3 = this.dPF.dOf;
-                    dgVar3.getPbData().aDO().rt().hasRecommend = pbEcommRecommendMessage.recommend;
+                    dhVar3 = this.ebT.eas;
+                    dhVar3.getPbData().aGY().rs().hasRecommend = pbEcommRecommendMessage.recommend;
                 }
-                esVar = this.dPF.dOO;
-                dgVar2 = this.dPF.dOf;
-                esVar.j(dgVar2.getPbData());
+                ewVar = this.ebT.ebb;
+                dhVar2 = this.ebT.eas;
+                ewVar.j(dhVar2.getPbData());
             }
         }
     }

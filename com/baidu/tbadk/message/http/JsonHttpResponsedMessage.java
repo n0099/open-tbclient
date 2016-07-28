@@ -15,7 +15,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
-    public final void decodeInBackGround(int i, byte[] bArr) {
+    public final void decodeInBackGround(int i, byte[] bArr) throws Exception {
         JSONObject jSONObject = null;
         String parseToString = parseToString(bArr);
         if (!TextUtils.isEmpty(parseToString)) {
@@ -24,7 +24,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         decodeLogicInBackGround(i, jSONObject);
     }
 
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
@@ -46,7 +46,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.m9getInst().getApp().getString(u.j.error_unkown_try_again));
+                    setErrorString(TbadkCoreApplication.m10getInst().getApp().getString(u.j.error_unkown_try_again));
                 } else if (getError() != 0) {
                     setErrorString(errorData.getError_msg());
                 }
@@ -54,7 +54,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
-                setErrorString(TbadkCoreApplication.m9getInst().getApp().getString(u.j.error_unkown_try_again));
+                setErrorString(TbadkCoreApplication.m10getInst().getApp().getString(u.j.error_unkown_try_again));
                 return jSONObject;
             }
         } catch (Exception e3) {

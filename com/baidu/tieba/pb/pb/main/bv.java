@@ -4,34 +4,34 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bv implements a.b {
-    private final /* synthetic */ String bIw;
-    private final /* synthetic */ String bIx;
-    final /* synthetic */ PbActivity dPF;
-    private final /* synthetic */ long dPP;
-    private final /* synthetic */ String dPQ;
-    private final /* synthetic */ String dPR;
+    private final /* synthetic */ String bKa;
+    private final /* synthetic */ String bKb;
+    final /* synthetic */ PbActivity ebT;
+    private final /* synthetic */ long ecd;
+    private final /* synthetic */ String ece;
+    private final /* synthetic */ String ecf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
-        this.dPF = pbActivity;
-        this.dPP = j;
-        this.dPQ = str;
-        this.bIw = str2;
-        this.bIx = str3;
-        this.dPR = str4;
+        this.ebT = pbActivity;
+        this.ecd = j;
+        this.ece = str;
+        this.bKa = str2;
+        this.bKb = str3;
+        this.ecf = str4;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        dg dgVar;
-        dg dgVar2;
-        com.baidu.tieba.pb.b.a(this.dPP, this.dPQ, null, "PB", "BTN_FBOK", "CLICK_FEEDBACK", "tpoint", null, null, this.bIw, this.bIx, this.dPR);
+        dh dhVar;
+        dh dhVar2;
+        com.baidu.tieba.pb.b.a(this.ecd, this.ece, null, "PB", "BTN_FBOK", "CLICK_FEEDBACK", "tpoint", null, null, this.bKa, this.bKb, this.ecf);
         aVar.dismiss();
-        if (this.dPF.checkUpIsLogin()) {
-            dgVar = this.dPF.dOf;
-            if (dgVar.aGi() != null) {
-                dgVar2 = this.dPF.dOf;
-                dgVar2.aGi().cg(this.dPP);
+        if (this.ebT.checkUpIsLogin()) {
+            dhVar = this.ebT.eas;
+            if (dhVar.aJt() != null) {
+                dhVar2 = this.ebT.eas;
+                dhVar2.aJt().cf(this.ecd);
             }
         }
     }

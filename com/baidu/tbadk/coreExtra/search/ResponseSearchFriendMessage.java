@@ -20,7 +20,7 @@ public class ResponseSearchFriendMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getStatusCode() == 200 && jSONObject != null) {
             this.mSearchFriendResult = (SearchFriendResult) i.objectWithJson(jSONObject, SearchFriendResult.class);

@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import com.baidu.tieba.emotion.editortool.EmotionTabContentView;
 /* loaded from: classes.dex */
 class l implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EmotionTabContentView.b bro;
+    final /* synthetic */ EmotionTabContentView.b btD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(EmotionTabContentView.b bVar) {
-        this.bro = bVar;
+        this.btD = bVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,22 +20,22 @@ class l implements AdapterView.OnItemClickListener {
         com.baidu.tbadk.editortools.l lVar2;
         adapterView.setSelection(-1);
         emotionTabContentView = EmotionTabContentView.this;
-        lVar = emotionTabContentView.BW;
+        lVar = emotionTabContentView.Cw;
         if (lVar != null) {
             com.baidu.tbadk.coreExtra.data.i iVar = new com.baidu.tbadk.coreExtra.data.i();
             EmotionTabContentView.a aVar = (EmotionTabContentView.a) adapterView.getAdapter();
-            if (aVar != null && aVar.Ro() != null) {
-                t Ro = aVar.Ro();
-                int Rn = aVar.Rn();
-                com.baidu.tbadk.editortools.emotiontool.c Rr = Ro.Rr();
-                iVar.setName(Ro.Rr().eo(Rn + i));
-                iVar.a(Rr.BF());
-                iVar.ec(Rr.getGroupName());
-                iVar.ed(Rr.getGroupId());
-                iVar.setWidth(Rr.getWidth());
-                iVar.setHeight(Rr.getHeight());
+            if (aVar != null && aVar.RV() != null) {
+                t RV = aVar.RV();
+                int RU = aVar.RU();
+                com.baidu.tbadk.editortools.emotiontool.c RY = RV.RY();
+                iVar.setName(RV.RY().eo(RU + i));
+                iVar.a(RY.BF());
+                iVar.eb(RY.getGroupName());
+                iVar.ec(RY.getGroupId());
+                iVar.setWidth(RY.getWidth());
+                iVar.setHeight(RY.getHeight());
                 emotionTabContentView2 = EmotionTabContentView.this;
-                lVar2 = emotionTabContentView2.BW;
+                lVar2 = emotionTabContentView2.Cw;
                 lVar2.b(new com.baidu.tbadk.editortools.a(24, -1, iVar));
             }
         }

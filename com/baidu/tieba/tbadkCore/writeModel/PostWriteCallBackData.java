@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
+import com.baidu.tbadk.coreExtra.data.AccessState;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PostWriteCallBackData implements Serializable {
@@ -16,6 +17,7 @@ public class PostWriteCallBackData implements Serializable {
     private String preMsg;
     private String threadId = null;
     private String postId = null;
+    private AccessState accessState = null;
 
     public PostWriteCallBackData() {
     }
@@ -81,5 +83,13 @@ public class PostWriteCallBackData implements Serializable {
 
     public int getIsCopyTWZhibo() {
         return this.isCopyTWZhibo;
+    }
+
+    public AccessState getAccessState() {
+        return this.accessState;
+    }
+
+    public void setAccessState(AccessState accessState) {
+        this.accessState = accessState;
     }
 }

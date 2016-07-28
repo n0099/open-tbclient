@@ -5,7 +5,7 @@ public enum EmotionGroupType {
     BIG_EMOTION,
     PROMOTION;
 
-    /* JADX DEBUG: Replace access to removed values field (agx) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (ahl) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static EmotionGroupType[] valuesCustom() {
         EmotionGroupType[] valuesCustom = values();

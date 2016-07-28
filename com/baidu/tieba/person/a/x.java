@@ -1,17 +1,18 @@
 package com.baidu.tieba.person.a;
 
-import android.view.View;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements View.OnClickListener {
-    final /* synthetic */ w egx;
+public class x implements a.b {
+    final /* synthetic */ u eqw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.egx = wVar;
+    public x(u uVar) {
+        this.eqw = uVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.egx.e(this.egx.OE);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

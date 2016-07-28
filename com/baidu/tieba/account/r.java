@@ -5,26 +5,26 @@ import android.text.TextWatcher;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class r implements TextWatcher {
-    final /* synthetic */ ActivationActivity aMd;
+    final /* synthetic */ ActivationActivity aMX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ActivationActivity activationActivity) {
-        this.aMd = activationActivity;
+        this.aMX = activationActivity;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         int i;
         if (editable.length() == 6) {
-            this.aMd.aLP.setEnabled(true);
+            this.aMX.aMJ.setEnabled(true);
         } else {
-            this.aMd.aLP.setEnabled(false);
+            this.aMX.aMJ.setEnabled(false);
         }
-        i = this.aMd.aMa;
+        i = this.aMX.aMU;
         if (i != 0) {
-            this.aMd.aMa = 0;
-            this.aMd.aLJ.setBackgroundResource(u.f.pass_input);
-            this.aMd.aLJ.setPadding(this.aMd.aLY, 0, this.aMd.aLZ, 0);
+            this.aMX.aMU = 0;
+            this.aMX.aMD.setBackgroundResource(u.f.pass_input);
+            this.aMX.aMD.setPadding(this.aMX.aMS, 0, this.aMX.aMT, 0);
         }
     }
 

@@ -3,28 +3,28 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
 class ah implements PbActivity.c {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbActivity.c
-    public void hu(boolean z) {
-        dg dgVar;
-        es esVar;
-        dg dgVar2;
-        es esVar2;
-        dgVar = this.dPF.dOf;
-        if (dgVar.hx(true)) {
-            esVar2 = this.dPF.dOO;
-            esVar2.aHp();
+    public void hF(boolean z) {
+        dh dhVar;
+        ew ewVar;
+        dh dhVar2;
+        ew ewVar2;
+        dhVar = this.ebT.eas;
+        if (dhVar.hI(true)) {
+            ewVar2 = this.ebT.ebb;
+            ewVar2.aKA();
             return;
         }
-        esVar = this.dPF.dOO;
-        esVar.aHL();
-        dgVar2 = this.dPF.dOf;
-        dgVar2.nm(1);
+        ewVar = this.ebT.ebb;
+        ewVar.aFN();
+        dhVar2 = this.ebT.eas;
+        dhVar2.nE(1);
     }
 }

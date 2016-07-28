@@ -1,28 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class fn implements View.OnClickListener {
-    final /* synthetic */ es dVR;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dVX;
+class fn implements a.b {
+    final /* synthetic */ ew eiu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fn(es esVar, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dVR = esVar;
-        this.dVX = sVar;
+    public fn(ew ewVar) {
+        this.eiu = ewVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10630").ab("obj_id", this.dVX.getAuthor().getUserId()));
-        pbActivity = this.dVR.dOg;
-        if (pbActivity.dOP.dWg != null) {
-            pbActivity2 = this.dVR.dOg;
-            pbActivity2.dOP.dWg.onClick(view);
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        this.eiu.avR();
+        aVar.dismiss();
     }
 }

@@ -9,30 +9,30 @@ import com.baidu.tieba.frs.ecomm.EcommCanSendThreadResponseMessage;
 import com.baidu.tieba.frs.ecomm.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements a.InterfaceC0055a {
-    final /* synthetic */ FrsActivity bDB;
+public class an implements a.InterfaceC0056a {
+    final /* synthetic */ FrsActivity bEL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(FrsActivity frsActivity) {
-        this.bDB = frsActivity;
+        this.bEL = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ecomm.a.InterfaceC0055a
+    @Override // com.baidu.tieba.frs.ecomm.a.InterfaceC0056a
     public void a(int i, String str, EcommCanSendThreadResponseMessage ecommCanSendThreadResponseMessage) {
         b bVar;
         b bVar2;
-        bVar = this.bDB.bcn;
+        bVar = this.bEL.bdy;
         if (bVar != null) {
-            bVar2 = this.bDB.bcn;
-            bVar2.aB(false);
+            bVar2 = this.bEL.bdy;
+            bVar2.aE(false);
         }
         if (ecommCanSendThreadResponseMessage != null && (ecommCanSendThreadResponseMessage instanceof EcommCanSendThreadResponseMessage)) {
             if (ecommCanSendThreadResponseMessage.getError() == 0) {
-                this.bDB.bCA = ecommCanSendThreadResponseMessage.address;
-                this.bDB.Vr();
+                this.bEL.bDH = ecommCanSendThreadResponseMessage.address;
+                this.bEL.VI();
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EcommSellerErrorActivityConfig(this.bDB.getPageContext().getPageActivity(), ecommCanSendThreadResponseMessage.getError(), ecommCanSendThreadResponseMessage.getErrorString())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EcommSellerErrorActivityConfig(this.bEL.getPageContext().getPageActivity(), ecommCanSendThreadResponseMessage.getError(), ecommCanSendThreadResponseMessage.getErrorString())));
         }
     }
 }

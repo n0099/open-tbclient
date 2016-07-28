@@ -3,20 +3,20 @@ package com.baidu.adp.lib.stats.b;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 /* loaded from: classes.dex */
 class g extends com.baidu.adp.lib.Disk.ops.d {
-    private final /* synthetic */ com.baidu.adp.lib.stats.base.a ob;
+    private final /* synthetic */ com.baidu.adp.lib.stats.base.a oH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(String str, String str2, DiskFileOperate.Action action, com.baidu.adp.lib.stats.base.a aVar) {
         super(str, str2, action);
-        this.ob = aVar;
+        this.oH = aVar;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void k(boolean z) {
-        super.k(z);
+    public void m(boolean z) {
+        super.m(z);
         if (z) {
-            this.ob.g(bW().length());
+            this.oH.h(bV().length());
         }
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.tieba.u;
 public class k implements bi.a {
     @Override // com.baidu.tbadk.core.util.bi.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        Bundle gy;
+        Bundle gx;
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;
         }
@@ -40,7 +40,7 @@ public class k implements bi.a {
             String substring = str.substring(4);
             String str4 = "";
             if (str.contains("body=")) {
-                str4 = com.baidu.tbadk.util.x.as(str, "body=");
+                str4 = com.baidu.tbadk.util.y.as(str, "body=");
                 substring = substring.substring(0, substring.indexOf("?") - 1);
             }
             UtilHelper.smsTo(tbPageContext.getPageActivity(), substring, str4);
@@ -56,7 +56,7 @@ public class k implements bi.a {
             ((Activity) tbPageContext).finish();
             return 0;
         } else if (str.startsWith("tieba://focusforum")) {
-            TbadkCoreApplication.m9getInst().setLikeBarChanged(true);
+            TbadkCoreApplication.m10getInst().setLikeBarChanged(true);
             return 0;
         } else if (str.startsWith("baiduxiuba://")) {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -66,10 +66,10 @@ public class k implements bi.a {
             tbPageContext.getPageActivity().startActivity(intent);
             return 0;
         } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("bunding_phone=1")) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.x.as(str, "bindid=")));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.y.as(str, "bindid=")));
             tbPageContext.getPageActivity().finish();
             return 1;
-        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gy = com.baidu.tbadk.util.x.gy(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gy.getString("path"))) {
+        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gx = com.baidu.tbadk.util.y.gx(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gx.getString("path"))) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
             return 0;
         } else {

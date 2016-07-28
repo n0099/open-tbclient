@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.card.bx;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements bx<e> {
-    final /* synthetic */ c csW;
+public class d extends bx<e> {
+    final /* synthetic */ c cvH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.csW = cVar;
+        this.cvH = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

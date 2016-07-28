@@ -21,16 +21,16 @@ class s extends CustomMessageListener {
         ab abVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            abVar = this.this$0.fbu;
+            abVar = this.this$0.foy;
             if (booleanValue) {
-                abVar2 = this.this$0.fbu;
-                if (abVar2.agK()) {
+                abVar2 = this.this$0.foy;
+                if (abVar2.ahq()) {
                     z = true;
-                    abVar.ey(z);
+                    abVar.ez(z);
                 }
             }
             z = false;
-            abVar.ey(z);
+            abVar.ez(z);
         }
     }
 }

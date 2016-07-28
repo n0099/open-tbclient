@@ -1,55 +1,55 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.cp;
+import com.baidu.tieba.pb.pb.main.cq;
 import com.baidu.tieba.u;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-class l implements cp.a {
-    final /* synthetic */ PbActivity dPF;
+class l implements cq.a {
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cp.a
-    public void i(int i, long j) {
-        dg dgVar;
-        dg dgVar2;
-        es esVar;
-        dg dgVar3;
+    @Override // com.baidu.tieba.pb.pb.main.cq.a
+    public void j(int i, long j) {
+        dh dhVar;
+        dh dhVar2;
+        ew ewVar;
+        dh dhVar3;
         if (i != 0) {
-            this.dPF.showToast(u.j.operation_failed);
+            this.ebT.showToast(u.j.operation_failed);
             return;
         }
-        this.dPF.ni(2);
-        el.aGM().reset();
-        dgVar = this.dPF.dOf;
-        dgVar.aGc();
-        dgVar2 = this.dPF.dOf;
-        ArrayList<com.baidu.tieba.tbadkCore.data.s> aDP = dgVar2.getPbData().aDP();
-        if (aDP != null) {
-            Iterator<com.baidu.tieba.tbadkCore.data.s> it = aDP.iterator();
+        this.ebT.nA(2);
+        ep.aJZ().reset();
+        dhVar = this.ebT.eas;
+        dhVar.aJn();
+        dhVar2 = this.ebT.eas;
+        ArrayList<com.baidu.tieba.tbadkCore.data.s> aGZ = dhVar2.getPbData().aGZ();
+        if (aGZ != null) {
+            Iterator<com.baidu.tieba.tbadkCore.data.s> it = aGZ.iterator();
             boolean z = false;
             while (it.hasNext()) {
                 com.baidu.tieba.tbadkCore.data.s next = it.next();
-                if (er.f(next) && next.bcw().getTemplateId() == j) {
+                if (ev.g(next) && next.bfL().getTemplateId() == j) {
                     it.remove();
                     z = true;
                 }
             }
             if (z) {
-                esVar = this.dPF.dOO;
-                dgVar3 = this.dPF.dOf;
-                esVar.j(dgVar3.getPbData());
+                ewVar = this.ebT.ebb;
+                dhVar3 = this.ebT.eas;
+                ewVar.j(dhVar3.getPbData());
             }
-            this.dPF.showToast(u.j.operation_success);
+            this.ebT.showToast(u.j.operation_success);
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cp.a
+    @Override // com.baidu.tieba.pb.pb.main.cq.a
     public void onError(int i, String str) {
-        this.dPF.showToast(u.j.operation_failed);
+        this.ebT.showToast(u.j.operation_failed);
     }
 }

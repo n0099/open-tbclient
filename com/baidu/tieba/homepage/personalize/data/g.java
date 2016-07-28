@@ -10,15 +10,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class g extends k implements s {
-    private CardGod csv;
+    private CardGod cvf;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.csv = cardGod;
-            this.aUO = this.csv.card_title;
-            if (!y.t(this.csv.gods)) {
+            this.cvf = cardGod;
+            this.aVL = this.cvf.card_title;
+            if (!y.t(this.cvf.gods)) {
                 int i = 0;
-                for (User user : this.csv.gods) {
+                for (User user : this.cvf.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
@@ -36,25 +36,25 @@ public class g extends k implements s {
         }
     }
 
-    public boolean ov() {
-        return y.s(Eb()) > 2;
+    public boolean ok() {
+        return y.s(Ea()) > 2;
     }
 
     @Override // com.baidu.tieba.card.a.s
     public int getPosition() {
-        if (this.csv == null || this.csv.position == null) {
+        if (this.cvf == null || this.cvf.position == null) {
             return 0;
         }
-        return this.csv.position.intValue();
+        return this.cvf.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.a.s
-    public boolean Lm() {
+    public boolean Ll() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.a.s
-    public void ck(boolean z) {
-        this.aUS = z;
+    public void cn(boolean z) {
+        this.aVP = z;
     }
 }

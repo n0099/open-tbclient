@@ -10,18 +10,18 @@ import java.util.Locale;
 public class c {
     private String p;
     private boolean q = true;
-    private static c Fy = null;
+    private static c FZ = null;
     private static String b = "Temp_in.dat";
-    private static File Fz = new File(com.baidu.location.h.h.a, b);
-    private static StringBuffer FA = null;
+    private static File c = new File(com.baidu.location.h.h.a, b);
+    private static StringBuffer Ga = null;
     private static boolean e = true;
     private static int f = 0;
     private static int g = 0;
     private static long h = 0;
     private static long i = 0;
-    private static long FB = 0;
-    private static double FC = 0.0d;
-    private static double FD = 0.0d;
+    private static long j = 0;
+    private static double Gb = 0.0d;
+    private static double Gc = 0.0d;
     private static int m = 0;
     private static int n = 0;
     private static int o = 0;
@@ -37,9 +37,9 @@ public class c {
     }
 
     private String a(int i2) {
-        if (Fz.exists()) {
+        if (c.exists()) {
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(Fz, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
                 randomAccessFile.seek(0L);
                 int readInt = randomAccessFile.readInt();
                 if (!a(readInt, randomAccessFile.readInt(), randomAccessFile.readInt())) {
@@ -50,11 +50,11 @@ public class c {
                     randomAccessFile.close();
                     return null;
                 } else {
-                    long j = 12 + 0 + ((i2 - 1) * 1024);
-                    randomAccessFile.seek(j);
+                    long j2 = 12 + 0 + ((i2 - 1) * 1024);
+                    randomAccessFile.seek(j2);
                     int readInt2 = randomAccessFile.readInt();
                     byte[] bArr = new byte[readInt2];
-                    randomAccessFile.seek(j + 4);
+                    randomAccessFile.seek(j2 + 4);
                     for (int i3 = 0; i3 < readInt2; i3++) {
                         bArr[i3] = randomAccessFile.readByte();
                     }
@@ -69,77 +69,77 @@ public class c {
     }
 
     private static boolean a(int i2, int i3, int i4) {
-        if (i2 < 0 || i2 > com.baidu.location.h.i.JE) {
+        if (i2 < 0 || i2 > com.baidu.location.h.i.JJ) {
             return false;
         }
         if (i3 < 0 || i3 > i2 + 1) {
             return false;
         }
-        return i4 >= 1 && i4 <= i2 + 1 && i4 <= com.baidu.location.h.i.JE;
+        return i4 >= 1 && i4 <= i2 + 1 && i4 <= com.baidu.location.h.i.JJ;
     }
 
     private boolean a(Location location, int i2, int i3) {
-        if (location != null && com.baidu.location.h.i.JA && this.q) {
-            if (com.baidu.location.h.i.JC < 5) {
-                com.baidu.location.h.i.JC = 5;
-            } else if (com.baidu.location.h.i.JC > 1000) {
-                com.baidu.location.h.i.JC = 1000;
+        if (location != null && com.baidu.location.h.i.JG && this.q) {
+            if (com.baidu.location.h.i.Z < 5) {
+                com.baidu.location.h.i.Z = 5;
+            } else if (com.baidu.location.h.i.Z > 1000) {
+                com.baidu.location.h.i.Z = 1000;
             }
-            if (com.baidu.location.h.i.JD < 5) {
-                com.baidu.location.h.i.JD = 5;
-            } else if (com.baidu.location.h.i.JD > 3600) {
-                com.baidu.location.h.i.JD = 3600;
+            if (com.baidu.location.h.i.JI < 5) {
+                com.baidu.location.h.i.JI = 5;
+            } else if (com.baidu.location.h.i.JI > 3600) {
+                com.baidu.location.h.i.JI = 3600;
             }
             double longitude = location.getLongitude();
             double latitude = location.getLatitude();
             long time = location.getTime() / 1000;
             if (e) {
                 f = 1;
-                FA = new StringBuffer("");
-                FA.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                g = FA.length();
+                Ga = new StringBuffer("");
+                Ga.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                g = Ga.length();
                 h = time;
-                FC = longitude;
-                FD = latitude;
+                Gb = longitude;
+                Gc = latitude;
                 i = (long) Math.floor((longitude * 100000.0d) + 0.5d);
-                FB = (long) Math.floor((latitude * 100000.0d) + 0.5d);
+                j = (long) Math.floor((latitude * 100000.0d) + 0.5d);
                 e = false;
                 return true;
             }
             float[] fArr = new float[1];
-            Location.distanceBetween(latitude, longitude, FD, FC, fArr);
-            long j = time - h;
-            if (fArr[0] >= com.baidu.location.h.i.JC || j >= com.baidu.location.h.i.JD) {
-                if (FA == null) {
+            Location.distanceBetween(latitude, longitude, Gc, Gb, fArr);
+            long j2 = time - h;
+            if (fArr[0] >= com.baidu.location.h.i.Z || j2 >= com.baidu.location.h.i.JI) {
+                if (Ga == null) {
                     f++;
                     g = 0;
-                    FA = new StringBuffer("");
-                    FA.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                    g = FA.length();
+                    Ga = new StringBuffer("");
+                    Ga.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                    g = Ga.length();
                     h = time;
-                    FC = longitude;
-                    FD = latitude;
+                    Gb = longitude;
+                    Gc = latitude;
                     i = (long) Math.floor((longitude * 100000.0d) + 0.5d);
-                    FB = (long) Math.floor((latitude * 100000.0d) + 0.5d);
+                    j = (long) Math.floor((latitude * 100000.0d) + 0.5d);
                 } else {
-                    FC = longitude;
-                    FD = latitude;
+                    Gb = longitude;
+                    Gc = latitude;
                     long floor = (long) Math.floor((longitude * 100000.0d) + 0.5d);
                     long floor2 = (long) Math.floor((latitude * 100000.0d) + 0.5d);
                     m = (int) (time - h);
                     n = (int) (floor - i);
-                    o = (int) (floor2 - FB);
-                    FA.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
-                    g = FA.length();
+                    o = (int) (floor2 - j);
+                    Ga.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
+                    g = Ga.length();
                     h = time;
                     i = floor;
-                    FB = floor2;
+                    j = floor2;
                 }
                 if (g + 15 > 750) {
-                    a(FA.toString());
-                    FA = null;
+                    a(Ga.toString());
+                    Ga = null;
                 }
-                if (f >= com.baidu.location.h.i.JE) {
+                if (f >= com.baidu.location.h.i.JJ) {
                     this.q = false;
                 }
                 return true;
@@ -153,9 +153,9 @@ public class c {
         if (str == null || !str.startsWith("&nr")) {
             return false;
         }
-        if (Fz.exists() || d()) {
+        if (c.exists() || d()) {
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(Fz, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
                 randomAccessFile.seek(0L);
                 int readInt = randomAccessFile.readInt();
                 int readInt2 = randomAccessFile.readInt();
@@ -165,9 +165,9 @@ public class c {
                     d();
                     return false;
                 }
-                if (com.baidu.location.h.i.JB) {
-                    if (readInt == com.baidu.location.h.i.JE) {
-                        if (str.equals(a(readInt3 == 1 ? com.baidu.location.h.i.JE : readInt3 - 1))) {
+                if (com.baidu.location.h.i.JH) {
+                    if (readInt == com.baidu.location.h.i.JJ) {
+                        if (str.equals(a(readInt3 == 1 ? com.baidu.location.h.i.JJ : readInt3 - 1))) {
                             randomAccessFile.close();
                             return false;
                         }
@@ -194,29 +194,29 @@ public class c {
                     randomAccessFile.writeInt(1);
                     randomAccessFile.writeInt(1);
                     randomAccessFile.writeInt(2);
-                } else if (readInt < com.baidu.location.h.i.JE - 1) {
+                } else if (readInt < com.baidu.location.h.i.JJ - 1) {
                     randomAccessFile.seek(0L);
                     randomAccessFile.writeInt(readInt + 1);
                     randomAccessFile.seek(8L);
                     randomAccessFile.writeInt(readInt + 2);
-                } else if (readInt == com.baidu.location.h.i.JE - 1) {
+                } else if (readInt == com.baidu.location.h.i.JJ - 1) {
                     randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(com.baidu.location.h.i.JE);
+                    randomAccessFile.writeInt(com.baidu.location.h.i.JJ);
                     if (readInt2 == 0 || readInt2 == 1) {
                         randomAccessFile.writeInt(2);
                     }
                     randomAccessFile.seek(8L);
                     randomAccessFile.writeInt(1);
                 } else if (readInt3 == readInt2) {
-                    int i2 = readInt3 == com.baidu.location.h.i.JE ? 1 : readInt3 + 1;
-                    int i3 = i2 == com.baidu.location.h.i.JE ? 1 : i2 + 1;
+                    int i2 = readInt3 == com.baidu.location.h.i.JJ ? 1 : readInt3 + 1;
+                    int i3 = i2 == com.baidu.location.h.i.JJ ? 1 : i2 + 1;
                     randomAccessFile.seek(4L);
                     randomAccessFile.writeInt(i3);
                     randomAccessFile.writeInt(i2);
                 } else {
-                    int i4 = readInt3 == com.baidu.location.h.i.JE ? 1 : readInt3 + 1;
+                    int i4 = readInt3 == com.baidu.location.h.i.JJ ? 1 : readInt3 + 1;
                     if (i4 == readInt2) {
-                        int i5 = i4 == com.baidu.location.h.i.JE ? 1 : i4 + 1;
+                        int i5 = i4 == com.baidu.location.h.i.JJ ? 1 : i4 + 1;
                         randomAccessFile.seek(4L);
                         randomAccessFile.writeInt(i5);
                     }
@@ -233,9 +233,9 @@ public class c {
     }
 
     public static String b() {
-        if (Fz != null && Fz.exists()) {
+        if (c != null && c.exists()) {
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(Fz, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
                 randomAccessFile.seek(0L);
                 int readInt = randomAccessFile.readInt();
                 int readInt2 = randomAccessFile.readInt();
@@ -248,16 +248,16 @@ public class c {
                     randomAccessFile.close();
                     return null;
                 } else {
-                    long j = 0 + ((readInt2 - 1) * 1024) + 12;
-                    randomAccessFile.seek(j);
+                    long j2 = 0 + ((readInt2 - 1) * 1024) + 12;
+                    randomAccessFile.seek(j2);
                     int readInt4 = randomAccessFile.readInt();
                     byte[] bArr = new byte[readInt4];
-                    randomAccessFile.seek(j + 4);
+                    randomAccessFile.seek(j2 + 4);
                     for (int i2 = 0; i2 < readInt4; i2++) {
                         bArr[i2] = randomAccessFile.readByte();
                     }
                     String str = new String(bArr);
-                    int i3 = readInt < com.baidu.location.h.i.JE ? readInt2 + 1 : readInt2 == com.baidu.location.h.i.JE ? 1 : readInt2 + 1;
+                    int i3 = readInt < com.baidu.location.h.i.JJ ? readInt2 + 1 : readInt2 == com.baidu.location.h.i.JJ ? 1 : readInt2 + 1;
                     randomAccessFile.seek(4L);
                     randomAccessFile.writeInt(i3);
                     randomAccessFile.close();
@@ -272,49 +272,49 @@ public class c {
 
     private static void c() {
         e = true;
-        FA = null;
+        Ga = null;
         f = 0;
         g = 0;
         h = 0L;
         i = 0L;
-        FB = 0L;
-        FC = 0.0d;
-        FD = 0.0d;
+        j = 0L;
+        Gb = 0.0d;
+        Gc = 0.0d;
         m = 0;
         n = 0;
         o = 0;
     }
 
     private static boolean d() {
-        if (Fz.exists()) {
-            Fz.delete();
+        if (c.exists()) {
+            c.delete();
         }
-        if (!Fz.getParentFile().exists()) {
-            Fz.getParentFile().mkdirs();
+        if (!c.getParentFile().exists()) {
+            c.getParentFile().mkdirs();
         }
         try {
-            Fz.createNewFile();
-            RandomAccessFile randomAccessFile = new RandomAccessFile(Fz, "rw");
+            c.createNewFile();
+            RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
             randomAccessFile.seek(0L);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(1);
             randomAccessFile.close();
             c();
-            return Fz.exists();
+            return c.exists();
         } catch (IOException e2) {
             return false;
         }
     }
 
-    public static c lx() {
-        if (Fy == null) {
-            Fy = new c(com.baidu.location.h.c.mB().c());
+    public static c lt() {
+        if (FZ == null) {
+            FZ = new c(com.baidu.location.h.c.mr().c());
         }
-        return Fy;
+        return FZ;
     }
 
     public boolean a(Location location) {
-        return a(location, com.baidu.location.h.i.JC, com.baidu.location.h.i.JD);
+        return a(location, com.baidu.location.h.i.Z, com.baidu.location.h.i.JI);
     }
 }

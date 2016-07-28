@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
+import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 public final class PrintHelper {
     public static final int COLOR_MODE_COLOR = 2;
@@ -24,7 +25,7 @@ public final class PrintHelper {
 
         void printBitmap(String str, Bitmap bitmap);
 
-        void printBitmap(String str, Uri uri);
+        void printBitmap(String str, Uri uri) throws FileNotFoundException;
 
         void setColorMode(int i);
 
@@ -132,7 +133,7 @@ public final class PrintHelper {
         }
 
         @Override // android.support.v4.print.PrintHelper.c
-        public void printBitmap(String str, Uri uri) {
+        public void printBitmap(String str, Uri uri) throws FileNotFoundException {
             this.bZ.printBitmap(str, uri);
         }
     }
@@ -173,7 +174,7 @@ public final class PrintHelper {
         this.bY.printBitmap(str, bitmap);
     }
 
-    public void printBitmap(String str, Uri uri) {
+    public void printBitmap(String str, Uri uri) throws FileNotFoundException {
         this.bY.printBitmap(str, uri);
     }
 }

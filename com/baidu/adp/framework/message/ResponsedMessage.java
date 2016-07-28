@@ -94,8 +94,8 @@ public abstract class ResponsedMessage<T> implements a<T> {
         this.mCostTime = j;
     }
 
-    public void onDecodeFailedInBackGround(int i, T t, int i2) {
-        if (i2 == j.eU) {
+    public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
+        if (i2 == j.fw) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

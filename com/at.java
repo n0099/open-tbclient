@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as fPV;
+    final /* synthetic */ as gbI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.fPV = asVar;
+        this.gbI = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.fPV.a = asInterface.getPackageName();
-            this.fPV.b = asInterface.getActivityName();
-            if (!this.fPV.startSingleSignOn()) {
-                this.fPV.startAuthDialog();
+            this.gbI.a = asInterface.getPackageName();
+            this.gbI.b = asInterface.getActivityName();
+            if (!this.gbI.startSingleSignOn()) {
+                this.gbI.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.fPV.startAuthDialog();
+            this.gbI.startAuthDialog();
         } finally {
-            Context applicationContext = this.fPV.mActivity.getApplicationContext();
-            serviceConnection = this.fPV.fPU;
+            Context applicationContext = this.gbI.mActivity.getApplicationContext();
+            serviceConnection = this.gbI.gbH;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.fPV.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.gbI.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.fPV.startAuthDialog();
+            this.gbI.startAuthDialog();
         }
     }
 }

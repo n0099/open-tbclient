@@ -26,7 +26,7 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         boolean z;
         List<Field> a;
         Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
@@ -88,10 +88,10 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String Dp = eVar.Dp();
+                String Do = eVar.Do();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(Dp) && bArr != null && (M = a.rP().M(Dp, currentAccount)) != null) {
-                    M.e(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(Do) && bArr != null && (M = a.rO().M(Do, currentAccount)) != null) {
+                    M.k(cacheKey, bArr);
                 }
             }
         }

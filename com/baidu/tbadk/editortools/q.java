@@ -6,7 +6,7 @@ import com.baidu.tieba.u;
 public class q extends aa {
     public q() {
         super((String) null, 1, 0);
-        this.arb = u.f.selector_msgsend_btn_softkey;
-        this.name = TbadkCoreApplication.m9getInst().getString(u.j.switch_to_keyboard);
+        this.arQ = u.f.selector_msgsend_btn_softkey;
+        this.name = TbadkCoreApplication.m10getInst().getString(u.j.switch_to_keyboard);
     }
 }

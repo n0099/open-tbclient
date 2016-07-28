@@ -1,25 +1,23 @@
 package com.baidu.tieba.person.a;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au extends CustomMessageListener {
-    final /* synthetic */ at ehI;
+public class au implements Runnable {
+    final /* synthetic */ ar erH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au(at atVar, int i) {
-        super(i);
-        this.ehI = atVar;
+    public au(ar arVar) {
+        this.erH = arVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
-            return;
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        z = this.erH.erD;
+        if (!z) {
+            MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
         }
-        this.ehI.d(customResponsedMessage);
     }
 }

@@ -1,33 +1,28 @@
 package com.baidu.tieba.homepage.personalize;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ a cqR;
+public class m extends com.baidu.tbadk.util.t<Object> {
+    private final /* synthetic */ DataRes.Builder ctB;
+    final /* synthetic */ b ctz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(a aVar) {
-        this.cqR = aVar;
+    public m(b bVar, DataRes.Builder builder) {
+        this.ctz = bVar;
+        this.ctB = builder;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        BdTypeListView bdTypeListView3;
-        this.cqR.hideTip();
-        i = this.cqR.cqr;
-        if (i == 1) {
-            bdTypeListView = this.cqR.bou;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.cqR.bou;
-                bdTypeListView2.setSelection(0);
-                bdTypeListView3 = this.cqR.bou;
-                bdTypeListView3.jB();
-            }
+    @Override // com.baidu.tbadk.util.t
+    public Object doInBackground() {
+        try {
+            com.baidu.tbadk.core.b.a.rO().M("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).k("0", this.ctB.build(true).toByteArray());
+            return null;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return null;
         }
     }
 }

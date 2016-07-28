@@ -11,23 +11,23 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class UserLikeButton extends TextView {
-    private az aas;
-    private View.OnClickListener aat;
-    private String aep;
-    private String aeq;
-    private a aer;
-    private com.baidu.tbadk.coreExtra.d.a aes;
-    private String aet;
-    private BdUniqueId aeu;
-    private int aev;
-    private View.OnClickListener aew;
-    private CustomMessageListener aex;
+    private be abb;
+    private View.OnClickListener abc;
+    private String afd;
+    private String afe;
+    private a aff;
+    private com.baidu.tbadk.coreExtra.d.a afg;
+    private String afh;
+    private BdUniqueId afi;
+    private int afj;
+    private View.OnClickListener afk;
+    private CustomMessageListener afl;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -37,87 +37,87 @@ public class UserLikeButton extends TextView {
 
     public UserLikeButton(Context context) {
         super(context);
-        this.aep = TbadkCoreApplication.m9getInst().getString(u.j.relate_forum_is_followed);
-        this.aeq = TbadkCoreApplication.m9getInst().getString(u.j.forum_list_attention_tv);
-        this.aet = "0";
-        this.aev = 1;
-        this.aew = new ap(this);
-        this.aex = new aq(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+        this.afd = TbadkCoreApplication.m10getInst().getString(u.j.relate_forum_is_followed);
+        this.afe = TbadkCoreApplication.m10getInst().getString(u.j.forum_list_attention_tv);
+        this.afh = "0";
+        this.afj = 1;
+        this.afk = new ap(this);
+        this.afl = new aq(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
         this.mContext = context;
         init();
     }
 
     public UserLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aep = TbadkCoreApplication.m9getInst().getString(u.j.relate_forum_is_followed);
-        this.aeq = TbadkCoreApplication.m9getInst().getString(u.j.forum_list_attention_tv);
-        this.aet = "0";
-        this.aev = 1;
-        this.aew = new ap(this);
-        this.aex = new aq(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+        this.afd = TbadkCoreApplication.m10getInst().getString(u.j.relate_forum_is_followed);
+        this.afe = TbadkCoreApplication.m10getInst().getString(u.j.forum_list_attention_tv);
+        this.afh = "0";
+        this.afj = 1;
+        this.afk = new ap(this);
+        this.afl = new aq(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
         this.mContext = context;
         init();
     }
 
     public void setAttentionFrom(String str) {
-        this.aet = str;
+        this.afh = str;
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aat = onClickListener;
+        this.abc = onClickListener;
     }
 
     public void setFanNumCallBack(a aVar) {
-        this.aer = aVar;
+        this.aff = aVar;
     }
 
     public void i(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.aeu = bdUniqueId;
-            this.aex.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.aex);
+            this.afi = bdUniqueId;
+            this.afl.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.afl);
         }
     }
 
-    public void setData(az azVar) {
-        this.aas = azVar;
-        aG(false);
+    public void setData(be beVar) {
+        this.abb = beVar;
+        aJ(false);
     }
 
     public void setData(MetaData metaData) {
         if (metaData != null) {
-            az azVar = new az();
-            azVar.setAuthor(metaData);
-            setData(azVar);
+            be beVar = new be();
+            beVar.setAuthor(metaData);
+            setData(beVar);
         }
     }
 
-    public void aG(boolean z) {
-        if (this.aas != null && this.aas.getAuthor() != null) {
-            if (this.aev == 1) {
-                if (this.aas.getAuthor().getGodUserData() != null) {
-                    e(this.aas.getAuthor().getGodUserData().getFollowed() == 1, z);
+    public void aJ(boolean z) {
+        if (this.abb != null && this.abb.getAuthor() != null) {
+            if (this.afj == 1) {
+                if (this.abb.getAuthor().getGodUserData() != null) {
+                    e(this.abb.getAuthor().getGodUserData().getFollowed() == 1, z);
                     return;
                 }
                 return;
             }
-            e(this.aas.getAuthor().hadConcerned(), z);
+            e(this.abb.getAuthor().hadConcerned(), z);
         }
     }
 
     private void e(boolean z, boolean z2) {
         if (z) {
-            if (z2 || aH(false)) {
+            if (z2 || aK(false)) {
                 setClickable(false);
-                setText(this.aep);
+                setText(this.afd);
                 setColor(true);
                 setPadding(0, 0, 0, 0);
             }
-        } else if (z2 || aH(true)) {
+        } else if (z2 || aK(true)) {
             setClickable(true);
-            setText(this.aeq);
+            setText(this.afe);
             setColor(false);
-            setPadding(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds18), 0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds10), 0);
+            setPadding(TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds18), 0, TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds10), 0);
         }
     }
 
@@ -133,27 +133,40 @@ public class UserLikeButton extends TextView {
         setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
+    public void sd() {
+        if (this.abb != null && this.abb.getAuthor() != null) {
+            if (this.afj == 1) {
+                if (this.abb.getAuthor().getGodUserData() != null) {
+                    setColor(this.abb.getAuthor().getGodUserData().getFollowed() == 1);
+                    return;
+                }
+                return;
+            }
+            setColor(this.abb.getAuthor().hadConcerned());
+        }
+    }
+
     private void init() {
         setSingleLine();
         setIncludeFontPadding(false);
         setTextSize(0, com.baidu.adp.lib.util.k.c(this.mContext, u.e.ds28));
         setGravity(17);
-        this.aes = new com.baidu.tbadk.coreExtra.d.a(null);
-        setOnClickListener(this.aew);
+        this.afg = new com.baidu.tbadk.coreExtra.d.a(null);
+        setOnClickListener(this.afk);
     }
 
-    private boolean aH(boolean z) {
+    private boolean aK(boolean z) {
         String a2 = com.baidu.adp.lib.util.j.a(getText(), "");
         if (StringUtils.isNull(a2)) {
             return true;
         }
-        return z ? !this.aeq.equals(a2) : !this.aep.equals(a2);
+        return z ? !this.afe.equals(a2) : !this.afd.equals(a2);
     }
 
     public void setMode(int i) {
-        if (this.aev != i) {
-            this.aev = i;
-            aG(false);
+        if (this.afj != i) {
+            this.afj = i;
+            aJ(false);
         }
     }
 }

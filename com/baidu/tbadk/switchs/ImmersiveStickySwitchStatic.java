@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes.dex */
 public class ImmersiveStickySwitchStatic extends a {
     static {
-        e.cT().n(ImmersiveStickySwitchStatic.class);
+        e.cS().n(ImmersiveStickySwitchStatic.class);
     }
 
     @Override // com.baidu.adp.lib.c.a
@@ -38,9 +38,9 @@ public class ImmersiveStickySwitchStatic extends a {
     @Override // com.baidu.adp.lib.c.a
     public void changeSettingByType(int i) {
         if (i == 1) {
-            b.sO().putBoolean("switch_immersive_sticky_status", true);
+            b.sN().putBoolean("switch_immersive_sticky_status", true);
         } else {
-            b.sO().putBoolean("switch_immersive_sticky_status", false);
+            b.sN().putBoolean("switch_immersive_sticky_status", false);
         }
     }
 }

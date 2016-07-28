@@ -2,26 +2,26 @@ package com.baidu.tieba.frs.hot;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.af;
+import com.baidu.tbadk.core.data.aj;
 import com.baidu.tieba.frs.dm;
 import com.baidu.tieba.frs.dv;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d bPp;
+    final /* synthetic */ d bRc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.bPp = dVar;
+        this.bRc = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         int i;
-        af afVar;
+        aj ajVar;
         ArrayList<v> arrayList;
         dm dmVar;
         ArrayList arrayList2;
@@ -46,71 +46,71 @@ public class e extends com.baidu.adp.framework.listener.a {
             if (responsedMessage instanceof ResponsedFrsHotHttpMessage) {
                 ResponsedFrsHotHttpMessage responsedFrsHotHttpMessage = (ResponsedFrsHotHttpMessage) responsedMessage;
                 arrayList = responsedFrsHotHttpMessage.getThreadList();
-                afVar = responsedFrsHotHttpMessage.getPage();
+                ajVar = responsedFrsHotHttpMessage.getPage();
                 i = responsedFrsHotHttpMessage.getError();
                 str = responsedFrsHotHttpMessage.getErrorString();
             } else if (responsedMessage instanceof ResponsedFrsHotSocketMessage) {
                 ResponsedFrsHotSocketMessage responsedFrsHotSocketMessage = (ResponsedFrsHotSocketMessage) responsedMessage;
                 arrayList = responsedFrsHotSocketMessage.getThreadList();
-                afVar = responsedFrsHotSocketMessage.getPage();
+                ajVar = responsedFrsHotSocketMessage.getPage();
                 i = responsedFrsHotSocketMessage.getError();
                 str = responsedFrsHotSocketMessage.getErrorString();
             } else {
                 i = 0;
-                afVar = null;
+                ajVar = null;
                 arrayList = null;
             }
-            if (afVar != null) {
+            if (ajVar != null) {
                 if (arrayList != null && arrayList.size() != 0) {
-                    int pC = afVar.pC();
-                    i2 = this.bPp.bPk;
-                    if (pC > i2) {
-                        i3 = this.bPp.bPk;
+                    int pl = ajVar.pl();
+                    i2 = this.bRc.bQX;
+                    if (pl > i2) {
+                        i3 = this.bRc.bQX;
                         if (i3 > 0) {
-                            z = this.bPp.bzB;
+                            z = this.bRc.bBP;
                             if (!z) {
-                                arrayList7 = this.bPp.bPn;
+                                arrayList7 = this.bRc.bRa;
                                 arrayList7.addAll(arrayList);
                             }
                         }
                     }
-                    if (afVar.pC() > 0) {
-                        arrayList5 = this.bPp.bPn;
+                    if (ajVar.pl() > 0) {
+                        arrayList5 = this.bRc.bRa;
                         arrayList5.clear();
-                        arrayList6 = this.bPp.bPn;
+                        arrayList6 = this.bRc.bRa;
                         arrayList6.addAll(arrayList);
                     }
                 }
-                dvVar4 = this.bPp.bPm;
+                dvVar4 = this.bRc.bQZ;
                 dvVar4.errCode = i;
-                dvVar5 = this.bPp.bPm;
+                dvVar5 = this.bRc.bQZ;
                 dvVar5.errMsg = str;
-                dvVar6 = this.bPp.bPm;
-                dvVar6.pn = afVar.pC();
-                dvVar7 = this.bPp.bPm;
-                dvVar7.hasMore = afVar.pE() == 1;
-                this.bPp.bPk = afVar.pC();
+                dvVar6 = this.bRc.bQZ;
+                dvVar6.pn = ajVar.pl();
+                dvVar7 = this.bRc.bQZ;
+                dvVar7.hasMore = ajVar.pn() == 1;
+                this.bRc.bQX = ajVar.pl();
             }
-            this.bPp.bzB = false;
-            dmVar = this.bPp.bPl;
+            this.bRc.bBP = false;
+            dmVar = this.bRc.bQY;
             if (dmVar != null) {
-                arrayList2 = this.bPp.bPn;
+                arrayList2 = this.bRc.bRa;
                 if (arrayList2 != null) {
-                    arrayList4 = this.bPp.bPn;
+                    arrayList4 = this.bRc.bRa;
                     if (arrayList4.size() != 0) {
-                        dvVar3 = this.bPp.bPm;
-                        dvVar3.bHk = true;
-                        dmVar2 = this.bPp.bPl;
-                        dvVar2 = this.bPp.bPm;
-                        arrayList3 = this.bPp.bPn;
+                        dvVar3 = this.bRc.bQZ;
+                        dvVar3.bIG = true;
+                        dmVar2 = this.bRc.bQY;
+                        dvVar2 = this.bRc.bQZ;
+                        arrayList3 = this.bRc.bRa;
                         dmVar2.a(2, 0, dvVar2, arrayList3);
                     }
                 }
-                dvVar = this.bPp.bPm;
-                dvVar.bHk = false;
-                dmVar2 = this.bPp.bPl;
-                dvVar2 = this.bPp.bPm;
-                arrayList3 = this.bPp.bPn;
+                dvVar = this.bRc.bQZ;
+                dvVar.bIG = false;
+                dmVar2 = this.bRc.bQY;
+                dvVar2 = this.bRc.bQZ;
+                arrayList3 = this.bRc.bRa;
                 dmVar2.a(2, 0, dvVar2, arrayList3);
             }
         }

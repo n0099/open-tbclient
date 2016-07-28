@@ -11,7 +11,7 @@ public class a {
     public static abstract class AbstractC0062a {
         protected View view;
 
-        public abstract void e(Runnable runnable);
+        public abstract void h(Runnable runnable);
 
         public abstract boolean isHardwareAccelerated();
 
@@ -29,7 +29,7 @@ public class a {
         }
 
         @Override // com.baidu.tieba.horizonalList.a.a.AbstractC0062a
-        public void e(Runnable runnable) {
+        public void h(Runnable runnable) {
             this.view.post(runnable);
         }
 
@@ -45,7 +45,7 @@ public class a {
         }
     }
 
-    public static final AbstractC0062a ax(View view) {
+    public static final AbstractC0062a av(View view) {
         return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new b(view);
     }
 }

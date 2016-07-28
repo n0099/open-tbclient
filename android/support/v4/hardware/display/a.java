@@ -13,11 +13,11 @@ final class a {
         return ((DisplayManager) obj).getDisplay(i);
     }
 
-    public static Display[] c(Object obj) {
+    public static Display[] f(Object obj) {
         return ((DisplayManager) obj).getDisplays();
     }
 
-    public static Display[] b(Object obj, String str) {
+    public static Display[] c(Object obj, String str) {
         return ((DisplayManager) obj).getDisplays(str);
     }
 }

@@ -14,7 +14,7 @@ public class OnlineDebuggerStatic {
     static {
         MessageManager.getInstance().registerListener(new b(202006));
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(205102);
-        bVar.h(false);
+        bVar.j(false);
         MessageManager.getInstance().registerTask(bVar);
         MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_OFFLINE_DEBUG, new c(0));
     }
@@ -22,7 +22,7 @@ public class OnlineDebuggerStatic {
     /* loaded from: classes.dex */
     public static final class a extends BdAsyncTask<com.baidu.tieba.onlineDebugger.d.a, Void, com.baidu.tieba.onlineDebugger.d.b> {
         private static BdUniqueId uniqueId = BdUniqueId.gen();
-        private Object dHW;
+        private Object dUf;
 
         public a() {
             setPriority(4);
@@ -40,21 +40,21 @@ public class OnlineDebuggerStatic {
                         h b = com.baidu.tieba.onlineDebugger.e.b.b(aVarArr[0]);
                         com.baidu.tieba.onlineDebugger.d.b bVar = new com.baidu.tieba.onlineDebugger.d.b(aVarArr[0]);
                         if (b != null) {
-                            if (!b.aCG()) {
+                            if (!b.aFQ()) {
                                 throw new IllegalAccessError("Illeagl Command: " + aVarArr[0].getMsgContent());
                             }
-                            Object c = com.baidu.adp.lib.a.a.a.c(Looper.getMainLooper(), "sThreadLocal");
-                            if (c instanceof ThreadLocal) {
-                                ThreadLocal threadLocal = (ThreadLocal) c;
-                                this.dHW = threadLocal.get();
+                            Object d = com.baidu.adp.lib.a.a.a.d(Looper.getMainLooper(), "sThreadLocal");
+                            if (d instanceof ThreadLocal) {
+                                ThreadLocal threadLocal = (ThreadLocal) d;
+                                this.dUf = threadLocal.get();
                                 threadLocal.set(Looper.getMainLooper());
                             }
-                            Object aCF = b.aCF();
-                            if (c instanceof ThreadLocal) {
-                                ((ThreadLocal) c).set(this.dHW);
+                            Object aFP = b.aFP();
+                            if (d instanceof ThreadLocal) {
+                                ((ThreadLocal) d).set(this.dUf);
                             }
-                            if (aCF != null) {
-                                bVar.setMsgContent(d.M(aCF));
+                            if (aFP != null) {
+                                bVar.setMsgContent(d.P(aFP));
                             } else {
                                 bVar.setMsgContent("null");
                             }
@@ -80,7 +80,7 @@ public class OnlineDebuggerStatic {
                 BdLog.i("Result:" + bVar.getMsgContent());
             }
             if (bVar != null && bVar.getToUid() != null) {
-                MessageManager.getInstance().sendMessage(new TbDebugOnlineMessage(false, bVar.aCK(), bVar.getToUid(), bVar.getMsgContent()));
+                MessageManager.getInstance().sendMessage(new TbDebugOnlineMessage(false, bVar.aFU(), bVar.getToUid(), bVar.getMsgContent()));
             }
         }
     }

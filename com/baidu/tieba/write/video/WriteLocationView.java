@@ -15,11 +15,11 @@ import com.baidu.tieba.tbadkCore.location.d;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class WriteLocationView extends LocationInfoView {
-    private com.baidu.tieba.tbadkCore.location.d asj;
-    private int ass;
-    private final d.a asy;
-    private BaseActivity<?> bJz;
-    private final CustomMessageListener eZK;
+    private com.baidu.tieba.tbadkCore.location.d asY;
+    private int ath;
+    private final d.a atn;
+    private BaseActivity<?> bsn;
+    private final CustomMessageListener fmN;
 
     public WriteLocationView(Context context) {
         this(context, null);
@@ -27,76 +27,76 @@ public class WriteLocationView extends LocationInfoView {
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ass = 0;
-        this.asy = new a(this);
-        this.eZK = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
+        this.ath = 0;
+        this.atn = new a(this);
+        this.fmN = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
     }
 
     public void e(BaseActivity<?> baseActivity) {
-        this.bJz = baseActivity;
-        this.bJz.registerListener(this.eZK);
-        this.asj = new com.baidu.tieba.tbadkCore.location.d(this.bJz);
-        this.asj.a(this.asy);
+        this.bsn = baseActivity;
+        this.bsn.registerListener(this.fmN);
+        this.asY = new com.baidu.tieba.tbadkCore.location.d(this.bsn);
+        this.asY.a(this.atn);
         setOnClickListener(new c(this));
         BV();
     }
 
-    public boolean bcZ() {
-        if (this.asj == null) {
+    public boolean bgo() {
+        if (this.asY == null) {
             return false;
         }
-        return this.asj.bcZ();
+        return this.asY.bgo();
     }
 
     public void BT() {
-        if (!UtilHelper.isSystemLocationProviderEnabled(this.bJz.getPageContext().getPageActivity())) {
-            this.bJz.showToast(u.j.location_system_permission_prompt);
-            b(0, true, null);
-        } else if (!TbadkCoreApplication.m9getInst().getLocationShared()) {
+        if (!UtilHelper.isSystemLocationProviderEnabled(this.bsn.getPageContext().getPageActivity())) {
+            this.bsn.showToast(u.j.location_system_permission_prompt);
+            c(0, true, null);
+        } else if (!TbadkCoreApplication.m10getInst().getLocationShared()) {
             BU();
-        } else if (this.asj.bcX()) {
+        } else if (this.asY.bgm()) {
             BS();
         } else {
-            this.asj.kl(false);
-            b(1, true, null);
-            this.asj.bcV();
+            this.asY.kz(false);
+            c(1, true, null);
+            this.asY.bgk();
         }
     }
 
     private void BV() {
-        if (this.asj.bcZ()) {
-            if (this.asj.bcX()) {
-                b(2, true, com.baidu.tieba.tbadkCore.location.c.bcT().getLocationData().getFormatted_address());
+        if (this.asY.bgo()) {
+            if (this.asY.bgm()) {
+                c(2, true, com.baidu.tieba.tbadkCore.location.c.bgi().getLocationData().getFormatted_address());
                 return;
             }
-            b(1, true, null);
-            this.asj.bcV();
+            c(1, true, null);
+            this.asY.bgk();
             return;
         }
-        b(0, true, null);
+        c(0, true, null);
     }
 
     private void BU() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.bJz.getPageContext().getPageActivity());
-        aVar.bM(u.j.location_app_permission_prompt).a(u.j.isopen, new d(this)).b(u.j.cancel, new e(this)).b(this.bJz.getPageContext());
-        aVar.rT();
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.bsn.getPageContext().getPageActivity());
+        aVar.bM(u.j.location_app_permission_prompt).a(u.j.isopen, new d(this)).b(u.j.cancel, new e(this)).b(this.bsn.getPageContext());
+        aVar.rS();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bkD() {
-        if (this.asj != null) {
-            this.asj.cancelLoadData();
+    public void bbm() {
+        if (this.asY != null) {
+            this.asY.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void BS() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(this.bJz.getPageContext().getPageActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(this.bsn.getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i, boolean z, String str) {
-        this.ass = i;
+    public void c(int i, boolean z, String str) {
+        this.ath = i;
         setVisibility(z ? 0 : 8);
         k(i, str);
     }

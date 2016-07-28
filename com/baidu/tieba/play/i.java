@@ -1,21 +1,21 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class i {
-    private int eDJ = 0;
-    private int eDK = 0;
-    private boolean eDL = false;
+    private int ePs = 0;
+    private int ePt = 0;
+    private boolean ePu = false;
     private int type = 1;
 
-    public int aTz() {
-        return this.eDJ;
+    public int aWC() {
+        return this.ePs;
     }
 
-    public int aTA() {
-        return this.eDK;
+    public int aWD() {
+        return this.ePt;
     }
 
-    public boolean aTB() {
-        return this.eDL;
+    public boolean aWE() {
+        return this.ePu;
     }
 
     public int getType() {
@@ -23,9 +23,9 @@ public class i {
     }
 
     public void b(int i, int i2, boolean z, int i3) {
-        this.eDJ = i;
-        this.eDK = i2;
-        this.eDL = z;
+        this.ePs = i;
+        this.ePt = i2;
+        this.ePu = z;
         this.type = i3;
     }
 }

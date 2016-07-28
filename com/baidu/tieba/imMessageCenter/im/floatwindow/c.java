@@ -8,87 +8,87 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements i {
-    private long cZX = 0;
-    final /* synthetic */ b cZY;
+    private long dcV = 0;
+    final /* synthetic */ b dcW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cZY = bVar;
+        this.dcW = bVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void aO(int i, int i2) {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e arS;
+    public void aR(int i, int i2) {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e asE;
         Handler handler;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a arR;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e arS2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a asD;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e asE2;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e arS3;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e arS4;
-        if (SystemClock.elapsedRealtime() - this.cZX <= 300) {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e asE3;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e asE4;
+        if (SystemClock.elapsedRealtime() - this.dcV <= 300) {
             return;
         }
-        arS = this.cZY.arS();
-        handler = this.cZY.handler;
-        arS.b(handler);
-        b bVar = this.cZY;
-        arR = this.cZY.arR();
-        e arZ = arR.arZ();
-        arS2 = this.cZY.arS();
-        a = bVar.a(arZ, arS2.asq());
+        asE = this.dcW.asE();
+        handler = this.dcW.handler;
+        asE.b(handler);
+        b bVar = this.dcW;
+        asD = this.dcW.asD();
+        e asL = asD.asL();
+        asE2 = this.dcW.asE();
+        a = bVar.a(asL, asE2.atc());
         if (a) {
-            arS4 = this.cZY.arS();
-            arS4.asr();
+            asE4 = this.dcW.asE();
+            asE4.atd();
             return;
         }
-        arS3 = this.cZY.arS();
-        arS3.ass();
+        asE3 = this.dcW.asE();
+        asE3.ate();
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void aP(int i, int i2) {
-        this.cZX = SystemClock.elapsedRealtime();
+    public void aS(int i, int i2) {
+        this.dcV = SystemClock.elapsedRealtime();
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void arW() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a arR;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e arS;
+    public void asI() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a asD;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e asE;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a arR2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e arS2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a asD2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e asE2;
         Handler handler;
-        b bVar = this.cZY;
-        arR = this.cZY.arR();
-        e arZ = arR.arZ();
-        arS = this.cZY.arS();
-        a = bVar.a(arZ, arS.asq());
+        b bVar = this.dcW;
+        asD = this.dcW.asD();
+        e asL = asD.asL();
+        asE = this.dcW.asE();
+        a = bVar.a(asL, asE.atc());
         if (a) {
-            this.cZY.fS(true);
+            this.dcW.fV(true);
         } else {
-            arR2 = this.cZY.arR();
-            arR2.asn();
+            asD2 = this.dcW.asD();
+            asD2.asZ();
         }
-        arS2 = this.cZY.arS();
-        handler = this.cZY.handler;
-        arS2.c(handler);
+        asE2 = this.dcW.asE();
+        handler = this.dcW.handler;
+        asE2.c(handler);
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void arX() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a arR;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a arR2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e arS;
+    public void asJ() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a asD;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a asD2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e asE;
         Handler handler;
-        arR = this.cZY.arR();
-        if (!arR.asm()) {
-            Point point = new Point(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds30), TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds20));
-            this.cZY.cZK = false;
-            arR2 = this.cZY.arR();
-            arR2.b(point);
-            arS = this.cZY.arS();
-            handler = this.cZY.handler;
-            arS.c(handler);
+        asD = this.dcW.asD();
+        if (!asD.asY()) {
+            Point point = new Point(TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds30), TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds20));
+            this.dcW.dcI = false;
+            asD2 = this.dcW.asD();
+            asD2.b(point);
+            asE = this.dcW.asE();
+            handler = this.dcW.handler;
+            asE.c(handler);
         }
     }
 }

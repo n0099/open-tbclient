@@ -6,9 +6,9 @@ import com.baidu.tieba.frs.dy;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface f {
-    int ZN();
-
     void a(Context context, j jVar);
+
+    int aao();
 
     View getView();
 

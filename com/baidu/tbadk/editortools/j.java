@@ -10,62 +10,62 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class j {
-    private final String aqr;
-    private PopupWindow aqs;
-    private final String aqt;
-    private final int aqu;
-    private final int aqv;
+    private final String arg;
+    private PopupWindow arh;
+    private final String ari;
+    private final int arj;
+    private final int ark;
 
     public j(String str, String str2, int i, int i2) {
-        this.aqr = str;
-        this.aqt = str2;
-        this.aqu = i;
-        this.aqv = i2;
+        this.arg = str;
+        this.ari = str2;
+        this.arj = i;
+        this.ark = i2;
     }
 
     public int getToolId() {
-        return this.aqu;
+        return this.arj;
     }
 
     public int Bq() {
-        return this.aqv;
+        return this.ark;
     }
 
-    public void c(Context context, View view) {
+    public void d(Context context, View view) {
         int i;
-        if (!StringUtils.isNull(this.aqr) && !StringUtils.isNull(this.aqt) && (i = com.baidu.tbadk.core.sharedPref.b.sO().getInt(this.aqt, 0)) < 3) {
-            com.baidu.tbadk.core.sharedPref.b.sO().putInt(this.aqt, i + 1);
-            d(context, view);
+        if (!StringUtils.isNull(this.arg) && !StringUtils.isNull(this.ari) && (i = com.baidu.tbadk.core.sharedPref.b.sN().getInt(this.ari, 0)) < 3) {
+            com.baidu.tbadk.core.sharedPref.b.sN().putInt(this.ari, i + 1);
+            e(context, view);
         }
     }
 
-    private void d(Context context, View view) {
+    private void e(Context context, View view) {
         int i;
         int i2 = 0;
         if (context != null && view != null) {
             TextView textView = new TextView(context);
-            textView.setText(this.aqr);
+            textView.setText(this.arg);
             textView.setGravity(17);
             av.j((View) textView, u.d.cp_cont_i);
-            textView.setTextSize(0, com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.fontsize28));
-            int c = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds266);
-            int c2 = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds76);
+            textView.setTextSize(0, com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst(), u.e.fontsize28));
+            int c = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst(), u.e.ds266);
+            int c2 = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst(), u.e.ds76);
             av.k(textView, u.f.bg_tip_blue_right);
-            this.aqs = new PopupWindow(textView, c, c2);
-            if (this.aqv == 2) {
-                i2 = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds20);
-                i = -com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds152);
+            this.arh = new PopupWindow(textView, c, c2);
+            if (this.ark == 2) {
+                i2 = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst(), u.e.ds20);
+                i = -com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst(), u.e.ds152);
             } else {
-                i = -com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds124);
+                i = -com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst(), u.e.ds124);
             }
-            com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(this.aqs, view, i2, i);
-            com.baidu.adp.lib.h.h.dM().postDelayed(new k(this), 3000L);
+            com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(this.arh, view, i2, i);
+            com.baidu.adp.lib.h.h.dL().postDelayed(new k(this), 3000L);
         }
     }
 
     public void Br() {
-        if (this.aqs != null && this.aqs.isShowing()) {
-            com.baidu.adp.lib.h.j.a(this.aqs);
+        if (this.arh != null && this.arh.isShowing()) {
+            com.baidu.adp.lib.h.j.a(this.arh);
         }
     }
 }

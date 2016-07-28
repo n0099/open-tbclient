@@ -1,34 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dm {
-    private BaseActivity bkc;
-    private dg dOf;
+public class dm implements Runnable {
+    final /* synthetic */ dh edS;
+    private final /* synthetic */ com.baidu.tieba.pb.data.h edW;
 
-    public dm(dg dgVar, BaseActivity baseActivity) {
-        this.dOf = dgVar;
-        this.bkc = baseActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dm(dh dhVar, com.baidu.tieba.pb.data.h hVar) {
+        this.edS = dhVar;
+        this.edW = hVar;
     }
 
-    public String w(Intent intent) {
-        int indexOf;
-        int length;
-        if (intent == null || intent.getData() == null) {
-            return null;
-        }
-        String dataString = intent.getDataString();
-        if (!StringUtils.isNull(dataString) && dataString.startsWith("tbpb://")) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10320").s("obj_locate", 3).s("obj_type", 1));
-        }
-        String decode = Uri.decode(intent.getData().getEncodedPath());
-        if (StringUtils.isNull(decode) || (indexOf = decode.indexOf("tid=")) < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
-            return null;
-        }
-        return decode.substring(length);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.edS.a(this.edW, 3, false, 0, "", false, 0, 0L, 0L, true);
+        this.edS.axe = false;
     }
 }

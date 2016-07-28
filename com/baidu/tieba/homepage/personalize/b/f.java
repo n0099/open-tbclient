@@ -16,19 +16,19 @@ public class f {
 
     public void n(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        LK();
         LJ();
+        LI();
     }
 
-    private void LJ() {
+    private void LI() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309277);
         bVar.setResponsedClass(RealTimeSocketResponse.class);
-        bVar.h(true);
+        bVar.j(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void LK() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, com.baidu.tieba.tbadkCore.a.a.aF(TbConfig.HOME_REALTIME_ADDRESS, 309277));
+    private void LJ() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, com.baidu.tieba.tbadkCore.a.a.aG(TbConfig.HOME_REALTIME_ADDRESS, 309277));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -22,7 +22,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Context context;
         com.baidu.tieba.pb.data.m mVar = null;
         super.decodeInBackGround(i, bArr);
@@ -39,7 +39,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 mVar = com.baidu.tieba.pb.data.m.a(pbFloorResIdl.data, context);
                 if (mVar != null) {
-                    mVar.dMs = pbFloorResIdl.error;
+                    mVar.dYC = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

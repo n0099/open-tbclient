@@ -15,14 +15,14 @@ import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class t extends com.baidu.tbadk.editortools.d {
-    private boolean asF = false;
+    private boolean atu = false;
 
     @Override // com.baidu.tbadk.editortools.d
     protected com.baidu.tbadk.editortools.f ag(Context context) {
         com.baidu.tbadk.editortools.l lVar = new com.baidu.tbadk.editortools.l(context);
         lVar.setBackgroundColorId(0);
         lVar.setBarBackgroundColorId(u.d.common_color_10099);
-        lVar.bv(true);
+        lVar.by(true);
         return new p(lVar);
     }
 
@@ -48,14 +48,14 @@ public class t extends com.baidu.tbadk.editortools.d {
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
         Bl.y(arrayList);
-        if (com.baidu.tieba.tbadkCore.voice.c.bdt() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Bl.getContext()), aa.class)) != null && (aaVar = (aa) runTask.getData()) != null) {
-            aaVar.ard = 2;
+        if (com.baidu.tieba.tbadkCore.voice.c.bgL() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Bl.getContext()), aa.class)) != null && (aaVar = (aa) runTask.getData()) != null) {
+            aaVar.arS = 2;
             Bl.b(aaVar);
         }
         Bl.b(new com.baidu.tbadk.editortools.a.a(Bl.getContext(), 4));
         com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(Bl.getContext(), true);
-        if (aVar.aqi instanceof EditText) {
-            ((EditText) aVar.aqi).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
+        if (aVar.aqX instanceof EditText) {
+            ((EditText) aVar.aqX).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
         Bl.b(aVar);
         Bl.b(new com.baidu.tbadk.editortools.sendtool.a(Bl.getContext()));
@@ -68,7 +68,7 @@ public class t extends com.baidu.tbadk.editortools.d {
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m9getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(u.j.login_to_use), true, i)));
+            TbadkCoreApplication.m10getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(u.j.login_to_use), true, i)));
             return false;
         }
         return true;

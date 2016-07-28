@@ -13,7 +13,7 @@ public class ResponseSetCommForumStateSocketMessage extends SocketResponsedMessa
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.mResponseData = (SetCommonForumStateResIdl) new Wire(new Class[0]).parseFrom(bArr, SetCommonForumStateResIdl.class);
         if (this.mResponseData.error != null) {
             setError(this.mResponseData.error.errorno.intValue());

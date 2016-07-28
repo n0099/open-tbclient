@@ -15,7 +15,7 @@ class u extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && com.baidu.tbadk.core.util.bg.uq() != null && com.baidu.tbadk.core.util.bg.uq().indexOf("NewVcode") != -1) {
-            TbadkCoreApplication.m9getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.m9getInst().getNewVcodeWebviewCrashCount() + 1);
+            TbadkCoreApplication.m10getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.m10getInst().getNewVcodeWebviewCrashCount() + 1);
         }
     }
 }

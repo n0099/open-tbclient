@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.ay;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements View.OnClickListener {
-    final /* synthetic */ ab fbT;
+    final /* synthetic */ ab foX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ab abVar) {
-        this.fbT = abVar;
+        this.foX = abVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,16 +25,16 @@ public class ad implements View.OnClickListener {
         FragmentTabHost fragmentTabHost2;
         FragmentTabHost fragmentTabHost3;
         int i = 2;
-        mainTabActivity = this.fbT.fbI;
-        mainTabActivity2 = this.fbT.fbI;
+        mainTabActivity = this.foX.foM;
+        mainTabActivity2 = this.foX.foM;
         mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        fragmentTabHost = this.fbT.aWJ;
+        fragmentTabHost = this.foX.aXH;
         if (fragmentTabHost.getCurrentTabType() != 6) {
-            fragmentTabHost2 = this.fbT.aWJ;
+            fragmentTabHost2 = this.foX.aXH;
             if (fragmentTabHost2.getCurrentTabType() == 3) {
                 i = 3;
             } else {
-                fragmentTabHost3 = this.fbT.aWJ;
+                fragmentTabHost3 = this.foX.aXH;
                 if (fragmentTabHost3.getCurrentTabType() != 2) {
                     i = 0;
                 } else {

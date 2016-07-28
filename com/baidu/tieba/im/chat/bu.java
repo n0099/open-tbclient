@@ -6,23 +6,23 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu extends com.baidu.adp.base.g {
-    final /* synthetic */ TalkableActivity cGe;
+    final /* synthetic */ TalkableActivity cIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(TalkableActivity talkableActivity) {
-        this.cGe = talkableActivity;
+        this.cIT = talkableActivity;
     }
 
     @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
+    public void g(Object obj) {
         if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
             LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            if (this.cGe.cFR != null) {
-                this.cGe.cFR.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
+            if (this.cIT.cIG != null) {
+                this.cIT.cIG.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
                 return;
             }
             return;
         }
-        this.cGe.showToast(TbadkCoreApplication.m9getInst().getString(u.j.pic_parser_error));
+        this.cIT.showToast(TbadkCoreApplication.m10getInst().getString(u.j.pic_parser_error));
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.LogoActivity;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    final /* synthetic */ LogoActivity aHs;
+    final /* synthetic */ LogoActivity aIj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(LogoActivity logoActivity) {
-        this.aHs = logoActivity;
+        this.aIj = logoActivity;
     }
 
     @Override // java.lang.Runnable
@@ -27,37 +27,37 @@ class d implements Runnable {
         RelativeLayout relativeLayout3;
         RelativeLayout relativeLayout4;
         RelativeLayout relativeLayout5;
-        relativeLayout = this.aHs.mRootView;
+        relativeLayout = this.aIj.mRootView;
         if (relativeLayout != null) {
-            bitmap = this.aHs.aHh;
+            bitmap = this.aIj.aHY;
             if (bitmap != null) {
-                LogoActivity logoActivity = this.aHs;
-                bitmap2 = this.aHs.aHh;
-                logoActivity.aHd = bitmap2;
-                bitmap3 = this.aHs.aHd;
+                LogoActivity logoActivity = this.aIj;
+                bitmap2 = this.aIj.aHY;
+                logoActivity.aHU = bitmap2;
+                bitmap3 = this.aIj.aHU;
                 if (bitmap3 != null) {
                     com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10859"));
-                    this.aHs.aHi = true;
-                    bitmap4 = this.aHs.aHd;
+                    this.aIj.aHZ = true;
+                    bitmap4 = this.aIj.aHU;
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap4);
-                    relativeLayout2 = this.aHs.mRootView;
+                    relativeLayout2 = this.aIj.mRootView;
                     relativeLayout2.removeAllViews();
-                    relativeLayout3 = this.aHs.mRootView;
+                    relativeLayout3 = this.aIj.mRootView;
                     relativeLayout3.setBackgroundDrawable(bitmapDrawable);
-                    relativeLayout4 = this.aHs.mRootView;
+                    relativeLayout4 = this.aIj.mRootView;
                     relativeLayout4.setFocusable(true);
-                    relativeLayout5 = this.aHs.mRootView;
+                    relativeLayout5 = this.aIj.mRootView;
                     relativeLayout5.setOnClickListener(new e(this));
                 }
-                com.baidu.tbadk.performanceLog.ab.Fc().ae(System.currentTimeMillis());
-                com.baidu.tieba.c.a.Me().Mj();
+                com.baidu.tbadk.performanceLog.ab.Fb().Z(System.currentTimeMillis());
+                com.baidu.tieba.c.a.Md().Mi();
             }
         }
-        com.baidu.adp.lib.h.h dM = com.baidu.adp.lib.h.h.dM();
-        aVar = this.aHs.aHl;
-        dM.removeCallbacks(aVar);
-        com.baidu.adp.lib.h.h dM2 = com.baidu.adp.lib.h.h.dM();
-        aVar2 = this.aHs.aHl;
-        dM2.postDelayed(aVar2, 1500L);
+        com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
+        aVar = this.aIj.aIc;
+        dL.removeCallbacks(aVar);
+        com.baidu.adp.lib.h.h dL2 = com.baidu.adp.lib.h.h.dL();
+        aVar2 = this.aIj.aIc;
+        dL2.postDelayed(aVar2, 1500L);
     }
 }

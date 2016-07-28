@@ -8,7 +8,7 @@ class aw extends BdAsyncTask<Void, Void, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.y.a(com.baidu.tieba.tbadkCore.n.WIRE, FrsPageResIdl.class);
+        com.baidu.tbadk.util.z.a(com.baidu.tieba.tbadkCore.n.WIRE, FrsPageResIdl.class);
         return null;
     }
 }

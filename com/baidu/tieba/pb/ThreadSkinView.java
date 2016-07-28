@@ -15,8 +15,8 @@ import com.baidu.tieba.u;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo dJR;
-    private a.C0077a dJS;
+    private SkinInfo dWa;
+    private a.C0076a dWb;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -38,22 +38,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0077a c0077a) {
+    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0076a c0076a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.dJR != skinInfo && c0077a != null) {
-            this.dJS = c0077a;
-            this.dJS.du("action_type");
-            this.dJS.bM("obj_id", skinInfo.obj_id);
-            this.dJS.bM("obj_url", skinInfo.url);
-            this.dJS.bM("obj_name", skinInfo.monitor_id);
-            this.dJS.bM("action_type", "VIEW_TRUE");
-            this.dJS.save();
+        if (this.dWa != skinInfo && c0076a != null) {
+            this.dWb = c0076a;
+            this.dWb.dt("action_type");
+            this.dWb.bR("obj_id", skinInfo.obj_id);
+            this.dWb.bR("obj_url", skinInfo.url);
+            this.dWb.bR("obj_name", skinInfo.monitor_id);
+            this.dWb.bR("action_type", "VIEW_TRUE");
+            this.dWb.save();
         }
-        this.dJR = skinInfo;
+        this.dWa = skinInfo;
         int A = k.A(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = A;
@@ -80,13 +80,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dJR != null && !StringUtils.isNull(this.dJR.url)) {
-            if (this.dJS != null) {
-                this.dJS.du("action_type");
-                this.dJS.bM("action_type", "CLICK");
-                this.dJS.save();
+        if (this.dWa != null && !StringUtils.isNull(this.dWa.url)) {
+            if (this.dWb != null) {
+                this.dWb.dt("action_type");
+                this.dWb.bR("action_type", "CLICK");
+                this.dWb.save();
             }
-            bi.us().c(this.mTbPageContext, new String[]{this.dJR.url});
+            bi.us().c(this.mTbPageContext, new String[]{this.dWa.url});
         }
     }
 }

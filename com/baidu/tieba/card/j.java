@@ -10,34 +10,34 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class j extends a<com.baidu.tieba.card.a.h> {
-    private TbPageContext<?> Ea;
-    private View aRW;
-    private TextView aRX;
-    public k aRY;
+    private TbPageContext<?> EA;
+    private View aSQ;
+    private TextView aSR;
+    public k aSS;
     private int mSkinType;
 
     public j(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.Ea = tbPageContext;
+        this.EA = tbPageContext;
         LinearLayout linearLayout = (LinearLayout) getView();
-        this.aRW = linearLayout.findViewById(u.g.card_god_feed_unfollowed_top_margin);
-        this.aRX = (TextView) linearLayout.findViewById(u.g.card_god_feed_unfollowed_god_describe);
-        this.aRY = new k(this.Ea);
-        this.aRY.aRZ = true;
-        linearLayout.addView(this.aRY.getView());
+        this.aSQ = linearLayout.findViewById(u.g.card_god_feed_unfollowed_top_margin);
+        this.aSR = (TextView) linearLayout.findViewById(u.g.card_god_feed_unfollowed_god_describe);
+        this.aSS = new k(this.EA);
+        this.aSS.aST = true;
+        linearLayout.addView(this.aSS.getView());
     }
 
-    public k KR() {
-        return this.aRY;
+    public k KQ() {
+        return this.aSS;
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.av.l(this.aRW, u.d.cp_bg_line_c);
-            com.baidu.tbadk.core.util.av.j((View) this.aRX, u.d.cp_cont_f);
-            com.baidu.tbadk.core.util.av.l(this.aRX, u.d.cp_bg_line_d);
-            this.aRY.d(tbPageContext, i);
+            com.baidu.tbadk.core.util.av.l(this.aSQ, u.d.cp_bg_line_c);
+            com.baidu.tbadk.core.util.av.j((View) this.aSR, u.d.cp_cont_f);
+            com.baidu.tbadk.core.util.av.l(this.aSR, u.d.cp_bg_line_d);
+            this.aSS.d(tbPageContext, i);
         }
         this.mSkinType = i;
     }
@@ -49,25 +49,25 @@ public class j extends a<com.baidu.tieba.card.a.h> {
 
     public void a(com.baidu.tieba.card.a.h hVar) {
         if (hVar != null) {
-            if (hVar.aUT) {
-                this.aRW.setVisibility(0);
+            if (hVar.aVQ) {
+                this.aSQ.setVisibility(0);
             } else {
-                this.aRW.setVisibility(8);
+                this.aSQ.setVisibility(8);
             }
-            if (hVar.aVd == null || hVar.aVd.threadData == null || hVar.aVd.threadData.getAuthor() == null || hVar.aVd.threadData.getAuthor().getGodUserData() == null || StringUtils.isNull(hVar.aVd.threadData.getAuthor().getGodUserData().getIntro())) {
-                this.aRX.setVisibility(8);
+            if (hVar.aWb == null || hVar.aWb.threadData == null || hVar.aWb.threadData.getAuthor() == null || hVar.aWb.threadData.getAuthor().getGodUserData() == null || StringUtils.isNull(hVar.aWb.threadData.getAuthor().getGodUserData().getIntro())) {
+                this.aSR.setVisibility(8);
             } else {
-                this.aRX.setVisibility(0);
-                this.aRX.setText(hVar.aVd.threadData.getAuthor().getGodUserData().getIntro());
+                this.aSR.setVisibility(0);
+                this.aSR.setText(hVar.aWb.threadData.getAuthor().getGodUserData().getIntro());
             }
-            this.aRY.a(hVar.aVd);
-            d(this.Ea, TbadkCoreApplication.m9getInst().getSkinType());
+            this.aSS.a(hVar.aWb);
+            d(this.EA, TbadkCoreApplication.m10getInst().getSkinType());
         }
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        if (this.aRY != null) {
-            this.aRY.j(bdUniqueId);
+        if (this.aSS != null) {
+            this.aSS.j(bdUniqueId);
         }
     }
 

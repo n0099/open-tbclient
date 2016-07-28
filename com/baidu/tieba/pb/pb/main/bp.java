@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp implements View.OnClickListener {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        dg dgVar;
-        this.dPF.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.dPF.getPageContext().getPageActivity(), 23007)));
+        dh dhVar;
+        this.ebT.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.ebT.getPageContext().getPageActivity(), 23007)));
         com.baidu.tbadk.core.util.ay ayVar = new com.baidu.tbadk.core.util.ay("c10125");
-        dgVar = this.dPF.dOf;
-        TiebaStatic.log(ayVar.ab("tid", dgVar.getThreadID()).s("obj_type", 1));
+        dhVar = this.ebT.eas;
+        TiebaStatic.log(ayVar.ab("tid", dhVar.getThreadID()).s("obj_type", 1));
     }
 }

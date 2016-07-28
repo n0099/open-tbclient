@@ -6,11 +6,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements TbCheckBox.a {
-    final /* synthetic */ AtListActivity fHT;
+    final /* synthetic */ AtListActivity fTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(AtListActivity atListActivity) {
-        this.fHT = atListActivity;
+        this.fTK = atListActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.a
@@ -18,17 +18,17 @@ public class h implements TbCheckBox.a {
         AtSelectFriendList atSelectFriendList;
         if (obj != null && (obj instanceof MetaData)) {
             if (z) {
-                atSelectFriendList = this.fHT.fHH;
+                atSelectFriendList = this.fTK.fTy;
                 if (5 <= atSelectFriendList.getItemLength()) {
-                    this.fHT.showToastWithIcon(String.format(this.fHT.getPageContext().getString(u.j.invite_friend_exceed_max_count), 5), u.f.icon_toast_game_error);
+                    this.fTK.showToastWithIcon(String.format(this.fTK.getPageContext().getString(u.j.invite_friend_exceed_max_count), 5), u.f.icon_toast_game_error);
                     tbCheckBox.setChecked(false);
                     ((MetaData) obj).setChecked(false);
                     return;
                 }
-                this.fHT.a((MetaData) obj);
+                this.fTK.a((MetaData) obj);
                 return;
             }
-            this.fHT.b((MetaData) obj);
+            this.fTK.b((MetaData) obj);
         }
     }
 }

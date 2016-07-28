@@ -25,21 +25,21 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static float ps;
-    static int pt;
-    static int pu;
-    private static String px;
-    static boolean pr = false;
-    private static Toast pv = null;
-    private static a pw = null;
+    private static float pU;
+    static int pV;
+    static int pW;
+    private static String pZ;
+    static boolean pT = false;
+    private static Toast pX = null;
+    private static a pY = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new l();
 
     /* loaded from: classes.dex */
     public interface a {
-        void aR(String str);
+        void aS(String str);
 
-        View fO();
+        View fN();
     }
 
     public static void z(Context context) {
@@ -48,67 +48,67 @@ public class k {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            pt = displayMetrics.heightPixels;
-            pu = displayMetrics.widthPixels;
+            pV = displayMetrics.heightPixels;
+            pW = displayMetrics.widthPixels;
         } else {
-            pt = displayMetrics.widthPixels;
-            pu = displayMetrics.heightPixels;
+            pV = displayMetrics.widthPixels;
+            pW = displayMetrics.heightPixels;
         }
-        ps = displayMetrics.density;
-        pr = true;
+        pU = displayMetrics.density;
+        pT = true;
     }
 
     public static int A(Context context) {
-        if (!pr) {
+        if (!pT) {
             z(context);
         }
-        return pt;
+        return pV;
     }
 
     public static int B(Context context) {
-        if (!pr) {
+        if (!pT) {
             z(context);
         }
-        return pu;
+        return pW;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!pr) {
+        if (!pT) {
             z(context);
         }
-        return (int) ((ps * f) + 0.5f);
+        return (int) ((pU * f) + 0.5f);
     }
 
     public static float C(Context context) {
-        if (!pr) {
+        if (!pT) {
             z(context);
         }
-        return ps;
+        return pU;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (pv == null) {
-                if (pw == null || pw.fO() == null) {
-                    pv = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (pX == null) {
+                if (pY == null || pY.fN() == null) {
+                    pX = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    pv = new Toast(BdBaseApplication.getInst().getApp());
-                    pv.setDuration(0);
-                    pw.aR(str);
-                    pv.setView(pw.fO());
+                    pX = new Toast(BdBaseApplication.getInst().getApp());
+                    pX.setDuration(0);
+                    pY.aS(str);
+                    pX.setView(pY.fN());
                 }
-                pv.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-            } else if (!str.equals(px)) {
-                if (pw == null || pw.fO() == null) {
-                    pv.setText(str);
+                pX.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else if (!str.equals(pZ)) {
+                if (pY == null || pY.fN() == null) {
+                    pX.setText(str);
                 } else {
-                    pw.aR(str);
+                    pY.aS(str);
                 }
             }
-            px = str;
+            pZ = str;
             mHandler.postDelayed(mRunnable, i);
-            pv.show();
+            pX.show();
         }
     }
 
@@ -128,7 +128,7 @@ public class k {
         m(context, context.getResources().getString(i));
     }
 
-    public static void a(Context context, View view) {
+    public static void b(Context context, View view) {
         if (view != null) {
             try {
                 if (view.getWindowToken() != null) {
@@ -140,7 +140,7 @@ public class k {
         }
     }
 
-    public static void b(Context context, View view) {
+    public static void c(Context context, View view) {
         try {
             ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 0);
         } catch (Throwable th) {
@@ -187,7 +187,7 @@ public class k {
         return new int[]{defaultDisplay.getWidth(), defaultDisplay.getHeight()};
     }
 
-    public static Field d(Object obj, String str) {
+    public static Field e(Object obj, String str) {
         for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
             try {
                 Field declaredField = cls.getDeclaredField(str);
@@ -199,14 +199,14 @@ public class k {
         return null;
     }
 
-    public static boolean j(byte[] bArr) {
+    public static boolean m(byte[] bArr) {
         if (bArr == null || bArr.length < 3) {
             return false;
         }
         return bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70;
     }
 
-    public static boolean k(byte[] bArr) {
+    public static boolean n(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
@@ -264,7 +264,7 @@ public class k {
         return ellipsize.toString();
     }
 
-    public static int[] b(int i, int i2, int i3, int i4) {
+    public static int[] c(int i, int i2, int i3, int i4) {
         int i5;
         int i6;
         if (i <= 0 || i2 <= 0 || i3 <= 0 || i4 <= 0) {
@@ -305,9 +305,9 @@ public class k {
         return false;
     }
 
-    public static void fG() {
+    public static void fF() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (fH() ? false : true) {
+            if (fG() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -324,12 +324,12 @@ public class k {
         }
     }
 
-    public static boolean fH() {
+    public static boolean fG() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean fI() {
-        return i.fr();
+    public static boolean fH() {
+        return i.fq();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -341,7 +341,7 @@ public class k {
         view2.post(new m(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String fJ() {
+    public static String fI() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -374,7 +374,7 @@ public class k {
         return str;
     }
 
-    public static String fK() {
+    public static String fJ() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -407,12 +407,12 @@ public class k {
         return str;
     }
 
-    public static boolean fL() {
-        String aQ;
+    public static boolean fK() {
+        String aR;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (aQ = aQ(str)) != null && aQ.length() >= 3) {
-            int g = com.baidu.adp.lib.h.b.g(aQ(aQ.substring(0, 1)), 0);
-            int g2 = com.baidu.adp.lib.h.b.g(aQ(aQ.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (aR = aR(str)) != null && aR.length() >= 3) {
+            int g = com.baidu.adp.lib.h.b.g(aR(aR.substring(0, 1)), 0);
+            int g2 = com.baidu.adp.lib.h.b.g(aR(aR.substring(1, 2)), 0);
             if (g > 3) {
                 return true;
             }
@@ -423,18 +423,18 @@ public class k {
         return false;
     }
 
-    public static String aQ(String str) {
+    public static String aR(String str) {
         if (str == null) {
             return null;
         }
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a fM() {
-        return pw;
+    public static a fL() {
+        return pY;
     }
 
     public static void a(a aVar) {
-        pw = aVar;
+        pY = aVar;
     }
 }

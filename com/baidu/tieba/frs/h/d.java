@@ -1,105 +1,34 @@
 package com.baidu.tieba.frs.h;
 
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.togetherhi.PbTogetherhiAvatarList;
-import com.baidu.tieba.u;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.tieba.frs.h.b;
 /* loaded from: classes.dex */
-public class d extends y.a {
-    public View SZ;
-    public TextView aOX;
-    public LinearLayout bNE;
-    public LinearLayout bQZ;
-    public RelativeLayout bRa;
-    public HeadImageView bRb;
-    public TextView bRc;
-    public UserIconBox bRd;
-    public TextView bRe;
-    public View bRf;
-    public TextView bRg;
-    public TextView bRh;
-    public TextView bRi;
-    public TextView bRj;
-    public TextView bRk;
-    public TextView bRl;
-    public TextView bRm;
-    public PbTogetherhiAvatarList bRn;
-    public View bRo;
-    public TextView bRp;
-    public TextView bRq;
-    public TextView bRr;
-    public TextView bRs;
-    public TextView bRt;
-    private int bRu;
-    public TbImageView image1;
-    public TbImageView image2;
-    public TbImageView image3;
-    public TbImageView image4;
-    public TextView livingTag;
-    public TextView location;
-    public int mSkinType;
+class d extends Handler {
+    final /* synthetic */ b bSe;
 
-    public d(View view) {
-        super(view);
-        this.mSkinType = 3;
-        this.bRu = ((WindowManager) view.getContext().getSystemService("window")).getDefaultDisplay().getWidth() - view.getResources().getDimensionPixelSize(u.e.ds162);
-        this.bNE = (LinearLayout) view.findViewById(u.g.frs_togetherhi_list);
-        this.bQZ = (LinearLayout) view.findViewById(u.g.togetherhi_plan_layout);
-        this.bRa = (RelativeLayout) view.findViewById(u.g.pb_togetherhi_living_layout);
-        this.SZ = view.findViewById(u.g.card_home_page_normal_thread_top_line);
-        this.bRb = (HeadImageView) view.findViewById(u.g.frs_togetherhi_avatar);
-        this.aOX = (TextView) view.findViewById(u.g.frs_togetherhi_user_name);
-        this.bRc = (TextView) view.findViewById(u.g.frs_togetherhi_thread_title);
-        this.bRd = (UserIconBox) view.findViewById(u.g.frs_user_icon_box);
-        this.bRe = (TextView) view.findViewById(u.g.frs_togetherhi_thread_content);
-        this.bRf = view.findViewById(u.g.frs_item_location_sep);
-        this.bRg = (TextView) view.findViewById(u.g.frs_item_location_address);
-        this.bRh = (TextView) view.findViewById(u.g.togetherhi_activity_title);
-        this.bRi = (TextView) view.findViewById(u.g.togetherhi_activity_location);
-        this.bRj = (TextView) view.findViewById(u.g.togetherhi_activity_time);
-        this.bRk = (TextView) view.findViewById(u.g.togetherhi_activity_user_number);
-        this.bRl = (TextView) view.findViewById(u.g.togetherhi_activity_user_number_tv1);
-        this.bRm = (TextView) view.findViewById(u.g.togetherhi_activity_user_number_tv2);
-        this.bRn = (PbTogetherhiAvatarList) view.findViewById(u.g.togetherhi_avatar_list);
-        this.bRo = view.findViewById(u.g.th_image_shadow);
-        this.image1 = (TbImageView) view.findViewById(u.g.th_image1);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.image1.getLayoutParams();
-        layoutParams.height = this.bRu / 2;
-        layoutParams.width = this.bRu / 2;
-        this.image1.setLayoutParams(layoutParams);
-        this.image1.setDefaultErrorResource(u.f.th_photo_bg);
-        this.image2 = (TbImageView) view.findViewById(u.g.th_image2);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.image1.getLayoutParams();
-        layoutParams2.height = this.bRu / 2;
-        layoutParams2.width = this.bRu / 2;
-        this.image2.setLayoutParams(layoutParams2);
-        this.image2.setDefaultErrorResource(u.f.th_photo_bg);
-        this.image3 = (TbImageView) view.findViewById(u.g.th_image3);
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.image1.getLayoutParams();
-        layoutParams3.height = this.bRu / 2;
-        layoutParams3.width = this.bRu / 2;
-        this.image3.setLayoutParams(layoutParams3);
-        this.image3.setDefaultErrorResource(u.f.th_photo_bg);
-        this.image4 = (TbImageView) view.findViewById(u.g.th_image4);
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.image1.getLayoutParams();
-        layoutParams4.height = this.bRu / 2;
-        layoutParams4.width = this.bRu / 2;
-        this.image4.setLayoutParams(layoutParams4);
-        this.image4.setDefaultErrorResource(u.f.th_photo_bg);
-        this.livingTag = (TextView) view.findViewById(u.g.th_living);
-        this.bRp = (TextView) view.findViewById(u.g.th_title);
-        this.bRq = (TextView) view.findViewById(u.g.th_join_num);
-        this.location = (TextView) view.findViewById(u.g.th_location);
-        this.bRr = (TextView) view.findViewById(u.g.frs_thread_post_time);
-        this.bRs = (TextView) view.findViewById(u.g.frs_thread_praise_cnt);
-        this.bRt = (TextView) view.findViewById(u.g.frs_thread_comment_cnt);
-        view.setBackgroundResource(u.d.common_color_10022);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(b bVar, Looper looper) {
+        super(looper);
+        this.bSe = bVar;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        b.a aVar;
+        switch (message.what) {
+            case 5:
+                if ((message.obj instanceof b.a) && (aVar = (b.a) message.obj) != null) {
+                    aVar.bSg = false;
+                    aVar.gv = false;
+                    aVar.count = 0;
+                    return;
+                }
+                return;
+            default:
+                return;
+        }
     }
 }

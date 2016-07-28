@@ -13,10 +13,10 @@ public class bs implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.this$0.cbl.getVisibility() != 0) {
-            if ((this.this$0.mBitmap != null || this.this$0.edg != null) && view.getTag() != null) {
-                this.this$0.edn = false;
-                this.this$0.rc(view.getTag().toString());
+        if (this.this$0.cdm.getVisibility() != 0) {
+            if ((this.this$0.mBitmap != null || this.this$0.exU != null) && view.getTag() != null) {
+                this.this$0.eyb = false;
+                this.this$0.rM(view.getTag().toString());
             }
         }
     }

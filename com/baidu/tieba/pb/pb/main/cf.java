@@ -8,7 +8,7 @@ class cf extends BdAsyncTask<Void, Void, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.y.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
+        com.baidu.tbadk.util.z.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
         return null;
     }
 }

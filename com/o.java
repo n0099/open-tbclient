@@ -10,11 +10,11 @@ import org.json.JSONObject;
 class o extends JsonHttpResponseHandler {
     final /* synthetic */ ShareContent a;
     final /* synthetic */ IBaiduListener b;
-    final /* synthetic */ n cV;
+    final /* synthetic */ n cT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, ShareContent shareContent, IBaiduListener iBaiduListener) {
-        this.cV = nVar;
+        this.cT = nVar;
         this.a = shareContent;
         this.b = iBaiduListener;
     }
@@ -22,7 +22,7 @@ class o extends JsonHttpResponseHandler {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
     public void onFailure(Throwable th, String str) {
-        this.cV.a(this.a, this.b);
+        this.cT.a(this.a, this.b);
     }
 
     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
@@ -34,6 +34,6 @@ class o extends JsonHttpResponseHandler {
             }
         } catch (JSONException e) {
         }
-        this.cV.a(this.a, this.b);
+        this.cT.a(this.a, this.b);
     }
 }

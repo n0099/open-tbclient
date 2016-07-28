@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class v extends HttpMessageListener {
-    final /* synthetic */ WriteActivity fJw;
+    final /* synthetic */ WriteActivity fVn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(WriteActivity writeActivity, int i) {
         super(i);
-        this.fJw = writeActivity;
+        this.fVn = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,22 +26,22 @@ class v extends HttpMessageListener {
         if (httpResponsedMessage.getError() == 0) {
             String str4 = (String) MessageManager.getInstance().runTask(CmdConfigCustom.CMD_DECODE_BUBBLE, String.class, httpResponsedMessage).getData();
             if (TextUtils.isEmpty(str4)) {
-                str3 = this.fJw.dxW;
+                str3 = this.fVn.dBu;
                 if (!TextUtils.isEmpty(str3)) {
-                    this.fJw.dxW = str4;
-                    TbadkCoreApplication.m9getInst().setDefaultBubble(str4);
-                    this.fJw.ln(true);
+                    this.fVn.dBu = str4;
+                    TbadkCoreApplication.m10getInst().setDefaultBubble(str4);
+                    this.fVn.lz(true);
                     return;
                 }
             }
             if (!TextUtils.isEmpty(str4)) {
-                str = this.fJw.dxW;
+                str = this.fVn.dBu;
                 if (!str4.equals(str)) {
-                    this.fJw.dxW = str4;
-                    TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
-                    str2 = this.fJw.dxW;
-                    m9getInst.setDefaultBubble(str2);
-                    this.fJw.ln(true);
+                    this.fVn.dBu = str4;
+                    TbadkCoreApplication m10getInst = TbadkCoreApplication.m10getInst();
+                    str2 = this.fVn.dBu;
+                    m10getInst.setDefaultBubble(str2);
+                    this.fVn.lz(true);
                 }
             }
         }

@@ -26,14 +26,14 @@ public abstract class Message<T> extends i {
     public Message(int i) {
         this.mCmd = i;
         check();
-        this.clientLogID = com.baidu.adp.lib.stats.a.dO().dQ();
+        this.clientLogID = com.baidu.adp.lib.stats.a.dN().dP();
     }
 
     public Message(int i, BdUniqueId bdUniqueId) {
         this.mCmd = i;
         this.mTag = bdUniqueId;
         check();
-        this.clientLogID = com.baidu.adp.lib.stats.a.dO().dQ();
+        this.clientLogID = com.baidu.adp.lib.stats.a.dN().dP();
     }
 
     private void check() {

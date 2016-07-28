@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean b(Context context, Uri uri) {
+    public static boolean c(Context context, Uri uri) {
         Intent intent = new Intent();
         intent.setData(uri);
         try {

@@ -6,11 +6,11 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 /* loaded from: classes.dex */
 class u implements a.e {
-    final /* synthetic */ t acR;
+    final /* synthetic */ t adC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.acR = tVar;
+        this.adC = tVar;
     }
 
     @Override // com.baidu.tieba.b.d.a.e

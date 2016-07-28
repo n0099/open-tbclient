@@ -7,11 +7,11 @@ import com.baidu.tieba.u;
 public class x extends aa {
     public x(Context context) {
         super(context, null, 2, 0);
-        this.name = TbadkCoreApplication.m9getInst().getString(u.j.more_function);
-        this.arb = u.f.selector_editor_btn_more;
-        this.aqi = new t(context);
-        this.arf = true;
-        this.are = 6;
-        this.arg = new int[]{1};
+        this.name = TbadkCoreApplication.m10getInst().getString(u.j.more_function);
+        this.arQ = u.f.selector_editor_btn_more;
+        this.aqX = new t(context);
+        this.arU = true;
+        this.arT = 6;
+        this.arV = new int[]{1};
     }
 }

@@ -9,7 +9,7 @@ public class a {
         if (tbPageContext == null || view == null) {
             return false;
         }
-        tbPageContext.getLayoutMode().ad(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        tbPageContext.getLayoutMode().af(TbadkCoreApplication.m10getInst().getSkinType() == 1);
         tbPageContext.getLayoutMode().w(view);
         return true;
     }

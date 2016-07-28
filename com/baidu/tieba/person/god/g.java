@@ -10,11 +10,11 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 class g implements i.a {
-    final /* synthetic */ GodThreadListActivity eiG;
+    final /* synthetic */ GodThreadListActivity esK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(GodThreadListActivity godThreadListActivity) {
-        this.eiG = godThreadListActivity;
+        this.esK = godThreadListActivity;
     }
 
     @Override // com.baidu.tieba.person.god.i.a
@@ -32,37 +32,37 @@ class g implements i.a {
         a aVar2;
         List<v> list4;
         List list5;
-        iVar = this.eiG.eiC;
+        iVar = this.esK.esG;
         if (iVar != null) {
-            hVar = this.eiG.eiB;
+            hVar = this.esK.esF;
             if (hVar != null) {
-                list2 = this.eiG.eiD;
+                list2 = this.esK.esH;
                 if (list2 != null) {
-                    hVar2 = this.eiG.eiB;
-                    hVar2.SQ();
-                    hVar3 = this.eiG.eiB;
-                    hVar3.aLv();
-                    hVar4 = this.eiG.eiB;
+                    hVar2 = this.esK.esF;
+                    hVar2.Ty();
+                    hVar3 = this.esK.esF;
+                    hVar3.aNY();
+                    hVar4 = this.esK.esF;
                     hVar4.hideNoDataView();
-                    aVar = this.eiG.eiA;
+                    aVar = this.esK.esE;
                     if (aVar != null) {
-                        metaData = this.eiG.eiE;
+                        metaData = this.esK.esI;
                         List<com.baidu.tieba.card.a.c> a = c.a(list, metaData, true);
                         if (y.s(a) > 0) {
                             if (i == 0) {
-                                list5 = this.eiG.eiD;
+                                list5 = this.esK.esH;
                                 list5.clear();
                             }
-                            list3 = this.eiG.eiD;
+                            list3 = this.esK.esH;
                             list3.addAll(a);
-                            aVar2 = this.eiG.eiA;
-                            list4 = this.eiG.eiD;
-                            aVar2.cm(list4);
+                            aVar2 = this.esK.esE;
+                            list4 = this.esK.esH;
+                            aVar2.cz(list4);
                             return;
                         }
-                        String string = TbadkCoreApplication.m9getInst().getString(u.j.no_data_text);
-                        hVar5 = this.eiG.eiB;
-                        hVar5.nK(string);
+                        String string = TbadkCoreApplication.m10getInst().getString(u.j.no_data_text);
+                        hVar5 = this.esK.esF;
+                        hVar5.ox(string);
                     }
                 }
             }
@@ -70,25 +70,25 @@ class g implements i.a {
     }
 
     @Override // com.baidu.tieba.person.god.i.a
-    public void fF(String str) {
+    public void fD(String str) {
         i iVar;
         h hVar;
         h hVar2;
         List list;
         h hVar3;
         h hVar4;
-        iVar = this.eiG.eiC;
+        iVar = this.esK.esG;
         if (iVar != null) {
-            hVar = this.eiG.eiB;
+            hVar = this.esK.esF;
             if (hVar != null) {
-                hVar2 = this.eiG.eiB;
-                hVar2.SQ();
-                list = this.eiG.eiD;
+                hVar2 = this.esK.esF;
+                hVar2.Ty();
+                list = this.esK.esH;
                 if (list.isEmpty()) {
-                    hVar3 = this.eiG.eiB;
-                    hVar3.aLw();
-                    hVar4 = this.eiG.eiB;
-                    hVar4.nK(str);
+                    hVar3 = this.esK.esF;
+                    hVar3.aNZ();
+                    hVar4 = this.esK.esF;
+                    hVar4.ox(str);
                 }
             }
         }

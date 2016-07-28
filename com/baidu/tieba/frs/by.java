@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class by implements com.baidu.tbadk.widget.layout.i {
-    final /* synthetic */ bq bFI;
+    final /* synthetic */ bq bGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public by(bq bqVar) {
-        this.bFI = bqVar;
+        this.bGW = bqVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.i
@@ -18,14 +18,14 @@ public class by implements com.baidu.tbadk.widget.layout.i {
         View view4;
         View view5;
         View view6;
-        view2 = this.bFI.bFq;
+        view2 = this.bGW.bGE;
         if (view2 != null) {
-            view3 = this.bFI.bFq;
+            view3 = this.bGW.bGE;
             if (view3.getLayoutParams() != null && i2 != i4) {
-                view4 = this.bFI.bFq;
+                view4 = this.bGW.bGE;
                 view4.getLayoutParams().height = i2;
-                view5 = this.bFI.bFq;
-                view6 = this.bFI.bFq;
+                view5 = this.bGW.bGE;
+                view6 = this.bGW.bGE;
                 view5.setLayoutParams(view6.getLayoutParams());
             }
         }

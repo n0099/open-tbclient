@@ -12,12 +12,12 @@ import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q implements f {
-    private View aSa;
-    private TabMenuPopView.a bHK = new r(this);
-    private j bQP;
-    private j.b bQS;
-    private List<dy> bQT;
-    private TabMenuPopView bQU;
+    private View aSU;
+    private TabMenuPopView.a bJg = new r(this);
+    private j bSN;
+    private j.b bSQ;
+    private List<dy> bSR;
+    private TabMenuPopView bSS;
     private View mContentView;
     private Context mContext;
 
@@ -25,26 +25,26 @@ public class q implements f {
     public void a(Context context, j jVar) {
         if (context != null && jVar != null) {
             this.mContext = context;
-            this.bQP = jVar;
-            this.bQS = jVar.ZP();
+            this.bSN = jVar;
+            this.bSQ = jVar.aar();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(u.h.tab_menu_multline_view, (ViewGroup) null);
-            this.aSa = this.mContentView.findViewById(u.g.top_line);
-            this.bQU = (TabMenuPopView) this.mContentView.findViewById(u.g.categorycontainer);
-            this.bQU.setOnItemClickCallBack(this.bHK);
+            this.aSU = this.mContentView.findViewById(u.g.top_line);
+            this.bSS = (TabMenuPopView) this.mContentView.findViewById(u.g.categorycontainer);
+            this.bSS.setOnItemClickCallBack(this.bJg);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.f
     public void setData(List<dy> list) {
         if (list != null) {
-            this.bQT = list;
+            this.bSR = list;
             dy dyVar = new dy();
-            dyVar.bGN = 0;
+            dyVar.bIj = 0;
             dyVar.name = this.mContext.getResources().getString(u.j.forum_list_menu_all);
             dyVar.isSelected = false;
             av.l(this.mContentView, u.d.cp_bg_line_d);
-            av.l(this.aSa, u.d.cp_bg_line_b);
-            this.bQU.a(this.bQT, dyVar);
+            av.l(this.aSU, u.d.cp_bg_line_b);
+            this.bSS.a(this.bSR, dyVar);
         }
     }
 
@@ -57,15 +57,15 @@ public class q implements f {
     public void vm() {
         if (this.mContentView != null) {
             av.l(this.mContentView, u.d.cp_bg_line_d);
-            av.l(this.aSa, u.d.cp_bg_line_b);
+            av.l(this.aSU, u.d.cp_bg_line_b);
         }
-        if (this.bQU != null) {
-            this.bQU.vm();
+        if (this.bSS != null) {
+            this.bSS.vm();
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public int ZN() {
+    public int aao() {
         this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         return this.mContentView.getMeasuredHeight();
     }

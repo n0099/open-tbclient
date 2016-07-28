@@ -3,9 +3,9 @@ package com.baidu.tieba.play;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface d {
-    void IA();
+    boolean IA();
 
-    boolean IB();
+    void Iz();
 
     int getCurrentPosition();
 

@@ -8,13 +8,13 @@ public class g {
         if (context == null) {
             return null;
         }
-        if (com.baidu.adp.lib.util.i.fs()) {
+        if (com.baidu.adp.lib.util.i.fr()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.ft()) {
-            int fA = com.baidu.adp.lib.util.i.fA();
+        if (com.baidu.adp.lib.util.i.fs()) {
+            int fz = com.baidu.adp.lib.util.i.fz();
             StringBuilder sb = new StringBuilder();
-            switch (fA) {
+            switch (fz) {
                 case 1:
                     sb.append('M');
                     break;
@@ -33,11 +33,11 @@ public class g {
             } else {
                 sb.append("_NET_");
             }
-            if (com.baidu.adp.lib.util.i.fv()) {
+            if (com.baidu.adp.lib.util.i.fu()) {
                 sb.append("3G");
-            } else if (com.baidu.adp.lib.util.i.fu()) {
+            } else if (com.baidu.adp.lib.util.i.ft()) {
                 sb.append("4G");
-            } else if (com.baidu.adp.lib.util.i.fw()) {
+            } else if (com.baidu.adp.lib.util.i.fv()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

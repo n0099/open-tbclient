@@ -1,55 +1,43 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.az;
-import com.baidu.tieba.frs.ba;
-import com.baidu.tieba.tbadkCore.p;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.baidu.tbadk.TbPageContext;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ad {
-    int WS();
+public class ad implements com.baidu.adp.lib.f.c<com.baidu.tbadk.widget.layout.c> {
+    final /* synthetic */ ab bLs;
 
-    HashMap<Integer, az> XS();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(ab abVar) {
+        this.bLs = abVar;
+    }
 
-    void XT();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: XM */
+    public com.baidu.tbadk.widget.layout.c dE() {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bLs.EA;
+        return new com.baidu.tbadk.widget.layout.c(tbPageContext.getPageActivity());
+    }
 
-    int XU();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public void o(com.baidu.tbadk.widget.layout.c cVar) {
+        cVar.removeAllViews();
+    }
 
-    int XV();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: d */
+    public com.baidu.tbadk.widget.layout.c p(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
+    }
 
-    int XW();
-
-    int XX();
-
-    int XY();
-
-    void a(com.baidu.adp.widget.ListView.w wVar);
-
-    void a(com.baidu.adp.widget.ListView.x xVar);
-
-    void a(ba baVar);
-
-    void a(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, p pVar);
-
-    com.baidu.adp.widget.ListView.v at(int i);
-
-    void av(String str, String str2);
-
-    void db(boolean z);
-
-    boolean k(BdUniqueId bdUniqueId);
-
-    void m(View.OnClickListener onClickListener);
-
-    void n(View.OnClickListener onClickListener);
-
-    void notifyDataSetChanged();
-
-    void onDestory();
-
-    void setForumName(String str);
-
-    void setFromCDN(boolean z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: e */
+    public com.baidu.tbadk.widget.layout.c q(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
+    }
 }

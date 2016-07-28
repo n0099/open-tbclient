@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private TextView fCv;
-    private ImageView fCw;
-    private View fCx;
+    private TextView fPw;
+    private ImageView fPx;
+    private View fPy;
     private Context mContext;
 
     public a(Context context) {
@@ -32,34 +32,34 @@ public class a extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(u.h.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.fCv = (TextView) findViewById(u.g.prefix_text);
-        this.fCw = (ImageView) findViewById(u.g.prefix_checked);
-        this.fCx = findViewById(u.g.prefix_item_divider);
-        this.fCv.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        av.k(this.fCv, u.d.cp_bg_line_d);
-        this.fCw.setBackgroundDrawable(av.getDrawable(u.f.icon_set_list_ok_s));
-        av.k(this.fCx, u.d.cp_bg_line_c);
+        this.fPw = (TextView) findViewById(u.g.prefix_text);
+        this.fPx = (ImageView) findViewById(u.g.prefix_checked);
+        this.fPy = findViewById(u.g.prefix_item_divider);
+        this.fPw.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        av.k(this.fPw, u.d.cp_bg_line_d);
+        this.fPx.setBackgroundDrawable(av.getDrawable(u.f.icon_set_list_ok_s));
+        av.k(this.fPy, u.d.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.fCv.setText(str);
+        this.fPw.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.fCv.setTextColor(i);
+        this.fPw.setTextColor(i);
     }
 
-    public void lb(boolean z) {
+    public void lp(boolean z) {
         if (z) {
-            this.fCw.setVisibility(0);
+            this.fPx.setVisibility(0);
         } else {
-            this.fCw.setVisibility(8);
+            this.fPx.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.fCx.getLayoutParams()).setMargins(k.c(this.mContext, u.e.ds30), 0, k.c(this.mContext, u.e.ds30), 0);
+            ((LinearLayout.LayoutParams) this.fPy.getLayoutParams()).setMargins(k.c(this.mContext, u.e.ds30), 0, k.c(this.mContext, u.e.ds30), 0);
         }
     }
 }

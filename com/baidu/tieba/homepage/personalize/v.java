@@ -1,20 +1,22 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.tbadk.core.view.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements t.b {
-    final /* synthetic */ s crd;
+public class v extends CustomMessageListener {
+    final /* synthetic */ b ctz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(s sVar) {
-        this.crd = sVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(b bVar, int i) {
+        super(i);
+        this.ctz = bVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.t.b
-    public void aE(boolean z) {
-        a aVar;
-        aVar = this.crd.cqY;
-        aVar.update();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.ctz.ahH();
     }
 }

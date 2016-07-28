@@ -5,19 +5,19 @@ import android.net.Uri;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ b UY;
-    private final /* synthetic */ Uri UZ;
-    private final /* synthetic */ ContentValues Va;
+    final /* synthetic */ b VH;
+    private final /* synthetic */ Uri VI;
+    private final /* synthetic */ ContentValues VJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, Uri uri, ContentValues contentValues) {
-        this.UY = bVar;
-        this.UZ = uri;
-        this.Va = contentValues;
+        this.VH = bVar;
+        this.VI = uri;
+        this.VJ = contentValues;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.UY.b(this.UZ, this.Va);
+        this.VH.b(this.VI, this.VJ);
     }
 }

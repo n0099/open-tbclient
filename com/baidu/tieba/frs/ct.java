@@ -10,27 +10,27 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ct implements a.b {
-    private final /* synthetic */ FrsActivity bGu;
-    private final /* synthetic */ com.baidu.tieba.frs.view.n bGv;
-    private final /* synthetic */ long bGw;
-    private final /* synthetic */ String bGx;
-    private final /* synthetic */ ShareFromFrsMsgData bGy;
+    private final /* synthetic */ FrsActivity bHQ;
+    private final /* synthetic */ com.baidu.tieba.frs.view.n bHR;
+    private final /* synthetic */ long bHS;
+    private final /* synthetic */ String bHT;
+    private final /* synthetic */ ShareFromFrsMsgData bHU;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ct(FrsActivity frsActivity, com.baidu.tieba.frs.view.n nVar, long j, String str, String str2, ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.bGu = frsActivity;
-        this.bGv = nVar;
-        this.bGw = j;
+        this.bHQ = frsActivity;
+        this.bHR = nVar;
+        this.bHS = j;
         this.val$name = str;
-        this.bGx = str2;
-        this.bGy = shareFromFrsMsgData;
+        this.bHT = str2;
+        this.bHU = shareFromFrsMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(a aVar) {
-        this.bGu.HidenSoftKeyPad((InputMethodManager) this.bGu.getSystemService("input_method"), this.bGv.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.bGu.getPageContext().getPageActivity(), this.bGw, this.val$name, this.bGx, 0, this.bGv.getLeaveMsg(), this.bGy.toChatMessageContent())));
+        this.bHQ.HidenSoftKeyPad((InputMethodManager) this.bHQ.getSystemService("input_method"), this.bHR.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.bHQ.getPageContext().getPageActivity(), this.bHS, this.val$name, this.bHT, 0, this.bHR.getLeaveMsg(), this.bHU.toChatMessageContent())));
         aVar.dismiss();
     }
 }

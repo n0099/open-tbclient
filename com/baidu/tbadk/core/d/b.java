@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.d;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a Ut = null;
+    private static a Ve = null;
 
     public static void d(Context context, int i) {
-        if (Ut != null) {
-            Ut.d(context, i);
+        if (Ve != null) {
+            Ve.d(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (Ut != null) {
-            Ut.b(context, i, z);
+        if (Ve != null) {
+            Ve.b(context, i, z);
         }
     }
 
     public static void L(Context context) {
-        if (Ut != null) {
-            Ut.L(context);
+        if (Ve != null) {
+            Ve.L(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (Ut != null) {
-            Ut.c(context, i, z);
+        if (Ve != null) {
+            Ve.c(context, i, z);
         }
     }
 
-    public static Class<?> sH() {
-        if (Ut == null) {
+    public static Class<?> sG() {
+        if (Ve == null) {
             return null;
         }
-        return Ut.sH();
+        return Ve.sG();
     }
 
-    public static String sI() {
-        if (Ut == null) {
+    public static String sH() {
+        if (Ve == null) {
             return null;
         }
-        return Ut.sI();
+        return Ve.sH();
     }
 
     public static void a(a aVar) {
-        Ut = aVar;
+        Ve = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (Ut == null) {
+        if (Ve == null) {
             return -1;
         }
-        return Ut.getCurrentTabType();
+        return Ve.getCurrentTabType();
     }
 }

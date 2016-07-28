@@ -18,7 +18,7 @@ public class ForumHeadVideoListSocketResponseMessage extends SocketResponsedMess
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ForumHeadVideoResIdl forumHeadVideoResIdl = (ForumHeadVideoResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumHeadVideoResIdl.class);
         if (forumHeadVideoResIdl != null) {
             setError(forumHeadVideoResIdl.error.errorno.intValue());

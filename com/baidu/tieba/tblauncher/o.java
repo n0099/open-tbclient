@@ -26,11 +26,11 @@ class o extends CustomMessageListener {
                 a -= newsNotifyMessage.getMsgOfficialMerge();
             }
             if (a == 0) {
-                abVar2 = this.this$0.fbu;
+                abVar2 = this.this$0.foy;
                 abVar2.b(true, false, 0);
                 return;
             }
-            abVar = this.this$0.fbu;
+            abVar = this.this$0.foy;
             abVar.b(true, true, a);
         }
     }

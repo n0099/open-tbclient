@@ -3,15 +3,15 @@ package com.baidu.tieba.write.vcode.oldVcode;
 import android.view.View;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity fFV;
+    final /* synthetic */ VcodeActivity fRW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(VcodeActivity vcodeActivity) {
-        this.fFV = vcodeActivity;
+        this.fRW = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fFV.finish();
+        this.fRW.finish();
     }
 }

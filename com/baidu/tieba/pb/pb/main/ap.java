@@ -4,39 +4,39 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class ap extends CustomMessageListener {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ap(PbActivity pbActivity, int i) {
         super(i);
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        dg dgVar;
+        dh dhVar;
         com.baidu.tbadk.editortools.d.e eVar;
-        es esVar;
+        ew ewVar;
         com.baidu.tbadk.editortools.d.e eVar2;
-        es esVar2;
-        es esVar3;
+        ew ewVar2;
+        ew ewVar3;
         com.baidu.tbadk.editortools.d.e eVar3;
-        dgVar = this.dPF.dOf;
-        if (dgVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            eVar = this.dPF.dOX;
+        dhVar = this.ebT.eas;
+        if (dhVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            eVar = this.ebT.ebk;
             if (eVar != null) {
-                esVar3 = this.dPF.dOO;
-                eVar3 = this.dPF.dOX;
-                esVar3.gb(eVar3.BW());
+                ewVar3 = this.ebT.ebb;
+                eVar3 = this.ebT.ebk;
+                ewVar3.ge(eVar3.BW());
             }
-            esVar = this.dPF.dOO;
-            esVar.aGT();
-            eVar2 = this.dPF.dOX;
+            ewVar = this.ebT.ebb;
+            ewVar.aKg();
+            eVar2 = this.ebT.ebk;
             eVar2.BZ();
-            esVar2 = this.dPF.dOO;
-            esVar2.avf();
+            ewVar2 = this.ebT.ebb;
+            ewVar2.avR();
         }
     }
 }

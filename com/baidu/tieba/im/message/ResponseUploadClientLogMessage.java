@@ -11,7 +11,7 @@ public class ResponseUploadClientLogMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         UploadClientLogResIdl uploadClientLogResIdl = (UploadClientLogResIdl) new Wire(new Class[0]).parseFrom(bArr, UploadClientLogResIdl.class);
         if (uploadClientLogResIdl != null) {
             setError(uploadClientLogResIdl.error.errorno.intValue());

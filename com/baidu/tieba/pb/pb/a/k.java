@@ -2,11 +2,11 @@ package com.baidu.tieba.pb.pb.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Runnable {
-    final /* synthetic */ e dML;
+    final /* synthetic */ e dYX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(e eVar) {
-        this.dML = eVar;
+        this.dYX = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -14,13 +14,13 @@ public class k implements Runnable {
         y yVar;
         y yVar2;
         y yVar3;
-        yVar = this.dML.dMD;
+        yVar = this.dYX.dYN;
         if (yVar != null) {
-            yVar2 = this.dML.dMD;
-            if (yVar2.aJJ != null) {
-                yVar3 = this.dML.dMD;
-                if (!yVar3.aJJ.isPlaying()) {
-                    this.dML.d(true, 0);
+            yVar2 = this.dYX.dYN;
+            if (yVar2.aKC != null) {
+                yVar3 = this.dYX.dYN;
+                if (!yVar3.aKC.isPlaying()) {
+                    this.dYX.e(true, 0);
                 }
             }
         }

@@ -7,41 +7,41 @@ import com.baidu.tieba.tbadkCore.aj;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class o implements aj.a {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.aj.a
     public void gR(String str) {
         com.baidu.tieba.tbadkCore.aj ajVar;
-        dg dgVar;
-        this.dPF.bBd = false;
-        ajVar = this.dPF.bBp;
+        dh dhVar;
+        this.ebT.ebu = false;
+        ajVar = this.ebT.bEB;
         if (ajVar != null) {
-            dgVar = this.dPF.dOf;
-            com.baidu.tieba.pb.data.h pbData = dgVar.getPbData();
-            if (pbData.aDO().getPraise().getIsLike() == 1) {
-                this.dPF.hi(0);
+            dhVar = this.ebT.eas;
+            com.baidu.tieba.pb.data.h pbData = dhVar.getPbData();
+            if (pbData.aGY().qp().getIsLike() == 1) {
+                this.ebT.hl(0);
             } else {
-                this.dPF.hi(1);
+                this.ebT.hl(1);
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.aDO()));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.aGY()));
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.aj.a
     public void u(int i, String str) {
         com.baidu.tieba.tbadkCore.aj ajVar;
-        this.dPF.bBd = false;
-        ajVar = this.dPF.bBp;
+        this.ebT.ebu = false;
+        ajVar = this.ebT.bEB;
         if (ajVar != null && str != null) {
-            if (AntiHelper.qL(i)) {
-                AntiHelper.O(this.dPF.getPageContext().getPageActivity(), str);
+            if (AntiHelper.rg(i)) {
+                AntiHelper.O(this.ebT.getPageContext().getPageActivity(), str);
             } else {
-                this.dPF.showToast(str);
+                this.ebT.showToast(str);
             }
         }
     }

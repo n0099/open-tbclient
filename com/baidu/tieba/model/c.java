@@ -11,25 +11,25 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.e {
-    public long Kc;
-    private a dGc;
-    private final HttpMessageListener dGd;
+    public long Kb;
+    private a dKo;
+    private final HttpMessageListener dKp;
 
     /* loaded from: classes.dex */
     public interface a {
-        void mP(int i);
+        void mU(int i);
 
         void onError(int i, String str);
     }
 
     public void a(a aVar) {
-        this.dGc = aVar;
+        this.dKo = aVar;
     }
 
     public c(Context context) {
         super(null);
-        this.Kc = 300000L;
-        this.dGd = new d(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.Kb = 300000L;
+        this.dKp = new d(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     @Override // com.baidu.adp.base.e
@@ -42,24 +42,24 @@ public class c extends com.baidu.adp.base.e {
         return false;
     }
 
-    public boolean aBP() {
-        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m9getInst().getReporyUserInfoLastTime()) >= this.Kc;
+    public boolean aCQ() {
+        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m10getInst().getReporyUserInfoLastTime()) >= this.Kb;
     }
 
-    public void aBQ() {
-        TbadkCoreApplication.m9getInst().setReporyUserInfoCurrentTime();
+    public void aCR() {
+        TbadkCoreApplication.m10getInst().setReporyUserInfoCurrentTime();
     }
 
-    public void cb(long j) {
-        this.Kc = j;
+    public void bV(long j) {
+        this.Kb = j;
     }
 
-    public void aBR() {
+    public void aCS() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.dGd);
+        messageManager.registerListener(this.dKp);
     }
 
     public void b(int i, float f, float f2) {
@@ -71,6 +71,6 @@ public class c extends com.baidu.adp.base.e {
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.dGd);
+        MessageManager.getInstance().unRegisterListener(this.dKp);
     }
 }

@@ -14,11 +14,11 @@ import java.io.File;
 public class au {
     public static void c(TbPageContext<?> tbPageContext) {
         try {
-            if (!m.bG()) {
+            if (!m.bF()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.sV());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.sU());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.sV());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.sU());
                 }
             } else {
                 File cV = m.cV("camera.jpg");
@@ -41,19 +41,19 @@ public class au {
     public static void b(TbPageContext<?> tbPageContext, String str) {
         String str2;
         try {
-            if (!m.bG()) {
+            if (!m.bF()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.sV());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.sU());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.sV());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.sU());
                     return;
                 } else {
                     return;
                 }
             }
             boolean z = false;
-            if (m.cO(m.oH + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+            if (m.cO(m.po + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
                 File file = new File(String.valueOf(str2) + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();

@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.tieba.enterForum.home.e;
 /* loaded from: classes.dex */
 public interface d {
-    void MJ();
+    void MI();
 
-    void cM(boolean z);
+    void cP(boolean z);
 
     void g(e eVar);
 

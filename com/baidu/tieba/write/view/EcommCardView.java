@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class EcommCardView extends RelativeLayout {
-    private TextView aXb;
-    private TextView cGh;
-    private TextView dZl;
-    private TbImageView fGD;
-    private TextView fGE;
+    private TextView aXZ;
+    private TextView cIW;
+    private TextView elN;
+    private TbImageView fSu;
+    private TextView fSv;
 
     public EcommCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -39,11 +39,11 @@ public class EcommCardView extends RelativeLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(u.h.ecomm_card_layout, (ViewGroup) this, true);
-        this.fGD = (TbImageView) inflate.findViewById(u.g.card_photo);
-        this.cGh = (TextView) inflate.findViewById(u.g.card_description);
-        this.aXb = (TextView) inflate.findViewById(u.g.card_price);
-        this.fGE = (TextView) inflate.findViewById(u.g.card_fare);
-        this.dZl = (TextView) inflate.findViewById(u.g.card_address);
+        this.fSu = (TbImageView) inflate.findViewById(u.g.card_photo);
+        this.cIW = (TextView) inflate.findViewById(u.g.card_description);
+        this.aXZ = (TextView) inflate.findViewById(u.g.card_price);
+        this.fSv = (TextView) inflate.findViewById(u.g.card_fare);
+        this.elN = (TextView) inflate.findViewById(u.g.card_address);
     }
 
     public void setData(DealInfoData dealInfoData) {
@@ -55,25 +55,25 @@ public class EcommCardView extends RelativeLayout {
             if (arrayList != null && arrayList.size() > 0) {
                 str = arrayList.get(0).smallPic;
             }
-            this.fGD.c(str, 10, false);
-            this.cGh.setText(dealInfoData.title);
+            this.fSu.c(str, 10, false);
+            this.cIW.setText(dealInfoData.title);
             double d2 = dealInfoData.unitPrice;
             if ((d2 >= 0.0d ? d2 : 0.0d) > 9999999.0d) {
-                this.aXb.setText("¥" + ba.H((long) d));
+                this.aXZ.setText("¥" + ba.C((long) d));
             } else {
-                this.aXb.setText("¥" + String.format(Locale.getDefault(), "%.2f", Double.valueOf(d)));
+                this.aXZ.setText("¥" + String.format(Locale.getDefault(), "%.2f", Double.valueOf(d)));
             }
             float f = dealInfoData.shipFee;
             if (f < 0.0f) {
                 f = 0.0f;
             }
             if (f > 9999999.0f) {
-                format = ba.H(f);
+                format = ba.C(f);
             } else {
                 format = String.format(Locale.getDefault(), "%.2f", Float.valueOf(f));
             }
-            this.fGE.setText(getResources().getString(u.j.ecomm_shipfee, format));
-            this.dZl.setText(dealInfoData.sellerAddress);
+            this.fSv.setText(getResources().getString(u.j.ecomm_shipfee, format));
+            this.elN.setText(dealInfoData.sellerAddress);
         }
     }
 }

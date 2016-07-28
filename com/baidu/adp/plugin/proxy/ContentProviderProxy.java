@@ -5,6 +5,7 @@ import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.OperationApplicationException;
 import android.content.pm.ProviderInfo;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
@@ -14,6 +15,7 @@ import android.os.ParcelFileDescriptor;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ContentProviderProxy extends ContentProvider {
@@ -121,7 +123,7 @@ public class ContentProviderProxy extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) {
+    public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
         return super.applyBatch(arrayList);
     }
 
@@ -146,12 +148,12 @@ public class ContentProviderProxy extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public AssetFileDescriptor openAssetFile(Uri uri, String str) {
+    public AssetFileDescriptor openAssetFile(Uri uri, String str) throws FileNotFoundException {
         return super.openAssetFile(uri, str);
     }
 
     @Override // android.content.ContentProvider
-    public ParcelFileDescriptor openFile(Uri uri, String str) {
+    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
         return super.openFile(uri, str);
     }
 }

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static final HashMap<Class<?>, Class<?>> vU = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> wv = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,39 +18,39 @@ public class f {
     }
 
     static {
-        vU.put(Boolean.class, Boolean.TYPE);
-        vU.put(Byte.class, Byte.TYPE);
-        vU.put(Character.class, Character.TYPE);
-        vU.put(Short.class, Short.TYPE);
-        vU.put(Integer.class, Integer.TYPE);
-        vU.put(Float.class, Float.TYPE);
-        vU.put(Long.class, Long.TYPE);
-        vU.put(Double.class, Double.TYPE);
-        vU.put(Boolean.TYPE, Boolean.TYPE);
-        vU.put(Byte.TYPE, Byte.TYPE);
-        vU.put(Character.TYPE, Character.TYPE);
-        vU.put(Short.TYPE, Short.TYPE);
-        vU.put(Integer.TYPE, Integer.TYPE);
-        vU.put(Float.TYPE, Float.TYPE);
-        vU.put(Long.TYPE, Long.TYPE);
-        vU.put(Double.TYPE, Double.TYPE);
+        wv.put(Boolean.class, Boolean.TYPE);
+        wv.put(Byte.class, Byte.TYPE);
+        wv.put(Character.class, Character.TYPE);
+        wv.put(Short.class, Short.TYPE);
+        wv.put(Integer.class, Integer.TYPE);
+        wv.put(Float.class, Float.TYPE);
+        wv.put(Long.class, Long.TYPE);
+        wv.put(Double.class, Double.TYPE);
+        wv.put(Boolean.TYPE, Boolean.TYPE);
+        wv.put(Byte.TYPE, Byte.TYPE);
+        wv.put(Character.TYPE, Character.TYPE);
+        wv.put(Short.TYPE, Short.TYPE);
+        wv.put(Integer.TYPE, Integer.TYPE);
+        wv.put(Float.TYPE, Float.TYPE);
+        wv.put(Long.TYPE, Long.TYPE);
+        wv.put(Double.TYPE, Double.TYPE);
     }
 
-    public static <T> T a(Object obj, String str, Object[] objArr) {
+    public static <T> T a(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         return (T) b(obj, str, objArr);
     }
 
-    public static <T> T b(Object obj, String str, Object[] objArr) {
-        return (T) b(obj.getClass(), str, d(objArr)).invoke(obj, e(objArr));
+    public static <T> T b(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+        return (T) b(obj.getClass(), str, f(objArr)).invoke(obj, g(objArr));
     }
 
-    public static void a(Object obj, Class<?> cls, String str, Object obj2) {
+    public static void a(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
         declaredField.set(obj, obj2);
     }
 
-    private static Method b(Class<?> cls, String str, Class<?>[] clsArr) {
+    private static Method b(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
         Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
         if (a2 != null) {
             a2.setAccessible(true);
@@ -58,7 +58,7 @@ public class f {
         return a2;
     }
 
-    private static Method a(Method[] methodArr, String str, Class<?>[] clsArr) {
+    private static Method a(Method[] methodArr, String str, Class<?>[] clsArr) throws NoSuchMethodException {
         if (str == null) {
             throw new NullPointerException("Method name must not be null.");
         }
@@ -81,7 +81,7 @@ public class f {
             return false;
         } else {
             for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (vU.containsKey(clsArr[i]) && vU.get(clsArr[i]).equals(vU.get(clsArr2[i])))) {
+                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (wv.containsKey(clsArr[i]) && wv.get(clsArr[i]).equals(wv.get(clsArr2[i])))) {
                     return true;
                 }
             }
@@ -89,7 +89,7 @@ public class f {
         }
     }
 
-    public static Object b(Object obj, Object obj2) {
+    public static Object d(Object obj, Object obj2) {
         if (obj == null) {
             return obj2;
         }
@@ -121,7 +121,7 @@ public class f {
         return obj;
     }
 
-    private static Class<?>[] d(Object[] objArr) {
+    private static Class<?>[] f(Object[] objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -142,7 +142,7 @@ public class f {
         }
     }
 
-    private static Object[] e(Object[] objArr) {
+    private static Object[] g(Object[] objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -190,7 +190,7 @@ public class f {
         return null;
     }
 
-    public static Object a(Object obj, Class<?> cls, String str) {
+    public static Object a(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
         return declaredField.get(obj);

@@ -101,6 +101,8 @@ public class ImageFileInfo implements Serializable {
             this.hasAddPostQualityAction = jSONObject.optBoolean("hasAddPostQualityAction", false);
             this._cacheKey_all = null;
             this._cacheKey_page = null;
+            this.serverPicInfo = new ImageUploadResult.picInfo();
+            this.serverPicInfo.parseJson(jSONObject.optJSONObject("serverPicInfo"));
         }
     }
 
@@ -132,6 +134,9 @@ public class ImageFileInfo implements Serializable {
                 jSONObject.put("actionsList", jSONArray);
             }
             jSONObject.put("hasAddPostQualityAction", this.hasAddPostQualityAction);
+            if (this.serverPicInfo != null) {
+                jSONObject.put("serverPicInfo", this.serverPicInfo.toJson());
+            }
             return jSONObject;
         } catch (JSONException e) {
             BdLog.e(e.getMessage());

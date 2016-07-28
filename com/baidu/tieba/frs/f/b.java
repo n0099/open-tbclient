@@ -8,11 +8,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements dm {
-    final /* synthetic */ a bQd;
+    final /* synthetic */ a bRQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bQd = aVar;
+        this.bRQ = aVar;
     }
 
     @Override // com.baidu.tieba.frs.dm
@@ -23,28 +23,28 @@ public class b implements dm {
         p pVar2;
         p pVar3;
         dm dmVar2;
-        this.bQd.bPS = false;
-        i3 = this.bQd.bPO;
+        this.bRQ.bRF = false;
+        i3 = this.bRQ.bRB;
         if (i != i3) {
             return;
         }
-        dmVar = this.bQd.bPZ;
+        dmVar = this.bRQ.bRM;
         if (dmVar != null) {
-            this.bQd.bPR = dvVar;
-            this.bQd.b(i, i2, dvVar);
+            this.bRQ.bRE = dvVar;
+            this.bRQ.b(i, i2, dvVar);
             ArrayList<v> arrayList2 = new ArrayList<>();
             if (arrayList != null) {
                 arrayList2.addAll(arrayList);
             }
-            pVar = this.bQd.bCF;
-            pVar.ay(arrayList2);
-            if (i == 1 || i == 2 || i == 5) {
-                pVar2 = this.bQd.bCF;
-                pVar2.baZ();
-                pVar3 = this.bQd.bCF;
-                pVar3.bba();
+            pVar = this.bRQ.bDM;
+            pVar.aB(arrayList2);
+            if ((i == 1 || i == 2 || i == 5) && !this.bRQ.aah()) {
+                pVar2 = this.bRQ.bDM;
+                pVar2.ben();
+                pVar3 = this.bRQ.bDM;
+                pVar3.beo();
             }
-            dmVar2 = this.bQd.bPZ;
+            dmVar2 = this.bRQ.bRM;
             dmVar2.a(i, i2, dvVar, arrayList);
         }
     }

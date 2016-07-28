@@ -123,7 +123,7 @@ public final class WireOutput {
         return (Long.MIN_VALUE & j) == 0 ? 9 : 10;
     }
 
-    void writeRawByte(byte b) {
+    void writeRawByte(byte b) throws IOException {
         if (this.position == this.limit) {
             throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
         }
@@ -134,16 +134,16 @@ public final class WireOutput {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeRawByte(int i) {
+    public void writeRawByte(int i) throws IOException {
         writeRawByte((byte) i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeRawBytes(byte[] bArr) {
+    public void writeRawBytes(byte[] bArr) throws IOException {
         writeRawBytes(bArr, 0, bArr.length);
     }
 
-    void writeRawBytes(byte[] bArr, int i, int i2) {
+    void writeRawBytes(byte[] bArr, int i, int i2) throws IOException {
         if (this.limit - this.position >= i2) {
             System.arraycopy(bArr, i, this.buffer, this.position, i2);
             this.position += i2;
@@ -153,12 +153,12 @@ public final class WireOutput {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeTag(int i, WireType wireType) {
+    public void writeTag(int i, WireType wireType) throws IOException {
         writeVarint32(makeTag(i, wireType));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeSignedVarint32(int i) {
+    public void writeSignedVarint32(int i) throws IOException {
         if (i >= 0) {
             writeVarint32(i);
         } else {
@@ -167,7 +167,7 @@ public final class WireOutput {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeVarint32(int i) {
+    public void writeVarint32(int i) throws IOException {
         while ((i & (-128)) != 0) {
             writeRawByte((i & TransportMediator.KEYCODE_MEDIA_PAUSE) | 128);
             i >>>= 7;
@@ -176,7 +176,7 @@ public final class WireOutput {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeVarint64(long j) {
+    public void writeVarint64(long j) throws IOException {
         while (((-128) & j) != 0) {
             writeRawByte((((int) j) & TransportMediator.KEYCODE_MEDIA_PAUSE) | 128);
             j >>>= 7;
@@ -185,7 +185,7 @@ public final class WireOutput {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeFixed32(int i) {
+    public void writeFixed32(int i) throws IOException {
         writeRawByte(i & MotionEventCompat.ACTION_MASK);
         writeRawByte((i >> 8) & MotionEventCompat.ACTION_MASK);
         writeRawByte((i >> 16) & MotionEventCompat.ACTION_MASK);
@@ -193,7 +193,7 @@ public final class WireOutput {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void writeFixed64(long j) {
+    public void writeFixed64(long j) throws IOException {
         writeRawByte(((int) j) & MotionEventCompat.ACTION_MASK);
         writeRawByte(((int) (j >> 8)) & MotionEventCompat.ACTION_MASK);
         writeRawByte(((int) (j >> 16)) & MotionEventCompat.ACTION_MASK);

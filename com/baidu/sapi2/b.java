@@ -127,6 +127,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -134,7 +136,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.security.cert.CertificateException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -1561,7 +1567,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2, final String str3, final String str4, final boolean z, final SapiDataEncryptor sapiDataEncryptor) {
+    public void a(final SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2, final String str3, final String str4, final boolean z, final SapiDataEncryptor sapiDataEncryptor) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException, CertificateException, JSONException {
         this.d = new AsyncHttpClient();
         this.d.setUserAgent(x());
         HashMap hashMap = new HashMap();
@@ -2533,7 +2539,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3, String str4, String str5, final SapiDataEncryptor sapiDataEncryptor) {
+    public void a(final FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3, String str4, String str5, final SapiDataEncryptor sapiDataEncryptor) throws JSONException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException, CertificateException {
         this.d = new AsyncHttpClient();
         this.d.setUserAgent(x());
         HashMap hashMap = new HashMap();

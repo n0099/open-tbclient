@@ -1,44 +1,32 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.pb.a.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class ga {
-    protected BaseActivity bkc;
-    protected View mRootView;
+public class ga implements a.InterfaceC0071a {
+    final /* synthetic */ ew eiu;
 
-    protected abstract void a(e eVar);
-
-    protected abstract void onChangeSkinType(int i);
-
-    public ga(BaseActivity baseActivity, View view) {
-        this.bkc = baseActivity;
-        this.mRootView = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ga(ew ewVar) {
+        this.eiu = ewVar;
     }
 
-    public void init() {
-        b(null);
-    }
-
-    public void b(e eVar) {
-        if (this.bkc != null && this.mRootView != null) {
-            a(eVar);
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
+    public void Xh() {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        bdTypeListView = this.eiu.bqG;
+        if (bdTypeListView != null) {
+            bdTypeListView2 = this.eiu.bqG;
+            bdTypeListView2.setSelection(0);
         }
     }
 
-    public void changeSkinType(int i) {
-        onChangeSkinType(i);
-    }
-
-    public void a(View view, View.OnClickListener onClickListener) {
-        if (view != null) {
-            view.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void g(View view, boolean z) {
-        if (view != null) {
-            view.setVisibility(z ? 0 : 8);
-        }
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0071a
+    public void Xg() {
+        PbActivity pbActivity;
+        pbActivity = this.eiu.eat;
+        pbActivity.VT();
     }
 }

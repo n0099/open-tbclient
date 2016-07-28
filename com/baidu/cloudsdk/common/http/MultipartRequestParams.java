@@ -3,6 +3,7 @@ package com.baidu.cloudsdk.common.http;
 import android.text.TextUtils;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class MultipartRequestParams extends RequestParams {
         this.mFileParams = new HashMap<>();
     }
 
-    public void put(String str, File file) {
+    public void put(String str, File file) throws FileNotFoundException {
         if (file != null) {
             put(str, new FileInputStream(file), file.getName());
         }

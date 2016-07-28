@@ -12,8 +12,8 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String cGO;
-        public String fid;
+        public String aMb;
+        public String cJD;
         public long picId;
         public String src;
         public String text;
@@ -22,7 +22,7 @@ public class r {
         public int userType;
     }
 
-    public static List<a> aY(String str, String str2) {
+    public static List<a> aZ(String str, String str2) {
         return a(str, str2, null);
     }
 
@@ -51,9 +51,9 @@ public class r {
                 aVar.title = optString;
                 aVar.text = optString4;
                 aVar.src = optString3;
-                aVar.fid = str2;
+                aVar.aMb = str2;
                 aVar.picId = optLong;
-                aVar.cGO = optString5;
+                aVar.cJD = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }

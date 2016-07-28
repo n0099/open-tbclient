@@ -8,11 +8,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ AccountActivity aLu;
+    final /* synthetic */ AccountActivity aMo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.aLu = accountActivity;
+        this.aMo = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,25 +22,25 @@ public class e implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         TextView textView5;
-        if (!this.aLu.aLm.IZ()) {
-            this.aLu.aLm.setEditState(true);
-            textView3 = this.aLu.aLo;
+        if (!this.aMo.aMg.IY()) {
+            this.aMo.aMg.setEditState(true);
+            textView3 = this.aMo.aMi;
             textView3.setText(u.j.done);
-            if (TbadkCoreApplication.m9getInst().getSkinType() == 2) {
-                textView5 = this.aLu.aLo;
+            if (TbadkCoreApplication.m10getInst().getSkinType() == 2) {
+                textView5 = this.aMo.aMi;
                 av.c(textView5, u.d.navi_op_text, 1);
             } else {
-                textView4 = this.aLu.aLo;
+                textView4 = this.aMo.aMi;
                 av.c(textView4, u.d.cp_link_tip_a, 1);
             }
-            this.aLu.aLm.notifyDataSetChanged();
+            this.aMo.aMg.notifyDataSetChanged();
             return;
         }
-        this.aLu.aLm.setEditState(false);
-        textView = this.aLu.aLo;
+        this.aMo.aMg.setEditState(false);
+        textView = this.aMo.aMi;
         textView.setText(u.j.edit);
-        textView2 = this.aLu.aLo;
+        textView2 = this.aMo.aMi;
         av.c(textView2, u.d.navi_op_text, 1);
-        this.aLu.aLm.notifyDataSetChanged();
+        this.aMo.aMg.notifyDataSetChanged();
     }
 }

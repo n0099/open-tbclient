@@ -13,8 +13,8 @@ class r extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (TbadkCoreApplication.m9getInst().getPhotoLiveReadThreadHistory() != null) {
-            TbadkCoreApplication.m9getInst().getPhotoLiveReadThreadHistory().bdl();
+        if (TbadkCoreApplication.m10getInst().getPhotoLiveReadThreadHistory() != null) {
+            TbadkCoreApplication.m10getInst().getPhotoLiveReadThreadHistory().bgA();
         }
     }
 }

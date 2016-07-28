@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.h, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public v(Context context) {
-        super(context, com.baidu.tieba.homepage.personalize.data.h.csw);
+        super(context, com.baidu.tieba.homepage.personalize.data.h.cvg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,20 +42,20 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.h hVar, a aVar) {
         aVar.c(hVar);
-        aVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        if (hVar != null && hVar.csy != null) {
-            bw.Lg().a(new ay("c10985").ab("obj_name", hVar.csy));
+        aVar.onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
+        if (hVar != null && hVar.cvi != null) {
+            bw.Lf().b(new ay("c10985").ab("obj_name", hVar.cvi));
         }
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.homepage.personalize.data.h hVar) {
-        if (hVar != null && hVar.csx != null && hVar.csx.size() != 0) {
+        if (hVar != null && hVar.cvh != null && hVar.cvh.size() != 0) {
             ArrayList arrayList = new ArrayList();
-            for (com.baidu.tieba.homepage.personalize.data.i iVar : hVar.csx) {
-                if (iVar != null && iVar.csA && !StringUtils.isNull(iVar.csz)) {
-                    arrayList.add(iVar.csz);
+            for (com.baidu.tieba.homepage.personalize.data.i iVar : hVar.cvh) {
+                if (iVar != null && iVar.cvk && !StringUtils.isNull(iVar.cvj)) {
+                    arrayList.add(iVar.cvj);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GUIDE_SET_CACHE));
@@ -66,36 +66,36 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        private int aeK;
-        private TextView crJ;
-        private View crK;
-        private GridView crL;
-        private u crM;
-        private AdapterView.OnItemClickListener crN;
+        private int afy;
+        private TextView cut;
+        private View cuu;
+        private GridView cuv;
+        private u cuw;
+        private AdapterView.OnItemClickListener cux;
 
         public a(View view) {
             super(view);
-            this.aeK = 3;
-            this.crM = new u();
-            this.crN = new w(this);
-            this.crJ = (TextView) view.findViewById(u.g.interest_guide_tip);
-            this.crK = view.findViewById(u.g.interest_guide_close);
-            this.crL = (GridView) view.findViewById(u.g.interest_guide_tags_layout);
-            this.crL.setAdapter((ListAdapter) this.crM);
-            this.crL.setOnItemClickListener(this.crN);
-            this.crK.setOnClickListener(new x(this));
+            this.afy = 3;
+            this.cuw = new u();
+            this.cux = new w(this);
+            this.cut = (TextView) view.findViewById(u.g.interest_guide_tip);
+            this.cuu = view.findViewById(u.g.interest_guide_close);
+            this.cuv = (GridView) view.findViewById(u.g.interest_guide_tags_layout);
+            this.cuv.setAdapter((ListAdapter) this.cuw);
+            this.cuv.setOnItemClickListener(this.cux);
+            this.cuu.setOnClickListener(new x(this));
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.aeK != i) {
+            if (this.afy != i) {
                 av.l(getView(), u.d.cp_bg_line_d);
-                av.j((View) this.crJ, u.d.cp_cont_d);
-                av.k(this.crK, u.f.icon_x_normal);
+                av.j((View) this.cut, u.d.cp_cont_d);
+                av.k(this.cuu, u.f.icon_x_normal);
             }
         }
 
         protected void c(com.baidu.tieba.homepage.personalize.data.h hVar) {
-            this.crM.a(hVar);
+            this.cuw.a(hVar);
         }
     }
 }

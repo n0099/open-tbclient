@@ -4,41 +4,45 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class x implements a.b {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        dg dgVar;
-        es esVar;
-        es esVar2;
-        es esVar3;
-        dg dgVar2;
-        es esVar4;
-        this.dPF.VB();
-        dgVar = this.dPF.dOf;
-        com.baidu.tbadk.core.data.af ajw = dgVar.ajw();
-        esVar = this.dPF.dOO;
-        int pageNum = esVar.getPageNum();
+        dh dhVar;
+        ew ewVar;
+        ew ewVar2;
+        ew ewVar3;
+        dh dhVar2;
+        ew ewVar4;
+        this.ebT.VT();
+        dhVar = this.ebT.eas;
+        com.baidu.tbadk.core.data.aj akg = dhVar.akg();
+        ewVar = this.ebT.ebb;
+        int pageNum = ewVar.getPageNum();
         if (pageNum <= 0) {
-            this.dPF.showToast(u.j.pb_page_error);
-        } else if (ajw == null || pageNum <= ajw.pz()) {
-            esVar2 = this.dPF.dOO;
-            esVar2.avf();
-            this.dPF.ni(2);
-            this.dPF.UR();
-            esVar3 = this.dPF.dOO;
-            esVar3.aHn();
-            dgVar2 = this.dPF.dOf;
-            esVar4 = this.dPF.dOO;
-            dgVar2.nm(esVar4.getPageNum());
+            this.ebT.showToast(u.j.pb_page_error);
+        } else if (akg == null || pageNum <= akg.pi()) {
+            ewVar2 = this.ebT.ebb;
+            ewVar2.avR();
+            this.ebT.nA(2);
+            this.ebT.VR();
+            ewVar3 = this.ebT.ebb;
+            ewVar3.aKy();
+            if (com.baidu.adp.lib.util.i.fq()) {
+                dhVar2 = this.ebT.eas;
+                ewVar4 = this.ebT.ebb;
+                dhVar2.nE(ewVar4.getPageNum());
+            } else {
+                this.ebT.showToast(u.j.neterror);
+            }
             aVar.dismiss();
         } else {
-            this.dPF.showToast(u.j.pb_page_error);
+            this.ebT.showToast(u.j.pb_page_error);
         }
     }
 }

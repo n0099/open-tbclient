@@ -5,21 +5,21 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements j.a {
-    final /* synthetic */ e dWA;
+    final /* synthetic */ e ejc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.dWA = eVar;
+        this.ejc = eVar;
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void ns() {
+    public void nh() {
         PbActivity pbActivity;
-        pbActivity = this.dWA.dOg;
-        pbActivity.aEJ();
+        pbActivity = this.ejc.eat;
+        pbActivity.aHU();
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void nt() {
+    public void ni() {
     }
 }

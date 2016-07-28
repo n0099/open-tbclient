@@ -7,24 +7,24 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class j extends DiskFileOperate {
-    protected a VT;
-    protected BitmapFactory.Options hJ;
+    protected a WC;
+    protected BitmapFactory.Options im;
     protected Bitmap mBitmap;
 
     public j(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.hJ = null;
-        this.VT = null;
-        this.VT = new a();
+        this.im = null;
+        this.WC = null;
+        this.WC = new a();
     }
 
-    public boolean ce() {
-        return this.VT.hN;
+    public boolean cd() {
+        return this.WC.iu;
     }
 
-    public void q(boolean z) {
-        this.VT.hN = z;
+    public void s(boolean z) {
+        this.WC.iu = z;
     }
 
     public Bitmap getBitmap() {
@@ -34,36 +34,36 @@ public class j extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!ce() && com.baidu.adp.lib.util.k.j(bArr)) {
-            q(true);
+        if (!cd() && com.baidu.adp.lib.util.k.m(bArr)) {
+            s(true);
         }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] bR() {
-        if (this.hw == null) {
+    public byte[] bQ() {
+        if (this.hY == null) {
             return null;
         }
-        return this.VT.toByteArray();
+        return this.WC.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean h(byte[] bArr) {
+    public boolean k(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
-        if (this.hJ == null) {
-            this.hJ = new BitmapFactory.Options();
-            this.hJ.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.im == null) {
+            this.im = new BitmapFactory.Options();
+            this.im.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean i = this.VT.i(bArr);
-        if (this.VT.hO == 0 || this.VT.hO >= System.currentTimeMillis()) {
+        boolean l = this.WC.l(bArr);
+        if (this.WC.iw == 0 || this.WC.iw >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
-            if (!i) {
+            if (!l) {
                 headerSize = 0;
             }
             try {
-                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.hJ);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.im);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }
@@ -75,9 +75,9 @@ public class j extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte hL = Byte.MIN_VALUE;
-        boolean hN = false;
-        long hO = 0;
+        private static byte iq = Byte.MIN_VALUE;
+        boolean iu = false;
+        long iw = 0;
 
         a() {
         }
@@ -89,22 +89,22 @@ public class j extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600510);
-            allocate.put(this.hN ? (byte) (0 | hL) : (byte) 0);
-            allocate.putLong(this.hO);
+            allocate.put(this.iu ? (byte) (0 | iq) : (byte) 0);
+            allocate.putLong(this.iw);
             allocate.flip();
             return allocate.array();
         }
 
-        public boolean i(byte[] bArr) {
+        public boolean l(byte[] bArr) {
             if (bArr == null || bArr.length < getHeaderSize()) {
                 return false;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600510) {
-                if ((wrap.get() & hL) != 0) {
-                    this.hN = true;
+                if ((wrap.get() & iq) != 0) {
+                    this.iu = true;
                 }
-                this.hO = wrap.getLong();
+                this.iw = wrap.getLong();
                 return true;
             }
             return false;

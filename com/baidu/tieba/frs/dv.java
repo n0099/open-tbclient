@@ -5,6 +5,6 @@ public class dv extends ds {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean bHj = true;
-    public boolean bHk = true;
+    public boolean bIF = true;
+    public boolean bIG = true;
 }

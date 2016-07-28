@@ -1,5 +1,6 @@
 package com.baidu.android.common.security;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -29,21 +30,21 @@ public final class RSAUtil {
     private RSAUtil() {
     }
 
-    public static byte[] decryptByPrivateKey(byte[] bArr, String str) {
+    public static byte[] decryptByPrivateKey(byte[] bArr, String str) throws Exception {
         PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, generatePrivate);
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] decryptByPublicKey(byte[] bArr, String str) {
+    public static byte[] decryptByPublicKey(byte[] bArr, String str) throws Exception {
         PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, generatePublic);
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] decryptLongByPrivateKey(byte[] bArr, String str, int i) {
+    public static byte[] decryptLongByPrivateKey(byte[] bArr, String str, int i) throws Exception {
         PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(2, generatePrivate);
@@ -64,21 +65,21 @@ public final class RSAUtil {
         return sb.toString().getBytes();
     }
 
-    public static byte[] encryptByPrivateKey(byte[] bArr, String str) {
+    public static byte[] encryptByPrivateKey(byte[] bArr, String str) throws Exception {
         PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, generatePrivate);
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] encryptByPublicKey(byte[] bArr, String str) {
+    public static byte[] encryptByPublicKey(byte[] bArr, String str) throws Exception {
         PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, generatePublic);
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] encryptLongByPublicKey(byte[] bArr, String str, int i) {
+    public static byte[] encryptLongByPublicKey(byte[] bArr, String str, int i) throws Exception {
         PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, generatePublic);
@@ -102,7 +103,7 @@ public final class RSAUtil {
         return bArr2;
     }
 
-    public static Map<String, Object> generateKey(int i) {
+    public static Map<String, Object> generateKey(int i) throws NoSuchAlgorithmException {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(ALGORITHM_RSA);
         keyPairGenerator.initialize(i);
         KeyPair generateKeyPair = keyPairGenerator.generateKeyPair();
@@ -112,7 +113,7 @@ public final class RSAUtil {
         return hashMap;
     }
 
-    public static RSAPrivateKey generateRSAPrivateKey(BigInteger bigInteger, BigInteger bigInteger2) {
+    public static RSAPrivateKey generateRSAPrivateKey(BigInteger bigInteger, BigInteger bigInteger2) throws Exception {
         try {
             try {
                 return (RSAPrivateKey) KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new RSAPrivateKeySpec(bigInteger, bigInteger2));
@@ -124,7 +125,7 @@ public final class RSAUtil {
         }
     }
 
-    public static RSAPublicKey generateRSAPublicKey(BigInteger bigInteger, BigInteger bigInteger2) {
+    public static RSAPublicKey generateRSAPublicKey(BigInteger bigInteger, BigInteger bigInteger2) throws Exception {
         try {
             try {
                 return (RSAPublicKey) KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new RSAPublicKeySpec(bigInteger, bigInteger2));
@@ -136,11 +137,11 @@ public final class RSAUtil {
         }
     }
 
-    public static String getPrivateKey(Map<String, Object> map) {
+    public static String getPrivateKey(Map<String, Object> map) throws Exception {
         return Base64.encode(((Key) map.get(PRIVATE_KEY)).getEncoded(), "utf-8");
     }
 
-    public static String getPublicKey(Map<String, Object> map) {
+    public static String getPublicKey(Map<String, Object> map) throws UnsupportedEncodingException {
         return Base64.encode(((Key) map.get(PUBLIC_KEY)).getEncoded(), "utf-8");
     }
 }

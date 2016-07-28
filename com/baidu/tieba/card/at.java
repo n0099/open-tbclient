@@ -15,21 +15,21 @@ import java.util.ArrayList;
 public class at {
     public static void hb(String str) {
         com.baidu.tieba.tbadkCore.util.s readThreadHistory;
-        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) != null && !readThreadHistory.pM(str)) {
-            readThreadHistory.pK(str);
+        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.m10getInst().getReadThreadHistory()) != null && !readThreadHistory.qw(str)) {
+            readThreadHistory.qu(str);
         }
     }
 
     public static boolean hc(String str) {
         com.baidu.tieba.tbadkCore.util.s readThreadHistory;
-        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) == null || !readThreadHistory.pL(str)) ? false : true;
+        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.m10getInst().getReadThreadHistory()) == null || !readThreadHistory.qv(str)) ? false : true;
     }
 
-    public static String La() {
+    public static String KZ() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
-    public static String Lb() {
+    public static String La() {
         return "personalize_page";
     }
 
@@ -106,35 +106,35 @@ public class at {
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aTG;
-        public String aTH;
-        public int aTI;
-        public int aTJ;
+        public int aUC;
+        public String aUD;
+        public int aUE;
+        public int aUF;
 
         public a(int i, int i2, int i3) {
-            this.aTG = -1;
-            this.aTH = "";
-            this.aTI = u.d.cp_link_tip_a;
-            this.aTJ = u.f.pic_dot_title;
-            this.aTG = i;
-            this.aTI = i2;
-            this.aTJ = i3;
+            this.aUC = -1;
+            this.aUD = "";
+            this.aUE = u.d.cp_link_tip_a;
+            this.aUF = u.f.pic_dot_title;
+            this.aUC = i;
+            this.aUE = i2;
+            this.aUF = i3;
         }
 
         public a(int i) {
-            this.aTG = -1;
-            this.aTH = "";
-            this.aTI = u.d.cp_link_tip_a;
-            this.aTJ = u.f.pic_dot_title;
-            this.aTG = i;
+            this.aUC = -1;
+            this.aUD = "";
+            this.aUE = u.d.cp_link_tip_a;
+            this.aUF = u.f.pic_dot_title;
+            this.aUC = i;
         }
 
         public a(String str) {
-            this.aTG = -1;
-            this.aTH = "";
-            this.aTI = u.d.cp_link_tip_a;
-            this.aTJ = u.f.pic_dot_title;
-            this.aTH = str;
+            this.aUC = -1;
+            this.aUD = "";
+            this.aUE = u.d.cp_link_tip_a;
+            this.aUF = u.f.pic_dot_title;
+            this.aUD = str;
         }
     }
 
@@ -146,14 +146,14 @@ public class at {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                if (aVar.aTG > 0) {
-                    aVar.aTH = context.getString(aVar.aTG);
+                if (aVar.aUC > 0) {
+                    aVar.aUD = context.getString(aVar.aUC);
                 }
-                if (!com.baidu.adp.lib.util.j.isEmpty(aVar.aTH)) {
+                if (!com.baidu.adp.lib.util.j.isEmpty(aVar.aUD)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.aTH);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.av.getColor(aVar.aTI)), length, spannableStringBuilder.length(), 17);
-                    Bitmap cA = com.baidu.tbadk.core.util.av.cA(aVar.aTJ);
+                    spannableStringBuilder.append((CharSequence) aVar.aUD);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.av.getColor(aVar.aUE)), length, spannableStringBuilder.length(), 17);
+                    Bitmap cA = com.baidu.tbadk.core.util.av.cA(aVar.aUF);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(cA);
                     if (cA != null) {
                         bitmapDrawable.setBounds(0, 0, cA.getWidth(), cA.getHeight());

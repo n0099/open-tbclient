@@ -94,7 +94,7 @@ public class JsonHttpResponseHandler extends HttpResponseHandler {
         }
     }
 
-    protected Object parseResponse(String str) {
+    protected Object parseResponse(String str) throws JSONException {
         Object obj = null;
         String trim = str.trim();
         if (trim.startsWith("{") || trim.startsWith("[")) {

@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.view;
 import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.util.bi;
 import com.baidu.tieba.frs.view.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ v bUF;
+    final /* synthetic */ v bWF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v vVar) {
-        this.bUF = vVar;
+        this.bWF = vVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,7 +23,7 @@ public class w implements View.OnClickListener {
         t tVar2;
         TbPageContext<?> tbPageContext;
         t tVar3;
-        am amVar;
+        ar arVar;
         t tVar4;
         t.a aVar;
         t tVar5;
@@ -32,32 +32,32 @@ public class w implements View.OnClickListener {
         t tVar8;
         Animation animation;
         t tVar9;
-        tVar = this.bUF.bUD;
+        tVar = this.bWF.bWD;
         i = tVar.mState;
         switch (i) {
             case 0:
-                tVar7 = this.bUF.bUD;
-                View view2 = tVar7.bUB;
-                tVar8 = this.bUF.bUD;
-                animation = tVar8.bUy;
+                tVar7 = this.bWF.bWD;
+                View view2 = tVar7.bWB;
+                tVar8 = this.bWF.bWD;
+                animation = tVar8.bWy;
                 view2.startAnimation(animation);
-                tVar9 = this.bUF.bUD;
-                tVar9.aI("c11104", "2");
+                tVar9 = this.bWF.bWD;
+                tVar9.aJ("c11104", "2");
                 return;
             case 1:
                 bi us = bi.us();
-                tVar2 = this.bUF.bUD;
+                tVar2 = this.bWF.bWD;
                 tbPageContext = tVar2.mTbPageContext;
-                tVar3 = this.bUF.bUD;
-                amVar = tVar3.mRealTimeData;
-                us.c(tbPageContext, new String[]{amVar.getUrl()});
-                tVar4 = this.bUF.bUD;
-                aVar = tVar4.bUA;
+                tVar3 = this.bWF.bWD;
+                arVar = tVar3.mRealTimeData;
+                us.c(tbPageContext, new String[]{arVar.getUrl()});
+                tVar4 = this.bWF.bWD;
+                aVar = tVar4.bWA;
                 aVar.removeMessages(1);
-                tVar5 = this.bUF.bUD;
-                tVar5.aX(8000L);
-                tVar6 = this.bUF.bUD;
-                tVar6.aI("c11104", "1");
+                tVar5 = this.bWF.bWD;
+                tVar5.aS(8000L);
+                tVar6 = this.bWF.bWD;
+                tVar6.aJ("c11104", "1");
                 return;
             default:
                 return;

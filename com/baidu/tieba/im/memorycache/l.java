@@ -9,15 +9,15 @@ import protobuf.NewpushRepair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements a.InterfaceC0064a {
-    final /* synthetic */ b cSe;
-    private final /* synthetic */ List cSk;
-    private final /* synthetic */ NewpushRepair.Builder cSl;
+    final /* synthetic */ b cUZ;
+    private final /* synthetic */ List cVf;
+    private final /* synthetic */ NewpushRepair.Builder cVg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(b bVar, List list, NewpushRepair.Builder builder) {
-        this.cSe = bVar;
-        this.cSk = list;
-        this.cSl = builder;
+        this.cUZ = bVar;
+        this.cVf = list;
+        this.cVg = builder;
     }
 
     @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0064a
@@ -27,13 +27,13 @@ public class l implements a.InterfaceC0064a {
             long c = com.baidu.adp.lib.h.b.c(next.getGid(), 0L);
             long sid = next.getSid();
             if (sid > 0) {
-                this.cSk.add(MessageUtils.makeNewpushGroupRepair(c, next.getUserType(), sid, 0L, com.baidu.tieba.im.util.g.bN(next.getPulled_msgId())));
+                this.cVf.add(MessageUtils.makeNewpushGroupRepair(c, next.getUserType(), sid, 0L, com.baidu.tieba.im.util.g.bI(next.getPulled_msgId())));
             }
         }
-        if (this.cSk.size() <= 10) {
-            this.cSl.groups = this.cSk;
+        if (this.cVf.size() <= 10) {
+            this.cVg.groups = this.cVf;
             return;
         }
-        this.cSl.followType = "0";
+        this.cVg.followType = "0";
     }
 }

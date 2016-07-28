@@ -4,6 +4,7 @@ import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentValues;
+import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.net.Uri;
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class XiaoyingProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) {
+    public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
         ContentProvider contentProvider = XiaoyingPlugin.getContentProvider();
         if (contentProvider == null) {
             return null;

@@ -6,13 +6,13 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ k btA;
+    final /* synthetic */ k bvO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ab(k kVar, int i, int i2) {
         super(i, i2);
-        this.btA = kVar;
+        this.bvO = kVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -22,24 +22,24 @@ public class ab extends com.baidu.adp.framework.listener.a {
         com.baidu.tieba.enterForum.c.c cVar3;
         String errorString;
         if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            cVar = this.btA.bth;
+            cVar = this.bvO.bvw;
             if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                this.btA.btg.SQ();
+                this.bvO.bvv.Ty();
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = this.btA.aMU.getResources().getString(u.j.neterror);
+                        errorString = this.bvO.aNO.getResources().getString(u.j.neterror);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
-                    this.btA.aMU.showToast(errorString);
+                    this.bvO.aNO.showToast(errorString);
                     return;
                 }
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    cVar3 = this.btA.bth;
+                    cVar3 = this.bvO.bvw;
                     cVar3.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    cVar2 = this.btA.bth;
+                    cVar2 = this.bvO.bvw;
                     cVar2.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }

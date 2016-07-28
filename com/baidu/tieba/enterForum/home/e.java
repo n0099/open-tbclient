@@ -23,102 +23,104 @@ import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class e extends BaseFragment {
-    private CustomViewPager Vh;
-    private NoNetworkView bkT;
-    private k bsU;
-    private com.baidu.tieba.enterForum.d.c bsV;
-    private PluginErrorTipView bsW;
-    private View bsX;
-    private ObservedChangeLinearLayout bsY;
-    private FragmentTabWidget bsZ;
-    private a bta;
-    private int btb = 0;
-    final CustomMessageListener btc = new f(this, CmdConfigCustom.CMD_ENTER_FORUM_ADD_TOGETHERHI_TAB);
+    private CustomViewPager VQ;
+    private NoNetworkView bmB;
+    private k bvj;
+    private com.baidu.tieba.enterForum.d.c bvk;
+    private PluginErrorTipView bvl;
+    private View bvm;
+    private ObservedChangeLinearLayout bvn;
+    private FragmentTabWidget bvo;
+    private a bvp;
+    private int bvq = 0;
+    final CustomMessageListener bvr = new f(this, CmdConfigCustom.CMD_ENTER_FORUM_ADD_TOGETHERHI_TAB);
 
-    public ObservedChangeLinearLayout RX() {
-        return this.bsY;
+    public ObservedChangeLinearLayout SF() {
+        return this.bvn;
     }
 
-    public FragmentTabWidget RY() {
-        return this.bsZ;
+    public FragmentTabWidget SG() {
+        return this.bvo;
     }
 
     private void X(View view) {
-        this.bsX = view.findViewById(u.g.enter_root_layout);
-        this.bkT = (NoNetworkView) view.findViewById(u.g.view_no_network);
-        this.bsW = (PluginErrorTipView) view.findViewById(u.g.view_plugin_error_tip);
-        this.Vh = (CustomViewPager) view.findViewById(u.g.fragment_pager);
-        this.bsZ = (FragmentTabWidget) view.findViewById(u.g.tab_widget);
-        this.bsY = (ObservedChangeLinearLayout) view.findViewById(u.g.tab_layout);
-        this.bsY.setOnSizeChangeListener(new g(this));
-        if (this.bsY.getLayoutParams() != null) {
-            ((RelativeLayout.LayoutParams) this.bsY.getLayoutParams()).setMargins(0, com.baidu.adp.lib.util.k.c(getPageContext().getPageActivity(), u.e.ds98) + UtilHelper.getLightStatusBarHeight(), 0, 0);
+        this.bvm = view.findViewById(u.g.enter_root_layout);
+        this.bmB = (NoNetworkView) view.findViewById(u.g.view_no_network);
+        this.bvl = (PluginErrorTipView) view.findViewById(u.g.view_plugin_error_tip);
+        this.VQ = (CustomViewPager) view.findViewById(u.g.fragment_pager);
+        this.bvo = (FragmentTabWidget) view.findViewById(u.g.tab_widget);
+        this.bvn = (ObservedChangeLinearLayout) view.findViewById(u.g.tab_layout);
+        this.bvn.setOnSizeChangeListener(new g(this));
+        if (this.bvn.getLayoutParams() != null) {
+            ((RelativeLayout.LayoutParams) this.bvn.getLayoutParams()).setMargins(0, com.baidu.adp.lib.util.k.c(getPageContext().getPageActivity(), u.e.ds98) + UtilHelper.getLightStatusBarHeight(), 0, 0);
         }
-        this.bkT.a(new h(this));
-        Sa();
+        this.bmB.a(new h(this));
+        SI();
     }
 
     private void initViewPager() {
-        this.bta = new a(this);
-        this.Vh.setAdapter(this.bta);
-        this.Vh.setOnPageChangeListener(new i(this));
+        this.bvp = new a(this);
+        if (this.VQ != null) {
+            this.VQ.setAdapter(this.bvp);
+            this.VQ.setOnPageChangeListener(new i(this));
+        }
     }
 
-    private void RZ() {
+    private void SH() {
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getPageActivity());
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(u.e.ds28));
         fragmentTabIndicator.setGravity(17);
-        fragmentTabIndicator.avB = u.d.s_actionbar_text_color;
+        fragmentTabIndicator.awq = u.d.s_actionbar_text_color;
         fragmentTabIndicator.setText(getResources().getString(u.j.enter_forum_tab_my_bar));
-        this.bsZ.addView(fragmentTabIndicator);
-        if (this.bsV != null) {
+        this.bvo.addView(fragmentTabIndicator);
+        if (this.bvk != null) {
             FragmentTabIndicator fragmentTabIndicator2 = new FragmentTabIndicator(getPageContext().getPageActivity());
             fragmentTabIndicator2.setTextSize(0, getResources().getDimension(u.e.ds28));
             fragmentTabIndicator2.setGravity(17);
-            fragmentTabIndicator2.avB = u.d.s_actionbar_text_color;
-            if (this.bsV.buh != 0) {
-                fragmentTabIndicator2.setText(getResources().getString(this.bsV.buh));
+            fragmentTabIndicator2.awq = u.d.s_actionbar_text_color;
+            if (this.bvk.bwv != 0) {
+                fragmentTabIndicator2.setText(getResources().getString(this.bvk.bwv));
             } else {
                 fragmentTabIndicator2.setText(getResources().getString(u.j.enter_forum_tab_togetherhi));
             }
-            this.bsZ.addView(fragmentTabIndicator2);
+            this.bvo.addView(fragmentTabIndicator2);
         }
-        this.bsZ.setTabSelectionListener(new j(this));
+        this.bvo.setTabSelectionListener(new j(this));
     }
 
-    private void Sa() {
+    private void SI() {
         initViewPager();
-        RZ();
-        if (this.btb < 0) {
-            this.btb = 0;
+        SH();
+        if (this.bvq < 0) {
+            this.bvq = 0;
         }
-        this.bsZ.f(this.btb, true);
-        this.Vh.setCurrentItem(this.btb);
+        this.bvo.g(this.bvq, true);
+        this.VQ.setCurrentItem(this.bvq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gM(int i) {
         gN(i);
-        this.btb = i;
+        this.bvq = i;
         if (i == 0) {
-            if (this.bsU != null) {
-                this.bsU.MJ();
-                if (this.bsU.Sj()) {
-                    this.bsU.Si();
+            if (this.bvj != null) {
+                this.bvj.MI();
+                if (this.bvj.SR()) {
+                    this.bvj.SQ();
                 }
             }
-        } else if (this.bsV != null && i == this.bsV.bug && this.bsV.bui != null) {
-            this.bsV.bui.MJ();
-            if (this.bsU != null && this.bsU.Sj()) {
-                this.bsU.Sh();
+        } else if (this.bvk != null && i == this.bvk.bwu && this.bvk.bww != null) {
+            this.bvk.bww.MI();
+            if (this.bvj != null && this.bvj.SR()) {
+                this.bvj.SP();
             }
         }
     }
 
     private void gN(int i) {
         boolean z = i == 0;
-        if (this.bsU != null) {
-            this.bsU.cO(z);
+        if (this.bvj != null) {
+            this.bvj.cR(z);
         }
     }
 
@@ -126,11 +128,11 @@ public class e extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            gM(this.btb);
-            if (this.btb == 0 && this.bsU != null) {
-                refreshImage(this.bsU.getView());
-            } else if (this.bsV != null && this.btb == this.bsV.bug && this.bsV.bui != null) {
-                refreshImage(this.bsV.bui.getView());
+            gM(this.bvq);
+            if (this.bvq == 0 && this.bvj != null) {
+                refreshImage(this.bvj.getView());
+            } else if (this.bvk != null && this.bvq == this.bvk.bwu && this.bvk.bww != null) {
+                refreshImage(this.bvk.bww.getView());
             }
         }
     }
@@ -138,21 +140,21 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        av.l(this.bsX, u.d.cp_bg_line_d);
-        if (this.bsZ != null) {
-            this.bsZ.onChangeSkinType(i);
+        av.l(this.bvm, u.d.cp_bg_line_d);
+        if (this.bvo != null) {
+            this.bvo.onChangeSkinType(i);
         }
-        if (this.bsU != null) {
-            this.bsU.onChangeSkinType(i);
+        if (this.bvj != null) {
+            this.bvj.onChangeSkinType(i);
         }
-        if (this.bsV != null && this.bsV.bui != null) {
-            this.bsV.bui.onChangeSkinType(i);
+        if (this.bvk != null && this.bvk.bww != null) {
+            this.bvk.bww.onChangeSkinType(i);
         }
-        if (this.bkT != null) {
-            this.bkT.onChangeSkinType(getPageContext(), i);
+        if (this.bmB != null) {
+            this.bmB.onChangeSkinType(getPageContext(), i);
         }
-        if (this.bsW != null) {
-            this.bsW.onChangeSkinType(getPageContext(), i);
+        if (this.bvl != null) {
+            this.bvl.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -160,25 +162,25 @@ public class e extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(u.h.fragment_enter_forum, viewGroup, false);
         X(inflate);
-        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.btc.setPriority(101);
-        registerListener(this.btc);
+        this.bvr.setPriority(101);
+        registerListener(this.bvr);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ENTER_FORUM_ADD_TOGETHERHI_TAB, new com.baidu.tieba.enterForum.d.a()));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.bsU != null) {
-            this.bsU.onDestroy();
+        if (this.bvj != null) {
+            this.bvj.onDestroy();
         }
-        if (this.bsV != null && this.bsV.bui != null) {
-            this.bsV.bui.onDestroy();
+        if (this.bvk != null && this.bvk.bww != null) {
+            this.bvk.bww.onDestroy();
         }
         super.onDestroy();
     }
@@ -186,50 +188,50 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.bsU != null) {
-            this.bsU.onPause();
+        if (this.bvj != null) {
+            this.bvj.onPause();
         }
-        if (this.bsV != null && this.bsV.bui != null) {
-            this.bsV.bui.onPause();
+        if (this.bvk != null && this.bvk.bww != null) {
+            this.bvk.bww.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.bkT != null && this.bkT.getVisibility() == 0 && com.baidu.adp.lib.util.i.fr()) {
-            this.bkT.aC(false);
+        if (this.bmB != null && this.bmB.getVisibility() == 0 && com.baidu.adp.lib.util.i.fq()) {
+            this.bmB.aF(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends PagerAdapter {
-        private e bte;
+        private e bvt;
 
         public a(e eVar) {
-            this.bte = eVar;
+            this.bvt = eVar;
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return e.this.bsV == null ? 1 : 2;
+            return e.this.bvk == null ? 1 : 2;
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
             View view = null;
             if (i == 0) {
-                if (e.this.bsU == null) {
-                    e.this.bsU = new k(this.bte);
+                if (e.this.bvj == null) {
+                    e.this.bvj = new k(this.bvt);
                 }
-                view = e.this.bsU.getView();
-            } else if (e.this.bsV != null && i == e.this.bsV.bug && e.this.bsV.bui != null) {
-                view = e.this.bsV.bui.getView();
+                view = e.this.bvj.getView();
+            } else if (e.this.bvk != null && i == e.this.bvk.bwu && e.this.bvk.bww != null) {
+                view = e.this.bvk.bww.getView();
             }
             if (viewGroup != null && view != null) {
                 viewGroup.addView(view);
-                e.this.gM(e.this.btb);
+                e.this.gM(e.this.bvq);
             }
             return view;
         }
@@ -238,15 +240,15 @@ public class e extends BaseFragment {
         public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
             View view;
             if (i == 0) {
-                if (e.this.bsU != null) {
-                    view = e.this.bsU.getView();
-                    e.this.bsU = null;
+                if (e.this.bvj != null) {
+                    view = e.this.bvj.getView();
+                    e.this.bvj = null;
                 }
                 view = null;
             } else {
-                if (e.this.bsV != null && i == e.this.bsV.bug && e.this.bsV.bui != null) {
-                    view = e.this.bsV.bui.getView();
-                    e.this.bsV = null;
+                if (e.this.bvk != null && i == e.this.bvk.bwu && e.this.bvk.bww != null) {
+                    view = e.this.bvk.bww.getView();
+                    e.this.bvk = null;
                 }
                 view = null;
             }

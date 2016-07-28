@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private View afN;
-    private TextView azA;
-    private com.baidu.adp.plugin.packageManager.a.a azB;
-    private TextView azy;
-    private TextView azz;
+    private TextView aAo;
+    private TextView aAp;
+    private TextView aAq;
+    private com.baidu.adp.plugin.packageManager.a.a aAr;
+    private View agC;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, com.baidu.adp.plugin.packageManager.a.a aVar) {
@@ -34,41 +34,41 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.azB = (com.baidu.adp.plugin.packageManager.a.a) com.baidu.adp.plugin.packageManager.a.a.objectWithJsonStr(getIntent().getStringExtra(com.baidu.adp.plugin.packageManager.a.a.class.getName()), com.baidu.adp.plugin.packageManager.a.a.class);
+            this.aAr = (com.baidu.adp.plugin.packageManager.a.a) com.baidu.adp.plugin.packageManager.a.a.objectWithJsonStr(getIntent().getStringExtra(com.baidu.adp.plugin.packageManager.a.a.class.getName()), com.baidu.adp.plugin.packageManager.a.a.class);
         } else {
-            this.azB = (com.baidu.adp.plugin.packageManager.a.a) com.baidu.adp.plugin.packageManager.a.a.objectWithJsonStr(bundle.getString(com.baidu.adp.plugin.packageManager.a.a.class.getName()), com.baidu.adp.plugin.packageManager.a.a.class);
+            this.aAr = (com.baidu.adp.plugin.packageManager.a.a) com.baidu.adp.plugin.packageManager.a.a.objectWithJsonStr(bundle.getString(com.baidu.adp.plugin.packageManager.a.a.class.getName()), com.baidu.adp.plugin.packageManager.a.a.class);
         }
-        if (this.azB == null) {
+        if (this.aAr == null) {
             finish();
             return;
         }
         setContentView(u.h.plugin_error_tip_activity);
-        nl();
+        initUI();
     }
 
-    protected void nl() {
+    protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(u.g.view_navigation_bar);
-        this.afN = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.afN.setOnClickListener(this);
+        this.agC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.agC.setOnClickListener(this);
         this.mNavigationBar.setTitleText(u.j.pluginstatus_tip_title);
-        this.azy = (TextView) findViewById(u.g.plugin_error_tip_msg);
-        this.azz = (TextView) findViewById(u.g.plugin_error_tip_resolve);
-        this.azA = (TextView) findViewById(u.g.plugin_error_btn);
-        this.azA.setOnClickListener(this);
-        this.azy.setText(this.azB.getErrorMsg());
-        this.azz.setText(this.azB.iq());
-        if (this.azB.getErrorCode() == 5 || this.azB.getErrorCode() == 1 || this.azB.getErrorCode() == 100) {
-            this.azA.setText(u.j.pluginstatus_btn_restartapp);
-            this.azA.setVisibility(0);
+        this.aAo = (TextView) findViewById(u.g.plugin_error_tip_msg);
+        this.aAp = (TextView) findViewById(u.g.plugin_error_tip_resolve);
+        this.aAq = (TextView) findViewById(u.g.plugin_error_btn);
+        this.aAq.setOnClickListener(this);
+        this.aAo.setText(this.aAr.getErrorMsg());
+        this.aAp.setText(this.aAr.ip());
+        if (this.aAr.getErrorCode() == 5 || this.aAr.getErrorCode() == 1 || this.aAr.getErrorCode() == 100) {
+            this.aAq.setText(u.j.pluginstatus_btn_restartapp);
+            this.aAq.setVisibility(0);
             return;
         }
-        this.azA.setVisibility(8);
+        this.aAq.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = com.baidu.adp.plugin.packageManager.a.a.jsonStrWithObject(this.azB);
+        String jsonStrWithObject = com.baidu.adp.plugin.packageManager.a.a.jsonStrWithObject(this.aAr);
         if (jsonStrWithObject != null) {
             bundle.putString(com.baidu.adp.plugin.packageManager.a.a.class.getName(), jsonStrWithObject);
         }
@@ -76,14 +76,14 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.afN) {
+        if (view == this.agC) {
             finish();
-        } else if (view == this.azA) {
-            if (this.azB != null && this.azB.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.hu().H(true);
+        } else if (view == this.aAq) {
+            if (this.aAr != null && this.aAr.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.ht().J(true);
             }
             showLoadingDialog(getResources().getString(u.j.waiting));
-            h.dM().postDelayed(new a(this), 2000L);
+            h.dL().postDelayed(new a(this), 2000L);
         }
     }
 

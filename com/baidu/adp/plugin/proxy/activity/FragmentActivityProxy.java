@@ -923,7 +923,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         if (this.mEntity != null) {
             this.mEntity.startIntentSender(intentSender, intent, i, i2, i3);
         } else {
@@ -932,7 +932,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         if (this.mEntity != null) {
             this.mEntity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         } else {
@@ -1526,16 +1526,16 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
+    public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         super.startIntentSender(intentSender, intent, i, i2, i3);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+    public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
     }
 
-    public void proxyStartIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+    public void proxyStartIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         super.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
     }
 
@@ -1569,18 +1569,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         g.a aVar = null;
         if (stringExtra != null) {
-            aVar = g.gY().aX(stringExtra);
+            aVar = g.gX().aY(stringExtra);
         }
-        if (aVar == null || aVar.tz == null) {
+        if (aVar == null || aVar.ub == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (g.gY().gZ() == 1) {
-            g.gY().aY(stringExtra);
-            aVar.tz.stopSelf();
+        } else if (g.gX().gY() == 1) {
+            g.gX().aZ(stringExtra);
+            aVar.ub.stopSelf();
             return true;
         } else {
-            aVar.tz.onDestroy();
-            g.gY().aY(stringExtra);
+            aVar.ub.onDestroy();
+            g.gX().aZ(stringExtra);
             return true;
         }
     }

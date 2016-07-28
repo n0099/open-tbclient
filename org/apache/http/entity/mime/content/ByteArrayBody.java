@@ -1,5 +1,6 @@
 package org.apache.http.entity.mime.content;
 
+import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.http.entity.mime.MIME;
 /* loaded from: classes.dex */
@@ -26,7 +27,7 @@ public class ByteArrayBody extends AbstractContentBody {
     }
 
     @Override // org.apache.http.entity.mime.content.ContentBody
-    public void writeTo(OutputStream outputStream) {
+    public void writeTo(OutputStream outputStream) throws IOException {
         outputStream.write(this.data);
     }
 

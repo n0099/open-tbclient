@@ -13,19 +13,19 @@ import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class bh extends y.a {
     static final /* synthetic */ boolean $assertionsDisabled;
-    public int aeK;
-    public ViewStub bEf;
-    public ViewGroup bEg;
-    public ViewStub bEh;
-    public ViewGroup bEi;
-    public LinearLayout bEj;
-    public HeadImageView bEk;
-    public TextView bEl;
-    public TextView bEm;
-    public AppDownloadView bEn;
-    public TextView bEo;
-    public TbImageView bEp;
-    public TextView bEq;
+    public int afy;
+    public TextView bFA;
+    public ViewStub bFp;
+    public ViewGroup bFq;
+    public ViewStub bFr;
+    public ViewGroup bFs;
+    public LinearLayout bFt;
+    public HeadImageView bFu;
+    public TextView bFv;
+    public TextView bFw;
+    public AppDownloadView bFx;
+    public TextView bFy;
+    public TbImageView bFz;
 
     static {
         $assertionsDisabled = !bh.class.desiredAssertionStatus();
@@ -33,20 +33,20 @@ public class bh extends y.a {
 
     public bh(View view) {
         super(view);
-        this.aeK = 3;
+        this.afy = 3;
         if (!$assertionsDisabled && view == null) {
             throw new AssertionError();
         }
-        this.bEj = (LinearLayout) view.findViewById(u.g.frs_app_item_parent);
-        this.bEk = (HeadImageView) view.findViewById(u.g.frs_app_icon);
-        this.bEl = (TextView) view.findViewById(u.g.frs_app_name);
-        this.bEm = (TextView) view.findViewById(u.g.frs_app_time);
-        this.bEn = (AppDownloadView) view.findViewById(u.g.frs_app_download_view);
-        this.bEo = (TextView) view.findViewById(u.g.frs_app_desc);
-        this.bEp = (TbImageView) view.findViewById(u.g.frs_app_url);
-        this.bEq = (TextView) view.findViewById(u.g.frs_app_download);
-        this.bEf = (ViewStub) view.findViewById(u.g.frs_item_adkiller_tip);
-        this.bEh = (ViewStub) view.findViewById(u.g.item_adkiller_close);
-        this.bEn.uO();
+        this.bFt = (LinearLayout) view.findViewById(u.g.frs_app_item_parent);
+        this.bFu = (HeadImageView) view.findViewById(u.g.frs_app_icon);
+        this.bFv = (TextView) view.findViewById(u.g.frs_app_name);
+        this.bFw = (TextView) view.findViewById(u.g.frs_app_time);
+        this.bFx = (AppDownloadView) view.findViewById(u.g.frs_app_download_view);
+        this.bFy = (TextView) view.findViewById(u.g.frs_app_desc);
+        this.bFz = (TbImageView) view.findViewById(u.g.frs_app_url);
+        this.bFA = (TextView) view.findViewById(u.g.frs_app_download);
+        this.bFp = (ViewStub) view.findViewById(u.g.frs_item_adkiller_tip);
+        this.bFr = (ViewStub) view.findViewById(u.g.item_adkiller_close);
+        this.bFx.uO();
     }
 }

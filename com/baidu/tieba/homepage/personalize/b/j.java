@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends CustomMessageListener {
-    final /* synthetic */ g csR;
+    final /* synthetic */ g cvC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(g gVar, int i) {
         super(i);
-        this.csR = gVar;
+        this.cvC = gVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -28,32 +28,32 @@ public class j extends CustomMessageListener {
         String str3;
         if (customResponsedMessage != null) {
             if (!(customResponsedMessage.getData() instanceof com.baidu.tieba.homepage.personalize.data.i)) {
-                this.csR.csL = null;
-                this.csR.csN = 0;
+                this.cvC.cvw = null;
+                this.cvC.cvy = 0;
                 return;
             }
             com.baidu.tieba.homepage.personalize.data.i iVar = (com.baidu.tieba.homepage.personalize.data.i) customResponsedMessage.getData();
-            if (iVar.csA) {
-                str2 = this.csR.csL;
+            if (iVar.cvk) {
+                str2 = this.cvC.cvw;
                 if (!StringUtils.isNull(str2)) {
-                    str3 = this.csR.csL;
-                    if (str3.equals(iVar.csz)) {
-                        this.csR.csN = 2;
-                        this.csR.csL = iVar.csz;
+                    str3 = this.cvC.cvw;
+                    if (str3.equals(iVar.cvj)) {
+                        this.cvC.cvy = 2;
+                        this.cvC.cvw = iVar.cvj;
                         return;
                     }
                 }
-                this.csR.csN = 1;
-                this.csR.csL = iVar.csz;
+                this.cvC.cvy = 1;
+                this.cvC.cvw = iVar.cvj;
                 return;
             }
-            str = this.csR.csL;
+            str = this.cvC.cvw;
             if (StringUtils.isNull(str)) {
-                this.csR.csN = 2;
+                this.cvC.cvy = 2;
             } else {
-                this.csR.csN = 1;
+                this.cvC.cvy = 1;
             }
-            this.csR.csL = null;
+            this.cvC.cvw = null;
         }
     }
 }

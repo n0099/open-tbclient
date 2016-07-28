@@ -1,18 +1,18 @@
 package com.baidu.tieba.personInfo;
-
-import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements a.b {
-    final /* synthetic */ f this$0;
+public class ba implements Runnable {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(f fVar) {
-        this.this$0 = fVar;
+    public ba(h hVar) {
+        this.this$0 = hVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        bn bnVar;
+        bnVar = this.this$0.ers;
+        bnVar.aPI();
     }
 }

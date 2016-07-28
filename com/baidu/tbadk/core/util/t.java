@@ -11,21 +11,22 @@ public interface t {
 
     void d(String str, byte[] bArr);
 
-    void dm();
+    void dl();
 
-    void dp();
+    /* renamed from: do */
+    void mo13do();
 
-    void k(ArrayList<BasicNameValuePair> arrayList);
+    void l(ArrayList<BasicNameValuePair> arrayList);
 
     void n(String str, String str2);
 
-    ArrayList<BasicNameValuePair> sZ();
+    ArrayList<BasicNameValuePair> sY();
 
-    String ta();
+    String sZ();
 
-    byte[] tb();
+    byte[] ta();
+
+    String tb();
 
     String tc();
-
-    String td();
 }

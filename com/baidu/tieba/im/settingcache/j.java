@@ -4,29 +4,29 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 /* loaded from: classes.dex */
 public class j extends a {
-    private static j cWA = new j();
+    private static j cZv = new j();
 
     private j() {
     }
 
-    public static j aqK() {
-        return cWA;
+    public static j arw() {
+        return cZv;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bj */
-    public PersonalSettingItemData bf(String str, String str2) {
+    /* renamed from: bk */
+    public PersonalSettingItemData bg(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.cWp) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.cWp.get(str3);
+        synchronized (this.cZk) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.cZk.get(str3);
             personalSettingItemData = (aVar == null || !(aVar instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) aVar;
         }
         if (personalSettingItemData == null) {
@@ -34,7 +34,7 @@ public class j extends a {
             personalSettingItemData2.setMyUid(str);
             personalSettingItemData2.setToUid(str2);
             personalSettingItemData2.setAcceptNotify(true);
-            if (com.baidu.adp.lib.util.k.fH()) {
+            if (com.baidu.adp.lib.util.k.fG()) {
                 a(personalSettingItemData2, null);
                 return personalSettingItemData2;
             }
@@ -44,23 +44,23 @@ public class j extends a {
         return personalSettingItemData;
     }
 
-    public void amF() {
+    public void anp() {
         super.v(PersonalSettingItemData.class);
     }
 
     public void b(String str, String str2, UserData userData) {
-        PersonalSettingItemData bf;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bf = bf(str, str2)) != null) {
-            bf.setToPortrait(userData.getPortrait());
-            bf.setToName(userData.getUserName());
-            a(bf);
+        PersonalSettingItemData bg;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bg = bg(str, str2)) != null) {
+            bg.setToPortrait(userData.getPortrait());
+            bg.setToName(userData.getUserName());
+            a(bg);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> aqG() {
-        return com.baidu.tbadk.core.b.a.rP().cw("tb.im_personal_chat_setting");
+    public o<String> ars() {
+        return com.baidu.tbadk.core.b.a.rO().cw("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -75,13 +75,13 @@ public class j extends a {
                 }
                 return;
             }
-            o<String> aqG = aqG();
+            o<String> ars = ars();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.cWp) {
-                this.cWp.put(str, personalSettingItemData);
+            synchronized (this.cZk) {
+                this.cZk.put(str, personalSettingItemData);
             }
-            aqG.e(str, jsonStrWithObject);
+            ars.k(str, jsonStrWithObject);
         }
     }
 
@@ -98,10 +98,10 @@ public class j extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.cWp) {
-                this.cWp.put(str, personalSettingItemData);
+            synchronized (this.cZk) {
+                this.cZk.put(str, personalSettingItemData);
             }
-            t.b(new k(this, personalSettingItemData, str), gVar);
+            u.b(new k(this, personalSettingItemData, str), gVar);
         }
     }
 }

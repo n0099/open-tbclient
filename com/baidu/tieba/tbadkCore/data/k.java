@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String eXs;
-    private int eXt;
-    private String eXu;
-    private String eXv;
-    private String eXw;
+    private String fku;
+    private int fkv;
+    private String fkw;
+    private String fkx;
+    private String fky;
     private int height;
     private String subTitle;
     private int width;
 
     public k(Timgs timgs) {
-        this.eXs = null;
-        this.eXt = 0;
-        this.eXu = null;
-        this.eXv = null;
-        this.eXw = null;
+        this.fku = null;
+        this.fkv = 0;
+        this.fkw = null;
+        this.fkx = null;
+        this.fky = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.eXs = timgs.img_url;
-            this.eXt = timgs.flag.intValue();
-            this.eXu = timgs.url;
-            this.eXv = timgs.big_cdn_url;
-            this.eXw = timgs.des_main;
+            this.fku = timgs.img_url;
+            this.fkv = timgs.flag.intValue();
+            this.fkw = timgs.url;
+            this.fkx = timgs.big_cdn_url;
+            this.fky = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,16 +50,16 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.eXs;
+        return this.fku;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicLinkUrl() {
-        return this.eXu;
+        return this.fkw;
     }
 
-    public String bbS() {
-        return this.eXw;
+    public String bfh() {
+        return this.fky;
     }
 
     public String getSubTitle() {
@@ -74,7 +74,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String bbT() {
-        return this.eXv;
+    public String bfi() {
+        return this.fkx;
     }
 }

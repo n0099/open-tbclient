@@ -1,40 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.cs;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-public class ct extends HttpMessageListener {
-    final /* synthetic */ cs dQA;
+public class ct {
+    private BaseActivity bem;
+    private dh eas;
+    private a ebO = null;
+    protected final HttpMessageListener ecO = new cu(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ct(cs csVar, int i) {
-        super(i);
-        this.dQA = csVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void h(int i, String str, String str2);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        cs.a aVar;
-        cs.a aVar2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-            if (httpResponsedMessage.getStatusCode() != 200) {
-                aVar = this.dQA.dPA;
-                aVar.h(-1, null, null);
-                return;
-            }
-            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-            String tid = applyCopyThreadResponseMessage.getTid();
-            if (errorCode == 0) {
-                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-            }
-            aVar2 = this.dQA.dPA;
-            aVar2.h(errorCode, errorMessage, tid);
+    public ct(dh dhVar, BaseActivity baseActivity) {
+        this.eas = dhVar;
+        this.bem = baseActivity;
+        this.bem.registerListener(this.ecO);
+    }
+
+    public void a(a aVar) {
+        this.ebO = aVar;
+    }
+
+    public void nC(int i) {
+        if (this.eas != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+            httpMessage.addParam("thread_id", this.eas.getThreadID());
+            httpMessage.addParam("status", String.valueOf(i));
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

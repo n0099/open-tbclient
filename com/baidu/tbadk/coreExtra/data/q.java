@@ -4,56 +4,58 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
     private String aDKillerUrl;
-    private String agI;
-    private String agJ;
-    private String agK;
-    private String agL;
-    private String agM;
-    private String agN;
-    private String agO;
-    private String agP;
-    private int agQ;
-    private int agR;
-    private long agS;
-    private int agT;
-    private String agV;
-    private String agW;
-    private String agX;
-    private String agY;
+    private String ahA;
+    private String ahB;
+    private String ahC;
+    private String ahD;
+    private int ahE;
+    private int ahF;
+    private long ahG;
+    private int ahH;
+    private String ahJ;
+    private String ahK;
+    private String ahL;
+    private String ahM;
+    public int ahO;
+    private String ahw;
+    private String ahx;
+    private String ahy;
+    private String ahz;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
     private long lastUpdateTime;
-    private int agU = 0;
-    private int agZ = 2;
+    private int ahI = 0;
+    private int ahN = 2;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.agI = jSONObject.optString("drop_pic");
-                this.agJ = jSONObject.optString("drop_pic_md5");
-                this.agK = jSONObject.optString("drop_pic_num");
-                this.agL = jSONObject.optString("drop_bg_color_day");
-                this.agM = jSONObject.optString("drop_bg_color_night");
-                this.agN = jSONObject.optString("apply_vip_live_room_pid");
-                this.agV = jSONObject.optString("max_cache");
-                this.agW = jSONObject.optString("frs_max_cache");
-                this.agX = jSONObject.optString("frs_pn");
-                this.agO = jSONObject.optString("tail_link");
-                this.agP = jSONObject.optString("bubble_link");
-                this.agQ = jSONObject.optInt("xiaoying_time");
+                this.ahw = jSONObject.optString("drop_pic");
+                this.ahx = jSONObject.optString("drop_pic_md5");
+                this.ahy = jSONObject.optString("drop_pic_num");
+                this.ahz = jSONObject.optString("drop_bg_color_day");
+                this.ahA = jSONObject.optString("drop_bg_color_night");
+                this.ahB = jSONObject.optString("apply_vip_live_room_pid");
+                this.ahJ = jSONObject.optString("max_cache");
+                this.ahK = jSONObject.optString("frs_max_cache");
+                this.ahL = jSONObject.optString("frs_pn");
+                this.ahC = jSONObject.optString("tail_link");
+                this.ahD = jSONObject.optString("bubble_link");
+                this.ahE = jSONObject.optInt("xiaoying_time");
                 this.lastUpdateTime = jSONObject.optLong("last_update_time", 0L);
-                this.agR = jSONObject.optInt("new_resign", 0);
-                this.agS = jSONObject.optLong("personalized_cache_seconds", 43200L);
-                this.agT = jSONObject.optInt("personalized_max_count", 300);
+                this.ahF = jSONObject.optInt("new_resign", 0);
+                this.ahG = jSONObject.optLong("personalized_cache_seconds", 43200L);
+                this.ahH = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.agY = jSONObject.optString("show_ad_killer");
+                this.ahM = jSONObject.optString("show_ad_killer");
                 this.aDKillerUrl = jSONObject.optString("adkiller_url");
-                this.agU = jSONObject.optInt("read_thread_switch", 0);
-                this.agZ = jSONObject.optInt("localvideo_open", 2);
-                com.baidu.tbadk.pageStayDuration.e.Et().eM(jSONObject.optInt("statlog_path_max", 3));
+                this.ahI = jSONObject.optInt("read_thread_switch", 0);
+                this.ahN = jSONObject.optInt("localvideo_open", 2);
+                this.ahO = jSONObject.optInt("card_show_statistic", 200);
+                com.baidu.tbadk.pageStayDuration.e.Es().eM(jSONObject.optInt("statlog_path_max", 3));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,51 +63,51 @@ public class q {
     }
 
     public String wM() {
-        return this.agN;
+        return this.ahB;
     }
 
     public String wN() {
-        return this.agI;
+        return this.ahw;
     }
 
     public String wO() {
-        return this.agJ;
+        return this.ahx;
     }
 
     public String wP() {
-        return this.agK;
+        return this.ahy;
     }
 
     public String wQ() {
-        return this.agL;
+        return this.ahz;
     }
 
     public String wR() {
-        return this.agM;
+        return this.ahA;
     }
 
     public String wS() {
-        return this.agV;
+        return this.ahJ;
     }
 
     public String wT() {
-        return this.agW;
+        return this.ahK;
     }
 
     public String wU() {
-        return this.agX;
+        return this.ahL;
     }
 
     public String wV() {
-        return this.agO;
+        return this.ahC;
     }
 
     public String wW() {
-        return this.agP;
+        return this.ahD;
     }
 
     public int wX() {
-        return this.agQ;
+        return this.ahE;
     }
 
     public long wY() {
@@ -113,15 +115,15 @@ public class q {
     }
 
     public long wZ() {
-        return this.agS;
+        return this.ahG;
     }
 
     public int xa() {
-        return this.agT;
+        return this.ahH;
     }
 
     public int xb() {
-        return this.agR;
+        return this.ahF;
     }
 
     public String xc() {
@@ -137,7 +139,7 @@ public class q {
     }
 
     public String xf() {
-        return this.agY;
+        return this.ahM;
     }
 
     public String getaDKillerUrl() {
@@ -145,10 +147,10 @@ public class q {
     }
 
     public int xg() {
-        return this.agU;
+        return this.ahI;
     }
 
     public boolean xh() {
-        return this.agZ == 1;
+        return this.ahN == 1;
     }
 }

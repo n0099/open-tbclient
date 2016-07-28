@@ -5,11 +5,11 @@ import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ z aTy;
+    final /* synthetic */ z aUu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(z zVar) {
-        this.aTy = zVar;
+        this.aUu = zVar;
     }
 
     @Override // android.media.MediaPlayer.OnPreparedListener
@@ -26,7 +26,7 @@ public class ad implements MediaPlayer.OnPreparedListener {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            handler = this.aTy.aTs;
+            handler = this.aUu.aUo;
             handler.sendEmptyMessageDelayed(202, 300L);
         }
     }

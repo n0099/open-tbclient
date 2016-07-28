@@ -1,34 +1,28 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.media.MediaPlayer;
-import android.os.Handler;
-import com.baidu.tbadk.core.view.at;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ a bKn;
+public class e implements View.OnClickListener {
+    private final /* synthetic */ ThemeCardInUserData bJx;
+    final /* synthetic */ a bLV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar) {
-        this.bKn = aVar;
+    public e(a aVar, ThemeCardInUserData themeCardInUserData) {
+        this.bLV = aVar;
+        this.bJx = themeCardInUserData;
     }
 
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        Handler handler;
-        if (mediaPlayer != null) {
-            try {
-                mediaPlayer.setVolume(0.0f, 0.0f);
-                mediaPlayer.setLooping(true);
-                mediaPlayer.start();
-                if (at.vG().vL()) {
-                    mediaPlayer.seekTo(0);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            handler = this.bKn.aTs;
-            handler.sendEmptyMessageDelayed(202, 300L);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bLV.DQ;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bJx.getCardId())));
     }
 }

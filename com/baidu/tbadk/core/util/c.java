@@ -20,7 +20,7 @@ public class c {
         try {
             for (PackageInfo packageInfo : context.getPackageManager().getInstalledPackages(64)) {
                 if (packageInfo.packageName.equals(context.getPackageName())) {
-                    return t(packageInfo.signatures[0].toByteArray());
+                    return w(packageInfo.signatures[0].toByteArray());
                 }
             }
         } catch (Exception e) {
@@ -29,7 +29,7 @@ public class c {
         return null;
     }
 
-    private static byte[] t(byte[] bArr) {
+    private static byte[] w(byte[] bArr) {
         try {
             return ((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(bArr))).getPublicKey().getEncoded();
         } catch (CertificateException e) {

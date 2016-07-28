@@ -19,35 +19,35 @@ import com.baidu.tieba.u;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private BaseActivity bJz;
-    private GridView dxt;
+    private BaseActivity bsn;
+    private GridView dAR;
     private Context mContext;
-    private com.baidu.tbadk.img.b arw = new com.baidu.tbadk.img.b();
-    private l apV = null;
-    private int arz = 13;
-    private int fGF = 6;
-    private boolean fGG = false;
+    private com.baidu.tbadk.img.b asl = new com.baidu.tbadk.img.b();
+    private l aqK = null;
+    private int aso = 13;
+    private int fSw = 6;
+    private boolean fSx = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0084a fGH = new b(this);
+    private InterfaceC0082a fSy = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0084a {
-        void sp(int i);
+    public interface InterfaceC0082a {
+        void sD(int i);
     }
 
-    public void blj() {
+    public void boe() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            blk();
-        } else if (this.chosedFiles.size() < this.fGF) {
+            bof();
+        } else if (this.chosedFiles.size() < this.fSw) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                blk();
+                bof();
             }
         }
     }
 
-    private void blk() {
+    private void bof() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + u.f.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -58,14 +58,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean bll() {
+    public boolean bog() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void blm() {
+    public void boh() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -76,11 +76,11 @@ public class a extends BaseAdapter {
 
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         this.mContext = null;
-        this.bJz = null;
-        this.dxt = null;
-        this.bJz = baseActivity;
-        this.mContext = this.bJz.getActivity();
-        this.dxt = gridView;
+        this.bsn = null;
+        this.dAR = null;
+        this.bsn = baseActivity;
+        this.mContext = this.bsn.getActivity();
+        this.dAR = gridView;
     }
 
     @Override // android.widget.Adapter
@@ -108,7 +108,7 @@ public class a extends BaseAdapter {
     }
 
     public void setEditorTools(l lVar) {
-        this.apV = lVar;
+        this.aqK = lVar;
     }
 
     public void f(WriteImagesInfo writeImagesInfo) {
@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        blj();
+        boe();
         notifyDataSetInvalidated();
     }
 
@@ -157,8 +157,8 @@ public class a extends BaseAdapter {
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
         }
         c cVar = new c(this, viewGroup);
-        if (imageFileInfo != null && this.arw != null) {
-            aVar = this.arw.a(imageFileInfo, cVar, true);
+        if (imageFileInfo != null && this.asl != null) {
+            aVar = this.asl.a(imageFileInfo, cVar, true);
         }
         if (aVar != null) {
             tbImageView.invalidate();
@@ -168,7 +168,7 @@ public class a extends BaseAdapter {
         return inflate;
     }
 
-    public void so(int i) {
-        this.fGF = i;
+    public void sC(int i) {
+        this.fSw = i;
     }
 }

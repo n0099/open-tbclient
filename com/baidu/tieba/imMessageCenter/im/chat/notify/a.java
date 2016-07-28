@@ -7,7 +7,7 @@ import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class a {
     public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
-        if (TbadkCoreApplication.m9getInst().appResponseToCmd(i)) {
+        if (TbadkCoreApplication.m10getInst().appResponseToCmd(i)) {
             return true;
         }
         g(baseFragmentActivity);
@@ -15,7 +15,7 @@ public class a {
     }
 
     public static boolean a(BaseFragmentActivity baseFragmentActivity, Class<?> cls) {
-        if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(cls)) {
+        if (TbadkCoreApplication.m10getInst().appResponseToIntentClass(cls)) {
             return true;
         }
         g(baseFragmentActivity);

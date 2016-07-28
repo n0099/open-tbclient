@@ -12,18 +12,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class b extends BdAsyncTask<Void, Void, Void> {
-    private final PushNotifyMessage aRj;
-    private a aRk = null;
+    private final PushNotifyMessage aSd;
+    private a aSe = null;
 
     public b(PushNotifyMessage pushNotifyMessage) {
-        this.aRj = pushNotifyMessage;
+        this.aSd = pushNotifyMessage;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         try {
-            this.aRk = KM();
+            this.aSe = KL();
         } catch (Throwable th) {
         }
         super.onPreExecute();
@@ -34,7 +34,7 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
         try {
-            a(this.aRk);
+            a(this.aSe);
             return null;
         } catch (Throwable th) {
             return null;
@@ -49,7 +49,7 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private a KM() {
+    private a KL() {
         String str;
         String str2;
         String str3;
@@ -58,9 +58,9 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
         boolean z2 = true;
         String str4 = "";
         String str5 = "";
-        if (this.aRj != null) {
+        if (this.aSd != null) {
             try {
-                jSONObject = new JSONObject(this.aRj.getContent());
+                jSONObject = new JSONObject(this.aSd.getContent());
                 str4 = jSONObject.optString("server_host", "");
                 str5 = jSONObject.optString("chat_host", "");
                 z = TextUtils.isEmpty(str4) && TextUtils.isEmpty(str5);
@@ -75,7 +75,7 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
             try {
                 String optString = jSONObject.optString("cuid_prefix", "");
                 if (!TextUtils.isEmpty(optString)) {
-                    String cuid = TbadkCoreApplication.m9getInst().getCuid();
+                    String cuid = TbadkCoreApplication.m10getInst().getCuid();
                     if (!TextUtils.isEmpty(cuid) && !cuid.startsWith(optString)) {
                         BdLog.e("Not match, current device cuid:" + cuid + ", cuid_prefix:" + optString);
                         return null;
@@ -98,12 +98,12 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
                 return new a(r1, str4, str3, null);
             }
         } else {
-            long j = com.baidu.tbadk.core.sharedPref.b.sO().getLong("tbpp_key_capture_initial_time", 1L);
+            long j = com.baidu.tbadk.core.sharedPref.b.sN().getLong("tbpp_key_capture_initial_time", 1L);
             if (j < 1) {
                 return null;
             }
-            str4 = com.baidu.tbadk.core.sharedPref.b.sO().getString("tbpp_key_capture_server_host", "");
-            str3 = com.baidu.tbadk.core.sharedPref.b.sO().getString("tbpp_key_capture_chat_host", "");
+            str4 = com.baidu.tbadk.core.sharedPref.b.sN().getString("tbpp_key_capture_server_host", "");
+            str3 = com.baidu.tbadk.core.sharedPref.b.sN().getString("tbpp_key_capture_chat_host", "");
             if (System.currentTimeMillis() - j <= TimeUnit.HOURS.toMillis(3L)) {
                 z2 = false;
             }
@@ -129,22 +129,22 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
         if (aVar == null) {
             return;
         }
-        com.baidu.tbadk.core.sharedPref.b.sO().putLong("tbpp_key_capture_initial_time", aVar.time);
-        com.baidu.tbadk.core.sharedPref.b.sO().putString("tbpp_key_capture_server_host", aVar.aRl);
-        com.baidu.tbadk.core.sharedPref.b.sO().putString("tbpp_key_capture_chat_host", aVar.aRm);
+        com.baidu.tbadk.core.sharedPref.b.sN().putLong("tbpp_key_capture_initial_time", aVar.time);
+        com.baidu.tbadk.core.sharedPref.b.sN().putString("tbpp_key_capture_server_host", aVar.aSf);
+        com.baidu.tbadk.core.sharedPref.b.sN().putString("tbpp_key_capture_chat_host", aVar.aSg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private final String aRl;
-        private final String aRm;
+        private final String aSf;
+        private final String aSg;
         private final long time;
 
         private a(long j, String str, String str2) {
             this.time = j;
-            this.aRl = str;
-            this.aRm = str2;
+            this.aSf = str;
+            this.aSg = str2;
         }
 
         /* synthetic */ a(long j, String str, String str2, a aVar) {

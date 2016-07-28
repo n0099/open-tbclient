@@ -12,7 +12,7 @@ import java.util.Map;
 public class a implements ab {
     private String a;
     private int c;
-    private ab cI;
+    private ab cH;
     private int d;
     private Map e = new HashMap();
 
@@ -20,7 +20,7 @@ public class a implements ab {
         this.a = str;
         this.c = i;
         this.d = i2;
-        this.cI = abVar;
+        this.cH = abVar;
     }
 
     @Override // com.ab
@@ -73,16 +73,6 @@ public class a implements ab {
         return this.a + "/" + str + ".png";
     }
 
-    public a m(int i) {
-        this.d = i;
-        return this;
-    }
-
-    public a n(int i) {
-        this.c = i;
-        return this;
-    }
-
     public a o(String str) {
         this.a = str;
         return this;
@@ -100,14 +90,24 @@ public class a implements ab {
             if (num == null) {
                 num = 0;
             }
-            if (num.intValue() + 1 < this.c || this.cI == null) {
+            if (num.intValue() + 1 < this.c || this.cH == null) {
                 this.e.put(str, Integer.valueOf(num.intValue() + 1));
                 return decodeFile;
             }
-            this.cI.a(str, decodeFile);
+            this.cH.a(str, decodeFile);
             this.e.remove(str);
             return decodeFile;
         }
         return null;
+    }
+
+    public a p(int i) {
+        this.d = i;
+        return this;
+    }
+
+    public a q(int i) {
+        this.c = i;
+        return this;
     }
 }

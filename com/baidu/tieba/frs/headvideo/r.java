@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.util.y;
 import java.util.List;
 /* loaded from: classes.dex */
 class r implements Runnable {
-    final /* synthetic */ ForumHeadVideoView bPh;
+    final /* synthetic */ ForumHeadVideoView bQU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ForumHeadVideoView forumHeadVideoView) {
-        this.bPh = forumHeadVideoView;
+        this.bQU = forumHeadVideoView;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0060, code lost:
@@ -24,35 +24,35 @@ class r implements Runnable {
         List list3;
         boolean hasMore;
         List list4;
-        list = this.bPh.aLB;
+        list = this.bQU.aMv;
         if (list != null) {
-            list2 = this.bPh.aLB;
+            list2 = this.bQU.aMv;
             if (list2.size() > 0) {
-                list3 = this.bPh.aLB;
+                list3 = this.bQU.aMv;
                 y.d(list3, 0);
-                e currentVideoItemView = this.bPh.getCurrentVideoItemView();
-                e swapVideoItemView = this.bPh.getSwapVideoItemView();
+                e currentVideoItemView = this.bQU.getCurrentVideoItemView();
+                e swapVideoItemView = this.bQU.getSwapVideoItemView();
                 if (currentVideoItemView != null) {
                     currentVideoItemView.clearAnimation();
                     currentVideoItemView.stopPlayback();
                     currentVideoItemView.setVisibility(8);
-                    this.bPh.removeView(currentVideoItemView);
-                    int childCount = this.bPh.getChildCount();
+                    this.bQU.removeView(currentVideoItemView);
+                    int childCount = this.bQU.getChildCount();
                     if (swapVideoItemView != null) {
                         swapVideoItemView.clearAnimation();
-                        this.bPh.g(swapVideoItemView, childCount - 1, childCount);
+                        this.bQU.g(swapVideoItemView, childCount - 1, childCount);
                     }
-                    hasMore = this.bPh.hasMore();
+                    hasMore = this.bQU.hasMore();
                     if (!hasMore) {
-                        list4 = this.bPh.aLB;
+                        list4 = this.bQU.aMv;
                     }
-                    this.bPh.addView(currentVideoItemView, 0);
-                    this.bPh.Zv();
-                    this.bPh.Zq();
-                    this.bPh.hK(this.bPh.getChildCount());
+                    this.bQU.addView(currentVideoItemView, 0);
+                    this.bQU.ZR();
+                    this.bQU.ZM();
+                    this.bQU.hK(this.bQU.getChildCount());
                 }
             }
         }
-        this.bPh.bOV = true;
+        this.bQU.bQH = true;
     }
 }

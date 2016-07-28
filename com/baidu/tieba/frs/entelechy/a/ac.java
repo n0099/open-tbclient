@@ -1,110 +1,43 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.az;
-import com.baidu.tieba.frs.entelechy.view.au;
+import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.bx;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.widget.ListView.a<az, a> implements au {
-    private TbPageContext<?> Ea;
-    private com.baidu.tieba.frs.entelechy.view.a bJP;
-    private String mForumName;
+public class ac extends bx<be> {
+    final /* synthetic */ ab bLs;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ac(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.Ea = tbPageContext;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(ab abVar) {
+        this.bLs = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: I */
-    public a a(ViewGroup viewGroup) {
-        this.bJP = new com.baidu.tieba.frs.entelechy.view.a(this.Ea);
-        this.bJP.j(this.Ea.getUniqueId());
-        this.bJP.setForumName(this.mForumName);
-        return new a(this.bJP);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, az azVar, a aVar) {
-        aVar.bJQ.h(azVar);
-        aVar.bJQ.setForumName(this.mForumName);
-        return aVar.getView();
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.view.au
-    public void setForumName(String str) {
-        this.mForumName = str;
-    }
-
-    /* loaded from: classes.dex */
-    public static class a extends y.a implements com.baidu.tieba.play.d {
-        public com.baidu.tieba.frs.entelechy.view.a bJQ;
-
-        public a(com.baidu.tieba.frs.entelechy.view.a aVar) {
-            super(aVar.getView());
-            this.bJQ = aVar;
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public boolean IB() {
-            if (this.bJQ == null) {
-                return false;
+    @Override // com.baidu.tieba.card.bx
+    public void a(View view, be beVar) {
+        bx bxVar;
+        bx bxVar2;
+        if (view != null && beVar != null) {
+            if (view.getId() == u.g.card_home_page_normal_thread_user_header || view.getId() == u.g.user_name) {
+                com.baidu.tieba.frs.h.b.aam().a(ab.bSh, beVar, 2);
+            } else if (view instanceof TbImageView) {
+                bxVar = this.bLs.bLl;
+                if (bxVar.aVK instanceof Boolean) {
+                    bxVar2 = this.bLs.bLl;
+                    if (((Boolean) bxVar2.aVK).booleanValue()) {
+                        com.baidu.tieba.frs.h.b.aam().a(ab.bSh, beVar, 1);
+                    } else {
+                        com.baidu.tieba.frs.h.b.aam().a(ab.bSh, beVar, 3);
+                    }
+                }
+            } else if (view.getId() == u.g.card_home_page_normal_thread_abstract_voice) {
+                com.baidu.tieba.frs.h.b.aam().a(ab.bSh, beVar, 5);
+            } else {
+                com.baidu.tieba.frs.h.b.aam().a(ab.bSh, beVar, 1);
             }
-            return this.bJQ.IB();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public boolean isPlaying() {
-            if (this.bJQ == null) {
-                return false;
-            }
-            return this.bJQ.isPlaying();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public void IA() {
-            if (this.bJQ != null) {
-                this.bJQ.IA();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public void stopPlay() {
-            if (this.bJQ != null) {
-                this.bJQ.stopPlay();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public View getVideoContainer() {
-            if (this.bJQ == null) {
-                return null;
-            }
-            return this.bJQ.getVideoContainer();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public String getPlayUrl() {
-            if (this.bJQ == null) {
-                return null;
-            }
-            return this.bJQ.getPlayUrl();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public int getCurrentPosition() {
-            if (this.bJQ == null) {
-                return 0;
-            }
-            return this.bJQ.getCurrentPosition();
         }
     }
 }

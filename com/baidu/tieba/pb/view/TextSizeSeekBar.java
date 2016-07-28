@@ -15,17 +15,17 @@ import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class TextSizeSeekBar extends View {
-    private Drawable cCF;
-    private int dZA;
-    private int dZB;
-    private ArrayList<Rect> dZC;
-    private int dZt;
-    private int dZu;
-    private int dZv;
-    private int dZw;
-    private int dZx;
-    private int dZy;
-    private String[] dZz;
+    private Drawable cFu;
+    private int elV;
+    private int elW;
+    private int elX;
+    private int elY;
+    private int elZ;
+    private int ema;
+    private String[] emb;
+    private int emc;
+    private int emd;
+    private ArrayList<Rect> eme;
     private int index;
     private Paint paint;
     private int textSize;
@@ -33,21 +33,21 @@ public class TextSizeSeekBar extends View {
     public TextSizeSeekBar(Context context) {
         super(context);
         this.index = 1;
-        this.dZC = new ArrayList<>(4);
+        this.eme = new ArrayList<>(4);
         init(context);
     }
 
     public TextSizeSeekBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.index = 1;
-        this.dZC = new ArrayList<>(4);
+        this.eme = new ArrayList<>(4);
         init(context);
     }
 
     public TextSizeSeekBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.index = 1;
-        this.dZC = new ArrayList<>(4);
+        this.eme = new ArrayList<>(4);
         init(context);
     }
 
@@ -56,14 +56,14 @@ public class TextSizeSeekBar extends View {
         this.paint.setAntiAlias(true);
         this.paint.setDither(true);
         this.paint.setFilterBitmap(true);
-        this.cCF = av.getDrawable(u.f.btn_recommend_size_handle);
-        this.dZw = this.cCF.getIntrinsicWidth();
-        this.dZx = this.cCF.getIntrinsicHeight();
-        this.textSize = TbadkCoreApplication.m9getInst().getContext().getResources().getDimensionPixelSize(u.e.ds24);
-        this.dZz = new String[]{context.getString(u.j.text_size_small), context.getString(u.j.text_size_middle), context.getString(u.j.text_size_big), context.getString(u.j.text_size_very_big)};
-        this.dZA = av.getColor(u.d.cp_link_tip_a);
-        this.dZB = av.getColor(u.d.cp_cont_c);
-        this.index = Math.abs(TbadkCoreApplication.m9getInst().getFontSize() - 3);
+        this.cFu = av.getDrawable(u.f.btn_recommend_size_handle);
+        this.elY = this.cFu.getIntrinsicWidth();
+        this.elZ = this.cFu.getIntrinsicHeight();
+        this.textSize = TbadkCoreApplication.m10getInst().getContext().getResources().getDimensionPixelSize(u.e.ds24);
+        this.emb = new String[]{context.getString(u.j.text_size_small), context.getString(u.j.text_size_middle), context.getString(u.j.text_size_big), context.getString(u.j.text_size_very_big)};
+        this.emc = av.getColor(u.d.cp_link_tip_a);
+        this.emd = av.getColor(u.d.cp_cont_c);
+        this.index = Math.abs(TbadkCoreApplication.m10getInst().getFontSize() - 3);
     }
 
     public void setCursonIndex(int i) {
@@ -72,24 +72,24 @@ public class TextSizeSeekBar extends View {
 
     @Override // android.view.View
     protected void onAttachedToWindow() {
-        this.cCF = av.getDrawable(u.f.btn_recommend_size_handle);
-        this.index = Math.abs(TbadkCoreApplication.m9getInst().getFontSize() - 3);
+        this.cFu = av.getDrawable(u.f.btn_recommend_size_handle);
+        this.index = Math.abs(TbadkCoreApplication.m10getInst().getFontSize() - 3);
         super.onAttachedToWindow();
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.dZt == 0 || this.dZu == 0) {
-            this.dZt = View.MeasureSpec.getSize(i);
-            this.dZu = TbadkCoreApplication.m9getInst().getContext().getResources().getDimensionPixelSize(u.e.ds184);
-            this.dZv = (this.dZt - this.dZw) / 3;
-            this.dZy = this.dZu / 2;
+        if (this.elV == 0 || this.elW == 0) {
+            this.elV = View.MeasureSpec.getSize(i);
+            this.elW = TbadkCoreApplication.m10getInst().getContext().getResources().getDimensionPixelSize(u.e.ds184);
+            this.elX = (this.elV - this.elY) / 3;
+            this.ema = this.elW / 2;
             for (int i3 = 0; i3 < 4; i3++) {
-                this.dZC.add(new Rect(this.dZv * i3, this.dZy - (this.dZx / 2), (this.dZv * i3) + this.dZw, this.dZy + (this.dZx / 2)));
+                this.eme.add(new Rect(this.elX * i3, this.ema - (this.elZ / 2), (this.elX * i3) + this.elY, this.ema + (this.elZ / 2)));
             }
         }
-        setMeasuredDimension(this.dZt, this.dZu);
+        setMeasuredDimension(this.elV, this.elW);
     }
 
     @Override // android.view.View
@@ -104,11 +104,11 @@ public class TextSizeSeekBar extends View {
                 while (true) {
                     int i2 = i;
                     if (i2 <= 3) {
-                        if (!this.dZC.get(i2).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
+                        if (!this.eme.get(i2).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                             i = i2 + 1;
                         } else {
                             this.index = i2;
-                            com.baidu.tieba.pb.a.c.ne(Math.abs(this.index - 3));
+                            com.baidu.tieba.pb.a.c.nw(Math.abs(this.index - 3));
                             invalidate();
                             return true;
                         }
@@ -128,41 +128,41 @@ public class TextSizeSeekBar extends View {
     }
 
     private void drawText(Canvas canvas) {
-        int dimensionPixelSize = TbadkCoreApplication.m9getInst().getContext().getResources().getDimensionPixelSize(u.e.ds42);
-        for (int i = 0; i < this.dZz.length; i++) {
+        int dimensionPixelSize = TbadkCoreApplication.m10getInst().getContext().getResources().getDimensionPixelSize(u.e.ds42);
+        for (int i = 0; i < this.emb.length; i++) {
             if (i == this.index) {
-                this.paint.setColor(this.dZA);
+                this.paint.setColor(this.emc);
             } else {
-                this.paint.setColor(this.dZB);
+                this.paint.setColor(this.emd);
             }
             this.paint.setTextSize(this.textSize);
             this.paint.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(this.dZz[i], (this.dZv * i) + (this.dZw / 2), this.dZy - dimensionPixelSize, this.paint);
+            canvas.drawText(this.emb[i], (this.elX * i) + (this.elY / 2), this.ema - dimensionPixelSize, this.paint);
         }
     }
 
     private void q(Canvas canvas) {
-        this.paint.setColor(this.dZA);
+        this.paint.setColor(this.emc);
         this.paint.setStrokeWidth(4.0f);
-        canvas.drawLine(this.dZw / 2, this.dZy, (this.index * this.dZv) + (this.dZw / 2), this.dZy, this.paint);
-        this.paint.setColor(this.dZB);
-        canvas.drawLine((this.index * this.dZv) + (this.dZw / 2), this.dZy, this.dZt - (this.dZw / 2), this.dZy, this.paint);
+        canvas.drawLine(this.elY / 2, this.ema, (this.index * this.elX) + (this.elY / 2), this.ema, this.paint);
+        this.paint.setColor(this.emd);
+        canvas.drawLine((this.index * this.elX) + (this.elY / 2), this.ema, this.elV - (this.elY / 2), this.ema, this.paint);
     }
 
     private void r(Canvas canvas) {
-        Rect rect = (Rect) y.c(this.dZC, this.index);
-        if (rect != null && this.cCF != null) {
-            this.cCF.setBounds(rect.left, rect.top, rect.right, rect.bottom);
-            this.cCF.draw(canvas);
+        Rect rect = (Rect) y.c(this.eme, this.index);
+        if (rect != null && this.cFu != null) {
+            this.cFu.setBounds(rect.left, rect.top, rect.right, rect.bottom);
+            this.cFu.draw(canvas);
         }
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.cCF != null) {
-            this.cCF.setCallback(null);
-            this.cCF = null;
+        if (this.cFu != null) {
+            this.cFu.setCallback(null);
+            this.cFu = null;
         }
     }
 }

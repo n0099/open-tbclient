@@ -1,17 +1,23 @@
 package com.baidu.tieba.frs.entelechy;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class i implements a.b {
-    final /* synthetic */ d bIu;
+class i implements TbImageView.a {
+    final /* synthetic */ e bJY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(d dVar) {
-        this.bIu = dVar;
+    public i(e eVar) {
+        this.bJY = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void t(String str, boolean z) {
+        if (z) {
+            this.bJY.Ye();
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

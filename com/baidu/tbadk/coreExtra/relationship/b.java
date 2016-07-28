@@ -18,7 +18,7 @@ public class b {
         return this.distance;
     }
 
-    public void eH(String str) {
+    public void eF(String str) {
         this.distance = str;
     }
 

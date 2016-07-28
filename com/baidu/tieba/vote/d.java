@@ -8,35 +8,35 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b fBq;
+    final /* synthetic */ b fOr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i, int i2) {
         super(i, i2);
-        this.fBq = bVar;
+        this.fOr = bVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         boolean checkMessageIsBelongToCurPage;
-        this.fBq.fBn = false;
-        checkMessageIsBelongToCurPage = this.fBq.checkMessageIsBelongToCurPage(responsedMessage);
+        this.fOr.fOo = false;
+        checkMessageIsBelongToCurPage = this.fOr.checkMessageIsBelongToCurPage(responsedMessage);
         if (checkMessageIsBelongToCurPage) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
-                String string = TbadkCoreApplication.m9getInst().getString(u.j.neterror);
+                String string = TbadkCoreApplication.m10getInst().getString(u.j.neterror);
                 if (!StringUtils.isNull(errorString)) {
                     string = errorString;
                 }
-                k.showToast(TbadkCoreApplication.m9getInst(), string);
+                k.showToast(TbadkCoreApplication.m10getInst(), string);
             } else if (!(responsedMessage instanceof AddVoteHttpProtoResponse)) {
                 if (!(responsedMessage instanceof AddVoteSocketResponse)) {
                     return;
                 }
-                this.fBq.bjr();
+                this.fOr.bmG();
             } else {
-                this.fBq.bjr();
+                this.fOr.bmG();
             }
         }
     }

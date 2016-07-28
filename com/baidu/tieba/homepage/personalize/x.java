@@ -1,35 +1,36 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.u;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements BdListView.e {
-    final /* synthetic */ s crd;
+public class x extends CustomMessageListener {
+    final /* synthetic */ b ctz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(s sVar) {
-        this.crd = sVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(b bVar, int i) {
+        super(i);
+        this.ctz = bVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void jD() {
-        PbListView pbListView;
-        a aVar;
-        PbListView pbListView2;
-        PbListView pbListView3;
-        TbPageContext tbPageContext;
-        pbListView = this.crd.biC;
-        if (pbListView != null) {
-            pbListView2 = this.crd.biC;
-            pbListView2.vh();
-            pbListView3 = this.crd.biC;
-            tbPageContext = this.crd.pageContext;
-            pbListView3.cU(com.baidu.adp.lib.util.k.c(tbPageContext.getPageActivity(), u.e.ds110));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdTypeListView bdTypeListView;
+        com.baidu.tieba.play.f fVar;
+        BdTypeListView bdTypeListView2;
+        BdTypeListView bdTypeListView3;
+        bdTypeListView = this.ctz.bqG;
+        if (bdTypeListView != null) {
+            fVar = this.ctz.aJx;
+            fVar.aWB();
+            this.ctz.cth = false;
+            bdTypeListView2 = this.ctz.bqG;
+            bdTypeListView2.l(2000L);
+            bdTypeListView3 = this.ctz.bqG;
+            bdTypeListView3.jA();
         }
-        aVar = this.crd.cqY;
-        aVar.UU();
     }
 }

@@ -5,10 +5,17 @@ import com.baidu.android.common.security.Base64;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
 import java.security.Key;
+import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.util.Random;
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
@@ -40,7 +47,7 @@ public class SapiDataEncryptor {
         return this.d;
     }
 
-    public String a(String str, String str2) {
+    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
         int length;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
@@ -70,7 +77,7 @@ public class SapiDataEncryptor {
         return Base64.encode(jSONArray.toString().getBytes("UTF-8"), "UTF-8");
     }
 
-    public String a(String str) {
+    public String a(String str) throws Exception {
         return new String(this.e.a(Base64.decode(str.getBytes()), new StringBuffer(this.d).reverse().toString(), this.d), "UTF-8");
     }
 
@@ -83,7 +90,7 @@ public class SapiDataEncryptor {
         return sb.toString();
     }
 
-    private byte[] a(Key key, byte[] bArr) {
+    private byte[] a(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
         Cipher cipher = Cipher.getInstance("RSA/NONE/PKCS1Padding");
         cipher.init(1, key);
         return cipher.doFinal(bArr);

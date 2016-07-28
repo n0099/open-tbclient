@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends CustomMessageListener {
-    final /* synthetic */ e dML;
+    final /* synthetic */ e dYX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(e eVar, int i) {
         super(i);
-        this.dML = eVar;
+        this.dYX = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,17 +22,17 @@ public class w extends CustomMessageListener {
         y yVar3;
         y yVar4;
         y yVar5;
-        yVar = this.dML.dMD;
+        yVar = this.dYX.dYN;
         if (yVar != null) {
-            yVar2 = this.dML.dMD;
-            if (yVar2.cBT != null) {
-                yVar3 = this.dML.dMD;
-                if (yVar3.aJJ != null) {
-                    yVar4 = this.dML.dMD;
-                    yVar4.cBT.setVisibility(0);
-                    yVar5 = this.dML.dMD;
-                    yVar5.aJJ.vr();
-                    this.dML.d(false, 0);
+            yVar2 = this.dYX.dYN;
+            if (yVar2.cEI != null) {
+                yVar3 = this.dYX.dYN;
+                if (yVar3.aKC != null) {
+                    yVar4 = this.dYX.dYN;
+                    yVar4.cEI.setVisibility(0);
+                    yVar5 = this.dYX.dYN;
+                    yVar5.aKC.vr();
+                    this.dYX.e(false, 0);
                 }
             }
         }

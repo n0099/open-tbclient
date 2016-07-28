@@ -29,11 +29,11 @@ public class ResponseVoteGraffitiMessage extends JsonHttpResponsedMessage {
     public ResponseVoteGraffitiMessage(int i) {
         super(i);
         this.mErrCode = -1;
-        this.mErrMsg = TbadkCoreApplication.m9getInst().getResources().getString(u.j.tb_err_unknown);
+        this.mErrMsg = TbadkCoreApplication.m10getInst().getResources().getString(u.j.tb_err_unknown);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {

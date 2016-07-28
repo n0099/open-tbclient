@@ -13,178 +13,178 @@ public class m {
 
     /* loaded from: classes.dex */
     public static class b extends h {
-        public String qU;
-        public String qV;
+        public String rx;
+        public String ry;
         public String mPath = "/";
-        public String qW = null;
-        public String[] qX = null;
-        public List<BasicNameValuePair> qY = null;
+        public String rz = null;
+        public String[] rA = null;
+        public List<BasicNameValuePair> rB = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(String str) {
-            this.qU = str;
+            this.rx = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class q extends h {
-        public boolean rg;
-        public Map<String, String> rh;
+        public boolean rJ;
+        public Map<String, String> rK;
 
         public q(boolean z, Map<String, String> map) {
-            this.rg = z;
-            this.rh = map;
+            this.rJ = z;
+            this.rK = map;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d extends h {
-        public SocketException ra;
+        public SocketException rD;
 
         public d(SocketException socketException) {
-            this.ra = socketException;
+            this.rD = socketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class e extends h {
         public int mStatusCode;
-        public String rb;
+        public String rE;
 
         public e(int i, String str) {
             this.mStatusCode = i;
-            this.rb = str;
+            this.rE = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class p extends h {
         public int mStatusCode;
-        public String rb;
+        public String rE;
 
         public p(int i, String str) {
             this.mStatusCode = i;
-            this.rb = str;
+            this.rE = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class l extends h {
-        public WebSocketException re;
+        public WebSocketException rH;
 
         public l(WebSocketException webSocketException) {
-            this.re = webSocketException;
+            this.rH = webSocketException;
         }
     }
 
     /* loaded from: classes.dex */
     public static class f extends h {
-        public Exception rc;
+        public Exception rF;
 
         public f(Exception exc) {
-            this.rc = exc;
+            this.rF = exc;
         }
     }
 
     /* loaded from: classes.dex */
     public static class s extends h {
-        public String ri;
+        public String rL;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public s(String str) {
-            this.ri = str;
+            this.rL = str;
         }
     }
 
     /* renamed from: com.baidu.adp.lib.webSocket.m$m  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0010m extends h {
-        public byte[] qT;
+        public byte[] rw;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public C0010m(byte[] bArr) {
-            this.qT = bArr;
+            this.rw = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends h {
-        public long eC;
-        public long eD;
-        public byte[] qT;
+        public long fe;
+        public long ff;
+        public byte[] rw;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
-            this.qT = bArr;
-            this.eC = j;
-            this.eD = j2;
+            this.rw = bArr;
+            this.fe = j;
+            this.ff = j2;
         }
     }
 
     /* loaded from: classes.dex */
     public static class i extends h {
-        com.baidu.adp.lib.webSocket.c rd;
+        com.baidu.adp.lib.webSocket.c rG;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public i(com.baidu.adp.lib.webSocket.c cVar) {
-            this.rd = cVar;
+            this.rG = cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c extends h {
         public int mCode;
-        public String qZ;
+        public String rC;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c() {
             this.mCode = -1;
-            this.qZ = null;
+            this.rC = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public c(int i, String str) {
             this.mCode = i;
-            this.qZ = str;
+            this.rC = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class j extends h {
-        public byte[] qT;
+        public byte[] rw;
 
         j() {
-            this.qT = null;
+            this.rw = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public j(byte[] bArr) {
-            this.qT = bArr;
+            this.rw = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class k extends h {
-        public byte[] qT;
+        public byte[] rw;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public k() {
-            this.qT = null;
+            this.rw = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public k(byte[] bArr) {
-            this.qT = bArr;
+            this.rw = bArr;
         }
     }
 
     /* loaded from: classes.dex */
     public static class o extends h {
-        com.baidu.adp.lib.webSocket.c rf;
+        com.baidu.adp.lib.webSocket.c rI;
 
         public o(com.baidu.adp.lib.webSocket.c cVar) {
-            this.rf = null;
-            this.rf = cVar;
+            this.rI = null;
+            this.rI = cVar;
         }
     }
 

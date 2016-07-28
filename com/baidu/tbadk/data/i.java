@@ -5,5 +5,5 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class i {
     public BaseFragmentActivity activity;
-    public List<com.baidu.adp.widget.ListView.a> aoT;
+    public List<com.baidu.adp.widget.ListView.a> apJ;
 }

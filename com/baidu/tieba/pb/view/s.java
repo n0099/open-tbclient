@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.j;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class s extends PopupWindow {
-    private int dZk;
+    private int elM;
     private j mContainer;
     private View mContentView;
 
@@ -20,7 +20,7 @@ public class s extends PopupWindow {
         super(activity);
         this.mContainer = null;
         this.mContentView = null;
-        this.dZk = 0;
+        this.elM = 0;
         init(activity, view, drawable, aVar);
     }
 
@@ -29,16 +29,16 @@ public class s extends PopupWindow {
         this.mContainer = new j(activity, this.mContentView, aVar);
         TypedValue typedValue = new TypedValue();
         if (activity != null && activity.getApplicationContext().getTheme() != null && activity.getApplicationContext().getTheme().resolveAttribute(16843499, typedValue, true)) {
-            this.dZk = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
+            this.elM = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
         }
         setContentView(this.mContainer);
         setOutsideTouchable(true);
         setFocusable(true);
         setHeight(-1);
         setWidth(-1);
-        if (aJh() && this.mContainer != null && (this.mContainer.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+        if (aMs() && this.mContainer != null && (this.mContainer.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
-            layoutParams.bottomMargin = this.dZk;
+            layoutParams.bottomMargin = this.elM;
             this.mContentView.setLayoutParams(layoutParams);
         }
         setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(u.d.common_color_10022)));
@@ -50,7 +50,7 @@ public class s extends PopupWindow {
         return this.mContentView;
     }
 
-    private boolean aJh() {
+    private boolean aMs() {
         return Build.MODEL != null && Build.MODEL.equals("Nexus 6");
     }
 }

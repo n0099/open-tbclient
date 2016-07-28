@@ -2,6 +2,7 @@ package android.support.v4.net;
 
 import android.os.Build;
 import java.net.Socket;
+import java.net.SocketException;
 /* loaded from: classes.dex */
 public class TrafficStatsCompat {
     private static final TrafficStatsCompatImpl IMPL;
@@ -18,9 +19,9 @@ public class TrafficStatsCompat {
 
         void setThreadStatsTag(int i);
 
-        void tagSocket(Socket socket);
+        void tagSocket(Socket socket) throws SocketException;
 
-        void untagSocket(Socket socket);
+        void untagSocket(Socket socket) throws SocketException;
     }
 
     /* loaded from: classes.dex */
@@ -111,12 +112,12 @@ public class TrafficStatsCompat {
         }
 
         @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
-        public void tagSocket(Socket socket) {
+        public void tagSocket(Socket socket) throws SocketException {
             TrafficStatsCompatIcs.tagSocket(socket);
         }
 
         @Override // android.support.v4.net.TrafficStatsCompat.TrafficStatsCompatImpl
-        public void untagSocket(Socket socket) {
+        public void untagSocket(Socket socket) throws SocketException {
             TrafficStatsCompatIcs.untagSocket(socket);
         }
     }
@@ -149,11 +150,11 @@ public class TrafficStatsCompat {
         IMPL.setThreadStatsTag(i);
     }
 
-    public static void tagSocket(Socket socket) {
+    public static void tagSocket(Socket socket) throws SocketException {
         IMPL.tagSocket(socket);
     }
 
-    public static void untagSocket(Socket socket) {
+    public static void untagSocket(Socket socket) throws SocketException {
         IMPL.untagSocket(socket);
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0036a ahJ;
+    private C0037a aiy;
     private g mLoadDataCallBack;
 
     public a(g gVar) {
@@ -30,38 +30,38 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId) {
-        if (this.ahJ == null) {
-            this.ahJ = new C0036a(this, null);
-            this.ahJ.setPriority(2);
-            this.ahJ.ba(z);
-            this.ahJ.setPortrait(str);
-            this.ahJ.setToUid(str2);
-            this.ahJ.setIsGod(z2);
-            this.ahJ.setFrom(str3);
-            this.ahJ.setPageId(bdUniqueId);
-            this.ahJ.execute(new Integer[0]);
+        if (this.aiy == null) {
+            this.aiy = new C0037a(this, null);
+            this.aiy.setPriority(2);
+            this.aiy.bd(z);
+            this.aiy.setPortrait(str);
+            this.aiy.setToUid(str2);
+            this.aiy.setIsGod(z2);
+            this.aiy.setFrom(str3);
+            this.aiy.setPageId(bdUniqueId);
+            this.aiy.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0036a extends BdAsyncTask<Integer, Integer, String> {
-        private ab afj;
-        private BdUniqueId ahK;
-        private boolean ahd;
-        private boolean ahe;
+    public class C0037a extends BdAsyncTask<Integer, Integer, String> {
+        private ab afX;
+        private boolean ahS;
+        private boolean ahT;
+        private BdUniqueId aiz;
         private String from;
         private String portrait;
         private String toUid;
 
-        private C0036a() {
-            this.afj = null;
-            this.ahe = false;
+        private C0037a() {
+            this.afX = null;
+            this.ahT = false;
             this.from = "0";
         }
 
-        /* synthetic */ C0036a(a aVar, C0036a c0036a) {
+        /* synthetic */ C0037a(a aVar, C0037a c0037a) {
             this();
         }
 
@@ -73,12 +73,12 @@ public class a {
             this.toUid = str;
         }
 
-        public void ba(boolean z) {
-            this.ahd = z;
+        public void bd(boolean z) {
+            this.ahS = z;
         }
 
         public void setIsGod(boolean z) {
-            this.ahe = z;
+            this.ahT = z;
         }
 
         public void setFrom(String str) {
@@ -86,7 +86,7 @@ public class a {
         }
 
         public void setPageId(BdUniqueId bdUniqueId) {
-            this.ahK = bdUniqueId;
+            this.aiz = bdUniqueId;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,18 +96,18 @@ public class a {
         public String doInBackground(Integer... numArr) {
             try {
                 if (this.portrait != null) {
-                    this.afj = new ab();
-                    if (this.ahd) {
-                        this.afj.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
+                    this.afX = new ab();
+                    if (this.ahS) {
+                        this.afX.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                     } else {
-                        this.afj.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
+                        this.afX.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
                     }
-                    this.afj.n(IntentConfig.PORTRAIT, this.portrait);
+                    this.afX.n(IntentConfig.PORTRAIT, this.portrait);
                     if (!StringUtils.isNull(this.from)) {
-                        this.afj.n(ForumDetailActivityConfig.FROM_TYPE, this.from);
+                        this.afX.n(ForumDetailActivityConfig.FROM_TYPE, this.from);
                     }
-                    this.afj.ty().uu().mIsNeedTbs = true;
-                    this.afj.ta();
+                    this.afX.tx().uu().mIsNeedTbs = true;
+                    this.afX.sZ();
                     return null;
                 }
                 return null;
@@ -120,19 +120,19 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: es */
+        /* renamed from: er */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            a.this.ahJ = null;
-            if (this.afj != null) {
+            a.this.aiy = null;
+            if (this.afX != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.tb = this.afj.ty().uv().nU();
-                aVar.errorString = this.afj.getErrorString();
-                aVar.ahd = this.ahd;
+                aVar.tF = this.afX.tx().uv().nJ();
+                aVar.errorString = this.afX.getErrorString();
+                aVar.ahS = this.ahS;
                 aVar.toUid = this.toUid;
-                aVar.ahe = this.ahe;
+                aVar.ahT = this.ahT;
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.ahK));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.aiz));
                 MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
             }
         }
@@ -140,20 +140,20 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.afj != null) {
-                this.afj.dm();
-                this.afj = null;
+            if (this.afX != null) {
+                this.afX.dl();
+                this.afX = null;
             }
-            a.this.ahJ = null;
+            a.this.aiy = null;
             if (a.this.mLoadDataCallBack != null) {
-                a.this.mLoadDataCallBack.d(false);
+                a.this.mLoadDataCallBack.g(false);
             }
         }
     }
 
     public void cancel() {
-        if (this.ahJ != null) {
-            this.ahJ.cancel();
+        if (this.aiy != null) {
+            this.aiy.cancel();
         }
     }
 }

@@ -7,22 +7,22 @@ import com.baidu.adp.lib.network.http.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements i {
-    final /* synthetic */ HttpClient.a ej;
+    final /* synthetic */ HttpClient.a eM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(HttpClient.a aVar) {
-        this.ej = aVar;
+        this.eM = aVar;
     }
 
     @Override // com.baidu.adp.lib.network.http.i
     public void d(int i, int i2) {
         HttpMessageTask httpMessageTask;
-        httpMessageTask = this.ej.ef;
+        httpMessageTask = this.eM.eI;
         HttpMessageTask.a downloadTask = httpMessageTask.getDownloadTask();
         if (downloadTask != null && downloadTask.getCmd() > 0) {
             HttpProgressResponsedMessage httpProgressResponsedMessage = new HttpProgressResponsedMessage(downloadTask.getCmd());
             httpProgressResponsedMessage.setProgress(i / i2);
-            this.ej.publishProgress(httpProgressResponsedMessage);
+            this.eM.publishProgress(httpProgressResponsedMessage);
         }
     }
 }

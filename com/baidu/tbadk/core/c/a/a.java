@@ -2,24 +2,25 @@ package com.baidu.tbadk.core.c.a;
 
 import android.content.ClipboardManager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.c.m;
-import com.baidu.tbadk.core.c.o;
+import com.baidu.tbadk.core.c.n;
 import com.baidu.tbadk.core.c.p;
+import com.baidu.tbadk.core.c.q;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends o {
-    public a(m mVar) {
-        super(mVar);
+public class a extends p {
+    public a(n nVar) {
+        super(nVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.c.o
-    public String ne() {
+    @Override // com.baidu.tbadk.core.c.p
+    public String mU() {
         return "TBHY_COMMON_Clipboard";
     }
 
-    @p("copy")
-    protected JSONObject copyToClipboard(JSONObject jSONObject) {
+    @q("copy")
+    protected JSONObject copyToClipboard(JSONObject jSONObject) throws JSONException {
         JSONObject jSONObject2 = new JSONObject();
         if (jSONObject != null) {
             String optString = jSONObject.optString("message");

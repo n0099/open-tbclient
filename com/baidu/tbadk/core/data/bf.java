@@ -1,50 +1,81 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
-import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import java.util.List;
+import tbclient.TogetherHi;
 /* loaded from: classes.dex */
 public class bf {
-    private int Mn;
-    private long RF;
-    private String activity_all_icon;
-    private String activity_half_icon;
-    private String activity_url;
+    private String RZ;
+    private long Sa;
+    private int Sb;
+    private int Sc;
+    private int Sd;
+    private List<String> Se;
+    private int Sf;
+    private String location;
+    private List<String> photoList;
+    private int startTime;
 
-    public String getActivityUrl() {
-        return this.activity_url;
+    public List<String> rt() {
+        return this.photoList;
     }
 
-    public String rJ() {
-        return this.activity_all_icon;
+    public String getActivityName() {
+        return this.RZ;
     }
 
-    public String rK() {
-        return this.activity_half_icon;
+    public long getActivityId() {
+        return this.Sa;
     }
 
-    public void a(YuleActivity yuleActivity) {
-        if (yuleActivity != null) {
-            this.RF = yuleActivity.activity_id.longValue();
-            this.Mn = yuleActivity.activity_type.intValue();
-            this.activity_url = yuleActivity.activity_url;
-            this.activity_all_icon = yuleActivity.activity_all_icon;
-            this.activity_half_icon = yuleActivity.activity_half_icon;
-        }
+    public int getStartTime() {
+        return this.startTime;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.RF = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.Mn = jSONObject.optInt("activity_type");
-                this.activity_url = jSONObject.optString("activity_url");
-                this.activity_all_icon = jSONObject.optString("activity_all_icon");
-                this.activity_half_icon = jSONObject.optString("activity_half_icon");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+    public int ru() {
+        return this.Sb;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public int rv() {
+        return this.Sc;
+    }
+
+    public int rw() {
+        return this.Sd;
+    }
+
+    public List<String> rx() {
+        return this.Se;
+    }
+
+    public int ry() {
+        return this.Sf;
+    }
+
+    public void a(TogetherHi togetherHi) {
+        if (togetherHi != null) {
+            this.RZ = togetherHi.album_name;
+            this.Sa = togetherHi.album_id.longValue();
+            this.startTime = togetherHi.start_time.intValue();
+            this.Sb = togetherHi.end_time.intValue();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (this.startTime == 0) {
+                this.Sf = 8;
+            } else if (this.startTime > currentTimeMillis) {
+                this.Sf = 1;
+            } else if (this.Sb < currentTimeMillis) {
+                this.Sf = 4;
+            } else {
+                this.Sf = 2;
             }
+            this.location = togetherHi.location;
+            this.Sc = togetherHi.num_join.intValue();
+            this.Sd = togetherHi.num_signup.intValue();
+            this.Se = togetherHi.potraits;
+            this.photoList = togetherHi.pic_urls;
         }
     }
 }

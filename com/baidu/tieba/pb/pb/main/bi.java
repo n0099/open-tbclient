@@ -6,21 +6,21 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class bi implements com.baidu.adp.lib.f.c<ImageView> {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aFh */
-    public ImageView dF() {
-        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.dPF.getPageContext().getPageActivity());
-        boolean oc = com.baidu.tbadk.core.l.nW().oc();
+    /* renamed from: aIs */
+    public ImageView dE() {
+        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.ebT.getPageContext().getPageActivity());
+        boolean nR = com.baidu.tbadk.core.l.nL().nR();
         foreDrawableImageView.setDefaultBg(com.baidu.tbadk.core.util.av.getDrawable(u.d.common_color_10220));
-        if (oc) {
+        if (nR) {
             foreDrawableImageView.setAdjustViewBounds(false);
             foreDrawableImageView.setInterceptOnClick(false);
         } else {
@@ -33,8 +33,8 @@ class bi implements com.baidu.adp.lib.f.c<ImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public void l(ImageView imageView) {
+    /* renamed from: f */
+    public void o(ImageView imageView) {
         imageView.setBackgroundDrawable(null);
         imageView.setImageDrawable(null);
         imageView.setTag(null);
@@ -43,18 +43,18 @@ class bi implements com.baidu.adp.lib.f.c<ImageView> {
             ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
             ((ForeDrawableImageView) imageView).stopLoading();
             foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(u.d.cp_bg_line_c);
+            foreDrawableImageView.setDefaultBgResource(u.d.common_color_10220);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public ImageView m(ImageView imageView) {
+    /* renamed from: g */
+    public ImageView p(ImageView imageView) {
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
             tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.l.nW().oc()) {
+            if (com.baidu.tbadk.core.l.nL().nR()) {
                 tbImageView.setAdjustViewBounds(false);
                 tbImageView.setInterceptOnClick(false);
             } else {
@@ -68,8 +68,8 @@ class bi implements com.baidu.adp.lib.f.c<ImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: d */
-    public ImageView n(ImageView imageView) {
+    /* renamed from: h */
+    public ImageView q(ImageView imageView) {
         imageView.setBackgroundDrawable(null);
         imageView.setImageDrawable(null);
         imageView.setTag(null);
@@ -78,7 +78,7 @@ class bi implements com.baidu.adp.lib.f.c<ImageView> {
             ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
             ((ForeDrawableImageView) imageView).stopLoading();
             foreDrawableImageView.setForegroundDrawable(0);
-            foreDrawableImageView.setDefaultBgResource(u.d.cp_bg_line_c);
+            foreDrawableImageView.setDefaultBgResource(u.d.common_color_10220);
         }
         return imageView;
     }

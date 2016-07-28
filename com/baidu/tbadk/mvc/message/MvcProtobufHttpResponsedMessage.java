@@ -22,7 +22,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         boolean z;
         List<Field> a;
         super.decodeInBackGround(i, bArr);
@@ -85,10 +85,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String Dp = eVar.Dp();
+                String Do = eVar.Do();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(Dp) && bArr != null && (M = a.rP().M(Dp, currentAccount)) != null) {
-                    M.e(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(Do) && bArr != null && (M = a.rO().M(Do, currentAccount)) != null) {
+                    M.k(cacheKey, bArr);
                 }
             }
         }

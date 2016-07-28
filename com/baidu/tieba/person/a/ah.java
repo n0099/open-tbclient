@@ -1,78 +1,47 @@
 package com.baidu.tieba.person.a;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.u;
-import java.util.List;
-import tbclient.High;
 /* loaded from: classes.dex */
-public class ah extends BaseAdapter {
-    private List<High> aJj;
-    private View.OnClickListener aew;
-    private Context mContext;
+public class ah extends com.baidu.tieba.a.a<aj, com.baidu.tieba.person.holder.r> {
+    private BaseFragmentActivity bgI;
+    private View.OnClickListener eqS;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public TbImageView aGB;
-    }
-
-    public ah(Context context) {
-        this.mContext = context;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.aJj != null) {
-            return this.aJj.size();
-        }
-        return 0;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ah(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.bgI = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: nT */
-    public High getItem(int i) {
-        if (this.aJj == null || i >= this.aJj.size() || i < 0) {
-            return null;
-        }
-        return this.aJj.get(i);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bR */
+    public com.baidu.tieba.person.holder.r a(ViewGroup viewGroup) {
+        com.baidu.tieba.person.holder.r rVar = new com.baidu.tieba.person.holder.r(LayoutInflater.from(this.mContext).inflate(u.h.person_info_user_pics_layout, viewGroup, false), this.bgI);
+        rVar.exa.setItemOnclickListener(this.eqS);
+        return rVar;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        if (getItem(i) != null) {
-            if (view == null) {
-                a aVar2 = new a();
-                view = LayoutInflater.from(this.mContext).inflate(u.h.user_pic_nomal_item, (ViewGroup) null);
-                aVar2.aGB = (TbImageView) view.findViewById(u.g.photo_image_view);
-                aVar2.aGB.setDefaultErrorResource(u.d.cp_bg_line_e);
-                aVar2.aGB.setDefaultBgResource(u.d.cp_bg_line_e);
-                view.setTag(aVar2);
-                aVar = aVar2;
-            } else {
-                aVar = (a) view.getTag();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, aj ajVar, com.baidu.tieba.person.holder.r rVar) {
+        if (ajVar != null && rVar != null) {
+            rVar.aOp();
+            if (this.aNz) {
+                rVar.a(ajVar);
+                this.aNz = false;
             }
-            aVar.aGB.c(getItem(i).pic_url, 13, false);
-            view.setOnClickListener(this.aew);
         }
         return view;
     }
 
-    public void setData(List<High> list) {
-        this.aJj = list;
-    }
-
-    public void setClickListener(View.OnClickListener onClickListener) {
-        this.aew = onClickListener;
+    public void L(View.OnClickListener onClickListener) {
+        this.eqS = onClickListener;
     }
 }

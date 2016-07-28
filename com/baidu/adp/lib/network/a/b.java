@@ -1,21 +1,22 @@
 package com.baidu.adp.lib.network.a;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean ae(String str) {
+    public static boolean ag(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 
-    public static byte[] b(InputStream inputStream) {
+    public static byte[] i(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         copy(inputStream, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
     }
 
-    public static int copy(InputStream inputStream, OutputStream outputStream) {
+    public static int copy(InputStream inputStream, OutputStream outputStream) throws IOException {
         long b = b(inputStream, outputStream);
         if (b > 2147483647L) {
             return -1;
@@ -23,7 +24,7 @@ public class b {
         return (int) b;
     }
 
-    public static long b(InputStream inputStream, OutputStream outputStream) {
+    public static long b(InputStream inputStream, OutputStream outputStream) throws IOException {
         if (inputStream == null) {
             return -1L;
         }

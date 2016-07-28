@@ -9,15 +9,15 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ c bTP;
+    final /* synthetic */ c bVP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar) {
-        this.bTP = cVar;
+        this.bVP = cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c sf() {
+    public com.baidu.tbadk.core.flow.a.c se() {
         com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
         cVar.ce(u.f.icon_dot_personal_s);
         cVar.cf(u.f.icon_dot_personal_n);
@@ -37,14 +37,14 @@ public class j implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e sg() {
+    public com.baidu.tbadk.core.flow.a.e sf() {
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
-        eVar.setHeight(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds280));
+        eVar.setHeight(TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds280));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View sh() {
-        return this.bTP.bSS;
+    public View sg() {
+        return this.bVP.bUS;
     }
 }

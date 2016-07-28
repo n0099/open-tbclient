@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class af extends PagerAdapter {
-    private bf ddD;
+    private bf dgz;
 
     public af(bf bfVar) {
-        this.ddD = bfVar;
+        this.dgz = bfVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -19,29 +19,29 @@ public class af extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == 0) {
-            k atP = this.ddD.atP();
-            if (atP.getView() == null) {
-                View lk = atP.lk();
-                viewGroup.addView(lk);
-                return lk;
+            k auB = this.dgz.auB();
+            if (auB.getView() == null) {
+                View lg = auB.lg();
+                viewGroup.addView(lg);
+                return lg;
             }
-            return atP.getView();
+            return auB.getView();
         } else if (i == 1) {
-            az atL = this.ddD.atL();
-            if (atL.getView() == null) {
-                View lk2 = atL.lk();
-                viewGroup.addView(lk2);
-                return lk2;
+            az aux = this.dgz.aux();
+            if (aux.getView() == null) {
+                View lg2 = aux.lg();
+                viewGroup.addView(lg2);
+                return lg2;
             }
-            return atL.getView();
+            return aux.getView();
         } else {
-            j atM = this.ddD.atM();
-            if (atM.getView() == null) {
-                View lk3 = atM.lk();
-                viewGroup.addView(lk3);
-                return lk3;
+            j auy = this.dgz.auy();
+            if (auy.getView() == null) {
+                View lg3 = auy.lg();
+                viewGroup.addView(lg3);
+                return lg3;
             }
-            return atM.getView();
+            return auy.getView();
         }
     }
 

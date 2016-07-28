@@ -6,20 +6,20 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class j {
-    public static final boolean FC() {
+    public static final boolean FD() {
         int i = 0;
-        Object c = com.baidu.adp.lib.a.a.a.c(Looper.myQueue(), "mMessages");
-        if (c == null || !(c instanceof Message)) {
+        Object d = com.baidu.adp.lib.a.a.a.d(Looper.myQueue(), "mMessages");
+        if (d == null || !(d instanceof Message)) {
             return false;
         }
-        Message message = (Message) c;
+        Message message = (Message) d;
         boolean z = false;
         while (message != null && message.obj != null && !z && i < 10) {
             i++;
             boolean l = l(message);
-            Object c2 = com.baidu.adp.lib.a.a.a.c(message, "next");
-            if (c2 != null && (c2 instanceof Message)) {
-                message = (Message) c2;
+            Object d2 = com.baidu.adp.lib.a.a.a.d(message, "next");
+            if (d2 != null && (d2 instanceof Message)) {
+                message = (Message) d2;
                 z = l;
             } else {
                 message = null;
@@ -30,12 +30,12 @@ public class j {
     }
 
     private static final boolean l(Message message) {
-        Object c;
+        Object d;
         ComponentName component;
         if (message == null) {
             return false;
         }
         Object obj = message.obj;
-        return (obj == null || (c = com.baidu.adp.lib.a.a.a.c(obj, "intent")) == null || !(c instanceof Intent) || (component = ((Intent) c).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
+        return (obj == null || (d = com.baidu.adp.lib.a.a.a.d(obj, "intent")) == null || !(d instanceof Intent) || (component = ((Intent) d).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 }

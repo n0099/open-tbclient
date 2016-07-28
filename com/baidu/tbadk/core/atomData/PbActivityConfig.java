@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -245,15 +245,15 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(az azVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (azVar != null) {
+    public PbActivityConfig createFromThreadCfg(be beVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (beVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", azVar.getId());
-            intent.putExtra("is_good", azVar.getIs_good());
-            intent.putExtra("is_top", azVar.getIs_top());
-            intent.putExtra(KEY_THREAD_TIME, azVar.getLast_time_int());
+            intent.putExtra("thread_id", beVar.getId());
+            intent.putExtra("is_good", beVar.qu());
+            intent.putExtra("is_top", beVar.qt());
+            intent.putExtra(KEY_THREAD_TIME, beVar.qs());
             intent.putExtra("st_type", str2);
-            intent.putExtra("from_frs", azVar.getIs_top() != 2);
+            intent.putExtra("from_frs", beVar.qt() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
@@ -262,10 +262,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (azVar.getPraise() == null ? 0L : azVar.getPraise().getNum()));
-            if (azVar.getAuthor() != null && azVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, azVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, azVar.getAuthor().getGodUserData().getFollowed());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (beVar.qp() == null ? 0L : beVar.qp().getNum()));
+            if (beVar.getAuthor() != null && beVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, beVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, beVar.getAuthor().getGodUserData().getFollowed());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
@@ -284,6 +284,22 @@ public class PbActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity) || FROM_SEARCHBOX.equals(str2)) {
                 intent.addFlags(268435456);
             }
+        }
+        return this;
+    }
+
+    public PbActivityConfig createViewTypeCfg(String str, boolean z, boolean z2, String str2) {
+        if (str != null) {
+            Intent intent = getIntent();
+            intent.putExtra("thread_id", str);
+            intent.putExtra("st_type", str2);
+            intent.putExtra(KEY_HOST_ONLY, z);
+            intent.putExtra(KEY_SQUENCE, z2);
+            intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+            if (!(this.mContext instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
+            intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
         return this;
     }

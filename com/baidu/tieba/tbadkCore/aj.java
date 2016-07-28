@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class aj extends com.baidu.adp.base.e {
-    private static final String aOk = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask aOl = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aOk);
-    private final HttpMessageListener aOm;
-    private a eWy;
+    private static final String aPe = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask aPf = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aPe);
+    private final HttpMessageListener aPg;
+    private a fjA;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,21 +22,21 @@ public class aj extends com.baidu.adp.base.e {
     }
 
     static {
-        aOl.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(aOl);
+        aPf.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(aPf);
     }
 
     public aj(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.eWy = null;
-        this.aOm = new ak(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.eWy = aVar;
+        this.fjA = null;
+        this.aPg = new ak(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.fjA = aVar;
     }
 
     public void registerListener() {
-        this.aOm.setSelfListener(true);
-        this.aOm.setTag(getUniqueId());
-        registerListener(this.aOm);
+        this.aPg.setSelfListener(true);
+        this.aPg.setTag(getUniqueId());
+        registerListener(this.aPg);
     }
 
     public void a(String str, String str2, int i, String str3) {

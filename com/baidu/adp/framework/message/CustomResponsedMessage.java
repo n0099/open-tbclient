@@ -19,7 +19,7 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
     }
 
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, T t) {
+    public void decodeInBackGround(int i, T t) throws Exception {
         this.mData = t;
     }
 

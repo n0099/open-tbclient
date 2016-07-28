@@ -28,15 +28,15 @@ public class bb extends CustomMessageListener {
         ImMessageCenterPojo ah;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             if (customResponsedMessage.getData() instanceof PersonalChatMessage) {
-                b.apn().a(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.cVO));
-                ah = b.apn().ah(String.valueOf(com.baidu.tieba.im.c.a.cVO), -1);
+                b.apZ().a(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.cYJ));
+                ah = b.apZ().ah(String.valueOf(com.baidu.tieba.im.c.a.cYJ), -1);
             } else if (customResponsedMessage.getData() instanceof OfficialChatMessage) {
-                b.apn().a(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.cVP));
-                ah = b.apn().ah(String.valueOf(com.baidu.tieba.im.c.a.cVP), -9);
+                b.apZ().a(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.cYK));
+                ah = b.apZ().ah(String.valueOf(com.baidu.tieba.im.c.a.cYK), -9);
             } else {
                 ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
-                b.apn().a(1, chatMessage.getMsgId(), chatMessage.getGroupId());
-                ah = b.apn().ah(chatMessage.getGroupId(), 1);
+                b.apZ().a(1, chatMessage.getMsgId(), chatMessage.getGroupId());
+                ah = b.apZ().ah(chatMessage.getGroupId(), 1);
             }
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bc(this, ah));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());

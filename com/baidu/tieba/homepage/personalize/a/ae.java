@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ ad csr;
+    final /* synthetic */ ad cvb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(ad adVar, int i) {
         super(i);
-        this.csr = adVar;
+        this.cvb = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ public class ae extends CustomMessageListener {
         if (customResponsedMessage == null) {
             return;
         }
-        this.csr.XR();
-        list = this.csr.csc;
+        this.cvb.Yk();
+        list = this.cvb.cuM;
         if (list != null) {
-            ad adVar = this.csr;
-            list2 = this.csr.csc;
-            adVar.bp(list2);
+            ad adVar = this.cvb;
+            list2 = this.cvb.cuM;
+            adVar.bt(list2);
         }
     }
 }

@@ -16,57 +16,57 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private BdUniqueId aSq;
-    private TbPageContext<?> bCb;
-    private BdTypeListView bou;
-    public com.baidu.tieba.person.god.a.d efR;
-    public com.baidu.tieba.person.god.a.b efT;
-    private List<com.baidu.adp.widget.ListView.a> bAz = new ArrayList();
-    private CustomMessageListener bJb = new b(this, CmdConfigCustom.CMD_GOD_LIST_ADD_ADAPTER);
+    private BdUniqueId aTm;
+    private List<com.baidu.adp.widget.ListView.a> bCN = new ArrayList();
+    private CustomMessageListener bKG = new b(this, CmdConfigCustom.CMD_GOD_LIST_ADD_ADAPTER);
+    private BdTypeListView bqG;
+    private TbPageContext<?> dEt;
+    public com.baidu.tieba.person.god.a.d epQ;
+    public com.baidu.tieba.person.god.a.b epS;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         a(tbPageContext, bdTypeListView);
     }
 
     private void a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.bCb = tbPageContext;
-        this.aSq = tbPageContext.getUniqueId();
-        this.bou = bdTypeListView;
-        this.efR = new com.baidu.tieba.person.god.a.d(tbPageContext, o.aVz);
-        this.efT = new com.baidu.tieba.person.god.a.b(tbPageContext, m.Op);
-        this.bAz.add(this.efR);
-        this.bAz.add(this.efT);
-        this.bJb.setPriority(1);
-        this.bJb.setSelfListener(true);
-        this.bCb.registerListener(this.bJb);
+        this.dEt = tbPageContext;
+        this.aTm = tbPageContext.getUniqueId();
+        this.bqG = bdTypeListView;
+        this.epQ = new com.baidu.tieba.person.god.a.d(tbPageContext, o.aWx);
+        this.epS = new com.baidu.tieba.person.god.a.b(tbPageContext, m.OB);
+        this.bCN.add(this.epQ);
+        this.bCN.add(this.epS);
+        this.bKG.setPriority(1);
+        this.bKG.setSelfListener(true);
+        this.dEt.registerListener(this.bKG);
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GOD_LIST_ADD_ADAPTER, new LinkedList());
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GOD_LIST_ADD_ADAPTER);
-        customMessage.setTag(this.bCb.getUniqueId());
+        customMessage.setTag(this.dEt.getUniqueId());
         customResponsedMessage.setOrginalMessage(customMessage);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-        this.bou.g(this.bAz);
-        setPageUniqueId(this.aSq);
+        this.bqG.g(this.bCN);
+        setPageUniqueId(this.aTm);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aSq = bdUniqueId;
-        if (this.efR != null) {
-            this.efR.setPageUniqueId(bdUniqueId);
+        this.aTm = bdUniqueId;
+        if (this.epQ != null) {
+            this.epQ.setPageUniqueId(bdUniqueId);
         }
-        if (this.efR != null) {
-            this.efT.setPageUniqueId(bdUniqueId);
+        if (this.epQ != null) {
+            this.epS.setPageUniqueId(bdUniqueId);
         }
     }
 
-    public void cm(List<v> list) {
-        if (list != null && this.bou != null) {
-            this.bou.setData(list);
+    public void cz(List<v> list) {
+        if (list != null && this.bqG != null) {
+            this.bqG.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.bou.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.bou.getAdapter()).notifyDataSetChanged();
+        if (this.bqG.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.bqG.getAdapter()).notifyDataSetChanged();
         }
     }
 }

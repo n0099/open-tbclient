@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.onlineDebugger.command.h;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,7 +15,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d {
-    public static final Class<?> mN(String str) {
+    public static final Class<?> ny(String str) {
         if (str == null) {
             return null;
         }
@@ -25,7 +26,7 @@ public class d {
         }
     }
 
-    public static final Object a(Method method, Object obj, String[] strArr) {
+    public static final Object a(Method method, Object obj, String[] strArr) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
         Object[] objArr;
         Class<?>[] parameterTypes = method.getParameterTypes();
         if (strArr == null) {
@@ -41,19 +42,19 @@ public class d {
         return method.invoke(obj, objArr);
     }
 
-    public static final void a(Field field, Object obj, String str) {
+    public static final void a(Field field, Object obj, String str) throws IllegalArgumentException, IllegalAccessException {
         field.set(obj, c(str, field.getType()));
     }
 
     public static final Object c(String str, Class<?> cls) {
-        h nf;
+        h nQ;
         if (str == null) {
             return null;
         }
         String trim = str.trim();
-        if (trim.startsWith("$") && (nf = com.baidu.tieba.onlineDebugger.e.b.nf("get " + trim)) != null) {
+        if (trim.startsWith("$") && (nQ = com.baidu.tieba.onlineDebugger.e.b.nQ("get " + trim)) != null) {
             try {
-                return nf.aCF();
+                return nQ.aFP();
             } catch (Exception e) {
                 return null;
             }
@@ -122,7 +123,7 @@ public class d {
                         return trim;
                     } else {
                         if (cls == Context.class) {
-                            return TbadkCoreApplication.m9getInst().getApplicationContext();
+                            return TbadkCoreApplication.m10getInst().getApplicationContext();
                         }
                         return null;
                     }
@@ -132,12 +133,12 @@ public class d {
         }
     }
 
-    public static String M(Object obj) {
+    public static String P(Object obj) {
         StringBuilder sb = new StringBuilder();
         if (obj instanceof List) {
             sb.append('[');
             for (Object obj2 : (List) obj) {
-                sb.append(M(obj2));
+                sb.append(P(obj2));
                 sb.append('\n');
             }
             sb.append(']');
@@ -145,7 +146,7 @@ public class d {
         if (obj.getClass().isArray()) {
             sb.append('[');
             for (Object obj3 : (Object[]) obj) {
-                sb.append(M(obj3));
+                sb.append(P(obj3));
                 sb.append('\n');
             }
             sb.append(']');
@@ -153,7 +154,7 @@ public class d {
         if (obj instanceof Set) {
             sb.append('(');
             for (Object obj4 : (Set) obj) {
-                sb.append(M(obj4));
+                sb.append(P(obj4));
                 sb.append('\n');
             }
             sb.append(')');
@@ -161,9 +162,9 @@ public class d {
         if (obj instanceof Map) {
             sb.append('{');
             for (Map.Entry entry : ((Map) obj).entrySet()) {
-                sb.append(M(entry.getKey()));
+                sb.append(P(entry.getKey()));
                 sb.append(':');
-                sb.append(M(entry.getValue()));
+                sb.append(P(entry.getValue()));
                 sb.append('\n');
             }
             sb.append('}');
@@ -176,7 +177,7 @@ public class d {
                 Object obj5 = sparseArray.get(keyAt);
                 sb.append(keyAt);
                 sb.append(':');
-                sb.append(M(obj5));
+                sb.append(P(obj5));
                 sb.append('\n');
             }
             sb.append("]}");

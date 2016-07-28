@@ -1,30 +1,30 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
-    final /* synthetic */ ScrollFragmentTabHost cpc;
+public class e extends com.baidu.tbadk.util.t<Object> {
+    private final /* synthetic */ int Tf;
+    final /* synthetic */ a cri;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(ScrollFragmentTabHost scrollFragmentTabHost, int i) {
-        super(i);
-        this.cpc = scrollFragmentTabHost;
+    public e(a aVar, int i) {
+        this.cri = aVar;
+        this.Tf = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        j jVar;
-        j jVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016326 && (customResponsedMessage.getData() instanceof Integer)) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            jVar = this.cpc.coS;
-            if (jVar != null) {
-                jVar2 = this.cpc.coS;
-                jVar2.al(com.baidu.tieba.homepage.framework.a.a.agG().cpK, intValue);
-            }
+    @Override // com.baidu.tbadk.util.t
+    public Object doInBackground() {
+        String str;
+        String str2;
+        com.baidu.tbadk.core.b.a rO = com.baidu.tbadk.core.b.a.rO();
+        str = this.cri.crc;
+        com.baidu.adp.lib.cache.o<String> N = rO.N(str, TbadkCoreApplication.getCurrentAccount());
+        if (N != null) {
+            str2 = this.cri.crd;
+            N.a(str2, Integer.toString(this.Tf), 43200000L);
+            return null;
         }
+        return null;
     }
 }

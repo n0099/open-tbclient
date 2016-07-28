@@ -71,6 +71,7 @@ public class TbConfig {
     public static final String DEL_USER_BOOKMARK = "c/c/encourage/tbread/delUserBookMark";
     public static final String DETECT_USERNAME_ADDRESS = "c/s/detectuname";
     public static final String DIALOG_FROM = "dianzishichang";
+    public static final String DO_DAILY_TASK = "c/c/encourage/member/doDailyTask";
     public static final String DRESSUP_CENTER_PAGE = "c/e/theme/getThemeList";
     public static final String ECOMM_CAN_SEND_THREAD = "c/e/ecomm/canSendThread";
     public static final String ECOMM_CREATE_ORDER = "c/c/encourage/ecomm/order/create";
@@ -87,8 +88,14 @@ public class TbConfig {
     public static final String ECOMM_PRODUCT_CATEGORY_LIST = "c/e/ecomm/getAllCategoryList";
     public static final String ECOMM_PRODUCT_DETAIL = "c/e/ecomm/product/detail";
     public static final String ECOMM_PRODUCT_QUALIFICATION_PAY = "c/c/encourage/ecomm/payMargin";
-    public static final String ECOMM_REFUND_APPLY = "/c/c/encourage/ecomm/order/applyForRefund";
+    public static final String ECOMM_REFUND_APPLY = "c/c/encourage/ecomm/order/refund/apply";
+    public static final String ECOMM_REFUND_COMFIRM_TRANS = "c/c/encourage/ecomm/order/refund/confirmTrans";
+    public static final String ECOMM_REFUND_DETAIL = "c/c/encourage/ecomm/order/refund/refuse";
+    public static final String ECOMM_REFUND_DETAIL_PAGE = "c/e/ecomm/order/refund/detail";
+    public static final String ECOMM_REFUND_PREPARE = "c/e/ecomm/order/refund/prepare";
     public static final String ECOMM_SELLER_CERTIFY = "c/c/encourage/ecomm/applySeller";
+    public static final String ECOMM_SELLER_CONFIRM_DELIVERY = "c/c/encourage/ecomm/order/refund/confirmTrans";
+    public static final String ECOMM_SELLER_REFUSE_REFUND_REASON = "c/c/encourage/ecomm/order/refund/refuse";
     public static final String ECOMM_SUBMIT_QUALIFICATION = "c/c/encourage/ecomm/addLice";
     public static final String ECOMM_WINDOW_DISPLAY = "c/c/encourage/ecomm/product/display";
     public static final String ECOMM_WINDOW_LIST = "c/e/ecomm/product/list";
@@ -446,7 +453,7 @@ public class TbConfig {
     public static boolean KUANG_TEST_MODE = false;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
     private static String POSITION_PAGER_ID = "2631903";
-    public static final String ECOMM_FEED_BACK_NAME = TbadkCoreApplication.m9getInst().getString(u.j.ecomm_feed_back_name);
+    public static final String ECOMM_FEED_BACK_NAME = TbadkCoreApplication.m10getInst().getString(u.j.ecomm_feed_back_name);
     private static String VERSION = "";
     private static String SUB_VERSION = "";
     private static String LEGO_LIB_VERSION = "1.0.0";
@@ -487,7 +494,8 @@ public class TbConfig {
     public static String ECOMM_DEL_USER_ADDRESS = "c/c/encourage/ecomm/delUserAddr";
     public static String ECOMM_ORDER_LIST = "c/e/ecomm/order/list";
     public static String ECOMM_ORDER_PAY = "c/c/encourage/ecomm/order/pay";
-    public static String ECOMM_ORDER_REFUND = "c/c/encourage/ecomm/order/refund";
+    public static final String ECOMM_REFUND_AGREE_REUNFD = "c/c/encourage/ecomm/order/refund";
+    public static String ECOMM_ORDER_REFUND = ECOMM_REFUND_AGREE_REUNFD;
     public static String ECOMM_APPLY_FOR_REFUND = "c/c/encourage/ecomm/order/applyForRefund";
     public static String ECOMM_CONFIRM_TRANS = "c/c/encourage/ecomm/order/confirmTrans";
     public static String ECOMM_ORDER_QUERY = "c/c/encourage/ecomm/order/query";
@@ -641,7 +649,7 @@ public class TbConfig {
     }
 
     public static int getBigImageMaxUsedMemoryForRemoteProcess() {
-        return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.m9getInst().getContext()) * 0.28d);
+        return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.m10getInst().getContext()) * 0.28d);
     }
 
     public static String getFrom() {
@@ -701,7 +709,7 @@ public class TbConfig {
     }
 
     public static int getNameSize() {
-        switch (TbadkCoreApplication.m9getInst().getFontSize()) {
+        switch (TbadkCoreApplication.m10getInst().getFontSize()) {
             case 0:
             case 1:
                 return 13;
@@ -713,7 +721,7 @@ public class TbConfig {
     }
 
     public static int getContentSize() {
-        switch (TbadkCoreApplication.m9getInst().getFontSize()) {
+        switch (TbadkCoreApplication.m10getInst().getFontSize()) {
             case 0:
                 return 20;
             case 1:

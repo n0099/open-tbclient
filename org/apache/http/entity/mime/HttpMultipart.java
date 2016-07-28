@@ -28,26 +28,26 @@ public class HttpMultipart {
         return byteArrayBuffer;
     }
 
-    private static void writeBytes(ByteArrayBuffer byteArrayBuffer, OutputStream outputStream) {
+    private static void writeBytes(ByteArrayBuffer byteArrayBuffer, OutputStream outputStream) throws IOException {
         outputStream.write(byteArrayBuffer.buffer(), 0, byteArrayBuffer.length());
     }
 
-    private static void writeBytes(String str, Charset charset, OutputStream outputStream) {
+    private static void writeBytes(String str, Charset charset, OutputStream outputStream) throws IOException {
         writeBytes(encode(charset, str), outputStream);
     }
 
-    private static void writeBytes(String str, OutputStream outputStream) {
+    private static void writeBytes(String str, OutputStream outputStream) throws IOException {
         writeBytes(encode(MIME.DEFAULT_CHARSET, str), outputStream);
     }
 
-    private static void writeField(MinimalField minimalField, OutputStream outputStream) {
+    private static void writeField(MinimalField minimalField, OutputStream outputStream) throws IOException {
         writeBytes(minimalField.getName(), outputStream);
         writeBytes(FIELD_SEP, outputStream);
         writeBytes(minimalField.getBody(), outputStream);
         writeBytes(CR_LF, outputStream);
     }
 
-    private static void writeField(MinimalField minimalField, Charset charset, OutputStream outputStream) {
+    private static void writeField(MinimalField minimalField, Charset charset, OutputStream outputStream) throws IOException {
         writeBytes(minimalField.getName(), charset, outputStream);
         writeBytes(FIELD_SEP, outputStream);
         writeBytes(minimalField.getBody(), charset, outputStream);
@@ -102,7 +102,7 @@ public class HttpMultipart {
         return this.boundary;
     }
 
-    private void doWriteTo(HttpMultipartMode httpMultipartMode, OutputStream outputStream, boolean z) {
+    private void doWriteTo(HttpMultipartMode httpMultipartMode, OutputStream outputStream, boolean z) throws IOException {
         ByteArrayBuffer encode = encode(this.charset, getBoundary());
         for (FormBodyPart formBodyPart : this.parts) {
             writeBytes(TWO_DASHES, outputStream);
@@ -136,7 +136,7 @@ public class HttpMultipart {
         writeBytes(CR_LF, outputStream);
     }
 
-    public void writeTo(OutputStream outputStream) {
+    public void writeTo(OutputStream outputStream) throws IOException {
         doWriteTo(this.mode, outputStream, true);
     }
 

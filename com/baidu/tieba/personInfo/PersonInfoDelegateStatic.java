@@ -12,14 +12,14 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private ImageView dyI;
-    private Boolean eoA = false;
-    private CustomMessageListener eoB;
+    private ImageView dCN;
+    private Boolean eAq = false;
+    private CustomMessageListener eAr;
 
     static {
-        d dVar = new d(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-        dVar.setPriority(12);
-        MessageManager.getInstance().registerListener(dVar);
+        f fVar = new f(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
+        fVar.setPriority(12);
+        MessageManager.getInstance().registerListener(fVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -28,43 +28,43 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Dl() {
+    public com.baidu.tbadk.mainTab.c Dk() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.avM = new f();
+        cVar.awB = new h();
         cVar.type = 8;
-        cVar.avN = u.j.mine;
-        cVar.avO = u.f.s_tabbar_icon_four_bg;
+        cVar.awC = u.j.mine;
+        cVar.awD = u.f.s_tabbar_icon_four_bg;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator ah(Context context) {
-        this.avz = (FragmentTabIndicator) LayoutInflater.from(context).inflate(u.h.fragmenttabindicator, (ViewGroup) null);
-        this.dyI = new ImageView(context);
+        this.awo = (FragmentTabIndicator) LayoutInflater.from(context).inflate(u.h.fragmenttabindicator, (ViewGroup) null);
+        this.dCN = new ImageView(context);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.avL = this.avz;
-        aVar.kD = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
-        aVar.view = this.dyI;
-        aVar.avJ = u.f.icon_news_down_bar_one;
-        if (this.eoA.booleanValue()) {
-            this.dyI.setVisibility(0);
+        aVar.awA = this.awo;
+        aVar.lg = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
+        aVar.view = this.dCN;
+        aVar.awy = u.f.icon_news_down_bar_one;
+        if (this.eAq.booleanValue()) {
+            this.dCN.setVisibility(0);
         } else {
-            this.dyI.setVisibility(8);
+            this.dCN.setVisibility(8);
         }
-        this.avz.a("emotion", aVar);
-        return this.avz;
+        this.awo.a("emotion", aVar);
+        return this.awo;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Dk() {
-        this.eoB = new e(this, CmdConfigCustom.MAINTAB_PERSON_TIP);
-        this.eoB.setPriority(12);
-        MessageManager.getInstance().registerListener(this.eoB);
+    public void Dj() {
+        this.eAr = new g(this, CmdConfigCustom.MAINTAB_PERSON_TIP);
+        this.eAr.setPriority(12);
+        MessageManager.getInstance().registerListener(this.eAr);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void ay() {
         super.ay();
-        MessageManager.getInstance().unRegisterListener(this.eoB);
+        MessageManager.getInstance().unRegisterListener(this.eAr);
     }
 }

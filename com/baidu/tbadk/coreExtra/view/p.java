@@ -5,20 +5,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ MultiImageView alx;
+    final /* synthetic */ MultiImageView amm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(MultiImageView multiImageView) {
-        this.alx = multiImageView;
+        this.amm = multiImageView;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         ViewPager.OnPageChangeListener onPageChangeListener;
         ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.alx.alr;
+        onPageChangeListener = this.amm.amg;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.alx.alr;
+            onPageChangeListener2 = this.amm.amg;
             onPageChangeListener2.onPageScrollStateChanged(i);
         }
     }
@@ -27,9 +27,9 @@ public class p implements ViewPager.OnPageChangeListener {
     public void onPageScrolled(int i, float f, int i2) {
         ViewPager.OnPageChangeListener onPageChangeListener;
         ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.alx.alr;
+        onPageChangeListener = this.amm.amg;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.alx.alr;
+            onPageChangeListener2 = this.amm.amg;
             onPageChangeListener2.onPageScrolled(i, f, i2);
         }
     }
@@ -46,41 +46,41 @@ public class p implements ViewPager.OnPageChangeListener {
         h hVar4;
         boolean z3;
         h hVar5;
-        hVar = this.alx.alq;
+        hVar = this.amm.amf;
         View findViewWithTag = hVar.findViewWithTag(String.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof u)) {
-            z3 = this.alx.alw;
-            ((u) findViewWithTag).bf(z3);
+            z3 = this.amm.aml;
+            ((u) findViewWithTag).bi(z3);
             com.baidu.tbadk.widget.a imageView = ((u) findViewWithTag).getImageView();
             if (imageView != null) {
-                hVar5 = this.alx.alq;
+                hVar5 = this.amm.amf;
                 hVar5.setSelectedView(imageView);
-                imageView.FZ();
+                imageView.Gc();
             }
         }
-        hVar2 = this.alx.alq;
+        hVar2 = this.amm.amf;
         int childCount = hVar2.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            hVar4 = this.alx.alq;
+            hVar4 = this.amm.amf;
             View childAt = hVar4.getChildAt(i2);
             if (childAt != null && (childAt instanceof u)) {
                 ((u) childAt).zU();
             }
         }
-        z = this.alx.alu;
-        if (z && (com.baidu.adp.lib.util.i.fv() || com.baidu.adp.lib.util.i.fs())) {
+        z = this.amm.amj;
+        if (z && (com.baidu.adp.lib.util.i.fu() || com.baidu.adp.lib.util.i.fr())) {
             for (int i3 = 0; i3 < childCount; i3++) {
-                hVar3 = this.alx.alq;
+                hVar3 = this.amm.amf;
                 View childAt2 = hVar3.getChildAt(i3);
                 if (childAt2 != null && (childAt2 instanceof u)) {
-                    z2 = this.alx.akE;
-                    ((u) childAt2).bj(z2);
+                    z2 = this.amm.alu;
+                    ((u) childAt2).bm(z2);
                 }
             }
         }
-        onPageChangeListener = this.alx.alr;
+        onPageChangeListener = this.amm.amg;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.alx.alr;
+            onPageChangeListener2 = this.amm.amg;
             onPageChangeListener2.onPageSelected(i);
         }
     }

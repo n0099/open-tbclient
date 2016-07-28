@@ -6,11 +6,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Animation.AnimationListener {
-    final /* synthetic */ e dkE;
+    final /* synthetic */ e dnD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.dkE = eVar;
+        this.dnD = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,19 +22,19 @@ public class g implements Animation.AnimationListener {
         Button button3;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.dkE.dkA;
+        i = this.dnD.dnz;
         if (i < 100) {
-            button3 = this.dkE.dkv;
-            topRecActivity2 = this.dkE.dkm;
+            button3 = this.dnD.dnu;
+            topRecActivity2 = this.dnD.dnl;
             StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(u.j.done))).append("(");
-            i2 = this.dkE.dkA;
+            i2 = this.dnD.dnz;
             button3.setText(append.append(i2).append(")").toString());
         } else {
-            button = this.dkE.dkv;
-            topRecActivity = this.dkE.dkm;
+            button = this.dnD.dnu;
+            topRecActivity = this.dnD.dnl;
             button.setText(String.valueOf(topRecActivity.getPageContext().getString(u.j.done)) + "(99+)");
         }
-        button2 = this.dkE.dkv;
+        button2 = this.dnD.dnu;
         button2.invalidate();
     }
 

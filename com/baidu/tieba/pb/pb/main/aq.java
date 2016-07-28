@@ -3,73 +3,73 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.d.c;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class aq implements c.InterfaceC0054c {
-    final int bDC;
-    final /* synthetic */ PbActivity dPF;
+class aq implements c.InterfaceC0055c {
+    final int bEM;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PbActivity pbActivity) {
-        this.dPF = pbActivity;
-        this.bDC = (int) pbActivity.getResources().getDimension(u.e.ds98);
+        this.ebT = pbActivity;
+        this.bEM = (int) pbActivity.getResources().getDimension(u.e.ds98);
     }
 
-    @Override // com.baidu.tieba.d.c.InterfaceC0054c
+    @Override // com.baidu.tieba.d.c.InterfaceC0055c
     public void K(int i, int i2) {
-        es esVar;
+        ew ewVar;
         com.baidu.tieba.pb.pb.main.a.f fVar;
-        es esVar2;
+        ew ewVar2;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
         com.baidu.tieba.pb.pb.main.a.f fVar3;
-        if (B(i2)) {
-            esVar = this.dPF.dOO;
-            if (esVar != null) {
-                fVar = this.dPF.dOx;
+        if (L(i2)) {
+            ewVar = this.ebT.ebb;
+            if (ewVar != null) {
+                fVar = this.ebT.eaK;
                 if (fVar != null) {
-                    esVar2 = this.dPF.dOO;
-                    esVar2.aHP();
-                    fVar2 = this.dPF.dOx;
-                    fVar2.dt(false);
-                    fVar3 = this.dPF.dOx;
-                    fVar3.Xk();
+                    ewVar2 = this.ebT.ebb;
+                    ewVar2.aKZ();
+                    fVar2 = this.ebT.eaK;
+                    fVar2.dq(false);
+                    fVar3 = this.ebT.eaK;
+                    fVar3.XC();
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.d.c.InterfaceC0054c
+    @Override // com.baidu.tieba.d.c.InterfaceC0055c
     public void L(int i, int i2) {
-        es esVar;
+        ew ewVar;
         com.baidu.tieba.pb.pb.main.a.f fVar;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
-        es esVar2;
-        es esVar3;
-        es esVar4;
+        ew ewVar2;
+        ew ewVar3;
+        ew ewVar4;
         com.baidu.tieba.pb.pb.main.a.f fVar3;
-        if (B(i2)) {
-            esVar = this.dPF.dOO;
-            if (esVar != null) {
-                fVar = this.dPF.dOx;
+        if (L(i2)) {
+            ewVar = this.ebT.ebb;
+            if (ewVar != null) {
+                fVar = this.ebT.eaK;
                 if (fVar != null) {
-                    fVar2 = this.dPF.dOx;
-                    fVar2.dt(true);
-                    if (Math.abs(i2) > this.bDC) {
-                        esVar4 = this.dPF.dOO;
-                        esVar4.aHO();
-                        fVar3 = this.dPF.dOx;
-                        fVar3.Xj();
+                    fVar2 = this.ebT.eaK;
+                    fVar2.dq(true);
+                    if (Math.abs(i2) > this.bEM) {
+                        ewVar4 = this.ebT.ebb;
+                        ewVar4.aKY();
+                        fVar3 = this.ebT.eaK;
+                        fVar3.XB();
                     }
-                    if (this.dPF.aEV()) {
-                        esVar2 = this.dPF.dOO;
-                        esVar2.aGZ();
-                        esVar3 = this.dPF.dOO;
-                        esVar3.aHa();
+                    if (this.ebT.aIg()) {
+                        ewVar2 = this.ebT.ebb;
+                        ewVar2.aKm();
+                        ewVar3 = this.ebT.ebb;
+                        ewVar3.aKn();
                     }
                 }
             }
         }
     }
 
-    private boolean B(float f) {
+    private boolean L(float f) {
         return Math.abs(f) >= 1.0f;
     }
 }

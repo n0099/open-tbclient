@@ -4,32 +4,32 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class ba extends CustomMessageListener {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ba(PbActivity pbActivity, int i) {
         super(i);
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        es esVar;
-        es esVar2;
-        es esVar3;
+        ew ewVar;
+        ew ewVar2;
+        ew ewVar3;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            esVar = this.dPF.dOO;
-            if (esVar != null) {
+            ewVar = this.ebT.ebb;
+            if (ewVar != null) {
                 if (booleanValue) {
-                    esVar3 = this.dPF.dOO;
-                    esVar3.aoD();
+                    ewVar3 = this.ebT.ebb;
+                    ewVar3.app();
                     return;
                 }
-                esVar2 = this.dPF.dOO;
-                esVar2.aoC();
+                ewVar2 = this.ebT.ebb;
+                ewVar2.apo();
             }
         }
     }

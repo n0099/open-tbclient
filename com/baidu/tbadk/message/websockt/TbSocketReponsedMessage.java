@@ -10,7 +10,7 @@ public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
 
     public static void saveProtocolBufferDataToCache(o<byte[]> oVar, String str, byte[] bArr) {
         if (str != null && oVar != null && bArr != null && bArr.length > 0) {
-            oVar.e(str, bArr);
+            oVar.k(str, bArr);
         }
     }
 }

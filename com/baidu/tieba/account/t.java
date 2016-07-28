@@ -3,15 +3,15 @@ package com.baidu.tieba.account;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class t implements Runnable {
-    final /* synthetic */ ActivationActivity aMd;
+    final /* synthetic */ ActivationActivity aMX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(ActivationActivity activationActivity) {
-        this.aMd = activationActivity;
+        this.aMX = activationActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        TbadkCoreApplication.m9getInst().setUsed();
+        TbadkCoreApplication.m10getInst().setUsed();
     }
 }

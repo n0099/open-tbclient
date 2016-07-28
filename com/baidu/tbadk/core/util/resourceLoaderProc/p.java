@@ -1,10 +1,10 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 /* loaded from: classes.dex */
 public class p extends a {
-    private int Xu;
+    private int Yd;
 
     public p(int i) {
-        this.Xu = i;
+        this.Yd = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -34,6 +34,6 @@ public class p extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int uJ() {
-        return this.Xu;
+        return this.Yd;
     }
 }

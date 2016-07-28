@@ -4,41 +4,41 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class bp {
-    BaseActivity bkc;
+    BaseActivity bem;
     String mUrl;
 
     public bp(String str, BaseActivity baseActivity) {
         this.mUrl = null;
         this.mUrl = str;
-        this.bkc = baseActivity;
+        this.bem = baseActivity;
     }
 
     public void execute() {
         try {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
-                showToast(this.bkc.getPageContext().getString(u.j.save_error));
+                showToast(this.bem.getPageContext().getString(u.j.save_error));
             }
-            com.baidu.adp.lib.g.c.dG().a(this.mUrl, 10, new bq(this), this.bkc.getUniqueId());
+            com.baidu.adp.lib.g.c.dF().a(this.mUrl, 10, new bq(this), this.bem.getUniqueId());
         } catch (Exception e) {
-            showToast(this.bkc.getPageContext().getString(u.j.save_error));
+            showToast(this.bem.getPageContext().getString(u.j.save_error));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String k(String str, byte[] bArr) {
-        switch (com.baidu.tbadk.core.util.m.a(str, bArr, this.bkc.getPageContext().getPageActivity())) {
+        switch (com.baidu.tbadk.core.util.m.a(str, bArr, this.bem.getPageContext().getPageActivity())) {
             case -2:
-                return com.baidu.tbadk.core.util.m.sV();
+                return com.baidu.tbadk.core.util.m.sU();
             case -1:
             default:
-                return this.bkc.getPageContext().getString(u.j.save_error);
+                return this.bem.getPageContext().getString(u.j.save_error);
             case 0:
-                return this.bkc.getPageContext().getString(u.j.save_image_to_album);
+                return this.bem.getPageContext().getString(u.j.save_image_to_album);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void showToast(String str) {
-        this.bkc.showToast(str);
+        this.bem.showToast(str);
     }
 }

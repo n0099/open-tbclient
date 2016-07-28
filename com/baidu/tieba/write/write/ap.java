@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fJw;
+    final /* synthetic */ WriteActivity fVn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(WriteActivity writeActivity) {
-        this.fJw = writeActivity;
+        this.fVn = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,34 +20,34 @@ public class ap implements View.OnClickListener {
         WriteData writeData;
         WriteData writeData2;
         InputMethodManager inputMethodManager;
-        EditText bmq;
+        EditText bpk;
         InputMethodManager inputMethodManager2;
-        EditText bmp;
+        EditText bpj;
         com.baidu.tbadk.editortools.l lVar;
         boolean z;
-        writeData = this.fJw.fau;
+        writeData = this.fVn.faq;
         if (writeData.getVideoInfo() != null) {
             TiebaStatic.log("c10063");
         }
-        if (!com.baidu.tieba.write.c.a.isFastDoubleClick()) {
-            writeData2 = this.fJw.fau;
+        if (!com.baidu.tieba.write.d.a.isFastDoubleClick()) {
+            writeData2 = this.fVn.faq;
             if (writeData2.getVideoInfo() != null) {
                 TiebaStatic.log("c10063");
             }
-            WriteActivity writeActivity = this.fJw;
-            inputMethodManager = this.fJw.mInputManager;
-            bmq = this.fJw.bmq();
-            writeActivity.HidenSoftKeyPad(inputMethodManager, bmq);
-            WriteActivity writeActivity2 = this.fJw;
-            inputMethodManager2 = this.fJw.mInputManager;
-            bmp = this.fJw.bmp();
-            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bmp);
-            lVar = this.fJw.aqo;
+            WriteActivity writeActivity = this.fVn;
+            inputMethodManager = this.fVn.mInputManager;
+            bpk = this.fVn.bpk();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, bpk);
+            WriteActivity writeActivity2 = this.fVn;
+            inputMethodManager2 = this.fVn.mInputManager;
+            bpj = this.fVn.bpj();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bpj);
+            lVar = this.fVn.ard;
             lVar.zD();
-            this.fJw.blx();
-            z = this.fJw.fIr;
+            this.fVn.bos();
+            z = this.fVn.fUi;
             if (z) {
-                com.baidu.adp.lib.stats.a.dO().dX();
+                com.baidu.adp.lib.stats.a.dN().dW();
             }
         }
     }

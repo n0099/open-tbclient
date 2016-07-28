@@ -6,11 +6,11 @@ import com.baidu.tieba.pb.view.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
-    final /* synthetic */ e dWA;
+    final /* synthetic */ e ejc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.dWA = eVar;
+        this.ejc = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,10 +18,10 @@ public class h implements Runnable {
         s sVar;
         s sVar2;
         PbActivity pbActivity;
-        sVar = this.dWA.dWw;
+        sVar = this.ejc.eiZ;
         if (sVar != null) {
-            sVar2 = this.dWA.dWw;
-            pbActivity = this.dWA.dOg;
+            sVar2 = this.ejc.eiZ;
+            pbActivity = this.ejc.eat;
             j.a(sVar2, pbActivity.getPageContext().getPageActivity());
         }
     }

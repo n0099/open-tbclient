@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public void l(JSONObject jSONObject) {
+    public void n(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        et(str2);
+                        es(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        et(str2);
+                        es(str2);
                     }
                 }
             }
@@ -79,36 +79,36 @@ public class b {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void et(String str) {
+    public void es(String str) {
         String yh = yh();
-        if (!TextUtils.equals(yh, str) || !eu(yh)) {
+        if (!TextUtils.equals(yh, str) || !isFileExist(yh)) {
             ah(str, yh);
         }
     }
 
-    private boolean eu(String str) {
-        File cR = m.cR(bc.dB(str));
+    private boolean isFileExist(String str) {
+        File cR = m.cR(bc.dA(str));
         return cR != null && cR.exists() && cR.isFile();
     }
 
     private void ah(String str, String str2) {
-        if (i.fs()) {
-            new a(str, bc.dB(str), str2).execute(new String[0]);
+        if (i.fr()) {
+            new a(str, bc.dA(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private ab LK = null;
-        private final String UV;
-        private final String ahM;
-        private final String ahN;
+        private ab LI = null;
+        private final String VE;
+        private final String aiB;
+        private final String aiC;
 
         public a(String str, String str2, String str3) {
-            this.ahM = str;
-            this.UV = str2;
-            this.ahN = str3;
+            this.aiB = str;
+            this.VE = str2;
+            this.aiC = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,14 +118,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.LK = new ab(this.ahM);
-                bool = Boolean.valueOf(this.LK.a(String.valueOf(this.UV) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.LI = new ab(this.aiB);
+                bool = Boolean.valueOf(this.LI.a(String.valueOf(this.VE) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(m.h(null, String.valueOf(this.UV) + ".tmp", null, this.UV)) && !TextUtils.isEmpty(this.ahM) && !this.ahM.equals(this.ahN)) {
-                        m.cZ(bc.dB(this.ahN));
+                    if (!StringUtils.isNull(m.h(null, String.valueOf(this.VE) + ".tmp", null, this.VE)) && !TextUtils.isEmpty(this.aiB) && !this.aiB.equals(this.aiC)) {
+                        m.cZ(bc.dA(this.aiC));
                     }
                 } else {
-                    m.cZ(String.valueOf(this.UV) + ".tmp");
+                    m.cZ(String.valueOf(this.VE) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -135,7 +135,7 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
+        /* renamed from: c */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if (bool != null && bool.booleanValue()) {

@@ -10,10 +10,10 @@ import com.baidu.cloudsdk.social.share.SocialShareConfig;
 import com.baidu.cloudsdk.social.share.uiwithlayout.LocationPreview;
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ LocationPreview cW;
+    final /* synthetic */ LocationPreview dz;
 
     public q(LocationPreview locationPreview) {
-        this.cW = locationPreview;
+        this.dz = locationPreview;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,36 +28,36 @@ public class q implements View.OnClickListener {
         TextView textView2;
         SocialShareConfig socialShareConfig2;
         ImageView imageView;
-        z = this.cW.f;
+        z = this.dz.f;
         if (z) {
-            this.cW.f = false;
-            textView2 = this.cW.e;
-            socialShareConfig2 = this.cW.b;
+            this.dz.f = false;
+            textView2 = this.dz.e;
+            socialShareConfig2 = this.dz.b;
             textView2.setText(socialShareConfig2.getString("insert_location"));
-            imageView = this.cW.d;
+            imageView = this.dz.d;
             imageView.setVisibility(8);
             return;
         }
-        str = this.cW.h;
+        str = this.dz.h;
         if (!TextUtils.isEmpty(str)) {
-            LocationPreview locationPreview = this.cW;
-            str2 = this.cW.h;
+            LocationPreview locationPreview = this.dz;
+            str2 = this.dz.h;
             locationPreview.a(str2);
             return;
         }
-        textView = this.cW.e;
-        socialShareConfig = this.cW.b;
+        textView = this.dz.e;
+        socialShareConfig = this.dz.b;
         textView.setText(socialShareConfig.getString("get_location"));
-        location = this.cW.g;
+        location = this.dz.g;
         if (location != null) {
-            LocationPreview locationPreview2 = this.cW;
-            location2 = this.cW.g;
+            LocationPreview locationPreview2 = this.dz;
+            location2 = this.dz.g;
             locationPreview2.a(location2);
             return;
         }
         try {
-            if (this.cW.getContext().checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0) {
-                new PositionManager(this.cW.getContext()).requestLoation(new r(this));
+            if (this.dz.getContext().checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0) {
+                new PositionManager(this.dz.getContext()).requestLoation(new r(this));
             }
         } catch (Exception e) {
         }

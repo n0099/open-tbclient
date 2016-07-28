@@ -10,17 +10,17 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity dWP;
+    final /* synthetic */ NewSubPbActivity ejr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NewSubPbActivity newSubPbActivity) {
-        this.dWP = newSubPbActivity;
+        this.ejr = newSubPbActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
-    public void d(Object obj) {
+    public void g(Object obj) {
         com.baidu.tieba.tbadkCore.f.a aVar;
         aw awVar;
         aw awVar2;
@@ -33,27 +33,27 @@ public class d implements NewSubPbActivity.a {
         Object[] objArr = (Object[]) obj;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            aVar = this.dWP.dWD;
-            if (!aVar.bdc() && objArr != null && objArr.length >= 4) {
+            aVar = this.ejr.ejf;
+            if (!aVar.bgr() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
                 int g = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[1]), 0);
                 boolean d = com.baidu.adp.lib.h.b.d(String.valueOf(objArr[2]), false);
                 int g2 = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[3]), 0);
-                awVar = this.dWP.dWC;
+                awVar = this.ejr.eje;
                 if (awVar != null) {
-                    awVar2 = this.dWP.dWC;
-                    if (awVar2.aIH() != null) {
-                        awVar3 = this.dWP.dWC;
-                        if (awVar3.aIH().aEl() != null) {
-                            awVar4 = this.dWP.dWC;
-                            if (awVar4.aIH().Ix() != null) {
-                                aVar2 = this.dWP.dWD;
-                                awVar5 = this.dWP.dWC;
-                                String id = awVar5.aIH().aEl().getId();
-                                awVar6 = this.dWP.dWC;
-                                String name = awVar6.aIH().aEl().getName();
-                                awVar7 = this.dWP.dWC;
-                                aVar2.a(id, name, awVar7.aIH().Ix().getId(), valueOf, g2, g, d);
+                    awVar2 = this.ejr.eje;
+                    if (awVar2.aLS() != null) {
+                        awVar3 = this.ejr.eje;
+                        if (awVar3.aLS().aHv() != null) {
+                            awVar4 = this.ejr.eje;
+                            if (awVar4.aLS().Iw() != null) {
+                                aVar2 = this.ejr.ejf;
+                                awVar5 = this.ejr.eje;
+                                String id = awVar5.aLS().aHv().getId();
+                                awVar6 = this.ejr.eje;
+                                String name = awVar6.aLS().aHv().getName();
+                                awVar7 = this.ejr.eje;
+                                aVar2.a(id, name, awVar7.aLS().Iw().getId(), valueOf, g2, g, d);
                                 return;
                             }
                             return;
@@ -66,6 +66,6 @@ public class d implements NewSubPbActivity.a {
             }
             return;
         }
-        TbadkCoreApplication.m9getInst().login(this.dWP.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.dWP.getPageContext().getPageActivity(), this.dWP.getPageContext().getString(u.j.login_to_use), true, 11017)));
+        TbadkCoreApplication.m10getInst().login(this.ejr.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.ejr.getPageContext().getPageActivity(), this.ejr.getPageContext().getString(u.j.login_to_use), true, 11017)));
     }
 }

@@ -13,14 +13,14 @@ class as implements com.baidu.adp.lib.f.c<HeadImageView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: vD */
-    public HeadImageView dF() {
+    public HeadImageView dE() {
         return new HeadImageView(this.val$context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: a */
-    public void l(HeadImageView headImageView) {
+    public void o(HeadImageView headImageView) {
         headImageView.setBackgroundResource(0);
         headImageView.setImageDrawable(null);
         headImageView.setTag(null);
@@ -30,14 +30,14 @@ class as implements com.baidu.adp.lib.f.c<HeadImageView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: b */
-    public HeadImageView m(HeadImageView headImageView) {
+    public HeadImageView p(HeadImageView headImageView) {
         return headImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: c */
-    public HeadImageView n(HeadImageView headImageView) {
+    public HeadImageView q(HeadImageView headImageView) {
         headImageView.setBackgroundResource(0);
         headImageView.setImageDrawable(null);
         headImageView.setTag(null);

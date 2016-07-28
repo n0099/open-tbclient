@@ -9,7 +9,7 @@ public class HttpProgressResponsedMessage extends CustomResponsedMessage<Object>
     }
 
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, Object obj) {
+    public void decodeInBackGround(int i, Object obj) throws Exception {
     }
 
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage

@@ -11,24 +11,24 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ u aSS;
+    final /* synthetic */ u aTO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(u uVar) {
-        this.aSS = uVar;
+        this.aTO = uVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
-        if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
-            tbPageContext2 = this.aSS.Dp;
+        if (!TbadkCoreApplication.m10getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
+            tbPageContext2 = this.aTO.DQ;
             tbPageContext2.showToast(u.j.pluginstatus_tip_timeout_last);
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.aSS.Dp;
+        tbPageContext = this.aTO.DQ;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GodSquareActivityConfig(tbPageContext.getPageActivity())));
     }
 }

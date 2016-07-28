@@ -4,13 +4,14 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
+import android.os.RemoteException;
 /* loaded from: classes.dex */
 public interface IProcessObserver extends IInterface {
-    void onForegroundActivitiesChanged(int i, int i2, boolean z);
+    void onForegroundActivitiesChanged(int i, int i2, boolean z) throws RemoteException;
 
-    void onImportanceChanged(int i, int i2, int i3);
+    void onImportanceChanged(int i, int i2, int i3) throws RemoteException;
 
-    void onProcessDied(int i, int i2);
+    void onProcessDied(int i, int i2) throws RemoteException;
 
     /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IProcessObserver {
@@ -40,7 +41,7 @@ public interface IProcessObserver extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             switch (i) {
                 case 1:
                     parcel.enforceInterface(DESCRIPTOR);
@@ -80,7 +81,7 @@ public interface IProcessObserver extends IInterface {
             }
 
             @Override // android.app.IProcessObserver
-            public void onForegroundActivitiesChanged(int i, int i2, boolean z) {
+            public void onForegroundActivitiesChanged(int i, int i2, boolean z) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
@@ -94,7 +95,7 @@ public interface IProcessObserver extends IInterface {
             }
 
             @Override // android.app.IProcessObserver
-            public void onImportanceChanged(int i, int i2, int i3) {
+            public void onImportanceChanged(int i, int i2, int i3) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
@@ -108,7 +109,7 @@ public interface IProcessObserver extends IInterface {
             }
 
             @Override // android.app.IProcessObserver
-            public void onProcessDied(int i, int i2) {
+            public void onProcessDied(int i, int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);

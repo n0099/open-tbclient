@@ -4,17 +4,17 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 /* loaded from: classes.dex */
 public class b implements c {
-    private View.OnClickListener aew;
-    private int akG;
-    private Drawable apc;
+    private View.OnClickListener afk;
+    private int alw;
+    private Drawable apS;
     private String mTitle;
 
     public void setPosition(int i) {
-        this.akG = i;
+        this.alw = i;
     }
 
     public void setIcon(Drawable drawable) {
-        this.apc = drawable;
+        this.apS = drawable;
     }
 
     public void setTitle(String str) {
@@ -22,6 +22,6 @@ public class b implements c {
     }
 
     public void h(View.OnClickListener onClickListener) {
-        this.aew = onClickListener;
+        this.afk = onClickListener;
     }
 }

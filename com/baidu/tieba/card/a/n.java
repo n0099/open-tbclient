@@ -2,69 +2,69 @@ package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.card.at;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId Op = BdUniqueId.gen();
-    public az aVc;
-    private ay aVv;
-    private ay aVw;
-    private ay aVx;
-    private ay aVy;
+    public static final BdUniqueId OB = BdUniqueId.gen();
+    public be aWa;
+    private ay aWt;
+    private ay aWu;
+    private ay aWv;
+    private ay aWw;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return Op;
+        return OB;
     }
 
-    public n(az azVar) {
-        this.aVc = azVar;
+    public n(be beVar) {
+        this.aWa = beVar;
     }
 
-    public static boolean c(az azVar) {
-        return azVar != null && azVar.getThreadType() == 33;
+    public static boolean c(be beVar) {
+        return beVar != null && beVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public az Ix() {
-        return this.aVc;
+    public be Iw() {
+        return this.aWa;
     }
 
-    public int LB() {
-        return (this.aVc == null || StringUtils.isNull(this.aVc.getPhotoLiveCover())) ? 0 : 1;
-    }
-
-    public void b(ay ayVar) {
-        this.aVv = ayVar;
+    public int LA() {
+        return (this.aWa == null || StringUtils.isNull(this.aWa.getPhotoLiveCover())) ? 0 : 1;
     }
 
     public void c(ay ayVar) {
-        this.aVw = ayVar;
+        this.aWt = ayVar;
     }
 
     public void d(ay ayVar) {
-        this.aVx = ayVar;
+        this.aWu = ayVar;
     }
 
     public void e(ay ayVar) {
-        this.aVy = ayVar;
+        this.aWv = ayVar;
+    }
+
+    public void f(ay ayVar) {
+        this.aWw = ayVar;
+    }
+
+    public ay LB() {
+        return this.aWt != null ? this.aWt.ab("obj_param3", at.KZ()) : this.aWt;
     }
 
     public ay LC() {
-        return this.aVv != null ? this.aVv.ab("obj_param3", at.La()) : this.aVv;
+        return this.aWu != null ? this.aWu.ab("obj_param3", at.KZ()) : this.aWu;
     }
 
     public ay LD() {
-        return this.aVw != null ? this.aVw.ab("obj_param3", at.La()) : this.aVw;
+        return this.aWw != null ? this.aWw.ab("obj_param3", at.KZ()) : this.aWw;
     }
 
     public ay LE() {
-        return this.aVy != null ? this.aVy.ab("obj_param3", at.La()) : this.aVy;
-    }
-
-    public ay LF() {
-        return this.aVx != null ? this.aVx.ab("obj_param3", at.La()) : this.aVx;
+        return this.aWv != null ? this.aWv.ab("obj_param3", at.KZ()) : this.aWv;
     }
 }

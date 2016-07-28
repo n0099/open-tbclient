@@ -1,46 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.u;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fb implements View.OnClickListener {
-    final /* synthetic */ es dVR;
+public class fb implements Animation.AnimationListener {
+    final /* synthetic */ ew eiu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fb(es esVar) {
-        this.dVR = esVar;
+    public fb(ew ewVar) {
+        this.eiu = ewVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        PbActivity.a aVar;
-        PbActivity.a aVar2;
-        Dialog dialog2;
-        Dialog dialog3;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.eiu.efS.setTitleVisibility(false);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ObservedChangeLinearLayout observedChangeLinearLayout;
+        boolean z;
         PbActivity pbActivity;
-        dialog = this.dVR.dUp;
-        if (dialog != null) {
-            dialog2 = this.dVR.dUp;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.dVR.dUp;
-                pbActivity = this.dVR.dOg;
-                com.baidu.adp.lib.h.j.b(dialog3, pbActivity.getPageContext());
-            }
+        observedChangeLinearLayout = this.eiu.egH;
+        observedChangeLinearLayout.setVisibility(0);
+        this.eiu.efS.setTitleVisibility(true);
+        this.eiu.hX(false);
+        z = this.eiu.ehV;
+        if (z) {
+            this.eiu.aKZ();
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray == null) {
-            return;
-        }
-        aVar = this.dVR.dVK;
-        if (aVar == null) {
-            return;
-        }
-        aVar2 = this.dVR.dVK;
-        aVar2.d(new Object[]{sparseArray.get(u.g.tag_manage_user_identity), sparseArray.get(u.g.tag_forbid_user_name), sparseArray.get(u.g.tag_forbid_user_post_id)});
+        pbActivity = this.eiu.eat;
+        pbActivity.hD(true);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

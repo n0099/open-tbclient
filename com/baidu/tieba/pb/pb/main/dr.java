@@ -1,26 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dr extends com.baidu.tieba.tbadkCore.data.s {
-    public static final BdUniqueId dSc = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.ah dSd;
-    public com.baidu.tbadk.core.data.ah dSe;
-    public com.baidu.tbadk.core.data.ah dSf;
+public class dr implements Runnable {
+    final /* synthetic */ dq ees;
 
-    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return dSc;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dr(dq dqVar) {
+        this.ees = dqVar;
     }
 
-    public boolean hasData() {
-        if (this.dSd == null || StringUtils.isNull(this.dSd.summary)) {
-            if (this.dSe == null || StringUtils.isNull(this.dSe.summary)) {
-                return (this.dSf == null || StringUtils.isNull(this.dSf.summary)) ? false : true;
-            }
-            return true;
-        }
-        return true;
+    @Override // java.lang.Runnable
+    public void run() {
+        View view;
+        PbActivity pbActivity;
+        view = this.ees.een;
+        pbActivity = this.ees.dXE;
+        view.setBackgroundColor(pbActivity.getResources().getColor(u.d.common_color_10082));
     }
 }

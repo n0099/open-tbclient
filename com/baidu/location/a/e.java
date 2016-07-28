@@ -13,39 +13,39 @@ import com.baidu.tbadk.TbConfig;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends d {
-    private static e FI = null;
+    private static e Gh = null;
     public static boolean h = false;
-    public d.b FJ;
-    private double FV;
+    public d.b Gi;
+    private double Gs;
     private double z;
     final int e = 1000;
     private boolean j = true;
     private String k = null;
-    private BDLocation FK = null;
-    private BDLocation FL = null;
-    private com.baidu.location.f.i FM = null;
-    private com.baidu.location.f.a FN = null;
-    private com.baidu.location.f.i FO = null;
-    private com.baidu.location.f.a FP = null;
+    private BDLocation Gj = null;
+    private BDLocation Gk = null;
+    private com.baidu.location.f.i Gl = null;
+    private com.baidu.location.f.a Gm = null;
+    private com.baidu.location.f.i Gn = null;
+    private com.baidu.location.f.a Go = null;
     private boolean r = true;
     private volatile boolean s = false;
     private boolean t = false;
-    private long FQ = 0;
-    private long FR = 0;
-    private Address FT = null;
+    private long u = 0;
+    private long Gp = 0;
+    private Address Gq = null;
     private String x = null;
-    private List<Poi> FU = null;
+    private List<Poi> Gr = null;
     private boolean B = false;
-    private long FW = 0;
-    private long FX = 0;
-    private a FY = null;
+    private long C = 0;
+    private long Gt = 0;
+    private a Gu = null;
     private boolean F = false;
     private boolean G = false;
-    private boolean FZ = true;
+    private boolean H = true;
     public final Handler g = new d.a();
-    private boolean Ga = false;
-    private b Gb = null;
-    private boolean Gc = false;
+    private boolean Gv = false;
+    private b Gw = null;
+    private boolean Gx = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -73,8 +73,8 @@ public class e extends d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.Gc) {
-                e.this.Gc = false;
+            if (e.this.Gx) {
+                e.this.Gx = false;
             }
             if (e.this.t) {
                 e.this.t = false;
@@ -84,31 +84,31 @@ public class e extends d {
     }
 
     private e() {
-        this.FJ = null;
-        this.FJ = new d.b();
+        this.Gi = null;
+        this.Gi = new d.b();
     }
 
     private boolean a(com.baidu.location.f.a aVar) {
-        this.FF = com.baidu.location.f.c.mr().mn();
-        if (this.FF == aVar) {
+        this.Ge = com.baidu.location.f.c.mh().md();
+        if (this.Ge == aVar) {
             return false;
         }
-        return this.FF == null || aVar == null || !aVar.a(this.FF);
+        return this.Ge == null || aVar == null || !aVar.a(this.Ge);
     }
 
     private boolean a(com.baidu.location.f.i iVar) {
-        this.FE = com.baidu.location.f.k.mA().my();
-        if (iVar == this.FE) {
+        this.Gd = com.baidu.location.f.k.mq().mo();
+        if (iVar == this.Gd) {
             return false;
         }
-        return this.FE == null || iVar == null || !iVar.c(this.FE);
+        return this.Gd == null || iVar == null || !iVar.c(this.Gd);
     }
 
     private boolean b(com.baidu.location.f.a aVar) {
         if (aVar == null) {
             return false;
         }
-        return this.FP == null || !aVar.a(this.FP);
+        return this.Go == null || !aVar.a(this.Go);
     }
 
     private void c(Message message) {
@@ -118,8 +118,8 @@ public class e extends d {
         }
         if (z) {
         }
-        int e = com.baidu.location.a.a.lw().e(message);
-        f.lz().d();
+        int e = com.baidu.location.a.a.ls().e(message);
+        f.lv().d();
         switch (e) {
             case 1:
                 g(message);
@@ -128,7 +128,7 @@ public class e extends d {
                 i(message);
                 return;
             case 3:
-                if (com.baidu.location.f.f.mu().i()) {
+                if (com.baidu.location.f.f.mk().i()) {
                     h(message);
                     return;
                 }
@@ -139,60 +139,60 @@ public class e extends d {
     }
 
     private void g(Message message) {
-        if (com.baidu.location.f.f.mu().i()) {
+        if (com.baidu.location.f.f.mk().i()) {
             h(message);
-            f.lz().c();
+            f.lv().c();
             return;
         }
         i(message);
-        f.lz().b();
+        f.lv().b();
     }
 
     private void h(Message message) {
-        BDLocation bDLocation = new BDLocation(com.baidu.location.f.f.mu().f());
+        BDLocation bDLocation = new BDLocation(com.baidu.location.f.f.mk().f());
         if (com.baidu.location.h.i.f.equals("all") || com.baidu.location.h.i.g || com.baidu.location.h.i.h) {
             float[] fArr = new float[2];
-            Location.distanceBetween(this.FV, this.z, bDLocation.getLatitude(), bDLocation.getLongitude(), fArr);
+            Location.distanceBetween(this.Gs, this.z, bDLocation.getLatitude(), bDLocation.getLongitude(), fArr);
             if (fArr[0] < 100.0f) {
-                if (this.FT != null) {
-                    bDLocation.setAddr(this.FT);
+                if (this.Gq != null) {
+                    bDLocation.setAddr(this.Gq);
                 }
                 if (this.x != null) {
                     bDLocation.setLocationDescribe(this.x);
                 }
-                if (this.FU != null) {
-                    bDLocation.setPoiList(this.FU);
+                if (this.Gr != null) {
+                    bDLocation.setPoiList(this.Gr);
                 }
             } else {
                 this.B = true;
                 i(null);
             }
         }
-        this.FK = bDLocation;
-        this.FL = null;
-        com.baidu.location.a.a.lw().a(bDLocation);
+        this.Gj = bDLocation;
+        this.Gk = null;
+        com.baidu.location.a.a.ls().a(bDLocation);
     }
 
     private void i(Message message) {
         if (this.r) {
-            this.FX = SystemClock.uptimeMillis();
+            this.Gt = SystemClock.uptimeMillis();
             j(message);
         } else if (this.s) {
         } else {
-            this.FX = SystemClock.uptimeMillis();
-            if (!com.baidu.location.f.k.mA().e()) {
+            this.Gt = SystemClock.uptimeMillis();
+            if (!com.baidu.location.f.k.mq().e()) {
                 j(message);
                 return;
             }
             this.t = true;
-            if (this.Gb == null) {
-                this.Gb = new b();
+            if (this.Gw == null) {
+                this.Gw = new b();
             }
-            if (this.Gc && this.Gb != null) {
-                this.g.removeCallbacks(this.Gb);
+            if (this.Gx && this.Gw != null) {
+                this.g.removeCallbacks(this.Gw);
             }
-            this.g.postDelayed(this.Gb, 3500L);
-            this.Gc = true;
+            this.g.postDelayed(this.Gw, 3500L);
+            this.Gx = true;
         }
     }
 
@@ -201,46 +201,46 @@ public class e extends d {
         if (this.s) {
             return;
         }
-        if (System.currentTimeMillis() - this.FQ < 1000 && this.FK != null) {
-            com.baidu.location.a.a.lw().a(this.FK);
+        if (System.currentTimeMillis() - this.u < 1000 && this.Gj != null) {
+            com.baidu.location.a.a.ls().a(this.Gj);
             k();
             return;
         }
-        if (this.FX > 0) {
-            com.baidu.location.c.f.lR().lS().a(this.FX);
+        if (this.Gt > 0) {
+            com.baidu.location.c.f.lL().lM().a(this.Gt);
         } else {
-            com.baidu.location.c.f.lR().lS().a(SystemClock.uptimeMillis());
+            com.baidu.location.c.f.lL().lM().a(SystemClock.uptimeMillis());
         }
         this.s = true;
-        this.j = a(this.FN);
-        if (!a(this.FM) && !this.j && this.FK != null && !this.B) {
-            if (this.FL != null && System.currentTimeMillis() - this.FR > 30000) {
-                this.FK = this.FL;
-                this.FL = null;
+        this.j = a(this.Gm);
+        if (!a(this.Gl) && !this.j && this.Gj != null && !this.B) {
+            if (this.Gk != null && System.currentTimeMillis() - this.Gp > 30000) {
+                this.Gj = this.Gk;
+                this.Gk = null;
             }
-            if (f.lz().f()) {
-                this.FK.setDirection(f.lz().lB());
+            if (f.lv().f()) {
+                this.Gj.setDirection(f.lv().h());
             }
-            com.baidu.location.a.a.lw().a(this.FK);
+            com.baidu.location.a.a.ls().a(this.Gj);
             k();
             return;
         }
-        this.FQ = System.currentTimeMillis();
+        this.u = System.currentTimeMillis();
         String a2 = a((String) null);
         if (a2 == null) {
-            if (this.FK != null) {
-                com.baidu.location.a.a.lw().a(this.FK);
+            if (this.Gj != null) {
+                com.baidu.location.a.a.ls().a(this.Gj);
                 k();
                 return;
             }
             BDLocation bDLocation = new BDLocation();
             bDLocation.setLocType(62);
-            com.baidu.location.a.a.lw().a(bDLocation);
+            com.baidu.location.a.a.ls().a(bDLocation);
             k();
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.FW > TbConfig.USE_TIME_INTERVAL) {
-                this.FW = currentTimeMillis;
-                com.baidu.location.c.f.lR().a("TypeCriteriaException");
+            if (currentTimeMillis - this.C > TbConfig.USE_TIME_INTERVAL) {
+                this.C = currentTimeMillis;
+                com.baidu.location.c.f.lL().a("TypeCriteriaException");
                 return;
             }
             return;
@@ -249,27 +249,27 @@ public class e extends d {
             a2 = a2 + this.k;
             this.k = null;
         }
-        com.baidu.location.c.f.lR().lS().b(SystemClock.uptimeMillis());
-        this.FJ.a(a2);
-        this.FN = this.FF;
-        this.FM = this.FE;
+        com.baidu.location.c.f.lL().lM().b(SystemClock.uptimeMillis());
+        this.Gi.a(a2);
+        this.Gm = this.Ge;
+        this.Gl = this.Gd;
         if (j()) {
-            this.FN = this.FF;
-            this.FM = this.FE;
+            this.Gm = this.Ge;
+            this.Gl = this.Gd;
         }
-        if (com.baidu.location.e.d.lV().h()) {
-            if (this.FY == null) {
-                this.FY = new a();
+        if (com.baidu.location.e.d.lP().h()) {
+            if (this.Gu == null) {
+                this.Gu = new a();
             }
-            this.g.postDelayed(this.FY, com.baidu.location.e.d.lV().a(com.baidu.location.f.c.a(com.baidu.location.f.c.mr().e())));
+            this.g.postDelayed(this.Gu, com.baidu.location.e.d.lP().a(com.baidu.location.f.c.a(com.baidu.location.f.c.mh().e())));
             this.F = true;
         }
         if (this.r) {
             this.r = false;
-            if (com.baidu.location.f.k.mA().g() && message != null && com.baidu.location.a.a.lw().f(message) < 1000 && com.baidu.location.e.d.lV().d()) {
-                com.baidu.location.e.d.lV().i();
+            if (com.baidu.location.f.k.mq().g() && message != null && com.baidu.location.a.a.ls().f(message) < 1000 && com.baidu.location.e.d.lP().d()) {
+                com.baidu.location.e.d.lP().i();
             }
-            com.baidu.location.c.a.lM().b();
+            com.baidu.location.c.a.lG().b();
         }
     }
 
@@ -277,30 +277,30 @@ public class e extends d {
         BDLocation bDLocation = null;
         double random = Math.random();
         long uptimeMillis = SystemClock.uptimeMillis();
-        com.baidu.location.f.a mn = com.baidu.location.f.c.mr().mn();
-        com.baidu.location.f.i mx = com.baidu.location.f.k.mA().mx();
-        boolean z = mn != null && mn.e() && (mx == null || mx.a() == 0);
-        if (com.baidu.location.e.d.lV().d() && com.baidu.location.e.d.lV().f() && (z || (0.0d < random && random < com.baidu.location.e.d.lV().mb()))) {
-            bDLocation = com.baidu.location.e.d.lV().a(com.baidu.location.f.c.mr().mn(), com.baidu.location.f.k.mA().mx(), null, d.b.IS_MIX_MODE, d.a.NEED_TO_LOG);
+        com.baidu.location.f.a md = com.baidu.location.f.c.mh().md();
+        com.baidu.location.f.i mn = com.baidu.location.f.k.mq().mn();
+        boolean z = md != null && md.e() && (mn == null || mn.a() == 0);
+        if (com.baidu.location.e.d.lP().d() && com.baidu.location.e.d.lP().f() && (z || (0.0d < random && random < com.baidu.location.e.d.lP().lU()))) {
+            bDLocation = com.baidu.location.e.d.lP().a(com.baidu.location.f.c.mh().md(), com.baidu.location.f.k.mq().mn(), null, d.b.IS_MIX_MODE, d.a.NEED_TO_LOG);
         }
         if (bDLocation != null && bDLocation.getLocType() == 66 && this.s) {
             BDLocation bDLocation2 = new BDLocation(bDLocation);
             bDLocation2.setLocType(BDLocation.TypeNetWorkLocation);
             if (this.s) {
                 com.baidu.location.c.g gVar = new com.baidu.location.c.g();
-                gVar.a(this.FX);
+                gVar.a(this.Gt);
                 gVar.b(uptimeMillis);
                 gVar.c(uptimeMillis);
-                gVar.l(SystemClock.uptimeMillis());
+                gVar.m(SystemClock.uptimeMillis());
                 gVar.a("ofs");
-                if (this.FN != null) {
-                    gVar.b(this.FN.h());
+                if (this.Gm != null) {
+                    gVar.b(this.Gm.h());
                     gVar.b("&offtag=1");
                 }
-                com.baidu.location.c.f.lR().a(gVar);
+                com.baidu.location.c.f.lL().a(gVar);
                 this.G = true;
-                com.baidu.location.a.a.lw().a(bDLocation2);
-                this.FK = bDLocation2;
+                com.baidu.location.a.a.ls().a(bDLocation2);
+                this.Gj = bDLocation2;
                 return true;
             }
             return false;
@@ -311,24 +311,24 @@ public class e extends d {
     private void k() {
         this.s = false;
         this.G = false;
-        this.FZ = false;
+        this.H = false;
         this.B = false;
         l();
     }
 
     private void l() {
-        if (this.FK != null) {
-            j.lI().c();
+        if (this.Gj != null) {
+            j.lC().c();
         }
     }
 
-    public static synchronized e ly() {
+    public static synchronized e lu() {
         e eVar;
         synchronized (e.class) {
-            if (FI == null) {
-                FI = new e();
+            if (Gh == null) {
+                Gh = new e();
             }
-            eVar = FI;
+            eVar = Gh;
         }
         return eVar;
     }
@@ -336,80 +336,80 @@ public class e extends d {
     @Override // com.baidu.location.a.d
     public void a() {
         BDLocation bDLocation;
-        if (this.FY != null && this.F) {
+        if (this.Gu != null && this.F) {
             this.F = false;
-            this.g.removeCallbacks(this.FY);
+            this.g.removeCallbacks(this.Gu);
         }
-        if (com.baidu.location.f.f.mu().i()) {
-            BDLocation bDLocation2 = new BDLocation(com.baidu.location.f.f.mu().f());
+        if (com.baidu.location.f.f.mk().i()) {
+            BDLocation bDLocation2 = new BDLocation(com.baidu.location.f.f.mk().f());
             if (com.baidu.location.h.i.f.equals("all") || com.baidu.location.h.i.g || com.baidu.location.h.i.h) {
                 float[] fArr = new float[2];
-                Location.distanceBetween(this.FV, this.z, bDLocation2.getLatitude(), bDLocation2.getLongitude(), fArr);
+                Location.distanceBetween(this.Gs, this.z, bDLocation2.getLatitude(), bDLocation2.getLongitude(), fArr);
                 if (fArr[0] < 100.0f) {
-                    if (this.FT != null) {
-                        bDLocation2.setAddr(this.FT);
+                    if (this.Gq != null) {
+                        bDLocation2.setAddr(this.Gq);
                     }
                     if (this.x != null) {
                         bDLocation2.setLocationDescribe(this.x);
                     }
-                    if (this.FU != null) {
-                        bDLocation2.setPoiList(this.FU);
+                    if (this.Gr != null) {
+                        bDLocation2.setPoiList(this.Gr);
                     }
                 }
             }
-            com.baidu.location.a.a.lw().a(bDLocation2);
+            com.baidu.location.a.a.ls().a(bDLocation2);
             k();
         } else if (this.G) {
             k();
         } else {
-            com.baidu.location.c.f.lR().lS().c(SystemClock.uptimeMillis());
-            if (com.baidu.location.e.d.lV().d() && com.baidu.location.e.d.lV().e()) {
-                bDLocation = com.baidu.location.e.d.lV().a(com.baidu.location.f.c.mr().mn(), com.baidu.location.f.k.mA().mx(), null, d.b.IS_NOT_MIX_MODE, d.a.NEED_TO_LOG);
+            com.baidu.location.c.f.lL().lM().c(SystemClock.uptimeMillis());
+            if (com.baidu.location.e.d.lP().d() && com.baidu.location.e.d.lP().e()) {
+                bDLocation = com.baidu.location.e.d.lP().a(com.baidu.location.f.c.mh().md(), com.baidu.location.f.k.mq().mn(), null, d.b.IS_NOT_MIX_MODE, d.a.NEED_TO_LOG);
                 if (bDLocation != null && bDLocation.getLocType() == 66) {
-                    com.baidu.location.a.a.lw().a(bDLocation);
+                    com.baidu.location.a.a.ls().a(bDLocation);
                 }
             } else {
                 bDLocation = null;
             }
             if (bDLocation == null || bDLocation.getLocType() == 67) {
-                if (this.j || this.FK == null) {
-                    BDLocation X = com.baidu.location.e.a.lU().X(false);
-                    com.baidu.location.a.a.lw().a(X);
+                if (this.j || this.Gj == null) {
+                    BDLocation Z = com.baidu.location.e.a.lO().Z(false);
+                    com.baidu.location.a.a.ls().a(Z);
                     boolean z = true;
-                    if (com.baidu.location.h.i.f.equals("all") && X.getAddrStr() == null) {
+                    if (com.baidu.location.h.i.f.equals("all") && Z.getAddrStr() == null) {
                         z = false;
                     }
-                    if (com.baidu.location.h.i.g && X.getLocationDescribe() == null) {
+                    if (com.baidu.location.h.i.g && Z.getLocationDescribe() == null) {
                         z = false;
                     }
-                    if (com.baidu.location.h.i.h && X.getPoiList() == null) {
+                    if (com.baidu.location.h.i.h && Z.getPoiList() == null) {
                         z = false;
                     }
                     if (!z) {
-                        X.setLocType(67);
+                        Z.setLocType(67);
                     }
-                    bDLocation = X;
+                    bDLocation = Z;
                 } else {
-                    com.baidu.location.a.a.lw().a(this.FK);
+                    com.baidu.location.a.a.ls().a(this.Gj);
                 }
             }
-            com.baidu.location.c.f.lR().lS().l(SystemClock.uptimeMillis());
+            com.baidu.location.c.f.lL().lM().m(SystemClock.uptimeMillis());
             if (bDLocation == null || bDLocation.getLocType() == 67) {
-                this.FK = null;
-                com.baidu.location.c.f.lR().lS().a("off");
-                if (this.FN != null) {
-                    com.baidu.location.c.f.lR().lS().b(this.FN.h());
+                this.Gj = null;
+                com.baidu.location.c.f.lL().lM().a("off");
+                if (this.Gm != null) {
+                    com.baidu.location.c.f.lL().lM().b(this.Gm.h());
                 }
-                com.baidu.location.c.f.lR().c();
+                com.baidu.location.c.f.lL().c();
             } else {
-                this.FK = bDLocation;
-                com.baidu.location.c.f.lR().lS().a("ofs");
-                if (this.FN != null) {
-                    com.baidu.location.c.f.lR().lS().b(this.FN.h());
+                this.Gj = bDLocation;
+                com.baidu.location.c.f.lL().lM().a("ofs");
+                if (this.Gm != null) {
+                    com.baidu.location.c.f.lL().lM().b(this.Gm.h());
                 }
-                com.baidu.location.c.f.lR().c();
+                com.baidu.location.c.f.lL().c();
             }
-            this.FL = null;
+            this.Gk = null;
             k();
         }
     }
@@ -417,117 +417,117 @@ public class e extends d {
     @Override // com.baidu.location.a.d
     public void a(Message message) {
         boolean z;
-        if (this.FY != null && this.F) {
+        if (this.Gu != null && this.F) {
             this.F = false;
-            this.g.removeCallbacks(this.FY);
+            this.g.removeCallbacks(this.Gu);
         }
         BDLocation bDLocation = (BDLocation) message.obj;
         BDLocation bDLocation2 = new BDLocation(bDLocation);
         if (bDLocation.hasAddr()) {
-            this.FT = bDLocation.getAddress();
+            this.Gq = bDLocation.getAddress();
             this.z = bDLocation.getLongitude();
-            this.FV = bDLocation.getLatitude();
+            this.Gs = bDLocation.getLatitude();
         }
         if (bDLocation.getLocationDescribe() != null) {
             this.x = bDLocation.getLocationDescribe();
             this.z = bDLocation.getLongitude();
-            this.FV = bDLocation.getLatitude();
+            this.Gs = bDLocation.getLatitude();
         }
         if (bDLocation.getPoiList() != null) {
-            this.FU = bDLocation.getPoiList();
+            this.Gr = bDLocation.getPoiList();
             this.z = bDLocation.getLongitude();
-            this.FV = bDLocation.getLatitude();
+            this.Gs = bDLocation.getLatitude();
         }
-        if (com.baidu.location.f.f.mu().i()) {
-            BDLocation bDLocation3 = new BDLocation(com.baidu.location.f.f.mu().f());
+        if (com.baidu.location.f.f.mk().i()) {
+            BDLocation bDLocation3 = new BDLocation(com.baidu.location.f.f.mk().f());
             if (com.baidu.location.h.i.f.equals("all") || com.baidu.location.h.i.g || com.baidu.location.h.i.h) {
                 float[] fArr = new float[2];
-                Location.distanceBetween(this.FV, this.z, bDLocation3.getLatitude(), bDLocation3.getLongitude(), fArr);
+                Location.distanceBetween(this.Gs, this.z, bDLocation3.getLatitude(), bDLocation3.getLongitude(), fArr);
                 if (fArr[0] < 100.0f) {
-                    if (this.FT != null) {
-                        bDLocation3.setAddr(this.FT);
+                    if (this.Gq != null) {
+                        bDLocation3.setAddr(this.Gq);
                     }
                     if (this.x != null) {
                         bDLocation3.setLocationDescribe(this.x);
                     }
-                    if (this.FU != null) {
-                        bDLocation3.setPoiList(this.FU);
+                    if (this.Gr != null) {
+                        bDLocation3.setPoiList(this.Gr);
                     }
                 }
             }
-            com.baidu.location.a.a.lw().a(bDLocation3);
+            com.baidu.location.a.a.ls().a(bDLocation3);
             k();
         } else if (bDLocation.getNetworkLocationType() != null && bDLocation.getNetworkLocationType().equals("sky")) {
             bDLocation.setNetworkLocationType("wf");
-            com.baidu.location.a.a.lw().a(bDLocation);
-            this.FR = System.currentTimeMillis();
-            this.FK = bDLocation;
+            com.baidu.location.a.a.ls().a(bDLocation);
+            this.Gp = System.currentTimeMillis();
+            this.Gj = bDLocation;
         } else if (this.G) {
             float[] fArr2 = new float[2];
-            if (this.FK != null) {
-                Location.distanceBetween(this.FK.getLatitude(), this.FK.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude(), fArr2);
+            if (this.Gj != null) {
+                Location.distanceBetween(this.Gj.getLatitude(), this.Gj.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude(), fArr2);
             }
             if (fArr2[0] > 10.0f) {
-                this.FK = bDLocation;
-                if (!this.FZ) {
-                    this.FZ = false;
-                    com.baidu.location.a.a.lw().a(bDLocation);
+                this.Gj = bDLocation;
+                if (!this.H) {
+                    this.H = false;
+                    com.baidu.location.a.a.ls().a(bDLocation);
                 }
             }
             k();
         } else {
-            com.baidu.location.c.f.lR().lS().c(SystemClock.uptimeMillis());
-            this.FL = null;
-            if (bDLocation.getLocType() == 161 && "cl".equals(bDLocation.getNetworkLocationType()) && this.FK != null && this.FK.getLocType() == 161 && "wf".equals(this.FK.getNetworkLocationType()) && System.currentTimeMillis() - this.FR < 30000) {
+            com.baidu.location.c.f.lL().lM().c(SystemClock.uptimeMillis());
+            this.Gk = null;
+            if (bDLocation.getLocType() == 161 && "cl".equals(bDLocation.getNetworkLocationType()) && this.Gj != null && this.Gj.getLocType() == 161 && "wf".equals(this.Gj.getNetworkLocationType()) && System.currentTimeMillis() - this.Gp < 30000) {
                 z = true;
-                this.FL = bDLocation;
+                this.Gk = bDLocation;
             } else {
                 z = false;
             }
             if (z) {
-                com.baidu.location.a.a.lw().a(this.FK);
+                com.baidu.location.a.a.ls().a(this.Gj);
             } else {
-                com.baidu.location.a.a.lw().a(bDLocation);
-                this.FR = System.currentTimeMillis();
-                com.baidu.location.c.f.lR().lS().l(SystemClock.uptimeMillis());
+                com.baidu.location.a.a.ls().a(bDLocation);
+                this.Gp = System.currentTimeMillis();
+                com.baidu.location.c.f.lL().lM().m(SystemClock.uptimeMillis());
                 if (bDLocation.getLocType() == 161) {
-                    com.baidu.location.c.f.lR().lS().a("ons");
-                    if (this.FN != null) {
-                        com.baidu.location.c.f.lR().lS().b(this.FN.h());
+                    com.baidu.location.c.f.lL().lM().a("ons");
+                    if (this.Gm != null) {
+                        com.baidu.location.c.f.lL().lM().b(this.Gm.h());
                     }
                 } else {
-                    com.baidu.location.c.f.lR().lS().a("onf");
-                    if (this.FN != null) {
-                        com.baidu.location.c.f.lR().lS().b(this.FN.h());
+                    com.baidu.location.c.f.lL().lM().a("onf");
+                    if (this.Gm != null) {
+                        com.baidu.location.c.f.lL().lM().b(this.Gm.h());
                     }
-                    com.baidu.location.c.f.lR().c();
+                    com.baidu.location.c.f.lL().c();
                 }
             }
             if (!com.baidu.location.h.i.d(bDLocation)) {
-                this.FK = null;
+                this.Gj = null;
             } else if (!z) {
-                this.FK = bDLocation;
+                this.Gj = bDLocation;
             }
             int o = com.baidu.location.h.i.o(c, "ssid\":\"", "\"");
-            if (o == Integer.MIN_VALUE || this.FM == null) {
+            if (o == Integer.MIN_VALUE || this.Gl == null) {
                 this.k = null;
             } else {
-                this.k = this.FM.c(o);
+                this.k = this.Gl.c(o);
             }
-            if (com.baidu.location.e.d.lV().d() && bDLocation.getLocType() == 161 && "cl".equals(bDLocation.getNetworkLocationType()) && b(this.FN)) {
-                com.baidu.location.e.d.lV().a(this.FN, null, bDLocation2, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
-                this.FP = this.FN;
+            if (com.baidu.location.e.d.lP().d() && bDLocation.getLocType() == 161 && "cl".equals(bDLocation.getNetworkLocationType()) && b(this.Gm)) {
+                com.baidu.location.e.d.lP().a(this.Gm, null, bDLocation2, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
+                this.Go = this.Gm;
             }
-            if (com.baidu.location.e.d.lV().d() && bDLocation.getLocType() == 161 && "wf".equals(bDLocation.getNetworkLocationType())) {
-                com.baidu.location.e.d.lV().a(null, this.FM, bDLocation2, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
-                this.FO = this.FM;
+            if (com.baidu.location.e.d.lP().d() && bDLocation.getLocType() == 161 && "wf".equals(bDLocation.getNetworkLocationType())) {
+                com.baidu.location.e.d.lP().a(null, this.Gl, bDLocation2, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
+                this.Gn = this.Gl;
             }
-            if (this.FN != null) {
-                com.baidu.location.e.a.lU().a(c, this.FN, this.FM, bDLocation2);
+            if (this.Gm != null) {
+                com.baidu.location.e.a.lO().a(c, this.Gm, this.Gl, bDLocation2);
             }
-            if (com.baidu.location.f.k.mA().g()) {
-                com.baidu.location.e.d.lV().i();
-                com.baidu.location.e.d.lV().m();
+            if (com.baidu.location.f.k.mq().g()) {
+                com.baidu.location.e.d.lP().i();
+                com.baidu.location.e.d.lP().m();
             }
             k();
         }
@@ -535,13 +535,13 @@ public class e extends d {
 
     public void a(boolean z) {
         BDLocation bDLocation = null;
-        if (com.baidu.location.e.d.lV().d() && com.baidu.location.e.d.lV().g()) {
-            bDLocation = com.baidu.location.e.d.lV().a(com.baidu.location.f.c.mr().mn(), com.baidu.location.f.k.mA().mx(), null, d.b.IS_NOT_MIX_MODE, d.a.NEED_TO_LOG);
+        if (com.baidu.location.e.d.lP().d() && com.baidu.location.e.d.lP().g()) {
+            bDLocation = com.baidu.location.e.d.lP().a(com.baidu.location.f.c.mh().md(), com.baidu.location.f.k.mq().mn(), null, d.b.IS_NOT_MIX_MODE, d.a.NEED_TO_LOG);
             if ((bDLocation == null || bDLocation.getLocType() == 67) && z) {
-                bDLocation = com.baidu.location.e.a.lU().X(false);
+                bDLocation = com.baidu.location.e.a.lO().Z(false);
             }
         } else if (z) {
-            bDLocation = com.baidu.location.e.a.lU().X(false);
+            bDLocation = com.baidu.location.e.a.lO().Z(false);
         }
         if (bDLocation == null || bDLocation.getLocType() != 66) {
             return;
@@ -557,28 +557,28 @@ public class e extends d {
             z2 = false;
         }
         if (z2) {
-            com.baidu.location.a.a.lw().a(bDLocation);
+            com.baidu.location.a.a.ls().a(bDLocation);
         }
     }
 
     public Address b(BDLocation bDLocation) {
         if (com.baidu.location.h.i.f.equals("all") || com.baidu.location.h.i.g || com.baidu.location.h.i.h) {
             float[] fArr = new float[2];
-            Location.distanceBetween(this.FV, this.z, bDLocation.getLatitude(), bDLocation.getLongitude(), fArr);
+            Location.distanceBetween(this.Gs, this.z, bDLocation.getLatitude(), bDLocation.getLongitude(), fArr);
             if (fArr[0] >= 100.0f) {
                 this.x = null;
-                this.FU = null;
+                this.Gr = null;
                 this.B = true;
                 i(null);
-            } else if (this.FT != null) {
-                return this.FT;
+            } else if (this.Gq != null) {
+                return this.Gq;
             }
         }
         return null;
     }
 
     public void b(Message message) {
-        if (this.Ga) {
+        if (this.Gv) {
             c(message);
         }
     }
@@ -586,16 +586,16 @@ public class e extends d {
     public void c() {
         this.r = true;
         this.s = false;
-        this.Ga = true;
+        this.Gv = true;
     }
 
     public void d() {
         this.s = false;
         this.t = false;
         this.G = false;
-        this.FZ = true;
+        this.H = true;
         i();
-        this.Ga = false;
+        this.Gv = false;
     }
 
     public String e() {
@@ -603,7 +603,7 @@ public class e extends d {
     }
 
     public List<Poi> f() {
-        return this.FU;
+        return this.Gr;
     }
 
     public boolean g() {
@@ -612,7 +612,7 @@ public class e extends d {
 
     public void h() {
         if (!this.t) {
-            com.baidu.location.c.a.lM().d();
+            com.baidu.location.c.a.lG().d();
             return;
         }
         j(null);
@@ -620,6 +620,6 @@ public class e extends d {
     }
 
     public void i() {
-        this.FK = null;
+        this.Gj = null;
     }
 }

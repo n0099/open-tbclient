@@ -9,36 +9,36 @@ import java.io.FileInputStream;
 import java.security.PublicKey;
 /* loaded from: classes.dex */
 public class ah {
-    public static boolean b(String str, File file) {
+    public static boolean c(String str, File file) {
         if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
             com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "checkRSA input args is null"));
             return false;
         }
         try {
-            PublicKey m = v.m(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-            if (m == null) {
+            PublicKey p = v.p(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+            if (p == null) {
                 com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "publicKeyCode is null").ab("obj_source", file.getName()));
                 return false;
             }
-            byte[] gF = gF(str);
-            if (gF == null || gF.length <= 0) {
+            byte[] gE = gE(str);
+            if (gE == null || gE.length <= 0) {
                 com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "server_data is null").ab("obj_source", file.getName()));
                 return false;
             }
-            byte[] b = v.b(m, gF);
+            byte[] b = v.b(p, gE);
             if (b == null || b.length <= 0) {
                 com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "des is null").ab("obj_source", file.getName()));
                 return false;
             }
             String trim = new String(b, "UTF-8").trim();
-            String d = com.baidu.adp.lib.util.t.d(new FileInputStream(file));
-            if (d != null) {
-                d = d.trim();
+            String k = com.baidu.adp.lib.util.t.k(new FileInputStream(file));
+            if (k != null) {
+                k = k.trim();
             }
-            if (TextUtils.isEmpty(d) || TextUtils.isEmpty(trim)) {
+            if (TextUtils.isEmpty(k) || TextUtils.isEmpty(trim)) {
                 com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "apkMd5 or serverMD5 is null").ab("obj_source", file.getName()));
                 return false;
-            } else if (d.equalsIgnoreCase(trim)) {
+            } else if (k.equalsIgnoreCase(trim)) {
                 return true;
             } else {
                 com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "apkMd5 != serverMD5").ab("obj_source", file.getName()));
@@ -60,7 +60,7 @@ public class ah {
         return digit;
     }
 
-    public static byte[] gF(String str) {
+    public static byte[] gE(String str) {
         int i = 0;
         if (str == null) {
             throw new IllegalArgumentException("binary string is null");

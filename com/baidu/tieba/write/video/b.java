@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ WriteLocationView fFY;
+    final /* synthetic */ WriteLocationView fRZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(WriteLocationView writeLocationView, int i) {
         super(i);
-        this.fFY = writeLocationView;
+        this.fRZ = writeLocationView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ public class b extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.fFY.asj;
-                dVar2.kl(false);
-                dVar3 = this.fFY.asj;
-                dVar3.bO(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.fFY.b(2, true, responsedSelectLocation.getName());
+                dVar2 = this.fRZ.asY;
+                dVar2.kz(false);
+                dVar3 = this.fRZ.asY;
+                dVar3.bT(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.fRZ.c(2, true, responsedSelectLocation.getName());
                 return;
             }
-            dVar = this.fFY.asj;
-            dVar.kl(true);
-            this.fFY.b(0, true, null);
+            dVar = this.fRZ.asY;
+            dVar.kz(true);
+            this.fRZ.c(0, true, null);
         }
     }
 }

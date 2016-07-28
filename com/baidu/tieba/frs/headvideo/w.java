@@ -6,11 +6,11 @@ public class w {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean ah(View view) {
+        public boolean af(View view) {
             return false;
         }
 
-        public boolean ai(View view) {
+        public boolean ag(View view) {
             return false;
         }
     }

@@ -9,11 +9,11 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ BannerView akc;
+    final /* synthetic */ BannerView akR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BannerView bannerView) {
-        this.akc = bannerView;
+        this.akR = bannerView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -35,34 +35,34 @@ public class a implements View.OnClickListener {
         BannerView.a aVar3;
         BannerView.a aVar4;
         String str10;
-        if (view != this.akc.ajV) {
-            str = this.akc.ajT;
+        if (view != this.akR.akK) {
+            str = this.akR.akI;
             if (!TextUtils.isEmpty(str)) {
-                str8 = this.akc.ajT;
+                str8 = this.akR.akI;
                 TiebaStatic.log(str8);
             }
-            aVar = this.akc.aka;
+            aVar = this.akR.akP;
             if (aVar == null) {
-                str2 = this.akc.link;
+                str2 = this.akR.link;
                 if (!TextUtils.isEmpty(str2)) {
                     bi us = bi.us();
-                    tbPageContext = this.akc.Dp;
-                    str3 = this.akc.link;
+                    tbPageContext = this.akR.DQ;
+                    str3 = this.akR.link;
                     us.c(tbPageContext, new String[]{str3});
-                    str4 = this.akc.link;
+                    str4 = this.akR.link;
                     if (str4.startsWith("game:detail:")) {
-                        str7 = this.akc.type;
+                        str7 = this.akR.type;
                         if ("frs_banner".equals(str7)) {
-                            tbPageContext3 = this.akc.Dp;
+                            tbPageContext3 = this.akR.DQ;
                             TiebaStatic.eventStat(tbPageContext3.getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
                             return;
                         }
                     }
-                    str5 = this.akc.link;
+                    str5 = this.akR.link;
                     if (str5.startsWith("game:detail:")) {
-                        str6 = this.akc.type;
+                        str6 = this.akR.type;
                         if ("enterforum_banner".equals(str6)) {
-                            tbPageContext2 = this.akc.Dp;
+                            tbPageContext2 = this.akR.DQ;
                             TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
                             return;
                         }
@@ -72,20 +72,20 @@ public class a implements View.OnClickListener {
                 }
                 return;
             }
-            aVar2 = this.akc.aka;
+            aVar2 = this.akR.akP;
             aVar2.zp();
             return;
         }
-        str9 = this.akc.ajU;
+        str9 = this.akR.akJ;
         if (!TextUtils.isEmpty(str9)) {
-            str10 = this.akc.ajU;
+            str10 = this.akR.akJ;
             TiebaStatic.log(str10);
         }
-        this.akc.ajX = true;
-        this.akc.setVisibility(8);
-        aVar3 = this.akc.aka;
+        this.akR.akM = true;
+        this.akR.setVisibility(8);
+        aVar3 = this.akR.akP;
         if (aVar3 != null) {
-            aVar4 = this.akc.aka;
+            aVar4 = this.akR.akP;
             aVar4.zq();
         }
     }

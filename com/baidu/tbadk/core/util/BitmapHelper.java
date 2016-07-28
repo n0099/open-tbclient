@@ -43,7 +43,7 @@ public class BitmapHelper {
         synchronized (BitmapHelper.class) {
             SoftReference<Bitmap> softReference = mBitmapHash.get(i);
             bitmap = softReference != null ? softReference.get() : null;
-            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.m9getInst().getApp(), i, options)) != null) {
+            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.m10getInst().getApp(), i, options)) != null) {
                 mBitmapHash.put(i, new SoftReference<>(bitmap));
             }
         }
@@ -67,7 +67,7 @@ public class BitmapHelper {
                 try {
                     bitmap = BitmapFactory.decodeResource(resources, i, options);
                 } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                    TbadkCoreApplication.m10getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
                     mBitmapNightHash.put(i2, new SoftReference<>(bitmap));
@@ -94,7 +94,7 @@ public class BitmapHelper {
                 try {
                     bitmap = BitmapFactory.decodeResource(resources, i, options);
                 } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                    TbadkCoreApplication.m10getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
                     mBitmapThemeHash.put(i2, new SoftReference<>(bitmap));
@@ -156,7 +156,7 @@ public class BitmapHelper {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (OutOfMemoryError e) {
-            TbadkCoreApplication.m9getInst().onAppMemoryLow();
+            TbadkCoreApplication.m10getInst().onAppMemoryLow();
             return null;
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
@@ -249,7 +249,7 @@ public class BitmapHelper {
                 } catch (NullPointerException e) {
                     bitmap2 = bitmap3;
                 } catch (OutOfMemoryError e2) {
-                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                    TbadkCoreApplication.m10getInst().onAppMemoryLow();
                     bitmap2 = bitmap3;
                 }
             }
@@ -364,7 +364,7 @@ public class BitmapHelper {
             android.graphics.BitmapFactory.decodeStream(r3, r2, r6)     // Catch: java.lang.Throwable -> L70
             android.graphics.Bitmap$Config r2 = com.baidu.tbadk.TbConfig.BitmapConfig     // Catch: java.lang.Throwable -> L70
             r6.inPreferredConfig = r2     // Catch: java.lang.Throwable -> L70
-            com.baidu.adp.lib.util.o.c(r3)     // Catch: java.lang.Throwable -> L70
+            com.baidu.adp.lib.util.o.j(r3)     // Catch: java.lang.Throwable -> L70
         L35:
             int r2 = r6.outWidth     // Catch: java.lang.Throwable -> L70
             int r7 = r1 * 2
@@ -382,7 +382,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r6)     // Catch: java.lang.Throwable -> L73
             monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
-            com.baidu.adp.lib.util.o.c(r2)
+            com.baidu.adp.lib.util.o.j(r2)
             r0 = r1
             goto Le
         L58:
@@ -397,14 +397,14 @@ public class BitmapHelper {
         L5f:
             r1 = move-exception
         L60:
-            com.baidu.adp.lib.util.o.c(r2)
+            com.baidu.adp.lib.util.o.j(r2)
             goto Le
         L64:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L67:
-            com.baidu.adp.lib.util.o.c(r2)
+            com.baidu.adp.lib.util.o.j(r2)
             throw r0
         L6b:
             r0 = move-exception
@@ -458,7 +458,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r4)     // Catch: java.lang.Throwable -> L49
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
-            com.baidu.adp.lib.util.o.c(r2)
+            com.baidu.adp.lib.util.o.j(r2)
             r0 = r1
             goto L9
         L34:
@@ -470,14 +470,14 @@ public class BitmapHelper {
         L38:
             r1 = move-exception
         L39:
-            com.baidu.adp.lib.util.o.c(r2)
+            com.baidu.adp.lib.util.o.j(r2)
             goto L9
         L3d:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L40:
-            com.baidu.adp.lib.util.o.c(r2)
+            com.baidu.adp.lib.util.o.j(r2)
             throw r0
         L44:
             r0 = move-exception
@@ -506,7 +506,7 @@ public class BitmapHelper {
                 InputStream cX = m.cX(str);
                 BitmapFactory.decodeStream(cX, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.c(cX);
+                com.baidu.adp.lib.util.o.j(cX);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
@@ -515,7 +515,7 @@ public class BitmapHelper {
                         options.inSampleSize = i2;
                         InputStream cX2 = m.cX(str);
                         decodeStream = BitmapFactory.decodeStream(cX2, null, options);
-                        com.baidu.adp.lib.util.o.c(cX2);
+                        com.baidu.adp.lib.util.o.j(cX2);
                     }
                 }
             }
@@ -535,19 +535,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream m = m.m(new File(str));
-                BitmapFactory.decodeStream(m, null, options);
+                InputStream n = m.n(new File(str));
+                BitmapFactory.decodeStream(n, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.c(m);
+                com.baidu.adp.lib.util.o.j(n);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream m2 = m.m(new File(str));
-                        decodeStream = BitmapFactory.decodeStream(m2, null, options);
-                        com.baidu.adp.lib.util.o.c(m2);
+                        InputStream n2 = m.n(new File(str));
+                        decodeStream = BitmapFactory.decodeStream(n2, null, options);
+                        com.baidu.adp.lib.util.o.j(n2);
                     }
                 }
             }
@@ -724,7 +724,7 @@ public class BitmapHelper {
                                             bitmap2 = bitmap;
                                             r2 = z;
                                             e = e;
-                                            TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                                            TbadkCoreApplication.m10getInst().onAppMemoryLow();
                                             if (sb != null) {
                                                 sb.append("OOM ");
                                                 if (e != null) {
@@ -800,7 +800,7 @@ public class BitmapHelper {
         if (byteArrayInputStream != null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inDither = false;
-            options.inScreenDensity = TbadkCoreApplication.m9getInst().getResources().getDisplayMetrics().densityDpi;
+            options.inScreenDensity = TbadkCoreApplication.m10getInst().getResources().getDisplayMetrics().densityDpi;
             options.inTargetDensity = options.inScreenDensity;
             options.inDensity = options.inScreenDensity;
             try {
@@ -873,7 +873,7 @@ public class BitmapHelper {
                                         bitmap2 = bitmap;
                                         r2 = z;
                                         e = e6;
-                                        TbadkCoreApplication.m9getInst().onAppMemoryLow();
+                                        TbadkCoreApplication.m10getInst().onAppMemoryLow();
                                         e.printStackTrace();
                                         if (e != null && sb != null) {
                                             sb.append(String.valueOf(e.getClass().getName()) + " " + e.getMessage());

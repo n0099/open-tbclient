@@ -1,25 +1,29 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements View.OnClickListener {
-    final /* synthetic */ ScrollFragmentTabHost cpc;
+public class f extends com.baidu.tbadk.util.t<String> {
+    final /* synthetic */ a cri;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cpc = scrollFragmentTabHost;
+    public f(a aVar) {
+        this.cri = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.cpc.agw()) {
-            this.cpc.agy();
-            view.setContentDescription("展开");
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.t
+    /* renamed from: agZ */
+    public String doInBackground() {
+        String str;
+        String str2;
+        com.baidu.tbadk.core.b.a rO = com.baidu.tbadk.core.b.a.rO();
+        str = this.cri.crc;
+        com.baidu.adp.lib.cache.o<String> N = rO.N(str, TbadkCoreApplication.getCurrentAccount());
+        if (N != null) {
+            str2 = this.cri.crd;
+            return N.get(str2);
         }
-        this.cpc.agx();
-        TiebaStatic.log("c10510");
-        view.setContentDescription("折叠");
+        return null;
     }
 }

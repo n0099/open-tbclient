@@ -1,54 +1,54 @@
 package com.baidu.adp.plugin.util;
 /* loaded from: classes.dex */
 public class i implements Comparable<i> {
-    int vX;
-    int vY;
-    int vZ;
-    int wa;
-    int wb;
-    int wc;
+    int wA;
+    int wB;
+    int wC;
+    int wD;
+    int wy;
+    int wz;
 
     public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.vX = i;
-        this.vY = i2;
-        this.vZ = i3;
-        this.wa = i4;
-        this.wb = i5;
-        this.wc = i6;
+        this.wy = i;
+        this.wz = i2;
+        this.wA = i3;
+        this.wB = i4;
+        this.wC = i5;
+        this.wD = i6;
     }
 
     public String toString() {
-        return String.valueOf(this.vX) + "-" + this.vY + "-" + this.vZ + " " + this.wa + ":" + this.wb + ":" + this.wc;
+        return String.valueOf(this.wy) + "-" + this.wz + "-" + this.wA + " " + this.wB + ":" + this.wC + ":" + this.wD;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(i iVar) {
-        if (this.vX - iVar.vX > 0) {
+        if (this.wy - iVar.wy > 0) {
             return 1;
         }
-        if (this.vX - iVar.vX < 0) {
+        if (this.wy - iVar.wy < 0) {
             return -1;
         }
-        if (this.vY - iVar.vY <= 0) {
-            if (this.vY - iVar.vY < 0) {
+        if (this.wz - iVar.wz <= 0) {
+            if (this.wz - iVar.wz < 0) {
                 return -1;
             }
-            if (this.vZ - iVar.vZ <= 0) {
-                if (this.vZ - iVar.vZ < 0) {
+            if (this.wA - iVar.wA <= 0) {
+                if (this.wA - iVar.wA < 0) {
                     return -1;
                 }
-                if (this.wa - iVar.wa <= 0) {
-                    if (this.wa - iVar.wa < 0) {
+                if (this.wB - iVar.wB <= 0) {
+                    if (this.wB - iVar.wB < 0) {
                         return -1;
                     }
-                    if (this.wb - iVar.wb <= 0) {
-                        if (this.wb - iVar.wb < 0) {
+                    if (this.wC - iVar.wC <= 0) {
+                        if (this.wC - iVar.wC < 0) {
                             return -1;
                         }
-                        if (this.wc - iVar.wc <= 0) {
-                            return this.wc - iVar.wc < 0 ? -1 : 0;
+                        if (this.wD - iVar.wD <= 0) {
+                            return this.wD - iVar.wD < 0 ? -1 : 0;
                         }
                         return 1;
                     }

@@ -4,28 +4,28 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends BdAsyncTask.c<Params, Result> {
-    final /* synthetic */ BdAsyncTask iD;
+    final /* synthetic */ BdAsyncTask jf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BdAsyncTask bdAsyncTask) {
         super(null);
-        this.iD = bdAsyncTask;
+        this.jf = bdAsyncTask;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.Object, Result] */
     /* JADX WARN: Type inference failed for: r0v6, types: [java.lang.Object, Result] */
     @Override // java.util.concurrent.Callable
-    public Result call() {
+    public Result call() throws Exception {
         g gVar;
         ?? postResult;
         ?? postResult2;
-        gVar = this.iD.mFuture;
+        gVar = this.jf.mFuture;
         if (!gVar.isCancelled()) {
-            postResult2 = this.iD.postResult(this.iD.doInBackground(this.mParams));
+            postResult2 = this.jf.postResult(this.jf.doInBackground(this.mParams));
             return postResult2;
         }
-        postResult = this.iD.postResult(null);
+        postResult = this.jf.postResult(null);
         return postResult;
     }
 }

@@ -1,6 +1,5 @@
 package plugin.writeSettings;
 
-import com.baidu.tbadk.TbConfig;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
@@ -53,7 +52,7 @@ public final class Plugin_setting extends Message {
     public final String replaceMethodClasses;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
     public final String requireLoad;
-    @ProtoField(tag = TbConfig.NOTIFY_FANS_NEW_ID, type = Message.Datatype.UINT32)
+    @ProtoField(tag = 26, type = Message.Datatype.UINT32)
     public final int rollback;
     @ProtoField(tag = 8, type = Message.Datatype.UINT32)
     public final Integer size;

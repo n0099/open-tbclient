@@ -7,11 +7,11 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e zT;
+    final /* synthetic */ e Av;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.zT = eVar;
+        this.Av = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -31,44 +31,44 @@ public class f implements Runnable {
         int i2;
         int i3;
         int i4;
-        weakReference = this.zT.zR;
+        weakReference = this.Av.At;
         if (weakReference != null) {
-            weakReference2 = this.zT.zR;
+            weakReference2 = this.Av.At;
             View view = (View) weakReference2.get();
             if (view == null) {
-                this.zT.zN = true;
+                this.Av.Ap = true;
             } else {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
                 int i5 = layoutParams.topMargin;
-                i2 = this.zT.zx;
+                i2 = this.Av.zY;
                 layoutParams.topMargin = i5 - ((int) (i2 * 1.5f));
                 int i6 = layoutParams.topMargin;
-                i3 = this.zT.zM;
+                i3 = this.Av.Ao;
                 if (i6 <= i3) {
-                    i4 = this.zT.zM;
+                    i4 = this.Av.Ao;
                     layoutParams.topMargin = i4;
-                    this.zT.zN = true;
+                    this.Av.Ap = true;
                 }
                 view.setLayoutParams(layoutParams);
             }
-            z = this.zT.zN;
+            z = this.Av.Ap;
             if (z) {
-                gVar = this.zT.zz;
+                gVar = this.Av.Aa;
                 if (gVar != null) {
-                    gVar2 = this.zT.zz;
-                    gVar2.jH();
+                    gVar2 = this.Av.Aa;
+                    gVar2.jG();
                 }
-                handler3 = this.zT.handler;
-                runnable3 = this.zT.zS;
+                handler3 = this.Av.handler;
+                runnable3 = this.Av.Au;
                 handler3.removeCallbacks(runnable3);
                 return;
             }
-            handler = this.zT.handler;
-            runnable = this.zT.zS;
+            handler = this.Av.handler;
+            runnable = this.Av.Au;
             handler.removeCallbacks(runnable);
-            handler2 = this.zT.handler;
-            runnable2 = this.zT.zS;
-            i = this.zT.zL;
+            handler2 = this.Av.handler;
+            runnable2 = this.Av.Au;
+            i = this.Av.An;
             handler2.postDelayed(runnable2, i);
         }
     }

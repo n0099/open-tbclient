@@ -4,22 +4,22 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.tbadk.util.s<Boolean> {
-    final /* synthetic */ a cVW;
-    private final /* synthetic */ PersonalChatMessage cWc;
+public class k extends com.baidu.tbadk.util.t<Boolean> {
+    final /* synthetic */ a cYR;
+    private final /* synthetic */ PersonalChatMessage cYX;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(a aVar, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
-        this.cVW = aVar;
-        this.cWc = personalChatMessage;
+        this.cYR = aVar;
+        this.cYX = personalChatMessage;
         this.val$list = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.s
+    @Override // com.baidu.tbadk.util.t
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.l.amU().a(com.baidu.tieba.im.util.h.p(this.cWc), this.val$list, false));
+        return Boolean.valueOf(com.baidu.tieba.im.db.l.anF().a(com.baidu.tieba.im.util.h.p(this.cYX), this.val$list, false));
     }
 }

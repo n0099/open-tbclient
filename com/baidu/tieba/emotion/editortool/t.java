@@ -3,32 +3,32 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class t {
-    private EmotionGroupType brP;
-    private int brQ;
-    private int brR;
-    private int brS;
-    private int brT;
-    private com.baidu.tbadk.editortools.emotiontool.c brU;
-    private int brV;
-    private int brW;
+    private EmotionGroupType bue;
+    private int buf;
+    private int bug;
+    private int buh;
+    private int bui;
+    private com.baidu.tbadk.editortools.emotiontool.c buj;
+    private int buk;
+    private int bul;
     private int column;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.brU = cVar;
+        this.buj = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c Rr() {
-        return this.brU;
+    public com.baidu.tbadk.editortools.emotiontool.c RY() {
+        return this.buj;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.brP = emotionGroupType;
+        this.bue = emotionGroupType;
     }
 
-    public EmotionGroupType Rs() {
-        return this.brP;
+    public EmotionGroupType RZ() {
+        return this.bue;
     }
 
     public void ey(int i) {
@@ -43,44 +43,44 @@ public class t {
         this.column = i;
     }
 
-    public int Rt() {
+    public int Sa() {
         return this.column;
     }
 
     public void gC(int i) {
-        this.brW = i;
+        this.bul = i;
     }
 
-    public int Ru() {
-        return this.brW;
+    public int Sb() {
+        return this.bul;
     }
 
     public void gD(int i) {
-        this.brV = i;
+        this.buk = i;
     }
 
-    public int Rv() {
-        return this.brV;
+    public int Sc() {
+        return this.buk;
     }
 
     public void gE(int i) {
-        this.brQ = i;
+        this.buf = i;
     }
 
-    public int Rw() {
-        return this.brQ;
+    public int Sd() {
+        return this.buf;
     }
 
     public void gF(int i) {
-        this.brS = i;
+        this.buh = i;
     }
 
-    public int Rx() {
-        return this.brS;
+    public int Se() {
+        return this.buh;
     }
 
     public void setEndIndex(int i) {
-        this.brT = i;
+        this.bui = i;
     }
 
     public void setIndex(int i) {
@@ -92,10 +92,10 @@ public class t {
     }
 
     public void gG(int i) {
-        this.brR = i;
+        this.bug = i;
     }
 
-    public int Ry() {
-        return this.brR;
+    public int Sf() {
+        return this.bug;
     }
 }

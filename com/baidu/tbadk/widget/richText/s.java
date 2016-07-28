@@ -4,19 +4,19 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class s implements View.OnTouchListener {
-    final /* synthetic */ TbRichTextView aGf;
+    final /* synthetic */ TbRichTextView aGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(TbRichTextView tbRichTextView) {
-        this.aGf = tbRichTextView;
+        this.aGW = tbRichTextView;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.aGf.aFV = true;
+            this.aGW.aGM = true;
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            this.aGf.aFV = false;
+            this.aGW.aGM = false;
         }
         return false;
     }

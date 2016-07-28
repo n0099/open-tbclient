@@ -9,11 +9,11 @@ import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bz implements TbImageView.a {
-    final /* synthetic */ bq bFI;
+    final /* synthetic */ bq bGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(bq bqVar) {
-        this.bFI = bqVar;
+        this.bGW = bqVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
@@ -22,39 +22,39 @@ public class bz implements TbImageView.a {
         BannerView bannerView2;
         boolean z2;
         BdExpandListView bdExpandListView;
-        com.baidu.tbadk.core.data.r rVar;
+        com.baidu.tbadk.core.data.s sVar;
         FrsActivity frsActivity;
         BdExpandListView bdExpandListView2;
         BannerView bannerView3;
-        com.baidu.tbadk.core.data.r rVar2;
+        com.baidu.tbadk.core.data.s sVar2;
         HashSet hashSet;
         if (z) {
-            bannerView = this.bFI.bFk;
+            bannerView = this.bGW.bGy;
             if (bannerView != null) {
-                bannerView2 = this.bFI.bFk;
+                bannerView2 = this.bGW.bGy;
                 if (bannerView2.zo()) {
-                    z2 = this.bFI.bFn;
+                    z2 = this.bGW.bGB;
                     if (!z2) {
-                        bdExpandListView = this.bFI.bFa;
+                        bdExpandListView = this.bGW.bGo;
                         if (bdExpandListView != null) {
-                            this.bFI.bFn = true;
-                            rVar = this.bFI.bFm;
-                            if (rVar != null) {
-                                rVar2 = this.bFI.bFm;
-                                String oL = rVar2.oL();
-                                if (!StringUtils.isNULL(oL)) {
-                                    hashSet = this.bFI.bFv;
-                                    if (hashSet.add(oL)) {
-                                        this.bFI.iX(oL);
+                            this.bGW.bGB = true;
+                            sVar = this.bGW.bGA;
+                            if (sVar != null) {
+                                sVar2 = this.bGW.bGA;
+                                String oA = sVar2.oA();
+                                if (!StringUtils.isNULL(oA)) {
+                                    hashSet = this.bGW.bGJ;
+                                    if (hashSet.add(oA)) {
+                                        this.bGW.jd(oA);
                                     }
                                 }
                             }
-                            frsActivity = this.bFI.bET;
-                            b VP = frsActivity.VP();
-                            if (VP != null) {
-                                bdExpandListView2 = this.bFI.bFa;
-                                bannerView3 = this.bFI.bFk;
-                                VP.a(bdExpandListView2, bannerView3);
+                            frsActivity = this.bGW.bGh;
+                            b Wi = frsActivity.Wi();
+                            if (Wi != null) {
+                                bdExpandListView2 = this.bGW.bGo;
+                                bannerView3 = this.bGW.bGy;
+                                Wi.a(bdExpandListView2, bannerView3);
                             }
                         }
                     }

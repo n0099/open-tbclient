@@ -15,7 +15,7 @@ class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("com.baidu.sapi2")) {
-            TbadkCoreApplication.m9getInst().incPassportV6CrashCount();
+            TbadkCoreApplication.m10getInst().incPassportV6CrashCount();
         }
     }
 }

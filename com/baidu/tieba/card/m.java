@@ -11,13 +11,13 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends CustomMessageListener {
-    final /* synthetic */ k aSt;
+    final /* synthetic */ k aTp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(k kVar, int i) {
         super(i);
-        this.aSt = kVar;
+        this.aTp = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,30 +35,30 @@ public class m extends CustomMessageListener {
             com.baidu.tieba.myCollection.baseHistory.b bVar = new com.baidu.tieba.myCollection.baseHistory.b();
             bVar.setThreadId(historyMessage.threadId);
             bVar.setForumName(historyMessage.forumName);
-            bVar.mK(historyMessage.threadName);
-            bVar.mL(historyMessage.postID);
-            bVar.gU(historyMessage.isHostOnly);
-            bVar.gV(historyMessage.isSquence);
+            bVar.mR(historyMessage.threadName);
+            bVar.mS(historyMessage.postID);
+            bVar.gZ(historyMessage.isHostOnly);
+            bVar.ha(historyMessage.isSquence);
             bVar.setThreadType(historyMessage.threadType);
-            if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(PbHistoryActivityConfig.class)) {
-                aVar = this.aSt.aSm;
+            if (!TbadkCoreApplication.m10getInst().appResponseToIntentClass(PbHistoryActivityConfig.class)) {
+                aVar = this.aTp.aTi;
                 if (aVar == null) {
-                    this.aSt.aSm = new com.baidu.tieba.myCollection.baseHistory.a(historyMessage.Activity.getPageContext());
+                    this.aTp.aTi = new com.baidu.tieba.myCollection.baseHistory.a(historyMessage.Activity.getPageContext());
                 }
-                aVar2 = this.aSt.aSm;
-                bdUniqueId = this.aSt.aSq;
+                aVar2 = this.aTp.aTi;
+                bdUniqueId = this.aTp.aTm;
                 aVar2.setUniqueId(bdUniqueId);
-                aVar3 = this.aSt.aSm;
+                aVar3 = this.aTp.aTi;
                 aVar3.a((com.baidu.tieba.myCollection.baseHistory.a) bVar);
             }
-            oVar = this.aSt.aSn;
+            oVar = this.aTp.aTj;
             oVar.a(historyMessage.threadId, bVar);
             at.hb(historyMessage.threadId);
-            k kVar = this.aSt;
-            textView = this.aSt.aSd;
+            k kVar = this.aTp;
+            textView = this.aTp.aSZ;
             kVar.m(textView, u.d.cp_cont_b);
-            k kVar2 = this.aSt;
-            textView2 = this.aSt.aSj;
+            k kVar2 = this.aTp;
+            textView2 = this.aTp.aTf;
             kVar2.m(textView2, u.d.cp_cont_j);
         }
     }

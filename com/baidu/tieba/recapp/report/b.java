@@ -12,35 +12,35 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b eGL;
-    private CustomMessageListener eGN = new c(this, 2000994);
-    private d eGM = new f();
+    private static b eTN;
+    private CustomMessageListener eTP = new c(this, 2000994);
+    private d eTO = new f();
 
-    public static b aUO() {
-        if (eGL == null) {
+    public static b aYc() {
+        if (eTN == null) {
             synchronized (b.class) {
-                if (eGL == null) {
-                    eGL = new b();
+                if (eTN == null) {
+                    eTN = new b();
                 }
             }
         }
-        return eGL;
+        return eTN;
     }
 
-    private boolean aUP() {
-        return com.baidu.adp.lib.c.e.cT().Z("ad_log_open") == 1;
+    private boolean aYd() {
+        return com.baidu.adp.lib.c.e.cS().ab("ad_log_open") == 1;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.eGN);
+        MessageManager.getInstance().registerListener(this.eTP);
     }
 
     public void a(a aVar) {
-        if (aUP() && aVar != null && this.eGM != null) {
-            if (i.fr()) {
-                this.eGM.b(aVar);
+        if (aYd() && aVar != null && this.eTO != null) {
+            if (i.fq()) {
+                this.eTO.b(aVar);
             } else {
-                this.eGM.c(aVar);
+                this.eTO.c(aVar);
             }
         }
     }

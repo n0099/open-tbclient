@@ -6,182 +6,182 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* loaded from: classes.dex */
 public class a {
-    protected String nB;
-    protected q nC;
-    private String np;
-    protected String nz;
-    private StringBuffer nq = new StringBuffer();
-    private StringBuffer nr = new StringBuffer();
-    private int ns = 0;
-    private int nt = 0;
-    private long ng = 0;
-    private long nu = 0;
-    protected long nv = 0;
-    private long nw = 0;
-    private long nx = 0;
-    protected int ny = 50;
-    protected final String nA = ".log";
+    private String nR;
+    protected String ob;
+    protected String od;
+    protected q oe;
+    private StringBuffer nS = new StringBuffer();
+    private StringBuffer nT = new StringBuffer();
+    private int nU = 0;
+    private int nV = 0;
+    private long nJ = 0;
+    private long nW = 0;
+    protected long nX = 0;
+    private long nY = 0;
+    private long nZ = 0;
+    protected int oa = 50;
+    protected final String oc = ".log";
     protected boolean mUseSdCard = true;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(q qVar) {
-        this.nC = qVar;
+        this.oe = qVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.d dVar) {
         if (dVar != null) {
             try {
-                this.nq.append(dVar.toString());
-                this.nq.append("\r\n");
-                this.ns++;
+                this.nS.append(dVar.toString());
+                this.nS.append("\r\n");
+                this.nU++;
             } catch (Exception e) {
                 BdLog.e(e);
             } catch (OutOfMemoryError e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.nC != null) {
-            this.nC.g(this);
+        if (this.oe != null) {
+            this.oe.g(this);
         }
-        this.ng = System.currentTimeMillis();
+        this.nJ = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.d dVar) {
         if (dVar != null) {
             try {
-                this.nr.append(dVar.toString());
-                this.nr.append("\r\n");
-                this.nt++;
+                this.nT.append(dVar.toString());
+                this.nT.append("\r\n");
+                this.nV++;
             } catch (Exception e) {
                 BdLog.e(e);
             } catch (OutOfMemoryError e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.nC != null) {
-            this.nC.g(this);
+        if (this.oe != null) {
+            this.oe.g(this);
         }
-        this.nu = System.currentTimeMillis();
+        this.nW = System.currentTimeMillis();
+    }
+
+    public int eo() {
+        return this.nU;
     }
 
     public int ep() {
-        return this.ns;
+        return this.nV;
     }
 
-    public int eq() {
-        return this.nt;
+    public long eq() {
+        return this.nX;
+    }
+
+    public void g(long j) {
+        this.nX = j;
     }
 
     public long er() {
-        return this.nv;
-    }
-
-    public void f(long j) {
-        this.nv = j;
+        return this.nJ;
     }
 
     public long es() {
-        return this.ng;
+        return this.nW;
     }
 
-    public long et() {
-        return this.nu;
+    public String et() {
+        if (TextUtils.isEmpty(this.od)) {
+            StringBuilder sb = new StringBuilder(30);
+            sb.append(this.ob);
+            sb.append(com.baidu.adp.lib.stats.a.dN().dT());
+            sb.append("Writing");
+            sb.append(".log");
+            this.od = sb.toString();
+        }
+        return this.od;
     }
 
     public String eu() {
-        if (TextUtils.isEmpty(this.nB)) {
-            StringBuilder sb = new StringBuilder(30);
-            sb.append(this.nz);
-            sb.append(com.baidu.adp.lib.stats.a.dO().dU());
-            sb.append("Writing");
-            sb.append(".log");
-            this.nB = sb.toString();
-        }
-        return this.nB;
-    }
-
-    public String ev() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.nz);
+        sb.append(this.ob);
         sb.append(System.currentTimeMillis());
-        sb.append(com.baidu.adp.lib.stats.a.dO().dU());
+        sb.append(com.baidu.adp.lib.stats.a.dN().dT());
         sb.append("Uploading");
         sb.append(".log");
         return sb.toString();
     }
 
+    public long ev() {
+        return this.nY;
+    }
+
     public long ew() {
-        return this.nw;
-    }
-
-    public long ex() {
-        return this.nx;
-    }
-
-    public void g(long j) {
-        this.nw = j;
+        return this.nZ;
     }
 
     public void h(long j) {
-        this.nx = j;
+        this.nY = j;
+    }
+
+    public void i(long j) {
+        this.nZ = j;
+    }
+
+    public synchronized void ex() {
+        this.nS = new StringBuffer();
+        this.nU = 0;
+        this.nY = 0L;
     }
 
     public synchronized void ey() {
-        this.nq = new StringBuffer();
-        this.ns = 0;
-        this.nw = 0L;
+        this.nT = new StringBuffer();
+        this.nV = 0;
+        this.nZ = 0L;
     }
 
-    public synchronized void ez() {
-        this.nr = new StringBuffer();
-        this.nt = 0;
-        this.nx = 0L;
-    }
-
-    public void ap(String str) {
+    public void ar(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.np = str;
+            this.nR = str;
         }
     }
 
-    public String eA() {
-        return this.np;
+    public String ez() {
+        return this.nR;
     }
 
-    public boolean eB() {
+    public boolean eA() {
         return this.isUploading;
     }
 
-    public void C(boolean z) {
+    public void E(boolean z) {
         this.isUploading = z;
     }
 
-    public String eC() {
+    public String eB() {
         return "omp";
     }
 
+    public StringBuffer eC() {
+        return this.nS;
+    }
+
     public StringBuffer eD() {
-        return this.nq;
+        return this.nT;
     }
 
-    public StringBuffer eE() {
-        return this.nr;
-    }
-
-    public boolean eF() {
+    public boolean eE() {
         return this.mUseSdCard;
     }
 
-    public boolean eG() {
+    public boolean eF() {
         return this.mMustSuccess;
     }
 
-    public String eH() {
-        return this.nz;
+    public String eG() {
+        return this.ob;
     }
 
-    public static String aq(String str) {
+    public static String as(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || AddFriendActivityConfig.MSG.equals(str)) {
             return "error";
         }

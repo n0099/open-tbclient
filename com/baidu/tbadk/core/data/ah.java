@@ -1,25 +1,53 @@
 package com.baidu.tbadk.core.data;
-
-import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class ah {
-    public String Fg;
-    public String OV;
-    public int OW;
-    public String OX;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    private long OZ;
+    private String Pa;
+    private String content;
+    private String link;
+    private String stat;
+    private long taskId;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.OV = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.OW = newsInfo.news_type.intValue();
-            this.OX = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.Fg = newsInfo.button_text;
-        }
+    public ah() {
+        this.OZ = -1L;
+        this.link = null;
+        this.content = null;
+        this.Pa = null;
+        this.stat = "";
+        this.taskId = -1L;
+    }
+
+    public ah(long j, long j2, String str, String str2, String str3) {
+        this.OZ = -1L;
+        this.link = null;
+        this.content = null;
+        this.Pa = null;
+        this.stat = "";
+        this.taskId = -1L;
+        this.OZ = j;
+        this.taskId = j2;
+        this.link = str;
+        this.content = str2;
+        this.stat = str3;
+    }
+
+    public String getStat() {
+        return this.stat;
+    }
+
+    public long ph() {
+        return this.OZ;
+    }
+
+    public long getTaskId() {
+        return this.taskId;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public String getContent() {
+        return this.content;
     }
 }

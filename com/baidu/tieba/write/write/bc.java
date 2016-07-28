@@ -5,22 +5,22 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fJw;
+    final /* synthetic */ WriteActivity fVn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.fJw = writeActivity;
+        this.fVn = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         File file;
         File file2;
-        file = this.fJw.fJg;
+        file = this.fVn.fUX;
         if (file != null) {
-            WriteActivity writeActivity = this.fJw;
-            file2 = this.fJw.fJg;
-            writeActivity.ra(file2.getAbsolutePath());
+            WriteActivity writeActivity = this.fVn;
+            file2 = this.fVn.fUX;
+            writeActivity.rK(file2.getAbsolutePath());
         }
     }
 }

@@ -17,7 +17,7 @@ public abstract class a {
             this.eventDelegates = new ArrayList();
         }
         if (!this.eventDelegates.contains(aVar)) {
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.m9getInst().isDebugMode()) {
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.m10getInst().isDebugMode()) {
                 throw new RuntimeException("can not add event delegate on dispatch mvcevent");
             }
             this.eventDelegates.add(aVar);
@@ -26,7 +26,7 @@ public abstract class a {
 
     public void removeEventDelegate(com.baidu.tbadk.mvc.c.a aVar) {
         if (this.eventDelegates != null && this.eventDelegates.contains(aVar)) {
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.m9getInst().isDebugMode()) {
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.m10getInst().isDebugMode()) {
                 throw new RuntimeException("can not add event delegate on dispatch mvcevent");
             }
             this.eventDelegates.remove(aVar);
@@ -52,13 +52,13 @@ public abstract class a {
             while (i < size) {
                 try {
                     com.baidu.tbadk.mvc.c.a aVar = this.eventDelegates.get(i);
-                    if (aVar == null || (aVar.kR() && !(aVar.kR() && bVar.getUniqueId() == aVar.getUniqueId()))) {
+                    if (aVar == null || (aVar.kN() && !(aVar.kN() && bVar.getUniqueId() == aVar.getUniqueId()))) {
                         z2 = z;
                     } else {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.Dv()) {
+                                if (bVar.Du()) {
                                     return true;
                                 }
                             } catch (Throwable th) {
@@ -66,7 +66,7 @@ public abstract class a {
                                 th = th;
                                 try {
                                     BdLog.e(th);
-                                    if (TbadkCoreApplication.m9getInst().isDebugMode()) {
+                                    if (TbadkCoreApplication.m10getInst().isDebugMode()) {
                                         throw new RuntimeException(th);
                                     }
                                     return z;

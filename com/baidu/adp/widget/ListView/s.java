@@ -2,18 +2,18 @@ package com.baidu.adp.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ r zE;
+    final /* synthetic */ r Ag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar) {
-        this.zE = rVar;
+        this.Ag = rVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.zE.zB == null) {
+        if (this.Ag.Ac == null) {
             return;
         }
-        this.zE.zB.jJ();
+        this.Ag.Ac.jI();
     }
 }

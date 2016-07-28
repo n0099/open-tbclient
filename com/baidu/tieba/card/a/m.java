@@ -1,117 +1,117 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.y;
 /* loaded from: classes.dex */
 public class m extends c {
-    public boolean aVt = false;
-    public boolean aVu = false;
-    public boolean arI = true;
-    public az threadData;
-    public static String aVh = "";
-    public static String aVi = "";
-    public static String aVj = "";
-    public static String aVk = "";
-    public static String aVl = "";
-    public static String aVm = "";
-    public static String aVn = "";
-    public static String aVo = "";
-    public static String aVp = "";
-    public static String aVq = "";
-    public static String aVr = "";
-    public static final BdUniqueId Op = BdUniqueId.gen();
-    public static final BdUniqueId aVs = BdUniqueId.gen();
+    public boolean aWr = false;
+    public boolean aWs = false;
+    public boolean asx = true;
+    public be threadData;
+    public static String aWf = "";
+    public static String aWg = "";
+    public static String aWh = "";
+    public static String aWi = "";
+    public static String aWj = "";
+    public static String aWk = "";
+    public static String aWl = "";
+    public static String aWm = "";
+    public static String aWn = "";
+    public static String aWo = "";
+    public static String aWp = "";
+    public static final BdUniqueId OB = BdUniqueId.gen();
+    public static final BdUniqueId aWq = BdUniqueId.gen();
 
-    public static boolean c(az azVar) {
-        if (azVar == null) {
+    public static boolean c(be beVar) {
+        if (beVar == null) {
             return false;
         }
-        return azVar.getType() == az.TYPE_NORMAL || azVar.getType() == az.Qg;
+        return beVar.getType() == be.TYPE_NORMAL || beVar.getType() == be.QB;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
         if (this.threadData == null) {
-            return Op;
+            return OB;
         }
-        if (this.aVt) {
-            return aVs;
+        if (this.aWr) {
+            return aWq;
         }
-        return Op;
+        return OB;
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public az Ix() {
+    public be Iw() {
         return this.threadData;
     }
 
-    public boolean Lu() {
-        return (this.threadData == null || y.s(this.threadData.qT()) == 0) ? false : true;
+    public boolean Lt() {
+        return (this.threadData == null || y.s(this.threadData.qJ()) == 0) ? false : true;
+    }
+
+    public ay Lu() {
+        if (Lt()) {
+            return hh(aWk);
+        }
+        ay hh = hh(aWf);
+        if (hh != null) {
+            hh.ab("ab_tag", Li()).ab("ab_action", "show");
+            return hh;
+        }
+        return hh;
     }
 
     public ay Lv() {
-        if (Lu()) {
-            return hh(aVm);
+        if (Lt()) {
+            return hh(aWl);
         }
-        ay hh = hh(aVh);
+        ay hh = hh(aWg);
         if (hh != null) {
-            hh.ab("ab_tag", Lj()).ab("ab_action", "show");
+            hh.ab("ab_tag", Li()).ab("ab_action", "click");
             return hh;
         }
         return hh;
     }
 
     public ay Lw() {
-        if (Lu()) {
-            return hh(aVn);
+        if (Lt()) {
+            return hh(aWm);
         }
-        ay hh = hh(aVi);
+        ay hh = hh(aWh);
         if (hh != null) {
-            hh.ab("ab_tag", Lj()).ab("ab_action", "click");
+            hh.ab("ab_tag", Li()).ab("ab_action", "click");
             return hh;
         }
         return hh;
     }
 
     public ay Lx() {
-        if (Lu()) {
-            return hh(aVo);
+        if (Lt()) {
+            return hh(aWn);
         }
-        ay hh = hh(aVj);
+        ay hh = hh(aWi);
         if (hh != null) {
-            hh.ab("ab_tag", Lj()).ab("ab_action", "click");
+            hh.ab("ab_tag", Li()).ab("ab_action", "click");
             return hh;
         }
         return hh;
     }
 
     public ay Ly() {
-        if (Lu()) {
-            return hh(aVp);
+        if (Lt()) {
+            return hh(aWo);
         }
-        ay hh = hh(aVk);
+        ay hh = hh(aWj);
         if (hh != null) {
-            hh.ab("ab_tag", Lj()).ab("ab_action", "click");
+            hh.ab("ab_tag", Li()).ab("ab_action", "click");
             return hh;
         }
         return hh;
     }
 
     public ay Lz() {
-        if (Lu()) {
-            return hh(aVq);
-        }
-        ay hh = hh(aVl);
-        if (hh != null) {
-            hh.ab("ab_tag", Lj()).ab("ab_action", "click");
-            return hh;
-        }
-        return hh;
-    }
-
-    public ay LA() {
-        return hh(aVr);
+        return hh(aWp);
     }
 }

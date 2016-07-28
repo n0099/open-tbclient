@@ -2,19 +2,18 @@ package com.baidu.tieba.imMessageCenter.im.friend;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnTouchListener {
-    final /* synthetic */ p dcA;
+class w implements View.OnTouchListener {
+    final /* synthetic */ p dfx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(p pVar) {
-        this.dcA = pVar;
+        this.dfx = pVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.dcA.atf();
+        this.dfx.atR();
         return false;
     }
 }

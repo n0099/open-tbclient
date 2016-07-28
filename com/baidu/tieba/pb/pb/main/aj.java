@@ -4,60 +4,60 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class aj implements BdListView.e {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void jD() {
+    public void jC() {
         boolean z;
         boolean z2;
-        dg dgVar;
-        es esVar;
-        dg dgVar2;
-        dg dgVar3;
-        es esVar2;
-        dg dgVar4;
-        dg dgVar5;
-        es esVar3;
-        dg dgVar6;
-        es esVar4;
-        z = this.dPF.dPs;
-        if (z && this.dPF.aEV()) {
-            this.dPF.aEX();
+        dh dhVar;
+        ew ewVar;
+        dh dhVar2;
+        dh dhVar3;
+        ew ewVar2;
+        dh dhVar4;
+        dh dhVar5;
+        ew ewVar3;
+        dh dhVar6;
+        ew ewVar4;
+        z = this.ebT.ebG;
+        if (z && this.ebT.aIg()) {
+            this.ebT.aIi();
         }
-        z2 = this.dPF.mIsLogin;
+        z2 = this.ebT.mIsLogin;
         if (z2) {
-            dgVar = this.dPF.dOf;
-            if (dgVar.hw(false)) {
-                esVar4 = this.dPF.dOO;
-                esVar4.aHo();
-                TiebaStatic.eventStat(this.dPF.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+            dhVar = this.ebT.eas;
+            if (dhVar.hH(false)) {
+                ewVar4 = this.ebT.ebb;
+                ewVar4.aKz();
+                TiebaStatic.eventStat(this.ebT.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
             } else {
-                esVar = this.dPF.dOO;
-                dgVar2 = this.dPF.dOf;
-                esVar.m(dgVar2.getPbData());
-                dgVar3 = this.dPF.dOf;
-                if (dgVar3 != null) {
-                    esVar2 = this.dPF.dOO;
-                    if (esVar2 != null) {
-                        dgVar4 = this.dPF.dOf;
-                        if (dgVar4.aGh() != null) {
-                            dgVar5 = this.dPF.dOf;
-                            if (dgVar5.aGh().aFu()) {
-                                esVar3 = this.dPF.dOO;
-                                esVar3.aFF();
-                                dgVar6 = this.dPF.dOf;
-                                dgVar6.aGh().aFw();
+                ewVar = this.ebT.ebb;
+                dhVar2 = this.ebT.eas;
+                ewVar.m(dhVar2.getPbData());
+                dhVar3 = this.ebT.eas;
+                if (dhVar3 != null) {
+                    ewVar2 = this.ebT.ebb;
+                    if (ewVar2 != null) {
+                        dhVar4 = this.ebT.eas;
+                        if (dhVar4.aJs() != null) {
+                            dhVar5 = this.ebT.eas;
+                            if (dhVar5.aJs().aIF()) {
+                                ewVar3 = this.ebT.ebb;
+                                ewVar3.aIQ();
+                                dhVar6 = this.ebT.eas;
+                                dhVar6.aJs().aIH();
                             }
                         }
                     }
                 }
             }
-            this.dPF.dPs = true;
+            this.ebT.ebG = true;
         }
     }
 }

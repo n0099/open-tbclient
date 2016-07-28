@@ -1,38 +1,26 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements c.b {
-    private final /* synthetic */ int dAs;
-    private final /* synthetic */ com.baidu.tbadk.data.k epw;
-    private final /* synthetic */ List epx;
-    final /* synthetic */ f this$0;
+public class ap extends CustomMessageListener {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(f fVar, com.baidu.tbadk.data.k kVar, List list, int i) {
-        this.this$0 = fVar;
-        this.epw = kVar;
-        this.epx = list;
-        this.dAs = i;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ap(h hVar, int i) {
+        super(i);
+        this.this$0 = hVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        this.this$0.eoP = true;
-        if (i != 0) {
-            if (i != 1) {
-                if (i == 2) {
-                    this.this$0.aMf();
-                }
-            } else {
-                this.this$0.aMe();
-            }
-        } else {
-            this.this$0.c(this.epw, this.epx, this.dAs);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PersonChangeData)) {
+            return;
         }
-        cVar.dismiss();
+        this.this$0.a((PersonChangeData) customResponsedMessage.getData());
     }
 }

@@ -9,44 +9,44 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class HTypeListView extends HListView {
-    y zG;
+    y Ai;
 
     public HTypeListView(Context context) {
         super(context);
-        this.zG = null;
+        this.Ai = null;
         init();
     }
 
     public HTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.zG = null;
+        this.Ai = null;
         init();
     }
 
     public HTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.zG = null;
+        this.Ai = null;
     }
 
     private void init() {
-        if (this.zG == null) {
-            this.zG = new y();
+        if (this.Ai == null) {
+            this.Ai = new y();
         }
     }
 
     public void g(List<com.baidu.adp.widget.ListView.a> list) {
         Iterator<com.baidu.adp.widget.ListView.a> it = list.iterator();
         while (it.hasNext()) {
-            this.zG.a(it.next());
+            this.Ai.a(it.next());
         }
-        setAdapter((ListAdapter) this.zG);
+        setAdapter((ListAdapter) this.Ai);
     }
 
     public void setData(List<v> list) {
-        this.zG.setData(list);
+        this.Ai.setData(list);
     }
 
     public List<v> getData() {
-        return this.zG.getData();
+        return this.Ai.getData();
     }
 }

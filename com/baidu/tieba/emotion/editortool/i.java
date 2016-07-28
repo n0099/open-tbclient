@@ -4,38 +4,38 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 class i implements com.baidu.adp.lib.f.c<GridView> {
-    final /* synthetic */ EmotionTabContentView brl;
+    final /* synthetic */ EmotionTabContentView btA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(EmotionTabContentView emotionTabContentView) {
-        this.brl = emotionTabContentView;
+        this.btA = emotionTabContentView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Rm */
-    public GridView dF() {
-        return new GridView(this.brl.getContext());
+    /* renamed from: RT */
+    public GridView dE() {
+        return new GridView(this.btA.getContext());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: a */
-    public void l(GridView gridView) {
+    public void o(GridView gridView) {
         gridView.setAdapter((ListAdapter) null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: b */
-    public GridView m(GridView gridView) {
+    public GridView p(GridView gridView) {
         return gridView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: c */
-    public GridView n(GridView gridView) {
+    public GridView q(GridView gridView) {
         gridView.setAdapter((ListAdapter) null);
         return gridView;
     }

@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.coreExtra.a.c {
-    private static g dIV;
+    private static g dVe;
 
     private g() {
     }
 
-    public static synchronized g aCT() {
+    public static synchronized g aGd() {
         g gVar;
         synchronized (g.class) {
-            if (dIV == null) {
-                dIV = new g();
+            if (dVe == null) {
+                dVe = new g();
             }
-            gVar = dIV;
+            gVar = dVe;
         }
         return gVar;
     }
@@ -62,16 +62,16 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData sM() {
+    public AccountData sL() {
         SapiAccount session;
         AccountData p;
         SapiAccount.ReloginCredentials reloginCredentials = SapiAccountManager.getInstance().getSession().getReloginCredentials();
-        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.oe() == null || (p = com.baidu.tbadk.core.a.a.oe().p(session.username, session.bduss, "")) == null) {
+        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.nT() == null || (p = com.baidu.tbadk.core.a.a.nT().p(session.username, session.bduss, "")) == null) {
             return null;
         }
         com.baidu.tbadk.core.a.b.b(p);
         TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(p, p.getBDUSS(), p.getTbs());
-        TbadkCoreApplication.setCurrentAccount(p, TbadkCoreApplication.m9getInst().getApp().getApplicationContext());
+        TbadkCoreApplication.setCurrentAccount(p, TbadkCoreApplication.m10getInst().getApp().getApplicationContext());
         return p;
     }
 

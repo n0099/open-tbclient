@@ -1,42 +1,42 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.az;
-import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes.dex */
-public class am extends az {
-    public static final BdUniqueId eWB = BdUniqueId.gen();
-    private bb eWC;
-    private be eWD;
-    private boolean eWE = false;
+public class am extends be {
+    public static final BdUniqueId fjD = BdUniqueId.gen();
+    private bg fjE;
+    private bj fjF;
+    private boolean fjG = false;
 
-    @Override // com.baidu.tbadk.core.data.az, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tbadk.core.data.be, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eWB;
+        return fjD;
     }
 
-    public boolean bbz() {
-        return this.eWE;
+    public boolean beO() {
+        return this.fjG;
     }
 
-    public void kj(boolean z) {
-        this.eWE = z;
+    public void kx(boolean z) {
+        this.fjG = z;
     }
 
-    public bb bbA() {
-        return this.eWC;
+    public bg beP() {
+        return this.fjE;
     }
 
-    public void a(bb bbVar) {
-        this.eWC = bbVar;
+    public void a(bg bgVar) {
+        this.fjE = bgVar;
     }
 
-    public be bbB() {
-        return this.eWD;
+    public bj beQ() {
+        return this.fjF;
     }
 
-    public void a(be beVar) {
-        this.eWD = beVar;
+    public void a(bj bjVar) {
+        this.fjF = bjVar;
     }
 }

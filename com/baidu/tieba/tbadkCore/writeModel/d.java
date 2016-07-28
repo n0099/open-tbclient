@@ -22,8 +22,12 @@ public class d {
         return this.errorCode != 0;
     }
 
-    public boolean bdz() {
+    public boolean bgQ() {
         return this.errorCode == 5 || this.errorCode == 6;
+    }
+
+    public boolean bgR() {
+        return this.errorCode == 227001;
     }
 
     public int getErrorCode() {

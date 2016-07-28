@@ -3,24 +3,24 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class an implements NoNetworkView.a {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aD(boolean z) {
+    public void aG(boolean z) {
         boolean z2;
-        dg dgVar;
-        z2 = this.dPF.dOz;
+        dh dhVar;
+        z2 = this.ebT.eaM;
         if (!z2 && z) {
-            dgVar = this.dPF.dOf;
-            if (!dgVar.aFQ()) {
-                this.dPF.OQ();
+            dhVar = this.ebT.eas;
+            if (!dhVar.aJb()) {
+                this.ebT.Pu();
             }
         }
-        this.dPF.setNetRefreshViewEmotionDefMarginTop();
+        this.ebT.setNetRefreshViewEmotionDefMarginTop();
     }
 }

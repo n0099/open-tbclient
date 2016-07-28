@@ -13,13 +13,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ aw dYj;
+    final /* synthetic */ aw ekL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ax(aw awVar, int i, int i2) {
         super(i, i2);
-        this.dYj = awVar;
+        this.ekL = awVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -64,20 +64,20 @@ public class ax extends com.baidu.adp.framework.listener.a {
         TbPageContext tbPageContext4;
         long j4 = 0;
         String str5 = null;
-        bdUniqueId = this.dYj.unique_id;
+        bdUniqueId = this.ekL.unique_id;
         if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-            this.dYj.awp = false;
+            this.ekL.axe = false;
             if (responsedMessage.hasError()) {
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    tbPageContext4 = this.dYj.Dp;
+                    tbPageContext4 = this.ekL.DQ;
                     errorString = tbPageContext4.getPageActivity().getResources().getString(u.j.neterror);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
-                tbPageContext2 = this.dYj.Dp;
+                tbPageContext2 = this.ekL.DQ;
                 tbPageContext2.showToast(errorString);
                 if (responsedMessage.getError() == 4) {
-                    tbPageContext3 = this.dYj.Dp;
+                    tbPageContext3 = this.ekL.DQ;
                     tbPageContext3.getPageActivity().finish();
                 }
             }
@@ -87,7 +87,7 @@ public class ax extends com.baidu.adp.framework.listener.a {
                 SubPbHttpResponseMessage subPbHttpResponseMessage = (SubPbHttpResponseMessage) responsedMessage;
                 if (subPbHttpResponseMessage.isTreatDelPage()) {
                     if (!subPbHttpResponseMessage.hasError()) {
-                        this.dYj.e(subPbHttpResponseMessage.pbFloorData);
+                        this.ekL.e(subPbHttpResponseMessage.pbFloorData);
                         return;
                     }
                     return;
@@ -104,44 +104,44 @@ public class ax extends com.baidu.adp.framework.listener.a {
                 SubPbSocketResponseMessage subPbSocketResponseMessage = (SubPbSocketResponseMessage) responsedMessage;
                 if (subPbSocketResponseMessage.isTreatDelPage()) {
                     if (!subPbSocketResponseMessage.hasError()) {
-                        this.dYj.e(subPbSocketResponseMessage.pbFloorData);
+                        this.ekL.e(subPbSocketResponseMessage.pbFloorData);
                         return;
                     }
                     return;
                 }
             }
-            arrayList = this.dYj.dYb;
+            arrayList = this.ekL.ekD;
             if (arrayList != null) {
-                arrayList4 = this.dYj.dYb;
+                arrayList4 = this.ekL.ekD;
                 if (arrayList4.size() > 0) {
                     try {
-                        arrayList6 = this.dYj.dYb;
+                        arrayList6 = this.ekL.ekD;
                         for (int size = arrayList6.size() - 1; size >= 0; size--) {
-                            arrayList7 = this.dYj.dYb;
+                            arrayList7 = this.ekL.ekD;
                             com.baidu.tieba.pb.data.m mVar5 = (com.baidu.tieba.pb.data.m) arrayList7.get(size);
-                            z4 = this.dYj.dYd;
+                            z4 = this.ekL.ekF;
                             if (z4) {
-                                mVar4 = this.dYj.dXu;
+                                mVar4 = this.ekL.ejW;
                                 mVar4.c(mVar5, true);
                             } else {
-                                mVar3 = this.dYj.dXu;
+                                mVar3 = this.ekL.ejW;
                                 mVar3.b(mVar5, true);
                             }
                         }
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
-                    arrayList5 = this.dYj.dYb;
+                    arrayList5 = this.ekL.ekD;
                     arrayList5.clear();
                 }
             }
             int error = responsedMessage.getError();
             String errorString2 = responsedMessage.getErrorString();
-            bVar = this.dYj.btR;
+            bVar = this.ekL.bwf;
             if (bVar == null) {
-                this.dYj.btR = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                this.ekL.bwf = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
             }
-            bVar2 = this.dYj.btR;
+            bVar2 = this.ekL.bwf;
             if (bVar2 != null) {
                 if (error == 0) {
                     if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -159,15 +159,15 @@ public class ax extends com.baidu.adp.framework.listener.a {
                         j3 = j;
                         i = downSize2;
                     }
-                    bVar3 = this.dYj.btR;
+                    bVar3 = this.ekL.bwf;
                     bVar3.a(z, true, error, errorString2, i, j3, j2);
-                    this.dYj.btR = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
-                    this.dYj.btR = null;
+                    this.ekL.bwf = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                    this.ekL.bwf = null;
                 }
                 if (responsedMessage == null || ((!(responsedMessage instanceof SubPbSocketResponseMessage) && !(responsedMessage instanceof SubPbHttpResponseMessage)) || responsedMessage.getError() != 0)) {
-                    aVar = this.dYj.dXW;
+                    aVar = this.ekL.eky;
                     if (aVar != null) {
-                        aVar2 = this.dYj.dXW;
+                        aVar2 = this.ekL.eky;
                         aVar2.a(false, error, errorString2, null);
                     }
                 } else if (responsedMessage.getCmd() == 302002 || responsedMessage.getCmd() == 1002100) {
@@ -176,64 +176,64 @@ public class ax extends com.baidu.adp.framework.listener.a {
                     } else {
                         mVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                     }
-                    if (mVar.aEd().errorno.intValue() != 0) {
-                        aVar5 = this.dYj.dXW;
+                    if (mVar.aHo().errorno.intValue() != 0) {
+                        aVar5 = this.ekL.eky;
                         if (aVar5 != null) {
-                            aVar6 = this.dYj.dXW;
-                            aVar6.a(false, mVar.dMs.errorno.intValue(), mVar.dMs.errmsg, null);
+                            aVar6 = this.ekL.eky;
+                            aVar6.a(false, mVar.dYC.errorno.intValue(), mVar.dYC.errmsg, null);
                             return;
                         }
                         return;
                     }
-                    if (mVar.Ix() != null && mVar.Ix().getAuthor() != null) {
-                        str5 = mVar.Ix().getAuthor().getUserId();
-                        if (com.baidu.tbadk.core.util.y.t(mVar.aEe().getAuthor().getIconInfo())) {
-                            arrayList2 = this.dYj.dXY;
+                    if (mVar.Iw() != null && mVar.Iw().getAuthor() != null) {
+                        str5 = mVar.Iw().getAuthor().getUserId();
+                        if (com.baidu.tbadk.core.util.y.t(mVar.aHp().getAuthor().getIconInfo())) {
+                            arrayList2 = this.ekL.ekA;
                             if (arrayList2 != null) {
-                                MetaData author = mVar.aEe().getAuthor();
-                                arrayList3 = this.dYj.dXY;
+                                MetaData author = mVar.aHp().getAuthor();
+                                arrayList3 = this.ekL.ekA;
                                 author.setIconInfo(arrayList3);
                             }
                         }
                     }
-                    z2 = this.dYj.dYd;
+                    z2 = this.ekL.ekF;
                     if (!z2) {
-                        for (int i2 = 0; i2 < mVar.aEi().size(); i2++) {
-                            boolean equals = str5.equals(mVar.aEi().get(i2).getAuthor().getUserId());
-                            tbPageContext = this.dYj.Dp;
-                            mVar.aEi().get(i2).b(tbPageContext, equals);
+                        for (int i2 = 0; i2 < mVar.aHt().size(); i2++) {
+                            boolean equals = str5.equals(mVar.aHt().get(i2).getAuthor().getUserId());
+                            tbPageContext = this.ekL.DQ;
+                            mVar.aHt().get(i2).b(tbPageContext, equals);
                         }
                     }
-                    if (mVar.aEe() != null) {
-                        this.dYj.postID = mVar.aEe().getId();
+                    if (mVar.aHp() != null) {
+                        this.ekL.postID = mVar.aHp().getId();
                     }
-                    if (mVar.Ix() != null) {
-                        this.dYj.threadID = mVar.Ix().getId();
-                        this.dYj.dMr = mVar.mK();
-                        this.dYj.dXV = mVar.Ix().qP();
+                    if (mVar.Iw() != null) {
+                        this.ekL.threadID = mVar.Iw().getId();
+                        this.ekL.dYB = mVar.mA();
+                        this.ekL.ekx = mVar.Iw().qE();
                     }
-                    str = this.dYj.dXV;
+                    str = this.ekL.ekx;
                     if (str != null) {
-                        str2 = this.dYj.postID;
+                        str2 = this.ekL.postID;
                         if (str2 != null) {
-                            str3 = this.dYj.dXV;
-                            str4 = this.dYj.postID;
+                            str3 = this.ekL.ekx;
+                            str4 = this.ekL.postID;
                             if (str3.equals(str4)) {
-                                this.dYj.dMr = true;
+                                this.ekL.dYB = true;
                             }
                         }
                     }
-                    z3 = this.dYj.dYd;
+                    z3 = this.ekL.ekF;
                     if (!z3) {
-                        this.dYj.c(mVar);
+                        this.ekL.c(mVar);
                     } else {
-                        this.dYj.d(mVar);
+                        this.ekL.d(mVar);
                     }
-                    aVar3 = this.dYj.dXW;
+                    aVar3 = this.ekL.eky;
                     if (aVar3 != null) {
-                        boolean z5 = this.dYj.aII();
-                        aVar4 = this.dYj.dXW;
-                        mVar2 = this.dYj.dXu;
+                        boolean z5 = this.ekL.aLT();
+                        aVar4 = this.ekL.eky;
+                        mVar2 = this.ekL.ejW;
                         aVar4.a(z5, error, errorString2, mVar2);
                     }
                 }

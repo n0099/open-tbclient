@@ -10,19 +10,19 @@ import java.util.Stack;
 import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes.dex */
 public class i implements h {
-    private String dId;
-    private Stack<String> dIe = new Stack<>();
-    private Queue<Object> dIf = new LinkedBlockingQueue();
+    private String dUm;
+    private Stack<String> dUn = new Stack<>();
+    private Queue<Object> dUo = new LinkedBlockingQueue();
 
     public i(String str) {
-        this.dId = str;
+        this.dUm = str;
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public Object aCF() {
+    public Object aFP() throws Exception {
         String trim;
         int lastIndexOf;
-        String str = this.dId;
+        String str = this.dUm;
         String substring = str.substring(str.indexOf(" ") + 1);
         int indexOf = substring.indexOf("=");
         int g = com.baidu.adp.lib.h.b.g(substring.substring(0, indexOf + 1).trim().substring(1, trim.length() - 1), -1);
@@ -56,10 +56,10 @@ public class i implements h {
                 Object[] objArr = new Object[split.length];
                 for (int i = 0; i < split.length; i++) {
                     try {
-                        Object aCF = com.baidu.tieba.onlineDebugger.e.b.nf("get " + substring3).aCF();
-                        if (aCF != null) {
-                            objArr[i] = aCF;
-                            clsArr[i] = aCF.getClass();
+                        Object aFP = com.baidu.tieba.onlineDebugger.e.b.nQ("get " + substring3).aFP();
+                        if (aFP != null) {
+                            objArr[i] = aFP;
+                            clsArr[i] = aFP.getClass();
                         }
                     } catch (Exception e) {
                         BdLog.e(e);
@@ -82,15 +82,15 @@ public class i implements h {
                     }
                 }
             }
-            return new com.baidu.tieba.onlineDebugger.a(this.dId).get();
+            return new com.baidu.tieba.onlineDebugger.a(this.dUm).get();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public boolean aCG() {
+    public boolean aFQ() {
         int indexOf;
-        String str = this.dId;
+        String str = this.dUm;
         String substring = str.substring(str.indexOf(" ") + 1);
         if (substring.length() < 5) {
             return false;
@@ -114,7 +114,7 @@ public class i implements h {
             return false;
         }
         String trim2 = substring.substring(indexOf + 1).trim();
-        for (String str2 : com.baidu.tieba.onlineDebugger.d.a.dIo) {
+        for (String str2 : com.baidu.tieba.onlineDebugger.d.a.dUx) {
             if (trim2.startsWith(str2)) {
                 return true;
             }

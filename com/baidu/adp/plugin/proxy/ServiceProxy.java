@@ -155,7 +155,7 @@ public class ServiceProxy extends MAService implements c {
     }
 
     @Override // com.baidu.adp.plugin.a.c
-    public void proxyFinalize() {
+    public void proxyFinalize() throws Throwable {
         super.finalize();
     }
 

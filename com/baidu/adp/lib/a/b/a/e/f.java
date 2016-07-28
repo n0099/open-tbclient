@@ -19,7 +19,7 @@ import java.util.Queue;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class f {
-    public static final h i(Object obj) {
+    public static final h l(Object obj) {
         if (obj == null) {
             return null;
         }
@@ -72,7 +72,7 @@ public class f {
         if (obj instanceof Set) {
             return new o((Set) obj);
         }
-        if (com.baidu.adp.lib.a.a.a.a(cls, com.baidu.adp.lib.a.b.a.a.i.class)) {
+        if (com.baidu.adp.lib.a.a.a.e(cls, com.baidu.adp.lib.a.b.a.a.i.class)) {
             return new m((com.baidu.adp.lib.a.b.a.a.i) obj);
         }
         return null;

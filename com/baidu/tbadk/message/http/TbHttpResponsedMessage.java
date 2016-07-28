@@ -14,18 +14,18 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String parseToString(byte[] bArr) {
+    public String parseToString(byte[] bArr) throws Exception {
         if (bArr == null) {
             return null;
         }
         return new String(bArr, getCharset());
     }
 
-    protected String getCharset() {
+    protected String getCharset() throws Exception {
         int indexOf;
         String contentType = getContentType();
         if (contentType == null || (indexOf = contentType.indexOf("charset")) == -1) {
@@ -52,15 +52,15 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
     public void logStatInBackground(int i, f fVar) {
-        if (fVar.dx().size() > 0) {
-            e eVar = fVar.dx().get(fVar.dx().size() - 1);
-            af.Xe.addAndGet(fVar.dx().size() - 1);
+        if (fVar.dw().size() > 0) {
+            e eVar = fVar.dw().get(fVar.dw().size() - 1);
+            af.XN.addAndGet(fVar.dw().size() - 1);
             af.a aVar = new af.a();
-            aVar.mMode = getMode(i.fx());
-            aVar.Xg = eVar.lf;
-            aVar.mTime = eVar.lj;
-            aVar.Xh = eVar.li;
-            aVar.Xf = fVar.dv().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            aVar.mMode = getMode(i.fw());
+            aVar.XP = eVar.lK;
+            aVar.mTime = eVar.lO;
+            aVar.XQ = eVar.lN;
+            aVar.XO = fVar.du().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
             af.a(aVar);
         }
     }

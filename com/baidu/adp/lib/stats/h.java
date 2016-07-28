@@ -6,89 +6,89 @@ import android.os.Message;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class h {
-    private static h ne;
-    private HashMap<String, a> nc = new HashMap<>();
-    private HashMap<String, b> nd = new HashMap<>();
+    private static h nH;
+    private HashMap<String, a> nF = new HashMap<>();
+    private HashMap<String, b> nG = new HashMap<>();
     private Handler mHandler = new i(this, Looper.getMainLooper());
 
-    public static h eg() {
-        if (ne == null) {
+    public static h ef() {
+        if (nH == null) {
             synchronized (h.class) {
-                if (ne == null) {
-                    ne = new h();
+                if (nH == null) {
+                    nH = new h();
                 }
             }
         }
-        return ne;
+        return nH;
     }
 
     public h() {
         b bVar = new b(this, null);
-        bVar.X(3000);
-        bVar.Y(120000);
-        bVar.Z(500);
-        this.nd.put("net", bVar);
-        this.nd.put("op", bVar);
-        this.nd.put("stat", bVar);
-        this.nd.put("crash", bVar);
-        this.nd.put("pfmonitor", bVar);
+        bVar.aa(3000);
+        bVar.ab(120000);
+        bVar.ac(500);
+        this.nG.put("net", bVar);
+        this.nG.put("op", bVar);
+        this.nG.put("stat", bVar);
+        this.nG.put("crash", bVar);
+        this.nG.put("pfmonitor", bVar);
         b bVar2 = new b(this, null);
-        bVar2.X(3000);
-        bVar2.Y(120000);
-        bVar2.Z(1500);
-        this.nd.put("file", bVar2);
-        this.nd.put("db", bVar2);
-        this.nd.put("img", bVar2);
-        this.nd.put("voice", bVar2);
-        this.nd.put("error", bVar2);
+        bVar2.aa(3000);
+        bVar2.ab(120000);
+        bVar2.ac(1500);
+        this.nG.put("file", bVar2);
+        this.nG.put("db", bVar2);
+        this.nG.put("img", bVar2);
+        this.nG.put("voice", bVar2);
+        this.nG.put("error", bVar2);
         b bVar3 = new b(this, null);
-        bVar3.X(3000);
-        bVar3.Y(120000);
-        bVar3.Z(1500);
-        this.nd.put("dbg", bVar3);
+        bVar3.aa(3000);
+        bVar3.ab(120000);
+        bVar3.ac(1500);
+        this.nG.put("dbg", bVar3);
     }
 
-    public synchronized boolean ao(String str) {
+    public synchronized boolean aq(String str) {
         a aVar;
         boolean z;
-        b bVar = this.nd.get(str);
+        b bVar = this.nG.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.nc.get(str);
+            a aVar2 = this.nF.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a(this, null);
-                aVar3.B(false);
-                aVar3.A(false);
-                aVar3.e(currentTimeMillis);
-                this.nc.put(str, aVar3);
+                aVar3.D(false);
+                aVar3.C(false);
+                aVar3.f(currentTimeMillis);
+                this.nF.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
             }
-            if (aVar.eh()) {
+            if (aVar.eg()) {
                 z = true;
             } else {
-                if (aVar.el()) {
-                    aVar.W(aVar.ej() + 1);
-                    if (currentTimeMillis - aVar.ei() < bVar.en()) {
-                        if (aVar.ej() >= bVar.eo()) {
-                            aVar.A(true);
-                            com.baidu.adp.lib.stats.a.dO().a(false, "d", "logfast", (String) null, 0L, 99999, str, new Object[0]);
+                if (aVar.ek()) {
+                    aVar.Z(aVar.ei() + 1);
+                    if (currentTimeMillis - aVar.eh() < bVar.em()) {
+                        if (aVar.ei() >= bVar.en()) {
+                            aVar.C(true);
+                            com.baidu.adp.lib.stats.a.dN().a(false, "d", "logfast", (String) null, 0L, 99999, str, new Object[0]);
                             a(aVar);
                             z = true;
                         }
                     } else {
-                        aVar.B(false);
-                        aVar.W(0);
-                        aVar.e(currentTimeMillis);
+                        aVar.D(false);
+                        aVar.Z(0);
+                        aVar.f(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.ek() < bVar.em()) {
-                    aVar.B(true);
-                    aVar.d(currentTimeMillis);
-                } else {
+                } else if (currentTimeMillis - aVar.ej() < bVar.el()) {
+                    aVar.D(true);
                     aVar.e(currentTimeMillis);
+                } else {
+                    aVar.f(currentTimeMillis);
                 }
                 z = false;
             }
@@ -107,69 +107,69 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long ng;
-        private boolean nh;
-        private int ni;
-        private long nj;
-        private boolean nk;
+        private long nJ;
+        private boolean nK;
+        private int nL;
+        private long nM;
+        private boolean nN;
 
         private a() {
-            this.nh = false;
-            this.ni = 0;
-            this.nk = false;
+            this.nK = false;
+            this.nL = 0;
+            this.nN = false;
         }
 
         /* synthetic */ a(h hVar, a aVar) {
             this();
         }
 
-        public boolean eh() {
-            return this.nk;
+        public boolean eg() {
+            return this.nN;
         }
 
-        public void A(boolean z) {
-            this.nk = z;
+        public void C(boolean z) {
+            this.nN = z;
         }
 
-        public long ei() {
-            return this.nj;
-        }
-
-        public void d(long j) {
-            this.nj = j;
-        }
-
-        public int ej() {
-            return this.ni;
-        }
-
-        public void W(int i) {
-            this.ni = i;
-        }
-
-        public long ek() {
-            return this.ng;
+        public long eh() {
+            return this.nM;
         }
 
         public void e(long j) {
-            this.ng = j;
+            this.nM = j;
         }
 
-        public boolean el() {
-            return this.nh;
+        public int ei() {
+            return this.nL;
         }
 
-        public void B(boolean z) {
-            this.nh = z;
+        public void Z(int i) {
+            this.nL = i;
+        }
+
+        public long ej() {
+            return this.nJ;
+        }
+
+        public void f(long j) {
+            this.nJ = j;
+        }
+
+        public boolean ek() {
+            return this.nK;
+        }
+
+        public void D(boolean z) {
+            this.nK = z;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int nl;
-        private int nm;
-        private int nn;
+        private int nO;
+        private int nP;
+        private int nQ;
 
         private b() {
         }
@@ -178,28 +178,28 @@ public class h {
             this();
         }
 
-        public int em() {
-            return this.nl;
+        public int el() {
+            return this.nO;
         }
 
-        public void X(int i) {
-            this.nl = i;
+        public void aa(int i) {
+            this.nO = i;
+        }
+
+        public int em() {
+            return this.nP;
+        }
+
+        public void ab(int i) {
+            this.nP = i;
         }
 
         public int en() {
-            return this.nm;
+            return this.nQ;
         }
 
-        public void Y(int i) {
-            this.nm = i;
-        }
-
-        public int eo() {
-            return this.nn;
-        }
-
-        public void Z(int i) {
-            this.nn = i;
+        public void ac(int i) {
+            this.nQ = i;
         }
     }
 }

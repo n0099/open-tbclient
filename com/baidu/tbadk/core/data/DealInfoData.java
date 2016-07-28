@@ -33,7 +33,7 @@ public class DealInfoData implements Serializable {
     public float unitPrice;
 
     public void parserProtobuf(DealInfo dealInfo) {
-        if (dealInfo != null || EcommSwitchStatic.Fq()) {
+        if (dealInfo != null || EcommSwitchStatic.Fr()) {
             if (dealInfo.auth_info != null) {
                 this.authInfo = new ArrayList<>();
                 for (DealAuthInfo dealAuthInfo : dealInfo.auth_info) {
@@ -83,7 +83,7 @@ public class DealInfoData implements Serializable {
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (EcommSwitchStatic.Fq() && jSONObject != null) {
+        if (EcommSwitchStatic.Fr() && jSONObject != null) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("auth_info");
                 if (optJSONArray != null) {

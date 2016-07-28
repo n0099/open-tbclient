@@ -7,7 +7,7 @@ public class s {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean lo(int i) {
+    public static boolean lu(int i) {
         switch (i) {
             case 0:
                 return com.baidu.tbadk.coreExtra.messageCenter.c.xK().xS() || com.baidu.tbadk.coreExtra.messageCenter.c.xK().xZ();
@@ -34,13 +34,13 @@ public class s {
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (lo(0)) {
+        if (lu(0)) {
             i2 = newsNotifyMessage.getMsgChat();
             i = newsNotifyMessage.getMsgStrangerChat();
         } else {
             i = 0;
             i2 = 0;
         }
-        return ((lo(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (lo(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        return ((lu(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (lu(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
     }
 }

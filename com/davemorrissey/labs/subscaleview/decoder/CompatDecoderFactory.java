@@ -10,7 +10,7 @@ public class CompatDecoderFactory<T> implements DecoderFactory<T> {
     }
 
     @Override // com.davemorrissey.labs.subscaleview.decoder.DecoderFactory
-    public T make() {
+    public T make() throws IllegalAccessException, InstantiationException {
         return this.clazz.newInstance();
     }
 }

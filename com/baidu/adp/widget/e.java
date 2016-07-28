@@ -13,12 +13,12 @@ import android.util.Log;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class e extends DynamicDrawableSpan {
-    private Uri Au;
-    private int Av;
-    private a Aw;
-    private Rect hI;
+    private Uri AX;
+    private int AY;
+    private a AZ;
+    private Rect il;
     private Context mContext;
-    private Drawable xR;
+    private Drawable ys;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -26,28 +26,28 @@ public class e extends DynamicDrawableSpan {
     }
 
     public void setDrawable(Drawable drawable) {
-        this.xR = drawable;
+        this.ys = drawable;
     }
 
     public e(a aVar, int i, int i2) {
         super(i2);
-        this.hI = new Rect();
-        this.Av = i;
-        this.Aw = aVar;
+        this.il = new Rect();
+        this.AY = i;
+        this.AZ = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.xR != null || this.Aw == null) {
+        if (this.ys != null || this.AZ == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.hI.bottom;
+            fontMetricsInt.ascent = -this.il.bottom;
             fontMetricsInt.descent = 0;
             fontMetricsInt.top = fontMetricsInt.ascent;
             fontMetricsInt.bottom = 0;
         }
-        return this.hI.right;
+        return this.il.right;
     }
 
     @Override // android.text.style.DynamicDrawableSpan
@@ -56,17 +56,17 @@ public class e extends DynamicDrawableSpan {
         Drawable drawable2;
         Exception e;
         Drawable drawable3 = null;
-        if (this.xR != null) {
-            drawable3 = this.xR;
-        } else if (this.Aw != null) {
-            drawable3 = this.Aw.a(this);
+        if (this.ys != null) {
+            drawable3 = this.ys;
+        } else if (this.AZ != null) {
+            drawable3 = this.AZ.a(this);
         }
         if (drawable3 != null) {
             return drawable3;
         }
-        if (this.Au != null) {
+        if (this.AX != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.Au);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.AX);
                 drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
@@ -74,7 +74,7 @@ public class e extends DynamicDrawableSpan {
                     return drawable2;
                 } catch (Exception e2) {
                     e = e2;
-                    Log.e("sms", "Failed to loaded content " + this.Au, e);
+                    Log.e("sms", "Failed to loaded content " + this.AX, e);
                     return drawable2;
                 }
             } catch (Exception e3) {
@@ -83,12 +83,12 @@ public class e extends DynamicDrawableSpan {
             }
         } else {
             try {
-                drawable = this.mContext.getResources().getDrawable(this.Av);
+                drawable = this.mContext.getResources().getDrawable(this.AY);
                 try {
                     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                     return drawable;
                 } catch (Exception e4) {
-                    Log.e("sms", "Unable to find resource: " + this.Av);
+                    Log.e("sms", "Unable to find resource: " + this.AY);
                     return drawable;
                 }
             } catch (Exception e5) {
@@ -112,7 +112,7 @@ public class e extends DynamicDrawableSpan {
         }
     }
 
-    public void c(int i, int i2, int i3, int i4) {
-        this.hI.set(i, i2, i3, i4);
+    public void d(int i, int i2, int i3, int i4) {
+        this.il.set(i, i2, i3, i4);
     }
 }

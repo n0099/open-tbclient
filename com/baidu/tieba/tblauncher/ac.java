@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* loaded from: classes.dex */
 class ac implements FragmentTabHost.b {
-    final /* synthetic */ ab fbT;
+    final /* synthetic */ ab foX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ab abVar) {
-        this.fbT = abVar;
+        this.foX = abVar;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
-    public void e(int i, boolean z) {
+    public void f(int i, boolean z) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, Integer.valueOf(i)));
     }
 }

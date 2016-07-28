@@ -3,26 +3,26 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    private static byte fC = Byte.MIN_VALUE;
-    private static byte fD = 64;
-    private static byte fE = 8;
-    private boolean fF = false;
-    private boolean fG = false;
-    private boolean fH = false;
-    private int fI;
-    private int fJ;
+    private static byte ge = Byte.MIN_VALUE;
+    private static byte gf = 64;
+    private static byte gg = 8;
+    private boolean gh = false;
+    private boolean gi = false;
+    private boolean gj = false;
+    private int gk;
+    private int gl;
 
-    public static int ba() {
+    public static int aZ() {
         return 9;
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + ba());
-        byte b = z ? (byte) (fC | 0) : (byte) 0;
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + aZ());
+        byte b = z ? (byte) (ge | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | fD);
+            b = (byte) (b | gf);
         }
-        allocate.put((byte) (b | fE));
+        allocate.put((byte) (b | gg));
         allocate.putInt(i);
         allocate.putInt(i2);
         if (bArr != null) {
@@ -32,41 +32,41 @@ public class a {
         return allocate.array();
     }
 
-    public static a d(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, ba());
+    public static a h(byte[] bArr) {
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, aZ());
         a aVar = new a();
         byte b = wrap.get();
-        if ((fC & b) != 0) {
-            aVar.fF = true;
+        if ((ge & b) != 0) {
+            aVar.gh = true;
         }
-        if ((fD & b) != 0) {
-            aVar.fG = true;
+        if ((gf & b) != 0) {
+            aVar.gi = true;
         }
-        if ((b & fE) != 0) {
-            aVar.fH = true;
+        if ((b & gg) != 0) {
+            aVar.gj = true;
         }
-        aVar.fI = wrap.getInt();
-        aVar.fJ = wrap.getInt();
+        aVar.gk = wrap.getInt();
+        aVar.gl = wrap.getInt();
         return aVar;
     }
 
-    public boolean bb() {
-        return this.fG;
+    public boolean ba() {
+        return this.gi;
     }
 
-    public int bc() {
-        return this.fI;
+    public int bb() {
+        return this.gk;
     }
 
-    public boolean bd() {
-        return this.fF;
+    public boolean bc() {
+        return this.gh;
     }
 
-    public int be() {
-        return this.fJ;
+    public int bd() {
+        return this.gl;
     }
 
-    public boolean bf() {
-        return this.fH;
+    public boolean be() {
+        return this.gj;
     }
 }

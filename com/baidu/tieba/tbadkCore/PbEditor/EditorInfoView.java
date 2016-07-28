@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int aeK;
-    private GradientDrawable eWs;
-    protected int eWt;
-    protected int eWu;
+    private int afy;
+    private GradientDrawable fju;
+    protected int fjv;
+    protected int fjw;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -24,10 +24,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aeK = 3;
-        this.eWt = (int) context.getResources().getDimension(u.e.ds18);
-        this.eWu = (int) context.getResources().getDimension(u.e.ds6);
-        setPadding(this.eWt, this.eWu, this.eWt, this.eWu);
+        this.afy = 3;
+        this.fjv = (int) context.getResources().getDimension(u.e.ds18);
+        this.fjw = (int) context.getResources().getDimension(u.e.ds6);
+        setPadding(this.fjv, this.fjw, this.fjv, this.fjw);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(u.e.ds24));
@@ -40,20 +40,20 @@ public class EditorInfoView extends TextView {
     }
 
     public void vm() {
-        int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-        if (skinType != this.aeK) {
-            this.aeK = skinType;
-            se();
+        int skinType = TbadkCoreApplication.m10getInst().getSkinType();
+        if (skinType != this.afy) {
+            this.afy = skinType;
+            sd();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void se() {
-        if (this.eWs == null) {
-            this.eWs = new GradientDrawable();
-            this.eWs.setCornerRadius(getContext().getResources().getDimension(u.e.ds24));
+    public void sd() {
+        if (this.fju == null) {
+            this.fju = new GradientDrawable();
+            this.fju.setCornerRadius(getContext().getResources().getDimension(u.e.ds24));
         }
         av.c(this, u.d.cp_cont_c, 1);
-        this.eWs.setColor(av.getColor(u.d.cp_bg_line_e));
+        this.fju.setColor(av.getColor(u.d.cp_bg_line_e));
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tieba.homepage.framework.RecommendFrsControlFragment;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment cow;
+    final /* synthetic */ RecommendFrsControlFragment cqJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
         super(i);
-        this.cow = recommendFrsControlFragment;
+        this.cqJ = recommendFrsControlFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,12 +25,12 @@ public class j extends CustomMessageListener {
         if (customResponsedMessage != null) {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Boolean) && ((Boolean) data).booleanValue()) {
-                qVar = this.cow.coj;
+                qVar = this.cqJ.cqx;
                 if (qVar != null) {
-                    qVar2 = this.cow.coj;
-                    if (qVar2.ago() == null) {
+                    qVar2 = this.cqJ.cqx;
+                    if (qVar2.agR() == null) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        qVar3 = this.cow.coj;
+                        qVar3 = this.cqJ.cqx;
                         messageManager.sendMessage(new RecommendFrsControlFragment.ControlModelMessage(qVar3));
                     }
                 }

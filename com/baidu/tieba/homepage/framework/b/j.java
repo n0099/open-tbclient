@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ e cqb;
+    final /* synthetic */ e csG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(e eVar) {
-        this.cqb = eVar;
+        this.csG = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,17 +25,17 @@ public class j implements View.OnClickListener {
         ImageView imageView;
         Context context2;
         Context context3;
-        context = this.cqb.mContext;
+        context = this.csG.mContext;
         if (context != null) {
-            this.cqb.eA(false);
-            imageView = this.cqb.cpV;
+            this.csG.eB(false);
+            imageView = this.csG.csA;
             imageView.setVisibility(8);
-            com.baidu.tbadk.core.sharedPref.b.sO().putBoolean("game_is_show_tip", false);
+            com.baidu.tbadk.core.sharedPref.b.sN().putBoolean("game_is_show_tip", false);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP, false));
             MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.cqb.mContext;
+            context2 = this.csG.mContext;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameCenterActivityConfig(context2)));
-            context3 = this.cqb.mContext;
+            context3 = this.csG.mContext;
             TiebaStatic.eventStat(context3, "tb_gamecenter", "click", 1, "ref_type", "601");
         }
     }

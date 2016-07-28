@@ -7,17 +7,17 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.a.j implements s {
-    private CardForum cst;
+    private CardForum cvd;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0088: IGET  (r6v1 java.lang.Long A[REMOVE]) = (r0v10 tbclient.Personalized.PersonalForum) tbclient.Personalized.PersonalForum.forum_id java.lang.Long)] */
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.cst = cardForum;
-            this.aUO = cardForum.card_title;
+            this.cvd = cardForum;
+            this.aVL = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(String.valueOf(Lt()) + cardForum.position.intValue());
+                setYuelaouLocate(String.valueOf(Ls()) + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(String.valueOf(Lt()) + 0);
+                setYuelaouLocate(String.valueOf(Ls()) + 0);
             }
             if (y.s(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -36,34 +36,34 @@ public class c extends com.baidu.tieba.card.a.j implements s {
 
     @Override // com.baidu.tieba.card.a.s
     public int getPosition() {
-        if (this.cst != null) {
-            return this.cst.position.intValue();
+        if (this.cvd != null) {
+            return this.cvd.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.a.s
-    public boolean Lm() {
+    public boolean Ll() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.a.s
-    public void ck(boolean z) {
-        this.aUS = z;
+    public void cn(boolean z) {
+        this.aVP = z;
     }
 
-    public boolean ov() {
-        if (y.s(Eb()) > 0) {
+    public boolean ok() {
+        if (y.s(Ea()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean jv(int i) {
+    public static boolean jB(int i) {
         return i == 1;
     }
 
-    public static boolean jw(int i) {
+    public static boolean jC(int i) {
         return i == 2;
     }
 }

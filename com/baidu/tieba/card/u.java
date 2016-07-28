@@ -12,42 +12,42 @@ import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u extends b<com.baidu.tieba.card.a.k> {
-    private TbPageContext<?> Dp;
-    private com.baidu.tieba.horizonalList.widget.k aSD;
-    private HListView aSP;
-    public x aSQ;
-    private List<com.baidu.tieba.horizonalList.widget.l> aSR;
-    private View.OnClickListener aat;
+    private TbPageContext<?> DQ;
+    private HListView aTL;
+    public x aTM;
+    private List<com.baidu.tieba.horizonalList.widget.l> aTN;
+    private com.baidu.tieba.horizonalList.widget.k aTz;
+    private View.OnClickListener abc;
 
     public u(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.aat = new v(this);
-        this.Dp = tbPageContext;
-        this.aSP = new HListView(getContext());
-        this.aSP.setHeaderDividersEnabled(false);
-        this.aSP.setFooterDividersEnabled(false);
-        this.aSP.setSelector(u.f.list_selector_transparent);
-        this.aSP.setPadding(tbPageContext.getResources().getDimensionPixelSize(u.e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(u.e.ds4), 0);
-        this.aSQ = new x(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(u.h.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext.getPageActivity());
-        this.aSQ.setPageUniqueId(bdUniqueId);
-        this.aSD = new com.baidu.tieba.horizonalList.widget.k(getContext(), u.h.card_homepage_rec_god_item, this.aSQ);
-        this.aSD.setOnClickListener(this.aat);
-        this.aSP.setAdapter((ListAdapter) this.aSD);
-        this.aRw.addView(this.aSP);
-        this.aRv.setVisibility(8);
-        this.aRp.setTextSize(0, com.baidu.adp.lib.util.k.c(this.Dp.getPageActivity(), u.e.ds28));
-        this.aRq.setVisibility(0);
-        this.aRq.setText(this.Dp.getResources().getString(u.j.recommend_frs_hot_thread_more));
-        this.aRo.setOnClickListener(new w(this));
+        this.abc = new v(this);
+        this.DQ = tbPageContext;
+        this.aTL = new HListView(getContext());
+        this.aTL.setHeaderDividersEnabled(false);
+        this.aTL.setFooterDividersEnabled(false);
+        this.aTL.setSelector(u.f.list_selector_transparent);
+        this.aTL.setPadding(tbPageContext.getResources().getDimensionPixelSize(u.e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(u.e.ds4), 0);
+        this.aTM = new x(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(u.h.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext.getPageActivity());
+        this.aTM.setPageUniqueId(bdUniqueId);
+        this.aTz = new com.baidu.tieba.horizonalList.widget.k(getContext(), u.h.card_homepage_rec_god_item, this.aTM);
+        this.aTz.setOnClickListener(this.abc);
+        this.aTL.setAdapter((ListAdapter) this.aTz);
+        this.aSq.addView(this.aTL);
+        this.aSp.setVisibility(8);
+        this.aSj.setTextSize(0, com.baidu.adp.lib.util.k.c(this.DQ.getPageActivity(), u.e.ds28));
+        this.aSk.setVisibility(0);
+        this.aSk.setText(this.DQ.getResources().getString(u.j.recommend_frs_hot_thread_more));
+        this.aSi.setOnClickListener(new w(this));
     }
 
     @Override // com.baidu.tieba.card.b
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        if (this.aSP != null && this.aSD != null) {
-            com.baidu.tbadk.core.util.av.j((View) this.aRq, u.d.cp_cont_d);
-            com.baidu.tbadk.core.util.av.j((View) this.aRp, u.d.cp_cont_d);
-            this.aSD.cO(i);
+        if (this.aTL != null && this.aTz != null) {
+            com.baidu.tbadk.core.util.av.j((View) this.aSk, u.d.cp_cont_d);
+            com.baidu.tbadk.core.util.av.j((View) this.aSj, u.d.cp_cont_d);
+            this.aTz.cO(i);
         }
     }
 
@@ -55,14 +55,14 @@ public class u extends b<com.baidu.tieba.card.a.k> {
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.card.a.k kVar) {
         super.a((u) kVar);
-        if (kVar != null && !com.baidu.tbadk.core.util.y.t(kVar.Eb())) {
-            if (StringUtils.isNull(kVar.aUO)) {
-                this.aRp.setText(this.Dp.getPageActivity().getResources().getString(u.j.the_gods_you_may_interest_in));
+        if (kVar != null && !com.baidu.tbadk.core.util.y.t(kVar.Ea())) {
+            if (StringUtils.isNull(kVar.aVL)) {
+                this.aSj.setText(this.DQ.getPageActivity().getResources().getString(u.j.the_gods_you_may_interest_in));
             }
-            if (S(kVar.Eb())) {
-                this.aSR = kVar.Eb();
-                this.aSD.setData(this.aSR);
-                this.aSD.notifyDataSetChanged();
+            if (S(kVar.Ea())) {
+                this.aTN = kVar.Ea();
+                this.aTz.setData(this.aTN);
+                this.aTz.notifyDataSetChanged();
             }
         }
     }
@@ -71,9 +71,9 @@ public class u extends b<com.baidu.tieba.card.a.k> {
         if (com.baidu.tbadk.core.util.y.t(list)) {
             return false;
         }
-        if (!com.baidu.tbadk.core.util.y.t(this.aSR) && com.baidu.tbadk.core.util.y.s(this.aSR) == com.baidu.tbadk.core.util.y.s(list)) {
-            for (int i = 0; i < com.baidu.tbadk.core.util.y.s(this.aSR); i++) {
-                com.baidu.tieba.horizonalList.widget.l lVar = (com.baidu.tieba.horizonalList.widget.l) com.baidu.tbadk.core.util.y.c(this.aSR, i);
+        if (!com.baidu.tbadk.core.util.y.t(this.aTN) && com.baidu.tbadk.core.util.y.s(this.aTN) == com.baidu.tbadk.core.util.y.s(list)) {
+            for (int i = 0; i < com.baidu.tbadk.core.util.y.s(this.aTN); i++) {
+                com.baidu.tieba.horizonalList.widget.l lVar = (com.baidu.tieba.horizonalList.widget.l) com.baidu.tbadk.core.util.y.c(this.aTN, i);
                 com.baidu.tieba.horizonalList.widget.l lVar2 = (com.baidu.tieba.horizonalList.widget.l) com.baidu.tbadk.core.util.y.c(list, i);
                 if ((lVar instanceof com.baidu.tieba.card.a.l) && (lVar2 instanceof com.baidu.tieba.card.a.l)) {
                     com.baidu.tieba.card.a.l lVar3 = (com.baidu.tieba.card.a.l) lVar;

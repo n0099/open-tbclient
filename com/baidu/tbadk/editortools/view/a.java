@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import com.baidu.tbadk.editortools.view.CommonTabContentView;
 /* loaded from: classes.dex */
 class a implements AdapterView.OnItemClickListener {
-    final /* synthetic */ CommonTabContentView atc;
+    final /* synthetic */ CommonTabContentView atR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(CommonTabContentView commonTabContentView) {
-        this.atc = commonTabContentView;
+        this.atR = commonTabContentView;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -18,15 +18,15 @@ class a implements AdapterView.OnItemClickListener {
         CommonTabContentView.b bVar;
         CommonTabContentView.b bVar2;
         CommonTabContentView.c cVar2;
-        cVar = this.atc.atb;
+        cVar = this.atR.atQ;
         if (cVar != null) {
-            bVar = this.atc.asZ;
+            bVar = this.atR.atO;
             if (bVar != null) {
-                bVar2 = this.atc.asZ;
+                bVar2 = this.atR.atO;
                 if (bVar2.J(adapterView) != 0) {
                     i = -1;
                 }
-                cVar2 = this.atc.atb;
+                cVar2 = this.atR.atQ;
                 cVar2.a(view, i, j);
             }
         }

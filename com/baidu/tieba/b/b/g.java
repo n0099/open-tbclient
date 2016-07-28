@@ -4,68 +4,68 @@ import android.content.Context;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.b.b.a {
-    private int aPU;
-    private a aPV;
+    private int aQO;
+    private a aQP;
     private Handler mHandler;
     private float mRadius;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cf(boolean z);
+        void ch(boolean z);
     }
 
     public g(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.aPU = 1;
-        this.aPV = null;
-        db();
+        this.aQO = 1;
+        this.aQP = null;
+        da();
     }
 
-    private void db() {
+    private void da() {
         this.mHandler = new Handler(new h(this));
     }
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
-        this.aPK = this.mRadius;
-        this.aPJ = this.mRadius;
+        this.aQE = this.mRadius;
+        this.aQD = this.mRadius;
     }
 
-    public void Ke() {
-        JZ();
-        this.aPK = this.mRadius;
-        this.aPJ = this.mRadius;
-        fC(4);
+    public void Kd() {
+        JY();
+        this.aQE = this.mRadius;
+        this.aQD = this.mRadius;
+        fB(4);
         a(new i(this));
         a(new j(this));
     }
 
-    public void Kf() {
-        JZ();
-        fC(2);
+    public void Ke() {
+        JY();
+        fB(2);
         a(new k(this));
         a(new l(this));
     }
 
     public int getViewStatus() {
-        return this.aPU;
+        return this.aQO;
     }
 
-    public void fC(int i) {
-        this.aPU = i;
+    public void fB(int i) {
+        this.aQO = i;
     }
 
     @Override // com.baidu.tieba.b.b.a
     public void uE() {
         super.uE();
-        this.aPK = this.mRadius;
-        this.aPJ = this.mRadius;
-        this.aPU = 1;
+        this.aQE = this.mRadius;
+        this.aQD = this.mRadius;
+        this.aQO = 1;
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.aPV = aVar;
+        this.aQP = aVar;
     }
 }

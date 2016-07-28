@@ -7,9 +7,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public interface di {
-    a<? extends com.baidu.tbadk.core.data.az, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z);
+    a<? extends com.baidu.tbadk.core.data.be, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z);
 
     bj<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 
-    a<? extends com.baidu.tbadk.core.data.az, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
+    a<? extends com.baidu.tbadk.core.data.be, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 }

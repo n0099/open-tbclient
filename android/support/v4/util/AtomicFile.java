@@ -25,7 +25,7 @@ public class AtomicFile {
         this.mBackupName.delete();
     }
 
-    public FileOutputStream startWrite() {
+    public FileOutputStream startWrite() throws IOException {
         if (this.mBaseName.exists()) {
             if (!this.mBackupName.exists()) {
                 if (!this.mBaseName.renameTo(this.mBackupName)) {
@@ -74,7 +74,7 @@ public class AtomicFile {
         }
     }
 
-    public FileInputStream openRead() {
+    public FileInputStream openRead() throws FileNotFoundException {
         if (this.mBackupName.exists()) {
             this.mBaseName.delete();
             this.mBackupName.renameTo(this.mBaseName);
@@ -82,7 +82,7 @@ public class AtomicFile {
         return new FileInputStream(this.mBaseName);
     }
 
-    public byte[] readFully() {
+    public byte[] readFully() throws IOException {
         byte[] bArr;
         int i = 0;
         FileInputStream openRead = openRead();

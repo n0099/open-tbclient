@@ -23,7 +23,7 @@ public abstract class b {
         return j;
     }
 
-    public static float a(String str, float f) {
+    public static float b(String str, float f) {
         if (str != null) {
             try {
                 return Float.parseFloat(str);

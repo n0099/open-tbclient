@@ -44,7 +44,7 @@ public class c {
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && !next.aI()) {
+            if (next != null && !next.canRetry()) {
                 it.remove();
                 return next;
             }
@@ -100,9 +100,9 @@ public class c {
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && next.aI()) {
-                next.aK();
-                if (next.aJ() >= next.as()) {
+            if (next != null && next.canRetry()) {
+                next.aJ();
+                if (next.aI() >= next.as()) {
                     return true;
                 }
             }

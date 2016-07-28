@@ -1,30 +1,43 @@
 package com.baidu.tieba.personInfo;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bv implements View.OnClickListener {
-    final /* synthetic */ bs eqW;
+public class bv implements AbsListView.OnScrollListener {
+    final /* synthetic */ bq eCH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bs bsVar) {
-        this.eqW = bsVar;
+    public bv(bq bqVar) {
+        this.eCH = bqVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-            com.baidu.tbadk.core.sharedPref.b.sO().putBoolean("member_close_ad_setting_clicked", true);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        View view;
+        View view2;
+        View view3;
+        View view4;
+        if (i == 0) {
+            view3 = this.eCH.aHK;
+            if (view3 != null) {
+                view4 = this.eCH.aHK;
+                view4.setVisibility(0);
+                return;
+            }
+            return;
         }
-        this.eqW.eqF.setVisibility(8);
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10598"));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MORE, new IntentConfig(view.getContext())));
+        view = this.eCH.aHK;
+        if (view != null) {
+            view2 = this.eCH.aHK;
+            view2.setVisibility(8);
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        this.eCH.aKW();
+        this.eCH.aQf();
+        this.eCH.aQe();
     }
 }

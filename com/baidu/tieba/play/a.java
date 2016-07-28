@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.view.at;
 public class a implements Runnable {
     public View mChildView;
 
-    public void bk(View view) {
+    public void bj(View view) {
         this.mChildView = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         if (at.vG().vJ() <= 0 && this.mChildView != null && (this.mChildView.getTag() instanceof d)) {
-            ((d) this.mChildView.getTag()).IA();
+            ((d) this.mChildView.getTag()).Iz();
         }
     }
 }

@@ -12,23 +12,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public abstract class bj<T, V extends y.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int bBA;
-    protected static final int bBz;
-    protected static final int bEs;
-    protected ListView bBD;
-    protected com.baidu.tieba.tbadkCore.p bCF;
-    protected int bCx;
-    protected ba bEt;
-    protected bi bEu;
-    protected BaseActivity<?> bkc;
+    protected static final int bFC;
+    protected static final int bFD;
+    protected static final int bFE;
+    protected int bDE;
+    protected com.baidu.tieba.tbadkCore.p bDM;
+    protected ba bFF;
+    protected ListView bFG;
+    protected bi bFH;
+    protected BaseActivity<?> bem;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
     static {
-        Resources resources = TbadkCoreApplication.m9getInst().getContext().getResources();
-        bBz = resources.getDimensionPixelSize(u.e.ds8);
-        bBA = resources.getDimensionPixelSize(u.e.ds16);
-        bEs = resources.getDimensionPixelSize(u.e.ds1);
+        Resources resources = TbadkCoreApplication.m10getInst().getContext().getResources();
+        bFC = resources.getDimensionPixelSize(u.e.ds8);
+        bFD = resources.getDimensionPixelSize(u.e.ds16);
+        bFE = resources.getDimensionPixelSize(u.e.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,27 +41,27 @@ public abstract class bj<T, V extends y.a> extends com.baidu.adp.widget.ListView
     public void e(BaseActivity<?> baseActivity) {
         if (baseActivity != null) {
             this.mContext = baseActivity.getActivity();
-            this.bkc = baseActivity;
+            this.bem = baseActivity;
         }
     }
 
     public void release() {
         this.mContext = null;
-        this.bkc = null;
-        this.bEt = null;
-        this.yd = null;
-        this.ye = null;
-        if (this.bEu != null) {
-            this.bEu.destory();
-            this.bEu = null;
+        this.bem = null;
+        this.bFF = null;
+        this.yE = null;
+        this.yF = null;
+        if (this.bFH != null) {
+            this.bFH.destory();
+            this.bFH = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
-        this.bBD = (ListView) viewGroup;
+        this.mSkinType = TbadkCoreApplication.m10getInst().getSkinType();
+        this.bFG = (ListView) viewGroup;
         return null;
     }
 
@@ -70,18 +70,18 @@ public abstract class bj<T, V extends y.a> extends com.baidu.adp.widget.ListView
     }
 
     public void a(com.baidu.tieba.tbadkCore.p pVar) {
-        this.bCF = pVar;
+        this.bDM = pVar;
     }
 
     public void a(ba baVar) {
-        this.bEt = baVar;
+        this.bFF = baVar;
     }
 
     public void hn(int i) {
-        this.bCx = i;
+        this.bDE = i;
     }
 
     public void a(bi biVar) {
-        this.bEu = biVar;
+        this.bFH = biVar;
     }
 }

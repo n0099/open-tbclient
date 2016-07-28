@@ -13,65 +13,65 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
-    private Runnable cqF;
-    private TranslateAnimation cqI;
-    private Animation fAU;
-    private a fAV;
-    private int zC;
+    private int Ae;
+    private Runnable ctk;
+    private TranslateAnimation ctn;
+    private Animation fNS;
+    private a fNT;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bjo();
+        void bmB();
     }
 
     public CommonTipView(Context context) {
         super(context);
-        this.zC = 4000;
-        this.fAU = AnimationUtils.loadAnimation(TbadkCoreApplication.m9getInst(), u.a.fade_out);
-        this.cqI = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m9getInst().getResources().getDimension(u.e.ds56), 0.0f);
-        this.cqF = new d(this);
+        this.Ae = 4000;
+        this.fNS = AnimationUtils.loadAnimation(TbadkCoreApplication.m10getInst(), u.a.fade_out);
+        this.ctn = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m10getInst().getResources().getDimension(u.e.ds56), 0.0f);
+        this.ctk = new d(this);
         init();
     }
 
     private void init() {
-        setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds24));
+        setTextSize(0, TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds24));
         setGravity(17);
-        this.fAU.setAnimationListener(new e(this));
-        this.cqI.setDuration(400L);
-        this.cqI.setAnimationListener(new f(this));
+        this.fNS.setAnimationListener(new e(this));
+        this.ctn.setDuration(400L);
+        this.ctn.setAnimationListener(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        removeCallbacks(this.cqF);
+        removeCallbacks(this.ctk);
         if (this != null && getParent() != null) {
-            startAnimation(this.fAU);
+            startAnimation(this.fNS);
         }
     }
 
     public void b(LinearLayout linearLayout, int i) {
         if (linearLayout != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds56));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds56));
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.cqI);
+            startAnimation(this.ctn);
         }
     }
 
     public void a(FrameLayout frameLayout, int i) {
         if (frameLayout != null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds56));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds56));
             layoutParams.setMargins(0, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT), 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.cqI);
+            startAnimation(this.ctn);
         }
     }
 
     public void setTipDuration(int i) {
         if (i > 0) {
-            this.zC = i;
+            this.Ae = i;
         }
     }
 
@@ -81,6 +81,6 @@ public class CommonTipView extends TextView {
     }
 
     public void onDestroy() {
-        removeCallbacks(this.cqF);
+        removeCallbacks(this.ctk);
     }
 }

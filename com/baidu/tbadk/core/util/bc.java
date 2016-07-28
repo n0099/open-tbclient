@@ -8,9 +8,9 @@ import java.io.FileNotFoundException;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class bc {
-    private static final char[] pM = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] qo = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static String b(PackageInfo packageInfo) {
+    public static String b(PackageInfo packageInfo) throws NumberFormatException {
         long j = 0;
         String c = c(packageInfo);
         if (c == null || c.length() < 32) {
@@ -39,7 +39,7 @@ public class bc {
         }
     }
 
-    public static String u(byte[] bArr) {
+    public static String x(byte[] bArr) {
         int i = 0;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -49,9 +49,9 @@ public class bc {
             for (int i2 = 0; i2 < 16; i2++) {
                 byte b = digest[i2];
                 int i3 = i + 1;
-                cArr[i] = pM[(b >>> 4) & 15];
+                cArr[i] = qo[(b >>> 4) & 15];
                 i = i3 + 1;
-                cArr[i3] = pM[b & 15];
+                cArr[i3] = qo[b & 15];
             }
             return new String(cArr);
         } catch (Exception e) {
@@ -67,7 +67,7 @@ public class bc {
         File file = new File(packageInfo.applicationInfo.publicSourceDir);
         if (file.exists()) {
             try {
-                return com.baidu.adp.lib.util.t.d(new FileInputStream(file));
+                return com.baidu.adp.lib.util.t.k(new FileInputStream(file));
             } catch (FileNotFoundException e) {
                 BdLog.detailException(e);
                 return null;
@@ -76,7 +76,7 @@ public class bc {
         return null;
     }
 
-    public static String dB(String str) {
-        return com.baidu.adp.lib.util.t.aS(str);
+    public static String dA(String str) {
+        return com.baidu.adp.lib.util.t.aT(str);
     }
 }

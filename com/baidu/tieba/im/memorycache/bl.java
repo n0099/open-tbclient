@@ -22,7 +22,7 @@ public class bl implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.apn().g(imMessageCenterPojo);
+        b.apZ().g(imMessageCenterPojo);
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
         }
@@ -35,7 +35,7 @@ public class bl implements a.b {
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
                 com.baidu.tieba.im.data.e a = com.baidu.tieba.im.util.h.a(commonMsgPojo);
                 if (a != null) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.m9getInst(), "message_receive", "receive", 1, "task_type", a.cKy, InterviewLiveActivityConfig.KEY_TASK_ID, a.taskId);
+                    TiebaStatic.eventStat(TbadkCoreApplication.m10getInst(), "message_receive", "receive", 1, "task_type", a.cNo, InterviewLiveActivityConfig.KEY_TASK_ID, a.taskId);
                 }
             }
         }

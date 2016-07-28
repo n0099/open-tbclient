@@ -1,49 +1,91 @@
 package com.baidu.tieba.person.a;
 
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.person.f;
+import com.baidu.tieba.u;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ak {
-    private List<com.baidu.adp.widget.ListView.a> bAz = new ArrayList();
-    private BaseFragmentActivity bfw;
-    private HTypeListView egU;
-    private ai egV;
-    private c egW;
-    private BdUniqueId mId;
+public class ak extends BaseAdapter {
+    private List<f.a> eqX = new ArrayList();
+    private TbPageContext mTbPageContext;
 
-    public ak(BaseFragmentActivity baseFragmentActivity, HTypeListView hTypeListView) {
-        this.bfw = baseFragmentActivity;
-        this.egU = hTypeListView;
-        this.mId = baseFragmentActivity.getUniqueId();
-        akG();
+    /* loaded from: classes.dex */
+    public static class a {
+        public TbImageView eqY;
+        public TextView eqZ;
+        public TextView era;
+        public ImageView erb;
     }
 
-    private void akG() {
-        this.egV = new ai(this.bfw, com.baidu.tbadk.data.k.aoZ);
-        this.egW = new c(this.bfw, com.baidu.tieba.person.data.b.ehL);
-        this.bAz.add(this.egV);
-        this.bAz.add(this.egW);
-        this.egU.g(this.bAz);
+    public ak(TbPageContext tbPageContext) {
+        this.mTbPageContext = tbPageContext;
     }
 
-    public void setDatas(List<com.baidu.adp.widget.ListView.v> list) {
-        if (this.egU != null) {
-            this.egU.setData(list);
+    public void U(List<f.a> list) {
+        this.eqX.clear();
+        this.eqX.addAll(list);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.eqX != null) {
+            return this.eqX.size();
         }
+        return 0;
     }
 
-    public void notifyDataSetChanged() {
-        if (this.egU != null && (this.egU.getAdapter() instanceof com.baidu.adp.widget.ListView.y)) {
-            ((com.baidu.adp.widget.ListView.y) this.egU.getAdapter()).notifyDataSetChanged();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: of */
+    public f.a getItem(int i) {
+        if (this.eqX == null || this.eqX.size() <= 0 || i < 0 || i >= this.eqX.size()) {
+            return null;
         }
+        return this.eqX.get(i);
     }
 
-    public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.egV.I(onClickListener);
-        this.egW.I(onClickListener);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        if (view == null) {
+            view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(u.h.wallet_item, viewGroup, false);
+            a aVar2 = new a();
+            aVar2.eqY = (TbImageView) view.findViewById(u.g.item_icon);
+            aVar2.eqZ = (TextView) view.findViewById(u.g.item_text);
+            aVar2.era = (TextView) view.findViewById(u.g.item_tip);
+            aVar2.erb = (ImageView) view.findViewById(u.g.item_new);
+            view.setTag(aVar2);
+            aVar = aVar2;
+        } else {
+            aVar = (a) view.getTag();
+        }
+        f.a item = getItem(i);
+        if (item != null) {
+            aVar.eqY.c(TextUtils.isEmpty(item.pic) ? null : item.pic, 10, false);
+            aVar.eqZ.setText(item.title);
+            if (TextUtils.isEmpty(item.tip)) {
+                aVar.era.setVisibility(8);
+            } else {
+                aVar.era.setVisibility(0);
+                aVar.era.setText(item.tip);
+            }
+            aVar.erb.setVisibility(item.epy ? 0 : 8);
+        }
+        com.baidu.tbadk.j.a.a(this.mTbPageContext, view);
+        return view;
     }
 }

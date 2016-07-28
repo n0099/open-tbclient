@@ -14,37 +14,37 @@ import com.baidu.tieba.u;
 import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* loaded from: classes.dex */
 public class d implements c {
-    private String cly;
-    private String clz;
-    private final NewVcodeView fFH;
-    private final com.baidu.tieba.tbadkCore.writeModel.a fFI;
-    private boolean fFM = false;
-    private String fFN = null;
-    private Runnable fFO = new e(this);
-    private final a.d asA = new f(this);
+    private String cnN;
+    private String cnO;
+    private final com.baidu.tieba.tbadkCore.writeModel.a fPF;
+    private final NewVcodeView fRJ;
+    private boolean fRN = false;
+    private String fRO = null;
+    private Runnable fRP = new e(this);
+    private final a.d atp = new f(this);
 
     public d(NewVcodeView newVcodeView, com.baidu.tieba.tbadkCore.writeModel.a aVar) {
-        this.fFH = newVcodeView;
-        this.fFI = aVar;
-        this.fFI.b(this.asA);
+        this.fRJ = newVcodeView;
+        this.fPF = aVar;
+        this.fPF.b(this.atp);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public boolean b(WebView webView, String str) {
         if (str.contains("objc:jsChangeVcode")) {
-            this.cly = com.baidu.tbadk.k.a.gz(str);
-            if (this.cly != null && this.fFI.bdu() != null) {
-                this.fFH.runJsMethod(this.cly, "'" + this.fFI.bdu().getVcodeUrl() + "'");
+            this.cnN = com.baidu.tbadk.k.a.gy(str);
+            if (this.cnN != null && this.fPF.bbo() != null) {
+                this.fRJ.runJsMethod(this.cnN, "'" + this.fPF.bbo().getVcodeUrl() + "'");
                 return true;
             }
             return false;
         } else if (str.equals("objc:jumpToFeedback()")) {
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.fFH.getContext().getActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0);
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.fRJ.getContext().getActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0);
             writeActivityConfig.setIsVcodeFeedBack();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
             return true;
         } else if (str.contains("objc:jsSubmit")) {
-            return jS(com.baidu.tbadk.k.a.gz(str));
+            return jY(com.baidu.tbadk.k.a.gy(str));
         } else {
             return false;
         }
@@ -52,34 +52,34 @@ public class d implements c {
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public void onPageFinished(WebView webView, String str) {
-        if (this.fFH != null) {
-            this.fFH.showWebViewDelay(500);
-            if (this.fFM) {
-                h.dM().postDelayed(this.fFO, 500L);
+        if (this.fRJ != null) {
+            this.fRJ.showWebViewDelay(500);
+            if (this.fRN) {
+                h.dL().postDelayed(this.fRP, 500L);
             }
         }
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void q(boolean z, String str) {
-        this.fFM = z;
-        this.fFN = str;
+    public void p(boolean z, String str) {
+        this.fRN = z;
+        this.fRO = str;
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void lh(boolean z) {
-        this.fFH.setRatio(1.2631578f);
-        this.fFH.showWebView(false);
+    public void lv(boolean z) {
+        this.fRJ.setRatio(1.2631578f);
+        this.fRJ.showWebView(false);
         String str = String.valueOf(TbConfig.SERVER_ADDRESS_WEB_VIEW) + "mo/q/captcha";
         if (z) {
             str = String.valueOf(str) + "?feedback=1";
         }
-        this.fFH.getWebView().loadUrl(str);
+        this.fRJ.getWebView().loadUrl(str);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public void onDestroy() {
-        h.dM().removeCallbacks(this.fFO);
+        h.dL().removeCallbacks(this.fRP);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
@@ -87,38 +87,38 @@ public class d implements c {
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void bkV() {
-        this.fFH.showPostThreadLoadingView(false);
-        this.fFI.cancelLoadData();
+    public void bmZ() {
+        this.fRJ.showPostThreadLoadingView(false);
+        this.fPF.cancelLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afu() {
-        this.fFH.runJsMethod(this.clz, "'" + this.fFI.bdu().getVcodeUrl() + "'");
+    public void afX() {
+        this.fRJ.runJsMethod(this.cnO, "'" + this.fPF.bbo().getVcodeUrl() + "'");
     }
 
-    private boolean jS(String str) {
+    private boolean jY(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
             return false;
         }
-        this.clz = split[0];
-        qQ(split[1]);
+        this.cnO = split[0];
+        rA(split[1]);
         return true;
     }
 
-    private void qQ(String str) {
-        if (!k.fI()) {
-            this.fFH.getContext().showToast(u.j.neterror);
-            this.fFH.getContext().finish();
+    private void rA(String str) {
+        if (!k.fH()) {
+            this.fRJ.getContext().showToast(u.j.neterror);
+            this.fRJ.getContext().finish();
         } else if (!StringUtils.isNull(str)) {
-            this.fFH.showPostThreadLoadingView(true);
-            this.fFI.bdu().setVcode(str);
-            this.fFI.bdu().setVcodeType("4");
-            this.fFI.bdv();
+            this.fRJ.showPostThreadLoadingView(true);
+            this.fPF.bbo().setVcode(str);
+            this.fPF.bbo().setVcodeType("4");
+            this.fPF.bgM();
         } else {
-            this.fFH.getContext().showToast(u.j.neterror);
-            this.fFH.getContext().finish();
+            this.fRJ.getContext().showToast(u.j.neterror);
+            this.fRJ.getContext().finish();
         }
     }
 }

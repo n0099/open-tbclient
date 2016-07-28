@@ -32,7 +32,7 @@ public class TransportMediator extends TransportController {
     final View mView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean g(int i) {
+    public static boolean j(int i) {
         switch (i) {
             case 79:
             case 85:

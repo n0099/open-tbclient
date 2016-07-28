@@ -5,45 +5,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bw {
-    private static bw aUN;
-    private List<com.baidu.tbadk.core.util.ay> aUM;
+    private static bw aVJ;
+    private List<com.baidu.tbadk.core.util.ay> aVI;
 
-    public static bw Lg() {
-        if (aUN == null) {
+    public static bw Lf() {
+        if (aVJ == null) {
             synchronized (bw.class) {
-                if (aUN == null) {
-                    aUN = new bw();
+                if (aVJ == null) {
+                    aVJ = new bw();
                 }
             }
         }
-        return aUN;
+        return aVJ;
     }
 
-    public void a(com.baidu.tbadk.core.util.ay ayVar) {
+    public void b(com.baidu.tbadk.core.util.ay ayVar) {
         if (ayVar != null) {
-            if (this.aUM == null) {
-                this.aUM = new ArrayList();
+            if (this.aVI == null) {
+                this.aVI = new ArrayList();
             }
-            if (this.aUM != null) {
-                this.aUM.add(ayVar);
+            if (this.aVI != null) {
+                this.aVI.add(ayVar);
             }
         }
     }
 
     public void he(String str) {
         if (str != null) {
-            if (this.aUM == null) {
-                this.aUM = new ArrayList();
+            if (this.aVI == null) {
+                this.aVI = new ArrayList();
             }
-            if (this.aUM != null) {
-                this.aUM.add(new com.baidu.tbadk.core.util.ay(str));
+            if (this.aVI != null) {
+                this.aVI.add(new com.baidu.tbadk.core.util.ay(str));
             }
         }
     }
 
-    public void cj(boolean z) {
-        if (com.baidu.tbadk.core.util.y.s(this.aUM) != 0) {
-            for (com.baidu.tbadk.core.util.ay ayVar : this.aUM) {
+    public void cl(boolean z) {
+        if (com.baidu.tbadk.core.util.y.s(this.aVI) != 0) {
+            for (com.baidu.tbadk.core.util.ay ayVar : this.aVI) {
                 if (ayVar != null) {
                     int i = 0;
                     if (z) {
@@ -53,7 +53,23 @@ public class bw {
                     TiebaStatic.log(ayVar);
                 }
             }
-            this.aUM.clear();
+            this.aVI.clear();
+        }
+    }
+
+    public void cm(boolean z) {
+        if (com.baidu.tbadk.core.util.y.s(this.aVI) != 0) {
+            for (com.baidu.tbadk.core.util.ay ayVar : this.aVI) {
+                if (ayVar != null) {
+                    int i = 0;
+                    if (z) {
+                        i = 1;
+                    }
+                    ayVar.s("obj_type", i);
+                    TiebaStatic.log(ayVar);
+                }
+            }
+            this.aVI.clear();
         }
     }
 }

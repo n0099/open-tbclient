@@ -78,12 +78,12 @@ public abstract class DisplayManagerCompat {
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays() {
-            return android.support.v4.hardware.display.a.c(this.bB);
+            return android.support.v4.hardware.display.a.f(this.bB);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays(String str) {
-            return android.support.v4.hardware.display.a.b(this.bB, str);
+            return android.support.v4.hardware.display.a.c(this.bB, str);
         }
     }
 }

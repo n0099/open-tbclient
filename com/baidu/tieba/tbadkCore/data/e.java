@@ -8,17 +8,18 @@ import tbclient.GoodsInfo;
 import tbclient.ThreadPicList;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.lib.a.b.a.a.i {
-    public final int MR;
+    public final String MJ;
+    public final int MP;
     public final String abtest;
     public final String apk_name;
     public final String apk_url;
-    public final int eWU;
-    public final int eWV;
-    public final int eWW;
-    public final a[] eWX;
-    public a eWY;
     public final String ext_info;
     public final String first_name;
+    public final int fjW;
+    public final int fjX;
+    public final int fjY;
+    public final a[] fjZ;
+    public a fka;
     public final String id;
     public final String ios_url;
     public final String name;
@@ -32,7 +33,8 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
     public e() {
         this.id = null;
         this.name = null;
-        this.eWU = 0;
+        this.fjW = 0;
+        this.MJ = null;
         this.url = null;
         this.ios_url = null;
         this.apk_url = null;
@@ -41,22 +43,23 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
         this.first_name = null;
         this.second_name = null;
         this.price = null;
-        this.MR = 0;
+        this.MP = 0;
         this.abtest = null;
-        this.eWV = 0;
+        this.fjX = 0;
         this.user_id = null;
         this.verify = null;
         this.ext_info = null;
-        this.eWW = 0;
-        this.eWX = null;
-        this.eWY = null;
+        this.fjY = 0;
+        this.fjZ = null;
+        this.fka = null;
     }
 
     public e(App app) {
         if (app == null) {
             this.id = null;
             this.name = null;
-            this.eWU = 0;
+            this.fjW = 0;
+            this.MJ = null;
             this.url = null;
             this.ios_url = null;
             this.apk_url = null;
@@ -64,21 +67,22 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
             this.pos_name = null;
             this.first_name = null;
             this.second_name = null;
-            this.MR = 0;
+            this.MP = 0;
             this.price = null;
             this.abtest = null;
-            this.eWV = 0;
+            this.fjX = 0;
             this.user_id = null;
             this.verify = null;
             this.ext_info = null;
-            this.eWW = 0;
-            this.eWX = null;
-            this.eWY = null;
+            this.fjY = 0;
+            this.fjZ = null;
+            this.fka = null;
             return;
         }
         this.id = app.id;
         this.name = app.name;
-        this.eWU = app.url_type.intValue();
+        this.fjW = app.url_type.intValue();
+        this.MJ = app.deep_url;
         this.url = app.url;
         this.apk_url = app.apk_url;
         this.apk_name = app.apk_name;
@@ -86,46 +90,46 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
         this.pos_name = app.pos_name;
         this.first_name = app.first_name;
         this.second_name = app.second_name;
-        this.MR = app.cpid.intValue();
+        this.MP = app.cpid.intValue();
         this.price = app.price;
         this.abtest = app.abtest;
-        this.eWV = app.plan_id.intValue();
+        this.fjX = app.plan_id.intValue();
         this.user_id = app.user_id;
         this.verify = app.verify;
         this.ext_info = app.ext_info;
-        this.eWW = app.app_time.intValue();
-        this.eWX = null;
+        this.fjY = app.app_time.intValue();
+        this.fjZ = null;
         if (app.goods_info != null) {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
-                    this.eWY = new a(goodsInfo);
+                    this.fka = new a(goodsInfo);
                     return;
                 }
             }
         }
     }
 
-    public boolean ov() {
-        if (this.eWU == 2) {
+    public boolean ok() {
+        if (this.fjW == 2) {
             return false;
         }
-        return ow() || ox();
+        return ol() || om();
     }
 
-    public boolean ow() {
-        return (this.eWU != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
+    public boolean ol() {
+        return (this.fjW != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
-    public boolean ox() {
-        return this.eWU == 1 && !StringUtils.isNull(this.url);
+    public boolean om() {
+        return this.fjW == 1 && !StringUtils.isNull(this.url);
     }
 
     /* loaded from: classes.dex */
     public static class a extends com.baidu.adp.lib.a.b.a.a.i {
-        public final boolean Nm;
-        public final String eWZ;
-        public final int eXa;
-        public final ArrayList<String> eXb;
+        public final boolean Nk;
+        public final String fkb;
+        public final int fkc;
+        public final ArrayList<String> fkd;
         public final int height;
         public final int id;
         public final String pop_window_text;
@@ -142,10 +146,10 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
             this.thread_title = null;
             this.thread_pic = null;
             this.pop_window_text = null;
-            this.eWZ = null;
-            this.eXa = 0;
-            this.eXb = null;
-            this.Nm = false;
+            this.fkb = null;
+            this.fkc = 0;
+            this.fkd = null;
+            this.Nk = false;
             this.width = 0;
             this.height = 0;
         }
@@ -158,10 +162,10 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
                 this.thread_title = null;
                 this.thread_pic = null;
                 this.pop_window_text = null;
-                this.eXa = 0;
-                this.eXb = null;
-                this.eWZ = null;
-                this.Nm = false;
+                this.fkc = 0;
+                this.fkd = null;
+                this.fkb = null;
+                this.Nk = false;
                 this.width = 0;
                 this.height = 0;
                 return;
@@ -172,16 +176,16 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
             this.thread_title = ba.c(goodsInfo.thread_title, 29, "...");
             this.thread_pic = goodsInfo.thread_pic;
             this.pop_window_text = goodsInfo.pop_window_text;
-            this.eXa = goodsInfo.goods_style.intValue();
-            this.eWZ = goodsInfo.thread_content;
-            this.Nm = goodsInfo.label_measure.intValue() == 2;
+            this.fkc = goodsInfo.goods_style.intValue();
+            this.fkb = goodsInfo.thread_content;
+            this.Nk = goodsInfo.label_measure.intValue() == 2;
             this.width = goodsInfo.width.intValue();
             this.height = goodsInfo.height.intValue();
-            this.eXb = new ArrayList<>();
+            this.fkd = new ArrayList<>();
             if (goodsInfo.thread_pic_list != null) {
                 for (ThreadPicList threadPicList : goodsInfo.thread_pic_list) {
                     if (threadPicList != null && !StringUtils.isNull(threadPicList.pic)) {
-                        this.eXb.add(threadPicList.pic);
+                        this.fkd.add(threadPicList.pic);
                     }
                 }
             }

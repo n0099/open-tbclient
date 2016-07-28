@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private int LA;
-    private StringBuffer LB = new StringBuffer();
-    private String Lg;
+    private StringBuffer LA = new StringBuffer();
+    private String Lf;
+    private int Lg;
     private int Lh;
     private int Li;
     private int Lj;
@@ -26,38 +26,14 @@ public class b {
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.LB.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.LA.toString() + "]";
     }
 
-    public void bY(String str) {
-        this.LB.append(str).append(" || ");
+    public void bZ(String str) {
+        this.LA.append(str).append(" || ");
     }
 
-    public int nz() {
-        return this.Lv;
-    }
-
-    public void aO(int i) {
-        this.Lv = i;
-    }
-
-    public int nA() {
-        return this.Lw;
-    }
-
-    public void aP(int i) {
-        this.Lw = i;
-    }
-
-    public int nB() {
-        return this.Lt;
-    }
-
-    public void aQ(int i) {
-        this.Lt = i;
-    }
-
-    public int nC() {
+    public int no() {
         return this.Lu;
     }
 
@@ -65,15 +41,15 @@ public class b {
         this.Lu = i;
     }
 
-    public int nD() {
-        return this.Lr;
+    public int np() {
+        return this.Lv;
     }
 
     public void aS(int i) {
-        this.Lr = i;
+        this.Lv = i;
     }
 
-    public int nE() {
+    public int nq() {
         return this.Ls;
     }
 
@@ -81,75 +57,75 @@ public class b {
         this.Ls = i;
     }
 
+    public int nr() {
+        return this.Lt;
+    }
+
+    public void aU(int i) {
+        this.Lt = i;
+    }
+
+    public int ns() {
+        return this.Lq;
+    }
+
+    public void aV(int i) {
+        this.Lq = i;
+    }
+
+    public int nt() {
+        return this.Lr;
+    }
+
+    public void aW(int i) {
+        this.Lr = i;
+    }
+
     public String getId() {
         return this.id;
     }
 
-    public int nF() {
+    public int nu() {
+        return this.Lw;
+    }
+
+    public void aX(int i) {
+        this.Lw = i;
+    }
+
+    public int nv() {
         return this.Lx;
     }
 
-    public void aU(int i) {
+    public void aY(int i) {
         this.Lx = i;
-    }
-
-    public int nG() {
-        return this.Ly;
-    }
-
-    public void aV(int i) {
-        this.Ly = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void bZ(String str) {
-        this.Lg = str;
+    public void ca(String str) {
+        this.Lf = str;
     }
 
-    public int nH() {
-        return this.Lh;
-    }
-
-    public void aW(int i) {
-        this.Lh = i;
-    }
-
-    public int nI() {
-        return this.Li;
-    }
-
-    public void aX(int i) {
-        this.Li = i;
-    }
-
-    public int nJ() {
-        return this.Ll;
-    }
-
-    public void aY(int i) {
-        this.Ll = i;
-    }
-
-    public int nK() {
-        return this.Lm;
+    public int nw() {
+        return this.Lg;
     }
 
     public void aZ(int i) {
-        this.Lm = i;
+        this.Lg = i;
     }
 
-    public int nL() {
-        return this.Lj;
+    public int nx() {
+        return this.Lh;
     }
 
     public void ba(int i) {
-        this.Lj = i;
+        this.Lh = i;
     }
 
-    public int nM() {
+    public int ny() {
         return this.Lk;
     }
 
@@ -157,51 +133,75 @@ public class b {
         this.Lk = i;
     }
 
-    public int nN() {
-        return this.Lo;
-    }
-
-    public int nO() {
-        return this.Ln;
+    public int nz() {
+        return this.Ll;
     }
 
     public void bc(int i) {
-        this.Ln = i;
+        this.Ll = i;
+    }
+
+    public int nA() {
+        return this.Li;
     }
 
     public void bd(int i) {
-        this.Lo = i;
+        this.Li = i;
     }
 
-    public int nP() {
-        return this.Lq;
+    public int nB() {
+        return this.Lj;
     }
 
     public void be(int i) {
-        this.Lq = i;
+        this.Lj = i;
     }
 
-    public int nQ() {
-        return this.Lp;
+    public int nC() {
+        return this.Ln;
+    }
+
+    public int nD() {
+        return this.Lm;
     }
 
     public void bf(int i) {
-        this.Lp = i;
-    }
-
-    public int nR() {
-        return this.Lz;
+        this.Lm = i;
     }
 
     public void bg(int i) {
-        this.Lz = i;
+        this.Ln = i;
     }
 
-    public int nS() {
-        return this.LA;
+    public int nE() {
+        return this.Lp;
     }
 
     public void bh(int i) {
-        this.LA = i;
+        this.Lp = i;
+    }
+
+    public int nF() {
+        return this.Lo;
+    }
+
+    public void bi(int i) {
+        this.Lo = i;
+    }
+
+    public int nG() {
+        return this.Ly;
+    }
+
+    public void bj(int i) {
+        this.Ly = i;
+    }
+
+    public int nH() {
+        return this.Lz;
+    }
+
+    public void bk(int i) {
+        this.Lz = i;
     }
 }

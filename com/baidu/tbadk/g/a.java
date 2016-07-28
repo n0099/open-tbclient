@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View avm;
-    private boolean avn;
+    protected View awb;
+    private boolean awc;
 
     public a(View view) {
-        this.avm = view;
+        this.awb = view;
     }
 
-    public boolean Db() {
-        return this.avn;
+    public boolean Da() {
+        return this.awc;
     }
 
     public void c(View view, boolean z) {
-        if (view != null && this.avm != null && this.avm.getParent() == null) {
-            this.avn = true;
-            d.M(view).a(view, this.avm, z);
-            Dc();
+        if (view != null && this.awb != null && this.awb.getParent() == null) {
+            this.awc = true;
+            d.M(view).a(view, this.awb, z);
+            Db();
         }
     }
 
     public void K(View view) {
-        if (view != null && this.avm != null && this.avm.getParent() != null && (view instanceof ViewGroup)) {
+        if (view != null && this.awb != null && this.awb.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                Dd();
-                ((ViewGroup) view).removeView(this.avm);
-                this.avn = false;
+                Dc();
+                ((ViewGroup) view).removeView(this.awb);
+                this.awc = false;
             } catch (Exception e) {
             }
         }
@@ -39,10 +39,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Dc() {
+    public void Db() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Dd() {
+    public void Dc() {
     }
 }

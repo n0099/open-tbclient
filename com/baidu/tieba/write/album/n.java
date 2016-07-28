@@ -3,7 +3,7 @@ package com.baidu.tieba.write.album;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface n {
-    void db(List<d> list);
+    void dn(List<d> list);
 
-    void jy();
+    void jx();
 }

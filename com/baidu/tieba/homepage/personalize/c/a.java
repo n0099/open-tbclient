@@ -9,25 +9,25 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.a<e> {
-    private final TbPageContext<?> Ea;
-    private TextView csS;
-    private String csT;
-    private e csU;
+    private final TbPageContext<?> EA;
+    private TextView cvD;
+    private String cvE;
+    private e cvF;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.Ea = tbPageContext;
-        this.csS = (TextView) getView().findViewById(u.g.read_progress_bar_time);
-        this.csT = this.Ea.getResources().getString(u.j.read_here);
-        this.csS.setOnClickListener(new b(this));
+        this.EA = tbPageContext;
+        this.cvD = (TextView) getView().findViewById(u.g.read_progress_bar_time);
+        this.cvE = this.EA.getResources().getString(u.j.read_here);
+        this.cvD.setOnClickListener(new b(this));
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            av.k(this.csS, u.f.selector_read_progess_bar);
-            av.j((View) this.csS, u.d.cp_link_tip_a);
+            av.k(this.cvD, u.f.selector_read_progess_bar);
+            av.j((View) this.cvD, u.d.cp_link_tip_a);
         }
         this.mSkinType = i;
     }
@@ -39,9 +39,9 @@ public class a extends com.baidu.tieba.card.a<e> {
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.csU = eVar;
-            this.csS.setText(String.valueOf(ba.z(eVar.mTimeStamp)) + this.csT);
-            d(this.Ea, TbadkCoreApplication.m9getInst().getSkinType());
+            this.cvF = eVar;
+            this.cvD.setText(String.valueOf(ba.u(eVar.mTimeStamp)) + this.cvE);
+            d(this.EA, TbadkCoreApplication.m10getInst().getSkinType());
         }
     }
 

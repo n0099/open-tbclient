@@ -8,33 +8,33 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends AuthorizationListener {
-    final /* synthetic */ LoginActivity dIF;
+    final /* synthetic */ LoginActivity dUO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(LoginActivity loginActivity) {
-        this.dIF = loginActivity;
+        this.dUO = loginActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_success", 0, "", new Object[0]);
-        this.dIF.aCO();
+        this.dUO.aFY();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_fail", i, str, new Object[0]);
         if (TextUtils.isEmpty(str)) {
-            this.dIF.showToast(u.j.data_load_error);
+            this.dUO.showToast(u.j.data_load_error);
         } else {
-            this.dIF.showToast(str);
+            this.dUO.showToast(str);
         }
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public boolean onForgetPwd() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_forgetpwd", 0, "", new Object[0]);
-        this.dIF.startActivity(new Intent(this.dIF.getPageContext().getPageActivity(), ForgetPwdActivity.class));
+        this.dUO.startActivity(new Intent(this.dUO.getPageContext().getPageActivity(), ForgetPwdActivity.class));
         return true;
     }
 }

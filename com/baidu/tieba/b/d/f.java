@@ -8,11 +8,11 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.b.b.g;
 /* loaded from: classes.dex */
 public class f extends LinearLayout {
-    private GLSurfaceView aQV;
-    private com.baidu.tieba.b.b.g aQW;
-    private boolean aQX;
-    private boolean aQY;
-    private a aQZ;
+    private GLSurfaceView aRP;
+    private com.baidu.tieba.b.b.g aRQ;
+    private boolean aRR;
+    private boolean aRS;
+    private a aRT;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,120 +21,120 @@ public class f extends LinearLayout {
 
     public f(Context context) {
         super(context);
-        this.aQX = false;
-        this.aQY = false;
+        this.aRR = false;
+        this.aRS = false;
         ap(context);
     }
 
     private void ap(Context context) {
-        this.aQV = new GLSurfaceView(context);
-        this.aQW = new com.baidu.tieba.b.b.g(context);
-        this.aQV.setEGLConfigChooser(new g(this));
+        this.aRP = new GLSurfaceView(context);
+        this.aRQ = new com.baidu.tieba.b.b.g(context);
+        this.aRP.setEGLConfigChooser(new g(this));
+        KF();
+    }
+
+    public void Kz() {
         KG();
+        this.aRQ.Kd();
     }
 
-    public void KA() {
-        KH();
-        this.aQW.Ke();
-    }
-
-    private void KG() {
-        if (!this.aQX) {
+    private void KF() {
+        if (!this.aRR) {
             setProjectionMode(1);
-            KI();
-            this.aQV.setRenderer(this.aQW);
-            addView(this.aQV);
-            this.aQX = true;
+            KH();
+            this.aRP.setRenderer(this.aRQ);
+            addView(this.aRP);
+            this.aRR = true;
         }
     }
 
+    public void KA() {
+        KG();
+        this.aRQ.Ke();
+    }
+
+    public void KG() {
+        this.aRP.setRenderMode(1);
+    }
+
     public void KB() {
-        KH();
-        this.aQW.Kf();
-    }
-
-    public void KH() {
-        this.aQV.setRenderMode(1);
-    }
-
-    public void KC() {
-        this.aQV.setRenderMode(0);
+        this.aRP.setRenderMode(0);
     }
 
     public void setProjectionMode(int i) {
-        this.aQW.setProjectionMode(i);
+        this.aRQ.setProjectionMode(i);
     }
 
     public void b(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {
-        this.aQW.a(bitmap, bitmap2, bitmap3, bitmap4, bitmap5, bitmap6);
+        this.aRQ.a(bitmap, bitmap2, bitmap3, bitmap4, bitmap5, bitmap6);
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        if (this.aQW != null) {
-            this.aQW.fB(i);
+        if (this.aRQ != null) {
+            this.aRQ.fA(i);
         }
     }
 
-    public void KI() {
-        if (this.aQV != null) {
-            this.aQV.setZOrderOnTop(true);
-            if (this.aQV.getHolder() != null) {
-                this.aQV.getHolder().setFormat(-3);
+    public void KH() {
+        if (this.aRP != null) {
+            this.aRP.setZOrderOnTop(true);
+            if (this.aRP.getHolder() != null) {
+                this.aRP.getHolder().setFormat(-3);
             }
-            this.aQV.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+            this.aRP.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
         }
     }
 
     public void setRotateRadius(float f) {
-        this.aQW.setRotateRadius(f);
+        this.aRQ.setRotateRadius(f);
     }
 
     public int getViewStatus() {
-        return this.aQW.getViewStatus();
+        return this.aRQ.getViewStatus();
     }
 
-    public boolean fD(int i) {
-        return this.aQW.getViewStatus() == i;
+    public boolean fC(int i) {
+        return this.aRQ.getViewStatus() == i;
     }
 
     public void uE() {
-        this.aQW.uE();
+        this.aRQ.uE();
     }
 
     public void setWriteEndCallBack(g.a aVar) {
-        this.aQW.setWriteEndCallBack(aVar);
+        this.aRQ.setWriteEndCallBack(aVar);
     }
 
     public void setDispathEventAction(a aVar) {
-        this.aQZ = aVar;
+        this.aRT = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.aQZ != null) {
-            this.aQZ.d(motionEvent);
+        if (this.aRT != null) {
+            this.aRT.d(motionEvent);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aQY) {
+        if (this.aRS) {
             return false;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     public void setForceInterrupt(boolean z) {
-        this.aQY = z;
+        this.aRS = z;
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        if (this.aQV != null) {
-            this.aQV.setVisibility(i);
+        if (this.aRP != null) {
+            this.aRP.setVisibility(i);
         }
     }
 }

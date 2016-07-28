@@ -64,7 +64,7 @@ class az implements bi.a {
             } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kw=")) {
                 return 3;
             } else {
-                str2 = com.baidu.tbadk.util.x.as(lowerCase, "kw=");
+                str2 = com.baidu.tbadk.util.y.as(lowerCase, "kw=");
                 if (!TextUtils.isEmpty(str2) && tbPageContext != null) {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
                     return 0;
@@ -80,7 +80,7 @@ class az implements bi.a {
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
             return 1;
         } else if (z && !TextUtils.isEmpty(str2)) {
-            com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m9getInst(), a.K(TbadkCoreApplication.m9getInst(), str2));
+            com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m10getInst(), a.K(TbadkCoreApplication.m10getInst(), str2));
             TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10320").s("obj_locate", 2).s("obj_type", 2));
             return 1;
         } else if (z3) {

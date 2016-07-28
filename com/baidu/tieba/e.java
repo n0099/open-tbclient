@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.LogoActivity;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    final /* synthetic */ d aHt;
+    final /* synthetic */ d aIk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.aHt = dVar;
+        this.aIk = dVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,16 +23,16 @@ class e implements View.OnClickListener {
         com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10793"));
         Intent intent = new Intent();
         intent.putExtra("class", 30);
-        intent.putExtra("jump_url", "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + com.baidu.tieba.c.a.Me().Ml());
+        intent.putExtra("jump_url", "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + com.baidu.tieba.c.a.Md().Mk());
         intent.putExtra("is_ad", true);
         TbadkCoreApplication.setIntent(intent);
-        com.baidu.adp.lib.h.h dM = com.baidu.adp.lib.h.h.dM();
-        logoActivity = this.aHt.aHs;
-        aVar = logoActivity.aHl;
-        dM.removeCallbacks(aVar);
-        logoActivity2 = this.aHt.aHs;
-        logoActivity2.aHj = true;
-        logoActivity3 = this.aHt.aHs;
-        logoActivity3.HM();
+        com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
+        logoActivity = this.aIk.aIj;
+        aVar = logoActivity.aIc;
+        dL.removeCallbacks(aVar);
+        logoActivity2 = this.aIk.aIj;
+        logoActivity2.aIa = true;
+        logoActivity3 = this.aIk.aIj;
+        logoActivity3.HK();
     }
 }

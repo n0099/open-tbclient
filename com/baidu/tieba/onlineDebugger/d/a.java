@@ -5,31 +5,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    public static final String[] dIo = {"com.baidu.adp", "com.baidu.tbadk", TbConfig.MAIN_PACKAGE_NAME};
-    private int dIp;
-    private String dIq;
-    private Map<String, Integer> dIr = new HashMap();
+    public static final String[] dUx = {"com.baidu.adp", "com.baidu.tbadk", TbConfig.MAIN_PACKAGE_NAME};
+    private Map<String, Integer> dUA = new HashMap();
+    private int dUy;
+    private String dUz;
     private String msgContent;
     private int msgType;
     private String toUid;
 
     public a() {
-        this.dIr.put("get", 3);
-        this.dIr.put("set", 3);
-        this.dIr.put("exe", 3);
-        this.dIr.put("shell", 3);
-        this.dIr.put("upload", 5);
-        this.dIr.put("show", 4);
-        this.dIr.put("new", 6);
-        this.dIr.put("sendcmd", 7);
+        this.dUA.put("get", 3);
+        this.dUA.put("set", 3);
+        this.dUA.put("exe", 3);
+        this.dUA.put("shell", 3);
+        this.dUA.put("upload", 5);
+        this.dUA.put("show", 4);
+        this.dUA.put("new", 6);
+        this.dUA.put("sendcmd", 7);
     }
 
-    public int aCJ() {
-        return this.dIp;
+    public int aFT() {
+        return this.dUy;
     }
 
-    public String aCK() {
-        return this.dIq;
+    public String aFU() {
+        return this.dUz;
     }
 
     public String getToUid() {
@@ -44,8 +44,8 @@ public class a {
         return this.msgContent;
     }
 
-    public void mY(String str) {
-        this.dIq = str;
+    public void nJ(String str) {
+        this.dUz = str;
     }
 
     public void setToUid(String str) {
@@ -61,8 +61,8 @@ public class a {
         this.msgContent = str.trim();
         if (this.msgType == 0 && (indexOf = str.indexOf(" ")) != -1) {
             String trim = str.substring(0, indexOf).trim();
-            if (this.dIr.containsKey(trim)) {
-                setMsgType(this.dIr.get(trim).intValue());
+            if (this.dUA.containsKey(trim)) {
+                setMsgType(this.dUA.get(trim).intValue());
             }
         }
     }

@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcel;
+import android.os.RemoteException;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.L;
@@ -56,7 +57,7 @@ public final class ShareService extends Service {
         }
 
         @Override // android.os.Binder
-        protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+        protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             Bundle readBundle;
             ShareModel shareModel;
             if (!d.b(ShareService.this)) {

@@ -10,36 +10,36 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ci implements View.OnClickListener {
-    final /* synthetic */ ch bGh;
-    private final /* synthetic */ com.baidu.tbadk.core.data.ao bGi;
+    final /* synthetic */ ch bHD;
+    private final /* synthetic */ com.baidu.tbadk.core.data.at bHE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(ch chVar, com.baidu.tbadk.core.data.ao aoVar) {
-        this.bGh = chVar;
-        this.bGi = aoVar;
+    public ci(ch chVar, com.baidu.tbadk.core.data.at atVar) {
+        this.bHD = chVar;
+        this.bHE = atVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.ao aoVar;
+        com.baidu.tbadk.core.data.at atVar;
         Context context;
         Context context2;
-        com.baidu.tbadk.core.data.ao aoVar2;
+        com.baidu.tbadk.core.data.at atVar2;
         TiebaStatic.log("cluster_btn_addFd");
-        com.baidu.tbadk.core.data.aq pR = this.bGi.pR();
-        aoVar = this.bGh.bGg;
-        if (aoVar != null) {
+        com.baidu.tbadk.core.data.av pA = this.bHE.pA();
+        atVar = this.bHD.bHC;
+        if (atVar != null) {
             MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.bGh.mContext;
-            String valueOf = String.valueOf(pR.getUserId());
-            String name = pR.getName();
-            String qb = pR.qb();
-            aoVar2 = this.bGh.bGg;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context2, valueOf, name, qb, null, false, AddFriendActivityConfig.TYPE_FRS_RECOM, aoVar2.pU())));
+            context2 = this.bHD.mContext;
+            String valueOf = String.valueOf(pA.getUserId());
+            String name = pA.getName();
+            String pK = pA.pK();
+            atVar2 = this.bHD.bHC;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context2, valueOf, name, pK, null, false, AddFriendActivityConfig.TYPE_FRS_RECOM, atVar2.pD())));
             return;
         }
         MessageManager messageManager2 = MessageManager.getInstance();
-        context = this.bGh.mContext;
-        messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(pR.getUserId()), pR.getName(), pR.qb(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
+        context = this.bHD.mContext;
+        messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(pA.getUserId()), pA.getName(), pA.pK(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
     }
 }

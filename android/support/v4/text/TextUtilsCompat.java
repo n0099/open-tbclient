@@ -1,25 +1,26 @@
 package android.support.v4.text;
 
 import com.baidu.location.BDLocation;
+import com.baidu.tieba.u;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class TextUtilsCompat {
     public static final Locale ROOT = new Locale("", "");
-    private static String cG = "Arab";
-    private static String cH = "Hebr";
+    private static String cF = "Arab";
+    private static String cG = "Hebr";
 
     public static String htmlEncode(String str) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
             char charAt = str.charAt(i);
             switch (charAt) {
-                case '\"':
+                case u.l.PullToRefresh_tb_ptrRotateDrawableWhilePulling /* 34 */:
                     sb.append("&quot;");
                     break;
-                case '&':
+                case u.l.PullToRefresh_adapterViewBackground /* 38 */:
                     sb.append("&amp;");
                     break;
-                case '\'':
+                case u.l.PullToRefresh_headerBackground /* 39 */:
                     sb.append("&#39;");
                     break;
                 case '<':
@@ -42,7 +43,7 @@ public class TextUtilsCompat {
             if (script == null) {
                 return c(locale);
             }
-            if (script.equalsIgnoreCase(cG) || script.equalsIgnoreCase(cH)) {
+            if (script.equalsIgnoreCase(cF) || script.equalsIgnoreCase(cG)) {
                 return 1;
             }
         }

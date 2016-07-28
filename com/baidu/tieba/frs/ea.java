@@ -5,34 +5,34 @@ import android.widget.TextView;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class ea implements com.baidu.adp.lib.f.c<TextView> {
-    final /* synthetic */ TabMenuPopView bHM;
+    final /* synthetic */ TabMenuPopView bJi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ea(TabMenuPopView tabMenuPopView) {
-        this.bHM = tabMenuPopView;
+        this.bJi = tabMenuPopView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Hu */
-    public TextView dF() {
+    /* renamed from: Hs */
+    public TextView dE() {
         Context context;
         Context context2;
-        context = this.bHM.mContext;
+        context = this.bJi.mContext;
         TextView textView = new TextView(context);
-        context2 = this.bHM.mContext;
+        context2 = this.bJi.mContext;
         textView.setTextSize(0, com.baidu.adp.lib.util.k.c(context2, u.e.fontsize28));
         com.baidu.tbadk.core.util.av.k(textView, u.f.bg_tab_meun);
         com.baidu.tbadk.core.util.av.c(textView, u.d.cp_cont_f, 1);
         textView.setGravity(17);
-        textView.setOnClickListener(this.bHM);
+        textView.setOnClickListener(this.bJi);
         return textView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: d */
-    public void l(TextView textView) {
+    public void o(TextView textView) {
         if (textView != null) {
             textView.setText("");
             textView.setTag(null);
@@ -43,7 +43,7 @@ class ea implements com.baidu.adp.lib.f.c<TextView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: e */
-    public TextView m(TextView textView) {
+    public TextView p(TextView textView) {
         if (textView != null) {
             com.baidu.tbadk.core.util.av.k(textView, u.f.bg_tab_meun);
             com.baidu.tbadk.core.util.av.c(textView, u.d.cp_cont_f, 1);
@@ -54,7 +54,7 @@ class ea implements com.baidu.adp.lib.f.c<TextView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: f */
-    public TextView n(TextView textView) {
+    public TextView q(TextView textView) {
         if (textView != null) {
             textView.setText("");
             textView.setTag(null);

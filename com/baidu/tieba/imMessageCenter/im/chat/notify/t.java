@@ -12,31 +12,31 @@ public class t extends w {
     }
 
     @Override // com.baidu.tbadk.core.view.t, com.baidu.adp.widget.ListView.d
-    public View jq() {
-        View jq = super.jq();
-        this.acC.setVisibility(4);
-        return jq;
+    public View jp() {
+        View jp = super.jp();
+        this.adn.setVisibility(4);
+        return jp;
     }
 
     @Override // com.baidu.tbadk.core.view.w, com.baidu.tbadk.core.view.t
     public void cT(int i) {
         super.cT(i);
-        av.l(this.acB, u.d.cp_bg_line_d);
+        av.l(this.adm, u.d.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.view.w, com.baidu.tbadk.core.view.t, com.baidu.adp.widget.ListView.d
-    public void N(boolean z) {
+    public void P(boolean z) {
     }
 
     @Override // com.baidu.tbadk.core.view.t, com.baidu.adp.widget.ListView.d
+    public void jq() {
+    }
+
+    @Override // com.baidu.tbadk.core.view.w, com.baidu.tbadk.core.view.t, com.baidu.adp.widget.ListView.d
     public void jr() {
     }
 
     @Override // com.baidu.tbadk.core.view.w, com.baidu.tbadk.core.view.t, com.baidu.adp.widget.ListView.d
-    public void js() {
-    }
-
-    @Override // com.baidu.tbadk.core.view.w, com.baidu.tbadk.core.view.t, com.baidu.adp.widget.ListView.d
-    public void O(boolean z) {
+    public void Q(boolean z) {
     }
 }

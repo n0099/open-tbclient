@@ -4,27 +4,29 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<String> axg;
-    private String axh;
-    private long axi;
+    public boolean axU = false;
+    private List<String> axV;
+    private String axW;
+    private long axX;
+    public String axY;
     private long fid;
     private long pid;
     private long tid;
 
-    public List<String> Eq() {
-        return this.axg;
+    public List<String> Ep() {
+        return this.axV;
     }
 
     public void D(List<String> list) {
-        this.axg = list;
+        this.axV = list;
     }
 
     public String getCurrentPageKey() {
-        return this.axh;
+        return this.axW;
     }
 
-    public void gc(String str) {
-        this.axh = str;
+    public void ga(String str) {
+        this.axW = str;
     }
 
     public long getFid() {
@@ -47,15 +49,18 @@ public class d {
         return this.pid;
     }
 
-    public long Er() {
-        return this.axi;
+    public long Eq() {
+        return this.axX;
     }
 
-    public void S(long j) {
-        this.axi = j;
+    public void N(long j) {
+        this.axX = j;
     }
 
-    public boolean Es() {
-        return StringUtils.isNull(this.axh) || this.axi <= 0;
+    public boolean Er() {
+        if (StringUtils.isNull(this.axW)) {
+            return true;
+        }
+        return !this.axU && this.axX <= 0;
     }
 }

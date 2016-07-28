@@ -10,8 +10,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class d extends f {
-    private final int aRA;
-    private final int aRz;
+    private final int aSt;
+    private final int aSu;
     private final int maxHeight;
     private final int maxWidth;
 
@@ -19,9 +19,9 @@ public class d extends f {
         super(tbPageContext);
         Resources resources = tbPageContext.getResources();
         int dimensionPixelSize = resources.getDimensionPixelSize(u.e.ds160);
-        this.aRz = (int) (resources.getDimension(u.e.ds594) - resources.getDimension(u.e.ds20));
-        this.aRA = (int) (resources.getDimension(u.e.ds260) - resources.getDimension(u.e.ds10));
-        this.maxWidth = com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m9getInst().getContext()) - dimensionPixelSize;
+        this.aSt = (int) (resources.getDimension(u.e.ds594) - resources.getDimension(u.e.ds20));
+        this.aSu = (int) (resources.getDimension(u.e.ds260) - resources.getDimension(u.e.ds10));
+        this.maxWidth = com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m10getInst().getContext()) - dimensionPixelSize;
         this.maxHeight = resources.getDimensionPixelSize(u.e.ds321);
     }
 
@@ -32,37 +32,37 @@ public class d extends f {
 
     @Override // com.baidu.tieba.card.f
     protected void R(View view) {
-        this.aRK = (TbImageView) view.findViewById(u.g.advert_app_img);
-        this.aRK.setDrawBorder(true);
-        this.aRK.setBorderWidth(1);
+        this.aSE = (TbImageView) view.findViewById(u.g.advert_app_img);
+        this.aSE.setDrawBorder(true);
+        this.aSE.setBorderWidth(1);
     }
 
     @Override // com.baidu.tieba.card.f
     protected void a(boolean z, com.baidu.tieba.card.a.d dVar) {
-        String Lq = dVar.Lq();
-        boolean a = a(this.aRK, dVar.Ls());
-        if (z && !TextUtils.isEmpty(Lq) && a) {
-            this.aRK.setVisibility(0);
-            this.aRK.c(Lq, this.mIsFromCDN ? 30 : 31, false);
+        String Lp = dVar.Lp();
+        boolean a = a(this.aSE, dVar.Lr());
+        if (z && !TextUtils.isEmpty(Lp) && a) {
+            this.aSE.setVisibility(0);
+            this.aSE.c(Lp, this.mIsFromCDN ? 30 : 31, false);
             return;
         }
-        this.aRK.setVisibility(8);
+        this.aSE.setVisibility(8);
     }
 
     private boolean a(TbImageView tbImageView, com.baidu.tbadk.core.data.b bVar) {
-        if (bVar == null || bVar.MW == null || tbImageView == null) {
-            a(tbImageView, this.aRA, this.aRz);
+        if (bVar == null || bVar.MU == null || tbImageView == null) {
+            a(tbImageView, this.aSu, this.aSt);
             return true;
         }
         int i = this.maxWidth;
-        if (!bVar.MW.Nm) {
-            a(tbImageView, (this.aRA * i) / this.aRz, i);
+        if (!bVar.MU.Nk) {
+            a(tbImageView, (this.aSu * i) / this.aSt, i);
             return true;
         }
-        int i2 = bVar.MW.height;
-        int i3 = bVar.MW.width;
+        int i2 = bVar.MU.height;
+        int i3 = bVar.MU.width;
         if (this.maxWidth <= 0 || i2 <= 0 || i3 <= 0) {
-            a(tbImageView, this.aRA, this.aRz);
+            a(tbImageView, this.aSu, this.aSt);
             return true;
         }
         int i4 = (i2 * i) / i3;
@@ -87,7 +87,7 @@ public class d extends f {
     }
 
     @Override // com.baidu.tieba.card.f
-    protected String KQ() {
+    protected String KP() {
         return "FRS";
     }
 }

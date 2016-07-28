@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.view.TextureVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements TextureVideoView.b {
-    final /* synthetic */ e dML;
+    final /* synthetic */ e dYX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.dML = eVar;
+        this.dYX = eVar;
     }
 
     @Override // com.baidu.tbadk.core.view.TextureVideoView.b
@@ -17,19 +17,19 @@ public class f implements TextureVideoView.b {
         y yVar2;
         y yVar3;
         y yVar4;
-        yVar = this.dML.dMD;
+        yVar = this.dYX.dYN;
         if (yVar != null) {
-            yVar2 = this.dML.dMD;
-            if (yVar2.aJJ != null) {
-                yVar3 = this.dML.dMD;
-                if (yVar3.aJJ.isPlaying()) {
-                    yVar4 = this.dML.dMD;
-                    yVar4.aJJ.vr();
-                    this.dML.d(false, 0);
+            yVar2 = this.dYX.dYN;
+            if (yVar2.aKC != null) {
+                yVar3 = this.dYX.dYN;
+                if (yVar3.aKC.isPlaying()) {
+                    yVar4 = this.dYX.dYN;
+                    yVar4.aKC.vr();
+                    this.dYX.e(false, 0);
                 }
             }
         }
-        this.dML.aiN();
-        this.dML.cyQ = false;
+        this.dYX.ajx();
+        this.dYX.cBF = false;
     }
 }

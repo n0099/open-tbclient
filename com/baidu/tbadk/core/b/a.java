@@ -10,70 +10,70 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a extends CustomMessageListener {
-    public static a RI = null;
-    private static HashMap<String, Integer> RJ = new HashMap<>();
-    private static ArrayList<String> RK;
-    private static HashMap<String, o<byte[]>> RL;
-    private static HashMap<String, o<String>> RM;
+    public static a Ss = null;
+    private static HashMap<String, Integer> St = new HashMap<>();
+    private static ArrayList<String> Su;
+    private static HashMap<String, o<byte[]>> Sv;
+    private static HashMap<String, o<String>> Sw;
 
     static {
-        RJ.put("tb.pb_mark", 50);
-        RJ.put("tb.pb_history", 300);
-        RJ.put("tb.pb_normal", 1);
-        RJ.put("tb.pb_editor", 50);
-        RJ.put("tb.live_hotlist", 20);
-        RJ.put("tb.live_hotlist", 20);
-        RJ.put("tb.my_pages", 5);
-        RJ.put("tb.my_forums", 3);
-        RJ.put("tb.my_bookmarks", 3);
-        RJ.put("tb.my_posts", 3);
-        RJ.put("tb.im_frsgroup", 50);
-        RJ.put("tb.im_hotgroup", 30);
-        RJ.put("tb.im_groupinfo", 50);
-        RJ.put("tb.im_groupactivity", 50);
-        RJ.put("tb.im_entergroup", 10);
-        RJ.put("tb.im_enterforum_groupinfo", 10);
-        RJ.put("tb.im_group_setting", 3);
-        RJ.put("tb.im_personal_chat_setting", 3);
-        RJ.put("tb.im_official_chat_setting", 3);
-        RJ.put("tb.im_group_search_history", 50);
-        RJ.put("tb.im_official_history", 50);
-        RJ.put("tb.im_recommend_detail", 10);
-        RJ.put("tb.square", 1);
-        RJ.put("tb.first_dir", 1);
-        RJ.put("tb.forum_rank", 20);
-        RJ.put("tb.pic_gif", 50);
-        RJ.put("tb.official_bar_menu", 1000);
-        RJ.put("tb.friend_feed", 20);
-        RJ.put("net_err_record", 30);
-        RJ.put("tb_face_package", 30);
-        RJ.put("tb.recommend_friend", 10);
-        RJ.put("tb.searchperson_history", 5);
-        RJ.put("tb.game_center_home", 20);
-        RJ.put("tb.game_center_list", 20);
-        RJ.put("tb.ecomm", 5);
-        RJ.put("tb.person_wallet_new", 10);
-        RK = new ArrayList<>();
-        RK.add("tb.square");
-        RK.add("tb.first_dir");
-        RK.add("tb.forum_rank");
-        RK.add("tb.im_group_setting");
-        RK.add("tb.im_personal_chat_setting");
-        RK.add("tb.im_official_chat_setting");
-        RK.add("net_err_record");
-        RK.add("tb_user_profile");
-        RK.add("tb_forum_recommend");
-        RK.add("tb.ad_killer_tags");
-        RK.add("tb.manga.settings");
-        RM = new HashMap<>();
-        RL = new HashMap<>();
+        St.put("tb.pb_mark", 50);
+        St.put("tb.pb_history", 300);
+        St.put("tb.pb_normal", 1);
+        St.put("tb.pb_editor", 50);
+        St.put("tb.live_hotlist", 20);
+        St.put("tb.live_hotlist", 20);
+        St.put("tb.my_pages", 5);
+        St.put("tb.my_forums", 3);
+        St.put("tb.my_bookmarks", 3);
+        St.put("tb.my_posts", 3);
+        St.put("tb.im_frsgroup", 50);
+        St.put("tb.im_hotgroup", 30);
+        St.put("tb.im_groupinfo", 50);
+        St.put("tb.im_groupactivity", 50);
+        St.put("tb.im_entergroup", 10);
+        St.put("tb.im_enterforum_groupinfo", 10);
+        St.put("tb.im_group_setting", 3);
+        St.put("tb.im_personal_chat_setting", 3);
+        St.put("tb.im_official_chat_setting", 3);
+        St.put("tb.im_group_search_history", 50);
+        St.put("tb.im_official_history", 50);
+        St.put("tb.im_recommend_detail", 10);
+        St.put("tb.square", 1);
+        St.put("tb.first_dir", 1);
+        St.put("tb.forum_rank", 20);
+        St.put("tb.pic_gif", 50);
+        St.put("tb.official_bar_menu", 1000);
+        St.put("tb.friend_feed", 20);
+        St.put("net_err_record", 30);
+        St.put("tb_face_package", 30);
+        St.put("tb.recommend_friend", 10);
+        St.put("tb.searchperson_history", 5);
+        St.put("tb.game_center_home", 20);
+        St.put("tb.game_center_list", 20);
+        St.put("tb.ecomm", 5);
+        St.put("tb.person_wallet_new", 10);
+        Su = new ArrayList<>();
+        Su.add("tb.square");
+        Su.add("tb.first_dir");
+        Su.add("tb.forum_rank");
+        Su.add("tb.im_group_setting");
+        Su.add("tb.im_personal_chat_setting");
+        Su.add("tb.im_official_chat_setting");
+        Su.add("net_err_record");
+        Su.add("tb_user_profile");
+        Su.add("tb_forum_recommend");
+        Su.add("tb.ad_killer_tags");
+        Su.add("tb.manga.settings");
+        Sw = new HashMap<>();
+        Sv = new HashMap<>();
     }
 
-    public static a rP() {
-        if (RI == null) {
-            RI = new a();
+    public static a rO() {
+        if (Ss == null) {
+            Ss = new a();
         }
-        return RI;
+        return Ss;
     }
 
     private a() {
@@ -94,21 +94,21 @@ public class a extends CustomMessageListener {
             return null;
         }
         String str3 = str2 != null ? String.valueOf(str) + str2 : str;
-        o<byte[]> oVar = RL.get(str3);
+        o<byte[]> oVar = Sv.get(str3);
         if (oVar == null || !(oVar instanceof o)) {
-            BdCacheService cH = BdCacheService.cH();
-            Integer num = RJ.get(str);
+            BdCacheService cG = BdCacheService.cG();
+            Integer num = St.get(str);
             num = (num == null || num.intValue() == 0) ? 20 : 20;
             BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-            if (RK.contains(str)) {
+            if (Su.contains(str)) {
                 cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
             }
             try {
-                oVar = cH.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                oVar = cG.b(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            RL.put(str3, oVar);
+            Sv.put(str3, oVar);
             return oVar;
         }
         return oVar;
@@ -119,16 +119,16 @@ public class a extends CustomMessageListener {
             return null;
         }
         String str3 = str2 != null ? String.valueOf(str) + str2 : str;
-        o<String> oVar = RM.get(str3);
-        BdCacheService cH = BdCacheService.cH();
-        Integer num = RJ.get(str);
+        o<String> oVar = Sw.get(str3);
+        BdCacheService cG = BdCacheService.cG();
+        Integer num = St.get(str);
         num = (num == null || num.intValue() == 0) ? 20 : 20;
         BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-        if (RK.contains(str)) {
+        if (Su.contains(str)) {
             cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
         }
         try {
-            return cH.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+            return cG.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
         } catch (Exception e) {
             BdLog.detailException(e);
             return oVar;
@@ -140,11 +140,11 @@ public class a extends CustomMessageListener {
             if (str2 != null) {
                 str = String.valueOf(str) + str2;
             }
-            o<String> oVar = RM.get(str);
+            o<String> oVar = Sw.get(str);
             if (oVar != null) {
                 try {
-                    BdCacheService.cH().a(oVar);
-                    RM.remove(str);
+                    BdCacheService.cG().a(oVar);
+                    Sw.remove(str);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -159,7 +159,7 @@ public class a extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        RL.clear();
-        RM.clear();
+        Sv.clear();
+        Sw.clear();
     }
 }

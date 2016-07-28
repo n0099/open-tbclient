@@ -13,28 +13,28 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private static b atL;
+    private static b auA;
 
     private b() {
     }
 
-    public static b CI() {
-        if (atL == null) {
+    public static b CH() {
+        if (auA == null) {
             synchronized (b.class) {
-                if (atL == null) {
-                    atL = new b();
+                if (auA == null) {
+                    auA = new b();
                 }
             }
         }
-        return atL;
+        return auA;
     }
 
-    public void CJ() {
+    public void CI() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void CK() {
+    public void CJ() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -59,7 +59,7 @@ public class b {
             currentAccountObj.setMemberType(userData.getIsMem());
             currentAccountObj.setVipInfo(userData.getUserVipInfo());
             currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
-            TbadkCoreApplication.m9getInst().setDefaultBubble(userData.getBimg_url());
+            TbadkCoreApplication.m10getInst().setDefaultBubble(userData.getBimg_url());
             h payMemberInfoData = userData.getPayMemberInfoData();
             if (currentAccountObj.getVipInfo() != null) {
                 currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
@@ -73,7 +73,7 @@ public class b {
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            k.dN().b(new c(this, currentAccountObj));
+            k.dM().e(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }

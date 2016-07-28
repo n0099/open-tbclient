@@ -22,17 +22,17 @@ class q extends CustomMessageListener {
         ab abVar3;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            int oldSkinType = TbadkCoreApplication.m9getInst().getOldSkinType();
+            int oldSkinType = TbadkCoreApplication.m10getInst().getOldSkinType();
             if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
                 if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-                    abVar3 = this.this$0.fbu;
-                    abVar3.bed().cj(1);
-                } else if (TbadkCoreApplication.m9getInst().isThemeIconCover()) {
-                    abVar2 = this.this$0.fbu;
-                    abVar2.bed().cj(2);
+                    abVar3 = this.this$0.foy;
+                    abVar3.bhv().cj(1);
+                } else if (TbadkCoreApplication.m10getInst().isThemeIconCover()) {
+                    abVar2 = this.this$0.foy;
+                    abVar2.bhv().cj(2);
                 } else {
-                    abVar = this.this$0.fbu;
-                    abVar.bed().cj(1);
+                    abVar = this.this$0.foy;
+                    abVar.bhv().cj(1);
                 }
             }
         }

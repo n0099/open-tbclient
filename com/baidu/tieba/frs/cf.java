@@ -15,14 +15,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tbadk.j.a;
+import com.baidu.tieba.frs.h.b;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class cf extends bj<com.baidu.tbadk.core.data.ak, cg> implements View.OnClickListener, PhotoLiveCardView.b {
-    private TbPageContext<?> Ea;
+public class cf extends bj<com.baidu.tbadk.core.data.ap, cg> implements View.OnClickListener, PhotoLiveCardView.b, com.baidu.tieba.frs.h.e {
+    private TbPageContext<?> EA;
+    private com.baidu.tbadk.core.data.ap bHy;
 
     public cf(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.Ea = baseActivity.getPageContext();
+        this.EA = baseActivity.getPageContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,32 +38,34 @@ public class cf extends bj<com.baidu.tbadk.core.data.ak, cg> implements View.OnC
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.bj, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ak akVar, cg cgVar) {
-        super.a(i, view, viewGroup, (ViewGroup) akVar, (com.baidu.tbadk.core.data.ak) cgVar);
-        if (cgVar.aeK != this.mSkinType) {
-            a.a(this.bkc.getPageContext(), view);
-            cgVar.aeK = this.mSkinType;
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ap apVar, cg cgVar) {
+        super.a(i, view, viewGroup, (ViewGroup) apVar, (com.baidu.tbadk.core.data.ap) cgVar);
+        if (cgVar.afy != this.mSkinType) {
+            a.a(this.bem.getPageContext(), view);
+            cgVar.afy = this.mSkinType;
         }
-        cgVar.bGd.setOnClickListener(this);
-        cgVar.bGd.setTag(akVar);
-        cgVar.bGe.setShowBottom(false);
-        cgVar.bGe.setShowContent(false);
-        cgVar.bGe.setShowRefreshTimeInHead(true);
-        cgVar.bGe.setShowLiveIcon(true);
-        cgVar.bGe.setHeadPaddingTop(0);
-        cgVar.bGe.setChooseStyle(akVar.pL().getShowStyle());
-        cgVar.bGe.setShowImage(com.baidu.tbadk.core.l.nW().oc());
-        cgVar.bGe.setData(akVar.pL());
-        cgVar.bGe.setPortraitClicklistener(this);
-        cgVar.bGf.setOnClickListener(this);
-        cgVar.bGf.setTag(akVar);
+        this.bHy = apVar;
+        cgVar.bHz.setOnClickListener(this);
+        cgVar.bHz.setTag(apVar);
+        cgVar.bHA.setShowBottom(false);
+        cgVar.bHA.setShowContent(false);
+        cgVar.bHA.setShowRefreshTimeInHead(true);
+        cgVar.bHA.setShowLiveIcon(true);
+        cgVar.bHA.setHeadPaddingTop(0);
+        cgVar.bHA.setChooseStyle(apVar.pu().getShowStyle());
+        cgVar.bHA.setShowImage(com.baidu.tbadk.core.l.nL().nR());
+        cgVar.bHA.setData(apVar.pu());
+        cgVar.bHA.setPortraitClicklistener(this);
+        cgVar.bHB.setOnClickListener(this);
+        cgVar.bHB.setTag(apVar);
+        b.aam().a(bSh, apVar);
         return view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getTag() instanceof com.baidu.tbadk.core.data.ak) {
-            this.bEt.a(view.getId(), 0, view, null, (com.baidu.tbadk.core.data.ak) view.getTag());
+        if (view.getTag() instanceof com.baidu.tbadk.core.data.ap) {
+            this.bFF.a(view.getId(), 0, view, null, (com.baidu.tbadk.core.data.ap) view.getTag());
         }
     }
 
@@ -71,17 +75,18 @@ public class cf extends bj<com.baidu.tbadk.core.data.ak, cg> implements View.OnC
         if (tag instanceof PhotoLiveCardData) {
             PhotoLiveCardData photoLiveCardData = (PhotoLiveCardData) tag;
             if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.Ea.getPageActivity(), photoLiveCardData.getAuthorId(), null)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.EA.getPageActivity(), photoLiveCardData.getAuthorId(), null)));
             }
             TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10178").ab("fid", String.valueOf(photoLiveCardData.getForumId())));
         }
+        b.aam().a(bSh, this.bHy, 2);
     }
 
-    public int WR() {
+    public int Xj() {
         return u.g.more_live_list;
     }
 
-    public int WS() {
+    public int Xk() {
         return u.g.make_headlines;
     }
 }

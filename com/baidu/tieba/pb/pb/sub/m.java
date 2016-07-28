@@ -2,11 +2,11 @@ package com.baidu.tieba.pb.pb.sub;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements Runnable {
-    final /* synthetic */ NewSubPbActivity dWP;
+    final /* synthetic */ NewSubPbActivity ejr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.dWP = newSubPbActivity;
+        this.ejr = newSubPbActivity;
     }
 
     @Override // java.lang.Runnable
@@ -14,10 +14,10 @@ public class m implements Runnable {
         af afVar;
         aw awVar;
         aw awVar2;
-        afVar = this.dWP.dWE;
-        awVar = this.dWP.dWC;
-        String aIP = awVar.aIP();
-        awVar2 = this.dWP.dWC;
-        afVar.bz(aIP, awVar2.aIT());
+        afVar = this.ejr.ejg;
+        awVar = this.ejr.eje;
+        String aMa = awVar.aMa();
+        awVar2 = this.ejr.eje;
+        afVar.bE(aMa, awVar2.aMe());
     }
 }

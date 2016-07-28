@@ -6,85 +6,85 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class d {
-    public static String jS = "_crashtime";
-    public static String jT = "_crashtype";
-    private int jU;
-    private int jV;
-    private c jW;
+    public static String kx = "_crashtime";
+    public static String ky = "_crashtype";
+    private int kA;
+    private int kB;
+    private c kC;
 
     public d(c cVar) {
-        this.jU = 0;
-        this.jV = 0;
-        this.jW = null;
+        this.kA = 0;
+        this.kB = 0;
+        this.kC = null;
         if (cVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.jW = cVar;
-        if (this.jW.getMaxCrashTimes() > 0 && this.jW.cQ() != null) {
-            this.jU = cS();
-            if (this.jU == -1) {
+        this.kC = cVar;
+        if (this.kC.getMaxCrashTimes() > 0 && this.kC.cP() != null) {
+            this.kA = cR();
+            if (this.kA == -1) {
                 reset();
             }
         }
-        this.jV = cR();
-        this.jW.b(this.jV, true);
+        this.kB = cQ();
+        this.kC.d(this.kB, true);
     }
 
     public String getName() {
-        return this.jW.getName();
+        return this.kC.getName();
     }
 
     public int getDefaultType() {
-        return this.jW.getDefaultType();
+        return this.kC.getDefaultType();
     }
 
     public int getType() {
-        return this.jV;
+        return this.kB;
     }
 
-    public boolean I(int i) {
-        if (this.jW.getMaxCrashTimes() >= 0 && this.jU >= this.jW.getMaxCrashTimes() + 2) {
-            i = this.jW.getOffType();
+    public boolean L(int i) {
+        if (this.kC.getMaxCrashTimes() >= 0 && this.kA >= this.kC.getMaxCrashTimes() + 2) {
+            i = this.kC.getOffType();
         }
-        if (i == this.jV) {
+        if (i == this.kB) {
             return false;
         }
-        this.jV = i;
-        this.jW.b(this.jV, false);
-        J(i);
+        this.kB = i;
+        this.kC.d(this.kB, false);
+        M(i);
         return true;
     }
 
-    public boolean Y(String str) {
+    public boolean aa(String str) {
         String[] switchLibs;
-        String[] cQ;
-        if (str == null || this.jW.getMaxCrashTimes() <= 0) {
+        String[] cP;
+        if (str == null || this.kC.getMaxCrashTimes() <= 0) {
             return false;
         }
-        if (this.jW.cQ() != null) {
-            for (String str2 : this.jW.cQ()) {
+        if (this.kC.cP() != null) {
+            for (String str2 : this.kC.cP()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.jU++;
-                    K(this.jU);
-                    if (this.jU >= this.jW.getMaxCrashTimes()) {
-                        J(this.jW.getOffType());
-                        this.jV = this.jW.getOffType();
-                        this.jW.b(this.jW.getOffType(), false);
+                    this.kA++;
+                    N(this.kA);
+                    if (this.kA >= this.kC.getMaxCrashTimes()) {
+                        M(this.kC.getOffType());
+                        this.kB = this.kC.getOffType();
+                        this.kC.d(this.kC.getOffType(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.jW.getSwitchLibs() != null) {
-            for (String str3 : this.jW.getSwitchLibs()) {
+        if (this.kC.getSwitchLibs() != null) {
+            for (String str3 : this.kC.getSwitchLibs()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.jU++;
-                    K(this.jU);
-                    if (this.jU >= this.jW.getMaxCrashTimes()) {
-                        J(this.jW.getOffType());
-                        this.jV = this.jW.getOffType();
-                        this.jW.b(this.jW.getOffType(), false);
+                    this.kA++;
+                    N(this.kA);
+                    if (this.kA >= this.kC.getMaxCrashTimes()) {
+                        M(this.kC.getOffType());
+                        this.kB = this.kC.getOffType();
+                        this.kC.d(this.kC.getOffType(), false);
                         return true;
                     }
                     return true;
@@ -94,31 +94,31 @@ public class d {
         return false;
     }
 
-    private void J(int i) {
+    private void M(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.jW.getName()) + jT, i);
+        edit.putInt(String.valueOf(this.kC.getName()) + ky, i);
         edit.commit();
     }
 
+    private int cQ() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.kC.getName()) + ky, this.kC.getDefaultType());
+    }
+
     private int cR() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.jW.getName()) + jT, this.jW.getDefaultType());
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.kC.getName()) + kx, -1);
     }
 
-    private int cS() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.jW.getName()) + jS, -1);
-    }
-
-    private void K(int i) {
+    private void N(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.jW.getName()) + jS, i);
+        edit.putInt(String.valueOf(this.kC.getName()) + kx, i);
         edit.commit();
     }
 
     public void reset() {
-        this.jU = 0;
+        this.kA = 0;
     }
 
-    public void L(int i) {
-        this.jU = i;
+    public void O(int i) {
+        this.kA = i;
     }
 }

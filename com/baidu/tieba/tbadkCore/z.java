@@ -9,11 +9,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
+    private String aMb;
     private int cur_score;
-    private int eWh;
-    private int eWi;
-    private List<FeedForumData> eWj = new ArrayList();
-    private String fid;
+    private int fjj;
+    private int fjk;
+    private List<FeedForumData> fjl = new ArrayList();
     private int is_like;
     private String level_name;
     private int levelup_score;
@@ -21,20 +21,20 @@ public class z {
 
     public z() {
         setLike(0);
-        this.eWh = 0;
-        this.eWi = 0;
+        this.fjj = 0;
+        this.fjk = 0;
         this.user_level = 0;
         setLevelName("");
         setCurScore(0);
         setLevelupScore(0);
     }
 
-    public String getFid() {
-        return this.fid;
+    public String beF() {
+        return this.aMb;
     }
 
-    public void setFid(String str) {
-        this.fid = str;
+    public void gF(String str) {
+        this.aMb = str;
     }
 
     public int getUserLevel() {
@@ -51,7 +51,7 @@ public class z {
         try {
             JSONObject jSONObject = new JSONObject(str);
             parserJson(jSONObject.optJSONObject(LoginActivityConfig.INFO));
-            f(jSONObject.optJSONArray("feed_forum"));
+            g(jSONObject.optJSONArray("feed_forum"));
         } catch (Exception e) {
             BdLog.detailException(e);
         }
@@ -61,8 +61,8 @@ public class z {
         if (jSONObject != null) {
             try {
                 setLike(jSONObject.optInt("is_like", 0));
-                this.eWh = jSONObject.optInt("is_black", 0);
-                this.eWi = jSONObject.optInt("like_num", 0);
+                this.fjj = jSONObject.optInt("is_black", 0);
+                this.fjk = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLevelName(jSONObject.optString("level_name", ""));
                 setLevelupScore(jSONObject.optInt("levelup_score", 0));
@@ -73,7 +73,7 @@ public class z {
         }
     }
 
-    public void f(JSONArray jSONArray) {
+    public void g(JSONArray jSONArray) {
         int i = 0;
         while (true) {
             try {
@@ -89,7 +89,7 @@ public class z {
                     feedForumData.setReason(jSONObject.getString("reason"));
                     feedForumData.setIsLike(Integer.parseInt(jSONObject.getString("is_like")));
                     feedForumData.setPos(Integer.parseInt(jSONObject.getString("pos")));
-                    this.eWj.add(feedForumData);
+                    this.fjl.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -133,7 +133,7 @@ public class z {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> baj() {
-        return this.eWj;
+    public List<FeedForumData> bdx() {
+        return this.fjl;
     }
 }

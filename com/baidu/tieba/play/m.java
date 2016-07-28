@@ -7,21 +7,21 @@ import android.widget.TextView;
 import com.baidu.tieba.play.j;
 /* loaded from: classes.dex */
 class m implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ j eDO;
+    final /* synthetic */ j ePx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.eDO = jVar;
+        this.ePx = jVar;
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
     public void onStartTrackingTouch(SeekBar seekBar) {
         Handler handler;
         Handler handler2;
-        this.eDO.cDm = true;
-        handler = this.eDO.mHandler;
+        this.ePx.cGb = true;
+        handler = this.ePx.mHandler;
         handler.removeMessages(1);
-        handler2 = this.eDO.eDN;
+        handler2 = this.ePx.ePw;
         handler2.removeMessages(2);
     }
 
@@ -33,22 +33,22 @@ class m implements SeekBar.OnSeekBarChangeListener {
         j.a aVar;
         j.a aVar2;
         TextView textView2;
-        String kl;
+        String kr;
         if (z) {
-            mediaPlayerControl = this.eDO.cDj;
+            mediaPlayerControl = this.ePx.cFY;
             long duration = (mediaPlayerControl.getDuration() * i) / 10000;
-            mediaPlayerControl2 = this.eDO.cDj;
+            mediaPlayerControl2 = this.ePx.cFY;
             mediaPlayerControl2.seekTo((int) duration);
-            textView = this.eDO.cDk;
+            textView = this.ePx.cFZ;
             if (textView != null) {
-                textView2 = this.eDO.cDk;
-                kl = this.eDO.kl((int) duration);
-                textView2.setText(kl);
+                textView2 = this.ePx.cFZ;
+                kr = this.ePx.kr((int) duration);
+                textView2.setText(kr);
             }
-            aVar = this.eDO.aKm;
+            aVar = this.ePx.aLf;
             if (aVar != null) {
-                aVar2 = this.eDO.aKm;
-                aVar2.IJ();
+                aVar2 = this.ePx.aLf;
+                aVar2.II();
             }
         }
     }
@@ -57,11 +57,11 @@ class m implements SeekBar.OnSeekBarChangeListener {
     public void onStopTrackingTouch(SeekBar seekBar) {
         Handler handler;
         Handler handler2;
-        this.eDO.cDm = false;
-        this.eDO.ajJ();
-        handler = this.eDO.mHandler;
+        this.ePx.cGb = false;
+        this.ePx.akt();
+        handler = this.ePx.mHandler;
         handler.sendEmptyMessage(1);
-        handler2 = this.eDO.eDN;
+        handler2 = this.ePx.ePw;
         handler2.sendEmptyMessage(2);
     }
 }

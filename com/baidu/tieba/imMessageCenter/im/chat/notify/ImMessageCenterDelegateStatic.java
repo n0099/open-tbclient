@@ -15,9 +15,9 @@ import com.baidu.tieba.imMessageCenter.mention.bf;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private TextView amN;
-    private CustomMessageListener cYN;
-    private com.baidu.adp.framework.listener.e cYO = new d(this, 104106);
+    private TextView anC;
+    private CustomMessageListener dbK;
+    private com.baidu.adp.framework.listener.e dbL = new d(this, 104106);
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -25,30 +25,30 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Dl() {
+    public com.baidu.tbadk.mainTab.c Dk() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         bf bfVar = new bf();
         bfVar.setPageType(1);
-        cVar.avM = bfVar;
+        cVar.awB = bfVar;
         cVar.type = 3;
-        cVar.avN = u.j.enter_message;
-        cVar.avO = u.f.s_tabbar_icon_three_bg;
+        cVar.awC = u.j.enter_message;
+        cVar.awD = u.f.s_tabbar_icon_three_bg;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator ah(Context context) {
-        this.avz = (FragmentTabIndicator) LayoutInflater.from(context).inflate(u.h.fragmenttabindicator, (ViewGroup) null);
-        this.amN = (TextView) LayoutInflater.from(context).inflate(u.h.message_tip_item, (ViewGroup) null);
+        this.awo = (FragmentTabIndicator) LayoutInflater.from(context).inflate(u.h.fragmenttabindicator, (ViewGroup) null);
+        this.anC = (TextView) LayoutInflater.from(context).inflate(u.h.message_tip_item, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.avL = this.avz;
-        aVar.kD = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
-        aVar.view = this.amN;
-        aVar.avJ = u.f.icon_dot_orange;
-        aVar.avK = u.d.common_color_10225;
-        this.amN.setVisibility(8);
-        this.avz.a(AddFriendActivityConfig.MSG, aVar);
-        return this.avz;
+        aVar.awA = this.awo;
+        aVar.lg = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
+        aVar.view = this.anC;
+        aVar.awy = u.f.icon_dot_orange;
+        aVar.awz = u.d.common_color_10225;
+        this.anC.setVisibility(8);
+        this.awo.a(AddFriendActivityConfig.MSG, aVar);
+        return this.awo;
     }
 
     static {
@@ -56,17 +56,17 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Dk() {
-        this.cYN = new e(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
-        MessageManager.getInstance().registerListener(this.cYN);
-        MessageManager.getInstance().registerListener(this.cYO);
+    public void Dj() {
+        this.dbK = new e(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
+        MessageManager.getInstance().registerListener(this.dbK);
+        MessageManager.getInstance().registerListener(this.dbL);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void ay() {
         super.ay();
-        MessageManager.getInstance().unRegisterListener(this.cYN);
-        MessageManager.getInstance().unRegisterListener(this.cYO);
+        MessageManager.getInstance().unRegisterListener(this.dbK);
+        MessageManager.getInstance().unRegisterListener(this.dbL);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

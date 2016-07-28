@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a anl;
-    private final /* synthetic */ int cGS;
-    final /* synthetic */ ab fbT;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aoa;
+    private final /* synthetic */ int cJH;
+    final /* synthetic */ ab foX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ab abVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.fbT = abVar;
-        this.anl = aVar;
-        this.cGS = i;
+        this.foX = abVar;
+        this.aoa = aVar;
+        this.cJH = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -26,18 +26,18 @@ public class ap implements a.b {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
         MainTabActivity mainTabActivity3;
-        this.anl.dismiss();
+        this.aoa.dismiss();
         String str = null;
-        if (this.cGS == 0) {
+        if (this.cJH == 0) {
             str = "4006001000";
-            mainTabActivity3 = this.fbT.fbI;
+            mainTabActivity3 = this.foX.foM;
             TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
-        } else if (this.cGS == 1) {
+        } else if (this.cJH == 1) {
             str = "4005001000";
-            mainTabActivity = this.fbT.fbI;
+            mainTabActivity = this.foX.foM;
             TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
         }
-        mainTabActivity2 = this.fbT.fbI;
+        mainTabActivity2 = this.foX.foM;
         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(mainTabActivity2.getPageContext().getPageActivity(), 2);
         if (!StringUtils.isNULL(str)) {
             memberPayActivityConfig.setSceneId(str);

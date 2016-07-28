@@ -6,15 +6,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class af implements View.OnClickListener {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayout adS;
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout aeG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
-        this.adS = threadCommentAndPraiseInfoLayout;
+        this.aeG = threadCommentAndPraiseInfoLayout;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0063  */
@@ -24,37 +24,37 @@ class af implements View.OnClickListener {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onClick(View view) {
-        az azVar;
-        az azVar2;
+        be beVar;
+        be beVar2;
         String str;
         Context context;
-        az azVar3;
+        be beVar3;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
         String str2;
         Context context2;
-        az azVar4;
+        be beVar4;
         String str3;
         String str4;
-        azVar = this.adS.aas;
-        if (azVar != null) {
-            azVar2 = this.adS.aas;
-            if (!StringUtils.isNull(azVar2.getForum_name())) {
-                str = this.adS.adJ;
+        beVar = this.aeG.abb;
+        if (beVar != null) {
+            beVar2 = this.aeG.abb;
+            if (!StringUtils.isNull(beVar2.getForum_name())) {
+                str = this.aeG.aex;
                 if (!StringUtils.isNull(str)) {
-                    str2 = this.adS.adK;
+                    str2 = this.aeG.aey;
                     if (!StringUtils.isNull(str2)) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        context2 = this.adS.mContext;
+                        context2 = this.aeG.mContext;
                         FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context2);
-                        azVar4 = this.adS.aas;
-                        String forum_name = azVar4.getForum_name();
-                        str3 = this.adS.adJ;
-                        str4 = this.adS.adK;
+                        beVar4 = this.aeG.abb;
+                        String forum_name = beVar4.getForum_name();
+                        str3 = this.aeG.aex;
+                        str4 = this.aeG.aey;
                         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(forum_name, str3, str4)));
-                        onClickListener = this.adS.adL;
+                        onClickListener = this.aeG.aez;
                         if (onClickListener == null) {
-                            onClickListener2 = this.adS.adL;
+                            onClickListener2 = this.aeG.aez;
                             onClickListener2.onClick(view);
                             return;
                         }
@@ -62,11 +62,11 @@ class af implements View.OnClickListener {
                     }
                 }
                 MessageManager messageManager2 = MessageManager.getInstance();
-                context = this.adS.mContext;
+                context = this.aeG.mContext;
                 FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(context);
-                azVar3 = this.adS.aas;
-                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(azVar3.getForum_name(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                onClickListener = this.adS.adL;
+                beVar3 = this.aeG.abb;
+                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(beVar3.getForum_name(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                onClickListener = this.aeG.aez;
                 if (onClickListener == null) {
                 }
             }

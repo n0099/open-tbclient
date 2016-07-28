@@ -1,39 +1,86 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.u;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dd implements Runnable {
-    final /* synthetic */ dc dQK;
+public class dd extends ge {
+    private com.baidu.adp.lib.guide.d ecW;
+    private View ecX;
+    private com.baidu.tieba.pb.a ecY;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dd(dc dcVar) {
-        this.dQK = dcVar;
+    public dd(BaseActivity baseActivity, View view) {
+        super(baseActivity, view);
+        this.ecX = null;
+        this.ecY = null;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.adp.lib.guide.d dVar;
-        View view;
-        com.baidu.adp.lib.guide.d dVar2;
-        com.baidu.adp.lib.guide.d dVar3;
-        dVar = this.dQK.dQH;
-        if (dVar == null && this.dQK.bkc != null) {
-            String string = this.dQK.bkc.getResources().getString(u.j.graffiti_pb_bottom_tips);
-            if (!StringUtils.isNull(string)) {
-                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-                view = this.dQK.dQI;
-                gVar.o(view).N(0).u(true).v(true);
-                gVar.a(new de(this, string));
-                this.dQK.dQH = gVar.cW();
-                dVar2 = this.dQK.dQH;
-                dVar2.s(false);
-                dVar3 = this.dQK.dQH;
-                dVar3.f(this.dQK.bkc.getPageContext().getPageActivity());
-                com.baidu.adp.lib.h.h.dM().postDelayed(new df(this), 3000L);
+    @Override // com.baidu.tieba.pb.pb.main.ge
+    protected void a(e eVar) {
+        this.ecX = this.mRootView.findViewById(u.g.pb_editor_tool_comment_graffiti_icon);
+        aIN();
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.ge
+    protected void onChangeSkinType(int i) {
+        if (this.ecY != null) {
+            this.ecY.changeSkinType(i);
+        }
+    }
+
+    private void aIN() {
+        CustomResponsedMessage runTask;
+        if (this.bem != null && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GRAFFITI_QUICK_VOTE_VIEW, this.bem.getPageContext().getPageActivity()), com.baidu.tieba.pb.a.class)) != null && runTask.getData() != null) {
+            this.ecY = (com.baidu.tieba.pb.a) runTask.getData();
+            ViewGroup viewGroup = (ViewGroup) this.bem.findViewById(u.g.pb_comment_container);
+            if (this.ecY != null && viewGroup != null) {
+                viewGroup.addView(this.ecY, 0, new LinearLayout.LayoutParams(-1, -2));
             }
         }
+    }
+
+    public void aIO() {
+        com.baidu.adp.lib.h.h.dL().postDelayed(new de(this), 50L);
+    }
+
+    public void Bx() {
+        if (this.ecW != null) {
+            this.ecW.dismiss();
+            this.ecW = null;
+        }
+    }
+
+    public void c(com.baidu.tbadk.core.data.aa aaVar) {
+        if (this.ecY != null) {
+            this.ecY.b(aaVar);
+        }
+    }
+
+    public boolean aIP() {
+        return this.ecY != null && this.ecY.getVisibility() == 0;
+    }
+
+    public void aIQ() {
+        if (this.ecY != null && this.ecX != null) {
+            this.ecY.abh();
+            this.ecX.setSelected(true);
+        }
+    }
+
+    public void aIR() {
+        if (this.ecY != null && this.ecX != null) {
+            this.ecY.agc();
+            this.ecX.setSelected(false);
+        }
+    }
+
+    public View aIS() {
+        return this.ecX;
     }
 }

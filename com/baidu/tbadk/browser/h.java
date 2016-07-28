@@ -7,40 +7,40 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tbadk.core.c.o {
+public class h extends com.baidu.tbadk.core.c.p {
     /* JADX INFO: Access modifiers changed from: protected */
-    public h(com.baidu.tbadk.core.c.m mVar) {
-        super(mVar);
+    public h(com.baidu.tbadk.core.c.n nVar) {
+        super(nVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.c.o
-    public String ne() {
+    @Override // com.baidu.tbadk.core.c.p
+    public String mU() {
         return "TBHY_COMMON_Utils";
     }
 
-    @com.baidu.tbadk.core.c.p(sC = false, value = "showToast")
+    @com.baidu.tbadk.core.c.q(sB = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).sb();
+            BdToast.a(getContext(), jSONObject.optString("message")).sa();
         }
     }
 
-    @com.baidu.tbadk.core.c.p(sC = false, value = "showNetStatus")
+    @com.baidu.tbadk.core.c.q(sB = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (com.baidu.adp.lib.util.i.fs()) {
+        if (com.baidu.adp.lib.util.i.fr()) {
             i = 1;
             str = "WIFI";
-        } else if (com.baidu.adp.lib.util.i.fw()) {
+        } else if (com.baidu.adp.lib.util.i.fv()) {
             i = 3;
             str = "2G";
-        } else if (com.baidu.adp.lib.util.i.fv()) {
+        } else if (com.baidu.adp.lib.util.i.fu()) {
             i = 4;
             str = "3G";
-        } else if (com.baidu.adp.lib.util.i.fu()) {
+        } else if (com.baidu.adp.lib.util.i.ft()) {
             i = 5;
             str = "4G";
         }
@@ -52,14 +52,14 @@ public class h extends com.baidu.tbadk.core.c.o {
         return jSONObject;
     }
 
-    @com.baidu.tbadk.core.c.p(sC = false, value = "showDeviceInfo")
+    @com.baidu.tbadk.core.c.q(sB = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
-        String cuid = TbadkCoreApplication.m9getInst().getCuid();
+        String cuid = TbadkCoreApplication.m10getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
         String str3 = String.valueOf(String.valueOf(com.baidu.adp.lib.util.k.A(getContext()))) + "," + String.valueOf(com.baidu.adp.lib.util.k.B(getContext()));
-        String versionName = TbadkCoreApplication.m9getInst().getVersionName();
+        String versionName = TbadkCoreApplication.m10getInst().getVersionName();
         try {
             jSONObject.put("systemName", SocialConstants.ANDROID_CLIENT_TYPE);
             jSONObject.put("systemVersion", str);

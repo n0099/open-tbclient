@@ -15,20 +15,20 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
 public class h implements c {
-    private Set<String> ih = new HashSet();
-    private Element il;
+    private Set<String> iO = new HashSet();
+    private Element iS;
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.il = element;
+        this.iS = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i = 0; i < length; i++) {
                 Node item = attributes.item(i);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.ih.add(nodeName2);
+                    this.iO.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -36,15 +36,15 @@ public class h implements c {
             for (int i2 = 0; i2 < length2; i2++) {
                 Node item2 = childNodes.item(i2);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.ih.add(nodeName);
+                    this.iO.add(nodeName);
                 }
             }
         }
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> ch() {
-        return this.ih;
+    public Set<String> cg() {
+        return this.iO;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x001e */
@@ -54,9 +54,9 @@ public class h implements c {
     /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List, java.util.ArrayList] */
     public Object getObject(String str) {
         String nodeName;
-        Object attribute = this.il.getAttribute(str);
+        Object attribute = this.iS.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.il.getChildNodes();
+            NodeList childNodes = this.iS.getChildNodes();
             int length = childNodes.getLength();
             attribute = new ArrayList(length);
             for (int i = 0; i < length; i++) {
@@ -74,9 +74,9 @@ public class h implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.a.b.a.e.c cVar = new com.baidu.adp.lib.a.b.a.e.c(type);
-            com.baidu.adp.lib.a.b.a.d.h j = com.baidu.adp.lib.a.b.a.e.g.j(object);
-            if (j != null) {
-                return j.g(cVar);
+            com.baidu.adp.lib.a.b.a.d.h m = com.baidu.adp.lib.a.b.a.e.g.m(object);
+            if (m != null) {
+                return m.g(cVar);
             }
             return object;
         }
@@ -84,28 +84,28 @@ public class h implements c {
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public void d(String str, Object obj) {
+    public void j(String str, Object obj) {
         if (obj != null && str != null) {
             if (obj instanceof Boolean) {
-                this.il.setAttribute(str, String.valueOf(obj));
+                this.iS.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Byte) {
-                this.il.setAttribute(str, String.valueOf(obj));
+                this.iS.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Character) {
-                this.il.setAttribute(str, String.valueOf(obj));
+                this.iS.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Short) {
-                this.il.setAttribute(str, String.valueOf(obj));
+                this.iS.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Integer) {
-                this.il.setAttribute(str, String.valueOf(obj));
+                this.iS.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Long) {
-                this.il.setAttribute(str, String.valueOf(obj));
+                this.iS.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Float) {
-                this.il.setAttribute(str, String.valueOf(obj));
+                this.iS.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Double) {
-                this.il.setAttribute(str, String.valueOf(obj));
+                this.iS.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
-                this.il.setAttribute(str, String.valueOf(obj));
-            } else if (!obj.getClass().isArray() && !com.baidu.adp.lib.a.a.a.a(obj.getClass(), List.class) && !com.baidu.adp.lib.a.a.a.a(obj.getClass(), Queue.class) && !com.baidu.adp.lib.a.a.a.a(obj.getClass(), Set.class) && !com.baidu.adp.lib.a.a.a.a(obj.getClass(), Map.class)) {
-                com.baidu.adp.lib.a.a.a.a(obj.getClass(), SparseArray.class);
+                this.iS.setAttribute(str, String.valueOf(obj));
+            } else if (!obj.getClass().isArray() && !com.baidu.adp.lib.a.a.a.e(obj.getClass(), List.class) && !com.baidu.adp.lib.a.a.a.e(obj.getClass(), Queue.class) && !com.baidu.adp.lib.a.a.a.e(obj.getClass(), Set.class) && !com.baidu.adp.lib.a.a.a.e(obj.getClass(), Map.class)) {
+                com.baidu.adp.lib.a.a.a.e(obj.getClass(), SparseArray.class);
             }
         }
     }

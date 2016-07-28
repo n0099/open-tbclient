@@ -4,22 +4,22 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class d implements SapiWebView.WeixinHandler {
-    final /* synthetic */ WXEntryActivity fKn;
+    final /* synthetic */ WXEntryActivity fWe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(WXEntryActivity wXEntryActivity) {
-        this.fKn = wXEntryActivity;
+        this.fWe = wXEntryActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.WeixinHandler
     public void handleNotInstall() {
-        this.fKn.showToast(u.j.wxentry_not_install);
-        this.fKn.closeActivity();
+        this.fWe.showToast(u.j.wxentry_not_install);
+        this.fWe.closeActivity();
     }
 
     @Override // com.baidu.sapi2.SapiWebView.WeixinHandler
     public void handleServerError(String str) {
-        this.fKn.showToast(this.fKn.getResources().getString(u.j.error_system, str));
-        this.fKn.closeActivity();
+        this.fWe.showToast(this.fWe.getResources().getString(u.j.error_system, str));
+        this.fWe.closeActivity();
     }
 }

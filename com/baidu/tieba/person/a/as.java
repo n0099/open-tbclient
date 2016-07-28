@@ -1,27 +1,25 @@
 package com.baidu.tieba.person.a;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.person.bs;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements AdapterView.OnItemClickListener {
-    final /* synthetic */ aq ehq;
+public class as extends CustomMessageListener {
+    final /* synthetic */ ar erH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(aq aqVar) {
-        this.ehq = aqVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public as(ar arVar, int i) {
+        super(i);
+        this.erH = arVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        am amVar;
-        amVar = this.ehq.ehp;
-        bs.a item = amVar.getItem(i);
-        if (item == null) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
             return;
         }
-        this.ehq.nZ(item.efw);
-        this.ehq.a(item);
+        this.erH.d(customResponsedMessage);
     }
 }

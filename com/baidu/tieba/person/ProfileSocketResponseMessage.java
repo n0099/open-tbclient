@@ -1,8 +1,10 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.cache.o;
+import com.baidu.adp.lib.h.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.person.bs;
+import com.baidu.tieba.person.f;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
@@ -12,11 +14,13 @@ import tbclient.PostInfoList;
 import tbclient.Profile.ProfileResIdl;
 import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ProfileSocketResponseMessage extends SocketResponsedMessage {
     private static final String PROFILE_CACHE_KEY = "profile_cache_key";
     private Anti anti_stat;
+    public TbBookrack bookrack;
     private boolean error_hint;
     private boolean from_db;
     private Highlist highlist;
@@ -24,7 +28,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage {
     private int pageNum;
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
-    public bs ucCardData;
+    public f ucCardData;
     private User user;
     private UserGodInfo userGodInfo;
     public DealWindow window;
@@ -79,7 +83,7 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ProfileRequestMessage profileRequestMessage = (ProfileRequestMessage) getOrginalMessage().getExtra();
         this.from_db = profileRequestMessage.is_from_db();
         this.error_hint = profileRequestMessage.is_error_hint();
@@ -99,9 +103,10 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage {
             this.tainfo = profileResIdl.data.tainfo;
             this.post_list = profileResIdl.data.post_list;
             if (profileResIdl.data.uc_card != null) {
-                this.ucCardData = new bs();
+                this.ucCardData = new f();
                 this.ucCardData.a(profileResIdl.data.uc_card);
             }
+            this.bookrack = profileResIdl.data.tbbookrack;
             this.highlist = profileResIdl.data.highs;
             this.window = profileResIdl.data.window;
         }
@@ -110,15 +115,18 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<String> N;
-        List<bs.a> list;
+        o<String> N;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (N = com.baidu.tbadk.core.b.a.rP().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf && (list = this.ucCardData.efx) != null) {
-            for (bs.a aVar : list) {
-                if (aVar.xF > com.baidu.adp.lib.h.b.c(N.get(aVar.title), 0L)) {
-                    aVar.efy = true;
-                } else {
-                    aVar.efy = false;
+        if (this.ucCardData != null && (N = com.baidu.tbadk.core.b.a.rO().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<f.a> list = this.ucCardData.epx;
+            list.get(4).yg = 8L;
+            if (list != null) {
+                for (f.a aVar : list) {
+                    if (aVar.yg > b.c(N.get(aVar.title), 0L)) {
+                        aVar.epy = true;
+                    } else {
+                        aVar.epy = false;
+                    }
                 }
             }
         }
@@ -127,9 +135,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<byte[]> M = com.baidu.tbadk.core.b.a.rP().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> M = com.baidu.tbadk.core.b.a.rO().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            M.e(PROFILE_CACHE_KEY, bArr);
+            M.k(PROFILE_CACHE_KEY, bArr);
         }
     }
 }

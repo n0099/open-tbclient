@@ -3,14 +3,15 @@ package com.baidu.tieba.frs;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.j.a;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class r implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bDB;
+    final /* synthetic */ FrsActivity bEL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FrsActivity frsActivity) {
-        this.bDB = frsActivity;
+        this.bEL = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,47 +20,52 @@ class r implements View.OnClickListener {
         bq bqVar2;
         bq bqVar3;
         cx cxVar;
-        com.baidu.tieba.frs.i.aa aaVar;
+        com.baidu.tieba.frs.j.aa aaVar;
         cx cxVar2;
         bq bqVar4;
-        com.baidu.tieba.frs.i.y yVar;
+        a aVar;
+        com.baidu.tieba.frs.j.y yVar;
+        a aVar2;
         bq bqVar5;
-        com.baidu.tieba.tbadkCore.p pVar;
         bq bqVar6;
-        bqVar = this.bDB.bCD;
-        if (view != bqVar.Wi()) {
-            bqVar2 = this.bDB.bCD;
-            if (view == bqVar2.Wg()) {
-                bqVar3 = this.bDB.bCD;
-                cxVar = this.bDB.bCG;
+        bqVar = this.bEL.bDK;
+        if (view != bqVar.Wz()) {
+            bqVar2 = this.bEL.bDK;
+            if (view == bqVar2.Wx()) {
+                bqVar3 = this.bEL.bDK;
+                cxVar = this.bEL.bDN;
                 bqVar3.a(cxVar);
-                aaVar = this.bDB.bCS;
-                cxVar2 = this.bDB.bCG;
+                aaVar = this.bEL.bDZ;
+                cxVar2 = this.bEL.bDN;
                 aaVar.a(cxVar2);
                 TiebaStatic.log("c10529");
-                TiebaStatic.eventStat(this.bDB.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
-                bqVar4 = this.bDB.bCD;
-                bqVar4.Wq();
-                FrsActivityStatic.bDN = false;
-                yVar = this.bDB.bCT;
-                yVar.Yh();
+                TiebaStatic.eventStat(this.bEL.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
+                bqVar4 = this.bEL.bDK;
+                bqVar4.WH();
+                FrsActivityStatic.bEX = false;
+                aVar = this.bEL.bEl;
+                if (aVar != null) {
+                    aVar2 = this.bEL.bEl;
+                    aVar2.aas();
+                }
+                yVar = this.bEL.bEa;
+                yVar.YB();
             }
         } else {
-            this.bDB.closeActivity();
+            this.bEL.closeActivity();
         }
         view.getId();
-        if (view.getId() == u.g.game_activity_egg_layout && com.baidu.adp.lib.util.k.fI()) {
+        if (view.getId() == u.g.game_activity_egg_layout && com.baidu.adp.lib.util.k.fH()) {
             TiebaStatic.log("c10853");
-            bqVar5 = this.bDB.bCD;
-            if (bqVar5.Wt()) {
-                bqVar6 = this.bDB.bCD;
-                bqVar6.Wu();
+            bqVar5 = this.bEL.bDK;
+            if (bqVar5.WK()) {
+                bqVar6 = this.bEL.bDK;
+                bqVar6.WL();
                 return;
             }
-            pVar = this.bDB.bCF;
-            String activityUrl = pVar.aDN().getYuleData().rM().getActivityUrl();
+            String activityUrl = this.bEL.bDM.aGX().getYuleData().rL().getActivityUrl();
             if (!StringUtils.isNull(activityUrl)) {
-                com.baidu.tbadk.browser.f.v(this.bDB.getPageContext().getPageActivity(), activityUrl);
+                com.baidu.tbadk.browser.f.v(this.bEL.getPageContext().getPageActivity(), activityUrl);
             }
         }
     }

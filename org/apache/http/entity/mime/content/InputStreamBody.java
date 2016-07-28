@@ -1,5 +1,6 @@
 package org.apache.http.entity.mime.content;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.apache.http.entity.mime.MIME;
@@ -26,12 +27,12 @@ public class InputStreamBody extends AbstractContentBody {
     }
 
     @Deprecated
-    public void writeTo(OutputStream outputStream, int i) {
+    public void writeTo(OutputStream outputStream, int i) throws IOException {
         writeTo(outputStream);
     }
 
     @Override // org.apache.http.entity.mime.content.ContentBody
-    public void writeTo(OutputStream outputStream) {
+    public void writeTo(OutputStream outputStream) throws IOException {
         if (outputStream == null) {
             throw new IllegalArgumentException("Output stream may not be null");
         }

@@ -2,14 +2,15 @@ package com.baidu.tieba.personInfo;
 
 import android.view.View;
 import android.widget.AbsListView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bw implements AbsListView.OnScrollListener {
-    final /* synthetic */ bs eqW;
+    final /* synthetic */ bq eCH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bs bsVar) {
-        this.eqW = bsVar;
+    public bw(bq bqVar) {
+        this.eCH = bqVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -17,27 +18,32 @@ public class bw implements AbsListView.OnScrollListener {
         View view;
         View view2;
         View view3;
+        BdListView.e eVar;
         View view4;
         if (i == 0) {
-            view3 = this.eqW.aGT;
+            view3 = this.eCH.aHK;
             if (view3 != null) {
-                view4 = this.eqW.aGT;
+                view4 = this.eCH.aHK;
                 view4.setVisibility(0);
+            }
+            if (absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getChildCount() > 0) {
+                eVar = this.eCH.zC;
+                eVar.jC();
                 return;
             }
             return;
         }
-        view = this.eqW.aGT;
+        view = this.eCH.aHK;
         if (view != null) {
-            view2 = this.eqW.aGT;
+            view2 = this.eCH.aHK;
             view2.setVisibility(8);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.eqW.aHM();
-        this.eqW.aNc();
-        this.eqW.aNb();
+        this.eCH.aKW();
+        this.eCH.aQf();
+        this.eCH.aQe();
     }
 }

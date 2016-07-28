@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class i {
-    private static ArrayList<i> cwL = new ArrayList<>(5);
-    public int cwP;
-    public int cwQ;
-    int cwR;
+    private static ArrayList<i> czA = new ArrayList<>(5);
+    public int czE;
+    public int czF;
+    int czG;
     public int type;
 
-    private void aiy() {
-        this.cwP = 0;
-        this.cwQ = 0;
-        this.cwR = 0;
+    private void aji() {
+        this.czE = 0;
+        this.czF = 0;
+        this.czG = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aiB() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.cwP, this.cwQ) : ExpandableListView.getPackedPositionForGroup(this.cwP);
+    public long ajl() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.czE, this.czF) : ExpandableListView.getPackedPositionForGroup(this.czE);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i jR(int i) {
-        return j(2, i, 0, 0);
+    public static i jX(int i) {
+        return k(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i j(int i, int i2, int i3, int i4) {
-        i aiC = aiC();
-        aiC.type = i;
-        aiC.cwP = i2;
-        aiC.cwQ = i3;
-        aiC.cwR = i4;
-        return aiC;
+    public static i k(int i, int i2, int i3, int i4) {
+        i ajm = ajm();
+        ajm.type = i;
+        ajm.czE = i2;
+        ajm.czF = i3;
+        ajm.czG = i4;
+        return ajm;
     }
 
-    private static i aiC() {
+    private static i ajm() {
         i iVar;
-        synchronized (cwL) {
-            if (cwL.size() > 0) {
-                iVar = cwL.remove(0);
-                iVar.aiy();
+        synchronized (czA) {
+            if (czA.size() > 0) {
+                iVar = czA.remove(0);
+                iVar.aji();
             } else {
                 iVar = new i();
             }
@@ -54,9 +54,9 @@ class i {
     }
 
     public void recycle() {
-        synchronized (cwL) {
-            if (cwL.size() < 5) {
-                cwL.add(this);
+        synchronized (czA) {
+            if (czA.size() < 5) {
+                czA.add(this);
             }
         }
     }

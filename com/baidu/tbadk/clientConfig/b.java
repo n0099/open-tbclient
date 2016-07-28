@@ -7,13 +7,13 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a Lb;
+    final /* synthetic */ a La;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.Lb = aVar;
+        this.La = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,37 +25,37 @@ public class b extends com.baidu.adp.framework.listener.a {
         c cVar4;
         c cVar5;
         c cVar6;
-        checkMessageIsBelongToCurPage = this.Lb.checkMessageIsBelongToCurPage(responsedMessage);
+        checkMessageIsBelongToCurPage = this.La.checkMessageIsBelongToCurPage(responsedMessage);
         if (!checkMessageIsBelongToCurPage) {
-            cVar5 = this.Lb.KZ;
+            cVar5 = this.La.KY;
             if (cVar5 != null) {
-                cVar6 = this.Lb.KZ;
+                cVar6 = this.La.KY;
                 cVar6.onError("");
             }
         } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
             String errorString = responsedMessage.getErrorString();
-            String string = TbadkCoreApplication.m9getInst().getString(u.j.neterror);
+            String string = TbadkCoreApplication.m10getInst().getString(u.j.neterror);
             if (!StringUtils.isNull(errorString)) {
                 string = errorString;
             }
-            cVar = this.Lb.KZ;
+            cVar = this.La.KY;
             if (cVar != null) {
-                cVar2 = this.Lb.KZ;
+                cVar2 = this.La.KY;
                 cVar2.onError(string);
             }
         } else if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
             if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
-                cVar3 = this.Lb.KZ;
+                cVar3 = this.La.KY;
                 if (cVar3 != null) {
-                    cVar4 = this.Lb.KZ;
+                    cVar4 = this.La.KY;
                     cVar4.onError("");
                     return;
                 }
                 return;
             }
-            this.Lb.a(((ClientConfigSocketResponse) responsedMessage).getData());
+            this.La.a(((ClientConfigSocketResponse) responsedMessage).getData());
         } else {
-            this.Lb.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+            this.La.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
         }
     }
 }

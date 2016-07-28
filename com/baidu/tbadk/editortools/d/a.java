@@ -7,7 +7,7 @@ public abstract class a<T> extends com.baidu.adp.base.e<T> {
 
     public abstract String BL();
 
-    public abstract WriteData fy(String str);
+    public abstract WriteData fw(String str);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(com.baidu.adp.base.h<T> hVar) {

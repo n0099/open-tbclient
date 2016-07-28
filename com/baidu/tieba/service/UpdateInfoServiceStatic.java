@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 /* loaded from: classes.dex */
 public class UpdateInfoServiceStatic {
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
+        TbadkCoreApplication.m10getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
     }
 }

@@ -31,8 +31,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).MG)) {
-                sb.append(this.advertAppList.get(i).MG);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).ME)) {
+                sb.append(this.advertAppList.get(i).ME);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -87,9 +87,9 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                ap apVar = new ap();
-                apVar.a(bannerList.hot_topic);
-                this.recomTopicData = apVar.pW();
+                au auVar = new au();
+                auVar.a(bannerList.hot_topic);
+                this.recomTopicData = auVar.pF();
             }
         }
     }

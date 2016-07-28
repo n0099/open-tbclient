@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.AccountData;
 public class d implements CustomMessageTask.CustomRunnable<AccountData> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-        if (k.fH()) {
+        if (k.fG()) {
             a.xn().xr();
             return null;
-        } else if (TbadkCoreApplication.m9getInst() != null) {
-            TbadkCoreApplication.m9getInst().handler.post(new e(this));
+        } else if (TbadkCoreApplication.m10getInst() != null) {
+            TbadkCoreApplication.m10getInst().handler.post(new e(this));
             return null;
         } else {
             return null;

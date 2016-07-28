@@ -9,5 +9,5 @@ public interface b {
 
     int getCmd();
 
-    void x(String str);
+    void z(String str);
 }

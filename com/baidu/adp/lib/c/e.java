@@ -7,47 +7,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    private static e jX = null;
-    private HashMap<String, d> jY;
+    private static e kD = null;
+    private HashMap<String, d> kE;
 
     private e() {
-        this.jY = null;
-        this.jY = new HashMap<>();
+        this.kE = null;
+        this.kE = new HashMap<>();
     }
 
-    public static synchronized e cT() {
+    public static synchronized e cS() {
         e eVar;
         synchronized (e.class) {
-            if (jX == null) {
-                jX = new e();
+            if (kD == null) {
+                kD = new e();
             }
-            eVar = jX;
+            eVar = kD;
         }
         return eVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && !this.jY.containsKey(cVar.getName())) {
-            this.jY.put(cVar.getName(), new d(cVar));
+        if (cVar != null && !this.kE.containsKey(cVar.getName())) {
+            this.kE.put(cVar.getName(), new d(cVar));
         }
     }
 
     public void crash(String str) {
-        Iterator<d> it = this.jY.values().iterator();
-        while (it.hasNext() && !it.next().Y(str)) {
+        Iterator<d> it = this.kE.values().iterator();
+        while (it.hasNext() && !it.next().aa(str)) {
         }
     }
 
     public boolean d(String str, int i) {
         d dVar;
-        if (i >= 0 && (dVar = this.jY.get(str)) != null) {
-            return dVar.I(i);
+        if (i >= 0 && (dVar = this.kE.get(str)) != null) {
+            return dVar.L(i);
         }
         return false;
     }
 
-    public int Z(String str) {
-        d dVar = this.jY.get(str);
+    public int ab(String str) {
+        d dVar = this.kE.get(str);
         if (dVar != null) {
             return dVar.getType();
         }
@@ -55,13 +55,13 @@ public class e {
     }
 
     public void clear() {
-        if (this.jY != null) {
+        if (this.kE != null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            for (d dVar : this.jY.values()) {
+            for (d dVar : this.kE.values()) {
                 if (dVar != null) {
-                    dVar.L(0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.jS, 0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.jT, dVar.getDefaultType());
+                    dVar.O(0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.kx, 0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.ky, dVar.getDefaultType());
                 }
             }
             edit.commit();

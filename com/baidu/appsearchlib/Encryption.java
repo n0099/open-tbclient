@@ -29,7 +29,7 @@ public class Encryption {
         return new SecretKeySpec(bArr, f.x);
     }
 
-    public static String desEncrypt(String str) {
+    public static String desEncrypt(String str) throws Exception {
         try {
             byte[] decode = Base64.decode(str, 0);
             Cipher cipher = Cipher.getInstance(f.A);

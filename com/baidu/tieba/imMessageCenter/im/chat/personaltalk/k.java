@@ -1,22 +1,22 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 /* loaded from: classes.dex */
-class k extends com.baidu.tbadk.util.s<Boolean> {
-    final /* synthetic */ j cZo;
+class k extends com.baidu.tbadk.util.t<Boolean> {
+    final /* synthetic */ j dcl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.cZo = jVar;
+        this.dcl = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.s
+    @Override // com.baidu.tbadk.util.t
     public Boolean doInBackground() {
         PersonalTalkSettingActivity personalTalkSettingActivity;
         long j;
-        com.baidu.tieba.im.db.l amU = com.baidu.tieba.im.db.l.amU();
-        personalTalkSettingActivity = this.cZo.cZm;
+        com.baidu.tieba.im.db.l anF = com.baidu.tieba.im.db.l.anF();
+        personalTalkSettingActivity = this.dcl.dcj;
         j = personalTalkSettingActivity.userId;
-        return Boolean.valueOf(amU.kx(String.valueOf(j)));
+        return Boolean.valueOf(anF.kE(String.valueOf(j)));
     }
 }

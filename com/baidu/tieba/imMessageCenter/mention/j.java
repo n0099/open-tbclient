@@ -11,9 +11,9 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class j extends w {
-    private com.baidu.tbadk.mvc.g.d<FeedData, com.baidu.tbadk.mvc.d.b, b> ccu;
-    private com.baidu.tbadk.mvc.f.a.b ddK;
-    private BdListView ddL;
+    private com.baidu.tbadk.mvc.g.d<FeedData, com.baidu.tbadk.mvc.d.b, b> cev;
+    private com.baidu.tbadk.mvc.f.a.b dgG;
+    private BdListView dgH;
 
     public j(bf bfVar) {
         super(bfVar);
@@ -21,8 +21,8 @@ public class j extends w {
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w, com.baidu.tbadk.mvc.f.a.a
     public void onPrimary() {
-        if (this.ccu != null && this.ccu.Ec() == 0) {
-            fV(true);
+        if (this.cev != null && this.cev.Eb() == 0) {
+            fY(true);
         }
         super.onPrimary();
     }
@@ -31,62 +31,62 @@ public class j extends w {
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof ag) {
             ag agVar = (ag) aVar;
-            if (this.ccu != null) {
-                this.ccu.A(agVar.atG());
+            if (this.cev != null) {
+                this.cev.A(agVar.aus());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.imMessageCenter.mention.w
-    public View lk() {
-        this.axa = this.ddD.getActivity().getLayoutInflater().inflate(u.h.at_me_activity, (ViewGroup) null);
-        this.aWk = (BdListView) getView().findViewById(u.g.atme_lv);
-        kZ();
-        return this.axa;
+    public View lg() {
+        this.axO = this.dgz.getActivity().getLayoutInflater().inflate(u.h.at_me_activity, (ViewGroup) null);
+        this.aXi = (BdListView) getView().findViewById(u.g.atme_lv);
+        kV();
+        return this.axO;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w
-    protected void kZ() {
-        super.kZ();
-        this.ddL = (BdListView) getView().findViewById(u.g.atme_lv);
-        atu();
-        this.ccu = new com.baidu.tbadk.mvc.g.d<>(this.ddD.getPageContext(), b.class, u.h.mention_atme_item, this.ddD.kO());
-        this.ccu.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.ddD.getResources().getDimension(u.e.ds80)), NoDataViewFactory.d.cQ(u.j.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
-        this.ddL.setAdapter((ListAdapter) this.ccu);
+    protected void kV() {
+        super.kV();
+        this.dgH = (BdListView) getView().findViewById(u.g.atme_lv);
+        aug();
+        this.cev = new com.baidu.tbadk.mvc.g.d<>(this.dgz.getPageContext(), b.class, u.h.mention_atme_item, this.dgz.kK());
+        this.cev.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.dgz.getResources().getDimension(u.e.ds80)), NoDataViewFactory.d.cQ(u.j.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.dgH.setAdapter((ListAdapter) this.cev);
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (this.ccu != null) {
-            this.ccu.a(tbPageContext, i);
+        if (this.cev != null) {
+            this.cev.a(tbPageContext, i);
         }
-        if (this.ddK != null && this.ddK.DY() != null && this.ddK.DY().view != null) {
-            com.baidu.tbadk.core.util.av.c(this.ddK.DY().view, u.d.common_color_10225, 1);
+        if (this.dgG != null && this.dgG.DX() != null && this.dgG.DX().view != null) {
+            com.baidu.tbadk.core.util.av.c(this.dgG.DX().view, u.d.common_color_10225, 1);
         }
         return super.a(tbPageContext, i);
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public com.baidu.tbadk.mvc.f.a.b DU() {
-        if (this.ddK == null) {
-            this.ddK = new com.baidu.tbadk.mvc.f.a.b();
-            this.ddK.setTitle(this.ddD.getPageContext().getString(u.j.mention_atme));
-            this.ddK.eH(2);
+    public com.baidu.tbadk.mvc.f.a.b DT() {
+        if (this.dgG == null) {
+            this.dgG = new com.baidu.tbadk.mvc.f.a.b();
+            this.dgG.setTitle(this.dgz.getPageContext().getString(u.j.mention_atme));
+            this.dgG.eH(2);
             FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-            if (this.ddD.getActivity() != null) {
-                aVar.view = this.ddD.getActivity().getLayoutInflater().inflate(u.h.message_tip_item, (ViewGroup) null);
+            if (this.dgz.getActivity() != null) {
+                aVar.view = this.dgz.getActivity().getLayoutInflater().inflate(u.h.message_tip_item, (ViewGroup) null);
                 com.baidu.tbadk.core.util.av.c(aVar.view, u.d.common_color_10225, 1);
             }
-            aVar.kD = 4;
-            this.ddK.a(aVar);
-            this.ddK.gb("msg_tip_key");
+            aVar.lg = 4;
+            this.dgG.a(aVar);
+            this.dgG.fZ("msg_tip_key");
         }
-        return this.ddK;
+        return this.dgG;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.w, com.baidu.tbadk.mvc.f.a.a
-    public void bK(boolean z) {
-        super.bK(z);
+    public void bN(boolean z) {
+        super.bN(z);
     }
 }

@@ -1,32 +1,19 @@
 package com.baidu.tieba.homepage.personalize;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.view.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class y implements t.a {
-    final /* synthetic */ s crd;
+public class y {
+    private static volatile List<Long> ctD = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(s sVar) {
-        this.crd = sVar;
+    public static void bl(long j) {
+        if (ctD.size() > 300) {
+            ctD.remove(0);
+        }
+        ctD.add(Long.valueOf(j));
     }
 
-    @Override // com.baidu.tbadk.core.view.t.a
-    public void E(View view) {
-        a aVar;
-        a aVar2;
-        a aVar3;
-        aVar = this.crd.cqY;
-        if (aVar != null) {
-            aVar2 = this.crd.cqY;
-            aVar2.eE(true);
-            aVar3 = this.crd.cqY;
-            aVar3.agQ();
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_FINISH_REFRESH, true));
+    public static boolean bm(long j) {
+        return ctD.contains(Long.valueOf(j));
     }
 }

@@ -10,45 +10,45 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class u extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.x, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter bfx;
-    private View buN;
-    private TextView buO;
-    private TextView buP;
-    private ImageView buQ;
+    private ViewEventCenter bgJ;
+    private View bxb;
+    private TextView bxc;
+    private TextView bxd;
+    private ImageView bxe;
 
     public u(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.bfx = viewEventCenter;
-        this.buN = view.findViewById(u.g.container);
-        this.buO = (TextView) view.findViewById(u.g.home_lv_like_forum);
-        this.buP = (TextView) view.findViewById(u.g.forum_lv_like_grade);
-        this.buQ = (ImageView) view.findViewById(u.g.home_lv_like_forum_delete);
-        this.buQ.setOnClickListener(new v(this));
+        this.bgJ = viewEventCenter;
+        this.bxb = view.findViewById(u.g.container);
+        this.bxc = (TextView) view.findViewById(u.g.home_lv_like_forum);
+        this.bxd = (TextView) view.findViewById(u.g.forum_lv_like_grade);
+        this.bxe = (ImageView) view.findViewById(u.g.home_lv_like_forum_delete);
+        this.bxe.setOnClickListener(new v(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: c */
-    public void B(com.baidu.tieba.tbadkCore.x xVar) {
-        super.B(xVar);
+    public void E(com.baidu.tieba.tbadkCore.x xVar) {
+        super.E(xVar);
         if (xVar != null) {
             int level = xVar.getLevel();
-            this.buO.setText(xVar.getName());
+            this.bxc.setText(xVar.getName());
             if (level == 0) {
-                this.buP.setVisibility(4);
+                this.bxd.setVisibility(4);
                 return;
             }
-            this.buP.setVisibility(0);
-            av.k(this.buP, BitmapHelper.getGradeResourceIdNew(level));
+            this.bxd.setVisibility(0);
+            av.k(this.bxd, BitmapHelper.getGradeResourceIdNew(level));
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.j.a.a(tbPageContext, getRootView());
-        av.k(this.buN, u.f.addresslist_item_bg);
-        if (this.buP.getVisibility() == 0 && getData() != null) {
-            av.k(this.buP, BitmapHelper.getGradeResourceIdNew(getData().getLevel()));
+        av.k(this.bxb, u.f.addresslist_item_bg);
+        if (this.bxd.getVisibility() == 0 && getData() != null) {
+            av.k(this.bxd, BitmapHelper.getGradeResourceIdNew(getData().getLevel()));
             return true;
         }
         return true;

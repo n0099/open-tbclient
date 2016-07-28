@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class BdListViewHelper {
-    public static final int aAL = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst().getContext(), u.e.ds320);
-    private static /* synthetic */ int[] aAM;
+    public static final int aBB = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst().getContext(), u.e.ds320);
+    private static /* synthetic */ int[] aBC;
 
     /* loaded from: classes.dex */
     public enum HeadType {
         DEFAULT,
         HASTAB;
 
-        /* JADX DEBUG: Replace access to removed values field (aAN) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aBD) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HeadType[] valuesCustom() {
             HeadType[] valuesCustom = values();
@@ -29,8 +29,8 @@ public class BdListViewHelper {
         }
     }
 
-    static /* synthetic */ int[] Fx() {
-        int[] iArr = aAM;
+    static /* synthetic */ int[] Fy() {
+        int[] iArr = aBC;
         if (iArr == null) {
             iArr = new int[HeadType.valuesCustom().length];
             try {
@@ -41,14 +41,14 @@ public class BdListViewHelper {
                 iArr[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
-            aAM = iArr;
+            aBC = iArr;
         }
         return iArr;
     }
 
     public static int a(HeadType headType) {
-        Context context = TbadkCoreApplication.m9getInst().getContext();
-        switch (Fx()[headType.ordinal()]) {
+        Context context = TbadkCoreApplication.m10getInst().getContext();
+        switch (Fy()[headType.ordinal()]) {
             case 1:
                 return com.baidu.adp.lib.util.k.c(context, u.e.ds98) + UtilHelper.getLightStatusBarHeight();
             case 2:
@@ -67,7 +67,7 @@ public class BdListViewHelper {
 
     public static void a(View view, HeadType headType, boolean z) {
         if (view != null && headType != null) {
-            Context context = TbadkCoreApplication.m9getInst().getContext();
+            Context context = TbadkCoreApplication.m10getInst().getContext();
             AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
             if (z) {
                 layoutParams.height = a(headType);
@@ -81,7 +81,7 @@ public class BdListViewHelper {
     }
 
     public static int a(HeadType headType, boolean z) {
-        Context context = TbadkCoreApplication.m9getInst().getContext();
+        Context context = TbadkCoreApplication.m10getInst().getContext();
         if (z) {
             return a(headType);
         }

@@ -1,39 +1,40 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    private f aIG;
-    private boolean aKt;
-    private int aKx;
-    private int aKy;
-    private boolean eDv = false;
+    private f aJx;
+    private boolean aLm;
+    private int aLq;
+    private int aLr;
+    private boolean ePd = false;
 
     public b(f fVar) {
-        this.aIG = fVar;
+        this.aJx = fVar;
     }
 
-    public void dr(boolean z) {
-        this.aKt = z;
+    /* renamed from: do  reason: not valid java name */
+    public void m20do(boolean z) {
+        this.aLm = z;
     }
 
-    public void pv(int i) {
-        this.aKy = i;
+    public void pL(int i) {
+        this.aLr = i;
     }
 
-    public void pw(int i) {
-        this.aKx = i;
+    public void pM(int i) {
+        this.aLq = i;
     }
 
-    public void jz(boolean z) {
-        this.eDv = z;
+    public void jF(boolean z) {
+        this.ePd = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.aIG != null) {
-            if (!this.eDv) {
-                this.aIG.a(this.aKy, this.aKx, this.aKt, 2);
+        if (this.aJx != null) {
+            if (!this.ePd) {
+                this.aJx.a(this.aLr, this.aLq, this.aLm, 2);
             }
-            this.aIG.a(this.aKy, this.aKx, this.aKt, 1);
+            this.aJx.a(this.aLr, this.aLq, this.aLm, 1);
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class ApplistReportSwitchStatic extends a {
     static {
-        e.cT().n(ApplistReportSwitchStatic.class);
+        e.cS().n(ApplistReportSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

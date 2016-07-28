@@ -4,11 +4,12 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
+import android.os.RemoteException;
 /* loaded from: classes.dex */
 public interface IActivityWatcher extends IInterface {
-    void activityResuming(int i);
+    void activityResuming(int i) throws RemoteException;
 
-    void closingSystemDialogs(String str);
+    void closingSystemDialogs(String str) throws RemoteException;
 
     /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IActivityWatcher {
@@ -37,7 +38,7 @@ public interface IActivityWatcher extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             switch (i) {
                 case 1:
                     parcel.enforceInterface(DESCRIPTOR);
@@ -73,7 +74,7 @@ public interface IActivityWatcher extends IInterface {
             }
 
             @Override // android.app.IActivityWatcher
-            public void activityResuming(int i) {
+            public void activityResuming(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
@@ -85,7 +86,7 @@ public interface IActivityWatcher extends IInterface {
             }
 
             @Override // android.app.IActivityWatcher
-            public void closingSystemDialogs(String str) {
+            public void closingSystemDialogs(String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);

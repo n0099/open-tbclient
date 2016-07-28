@@ -12,29 +12,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.data.j;
-import com.baidu.tieba.person.data.PersonPostActivityConfig;
 import com.baidu.tieba.person.view.PersonInfoEnterItemView;
 import com.baidu.tieba.personInfo.PersonTainInfo;
-import com.baidu.tieba.personInfo.bp;
+import com.baidu.tieba.personInfo.bn;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class PersonInfoGodEnterView extends LinearLayout implements View.OnClickListener {
-    private bp eje;
-    private View ejg;
-    private PersonInfoEnterItemView ejh;
-    private PersonInfoEnterItemView eji;
-    private PersonInfoEnterItemView ejj;
-    private View ejk;
-    private View ejl;
-    private ImageView ejm;
+    private bn etj;
+    private View etl;
+    private PersonInfoEnterItemView etm;
+    private PersonInfoEnterItemView etn;
+    private PersonInfoEnterItemView eto;
+    private View etp;
+    private View etq;
+    private ImageView etr;
     private Context mContext;
     private UserData mUser;
 
@@ -52,163 +51,163 @@ public class PersonInfoGodEnterView extends LinearLayout implements View.OnClick
 
     private void initView() {
         View inflate = LayoutInflater.from(this.mContext).inflate(u.h.personinfo_god_enter_view, this);
-        this.ejg = inflate.findViewById(u.g.layout_views);
-        this.ejh = (PersonInfoEnterItemView) inflate.findViewById(u.g.view_threads);
-        this.eji = (PersonInfoEnterItemView) inflate.findViewById(u.g.view_forums);
-        this.ejj = (PersonInfoEnterItemView) inflate.findViewById(u.g.viewr_groups);
-        this.ejk = inflate.findViewById(u.g.layout_bottom_arrow);
-        this.ejl = inflate.findViewById(u.g.arrow_line);
-        this.ejm = (ImageView) inflate.findViewById(u.g.iv_arrow);
-        this.ejk.setOnClickListener(this);
-        this.ejm.setOnClickListener(this);
-        this.ejh.setOnClickListener(this);
-        this.eji.setOnClickListener(this);
-        this.ejj.setOnClickListener(this);
+        this.etl = inflate.findViewById(u.g.layout_views);
+        this.etm = (PersonInfoEnterItemView) inflate.findViewById(u.g.view_threads);
+        this.etn = (PersonInfoEnterItemView) inflate.findViewById(u.g.view_forums);
+        this.eto = (PersonInfoEnterItemView) inflate.findViewById(u.g.viewr_groups);
+        this.etp = inflate.findViewById(u.g.layout_bottom_arrow);
+        this.etq = inflate.findViewById(u.g.arrow_line);
+        this.etr = (ImageView) inflate.findViewById(u.g.iv_arrow);
+        this.etp.setOnClickListener(this);
+        this.etr.setOnClickListener(this);
+        this.etm.setOnClickListener(this);
+        this.etn.setOnClickListener(this);
+        this.eto.setOnClickListener(this);
     }
 
-    public void setData(bp bpVar) {
-        if (bpVar != null) {
-            this.eje = bpVar;
-            this.mUser = bpVar.getUserData();
-            if (aLB()) {
-                this.ejh.setVisibility(0);
-                this.ejh.setIcon(u.f.icon_mine_tie);
-                this.ejh.setBackgroundResource(u.f.bg_icon_mine_selector);
+    public void setData(bn bnVar) {
+        if (bnVar != null) {
+            this.etj = bnVar;
+            this.mUser = bnVar.getUserData();
+            if (aOe()) {
+                this.etm.setVisibility(0);
+                this.etm.setIcon(u.f.icon_mine_tie);
+                this.etm.setBackgroundResource(u.f.bg_icon_mine_selector);
             } else {
-                this.ejh.setVisibility(8);
+                this.etm.setVisibility(8);
             }
-            if (aLC()) {
-                this.ejj.setVisibility(0);
-                this.ejj.setIcon(u.f.icon_mine_group);
-                this.ejj.setBackgroundResource(u.f.bg_icon_mine_selector);
+            if (aOf()) {
+                this.eto.setVisibility(0);
+                this.eto.setIcon(u.f.icon_mine_group);
+                this.eto.setBackgroundResource(u.f.bg_icon_mine_selector);
             } else {
-                this.ejj.setVisibility(8);
+                this.eto.setVisibility(8);
             }
-            if (aLD()) {
-                this.eji.setVisibility(0);
-                this.eji.setIcon(u.f.icon_mine_ba);
-                this.eji.setBackgroundResource(u.f.bg_icon_mine_selector);
+            if (aOg()) {
+                this.etn.setVisibility(0);
+                this.etn.setIcon(u.f.icon_mine_ba);
+                this.etn.setBackgroundResource(u.f.bg_icon_mine_selector);
             } else {
-                this.eji.setVisibility(8);
+                this.etn.setVisibility(8);
             }
-            if (com.baidu.tbadk.core.sharedPref.b.sO().getBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "god_enter_info_expand", true)) {
-                ik(true);
+            if (com.baidu.tbadk.core.sharedPref.b.sN().getBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "god_enter_info_expand", true)) {
+                it(true);
             } else {
-                ik(false);
+                it(false);
             }
-            ajR();
+            akB();
         }
     }
 
-    private boolean aLB() {
-        return TbadkCoreApplication.m9getInst().appResponseToIntentClass(PersonPostActivityConfig.class);
+    private boolean aOe() {
+        return TbadkCoreApplication.m10getInst().appResponseToIntentClass(PersonPostActivityConfig.class);
     }
 
-    private boolean aLC() {
-        return TbadkCoreApplication.m9getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
+    private boolean aOf() {
+        return TbadkCoreApplication.m10getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
     }
 
-    private boolean aLD() {
-        return TbadkCoreApplication.m9getInst().appResponseToIntentClass(PersonBarActivityConfig.class);
+    private boolean aOg() {
+        return TbadkCoreApplication.m10getInst().appResponseToIntentClass(PersonBarActivityConfig.class);
     }
 
-    private void ajR() {
+    private void akB() {
         if (this.mUser != null) {
-            this.eji.setTitle(this.mContext.getString(u.j.person_forums));
+            this.etn.setTitle(this.mContext.getString(u.j.person_forums));
             if (this.mUser.getSex() == 1) {
-                this.ejh.setTitle(this.mContext.getString(u.j.person_threads_him));
-                this.ejj.setTitle(this.mContext.getString(u.j.person_groups_him));
+                this.etm.setTitle(this.mContext.getString(u.j.person_threads_him));
+                this.eto.setTitle(this.mContext.getString(u.j.person_groups_him));
                 return;
             }
-            this.ejh.setTitle(this.mContext.getString(u.j.person_threads_her));
-            this.ejj.setTitle(this.mContext.getString(u.j.person_groups_her));
+            this.etm.setTitle(this.mContext.getString(u.j.person_threads_her));
+            this.eto.setTitle(this.mContext.getString(u.j.person_groups_her));
         }
     }
 
     public void n(TbPageContext<?> tbPageContext) {
-        if (this.ejh != null) {
-            this.ejh.n(tbPageContext);
+        if (this.etm != null) {
+            this.etm.n(tbPageContext);
         }
-        if (this.ejj != null) {
-            this.ejj.n(tbPageContext);
+        if (this.eto != null) {
+            this.eto.n(tbPageContext);
         }
-        if (this.eji != null) {
-            this.eji.n(tbPageContext);
+        if (this.etn != null) {
+            this.etn.n(tbPageContext);
         }
-        av.k(this.ejl, u.d.cp_bg_line_b);
-        av.k(this.ejg, u.d.cp_bg_line_d);
-        av.k(this.ejk, u.d.cp_bg_line_d);
-        aLE();
+        av.k(this.etq, u.d.cp_bg_line_b);
+        av.k(this.etl, u.d.cp_bg_line_d);
+        av.k(this.etp, u.d.cp_bg_line_d);
+        aOh();
     }
 
-    private void aLE() {
-        if (this.ejm != null && this.ejg != null) {
-            if (this.ejg.getVisibility() == 8) {
-                this.ejm.setImageDrawable(av.getDrawable(u.f.icon_mine_arrow_down));
+    private void aOh() {
+        if (this.etr != null && this.etl != null) {
+            if (this.etl.getVisibility() == 8) {
+                this.etr.setImageDrawable(av.getDrawable(u.f.icon_mine_arrow_down));
             } else {
-                this.ejm.setImageDrawable(av.getDrawable(u.f.icon_mine_arrow_up));
+                this.etr.setImageDrawable(av.getDrawable(u.f.icon_mine_arrow_up));
             }
         }
     }
 
-    private void ik(boolean z) {
+    private void it(boolean z) {
         if (z) {
-            this.ejg.setVisibility(0);
-            this.ejl.setVisibility(0);
-            this.ejm.setImageDrawable(av.getDrawable(u.f.icon_mine_arrow_up));
+            this.etl.setVisibility(0);
+            this.etq.setVisibility(0);
+            this.etr.setImageDrawable(av.getDrawable(u.f.icon_mine_arrow_up));
             return;
         }
-        this.ejg.setVisibility(8);
-        this.ejl.setVisibility(8);
-        this.ejm.setImageDrawable(av.getDrawable(u.f.icon_mine_arrow_down));
+        this.etl.setVisibility(8);
+        this.etq.setVisibility(8);
+        this.etr.setImageDrawable(av.getDrawable(u.f.icon_mine_arrow_down));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ejk == view || this.ejm == view) {
-            if (this.ejm != null && this.ejg != null) {
-                if (this.ejg.getVisibility() == 8) {
-                    ik(true);
+        if (this.etp == view || this.etr == view) {
+            if (this.etr != null && this.etl != null) {
+                if (this.etl.getVisibility() == 8) {
+                    it(true);
                 } else {
-                    ik(false);
+                    it(false);
                 }
             }
-        } else if (view == this.ejh) {
-            if (this.mUser != null && this.eje != null && bn.ab(this.mContext)) {
-                if (oa(1)) {
+        } else if (view == this.etm) {
+            if (this.mUser != null && this.etj != null && com.baidu.tbadk.core.util.bn.ab(this.mContext)) {
+                if (ol(1)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mContext, this.mUser.getUserId(), this.mUser.getSex(), this.mUser.getPortrait())));
                     TiebaStatic.log(new ay("c10618").s("obj_type", 1).ab("obj_id", this.mUser.getUserId()));
                     return;
                 }
                 TiebaStatic.log(new ay("c10618").s("obj_type", 3).ab("obj_id", this.mUser.getUserId()));
-                BdToast.a(this.mContext, this.mContext.getResources().getString(u.j.user_set_private)).sb();
+                BdToast.a(this.mContext, this.mContext.getResources().getString(u.j.user_set_private)).sa();
             }
-        } else if (view == this.eji) {
-            if (this.mUser != null && this.eje != null && bn.ab(this.mContext)) {
-                if (oa(2)) {
+        } else if (view == this.etn) {
+            if (this.mUser != null && this.etj != null && com.baidu.tbadk.core.util.bn.ab(this.mContext)) {
+                if (ol(2)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.mContext, this.mUser.getLike_bars(), this.mUser.getUserId(), this.mUser.getSex())));
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getResources().getString(u.j.user_set_private)).sb();
+                BdToast.a(this.mContext, this.mContext.getResources().getString(u.j.user_set_private)).sa();
             }
-        } else if (view == this.ejj && this.mUser != null && this.eje != null && bn.ab(this.mContext)) {
-            if (oa(3)) {
+        } else if (view == this.eto && this.mUser != null && this.etj != null && com.baidu.tbadk.core.util.bn.ab(this.mContext)) {
+            if (ol(3)) {
                 TiebaStatic.log(new ay("c10620").s("obj_type", 1).ab("obj_id", this.mUser.getUserId()));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.mContext, this.mUser.getUserId(), this.mUser.getSex())));
                 return;
             }
             TiebaStatic.log(new ay("c10620").s("obj_type", 3).ab("obj_id", this.mUser.getUserId()));
-            BdToast.a(this.mContext, this.mContext.getResources().getString(u.j.user_set_private)).sb();
+            BdToast.a(this.mContext, this.mContext.getResources().getString(u.j.user_set_private)).sa();
         }
     }
 
-    private boolean oa(int i) {
+    private boolean ol(int i) {
         int i2;
-        if (this.mUser == null || this.eje == null) {
+        if (this.mUser == null || this.etj == null) {
             return false;
         }
         j personPrivate = this.mUser.getPersonPrivate();
-        PersonTainInfo aMy = this.eje.aMy();
+        PersonTainInfo aPD = this.etj.aPD();
         if (personPrivate == null) {
             i2 = 1;
         } else if (i == 1) {
@@ -220,6 +219,6 @@ public class PersonInfoGodEnterView extends LinearLayout implements View.OnClick
         } else {
             i2 = personPrivate.AM();
         }
-        return i2 == 1 || (i2 == 2 && (aMy != null ? aMy.getIsFriend() : 1) == 1);
+        return i2 == 1 || (i2 == 2 && (aPD != null ? aPD.getIsFriend() : 1) == 1);
     }
 }

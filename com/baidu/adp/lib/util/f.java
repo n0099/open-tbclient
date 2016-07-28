@@ -6,7 +6,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public class f {
-    public static void c(InputStream inputStream, OutputStream outputStream) {
+    public static void c(InputStream inputStream, OutputStream outputStream) throws Exception {
         GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
         byte[] bArr = new byte[1024];
         while (true) {
@@ -20,7 +20,7 @@ public class f {
         }
     }
 
-    public static void d(InputStream inputStream, OutputStream outputStream) {
+    public static void d(InputStream inputStream, OutputStream outputStream) throws Exception {
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
         byte[] bArr = new byte[1024];
         while (true) {
@@ -36,7 +36,7 @@ public class f {
         }
     }
 
-    public static void a(byte[] bArr, OutputStream outputStream) {
+    public static void b(byte[] bArr, OutputStream outputStream) throws Exception {
         if (bArr != null && bArr.length != 0) {
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
             gZIPOutputStream.write(bArr, 0, bArr.length);

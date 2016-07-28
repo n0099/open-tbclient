@@ -10,51 +10,51 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
 
     protected abstract void initView();
 
-    protected abstract boolean n(Bundle bundle);
+    protected abstract boolean k(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.al
-    public void akA() {
-        aka();
+    public void alk() {
+        akK();
     }
 
-    public void aka() {
+    public void akK() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!n(bundle)) {
+        if (!k(bundle)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(u.d.common_color_10022, false);
-        if (this.cFR != null) {
-            this.cFR.setImageUploadUIProgressCallback(this.cFX);
+        if (this.cIG != null) {
+            this.cIG.setImageUploadUIProgressCallback(this.cIM);
         }
-        akH();
+        alr();
         if (a((al) this)) {
             loadDraft();
-            ajY();
-            br.cFP = com.baidu.tbadk.util.h.FA();
+            akI();
+            br.cIE = com.baidu.tbadk.util.h.FB();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.cFR != null) {
-            this.cFR.onDestroy();
+        if (this.cIG != null) {
+            this.cIG.onDestroy();
         }
         setIntent(intent);
-        if (!n(null)) {
+        if (!k(null)) {
             finish();
             return;
         }
         initView();
         adjustResizeForSoftInput(u.d.common_color_10022, false);
-        akH();
+        alr();
         if (a((al) this)) {
             loadDraft();
         }
@@ -64,8 +64,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.cFQ != null) {
-            this.cFQ.onChangeSkinType(i);
+        if (this.cIF != null) {
+            this.cIF.onChangeSkinType(i);
         }
     }
 
@@ -73,37 +73,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cFQ != null) {
-            this.cFQ.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-            ajV();
+        if (this.cIF != null) {
+            this.cIF.onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
+            akF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ajV() {
-        if (TbadkCoreApplication.m9getInst().isHeadsetModeOn()) {
-            this.cFQ.showReceiver();
+    public void akF() {
+        if (TbadkCoreApplication.m10getInst().isHeadsetModeOn()) {
+            this.cIF.showReceiver();
         } else {
-            this.cFQ.closeReceiver();
+            this.cIF.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.cFR.loadDraft();
+        return this.cIG.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        ajZ();
+        akJ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ajY() {
+    public void akI() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ajZ() {
+    public void akJ() {
     }
 }

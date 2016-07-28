@@ -19,83 +19,83 @@ public class u implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Class<?> cj;
+        Class<?> ci;
         try {
-            cj = cVar.cj();
+            ci = cVar.ci();
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        if (cj == Byte.class || cj == Byte.TYPE) {
+        if (ci == Byte.class || ci == Byte.TYPE) {
             return Byte.valueOf(Byte.parseByte(this.value));
         }
-        if (cj == Short.class || cj == Short.TYPE) {
+        if (ci == Short.class || ci == Short.TYPE) {
             return Short.valueOf(Short.parseShort(this.value));
         }
-        if (cj == Integer.class || cj == Integer.TYPE) {
+        if (ci == Integer.class || ci == Integer.TYPE) {
             return Integer.valueOf(Integer.parseInt(this.value));
         }
-        if (cj == Long.class || cj == Long.TYPE) {
+        if (ci == Long.class || ci == Long.TYPE) {
             return Long.valueOf(Long.parseLong(this.value));
         }
-        if (cj == Float.class || cj == Float.TYPE) {
+        if (ci == Float.class || ci == Float.TYPE) {
             return Float.valueOf(Float.parseFloat(this.value));
         }
-        if (cj == Double.class || cj == Double.TYPE) {
+        if (ci == Double.class || ci == Double.TYPE) {
             return Double.valueOf(Double.parseDouble(this.value));
         }
-        if (cj == Character.class || cj == Character.TYPE) {
+        if (ci == Character.class || ci == Character.TYPE) {
             return Character.valueOf(this.value.charAt(0));
         }
-        if (cj == Boolean.class || cj == Boolean.TYPE) {
+        if (ci == Boolean.class || ci == Boolean.TYPE) {
             return Boolean.valueOf(Boolean.parseBoolean(this.value));
         }
-        if (cj == String.class) {
+        if (ci == String.class) {
             return this.value;
         }
-        if (cj == char[].class) {
+        if (ci == char[].class) {
             return this.value.toCharArray();
         }
-        if (cj == byte[].class) {
+        if (ci == byte[].class) {
             try {
                 return com.baidu.adp.lib.util.c.decode(this.value, 0);
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-        } else if (com.baidu.adp.lib.a.a.a.a(cj, com.baidu.adp.lib.a.b.a.a.i.class)) {
-            return com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(this.value, cj);
+        } else if (com.baidu.adp.lib.a.a.a.e(ci, com.baidu.adp.lib.a.b.a.a.i.class)) {
+            return com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(this.value, ci);
         } else {
-            if (com.baidu.adp.lib.a.a.a.a(cj, List.class)) {
+            if (com.baidu.adp.lib.a.a.a.e(ci, List.class)) {
                 try {
                     return new j(new JSONArray(this.value)).g(cVar);
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
-            } else if (cj.isArray()) {
+            } else if (ci.isArray()) {
                 try {
                     return new j(new JSONArray(this.value)).g(cVar);
                 } catch (JSONException e4) {
                     e4.printStackTrace();
                 }
-            } else if (com.baidu.adp.lib.a.a.a.a(cj, Queue.class)) {
+            } else if (com.baidu.adp.lib.a.a.a.e(ci, Queue.class)) {
                 try {
                     return new j(new JSONArray(this.value)).g(cVar);
                 } catch (JSONException e5) {
                     e5.printStackTrace();
                 }
-            } else if (com.baidu.adp.lib.a.a.a.a(cj, Set.class)) {
+            } else if (com.baidu.adp.lib.a.a.a.e(ci, Set.class)) {
                 try {
                     return new j(new JSONArray(this.value)).g(cVar);
                 } catch (JSONException e6) {
                     e6.printStackTrace();
                 }
-            } else if (com.baidu.adp.lib.a.a.a.a(cj, Map.class)) {
+            } else if (com.baidu.adp.lib.a.a.a.e(ci, Map.class)) {
                 try {
                     return new k(new JSONObject(this.value)).g(cVar);
                 } catch (JSONException e7) {
                     e7.printStackTrace();
                 }
             } else {
-                if (com.baidu.adp.lib.a.a.a.a(cj, SparseArray.class)) {
+                if (com.baidu.adp.lib.a.a.a.e(ci, SparseArray.class)) {
                     try {
                         return new k(new JSONObject(this.value)).g(cVar);
                     } catch (JSONException e8) {

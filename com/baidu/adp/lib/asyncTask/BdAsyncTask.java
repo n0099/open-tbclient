@@ -6,15 +6,17 @@ import android.os.Message;
 import com.baidu.adp.BdUniqueId;
 import java.util.LinkedList;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class BdAsyncTask<Params, Progress, Result> {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$asyncTask$BdAsyncTask$BdAsyncTaskStatus = null;
     private static final int MESSAGE_POST_PROGRESS = 2;
     private static final int MESSAGE_POST_RESULT = 1;
-    private static final com.baidu.adp.lib.asyncTask.c sDefaultExecutor = com.baidu.adp.lib.asyncTask.c.cm();
+    private static final com.baidu.adp.lib.asyncTask.c sDefaultExecutor = com.baidu.adp.lib.asyncTask.c.cl();
     private static final b sHandler = new b(Looper.getMainLooper());
     private volatile BdAsyncTaskStatus mStatus = BdAsyncTaskStatus.PENDING;
     private int mPriority = 1;
@@ -34,7 +36,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         RUNNING,
         FINISHED;
 
-        /* JADX DEBUG: Replace access to removed values field (iF) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (jh) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static BdAsyncTaskStatus[] valuesCustom() {
             BdAsyncTaskStatus[] valuesCustom = values();
@@ -201,11 +203,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         return cancel;
     }
 
-    public final Result get() {
+    public final Result get() throws InterruptedException, ExecutionException {
         return this.mFuture.get();
     }
 
-    public final Result get(long j, TimeUnit timeUnit) {
+    public final Result get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         return this.mFuture.get(j, timeUnit);
     }
 
@@ -258,10 +260,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.iE.finish(aVar.mData[0]);
+                    aVar.jg.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.iE.onProgressUpdate(aVar.mData);
+                    aVar.jg.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -286,11 +288,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a<Data> {
-        final BdAsyncTask iE;
+        final BdAsyncTask jg;
         final Data[] mData;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.iE = bdAsyncTask;
+            this.jg = bdAsyncTask;
             this.mData = dataArr;
         }
     }

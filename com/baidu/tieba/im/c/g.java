@@ -2,20 +2,20 @@ package com.baidu.tieba.im.c;
 
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* loaded from: classes.dex */
-class g extends com.baidu.tbadk.util.s<Boolean> {
-    final /* synthetic */ b cVX;
-    private final /* synthetic */ OfficialChatMessage cWa;
+class g extends com.baidu.tbadk.util.t<Boolean> {
+    final /* synthetic */ b cYS;
+    private final /* synthetic */ OfficialChatMessage cYV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(b bVar, OfficialChatMessage officialChatMessage) {
-        this.cVX = bVar;
-        this.cWa = officialChatMessage;
+        this.cYS = bVar;
+        this.cYV = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.s
+    @Override // com.baidu.tbadk.util.t
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.k.amT().a(this.cWa.getUserId(), this.cWa.getToUserId(), String.valueOf(this.cWa.getRecordId()), String.valueOf(this.cWa.getMsgId()), 2));
+        return Boolean.valueOf(com.baidu.tieba.im.db.k.anE().a(this.cYV.getUserId(), this.cYV.getToUserId(), String.valueOf(this.cYV.getRecordId()), String.valueOf(this.cYV.getMsgId()), 2));
     }
 }

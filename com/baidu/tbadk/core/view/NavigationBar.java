@@ -55,7 +55,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (abE) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aco) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -70,7 +70,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (abF) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (acp) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -471,7 +471,7 @@ public class NavigationBar extends RelativeLayout {
         av.b(this.mCenterText, u.d.cp_cont_b, u.d.s_navbar_title_color);
         initPadding();
         if (hVar instanceof TbPageContext) {
-            ((TbPageContext) hVar).getLayoutMode().ad(i == 1);
+            ((TbPageContext) hVar).getLayoutMode().af(i == 1);
             ((TbPageContext) hVar).getLayoutMode().w(this);
         }
     }
@@ -482,7 +482,7 @@ public class NavigationBar extends RelativeLayout {
 
     public void onBackBtnOnChangeSkin(int i) {
         if (i < 0) {
-            i = TbadkCoreApplication.m9getInst().getSkinType();
+            i = TbadkCoreApplication.m10getInst().getSkinType();
         }
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             av.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
@@ -498,7 +498,7 @@ public class NavigationBar extends RelativeLayout {
     public void setmBackImageViewBg(int i, int i2) {
         this.mBackImagedeepResId = i;
         this.mBackImagelightResId = i2;
-        av.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
+        av.b(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
     }
 
     public void release() {

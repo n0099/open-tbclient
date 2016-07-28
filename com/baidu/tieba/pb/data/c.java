@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.data.s;
 import tbclient.PbPage.GodCard;
 /* loaded from: classes.dex */
 public class c extends s {
-    public static final BdUniqueId dLB = BdUniqueId.gen();
-    private String Fg;
-    private String dLC;
-    private String dLD;
-    private int dLE;
+    public static final BdUniqueId dXK = BdUniqueId.gen();
+    private String FG;
+    private String dXL;
+    private String dXM;
+    private int dXN;
     private String picUrl;
     private String portrait;
     private String text;
@@ -19,12 +19,12 @@ public class c extends s {
         if (godCard != null) {
             this.userName = godCard.user_name;
             this.portrait = godCard.portrait;
-            this.dLC = godCard.time_ex;
+            this.dXL = godCard.time_ex;
             this.text = godCard.text;
             this.picUrl = godCard.pic_url;
-            this.Fg = godCard.button_text;
-            this.dLD = godCard.button_url;
-            this.dLE = godCard.show_floor.intValue();
+            this.FG = godCard.button_text;
+            this.dXM = godCard.button_url;
+            this.dXN = godCard.show_floor.intValue();
         }
     }
 
@@ -37,8 +37,8 @@ public class c extends s {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.s
-    public String aDB() {
-        return this.dLC;
+    public String aGL() {
+        return this.dXL;
     }
 
     public String getText() {
@@ -49,20 +49,20 @@ public class c extends s {
         return this.picUrl;
     }
 
-    public String aDC() {
-        return this.Fg;
+    public String aGM() {
+        return this.FG;
     }
 
-    public String aDD() {
-        return this.dLD;
+    public String aGN() {
+        return this.dXM;
     }
 
-    public int aDE() {
-        return this.dLE;
+    public int aGO() {
+        return this.dXN;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dLB;
+        return dXK;
     }
 }

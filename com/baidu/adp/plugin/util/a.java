@@ -23,7 +23,7 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0013a {
         public String mErrMsg;
-        public boolean vT;
+        public boolean wu;
     }
 
     public static C0013a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
@@ -52,15 +52,15 @@ public class a {
                 PathClassLoader pathClassLoader = (PathClassLoader) classLoader;
                 DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
                 dexClassLoader.loadClass(str);
-                a(pathClassLoader, PathClassLoader.class, "mPaths", c(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
+                a(pathClassLoader, PathClassLoader.class, "mPaths", e(a(pathClassLoader, PathClassLoader.class, "mPaths"), a(dexClassLoader, DexClassLoader.class, "mRawDexPath")));
                 if (z) {
-                    a(pathClassLoader, PathClassLoader.class, "mDexs", b(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
-                    a(pathClassLoader, PathClassLoader.class, "mFiles", b(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
-                    a(pathClassLoader, PathClassLoader.class, "mZips", b(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", d(a(pathClassLoader, PathClassLoader.class, "mDexs"), a(dexClassLoader, DexClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", d(a(pathClassLoader, PathClassLoader.class, "mFiles"), a(dexClassLoader, DexClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", d(a(pathClassLoader, PathClassLoader.class, "mZips"), a(dexClassLoader, DexClassLoader.class, "mZips")));
                 } else {
-                    a(pathClassLoader, PathClassLoader.class, "mDexs", b(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
-                    a(pathClassLoader, PathClassLoader.class, "mFiles", b(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
-                    a(pathClassLoader, PathClassLoader.class, "mZips", b(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
+                    a(pathClassLoader, PathClassLoader.class, "mDexs", d(a(dexClassLoader, DexClassLoader.class, "mDexs"), a(pathClassLoader, PathClassLoader.class, "mDexs")));
+                    a(pathClassLoader, PathClassLoader.class, "mFiles", d(a(dexClassLoader, DexClassLoader.class, "mFiles"), a(pathClassLoader, PathClassLoader.class, "mFiles")));
+                    a(pathClassLoader, PathClassLoader.class, "mZips", d(a(dexClassLoader, DexClassLoader.class, "mZips"), a(pathClassLoader, PathClassLoader.class, "mZips")));
                 }
                 try {
                     ArrayList arrayList = (ArrayList) a(pathClassLoader, PathClassLoader.class, "libraryPathElements");
@@ -70,7 +70,7 @@ public class a {
                     Collections.sort(arrayList, new b());
                     c0013a = null;
                 } catch (Exception e) {
-                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", b(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
+                    a(pathClassLoader, PathClassLoader.class, "mLibPaths", d(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                     c0013a = null;
                 }
             } catch (IllegalAccessException e2) {
@@ -99,7 +99,7 @@ public class a {
 
     private static C0013a c(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
         C0013a c0013a;
-        Object b;
+        Object d;
         List list;
         if (classLoader == null || classLoader2 == null) {
             return null;
@@ -107,34 +107,34 @@ public class a {
         try {
             DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
             dexClassLoader.loadClass(str);
-            Object t = t((PathClassLoader) classLoader);
-            Object t2 = t(dexClassLoader);
+            Object w = w((PathClassLoader) classLoader);
+            Object w2 = w(dexClassLoader);
             if (z) {
-                b = b(u(t), u(t2));
+                d = d(x(w), x(w2));
             } else {
-                b = b(u(t2), u(t));
+                d = d(x(w2), x(w));
             }
-            a(t, t.getClass(), "dexElements", b);
-            Object b2 = b(v(t), v(t2));
-            if (b2 instanceof File[]) {
-                Arrays.sort((File[]) b2, it());
-                list = b2;
+            a(w, w.getClass(), "dexElements", d);
+            Object d2 = d(y(w), y(w2));
+            if (d2 instanceof File[]) {
+                Arrays.sort((File[]) d2, is());
+                list = d2;
             } else {
-                boolean z2 = b2 instanceof List;
-                list = b2;
+                boolean z2 = d2 instanceof List;
+                list = d2;
                 if (z2) {
-                    List list2 = (List) b2;
-                    Collections.sort(list2, it());
+                    List list2 = (List) d2;
+                    Collections.sort(list2, is());
                     list = list2;
                 }
             }
-            a(t, t.getClass(), "nativeLibraryDirectories", list);
+            a(w, w.getClass(), "nativeLibraryDirectories", list);
             if (Build.VERSION.SDK_INT >= 23) {
                 ArrayList arrayList = new ArrayList((List) list);
-                arrayList.addAll((List) a(t, t.getClass(), "systemNativeLibraryDirectories"));
-                Method declaredMethod = t.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
+                arrayList.addAll((List) a(w, w.getClass(), "systemNativeLibraryDirectories"));
+                Method declaredMethod = w.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                 declaredMethod.setAccessible(true);
-                a(t, t.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(t.getClass(), arrayList, null, new ArrayList()));
+                a(w, w.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(w.getClass(), arrayList, null, new ArrayList()));
                 c0013a = null;
             } else {
                 c0013a = null;
@@ -178,19 +178,19 @@ public class a {
         return c0013a;
     }
 
-    private static void a(Object obj, Class<?> cls, String str, Object obj2) {
+    private static void a(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
         declaredField.set(obj, obj2);
     }
 
-    private static Object a(Object obj, Class<?> cls, String str) {
+    private static Object a(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
         return declaredField.get(obj);
     }
 
-    private static Object b(Object obj, Object obj2) {
+    private static Object d(Object obj, Object obj2) {
         if (obj == null) {
             return obj2;
         }
@@ -222,7 +222,7 @@ public class a {
         return obj;
     }
 
-    private static Object c(Object obj, Object obj2) {
+    private static Object e(Object obj, Object obj2) {
         Class<?> componentType = obj.getClass().getComponentType();
         int length = Array.getLength(obj);
         int i = length + 1;
@@ -239,20 +239,20 @@ public class a {
 
     private static C0013a a(boolean z, Throwable th) {
         C0013a c0013a = new C0013a();
-        c0013a.vT = z;
+        c0013a.wu = z;
         c0013a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0013a;
     }
 
-    private static Object t(Object obj) {
+    private static Object w(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
         return a(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
     }
 
-    private static Object u(Object obj) {
+    private static Object x(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return a(obj, obj.getClass(), "dexElements");
     }
 
-    private static Object v(Object obj) {
+    private static Object y(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return a(obj, obj.getClass(), "nativeLibraryDirectories");
     }
 
@@ -276,7 +276,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> it() {
+    private static final Comparator<File> is() {
         return new c();
     }
 

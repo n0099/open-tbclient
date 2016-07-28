@@ -3,38 +3,38 @@ package com.baidu.tieba.pb.pb.sub;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 class o implements com.baidu.adp.lib.f.c<GifView> {
-    final /* synthetic */ NewSubPbActivity dWP;
+    final /* synthetic */ NewSubPbActivity ejr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NewSubPbActivity newSubPbActivity) {
-        this.dWP = newSubPbActivity;
+        this.ejr = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aFi */
-    public GifView dF() {
-        return new GifView(this.dWP.getPageContext().getPageActivity());
+    /* renamed from: aIt */
+    public GifView dE() {
+        return new GifView(this.ejr.getPageContext().getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: g */
-    public void l(GifView gifView) {
+    public void o(GifView gifView) {
         gifView.onDestroy();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: h */
-    public GifView m(GifView gifView) {
+    public GifView p(GifView gifView) {
         return gifView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: i */
-    public GifView n(GifView gifView) {
+    public GifView q(GifView gifView) {
         return gifView;
     }
 }

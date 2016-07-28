@@ -15,27 +15,27 @@ import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BaseAdapter {
-    private com.baidu.tbadk.img.b anf;
-    private AlbumActivity fCP;
-    private o fDH;
-    private boolean fDI;
-    private z fDJ;
-    private x fDK;
-    private aa fDL;
-    private boolean fpD;
+    private com.baidu.tbadk.img.b anU;
+    private boolean fCD;
+    private o fQU;
+    private boolean fQV;
+    private z fQW;
+    private x fQX;
+    private aa fQY;
+    private AlbumActivity fQb;
     private List<ImageFileInfo> mList;
     private int mWidth;
 
     public ab(AlbumActivity albumActivity, o oVar) {
-        this.fCP = albumActivity;
-        this.anf = albumActivity.afd();
-        this.fDH = oVar;
-        this.mWidth = (int) this.fCP.getResources().getDimension(u.e.ds220);
+        this.fQb = albumActivity;
+        this.anU = albumActivity.afG();
+        this.fQU = oVar;
+        this.mWidth = (int) this.fQb.getResources().getDimension(u.e.ds220);
     }
 
     public void setData(List<ImageFileInfo> list, boolean z) {
         this.mList = list;
-        this.fDI = z;
+        this.fQV = z;
         notifyDataSetChanged();
     }
 
@@ -66,7 +66,7 @@ public class ab extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sb */
+    /* renamed from: sv */
     public ImageFileInfo getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
@@ -81,7 +81,7 @@ public class ab extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.fDI && i == 0) {
+        if (this.fQV && i == 0) {
             return 1;
         }
         if (i < this.mList.size()) {
@@ -102,100 +102,100 @@ public class ab extends BaseAdapter {
         if (view == null) {
             bVar = new b(this, null);
             if (itemViewType == 0) {
-                view = LayoutInflater.from(this.fCP.getPageContext().getPageActivity()).inflate(u.h.album_image_item_view, viewGroup, false);
-                bVar.fDS = (HeadImageView) view.findViewById(u.g.pic);
-                bVar.fcq = (ImageView) view.findViewById(u.g.select_icon);
-                bVar.fcr = (RelativeLayout) view.findViewById(u.g.lay_select);
+                view = LayoutInflater.from(this.fQb.getPageContext().getPageActivity()).inflate(u.h.album_image_item_view, viewGroup, false);
+                bVar.fRf = (HeadImageView) view.findViewById(u.g.pic);
+                bVar.fpu = (ImageView) view.findViewById(u.g.select_icon);
+                bVar.fpv = (RelativeLayout) view.findViewById(u.g.lay_select);
                 view.setTag(bVar);
             } else if (itemViewType == 1) {
-                view = LayoutInflater.from(this.fCP.getPageContext().getPageActivity()).inflate(u.h.album_image_item_view_camera, viewGroup, false);
-                bVar.fDT = (ViewGroup) view.findViewById(u.g.item_camera);
+                view = LayoutInflater.from(this.fQb.getPageContext().getPageActivity()).inflate(u.h.album_image_item_view_camera, viewGroup, false);
+                bVar.fRg = (ViewGroup) view.findViewById(u.g.item_camera);
                 view.setTag(bVar);
             } else if (itemViewType == 2) {
-                view = new View(this.fCP.getActivity());
-                view.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.k.c(this.fCP.getActivity(), u.e.ds220), com.baidu.adp.lib.util.k.c(this.fCP.getActivity(), u.e.ds180)));
+                view = new View(this.fQb.getActivity());
+                view.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.k.c(this.fQb.getActivity(), u.e.ds220), com.baidu.adp.lib.util.k.c(this.fQb.getActivity(), u.e.ds180)));
             }
         } else {
             bVar = (b) view.getTag();
         }
         ImageFileInfo item = getItem(i);
         if (itemViewType == 0) {
-            bVar.fDS.setTag(null);
-            bVar.fDS.setRadius(1);
-            bVar.fDS.setDefaultResource(u.f.img_default_100);
-            bVar.fDS.c(null, 12, false);
+            bVar.fRf.setTag(null);
+            bVar.fRf.setRadius(1);
+            bVar.fRf.setDefaultResource(u.f.img_default_100);
+            bVar.fRf.c(null, 12, false);
             int i2 = i + 1;
-            if (this.fDI) {
+            if (this.fQV) {
                 i2 = i;
             }
-            bVar.fDS.setContentDescription(String.valueOf(view.getResources().getString(u.j.log_msg_pic)) + i2 + " " + item.getModifyTime());
-            bVar.fDS.invalidate();
+            bVar.fRf.setContentDescription(String.valueOf(view.getResources().getString(u.j.log_msg_pic)) + i2 + " " + item.getModifyTime());
+            bVar.fRf.invalidate();
             a aVar = new a(this, null);
-            aVar.fDR = true;
+            aVar.fRe = true;
             if (item != null) {
                 item.clearPageActions();
                 item.addPageAction(com.baidu.tbadk.img.effect.d.D(this.mWidth, this.mWidth));
-                bVar.fDS.setTag(item.toCachedKey(false));
-                if (this.anf.a(item, false) != null) {
-                    bVar.fDS.invalidate();
+                bVar.fRf.setTag(item.toCachedKey(false));
+                if (this.anU.a(item, false) != null) {
+                    bVar.fRf.invalidate();
                 } else {
-                    this.anf.a(item, new ac(this, viewGroup, aVar), false, this.fpD);
+                    this.anU.a(item, new ac(this, viewGroup, aVar), false, this.fCD);
                 }
             } else {
-                aVar.fDR = false;
+                aVar.fRe = false;
             }
-            int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            if (this.fDH != null) {
-                if (this.fDH.isAdded(item)) {
-                    bVar.fcq.setContentDescription(this.fCP.getResources().getString(u.j.check_box_checked));
-                    av.k(bVar.fcq, u.f.chx_camera_pic_s);
+            int skinType = TbadkCoreApplication.m10getInst().getSkinType();
+            if (this.fQU != null) {
+                if (this.fQU.isAdded(item)) {
+                    bVar.fpu.setContentDescription(this.fQb.getResources().getString(u.j.check_box_checked));
+                    av.k(bVar.fpu, u.f.chx_camera_pic_s);
                 } else {
-                    bVar.fcq.setContentDescription(this.fCP.getResources().getString(u.j.check_box_not_checked));
-                    av.k(bVar.fcq, u.f.chx_camera_pic_n);
+                    bVar.fpu.setContentDescription(this.fQb.getResources().getString(u.j.check_box_not_checked));
+                    av.k(bVar.fpu, u.f.chx_camera_pic_n);
                 }
-                a(bVar, aVar, i, item, skinType, this.fDH);
+                a(bVar, aVar, i, item, skinType, this.fQU);
             }
-            bVar.fDS.setOnClickListener(new ad(this, aVar, i, item));
+            bVar.fRf.setOnClickListener(new ad(this, aVar, i, item));
         } else if (itemViewType == 1) {
-            av.k(bVar.fDT, u.f.icon_camera_pic);
-            bVar.fDT.setOnClickListener(new ae(this, i, item));
+            av.k(bVar.fRg, u.f.icon_camera_pic);
+            bVar.fRg.setOnClickListener(new ae(this, i, item));
         }
         u(view);
         return view;
     }
 
     public boolean isScroll() {
-        return this.fpD;
+        return this.fCD;
     }
 
-    public void kM(boolean z) {
-        this.fpD = z;
+    public void la(boolean z) {
+        this.fCD = z;
     }
 
     private void u(View view) {
-        this.fCP.getLayoutMode().ad(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        this.fCP.getLayoutMode().w(view);
+        this.fQb.getLayoutMode().af(TbadkCoreApplication.m10getInst().getSkinType() == 1);
+        this.fQb.getLayoutMode().w(view);
     }
 
     public void a(z zVar) {
-        this.fDJ = zVar;
+        this.fQW = zVar;
     }
 
     public void a(aa aaVar) {
-        this.fDL = aaVar;
+        this.fQY = aaVar;
     }
 
     public void a(x xVar) {
-        this.fDK = xVar;
+        this.fQX = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        HeadImageView fDS;
-        ViewGroup fDT;
-        ImageView fcq;
-        RelativeLayout fcr;
+        HeadImageView fRf;
+        ViewGroup fRg;
+        ImageView fpu;
+        RelativeLayout fpv;
 
         private b() {
         }
@@ -208,7 +208,7 @@ public class ab extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        boolean fDR;
+        boolean fRe;
 
         private a() {
         }
@@ -219,6 +219,6 @@ public class ab extends BaseAdapter {
     }
 
     private void a(b bVar, a aVar, int i, ImageFileInfo imageFileInfo, int i2, o oVar) {
-        bVar.fcr.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
+        bVar.fpv.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
     }
 }

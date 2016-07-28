@@ -3,15 +3,15 @@ package com.baidu.tieba.pb.pb.a;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnTouchListener {
-    final /* synthetic */ e dML;
+    final /* synthetic */ e dYX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(e eVar) {
-        this.dML = eVar;
+        this.dYX = eVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -23,37 +23,37 @@ public class r implements View.OnTouchListener {
         boolean z4;
         long j;
         if (TbadkCoreApplication.isLogin()) {
-            hVar = this.dML.dMC;
-            az aDO = hVar.aDO();
+            hVar = this.dYX.dYM;
+            be aGY = hVar.aGY();
             if (view != null) {
-                boolean z5 = aDO.getPraise() == null || aDO.getPraise().getIsLike() == 0;
+                boolean z5 = aGY.qp() == null || aGY.qp().getIsLike() == 0;
                 if (motionEvent.getAction() == 0) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    j = this.dML.bBB;
+                    j = this.dYX.dYO;
                     if (currentTimeMillis - j > 1000) {
-                        this.dML.bBC = true;
-                        this.dML.ac(view);
+                        this.dYX.dYP = true;
+                        this.dYX.aU(view);
                     } else {
-                        this.dML.bBC = false;
+                        this.dYX.dYP = false;
                     }
                 } else if (motionEvent.getAction() == 1) {
                     if (z5) {
-                        e eVar = this.dML;
-                        z4 = this.dML.bBC;
-                        eVar.e(view, z4);
+                        e eVar = this.dYX;
+                        z4 = this.dYX.dYP;
+                        eVar.f(view, z4);
                     } else {
-                        e eVar2 = this.dML;
-                        z3 = this.dML.bBC;
-                        eVar2.d(view, z3);
+                        e eVar2 = this.dYX;
+                        z3 = this.dYX.dYP;
+                        eVar2.e(view, z3);
                     }
                 } else if (motionEvent.getAction() == 2) {
-                    e eVar3 = this.dML;
-                    z2 = this.dML.bBC;
-                    eVar3.d(view, z2);
+                    e eVar3 = this.dYX;
+                    z2 = this.dYX.dYP;
+                    eVar3.e(view, z2);
                 } else if (motionEvent.getAction() == 3) {
-                    e eVar4 = this.dML;
-                    z = this.dML.bBC;
-                    eVar4.d(view, z);
+                    e eVar4 = this.dYX;
+                    z = this.dYX.dYP;
+                    eVar4.e(view, z);
                 }
             }
         }

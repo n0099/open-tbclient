@@ -1,6 +1,7 @@
 package com.baidu.searchbox.plugin.api;
 
 import android.content.Context;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public final class PluginInvoker {
     public static final String IMPL_CLASS_NAME = ".PluginInvoker";
@@ -14,7 +15,7 @@ public final class PluginInvoker {
     public static void urlInvokePlugin(String str, String str2, String str3, InvokeCallback invokeCallback, InvokeListener[] invokeListenerArr) {
     }
 
-    public static void invokeHost(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) {
+    public static void invokeHost(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) throws NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, PluginInvokeException {
     }
 
     /* loaded from: classes.dex */

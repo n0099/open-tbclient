@@ -6,6 +6,7 @@ import tbclient.GodInfo;
 /* loaded from: classes.dex */
 public class GodUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 1;
+    private boolean canSendCall;
     private long fid;
     private int followed;
     private Long id;
@@ -71,6 +72,14 @@ public class GodUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializ
         this.isFromNetWork = z;
     }
 
+    public boolean isCanSendCall() {
+        return this.canSendCall;
+    }
+
+    public void setCanSendCall(boolean z) {
+        this.canSendCall = z;
+    }
+
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.id = Long.valueOf(jSONObject.optLong("id"));
@@ -80,6 +89,7 @@ public class GodUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializ
             this.followed = jSONObject.optInt("followed");
             this.mForumName = jSONObject.optString("forum_name");
             this.mRecommendReason = jSONObject.optString("recommend_reason");
+            this.canSendCall = jSONObject.optInt("can_send_msg") == 1;
         }
     }
 
@@ -92,6 +102,7 @@ public class GodUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializ
             this.followed = godInfo.followed.intValue();
             this.mForumName = godInfo.forum_name;
             this.mRecommendReason = godInfo.recommend_reason;
+            this.canSendCall = godInfo.can_send_msg.intValue() == 1;
         }
     }
 }

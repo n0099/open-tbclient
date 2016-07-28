@@ -1,25 +1,35 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements View.OnClickListener {
-    final /* synthetic */ f this$0;
+public class aw implements a.b {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(f fVar) {
-        this.this$0 = fVar;
+    public aw(h hVar) {
+        this.this$0 = hVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        baseFragmentActivity = this.this$0.aMU;
-        TiebaStatic.eventStat(baseFragmentActivity.getPageContext().getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
-        baseFragmentActivity2 = this.this$0.aMU;
-        com.baidu.tbadk.core.util.bn.aa(baseFragmentActivity2.getPageContext().getPageActivity());
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+        bn bnVar;
+        BlackListModel blackListModel;
+        BlackListModel blackListModel2;
+        BlackListModel blackListModel3;
+        bnVar = this.this$0.ers;
+        long c = com.baidu.adp.lib.h.b.c(bnVar.getId(), -1L);
+        if (c > 0) {
+            blackListModel = this.this$0.eAv;
+            if (blackListModel.getMaskType() == 1) {
+                blackListModel3 = this.this$0.eAv;
+                blackListModel3.removeFromBlackList(c);
+            } else {
+                blackListModel2 = this.this$0.eAv;
+                blackListModel2.addToBlackList(c);
+            }
+        }
+        aVar.dismiss();
     }
 }

@@ -34,6 +34,7 @@ public class CmdConfigHttp {
     public static final int CMD_DEFAULT_GIFT_LIST = 1003045;
     public static final int CMD_DELETE_GRAFFITTI = 1003098;
     public static final int CMD_DEL_USER_BOOKMARK = 1003167;
+    public static final int CMD_DO_DAILY_TASK = 1003173;
     public static final int CMD_DRESSUP_CENTER = 1003030;
     public static final int CMD_ECOMM_ADDRESS_LIST = 1003107;
     public static final int CMD_ECOMM_DEFER_THREAD = 1003115;
@@ -119,12 +120,15 @@ public class CmdConfigHttp {
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
     public static final int CMD_SAVE_GAME_STATUS = 1003059;
+    public static final int CMD_SELLER_CONFIRM_DELIVERY = 1003172;
+    public static final int CMD_SELLER_REFUSE_REFUND_REASON = 1003171;
     public static final int CMD_SEND_BLESS = 1003080;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;
     public static final int CMD_SET_PERSONAL_CARD = 1003095;
     public static final int CMD_SET_PRIVILEGE = 1003152;
-    public static final int CMD_SET_USER_BOOK_HISTORY = 1003169;
+    public static final int CMD_SET_READER_LACK_IMAGE_URL = 1003169;
+    public static final int CMD_SET_USER_BOOK_HISTORY = 1003170;
     public static final int CMD_SET_USER_PICS = 1003064;
     public static final int CMD_SKIN_DETAIL = 1003037;
     public static final int CMD_SQUARE_FORUM_LIST = 1003060;
@@ -169,8 +173,12 @@ public class CmdConfigHttp {
     public static final int ECOMM_PRODUCT_CERTIFY_LIST = 1003139;
     public static final int ECOMM_PRODUCT_DETAIL = 1003143;
     public static final int ECOMM_PRODUCT_QUALIFICATION_PAY = 1003144;
+    public static final int ECOMM_REFUND_AGREE_REUNFD = 1003176;
     public static final int ECOMM_REFUND_APPLY = 1003149;
+    public static final int ECOMM_REFUND_COMFIRM_TRANS = 1003177;
+    public static final int ECOMM_REFUND_DETAIL = 1003175;
     public static final int ECOMM_REFUND_ORDER = 1003146;
+    public static final int ECOMM_REFUND_PREPARE = 1003174;
     public static final int ECOMM_SELLER_CERTIFY = 1003132;
     public static final int ECOMM_SUBMIT_QUALIFICATION = 1003142;
     public static final int ECOMM_WINDOW_DISPLAY = 1003141;

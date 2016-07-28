@@ -6,31 +6,31 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 512000;
-    private static int fad = 6144000;
-    private com.baidu.tieba.tbadkCore.videoupload.a.a fae;
+    private static int fnh = 6144000;
+    private com.baidu.tieba.tbadkCore.videoupload.a.a fni;
 
-    public VideoFinishResult a(String str, String str2, a.InterfaceC0080a interfaceC0080a) {
+    public VideoFinishResult a(String str, String str2, a.InterfaceC0079a interfaceC0079a) {
         try {
             File file = new File(str2);
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.fae = new com.baidu.tieba.tbadkCore.videoupload.a.a(str, chunkLength, fad);
-            this.fae.a(interfaceC0080a);
-            return this.fae.c(str2, file);
+            this.fni = new com.baidu.tieba.tbadkCore.videoupload.a.a(str, chunkLength, fnh);
+            this.fni.a(interfaceC0079a);
+            return this.fni.d(str2, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void bdm() {
-        if (this.fae != null) {
-            this.fae.cancel();
+    public void bgE() {
+        if (this.fni != null) {
+            this.fni.cancel();
         }
     }
 
-    public static void qP(int i) {
+    public static void rk(int i) {
         if (i <= 0) {
             chunkLength = 512000;
         } else {
@@ -38,11 +38,11 @@ public class a {
         }
     }
 
-    public static void qQ(int i) {
+    public static void rl(int i) {
         if (i <= 0) {
-            fad = 6144000;
+            fnh = 6144000;
         } else {
-            fad = i;
+            fnh = i;
         }
     }
 }

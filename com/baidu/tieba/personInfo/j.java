@@ -1,59 +1,40 @@
 package com.baidu.tieba.personInfo;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends CustomMessageListener {
-    final /* synthetic */ f this$0;
+public class j extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(f fVar, int i) {
+    public j(h hVar, int i) {
         super(i);
-        this.this$0 = fVar;
+        this.this$0 = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bp bpVar;
-        bs bsVar;
-        bp bpVar2;
-        bs bsVar2;
-        bp bpVar3;
-        bp bpVar4;
-        if (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) {
-            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
-            if (responseNewFriendUpdateUiMsg.getAction() == -1) {
-                String content = responseNewFriendUpdateUiMsg.getContent();
-                if (!TextUtils.isEmpty(content)) {
-                    long friendId = responseNewFriendUpdateUiMsg.getFriendId();
-                    long c = com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    ReplyInfo replyInfo = new ReplyInfo();
-                    replyInfo.setUserId(c);
-                    replyInfo.setFriendId(friendId);
-                    replyInfo.setMessage(content);
-                    bpVar3 = this.this$0.eht;
-                    bpVar3.aMy().getReplyInfo().add(replyInfo);
-                    bpVar4 = this.this$0.eht;
-                    bpVar4.aMD();
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        bq bqVar;
+        bq bqVar2;
+        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
+            ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
+            int error = responseDeleteFriendMessage.getError();
+            String errorString = responseDeleteFriendMessage.getErrorString();
+            if (error == 0) {
+                bqVar = this.this$0.eAu;
+                if (bqVar != null) {
+                    bqVar2 = this.this$0.eAu;
+                    bqVar2.ahV();
                 }
-            } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                bpVar = this.this$0.eht;
-                if (bpVar.aMy() != null) {
-                    bsVar = this.this$0.eoE;
-                    if (bsVar != null) {
-                        bpVar2 = this.this$0.eht;
-                        bpVar2.aMy().setIsFriend(1);
-                        bsVar2 = this.this$0.eoE;
-                        bsVar2.aNg();
-                    }
-                }
+            } else {
+                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.this$0.getResources().getString(u.j.neterror) : responseDeleteFriendMessage.getErrorString();
             }
+            this.this$0.showToast(errorString);
         }
     }
 }

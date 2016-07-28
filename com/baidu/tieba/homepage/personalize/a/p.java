@@ -11,15 +11,15 @@ import com.baidu.tieba.card.bw;
 import com.baidu.tieba.card.bx;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.k, a> {
-    private TbPageContext<?> Ea;
-    public BdUniqueId aSq;
-    private com.baidu.tieba.card.u crA;
-    private bx<com.baidu.tieba.card.a.k> crB;
+    private TbPageContext<?> EA;
+    public BdUniqueId aTm;
+    private com.baidu.tieba.card.u cuk;
+    private bx<com.baidu.tieba.card.a.k> cul;
 
     public p(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.a.k.Op);
-        this.crB = new q(this);
-        this.Ea = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.a.k.OB);
+        this.cul = new q(this);
+        this.EA = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,35 +27,35 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.k,
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ap */
     public a a(ViewGroup viewGroup) {
-        this.crA = new com.baidu.tieba.card.u(this.Ea, this.aSq);
-        return new a(this.crA);
+        this.cuk = new com.baidu.tieba.card.u(this.EA, this.aTm);
+        return new a(this.cuk);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.k kVar, a aVar) {
-        this.crA = aVar.crD;
-        aVar.crD.d(this.Ea, TbadkCoreApplication.m9getInst().getSkinType());
-        aVar.crD.a(kVar);
-        aVar.crD.a(this.crB);
-        bw.Lg().a(new ay("c11006"));
+        this.cuk = aVar.cun;
+        aVar.cun.d(this.EA, TbadkCoreApplication.m10getInst().getSkinType());
+        aVar.cun.a(kVar);
+        aVar.cun.a(this.cul);
+        bw.Lf().b(new ay("c11006"));
         return aVar.getView();
     }
 
-    public void jt(int i) {
-        if (this.crA != null) {
-            this.crA.d(this.Ea, i);
+    public void jz(int i) {
+        if (this.cuk != null) {
+            this.cuk.d(this.EA, i);
         }
     }
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public com.baidu.tieba.card.u crD;
+        public com.baidu.tieba.card.u cun;
 
         public a(com.baidu.tieba.card.u uVar) {
             super(uVar.getView());
-            this.crD = uVar;
+            this.cun = uVar;
         }
     }
 }

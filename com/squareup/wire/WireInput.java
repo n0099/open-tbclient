@@ -69,7 +69,7 @@ final class WireInput {
         return new WireInput(inputStream);
     }
 
-    public int readTag() {
+    public int readTag() throws IOException {
         if (isAtEnd()) {
             this.lastTag = 0;
             return 0;
@@ -81,13 +81,13 @@ final class WireInput {
         return this.lastTag;
     }
 
-    public void checkLastTagWas(int i) {
+    public void checkLastTagWas(int i) throws IOException {
         if (this.lastTag != i) {
             throw new IOException(PROTOCOL_MESSAGE_END_GROUP_TAG_DID_NOT_MATCH_EXPECTED_TAG);
         }
     }
 
-    public String readString() {
+    public String readString() throws IOException {
         int readVarint32 = readVarint32();
         if (bytesRemaining() >= readVarint32) {
             String str = new String(this.buffer, this.pos, readVarint32, UTF_8);
@@ -101,11 +101,11 @@ final class WireInput {
         return this.limit - this.pos;
     }
 
-    public ByteString readBytes() {
+    public ByteString readBytes() throws IOException {
         return readBytes(readVarint32());
     }
 
-    public ByteString readBytes(int i) {
+    public ByteString readBytes(int i) throws IOException {
         if (bytesRemaining() >= i) {
             ByteString of = ByteString.of(this.buffer, this.pos, i);
             this.pos += i;
@@ -114,7 +114,7 @@ final class WireInput {
         return ByteString.of(readRawBytes(i));
     }
 
-    public int readVarint32() {
+    public int readVarint32() throws IOException {
         byte readRawByte = readRawByte();
         if (readRawByte < 0) {
             int i = readRawByte & Byte.MAX_VALUE;
@@ -148,7 +148,7 @@ final class WireInput {
         return readRawByte;
     }
 
-    public long readVarint64() {
+    public long readVarint64() throws IOException {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
             byte readRawByte = readRawByte();
@@ -161,12 +161,12 @@ final class WireInput {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [208=4] */
-    public int readFixed32() {
+    public int readFixed32() throws IOException {
         return (readRawByte() & 255) | ((readRawByte() & 255) << 8) | ((readRawByte() & 255) << 16) | ((readRawByte() & 255) << 24);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [224=8] */
-    public long readFixed64() {
+    public long readFixed64() throws IOException {
         byte readRawByte = readRawByte();
         byte readRawByte2 = readRawByte();
         return ((readRawByte2 & 255) << 8) | (readRawByte & 255) | ((readRawByte() & 255) << 16) | ((readRawByte() & 255) << 24) | ((readRawByte() & 255) << 32) | ((readRawByte() & 255) << 40) | ((readRawByte() & 255) << 48) | ((readRawByte() & 255) << 56);
@@ -200,7 +200,7 @@ final class WireInput {
         this.inputStreamAtEof = true;
     }
 
-    private void refillBuffer(int i) {
+    private void refillBuffer(int i) throws IOException {
         if (this.pos >= this.limit && !this.inputStreamAtEof) {
             this.bufferOffset += this.pos;
             this.pos = 0;
@@ -220,7 +220,7 @@ final class WireInput {
         }
     }
 
-    public int pushLimit(int i) {
+    public int pushLimit(int i) throws IOException {
         if (i < 0) {
             throw new IOException(ENCOUNTERED_A_NEGATIVE_SIZE);
         }
@@ -237,7 +237,7 @@ final class WireInput {
         this.currentLimit = i;
     }
 
-    public boolean isAtEnd() {
+    public boolean isAtEnd() throws IOException {
         if (getPosition() == this.currentLimit) {
             return true;
         }
@@ -249,7 +249,7 @@ final class WireInput {
         return this.bufferOffset + this.pos;
     }
 
-    public byte readRawByte() {
+    public byte readRawByte() throws IOException {
         refillBuffer(1);
         if (bytesRemaining() == 0) {
             throw new EOFException(INPUT_ENDED_UNEXPECTEDLY);
@@ -260,7 +260,7 @@ final class WireInput {
         return bArr[i];
     }
 
-    public byte[] readRawBytes(int i) {
+    public byte[] readRawBytes(int i) throws IOException {
         if (i < 0) {
             throw new IOException(ENCOUNTERED_A_NEGATIVE_SIZE);
         }
@@ -279,7 +279,7 @@ final class WireInput {
         return bArr;
     }
 
-    public void skipGroup() {
+    public void skipGroup() throws IOException {
         int readTag;
         do {
             readTag = readTag();
@@ -289,7 +289,7 @@ final class WireInput {
         } while (!skipField(readTag));
     }
 
-    private boolean skipField(int i) {
+    private boolean skipField(int i) throws IOException {
         switch ($SWITCH_TABLE$com$squareup$wire$WireType()[WireType.valueOf(i).ordinal()]) {
             case 1:
                 readVarint64();

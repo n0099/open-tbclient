@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class c {
-    private View aGk;
-    private ImageView aGl;
-    private ProgressBar aGm;
-    private TextView aGn;
-    private View aGo;
-    private a aGp;
-    private int aGq;
-    private int aGr;
+    private View aHb;
+    private ImageView aHc;
+    private ProgressBar aHd;
+    private TextView aHe;
+    private View aHf;
+    private a aHg;
+    private int aHh;
+    private int aHi;
     private TextView title;
 
     public c(Context context) {
@@ -31,137 +31,137 @@ public class c {
     }
 
     public c(Context context, int i) {
-        this.aGk = LayoutInflater.from(context).inflate(u.h.ballot_item_view, (ViewGroup) null);
-        this.aGl = (ImageView) this.aGk.findViewById(u.g.ballot_item_image);
-        this.title = (TextView) this.aGk.findViewById(u.g.ballot_item_title);
-        this.aGm = (ProgressBar) this.aGk.findViewById(u.g.ballot_item_progress);
-        this.aGn = (TextView) this.aGk.findViewById(u.g.ballot_item_percents);
-        this.aGo = this.aGk.findViewById(u.g.ballot_item_preffix_progress);
-        this.aGq = k.c(context, u.e.ds28);
-        this.aGr = i;
-        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        this.aHb = LayoutInflater.from(context).inflate(u.h.ballot_item_view, (ViewGroup) null);
+        this.aHc = (ImageView) this.aHb.findViewById(u.g.ballot_item_image);
+        this.title = (TextView) this.aHb.findViewById(u.g.ballot_item_title);
+        this.aHd = (ProgressBar) this.aHb.findViewById(u.g.ballot_item_progress);
+        this.aHe = (TextView) this.aHb.findViewById(u.g.ballot_item_percents);
+        this.aHf = this.aHb.findViewById(u.g.ballot_item_preffix_progress);
+        this.aHh = k.c(context, u.e.ds28);
+        this.aHi = i;
+        onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
     }
 
     public void setProgressBarHeight(int i) {
-        this.aGq = i;
-        this.aGm.getLayoutParams().height = this.aGq;
-        this.aGo.getLayoutParams().height = this.aGq;
+        this.aHh = i;
+        this.aHd.getLayoutParams().height = this.aHh;
+        this.aHf.getLayoutParams().height = this.aHh;
     }
 
     public void setProgressBarTopMargin(int i) {
-        if (this.aGm.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.aGm.getLayoutParams()).topMargin = i;
+        if (this.aHd.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.aHd.getLayoutParams()).topMargin = i;
         }
-        if (this.aGo.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.aGo.getLayoutParams()).topMargin = i;
+        if (this.aHf.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.aHf.getLayoutParams()).topMargin = i;
         }
     }
 
     public void setDescTopMargin(int i) {
-        if (this.aGn.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.aGn.getLayoutParams()).topMargin = i;
+        if (this.aHe.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.aHe.getLayoutParams()).topMargin = i;
         }
     }
 
-    public void fm(int i) {
+    public void fl(int i) {
         if (i >= 0) {
-            if (this.aGp != null) {
-                int HB = this.aGp.HB();
-                i = ((HB <= 100 ? HB : 100) * i) / 100;
+            if (this.aHg != null) {
+                int Hz = this.aHg.Hz();
+                i = ((Hz <= 100 ? Hz : 100) * i) / 100;
             }
-            ViewGroup.LayoutParams layoutParams = this.aGm.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aHd.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(i, this.aGq);
+                layoutParams = new ViewGroup.LayoutParams(i, this.aHh);
             } else {
                 layoutParams.width = i;
             }
-            this.aGm.setLayoutParams(layoutParams);
+            this.aHd.setLayoutParams(layoutParams);
         }
     }
 
     public int a(a aVar) {
         int intrinsicWidth;
         String string;
-        this.aGp = aVar;
+        this.aHg = aVar;
         if (aVar == null) {
             return 0;
         }
-        if (aVar.HA() <= 0) {
-            this.aGl.setImageDrawable(null);
-            this.aGl.setVisibility(8);
+        if (aVar.Hy() <= 0) {
+            this.aHc.setImageDrawable(null);
+            this.aHc.setVisibility(8);
             intrinsicWidth = 0;
         } else {
-            Drawable drawable = av.getDrawable(aVar.HA());
-            this.aGl.setImageDrawable(drawable);
-            intrinsicWidth = drawable.getIntrinsicWidth() + this.aGk.getResources().getDimensionPixelSize(u.e.ds24);
-            this.aGl.setVisibility(0);
+            Drawable drawable = av.getDrawable(aVar.Hy());
+            this.aHc.setImageDrawable(drawable);
+            intrinsicWidth = drawable.getIntrinsicWidth() + this.aHb.getResources().getDimensionPixelSize(u.e.ds24);
+            this.aHc.setVisibility(0);
         }
-        if (StringUtils.isNull(aVar.Hx())) {
+        if (StringUtils.isNull(aVar.Hv())) {
             this.title.setText((CharSequence) null);
             this.title.setVisibility(8);
         } else {
-            this.title.setText(UtilHelper.getFixedText(aVar.Hx(), 15, false));
+            this.title.setText(UtilHelper.getFixedText(aVar.Hv(), 15, false));
             this.title.setVisibility(0);
         }
         if (aVar.isSelected()) {
-            av.l(this.aGo, u.d.common_color_10271);
+            av.l(this.aHf, u.d.common_color_10271);
         } else {
-            av.l(this.aGo, u.d.common_color_10272);
+            av.l(this.aHf, u.d.common_color_10272);
         }
-        boolean isNull = StringUtils.isNull(aVar.Hy());
-        boolean isNull2 = StringUtils.isNull(aVar.Hz());
+        boolean isNull = StringUtils.isNull(aVar.Hw());
+        boolean isNull2 = StringUtils.isNull(aVar.Hx());
         if (isNull && isNull2) {
-            this.aGn.setText((CharSequence) null);
-            this.aGn.setVisibility(8);
+            this.aHe.setText((CharSequence) null);
+            this.aHe.setVisibility(8);
             string = null;
         } else {
-            this.aGn.setVisibility(0);
+            this.aHe.setVisibility(0);
             if (isNull) {
-                string = aVar.Hz();
-                this.aGn.setText(string);
+                string = aVar.Hx();
+                this.aHe.setText(string);
             } else if (isNull2) {
-                string = aVar.Hy();
-                this.aGn.setText(string);
+                string = aVar.Hw();
+                this.aHe.setText(string);
             } else {
-                string = TbadkCoreApplication.m9getInst().getString(u.j.vote_number_text, new Object[]{aVar.Hy(), aVar.Hz()});
-                this.aGn.setText(string);
+                string = TbadkCoreApplication.m10getInst().getString(u.j.vote_number_text, new Object[]{aVar.Hw(), aVar.Hx()});
+                this.aHe.setText(string);
             }
         }
         if (!StringUtils.isNull(string)) {
-            intrinsicWidth = (int) (intrinsicWidth + this.aGn.getPaint().measureText(string));
+            intrinsicWidth = (int) (intrinsicWidth + this.aHe.getPaint().measureText(string));
         }
-        return this.aGk.getResources().getDimensionPixelSize(u.e.ds24) + this.aGk.getResources().getDimensionPixelSize(u.e.ds10) + 8 + intrinsicWidth;
+        return this.aHb.getResources().getDimensionPixelSize(u.e.ds24) + this.aHb.getResources().getDimensionPixelSize(u.e.ds10) + 8 + intrinsicWidth;
     }
 
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aGp != null) {
+        if (f >= 0.0f && this.aHg != null) {
             int i = (int) (100.0f * f);
-            if (this.aGp.isSelected()) {
-                this.aGm.setProgress(i);
-                this.aGm.setSecondaryProgress(0);
+            if (this.aHg.isSelected()) {
+                this.aHd.setProgress(i);
+                this.aHd.setSecondaryProgress(0);
                 return;
             }
-            this.aGm.setProgress(0);
-            this.aGm.setSecondaryProgress(i);
+            this.aHd.setProgress(0);
+            this.aHd.setSecondaryProgress(i);
         }
     }
 
     public View getView() {
-        return this.aGk;
+        return this.aHb;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aGp != null && this.aGp.HA() > 0) {
-            av.b(this.aGl, this.aGp.HA(), i);
+        if (this.aHg != null && this.aHg.Hy() > 0) {
+            av.c(this.aHc, this.aHg.Hy(), i);
         }
         av.c(this.title, u.d.cp_cont_b, 1);
-        av.c(this.aGn, this.aGr, 1);
-        this.aGm.setProgressDrawable(av.getDrawable(u.f.vote_progress_drawable));
-        if (this.aGp != null) {
-            if (this.aGp.isSelected()) {
-                av.l(this.aGo, u.d.common_color_10271);
+        av.c(this.aHe, this.aHi, 1);
+        this.aHd.setProgressDrawable(av.getDrawable(u.f.vote_progress_drawable));
+        if (this.aHg != null) {
+            if (this.aHg.isSelected()) {
+                av.l(this.aHf, u.d.common_color_10271);
             } else {
-                av.l(this.aGo, u.d.common_color_10272);
+                av.l(this.aHf, u.d.common_color_10272);
             }
         }
     }

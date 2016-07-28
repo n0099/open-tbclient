@@ -4,26 +4,26 @@ import com.baidu.tbadk.coreExtra.websocketBase.a;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements a.InterfaceC0038a {
-    final /* synthetic */ i aob;
-    private final /* synthetic */ String aoc;
+public class k implements a.InterfaceC0039a {
+    final /* synthetic */ i aoQ;
+    private final /* synthetic */ String aoR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar, String str) {
-        this.aob = iVar;
-        this.aoc = str;
+        this.aoQ = iVar;
+        this.aoR = str;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0038a
+    @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0039a
     public void Ad() {
         List list;
-        this.aob.currentIndex = 0;
-        this.aob.ann = a.zX().Aa();
-        list = this.aob.ann;
+        this.aoQ.currentIndex = 0;
+        this.aoQ.aoc = a.zX().Aa();
+        list = this.aoQ.aoc;
         if (list == null) {
-            this.aob.anZ = false;
+            this.aoQ.aoO = false;
         } else {
-            this.aob.eY(this.aoc);
+            this.aoQ.eW(this.aoR);
         }
     }
 }

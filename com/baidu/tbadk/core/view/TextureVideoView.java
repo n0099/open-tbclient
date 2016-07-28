@@ -14,46 +14,49 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ay;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class TextureVideoView extends TextureView implements MediaController.MediaPlayerControl {
-    private String acW;
-    private int acX;
-    private int acY;
-    private MediaPlayer acZ;
-    private MediaPlayer.OnErrorListener adA;
-    private MediaPlayer.OnBufferingUpdateListener adB;
-    private int ada;
-    private int adb;
-    private MediaController adc;
-    private MediaPlayer.OnCompletionListener ade;
-    private MediaPlayer.OnPreparedListener adf;
-    private int adg;
-    private MediaPlayer.OnErrorListener adh;
-    private int adi;
-    private boolean adj;
-    private boolean adk;
-    private boolean adl;
-    private MediaPlayer.OnBufferingUpdateListener adm;
-    private b adn;
-    private boolean ado;
-    private Surface adp;
-    private boolean adq;
-    private boolean adr;
-    private boolean ads;
-    private boolean adt;
-    private a adu;
-    private boolean adv;
-    private TextureView.SurfaceTextureListener adw;
-    MediaPlayer.OnVideoSizeChangedListener adx;
-    MediaPlayer.OnPreparedListener ady;
-    private MediaPlayer.OnCompletionListener adz;
+    private int Ae;
+    private String adH;
+    private int adI;
+    private int adJ;
+    private MediaPlayer adK;
+    private int adL;
+    private int adM;
+    private MediaController adN;
+    private MediaPlayer.OnCompletionListener adO;
+    private MediaPlayer.OnPreparedListener adP;
+    private int adQ;
+    private MediaPlayer.OnErrorListener adR;
+    private int adS;
+    private boolean adT;
+    private boolean adU;
+    private boolean adV;
+    private MediaPlayer.OnBufferingUpdateListener adW;
+    private b adX;
+    private boolean adY;
+    private Surface adZ;
+    private boolean aea;
+    private boolean aeb;
+    private boolean aec;
+    private boolean aed;
+    private a aee;
+    private boolean aef;
+    private c aeg;
+    private String aeh;
+    private TextureView.SurfaceTextureListener aei;
+    MediaPlayer.OnVideoSizeChangedListener aej;
+    MediaPlayer.OnPreparedListener aek;
+    private MediaPlayer.OnCompletionListener ael;
+    private MediaPlayer.OnErrorListener aem;
+    private MediaPlayer.OnBufferingUpdateListener aen;
     private SurfaceTexture mSurfaceTexture;
     private long startTime;
-    private int zC;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -67,22 +70,23 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     public TextureVideoView(Context context) {
         super(context);
-        this.acX = 0;
-        this.acY = 0;
-        this.acZ = null;
-        this.ado = false;
-        this.adq = false;
-        this.adr = false;
-        this.ads = false;
-        this.adt = true;
+        this.adI = 0;
+        this.adJ = 0;
+        this.adK = null;
+        this.adY = false;
+        this.aea = false;
+        this.aeb = false;
+        this.aec = false;
+        this.aed = true;
         this.startTime = 0L;
-        this.adv = false;
-        this.adw = new z(this);
-        this.adx = new aa(this);
-        this.ady = new ab(this);
-        this.adz = new ac(this);
-        this.adA = new ad(this);
-        this.adB = new ae(this);
+        this.aef = false;
+        this.aeh = "1";
+        this.aei = new z(this);
+        this.aej = new aa(this);
+        this.aek = new ab(this);
+        this.ael = new ac(this);
+        this.aem = new ad(this);
+        this.aen = new ae(this);
         ac(context);
     }
 
@@ -93,170 +97,169 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     public TextureVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.acX = 0;
-        this.acY = 0;
-        this.acZ = null;
-        this.ado = false;
-        this.adq = false;
-        this.adr = false;
-        this.ads = false;
-        this.adt = true;
+        this.adI = 0;
+        this.adJ = 0;
+        this.adK = null;
+        this.adY = false;
+        this.aea = false;
+        this.aeb = false;
+        this.aec = false;
+        this.aed = true;
         this.startTime = 0L;
-        this.adv = false;
-        this.adw = new z(this);
-        this.adx = new aa(this);
-        this.ady = new ab(this);
-        this.adz = new ac(this);
-        this.adA = new ad(this);
-        this.adB = new ae(this);
+        this.aef = false;
+        this.aeh = "1";
+        this.aei = new z(this);
+        this.aej = new aa(this);
+        this.aek = new ab(this);
+        this.ael = new ac(this);
+        this.aem = new ad(this);
+        this.aen = new ae(this);
         ac(context);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        int defaultSize = getDefaultSize(this.ada, i);
-        int defaultSize2 = getDefaultSize(this.adb, i2);
-        if (this.ada > 0 && this.adb > 0) {
-            if (this.ada * defaultSize2 > this.adb * defaultSize) {
-                defaultSize2 = (this.adb * defaultSize) / this.ada;
-            } else if (this.ada * defaultSize2 < this.adb * defaultSize) {
-                defaultSize = (this.ada * defaultSize2) / this.adb;
+        int defaultSize = getDefaultSize(this.adL, i);
+        int defaultSize2 = getDefaultSize(this.adM, i2);
+        if (this.adL > 0 && this.adM > 0) {
+            if (this.adL * defaultSize2 > this.adM * defaultSize) {
+                defaultSize2 = (this.adM * defaultSize) / this.adL;
+            } else if (this.adL * defaultSize2 < this.adM * defaultSize) {
+                defaultSize = (this.adL * defaultSize2) / this.adM;
             }
         }
         setMeasuredDimension(defaultSize, defaultSize2);
     }
 
     private void ac(Context context) {
-        this.ada = 0;
-        this.adb = 0;
-        setSurfaceTextureListener(this.adw);
+        this.adL = 0;
+        this.adM = 0;
+        setSurfaceTextureListener(this.aei);
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
-        this.acX = 0;
-        this.acY = 0;
+        this.adI = 0;
+        this.adJ = 0;
     }
 
     public void u(String str, int i) {
-        this.acW = v(str, i);
-        this.adi = 0;
-        this.adr = true;
+        this.adH = v(str, i);
+        this.adS = 0;
+        this.aeb = true;
         vs();
         requestLayout();
         invalidate();
     }
 
     public void setVideoPath(String str) {
-        this.acW = str;
-        this.adi = 0;
-        this.adr = true;
+        this.adH = str;
+        this.adS = 0;
+        this.aeb = true;
         vs();
         requestLayout();
         invalidate();
     }
 
     private String v(String str, int i) {
-        if (!this.adt) {
-            this.ads = false;
+        if (!this.aed) {
+            this.aec = false;
             return str;
         } else if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_VIDEO_CACHE_GET_LOCAL) == null) {
-            this.ads = false;
+            this.aec = false;
             return str;
         } else {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VIDEO_CACHE_GET_LOCAL, str), String.class);
             if (runTask != null) {
-                this.ads = true;
+                this.aec = true;
                 return (String) runTask.getData();
             }
             if (i < 180) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_VIDEO_CACHE_DOWNLOAD, str));
             }
-            this.ads = false;
+            this.aec = false;
             return str;
         }
     }
 
     public boolean vq() {
-        return this.ads;
+        return this.aec;
     }
 
     public String getVideoPath() {
-        return this.acW;
+        return this.adH;
     }
 
     public void setAutoDownload(boolean z) {
-        this.adt = z;
+        this.aed = z;
     }
 
     public void vr() {
-        at.vG().q(this);
-        if (this.startTime > 0) {
-            long currentTimeMillis = (System.currentTimeMillis() - this.startTime) / 1000;
-            if (currentTimeMillis > 0) {
-                ay ayVar = new ay("c11244");
-                ayVar.g("obj_duration", currentTimeMillis);
-                TiebaStatic.log(ayVar);
-            }
-            this.startTime = 0L;
-        }
+        at.vG().s(this);
     }
 
     public void stopPlayback() {
-        if (!this.adv) {
-            this.adv = true;
+        if (!this.aef) {
+            this.aef = true;
             if (this.startTime > 0) {
                 long currentTimeMillis = (System.currentTimeMillis() - this.startTime) / 1000;
                 if (currentTimeMillis > 0) {
                     ay ayVar = new ay("c11244");
                     ayVar.g("obj_duration", currentTimeMillis);
+                    ayVar.ab("obj_type", this.aeh);
+                    if (this.aeg != null) {
+                        this.aeg.a(ayVar);
+                    }
+                    this.aeh = "1";
                     TiebaStatic.log(ayVar);
                 }
                 this.startTime = 0L;
             }
-            if (this.acZ != null) {
-                this.acZ.reset();
-                this.acZ.release();
-                this.acZ = null;
-                this.acX = 0;
-                this.acY = 0;
+            if (this.adK != null) {
+                this.adK.reset();
+                if (this.adK != null) {
+                    this.adK.release();
+                }
+                this.adK = null;
+                this.adI = 0;
+                this.adJ = 0;
                 at.vG().vI();
             }
-            this.adv = false;
+            this.aef = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vs() {
-        if (this.acW != null && !this.acW.isEmpty() && this.mSurfaceTexture != null && !this.adv) {
+        if (this.adH != null && !this.adH.isEmpty() && this.mSurfaceTexture != null && !this.aef) {
             stopPlayback();
             try {
-                this.acZ = new MediaPlayer();
+                this.adK = new MediaPlayer();
                 at.vG().vH();
-                this.acZ.setOnPreparedListener(this.ady);
-                this.acZ.setOnVideoSizeChangedListener(this.adx);
-                this.zC = -1;
-                this.acZ.setOnCompletionListener(this.adz);
-                this.acZ.setOnErrorListener(this.adA);
-                this.acZ.setOnBufferingUpdateListener(this.adB);
-                this.adg = 0;
-                this.acZ.setDataSource(this.acW);
-                this.acZ.setSurface(getSurface());
-                this.acZ.setAudioStreamType(3);
-                this.acZ.prepareAsync();
-                this.acX = 1;
+                this.adK.setOnPreparedListener(this.aek);
+                this.adK.setOnVideoSizeChangedListener(this.aej);
+                this.Ae = -1;
+                this.adK.setOnCompletionListener(this.ael);
+                this.adK.setOnErrorListener(this.aem);
+                this.adK.setOnBufferingUpdateListener(this.aen);
+                this.adQ = 0;
+                this.adK.setDataSource(this.adH);
+                this.adK.setSurface(getSurface());
+                this.adK.setAudioStreamType(3);
+                this.adK.prepareAsync();
+                this.adI = 1;
                 vt();
             } catch (IOException e) {
-                this.acX = -1;
-                this.acY = -1;
-                this.adA.onError(this.acZ, 1, 0);
+                this.adI = -1;
+                this.adJ = -1;
+                this.aem.onError(this.adK, 1, 0);
             } catch (IllegalArgumentException e2) {
-                this.acX = -1;
-                this.acY = -1;
-                this.adA.onError(this.acZ, 1, 0);
+                this.adI = -1;
+                this.adJ = -1;
+                this.aem.onError(this.adK, 1, 0);
             } catch (IllegalStateException e3) {
-                this.acX = -1;
-                this.acY = -1;
-                this.adA.onError(this.acZ, 1, 0);
+                this.adI = -1;
+                this.adJ = -1;
+                this.aem.onError(this.adK, 1, 0);
             } catch (Exception e4) {
                 e4.printStackTrace();
             }
@@ -264,40 +267,40 @@ public class TextureVideoView extends TextureView implements MediaController.Med
     }
 
     public void setMediaController(MediaController mediaController) {
-        if (this.adc != null) {
-            this.adc.hide();
+        if (this.adN != null) {
+            this.adN.hide();
         }
-        this.adc = mediaController;
+        this.adN = mediaController;
         vt();
     }
 
     private void vt() {
-        if (this.acZ != null && this.adc != null) {
-            this.adc.setMediaPlayer(this);
-            this.adc.setAnchorView(getParent() instanceof View ? (View) getParent() : this);
-            this.adc.setEnabled(vv());
+        if (this.adK != null && this.adN != null) {
+            this.adN.setMediaPlayer(this);
+            this.adN.setAnchorView(getParent() instanceof View ? (View) getParent() : this);
+            this.adN.setEnabled(vv());
         }
     }
 
     public void setOnPreparedListener(MediaPlayer.OnPreparedListener onPreparedListener) {
-        this.adf = onPreparedListener;
+        this.adP = onPreparedListener;
     }
 
     public void setOnBufferUpdateListener(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener) {
-        this.adm = onBufferingUpdateListener;
+        this.adW = onBufferingUpdateListener;
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.ade = onCompletionListener;
+        this.adO = onCompletionListener;
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.adh = onErrorListener;
+        this.adR = onErrorListener;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (vv() && this.adc != null) {
+        if (vv() && this.adN != null) {
             vu();
             return false;
         }
@@ -306,7 +309,7 @@ public class TextureVideoView extends TextureView implements MediaController.Med
 
     @Override // android.view.View
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        if (vv() && this.adc != null) {
+        if (vv() && this.adN != null) {
             vu();
             return false;
         }
@@ -316,27 +319,27 @@ public class TextureVideoView extends TextureView implements MediaController.Med
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         boolean z = (i == 4 || i == 24 || i == 25 || i == 164 || i == 82 || i == 5 || i == 6) ? false : true;
-        if (vv() && z && this.adc != null) {
+        if (vv() && z && this.adN != null) {
             if (i == 79 || i == 85) {
-                if (this.acZ.isPlaying()) {
+                if (this.adK.isPlaying()) {
                     pause();
-                    this.adc.show();
+                    this.adN.show();
                     return true;
                 }
                 start();
-                this.adc.hide();
+                this.adN.hide();
                 return true;
             } else if (i == 126) {
-                if (this.acZ.isPlaying()) {
+                if (this.adK.isPlaying()) {
                     return true;
                 }
                 start();
-                this.adc.hide();
+                this.adN.hide();
                 return true;
             } else if (i == 86 || i == 127) {
-                if (this.acZ.isPlaying()) {
+                if (this.adK.isPlaying()) {
                     pause();
-                    this.adc.show();
+                    this.adN.show();
                     return true;
                 }
                 return true;
@@ -348,76 +351,86 @@ public class TextureVideoView extends TextureView implements MediaController.Med
     }
 
     private void vu() {
-        if (this.adc.isShowing()) {
-            this.adc.hide();
+        if (this.adN.isShowing()) {
+            this.adN.hide();
         } else {
-            this.adc.show();
+            this.adN.show();
         }
     }
 
     public void setOnSurfaceDestroyedListener(b bVar) {
-        this.adn = bVar;
+        this.adX = bVar;
     }
 
     private Surface getSurface() {
-        if (this.adp == null || this.adq) {
-            this.adp = new Surface(this.mSurfaceTexture);
-            this.adq = false;
+        if (this.adZ == null || this.aea) {
+            this.adZ = new Surface(this.mSurfaceTexture);
+            this.aea = false;
         }
-        return this.adp;
+        return this.adZ;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void start() {
         if (vv()) {
             try {
-                this.acZ.start();
-                this.acX = 3;
+                this.adK.start();
+                this.adI = 3;
             } catch (Exception e) {
                 e.printStackTrace();
                 return;
             }
         }
-        this.acY = 3;
+        this.adJ = 3;
         this.startTime = System.currentTimeMillis();
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void pause() {
-        if (vv() && this.acZ.isPlaying()) {
-            this.acZ.pause();
-            this.acX = 4;
+        if (vv() && this.adK.isPlaying()) {
+            this.adK.pause();
+            this.adI = 4;
         }
-        this.acY = 4;
+        this.adJ = 4;
         long currentTimeMillis = (System.currentTimeMillis() - this.startTime) / 1000;
         if (currentTimeMillis > 0) {
             ay ayVar = new ay("c11244");
             ayVar.g("obj_duration", currentTimeMillis);
+            ayVar.ab("obj_type", this.aeh);
+            if (this.aeg != null) {
+                this.aeg.a(ayVar);
+            }
             TiebaStatic.log(ayVar);
+            this.startTime = 0L;
         }
+        this.aeh = "1";
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getDuration() {
         if (vv()) {
-            if (this.zC > 0) {
-                return this.zC;
+            if (this.Ae > 0) {
+                return this.Ae;
             }
             try {
-                this.zC = this.acZ.getDuration();
+                this.Ae = this.adK.getDuration();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            return this.zC;
+            return this.Ae;
         }
-        this.zC = -1;
-        return this.zC;
+        this.Ae = -1;
+        return this.Ae;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getCurrentPosition() {
         if (vv()) {
-            return this.acZ.getCurrentPosition();
+            try {
+                return this.adK.getCurrentPosition();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return 0;
     }
@@ -425,50 +438,88 @@ public class TextureVideoView extends TextureView implements MediaController.Med
     @Override // android.widget.MediaController.MediaPlayerControl
     public void seekTo(int i) {
         if (vv()) {
-            this.acZ.seekTo(i);
-            this.adi = 0;
+            this.adK.seekTo(i);
+            this.adS = 0;
             return;
         }
-        this.adi = i;
+        this.adS = i;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean isPlaying() {
-        return vv() && this.acZ.isPlaying();
+        try {
+            if (vv()) {
+                return this.adK.isPlaying();
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getBufferPercentage() {
-        if (this.acZ != null) {
-            return this.adg;
+        if (this.adK != null) {
+            return this.adQ;
         }
         return 0;
     }
 
     private boolean vv() {
-        return (this.acZ == null || this.acX == -1 || this.acX == 0 || this.acX == 1) ? false : true;
+        return (this.adK == null || this.adI == -1 || this.adI == 0 || this.adI == 1) ? false : true;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean canPause() {
-        return this.adj;
+        return this.adT;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean canSeekBackward() {
-        return this.adk;
+        return this.adU;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean canSeekForward() {
-        return this.adl;
+        return this.adV;
     }
 
     public void setEnableRefresh(boolean z) {
-        this.ado = z;
+        this.adY = z;
     }
 
     public void setOnSurfaceAvailableListener(a aVar) {
-        this.adu = aVar;
+        this.aee = aVar;
+    }
+
+    public void setVideoStatsData(c cVar) {
+        this.aeg = cVar;
+    }
+
+    /* loaded from: classes.dex */
+    public static class c {
+        public String aep;
+        public String aeq;
+        public String mLocate;
+
+        public ay a(ay ayVar) {
+            if (ayVar != null) {
+                if (!StringUtils.isNull(this.mLocate)) {
+                    ayVar.ab("obj_locate", this.mLocate);
+                }
+                if (!StringUtils.isNull(this.aep)) {
+                    ayVar.ab("tid", this.aep);
+                }
+                if (!StringUtils.isNull(this.aeq)) {
+                    ayVar.ab("fid", this.aeq);
+                }
+            }
+            return ayVar;
+        }
+    }
+
+    public void setPlayMode(String str) {
+        this.aeh = str;
     }
 }
