@@ -86,14 +86,14 @@ public class FileDownloader extends Service {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String UV;
+        private final String VE;
         private final String mUrl;
-        private ab LK = null;
-        private volatile boolean bwG = false;
+        private ab LI = null;
+        private volatile boolean byU = false;
 
         public a(String str, String str2) {
             this.mUrl = str;
-            this.UV = str2;
+            this.VE = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,13 +103,13 @@ public class FileDownloader extends Service {
         public Boolean doInBackground(String... strArr) {
             File cU;
             Boolean bool = false;
-            while (!this.bwG) {
+            while (!this.byU) {
                 try {
-                    this.LK = new ab(this.mUrl);
-                    bool = Boolean.valueOf(this.LK.a(String.valueOf(this.UV) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.LK.tC() == -2) {
+                    this.LI = new ab(this.mUrl);
+                    bool = Boolean.valueOf(this.LI.a(String.valueOf(this.VE) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
+                    if (bool.booleanValue() || this.LI.tB() == -2) {
                         break;
-                    } else if (!this.LK.ty().uv().dn()) {
+                    } else if (!this.LI.tx().uv().dm()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -119,9 +119,9 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                m.cZ(this.UV);
-                File cR = m.cR(String.valueOf(this.UV) + ".tmp");
-                if (cR != null && (cU = m.cU(this.UV)) != null) {
+                m.cZ(this.VE);
+                File cR = m.cR(String.valueOf(this.VE) + ".tmp");
+                if (cR != null && (cU = m.cU(this.VE)) != null) {
                     cR.renameTo(cU);
                 }
             }
@@ -132,22 +132,22 @@ public class FileDownloader extends Service {
         public void cancel() {
             super.cancel(true);
             FileDownloader.this.mDowndingTask = null;
-            this.bwG = true;
-            if (this.LK != null) {
-                this.LK.dm();
+            this.byU = true;
+            if (this.LI != null) {
+                this.LI.dl();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
+        /* renamed from: c */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             FileDownloader.this.mDowndingTask = null;
             if (bool.booleanValue()) {
                 NotificationHelper.cancelNotification(FileDownloader.this.getBaseContext(), 10);
-                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.UV), 100L);
+                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.VE), 100L);
                 return;
             }
             NotificationHelper.showProgressNotification(FileDownloader.this.getBaseContext(), 10, null, FileDownloader.this.progress, this.mUrl, FileDownloader.this.getString(u.j.error_sd_error), false);

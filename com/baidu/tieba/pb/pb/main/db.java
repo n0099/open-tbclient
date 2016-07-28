@@ -5,18 +5,18 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class db extends CustomMessageListener {
-    final /* synthetic */ cz dQG;
+    final /* synthetic */ da ecV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db(cz czVar, int i) {
+    public db(da daVar, int i) {
         super(i);
-        this.dQG = czVar;
+        this.ecV = daVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.dQG.j(customResponsedMessage);
+        this.ecV.j(customResponsedMessage);
     }
 }

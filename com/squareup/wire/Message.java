@@ -292,7 +292,7 @@ public abstract class Message {
         }
     }
 
-    public void writeUnknownFieldMap(WireOutput wireOutput) {
+    public void writeUnknownFieldMap(WireOutput wireOutput) throws IOException {
         if (this.unknownFields != null) {
             this.unknownFields.write(wireOutput);
         }

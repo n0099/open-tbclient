@@ -4,7 +4,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class CreateBarTipSwitchStatic extends BaseNormalSwitchStatic {
     static {
-        e.cT().n(CreateBarTipSwitchStatic.class);
+        e.cS().n(CreateBarTipSwitchStatic.class);
     }
 
     @Override // com.baidu.tbadk.switchs.BaseNormalSwitchStatic, com.baidu.adp.lib.c.a

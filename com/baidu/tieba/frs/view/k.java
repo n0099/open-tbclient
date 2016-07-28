@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.data.p> {
-    final /* synthetic */ c bTP;
+public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.data.q> {
+    final /* synthetic */ c bVP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar) {
-        this.bTP = cVar;
+        this.bVP = cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
@@ -26,39 +26,39 @@ public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
         int i4;
         HashMap hashMap2;
         String str3;
-        bi.us().c(this.bTP.Dp, new String[]{str});
+        bi.us().c(this.bVP.DQ, new String[]{str});
         String str4 = "";
         String str5 = "";
-        if (this.bTP.bET != null) {
-            str4 = this.bTP.bET.getForumId();
-            str5 = this.bTP.bET.getForumName();
+        if (this.bVP.bGh != null) {
+            str4 = this.bVP.bGh.getForumId();
+            str5 = this.bVP.bGh.getForumName();
         }
         if (i <= 0) {
-            hashMap2 = c.bTH;
-            str3 = this.bTP.NQ;
-            a.C0077a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap2.get(1), "ad_plat", "CLICK", str3, str4, str5, null);
-            a.bM("obj_url", str);
+            hashMap2 = c.bVH;
+            str3 = this.bVP.NX;
+            a.C0076a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap2.get(1), "ad_plat", "CLICK", str3, str4, str5, null);
+            a.bR("obj_url", str);
             a.save();
             return;
         }
-        i2 = this.bTP.bTJ;
+        i2 = this.bVP.bVJ;
         if (i2 > 1) {
-            i3 = this.bTP.bTJ;
+            i3 = this.bVP.bVJ;
             if (i > i3) {
-                i4 = this.bTP.bTJ;
+                i4 = this.bVP.bVJ;
                 i %= i4;
             }
-            hashMap = c.bTH;
-            str2 = this.bTP.NQ;
-            a.C0077a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "CLICK", str2, str4, str5, null);
-            a2.bM("obj_url", str);
+            hashMap = c.bVH;
+            str2 = this.bVP.NX;
+            a.C0076a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "CLICK", str2, str4, str5, null);
+            a2.bR("obj_url", str);
             a2.save();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.flow.a.d
-    public void a(int i, com.baidu.tbadk.core.data.p pVar) {
+    public void a(int i, com.baidu.tbadk.core.data.q qVar) {
         int i2;
         Drawable drawable;
         int i3;
@@ -67,43 +67,43 @@ public class k implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
         HashMap hashMap;
         String str;
         int i5;
-        if (this.bTP.bSS != null) {
+        if (this.bVP.bUS != null) {
             String str2 = "";
-            if (this.bTP.bET != null) {
-                str2 = this.bTP.bET.getForumId();
+            if (this.bVP.bGh != null) {
+                str2 = this.bVP.bGh.getForumId();
             }
             if (i > 0) {
-                i3 = this.bTP.bTJ;
+                i3 = this.bVP.bVJ;
                 if (i3 > 1) {
-                    i4 = this.bTP.bTJ;
+                    i4 = this.bVP.bVJ;
                     if (i > i4) {
-                        i5 = this.bTP.bTJ;
+                        i5 = this.bVP.bVJ;
                         i %= i5;
                     }
-                    hashSet = c.bTI;
+                    hashSet = c.bVI;
                     if (hashSet.add(Integer.valueOf(i))) {
-                        hashMap = c.bTH;
-                        str = this.bTP.NQ;
-                        a.C0077a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "VIEW_TRUE", str, str2, "", null);
-                        if (pVar != null) {
-                            a.bM("obj_url", pVar.getLinkUrl());
+                        hashMap = c.bVH;
+                        str = this.bVP.NX;
+                        a.C0076a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "VIEW_TRUE", str, str2, "", null);
+                        if (qVar != null) {
+                            a.bR("obj_url", qVar.getLinkUrl());
                         }
                         a.save();
                     }
                 }
             }
-            if (pVar == null || StringUtils.isNull(pVar.getTitle(), true)) {
-                this.bTP.bSS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                this.bTP.bSS.setText("");
+            if (qVar == null || StringUtils.isNull(qVar.getTitle(), true)) {
+                this.bVP.bUS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bVP.bUS.setText("");
                 return;
             }
-            TextView textView = this.bTP.bSS;
-            i2 = this.bTP.drawablePadding;
+            TextView textView = this.bVP.bUS;
+            i2 = this.bVP.drawablePadding;
             textView.setCompoundDrawablePadding(i2);
-            TextView textView2 = this.bTP.bSS;
-            drawable = this.bTP.bST;
+            TextView textView2 = this.bVP.bUS;
+            drawable = this.bVP.bUT;
             textView2.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.bTP.bSS.setText(pVar.getTitle());
+            this.bVP.bUS.setText(qVar.getTitle());
         }
     }
 }

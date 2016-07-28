@@ -1,18 +1,17 @@
 package com.baidu.tieba.frs.entelechy.view;
-
-import com.baidu.tbadk.core.view.TextureVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements TextureVideoView.b {
-    final /* synthetic */ a bKn;
+public class k implements Runnable {
+    final /* synthetic */ a bLV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(a aVar) {
-        this.bKn = aVar;
+        this.bLV = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.TextureVideoView.b
-    public void vx() {
-        this.bKn.stopPlay();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bLV.KX();
+        this.bLV.e(true, 4);
     }
 }

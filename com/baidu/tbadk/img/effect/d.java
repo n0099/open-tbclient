@@ -31,16 +31,16 @@ public class d extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap b(Bitmap bitmap, boolean z) {
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.CQ().eD(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.CP().eD(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap fU(String str) {
+    public Bitmap fS(String str) throws Exception {
         return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 

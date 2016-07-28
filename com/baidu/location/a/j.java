@@ -13,7 +13,7 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class j {
     private int B;
-    private a Gu;
+    private a GO;
     long a = 0;
     private static ArrayList<String> b = new ArrayList<>();
     private static ArrayList<String> c = new ArrayList<>();
@@ -23,23 +23,23 @@ public class j {
     private static final String g = com.baidu.location.h.h.a + "/yom.dat";
     private static final String h = com.baidu.location.h.h.a + "/yol.dat";
     private static final String i = com.baidu.location.h.h.a + "/yor.dat";
-    private static File Gl = null;
+    private static File GF = null;
     private static int k = 8;
     private static int l = 8;
     private static int m = 16;
     private static int n = 1024;
-    private static double Gm = 0.0d;
-    private static double Gn = 0.1d;
-    private static double Go = 30.0d;
-    private static double Gp = 100.0d;
+    private static double GG = 0.0d;
+    private static double GH = 0.1d;
+    private static double GI = 30.0d;
+    private static double GJ = 100.0d;
     private static int s = 0;
     private static int t = 64;
     private static int u = 128;
-    private static Location Gq = null;
-    private static Location Gr = null;
-    private static Location Gs = null;
-    private static com.baidu.location.f.i Gt = null;
-    private static j Gv = null;
+    private static Location GK = null;
+    private static Location GL = null;
+    private static Location GM = null;
+    private static com.baidu.location.f.i GN = null;
+    private static j GP = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -50,7 +50,7 @@ public class j {
         private ArrayList<String> e = null;
 
         public a() {
-            this.Jl = new HashMap();
+            this.Jx = new HashMap();
         }
 
         @Override // com.baidu.location.h.f
@@ -60,12 +60,12 @@ public class j {
             if (this.e != null) {
                 for (int i = 0; i < this.e.size(); i++) {
                     if (this.b == 1) {
-                        this.Jl.put("cldc[" + i + "]", this.e.get(i));
+                        this.Jx.put("cldc[" + i + "]", this.e.get(i));
                     } else {
-                        this.Jl.put("cltr[" + i + "]", this.e.get(i));
+                        this.Jx.put("cltr[" + i + "]", this.e.get(i));
                     }
                 }
-                this.Jl.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
+                this.Jx.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
             }
         }
 
@@ -74,8 +74,8 @@ public class j {
             if (z && this.j != null && this.e != null) {
                 this.e.clear();
             }
-            if (this.Jl != null) {
-                this.Jl.clear();
+            if (this.Jx != null) {
+                this.Jx.clear();
             }
             this.a = false;
         }
@@ -126,9 +126,9 @@ public class j {
     }
 
     private j() {
-        this.Gu = null;
+        this.GO = null;
         this.B = 0;
-        this.Gu = new a();
+        this.GO = new a();
         this.B = 0;
     }
 
@@ -179,277 +179,7 @@ public class j {
         return str2;
     }
 
-    public static void a(com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, Location location, String str) {
-        BDLocation X;
-        String str2;
-        String a2;
-        if (com.baidu.location.c.c.lO().a) {
-            if (com.baidu.location.h.i.s != 3 || a(location, iVar) || a(location, false)) {
-                if (com.baidu.location.e.a.lU().X(true).getLocType() == 66) {
-                    str = str + String.format(Locale.CHINA, "&ofrt=%f|%f|%d", Double.valueOf(X.getLongitude()), Double.valueOf(X.getLatitude()), Integer.valueOf((int) X.getRadius()));
-                }
-                BDLocation a3 = com.baidu.location.h.i.a(com.baidu.location.f.getServiceContext()) ? com.baidu.location.e.d.lV().a(aVar, iVar, null, d.b.IS_MIX_MODE, d.a.NO_NEED_TO_LOG) : com.baidu.location.e.d.lV().a(aVar, iVar, null, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
-                if (a3 == null || a3.getLocType() == 67) {
-                    str2 = str + String.format(Locale.CHINA, "&ofl=%s|0", "1");
-                } else {
-                    int i2 = 0;
-                    if (a3.getNetworkLocationType().equals("cl")) {
-                        i2 = 1;
-                    } else if (a3.getNetworkLocationType().equals("wf")) {
-                        i2 = 2;
-                    }
-                    str2 = str + String.format(Locale.CHINA, "&ofl=%s|%d|%f|%f|%d", "1", Integer.valueOf(i2), Double.valueOf(a3.getLongitude()), Double.valueOf(a3.getLatitude()), Integer.valueOf((int) a3.getRadius()));
-                }
-                if (aVar != null && aVar.a()) {
-                    if (!a(location, iVar)) {
-                        iVar = null;
-                    }
-                    String a4 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 1);
-                    if (a4 != null) {
-                        c(Jni.encode(a4));
-                        Gr = location;
-                        Gq = location;
-                        if (iVar != null) {
-                            Gt = iVar;
-                        }
-                    }
-                } else if (iVar != null && iVar.h() && a(location, iVar)) {
-                    if (!a(location) && !com.baidu.location.f.b.mm().d()) {
-                        str2 = "&cfr=1" + str2;
-                    } else if (!a(location) && com.baidu.location.f.b.mm().d()) {
-                        str2 = "&cfr=3" + str2;
-                    } else if (com.baidu.location.f.b.mm().d()) {
-                        str2 = "&cfr=2" + str2;
-                    }
-                    String a5 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 2);
-                    if (a5 != null) {
-                        d(Jni.encode(a5));
-                        Gs = location;
-                        Gq = location;
-                        if (iVar != null) {
-                            Gt = iVar;
-                        }
-                    }
-                } else {
-                    if (!a(location) && !com.baidu.location.f.b.mm().d()) {
-                        str2 = "&cfr=1" + str2;
-                    } else if (!a(location) && com.baidu.location.f.b.mm().d()) {
-                        str2 = "&cfr=3" + str2;
-                    } else if (com.baidu.location.f.b.mm().d()) {
-                        str2 = "&cfr=2" + str2;
-                    }
-                    if (!a(location, iVar)) {
-                        iVar = null;
-                    }
-                    if ((aVar == null && iVar == null) || (a2 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 3)) == null) {
-                        return;
-                    }
-                    e(Jni.encode(a2));
-                    Gq = location;
-                    if (iVar != null) {
-                        Gt = iVar;
-                    }
-                }
-            }
-        }
-    }
-
-    public static void a(String str) {
-        try {
-            File file = new File(str);
-            if (file.exists()) {
-                return;
-            }
-            File file2 = new File(com.baidu.location.h.h.a);
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-            if (!file.createNewFile()) {
-                file = null;
-            }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-            randomAccessFile.seek(0L);
-            randomAccessFile.writeInt(32);
-            randomAccessFile.writeInt(2048);
-            randomAccessFile.writeInt(1040);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.close();
-        } catch (Exception e2) {
-        }
-    }
-
-    private static boolean a(int i2, int i3, int i4, int i5, long j) {
-        return i2 >= 0 && i2 < i4 && i3 >= 0 && i3 <= i4 && i4 >= 0 && i4 <= 1024 && i5 >= 128 && i5 <= 1024;
-    }
-
-    private static boolean a(Location location) {
-        if (location == null) {
-            return false;
-        }
-        if (Gr == null || Gq == null) {
-            Gr = location;
-            return true;
-        }
-        double distanceTo = location.distanceTo(Gr);
-        return ((double) location.distanceTo(Gq)) > ((distanceTo * ((double) com.baidu.location.h.i.Ju)) + ((((double) com.baidu.location.h.i.Jt) * distanceTo) * distanceTo)) + ((double) com.baidu.location.h.i.Jv);
-    }
-
-    private static boolean a(Location location, com.baidu.location.f.i iVar) {
-        if (location == null || iVar == null || iVar.a == null || iVar.a.isEmpty() || iVar.b(Gt)) {
-            return false;
-        }
-        if (Gs == null) {
-            Gs = location;
-            return true;
-        }
-        return true;
-    }
-
-    public static boolean a(Location location, boolean z) {
-        return com.baidu.location.f.e.a(Gq, location, z);
-    }
-
-    public static boolean a(String str, List<String> list) {
-        File file = new File(str);
-        if (file.exists()) {
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-                randomAccessFile.seek(8L);
-                int readInt = randomAccessFile.readInt();
-                int readInt2 = randomAccessFile.readInt();
-                int readInt3 = randomAccessFile.readInt();
-                byte[] bArr = new byte[n];
-                int i2 = readInt2;
-                int i3 = l + 1;
-                boolean z = false;
-                while (i3 > 0 && i2 > 0) {
-                    if (i2 < readInt3) {
-                        readInt3 = 0;
-                    }
-                    try {
-                        randomAccessFile.seek(((i2 - 1) * readInt) + 128);
-                        int readInt4 = randomAccessFile.readInt();
-                        if (readInt4 > 0 && readInt4 < readInt) {
-                            randomAccessFile.read(bArr, 0, readInt4);
-                            if (bArr[readInt4 - 1] == 0) {
-                                list.add(0, new String(bArr, 0, readInt4 - 1));
-                                z = true;
-                            }
-                        }
-                        i3--;
-                        i2--;
-                    } catch (Exception e2) {
-                        return z;
-                    }
-                }
-                randomAccessFile.seek(12L);
-                randomAccessFile.writeInt(i2);
-                randomAccessFile.writeInt(readInt3);
-                randomAccessFile.close();
-                return z;
-            } catch (Exception e3) {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    private static synchronized int b(List<String> list, int i2) {
-        int i3;
-        synchronized (j.class) {
-            if (list != null && i2 <= 256) {
-                if (i2 >= 0) {
-                    try {
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                        i3 = -5;
-                    }
-                    if (Gl == null) {
-                        Gl = new File(e);
-                        if (!Gl.exists()) {
-                            Gl = null;
-                            i3 = -2;
-                        }
-                    }
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(Gl, "rw");
-                    if (randomAccessFile.length() < 1) {
-                        randomAccessFile.close();
-                        i3 = -3;
-                    } else {
-                        randomAccessFile.seek(i2);
-                        int readInt = randomAccessFile.readInt();
-                        int readInt2 = randomAccessFile.readInt();
-                        int readInt3 = randomAccessFile.readInt();
-                        int readInt4 = randomAccessFile.readInt();
-                        long readLong = randomAccessFile.readLong();
-                        if (!a(readInt, readInt2, readInt3, readInt4, readLong) || readInt2 < 1) {
-                            randomAccessFile.close();
-                            i3 = -4;
-                        } else {
-                            byte[] bArr = new byte[n];
-                            int i4 = readInt2;
-                            int i5 = k;
-                            while (i5 > 0 && i4 > 0) {
-                                randomAccessFile.seek(((((readInt + i4) - 1) % readInt3) * readInt4) + readLong);
-                                int readInt5 = randomAccessFile.readInt();
-                                if (readInt5 > 0 && readInt5 < readInt4) {
-                                    randomAccessFile.read(bArr, 0, readInt5);
-                                    if (bArr[readInt5 - 1] == 0) {
-                                        list.add(new String(bArr, 0, readInt5 - 1));
-                                    }
-                                }
-                                i5--;
-                                i4--;
-                            }
-                            randomAccessFile.seek(i2);
-                            randomAccessFile.writeInt(readInt);
-                            randomAccessFile.writeInt(i4);
-                            randomAccessFile.writeInt(readInt3);
-                            randomAccessFile.writeInt(readInt4);
-                            randomAccessFile.writeLong(readLong);
-                            randomAccessFile.close();
-                            i3 = k - i5;
-                        }
-                    }
-                }
-            }
-            i3 = -1;
-        }
-        return i3;
-    }
-
-    public static String b() {
-        return d();
-    }
-
-    public static synchronized void b(String str) {
-        ArrayList<String> arrayList;
-        synchronized (j.class) {
-            int i2 = com.baidu.location.h.i.n;
-            if (i2 == 1) {
-                arrayList = b;
-            } else if (i2 == 2) {
-                arrayList = c;
-            } else if (i2 == 3) {
-                arrayList = d;
-            }
-            if (arrayList != null) {
-                if (arrayList.size() <= m) {
-                    arrayList.add(str);
-                }
-                if (arrayList.size() >= m) {
-                    c(i2, false);
-                }
-                while (arrayList.size() > m) {
-                    arrayList.remove(0);
-                }
-            }
-        }
-    }
-
-    public static void c(int i2, boolean z) {
+    public static void a(int i2, boolean z) {
         String str;
         ArrayList<String> arrayList;
         int i3;
@@ -549,8 +279,278 @@ public class j {
             if (!z2 || i2 >= 4) {
                 return;
             }
-            c(i2 + 1, true);
+            a(i2 + 1, true);
         } catch (Exception e2) {
+        }
+    }
+
+    public static void a(com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, Location location, String str) {
+        BDLocation Z;
+        String str2;
+        String a2;
+        if (com.baidu.location.c.c.lI().a) {
+            if (com.baidu.location.h.i.s != 3 || a(location, iVar) || a(location, false)) {
+                if (com.baidu.location.e.a.lO().Z(true).getLocType() == 66) {
+                    str = str + String.format(Locale.CHINA, "&ofrt=%f|%f|%d", Double.valueOf(Z.getLongitude()), Double.valueOf(Z.getLatitude()), Integer.valueOf((int) Z.getRadius()));
+                }
+                BDLocation a3 = com.baidu.location.h.i.a(com.baidu.location.f.getServiceContext()) ? com.baidu.location.e.d.lP().a(aVar, iVar, null, d.b.IS_MIX_MODE, d.a.NO_NEED_TO_LOG) : com.baidu.location.e.d.lP().a(aVar, iVar, null, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
+                if (a3 == null || a3.getLocType() == 67) {
+                    str2 = str + String.format(Locale.CHINA, "&ofl=%s|0", "1");
+                } else {
+                    int i2 = 0;
+                    if (a3.getNetworkLocationType().equals("cl")) {
+                        i2 = 1;
+                    } else if (a3.getNetworkLocationType().equals("wf")) {
+                        i2 = 2;
+                    }
+                    str2 = str + String.format(Locale.CHINA, "&ofl=%s|%d|%f|%f|%d", "1", Integer.valueOf(i2), Double.valueOf(a3.getLongitude()), Double.valueOf(a3.getLatitude()), Integer.valueOf((int) a3.getRadius()));
+                }
+                if (aVar != null && aVar.a()) {
+                    if (!a(location, iVar)) {
+                        iVar = null;
+                    }
+                    String a4 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 1);
+                    if (a4 != null) {
+                        c(Jni.encode(a4));
+                        GL = location;
+                        GK = location;
+                        if (iVar != null) {
+                            GN = iVar;
+                        }
+                    }
+                } else if (iVar != null && iVar.h() && a(location, iVar)) {
+                    if (!a(location) && !com.baidu.location.f.b.mc().d()) {
+                        str2 = "&cfr=1" + str2;
+                    } else if (!a(location) && com.baidu.location.f.b.mc().d()) {
+                        str2 = "&cfr=3" + str2;
+                    } else if (com.baidu.location.f.b.mc().d()) {
+                        str2 = "&cfr=2" + str2;
+                    }
+                    String a5 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 2);
+                    if (a5 != null) {
+                        d(Jni.encode(a5));
+                        GM = location;
+                        GK = location;
+                        if (iVar != null) {
+                            GN = iVar;
+                        }
+                    }
+                } else {
+                    if (!a(location) && !com.baidu.location.f.b.mc().d()) {
+                        str2 = "&cfr=1" + str2;
+                    } else if (!a(location) && com.baidu.location.f.b.mc().d()) {
+                        str2 = "&cfr=3" + str2;
+                    } else if (com.baidu.location.f.b.mc().d()) {
+                        str2 = "&cfr=2" + str2;
+                    }
+                    if (!a(location, iVar)) {
+                        iVar = null;
+                    }
+                    if ((aVar == null && iVar == null) || (a2 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 3)) == null) {
+                        return;
+                    }
+                    e(Jni.encode(a2));
+                    GK = location;
+                    if (iVar != null) {
+                        GN = iVar;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void a(String str) {
+        try {
+            File file = new File(str);
+            if (file.exists()) {
+                return;
+            }
+            File file2 = new File(com.baidu.location.h.h.a);
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            if (!file.createNewFile()) {
+                file = null;
+            }
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+            randomAccessFile.seek(0L);
+            randomAccessFile.writeInt(32);
+            randomAccessFile.writeInt(2048);
+            randomAccessFile.writeInt(1040);
+            randomAccessFile.writeInt(0);
+            randomAccessFile.writeInt(0);
+            randomAccessFile.writeInt(0);
+            randomAccessFile.close();
+        } catch (Exception e2) {
+        }
+    }
+
+    private static boolean a(int i2, int i3, int i4, int i5, long j) {
+        return i2 >= 0 && i2 < i4 && i3 >= 0 && i3 <= i4 && i4 >= 0 && i4 <= 1024 && i5 >= 128 && i5 <= 1024;
+    }
+
+    private static boolean a(Location location) {
+        if (location == null) {
+            return false;
+        }
+        if (GL == null || GK == null) {
+            GL = location;
+            return true;
+        }
+        double distanceTo = location.distanceTo(GL);
+        return ((double) location.distanceTo(GK)) > ((distanceTo * ((double) com.baidu.location.h.i.JE)) + ((((double) com.baidu.location.h.i.JD) * distanceTo) * distanceTo)) + ((double) com.baidu.location.h.i.JF);
+    }
+
+    private static boolean a(Location location, com.baidu.location.f.i iVar) {
+        if (location == null || iVar == null || iVar.a == null || iVar.a.isEmpty() || iVar.b(GN)) {
+            return false;
+        }
+        if (GM == null) {
+            GM = location;
+            return true;
+        }
+        return true;
+    }
+
+    public static boolean a(Location location, boolean z) {
+        return com.baidu.location.f.e.a(GK, location, z);
+    }
+
+    public static boolean a(String str, List<String> list) {
+        File file = new File(str);
+        if (file.exists()) {
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile.seek(8L);
+                int readInt = randomAccessFile.readInt();
+                int readInt2 = randomAccessFile.readInt();
+                int readInt3 = randomAccessFile.readInt();
+                byte[] bArr = new byte[n];
+                int i2 = readInt2;
+                int i3 = l + 1;
+                boolean z = false;
+                while (i3 > 0 && i2 > 0) {
+                    if (i2 < readInt3) {
+                        readInt3 = 0;
+                    }
+                    try {
+                        randomAccessFile.seek(((i2 - 1) * readInt) + 128);
+                        int readInt4 = randomAccessFile.readInt();
+                        if (readInt4 > 0 && readInt4 < readInt) {
+                            randomAccessFile.read(bArr, 0, readInt4);
+                            if (bArr[readInt4 - 1] == 0) {
+                                list.add(0, new String(bArr, 0, readInt4 - 1));
+                                z = true;
+                            }
+                        }
+                        i3--;
+                        i2--;
+                    } catch (Exception e2) {
+                        return z;
+                    }
+                }
+                randomAccessFile.seek(12L);
+                randomAccessFile.writeInt(i2);
+                randomAccessFile.writeInt(readInt3);
+                randomAccessFile.close();
+                return z;
+            } catch (Exception e3) {
+                return false;
+            }
+        }
+        return false;
+    }
+
+    private static synchronized int b(List<String> list, int i2) {
+        int i3;
+        synchronized (j.class) {
+            if (list != null && i2 <= 256) {
+                if (i2 >= 0) {
+                    try {
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                        i3 = -5;
+                    }
+                    if (GF == null) {
+                        GF = new File(e);
+                        if (!GF.exists()) {
+                            GF = null;
+                            i3 = -2;
+                        }
+                    }
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(GF, "rw");
+                    if (randomAccessFile.length() < 1) {
+                        randomAccessFile.close();
+                        i3 = -3;
+                    } else {
+                        randomAccessFile.seek(i2);
+                        int readInt = randomAccessFile.readInt();
+                        int readInt2 = randomAccessFile.readInt();
+                        int readInt3 = randomAccessFile.readInt();
+                        int readInt4 = randomAccessFile.readInt();
+                        long readLong = randomAccessFile.readLong();
+                        if (!a(readInt, readInt2, readInt3, readInt4, readLong) || readInt2 < 1) {
+                            randomAccessFile.close();
+                            i3 = -4;
+                        } else {
+                            byte[] bArr = new byte[n];
+                            int i4 = readInt2;
+                            int i5 = k;
+                            while (i5 > 0 && i4 > 0) {
+                                randomAccessFile.seek(((((readInt + i4) - 1) % readInt3) * readInt4) + readLong);
+                                int readInt5 = randomAccessFile.readInt();
+                                if (readInt5 > 0 && readInt5 < readInt4) {
+                                    randomAccessFile.read(bArr, 0, readInt5);
+                                    if (bArr[readInt5 - 1] == 0) {
+                                        list.add(new String(bArr, 0, readInt5 - 1));
+                                    }
+                                }
+                                i5--;
+                                i4--;
+                            }
+                            randomAccessFile.seek(i2);
+                            randomAccessFile.writeInt(readInt);
+                            randomAccessFile.writeInt(i4);
+                            randomAccessFile.writeInt(readInt3);
+                            randomAccessFile.writeInt(readInt4);
+                            randomAccessFile.writeLong(readLong);
+                            randomAccessFile.close();
+                            i3 = k - i5;
+                        }
+                    }
+                }
+            }
+            i3 = -1;
+        }
+        return i3;
+    }
+
+    public static String b() {
+        return d();
+    }
+
+    public static synchronized void b(String str) {
+        ArrayList<String> arrayList;
+        synchronized (j.class) {
+            int i2 = com.baidu.location.h.i.n;
+            if (i2 == 1) {
+                arrayList = b;
+            } else if (i2 == 2) {
+                arrayList = c;
+            } else if (i2 == 3) {
+                arrayList = d;
+            }
+            if (arrayList != null) {
+                if (arrayList.size() <= m) {
+                    arrayList.add(str);
+                }
+                if (arrayList.size() >= m) {
+                    a(i2, false);
+                }
+                while (arrayList.size() > m) {
+                    arrayList.remove(0);
+                }
+            }
         }
     }
 
@@ -597,9 +597,9 @@ public class j {
 
     public static void e() {
         l = 0;
-        c(1, false);
-        c(2, false);
-        c(3, false);
+        a(1, false);
+        a(2, false);
+        a(3, false);
         l = 8;
     }
 
@@ -665,20 +665,20 @@ public class j {
         return null;
     }
 
-    public static synchronized j lI() {
+    public static synchronized j lC() {
         j jVar;
         synchronized (j.class) {
-            if (Gv == null) {
-                Gv = new j();
+            if (GP == null) {
+                GP = new j();
             }
-            jVar = Gv;
+            jVar = GP;
         }
         return jVar;
     }
 
     public void c() {
-        if (com.baidu.location.f.k.mA().g()) {
-            this.Gu.b();
+        if (com.baidu.location.f.k.mq().g()) {
+            this.GO.b();
         }
     }
 }

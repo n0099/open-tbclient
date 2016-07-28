@@ -244,9 +244,9 @@ public interface a {
 
     boolean proxyStartActivityIfNeeded(Intent intent, int i);
 
-    void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3);
+    void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException;
 
-    void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4);
+    void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException;
 
     void proxyStartManagingCursor(Cursor cursor);
 

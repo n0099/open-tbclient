@@ -1,17 +1,22 @@
 package com.baidu.tieba.write.view;
 
-import android.view.View;
+import android.widget.PopupWindow;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements View.OnClickListener {
-    final /* synthetic */ PostCategoryView fGP;
+public class g implements PopupWindow.OnDismissListener {
+    final /* synthetic */ PostCategoryView fSG;
+    private final /* synthetic */ PostCategoryView fSH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PostCategoryView postCategoryView) {
-        this.fGP = postCategoryView;
+    public g(PostCategoryView postCategoryView, PostCategoryView postCategoryView2) {
+        this.fSG = postCategoryView;
+        this.fSH = postCategoryView2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.fGP.blp();
+    @Override // android.widget.PopupWindow.OnDismissListener
+    public void onDismiss() {
+        if (this.fSH != null) {
+            this.fSH.boj();
+        }
     }
 }

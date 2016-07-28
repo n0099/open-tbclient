@@ -25,7 +25,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (wd) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (wE) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -36,7 +36,7 @@ public final class Util {
         }
     }
 
-    public static boolean iu() {
+    public static boolean it() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -48,7 +48,7 @@ public final class Util {
         }
     }
 
-    public static i e(InputStream inputStream) {
+    public static i l(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -70,17 +70,17 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean j(long j) {
-        long iw = iw();
+    public static final boolean k(long j) {
+        long iv = iv();
         if (j <= 0) {
-            return iw <= 0 || iw >= 31457280;
+            return iv <= 0 || iv >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < iw;
+        return (j2 <= 31457280 ? j2 : 31457280L) < iv;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
@@ -152,9 +152,9 @@ public final class Util {
         }
     }
 
-    public static void h(File file) {
+    public static void i(File file) {
         if (file != null && file.exists()) {
-            f(file);
+            g(file);
             try {
                 file.delete();
             } catch (Exception e) {
@@ -163,14 +163,14 @@ public final class Util {
         }
     }
 
-    public static void f(File file) {
+    public static void g(File file) {
         if (file != null && file.exists() && file.isDirectory()) {
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         try {
-                            g(file2);
+                            h(file2);
                         } catch (Exception e) {
                             BdLog.e(e);
                         }
@@ -182,10 +182,10 @@ public final class Util {
         }
     }
 
-    public static void g(File file) {
+    public static void h(File file) {
         if (file != null) {
             if (file.isDirectory()) {
-                h(file);
+                i(file);
             } else if (file.exists()) {
                 try {
                     file.delete();
@@ -214,15 +214,15 @@ public final class Util {
         }
     }
 
-    public static File bH(String str) {
-        PluginSetting bj = PluginPackageManager.hH().bj(str);
-        if (bj == null || bj.apkPath == null || bj.apkPath.length() <= ".apk".length()) {
+    public static File bI(String str) {
+        PluginSetting bk = PluginPackageManager.hG().bk(str);
+        if (bk == null || bk.apkPath == null || bk.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bj.apkPath.substring(0, bj.apkPath.length() - ".apk".length()));
+        return new File(bk.apkPath.substring(0, bk.apkPath.length() - ".apk".length()));
     }
 
-    public static File iv() {
+    public static File iu() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -345,7 +345,7 @@ public final class Util {
         return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bI(String str) {
+    public static String bJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -356,10 +356,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return iv() + File.separator + e(pluginSetting);
+        return iu() + File.separator + e(pluginSetting);
     }
 
-    public static long iw() {
+    public static long iv() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

@@ -7,21 +7,21 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tieba.emotion.editortool.EmotionTabContentView;
 /* loaded from: classes.dex */
 class k implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ EmotionTabContentView.b bro;
+    final /* synthetic */ EmotionTabContentView.b btD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(EmotionTabContentView.b bVar) {
-        this.bro = bVar;
+        this.btD = bVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         EmotionTabContentView emotionTabContentView;
         EmotionTabContentView.a aVar = (EmotionTabContentView.a) adapterView.getAdapter();
-        if (aVar == null || aVar.Ro() == null) {
+        if (aVar == null || aVar.RV() == null) {
             return false;
         }
-        if (aVar.Ro().Rs() == EmotionGroupType.BIG_EMOTION) {
+        if (aVar.RV().RZ() == EmotionGroupType.BIG_EMOTION) {
             emotionTabContentView = EmotionTabContentView.this;
             emotionTabContentView.a(i, (GridView) adapterView);
             return true;

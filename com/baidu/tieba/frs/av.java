@@ -16,8 +16,8 @@ class av extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             int g = b.g(customResponsedMessage.getData().toString(), 1);
             if (g == 1 || g == 0) {
-                FrsActivityStatic.bDO = false;
-                FrsActivityStatic.bDN = false;
+                FrsActivityStatic.bEY = false;
+                FrsActivityStatic.bEX = false;
             }
         }
     }

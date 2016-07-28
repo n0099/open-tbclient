@@ -10,14 +10,14 @@ import com.baidu.tieba.u;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private a axn;
-    private final com.baidu.adp.framework.listener.a axo;
+    private a ayd;
+    private final com.baidu.adp.framework.listener.a aye;
 
     public b(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.axo = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.axn = aVar;
-        registerListener(this.axo);
+        this.aye = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.ayd = aVar;
+        registerListener(this.aye);
     }
 
     @Override // com.baidu.adp.base.e
@@ -30,10 +30,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void Ey() {
-        if (!e.Ez().EA()) {
-            if (this.axn != null) {
-                this.axn.Ew();
+    public void Ex() {
+        if (!e.Ey().Ez()) {
+            if (this.ayd != null) {
+                this.ayd.Ev();
                 return;
             }
             return;
@@ -44,7 +44,7 @@ public class b extends com.baidu.adp.base.e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.axo);
+        MessageManager.getInstance().unRegisterListener(this.aye);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -55,19 +55,19 @@ public class b extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.axn != null) {
-                this.axn.onError(TbadkCoreApplication.m9getInst().getString(u.j.data_load_error));
+            if (this.ayd != null) {
+                this.ayd.onError(TbadkCoreApplication.m10getInst().getString(u.j.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.axn != null) {
-                this.axn.Ex();
+            if (this.ayd != null) {
+                this.ayd.Ew();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.axn != null) {
-                this.axn.Ew();
+            if (this.ayd != null) {
+                this.ayd.Ev();
             }
-        } else if (this.axn != null) {
-            this.axn.onError("");
+        } else if (this.ayd != null) {
+            this.ayd.onError("");
         }
     }
 }

@@ -9,40 +9,40 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public abstract class b extends BaseFragment {
-    protected boolean Ld = false;
-    private final CustomMessageListener Dd = new c(this, 2000994);
+    protected boolean Lc = false;
+    private final CustomMessageListener DE = new c(this, 2000994);
 
     public abstract int getType();
 
-    public abstract boolean nx();
+    public abstract boolean nm();
 
-    public boolean nw() {
-        return this.Ld;
+    public boolean nl() {
+        return this.Lc;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.Dd);
+        registerListener(this.DE);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.Dd);
+        MessageManager.getInstance().unRegisterListener(this.DE);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aN(int i) {
+    public void aQ(int i) {
         Bundle bundle = new Bundle();
-        this.Ld = !nx() && i.fr();
-        bundle.putBoolean("is_enable_edit", this.Ld);
+        this.Lc = !nm() && i.fq();
+        bundle.putBoolean("is_enable_edit", this.Lc);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(boolean z, int i) {
+    public void b(boolean z, int i) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("is_edit_state", z);
         bundle.putInt("fragment_type", i);

@@ -1,6 +1,7 @@
 package com.squareup.wire;
 
 import com.squareup.wire.Message;
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -70,13 +71,13 @@ public final class Wire {
         return enumAdapter;
     }
 
-    public <M extends Message> M parseFrom(byte[] bArr, Class<M> cls) {
+    public <M extends Message> M parseFrom(byte[] bArr, Class<M> cls) throws IOException {
         Preconditions.checkNotNull(bArr, "bytes");
         Preconditions.checkNotNull(cls, "messageClass");
         return (M) parseFrom(WireInput.newInstance(bArr), cls);
     }
 
-    public <M extends Message> M parseFrom(byte[] bArr, int i, int i2, Class<M> cls) {
+    public <M extends Message> M parseFrom(byte[] bArr, int i, int i2, Class<M> cls) throws IOException {
         Preconditions.checkNotNull(bArr, "bytes");
         Preconditions.checkArgument(i >= 0, "offset < 0");
         Preconditions.checkArgument(i2 >= 0, "count < 0");
@@ -85,13 +86,13 @@ public final class Wire {
         return (M) parseFrom(WireInput.newInstance(bArr, i, i2), cls);
     }
 
-    public <M extends Message> M parseFrom(InputStream inputStream, Class<M> cls) {
+    public <M extends Message> M parseFrom(InputStream inputStream, Class<M> cls) throws IOException {
         Preconditions.checkNotNull(inputStream, "input");
         Preconditions.checkNotNull(cls, "messageClass");
         return (M) parseFrom(WireInput.newInstance(inputStream), cls);
     }
 
-    private <M extends Message> M parseFrom(WireInput wireInput, Class<M> cls) {
+    private <M extends Message> M parseFrom(WireInput wireInput, Class<M> cls) throws IOException {
         return messageAdapter(cls).read(wireInput);
     }
 

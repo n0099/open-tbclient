@@ -1,22 +1,34 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends CustomMessageListener {
-    final /* synthetic */ a cqR;
+public class o implements View.OnTouchListener {
+    final /* synthetic */ b ctz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(a aVar, int i) {
-        super(i);
-        this.cqR = aVar;
+    public o(b bVar) {
+        this.ctz = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.cqR.aha();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        View.OnTouchListener onTouchListener;
+        com.baidu.tieba.d.a aVar;
+        com.baidu.tieba.d.a aVar2;
+        View.OnTouchListener onTouchListener2;
+        onTouchListener = this.ctz.ctf;
+        if (onTouchListener != null) {
+            onTouchListener2 = this.ctz.ctf;
+            onTouchListener2.onTouch(view, motionEvent);
+        }
+        aVar = this.ctz.aLl;
+        if (aVar != null) {
+            aVar2 = this.ctz.aLl;
+            aVar2.onTouchEvent(motionEvent);
+            return false;
+        }
+        return false;
     }
 }

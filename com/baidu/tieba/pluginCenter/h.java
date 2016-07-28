@@ -9,11 +9,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements a.b {
-    final /* synthetic */ PluginDetailActivity eDX;
+    final /* synthetic */ PluginDetailActivity ePG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PluginDetailActivity pluginDetailActivity) {
-        this.eDX = pluginDetailActivity;
+        this.ePG = pluginDetailActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -22,14 +22,14 @@ public class h implements a.b {
         TextView textView2;
         PluginNetConfigInfos.PluginConfig pluginConfig;
         com.baidu.adp.plugin.packageManager.e eVar;
-        textView = this.eDX.eDV;
+        textView = this.ePG.ePE;
         av.c(textView, u.d.cp_cont_d, 1);
-        textView2 = this.eDX.eDV;
+        textView2 = this.ePG.ePE;
         textView2.setEnabled(false);
-        PluginPackageManager hH = PluginPackageManager.hH();
-        pluginConfig = this.eDX.eDW;
-        eVar = this.eDX.uV;
-        hH.a(pluginConfig, eVar);
+        PluginPackageManager hG = PluginPackageManager.hG();
+        pluginConfig = this.ePG.ePF;
+        eVar = this.ePG.vw;
+        hG.a(pluginConfig, eVar);
         aVar.dismiss();
     }
 }

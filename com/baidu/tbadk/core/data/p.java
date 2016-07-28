@@ -1,75 +1,41 @@
 package com.baidu.tbadk.core.data;
 
+import java.util.ArrayList;
+import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
-public class p implements com.baidu.tbadk.core.flow.a.a {
-    private String NH;
-    private String NI;
-    private String NJ;
-    private boolean NK;
-    private String mImageUrl;
-    private String mTitle;
+public class p {
+    private String NL;
+    private int NM;
+    private ArrayList<q> NN = new ArrayList<>();
+    private int height;
+    private String obj_id;
+    private int width;
 
-    public p(String str, String str2, String str3) {
-        this.mImageUrl = str;
-        this.NH = str2;
-        this.mTitle = str3;
+    public ArrayList<q> oz() {
+        return this.NN;
     }
 
-    public p() {
+    public void g(ArrayList<q> arrayList) {
+        this.NN = arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.mImageUrl;
+    public String oA() {
+        return this.obj_id;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicLinkUrl() {
-        return this.NH;
-    }
-
-    public String getLinkUrl() {
-        return this.NH;
-    }
-
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: oM */
-    public p clone() {
-        p pVar = new p();
-        pVar.mImageUrl = this.mImageUrl;
-        pVar.NH = this.NH;
-        pVar.mTitle = this.mTitle;
-        pVar.NI = this.NI;
-        pVar.NJ = this.NJ;
-        return pVar;
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            this.mImageUrl = headImgs.img_url;
-            this.NH = headImgs.pc_url;
-            if (headImgs.title != null) {
-                this.mTitle = headImgs.title.trim();
-            }
-            if (headImgs.subtitle != null) {
-                this.NI = headImgs.subtitle.trim();
-            }
-            if (headImgs.btn_text != null) {
-                this.NJ = headImgs.btn_text.trim();
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
+            this.NM = activityHead.activity_type.intValue();
+            this.NL = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            this.obj_id = activityHead.obj_id;
+            for (HeadImgs headImgs : activityHead.head_imgs) {
+                q qVar = new q();
+                qVar.a(headImgs);
+                this.NN.add(qVar);
             }
         }
-    }
-
-    public boolean oN() {
-        return this.NK;
-    }
-
-    public void ah(boolean z) {
-        this.NK = z;
     }
 }

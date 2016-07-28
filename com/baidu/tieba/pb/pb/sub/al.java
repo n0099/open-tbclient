@@ -2,22 +2,22 @@ package com.baidu.tieba.pb.pb.sub;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements Runnable {
-    private final /* synthetic */ String dXA;
-    private final /* synthetic */ String dXB;
-    final /* synthetic */ af dXy;
+    final /* synthetic */ af eka;
+    private final /* synthetic */ String ekc;
+    private final /* synthetic */ String ekd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(af afVar, String str, String str2) {
-        this.dXy = afVar;
-        this.dXA = str;
-        this.dXB = str2;
+        this.eka = afVar;
+        this.ekc = str;
+        this.ekd = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.tbadk.editortools.d.p pVar;
-        this.dXy.nL(this.dXA);
-        pVar = this.dXy.deA;
-        pVar.fI(this.dXB);
+        this.eka.oy(this.ekc);
+        pVar = this.eka.dhw;
+        pVar.fG(this.ekd);
     }
 }

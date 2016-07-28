@@ -1,6 +1,5 @@
 package protobuf;
 
-import com.baidu.tbadk.TbConfig;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
@@ -33,7 +32,7 @@ public final class LiveGroupInfo extends Message {
     public final Integer createTime;
     @ProtoField(tag = 11, type = Message.Datatype.INT32)
     public final Integer deviceId;
-    @ProtoField(tag = TbConfig.NOTIFY_FANS_NEW_ID, type = Message.Datatype.INT32)
+    @ProtoField(tag = 26, type = Message.Datatype.INT32)
     public final Integer flag;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer forumId;

@@ -4,22 +4,22 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class d extends DiskFileOperate {
-    private String hQ;
+    private String iy;
     private String mContent;
 
     public d(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mContent = null;
-        this.hQ = "UTF-8";
+        this.iy = "UTF-8";
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean h(byte[] bArr) {
+    public boolean k(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
         try {
-            this.mContent = new String(bArr, this.hQ);
+            this.mContent = new String(bArr, this.iy);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -28,10 +28,10 @@ public class d extends DiskFileOperate {
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] bR() {
+    public byte[] bQ() {
         if (this.mContent != null) {
             try {
-                return this.mContent.getBytes(this.hQ);
+                return this.mContent.getBytes(this.iy);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;

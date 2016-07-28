@@ -9,11 +9,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bw implements AbsListView.RecyclerListener {
-    final /* synthetic */ bq bFI;
+    final /* synthetic */ bq bGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(bq bqVar) {
-        this.bFI = bqVar;
+        this.bGW = bqVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

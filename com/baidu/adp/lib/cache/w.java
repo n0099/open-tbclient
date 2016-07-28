@@ -1,91 +1,78 @@
 package com.baidu.adp.lib.cache;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
-public class w extends c<String> {
-    private String iW;
+public class w {
+    private final com.baidu.adp.base.a.b jz;
 
-    public w(com.baidu.adp.base.a.b bVar, String str) {
-        super(bVar);
-        this.iW = str;
+    public w(Context context, com.baidu.adp.base.a.b bVar) {
+        this.jz = bVar;
     }
 
-    @Override // com.baidu.adp.lib.cache.c
-    public String D(String str) {
-        this.iX.s("CREATE TABLE IF NOT EXISTS " + this.iW + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-        this.iX.s("CREATE INDEX if not exists idx_mi_ns ON " + this.iW + "(m_ns)");
-        return this.iW;
-    }
-
-    @Override // com.baidu.adp.lib.cache.c
-    public void b(String str, String str2, int i, int i2) {
-    }
-
-    @Override // com.baidu.adp.lib.cache.c
-    public int cv() {
-        return 1;
-    }
-
-    /* JADX WARN: Type inference failed for: r2v17, types: [T, java.lang.String] */
-    @Override // com.baidu.adp.lib.cache.c
-    protected h<String> c(SQLiteDatabase sQLiteDatabase, String str) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [50=4] */
+    public i U(String str) {
         Cursor cursor;
-        Throwable th;
-        h<String> hVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.iY + " where m_key = ?", new String[]{str});
-            try {
-                if (cursor.moveToNext()) {
-                    hVar = new h<>();
-                    hVar.jj = cursor.getString(0);
-                    hVar.jk = cursor.getString(1);
-                    hVar.jl = cursor.getLong(2);
-                    hVar.jm = cursor.getLong(3);
-                    hVar.jn = cursor.getLong(4);
-                    hVar.ix = cursor.getString(5);
-                    com.baidu.adp.lib.h.a.a(cursor);
-                } else {
-                    com.baidu.adp.lib.h.a.a(cursor);
-                }
-                return hVar;
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.adp.lib.h.a.a(cursor);
-                throw th;
-            }
-        } catch (Throwable th3) {
+            cursor = this.jz.ae().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+        } catch (Throwable th) {
+            th = th;
             cursor = null;
-            th = th3;
+        }
+        try {
+        } catch (Throwable th2) {
+            th = th2;
+            try {
+                this.jz.d(th, "get");
+                return null;
+            } finally {
+                com.baidu.adp.lib.h.a.a(cursor);
+            }
+        }
+        if (!cursor.moveToNext()) {
+            com.baidu.adp.lib.h.a.a(cursor);
+            return null;
+        }
+        i iVar = new i();
+        iVar.jM = cursor.getString(0);
+        iVar.jA = cursor.getString(1);
+        iVar.maxSize = cursor.getInt(2);
+        iVar.jQ = cursor.getString(3);
+        iVar.jR = cursor.getInt(4);
+        iVar.jS = cursor.getLong(5);
+        return iVar;
+    }
+
+    public void a(i iVar) {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("nameSpace", iVar.jM);
+            contentValues.put("tableName", iVar.jA);
+            contentValues.put("maxSize", Integer.valueOf(iVar.maxSize));
+            contentValues.put("cacheVersion", Integer.valueOf(iVar.jR));
+            contentValues.put("cacheType", iVar.jQ);
+            contentValues.put("lastActiveTime", Long.valueOf(iVar.jS));
+            SQLiteDatabase ae = this.jz.ae();
+            if (ae != null && ae.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{iVar.jM}) == 0) {
+                ae.insert("cache_meta_info", null, contentValues);
+            }
+        } catch (Throwable th) {
+            this.jz.d(th, "addOrUpdate");
         }
     }
 
-    @Override // com.baidu.adp.lib.cache.c
-    protected ContentValues a(h<String> hVar) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", hVar.jj);
-        contentValues.put("m_ns", hVar.jk);
-        contentValues.put("m_value", hVar.ix);
-        contentValues.put("saveTime", Long.valueOf(hVar.jl));
-        contentValues.put("lastHitTime", Long.valueOf(hVar.jm));
-        contentValues.put("timeToExpire", Long.valueOf(hVar.jn));
-        return contentValues;
-    }
-
-    @Override // com.baidu.adp.lib.cache.c
-    public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.iY + " where m_ns = ?", new String[]{str});
-    }
-
-    @Override // com.baidu.adp.lib.cache.c
-    protected boolean E(String str) {
+    public int V(String str) {
         try {
-            this.iX.ae().delete(this.iY, "m_ns = ?", new String[]{str});
-            return true;
+            if (U(str) == null) {
+                return 0;
+            }
+            return this.jz.ae().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
-            this.iX.d(th, "clearData");
-            return false;
+            this.jz.d(th, WriteImageActivityConfig.DELET_FLAG);
+            return 0;
         }
     }
 }

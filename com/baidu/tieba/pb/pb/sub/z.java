@@ -8,13 +8,13 @@ import com.baidu.tieba.u;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* loaded from: classes.dex */
 class z extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity dWP;
+    final /* synthetic */ NewSubPbActivity ejr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.dWP = newSubPbActivity;
+        this.ejr = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,23 +28,23 @@ class z extends CustomMessageListener {
         com.baidu.adp.base.h hVar4;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.dWP.dWN;
+            bdUniqueId = this.ejr.ejp;
             if (tag == bdUniqueId) {
-                afVar = this.dWP.dWE;
-                afVar.aHL();
+                afVar = this.ejr.ejg;
+                afVar.aFN();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    hVar3 = this.dWP.dPb;
-                    hVar4 = this.dWP.dPa;
+                    hVar3 = this.ejr.ebo;
+                    hVar4 = this.ejr.ebn;
                     hVar3.c(hVar4.getResources().getString(u.j.un_mute_success));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
                 if (ba.isEmpty(muteMessage)) {
-                    hVar2 = this.dWP.dPa;
+                    hVar2 = this.ejr.ebn;
                     muteMessage = hVar2.getResources().getString(u.j.un_mute_fail);
                 }
-                hVar = this.dWP.dPb;
+                hVar = this.ejr.ebo;
                 hVar.d(muteMessage);
             }
         }

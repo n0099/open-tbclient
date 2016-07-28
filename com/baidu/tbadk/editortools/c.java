@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class c extends ImageView implements s {
-    private int apR;
-    private boolean apS;
+    private int aqG;
+    private boolean aqH;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -19,7 +19,7 @@ public class c extends ImageView implements s {
     public c(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.apS = false;
+        this.aqH = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -28,8 +28,8 @@ public class c extends ImageView implements s {
     }
 
     public void setIcon(int i) {
-        this.apR = i;
-        av.b((ImageView) this, this.apR, this.mSkinType);
+        this.aqG = i;
+        av.c((ImageView) this, this.aqG, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -42,7 +42,7 @@ public class c extends ImageView implements s {
     }
 
     @Override // com.baidu.tbadk.editortools.s
-    public void kF() {
+    public void kB() {
         setVisibility(0);
     }
 
@@ -52,7 +52,7 @@ public class c extends ImageView implements s {
         setVisibility(8);
     }
 
-    public void fm(String str) {
+    public void fk(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -100,7 +100,7 @@ public class c extends ImageView implements s {
             if (aVar.data == null) {
                 Bk();
             } else if (aVar.data instanceof String) {
-                fm((String) aVar.data);
+                fk((String) aVar.data);
             }
         }
     }
@@ -108,7 +108,7 @@ public class c extends ImageView implements s {
     @Override // com.baidu.tbadk.editortools.s
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        av.b((ImageView) this, this.apR, i);
+        av.c((ImageView) this, this.aqG, i);
         if (this.mTip != null) {
             av.b(this.mTip, u.d.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
@@ -120,11 +120,11 @@ public class c extends ImageView implements s {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.apS;
+        return this.aqH;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.apS = z;
+        this.aqH = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

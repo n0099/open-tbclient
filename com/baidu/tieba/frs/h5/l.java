@@ -4,12 +4,12 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.y;
 /* loaded from: classes.dex */
 public class l extends y.a {
-    public View SZ;
-    public d bOk;
+    public View TH;
+    public d bPV;
 
     public l(View view, d dVar, View view2) {
         super(view);
-        this.bOk = dVar;
-        this.SZ = view2;
+        this.bPV = dVar;
+        this.TH = view2;
     }
 }

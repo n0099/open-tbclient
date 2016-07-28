@@ -73,7 +73,7 @@ public class a {
         return obj;
     }
 
-    public static final boolean a(Class<?> cls, Class<?> cls2) {
+    public static final boolean e(Class<?> cls, Class<?> cls2) {
         if (cls == null || cls2 == null) {
             return false;
         }
@@ -225,7 +225,7 @@ public class a {
         return field;
     }
 
-    public static final Object c(Object obj, String str) {
+    public static final Object d(Object obj, String str) {
         Field b = b(obj.getClass(), str);
         if (b != null) {
             try {

@@ -11,8 +11,8 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.util.s;
 import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.c;
@@ -86,7 +86,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
         if (getGroup() != null) {
-            return b.apn().al(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+            return b.apZ().al(String.valueOf(getGroup().getGroupId()), this.customGroupType);
         }
         return 0L;
     }
@@ -94,12 +94,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void deleteMsg(final ChatMessage chatMessage) {
         if (this.mGroup != null && chatMessage != null) {
-            t.b(new s<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.3
+            u.b(new t<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.s
+                @Override // com.baidu.tbadk.util.t
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(c.amG().bb(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(c.anq().bc(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -108,12 +108,12 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void markDeleteMsg(final ChatMessage chatMessage) {
         if (this.mGroup != null && chatMessage != null) {
-            t.b(new s<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.4
+            u.b(new t<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.s
+                @Override // com.baidu.tbadk.util.t
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(c.amG().ba(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(c.anq().bb(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -189,7 +189,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
                             for (String str : split) {
                                 if (id.equals(str)) {
                                     this.mLoadDataMode = 9;
-                                    this.mLoadDataCallBack.d(null);
+                                    this.mLoadDataCallBack.g(null);
                                     return;
                                 }
                             }
@@ -206,7 +206,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) responsedMessage;
             if (responseUpdateGroupMessage.getError() == 0 && responseUpdateGroupMessage.getUpdateGroupInfo() != null) {
                 this.mLoadDataMode = 10;
-                this.mLoadDataCallBack.d(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
+                this.mLoadDataCallBack.g(responseUpdateGroupMessage.getUpdateGroupInfo().getName());
             }
         }
     }

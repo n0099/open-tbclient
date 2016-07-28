@@ -5,5 +5,5 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 /* loaded from: classes.dex */
 public interface ImageDecoder {
-    Bitmap decode(Context context, Uri uri);
+    Bitmap decode(Context context, Uri uri) throws Exception;
 }

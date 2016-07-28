@@ -50,9 +50,14 @@ public class BlurDrawable {
     }
 
     private void initializeRenderScript(Context context) {
-        if (enabled) {
-            this.mRenderScript = RenderScript.create(context);
-            this.mBlurScript = ScriptIntrinsicBlur.create(this.mRenderScript, Element.U8_4(this.mRenderScript));
+        try {
+            if (enabled) {
+                this.mRenderScript = RenderScript.create(context);
+                this.mBlurScript = ScriptIntrinsicBlur.create(this.mRenderScript, Element.U8_4(this.mRenderScript));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            enabled = false;
         }
     }
 

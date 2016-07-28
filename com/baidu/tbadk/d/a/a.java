@@ -3,18 +3,18 @@ package com.baidu.tbadk.d.a;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class a {
-    private int apd;
-    private int ape;
-    public int apf;
+    private int apT;
+    private int apU;
+    public int apV;
     private int iconId;
     private Context mContext;
 
     public a(Context context, int i, int i2, int i3, int i4) {
         this.mContext = context;
-        this.apd = i;
+        this.apT = i;
         this.iconId = i2;
-        this.apf = i3;
-        this.ape = i4;
+        this.apV = i3;
+        this.apU = i4;
     }
 
     public int AS() {
@@ -22,6 +22,6 @@ public abstract class a {
     }
 
     public int AT() {
-        return this.apd;
+        return this.apT;
     }
 }

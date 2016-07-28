@@ -9,17 +9,17 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ e dML;
-    private final /* synthetic */ String dMP;
-    private final /* synthetic */ String dMQ;
-    private final /* synthetic */ String dMR;
+    final /* synthetic */ e dYX;
+    private final /* synthetic */ String dZb;
+    private final /* synthetic */ String dZc;
+    private final /* synthetic */ String dZd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(e eVar, String str, String str2, String str3) {
-        this.dML = eVar;
-        this.dMP = str;
-        this.dMQ = str2;
-        this.dMR = str3;
+        this.dYX = eVar;
+        this.dZb = str;
+        this.dZc = str2;
+        this.dZd = str3;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,15 +27,15 @@ public class o implements View.OnClickListener {
         Context context;
         Context context2;
         PbActivity pbActivity;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.dMP) && !StringUtils.isNull(this.dMQ)) {
-            if (!com.baidu.adp.lib.util.i.fr()) {
-                pbActivity = this.dML.dOg;
+        if (TbadkCoreApplication.m10getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.dZb) && !StringUtils.isNull(this.dZc)) {
+            if (!com.baidu.adp.lib.util.i.fq()) {
+                pbActivity = this.dYX.eat;
                 com.baidu.adp.lib.util.k.showToast(pbActivity.getPageContext().getPageActivity(), u.j.neterror);
                 return;
             }
-            context = this.dML.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.dMP) + "," + this.dMQ, this.dMR, this.dMR, context.getString(u.j.app_info_for_map));
-            context2 = this.dML.mContext;
+            context = this.dYX.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.dZb) + "," + this.dZc, this.dZd, this.dZd, context.getString(u.j.app_info_for_map));
+            context2 = this.dYX.mContext;
             com.baidu.tbadk.browser.f.u(context2, format);
         }
     }

@@ -7,40 +7,40 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean ce(String str) {
-        return TiebaDatabase.getInstance().getMainDBDatabaseManager().b("delete from account_data where account=?", new String[]{str});
+    public static boolean cf(String str) {
+        return TiebaDatabase.getInstance().getMainDBDatabaseManager().g("delete from account_data where account=?", new String[]{str});
     }
 
     private static boolean a(AccountData accountData, com.baidu.adp.base.a.b bVar) {
-        return bVar.b("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl) values(?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl()});
+        return bVar.g("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl) values(?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl()});
     }
 
     public static void b(AccountData accountData) {
         if (accountData != null && accountData.getAccount() != null) {
             if (accountData.getIsActive() == 1) {
-                og();
+                nV();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!ce(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
-                if (!mainDBDatabaseManager.s("DROP TABLE IF EXISTS account_data")) {
+            if (!cf(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
+                if (!mainDBDatabaseManager.u("DROP TABLE IF EXISTS account_data")) {
                     mainDBDatabaseManager.ag();
                 }
-                mainDBDatabaseManager.s("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255),gender int,member_iconurl varchar(255))");
+                mainDBDatabaseManager.u("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255),gender int,member_iconurl varchar(255))");
                 a(accountData, mainDBDatabaseManager);
             }
         }
     }
 
-    public static void og() {
-        TiebaDatabase.getInstance().getMainDBDatabaseManager().s("update account_data set isactive=0 where isactive=1");
+    public static void nV() {
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().u("update account_data set isactive=0 where isactive=1");
     }
 
     public static void c(AccountData accountData) {
-        og();
-        TiebaDatabase.getInstance().getMainDBDatabaseManager().b("update account_data set isactive=1 where account=?", new String[]{accountData.getAccount()});
+        nV();
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().g("update account_data set isactive=1 where account=?", new String[]{accountData.getAccount()});
     }
 
-    public static int oh() {
+    public static int nW() {
         Cursor cursor;
         Exception exc;
         Cursor cursor2 = null;
@@ -89,7 +89,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v31, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData oi() {
+    public static AccountData nX() {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -162,7 +162,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v31, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData cf(String str) {
+    public static AccountData cg(String str) {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -228,7 +228,7 @@ public class b {
         return accountData;
     }
 
-    public static ArrayList<AccountData> oj() {
+    public static ArrayList<AccountData> nY() {
         Cursor cursor;
         Throwable th;
         Exception exc;

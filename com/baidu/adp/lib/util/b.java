@@ -32,7 +32,7 @@ public class b {
         return arrayList;
     }
 
-    public static Field b(Class<?> cls, Class<?> cls2) {
+    public static Field f(Class<?> cls, Class<?> cls2) {
         Field[] declaredFields;
         if (cls == null) {
             return null;

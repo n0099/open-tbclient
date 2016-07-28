@@ -14,17 +14,17 @@ import com.baidu.tieba.tbadkCore.a;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class bb {
-    private TbPageContext<FrsActivity> Dp;
-    private Animation bDR;
+    private TbPageContext<FrsActivity> DQ;
+    private Animation bFb;
 
     public bb(TbPageContext<FrsActivity> tbPageContext) {
-        this.Dp = tbPageContext;
-        this.bDR = AnimationUtils.loadAnimation(this.Dp.getPageActivity(), u.a.frs_like);
+        this.DQ = tbPageContext;
+        this.bFb = AnimationUtils.loadAnimation(this.DQ.getPageActivity(), u.a.frs_like);
     }
 
     public void c(View view, String str) {
-        if (!this.Dp.getPageActivity().isFinishing()) {
-            View inflate = LayoutInflater.from(this.Dp.getPageActivity()).inflate(u.h.frs_like_cover, (ViewGroup) null);
+        if (!this.DQ.getPageActivity().isFinishing()) {
+            View inflate = LayoutInflater.from(this.DQ.getPageActivity()).inflate(u.h.frs_like_cover, (ViewGroup) null);
             Button button = (Button) inflate.findViewById(u.g.btn_love);
             TextView textView = (TextView) inflate.findViewById(u.g.tv_love);
             if ("frs_page".equals(str)) {
@@ -39,12 +39,12 @@ public class bb {
             }
             button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
             com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.t(false);
-            gVar.O(u.g.love).N(0).u(true);
+            gVar.v(false);
+            gVar.R(u.g.love).Q(0).w(true);
             gVar.a(new bc(this, inflate));
-            com.baidu.adp.lib.guide.d cW = gVar.cW();
-            cW.f(this.Dp.getPageActivity());
-            a.a(this.Dp.getOrignalPage(), inflate, this.bDR, new bd(this, cW));
+            com.baidu.adp.lib.guide.d cV = gVar.cV();
+            cV.f(this.DQ.getPageActivity());
+            a.a(this.DQ.getOrignalPage(), inflate, this.bFb, new bd(this, cV));
         }
     }
 }

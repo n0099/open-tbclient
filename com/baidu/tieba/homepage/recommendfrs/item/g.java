@@ -17,63 +17,63 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.homepage.recommendfrs.data.e, com.baidu.tbadk.mvc.d.b> {
-    private TbPageContext<?> Dp;
-    private TextView aWt;
-    private TextView aWu;
-    private TextView aWv;
-    private int ctH;
-    private com.baidu.tieba.homepage.recommendfrs.data.e ctI;
-    private View.OnClickListener ctJ;
-    private TbImageView ctQ;
-    private TbImageView ctR;
-    private TbImageView ctS;
-    private List<TbImageView> ctT;
-    private final int ctU;
+    private TbPageContext<?> DQ;
+    private TextView aXr;
+    private TextView aXs;
+    private TextView aXt;
+    private TbImageView cwF;
+    private TbImageView cwG;
+    private TbImageView cwH;
+    private List<TbImageView> cwI;
+    private final int cwJ;
+    private int cww;
+    private com.baidu.tieba.homepage.recommendfrs.data.e cwx;
+    private View.OnClickListener cwy;
     private int mSkinType;
     private TextView title;
 
     public g(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mSkinType = 3;
-        this.ctU = 3;
-        this.ctH = 0;
-        this.ctJ = new h(this);
-        this.Dp = tbPageContext;
-        view.setOnClickListener(this.ctJ);
-        this.ctQ = (TbImageView) view.findViewById(u.g.img1);
-        this.ctR = (TbImageView) view.findViewById(u.g.img2);
-        this.ctS = (TbImageView) view.findViewById(u.g.img3);
+        this.cwJ = 3;
+        this.cww = 0;
+        this.cwy = new h(this);
+        this.DQ = tbPageContext;
+        view.setOnClickListener(this.cwy);
+        this.cwF = (TbImageView) view.findViewById(u.g.img1);
+        this.cwG = (TbImageView) view.findViewById(u.g.img2);
+        this.cwH = (TbImageView) view.findViewById(u.g.img3);
         this.title = (TextView) view.findViewById(u.g.title);
         View findViewById = view.findViewById(u.g.hot_thread_comment);
-        this.aWt = (TextView) findViewById.findViewById(u.g.hot_thread_line_tag);
-        this.aWu = (TextView) findViewById.findViewById(u.g.hot_thread_line_praise);
-        this.aWv = (TextView) findViewById.findViewById(u.g.hot_thread_line_comment);
-        this.ctT = new ArrayList();
-        this.ctT.add(this.ctQ);
-        this.ctT.add(this.ctR);
-        this.ctT.add(this.ctS);
+        this.aXr = (TextView) findViewById.findViewById(u.g.hot_thread_line_tag);
+        this.aXs = (TextView) findViewById.findViewById(u.g.hot_thread_line_praise);
+        this.aXt = (TextView) findViewById.findViewById(u.g.hot_thread_line_comment);
+        this.cwI = new ArrayList();
+        this.cwI.add(this.cwF);
+        this.cwI.add(this.cwG);
+        this.cwI.add(this.cwH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: a */
-    public void B(com.baidu.tieba.homepage.recommendfrs.data.e eVar) {
-        super.B(eVar);
+    public void E(com.baidu.tieba.homepage.recommendfrs.data.e eVar) {
+        super.E(eVar);
         if (eVar != null) {
-            this.ctI = eVar;
-            if (eVar.ahB() != null) {
-                List<String> ahB = eVar.ahB();
-                if (ahB.size() > 3) {
-                    ahB.subList(0, 3);
+            this.cwx = eVar;
+            if (eVar.ail() != null) {
+                List<String> ail = eVar.ail();
+                if (ail.size() > 3) {
+                    ail.subList(0, 3);
                 }
                 for (int i = 0; i < 3; i++) {
-                    String str = (String) y.c(ahB, i);
-                    TbImageView tbImageView = this.ctT.get(i);
+                    String str = (String) y.c(ail, i);
+                    TbImageView tbImageView = this.cwI.get(i);
                     if (StringUtils.isNULL(str)) {
                         tbImageView.setVisibility(4);
                     } else {
                         tbImageView.setVisibility(0);
-                        if (!eVar.QL()) {
+                        if (!eVar.Ru()) {
                             str = null;
                         }
                         tbImageView.c(str, 10, false);
@@ -81,28 +81,28 @@ public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.homepage.recommen
                 }
             }
             this.title.setText(eVar.getTitle());
-            this.aWu.setVisibility(0);
-            String B = ba.B(eVar.ahy());
-            this.aWu.setText(B);
-            this.aWu.setContentDescription(String.valueOf(this.Dp.getString(u.j.zan_num)) + B);
-            com.baidu.tieba.graffiti.d.an(this.aWu);
-            String B2 = ba.B(eVar.ahz());
-            this.aWv.setText(B2);
-            this.aWv.setContentDescription(String.valueOf(this.Dp.getString(u.j.reply_num)) + B2);
+            this.aXs.setVisibility(0);
+            String w = ba.w(eVar.aii());
+            this.aXs.setText(w);
+            this.aXs.setContentDescription(String.valueOf(this.DQ.getString(u.j.zan_num)) + w);
+            com.baidu.tieba.graffiti.d.al(this.aXs);
+            String w2 = ba.w(eVar.aij());
+            this.aXt.setText(w2);
+            this.aXt.setContentDescription(String.valueOf(this.DQ.getString(u.j.reply_num)) + w2);
             if (StringUtils.isNull(eVar.getForumName())) {
-                this.aWt.setVisibility(8);
+                this.aXr.setVisibility(8);
             } else {
-                this.aWt.setVisibility(0);
-                this.aWt.setText(getContext().getString(u.j.chosen_pb_original_bar, UtilHelper.getFixedText(eVar.getForumName(), 7, false)));
-                this.aWt.setOnClickListener(new i(this, eVar));
+                this.aXr.setVisibility(0);
+                this.aXr.setText(getContext().getString(u.j.chosen_pb_original_bar, UtilHelper.getFixedText(eVar.getForumName(), 7, false)));
+                this.aXr.setOnClickListener(new i(this, eVar));
             }
-            s readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.pL(String.valueOf(eVar.getThreadId()))) {
-                this.ctH = u.d.cp_cont_c;
+            s readThreadHistory = TbadkCoreApplication.m10getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.qv(String.valueOf(eVar.getThreadId()))) {
+                this.cww = u.d.cp_cont_c;
             } else {
-                this.ctH = u.d.cp_cont_b;
+                this.cww = u.d.cp_cont_b;
             }
-            av.c(this.title, this.ctH, 1);
+            av.c(this.title, this.cww, 1);
         }
     }
 
@@ -110,8 +110,8 @@ public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.homepage.recommen
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.j.a.a(tbPageContext, getRootView());
-            if (this.ctH != 0 && this.title != null) {
-                av.c(this.title, this.ctH, 1);
+            if (this.cww != 0 && this.title != null) {
+                av.c(this.title, this.cww, 1);
             }
         }
         this.mSkinType = i;

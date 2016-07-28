@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    private final /* synthetic */ View py;
-    private final /* synthetic */ Timer zP;
-    final /* synthetic */ c zQ;
+    private final /* synthetic */ Timer Ar;
+    final /* synthetic */ c As;
+    private final /* synthetic */ View qa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
-        this.zQ = cVar;
-        this.py = view;
-        this.zP = timer;
+        this.As = cVar;
+        this.qa = view;
+        this.Ar = timer;
     }
 
     @Override // java.lang.Runnable
@@ -31,32 +31,32 @@ class d implements Runnable {
         b bVar6;
         int i3;
         b bVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.py.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.qa.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        bVar = this.zQ.zO;
-        i = bVar.zx;
+        bVar = this.As.Aq;
+        i = bVar.zY;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        bVar2 = this.zQ.zO;
-        i2 = bVar2.zM;
+        bVar2 = this.As.Aq;
+        i2 = bVar2.Ao;
         if (i5 <= i2) {
-            bVar6 = this.zQ.zO;
-            i3 = bVar6.zM;
+            bVar6 = this.As.Aq;
+            i3 = bVar6.Ao;
             layoutParams.bottomMargin = i3;
-            this.zP.cancel();
-            bVar7 = this.zQ.zO;
-            bVar7.zN = true;
+            this.Ar.cancel();
+            bVar7 = this.As.Aq;
+            bVar7.Ap = true;
         }
-        this.py.setLayoutParams(layoutParams);
-        bVar3 = this.zQ.zO;
-        z = bVar3.zN;
+        this.qa.setLayoutParams(layoutParams);
+        bVar3 = this.As.Aq;
+        z = bVar3.Ap;
         if (z) {
-            bVar4 = this.zQ.zO;
-            gVar = bVar4.zz;
+            bVar4 = this.As.Aq;
+            gVar = bVar4.Aa;
             if (gVar != null) {
-                bVar5 = this.zQ.zO;
-                gVar2 = bVar5.zz;
-                gVar2.jH();
+                bVar5 = this.As.Aq;
+                gVar2 = bVar5.Aa;
+                gVar2.jG();
             }
         }
     }

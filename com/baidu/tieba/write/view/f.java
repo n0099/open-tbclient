@@ -1,26 +1,29 @@
 package com.baidu.tieba.write.view;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tbadk.core.util.bn;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tbadk.core.view.j;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements bn.a {
-    private final /* synthetic */ AtomicBoolean Sl;
-    final /* synthetic */ e fGA;
+public class f implements j.a {
+    final /* synthetic */ PostCategoryView fSG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, AtomicBoolean atomicBoolean) {
-        this.fGA = eVar;
-        this.Sl = atomicBoolean;
+    public f(PostCategoryView postCategoryView) {
+        this.fSG = postCategoryView;
     }
 
-    @Override // com.baidu.tbadk.core.util.bn.a
-    public boolean z(View view) {
-        if (view instanceof EditText) {
-            this.Sl.set(true);
-            return true;
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void nh() {
+    }
+
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void ni() {
+        MorePopupWindow morePopupWindow;
+        MorePopupWindow morePopupWindow2;
+        morePopupWindow = this.fSG.KI;
+        if (morePopupWindow != null) {
+            morePopupWindow2 = this.fSG.KI;
+            morePopupWindow2.dismiss();
         }
-        return false;
     }
 }

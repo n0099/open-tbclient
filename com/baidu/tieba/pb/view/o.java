@@ -15,21 +15,21 @@ import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends CountDownTimer {
-    final /* synthetic */ PbInterviewStatusView dZh;
-    private final /* synthetic */ PbActivity dZi;
+    final /* synthetic */ PbInterviewStatusView elJ;
+    private final /* synthetic */ PbActivity elK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity) {
         super(j, j2);
-        this.dZh = pbInterviewStatusView;
-        this.dZi = pbActivity;
+        this.elJ = pbInterviewStatusView;
+        this.elK = pbActivity;
     }
 
     @Override // android.os.CountDownTimer
     public void onTick(long j) {
         TextView textView;
-        textView = this.dZh.dYV;
+        textView = this.elJ.elx;
         textView.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
     }
 
@@ -43,22 +43,22 @@ public class o extends CountDownTimer {
         ImageView imageView2;
         FrameLayout frameLayout;
         ay ayVar = new ay("c11106");
-        str = this.dZh.NQ;
+        str = this.elJ.NX;
         TiebaStatic.log(ayVar.ab("obj_id", str));
-        this.dZh.dZe = false;
-        textView = this.dZh.dYS;
-        textView.setText(this.dZi.getPageContext().getPageActivity().getString(u.j.interview_live_start));
-        textView2 = this.dZh.dYS;
-        textView2.setTextSize(0, k.c(this.dZi.getPageContext().getPageActivity(), u.e.fontsize24));
-        imageView = this.dZh.dYT;
+        this.elJ.elG = false;
+        textView = this.elJ.elu;
+        textView.setText(this.elK.getPageContext().getPageActivity().getString(u.j.interview_live_start));
+        textView2 = this.elJ.elu;
+        textView2.setTextSize(0, k.c(this.elK.getPageContext().getPageActivity(), u.e.fontsize24));
+        imageView = this.elJ.elv;
         imageView.setVisibility(0);
-        view = this.dZh.dYY;
+        view = this.elJ.elA;
         view.setVisibility(8);
-        imageView2 = this.dZh.dYX;
+        imageView2 = this.elJ.elz;
         imageView2.setVisibility(0);
-        frameLayout = this.dZh.dYU;
+        frameLayout = this.elJ.elw;
         frameLayout.setVisibility(8);
-        this.dZh.setClickable(true);
-        this.dZh.dZf = true;
+        this.elJ.setClickable(true);
+        this.elJ.elH = true;
     }
 }

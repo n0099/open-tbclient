@@ -17,6 +17,7 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
@@ -47,7 +48,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         this.mServiceProxy.proxyDump(fileDescriptor, printWriter, strArr);
     }
 
-    protected void finalize() {
+    protected void finalize() throws Throwable {
         this.mServiceProxy.proxyFinalize();
         super.finalize();
     }
@@ -135,7 +136,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ij().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mServiceProxy.proxyGetSharedPreferences(str, i) : this.mServiceProxy.proxyGetSharedPreferences(String.valueOf(pluginPackageName) + str, i);
     }
 
@@ -150,30 +151,30 @@ public abstract class PluginBaseService extends PluginContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileInputStream openFileInput(String str) {
+    public FileInputStream openFileInput(String str) throws FileNotFoundException {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ij().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mService.openFileInput(str) : this.mService.openFileInput(String.valueOf(pluginPackageName) + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i) {
+    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ij().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mService.openFileOutput(str, i) : this.mService.openFileOutput(String.valueOf(pluginPackageName) + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ij().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mService.openOrCreateDatabase(str, i, cursorFactory) : this.mService.openOrCreateDatabase(String.valueOf(pluginPackageName) + str, i, cursorFactory);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getFileStreamPath(String str) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ij().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mService.getFileStreamPath(str) : this.mService.getFileStreamPath(String.valueOf(pluginPackageName) + str);
     }
 }

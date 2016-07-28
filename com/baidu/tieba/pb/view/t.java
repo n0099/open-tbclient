@@ -11,23 +11,23 @@ import com.baidu.tbadk.core.util.bn;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ PbReplyEcommCard dZn;
+    final /* synthetic */ PbReplyEcommCard elP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PbReplyEcommCard pbReplyEcommCard) {
-        this.dZn = pbReplyEcommCard;
+        this.elP = pbReplyEcommCard;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         DealInfoData dealInfoData;
         DealInfoData dealInfoData2;
-        if (bn.ab(this.dZn.getContext())) {
-            dealInfoData = this.dZn.dZm;
+        if (bn.ab(this.elP.getContext())) {
+            dealInfoData = this.elP.elO;
             if (dealInfoData != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                Context context = this.dZn.getContext();
-                dealInfoData2 = this.dZn.dZm;
+                Context context = this.elP.getContext();
+                dealInfoData2 = this.elP.elO;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EcommProductDetailActivityConfig(context, dealInfoData2.productId, false)));
             }
         }

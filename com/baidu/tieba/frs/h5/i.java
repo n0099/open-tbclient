@@ -9,31 +9,31 @@ import com.baidu.tieba.frs.dv;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i implements dl {
-    private dm bzz;
+    private dm bBN;
 
     public void setTag(BdUniqueId bdUniqueId) {
     }
 
     @Override // com.baidu.tieba.frs.dl
     public void a(int i, int i2, ds dsVar) {
-        if (i > 100 && this.bzz != null && dsVar != null && dsVar.bHh != null && (dsVar.bHh instanceof String)) {
+        if (i > 100 && this.bBN != null && dsVar != null && dsVar.bID != null && (dsVar.bID instanceof String)) {
             ArrayList<v> arrayList = new ArrayList<>();
-            h hVar = new h((String) dsVar.bHh);
+            h hVar = new h((String) dsVar.bID);
             hVar.stType = dsVar.stType;
             arrayList.add(hVar);
             dv dvVar = new dv();
             dvVar.hasMore = false;
-            dvVar.bHj = false;
-            dvVar.bHk = false;
+            dvVar.bIF = false;
+            dvVar.bIG = false;
             dvVar.pn = dsVar.pn;
-            dvVar.bHh = dsVar.bHh;
-            this.bzz.a(i, i2, dvVar, arrayList);
+            dvVar.bID = dsVar.bID;
+            this.bBN.a(i, i2, dvVar, arrayList);
         }
     }
 
     @Override // com.baidu.tieba.frs.dl
     public void a(dm dmVar) {
-        this.bzz = dmVar;
+        this.bBN = dmVar;
     }
 
     @Override // com.baidu.tieba.frs.dl
@@ -41,6 +41,6 @@ public class i implements dl {
     }
 
     @Override // com.baidu.tieba.frs.dl
-    public void UC() {
+    public void Vk() {
     }
 }

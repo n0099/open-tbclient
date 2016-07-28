@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a acy;
+    private a adj;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -42,7 +42,7 @@ public class TbCheckBox extends ImageView {
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.acy = aVar;
+        this.adj = aVar;
     }
 
     public void vm() {
@@ -74,8 +74,8 @@ public class TbCheckBox extends ImageView {
             ((b) tag).setChecked(z);
         }
         vm();
-        if (this.acy != null) {
-            this.acy.a(this, z, getTag());
+        if (this.adj != null) {
+            this.adj.a(this, z, getTag());
         }
     }
 }

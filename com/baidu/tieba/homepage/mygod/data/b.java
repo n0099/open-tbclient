@@ -3,28 +3,28 @@ package com.baidu.tieba.homepage.mygod.data;
 import com.baidu.tbadk.mvc.b.e;
 /* loaded from: classes.dex */
 public class b implements e {
-    private long cqj;
+    private long csO;
 
     public b(long j) {
-        this.cqj = j;
+        this.csO = j;
     }
 
-    public long agL() {
-        return this.cqj;
+    public long ahr() {
+        return this.csO;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
-        return new StringBuilder(String.valueOf(this.cqj)).toString();
+        return new StringBuilder(String.valueOf(this.csO)).toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Dp() {
+    public String Do() {
         return "RecommendGodCache";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Dq() {
+    public boolean Dp() {
         return true;
     }
 

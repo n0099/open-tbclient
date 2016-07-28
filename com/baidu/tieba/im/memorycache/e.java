@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0064a {
-    final /* synthetic */ b cSe;
-    private final /* synthetic */ List cSf;
+    final /* synthetic */ b cUZ;
+    private final /* synthetic */ List cVa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar, List list) {
-        this.cSe = bVar;
-        this.cSf = list;
+        this.cUZ = bVar;
+        this.cVa = list;
     }
 
     @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0064a
@@ -21,7 +21,7 @@ public class e implements a.InterfaceC0064a {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
             if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0) {
-                this.cSf.add(next);
+                this.cVa.add(next);
             }
         }
     }

@@ -20,11 +20,11 @@ public class l {
                 return (k) orignalPage;
             }
         }
-        Field b = com.baidu.adp.lib.util.b.b(context.getClass(), k.class);
-        if (b == null && (b = com.baidu.adp.lib.util.b.b(context.getClass(), MAActivity.class)) == null) {
-            b = com.baidu.adp.lib.util.b.b(context.getClass(), MAFragmentActivity.class);
+        Field f = com.baidu.adp.lib.util.b.f(context.getClass(), k.class);
+        if (f == null && (f = com.baidu.adp.lib.util.b.f(context.getClass(), MAActivity.class)) == null) {
+            f = com.baidu.adp.lib.util.b.f(context.getClass(), MAFragmentActivity.class);
         }
-        if (b == null || (a = com.baidu.adp.lib.util.b.a(context, b)) == null || !(a instanceof k)) {
+        if (f == null || (a = com.baidu.adp.lib.util.b.a(context, f)) == null || !(a instanceof k)) {
             return null;
         }
         return (k) a;
@@ -38,11 +38,11 @@ public class l {
         if (context instanceof i) {
             return (i) context;
         }
-        Field b = com.baidu.adp.lib.util.b.b(context.getClass(), k.class);
-        if (b == null && (b = com.baidu.adp.lib.util.b.b(context.getClass(), MAActivity.class)) == null) {
-            b = com.baidu.adp.lib.util.b.b(context.getClass(), MAFragmentActivity.class);
+        Field f = com.baidu.adp.lib.util.b.f(context.getClass(), k.class);
+        if (f == null && (f = com.baidu.adp.lib.util.b.f(context.getClass(), MAActivity.class)) == null) {
+            f = com.baidu.adp.lib.util.b.f(context.getClass(), MAFragmentActivity.class);
         }
-        if (b == null || (a = com.baidu.adp.lib.util.b.a(context, b)) == null || !(a instanceof k) || !(a instanceof i)) {
+        if (f == null || (a = com.baidu.adp.lib.util.b.a(context, f)) == null || !(a instanceof k) || !(a instanceof i)) {
             return null;
         }
         return (i) a;
@@ -59,11 +59,11 @@ public class l {
         if (context instanceof i) {
             return ((i) context).getPageContext();
         }
-        Field b = com.baidu.adp.lib.util.b.b(context.getClass(), k.class);
-        if (b == null && (b = com.baidu.adp.lib.util.b.b(context.getClass(), MAActivity.class)) == null) {
-            b = com.baidu.adp.lib.util.b.b(context.getClass(), MAFragmentActivity.class);
+        Field f = com.baidu.adp.lib.util.b.f(context.getClass(), k.class);
+        if (f == null && (f = com.baidu.adp.lib.util.b.f(context.getClass(), MAActivity.class)) == null) {
+            f = com.baidu.adp.lib.util.b.f(context.getClass(), MAFragmentActivity.class);
         }
-        if (b == null || (a = com.baidu.adp.lib.util.b.a(context, b)) == null || !(a instanceof k) || !(a instanceof i)) {
+        if (f == null || (a = com.baidu.adp.lib.util.b.a(context, f)) == null || !(a instanceof k) || !(a instanceof i)) {
             return null;
         }
         return ((i) a).getPageContext();

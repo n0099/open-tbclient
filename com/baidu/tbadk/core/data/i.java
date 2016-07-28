@@ -1,32 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import org.json.JSONObject;
-import tbclient.BookThread;
+import tbclient.GetMyShelf.BookInfo;
 /* loaded from: classes.dex */
 public class i {
-    public String Nt;
-    public long Nu;
-    public int Nv;
+    public String Nr;
+    public String Ns;
+    public int Nt;
+    public String Nu;
+    public int Nv = -1;
+    public int Nw;
+    public int Nx;
+    public int Ny;
+    public long Nz;
+    public String authorName;
+    public long cartoonId;
+    public long forumId;
 
-    public void a(BookThread bookThread) {
-        if (bookThread != null) {
-            this.Nt = bookThread.book_id;
-            this.Nu = bookThread.chapter_id.longValue();
-            this.Nv = bookThread.book_type.intValue();
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Nt = jSONObject.optString("book_id", "0");
-                this.Nu = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
-                this.Nv = jSONObject.optInt("book_type", 0);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
+    public void a(BookInfo bookInfo) {
+        if (bookInfo != null) {
+            this.forumId = bookInfo.forum_id.longValue();
+            this.cartoonId = bookInfo.cartoon_id.longValue();
+            this.Nr = bookInfo.cover_img;
+            this.Ns = bookInfo.cartoon_name;
+            this.Nt = bookInfo.total_chapter.intValue();
+            this.Nu = bookInfo.first_chapter_id;
+            this.Nw = bookInfo.is_finish.intValue();
+            this.authorName = bookInfo.author_name;
         }
     }
 }

@@ -1,26 +1,24 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import com.baidu.tbadk.core.view.TextureVideoView;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements Runnable {
-    final /* synthetic */ a bKn;
+public class i implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ a bLV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.bKn = aVar;
+        this.bLV = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TextureVideoView textureVideoView;
-        TextureVideoView textureVideoView2;
-        textureVideoView = this.bKn.aTh;
-        if (textureVideoView != null) {
-            textureVideoView2 = this.bKn.aTh;
-            if (!textureVideoView2.isPlaying()) {
-                this.bKn.d(true, 1);
-            }
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        if (this.bLV.aTW != null && this.bLV.aTW.getLayoutParams() != null) {
+            this.bLV.aTW.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            ViewGroup.LayoutParams layoutParams = this.bLV.aTW.getLayoutParams();
+            layoutParams.height = this.bLV.aTW.getWidth();
+            this.bLV.aTW.setLayoutParams(layoutParams);
         }
     }
 }

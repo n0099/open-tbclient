@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.bi;
-import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.y;
 /* loaded from: classes.dex */
 class p implements bi.a {
     @Override // com.baidu.tbadk.core.util.bi.a
@@ -17,9 +17,9 @@ class p implements bi.a {
         }
         String str = strArr[0];
         if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_chat=1")) {
-            String as = x.as(str, "userid=");
-            String as2 = x.as(str, "username=");
-            String as3 = x.as(str, "portrait=");
+            String as = y.as(str, "userid=");
+            String as2 = y.as(str, "username=");
+            String as3 = y.as(str, "portrait=");
             if (as != null && as.length() > 0) {
                 try {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(as), as2, as3, 0)));

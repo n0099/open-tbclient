@@ -8,11 +8,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt implements Runnable {
-    final /* synthetic */ bq bFI;
+    final /* synthetic */ bq bGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(bq bqVar) {
-        this.bFI = bqVar;
+        this.bGW = bqVar;
     }
 
     @Override // java.lang.Runnable
@@ -25,27 +25,27 @@ public class bt implements Runnable {
         FrsActivity frsActivity2;
         Handler handler;
         Runnable runnable;
-        dVar = this.bFI.EF;
+        dVar = this.bGW.Ff;
         if (dVar == null) {
-            frsActivity = this.bFI.bET;
+            frsActivity = this.bGW.bGh;
             String string = frsActivity.getPageContext().getPageActivity().getResources().getString(u.j.add_frequently_forum_tips);
             if (!StringUtils.isNull(string)) {
                 com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-                imageView = this.bFI.bFf;
-                gVar.o(imageView).N(0).u(true).v(true);
+                imageView = this.bGW.bGt;
+                gVar.o(imageView).Q(0).w(true).x(true);
                 bu buVar = new bu(this, string);
-                gVar.t(true);
-                gVar.v(false);
+                gVar.v(true);
+                gVar.x(false);
                 gVar.a(buVar);
-                this.bFI.EF = gVar.cW();
-                dVar2 = this.bFI.EF;
-                dVar2.s(false);
-                dVar3 = this.bFI.EF;
-                frsActivity2 = this.bFI.bET;
+                this.bGW.Ff = gVar.cV();
+                dVar2 = this.bGW.Ff;
+                dVar2.u(false);
+                dVar3 = this.bGW.Ff;
+                frsActivity2 = this.bGW.bGh;
                 dVar3.f(frsActivity2.getPageContext().getPageActivity());
-                this.bFI.WL();
-                handler = this.bFI.mHandler;
-                runnable = this.bFI.bFG;
+                this.bGW.Xd();
+                handler = this.bGW.mHandler;
+                runnable = this.bGW.bGU;
                 handler.postDelayed(runnable, TbConfig.NOTIFY_SOUND_INTERVAL);
             }
         }

@@ -20,21 +20,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a extends bj<h, l> {
-    private final LinkedList<BaseWebView> bOa;
-    private final LinkedList<d> bOb;
-    private XiubaTbJsBridge bOc;
+    private final LinkedList<BaseWebView> bPL;
+    private final LinkedList<d> bPM;
+    private XiubaTbJsBridge bPN;
 
     public a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.bOa = new LinkedList<>();
-        this.bOb = new LinkedList<>();
+        this.bPL = new LinkedList<>();
+        this.bPM = new LinkedList<>();
     }
 
     @Override // com.baidu.tieba.frs.bj
     public void e(BaseActivity<?> baseActivity) {
         super.e(baseActivity);
-        if (this.bOc == null && baseActivity != null) {
-            this.bOc = new XiubaTbJsBridge(baseActivity.getPageContext());
+        if (this.bPN == null && baseActivity != null) {
+            this.bPN = new XiubaTbJsBridge(baseActivity.getPageContext());
         }
     }
 
@@ -52,8 +52,8 @@ public class a extends bj<h, l> {
         d dVar = new d(this.mContext);
         linearLayout.addView(view);
         linearLayout.addView(dVar);
-        this.bOa.add(dVar.getWebView());
-        this.bOb.add(dVar);
+        this.bPL.add(dVar.getWebView());
+        this.bPM.add(dVar);
         return new l(linearLayout, dVar, view);
     }
 
@@ -61,21 +61,21 @@ public class a extends bj<h, l> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.bj, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, l lVar) {
-        d dVar = lVar.bOk;
+        d dVar = lVar.bPV;
         if (dVar == null) {
             return null;
         }
         BaseWebView webView = dVar.getWebView();
-        this.bOc.setBaseWebView(webView);
+        this.bPN.setBaseWebView(webView);
         webView.setWebChromeClient(new b(this));
         webView.setOnLoadUrlListener(new c(this, hVar));
         webView.setHorizontalScrollBarEnabled(false);
-        if (!dVar.YU() && hVar != null) {
+        if (!dVar.Zp() && hVar != null) {
             CompatibleUtile.getInstance().loadUrl(webView, hVar.url);
             dVar.setWebViewLoading(true);
         }
-        if (lVar.SZ != null) {
-            av.l(lVar.SZ, u.d.cp_bg_line_c);
+        if (lVar.TH != null) {
+            av.l(lVar.TH, u.d.cp_bg_line_c);
             return view;
         }
         return view;
@@ -84,7 +84,7 @@ public class a extends bj<h, l> {
     @Override // com.baidu.tieba.frs.bj
     public void release() {
         super.release();
-        Iterator<BaseWebView> it = this.bOa.iterator();
+        Iterator<BaseWebView> it = this.bPL.iterator();
         while (it.hasNext()) {
             BaseWebView next = it.next();
             if (next != null) {
@@ -92,12 +92,12 @@ public class a extends bj<h, l> {
                 next.destroy();
             }
         }
-        this.bOa.clear();
-        Iterator<d> it2 = this.bOb.iterator();
+        this.bPL.clear();
+        Iterator<d> it2 = this.bPM.iterator();
         while (it2.hasNext()) {
             it2.next().removeAllViews();
         }
-        this.bOb.clear();
+        this.bPM.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,7 +110,7 @@ public class a extends bj<h, l> {
             if (StringUtils.isNull(optString) || StringUtils.isNull(optString2) || StringUtils.isNull(optString3)) {
                 return false;
             }
-            return this.bOc.dealJsInterface(optString, optString2, optString3, jsPromptResult);
+            return this.bPN.dealJsInterface(optString, optString2, optString3, jsPromptResult);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

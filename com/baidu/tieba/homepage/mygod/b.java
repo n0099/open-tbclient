@@ -18,22 +18,22 @@ public class b extends d<h, c, BaseFragmentActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage<c, ?>> lg() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage<c, ?>> lc() {
         return RecommendGodHttpResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage<c, ?>> lf() {
+    protected Class<? extends MvcSocketResponsedMessage<c, ?>> lb() {
         return RecommendGodSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int lc() {
+    protected int kY() {
         return CmdConfigHttp.CMD_RECOMMEND_FRS_GOD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String ld() {
+    protected String kZ() {
         return TbConfig.RECOMMEND_FRS_GOD;
     }
 
@@ -43,7 +43,7 @@ public class b extends d<h, c, BaseFragmentActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int le() {
+    protected int la() {
         return 309281;
     }
 }

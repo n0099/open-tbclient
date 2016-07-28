@@ -20,7 +20,7 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         if (bArr != null) {
             GetUserInfoResIdl getUserInfoResIdl = (GetUserInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserInfoResIdl.class);
             if (getUserInfoResIdl.error != null) {
@@ -38,8 +38,8 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.CH() != null) {
-            b.CI().a(this.mData.CH());
+        if (this.mData != null && this.mData.CG() != null) {
+            b.CH().a(this.mData.CG());
         } else {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED));
         }

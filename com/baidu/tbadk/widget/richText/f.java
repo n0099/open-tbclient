@@ -5,11 +5,11 @@ import com.baidu.tieba.u;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.lib.a.b.a.a.i {
-    static final int aER = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds360);
-    static final int aES = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m9getInst(), u.e.ds300);
+    static final int aFI = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst(), u.e.ds360);
+    static final int aFJ = com.baidu.adp.lib.util.k.c(TbadkCoreApplication.m10getInst(), u.e.ds300);
     public long gid;
     public String url;
-    public int width = aES;
+    public int width = aFJ;
     public int height = this.width;
 
     public void a(PbContent pbContent) {
@@ -25,12 +25,12 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public void fh(int i) {
+    public void fg(int i) {
         if (i == 1) {
-            this.width = aER;
+            this.width = aFI;
             this.height = this.width;
-        } else if (this.width != this.height || this.width <= 0 || this.width > aES) {
-            this.width = aES;
+        } else if (this.width != this.height || this.width <= 0 || this.width > aFJ) {
+            this.width = aFJ;
             this.height = this.width;
         }
     }

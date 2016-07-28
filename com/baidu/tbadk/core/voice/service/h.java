@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.voice.service;
 public interface h {
     void dh(int i);
 
-    boolean eb(String str);
+    boolean ea(String str);
 
-    int fV();
+    int fU();
 
     int getErrorNo();
 

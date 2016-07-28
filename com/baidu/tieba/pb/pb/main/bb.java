@@ -10,32 +10,32 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements a.b {
-    private final /* synthetic */ long bGw;
-    private final /* synthetic */ String bGx;
-    final /* synthetic */ PbActivity dPF;
-    private final /* synthetic */ gh dPK;
-    private final /* synthetic */ ShareFromPBMsgData dPL;
+    private final /* synthetic */ long bHS;
+    private final /* synthetic */ String bHT;
+    final /* synthetic */ PbActivity ebT;
+    private final /* synthetic */ gl ebY;
+    private final /* synthetic */ ShareFromPBMsgData ebZ;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(PbActivity pbActivity, gh ghVar, long j, String str, String str2, ShareFromPBMsgData shareFromPBMsgData) {
-        this.dPF = pbActivity;
-        this.dPK = ghVar;
-        this.bGw = j;
+    public bb(PbActivity pbActivity, gl glVar, long j, String str, String str2, ShareFromPBMsgData shareFromPBMsgData) {
+        this.ebT = pbActivity;
+        this.ebY = glVar;
+        this.bHS = j;
         this.val$name = str;
-        this.bGx = str2;
-        this.dPL = shareFromPBMsgData;
+        this.bHT = str2;
+        this.ebZ = shareFromPBMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        int aEI;
-        this.dPF.HidenSoftKeyPad((InputMethodManager) this.dPF.getSystemService("input_method"), this.dPK.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.dPF.getPageContext().getPageActivity(), this.bGw, this.val$name, this.bGx, 0, this.dPK.getLeaveMsg(), this.dPL.toChatMessageContent())));
+        int aHT;
+        this.ebT.HidenSoftKeyPad((InputMethodManager) this.ebT.getSystemService("input_method"), this.ebY.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.ebT.getPageContext().getPageActivity(), this.bHS, this.val$name, this.bHT, 0, this.ebY.getLeaveMsg(), this.ebZ.toChatMessageContent())));
         aVar.dismiss();
-        aEI = this.dPF.aEI();
-        if (aEI == 1) {
-            this.dPF.aEM();
+        aHT = this.ebT.aHT();
+        if (aHT == 1) {
+            this.ebT.aHX();
         }
     }
 }

@@ -7,11 +7,13 @@ import tbclient.Anti;
 import tbclient.PostInfoList;
 import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
 import tbclient.UcCard;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ResponsePersonInfoMessage extends CustomResponsedMessage<Object> {
     private Anti anti_stat;
+    public TbBookrack bookrack;
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
     public UcCard ucCard;

@@ -1,28 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tieba.pb.pb.main.dh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dj extends CustomMessageListener {
-    final /* synthetic */ dg dRE;
+public class dj implements Runnable {
+    final /* synthetic */ di edT;
+    private final /* synthetic */ PbPageReadLocalResponseMessage edU;
+    private final /* synthetic */ com.baidu.tieba.pb.data.h edV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dj(dg dgVar, int i) {
-        super(i);
-        this.dRE = dgVar;
+    public dj(di diVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.data.h hVar) {
+        this.edT = diVar;
+        this.edU = pbPageReadLocalResponseMessage;
+        this.edV = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SignData)) {
-            SignData signData = (SignData) customResponsedMessage.getData();
-            if (this.dRE.getPbData() != null && this.dRE.getPbData().aDN() != null && this.dRE.getPbData().aDN().getSignData() != null && signData.forumId.equals(this.dRE.getPbData().getForumId())) {
-                this.dRE.getPbData().aDN().getSignData().is_signed = signData.is_signed;
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        dh dhVar;
+        dh.a aVar;
+        dhVar = this.edT.edS;
+        aVar = dhVar.edw;
+        aVar.a(true, 0, this.edU.getUpdateType(), 0, this.edV, this.edU.getErrorString(), 0);
     }
 }

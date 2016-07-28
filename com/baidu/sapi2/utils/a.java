@@ -31,7 +31,7 @@ public class a {
         this.d = str3;
     }
 
-    public byte[] a(String str, String str2, String str3) {
+    public byte[] a(String str, String str2, String str3) throws Exception {
         if (str == null || str.length() == 0) {
             throw new Exception("Empty string");
         }
@@ -50,7 +50,7 @@ public class a {
         }
     }
 
-    public byte[] a(byte[] bArr, String str, String str2) {
+    public byte[] a(byte[] bArr, String str, String str2) throws Exception {
         if (bArr == null || bArr.length == 0) {
             throw new Exception("Empty string");
         }

@@ -13,25 +13,25 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ImDbShrinkStatic {
-    private static ImDbShrinkStatic cKH;
-    private static long cKK = -1;
-    private static int cKL = 0;
-    private a cKI = new a(null);
-    private b cKJ = null;
+    private static long cNA = -1;
+    private static int cNB = 0;
+    private static ImDbShrinkStatic cNx;
+    private a cNy = new a(null);
+    private b cNz = null;
 
     static {
-        amM();
+        anw();
     }
 
-    public static ImDbShrinkStatic amM() {
-        if (cKH == null) {
+    public static ImDbShrinkStatic anw() {
+        if (cNx == null) {
             synchronized (ImDbShrinkStatic.class) {
-                if (cKH == null) {
-                    cKH = new ImDbShrinkStatic();
+                if (cNx == null) {
+                    cNx = new ImDbShrinkStatic();
                 }
             }
         }
-        return cKH;
+        return cNx;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -49,8 +49,8 @@ public class ImDbShrinkStatic {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    ImDbShrinkStatic.amM().cKI.removeMessages(1);
-                    ImDbShrinkStatic.amM().execute();
+                    ImDbShrinkStatic.anw().cNy.removeMessages(1);
+                    ImDbShrinkStatic.anw().execute();
                     return;
                 default:
                     return;
@@ -64,21 +64,21 @@ public class ImDbShrinkStatic {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.cKJ != null) {
-            this.cKJ.cancel();
-            this.cKJ = null;
+        if (this.cNz != null) {
+            this.cNz.cancel();
+            this.cNz = null;
         }
-        this.cKJ = new b(this, null);
-        this.cKJ.setParallel(TiebaIMConfig.getParallel());
-        this.cKJ.setPriority(4);
-        this.cKJ.execute(new String[0]);
+        this.cNz = new b(this, null);
+        this.cNz.setParallel(TiebaIMConfig.getParallel());
+        this.cNz.setPriority(4);
+        this.cNz.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.cKJ != null) {
-            this.cKJ.cancel();
-            this.cKJ = null;
+        if (this.cNz != null) {
+            this.cNz.cancel();
+            this.cNz = null;
         }
     }
 
@@ -98,48 +98,48 @@ public class ImDbShrinkStatic {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> amR = i.amO().amR();
-            if (amR == null || amR.size() == 0) {
+            LinkedList<ImMessageCenterPojo> anC = i.anz().anC();
+            if (anC == null || anC.size() == 0) {
                 return false;
             }
-            if (ImDbShrinkStatic.cKK < 0) {
+            if (ImDbShrinkStatic.cNA < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    ImDbShrinkStatic.cKK = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (ImDbShrinkStatic.cKK > 2147483648L) {
-                        ImDbShrinkStatic.cKL = 5000;
-                    } else if (ImDbShrinkStatic.cKK > 1073741824) {
-                        ImDbShrinkStatic.cKL = 3000;
+                    ImDbShrinkStatic.cNA = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (ImDbShrinkStatic.cNA > 2147483648L) {
+                        ImDbShrinkStatic.cNB = 5000;
+                    } else if (ImDbShrinkStatic.cNA > 1073741824) {
+                        ImDbShrinkStatic.cNB = 3000;
                     } else {
-                        ImDbShrinkStatic.cKL = 1000;
+                        ImDbShrinkStatic.cNB = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (ImDbShrinkStatic.cKL < 1000) {
-                ImDbShrinkStatic.cKL = 1000;
+            if (ImDbShrinkStatic.cNB < 1000) {
+                ImDbShrinkStatic.cNB = 1000;
             }
             try {
-                g.amK().amL();
-                for (ImMessageCenterPojo imMessageCenterPojo : amR) {
+                g.anu().anv();
+                for (ImMessageCenterPojo imMessageCenterPojo : anC) {
                     if (isCancelled()) {
-                        g.amK().endTransaction();
+                        g.anu().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.amG().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cKL);
+                        c.anq().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cNB);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        l.amU().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cKL);
+                        l.anF().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cNB);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        k.amT().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cKL);
+                        k.anE().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cNB);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.amH().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cKL);
+                        d.anr().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cNB);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                g.amK().endTransaction();
+                g.anu().endTransaction();
             }
             return true;
         }

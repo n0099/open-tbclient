@@ -8,6 +8,6 @@ public class Static {
     static {
         MessageManager.getInstance().registerListener(new j(CmdConfigCustom.CMD_FRS_ADD_ADAPTER));
         MessageManager.getInstance().registerListener(new k(CmdConfigCustom.CMD_FRS_ADD_MODEL));
-        dg.WX().hv(100);
+        dg.Xp().hu(100);
     }
 }

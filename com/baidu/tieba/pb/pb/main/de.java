@@ -1,58 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class de implements com.baidu.adp.lib.guide.b {
-    private final /* synthetic */ String bFK;
-    final /* synthetic */ dd dQL;
+public class de implements Runnable {
+    final /* synthetic */ dd ecZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(dd ddVar, String str) {
-        this.dQL = ddVar;
-        this.bFK = str;
+    public de(dd ddVar) {
+        this.ecZ = ddVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        dc dcVar;
-        dc dcVar2;
-        dc dcVar3;
-        dc dcVar4;
-        dcVar = this.dQL.dQK;
-        TextView textView = new TextView(dcVar.bkc.getPageContext().getPageActivity());
-        textView.setText(this.bFK);
-        textView.setGravity(17);
-        com.baidu.tbadk.core.util.av.j((View) textView, u.d.cp_cont_i);
-        dcVar2 = this.dQL.dQK;
-        textView.setTextSize(0, dcVar2.bkc.getResources().getDimensionPixelSize(u.e.fontsize28));
-        dcVar3 = this.dQL.dQK;
-        textView.setWidth(dcVar3.bkc.getResources().getDimensionPixelSize(u.e.ds266));
-        dcVar4 = this.dQL.dQK;
-        textView.setHeight(dcVar4.bkc.getResources().getDimensionPixelSize(u.e.ds76));
-        com.baidu.tbadk.core.util.av.k(textView, u.f.bg_tip_blue_left);
-        return textView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int cU() {
-        return 2;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int cV() {
-        return 48;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getXOffset() {
-        return -10;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getYOffset() {
-        return 0;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
+        View view;
+        com.baidu.adp.lib.guide.d dVar2;
+        com.baidu.adp.lib.guide.d dVar3;
+        dVar = this.ecZ.ecW;
+        if (dVar == null && this.ecZ.bem != null) {
+            String string = this.ecZ.bem.getResources().getString(u.j.graffiti_pb_bottom_tips);
+            if (!StringUtils.isNull(string)) {
+                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+                view = this.ecZ.ecX;
+                gVar.o(view).Q(0).w(true).x(true);
+                gVar.a(new df(this, string));
+                this.ecZ.ecW = gVar.cV();
+                dVar2 = this.ecZ.ecW;
+                dVar2.u(false);
+                dVar3 = this.ecZ.ecW;
+                dVar3.f(this.ecZ.bem.getPageContext().getPageActivity());
+                com.baidu.adp.lib.h.h.dL().postDelayed(new dg(this), 3000L);
+            }
+        }
     }
 }

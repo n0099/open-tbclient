@@ -19,7 +19,7 @@ public class ResponseAddGroupMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         AddGroupResIdl addGroupResIdl = (AddGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, AddGroupResIdl.class);
         setError(addGroupResIdl.error.errorno.intValue());
         setErrorString(addGroupResIdl.error.usermsg);

@@ -4,11 +4,11 @@ import android.view.View;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class g implements AbsListView.RecyclerListener {
-    final /* synthetic */ f eDI;
+    final /* synthetic */ f ePr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.eDI = fVar;
+        this.ePr = fVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

@@ -7,13 +7,13 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bn extends CustomMessageListener {
-    final /* synthetic */ bk aUd;
+    final /* synthetic */ bk aUZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bn(bk bkVar, int i) {
         super(i);
-        this.aUd = bkVar;
+        this.aUZ = bkVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,20 +26,20 @@ public class bn extends CustomMessageListener {
         com.baidu.tieba.card.a.n nVar5;
         com.baidu.tieba.card.a.n nVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            nVar = this.aUd.aTZ;
+            nVar = this.aUZ.aUV;
             if (nVar != null) {
-                nVar2 = this.aUd.aTZ;
-                if (nVar2.aVc != null) {
-                    nVar3 = this.aUd.aTZ;
-                    if (nVar3.aVc.getTid() != null && this.aUd.aUa != null && this.aUd.aUa.aUf != null && this.aUd.aUa.aUg != null) {
-                        nVar4 = this.aUd.aTZ;
-                        if (((String) customResponsedMessage.getData()).equals(nVar4.aVc.getTid())) {
-                            TextView textView = this.aUd.aUa.aUf;
-                            nVar5 = this.aUd.aTZ;
-                            at.a(textView, nVar5.aVc.getId(), u.d.cp_cont_b, u.d.cp_cont_d);
-                            TextView textView2 = this.aUd.aUa.aUg;
-                            nVar6 = this.aUd.aTZ;
-                            at.a(textView2, nVar6.aVc.getId(), u.d.cp_cont_j, u.d.cp_cont_d);
+                nVar2 = this.aUZ.aUV;
+                if (nVar2.aWa != null) {
+                    nVar3 = this.aUZ.aUV;
+                    if (nVar3.aWa.getTid() != null && this.aUZ.aUW != null && this.aUZ.aUW.aVb != null && this.aUZ.aUW.aVc != null) {
+                        nVar4 = this.aUZ.aUV;
+                        if (((String) customResponsedMessage.getData()).equals(nVar4.aWa.getTid())) {
+                            TextView textView = this.aUZ.aUW.aVb;
+                            nVar5 = this.aUZ.aUV;
+                            at.a(textView, nVar5.aWa.getId(), u.d.cp_cont_b, u.d.cp_cont_d);
+                            TextView textView2 = this.aUZ.aUW.aVc;
+                            nVar6 = this.aUZ.aUV;
+                            at.a(textView2, nVar6.aWa.getId(), u.d.cp_cont_j, u.d.cp_cont_d);
                         }
                     }
                 }

@@ -11,90 +11,90 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TbImageView avt;
-    protected TextView avu;
-    protected TextView avv;
-    protected TextView avw;
+    protected TbImageView awi;
+    protected TextView awj;
+    protected TextView awk;
+    protected TextView awl;
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(u.h.net_refresh_view_layout, (ViewGroup) null));
-        this.avt = (TbImageView) this.avm.findViewById(u.g.net_refresh_image);
-        this.avu = (TextView) this.avm.findViewById(u.g.net_refresh_desc);
-        this.avv = (TextView) this.avm.findViewById(u.g.net_refresh_title);
-        this.avw = (TextView) this.avm.findViewById(u.g.net_refresh_button);
-        this.avw.setOnClickListener(onClickListener);
-        this.avm.setOnClickListener(null);
+        this.awi = (TbImageView) this.awb.findViewById(u.g.net_refresh_image);
+        this.awj = (TextView) this.awb.findViewById(u.g.net_refresh_desc);
+        this.awk = (TextView) this.awb.findViewById(u.g.net_refresh_title);
+        this.awl = (TextView) this.awb.findViewById(u.g.net_refresh_button);
+        this.awl.setOnClickListener(onClickListener);
+        this.awb.setOnClickListener(null);
     }
 
-    public void fX(String str) {
+    public void fV(String str) {
         if (str == null) {
-            this.avu.setVisibility(8);
+            this.awj.setVisibility(8);
             return;
         }
-        this.avu.setVisibility(0);
-        this.avu.setText(str);
+        this.awj.setVisibility(0);
+        this.awj.setText(str);
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.avv.setText(str);
+            this.awk.setText(str);
         }
     }
 
-    public void fY(String str) {
+    public void fW(String str) {
         if (str != null) {
-            this.avw.setText(str);
+            this.awl.setText(str);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.g.a
+    public void Db() {
+        super.Db();
+        sd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.g.a
     public void Dc() {
         super.Dc();
-        se();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.g.a
-    public void Dd() {
-        super.Dd();
-        this.avt.setImageResource(0);
+        this.awi.setImageResource(0);
     }
 
     public void eF(int i) {
-        ViewGroup.LayoutParams layoutParams = this.avt.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.awi.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.avt.setLayoutParams(marginLayoutParams);
+            this.awi.setLayoutParams(marginLayoutParams);
         }
+    }
+
+    public void Dh() {
+        this.awl.setVisibility(0);
+        this.awk.setVisibility(0);
+        av.c(this.awj, u.d.cp_cont_d, 1);
     }
 
     public void Di() {
-        this.avw.setVisibility(0);
-        this.avv.setVisibility(0);
-        av.c(this.avu, u.d.cp_cont_d, 1);
+        this.awl.setVisibility(8);
+        this.awk.setVisibility(8);
+        av.c(this.awj, u.d.cp_cont_b, 1);
     }
 
-    public void Dj() {
-        this.avw.setVisibility(8);
-        this.avv.setVisibility(8);
-        av.c(this.avu, u.d.cp_cont_b, 1);
-    }
-
-    public void se() {
-        if (Db()) {
-            int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            av.c(this.avt, u.f.net_refresh_emotion);
-            av.b(this.avu, u.d.cp_cont_d, 1, skinType);
-            av.b(this.avv, u.d.cp_cont_b, 1, skinType);
-            av.b(this.avw, u.d.cp_cont_g, 1, skinType);
-            av.d(this.avw, u.f.btn_appdownload, skinType);
-            av.l(this.avm, u.d.cp_bg_line_d);
+    public void sd() {
+        if (Da()) {
+            int skinType = TbadkCoreApplication.m10getInst().getSkinType();
+            av.c(this.awi, u.f.net_refresh_emotion);
+            av.b(this.awj, u.d.cp_cont_d, 1, skinType);
+            av.b(this.awk, u.d.cp_cont_b, 1, skinType);
+            av.b(this.awl, u.d.cp_cont_g, 1, skinType);
+            av.d(this.awl, u.f.btn_appdownload, skinType);
+            av.l(this.awb, u.d.cp_bg_line_d);
         }
     }
 
-    public View Dh() {
-        return this.avm;
+    public View Dg() {
+        return this.awb;
     }
 }

@@ -14,34 +14,34 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class be extends bj<b, bg> {
-    private View.OnClickListener bDV;
-    private Set<String> bDW;
-    private boolean bDX;
-    private View.OnClickListener bDt;
-    private View.OnClickListener bDu;
+    private View.OnClickListener bEC;
+    private View.OnClickListener bED;
+    private View.OnClickListener bFf;
+    private Set<String> bFg;
+    private boolean bFh;
 
     public be(BaseActivity baseActivity, BdUniqueId bdUniqueId, boolean z) {
         super(baseActivity, bdUniqueId);
-        this.bDW = new HashSet();
-        this.bDX = z;
+        this.bFg = new HashSet();
+        this.bFh = z;
     }
 
     private void a(boolean z, bg bgVar) {
         if (z) {
-            com.baidu.tbadk.core.util.av.k(bgVar.bEe, u.f.frs_praise_btn_bg);
-            com.baidu.tbadk.core.util.av.c(bgVar.bEe, u.d.cp_cont_f, 1);
+            com.baidu.tbadk.core.util.av.k(bgVar.bFo, u.f.frs_praise_btn_bg);
+            com.baidu.tbadk.core.util.av.c(bgVar.bFo, u.d.cp_cont_f, 1);
             return;
         }
-        com.baidu.tbadk.core.util.av.k(bgVar.bEe, u.f.btn_content_download_d);
-        com.baidu.tbadk.core.util.av.c(bgVar.bEe, u.d.common_color_10172, 1);
+        com.baidu.tbadk.core.util.av.k(bgVar.bFo, u.f.btn_content_download_d);
+        com.baidu.tbadk.core.util.av.c(bgVar.bFo, u.d.common_color_10172, 1);
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.bDt = onClickListener;
+        this.bEC = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.bDu = onClickListener;
+        this.bED = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,107 +58,107 @@ public class be extends bj<b, bg> {
     public View a(int i, View view, ViewGroup viewGroup, b bVar, bg bgVar) {
         int i2;
         super.a(i, view, viewGroup, (ViewGroup) bVar, (b) bgVar);
-        if (this.bkc == null) {
+        if (this.bem == null) {
             return null;
         }
-        if (this.bkc != null && (this.bkc instanceof FrsActivity)) {
-            ((FrsActivity) this.bkc).VG().WZ();
+        if (this.bem != null && (this.bem instanceof FrsActivity)) {
+            ((FrsActivity) this.bem).VY().Xr();
         }
-        if (this.bkc != null && (this.bkc instanceof dk)) {
-            ((dk) this.bkc).WZ();
+        if (this.bem != null && (this.bem instanceof dk)) {
+            ((dk) this.bem).Xr();
         }
-        int i3 = i - this.bCx;
+        int i3 = i - this.bDE;
         if (i3 == 0) {
-            int i4 = bBz;
+            int i4 = bFC;
         } else {
-            int i5 = bBA;
+            int i5 = bFD;
         }
-        if (!this.bDX) {
-            i2 = bEs;
+        if (!this.bFh) {
+            i2 = bFE;
         } else {
-            i2 = i3 == 0 ? bBz : bBA;
+            i2 = i3 == 0 ? bFC : bFD;
         }
-        bgVar.bEa.setPadding(0, i2, 0, 0);
-        this.bkc.getLayoutMode().ad(this.mSkinType == 1);
-        this.bkc.getLayoutMode().w(view);
+        bgVar.bFk.setPadding(0, i2, 0, 0);
+        this.bem.getLayoutMode().af(this.mSkinType == 1);
+        this.bem.getLayoutMode().w(view);
         if (bVar instanceof b) {
-            if (!bVar.MX && (this.bkc instanceof FrsActivity)) {
-                bVar.MX = true;
-                ((FrsActivity) this.bkc).a(bVar, "show");
-                ((FrsActivity) this.bkc).b(bVar, "show");
+            if (!bVar.MV && (this.bem instanceof FrsActivity)) {
+                bVar.MV = true;
+                ((FrsActivity) this.bem).a(bVar, "show");
+                ((FrsActivity) this.bem).b(bVar, "show");
             }
-            if (!bVar.MX && (this.bkc instanceof dk)) {
-                bVar.MX = true;
-                ((dk) this.bkc).a(bVar, "show");
-                ((dk) this.bkc).b(bVar, "show");
+            if (!bVar.MV && (this.bem instanceof dk)) {
+                bVar.MV = true;
+                ((dk) this.bem).a(bVar, "show");
+                ((dk) this.bem).b(bVar, "show");
             }
-            if (bVar.MY) {
-                if (bgVar.bEg == null) {
-                    bgVar.bEg = (ViewGroup) bgVar.bEf.inflate().findViewById(u.g.frs_item_adkiller_tip);
-                    a.a(this.bkc.getPageContext(), bgVar.bEg);
+            if (bVar.MW) {
+                if (bgVar.bFq == null) {
+                    bgVar.bFq = (ViewGroup) bgVar.bFp.inflate().findViewById(u.g.frs_item_adkiller_tip);
+                    a.a(this.bem.getPageContext(), bgVar.bFq);
                 }
-                bgVar.bEg.setVisibility(0);
-                bgVar.bEg.setOnClickListener(new bf(this, bVar));
-                if (!this.bDW.contains(bVar.Na)) {
-                    this.bDW.add(bVar.Na);
+                bgVar.bFq.setVisibility(0);
+                bgVar.bFq.setOnClickListener(new bf(this, bVar));
+                if (!this.bFg.contains(bVar.MY)) {
+                    this.bFg.add(bVar.MY);
                     com.baidu.tbadk.core.util.ay ayVar = new com.baidu.tbadk.core.util.ay("c10828");
                     ayVar.ab("obj_id", new StringBuilder(String.valueOf(bVar.getFid())).toString());
                     TiebaStatic.log(ayVar);
                 }
-            } else if (bgVar.bEg != null) {
-                bgVar.bEg.setVisibility(8);
+            } else if (bgVar.bFq != null) {
+                bgVar.bFq.setVisibility(8);
             }
-            if (bVar.Nb) {
-                if (bgVar.bEi == null) {
-                    bgVar.bEi = (ViewGroup) bgVar.bEh.inflate().findViewById(u.g.item_adkiller_close);
-                    a.a(this.bkc.getPageContext(), bgVar.bEi);
+            if (bVar.MZ) {
+                if (bgVar.bFs == null) {
+                    bgVar.bFs = (ViewGroup) bgVar.bFr.inflate().findViewById(u.g.item_adkiller_close);
+                    a.a(this.bem.getPageContext(), bgVar.bFs);
                 }
-                bgVar.bEi.setVisibility(0);
-                bgVar.bEi.setOnClickListener(this.bDV);
-                bgVar.bEi.setTag(Integer.valueOf(i));
-            } else if (bgVar.bEi != null) {
-                bgVar.bEi.setVisibility(8);
+                bgVar.bFs.setVisibility(0);
+                bgVar.bFs.setOnClickListener(this.bFf);
+                bgVar.bFs.setTag(Integer.valueOf(i));
+            } else if (bgVar.bFs != null) {
+                bgVar.bFs.setVisibility(8);
             }
-            bgVar.aSd.setText(bVar.MW.userName);
-            bgVar.bEd.setText(bVar.MW.Ne);
-            if (com.baidu.tbadk.core.l.nW().oc()) {
-                bgVar.bEc.setVisibility(0);
-                bgVar.bEc.c(bVar.MW.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            bgVar.aSZ.setText(bVar.MU.userName);
+            bgVar.bFn.setText(bVar.MU.Nc);
+            if (com.baidu.tbadk.core.l.nL().nR()) {
+                bgVar.bFm.setVisibility(0);
+                bgVar.bFm.c(bVar.MU.userPortrait, this.mIsFromCDN ? 13 : 14, false);
             } else {
-                bgVar.bEc.setVisibility(8);
+                bgVar.bFm.setVisibility(8);
             }
-            bgVar.bEc.setTag(bVar.MW.userPortrait);
-            bgVar.bEe.setTag(Integer.valueOf(i));
-            com.baidu.tbadk.core.util.av.k(bgVar.bEb, u.f.bg_label);
-            if (bVar.ox()) {
+            bgVar.bFm.setTag(bVar.MU.userPortrait);
+            bgVar.bFo.setTag(Integer.valueOf(i));
+            com.baidu.tbadk.core.util.av.k(bgVar.bFl, u.f.bg_label);
+            if (bVar.om()) {
                 a(true, bgVar);
-                if (TextUtils.isEmpty(bVar.MW.Fg) || TextUtils.isEmpty(bVar.MW.Fg.trim())) {
-                    bgVar.bEe.setText(u.j.view);
+                if (TextUtils.isEmpty(bVar.MU.FG) || TextUtils.isEmpty(bVar.MU.FG.trim())) {
+                    bgVar.bFo.setText(u.j.view);
                 } else {
-                    bgVar.bEe.setText(bVar.MW.Fg);
+                    bgVar.bFo.setText(bVar.MU.FG);
                 }
-                bgVar.bEe.setOnClickListener(this.bDt);
+                bgVar.bFo.setOnClickListener(this.bEC);
                 return view;
-            } else if (bVar.ow()) {
-                switch (bVar.MF) {
+            } else if (bVar.ol()) {
+                switch (bVar.MD) {
                     case 0:
-                        if (TextUtils.isEmpty(bVar.MW.Fg) || TextUtils.isEmpty(bVar.MW.Fg.trim())) {
-                            bgVar.bEe.setText(u.j.game_center_download);
+                        if (TextUtils.isEmpty(bVar.MU.FG) || TextUtils.isEmpty(bVar.MU.FG.trim())) {
+                            bgVar.bFo.setText(u.j.game_center_download);
                         } else {
-                            bgVar.bEe.setText(bVar.MW.Fg);
+                            bgVar.bFo.setText(bVar.MU.FG);
                         }
                         a(true, bgVar);
-                        bgVar.bEe.setOnClickListener(this.bDu);
+                        bgVar.bFo.setOnClickListener(this.bED);
                         return view;
                     case 1:
                         a(false, bgVar);
-                        bgVar.bEe.setText(u.j.downloading2);
-                        bgVar.bEe.setOnClickListener(null);
+                        bgVar.bFo.setText(u.j.downloading2);
+                        bgVar.bFo.setOnClickListener(null);
                         return view;
                     case 2:
                         a(true, bgVar);
-                        bgVar.bEe.setText(u.j.frs_old_style_download_text);
-                        bgVar.bEe.setOnClickListener(this.bDu);
+                        bgVar.bFo.setText(u.j.frs_old_style_download_text);
+                        bgVar.bFo.setOnClickListener(this.bED);
                         return view;
                     default:
                         return view;

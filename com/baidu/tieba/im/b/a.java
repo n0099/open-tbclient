@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.b;
-
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
-    public static int kY(int i) {
+    public static int le(int i) {
         switch (i) {
             case 1:
                 return -2;
@@ -24,7 +22,7 @@ public class a {
             case 23:
             case 24:
             case 25:
-            case TbConfig.NOTIFY_FANS_NEW_ID /* 26 */:
+            case 26:
             case 27:
             case 28:
             case 29:

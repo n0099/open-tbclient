@@ -3,27 +3,27 @@ package com.baidu.tieba.card.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.EcommPersonManagerActivityConfig;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 /* loaded from: classes.dex */
 public class f extends c {
-    public static final BdUniqueId aVb = BdUniqueId.gen();
-    public az aVc;
+    public static final BdUniqueId aVZ = BdUniqueId.gen();
+    public be aWa;
 
-    public f(az azVar) {
-        this.aVc = azVar;
+    public f(be beVar) {
+        this.aWa = beVar;
     }
 
-    public static boolean c(az azVar) {
-        return azVar != null && azVar.isDeal && azVar.Rl != null && TbadkCoreApplication.m9getInst().appResponseToIntentClass(EcommPersonManagerActivityConfig.class);
+    public static boolean c(be beVar) {
+        return beVar != null && beVar.isDeal && beVar.RO != null && TbadkCoreApplication.m10getInst().appResponseToIntentClass(EcommPersonManagerActivityConfig.class);
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return aVb;
+        return aVZ;
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public az Ix() {
-        return this.aVc;
+    public be Iw() {
+        return this.aWa;
     }
 }

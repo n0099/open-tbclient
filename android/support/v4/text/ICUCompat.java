@@ -3,7 +3,7 @@ package android.support.v4.text;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class ICUCompat {
-    private static final a cw;
+    private static final a cv;
 
     /* loaded from: classes.dex */
     interface a {
@@ -46,17 +46,17 @@ public class ICUCompat {
 
     static {
         if (Build.VERSION.SDK_INT >= 14) {
-            cw = new c();
+            cv = new c();
         } else {
-            cw = new b();
+            cv = new b();
         }
     }
 
     public static String getScript(String str) {
-        return cw.getScript(str);
+        return cv.getScript(str);
     }
 
     public static String addLikelySubtags(String str) {
-        return cw.addLikelySubtags(str);
+        return cv.addLikelySubtags(str);
     }
 }

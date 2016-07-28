@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 class i implements Runnable {
-    final /* synthetic */ h aHv;
+    final /* synthetic */ h aIm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.aHv = hVar;
+        this.aIm = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         g gVar;
         LogoActivity logoActivity;
-        gVar = this.aHv.aHu;
-        logoActivity = gVar.aHs;
-        logoActivity.HO();
+        gVar = this.aIm.aIl;
+        logoActivity = gVar.aIj;
+        logoActivity.HM();
     }
 }

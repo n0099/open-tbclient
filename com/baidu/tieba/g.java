@@ -5,19 +5,19 @@ import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ LogoActivity aHs;
+    final /* synthetic */ LogoActivity aIj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(LogoActivity logoActivity) {
-        this.aHs = logoActivity;
+        this.aIj = logoActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         RelativeLayout relativeLayout;
-        TbPageContext pageContext = this.aHs.getPageContext();
+        TbPageContext pageContext = this.aIj.getPageContext();
         h hVar = new h(this);
-        relativeLayout = this.aHs.mRootView;
+        relativeLayout = this.aIj.mRootView;
         q.a(pageContext, hVar, relativeLayout);
     }
 }

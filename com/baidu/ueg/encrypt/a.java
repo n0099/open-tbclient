@@ -1,5 +1,5 @@
 package com.baidu.ueg.encrypt;
 /* loaded from: classes.dex */
 public interface a {
-    String encrypt(String str);
+    String encrypt(String str) throws Exception;
 }

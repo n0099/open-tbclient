@@ -59,7 +59,7 @@ public class f {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        nc();
+        mS();
         try {
             if (!StringUtils.isNull(str2)) {
                 String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
@@ -67,6 +67,22 @@ public class f {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new T5WebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
+        mS();
+        try {
+            if (!StringUtils.isNull(str2)) {
+                String appendVersionCode = z5 ? appendVersionCode(appendCuidParam(str2)) : str2;
+                if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null && z4) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new T5WebViewActivityConfig(context, str, appendVersionCode, z, z2, z3)));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, appendVersionCode, z, z2, z3, z6)));
                 }
             }
         } catch (Exception e) {
@@ -102,7 +118,7 @@ public class f {
                 sb.append("?");
             }
             sb.append("cuid=");
-            sb.append(TbadkCoreApplication.m9getInst().getCuid());
+            sb.append(TbadkCoreApplication.m10getInst().getCuid());
             sb.append("&timestamp=");
             sb.append(Long.toString(System.currentTimeMillis()));
             return sb.toString();
@@ -115,8 +131,8 @@ public class f {
     }
 
     public static void H(Context context) {
-        a.b cc = com.baidu.tbadk.core.a.a.oe().cc(TbadkCoreApplication.getCurrentBduss());
-        CookieSyncManager.createInstance(TbadkCoreApplication.m9getInst());
+        a.b cd = com.baidu.tbadk.core.a.a.nT().cd(TbadkCoreApplication.getCurrentBduss());
+        CookieSyncManager.createInstance(TbadkCoreApplication.m10getInst());
         CookieManager cookieManager = null;
         try {
             cookieManager = CookieManager.getInstance();
@@ -124,9 +140,9 @@ public class f {
             BdLog.e(e);
         }
         if (cookieManager != null) {
-            if (cc != null) {
+            if (cd != null) {
                 cookieManager.setAcceptCookie(true);
-                cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m9getInst().getCuid() + "; domain=.baidu.com;");
+                cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m10getInst().getCuid() + "; domain=.baidu.com;");
             } else {
                 try {
                     cookieManager.removeAllCookie();
@@ -146,7 +162,7 @@ public class f {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void nc() {
+    private static void mS() {
         new ar("open_webview", true).start();
     }
 }

@@ -4,44 +4,44 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b {
-    private int dIp;
-    private String dIq;
-    private int dIs;
-    private String dIt;
-    private boolean dIu;
+    private int dUB;
+    private String dUC;
+    private boolean dUD;
+    private int dUy;
+    private String dUz;
     private String msgContent;
     private int msgType;
     private String toUid;
 
     public b(a aVar) {
         this();
-        this.dIp = aVar.aCJ();
-        this.toUid = aVar.aCK();
+        this.dUy = aVar.aFT();
+        this.toUid = aVar.aFU();
         this.msgType = aVar.getMsgType();
-        this.dIq = aVar.getToUid();
+        this.dUz = aVar.getToUid();
     }
 
     public b() {
-        this.dIu = !TbadkCoreApplication.m9getInst().isDebugMode();
-        mX(2);
-        mZ(TbConfig.getVersion());
-        this.dIq = TbadkCoreApplication.getCurrentAccount();
+        this.dUD = !TbadkCoreApplication.m10getInst().isDebugMode();
+        np(2);
+        nK(TbConfig.getVersion());
+        this.dUz = TbadkCoreApplication.getCurrentAccount();
     }
 
-    public String aCK() {
-        return this.dIq;
+    public String aFU() {
+        return this.dUz;
     }
 
     public String getToUid() {
         return this.toUid;
     }
 
-    public void mX(int i) {
-        this.dIs = i;
+    public void np(int i) {
+        this.dUB = i;
     }
 
-    public void mZ(String str) {
-        this.dIt = str;
+    public void nK(String str) {
+        this.dUC = str;
     }
 
     public void setMsgType(int i) {

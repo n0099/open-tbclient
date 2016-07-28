@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class d implements dm {
-    final /* synthetic */ FrsActivity bDB;
+    final /* synthetic */ FrsActivity bEL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FrsActivity frsActivity) {
-        this.bDB = frsActivity;
+        this.bEL = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.dm
@@ -17,34 +17,28 @@ class d implements dm {
         bq bqVar;
         b bVar;
         bq bqVar2;
-        int i3;
-        int i4;
         bq bqVar3;
         bq bqVar4;
         bq bqVar5;
-        bq bqVar6;
         dm dmVar;
         dm dmVar2;
+        bq bqVar6;
         bq bqVar7;
         bq bqVar8;
         bq bqVar9;
-        int i5;
-        int i6;
-        bq bqVar10;
-        bq bqVar11;
-        com.baidu.tieba.frs.i.p pVar;
+        com.baidu.tieba.frs.j.p pVar;
         b bVar2;
-        bq bqVar12;
-        bqVar = this.bDB.bCD;
-        if (bqVar.Wa() instanceof com.baidu.tieba.frs.tab.h) {
-            bqVar12 = this.bDB.bCD;
-            ((com.baidu.tieba.frs.tab.h) bqVar12.Wa()).US();
+        bq bqVar10;
+        bqVar = this.bEL.bDK;
+        if (bqVar.Wr() instanceof com.baidu.tieba.frs.tab.h) {
+            bqVar10 = this.bEL.bDK;
+            ((com.baidu.tieba.frs.tab.h) bqVar10.Wr()).aap();
         }
-        bVar = this.bDB.bDb;
+        bVar = this.bEL.bEi;
         if (bVar != null) {
-            pVar = this.bDB.bCR;
-            bVar2 = this.bDB.bDb;
-            pVar.dK(bVar2.hz(i));
+            pVar = this.bEL.bDY;
+            bVar2 = this.bEL.bEi;
+            pVar.dK(bVar2.hy(i));
         }
         e.a aVar = new e.a();
         if (dvVar != null) {
@@ -53,67 +47,55 @@ class d implements dm {
             aVar.errorMsg = dvVar.errMsg;
             if (aVar.isSuccess) {
                 if (arrayList == null || arrayList.size() == 0) {
-                    bqVar7 = this.bDB.bCD;
-                    bqVar7.WC();
+                    bqVar6 = this.bEL.bDK;
+                    bqVar6.WT();
                 } else if (dvVar.hasMore) {
-                    bqVar11 = this.bDB.bCD;
-                    bqVar11.WA();
-                } else if (dvVar.bHk) {
-                    bqVar9 = this.bDB.bCD;
-                    i5 = FrsActivity.bCl;
-                    int size = arrayList.size();
-                    i6 = FrsActivity.bCm;
-                    bqVar9.hp(i5 - (size * i6));
-                    bqVar10 = this.bDB.bCD;
-                    bqVar10.WB();
+                    bqVar9 = this.bEL.bDK;
+                    bqVar9.WR();
+                } else if (dvVar.bIG) {
+                    bqVar8 = this.bEL.bDK;
+                    bqVar8.WS();
                 } else {
-                    bqVar8 = this.bDB.bCD;
-                    bqVar8.WC();
+                    bqVar7 = this.bEL.bDK;
+                    bqVar7.WT();
                 }
             }
         } else {
             dvVar = new dv();
             dvVar.pn = 1;
             dvVar.hasMore = false;
-            dvVar.bHk = false;
-            if (arrayList != null) {
-                bqVar2 = this.bDB.bCD;
-                i3 = FrsActivity.bCl;
-                int size2 = arrayList.size();
-                i4 = FrsActivity.bCm;
-                bqVar2.hp(i3 - (size2 * i4));
-            }
+            dvVar.bIG = false;
         }
         if (i == 1) {
-            this.bDB.bCP = true;
-            this.bDB.bDl.a(this.bDB.bCQ.getType(), false, aVar);
+            this.bEL.bDW = true;
+            this.bEL.bEs.a(this.bEL.bDX.getType(), false, aVar);
         } else {
             if (dvVar.errCode != 0 || arrayList == null || arrayList.size() == 0) {
                 if (340001 == aVar.errorCode) {
-                    FrsActivity frsActivity = this.bDB;
-                    bqVar4 = this.bDB.bCD;
-                    frsActivity.showNetRefreshViewNoClick(bqVar4.getRootView(), aVar.errorMsg, true);
+                    FrsActivity frsActivity = this.bEL;
+                    bqVar3 = this.bEL.bDK;
+                    frsActivity.showNetRefreshViewNoClick(bqVar3.getRootView(), aVar.errorMsg, true);
                 } else {
-                    FrsActivity frsActivity2 = this.bDB;
-                    bqVar3 = this.bDB.bCD;
-                    frsActivity2.showNetRefreshView(bqVar3.getRootView(), aVar.errorMsg, true);
+                    FrsActivity frsActivity2 = this.bEL;
+                    bqVar2 = this.bEL.bDK;
+                    frsActivity2.showNetRefreshView(bqVar2.getRootView(), aVar.errorMsg, true);
                 }
-                this.bDB.setNetRefreshViewEmotionDefMarginTop();
+                this.bEL.setNetRefreshViewEmotionDefMarginTop();
             }
-            this.bDB.Vt();
-            bqVar5 = this.bDB.bCD;
-            bqVar5.getListView().jA();
-            if (this.bDB.VG().YO() != null) {
-                this.bDB.bCF = this.bDB.VG().YO();
+            this.bEL.VK();
+            bqVar4 = this.bEL.bDK;
+            bqVar4.getListView().jz();
+            if (this.bEL.VY().Zj() != null) {
+                this.bEL.bDM = this.bEL.VY().Zj();
             }
-            bqVar6 = this.bDB.bCD;
-            bqVar6.dm(false);
+            bqVar5 = this.bEL.bDK;
+            bqVar5.dj(false);
         }
-        dmVar = this.bDB.bDA;
+        dmVar = this.bEL.bEK;
         if (dmVar == null) {
             return;
         }
-        dmVar2 = this.bDB.bDA;
+        dmVar2 = this.bEL.bEK;
         dmVar2.a(i, i2, dvVar, arrayList);
     }
 }

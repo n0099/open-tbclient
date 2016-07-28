@@ -83,7 +83,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         return this.pageContext;
     }
 
-    public Fragment nT() {
+    public Fragment nI() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         List<Fragment> fragments = supportFragmentManager != null ? supportFragmentManager.getFragments() : null;
         if (com.baidu.tbadk.core.util.y.t(fragments)) {
@@ -123,7 +123,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             arrayList4.addAll(arrayList3);
             arrayList = arrayList4;
         }
-        if (getPageStayFilter() == null || getPageStayFilter().En()) {
+        if (getPageStayFilter() == null || getPageStayFilter().Em()) {
             if (StringUtils.isNull(currentPageKey)) {
                 arrayList2 = arrayList;
             } else {
@@ -133,9 +133,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 arrayList.add(currentPageKey);
                 arrayList2 = arrayList;
             }
-            Fragment nT = nT();
-            if (nT instanceof com.baidu.tbadk.pageStayDuration.a) {
-                String currentPageKey2 = ((com.baidu.tbadk.pageStayDuration.a) nT).getCurrentPageKey();
+            Fragment nI = nI();
+            if (nI instanceof com.baidu.tbadk.pageStayDuration.a) {
+                String currentPageKey2 = ((com.baidu.tbadk.pageStayDuration.a) nI).getCurrentPageKey();
                 if (!StringUtils.isNull(currentPageKey2)) {
                     if (arrayList2 == null) {
                         arrayList2 = new ArrayList();
@@ -156,14 +156,14 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public com.baidu.tbadk.pageStayDuration.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
-            this.pageStayDurationItem.gc(getCurrentPageKey());
+            this.pageStayDurationItem.ga(getCurrentPageKey());
         }
         this.pageStayDurationItem.D(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;
     }
 
     public boolean getGpuSwitch() {
-        return TbadkCoreApplication.m9getInst().isGpuOpen();
+        return TbadkCoreApplication.m10getInst().isGpuOpen();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -172,12 +172,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new com.baidu.adp.widget.f(getPageContext().getPageActivity());
             this.mSwipeBackLayout.k(getPageContext().getPageActivity());
-            this.mSwipeBackLayout.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+            this.mSwipeBackLayout.onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
             if (!TbadkCoreApplication.IS_SUPPORT_SWIPEBACK) {
                 this.mSwipeBackLayout.setSwipeBackEnabled(false);
             }
         }
-        if (TbadkCoreApplication.m9getInst().isExitAppCloseWebSocket()) {
+        if (TbadkCoreApplication.m10getInst().isExitAppCloseWebSocket()) {
             TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", false);
             BdSocketLinkService.startService(false, "app start");
         }
@@ -190,7 +190,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bg.dC(getClass().getName());
+        bg.dB(getClass().getName());
         this.mLayoutMode = new c();
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
@@ -224,7 +224,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bi(int i) {
+    public void bl(int i) {
         if (this.mKeyboardAdjust != null) {
             this.mKeyboardAdjust.cO(i);
         }
@@ -243,9 +243,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
         this.lastResumeTime = System.currentTimeMillis();
-        changeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        TbadkCoreApplication.m9getInst().AddResumeNum();
-        bg.dC(getClass().getName());
+        changeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
+        TbadkCoreApplication.m10getInst().AddResumeNum();
+        bg.dB(getClass().getName());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
             this.mIsLogin = isLogin;
@@ -276,7 +276,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                     this.mSwipeBackLayout.onChangeSkinType(i);
                 }
                 if (this.loadingView != null) {
-                    this.loadingView.se();
+                    this.loadingView.sd();
                 }
                 if (this.mUseStyleImmersiveSticky) {
                     this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
@@ -295,10 +295,10 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.S(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.Et().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            pageStayDurationItem.N(currentTimeMillis);
+            com.baidu.tbadk.pageStayDuration.e.Es().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
-        TbadkCoreApplication.m9getInst().DelResumeNum();
+        TbadkCoreApplication.m10getInst().DelResumeNum();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -319,7 +319,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     @Override // android.app.Activity
     public void finish() {
-        com.baidu.adp.lib.util.k.a(getApplicationContext(), getWindow().getDecorView());
+        com.baidu.adp.lib.util.k.b(getApplicationContext(), getWindow().getDecorView());
         dismissAllDialog();
         dismissAllPopupWindow();
         super.finish();
@@ -338,7 +338,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (str != null) {
                 this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", str, true, false, this.mDialogListener);
             } else {
-                this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m9getInst().getResources().getString(u.j.Waiting), true, false, this.mDialogListener);
+                this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m10getInst().getResources().getString(u.j.Waiting), true, false, this.mDialogListener);
             }
         }
     }
@@ -383,7 +383,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.b(getPageContext().getContext(), str, i).sb();
+        BdToast.b(getPageContext().getContext(), str, i).sa();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
@@ -407,7 +407,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (this.mProgressBar == null) {
             try {
                 this.mProgressBar = new ProgressBar(getPageContext().getPageActivity());
-                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m9getInst().getResources().getDrawable(u.f.progressbar));
+                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m10getInst().getResources().getDrawable(u.f.progressbar));
                 ((FrameLayout) findViewById(16908290)).addView(this.mProgressBar, new FrameLayout.LayoutParams(-2, -2, 17));
             } catch (Throwable th) {
                 return;
@@ -435,7 +435,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             } else {
                 this.loadingView = new com.baidu.tbadk.g.f(getPageContext().getPageActivity(), i);
             }
-            this.loadingView.se();
+            this.loadingView.sd();
         }
         this.loadingView.c(view, z);
     }

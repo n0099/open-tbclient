@@ -13,7 +13,7 @@ class x implements CustomMessageTask.CustomRunnable<Void> {
         if (customMessage == null) {
             return null;
         }
-        TbadkCoreApplication.m9getInst().setFriendFeedNew(true);
+        TbadkCoreApplication.m10getInst().setFriendFeedNew(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.DISCOVER_FRIEND_FEED_NEW));
         return new CustomResponsedMessage<>(CmdConfigCustom.FRIEND_FEED_NEW);
     }

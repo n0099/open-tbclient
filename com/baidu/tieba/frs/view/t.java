@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.frs.bq;
@@ -15,32 +15,32 @@ import com.baidu.tieba.u;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class t {
-    private View bUB;
-    private final bq bUx;
-    private final Animation bUy;
-    private final Animation bUz;
-    private final am mRealTimeData;
+    private View bWB;
+    private final bq bWx;
+    private final Animation bWy;
+    private final Animation bWz;
+    private final ar mRealTimeData;
     private final TbPageContext mTbPageContext;
     private int mState = 1;
-    private Animation.AnimationListener bUC = new u(this);
-    private final a bUA = new a(this);
+    private Animation.AnimationListener bWC = new u(this);
+    private final a bWA = new a(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a extends Handler {
-        private final WeakReference<t> bUG;
+        private final WeakReference<t> bWG;
 
         public a(t tVar) {
-            this.bUG = new WeakReference<>(tVar);
+            this.bWG = new WeakReference<>(tVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    t tVar = this.bUG.get();
+                    t tVar = this.bWG.get();
                     if (tVar != null) {
-                        tVar.bUB.startAnimation(tVar.bUz);
+                        tVar.bWB.startAnimation(tVar.bWz);
                         return;
                     }
                     return;
@@ -50,32 +50,32 @@ public class t {
         }
     }
 
-    public t(am amVar, bq bqVar, TbPageContext tbPageContext) {
-        this.mRealTimeData = amVar;
-        this.bUx = bqVar;
+    public t(ar arVar, bq bqVar, TbPageContext tbPageContext) {
+        this.mRealTimeData = arVar;
+        this.bWx = bqVar;
         this.mTbPageContext = tbPageContext;
-        this.bUy = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), u.a.realtime_gifview_rotate_out);
-        this.bUz = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), u.a.realtime_gifview_rotate);
+        this.bWy = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), u.a.realtime_gifview_rotate_out);
+        this.bWz = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), u.a.realtime_gifview_rotate);
     }
 
     public void show() {
         String icon = this.mRealTimeData.getIcon();
-        com.baidu.adp.lib.g.c.dG().a(icon, 17, new v(this, icon), this.mTbPageContext.getUniqueId());
-        this.bUz.setAnimationListener(this.bUC);
-        this.bUy.setAnimationListener(this.bUC);
+        com.baidu.adp.lib.g.c.dF().a(icon, 17, new v(this, icon), this.mTbPageContext.getUniqueId());
+        this.bWz.setAnimationListener(this.bWC);
+        this.bWy.setAnimationListener(this.bWC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aX(long j) {
+    public void aS(long j) {
         Message obtain = Message.obtain();
         obtain.what = 1;
-        this.bUA.sendMessageDelayed(obtain, j);
+        this.bWA.sendMessageDelayed(obtain, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aI(String str, String str2) {
+    public void aJ(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            long longValue = this.mRealTimeData.pM().longValue();
+            long longValue = this.mRealTimeData.pv().longValue();
             ay ayVar = new ay(str);
             if (!TextUtils.isEmpty(str2)) {
                 ayVar.ab("obj_type", str2);

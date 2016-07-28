@@ -2,40 +2,87 @@ package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.personInfo.PersonInfoPostList;
 import com.baidu.tieba.personInfo.PersonTainInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class o implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId eik = BdUniqueId.gen();
-    private boolean chd;
-    private PersonTainInfo eil;
+public class o extends a {
+    public static final BdUniqueId esq = BdUniqueId.gen();
+    private boolean cjo = true;
+    private List<PersonInfoPostList> eqy = new ArrayList();
+    private PersonTainInfo esl;
     private UserData mUserData;
 
-    public UserData getUserData() {
-        return this.mUserData;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return esq;
+    }
+
+    public String getPortrait() {
+        if (this.mUserData != null) {
+            return this.mUserData.getPortrait();
+        }
+        return null;
+    }
+
+    public int getPostNum() {
+        if (this.mUserData != null) {
+            return this.mUserData.getPosts_num();
+        }
+        return 0;
+    }
+
+    public void d(List<PersonInfoPostList> list) {
+        this.eqy = list;
+    }
+
+    public List<PersonInfoPostList> aNN() {
+        return this.eqy;
     }
 
     public void f(UserData userData) {
         this.mUserData = userData;
     }
 
-    public boolean getIsSelf() {
-        return this.chd;
+    public UserData getUserData() {
+        return this.mUserData;
     }
 
     public void setIsSelf(boolean z) {
-        this.chd = z;
+        this.cjo = z;
     }
 
-    public void b(PersonTainInfo personTainInfo) {
-        this.eil = personTainInfo;
+    public boolean getIsSelf() {
+        return this.cjo;
     }
 
-    public PersonTainInfo aLj() {
-        return this.eil;
+    public int getSex() {
+        if (this.mUserData != null) {
+            return this.mUserData.getSex();
+        }
+        return 0;
     }
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return eik;
+    public void a(PersonTainInfo personTainInfo) {
+        this.esl = personTainInfo;
+    }
+
+    public PersonTainInfo aNJ() {
+        return this.esl;
+    }
+
+    public com.baidu.tbadk.data.j aNK() {
+        if (this.mUserData != null) {
+            return this.mUserData.getPersonPrivate();
+        }
+        return null;
+    }
+
+    public String getUserId() {
+        if (this.mUserData != null) {
+            return this.mUserData.getUserId();
+        }
+        return null;
     }
 }

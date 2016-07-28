@@ -2,32 +2,32 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.pb.pb.main.cs;
+import com.baidu.tieba.pb.pb.main.ct;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-class as implements cs.a {
-    final /* synthetic */ PbActivity dPF;
+class as implements ct.a {
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cs.a
+    @Override // com.baidu.tieba.pb.pb.main.ct.a
     public void h(int i, String str, String str2) {
-        es esVar;
+        ew ewVar;
         if (StringUtils.isNull(str)) {
             if (i == 0) {
-                this.dPF.showToast(u.j.upgrage_toast_dialog);
+                this.ebT.showToast(u.j.upgrage_toast_dialog);
             } else {
-                this.dPF.showToast(u.j.neterror);
+                this.ebT.showToast(u.j.neterror);
             }
         } else if (i != 0 && !TextUtils.isEmpty(str2)) {
-            this.dPF.dPz = str2;
-            esVar = this.dPF.dOO;
-            esVar.nD(str);
+            this.ebT.ebN = str2;
+            ewVar = this.ebT.ebb;
+            ewVar.oq(str);
         } else {
-            this.dPF.showToast(str);
+            this.ebT.showToast(str);
         }
     }
 }

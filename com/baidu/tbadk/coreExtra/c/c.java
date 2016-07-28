@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c ahb;
+    private static c ahQ;
 
     private c() {
     }
@@ -23,10 +23,10 @@ public class c {
     public static synchronized c xj() {
         c cVar;
         synchronized (c.class) {
-            if (ahb == null) {
-                ahb = new c();
+            if (ahQ == null) {
+                ahQ = new c();
             }
-            cVar = ahb;
+            cVar = ahQ;
         }
         return cVar;
     }
@@ -99,7 +99,7 @@ public class c {
         return false;
     }
 
-    public boolean ek(String str) {
+    public boolean ej(String str) {
         SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (TextUtils.isEmpty(str) || xi == null || TextUtils.isEmpty(currentAccount)) {
@@ -118,7 +118,7 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [198=4] */
-    public boolean el(String str) {
+    public boolean ek(String str) {
         Cursor cursor;
         SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -163,13 +163,13 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [252=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0191 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0192 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.CharSequence, java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
-    public GameInfoData em(String str) {
+    public GameInfoData el(String str) {
         Cursor cursor;
         SQLiteDatabase xi = b.xi();
         ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -235,7 +235,7 @@ public class c {
         return null;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x01a3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x01a4 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.CharSequence, java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */

@@ -19,7 +19,7 @@ public class u {
 
     private static void a(TextView textView, boolean z, boolean z2, boolean z3) {
         Drawable drawable;
-        Resources resources = TbadkCoreApplication.m9getInst().getResources();
+        Resources resources = TbadkCoreApplication.m10getInst().getResources();
         float dimension = resources.getDimension(u.e.ds640) + resources.getDimension(u.e.ds16);
         float dimension2 = resources.getDimension(u.e.ds562);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();

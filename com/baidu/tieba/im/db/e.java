@@ -54,7 +54,7 @@ public class e extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         try {
-            TbadkCoreApplication.m9getInst().getApp().deleteDatabase(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
+            TbadkCoreApplication.m10getInst().getApp().deleteDatabase(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
             s(sQLiteDatabase);
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onDowngrade", new Object[0]);
@@ -80,7 +80,7 @@ public class e extends SQLiteOpenHelper {
                     return;
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onUpgrade", new Object[0]);
-                    TbadkCoreApplication.m9getInst().getApp().deleteDatabase(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
+                    TbadkCoreApplication.m10getInst().getApp().deleteDatabase(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
                     s(sQLiteDatabase);
                     return;
                 }
@@ -208,7 +208,7 @@ public class e extends SQLiteOpenHelper {
                 Iterator<String> it = A.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(l.cKz) || next.startsWith(k.cKz))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(l.cNp) || next.startsWith(k.cNp))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
                         } catch (Exception e) {
@@ -311,12 +311,12 @@ public class e extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    f.cKF.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db", sQLiteDatabase);
-                    j.amS();
+                    f.cNv.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db", sQLiteDatabase);
+                    j.anD();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    f.cKF.remove(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
+                    f.cNv.remove(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();

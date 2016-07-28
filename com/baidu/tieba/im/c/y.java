@@ -3,20 +3,20 @@ package com.baidu.tieba.im.c;
 import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends com.baidu.tbadk.util.s<LinkedHashMap<String, String>> {
-    final /* synthetic */ a cVW;
-    private final /* synthetic */ String cWi;
+public class y extends com.baidu.tbadk.util.t<LinkedHashMap<String, String>> {
+    final /* synthetic */ a cYR;
+    private final /* synthetic */ String cZd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(a aVar, String str) {
-        this.cVW = aVar;
-        this.cWi = str;
+        this.cYR = aVar;
+        this.cZd = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.s
-    /* renamed from: aqF */
+    @Override // com.baidu.tbadk.util.t
+    /* renamed from: arr */
     public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.l.amU().a(this.cWi, 2, null, 1000);
+        return com.baidu.tieba.im.db.l.anF().a(this.cZd, 2, null, 1000);
     }
 }

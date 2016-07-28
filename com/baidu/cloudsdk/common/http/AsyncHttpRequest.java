@@ -1,5 +1,6 @@
 package com.baidu.cloudsdk.common.http;
 
+import java.io.IOException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.AbstractHttpClient;
@@ -44,7 +45,7 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    private void makeRequest() {
+    private void makeRequest() throws IOException, InterruptedException {
         if (!Thread.currentThread().isInterrupted()) {
             HttpResponse execute = this.mHttpClient.execute(this.mRequest, this.mHttpContext);
             if (!Thread.currentThread().isInterrupted()) {

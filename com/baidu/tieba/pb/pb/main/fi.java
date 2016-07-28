@@ -1,35 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.u;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fi implements View.OnClickListener {
-    final /* synthetic */ es dVR;
-    private final /* synthetic */ String val$url;
+public class fi extends CustomMessageListener {
+    final /* synthetic */ ew eiu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fi(es esVar, String str) {
-        this.dVR = esVar;
-        this.val$url = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fi(ew ewVar, int i) {
+        super(i);
+        this.eiu = ewVar;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        PbActivity pbActivity3;
-        if (!com.baidu.adp.lib.util.k.fI()) {
-            pbActivity = this.dVR.dOg;
-            pbActivity.showToast(u.j.neterror);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            this.eiu.eht = false;
         }
-        com.baidu.tbadk.core.util.bi us = com.baidu.tbadk.core.util.bi.us();
-        pbActivity2 = this.dVR.dOg;
-        us.c(pbActivity2.getPageContext(), new String[]{this.val$url});
-        pbActivity3 = this.dVR.dOg;
-        pbActivity3.finish();
     }
 }

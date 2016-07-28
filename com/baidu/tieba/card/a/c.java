@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ay;
@@ -10,58 +10,58 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements al {
-    private String aUU;
-    private int aUV;
-    private String aUW;
-    private String aUX;
+    public String QK;
+    private String aVS;
+    private int aVT;
+    private String aVU;
+    private String aVV;
     private String mSource;
-    public String tid;
 
     public void setWeight(String str) {
-        this.aUU = str;
+        this.aVS = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void fI(int i) {
-        this.aUV = i;
+    public void fH(int i) {
+        this.aVT = i;
     }
 
     public void hf(String str) {
-        this.aUW = str;
+        this.aVU = str;
     }
 
-    public int Lh() {
-        return this.aUV;
+    public int Lg() {
+        return this.aVT;
     }
 
-    public String Li() {
-        return String.valueOf(this.mSource) + "#" + this.aUV + "#" + this.aUW;
+    public String Lh() {
+        return String.valueOf(this.mSource) + "#" + this.aVT + "#" + this.aVU;
     }
 
     public String getWeight() {
-        return this.aUU;
+        return this.aVS;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String Lj() {
-        return this.aUW;
+    public String Li() {
+        return this.aVU;
     }
 
-    public String Lk() {
-        return this.aUX;
+    public String Lj() {
+        return this.aVV;
     }
 
     public void hg(String str) {
-        this.aUX = str;
+        this.aVV = str;
     }
 
-    public az Ix() {
+    public be Iw() {
         return null;
     }
 
@@ -74,29 +74,29 @@ public abstract class c extends b implements al {
     }
 
     public ay v(String str, boolean z) {
-        az Ix = Ix();
-        if (Ix == null) {
+        be Iw = Iw();
+        if (Iw == null) {
             return null;
         }
-        ay ab = new ay(str).ab("fid", String.valueOf(Ix.getFid())).ab("tid", String.valueOf(Ix.getTid())).ab("obj_param1", getWeight()).ab("obj_source", getSource()).s("obj_locate", Lh()).ab("obj_param3", at.La());
+        ay ab = new ay(str).ab("fid", String.valueOf(Iw.getFid())).ab("tid", String.valueOf(Iw.getTid())).ab("obj_param1", getWeight()).ab("obj_source", getSource()).s("obj_locate", Lg()).ab("obj_param3", at.KZ());
         if (!z) {
-            ab.s("obj_type", Ll());
+            ab.s("obj_type", Lk());
             return ab;
         }
         return ab;
     }
 
-    private int Ll() {
+    private int Lk() {
         int i;
-        az Ix = Ix();
-        if (Ix == null) {
+        be Iw = Iw();
+        if (Iw == null) {
             return 0;
         }
-        ArrayList<MediaData> medias = Ix.getMedias();
-        if (medias == null) {
+        ArrayList<MediaData> qF = Iw.qF();
+        if (qF == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = medias.iterator();
+            Iterator<MediaData> it = qF.iterator();
             i = 0;
             while (it.hasNext()) {
                 MediaData next = it.next();
@@ -110,9 +110,9 @@ public abstract class c extends b implements al {
 
     @Override // com.baidu.tbadk.core.util.al
     public ArrayList<ak> getImages() {
-        az Ix = Ix();
-        if (Ix != null) {
-            return Ix.getImages();
+        be Iw = Iw();
+        if (Iw != null) {
+            return Iw.getImages();
         }
         return null;
     }

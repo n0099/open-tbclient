@@ -13,17 +13,17 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private LinearLayout aAr;
-    private TextView aGn;
-    private EditText bUf;
-    private TbImageView cDg;
-    private TextView cXA;
-    protected TextView cXB;
-    private ShareFromGameCenterMsgData cXC;
-    private BarImageView cXz;
+    private LinearLayout aBh;
+    private TextView aHe;
+    private EditText bWf;
+    private TbImageView cFV;
+    private BarImageView dav;
+    private TextView daw;
+    protected TextView dax;
+    private ShareFromGameCenterMsgData daz;
 
     public EditText getChatMsgView() {
-        return this.bUf;
+        return this.bWf;
     }
 
     public b(Context context) {
@@ -34,31 +34,31 @@ public class b extends LinearLayout {
     private void ar(Context context) {
         LayoutInflater.from(context).inflate(u.h.game_to_group_share_dialog, this);
         setOrientation(1);
-        this.aAr = (LinearLayout) findViewById(u.g.game_to_group_share_dialog_content);
-        this.cXA = (TextView) findViewById(u.g.share_title_view);
-        this.bUf = (EditText) findViewById(u.g.game_to_group_share_chat_msg);
-        this.cDg = (TbImageView) findViewById(u.g.game_to_group_share_img);
-        this.cXz = (BarImageView) findViewById(u.g.game_to_group_share_icon);
-        this.aGn = (TextView) findViewById(u.g.game_to_group_share_desc);
-        av.c(this.cXA, u.d.cp_cont_b, 1);
-        av.c(this.bUf, u.d.cp_cont_b, 2);
-        this.bUf.setHintTextColor(av.getColor(u.d.cp_cont_e));
-        av.c(this.aGn, u.d.cp_cont_f, 1);
-        this.bUf.setPadding(context.getResources().getDimensionPixelSize(u.e.ds20), 0, 0, 0);
-        this.cXB = (TextView) findViewById(u.g.game_to_group_share);
-        av.c(this.cXB, u.d.cp_cont_c, 1);
-        aaB();
+        this.aBh = (LinearLayout) findViewById(u.g.game_to_group_share_dialog_content);
+        this.daw = (TextView) findViewById(u.g.share_title_view);
+        this.bWf = (EditText) findViewById(u.g.game_to_group_share_chat_msg);
+        this.cFV = (TbImageView) findViewById(u.g.game_to_group_share_img);
+        this.dav = (BarImageView) findViewById(u.g.game_to_group_share_icon);
+        this.aHe = (TextView) findViewById(u.g.game_to_group_share_desc);
+        av.c(this.daw, u.d.cp_cont_b, 1);
+        av.c(this.bWf, u.d.cp_cont_b, 2);
+        this.bWf.setHintTextColor(av.getColor(u.d.cp_cont_e));
+        av.c(this.aHe, u.d.cp_cont_f, 1);
+        this.bWf.setPadding(context.getResources().getDimensionPixelSize(u.e.ds20), 0, 0, 0);
+        this.dax = (TextView) findViewById(u.g.game_to_group_share);
+        av.c(this.dax, u.d.cp_cont_c, 1);
+        abd();
     }
 
-    public void aaB() {
-        this.aAr.setFocusable(true);
-        this.aAr.setFocusableInTouchMode(true);
-        this.aAr.requestFocus();
+    public void abd() {
+        this.aBh.setFocusable(true);
+        this.aBh.setFocusableInTouchMode(true);
+        this.aBh.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.bUf != null) {
-            return j.a(this.bUf.getText(), null);
+        if (this.bWf != null) {
+            return j.a(this.bWf.getText(), null);
         }
         return null;
     }
@@ -69,17 +69,17 @@ public class b extends LinearLayout {
     }
 
     public void setData(ShareFromGameCenterMsgData shareFromGameCenterMsgData) {
-        this.cXC = shareFromGameCenterMsgData;
+        this.daz = shareFromGameCenterMsgData;
         uY();
     }
 
     private void uY() {
-        this.cXA.setText(this.cXC.getTitle());
-        this.cDg.setTag(this.cXC.getImageUrl());
-        this.cDg.c(this.cXC.getImageUrl(), 17, false);
-        this.cXz.setTag(this.cXC.getShareSourceIcon());
-        this.cXz.c(this.cXC.getShareSourceIcon(), 17, false);
-        this.aGn.setText(this.cXC.getContent());
-        this.cXB.setText("来自" + this.cXC.getShareSource());
+        this.daw.setText(this.daz.getTitle());
+        this.cFV.setTag(this.daz.getImageUrl());
+        this.cFV.c(this.daz.getImageUrl(), 17, false);
+        this.dav.setTag(this.daz.getShareSourceIcon());
+        this.dav.c(this.daz.getShareSourceIcon(), 17, false);
+        this.aHe.setText(this.daz.getContent());
+        this.dax.setText("来自" + this.daz.getShareSource());
     }
 }

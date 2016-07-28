@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a dX(String str) {
+    public static a dW(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
@@ -14,15 +14,15 @@ public class b {
             aVar.error_code = 7;
             aVar.error_msg = a.dg(aVar.error_code);
         } else {
-            String d = t.d(m.cY(str));
-            if (d == null) {
+            String k = t.k(m.cY(str));
+            if (k == null) {
                 aVar.error_code = 5;
                 aVar.error_msg = a.dg(aVar.error_code);
             } else {
-                String b = m.b(d, 1, true);
+                String b = m.b(k, 1, true);
                 if (m.aa(str, b)) {
                     aVar.path = b;
-                    aVar.md5 = d;
+                    aVar.md5 = k;
                 } else {
                     aVar.error_code = 1;
                     aVar.error_msg = a.dg(aVar.error_code);

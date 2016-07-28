@@ -18,7 +18,7 @@ public class AddMsgRecordSocketResponse extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         AddMsgRecordResIdl addMsgRecordResIdl = (AddMsgRecordResIdl) new Wire(new Class[0]).parseFrom(bArr, AddMsgRecordResIdl.class);
         if (addMsgRecordResIdl != null) {
             if (addMsgRecordResIdl.error != null) {

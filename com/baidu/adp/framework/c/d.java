@@ -1,14 +1,14 @@
 package com.baidu.adp.framework.c;
 /* loaded from: classes.dex */
 public class d {
-    protected e gK = null;
+    protected e hn = null;
     protected int mRetryCount = 1;
 
     public int getRetryCount() {
         return this.mRetryCount;
     }
 
-    public e bu() {
-        return this.gK;
+    public e bt() {
+        return this.hn;
     }
 }

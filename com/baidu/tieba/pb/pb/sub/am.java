@@ -10,11 +10,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ af dXy;
+    final /* synthetic */ af eka;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(af afVar) {
-        this.dXy = afVar;
+        this.eka = afVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,17 +25,17 @@ public class am extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         NewSubPbActivity newSubPbActivity;
         NewSubPbActivity newSubPbActivity2;
         if (aVar != null && !TextUtils.isEmpty(str)) {
-            view = this.dXy.dWS;
+            view = this.eka.eju;
             TbRichTextView tbRichTextView = (TbRichTextView) view.findViewWithTag(str);
             if (tbRichTextView != null) {
-                newSubPbActivity = this.dXy.dWU;
-                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(newSubPbActivity.getResources(), aVar.jb(), aVar.jb().getNinePatchChunk(), aVar.jf(), null);
-                if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
+                newSubPbActivity = this.eka.ejw;
+                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(newSubPbActivity.getResources(), aVar.ja(), aVar.ja().getNinePatchChunk(), aVar.je(), null);
+                if (TbadkCoreApplication.m10getInst().getSkinType() == 1) {
                     ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ae.mAlpha);
                 }
                 if (tbRichTextView instanceof TbRichTextView) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
-                    newSubPbActivity2 = this.dXy.dWU;
+                    newSubPbActivity2 = this.eka.ejw;
                     layoutParams.bottomMargin = (int) newSubPbActivity2.getResources().getDimension(u.e.ds20);
                     tbRichTextView.setLayoutParams(layoutParams);
                     tbRichTextView.setBackgroundDrawable(ninePatchDrawable);

@@ -6,12 +6,12 @@ public class c {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aK(int i);
+        void aN(int i);
     }
 
     public static void a(Activity activity, String[] strArr, int i) {
         if (activity instanceof a) {
-            ((a) activity).aK(i);
+            ((a) activity).aN(i);
         }
         activity.requestPermissions(strArr, i);
     }

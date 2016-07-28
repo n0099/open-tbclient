@@ -11,7 +11,7 @@ public class TiebaStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String gD(String str) {
+    public static String gC(String str) {
         URL url;
         try {
             url = new URL(str);

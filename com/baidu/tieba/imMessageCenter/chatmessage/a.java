@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity cYf;
+    final /* synthetic */ ChatMessageActivity dbc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.cYf = chatMessageActivity;
+        this.dbc = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,26 +31,26 @@ class a extends CustomMessageListener {
         Fragment fragment3;
         FragmentTransaction fragmentTransaction2;
         Object data;
-        fragment = this.cYf.cYe;
+        fragment = this.dbc.dbb;
         if (fragment == null) {
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof Fragment)) {
-                this.cYf.cYe = (Fragment) data;
+                this.dbc.dbb = (Fragment) data;
             }
-            fragment2 = this.cYf.cYe;
+            fragment2 = this.dbc.dbb;
             if (fragment2 != null) {
-                this.cYf.mFragmentManager = this.cYf.getSupportFragmentManager();
-                ChatMessageActivity chatMessageActivity = this.cYf;
-                fragmentManager = this.cYf.mFragmentManager;
-                chatMessageActivity.cYd = fragmentManager.beginTransaction();
-                fragmentTransaction = this.cYf.cYd;
+                this.dbc.mFragmentManager = this.dbc.getSupportFragmentManager();
+                ChatMessageActivity chatMessageActivity = this.dbc;
+                fragmentManager = this.dbc.mFragmentManager;
+                chatMessageActivity.dba = fragmentManager.beginTransaction();
+                fragmentTransaction = this.dbc.dba;
                 int i = u.g.content;
-                fragment3 = this.cYf.cYe;
+                fragment3 = this.dbc.dbb;
                 fragmentTransaction.add(i, fragment3);
-                fragmentTransaction2 = this.cYf.cYd;
+                fragmentTransaction2 = this.dbc.dba;
                 fragmentTransaction2.commitAllowingStateLoss();
             }
-            if (this.cYf.getIntent() != null) {
-                int intExtra = this.cYf.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
+            if (this.dbc.getIntent() != null) {
+                int intExtra = this.dbc.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
                 Intent intent = new Intent();
                 intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, intExtra);
                 intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);

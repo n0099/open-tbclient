@@ -16,12 +16,12 @@ import com.baidu.tieba.u;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bn {
-    public static ax YJ;
-    public static ax YK;
-    private static int YF = -1;
-    private static int YG = -1;
-    private static boolean YH = false;
-    private static com.baidu.adp.lib.f.a<Integer, Integer> YI = new com.baidu.adp.lib.f.a<>(500);
+    public static ax Zs;
+    public static ax Zt;
+    private static int Zo = -1;
+    private static int Zp = -1;
+    private static boolean Zq = false;
+    private static com.baidu.adp.lib.f.a<Integer, Integer> Zr = new com.baidu.adp.lib.f.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -31,47 +31,47 @@ public class bn {
 
     public static void Y(Context context) {
         mAppContext = context;
-        YH = true;
+        Zq = true;
     }
 
     private static void ut() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            YG = mAppContext.getResources().getColor(u.d.common_color_10097);
-            YF = mAppContext.getResources().getColor(u.d.common_color_10004);
+            Zp = mAppContext.getResources().getColor(u.d.common_color_10097);
+            Zo = mAppContext.getResources().getColor(u.d.common_color_10004);
         }
     }
 
     private static int cF(int i) {
-        return az(i == 1);
+        return aC(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int az(boolean z) {
-        if (YH) {
-            YH = false;
+    public static int aC(boolean z) {
+        if (Zq) {
+            Zq = false;
             ut();
         }
-        return z ? YF : YG;
+        return z ? Zo : Zp;
     }
 
     public static void B(View view) {
         if (view instanceof ViewGroup) {
-            b((ViewGroup) view, TbadkCoreApplication.m9getInst().getSkinType());
+            c((ViewGroup) view, TbadkCoreApplication.m10getInst().getSkinType());
         }
     }
 
     public static void C(View view) {
         if (view != null) {
-            YI.remove(Integer.valueOf(System.identityHashCode(view)));
+            Zr.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
-    public static void b(ViewGroup viewGroup, int i) {
+    public static void c(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = YI.get(Integer.valueOf(identityHashCode));
+        Integer num = Zr.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
-            c(viewGroup, i);
-            YI.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            d(viewGroup, i);
+            Zr.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -99,7 +99,7 @@ public class bn {
         }
     }
 
-    private static void c(ViewGroup viewGroup, int i) {
+    private static void d(ViewGroup viewGroup, int i) {
         a(viewGroup, true, new bo(i, i == 1));
     }
 
@@ -115,8 +115,8 @@ public class bn {
 
     public static void Z(Context context) {
         if (context != null) {
-            if (YJ != null) {
-                YJ.X(context);
+            if (Zs != null) {
+                Zs.X(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
@@ -126,8 +126,8 @@ public class bn {
 
     public static void aa(Context context) {
         if (context != null) {
-            if (YK != null) {
-                YK.X(context);
+            if (Zt != null) {
+                Zt.X(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);

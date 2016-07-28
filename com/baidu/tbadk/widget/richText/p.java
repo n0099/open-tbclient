@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aGf;
+    final /* synthetic */ TbRichTextView aGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(TbRichTextView tbRichTextView) {
-        this.aGf = tbRichTextView;
+        this.aGW = tbRichTextView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,7 +19,7 @@ class p implements View.OnClickListener {
         String str;
         TbRichTextView.d dVar2;
         boolean O;
-        dVar = this.aGf.aFF;
+        dVar = this.aGW.aGw;
         if (dVar != null && (view instanceof ImageView)) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof String)) {
@@ -29,11 +29,11 @@ class p implements View.OnClickListener {
             } else {
                 str = ((TbImageView) view).getUrl();
             }
-            int childCount = this.aGf.getChildCount();
+            int childCount = this.aGW.getChildCount();
             int i = -1;
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.aGf.getChildAt(i2);
-                O = this.aGf.O(childAt);
+                View childAt = this.aGW.getChildAt(i2);
+                O = this.aGW.O(childAt);
                 if (O) {
                     i++;
                 }
@@ -41,7 +41,7 @@ class p implements View.OnClickListener {
                     break;
                 }
             }
-            dVar2 = this.aGf.aFF;
+            dVar2 = this.aGW.aGw;
             dVar2.a(view, str, i);
         }
     }

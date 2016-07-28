@@ -1,5 +1,6 @@
 package org.apache.http.entity.mime;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
@@ -95,17 +96,17 @@ public class MultipartEntity implements HttpEntity {
         return null;
     }
 
-    public void consumeContent() {
+    public void consumeContent() throws IOException, UnsupportedOperationException {
         if (isStreaming()) {
             throw new UnsupportedOperationException("Streaming entity does not implement #consumeContent()");
         }
     }
 
-    public InputStream getContent() {
+    public InputStream getContent() throws IOException, UnsupportedOperationException {
         throw new UnsupportedOperationException("Multipart form entity does not implement #getContent()");
     }
 
-    public void writeTo(OutputStream outputStream) {
+    public void writeTo(OutputStream outputStream) throws IOException {
         this.multipart.writeTo(outputStream);
     }
 }

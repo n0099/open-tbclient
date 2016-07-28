@@ -6,31 +6,31 @@ import com.baidu.tieba.imMessageCenter.im.floatwindow.view.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements c.a {
-    final /* synthetic */ a daQ;
+    final /* synthetic */ a ddN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.daQ = aVar;
+        this.ddN = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c.a
-    public void arY() {
+    public void asK() {
         a.InterfaceC0067a interfaceC0067a;
         a.InterfaceC0067a interfaceC0067a2;
-        this.daQ.daM = false;
-        this.daQ.setTouchable(true);
-        interfaceC0067a = this.daQ.cZW;
+        this.ddN.ddJ = false;
+        this.ddN.setTouchable(true);
+        interfaceC0067a = this.ddN.dcU;
         if (interfaceC0067a != null) {
-            interfaceC0067a2 = this.daQ.cZW;
-            interfaceC0067a2.arY();
+            interfaceC0067a2 = this.ddN.dcU;
+            interfaceC0067a2.asK();
         }
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c.a
     public void a(Point point) {
         int i;
-        a aVar = this.daQ;
-        i = this.daQ.dae;
-        aVar.aS(i - point.x, point.y);
+        a aVar = this.ddN;
+        i = this.ddN.ddc;
+        aVar.aV(i - point.x, point.y);
     }
 }

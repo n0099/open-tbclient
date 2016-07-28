@@ -49,6 +49,7 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.adp.widget.ListView.BdListView;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 /* loaded from: classes.dex */
 public class PluginBaseActivity extends PluginContextWrapper implements ComponentCallbacks, Handler.Callback, KeyEvent.Callback, LayoutInflater.Factory, View.OnCreateContextMenuListener, i, k {
@@ -96,7 +97,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
             return this.mProxyActivity.proxyBindService(intent, serviceConnection, i);
         }
@@ -202,7 +203,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
 
     @Override // android.content.ContextWrapper, android.content.Context
     public String getPackageName() {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.getPackageName() : getPluginPackageName();
     }
 
@@ -631,7 +632,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public void startActivity(Intent intent) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
             this.mProxyActivity.proxyStartActivity(intent);
         }
@@ -640,7 +641,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public void startActivityForResult(Intent intent, int i) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
             this.mProxyActivity.proxyStartActivityForResult(intent, i);
         }
@@ -655,11 +656,11 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         this.mProxyActivity.proxyStartIntentSender(intentSender, intent, i, i2, i3);
     }
 
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         this.mProxyActivity.proxyStartIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
     }
 
@@ -679,7 +680,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public ComponentName startService(Intent intent) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
             return this.mProxyActivity.proxyStartService(intent);
         }
@@ -694,7 +695,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public boolean stopService(Intent intent) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
             return this.mProxyActivity.proxyStopService(intent);
         }
@@ -729,31 +730,31 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mProxyActivity.proxyGetSharedPreferences(str, i) : this.mProxyActivity.proxyGetSharedPreferences(String.valueOf(getPluginPackageName()) + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileInputStream openFileInput(String str) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+    public FileInputStream openFileInput(String str) throws FileNotFoundException {
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.openFileInput(str) : this.mActivity.openFileInput(String.valueOf(getPluginPackageName()) + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.openFileOutput(str, i) : this.mActivity.openFileOutput(String.valueOf(getPluginPackageName()) + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean deleteFile(String str) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.deleteFile(str) : this.mActivity.deleteFile(String.valueOf(getPluginPackageName()) + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.openOrCreateDatabase(getPluginPackageName(), i, cursorFactory) : this.mActivity.openOrCreateDatabase(String.valueOf(getPluginPackageName()) + str, i, cursorFactory);
     }
 
@@ -764,25 +765,25 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean deleteDatabase(String str) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.deleteDatabase(str) : this.mActivity.deleteDatabase(String.valueOf(getPluginPackageName()) + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getDatabasePath(String str) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.getDatabasePath(str) : this.mActivity.getDatabasePath(String.valueOf(getPluginPackageName()) + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getDir(String str, int i) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.getDir(str, i) : this.mActivity.getDir(String.valueOf(getPluginPackageName()) + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getFileStreamPath(String str) {
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mActivity.getFileStreamPath(str) : this.mActivity.getFileStreamPath(String.valueOf(getPluginPackageName()) + str);
     }
 
@@ -793,7 +794,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
             return null;
         }
         try {
-            PluginSetting findPluginSetting = c.ik().findPluginSetting(getPluginPackageName());
+            PluginSetting findPluginSetting = c.ij().findPluginSetting(getPluginPackageName());
             if (findPluginSetting == null || !findPluginSetting.isThird) {
                 return cacheDir;
             }
@@ -816,7 +817,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
     public void sendBroadcast(Intent intent, String str) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.ik().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.ij().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.isLoaded() && plugin2.remapBroadcastReceiver(intent))) {
             super.sendBroadcast(intent, str);
         }

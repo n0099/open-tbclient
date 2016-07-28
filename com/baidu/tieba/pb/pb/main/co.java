@@ -1,107 +1,52 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.cache.o;
-import com.baidu.tbadk.TbConfig;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import com.baidu.tieba.u;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class co {
-    private static co dQq;
-    private com.baidu.adp.lib.cache.o<byte[]> dQr = null;
-    private com.baidu.adp.lib.cache.o<byte[]> dQs = null;
-    private long dQt = 0;
-    private long dQu = 0;
+public class co extends cs<com.baidu.tieba.tbadkCore.data.r, PbRecBaseViewHolder> {
+    private WeakReference<PbRecBaseViewHolder> ecE;
 
-    public static synchronized co aFs() {
-        co coVar;
-        synchronized (co.class) {
-            if (dQq == null) {
-                dQq = new co();
-            }
-            coVar = dQq;
-        }
-        return coVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public co(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+        this.ecE = null;
     }
 
-    private co() {
-        Uu();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bn */
+    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
+        return com.baidu.tieba.recapp.a.aXW().n(this.mContext, 2);
     }
 
-    private void Uu() {
-        if (this.dQr == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.dQr = com.baidu.tbadk.core.b.a.rP().cv("tb.pb_mark");
-            this.dQu = System.currentTimeMillis() - currentTimeMillis;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.cs, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.r rVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) rVar, (com.baidu.tieba.tbadkCore.data.r) pbRecBaseViewHolder);
+        this.mSkinType = TbadkCoreApplication.m10getInst().getSkinType();
+        this.eat.getLayoutMode().af(this.mSkinType == 1);
+        this.eat.getLayoutMode().w(view);
+        if (pbRecBaseViewHolder.getRootView() != null) {
+            com.baidu.tbadk.core.util.av.l(pbRecBaseViewHolder.getRootView(), u.d.cp_bg_line_d);
         }
-        if (this.dQs == null) {
-            long currentTimeMillis2 = System.currentTimeMillis();
-            this.dQs = com.baidu.tbadk.core.b.a.rP().cv("tb.pb_normal");
-            this.dQt = System.currentTimeMillis() - currentTimeMillis2;
+        pbRecBaseViewHolder.update((com.baidu.tieba.tbadkCore.data.r) aw(i), i, this.mIsFromCDN);
+        if (this.ecE == null || this.ecE.get() != pbRecBaseViewHolder) {
+            this.ecE = new WeakReference<>(pbRecBaseViewHolder);
         }
+        return view;
     }
 
-    public void F(String str, boolean z) {
-        if (z) {
-            if (this.dQr != null && str != null) {
-                this.dQr.b(str, new byte[0], 0L);
-            }
-        } else if (this.dQs != null && str != null) {
-            this.dQs.b(str, new byte[0], 0L);
-        }
-    }
-
-    public byte[] G(String str, boolean z) {
-        o.b<byte[]> Q;
-        long currentTimeMillis = System.currentTimeMillis();
-        long j = 0;
-        if (z) {
-            if (this.dQr != null && str != null) {
-                Q = this.dQr.Q(str);
-                j = this.dQu;
-            }
-            Q = null;
-        } else {
-            if (this.dQs != null && str != null) {
-                Q = this.dQs.Q(str);
-                j = this.dQt;
-            }
-            Q = null;
-        }
-        if (Q == null || Q.ix == null) {
-            return null;
-        }
-        com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-        vVar.eQ(1001);
-        vVar.ayw = (System.currentTimeMillis() - currentTimeMillis) + j;
-        vVar.ES();
-        return Q.ix;
-    }
-
-    public void a(String str, boolean z, byte[] bArr) {
-        if (str != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Uu();
-            if (z) {
-                this.dQr.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
-            } else {
-                this.dQs.a(str, bArr, 86400000L);
-            }
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eQ(1001);
-            vVar.ayx = currentTimeMillis2;
-            vVar.ET();
-        }
-    }
-
-    public void l(String str, byte[] bArr) {
-        if (bArr != null && str != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Uu();
-            this.dQr.a(str, bArr, 2592000000L);
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.eQ(1001);
-            vVar.ayx = currentTimeMillis2;
-            vVar.ET();
+    public void updateFontSize() {
+        PbRecBaseViewHolder pbRecBaseViewHolder = this.ecE != null ? this.ecE.get() : null;
+        if (pbRecBaseViewHolder != null) {
+            pbRecBaseViewHolder.updateFontSize();
         }
     }
 }

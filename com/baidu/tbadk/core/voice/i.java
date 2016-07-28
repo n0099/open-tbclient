@@ -10,25 +10,25 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class i {
     public static String vW() {
-        return r.fS();
+        return r.fR();
     }
 
-    public static String dU(String str) {
+    public static String dT(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         return "tb/voice/" + str;
     }
 
-    public static String dV(String str) {
+    public static String dU(String str) {
         return m.r(str, 1);
     }
 
-    public static String dW(String str) {
-        return com.baidu.adp.lib.util.e.az(dU(str));
+    public static String dV(String str) {
+        return com.baidu.adp.lib.util.e.aB(dT(str));
     }
 
-    public static boolean aE(String str) {
+    public static boolean delFile(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

@@ -1,55 +1,47 @@
 package com.baidu.tieba.person.a;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.person.data.h;
 import com.baidu.tieba.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.h, com.baidu.tieba.person.b.g> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public n(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+public class n implements View.OnClickListener {
+    final /* synthetic */ l eqg;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(l lVar) {
+        this.eqg = lVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: by */
-    public com.baidu.tieba.person.b.g a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.g(LayoutInflater.from(this.mContext).inflate(u.h.person_info_forum_feed_card, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.h hVar, com.baidu.tieba.person.b.g gVar) {
-        a(gVar, view);
-        if (hVar != null && this.aMF) {
-            bb(view);
-            if (hVar.ehJ) {
-                gVar.bLB.setVisibility(0);
-            } else {
-                gVar.bLB.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        String str;
+        String str2;
+        String str3;
+        com.baidu.adp.widget.ListView.w wVar;
+        z = this.eqg.isSelf;
+        if (!z) {
+            str = this.eqg.userId;
+            if (str != null) {
+                if (view.getId() == u.g.bar_head) {
+                    ay s = new ay("c10619").s("obj_type", 1);
+                    str3 = this.eqg.userId;
+                    TiebaStatic.log(s.ab("obj_id", str3));
+                } else if (view.getId() == u.g.bar_none) {
+                    ay s2 = new ay("c10619").s("obj_type", 3);
+                    str2 = this.eqg.userId;
+                    TiebaStatic.log(s2.ab("obj_id", str2));
+                }
             }
-            this.aMF = false;
+        } else if (view.getId() == u.g.bar_head) {
+            TiebaStatic.log(new ay("c10593").s("obj_type", 1));
+        } else if (view.getId() == u.g.bar_none) {
+            TiebaStatic.log(new ay("c10593").s("obj_type", 3));
         }
-        return view;
-    }
-
-    private void a(com.baidu.tieba.person.b.g gVar, View view) {
-        if (gVar.aeK != TbadkCoreApplication.m9getInst().getSkinType()) {
-            com.baidu.tbadk.core.util.av.k(view, u.f.addresslist_item_bg);
-            com.baidu.tbadk.core.util.av.l(gVar.bLB, u.d.cp_bg_line_c);
-            com.baidu.tbadk.core.util.av.c(gVar.dpJ, u.f.icon_mine_ba_feed);
-            com.baidu.tbadk.core.util.av.j((View) gVar.ekg, u.d.cp_cont_f);
-            com.baidu.tbadk.core.util.av.c(gVar.ekh, u.f.icon_arrow_tab);
-        }
-    }
-
-    private void bb(View view) {
-        view.setOnClickListener(new o(this));
+        wVar = this.eqg.eqf;
+        wVar.a(view, null, h.esb, null, 0, view.getId());
     }
 }

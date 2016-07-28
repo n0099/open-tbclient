@@ -8,15 +8,15 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity dWP;
+    final /* synthetic */ NewSubPbActivity ejr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NewSubPbActivity newSubPbActivity) {
-        this.dWP = newSubPbActivity;
+        this.ejr = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
-    public void d(Object obj) {
+    public void g(Object obj) {
         aw awVar;
         aw awVar2;
         aw awVar3;
@@ -26,14 +26,14 @@ public class c implements NewSubPbActivity.a {
         aw awVar7;
         Object[] objArr = (Object[]) obj;
         String str = "";
-        awVar = this.dWP.dWC;
-        if (awVar.aIH() != null) {
-            awVar5 = this.dWP.dWC;
-            if (awVar5.aIH().Ix() != null) {
-                awVar6 = this.dWP.dWC;
-                if (awVar6.aIH().Ix().getAuthor() != null) {
-                    awVar7 = this.dWP.dWC;
-                    str = String.valueOf(awVar7.aIH().Ix().getAuthor().getUserId());
+        awVar = this.ejr.eje;
+        if (awVar.aLS() != null) {
+            awVar5 = this.ejr.eje;
+            if (awVar5.aLS().Iw() != null) {
+                awVar6 = this.ejr.eje;
+                if (awVar6.aLS().Iw().getAuthor() != null) {
+                    awVar7 = this.ejr.eje;
+                    str = String.valueOf(awVar7.aLS().Iw().getAuthor().getUserId());
                 }
             }
         }
@@ -45,13 +45,13 @@ public class c implements NewSubPbActivity.a {
         if (objArr.length > 2) {
             str3 = String.valueOf(objArr[2]);
         }
-        NewSubPbActivity newSubPbActivity = this.dWP;
-        Activity pageActivity = this.dWP.getPageContext().getPageActivity();
-        awVar2 = this.dWP.dWC;
-        String id = awVar2.aIH().aEl().getId();
-        awVar3 = this.dWP.dWC;
-        String name = awVar3.aIH().aEl().getName();
-        awVar4 = this.dWP.dWC;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, awVar4.aIH().Ix().getId(), str, str2, str3)));
+        NewSubPbActivity newSubPbActivity = this.ejr;
+        Activity pageActivity = this.ejr.getPageContext().getPageActivity();
+        awVar2 = this.ejr.eje;
+        String id = awVar2.aLS().aHv().getId();
+        awVar3 = this.ejr.eje;
+        String name = awVar3.aLS().aHv().getName();
+        awVar4 = this.ejr.eje;
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, awVar4.aLS().Iw().getId(), str, str2, str3)));
     }
 }

@@ -1,43 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fm implements View.OnClickListener {
-    private final /* synthetic */ String aJD;
-    private final /* synthetic */ MetaData bEH;
-    final /* synthetic */ es dVR;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.d.a dVW;
+    final /* synthetic */ ew eiu;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fm(es esVar, String str, com.baidu.tbadk.coreExtra.d.a aVar, MetaData metaData) {
-        this.dVR = esVar;
-        this.aJD = str;
-        this.dVW = aVar;
-        this.bEH = metaData;
+    public fm(ew ewVar, String str) {
+        this.eiu = ewVar;
+        this.val$url = str;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
         PbActivity pbActivity3;
-        if (!com.baidu.adp.lib.util.i.fr()) {
-            pbActivity3 = this.dVR.dOg;
-            pbActivity3.showToast(u.j.neterror);
+        if (!com.baidu.adp.lib.util.k.fH()) {
+            pbActivity = this.eiu.eat;
+            pbActivity.showToast(u.j.neterror);
             return;
         }
-        pbActivity = this.dVR.dOg;
-        if (com.baidu.tbadk.core.util.bn.ab(pbActivity.getApplicationContext())) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10803").ab("tid", this.aJD).s("obj_locate", 3));
-            com.baidu.tbadk.coreExtra.d.a aVar = this.dVW;
-            String portrait = this.bEH.getPortrait();
-            String userId = this.bEH.getUserId();
-            pbActivity2 = this.dVR.dOg;
-            aVar.a(true, portrait, userId, true, pbActivity2.getUniqueId());
-        }
+        com.baidu.tbadk.core.util.bi us = com.baidu.tbadk.core.util.bi.us();
+        pbActivity2 = this.eiu.eat;
+        us.c(pbActivity2.getPageContext(), new String[]{this.val$url});
+        pbActivity3 = this.eiu.eat;
+        pbActivity3.finish();
     }
 }

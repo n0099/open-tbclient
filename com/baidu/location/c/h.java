@@ -9,8 +9,8 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class h {
-    private static h Hi = null;
-    private a Hj = null;
+    private static h HA = null;
+    private a HB = null;
     private boolean d = false;
     private boolean e = false;
     private boolean f = false;
@@ -41,11 +41,11 @@ public class h {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (h.this.d && com.baidu.location.c.b.lN().e() && com.baidu.location.e.d.lV().d()) {
+            if (h.this.d && com.baidu.location.c.b.lH().e() && com.baidu.location.e.d.lP().d()) {
                 new l(this).start();
             }
-            if (h.this.d && com.baidu.location.c.b.lN().e()) {
-                f.lR().d();
+            if (h.this.d && com.baidu.location.c.b.lH().e()) {
+                f.lL().d();
             }
             if (!h.this.d || !h.this.g) {
                 h.this.f = false;
@@ -78,13 +78,13 @@ public class h {
         }
     }
 
-    public static synchronized h lT() {
+    public static synchronized h lN() {
         h hVar;
         synchronized (h.class) {
-            if (Hi == null) {
-                Hi = new h();
+            if (HA == null) {
+                HA = new h();
             }
-            hVar = Hi;
+            hVar = HA;
         }
         return hVar;
     }
@@ -92,10 +92,10 @@ public class h {
     public synchronized void b() {
         if (com.baidu.location.f.isServing && !this.h) {
             try {
-                this.Hj = new a();
+                this.HB = new a();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                com.baidu.location.f.getServiceContext().registerReceiver(this.Hj, intentFilter);
+                com.baidu.location.f.getServiceContext().registerReceiver(this.HB, intentFilter);
                 this.e = true;
                 f();
             } catch (Exception e) {
@@ -108,13 +108,13 @@ public class h {
     public synchronized void c() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Hj);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.HB);
             } catch (Exception e) {
             }
             this.g = false;
             this.h = false;
             this.f = false;
-            this.Hj = null;
+            this.HB = null;
         }
     }
 

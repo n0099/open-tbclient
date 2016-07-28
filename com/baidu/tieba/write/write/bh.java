@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class bh implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity fJw;
+    final /* synthetic */ WriteActivity fVn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(WriteActivity writeActivity) {
-        this.fJw = writeActivity;
+        this.fVn = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0064, code lost:
@@ -41,52 +41,52 @@ class bh implements View.OnFocusChangeListener {
         WriteData writeData3;
         View view2;
         TextView textView2;
-        editText = this.fJw.fFh;
+        editText = this.fVn.faJ;
         if (view != editText) {
-            view2 = this.fJw.afN;
+            view2 = this.fVn.agC;
             if (view != view2) {
-                textView2 = this.fJw.fFm;
+                textView2 = this.fVn.faO;
             }
         }
         if (!z) {
-            editText2 = this.fJw.fFh;
+            editText2 = this.fVn.faJ;
             if (view == editText2) {
-                textView = this.fJw.fFn;
+                textView = this.fVn.faP;
                 textView.setVisibility(0);
             }
         } else {
-            this.fJw.fJs = true;
-            this.fJw.blY();
-            lVar = this.fJw.aqo;
+            this.fVn.fVj = true;
+            this.fVn.boT();
+            lVar = this.fVn.ard;
             lVar.zD();
-            Activity activity = this.fJw.getActivity();
-            editText3 = this.fJw.fFh;
-            com.baidu.adp.lib.util.k.b(activity, editText3);
+            Activity activity = this.fVn.getActivity();
+            editText3 = this.fVn.faJ;
+            com.baidu.adp.lib.util.k.c(activity, editText3);
         }
-        editText4 = this.fJw.fFl;
+        editText4 = this.fVn.faN;
         if (view == editText4) {
             if (!z) {
-                writeData = this.fJw.fau;
+                writeData = this.fVn.faq;
                 if (writeData.getType() == 0) {
-                    editText5 = this.fJw.fFl;
+                    editText5 = this.fVn.faN;
                     editText5.setHint(u.j.write_input_content);
                     return;
                 }
                 return;
             }
-            this.fJw.fJs = false;
-            writeData2 = this.fJw.fau;
+            this.fVn.fVj = false;
+            writeData2 = this.fVn.faq;
             if (writeData2.getType() != 0) {
-                writeData3 = this.fJw.fau;
+                writeData3 = this.fVn.faq;
             }
-            editText6 = this.fJw.fFl;
+            editText6 = this.fVn.faN;
             editText6.setHint((CharSequence) null);
-            this.fJw.blY();
-            lVar2 = this.fJw.aqo;
+            this.fVn.boT();
+            lVar2 = this.fVn.ard;
             lVar2.zD();
-            Activity activity2 = this.fJw.getActivity();
-            editText7 = this.fJw.fFl;
-            com.baidu.adp.lib.util.k.b(activity2, editText7);
+            Activity activity2 = this.fVn.getActivity();
+            editText7 = this.fVn.faN;
+            com.baidu.adp.lib.util.k.c(activity2, editText7);
         }
     }
 }

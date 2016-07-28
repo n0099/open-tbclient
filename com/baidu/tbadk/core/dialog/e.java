@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class e extends AlertDialog {
-    private TextView SD;
-    private CircleView SE;
+    private TextView Tl;
+    private CircleView Tm;
     private String mMessage;
 
     public e(Context context) {
@@ -25,17 +25,17 @@ public class e extends AlertDialog {
             if (!StringUtils.isNull(this.mMessage)) {
                 ((TextView) window.findViewById(u.g.text_progress_dialog_message)).setText(this.mMessage);
             }
-            this.SD = (TextView) window.findViewById(u.g.text_progress_dialog_percent);
-            this.SE = (CircleView) window.findViewById(u.g.circle_progress_dialog);
+            this.Tl = (TextView) window.findViewById(u.g.text_progress_dialog_percent);
+            this.Tm = (CircleView) window.findViewById(u.g.circle_progress_dialog);
         }
     }
 
     public void setPercent(int i) {
-        if (this.SD != null) {
-            this.SD.setText(String.valueOf(i) + "%");
+        if (this.Tl != null) {
+            this.Tl.setText(String.valueOf(i) + "%");
         }
-        if (this.SE != null) {
-            this.SE.setProgress(i);
+        if (this.Tm != null) {
+            this.Tm.setProgress(i);
         }
     }
 }

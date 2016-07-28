@@ -2,7 +2,7 @@ package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 class g extends com.baidu.adp.lib.util.h {
     @Override // com.baidu.adp.lib.util.h
-    public void k(boolean z) {
+    public void m(boolean z) {
         Amrnb.bLoadLibrary = z;
         if (!Amrnb.bLoadLibrary) {
             return;
@@ -12,7 +12,7 @@ class g extends com.baidu.adp.lib.util.h {
             Amrnb.bLoadLibrary = true;
         } catch (Throwable th) {
             Amrnb.bLoadLibrary = false;
-            com.baidu.adp.lib.stats.a.dO().a("so", "initAmrnb", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+            com.baidu.adp.lib.stats.a.dN().a("so", "initAmrnb", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
         }
     }
 }

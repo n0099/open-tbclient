@@ -34,7 +34,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
     private final AtomicBoolean mTaskInvoked = new AtomicBoolean();
     private final WorkerRunnable<Params, Result> mWorker = new WorkerRunnable<Params, Result>() { // from class: android.support.v4.content.ModernAsyncTask.2
         @Override // java.util.concurrent.Callable
-        public Result call() {
+        public Result call() throws Exception {
             ModernAsyncTask.this.mTaskInvoked.set(true);
             Process.setThreadPriority(10);
             return (Result) ModernAsyncTask.this.postResult(ModernAsyncTask.this.doInBackground(this.mParams));

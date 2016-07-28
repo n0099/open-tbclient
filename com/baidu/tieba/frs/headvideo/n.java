@@ -4,16 +4,16 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements Animation.AnimationListener {
-    final /* synthetic */ ForumHeadVideoView bPh;
+    final /* synthetic */ ForumHeadVideoView bQU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ForumHeadVideoView forumHeadVideoView) {
-        this.bPh = forumHeadVideoView;
+        this.bQU = forumHeadVideoView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.bPh.bOV = false;
+        this.bQU.bQH = false;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,20 +25,20 @@ public class n implements Animation.AnimationListener {
         c cVar;
         c cVar2;
         c cVar3;
-        e currentVideoItemView = this.bPh.getCurrentVideoItemView();
+        e currentVideoItemView = this.bQU.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
             currentVideoItemView.clearAnimation();
-            this.bPh.d(currentVideoItemView);
-            cVar = this.bPh.bCW;
+            this.bQU.d(currentVideoItemView);
+            cVar = this.bQU.bEd;
             if (cVar != null) {
-                cVar2 = this.bPh.bCW;
-                if (!cVar2.YY()) {
-                    cVar3 = this.bPh.bCW;
-                    cVar3.dJ(true);
-                    a.YW();
+                cVar2 = this.bQU.bEd;
+                if (!cVar2.Zt()) {
+                    cVar3 = this.bQU.bEd;
+                    cVar3.dH(true);
+                    a.Zr();
                 }
             }
         }
-        this.bPh.bOV = true;
+        this.bQU.bQH = true;
     }
 }

@@ -14,7 +14,7 @@ public class SkiaImageDecoder implements ImageDecoder {
     private static final String RESOURCE_PREFIX = "android.resource://";
 
     @Override // com.davemorrissey.labs.subscaleview.decoder.ImageDecoder
-    public Bitmap decode(Context context, Uri uri) {
+    public Bitmap decode(Context context, Uri uri) throws Exception {
         Bitmap decodeStream;
         Resources resourcesForApplication;
         int i;

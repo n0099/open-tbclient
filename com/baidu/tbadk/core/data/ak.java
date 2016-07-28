@@ -1,26 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
-public class ak extends az {
-    public static final BdUniqueId Pf = BdUniqueId.gen();
-    private PhotoLiveCardData Pg;
+public class ak {
+    private int Ph;
+    private ArrayList<a> Pi;
 
-    public PhotoLiveCardData pL() {
-        return this.Pg;
+    /* loaded from: classes.dex */
+    public static class a {
+        public String FC;
+        public int giftId;
+        public int num;
+        public String thumbnailUrl;
     }
 
-    public void a(PhotoLiveCardData photoLiveCardData) {
-        this.Pg = photoLiveCardData;
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.Ph = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.Pi = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.FC = pbPresentList.gift_name;
+                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.Pi.add(aVar);
+                    }
+                }
+            }
+        }
     }
 
-    @Override // com.baidu.tbadk.core.data.az, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Pf;
+    public int pp() {
+        return this.Ph;
     }
 
-    @Override // com.baidu.tbadk.core.data.az
-    public String getTid() {
-        return this.Pg != null ? String.valueOf(this.Pg.getThreadId()) : super.getTid();
+    public void bE(int i) {
+        this.Ph = i;
+    }
+
+    public ArrayList<a> pq() {
+        return this.Pi;
+    }
+
+    public void h(ArrayList<a> arrayList) {
+        this.Pi = arrayList;
     }
 }

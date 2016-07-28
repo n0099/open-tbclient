@@ -5,20 +5,20 @@ import java.util.Comparator;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 class l implements Comparator<String> {
-    final /* synthetic */ d.a uc;
-    private final /* synthetic */ HashMap ud;
+    final /* synthetic */ d.a uF;
+    private final /* synthetic */ HashMap uG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(d.a aVar, HashMap hashMap) {
-        this.uc = aVar;
-        this.ud = hashMap;
+        this.uF = aVar;
+        this.uG = hashMap;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     public int compare(String str, String str2) {
-        com.baidu.adp.plugin.packageManager.a.a aVar = (com.baidu.adp.plugin.packageManager.a.a) this.ud.get(str);
-        com.baidu.adp.plugin.packageManager.a.a aVar2 = (com.baidu.adp.plugin.packageManager.a.a) this.ud.get(str2);
+        com.baidu.adp.plugin.packageManager.a.a aVar = (com.baidu.adp.plugin.packageManager.a.a) this.uG.get(str);
+        com.baidu.adp.plugin.packageManager.a.a aVar2 = (com.baidu.adp.plugin.packageManager.a.a) this.uG.get(str2);
         if (aVar != null && aVar2 != null) {
             return aVar2.getPriority() - aVar.getPriority();
         }

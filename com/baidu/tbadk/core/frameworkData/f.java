@@ -10,7 +10,7 @@ public class f {
             if (bf.loadStaticClasses()) {
                 BdLog.i("loadStaticClasses success");
             } else {
-                u.fT();
+                u.fS();
             }
         } catch (Exception e) {
             e.printStackTrace();

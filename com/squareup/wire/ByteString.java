@@ -1,6 +1,7 @@
 package com.squareup.wire;
 
 import java.io.EOFException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
@@ -24,7 +25,7 @@ public final class ByteString {
         return new ByteString(Stringer.decode(str));
     }
 
-    public static ByteString read(InputStream inputStream, int i) {
+    public static ByteString read(InputStream inputStream, int i) throws IOException {
         byte[] bArr = new byte[i];
         int i2 = 0;
         while (i2 < i) {
@@ -53,11 +54,11 @@ public final class ByteString {
         return (byte[]) this.data.clone();
     }
 
-    public void write(OutputStream outputStream) {
+    public void write(OutputStream outputStream) throws IOException {
         outputStream.write(this.data);
     }
 
-    public void write(OutputStream outputStream, int i, int i2) {
+    public void write(OutputStream outputStream, int i, int i2) throws IOException {
         outputStream.write(this.data, i, i2);
     }
 

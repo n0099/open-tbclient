@@ -7,37 +7,37 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.dg;
-import com.baidu.tieba.pb.pb.main.eg;
+import com.baidu.tieba.pb.pb.main.dh;
+import com.baidu.tieba.pb.pb.main.eh;
 /* loaded from: classes.dex */
 public class ReaderPbService extends BdBaseService {
     private boolean isAlive;
-    private eg mReaderManager;
-    private ej mReaderModel;
+    private eh mReaderManager;
+    private ek mReaderModel;
     private String postId;
     private String threadId;
     private BdUniqueId mTagId = BdUniqueId.gen();
-    private CustomMessageListener mPassDataListener = new gc(this, CmdConfigCustom.CMD_TTS_TRANSFOR_PBDATA);
-    private CustomMessageListener menuOptionListener = new gd(this, CmdConfigCustom.CMD_TTS_MENU_OPTION);
-    private CustomMessageListener audioPowerChangeListener = new ge(this, CmdConfigCustom.CMD_TTS_CHANGE_PB_POWER);
-    private eg.a mRefreshCallback = new gf(this);
-    private dg.a mLoadDataCallback = new gg(this);
+    private CustomMessageListener mPassDataListener = new gg(this, CmdConfigCustom.CMD_TTS_TRANSFOR_PBDATA);
+    private CustomMessageListener menuOptionListener = new gh(this, CmdConfigCustom.CMD_TTS_MENU_OPTION);
+    private CustomMessageListener audioPowerChangeListener = new gi(this, CmdConfigCustom.CMD_TTS_CHANGE_PB_POWER);
+    private eh.a mRefreshCallback = new gj(this);
+    private dh.a mLoadDataCallback = new gk(this);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setReadModel(ef efVar) {
-        if (efVar != null) {
+    public void setReadModel(eg egVar) {
+        if (egVar != null) {
             if (this.mReaderModel == null) {
-                this.mReaderModel = new ej();
+                this.mReaderModel = new ek();
                 this.mReaderModel.p(this.mTagId);
                 this.mReaderModel.b(this.mLoadDataCallback);
             }
-            this.mReaderModel.setPbData(efVar.pbData);
-            this.mReaderModel.hG(efVar.dMr);
-            this.mReaderModel.setHostMode(efVar.dSS);
-            this.mReaderModel.hF(efVar.isSquence);
+            this.mReaderModel.setPbData(egVar.pbData);
+            this.mReaderModel.hS(egVar.dYB);
+            this.mReaderModel.setHostMode(egVar.efj);
+            this.mReaderModel.hR(egVar.isSquence);
             this.mReaderModel.setThreadId(this.threadId);
             this.mReaderModel.setPostId(this.postId);
-            this.mReaderModel.hH(this.isAlive);
+            this.mReaderModel.hT(this.isAlive);
         }
     }
 

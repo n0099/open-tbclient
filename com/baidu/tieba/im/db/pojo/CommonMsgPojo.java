@@ -90,9 +90,9 @@ public class CommonMsgPojo extends i implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.cVO);
+                this.gid = String.valueOf(a.cYJ);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.cVP);
+                this.gid = String.valueOf(a.cYK);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());

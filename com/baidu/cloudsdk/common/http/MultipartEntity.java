@@ -79,13 +79,13 @@ class MultipartEntity implements HttpEntity {
         }
     }
 
-    public void consumeContent() {
+    public void consumeContent() throws IOException {
         if (isStreaming()) {
             throw new UnsupportedOperationException("Streaming entity does not implement #consumeContent()");
         }
     }
 
-    public InputStream getContent() {
+    public InputStream getContent() throws IOException, IllegalStateException {
         return new ByteArrayInputStream(this.mOut.toByteArray());
     }
 
@@ -114,11 +114,11 @@ class MultipartEntity implements HttpEntity {
         return false;
     }
 
-    public void writeTo(OutputStream outputStream) {
+    public void writeTo(OutputStream outputStream) throws IOException {
         outputStream.write(this.mOut.toByteArray());
     }
 
-    private void writeBoundaryLine() {
+    private void writeBoundaryLine() throws IOException {
         if (!this.mIsSetFirst) {
             this.mIsSetFirst = true;
             this.mOut.write(("--" + this.mBoundary + "\r\n").getBytes());

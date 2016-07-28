@@ -17,7 +17,7 @@ public class ForumHeadVideoListHttpResponseMessage extends TbHttpResponsedMessag
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ForumHeadVideoResIdl forumHeadVideoResIdl = (ForumHeadVideoResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumHeadVideoResIdl.class);
         if (forumHeadVideoResIdl != null) {
             setError(forumHeadVideoResIdl.error.errorno.intValue());

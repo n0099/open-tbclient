@@ -88,7 +88,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ForumRecommendResIdl forumRecommendResIdl;
         if (bArr != null && (forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class)) != null) {
             if (forumRecommendResIdl.error != null && forumRecommendResIdl.error.errorno != null) {
@@ -123,7 +123,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.b.a.rP().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).f("forumRecommend_cache_key", bArr);
+            com.baidu.tbadk.core.b.a.rO().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).l("forumRecommend_cache_key", bArr);
         }
     }
 }

@@ -7,21 +7,21 @@ import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import java.io.File;
 /* loaded from: classes.dex */
 class i implements AsyncImageLoader.IAsyncImageLoaderListener {
-    final /* synthetic */ Uri cO;
-    final /* synthetic */ h cP;
+    final /* synthetic */ Uri a;
+    final /* synthetic */ h cN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, Uri uri) {
-        this.cP = hVar;
-        this.cO = uri;
+        this.cN = hVar;
+        this.a = uri;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
     public void onComplete(Bitmap bitmap) {
         if (bitmap == null || bitmap.isRecycled()) {
-            this.cP.doShare(null);
+            this.cN.doShare(null);
             return;
         }
-        this.cP.doShare(Uri.fromFile(new File(ImageManager.getInstance().getCachedFilePath(this.cO))));
+        this.cN.doShare(Uri.fromFile(new File(ImageManager.getInstance().getCachedFilePath(this.a))));
     }
 }

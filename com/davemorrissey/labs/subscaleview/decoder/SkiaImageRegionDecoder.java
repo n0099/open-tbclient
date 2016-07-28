@@ -19,7 +19,7 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     private final Object decoderLock = new Object();
 
     @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
-    public Point init(Context context, Uri uri) {
+    public Point init(Context context, Uri uri) throws Exception {
         Resources resourcesForApplication;
         int i;
         String uri2 = uri.toString();

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements AdapterView.OnItemClickListener {
-    final /* synthetic */ af dXy;
+    final /* synthetic */ af eka;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(af afVar) {
-        this.dXy = afVar;
+        this.eka = afVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0052  */
@@ -31,27 +31,27 @@ public class ap implements AdapterView.OnItemClickListener {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        newSubPbActivity = this.dXy.dWU;
+        newSubPbActivity = this.eka.ejw;
         if (bn.ab(newSubPbActivity.getPageContext().getPageActivity())) {
-            arrayList = this.dXy.dXs;
+            arrayList = this.eka.ejU;
             if (arrayList != null) {
-                arrayList2 = this.dXy.dXs;
+                arrayList2 = this.eka.ejU;
                 if (i < arrayList2.size()) {
-                    arrayList3 = this.dXy.dXs;
+                    arrayList3 = this.eka.ejU;
                     if (arrayList3.get(i) != null) {
-                        af afVar = this.dXy;
-                        arrayList4 = this.dXy.dXs;
-                        afVar.dXt = ((com.baidu.tieba.tbadkCore.data.s) arrayList4.get(i)).getId();
+                        af afVar = this.eka;
+                        arrayList4 = this.eka.ejU;
+                        afVar.ejV = ((com.baidu.tieba.tbadkCore.data.s) arrayList4.get(i)).getId();
                         sparseArray = (SparseArray) view.getTag();
                         if (sparseArray == null) {
                             String str = (String) sparseArray.get(u.g.tag_photo_username);
                             String str2 = (String) sparseArray.get(u.g.tag_photo_userid);
                             if (str != null) {
-                                pVar = this.dXy.deA;
+                                pVar = this.eka.dhw;
                                 pVar.setReplyId(str2);
-                                pVar2 = this.dXy.deA;
-                                pVar2.fL(str);
-                                this.dXy.e(i, view);
+                                pVar2 = this.eka.dhw;
+                                pVar2.fJ(str);
+                                this.eka.e(i, view);
                                 return;
                             }
                             return;
@@ -60,7 +60,7 @@ public class ap implements AdapterView.OnItemClickListener {
                     }
                 }
             }
-            this.dXy.dXt = null;
+            this.eka.ejV = null;
             sparseArray = (SparseArray) view.getTag();
             if (sparseArray == null) {
             }

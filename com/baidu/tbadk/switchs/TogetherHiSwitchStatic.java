@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class TogetherHiSwitchStatic extends a {
     static {
-        e.cT().n(TogetherHiSwitchStatic.class);
+        e.cS().n(TogetherHiSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -7,11 +7,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements Runnable {
-    final /* synthetic */ ab fbT;
+    final /* synthetic */ ab foX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ab abVar) {
-        this.fbT = abVar;
+        this.foX = abVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,25 +24,25 @@ public class aj implements Runnable {
         MainTabActivity mainTabActivity2;
         Handler handler;
         Runnable runnable;
-        dVar = this.fbT.EF;
+        dVar = this.foX.Ff;
         if (dVar == null) {
-            mainTabActivity = this.fbT.fbI;
+            mainTabActivity = this.foX.foM;
             String string = mainTabActivity.getPageContext().getPageActivity().getResources().getString(u.j.messge_tab_change_tip);
             if (!StringUtils.isNull(string)) {
                 com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-                imageView = this.fbT.fbL;
-                gVar.o(imageView).N(0).u(true).v(true);
+                imageView = this.foX.foP;
+                gVar.o(imageView).Q(0).w(true).x(true);
                 gVar.a(new ak(this, string));
-                this.fbT.EF = gVar.cW();
-                dVar2 = this.fbT.EF;
-                dVar2.s(false);
-                dVar3 = this.fbT.EF;
-                mainTabActivity2 = this.fbT.fbI;
+                this.foX.Ff = gVar.cV();
+                dVar2 = this.foX.Ff;
+                dVar2.u(false);
+                dVar3 = this.foX.Ff;
+                mainTabActivity2 = this.foX.foM;
                 dVar3.f(mainTabActivity2.getPageContext().getPageActivity());
-                this.fbT.fbO = true;
-                this.fbT.WL();
-                handler = this.fbT.mHandler;
-                runnable = this.fbT.bFG;
+                this.foX.foS = true;
+                this.foX.Xd();
+                handler = this.foX.mHandler;
+                runnable = this.foX.bGU;
                 handler.postDelayed(runnable, 3000L);
             }
         }

@@ -20,15 +20,15 @@ public class ai {
     public static String getTiebaApkMd5() {
         String str = null;
         try {
-            String versionName = TbadkCoreApplication.m9getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.sO().getString("version_name", "");
+            String versionName = TbadkCoreApplication.m10getInst().getVersionName();
+            String string = com.baidu.tbadk.core.sharedPref.b.sN().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.sO().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.sN().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.sO().putString("version_name", versionName);
-                    String d = bc.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.sO().putString("apk_md5", d);
+                    com.baidu.tbadk.core.sharedPref.b.sN().putString("version_name", versionName);
+                    String d = bc.d(TbadkCoreApplication.m10getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m10getInst().getContext().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.sN().putString("apk_md5", d);
                     str = d;
                 }
             }
@@ -57,7 +57,7 @@ public class ai {
     public static void a(Context context, VersionData versionData) {
         String str = "-1";
         try {
-            str = bc.b(TbadkCoreApplication.m9getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 64));
+            str = bc.b(TbadkCoreApplication.m10getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m10getInst().getContext().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
             BdLog.detailException(e);
         } catch (NumberFormatException e2) {
@@ -65,7 +65,7 @@ public class ai {
         }
         Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
         intent.setFlags(268435488);
-        intent.putExtra("id", TbadkCoreApplication.m9getInst().getContext().getPackageName());
+        intent.putExtra("id", TbadkCoreApplication.m10getInst().getContext().getPackageName());
         intent.putExtra("backup", "0");
         intent.putExtra("func", "11");
         Bundle bundle = new Bundle();
@@ -73,7 +73,7 @@ public class ai {
         bundle.putLong("patch_size", com.baidu.adp.lib.h.b.c(versionData.getPatchSize(), 0L));
         bundle.putString("patch_url", versionData.getPatch());
         bundle.putString("sname", context.getString(u.j.app_name));
-        bundle.putString("packagename", TbadkCoreApplication.m9getInst().getContext().getPackageName());
+        bundle.putString("packagename", TbadkCoreApplication.m10getInst().getContext().getPackageName());
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());

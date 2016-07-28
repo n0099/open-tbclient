@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.TextureVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements TextureView.SurfaceTextureListener {
-    final /* synthetic */ TextureVideoView adC;
+    final /* synthetic */ TextureVideoView aeo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(TextureVideoView textureVideoView) {
-        this.adC = textureVideoView;
+        this.aeo = textureVideoView;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -19,16 +19,16 @@ public class z implements TextureView.SurfaceTextureListener {
         boolean z;
         TextureVideoView.a aVar;
         TextureVideoView.a aVar2;
-        this.adC.mSurfaceTexture = surfaceTexture;
-        this.adC.adq = true;
-        z = this.adC.adr;
+        this.aeo.mSurfaceTexture = surfaceTexture;
+        this.aeo.aea = true;
+        z = this.aeo.aeb;
         if (z) {
-            this.adC.adr = false;
-            this.adC.vs();
+            this.aeo.aeb = false;
+            this.aeo.vs();
         }
-        aVar = this.adC.adu;
+        aVar = this.aeo.aee;
         if (aVar != null) {
-            aVar2 = this.adC.adu;
+            aVar2 = this.aeo.aee;
             aVar2.vw();
         }
     }
@@ -43,19 +43,19 @@ public class z implements TextureView.SurfaceTextureListener {
         MediaController mediaController;
         MediaController mediaController2;
         TextureVideoView.b bVar2;
-        bVar = this.adC.adn;
+        bVar = this.aeo.adX;
         if (bVar != null) {
-            bVar2 = this.adC.adn;
+            bVar2 = this.aeo.adX;
             bVar2.vx();
         }
-        this.adC.mSurfaceTexture = null;
-        mediaController = this.adC.adc;
+        this.aeo.mSurfaceTexture = null;
+        mediaController = this.aeo.adN;
         if (mediaController != null) {
-            mediaController2 = this.adC.adc;
+            mediaController2 = this.aeo.adN;
             mediaController2.hide();
         }
-        this.adC.stopPlayback();
-        this.adC.adr = false;
+        this.aeo.stopPlayback();
+        this.aeo.aeb = false;
         return false;
     }
 

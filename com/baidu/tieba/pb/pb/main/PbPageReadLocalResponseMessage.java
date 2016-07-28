@@ -48,7 +48,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         this.context = context;
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         if (bArr != null) {
             PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
             setError(pbPageResIdl.error.errorno.intValue());
@@ -59,7 +59,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
                     this.pbData.a(pbPageResIdl.data, this.context);
                     if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.mJ() != null && !this.pbData.mJ().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.mz() != null && !this.pbData.mz().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

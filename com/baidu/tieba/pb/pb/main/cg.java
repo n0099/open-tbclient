@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 class cg implements bi.a {
-    Pattern dPX = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+    Pattern ecl = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
 
     @Override // com.baidu.tbadk.core.util.bi.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -30,7 +30,7 @@ class cg implements bi.a {
             return 3;
         }
         String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.dPX.matcher(lowerCase);
+        Matcher matcher = this.ecl.matcher(lowerCase);
         String str3 = "";
         if (matcher.find()) {
             String group = matcher.group(1);
@@ -88,7 +88,7 @@ class cg implements bi.a {
             } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kz=")) {
                 return 3;
             } else {
-                as = com.baidu.tbadk.util.x.as(lowerCase, "kz=");
+                as = com.baidu.tbadk.util.y.as(lowerCase, "kz=");
                 z = false;
                 str = null;
                 z2 = false;
@@ -106,11 +106,11 @@ class cg implements bi.a {
             }
         }
         if (!StringUtils.isNull(as, true) && tbPageContext != null) {
-            if (!StringUtils.isNull(str3) && com.baidu.adp.lib.h.b.g(str3, 0) == 33 && TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+            if (!StringUtils.isNull(str3) && com.baidu.adp.lib.h.b.g(str3, 0) == 33 && TbadkCoreApplication.m10getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                 z3 = true;
             }
             if (z3) {
-                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext.getPageActivity(), as).ol()));
+                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext.getPageActivity(), as).oa()));
                 return 1;
             }
             PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(as, null, str);
@@ -118,7 +118,7 @@ class cg implements bi.a {
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
             return 1;
         } else if (z2 && !TextUtils.isEmpty(as)) {
-            com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m9getInst(), er.K(TbadkCoreApplication.m9getInst(), as));
+            com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m10getInst(), ev.K(TbadkCoreApplication.m10getInst(), as));
             TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10320").s("obj_locate", 3).s("obj_type", 2));
             return 1;
         } else if (z) {

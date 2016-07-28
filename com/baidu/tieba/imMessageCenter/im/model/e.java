@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.model;
 
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
@@ -8,13 +8,13 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.util.g<CommonMsgPojo> {
-    private final /* synthetic */ String cGf;
-    final /* synthetic */ PersonalMsglistModel dcI;
+    private final /* synthetic */ String cIU;
+    final /* synthetic */ PersonalMsglistModel dfF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PersonalMsglistModel personalMsglistModel, String str) {
-        this.dcI = personalMsglistModel;
-        this.cGf = str;
+        this.dfF = personalMsglistModel;
+        this.cIU = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ public class e implements com.baidu.tbadk.util.g<CommonMsgPojo> {
     public void onReturnDataInUI(CommonMsgPojo commonMsgPojo) {
         ChatMessage createMessage;
         if (commonMsgPojo == null) {
-            createMessage = this.dcI.createMessage((short) 23, this.cGf);
+            createMessage = this.dfF.createMessage((short) 23, this.cIU);
             LinkedList linkedList = new LinkedList();
             CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(createMessage);
             commonMsgPojo2.setRead_flag(0);
             linkedList.add(commonMsgPojo2);
-            t.b(new f(this, (PersonalChatMessage) createMessage, linkedList), new g(this, createMessage));
+            u.b(new f(this, (PersonalChatMessage) createMessage, linkedList), new g(this, createMessage));
         }
     }
 }

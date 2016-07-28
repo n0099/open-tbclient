@@ -11,25 +11,24 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.performanceLog.aa;
 import com.baidu.tieba.homepage.personalize.b.g;
-import com.baidu.tieba.tbadkCore.w;
 import com.baidu.tieba.u;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class q {
-    private com.baidu.tieba.homepage.recommendfrs.a.b coA;
-    private com.baidu.tieba.homepage.mygod.b coB;
-    private com.baidu.tieba.homepage.personalize.b.g coC;
-    private a coa;
-    private final TbPageContext<BaseFragmentActivity> cox;
-    private com.baidu.tieba.homepage.recommendfrs.a.a coy;
-    private com.baidu.tieba.homepage.mygod.a coz;
+    private final TbPageContext<BaseFragmentActivity> cqK;
+    private com.baidu.tieba.homepage.recommendfrs.a.a cqL;
+    private com.baidu.tieba.homepage.mygod.a cqM;
+    private com.baidu.tieba.homepage.recommendfrs.a.b cqN;
+    private com.baidu.tieba.homepage.mygod.b cqO;
+    private com.baidu.tieba.homepage.personalize.b.g cqP;
+    private a cqo;
     private final BdUniqueId uniqueId;
-    private com.baidu.tieba.lego.model.a coF = null;
-    private g.a coG = new r(this);
-    private SparseBooleanArray coH = new SparseBooleanArray();
-    private SparseBooleanArray coI = new SparseBooleanArray();
-    private com.baidu.tieba.homepage.recommendfrs.data.d coD = new com.baidu.tieba.homepage.recommendfrs.data.d();
-    private com.baidu.tieba.homepage.mygod.data.d coE = new com.baidu.tieba.homepage.mygod.data.d();
+    private com.baidu.tieba.lego.model.a cqS = null;
+    private g.a cqT = new r(this);
+    private SparseBooleanArray cqU = new SparseBooleanArray();
+    private SparseBooleanArray cqV = new SparseBooleanArray();
+    private com.baidu.tieba.homepage.recommendfrs.data.d cqQ = new com.baidu.tieba.homepage.recommendfrs.data.d();
+    private com.baidu.tieba.homepage.mygod.data.d cqR = new com.baidu.tieba.homepage.mygod.data.d();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -41,29 +40,29 @@ public class q {
     }
 
     public q(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        this.cox = tbPageContext;
+        this.cqK = tbPageContext;
         this.uniqueId = bdUniqueId;
-        this.coy = new com.baidu.tieba.homepage.recommendfrs.a.a(tbPageContext);
-        this.coy.setUniqueId(bdUniqueId);
-        this.coz = new com.baidu.tieba.homepage.mygod.a(tbPageContext);
-        this.coz.setUniqueId(bdUniqueId);
-        this.coA = new com.baidu.tieba.homepage.recommendfrs.a.b(tbPageContext, this.coD);
-        this.coA.setUniqueId(bdUniqueId);
-        this.coB = new com.baidu.tieba.homepage.mygod.b(tbPageContext, this.coE);
-        this.coB.setUniqueId(bdUniqueId);
-        this.coC = new com.baidu.tieba.homepage.personalize.b.g(tbPageContext, bdUniqueId);
-        this.coC.a(this.coG);
+        this.cqL = new com.baidu.tieba.homepage.recommendfrs.a.a(tbPageContext);
+        this.cqL.setUniqueId(bdUniqueId);
+        this.cqM = new com.baidu.tieba.homepage.mygod.a(tbPageContext);
+        this.cqM.setUniqueId(bdUniqueId);
+        this.cqN = new com.baidu.tieba.homepage.recommendfrs.a.b(tbPageContext, this.cqQ);
+        this.cqN.setUniqueId(bdUniqueId);
+        this.cqO = new com.baidu.tieba.homepage.mygod.b(tbPageContext, this.cqR);
+        this.cqO.setUniqueId(bdUniqueId);
+        this.cqP = new com.baidu.tieba.homepage.personalize.b.g(tbPageContext, bdUniqueId);
+        this.cqP.a(this.cqT);
         s sVar = new s(this);
-        this.coy.a(sVar);
-        this.coz.a(sVar);
+        this.cqL.a(sVar);
+        this.cqM.a(sVar);
         t tVar = new t(this);
-        this.coA.a(tVar);
-        this.coB.a(tVar);
+        this.cqN.a(tVar);
+        this.cqO.a(tVar);
     }
 
     public void a(int i, boolean z, int i2, int i3, int i4, int i5) {
-        if (this.coC != null) {
-            this.coC.a(i, z, i2, i3, i4, i5);
+        if (this.cqP != null) {
+            this.cqP.a(i, z, i2, i3, i4, i5);
         }
     }
 
@@ -95,52 +94,52 @@ public class q {
 
     public void a(long j, int i, long j2, String str) {
         if (i == 3) {
-            this.coz.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.homepage.mygod.data.b(j));
+            this.cqM.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.homepage.mygod.data.b(j));
         } else if (i == 2) {
-            this.coy.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.homepage.recommendfrs.data.b(j));
+            this.cqL.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.homepage.recommendfrs.data.b(j));
         } else if (i == 5) {
-            if (this.coF != null) {
-                this.coF.q(j2, w.pt(str));
-            } else if (this.coa != null) {
-                this.coa.a(j, "", TbadkCoreApplication.m9getInst().getString(u.j.invite_friend_no_data_now), -53, false);
+            if (this.cqS != null) {
+                this.cqS.q(j2, com.baidu.tieba.tbadkCore.w.qd(str));
+            } else if (this.cqo != null) {
+                this.cqo.a(j, "", TbadkCoreApplication.m10getInst().getString(u.j.invite_friend_no_data_now), -53, false);
             }
-        } else if (this.coa != null) {
-            this.coa.a(j, "", TbadkCoreApplication.m9getInst().getString(u.j.invite_friend_no_data_now), -53, false);
+        } else if (this.cqo != null) {
+            this.cqo.a(j, "", TbadkCoreApplication.m10getInst().getString(u.j.invite_friend_no_data_now), -53, false);
         }
     }
 
     public void a(int i, long j, int i2, long j2, long j3, String str, String str2) {
         switch (i2) {
             case 3:
-                if (!this.coB.DK()) {
-                    this.coE.setPn(i);
-                    this.coE.setTagCode(j);
-                    this.coE.setRn(30);
+                if (!this.cqO.DJ()) {
+                    this.cqR.setPn(i);
+                    this.cqR.setTagCode(j);
+                    this.cqR.setRn(30);
                     if (i == 1) {
-                        this.coE.bp(0L);
+                        this.cqR.bk(0L);
                     } else {
-                        this.coE.bp(j2);
+                        this.cqR.bk(j2);
                     }
-                    this.coB.DH();
+                    this.cqO.DG();
                     return;
                 }
                 return;
             case 4:
             default:
-                if (!this.coA.DK()) {
-                    this.coD.setPn(i);
-                    this.coD.setTagCode(j);
-                    this.coD.bt(j2);
-                    this.coA.DH();
+                if (!this.cqN.DJ()) {
+                    this.cqQ.setPn(i);
+                    this.cqQ.setTagCode(j);
+                    this.cqQ.bo(j2);
+                    this.cqN.DG();
                     return;
                 }
                 return;
             case 5:
-                if (this.coF != null) {
-                    this.coF.a(w.pv(str), j3, w.pt(str), i, str2);
+                if (this.cqS != null) {
+                    this.cqS.a(com.baidu.tieba.tbadkCore.w.qf(str), j3, com.baidu.tieba.tbadkCore.w.qd(str), i, str2);
                     return;
-                } else if (this.coa != null) {
-                    this.coa.a(j, "", TbadkCoreApplication.m9getInst().getString(u.j.invite_friend_no_data_now), -53, false);
+                } else if (this.cqo != null) {
+                    this.cqo.a(j, "", TbadkCoreApplication.m10getInst().getString(u.j.invite_friend_no_data_now), -53, false);
                     return;
                 } else {
                     return;
@@ -152,27 +151,27 @@ public class q {
         return this.uniqueId;
     }
 
-    public TbPageContext<BaseFragmentActivity> agn() {
-        return this.cox;
+    public TbPageContext<BaseFragmentActivity> agQ() {
+        return this.cqK;
     }
 
     public void a(com.baidu.tieba.lego.model.a aVar) {
-        this.coF = aVar;
+        this.cqS = aVar;
     }
 
-    public com.baidu.tieba.lego.model.a ago() {
-        return this.coF;
+    public com.baidu.tieba.lego.model.a agR() {
+        return this.cqS;
     }
 
     public void a(a aVar) {
-        this.coa = aVar;
+        this.cqo = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.homepage.recommendfrs.data.c, ?> mvcSocketResponsedMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> mvcNetMessage) {
         int b = b(mvcNetMessage);
-        if (!this.coI.get(b, false)) {
-            this.coI.put(b, true);
+        if (!this.cqV.get(b, false)) {
+            this.cqV.put(b, true);
             a(b, false, (ResponsedMessage<?>) mvcSocketResponsedMessage);
         }
     }
@@ -180,26 +179,26 @@ public class q {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.homepage.recommendfrs.data.c> mvcHttpResponsedMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> mvcNetMessage) {
         int b = b(mvcNetMessage);
-        if (!this.coI.get(b, false)) {
-            this.coI.put(b, true);
+        if (!this.cqV.get(b, false)) {
+            this.cqV.put(b, true);
             a(b, true, (ResponsedMessage<?>) mvcHttpResponsedMessage);
         }
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (aa.EW().EX()) {
-            long jj = com.baidu.tieba.homepage.framework.a.agi().jj(i);
-            long ji = com.baidu.tieba.homepage.framework.a.agi().ji(i);
-            com.baidu.tieba.homepage.framework.a.agi().setCreateTime(0L);
-            com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n(1005, z, responsedMessage, 0L, 0L, ji, false, jj);
+        if (aa.EV().EW()) {
+            long jk = com.baidu.tieba.homepage.framework.a.agL().jk(i);
+            long jj = com.baidu.tieba.homepage.framework.a.agL().jj(i);
+            com.baidu.tieba.homepage.framework.a.agL().setCreateTime(0L);
+            com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n(1005, z, responsedMessage, 0L, 0L, jj, false, jk);
             if (nVar != null) {
                 nVar.pageType = i;
-                nVar.ER();
+                nVar.EQ();
             }
         }
     }
 
-    public a agp() {
-        return this.coa;
+    public a agS() {
+        return this.cqo;
     }
 }

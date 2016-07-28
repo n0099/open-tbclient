@@ -1,16 +1,16 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import com.baidu.tieba.pb.b;
-import com.baidu.tieba.pb.pb.main.er;
+import com.baidu.tieba.pb.pb.main.ev;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements b.a {
-    final /* synthetic */ af dXy;
+    final /* synthetic */ af eka;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(af afVar) {
-        this.dXy = afVar;
+        this.eka = afVar;
     }
 
     @Override // com.baidu.tieba.pb.b.a
@@ -25,26 +25,26 @@ public class ag implements b.a {
         com.baidu.tieba.pb.data.m mVar4;
         com.baidu.tieba.pb.data.m mVar5;
         com.baidu.tieba.pb.data.m mVar6;
-        mVar = this.dXy.dXu;
+        mVar = this.eka.ejW;
         if (mVar != null) {
-            sVar = this.dXy.dMl;
+            sVar = this.eka.dYv;
             if (sVar != null) {
-                mVar2 = this.dXy.dXu;
-                if (mVar2.aEl() != null) {
-                    mVar3 = this.dXy.dXu;
-                    if (mVar3.Ix() != null) {
-                        sVar2 = this.dXy.dMl;
-                        if (sVar2.bcw() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
-                            sVar3 = this.dXy.dMl;
-                            long templateId = sVar3.bcw().getTemplateId();
-                            sVar4 = this.dXy.dMl;
-                            String bbP = sVar4.bcw().bbP();
-                            mVar4 = this.dXy.dXu;
-                            String id = mVar4.aEl().getId();
-                            mVar5 = this.dXy.dXu;
-                            String name = mVar5.aEl().getName();
-                            mVar6 = this.dXy.dXu;
-                            com.baidu.tieba.pb.b.a(templateId, bbP, str, "PB", str2, str3, "tpoint", str4, str5, id, name, mVar6.Ix().getTid());
+                mVar2 = this.eka.ejW;
+                if (mVar2.aHv() != null) {
+                    mVar3 = this.eka.ejW;
+                    if (mVar3.Iw() != null) {
+                        sVar2 = this.eka.dYv;
+                        if (sVar2.bfL() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
+                            sVar3 = this.eka.dYv;
+                            long templateId = sVar3.bfL().getTemplateId();
+                            sVar4 = this.eka.dYv;
+                            String bfe = sVar4.bfL().bfe();
+                            mVar4 = this.eka.ejW;
+                            String id = mVar4.aHv().getId();
+                            mVar5 = this.eka.ejW;
+                            String name = mVar5.aHv().getName();
+                            mVar6 = this.eka.ejW;
+                            com.baidu.tieba.pb.b.a(templateId, bfe, str, "PB", str2, str3, "tpoint", str4, str5, id, name, mVar6.Iw().getTid());
                         }
                     }
                 }
@@ -53,17 +53,17 @@ public class ag implements b.a {
     }
 
     @Override // com.baidu.tieba.pb.b.a
-    public int aDp() {
+    public int aGz() {
         com.baidu.tieba.tbadkCore.data.s sVar;
         com.baidu.tieba.tbadkCore.data.s sVar2;
-        sVar = this.dXy.dMl;
-        if (er.f(sVar)) {
-            sVar2 = this.dXy.dMl;
-            ArrayList<com.baidu.tieba.tbadkCore.data.k> bbM = sVar2.bcw().bbM();
-            if (bbM == null) {
+        sVar = this.eka.dYv;
+        if (ev.g(sVar)) {
+            sVar2 = this.eka.dYv;
+            ArrayList<com.baidu.tieba.tbadkCore.data.k> bfb = sVar2.bfL().bfb();
+            if (bfb == null) {
                 return 0;
             }
-            return bbM.size();
+            return bfb.size();
         }
         return 0;
     }

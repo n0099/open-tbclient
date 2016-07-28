@@ -7,13 +7,13 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br extends CustomMessageListener {
-    final /* synthetic */ bp aUl;
+    final /* synthetic */ bp aVh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public br(bp bpVar, int i) {
         super(i);
-        this.aUl = bpVar;
+        this.aVh = bpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,22 +23,22 @@ public class br extends CustomMessageListener {
         com.baidu.tieba.card.a.o oVar2;
         com.baidu.tieba.card.a.o oVar3;
         com.baidu.tieba.card.a.o oVar4;
-        boolean KU;
+        boolean KT;
         com.baidu.tieba.card.a.o oVar5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            oVar = this.aUl.aTn;
+            oVar = this.aVh.aUj;
             if (oVar != null) {
-                oVar2 = this.aUl.aTn;
-                if (oVar2.aVc != null) {
-                    oVar3 = this.aUl.aTn;
-                    if (oVar3.aVc.getTid() != null && this.aUl.aUk != null && this.aUl.aUk.mTextTitle != null) {
-                        oVar4 = this.aUl.aTn;
-                        if (((String) customResponsedMessage.getData()).equals(oVar4.aVc.getTid())) {
-                            KU = this.aUl.KU();
-                            if (!KU) {
-                                TextView textView = this.aUl.aUk.mTextTitle;
-                                oVar5 = this.aUl.aTn;
-                                at.a(textView, oVar5.aVc.getId(), u.d.cp_cont_b, u.d.cp_cont_d);
+                oVar2 = this.aVh.aUj;
+                if (oVar2.aWa != null) {
+                    oVar3 = this.aVh.aUj;
+                    if (oVar3.aWa.getTid() != null && this.aVh.aVg != null && this.aVh.aVg.mTextTitle != null) {
+                        oVar4 = this.aVh.aUj;
+                        if (((String) customResponsedMessage.getData()).equals(oVar4.aWa.getTid())) {
+                            KT = this.aVh.KT();
+                            if (!KT) {
+                                TextView textView = this.aVh.aVg.mTextTitle;
+                                oVar5 = this.aVh.aUj;
+                                at.a(textView, oVar5.aWa.getId(), u.d.cp_cont_b, u.d.cp_cont_d);
                             }
                         }
                     }

@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b eGO;
+    final /* synthetic */ b eTQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.eGO = bVar;
+        this.eTQ = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,11 +20,11 @@ public class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         d dVar;
         d dVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && i.fr()) {
-            dVar = this.eGO.eGM;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && i.fq()) {
+            dVar = this.eTQ.eTO;
             if (dVar != null) {
-                dVar2 = this.eGO.eGM;
-                dVar2.aUQ();
+                dVar2 = this.eTQ.eTO;
+                dVar2.aYe();
             }
         }
     }

@@ -15,24 +15,33 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbWebViewActivity extends BaseWebViewActivity {
     public static final int FILECHOOSER_RESULTCODE = 1;
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private String mBid;
-    private com.baidu.tbadk.core.c.m mHybridBridge;
+    private com.baidu.tbadk.core.c.n mHybridBridge;
     private ValueCallback<Uri> mUploadMessage;
     private static boolean sFrameLostTracked = false;
     private static HashMap<String, String> mShareToTypes = new HashMap<>();
-    protected com.baidu.tbadk.core.c.e mWebView = null;
+    protected com.baidu.tbadk.core.c.f mWebView = null;
     private com.baidu.tieba.tbadkCore.e.c jsCallback = new q(this);
     private boolean mShareResultToFe = false;
     private boolean mShowShareItem = true;
@@ -47,7 +56,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.BaseActivity
     public boolean getGpuSwitch() {
-        return TbadkCoreApplication.m9getInst().isGpuOpen();
+        return TbadkCoreApplication.m10getInst().isGpuOpen();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -94,7 +103,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public View createWebView() {
         if (this.mWebView == null) {
-            this.mWebView = new com.baidu.tbadk.core.c.e(getPageContext().getPageActivity());
+            this.mWebView = new com.baidu.tbadk.core.c.f(getPageContext().getPageActivity());
             this.mWebView.getSettings().setJavaScriptEnabled(true);
             this.mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
             this.mWebView.getSettings().setAllowFileAccess(true);
@@ -118,12 +127,13 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 addJavascriptInterface();
             }
             CompatibleUtile.getInstance().removeJavascriptInterface(this.mWebView);
-            boolean isHybridBridgeEnabled = TbadkCoreApplication.m9getInst().isHybridBridgeEnabled();
-            com.baidu.tbadk.core.c.m a2 = com.baidu.tbadk.core.c.r.a(isHybridBridgeEnabled, this.mWebView, (com.baidu.tbadk.core.c.a) null);
+            boolean isHybridBridgeEnabled = TbadkCoreApplication.m10getInst().isHybridBridgeEnabled();
+            com.baidu.tbadk.core.c.n a2 = com.baidu.tbadk.core.c.s.a(isHybridBridgeEnabled, this.mWebView, (com.baidu.tbadk.core.c.b) null);
             this.mHybridBridge = a2;
             if (isHybridBridgeEnabled) {
                 a2.a(new r(this, a2));
                 a2.a(new com.baidu.tbadk.core.c.a.a(a2));
+                a2.a(new com.baidu.tbadk.core.c.a.b(a2));
                 a2.a(new s(this, a2));
                 a2.a(new u(this, a2));
                 a2.a(new h(a2));
@@ -143,6 +153,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             return;
         }
         switch (i) {
+            case 12015:
+                handleUploadResult(intent, i2);
+                return;
             case 24007:
                 handleShareResult(intent, i2);
                 return;
@@ -161,10 +174,45 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 hashMap.put("bid", this.mBid);
                 hashMap.put("result", Boolean.valueOf(z));
                 hashMap.put("channel", str);
-                com.baidu.tbadk.core.c.n a2 = com.baidu.tbadk.core.c.n.a("TBJS_COMMON_Share", "onShareResult", (Map<String, Object>) hashMap, 0L, false);
+                com.baidu.tbadk.core.c.o a2 = com.baidu.tbadk.core.c.o.a("TBJS_COMMON_Share", "onShareResult", (Map<String, Object>) hashMap, 0L, false);
                 if (this.mHybridBridge != null) {
                     this.mHybridBridge.a(a2);
                 }
+            }
+        }
+    }
+
+    private void handleUploadResult(Intent intent, int i) {
+        if (i == -1 && intent != null) {
+            try {
+                String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
+                WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+                writeImagesInfo.parseJson(stringExtra);
+                HashMap hashMap = new HashMap();
+                JSONArray jSONArray = new JSONArray();
+                if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.getChosedFiles().size() > 0) {
+                    Iterator<ImageFileInfo> it = writeImagesInfo.getChosedFiles().iterator();
+                    while (it.hasNext()) {
+                        ImageFileInfo next = it.next();
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("originalUrl", next.serverPicInfo.originPic.picUrl);
+                        jSONObject.put("originalWidth", next.serverPicInfo.originPic.width);
+                        jSONObject.put("originalHeight", next.serverPicInfo.originPic.height);
+                        jSONObject.put("photoUrl", next.serverPicInfo.bigPic.picUrl);
+                        jSONObject.put("photoWidth", next.serverPicInfo.bigPic.width);
+                        jSONObject.put("photoHeight", next.serverPicInfo.bigPic.height);
+                        jSONObject.put("photoThumbUrl", next.serverPicInfo.smallPic.picUrl);
+                        jSONObject.put("filePath", next.getFilePath());
+                        jSONArray.put(jSONObject);
+                    }
+                }
+                hashMap.put(TbConfig.LOCAL_PIC_DIR, jSONArray);
+                com.baidu.tbadk.core.c.o a2 = com.baidu.tbadk.core.c.o.a("TBJS_COMMON_Image", "onImageUploadFinish", (Map<String, Object>) hashMap, 0L, false);
+                if (this.mHybridBridge != null) {
+                    this.mHybridBridge.a(a2);
+                }
+            } catch (JSONException e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -191,12 +239,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bcS();
+            this.jsBridge.bgh();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            com.baidu.adp.lib.h.h.dM().postDelayed(new v(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+            com.baidu.adp.lib.h.h.dL().postDelayed(new v(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
@@ -213,9 +261,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 if (StringUtils.isNull(TbWebViewActivity.this.mUrlTitle)) {
                     TbWebViewActivity.this.mUrlTitle = TbWebViewActivity.this.mWebView.getTitle();
                 }
-                TbWebViewActivity.this.mView.bW(TbWebViewActivity.this.mUrlTitle);
+                TbWebViewActivity.this.mView.bX(TbWebViewActivity.this.mUrlTitle);
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
-                TbWebViewActivity.this.mView.ab(TbWebViewActivity.this.isNeedShowShareItem());
+                TbWebViewActivity.this.mView.ad(TbWebViewActivity.this.isNeedShowShareItem());
                 TbWebViewActivity.this.hideProgressBar();
                 TbWebViewActivity.this.stopLoadTimer();
             }
@@ -338,7 +386,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            com.baidu.tbadk.core.c.g.ss().a(16, new w(this));
+            com.baidu.tbadk.core.c.h.sr().a(16, new w(this));
         }
     }
 }

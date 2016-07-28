@@ -18,6 +18,7 @@ import java.util.zip.GZIPInputStream;
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpException;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
@@ -83,14 +84,14 @@ public class AsyncHttpClient extends DefaultHttpClient {
             }
         });
         addRequestInterceptor(new HttpRequestInterceptor() { // from class: com.baidu.cloudsdk.common.http.AsyncHttpClient.2
-            public void process(HttpRequest httpRequest, HttpContext httpContext) {
+            public void process(HttpRequest httpRequest, HttpContext httpContext) throws HttpException, IOException {
                 if (!httpRequest.containsHeader(AsyncHttpClient.HEADER_ACCEPT_ENCODING)) {
                     httpRequest.addHeader(AsyncHttpClient.HEADER_ACCEPT_ENCODING, AsyncHttpClient.ENCODING_GZIP);
                 }
             }
         });
         addResponseInterceptor(new HttpResponseInterceptor() { // from class: com.baidu.cloudsdk.common.http.AsyncHttpClient.3
-            public void process(HttpResponse httpResponse, HttpContext httpContext) {
+            public void process(HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
                 Header contentEncoding;
                 HttpEntity entity = httpResponse.getEntity();
                 if (entity != null && (contentEncoding = entity.getContentEncoding()) != null) {
@@ -107,7 +108,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
         this.mRequestMap = new WeakHashMap<>();
     }
 
-    protected void finalize() {
+    protected void finalize() throws Throwable {
         for (Map.Entry<Context, List<WeakReference<Future<?>>>> entry : this.mRequestMap.entrySet()) {
             cancelRequests(entry.getKey(), true);
         }
@@ -320,7 +321,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
             super(httpEntity);
         }
 
-        public InputStream getContent() {
+        public InputStream getContent() throws IOException {
             this.wrappedStream = this.wrappedEntity.getContent();
             this.gzipStream = new GZIPInputStream(this.wrappedStream);
             return this.gzipStream;
@@ -330,7 +331,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
             return -1L;
         }
 
-        public void consumeContent() {
+        public void consumeContent() throws IOException {
             AsyncHttpClient.silentCloseInputStream(this.wrappedStream);
             AsyncHttpClient.silentCloseInputStream(this.gzipStream);
             super.consumeContent();

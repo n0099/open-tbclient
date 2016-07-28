@@ -1,40 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.ImageView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dz extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ dt dSh;
-    private final /* synthetic */ eb dSj;
-    private final /* synthetic */ String val$url;
+public class dz implements View.OnClickListener {
+    private final /* synthetic */ String dZb;
+    private final /* synthetic */ String dZc;
+    private final /* synthetic */ String dZd;
+    final /* synthetic */ du eey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dz(dt dtVar, eb ebVar, String str) {
-        this.dSh = dtVar;
-        this.dSj = ebVar;
-        this.val$url = str;
+    public dz(du duVar, String str, String str2, String str3) {
+        this.eey = duVar;
+        this.dZb = str;
+        this.dZc = str2;
+        this.dZd = str3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        if (aVar == null) {
-            this.dSj.dSt.setVisibility(8);
-            this.dSj.dSu.setVisibility(8);
-        } else if (aVar.ce()) {
-            com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
-            aVar2.atR = this.val$url;
-            aVar2.atP = this.val$url;
-            this.dSj.dSu.setVisibility(0);
-            this.dSj.dSt.setVisibility(8);
-            this.dSj.dSu.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.dSj.dSu.a(aVar2);
-        } else {
-            this.dSj.dSu.setVisibility(8);
-            this.dSj.dSt.setVisibility(0);
-            this.dSj.dSt.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.dSj.dSt.c(this.val$url, 17, false);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m10getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.dZb) && !StringUtils.isNull(this.dZc)) {
+            if (com.baidu.adp.lib.util.i.fq()) {
+                context = this.eey.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.dZb) + "," + this.dZc, this.dZd, this.dZd, context.getString(u.j.app_info_for_map));
+                context2 = this.eey.mContext;
+                com.baidu.tbadk.browser.f.u(context2, format);
+                return;
+            }
+            this.eey.eat.showToast(u.j.neterror);
         }
     }
 }

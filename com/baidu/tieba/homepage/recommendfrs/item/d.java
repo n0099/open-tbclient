@@ -4,27 +4,27 @@ import android.view.View;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    final /* synthetic */ c ctO;
+    final /* synthetic */ c cwD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.ctO = cVar;
+        this.cwD = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.homepage.recommendfrs.data.e eVar;
-        ViewEventCenter kO;
+        ViewEventCenter kK;
         com.baidu.tieba.homepage.recommendfrs.data.e eVar2;
-        ViewEventCenter kO2;
-        eVar = this.ctO.ctI;
+        ViewEventCenter kK2;
+        eVar = this.cwD.cwx;
         if (eVar != null) {
-            kO = this.ctO.kO();
-            if (kO != null) {
-                eVar2 = this.ctO.ctI;
+            kK = this.cwD.kK();
+            if (kK != null) {
+                eVar2 = this.cwD.cwx;
                 com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(1, eVar2, null, null);
-                kO2 = this.ctO.kO();
-                kO2.dispatchMvcEvent(bVar);
+                kK2 = this.cwD.kK();
+                kK2.dispatchMvcEvent(bVar);
             }
         }
     }

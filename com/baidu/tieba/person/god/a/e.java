@@ -4,12 +4,12 @@ import android.view.View;
 import com.baidu.tieba.card.a.o;
 import com.baidu.tieba.card.bx;
 /* loaded from: classes.dex */
-class e implements bx<o> {
-    final /* synthetic */ d eiQ;
+class e extends bx<o> {
+    final /* synthetic */ d esU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.eiQ = dVar;
+        this.esU = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -3,19 +3,19 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.pb.view.PbInterviewStatusView;
 /* loaded from: classes.dex */
 class i implements PbInterviewStatusView.a {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.view.PbInterviewStatusView.a
-    public void k(boolean z) {
-        es esVar;
+    public void m(boolean z) {
+        ew ewVar;
         boolean z2;
-        esVar = this.dPF.dOO;
-        z2 = this.dPF.dOK;
-        esVar.hL(!z2);
+        ewVar = this.ebT.ebb;
+        z2 = this.ebT.eaX;
+        ewVar.hX(!z2);
     }
 }

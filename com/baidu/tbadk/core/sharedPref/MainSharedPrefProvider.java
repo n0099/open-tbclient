@@ -78,16 +78,16 @@ public class MainSharedPrefProvider extends ContentProvider {
         intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
         intent.putExtra("intent_key", str);
         intent.putExtra("intent_value", str2);
-        TbadkCoreApplication.m9getInst().getApp().sendBroadcast(intent);
+        TbadkCoreApplication.m10getInst().getApp().sendBroadcast(intent);
     }
 
     private boolean cI(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.UQ.length;
+        int length = a.Vz.length;
         for (int i = 0; i < length; i++) {
-            if (a.UQ[i].equals(str)) {
+            if (a.Vz[i].equals(str)) {
                 return true;
             }
         }
@@ -96,8 +96,8 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     private SharedPreferences getSharedPreferences() {
         try {
-            if (TbadkCoreApplication.m9getInst().getApp() != null) {
-                return TbadkCoreApplication.m9getInst().getApp().getSharedPreferences("common_settings", 0);
+            if (TbadkCoreApplication.m10getInst().getApp() != null) {
+                return TbadkCoreApplication.m10getInst().getApp().getSharedPreferences("common_settings", 0);
             }
             return null;
         } catch (Exception e) {

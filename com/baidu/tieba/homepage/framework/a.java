@@ -3,42 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class a {
-    private static a coc = new a();
-    private long cod = 0;
-    private SparseArray<Long> coe = new SparseArray<>();
-    private SparseArray<Long> cof = new SparseArray<>();
-    private SparseArray<Long> cog = new SparseArray<>();
-    private SparseArray<Long> coh = new SparseArray<>();
+    private static a cqq = new a();
+    private long cqr = 0;
+    private SparseArray<Long> cqs = new SparseArray<>();
+    private SparseArray<Long> cqt = new SparseArray<>();
+    private SparseArray<Long> cqu = new SparseArray<>();
+    private SparseArray<Long> cqv = new SparseArray<>();
 
     private a() {
     }
 
-    public static a agi() {
-        return coc;
+    public static a agL() {
+        return cqq;
     }
 
     public long getCreateTime() {
-        return this.cod;
+        return this.cqr;
     }
 
     public void setCreateTime(long j) {
-        this.cod = j;
-    }
-
-    public long jh(int i) {
-        Long l = this.cof.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void b(long j, int i) {
-        this.cof.put(i, Long.valueOf(j));
+        this.cqr = j;
     }
 
     public long ji(int i) {
-        Long l = this.coe.get(i);
+        Long l = this.cqt.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +34,11 @@ public class a {
     }
 
     public void c(long j, int i) {
-        this.coe.put(i, Long.valueOf(j));
+        this.cqt.put(i, Long.valueOf(j));
     }
 
     public long jj(int i) {
-        Long l = this.cog.get(i);
+        Long l = this.cqs.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +46,11 @@ public class a {
     }
 
     public void d(long j, int i) {
-        this.cog.put(i, Long.valueOf(j));
+        this.cqs.put(i, Long.valueOf(j));
     }
 
     public long jk(int i) {
-        Long l = this.coh.get(i);
+        Long l = this.cqu.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +58,18 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.coh.put(i, Long.valueOf(j));
+        this.cqu.put(i, Long.valueOf(j));
+    }
+
+    public long jl(int i) {
+        Long l = this.cqv.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void f(long j, int i) {
+        this.cqv.put(i, Long.valueOf(j));
     }
 }

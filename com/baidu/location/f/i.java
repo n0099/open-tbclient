@@ -68,7 +68,7 @@ public class i {
     }
 
     public String a(int i) {
-        return d(i, false);
+        return e(i, false);
     }
 
     public boolean a(i iVar) {
@@ -86,7 +86,7 @@ public class i {
 
     public String b() {
         try {
-            return d(com.baidu.location.h.i.L, true);
+            return e(com.baidu.location.h.i.L, true);
         } catch (Exception e) {
             return null;
         }
@@ -184,7 +184,7 @@ public class i {
     }
 
     public boolean c(i iVar) {
-        return j.a(iVar, this, com.baidu.location.h.i.Js);
+        return j.a(iVar, this, com.baidu.location.h.i.JC);
     }
 
     public int d() {
@@ -206,7 +206,7 @@ public class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String d(int i, boolean z) {
+    public String e(int i, boolean z) {
         int i2;
         String str;
         long j;
@@ -230,13 +230,13 @@ public class i {
                 Random random = new Random();
                 StringBuffer stringBuffer = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo mw = k.mA().mw();
-                if (mw == null || mw.getBSSID() == null) {
+                WifiInfo mm = k.mq().mm();
+                if (mm == null || mm.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                 } else {
-                    String replace = mw.getBSSID().replace(":", "");
-                    int rssi = mw.getRssi();
+                    String replace = mm.getBSSID().replace(":", "");
+                    int rssi = mm.getRssi();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = replace;

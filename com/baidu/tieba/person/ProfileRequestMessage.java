@@ -1,8 +1,11 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.l;
+import com.baidu.tbadk.util.o;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
 /* loaded from: classes.dex */
@@ -123,15 +126,15 @@ public class ProfileRequestMessage extends NetMessage {
             builder.pn = get_pn();
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
-            int A = com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m9getInst().getApp());
-            int B = com.baidu.adp.lib.util.k.B(TbadkCoreApplication.m9getInst().getApp());
-            int viewImageQuality = com.baidu.tbadk.core.l.nW().getViewImageQuality();
+            int A = k.A(TbadkCoreApplication.m10getInst().getApp());
+            int B = k.B(TbadkCoreApplication.m10getInst().getApp());
+            int viewImageQuality = l.nL().getViewImageQuality();
             builder.scr_w = Integer.valueOf(A);
             builder.scr_h = Integer.valueOf(B);
-            builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.C(TbadkCoreApplication.m9getInst().getApp()));
+            builder.scr_dip = Double.valueOf(k.C(TbadkCoreApplication.m10getInst().getApp()));
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
-                com.baidu.tbadk.util.o.a(builder, true);
+                o.a(builder, true);
             }
             ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
             builder2.data = builder.build(false);

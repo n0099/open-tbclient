@@ -1,41 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.util.y;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ BasePersonInfoActivity ecN;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(BasePersonInfoActivity basePersonInfoActivity) {
-        this.ecN = basePersonInfoActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        this.ecN.cUf = com.baidu.tbadk.core.a.h.bo(this.ecN.aKi()) % 3;
-        String str = "";
-        switch (this.ecN.aKi()) {
-            case 2:
-                str = "like";
-                break;
-            case 3:
-                str = "group";
-                break;
-            case 4:
-                str = "post";
-                break;
-            case 5:
-                str = "friend";
-                break;
+class d implements bi.a {
+    @Override // com.baidu.tbadk.core.util.bi.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
-        httpMessage.addParam("opt", str);
-        i = this.ecN.cUf;
-        httpMessage.addParam("val", String.valueOf(i + 1));
-        this.ecN.sendMessage(httpMessage);
+        String str = strArr[0];
+        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), y.as(str, "userid="), y.as(str, "un="))));
+            return 1;
+        }
+        return 3;
     }
 }

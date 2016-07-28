@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ab fbT;
+    final /* synthetic */ ab foX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(ab abVar) {
-        this.fbT = abVar;
+        this.foX = abVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -27,35 +27,35 @@ public class an implements ViewPager.OnPageChangeListener {
         ImageView imageView;
         ImageView imageView2;
         FragmentTabHost fragmentTabHost9;
-        fragmentTabHost = this.fbT.aWJ;
+        fragmentTabHost = this.foX.aXH;
         if (fragmentTabHost.getCurrentTabType() == 2) {
             TiebaStatic.log("kantie_entry");
         }
-        this.fbT.bee();
-        fragmentTabHost2 = this.fbT.aWJ;
+        this.foX.bhw();
+        fragmentTabHost2 = this.foX.aXH;
         int currentTabType = fragmentTabHost2.getCurrentTabType();
-        fragmentTabHost3 = this.fbT.aWJ;
+        fragmentTabHost3 = this.foX.aXH;
         if (currentTabType != fragmentTabHost3.cl(i).mType) {
-            fragmentTabHost9 = this.fbT.aWJ;
+            fragmentTabHost9 = this.foX.aXH;
             fragmentTabHost9.setCurrentTab(i);
         }
-        fragmentTabHost4 = this.fbT.aWJ;
+        fragmentTabHost4 = this.foX.aXH;
         if (fragmentTabHost4.getCurrentTabType() != 1) {
-            imageView = this.fbT.fbK;
+            imageView = this.foX.foO;
             imageView.setVisibility(8);
-            imageView2 = this.fbT.cpW;
+            imageView2 = this.foX.csB;
             imageView2.setVisibility(0);
         }
-        ab abVar = this.fbT;
-        fragmentTabHost5 = this.fbT.aWJ;
-        abVar.dGO = fragmentTabHost5.getCurrentTabType();
-        this.fbT.bea();
-        if (com.baidu.tbadk.core.sharedPref.b.sO().getBoolean("enter_forum_edit_mode", false)) {
-            fragmentTabHost6 = this.fbT.aWJ;
+        ab abVar = this.foX;
+        fragmentTabHost5 = this.foX.aXH;
+        abVar.dLa = fragmentTabHost5.getCurrentTabType();
+        this.foX.bhs();
+        if (com.baidu.tbadk.core.sharedPref.b.sN().getBoolean("enter_forum_edit_mode", false)) {
+            fragmentTabHost6 = this.foX.aXH;
             if (fragmentTabHost6.getCurrentTabType() != 6) {
-                fragmentTabHost7 = this.fbT.aWJ;
+                fragmentTabHost7 = this.foX.aXH;
                 if (fragmentTabHost7.getCurrentTabType() != 3) {
-                    fragmentTabHost8 = this.fbT.aWJ;
+                    fragmentTabHost8 = this.foX.aXH;
                     if (fragmentTabHost8.getCurrentTabType() == 2) {
                         TiebaStatic.log("c10098");
                         return;

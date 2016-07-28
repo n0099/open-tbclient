@@ -180,7 +180,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         return a("social_portrait", (String) null);
     }
 
-    public Object clone() {
+    public Object clone() throws CloneNotSupportedException {
         super.clone();
         SapiAccount sapiAccount = new SapiAccount();
         sapiAccount.uid = this.uid;

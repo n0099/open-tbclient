@@ -18,63 +18,63 @@ public class c extends f {
 
     @Override // com.baidu.tieba.card.f
     protected void R(View view) {
-        this.aRL = (TbImageView) view.findViewById(u.g.advert_app_img_left);
-        this.aRM = (TbImageView) view.findViewById(u.g.advert_app_img_center);
-        this.aRN = (TbImageView) view.findViewById(u.g.advert_app_img_right);
-        this.aRO = view.findViewById(u.g.advert_app_img_container);
-        this.aRL.setDrawBorder(true);
-        this.aRL.setBorderWidth(1);
-        this.aRM.setDrawBorder(true);
-        this.aRM.setBorderWidth(1);
-        this.aRN.setDrawBorder(true);
-        this.aRN.setBorderWidth(1);
+        this.aSF = (TbImageView) view.findViewById(u.g.advert_app_img_left);
+        this.aSG = (TbImageView) view.findViewById(u.g.advert_app_img_center);
+        this.aSH = (TbImageView) view.findViewById(u.g.advert_app_img_right);
+        this.aSI = view.findViewById(u.g.advert_app_img_container);
+        this.aSF.setDrawBorder(true);
+        this.aSF.setBorderWidth(1);
+        this.aSG.setDrawBorder(true);
+        this.aSG.setBorderWidth(1);
+        this.aSH.setDrawBorder(true);
+        this.aSH.setBorderWidth(1);
     }
 
     @Override // com.baidu.tieba.card.f
     protected void a(boolean z, com.baidu.tieba.card.a.d dVar) {
-        List<String> Lr = dVar.Lr();
-        int size = Lr != null ? Lr.size() : 0;
-        if (c(z, size)) {
+        List<String> Lq = dVar.Lq();
+        int size = Lq != null ? Lq.size() : 0;
+        if (d(z, size)) {
             int i = this.mIsFromCDN ? 30 : 31;
             if (size == 1) {
-                this.aRL.c(Lr.get(0), i, false);
+                this.aSF.c(Lq.get(0), i, false);
             } else if (size == 2) {
-                this.aRL.c(Lr.get(0), i, false);
-                this.aRM.c(Lr.get(1), i, false);
+                this.aSF.c(Lq.get(0), i, false);
+                this.aSG.c(Lq.get(1), i, false);
             } else if (size >= 3) {
-                this.aRL.c(Lr.get(0), i, false);
-                this.aRM.c(Lr.get(1), i, false);
-                this.aRN.c(Lr.get(2), i, false);
+                this.aSF.c(Lq.get(0), i, false);
+                this.aSG.c(Lq.get(1), i, false);
+                this.aSH.c(Lq.get(2), i, false);
             }
         }
     }
 
-    private boolean c(boolean z, int i) {
+    private boolean d(boolean z, int i) {
         if (!z || i == 0) {
-            this.aRO.setVisibility(8);
+            this.aSI.setVisibility(8);
             return false;
         }
-        this.aRO.setVisibility(0);
+        this.aSI.setVisibility(0);
         if (i == 1) {
-            this.aRL.setVisibility(0);
-            this.aRM.setVisibility(4);
-            this.aRN.setVisibility(4);
+            this.aSF.setVisibility(0);
+            this.aSG.setVisibility(4);
+            this.aSH.setVisibility(4);
             return true;
         } else if (i == 2) {
-            this.aRL.setVisibility(0);
-            this.aRM.setVisibility(0);
-            this.aRN.setVisibility(4);
+            this.aSF.setVisibility(0);
+            this.aSG.setVisibility(0);
+            this.aSH.setVisibility(4);
             return true;
         } else {
-            this.aRL.setVisibility(0);
-            this.aRM.setVisibility(0);
-            this.aRN.setVisibility(0);
+            this.aSF.setVisibility(0);
+            this.aSG.setVisibility(0);
+            this.aSH.setVisibility(0);
             return true;
         }
     }
 
     @Override // com.baidu.tieba.card.f
-    protected String KQ() {
+    protected String KP() {
         return "FRS";
     }
 }

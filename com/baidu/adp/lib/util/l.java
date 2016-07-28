@@ -7,9 +7,9 @@ class l implements Runnable {
     public void run() {
         Toast toast;
         Toast toast2;
-        toast = k.pv;
+        toast = k.pX;
         if (toast != null) {
-            toast2 = k.pv;
+            toast2 = k.pX;
             toast2.cancel();
         }
     }

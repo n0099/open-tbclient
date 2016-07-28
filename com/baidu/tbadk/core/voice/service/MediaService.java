@@ -187,7 +187,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         this.mSeekTime = j;
         Voice voice = this.mVoice;
         k.wj().wh();
-        if (!this.mPlayer.eb(voice.getName()) && this.mPlayer.getErrorNo() != -1) {
+        if (!this.mPlayer.ea(voice.getName()) && this.mPlayer.getErrorNo() != -1) {
             Intent intent = new Intent("com.baidu.playPrepared");
             intent.putExtra("com.baidu.playPrepared_err_code", this.mPlayer.getErrorNo());
             sendBroadcast(intent);
@@ -228,26 +228,26 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         if (this.mPlayer instanceof k) {
             ((k) this.mPlayer).setOnCompletionListener(null);
         }
-        int fV = this.mPlayer.fV();
+        int fU = this.mPlayer.fU();
         Intent intent2 = new Intent("com.baidu.isStoped");
-        intent2.putExtra("com.baidu.msg.curr_time", fV);
+        intent2.putExtra("com.baidu.msg.curr_time", fU);
         sendBroadcast(intent2);
         this.mPlayer.wa();
     }
 
     private void stopAndReplay(Intent intent) {
         if (this.mVoice != null && this.mPlayer != null) {
-            long fV = this.mPlayer.fV();
-            if (fV >= 0) {
+            long fU = this.mPlayer.fU();
+            if (fU >= 0) {
                 this.mPlayer.wa();
                 this.mPlayer.wh();
                 long duration = this.mVoice.getDuration();
-                if (duration > 0 && fV <= duration) {
+                if (duration > 0 && fU <= duration) {
                     if (this.mPlayer instanceof k) {
                         ((k) this.mPlayer).setOnPreparedListener(null);
                     }
-                    if (this.mPlayer.eb(this.mVoice.getName())) {
-                        this.mPlayer.dh((int) fV);
+                    if (this.mPlayer.ea(this.mVoice.getName())) {
+                        this.mPlayer.dh((int) fU);
                         playVoice(null);
                     }
                 }
@@ -265,7 +265,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     if (this.mPlayer instanceof k) {
                         ((k) this.mPlayer).setOnPreparedListener(null);
                     }
-                    if (this.mPlayer.eb(this.mVoice.getName())) {
+                    if (this.mPlayer.ea(this.mVoice.getName())) {
                         this.mPlayer.dh((int) longExtra);
                         playVoice(null);
                     }
@@ -290,7 +290,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         String stringExtra2 = intent.getStringExtra("filePath");
         if (ag.R(getApplicationContext())) {
             if (stringExtra2.endsWith(".amr")) {
-                this.mRecorder = MyAudioRecorder.c(true);
+                this.mRecorder = MyAudioRecorder.d(true);
             } else {
                 this.mRecorder = new a();
             }
@@ -299,12 +299,12 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             this.mFilePath = String.valueOf(stringExtra) + File.separator + stringExtra2;
             if (file.exists()) {
                 if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                    z = this.mRecorder.dY(this.mFilePath);
+                    z = this.mRecorder.dX(this.mFilePath);
                 }
             } else {
                 file.mkdir();
                 if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                    z = this.mRecorder.dY(this.mFilePath);
+                    z = this.mRecorder.dX(this.mFilePath);
                 }
             }
             if (z) {

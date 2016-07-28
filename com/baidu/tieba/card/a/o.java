@@ -1,62 +1,62 @@
 package com.baidu.tieba.card.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.az;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 public class o extends c {
-    public az aVc;
-    public static final BdUniqueId aVz = BdUniqueId.gen();
-    public static final BdUniqueId aVA = BdUniqueId.gen();
-    public static String aVB = "";
-    public static String aVC = "";
-    public static String aVD = "";
-    public static String aVE = "";
-    public static String aVF = "";
-    public boolean aVu = false;
-    public boolean aVG = true;
+    public be aWa;
+    public static final BdUniqueId aWx = BdUniqueId.gen();
+    public static final BdUniqueId aWy = BdUniqueId.gen();
+    public static String aWz = "";
+    public static String aWA = "";
+    public static String aWB = "";
+    public static String aWC = "";
+    public static String aWD = "";
+    public boolean aWs = false;
+    public boolean aWE = true;
 
-    public o(az azVar) {
-        this.aVc = azVar;
+    public o(be beVar) {
+        this.aWa = beVar;
     }
 
-    public static boolean c(az azVar) {
-        return (azVar == null || azVar.qW() == null) ? false : true;
+    public static boolean c(be beVar) {
+        return (beVar == null || beVar.qM() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.aVc == null) {
-            return aVz;
+        if (this.aWa == null) {
+            return aWx;
         }
-        if (this.aVc.qJ() || this.aVc.qK()) {
-            return aVA;
+        if (this.aWa.qy() || this.aWa.qz()) {
+            return aWy;
         }
-        return aVz;
+        return aWx;
     }
 
     @Override // com.baidu.tieba.card.a.c
-    public az Ix() {
-        return this.aVc;
+    public be Iw() {
+        return this.aWa;
+    }
+
+    public ay Lu() {
+        return hh(aWC);
     }
 
     public ay Lv() {
-        return hh(aVE);
+        return hh(aWD);
     }
 
     public ay Lw() {
-        return hh(aVF);
+        return hh(aWA);
     }
 
     public ay Lx() {
-        return hh(aVC);
+        return hh(aWz);
     }
 
-    public ay Ly() {
-        return hh(aVB);
-    }
-
-    public ay LG() {
-        return v(aVD, true);
+    public ay LF() {
+        return v(aWB, true);
     }
 }

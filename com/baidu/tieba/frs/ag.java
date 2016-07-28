@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class ag implements Runnable {
-    final /* synthetic */ af bDF;
+    final /* synthetic */ af bEP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(af afVar) {
-        this.bDF = afVar;
+        this.bEP = afVar;
     }
 
     @Override // java.lang.Runnable
@@ -13,11 +13,11 @@ class ag implements Runnable {
         FrsActivity frsActivity;
         bq bqVar;
         FrsActivity frsActivity2;
-        frsActivity = this.bDF.bDB;
-        bqVar = frsActivity.bCD;
-        if (bqVar.Vf()) {
-            frsActivity2 = this.bDF.bDB;
-            frsActivity2.UU();
+        frsActivity = this.bEP.bEL;
+        bqVar = frsActivity.bDK;
+        if (bqVar.WV()) {
+            frsActivity2 = this.bEP.bEL;
+            frsActivity2.Wd();
         }
     }
 }

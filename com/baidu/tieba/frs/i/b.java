@@ -1,52 +1,34 @@
 package com.baidu.tieba.frs.i;
 
-import android.app.Activity;
-import android.os.Handler;
 import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.browser.f;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements Runnable {
-    final /* synthetic */ a bRz;
+public class b implements View.OnClickListener {
+    final /* synthetic */ a bSW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bRz = aVar;
+        this.bSW = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TbPageContext tbPageContext;
-        View view;
-        TbPageContext tbPageContext2;
-        View d;
-        View view2;
-        PopupWindow popupWindow;
-        View view3;
-        Handler handler;
-        tbPageContext = this.bRz.Ea;
-        if (tbPageContext != null) {
-            view = this.bRz.bRw;
-            if (view != null) {
-                tbPageContext2 = this.bRz.Ea;
-                Activity pageActivity = tbPageContext2.getPageActivity();
-                int c = com.baidu.adp.lib.util.k.c(pageActivity, u.e.ds20);
-                int c2 = com.baidu.adp.lib.util.k.c(pageActivity, u.e.ds64);
-                d = this.bRz.d(pageActivity, c);
-                int[] iArr = new int[2];
-                view2 = this.bRz.bRw;
-                view2.getLocationInWindow(iArr);
-                int c3 = com.baidu.adp.lib.util.k.c(pageActivity, u.e.ds32);
-                int c4 = com.baidu.adp.lib.util.k.c(pageActivity, u.e.ds16) + (iArr[1] - c2);
-                this.bRz.bRx = new PopupWindow(d, -2, c2);
-                popupWindow = this.bRz.bRx;
-                view3 = this.bRz.bRw;
-                popupWindow.showAtLocation(view3, 53, c3, c4);
-                handler = this.bRz.mHandler;
-                handler.postDelayed(new c(this), 3000L);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        v aw;
+        BaseActivity baseActivity;
+        if (this.bSW.aw(((Integer) view.getTag()).intValue()) instanceof be) {
+            String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((be) aw).getAuthor().getUserId();
+            String string = TbadkCoreApplication.m10getInst().getString(u.j.user_icon_web_view_title);
+            baseActivity = this.bSW.bem;
+            f.a(baseActivity.getApplicationContext(), string, str, true, true, true);
+            TiebaStatic.log(new ay("c10134").s("obj_type", 3));
         }
     }
 }

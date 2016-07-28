@@ -1,34 +1,47 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.personInfo.PersonUserGodInfo;
+import com.baidu.adp.widget.ListView.v;
 import java.util.List;
-import tbclient.Profile.ForumGodDetailInfo;
-import tbclient.Profile.GodDetailInfo;
+import tbclient.High;
 /* loaded from: classes.dex */
-public class r implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId eio = BdUniqueId.gen();
-    private PersonUserGodInfo eip;
-    private List<ForumGodDetailInfo> forumGodList;
-    private GodDetailInfo godDetailInfo;
+public class r implements v {
+    public static final BdUniqueId esu = BdUniqueId.gen();
+    private List<High> esv;
+    private String esw;
+    private boolean hasMore;
+    private int sex;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eio;
+        return esu;
     }
 
-    public int aLl() {
-        if (this.eip == null) {
-            return -1;
-        }
-        return this.eip.getGodType();
+    public List<High> aNQ() {
+        return this.esv;
     }
 
-    public GodDetailInfo aLm() {
-        return this.godDetailInfo;
+    public void cw(List<High> list) {
+        this.esv = list;
     }
 
-    public List<ForumGodDetailInfo> getForumGodList() {
-        return this.forumGodList;
+    public void setHasMore(boolean z) {
+        this.hasMore = z;
+    }
+
+    public String aNR() {
+        return this.esw;
+    }
+
+    public void oI(String str) {
+        this.esw = str;
+    }
+
+    public int getSex() {
+        return this.sex;
+    }
+
+    public void setSex(int i) {
+        this.sex = i;
     }
 }

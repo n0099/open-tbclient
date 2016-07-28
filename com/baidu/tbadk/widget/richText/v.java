@@ -15,15 +15,15 @@ class v implements com.baidu.adp.lib.f.c<TextView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: Hu */
-    public TextView dF() {
+    /* renamed from: Hs */
+    public TextView dE() {
         return new TbListTextView(this.val$context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: d */
-    public void l(TextView textView) {
+    public void o(TextView textView) {
         textView.setText((CharSequence) null);
         textView.setTag(null);
         textView.setSingleLine(false);
@@ -42,14 +42,14 @@ class v implements com.baidu.adp.lib.f.c<TextView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: e */
-    public TextView m(TextView textView) {
+    public TextView p(TextView textView) {
         return textView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: f */
-    public TextView n(TextView textView) {
+    public TextView q(TextView textView) {
         textView.setText((CharSequence) null);
         textView.setTag(null);
         textView.setSingleLine(false);

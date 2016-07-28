@@ -1,79 +1,61 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.data.IconData;
+import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
+import com.baidu.tbadk.switchs.EcommSwitchStatic;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.UserInfo;
 /* loaded from: classes.dex */
 public class aq {
-    private String PJ;
-    private IconData PK = new IconData();
-    private String introduction;
-    private boolean isAdded;
-    private String name;
-    private int sex;
-    private long userId;
+    public List<a> PE;
+    public int PF;
+    public long PG;
+    public String PH;
+    public boolean PI;
+    public boolean PJ = false;
+    public long id;
+    public String info;
+    public boolean isDisplay;
+    public long sales;
+    public float shipFee;
+    public int status;
+    public String title;
+    public float unitPrice;
 
-    public void pZ() {
-        this.isAdded = true;
+    /* loaded from: classes.dex */
+    public static final class a {
+        public String PK;
+        public String PM;
     }
 
-    public boolean qa() {
-        return this.isAdded;
-    }
-
-    public void a(UserInfo userInfo) {
-        if (userInfo != null) {
-            this.isAdded = false;
-            this.userId = userInfo.user_id.longValue();
-            this.PJ = userInfo.portrait;
-            this.name = userInfo.user_name;
-            this.sex = userInfo.gender.intValue();
-            this.introduction = userInfo.intro;
-            if (userInfo.tshow_icon != null) {
-                this.PK.setIcon(userInfo.tshow_icon.icon);
-                this.PK.setIconName(userInfo.tshow_icon.name);
-                this.PK.setUrl(userInfo.tshow_icon.url);
+    public void j(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        if (jSONObject != null || EcommSwitchStatic.Fr()) {
+            this.id = jSONObject.optLong("product_id");
+            this.title = jSONObject.optString("title");
+            this.info = jSONObject.optString("intro");
+            this.unitPrice = ((float) jSONObject.optLong("unit_price")) / 100.0f;
+            this.PF = jSONObject.optInt("stock");
+            this.shipFee = ((float) jSONObject.optLong("ship_fee")) / 100.0f;
+            this.sales = jSONObject.optLong("sales");
+            this.status = jSONObject.optInt("status");
+            this.PG = jSONObject.optInt("category_id");
+            this.PH = jSONObject.optString(MangaCategoryActivityConfig.CATEGORY_NAME);
+            if (jSONObject.has("is_display")) {
+                this.isDisplay = jSONObject.optInt("is_display", 0) == 1;
+                this.PJ = this.isDisplay;
             }
-        }
-    }
-
-    public long getUserId() {
-        return this.userId;
-    }
-
-    public String qb() {
-        return this.PJ;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public boolean qc() {
-        return 2 == this.sex;
-    }
-
-    public String qd() {
-        return this.introduction;
-    }
-
-    public IconData qe() {
-        return this.PK;
-    }
-
-    public void i(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.userId = jSONObject.optLong("user_id");
-            this.name = jSONObject.optString("user_name");
-            this.PJ = jSONObject.optString("portait");
-            this.sex = jSONObject.optInt("gender");
-            this.isAdded = jSONObject.optBoolean("recommend_is_added");
-            this.introduction = jSONObject.optString("intro");
-            JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
-            if (optJSONObject != null) {
-                this.PK.setIcon(optJSONObject.optString("icon"));
-                this.PK.setIconName(optJSONObject.optString("user_name"));
-                this.PK.setUrl(optJSONObject.optString("url"));
+            this.PE = new ArrayList();
+            if (jSONObject.has("img") && !jSONObject.isNull("img") && (optJSONArray = jSONObject.optJSONArray("img")) != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    a aVar = new a();
+                    aVar.PK = optJSONObject.optString("small_pic");
+                    aVar.PM = optJSONObject.optString("big_pic");
+                    this.PE.add(aVar);
+                }
             }
         }
     }

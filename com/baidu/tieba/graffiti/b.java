@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.data.p;
 /* loaded from: classes.dex */
 class b extends HttpMessageListener {
-    final /* synthetic */ a ciC;
+    final /* synthetic */ a ckP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.ciC = aVar;
+        this.ckP = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,53 +41,53 @@ class b extends HttpMessageListener {
         String str10;
         String str11;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003081 && (httpResponsedMessage instanceof ResponseCommitGraffitiMessage)) {
-            vVar = this.ciC.ciz;
+            vVar = this.ckP.ckM;
             if (vVar != null) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 ResponseCommitGraffitiMessage responseCommitGraffitiMessage = (ResponseCommitGraffitiMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    str7 = this.ciC.threadId;
+                    str7 = this.ckP.threadId;
                     messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS, str7));
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    str8 = this.ciC.threadId;
-                    str9 = this.ciC.forumId;
+                    str8 = this.ckP.threadId;
+                    str9 = this.ckP.forumId;
                     messageManager2.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_VOTE_SUCCESS, new r(str8, str9, null)));
-                    vVar5 = this.ciC.ciz;
+                    vVar5 = this.ckP.ckM;
                     String errMsg = responseCommitGraffitiMessage.getErrMsg();
-                    str10 = this.ciC.forumId;
-                    str11 = this.ciC.threadId;
+                    str10 = this.ckP.forumId;
+                    str11 = this.ckP.threadId;
                     vVar5.a(errMsg, str10, str11, responseCommitGraffitiMessage.getGraffitiInfo());
                     if (responseCommitGraffitiMessage.getGraffitiInfo() != null) {
                         TiebaStatic.log(new ay("c11001").ab("obj_id", String.valueOf(responseCommitGraffitiMessage.getGraffitiInfo().getGid())).s("obj_source", 3));
                     }
                 } else if (error != 224011) {
-                    vVar2 = this.ciC.ciz;
+                    vVar2 = this.ckP.ckM;
                     int error2 = responseCommitGraffitiMessage.getError();
                     String errorString = responseCommitGraffitiMessage.getErrorString();
-                    str = this.ciC.ciA;
+                    str = this.ckP.ckN;
                     vVar2.a(error2, errorString, null, null, null, null, 0, 0, str);
                 } else {
                     p vCodeData = responseCommitGraffitiMessage.getVCodeData();
                     if (vCodeData == null || !"4".equals(vCodeData.wJ()) || !responseCommitGraffitiMessage.isNeedVcode()) {
-                        vVar3 = this.ciC.ciz;
+                        vVar3 = this.ckP.ckM;
                         int error3 = responseCommitGraffitiMessage.getError();
                         String errorString2 = responseCommitGraffitiMessage.getErrorString();
-                        str2 = this.ciC.ciA;
+                        str2 = this.ckP.ckN;
                         vVar3.a(error3, errorString2, null, null, null, null, 0, 0, str2);
                         return;
                     }
-                    vVar4 = this.ciC.ciz;
+                    vVar4 = this.ckP.ckM;
                     int error4 = responseCommitGraffitiMessage.getError();
                     String errorString3 = responseCommitGraffitiMessage.getErrorString();
                     p vCodeData2 = responseCommitGraffitiMessage.getVCodeData();
-                    str3 = this.ciC.forumId;
-                    str4 = this.ciC.threadId;
-                    str5 = this.ciC.picId;
-                    i = this.ciC.width;
-                    i2 = this.ciC.height;
-                    str6 = this.ciC.ciA;
+                    str3 = this.ckP.forumId;
+                    str4 = this.ckP.threadId;
+                    str5 = this.ckP.picId;
+                    i = this.ckP.width;
+                    i2 = this.ckP.height;
+                    str6 = this.ckP.ckN;
                     vVar4.a(error4, errorString3, vCodeData2, str3, str4, str5, i, i2, str6);
                 }
             }

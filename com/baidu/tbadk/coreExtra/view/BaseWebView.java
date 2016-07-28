@@ -216,4 +216,17 @@ public class BaseWebView extends WebView {
     private void initDownload() {
         this.mDownloadListener = new com.baidu.tbadk.coreExtra.view.b(this);
     }
+
+    @Override // android.webkit.WebView
+    public void destroy() {
+        super.destroy();
+        this.mWebViewClient = null;
+        this.mOnLoadUrlListener = null;
+        this.mContext = null;
+        this.mDownloadListener = null;
+        this.mOnPageStartedListener = null;
+        this.mOnPageFinishedListener = null;
+        this.mOnReceivedErrorListener = null;
+        this.jsCallback = null;
+    }
 }

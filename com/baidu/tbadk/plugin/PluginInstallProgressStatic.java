@@ -10,37 +10,37 @@ import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PluginInstallProgressStatic {
-    private static Runnable aws = new d();
-    private static boolean azH;
+    private static boolean aAx;
+    private static Runnable axh = new d();
 
     static {
-        if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            h.dM().post(aws);
+        if (TbadkCoreApplication.m10getInst().isMainProcess(true)) {
+            h.dL().post(axh);
             MessageManager.getInstance().registerListener(new e(2000993));
             MessageManager.getInstance().registerListener(new f(2000988));
         }
-        azH = false;
+        aAx = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void Fe() {
-        if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            h.dM().removeCallbacks(aws);
-            h.dM().postDelayed(aws, 120000L);
-            if (!azH) {
-                azH = true;
-                String string = TbadkCoreApplication.m9getInst().getResources().getString(u.j.plugin_tip_installing);
-                NotificationHelper.showNotification(TbadkCoreApplication.m9getInst().getApplicationContext(), 1000, null, string, string, null, false);
+    public static final void Fd() {
+        if (TbadkCoreApplication.m10getInst().isMainProcess(true)) {
+            h.dL().removeCallbacks(axh);
+            h.dL().postDelayed(axh, 120000L);
+            if (!aAx) {
+                aAx = true;
+                String string = TbadkCoreApplication.m10getInst().getResources().getString(u.j.plugin_tip_installing);
+                NotificationHelper.showNotification(TbadkCoreApplication.m10getInst().getApplicationContext(), 1000, null, string, string, null, false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void Ff() {
-        if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            azH = false;
-            h.dM().removeCallbacks(aws);
-            NotificationHelper.cancelNotification(TbadkCoreApplication.m9getInst().getApplicationContext(), 1000);
+    public static final void Fe() {
+        if (TbadkCoreApplication.m10getInst().isMainProcess(true)) {
+            aAx = false;
+            h.dL().removeCallbacks(axh);
+            NotificationHelper.cancelNotification(TbadkCoreApplication.m10getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_COLLECT_GROUPS, new ArrayList()));
         }
     }

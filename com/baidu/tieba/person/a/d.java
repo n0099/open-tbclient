@@ -6,10 +6,11 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class d extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b.d> {
-    private com.baidu.tieba.person.data.c efX;
+public class d extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.holder.f> {
+    private com.baidu.tieba.person.data.c epW;
     private String userId;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,54 +22,54 @@ public class d extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.ba
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bt */
-    public com.baidu.tieba.person.b.d a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(u.h.personinfo_attention_view, viewGroup, false));
+    /* renamed from: bC */
+    public com.baidu.tieba.person.holder.f a(ViewGroup viewGroup) {
+        return new com.baidu.tieba.person.holder.f(LayoutInflater.from(this.mContext).inflate(u.h.personinfo_attention_view, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.b.d dVar) {
-        a(dVar, view);
-        if (cVar != null && this.aMF) {
-            a(dVar, cVar, view);
-            this.aMF = false;
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.holder.f fVar) {
+        a(fVar, view);
+        if (cVar != null && this.aNz) {
+            a(fVar, cVar, view);
+            this.aNz = false;
         }
         return view;
     }
 
-    private void a(com.baidu.tieba.person.b.d dVar, com.baidu.tieba.person.data.c cVar, View view) {
+    private void a(com.baidu.tieba.person.holder.f fVar, com.baidu.tieba.person.data.c cVar, View view) {
         if (cVar != null) {
             this.userId = cVar.userId;
-            dVar.ejQ.setText(this.mContext.getResources().getString(u.j.attention_other));
-            if (cVar.ehO > 0) {
-                dVar.ejS.setVisibility(4);
-                dVar.ejR.setVisibility(0);
-                dVar.ejT.setVisibility(0);
-                dVar.ejR.setText(new StringBuilder(String.valueOf(cVar.ehO)).toString());
+            fVar.euq.setText(this.mContext.getResources().getString(u.j.attention_other));
+            if (cVar.erN > 0) {
+                fVar.eus.setVisibility(4);
+                fVar.eur.setVisibility(0);
+                fVar.eut.setVisibility(0);
+                fVar.eur.setText(new StringBuilder(String.valueOf(cVar.erN)).toString());
             } else {
-                dVar.ejS.setVisibility(0);
-                dVar.ejR.setVisibility(4);
-                dVar.ejT.setVisibility(4);
+                fVar.eus.setVisibility(0);
+                fVar.eur.setVisibility(4);
+                fVar.eut.setVisibility(4);
             }
             a(view, cVar);
         }
     }
 
-    private void a(com.baidu.tieba.person.b.d dVar, View view) {
-        if (dVar.aeK != TbadkCoreApplication.m9getInst().getSkinType()) {
-            com.baidu.tbadk.core.util.av.k(view, u.f.addresslist_item_bg);
-            com.baidu.tbadk.core.util.av.c(dVar.ejQ, u.d.cp_cont_f, 1);
-            com.baidu.tbadk.core.util.av.c(dVar.ejR, u.d.cp_cont_c, 1);
-            com.baidu.tbadk.core.util.av.c(dVar.ejS, u.d.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.av.c(dVar.ejT, u.f.icon_arrow_tab);
+    private void a(com.baidu.tieba.person.holder.f fVar, View view) {
+        if (fVar.afy != TbadkCoreApplication.m10getInst().getSkinType()) {
+            av.k(view, u.f.addresslist_item_bg);
+            av.c(fVar.euq, u.d.cp_cont_f, 1);
+            av.c(fVar.eur, u.d.cp_cont_c, 1);
+            av.c(fVar.eus, u.d.cp_cont_d, 1);
+            av.c(fVar.eut, u.f.icon_arrow_tab);
         }
     }
 
     private void a(View view, com.baidu.tieba.person.data.c cVar) {
         if (cVar != null) {
-            this.efX = cVar;
+            this.epW = cVar;
             view.setOnClickListener(new e(this));
         }
     }

@@ -5,13 +5,13 @@ import java.util.Observable;
 public class a extends Observable {
     private long album_id;
 
-    public void m(long j) {
+    public void n(long j) {
         this.album_id = j;
         setChanged();
         notifyObservers();
     }
 
-    public long ny() {
+    public long nn() {
         return this.album_id;
     }
 }

@@ -10,24 +10,24 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 public class a extends e<FrsActivity> {
-    private FrsActivity bET;
-    private InterfaceC0055a bIm;
-    private HttpMessageListener bjt = new b(this, CmdConfigHttp.ECOMM_CAN_SEND_THREAD, true);
+    private FrsActivity bGh;
+    private InterfaceC0056a bJH;
+    private HttpMessageListener bkU = new b(this, CmdConfigHttp.ECOMM_CAN_SEND_THREAD, true);
 
     /* renamed from: com.baidu.tieba.frs.ecomm.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0055a {
+    public interface InterfaceC0056a {
         void a(int i, String str, EcommCanSendThreadResponseMessage ecommCanSendThreadResponseMessage);
     }
 
     public a(FrsActivity frsActivity) {
-        this.bET = frsActivity;
-        this.unique_id = this.bET.getUniqueId();
-        CJ();
-        registerListener(this.bjt);
+        this.bGh = frsActivity;
+        this.unique_id = this.bGh.getUniqueId();
+        CI();
+        registerListener(this.bkU);
     }
 
-    private void CJ() {
+    private void CI() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.ECOMM_CAN_SEND_THREAD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.ECOMM_CAN_SEND_THREAD);
         tbHttpMessageTask.setResponsedClass(EcommCanSendThreadResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -43,13 +43,13 @@ public class a extends e<FrsActivity> {
         return false;
     }
 
-    public void iZ(String str) {
+    public void jf(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.ECOMM_CAN_SEND_THREAD);
         httpMessage.addParam("forum_id", str);
         sendMessage(httpMessage);
     }
 
-    public void a(InterfaceC0055a interfaceC0055a) {
-        this.bIm = interfaceC0055a;
+    public void a(InterfaceC0056a interfaceC0056a) {
+        this.bJH = interfaceC0056a;
     }
 }

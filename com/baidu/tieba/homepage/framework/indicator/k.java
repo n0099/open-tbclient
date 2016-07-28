@@ -1,43 +1,32 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import android.view.animation.Animation;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.homepage.framework.indicator.r;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ j cpl;
+class k implements r.a {
+    final /* synthetic */ ScrollFragmentTabHost crx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.cpl = jVar;
+    public k(ScrollFragmentTabHost scrollFragmentTabHost) {
+        this.crx = scrollFragmentTabHost;
     }
 
-    @Override // com.baidu.adp.lib.h.d
-    public void b(Animation animation) {
-        TextView textView;
-        Animation animation2;
-        Animation animation3;
-        TextView textView2;
-        TextView textView3;
-        TextView textView4;
-        TextView textView5;
-        textView = this.cpl.cpe;
-        if (textView != null) {
-            animation2 = this.cpl.cph;
-            if (animation == animation2) {
-                textView4 = this.cpl.cpe;
-                textView4.setVisibility(0);
-                textView5 = this.cpl.cpe;
-                textView5.setClickable(true);
-                return;
-            }
-            animation3 = this.cpl.cpi;
-            if (animation == animation3) {
-                textView2 = this.cpl.cpe;
-                textView2.setVisibility(8);
-                textView3 = this.cpl.cpe;
-                textView3.setClickable(false);
-            }
+    @Override // com.baidu.tieba.homepage.framework.indicator.r.a
+    public void ahi() {
+        o oVar;
+        r rVar;
+        r rVar2;
+        o oVar2;
+        oVar = this.crx.crk;
+        if (oVar != null) {
+            oVar2 = this.crx.crk;
+            oVar2.ahk();
+        }
+        rVar = this.crx.cro;
+        if (rVar != null) {
+            rVar2 = this.crx.cro;
+            rVar2.a((r.a) null);
+            this.crx.crp = true;
+            this.crx.cro = null;
         }
     }
 }

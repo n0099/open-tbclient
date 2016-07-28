@@ -1,9 +1,9 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public interface q {
-    String bbY();
+    String bfn();
 
-    String bbZ();
+    String bfo();
 
-    String bca();
+    String bfp();
 }

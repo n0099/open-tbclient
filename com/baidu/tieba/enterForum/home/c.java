@@ -19,12 +19,12 @@ public class c extends CustomMessageListener {
         com.baidu.tieba.enterForum.c.c cVar2;
         if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
             if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                cVar2 = CoreSearchRequestStatic.bsT;
-                cVar2.cQ(true);
+                cVar2 = CoreSearchRequestStatic.bvi;
+                cVar2.cT(true);
                 return;
             }
-            cVar = CoreSearchRequestStatic.bsT;
-            cVar.cP(true);
+            cVar = CoreSearchRequestStatic.bvi;
+            cVar.cS(true);
         }
     }
 }

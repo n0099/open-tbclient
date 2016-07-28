@@ -1,45 +1,37 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.newFriends.RequestApplyMessage;
-import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tieba.u;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ f this$0;
+public class k extends CustomMessageListener {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(f fVar, int i) {
+    public k(h hVar, int i) {
         super(i);
-        this.this$0 = fVar;
+        this.this$0 = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        bp bpVar;
-        bs bsVar;
-        bs bsVar2;
-        if (socketResponsedMessage instanceof ResponseApplyMessage) {
-            ResponseApplyMessage responseApplyMessage = (ResponseApplyMessage) socketResponsedMessage;
-            if (responseApplyMessage.getError() != 0) {
-                this.this$0.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.this$0.getResources().getString(u.j.neterror) : socketResponsedMessage.getErrorString());
-                return;
-            }
-            RequestApplyMessage requestApplyMessage = (RequestApplyMessage) responseApplyMessage.getOrginalMessage();
-            ReplyInfo replyInfo = new ReplyInfo();
-            replyInfo.setUserId(requestApplyMessage.getUid());
-            replyInfo.setFriendId(requestApplyMessage.getFriendId());
-            replyInfo.setMessage(requestApplyMessage.getMessage());
-            bpVar = this.this$0.eht;
-            bpVar.aMy().getReplyInfo().add(replyInfo);
-            bsVar = this.this$0.eoE;
-            if (bsVar != null) {
-                bsVar2 = this.this$0.eoE;
-                bsVar2.aNg();
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        bn bnVar;
+        bq bqVar;
+        bn bnVar2;
+        bq bqVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
+            bnVar = this.this$0.ers;
+            if (bnVar.aPD() != null) {
+                bqVar = this.this$0.eAu;
+                if (bqVar != null) {
+                    bnVar2 = this.this$0.ers;
+                    bnVar2.aPD().setIsFriend(1);
+                    bqVar2 = this.this$0.eAu;
+                    bqVar2.aQj();
+                }
             }
         }
     }

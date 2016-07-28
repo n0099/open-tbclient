@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends CustomMessageListener {
-    final /* synthetic */ f this$0;
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(f fVar, int i) {
+    public w(h hVar, int i) {
         super(i);
-        this.this$0 = fVar;
+        this.this$0 = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,6 +20,6 @@ public class w extends CustomMessageListener {
         if (customResponsedMessage == null) {
             return;
         }
-        this.this$0.aMu();
+        this.this$0.aPz();
     }
 }

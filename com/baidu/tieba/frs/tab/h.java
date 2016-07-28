@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.tab;
 /* loaded from: classes.dex */
 public interface h {
-    void US();
+    void aap();
 
-    void j(float f);
+    void jm();
 
-    void jn();
+    void t(float f);
 }

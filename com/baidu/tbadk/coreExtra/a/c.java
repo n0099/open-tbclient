@@ -11,7 +11,7 @@ public interface c {
 
     void g(AccountData accountData);
 
-    AccountData sM();
+    AccountData sL();
 
     void wm();
 

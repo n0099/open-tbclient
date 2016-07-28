@@ -12,66 +12,66 @@ import com.baidu.tieba.card.a.a;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public abstract class b<T extends com.baidu.tieba.card.a.a> extends a<T> {
-    protected RelativeLayout aRo;
-    protected TextView aRp;
-    public TextView aRq;
-    public TextView aRr;
-    private View aRs;
-    private View aRt;
-    private View aRu;
-    public ImageView aRv;
-    public LinearLayout aRw;
-    public View aRx;
-    public View aRy;
+    protected RelativeLayout aSi;
+    protected TextView aSj;
+    public TextView aSk;
+    public TextView aSl;
+    private View aSm;
+    private View aSn;
+    private View aSo;
+    public ImageView aSp;
+    public LinearLayout aSq;
+    public View aSr;
+    public View aSs;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.aRo = null;
-        this.aRp = null;
-        this.aRq = null;
-        this.aRr = null;
-        this.aRs = null;
-        this.aRt = null;
-        this.aRu = null;
-        this.aRw = null;
+        this.aSi = null;
+        this.aSj = null;
+        this.aSk = null;
+        this.aSl = null;
+        this.aSm = null;
+        this.aSn = null;
+        this.aSo = null;
+        this.aSq = null;
         Q(getView());
     }
 
     private void Q(View view) {
-        this.aRo = (RelativeLayout) view.findViewById(u.g.item_layout_group_title);
-        this.aRp = (TextView) view.findViewById(u.g.item_group_title);
-        this.aRq = (TextView) view.findViewById(u.g.item_right_tv);
-        this.aRr = (TextView) view.findViewById(u.g.item_bottom_more_tv);
-        this.aRs = view.findViewById(u.g.divider_line_top);
-        this.aRt = view.findViewById(u.g.divider_line_middle);
-        this.aRu = view.findViewById(u.g.divider_line_bottom);
-        this.aRw = (LinearLayout) view.findViewById(u.g.card_container);
-        this.aRx = view.findViewById(u.g.divider_card);
-        this.aRy = view.findViewById(u.g.divider_card_top);
-        this.aRv = (ImageView) view.findViewById(u.g.item_right_arrow);
+        this.aSi = (RelativeLayout) view.findViewById(u.g.item_layout_group_title);
+        this.aSj = (TextView) view.findViewById(u.g.item_group_title);
+        this.aSk = (TextView) view.findViewById(u.g.item_right_tv);
+        this.aSl = (TextView) view.findViewById(u.g.item_bottom_more_tv);
+        this.aSm = view.findViewById(u.g.divider_line_top);
+        this.aSn = view.findViewById(u.g.divider_line_middle);
+        this.aSo = view.findViewById(u.g.divider_line_bottom);
+        this.aSq = (LinearLayout) view.findViewById(u.g.card_container);
+        this.aSr = view.findViewById(u.g.divider_card);
+        this.aSs = view.findViewById(u.g.divider_card_top);
+        this.aSp = (ImageView) view.findViewById(u.g.item_right_arrow);
     }
 
-    private void KP() {
+    private void KO() {
         if (getFrom() != null && getFrom().equals("home")) {
-            com.baidu.tbadk.core.util.av.c(this.aRp, u.d.cp_cont_d, 1);
-            this.aRv.setVisibility(8);
+            com.baidu.tbadk.core.util.av.c(this.aSj, u.d.cp_cont_d, 1);
+            this.aSp.setVisibility(8);
         } else {
-            com.baidu.tbadk.core.util.av.c(this.aRp, u.d.cp_cont_f, 1);
-            com.baidu.tbadk.core.util.av.c(this.aRv, u.f.icon_arrow_tab);
+            com.baidu.tbadk.core.util.av.c(this.aSj, u.d.cp_cont_f, 1);
+            com.baidu.tbadk.core.util.av.c(this.aSp, u.f.icon_arrow_tab);
         }
-        com.baidu.tbadk.core.util.av.c(this.aRq, u.d.cp_link_tip_c, 1);
-        com.baidu.tbadk.core.util.av.c(this.aRr, u.d.cp_cont_d, 1);
+        com.baidu.tbadk.core.util.av.c(this.aSk, u.d.cp_link_tip_c, 1);
+        com.baidu.tbadk.core.util.av.c(this.aSl, u.d.cp_cont_d, 1);
         com.baidu.tbadk.core.util.av.l(getView(), u.d.cp_bg_line_d);
-        com.baidu.tbadk.core.util.av.l(this.aRs, u.d.cp_bg_line_c);
-        com.baidu.tbadk.core.util.av.l(this.aRt, u.d.cp_bg_line_c);
-        com.baidu.tbadk.core.util.av.l(this.aRu, u.d.cp_bg_line_c);
-        com.baidu.tbadk.core.util.av.l(this.aRx, u.d.cp_bg_line_c);
-        com.baidu.tbadk.core.util.av.l(this.aRy, u.d.cp_bg_line_c);
+        com.baidu.tbadk.core.util.av.l(this.aSm, u.d.cp_bg_line_c);
+        com.baidu.tbadk.core.util.av.l(this.aSn, u.d.cp_bg_line_c);
+        com.baidu.tbadk.core.util.av.l(this.aSo, u.d.cp_bg_line_c);
+        com.baidu.tbadk.core.util.av.l(this.aSr, u.d.cp_bg_line_c);
+        com.baidu.tbadk.core.util.av.l(this.aSs, u.d.cp_bg_line_c);
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            KP();
+            KO();
         }
         this.mSkinType = i;
     }
@@ -81,39 +81,39 @@ public abstract class b<T extends com.baidu.tieba.card.a.a> extends a<T> {
             getView().setVisibility(8);
             return;
         }
-        this.aRp.setText(t.aUO);
-        if (t.aUP > 0) {
-            this.aRq.setBackgroundResource(t.aUP);
+        this.aSj.setText(t.aVL);
+        if (t.aVM > 0) {
+            this.aSk.setBackgroundResource(t.aVM);
         }
-        if (t.aUS) {
-            this.aRy.setVisibility(0);
+        if (t.aVP) {
+            this.aSs.setVisibility(0);
         } else {
-            this.aRy.setVisibility(8);
+            this.aSs.setVisibility(8);
         }
-        if (!StringUtils.isNull(t.aUQ)) {
-            this.aRr.setVisibility(0);
-            this.aRu.setVisibility(0);
-            this.aRt.setVisibility(0);
-            this.aRr.setText(t.aUQ);
-            String str = t.aUR;
+        if (!StringUtils.isNull(t.aVN)) {
+            this.aSl.setVisibility(0);
+            this.aSo.setVisibility(0);
+            this.aSn.setVisibility(0);
+            this.aSl.setText(t.aVN);
+            String str = t.aVO;
             if (!StringUtils.isNull(str)) {
-                this.aRr.setTag(str);
-                this.aRr.setOnClickListener(this);
+                this.aSl.setTag(str);
+                this.aSl.setOnClickListener(this);
                 return;
             }
             return;
         }
-        this.aRr.setVisibility(8);
-        this.aRu.setVisibility(8);
-        this.aRt.setVisibility(8);
+        this.aSl.setVisibility(8);
+        this.aSo.setVisibility(8);
+        this.aSn.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aRr == view && view != null && (view.getTag() instanceof String)) {
+        if (this.aSl == view && view != null && (view.getTag() instanceof String)) {
             String str = (String) view.getTag();
             if (!StringUtils.isNull(str)) {
-                com.baidu.tbadk.core.util.bi.us().c(KN(), new String[]{str});
+                com.baidu.tbadk.core.util.bi.us().c(KM(), new String[]{str});
             }
         }
     }
@@ -123,27 +123,27 @@ public abstract class b<T extends com.baidu.tieba.card.a.a> extends a<T> {
         return u.h.card_group;
     }
 
-    public void fE(int i) {
-        if (this.aRs != null && this.aRs.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams = this.aRs.getLayoutParams();
+    public void fD(int i) {
+        if (this.aSm != null && this.aSm.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams = this.aSm.getLayoutParams();
             layoutParams.height = i;
-            this.aRs.setLayoutParams(layoutParams);
+            this.aSm.setLayoutParams(layoutParams);
         }
-        if (this.aRt != null && this.aRt.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams2 = this.aRt.getLayoutParams();
+        if (this.aSn != null && this.aSn.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams2 = this.aSn.getLayoutParams();
             layoutParams2.height = i;
-            this.aRt.setLayoutParams(layoutParams2);
+            this.aSn.setLayoutParams(layoutParams2);
         }
-        if (this.aRu != null && this.aRu.getLayoutParams() != null) {
-            ViewGroup.LayoutParams layoutParams3 = this.aRu.getLayoutParams();
+        if (this.aSo != null && this.aSo.getLayoutParams() != null) {
+            ViewGroup.LayoutParams layoutParams3 = this.aSo.getLayoutParams();
             layoutParams3.height = i;
-            this.aRu.setLayoutParams(layoutParams3);
+            this.aSo.setLayoutParams(layoutParams3);
         }
     }
 
-    public void ci(boolean z) {
-        if (this.aRx != null) {
-            this.aRx.setVisibility(z ? 0 : 8);
+    public void ck(boolean z) {
+        if (this.aSr != null) {
+            this.aSr.setVisibility(z ? 0 : 8);
         }
     }
 }

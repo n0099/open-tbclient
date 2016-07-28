@@ -1,17 +1,66 @@
 package com.baidu.tieba.write.a;
 
-import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.MetaData;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
-    final /* synthetic */ a fEn;
+public class b {
+    private final ArrayList<MetaData> fRp = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.fEn = aVar;
+    public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
+        String str;
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("uname");
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < optJSONArray.length()) {
+                    MetaData metaData = new MetaData();
+                    String optString = optJSONArray.optString(i2);
+                    metaData.setUserName(optString);
+                    metaData.setName_show(optString);
+                    if (hashMap != null && (str = hashMap.get(metaData.getUserName())) != null) {
+                        metaData.setPortrait(str);
+                    }
+                    this.fRp.add(metaData);
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.fEn.b(new com.baidu.tbadk.editortools.a(18, -1, null));
+    public void c(String str, HashMap<String, String> hashMap) {
+        try {
+            a(new JSONObject(str), hashMap);
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void j(HashMap<String, String> hashMap) {
+        if (hashMap != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.fRp.size()) {
+                    MetaData metaData = this.fRp.get(i2);
+                    metaData.setPortrait(hashMap.get(metaData.getUserName()));
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public ArrayList<MetaData> bnM() {
+        return this.fRp;
     }
 }

@@ -8,47 +8,47 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class l {
-    private TextView aGR;
-    private TextView aPb;
-    private TextView cGC;
-    private TextView dbl;
+    private TextView aHI;
+    private TextView aPV;
+    private TextView cJr;
+    private TextView dei;
     private int status;
 
     public l(View view) {
-        this.aGR = (TextView) view.findViewById(u.g.floating_chat_name);
-        this.dbl = (TextView) view.findViewById(u.g.floating_chat_distance);
-        this.cGC = (TextView) view.findViewById(u.g.floating_chat_time);
-        this.aPb = (TextView) view.findViewById(u.g.floating_chat_add_friend);
+        this.aHI = (TextView) view.findViewById(u.g.floating_chat_name);
+        this.dei = (TextView) view.findViewById(u.g.floating_chat_distance);
+        this.cJr = (TextView) view.findViewById(u.g.floating_chat_time);
+        this.aPV = (TextView) view.findViewById(u.g.floating_chat_add_friend);
     }
 
-    public void lx(String str) {
-        this.aGR.setText(str);
+    public void lE(String str) {
+        this.aHI.setText(str);
     }
 
-    public void lu(int i) {
+    public void lA(int i) {
         this.status = i;
         switch (i) {
             case 0:
-                this.aPb.setClickable(true);
-                this.aPb.setVisibility(0);
-                this.aPb.setText(u.j.frs_recommend_friend_item_add);
+                this.aPV.setClickable(true);
+                this.aPV.setVisibility(0);
+                this.aPV.setText(u.j.frs_recommend_friend_item_add);
                 return;
             case 1:
             case 3:
-                this.aPb.setVisibility(8);
+                this.aPV.setVisibility(8);
                 return;
             case 2:
-                this.aPb.setVisibility(0);
-                this.aPb.setText(u.j.waiting);
-                this.aPb.setClickable(false);
-                this.aPb.setBackgroundResource(u.d.common_color_10022);
-                this.aPb.setText(u.j.waiting);
-                this.aPb.setTextColor(TbadkCoreApplication.m9getInst().getResources().getColor(u.d.cp_cont_d));
+                this.aPV.setVisibility(0);
+                this.aPV.setText(u.j.waiting);
+                this.aPV.setClickable(false);
+                this.aPV.setBackgroundResource(u.d.common_color_10022);
+                this.aPV.setText(u.j.waiting);
+                this.aPV.setTextColor(TbadkCoreApplication.m10getInst().getResources().getColor(u.d.cp_cont_d));
                 return;
             case 4:
-                this.aPb.setClickable(true);
-                this.aPb.setVisibility(0);
-                this.aPb.setText(u.j.add_friend_agree_button);
+                this.aPV.setClickable(true);
+                this.aPV.setVisibility(0);
+                this.aPV.setText(u.j.add_friend_agree_button);
                 return;
             default:
                 return;
@@ -56,27 +56,27 @@ public class l {
     }
 
     public void r(View.OnClickListener onClickListener) {
-        this.aPb.setOnClickListener(onClickListener);
+        this.aPV.setOnClickListener(onClickListener);
     }
 
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
-        this.aGR.setText(str);
+        this.aHI.setText(str);
         if (bVar != null) {
             if (bVar.zc() < 0 || bVar.zc() > 1) {
-                this.dbl.setVisibility(8);
-                this.cGC.setVisibility(8);
+                this.dei.setVisibility(8);
+                this.cJr.setVisibility(8);
                 return;
             }
-            this.dbl.setVisibility(0);
-            this.cGC.setVisibility(0);
-            this.dbl.setText(TbadkCoreApplication.m9getInst().getResources().getString(u.j.contact_yinshen));
+            this.dei.setVisibility(0);
+            this.cJr.setVisibility(0);
+            this.dei.setText(TbadkCoreApplication.m10getInst().getResources().getString(u.j.contact_yinshen));
             if (!StringUtils.isNull(bVar.getDistance()) && bVar.getTime() > 0) {
-                this.dbl.setVisibility(0);
-                this.dbl.setText(bVar.getDistance());
-                this.cGC.setText(ba.x(bVar.getTime()));
+                this.dei.setVisibility(0);
+                this.dei.setText(bVar.getDistance());
+                this.cJr.setText(ba.s(bVar.getTime()));
                 return;
             }
-            this.dbl.setVisibility(8);
+            this.dei.setVisibility(8);
         }
     }
 }

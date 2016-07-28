@@ -3,16 +3,16 @@ package com.baidu.tieba.write.video;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class j implements DialogInterface.OnCancelListener {
-    final /* synthetic */ WriteVideoActivity fGf;
+    final /* synthetic */ WriteVideoActivity fSg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(WriteVideoActivity writeVideoActivity) {
-        this.fGf = writeVideoActivity;
+        this.fSg = writeVideoActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.fGf.destroyWaitingDialog();
-        this.fGf.bkD();
+        this.fSg.destroyWaitingDialog();
+        this.fSg.bbm();
     }
 }

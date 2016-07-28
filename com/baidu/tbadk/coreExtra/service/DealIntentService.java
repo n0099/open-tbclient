@@ -118,14 +118,14 @@ public class DealIntentService extends BdBaseService {
             String stringExtra = this.intent.getStringExtra("link");
             long j = this.intent.getExtras().getLong(InterviewLiveActivityConfig.KEY_TASK_ID);
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
-                TiebaStatic.eventStat(TbadkCoreApplication.m9getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.eventStat(TbadkCoreApplication.m10getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
             }
-            List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkCoreApplication.m9getInst().getApp().getSystemService("activity")).getRunningTasks(500);
+            List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkCoreApplication.m10getInst().getApp().getSystemService("activity")).getRunningTasks(500);
             String mentionActivityClassName = SingleMentionActivityConfig.getMentionActivityClassName();
             for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                 if (runningTaskInfo.baseActivity.getPackageName().equals(DealIntentService.this.getPackageName())) {
                     if (5 == this.intent.getIntExtra("class", -1)) {
-                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.sI())) {
+                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.sH())) {
                             this.intent.putExtra("class", 11);
                         }
                         if (mentionActivityClassName != null && runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(mentionActivityClassName)) {
@@ -149,7 +149,7 @@ public class DealIntentService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: es */
+        /* renamed from: er */
         public void onPostExecute(String str) {
             if (str != null) {
                 if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {

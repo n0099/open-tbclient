@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class n implements a.b {
-    final /* synthetic */ PersonalTalkSettingActivity cZm;
+    final /* synthetic */ PersonalTalkSettingActivity dcj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.cZm = personalTalkSettingActivity;
+        this.dcj = personalTalkSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -16,7 +16,7 @@ class n implements a.b {
         r rVar;
         aVar.dismiss();
         TiebaStatic.log("personalchat_morepage_addblack");
-        rVar = this.cZm.cZk;
-        rVar.fP(true);
+        rVar = this.dcj.dch;
+        rVar.fS(true);
     }
 }

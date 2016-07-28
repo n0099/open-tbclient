@@ -4,27 +4,27 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class bl {
-    private com.baidu.tbadk.editortools.l aqo;
-    private BaseActivity<?> bkc;
-    private com.baidu.tbadk.editortools.j fJC;
-    private boolean fJD = false;
-    private boolean fJE = false;
+    private com.baidu.tbadk.editortools.l ard;
+    private BaseActivity<?> bem;
+    private com.baidu.tbadk.editortools.j fVt;
+    private boolean fVu = false;
+    private boolean fVv = false;
 
     public bl(BaseActivity<?> baseActivity, com.baidu.tbadk.editortools.l lVar) {
-        this.bkc = baseActivity;
-        this.aqo = lVar;
+        this.bem = baseActivity;
+        this.ard = lVar;
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.fJD) {
-            if (this.fJC != null) {
-                this.fJC.Br();
-                this.fJC = null;
+        if (this.fVu) {
+            if (this.fVt != null) {
+                this.fVt.Br();
+                this.fVt = null;
             }
-        } else if (!this.fJE && z) {
-            this.fJE = true;
-            this.fJC = new com.baidu.tbadk.editortools.j(this.bkc.getResources().getString(u.j.graffiti_write_tips), "graffiti_write_tip_show", 24, 24);
-            this.bkc.getSafeHandler().postDelayed(new bm(this), 500L);
+        } else if (!this.fVv && z) {
+            this.fVv = true;
+            this.fVt = new com.baidu.tbadk.editortools.j(this.bem.getResources().getString(u.j.graffiti_write_tips), "graffiti_write_tip_show", 24, 24);
+            this.bem.getSafeHandler().postDelayed(new bm(this), 500L);
         }
     }
 }

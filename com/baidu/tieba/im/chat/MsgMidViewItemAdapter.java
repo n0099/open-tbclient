@@ -16,9 +16,9 @@ public class MsgMidViewItemAdapter extends ap<aq> {
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<aq> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        aVar.akE().setData(chatMessage);
-        this.Ea.getLayoutMode().ad(false);
-        this.Ea.getLayoutMode().w(view);
+        aVar.alo().setData(chatMessage);
+        this.EA.getLayoutMode().af(false);
+        this.EA.getLayoutMode().w(view);
         return view;
     }
 
@@ -27,7 +27,7 @@ public class MsgMidViewItemAdapter extends ap<aq> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aH */
     public ap.a<aq> a(ViewGroup viewGroup) {
-        aq aqVar = new aq(this.Ea);
+        aq aqVar = new aq(this.EA);
         return new a(aqVar.ac(), aqVar);
     }
 

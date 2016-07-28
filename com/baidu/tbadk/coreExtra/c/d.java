@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d ahc;
+    private static d ahR;
 
     private d() {
     }
@@ -21,10 +21,10 @@ public class d {
     public static synchronized d xl() {
         d dVar;
         synchronized (d.class) {
-            if (ahc == null) {
-                ahc = new d();
+            if (ahR == null) {
+                ahR = new d();
             }
-            dVar = ahc;
+            dVar = ahR;
         }
         return dVar;
     }
@@ -91,7 +91,7 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [173=4] */
-    public boolean el(String str) {
+    public boolean ek(String str) {
         Cursor cursor;
         SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -136,7 +136,7 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [212=4] */
-    public GameInfoData em(String str) {
+    public GameInfoData el(String str) {
         Cursor cursor;
         SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -182,7 +182,7 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [249=4] */
-    public GameInfoData en(String str) {
+    public GameInfoData em(String str) {
         Cursor cursor;
         SQLiteDatabase xi = b.xi();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();

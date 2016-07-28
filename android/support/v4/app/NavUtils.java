@@ -139,7 +139,7 @@ public class NavUtils {
         return IMPL.getParentActivityIntent(activity);
     }
 
-    public static Intent getParentActivityIntent(Context context, Class<?> cls) {
+    public static Intent getParentActivityIntent(Context context, Class<?> cls) throws PackageManager.NameNotFoundException {
         String parentActivityName = getParentActivityName(context, new ComponentName(context, cls));
         if (parentActivityName == null) {
             return null;
@@ -148,7 +148,7 @@ public class NavUtils {
         return getParentActivityName(context, componentName) == null ? IntentCompat.makeMainActivity(componentName) : new Intent().setComponent(componentName);
     }
 
-    public static Intent getParentActivityIntent(Context context, ComponentName componentName) {
+    public static Intent getParentActivityIntent(Context context, ComponentName componentName) throws PackageManager.NameNotFoundException {
         String parentActivityName = getParentActivityName(context, componentName);
         if (parentActivityName == null) {
             return null;
@@ -165,7 +165,7 @@ public class NavUtils {
         }
     }
 
-    public static String getParentActivityName(Context context, ComponentName componentName) {
+    public static String getParentActivityName(Context context, ComponentName componentName) throws PackageManager.NameNotFoundException {
         return IMPL.getParentActivityName(context, context.getPackageManager().getActivityInfo(componentName, 128));
     }
 

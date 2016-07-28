@@ -3,18 +3,18 @@ package com.baidu.tieba.im.c;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* loaded from: classes.dex */
 class u implements com.baidu.tbadk.util.g<Boolean> {
-    private final /* synthetic */ OfficialChatMessage cWa;
-    final /* synthetic */ o cWe;
+    private final /* synthetic */ OfficialChatMessage cYV;
+    final /* synthetic */ o cYZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(o oVar, OfficialChatMessage officialChatMessage) {
-        this.cWe = oVar;
-        this.cWa = officialChatMessage;
+        this.cYZ = oVar;
+        this.cYV = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.g
     public void onReturnDataInUI(Boolean bool) {
-        a.j(this.cWa);
+        a.j(this.cYV);
     }
 }

@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a dX;
-    private SparseArray<String> dY;
+    private static volatile a eA;
+    private SparseArray<String> eB;
 
     public static a am() {
-        if (dX == null) {
+        if (eA == null) {
             synchronized (a.class) {
-                if (dX == null) {
-                    dX = new a();
+                if (eA == null) {
+                    eA = new a();
                 }
             }
         }
-        return dX;
+        return eA;
     }
 
     private a() {
-        this.dY = null;
-        this.dY = new SparseArray<>();
+        this.eB = null;
+        this.eB = new SparseArray<>();
     }
 
     public void c(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                u(str);
+                y(str);
             }
         }
     }
 
-    private void u(String str) {
+    private void y(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.dY.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.dY.get(i) + " 重复");
+                    if (this.eB.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.eB.get(i) + " 重复");
                     }
-                    this.dY.put(i, name);
+                    this.eB.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String r(int i) {
-        String str = this.dY.get(i);
+    public String u(int i) {
+        String str = this.eB.get(i);
         if (str != null) {
             return str;
         }

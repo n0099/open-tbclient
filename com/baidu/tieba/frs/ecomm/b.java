@@ -6,24 +6,24 @@ import com.baidu.tieba.frs.ecomm.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends HttpMessageListener {
-    final /* synthetic */ a bIn;
+    final /* synthetic */ a bJI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, boolean z) {
         super(i, z);
-        this.bIn = aVar;
+        this.bJI = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        a.InterfaceC0055a interfaceC0055a;
-        a.InterfaceC0055a interfaceC0055a2;
-        interfaceC0055a = this.bIn.bIm;
-        if (interfaceC0055a != null) {
-            interfaceC0055a2 = this.bIn.bIm;
-            interfaceC0055a2.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), (EcommCanSendThreadResponseMessage) httpResponsedMessage);
+        a.InterfaceC0056a interfaceC0056a;
+        a.InterfaceC0056a interfaceC0056a2;
+        interfaceC0056a = this.bJI.bJH;
+        if (interfaceC0056a != null) {
+            interfaceC0056a2 = this.bJI.bJH;
+            interfaceC0056a2.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), (EcommCanSendThreadResponseMessage) httpResponsedMessage);
         }
     }
 }

@@ -4,25 +4,25 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ AccountActivity aLu;
+    final /* synthetic */ AccountActivity aMo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AccountActivity accountActivity, int i) {
         super(i);
-        this.aLu = accountActivity;
+        this.aMo = accountActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || this.aLu.aLl == null) {
+        if (customResponsedMessage == null || this.aMo.aMf == null) {
             return;
         }
-        this.aLu.IV();
-        if (this.aLu.aLm != null) {
-            this.aLu.aLm.setData(this.aLu.aLl);
-            this.aLu.aLm.notifyDataSetChanged();
+        this.aMo.IU();
+        if (this.aMo.aMg != null) {
+            this.aMo.aMg.setData(this.aMo.aMf);
+            this.aMo.aMg.notifyDataSetChanged();
         }
     }
 }

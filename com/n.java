@@ -27,7 +27,7 @@ public class n implements ISocialShareHandler {
     private static final String a = n.class.getSimpleName();
     private static Map b = new HashMap();
     private static Map c = new HashMap();
-    private Weixin cT;
+    private Weixin cR;
     private Context d;
     private String e;
     private boolean f;
@@ -45,7 +45,7 @@ public class n implements ISocialShareHandler {
         @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
         public void onComplete(Bitmap bitmap) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                n.this.a(this.b, n.this.b(bitmap));
+                n.this.a(this.b, n.this.e(bitmap));
                 return;
             }
             IBaiduListener q = n.q(n.this.h);
@@ -60,8 +60,8 @@ public class n implements ISocialShareHandler {
         this.d = context;
         this.e = str;
         this.f = z;
-        this.cT = new Weixin(context, str);
-        this.cT.registerApp();
+        this.cR = new Weixin(context, str);
+        this.cR.registerApp();
         this.h = a();
     }
 
@@ -71,7 +71,7 @@ public class n implements ISocialShareHandler {
 
     private void a(Bundle bundle) {
         Weixin.addBaseRequestParams(bundle, this.h, this.f);
-        if (this.cT.sendRequest(bundle)) {
+        if (this.cR.sendRequest(bundle)) {
             return;
         }
         Log.e(a, "sendMessage error");
@@ -84,7 +84,7 @@ public class n implements ISocialShareHandler {
 
     private void a(ShareContent shareContent) {
         if (shareContent.getImageData() != null) {
-            a(shareContent, b(shareContent.getImageData()), WXMediaMessage.getCompressedImageData(shareContent.getImageData()), false);
+            a(shareContent, e(shareContent.getImageData()), WXMediaMessage.getCompressedImageData(shareContent.getImageData()), false);
         } else if (shareContent.getImageUri() != null) {
             ImageManager.getInstance().loadImage(this.d, shareContent.getImageUri(), new a(shareContent));
         } else {
@@ -95,12 +95,12 @@ public class n implements ISocialShareHandler {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareContent shareContent, IBaiduListener iBaiduListener) {
         SocialShareConfig socialShareConfig = SocialShareConfig.getInstance(this.d);
-        if (!this.cT.isAppInstalled()) {
+        if (!this.cR.isAppInstalled()) {
             Toast.makeText(this.d, socialShareConfig.getString("weixin_not_installed"), 1).show();
             if (iBaiduListener != null) {
                 iBaiduListener.onError(new BaiduException("weixin not installed yet"));
             }
-        } else if (this.f && !this.cT.isTimelineSupported()) {
+        } else if (this.f && !this.cR.isTimelineSupported()) {
             Toast.makeText(this.d, socialShareConfig.getString("weixin_timeline_not_supported"), 1).show();
             if (iBaiduListener != null) {
                 iBaiduListener.onError(new BaiduException("this version of weixin has no support for timeline related api"));
@@ -210,8 +210,12 @@ public class n implements ISocialShareHandler {
         return (bitmap.getHeight() * i) / bitmap.getWidth();
     }
 
+    private int c(Bitmap bitmap, int i) {
+        return (bitmap.getWidth() * i) / bitmap.getHeight();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public byte[] b(Bitmap bitmap) {
+    public byte[] e(Bitmap bitmap) {
         int i;
         int i2 = 150;
         if (bitmap != null) {
@@ -230,10 +234,6 @@ public class n implements ISocialShareHandler {
             return compressedImageData;
         }
         return null;
-    }
-
-    private int c(Bitmap bitmap, int i) {
-        return (bitmap.getWidth() * i) / bitmap.getHeight();
     }
 
     public static IBaiduListener q(String str) {

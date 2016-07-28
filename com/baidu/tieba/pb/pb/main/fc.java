@@ -1,41 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.u;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fc implements View.OnClickListener {
-    private final /* synthetic */ boolean dPH;
-    final /* synthetic */ es dVR;
+public class fc implements Animation.AnimationListener {
+    final /* synthetic */ ew eiu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fc(es esVar, boolean z) {
-        this.dVR = esVar;
-        this.dPH = z;
+    public fc(ew ewVar) {
+        this.eiu = ewVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        PbActivity pbActivity;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity2;
-        dialog = this.dVR.dUp;
-        if (dialog != null) {
-            dialog2 = this.dVR.dUp;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.dVR.dUp;
-                pbActivity2 = this.dVR.dOg;
-                com.baidu.adp.lib.h.j.b(dialog3, pbActivity2.getPageContext());
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        com.baidu.tbadk.editortools.l lVar;
+        View view2;
+        com.baidu.tbadk.editortools.l lVar2;
+        ew ewVar = this.eiu;
+        view = this.eiu.eho;
+        ewVar.eht = view.getVisibility() == 0;
+        lVar = this.eiu.Cw;
+        if (lVar != null) {
+            lVar2 = this.eiu.Cw;
+            lVar2.hide();
         }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            pbActivity = this.dVR.dOg;
-            pbActivity.a(this.dPH, (String) sparseArray.get(u.g.tag_user_mute_mute_userid), sparseArray);
-        }
+        view2 = this.eiu.eho;
+        view2.setVisibility(8);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

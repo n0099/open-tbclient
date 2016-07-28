@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.print.PrintAttributes;
 import android.print.PrintManager;
+import java.io.FileNotFoundException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a {
@@ -57,7 +58,7 @@ public class a {
         }
     }
 
-    public void printBitmap(String str, Uri uri) {
+    public void printBitmap(String str, Uri uri) throws FileNotFoundException {
         c cVar = new c(this, str, uri, this.mScaleMode);
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();

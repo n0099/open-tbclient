@@ -52,6 +52,7 @@ public class CmdConfigCustom {
     public static final int CMD_BIND_CARD = 2016457;
     public static final int CMD_BIND_CARD_SUCCESS = 2016458;
     public static final int CMD_BIND_LIVESERVICE = 2903001;
+    public static final int CMD_BOOK_BUY_STATE_CHANGED = 2001431;
     public static final int CMD_BUBBLE_TOOL_CRTL = 2001346;
     public static final int CMD_BUBBLE_TOOL_RED_DOT = 2001360;
     public static final int CMD_BUY_YINJI_SUCCESS = 2001233;
@@ -166,6 +167,7 @@ public class CmdConfigCustom {
     public static final int CMD_GET_LEVEL_INFO_CACHE = 2003007;
     public static final int CMD_GET_LIVE_CHANGED_INFO = 2001338;
     public static final int CMD_GET_LIVE_PLAY_IMAGE = 2001269;
+    public static final int CMD_GET_MANGA_DB_DATA = 2001432;
     public static final int CMD_GET_MEMBER_CENTER_CACHE = 2016460;
     public static final int CMD_GET_NEW_FRIEND_DATA_BY_ID = 2001312;
     public static final int CMD_GET_OFFICIAL_ACCOUNT = 2001272;
@@ -214,6 +216,7 @@ public class CmdConfigCustom {
     public static final int CMD_HOME_PAGE_READ_CACHE = 2016314;
     public static final int CMD_HOME_PAGE_SEND_USER_MODULE = 2016316;
     public static final int CMD_HOME_PAGE_WRITE_CACHE = 2016315;
+    public static final int CMD_HOME_TAB_LAST_READ_POSITION = 2001433;
     public static final int CMD_HOT_GROUPS_LOCAL = 2001116;
     public static final int CMD_IMMERSIVE_STICKY_SWITCH_STATUS_CHANGE = 2016323;
     public static final int CMD_IM_GROUP_CONFIRM_PASSED = 2001220;

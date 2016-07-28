@@ -5,11 +5,11 @@ import com.baidu.tieba.onlineDebugger.command.h;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class d implements b {
-    private String dHZ;
+    private String dUi;
     private String fieldName;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
-    public Object N(Object obj) {
+    public Object Q(Object obj) {
         Field b;
         String str = null;
         if (obj != null) {
@@ -23,18 +23,18 @@ public class d implements b {
                     if (!b.isAccessible()) {
                         b.setAccessible(true);
                     }
-                    if (this.dHZ.contains(".") || (this.dHZ.contains("(") && this.dHZ.contains(")"))) {
-                        h nf = com.baidu.tieba.onlineDebugger.e.b.nf("get " + this.dHZ);
-                        if (nf != null) {
-                            Object aCF = nf.aCF();
-                            if (aCF != null) {
-                                str = aCF.toString();
+                    if (this.dUi.contains(".") || (this.dUi.contains("(") && this.dUi.contains(")"))) {
+                        h nQ = com.baidu.tieba.onlineDebugger.e.b.nQ("get " + this.dUi);
+                        if (nQ != null) {
+                            Object aFP = nQ.aFP();
+                            if (aFP != null) {
+                                str = aFP.toString();
                             }
                         } else {
-                            str = this.dHZ;
+                            str = this.dUi;
                         }
                     } else {
-                        str = this.dHZ;
+                        str = this.dUi;
                     }
                     BdLog.e(String.valueOf(obj.toString()) + " before setField " + this.fieldName + " value = " + (str == null ? "null" : str.toString()));
                     com.baidu.tieba.onlineDebugger.d.a(b, obj, str);
@@ -54,11 +54,11 @@ public class d implements b {
         return null;
     }
 
-    public void mO(String str) {
+    public void nz(String str) {
         this.fieldName = str;
     }
 
-    public void mQ(String str) {
-        this.dHZ = str;
+    public void nB(String str) {
+        this.dUi = str;
     }
 }

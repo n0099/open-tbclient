@@ -8,32 +8,32 @@ import com.baidu.adp.lib.util.k;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends DiskFileOperate {
-    protected BitmapFactory.Options hJ;
-    protected a hK;
+    protected BitmapFactory.Options im;
+    protected a io;
     protected Bitmap mBitmap;
 
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.hJ = null;
-        this.hK = null;
-        this.hK = new a();
+        this.im = null;
+        this.io = null;
+        this.io = new a();
+    }
+
+    public boolean cd() {
+        return this.io.iu;
+    }
+
+    public void s(boolean z) {
+        this.io.iu = z;
     }
 
     public boolean ce() {
-        return this.hK.hN;
+        return this.io.ix;
     }
 
-    public void q(boolean z) {
-        this.hK.hN = z;
-    }
-
-    public boolean cf() {
-        return this.hK.hP;
-    }
-
-    public void r(boolean z) {
-        this.hK.hP = z;
+    public void t(boolean z) {
+        this.io.ix = z;
     }
 
     public Bitmap getBitmap() {
@@ -43,30 +43,30 @@ public class c extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!ce() && k.j(bArr)) {
-            q(true);
+        if (!cd() && k.m(bArr)) {
+            s(true);
         }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] bR() {
-        if (this.hw == null) {
+    public byte[] bQ() {
+        if (this.hY == null) {
             return null;
         }
-        return this.hK.toByteArray();
+        return this.io.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean h(byte[] bArr) {
-        if (bArr != null && this.hK.i(bArr)) {
-            if (this.hK.hO == 0 || this.hK.hO >= System.currentTimeMillis()) {
-                if (this.hJ == null) {
-                    this.hJ = new BitmapFactory.Options();
-                    this.hJ.inPreferredConfig = Bitmap.Config.RGB_565;
+    public boolean k(byte[] bArr) {
+        if (bArr != null && this.io.l(bArr)) {
+            if (this.io.iw == 0 || this.io.iw >= System.currentTimeMillis()) {
+                if (this.im == null) {
+                    this.im = new BitmapFactory.Options();
+                    this.im.inPreferredConfig = Bitmap.Config.RGB_565;
                 }
                 int headerSize = a.getHeaderSize();
                 try {
-                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.hJ);
+                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.im);
                 } catch (Error e) {
                     BdLog.e(e.getMessage());
                 }
@@ -77,21 +77,21 @@ public class c extends DiskFileOperate {
         return false;
     }
 
-    public byte[] cg() {
+    public byte[] cf() {
         int headerSize = a.getHeaderSize();
-        byte[] bArr = new byte[this.hw.length - headerSize];
-        System.arraycopy(this.hw, headerSize, bArr, 0, bArr.length);
+        byte[] bArr = new byte[this.hY.length - headerSize];
+        System.arraycopy(this.hY, headerSize, bArr, 0, bArr.length);
         return bArr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte hL = Byte.MIN_VALUE;
-        private static byte hM = Byte.MIN_VALUE;
-        boolean hN = false;
-        long hO = 0;
-        boolean hP = true;
+        private static byte iq = Byte.MIN_VALUE;
+        private static byte ir = Byte.MIN_VALUE;
+        boolean iu = false;
+        long iw = 0;
+        boolean ix = true;
 
         a() {
         }
@@ -103,25 +103,25 @@ public class c extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600511);
-            allocate.put(this.hN ? (byte) (hL | 0) : (byte) 0);
-            allocate.putLong(this.hO);
-            allocate.put(this.hP ? (byte) 0 : (byte) (hM | 0));
+            allocate.put(this.iu ? (byte) (iq | 0) : (byte) 0);
+            allocate.putLong(this.iw);
+            allocate.put(this.ix ? (byte) 0 : (byte) (ir | 0));
             allocate.flip();
             return allocate.array();
         }
 
-        public boolean i(byte[] bArr) {
+        public boolean l(byte[] bArr) {
             if (bArr == null || bArr.length < getHeaderSize()) {
                 return false;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600511) {
-                if ((wrap.get() & hL) != 0) {
-                    this.hN = true;
+                if ((wrap.get() & iq) != 0) {
+                    this.iu = true;
                 }
-                this.hO = wrap.getLong();
-                if ((wrap.get() & hM) != 0) {
-                    this.hP = false;
+                this.iw = wrap.getLong();
+                if ((wrap.get() & ir) != 0) {
+                    this.ix = false;
                 }
                 return true;
             }

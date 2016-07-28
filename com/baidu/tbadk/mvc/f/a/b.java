@@ -3,10 +3,10 @@ package com.baidu.tbadk.mvc.f.a;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
 public class b {
-    private int awG;
-    private int awH;
-    private FragmentTabIndicator.a awI;
-    private String awJ;
+    private int axv;
+    private FragmentTabIndicator.a axw;
+    private String axx;
+    private int tabType;
     private String title;
 
     public String getTitle() {
@@ -17,31 +17,31 @@ public class b {
         this.title = str;
     }
 
-    public int DX() {
-        return this.awH;
+    public int DW() {
+        return this.axv;
     }
 
-    public FragmentTabIndicator.a DY() {
-        return this.awI;
+    public FragmentTabIndicator.a DX() {
+        return this.axw;
     }
 
     public void a(FragmentTabIndicator.a aVar) {
-        this.awI = aVar;
+        this.axw = aVar;
     }
 
-    public String DZ() {
-        return this.awJ;
+    public String DY() {
+        return this.axx;
     }
 
-    public void gb(String str) {
-        this.awJ = str;
+    public void fZ(String str) {
+        this.axx = str;
     }
 
-    public int Ea() {
-        return this.awG;
+    public int DZ() {
+        return this.tabType;
     }
 
     public void eH(int i) {
-        this.awG = i;
+        this.tabType = i;
     }
 }

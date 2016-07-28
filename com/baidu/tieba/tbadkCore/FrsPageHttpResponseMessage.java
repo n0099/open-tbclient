@@ -42,29 +42,29 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 this.needCache = mVar.isNeedCache();
                 this.mCategoryId = mVar.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = mVar.bak();
+                this.mSortType = mVar.bdy();
                 this.mIsGood = mVar.getIsGood();
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new n();
-        FrsPageResIdl A = this.responseData.A(bArr);
-        if (A != null && A.error != null) {
-            if (A.error.errorno != null) {
-                setError(A.error.errorno.intValue());
+        FrsPageResIdl D = this.responseData.D(bArr);
+        if (D != null && D.error != null) {
+            if (D.error.errorno != null) {
+                setError(D.error.errorno.intValue());
             }
-            setErrorString(A.error.usermsg);
+            setErrorString(D.error.usermsg);
         }
         setData(this.responseData);
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aDN() != null) {
-            d.bah().a(d.bah().d(this.responseData.aDN().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aGX() != null) {
+            d.bdv().a(d.bdv().e(this.responseData.aGX().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
         }
     }
 

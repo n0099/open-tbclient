@@ -71,14 +71,14 @@ public class MessageManager {
     }
 
     private com.baidu.adp.framework.b.c<?, ?, ?, ?> getManager(int i) {
-        FrameHelper.TYPE s = FrameHelper.s(i);
-        if (s == FrameHelper.TYPE.HTTP) {
+        FrameHelper.TYPE v = FrameHelper.v(i);
+        if (v == FrameHelper.TYPE.HTTP) {
             return this.mHttpManager;
         }
-        if (s == FrameHelper.TYPE.SOCKET) {
+        if (v == FrameHelper.TYPE.SOCKET) {
             return this.mSocketManager;
         }
-        if (s == FrameHelper.TYPE.CUSTOM) {
+        if (v == FrameHelper.TYPE.CUSTOM) {
             return this.mCustomManager;
         }
         BdLog.e("cmd invalid");
@@ -91,15 +91,15 @@ public class MessageManager {
         }
         message.setStartTime(System.currentTimeMillis());
         if (message instanceof HttpMessage) {
-            com.baidu.adp.a.a.b.c("Request_Http", message);
+            com.baidu.adp.a.a.b.i("Request_Http", message);
             return this.mHttpManager.e((HttpMessage) message, null);
         } else if (message instanceof SocketMessage) {
-            com.baidu.adp.a.a.b.c("Request_Socket", message);
+            com.baidu.adp.a.a.b.i("Request_Socket", message);
             return this.mSocketManager.e((SocketMessage) message, null);
         } else if (message instanceof CustomMessage) {
             return this.mCustomManager.e((CustomMessage) message, null);
         } else {
-            BdLog.e("message invalid" + a.am().r(message.getCmd()));
+            BdLog.e("message invalid" + a.am().u(message.getCmd()));
             return false;
         }
     }
@@ -142,15 +142,15 @@ public class MessageManager {
             return false;
         }
         if ((message instanceof HttpMessage) && (messageTask instanceof HttpMessageTask)) {
-            com.baidu.adp.a.a.b.c("Request_Http", message);
+            com.baidu.adp.a.a.b.i("Request_Http", message);
             return this.mHttpManager.e((HttpMessage) message, (HttpMessageTask) messageTask);
         } else if ((message instanceof SocketMessage) && (messageTask instanceof SocketMessageTask)) {
-            com.baidu.adp.a.a.b.c("Request_Socket", message);
+            com.baidu.adp.a.a.b.i("Request_Socket", message);
             return this.mSocketManager.e((SocketMessage) message, (SocketMessageTask) messageTask);
         } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {
             return this.mCustomManager.e((CustomMessage) message, (CustomMessageTask) messageTask);
         } else {
-            BdLog.e("message and task invalid:" + a.am().r(message.getCmd()));
+            BdLog.e("message and task invalid:" + a.am().u(message.getCmd()));
             return false;
         }
     }
@@ -217,7 +217,7 @@ public class MessageManager {
 
     public void registerTask(MessageTask messageTask) {
         if (messageTask != null) {
-            com.baidu.adp.lib.util.k.fG();
+            com.baidu.adp.lib.util.k.fF();
             if (messageTask instanceof HttpMessageTask) {
                 this.mHttpManager.registerTask((HttpMessageTask) messageTask);
             } else if (messageTask instanceof SocketMessageTask) {
@@ -231,33 +231,33 @@ public class MessageManager {
     }
 
     public MessageTask findTask(int i) {
-        FrameHelper.TYPE s = FrameHelper.s(i);
-        if (FrameHelper.TYPE.HTTP == s) {
+        FrameHelper.TYPE v = FrameHelper.v(i);
+        if (FrameHelper.TYPE.HTTP == v) {
             return this.mHttpManager.findTask(i);
         }
-        if (FrameHelper.TYPE.SOCKET == s) {
+        if (FrameHelper.TYPE.SOCKET == v) {
             return this.mSocketManager.findTask(i);
         }
-        if (FrameHelper.TYPE.CUSTOM != s) {
+        if (FrameHelper.TYPE.CUSTOM != v) {
             return null;
         }
         return this.mCustomManager.findTask(i);
     }
 
     public ArrayList<HttpMessageTask> findHttpTasks() {
-        return this.mHttpManager.bp();
+        return this.mHttpManager.bo();
     }
 
     public ArrayList<CustomMessageTask> findCustomTasks() {
-        return this.mCustomManager.bp();
+        return this.mCustomManager.bo();
     }
 
     public ArrayList<SocketMessageTask> findSocketTasks() {
-        return this.mSocketManager.bp();
+        return this.mSocketManager.bo();
     }
 
     public void unRegisterTask(int i) {
-        com.baidu.adp.lib.util.k.fG();
+        com.baidu.adp.lib.util.k.fF();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.unRegisterTask(i);
@@ -266,16 +266,16 @@ public class MessageManager {
 
     public void registerListener(final com.baidu.adp.framework.listener.a aVar) {
         if (aVar != null) {
-            if (com.baidu.adp.lib.util.k.fH()) {
-                this.mHttpManager.registerListener(0, aVar.bn());
-                this.mSocketManager.registerListener(0, aVar.bo());
+            if (com.baidu.adp.lib.util.k.fG()) {
+                this.mHttpManager.registerListener(0, aVar.bm());
+                this.mSocketManager.registerListener(0, aVar.bn());
                 return;
             }
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.this.mHttpManager.registerListener(0, aVar.bn());
-                    MessageManager.this.mSocketManager.registerListener(0, aVar.bo());
+                    MessageManager.this.mHttpManager.registerListener(0, aVar.bm());
+                    MessageManager.this.mSocketManager.registerListener(0, aVar.bn());
                 }
             });
         }
@@ -283,16 +283,16 @@ public class MessageManager {
 
     public void registerListener(final int i, final com.baidu.adp.framework.listener.a aVar) {
         if (aVar != null) {
-            if (com.baidu.adp.lib.util.k.fH()) {
-                this.mHttpManager.registerListener(i, aVar.bn());
-                this.mSocketManager.registerListener(i, aVar.bo());
+            if (com.baidu.adp.lib.util.k.fG()) {
+                this.mHttpManager.registerListener(i, aVar.bm());
+                this.mSocketManager.registerListener(i, aVar.bn());
                 return;
             }
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.this.mHttpManager.registerListener(i, aVar.bn());
-                    MessageManager.this.mSocketManager.registerListener(i, aVar.bo());
+                    MessageManager.this.mHttpManager.registerListener(i, aVar.bm());
+                    MessageManager.this.mSocketManager.registerListener(i, aVar.bn());
                 }
             });
         }
@@ -300,16 +300,16 @@ public class MessageManager {
 
     public void unRegisterListener(final com.baidu.adp.framework.listener.a aVar) {
         if (aVar != null) {
-            if (com.baidu.adp.lib.util.k.fH()) {
-                this.mHttpManager.unRegisterListener(aVar.bn());
-                this.mSocketManager.unRegisterListener(aVar.bo());
+            if (com.baidu.adp.lib.util.k.fG()) {
+                this.mHttpManager.unRegisterListener(aVar.bm());
+                this.mSocketManager.unRegisterListener(aVar.bn());
                 return;
             }
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.this.mHttpManager.unRegisterListener(aVar.bn());
-                    MessageManager.this.mSocketManager.unRegisterListener(aVar.bo());
+                    MessageManager.this.mHttpManager.unRegisterListener(aVar.bm());
+                    MessageManager.this.mSocketManager.unRegisterListener(aVar.bn());
                 }
             });
         }
@@ -317,7 +317,7 @@ public class MessageManager {
 
     public void registerListenerFromBackground(final MessageListener<?> messageListener) {
         if (messageListener != null) {
-            if (com.baidu.adp.lib.util.k.fH()) {
+            if (com.baidu.adp.lib.util.k.fG()) {
                 registerListener(messageListener);
             } else {
                 this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.5
@@ -332,7 +332,7 @@ public class MessageManager {
 
     public void registerListener(final MessageListener<?> messageListener) {
         if (messageListener != null) {
-            if (com.baidu.adp.lib.util.k.fH()) {
+            if (com.baidu.adp.lib.util.k.fG()) {
                 registerListenerInternal(messageListener);
             } else {
                 this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.6
@@ -348,23 +348,23 @@ public class MessageManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void registerListenerInternal(MessageListener<?> messageListener) {
         if (messageListener != null) {
-            com.baidu.adp.lib.util.k.fG();
-            FrameHelper.TYPE s = FrameHelper.s(messageListener.getCmd());
-            if (s == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
+            com.baidu.adp.lib.util.k.fF();
+            FrameHelper.TYPE v = FrameHelper.v(messageListener.getCmd());
+            if (v == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
                 this.mHttpManager.registerListener(0, (HttpMessageListener) messageListener);
-            } else if (s == FrameHelper.TYPE.SOCKET && (messageListener instanceof e)) {
+            } else if (v == FrameHelper.TYPE.SOCKET && (messageListener instanceof e)) {
                 this.mSocketManager.registerListener(0, (e) messageListener);
-            } else if (s == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
+            } else if (v == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
                 this.mCustomManager.registerListener(0, (CustomMessageListener) messageListener);
             } else {
-                BdLog.e("listener invalid" + a.am().r(messageListener.getCmd()));
+                BdLog.e("listener invalid" + a.am().u(messageListener.getCmd()));
             }
         }
     }
 
     public void registerListener(final int i, final MessageListener<?> messageListener) {
         if (messageListener != null) {
-            if (com.baidu.adp.lib.util.k.fH()) {
+            if (com.baidu.adp.lib.util.k.fG()) {
                 registerListenerInternal(i, messageListener);
             } else {
                 this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.7
@@ -380,23 +380,23 @@ public class MessageManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void registerListenerInternal(int i, MessageListener<?> messageListener) {
         if (messageListener != null) {
-            com.baidu.adp.lib.util.k.fG();
-            FrameHelper.TYPE s = FrameHelper.s(i);
-            if (s == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
+            com.baidu.adp.lib.util.k.fF();
+            FrameHelper.TYPE v = FrameHelper.v(i);
+            if (v == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
                 this.mHttpManager.registerListener(i, (HttpMessageListener) messageListener);
-            } else if (s == FrameHelper.TYPE.SOCKET && (messageListener instanceof e)) {
+            } else if (v == FrameHelper.TYPE.SOCKET && (messageListener instanceof e)) {
                 this.mSocketManager.registerListener(i, (e) messageListener);
-            } else if (s == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
+            } else if (v == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
                 this.mCustomManager.registerListener(i, (CustomMessageListener) messageListener);
             } else {
-                BdLog.e("listener invalid" + a.am().r(i) + "|" + a.am().r(messageListener.getCmd()));
+                BdLog.e("listener invalid" + a.am().u(i) + "|" + a.am().u(messageListener.getCmd()));
             }
         }
     }
 
     public void unRegisterListener(final MessageListener<?> messageListener) {
         if (messageListener != null) {
-            if (com.baidu.adp.lib.util.k.fH()) {
+            if (com.baidu.adp.lib.util.k.fG()) {
                 unRegisterListenerInternal(messageListener);
             } else {
                 this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.8
@@ -412,7 +412,7 @@ public class MessageManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void unRegisterListenerInternal(MessageListener<?> messageListener) {
         if (messageListener != null) {
-            com.baidu.adp.lib.util.k.fG();
+            com.baidu.adp.lib.util.k.fF();
             int cmd = messageListener.getCmd();
             if (cmd != 0) {
                 com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(cmd);
@@ -429,7 +429,7 @@ public class MessageManager {
     }
 
     public void unRegisterListener(final BdUniqueId bdUniqueId) {
-        if (com.baidu.adp.lib.util.k.fH()) {
+        if (com.baidu.adp.lib.util.k.fG()) {
             unRegisterListenerInternal(bdUniqueId);
         } else {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.9
@@ -449,7 +449,7 @@ public class MessageManager {
     }
 
     public void registerStickyMode(int i) {
-        com.baidu.adp.lib.util.k.fG();
+        com.baidu.adp.lib.util.k.fF();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.registerStickyMode(i);
@@ -457,7 +457,7 @@ public class MessageManager {
     }
 
     public void unRegisterStickyMode(int i) {
-        com.baidu.adp.lib.util.k.fG();
+        com.baidu.adp.lib.util.k.fF();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.unRegisterStickyMode(i);
@@ -465,7 +465,7 @@ public class MessageManager {
     }
 
     public void addMessageRule(final f<?, ?> fVar) {
-        if (com.baidu.adp.lib.util.k.fH()) {
+        if (com.baidu.adp.lib.util.k.fG()) {
             this.mController.addMessageRule(fVar);
         } else {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.10
@@ -478,7 +478,7 @@ public class MessageManager {
     }
 
     public void removeMessageRule(final f<?, ?> fVar) {
-        if (com.baidu.adp.lib.util.k.fH()) {
+        if (com.baidu.adp.lib.util.k.fG()) {
             this.mController.removeMessageRule(fVar);
         } else {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.11
@@ -491,7 +491,7 @@ public class MessageManager {
     }
 
     public void addResponsedMessageRule(final g<?> gVar) {
-        if (com.baidu.adp.lib.util.k.fH()) {
+        if (com.baidu.adp.lib.util.k.fG()) {
             this.mController.a(gVar);
         } else {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.12
@@ -504,7 +504,7 @@ public class MessageManager {
     }
 
     public void removeResponsedMessageRule(final g<?> gVar) {
-        if (com.baidu.adp.lib.util.k.fH()) {
+        if (com.baidu.adp.lib.util.k.fG()) {
             this.mController.b(gVar);
         } else {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.13
@@ -517,7 +517,7 @@ public class MessageManager {
     }
 
     public void addRemovedMessageRule(final com.baidu.adp.framework.a.e eVar) {
-        if (com.baidu.adp.lib.util.k.fH()) {
+        if (com.baidu.adp.lib.util.k.fG()) {
             this.mController.a(eVar);
         } else {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.14
@@ -530,7 +530,7 @@ public class MessageManager {
     }
 
     public void removeRemovedMessageRule(final com.baidu.adp.framework.a.e eVar) {
-        if (com.baidu.adp.lib.util.k.fH()) {
+        if (com.baidu.adp.lib.util.k.fG()) {
             this.mController.b(eVar);
         } else {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.15
@@ -546,7 +546,7 @@ public class MessageManager {
         int cmd;
         if (responsedMessage == null) {
             BdLog.e("responsedMessage is null!!!");
-        } else if (!com.baidu.adp.lib.util.k.fH()) {
+        } else if (!com.baidu.adp.lib.util.k.fG()) {
             this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.16
                 @Override // java.lang.Runnable
                 public void run() {
@@ -554,27 +554,27 @@ public class MessageManager {
                 }
             });
         } else {
-            FrameHelper.TYPE s = FrameHelper.s(responsedMessage.getCmd());
-            if (s == FrameHelper.TYPE.HTTP && (responsedMessage instanceof HttpResponsedMessage)) {
-                com.baidu.adp.a.a.b.c("Response_Http", responsedMessage);
+            FrameHelper.TYPE v = FrameHelper.v(responsedMessage.getCmd());
+            if (v == FrameHelper.TYPE.HTTP && (responsedMessage instanceof HttpResponsedMessage)) {
+                com.baidu.adp.a.a.b.i("Response_Http", responsedMessage);
                 if (responsedMessage.getError() != 0) {
-                    if (com.baidu.adp.lib.util.i.fr()) {
+                    if (com.baidu.adp.lib.util.i.fq()) {
                         this.mHttpMsgCWSendFailedCnt++;
-                        if (this.mHttpMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.eJ().getMaxAlertCount("alert_http", 3)) {
-                            com.baidu.adp.lib.stats.a.dO().p("alert_http", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
+                        if (this.mHttpMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.eI().getMaxAlertCount("alert_http", 3)) {
+                            com.baidu.adp.lib.stats.a.dN().p("alert_http", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                         }
                     }
                 } else {
                     this.mHttpMsgCWSendFailedCnt = 0;
                 }
                 this.mHttpManager.dispatchResponsedMessage(this.mController.a((HttpResponsedMessage) responsedMessage));
-            } else if (s == FrameHelper.TYPE.SOCKET && (responsedMessage instanceof SocketResponsedMessage)) {
-                com.baidu.adp.a.a.b.c("Response_Socket", responsedMessage);
+            } else if (v == FrameHelper.TYPE.SOCKET && (responsedMessage instanceof SocketResponsedMessage)) {
+                com.baidu.adp.a.a.b.i("Response_Socket", responsedMessage);
                 if (responsedMessage.getError() != 0) {
-                    if (com.baidu.adp.lib.util.i.fr()) {
+                    if (com.baidu.adp.lib.util.i.fq()) {
                         this.mSocketMsgCWSendFailedCnt++;
-                        if (this.mSocketMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.eJ().getMaxAlertCount("alert_im", 3)) {
-                            com.baidu.adp.lib.stats.a.dO().p("alert_im", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
+                        if (this.mSocketMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.eI().getMaxAlertCount("alert_im", 3)) {
+                            com.baidu.adp.lib.stats.a.dN().p("alert_im", "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                         }
                     }
                 } else {
@@ -585,9 +585,9 @@ public class MessageManager {
                     NetMessage netMessage = (NetMessage) orginalMessage.getExtra();
                     if (netMessage.getHttpMessage() != null && netMessage.getNetType() == NetMessage.NetType.AUTO) {
                         NetMessage.a switchToHttpStrategy = netMessage.getSwitchToHttpStrategy();
-                        if ((switchToHttpStrategy != null ? switchToHttpStrategy.checkToSwitchHttp((SocketResponsedMessage) responsedMessage) : false) || responsedMessage.getError() == j.ff) {
+                        if ((switchToHttpStrategy != null ? switchToHttpStrategy.checkToSwitchHttp((SocketResponsedMessage) responsedMessage) : false) || responsedMessage.getError() == j.fH) {
                             int i = 5;
-                            if (responsedMessage.getError() == j.ff) {
+                            if (responsedMessage.getError() == j.fH) {
                                 netMessage.setSocketCostTime(System.currentTimeMillis() - orginalMessage.getStartTime());
                             } else if (responsedMessage.getError() == 110004) {
                                 i = 8;
@@ -606,10 +606,10 @@ public class MessageManager {
                     }
                 }
                 this.mSocketManager.dispatchResponsedMessage(this.mController.c((SocketResponsedMessage) responsedMessage));
-            } else if (s == FrameHelper.TYPE.CUSTOM && (responsedMessage instanceof CustomResponsedMessage)) {
+            } else if (v == FrameHelper.TYPE.CUSTOM && (responsedMessage instanceof CustomResponsedMessage)) {
                 this.mCustomManager.dispatchResponsedMessage(this.mController.b((CustomResponsedMessage) responsedMessage));
             } else {
-                BdLog.e("responsedMessage invalid:CMD=" + a.am().r(cmd) + " Class=" + responsedMessage.getClass().getName());
+                BdLog.e("responsedMessage invalid:CMD=" + a.am().u(cmd) + " Class=" + responsedMessage.getClass().getName());
             }
         }
     }

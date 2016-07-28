@@ -1,17 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-class fu implements a.b {
-    final /* synthetic */ es dVR;
+class fu implements View.OnTouchListener {
+    final /* synthetic */ ew eiu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fu(es esVar) {
-        this.dVR = esVar;
+    public fu(ew ewVar) {
+        this.eiu = ewVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        return true;
     }
 }

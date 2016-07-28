@@ -17,44 +17,44 @@ import com.baidu.tbadk.core.view.UserLikeButton;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class o extends a<com.baidu.tieba.card.a.i> {
-    private View DO;
-    private TbPageContext<?> Ea;
-    private com.baidu.tieba.card.a.i aSA;
-    private TextView aSB;
-    public UserLikeButton aSe;
-    public ClickableHeaderImageView aSu;
-    private TextView aSw;
-    private TextView aSx;
-    private MetaData aSz;
+    private TbPageContext<?> EA;
+    private View Eo;
+    public UserLikeButton aTa;
+    public ClickableHeaderImageView aTq;
+    private TextView aTs;
+    private TextView aTt;
+    private MetaData aTv;
+    private com.baidu.tieba.card.a.i aTw;
+    private TextView aTx;
 
     public o(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.Ea = tbPageContext;
+        this.EA = tbPageContext;
         getView().setOnClickListener(this);
-        this.aSu = (ClickableHeaderImageView) getView().findViewById(u.g.god_header_view);
-        this.aSu.setGodIconMargin(u.e.ds6);
-        this.aSu.setAfterClickListener(this);
-        this.aSw = (TextView) getView().findViewById(u.g.god_name);
-        this.aSx = (TextView) getView().findViewById(u.g.god_describe);
-        this.aSB = (TextView) getView().findViewById(u.g.rec_reason);
-        this.aSe = (UserLikeButton) getView().findViewById(u.g.god_like_btn);
-        this.aSe.setAfterClickListener(this);
-        this.DO = getView().findViewById(u.g.bottom_line);
+        this.aTq = (ClickableHeaderImageView) getView().findViewById(u.g.god_header_view);
+        this.aTq.setGodIconMargin(u.e.ds6);
+        this.aTq.setAfterClickListener(this);
+        this.aTs = (TextView) getView().findViewById(u.g.god_name);
+        this.aTt = (TextView) getView().findViewById(u.g.god_describe);
+        this.aTx = (TextView) getView().findViewById(u.g.rec_reason);
+        this.aTa = (UserLikeButton) getView().findViewById(u.g.god_like_btn);
+        this.aTa.setAfterClickListener(this);
+        this.Eo = getView().findViewById(u.g.bottom_line);
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.aSe != null) {
-            this.aSe.i(bdUniqueId);
+        if (bdUniqueId != null && this.aTa != null) {
+            this.aTa.i(bdUniqueId);
         }
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.core.util.av.k(getView(), u.f.home_thread_card_item_bg);
-            com.baidu.tbadk.core.util.av.j((View) this.aSw, u.d.cp_cont_b);
-            com.baidu.tbadk.core.util.av.j((View) this.aSx, u.d.cp_cont_d);
-            com.baidu.tbadk.core.util.av.j((View) this.aSB, u.d.cp_cont_d);
-            com.baidu.tbadk.core.util.av.l(this.DO, u.d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.av.j((View) this.aTs, u.d.cp_cont_b);
+            com.baidu.tbadk.core.util.av.j((View) this.aTt, u.d.cp_cont_d);
+            com.baidu.tbadk.core.util.av.j((View) this.aTx, u.d.cp_cont_d);
+            com.baidu.tbadk.core.util.av.l(this.Eo, u.d.cp_bg_line_b);
         }
         this.mSkinType = i;
     }
@@ -66,30 +66,30 @@ public class o extends a<com.baidu.tieba.card.a.i> {
 
     public void a(com.baidu.tieba.card.a.i iVar) {
         if (iVar != null && iVar.author != null && iVar.author.getGodUserData() != null) {
-            this.aSA = iVar;
-            this.aSz = iVar.author;
-            this.aSu.setData(iVar.author);
-            this.aSw.setText(iVar.author.getName_show());
-            this.aSx.setText(iVar.author.getGodUserData().getIntro());
-            String string = this.Ea.getResources().getString(u.j.recommend_reason);
+            this.aTw = iVar;
+            this.aTv = iVar.author;
+            this.aTq.setData(iVar.author);
+            this.aTs.setText(iVar.author.getName_show());
+            this.aTt.setText(iVar.author.getGodUserData().getIntro());
+            String string = this.EA.getResources().getString(u.j.recommend_reason);
             String recommendReason = iVar.author.getGodUserData().getRecommendReason();
             if (StringUtils.isNull(recommendReason)) {
-                this.aSB.setText("");
+                this.aTx.setText("");
             } else {
-                this.aSB.setText(String.format(string, recommendReason));
+                this.aTx.setText(String.format(string, recommendReason));
             }
-            this.aSe.setData(iVar.author);
-            d(null, TbadkCoreApplication.m9getInst().getSkinType());
+            this.aTa.setData(iVar.author);
+            d(null, TbadkCoreApplication.m10getInst().getSkinType());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (KO() != null) {
-            KO().a(view, this.aSA);
+        if (KN() != null) {
+            KN().a(view, this.aTw);
         }
-        if (view == getView() && this.aSz != null && !StringUtils.isNull(this.aSz.getName_show()) && !StringUtils.isNull(this.aSz.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.Ea.getPageActivity(), this.aSz.getUserId(), this.aSz.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        if (view == getView() && this.aTv != null && !StringUtils.isNull(this.aTv.getName_show()) && !StringUtils.isNull(this.aTv.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.EA.getPageActivity(), this.aTv.getUserId(), this.aTv.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 }

@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int dR;
-    private a dS;
+    private int eu;
+    private a ev;
 
-    public a ak() {
+    public a ak() throws IOException {
         a aVar = new a();
-        aVar.dU = t(String.valueOf("/proc/uid_stat/") + this.dR + "/tcp_rcv");
-        aVar.dV = t(String.valueOf("/proc/uid_stat/") + this.dR + "/tcp_snd");
-        aVar.dT = d.a(aVar.dU + aVar.dV);
+        aVar.ex = x(String.valueOf("/proc/uid_stat/") + this.eu + "/tcp_rcv");
+        aVar.ey = x(String.valueOf("/proc/uid_stat/") + this.eu + "/tcp_snd");
+        aVar.ew = d.a(aVar.ex + aVar.ey);
         return aVar;
     }
 
-    public a al() {
+    public a al() throws IOException {
         a ak = ak();
-        this.dS.dU = d.a(ak.dU - d.aj().dU);
-        this.dS.dV = d.a(ak.dV - d.aj().dV);
-        this.dS.dT = d.a(ak.dT - d.aj().dT);
-        return this.dS;
+        this.ev.ex = d.a(ak.ex - d.aj().ex);
+        this.ev.ey = d.a(ak.ey - d.aj().ey);
+        this.ev.ew = d.a(ak.ew - d.aj().ew);
+        return this.ev;
     }
 
-    public double t(String str) {
+    public double x(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double dT = 0.0d;
-        double dU = 0.0d;
-        double dV = 0.0d;
+        double ew = 0.0d;
+        double ex = 0.0d;
+        double ey = 0.0d;
 
         public a() {
         }

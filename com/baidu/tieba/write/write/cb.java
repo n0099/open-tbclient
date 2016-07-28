@@ -4,16 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cb implements View.OnClickListener {
-    final /* synthetic */ WriteMultiImgsActivity fKh;
+    final /* synthetic */ WriteMultiImgsActivity fVY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cb(WriteMultiImgsActivity writeMultiImgsActivity) {
-        this.fKh = writeMultiImgsActivity;
+        this.fVY = writeMultiImgsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fKh.setResult(0);
-        this.fKh.finish();
+        this.fVY.setResult(0);
+        this.fVY.finish();
     }
 }

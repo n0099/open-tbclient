@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ x aSX;
+    final /* synthetic */ x aTT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.aSX = xVar;
+        this.aTT = xVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,22 +27,22 @@ public class y implements View.OnClickListener {
         Context context;
         com.baidu.tieba.card.a.l lVar5;
         com.baidu.tieba.card.a.l lVar6;
-        lVar = this.aSX.aSW;
+        lVar = this.aTT.aTS;
         if (lVar != null) {
-            lVar2 = this.aSX.aSW;
+            lVar2 = this.aTT.aTS;
             if (lVar2.author != null) {
-                lVar3 = this.aSX.aSW;
+                lVar3 = this.aTT.aTS;
                 if (!StringUtils.isNull(lVar3.author.getName_show())) {
-                    lVar4 = this.aSX.aSW;
+                    lVar4 = this.aTT.aTS;
                     if (!StringUtils.isNull(lVar4.author.getUserId())) {
-                        if (this.aSX.akb != null) {
-                            this.aSX.akb.onClick(view);
+                        if (this.aTT.akQ != null) {
+                            this.aTT.akQ.onClick(view);
                         }
                         MessageManager messageManager = MessageManager.getInstance();
-                        context = this.aSX.mContext;
-                        lVar5 = this.aSX.aSW;
+                        context = this.aTT.mContext;
+                        lVar5 = this.aTT.aTS;
                         String userId = lVar5.author.getUserId();
-                        lVar6 = this.aSX.aSW;
+                        lVar6 = this.aTT.aTS;
                         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, lVar6.author.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
                 }

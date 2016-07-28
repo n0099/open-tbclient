@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -118,7 +119,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public ParcelFileDescriptor openFile(Uri uri, String str) {
+    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
         return ParcelFileDescriptor.open(this.mStrategy.getFileForUri(uri), modeToMode(str));
     }
 
@@ -142,7 +143,7 @@ public class FileProvider extends ContentProvider {
         return pathStrategy;
     }
 
-    private static PathStrategy parsePathStrategy(Context context, String str) {
+    private static PathStrategy parsePathStrategy(Context context, String str) throws IOException, XmlPullParserException {
         File buildPath;
         SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
         XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");

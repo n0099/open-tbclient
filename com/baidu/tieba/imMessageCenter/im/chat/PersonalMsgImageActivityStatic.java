@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
 /* loaded from: classes.dex */
 public class PersonalMsgImageActivityStatic {
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(PersonalMsgImageActivityConfig.class, PersonalMsgImageActivity.class);
+        TbadkCoreApplication.m10getInst().RegisterIntent(PersonalMsgImageActivityConfig.class, PersonalMsgImageActivity.class);
     }
 }

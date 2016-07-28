@@ -9,13 +9,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends CustomMessageListener {
-    final /* synthetic */ AppDownloadView aaj;
+    final /* synthetic */ AppDownloadView aaS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AppDownloadView appDownloadView, int i) {
         super(i);
-        this.aaj = appDownloadView;
+        this.aaS = appDownloadView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class a extends CustomMessageListener {
         DownloadData downloadData3;
         DownloadData downloadData4;
         if (customResponsedMessage instanceof DownloadMessage) {
-            downloadData = this.aaj.aaf;
+            downloadData = this.aaS.aaO;
             if (downloadData != null) {
                 List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                 int i = 0;
@@ -45,16 +45,16 @@ public class a extends CustomMessageListener {
                         break;
                     }
                     downloadData2 = data.get(i2);
-                    downloadData3 = this.aaj.aaf;
+                    downloadData3 = this.aaS.aaO;
                     if (!TextUtils.isEmpty(downloadData3.getId())) {
-                        downloadData4 = this.aaj.aaf;
+                        downloadData4 = this.aaS.aaO;
                     } else {
                         i = i2 + 1;
                     }
                 }
                 if (downloadData2 != null) {
-                    this.aaj.cG((int) ((downloadData2.getLength() * 100) / downloadData2.getSize()));
-                    this.aaj.postInvalidate();
+                    this.aaS.cG((int) ((downloadData2.getLength() * 100) / downloadData2.getSize()));
+                    this.aaS.postInvalidate();
                 }
             }
         }

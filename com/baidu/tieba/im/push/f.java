@@ -12,37 +12,37 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static f cVc = null;
-    private int cVd = 0;
-    private List<Long> cVe = new ArrayList();
-    private final CustomMessageListener cUb = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static f cXX = null;
+    private int cXY = 0;
+    private List<Long> cXZ = new ArrayList();
+    private final CustomMessageListener cWW = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     private f() {
-        MessageManager.getInstance().registerListener(this.cUb);
+        MessageManager.getInstance().registerListener(this.cWW);
     }
 
-    public static f aql() {
-        if (cVc == null) {
+    public static f aqX() {
+        if (cXX == null) {
             synchronized (f.class) {
-                if (cVc == null) {
-                    cVc = new f();
+                if (cXX == null) {
+                    cXX = new f();
                 }
             }
         }
-        return cVc;
+        return cXX;
     }
 
     public synchronized void init(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.cVd = Integer.parseInt(str);
+                this.cXY = Integer.parseInt(str);
                 try {
                     String[] split = str2.split(",");
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.cVe.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.cXZ.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -56,46 +56,46 @@ public class f {
     }
 
     public synchronized void clear() {
-        this.cVd = 0;
-        this.cVe.clear();
+        this.cXY = 0;
+        this.cXZ.clear();
     }
 
     public int getGid() {
-        return this.cVd;
+        return this.cXY;
     }
 
-    public Long aqm() {
-        return com.baidu.tieba.im.memorycache.b.apn().apx().get(this.cVd);
+    public Long aqY() {
+        return com.baidu.tieba.im.memorycache.b.apZ().aqj().get(this.cXY);
     }
 
-    public synchronized List<Long> aqn() {
+    public synchronized List<Long> aqZ() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.cVe) {
+        for (Long l : this.cXZ) {
             if (l != null) {
-                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.g.bN(l.longValue())));
+                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.g.bI(l.longValue())));
             }
         }
         return arrayList;
     }
 
-    public synchronized void aqo() {
-        this.cVe.clear();
+    public synchronized void ara() {
+        this.cXZ.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0041, code lost:
-        r7.cVe.add(java.lang.Long.valueOf(r9));
+        r7.cXZ.add(java.lang.Long.valueOf(r9));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void h(int i, long j) {
-        if (this.cVd != 0 && this.cVd != i) {
-            this.cVe.clear();
-            k.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + "-" + this.cVd);
+        if (this.cXY != 0 && this.cXY != i) {
+            this.cXZ.clear();
+            k.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + "-" + this.cXY);
         }
-        this.cVd = i;
-        Iterator<Long> it = this.cVe.iterator();
+        this.cXY = i;
+        Iterator<Long> it = this.cXZ.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -107,17 +107,17 @@ public class f {
         }
     }
 
-    public synchronized boolean aqp() {
+    public synchronized boolean arb() {
         boolean z;
-        if (this.cVd > 0) {
-            z = this.cVe.size() > 0;
+        if (this.cXY > 0) {
+            z = this.cXZ.size() > 0;
         }
         return z;
     }
 
-    public synchronized boolean bJ(long j) {
+    public synchronized boolean bE(long j) {
         boolean z;
-        Iterator<Long> it = this.cVe.iterator();
+        Iterator<Long> it = this.cXZ.iterator();
         while (true) {
             if (it.hasNext()) {
                 Long next = it.next();
@@ -133,10 +133,10 @@ public class f {
         return z;
     }
 
-    public synchronized String aqq() {
+    public synchronized String arc() {
         String str;
         str = "";
-        for (Long l : this.cVe) {
+        for (Long l : this.cXZ) {
             if (l != null && l.longValue() != 0) {
                 str = String.valueOf(String.valueOf(str) + l.longValue()) + ",";
             }

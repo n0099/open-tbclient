@@ -1,42 +1,49 @@
 package com.baidu.tieba.person.a;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ai extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.k, com.baidu.tieba.person.b.q> {
-    private BaseFragmentActivity bfw;
-    private View.OnClickListener efW;
+public class ai {
+    private List<com.baidu.adp.widget.ListView.a> bCN = new ArrayList();
+    private BaseFragmentActivity bgI;
+    private HTypeListView eqT;
+    private ag eqU;
+    private c eqV;
+    private BdUniqueId mId;
 
-    public ai(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.bfw = baseFragmentActivity;
+    public ai(BaseFragmentActivity baseFragmentActivity, HTypeListView hTypeListView) {
+        this.bgI = baseFragmentActivity;
+        this.eqT = hTypeListView;
+        this.mId = baseFragmentActivity.getUniqueId();
+        alq();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bI */
-    public com.baidu.tieba.person.b.q a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.q(LayoutInflater.from(this.bfw.getPageContext().getPageActivity()).inflate(u.h.user_pic_nomal_item, (ViewGroup) null));
+    private void alq() {
+        this.eqU = new ag(this.bgI, com.baidu.tbadk.data.k.apP);
+        this.eqV = new c(this.bgI, com.baidu.tieba.person.data.b.erK);
+        this.bCN.add(this.eqU);
+        this.bCN.add(this.eqV);
+        this.eqT.g(this.bCN);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.k kVar, com.baidu.tieba.person.b.q qVar) {
-        if (qVar == null || kVar == null) {
-            return null;
+    public void setDatas(List<com.baidu.adp.widget.ListView.v> list) {
+        if (this.eqT != null) {
+            this.eqT.setData(list);
         }
-        qVar.I(this.efW);
-        qVar.c(kVar);
-        return qVar.getView();
     }
 
-    public void I(View.OnClickListener onClickListener) {
-        this.efW = onClickListener;
+    public void notifyDataSetChanged() {
+        if (this.eqT != null && (this.eqT.getAdapter() instanceof com.baidu.adp.widget.ListView.y)) {
+            ((com.baidu.adp.widget.ListView.y) this.eqT.getAdapter()).notifyDataSetChanged();
+        }
+    }
+
+    public void setItemOnclickListener(View.OnClickListener onClickListener) {
+        this.eqU.J(onClickListener);
+        this.eqV.J(onClickListener);
     }
 }

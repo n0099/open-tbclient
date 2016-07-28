@@ -4,18 +4,18 @@ import com.baidu.tbadk.img.a;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv implements a.InterfaceC0044a<ChatMessage> {
-    final /* synthetic */ TalkableActivity cGe;
+public class bv implements a.InterfaceC0045a<ChatMessage> {
+    final /* synthetic */ TalkableActivity cIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(TalkableActivity talkableActivity) {
-        this.cGe = talkableActivity;
+        this.cIT = talkableActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.img.a.InterfaceC0044a
+    @Override // com.baidu.tbadk.img.a.InterfaceC0045a
     /* renamed from: a */
     public void b(int i, ChatMessage chatMessage) {
-        this.cGe.cFQ.updateAdapter(i, chatMessage);
+        this.cIT.cIF.updateAdapter(i, chatMessage);
     }
 }

@@ -11,33 +11,33 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements d {
-    private TbHttpMessageTask eGQ;
-    private HttpMessageListener eGP = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
-    private ArrayList<a> eGR = new ArrayList<>();
+    private TbHttpMessageTask eTS;
+    private HttpMessageListener eTR = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
+    private ArrayList<a> eTT = new ArrayList<>();
 
     public f() {
-        aUR();
-        MessageManager.getInstance().registerListener(this.eGP);
+        aYf();
+        MessageManager.getInstance().registerListener(this.eTR);
     }
 
-    private void aUR() {
-        this.eGQ = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "http://als.baidu.com/dalog/logForC");
-        this.eGQ.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.eGQ.setIsNeedAddCommenParam(true);
-        this.eGQ.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void aYf() {
+        this.eTS = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "http://als.baidu.com/dalog/logForC");
+        this.eTS.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.eTS.setIsNeedAddCommenParam(true);
+        this.eTS.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.d
     public void b(a aVar) {
         if (aVar != null) {
             d(aVar);
-            aUS();
+            aYg();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void aUQ() {
-        aUS();
+    public void aYe() {
+        aYg();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -47,15 +47,15 @@ public class f implements d {
         }
     }
 
-    private void aUS() {
-        if (y.s(this.eGR) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.eGR), this.eGQ);
-            this.eGR.clear();
+    private void aYg() {
+        if (y.s(this.eTT) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.eTT), this.eTS);
+            this.eTT.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cE(List<a> list) {
+    public void cR(List<a> list) {
         if (y.s(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
@@ -67,10 +67,10 @@ public class f implements d {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (y.s(this.eGR) >= 20) {
-                this.eGR.remove(0);
+            if (y.s(this.eTT) >= 20) {
+                this.eTT.remove(0);
             }
-            this.eGR.add(aVar);
+            this.eTT.add(aVar);
         }
     }
 }

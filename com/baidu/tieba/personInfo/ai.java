@@ -1,24 +1,16 @@
 package com.baidu.tieba.personInfo;
-
-import android.support.v4.view.MotionEventCompat;
-import android.view.MotionEvent;
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ai implements View.OnTouchListener {
-    final /* synthetic */ f this$0;
+public class ai implements d {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(f fVar) {
-        this.this$0 = fVar;
+    public ai(h hVar) {
+        this.this$0 = hVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
-            case 0:
-                return true;
-            default:
-                return false;
-        }
+    @Override // com.baidu.tieba.personInfo.d
+    public void a(com.baidu.tieba.person.data.f fVar) {
+        this.this$0.b(fVar);
     }
 }

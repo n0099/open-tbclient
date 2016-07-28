@@ -16,12 +16,12 @@ class au extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
-                FrsActivityStatic.bDO = true;
-                FrsActivityStatic.bDN = true;
+                FrsActivityStatic.bEY = true;
+                FrsActivityStatic.bEX = true;
                 return;
             }
-            FrsActivityStatic.bDO = false;
-            FrsActivityStatic.bDN = false;
+            FrsActivityStatic.bEY = false;
+            FrsActivityStatic.bEX = false;
         }
     }
 }

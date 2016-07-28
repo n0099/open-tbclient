@@ -5,13 +5,13 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b>> {
-    final /* synthetic */ e buE;
+    final /* synthetic */ e bwS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, TbPageContext tbPageContext, Class[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
         super(tbPageContext, clsArr, iArr, viewEventCenter);
-        this.buE = eVar;
+        this.bwS = eVar;
     }
 
     @Override // com.baidu.tbadk.mvc.g.b

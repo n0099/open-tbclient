@@ -9,12 +9,12 @@ import com.baidu.tieba.card.bx;
 import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements bx<com.baidu.tieba.card.a.k> {
-    final /* synthetic */ p crC;
+public class q extends bx<com.baidu.tieba.card.a.k> {
+    final /* synthetic */ p cum;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.crC = pVar;
+        this.cum = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,19 +29,19 @@ public class q implements bx<com.baidu.tieba.card.a.k> {
         com.baidu.tieba.card.u uVar7;
         com.baidu.tieba.card.u uVar8;
         if (view != null) {
-            uVar = this.crC.crA;
+            uVar = this.cum.cuk;
             if (uVar != null) {
-                uVar2 = this.crC.crA;
-                if (uVar2.aSQ != null) {
-                    uVar3 = this.crC.crA;
-                    if (uVar3.aSQ.aSV != null) {
-                        uVar4 = this.crC.crA;
-                        if (uVar4.aSQ.aST != null) {
-                            uVar5 = this.crC.crA;
-                            if (uVar5.aSQ.getView() != null) {
+                uVar2 = this.cum.cuk;
+                if (uVar2.aTM != null) {
+                    uVar3 = this.cum.cuk;
+                    if (uVar3.aTM.aTR != null) {
+                        uVar4 = this.cum.cuk;
+                        if (uVar4.aTM.aTP != null) {
+                            uVar5 = this.cum.cuk;
+                            if (uVar5.aTM.getView() != null) {
                                 int id = view.getId();
-                                uVar6 = this.crC.crA;
-                                if (id == uVar6.aSQ.aSV.getId() && (view.getTag() instanceof MetaData)) {
+                                uVar6 = this.cum.cuk;
+                                if (id == uVar6.aTM.aTR.getId() && (view.getTag() instanceof MetaData)) {
                                     if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
                                         TiebaStatic.log(new ay("c10803").s("obj_locate", 6));
                                         return;
@@ -49,11 +49,11 @@ public class q implements bx<com.baidu.tieba.card.a.k> {
                                     return;
                                 }
                                 int id2 = view.getId();
-                                uVar7 = this.crC.crA;
-                                if (id2 != uVar7.aSQ.getView().getId()) {
+                                uVar7 = this.cum.cuk;
+                                if (id2 != uVar7.aTM.getView().getId()) {
                                     int id3 = view.getId();
-                                    uVar8 = this.crC.crA;
-                                    if (id3 != uVar8.aSQ.aST.getId()) {
+                                    uVar8 = this.cum.cuk;
+                                    if (id3 != uVar8.aTM.aTP.getId()) {
                                         return;
                                     }
                                 }

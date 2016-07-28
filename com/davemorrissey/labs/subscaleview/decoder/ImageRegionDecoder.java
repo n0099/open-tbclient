@@ -9,7 +9,7 @@ import android.net.Uri;
 public interface ImageRegionDecoder {
     Bitmap decodeRegion(Rect rect, int i);
 
-    Point init(Context context, Uri uri);
+    Point init(Context context, Uri uri) throws Exception;
 
     boolean isReady();
 

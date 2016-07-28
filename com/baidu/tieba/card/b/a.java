@@ -5,43 +5,43 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<b, C0052a> {
-    private TbPageContext<?> Ea;
-    private c aVV;
+public class a extends com.baidu.adp.widget.ListView.a<b, C0053a> {
+    private TbPageContext<?> EA;
+    private c aWT;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.Op);
-        this.Ea = tbPageContext;
+        super(tbPageContext.getPageActivity(), b.OB);
+        this.EA = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: d */
-    public C0052a a(ViewGroup viewGroup) {
-        this.aVV = new c(this.Ea);
-        return new C0052a(this.aVV);
+    public C0053a a(ViewGroup viewGroup) {
+        this.aWT = new c(this.EA);
+        return new C0053a(this.aWT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, b bVar, C0052a c0052a) {
-        if (c0052a == null || c0052a.aVW == null) {
+    public View a(int i, View view, ViewGroup viewGroup, b bVar, C0053a c0053a) {
+        if (c0053a == null || c0053a.aWU == null) {
             return null;
         }
-        c0052a.aVW.a(bVar);
-        return c0052a.getView();
+        c0053a.aWU.a(bVar);
+        return c0053a.getView();
     }
 
     /* renamed from: com.baidu.tieba.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0052a extends y.a {
-        public c aVW;
+    public class C0053a extends y.a {
+        public c aWU;
 
-        public C0052a(c cVar) {
+        public C0053a(c cVar) {
             super(cVar.getView());
-            this.aVW = cVar;
+            this.aWU = cVar;
         }
     }
 }

@@ -19,7 +19,7 @@ public class ResponseUserPermissionMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         QueryUserPermissionResIdl queryUserPermissionResIdl = (QueryUserPermissionResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryUserPermissionResIdl.class);
         setError(queryUserPermissionResIdl.error.errorno.intValue());
         setErrorString(queryUserPermissionResIdl.error.usermsg);

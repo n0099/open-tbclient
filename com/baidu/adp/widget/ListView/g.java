@@ -4,11 +4,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ BdListView zo;
+    final /* synthetic */ BdListView zP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(BdListView bdListView) {
-        this.zo = bdListView;
+        this.zP = bdListView;
     }
 
     @Override // java.lang.Runnable
@@ -24,38 +24,38 @@ public class g implements Runnable {
         e eVar7;
         int i = 0;
         int i2 = -1;
-        dVar = this.zo.yW;
+        dVar = this.zP.zx;
         if (dVar != null) {
-            int firstVisiblePosition = this.zo.getFirstVisiblePosition();
-            int lastVisiblePosition = this.zo.getLastVisiblePosition();
-            eVar = this.zo.yP;
+            int firstVisiblePosition = this.zP.getFirstVisiblePosition();
+            int lastVisiblePosition = this.zP.getLastVisiblePosition();
+            eVar = this.zP.zq;
             if (eVar != null) {
-                eVar2 = this.zo.yP;
+                eVar2 = this.zP.zq;
                 if (eVar2.getWrappedAdapter() != null) {
-                    eVar3 = this.zo.yP;
-                    if (eVar3.jw() > 0) {
-                        eVar4 = this.zo.yP;
+                    eVar3 = this.zP.zq;
+                    if (eVar3.jv() > 0) {
+                        eVar4 = this.zP.zq;
                         i2 = firstVisiblePosition - eVar4.getHeadersCount();
                         if (i2 < 0) {
                             i2 = 0;
                         }
-                        eVar5 = this.zo.yP;
+                        eVar5 = this.zP.zq;
                         int headersCount = lastVisiblePosition - eVar5.getHeadersCount();
-                        eVar6 = this.zo.yP;
-                        if (headersCount >= eVar6.jw()) {
-                            eVar7 = this.zo.yP;
-                            headersCount = eVar7.jw() - 1;
+                        eVar6 = this.zP.zq;
+                        if (headersCount >= eVar6.jv()) {
+                            eVar7 = this.zP.zq;
+                            headersCount = eVar7.jv() - 1;
                         }
                         if (headersCount >= 0) {
                             i = headersCount;
                         }
-                        dVar2 = this.zo.yW;
+                        dVar2 = this.zP.zx;
                         dVar2.i(i2, i);
                     }
                 }
             }
             i = -1;
-            dVar2 = this.zo.yW;
+            dVar2 = this.zP.zx;
             dVar2.i(i2, i);
         }
     }

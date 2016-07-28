@@ -40,23 +40,23 @@ public class al extends com.baidu.adp.framework.listener.e {
                 chatMessage.setRecordId(recordId);
                 chatMessage.getLocalData().setStatus((short) 3);
                 if (responseCommitPersonalMessage.getToUserType() == 0) {
-                    com.baidu.tieba.im.c.a.lg(com.baidu.adp.lib.h.b.g(responseCommitPersonalMessage.getGroupId(), 0));
+                    com.baidu.tieba.im.c.a.lm(com.baidu.adp.lib.h.b.g(responseCommitPersonalMessage.getGroupId(), 0));
                 } else {
-                    com.baidu.tieba.im.c.a.lh(com.baidu.adp.lib.h.b.g(responseCommitPersonalMessage.getGroupId(), 0));
+                    com.baidu.tieba.im.c.a.ln(com.baidu.adp.lib.h.b.g(responseCommitPersonalMessage.getGroupId(), 0));
                 }
             }
             com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, chatMessage.getContent());
             if (chatMessage instanceof PersonalChatMessage) {
-                b.apn().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                b.apZ().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                b.apn().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                b.apZ().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                ah = b.apn().ah(String.valueOf(com.baidu.tieba.im.util.h.p(chatMessage)), 2);
+                ah = b.apZ().ah(String.valueOf(com.baidu.tieba.im.util.h.p(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                ah = b.apn().ah(String.valueOf(com.baidu.tieba.im.util.h.p(chatMessage)), 4);
+                ah = b.apZ().ah(String.valueOf(com.baidu.tieba.im.util.h.p(chatMessage)), 4);
             } else {
                 return;
             }

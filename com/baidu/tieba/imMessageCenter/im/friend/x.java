@@ -5,11 +5,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements TbCheckBox.a {
-    final /* synthetic */ p dcA;
+    final /* synthetic */ p dfx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(p pVar) {
-        this.dcA = pVar;
+        this.dfx = pVar;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.a
@@ -18,25 +18,25 @@ public class x implements TbCheckBox.a {
         InviteFriendListActivity inviteFriendListActivity;
         InviteFriendListActivity inviteFriendListActivity2;
         int i;
-        this.dcA.atf();
+        this.dfx.atR();
         if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
             if (z) {
-                int atg = this.dcA.atg();
-                inviteFriendCandidateList = this.dcA.dcp;
-                if (atg <= inviteFriendCandidateList.getItemLength()) {
-                    inviteFriendListActivity = this.dcA.dcm;
-                    inviteFriendListActivity2 = this.dcA.dcm;
+                int atS = this.dfx.atS();
+                inviteFriendCandidateList = this.dfx.dfn;
+                if (atS <= inviteFriendCandidateList.getItemLength()) {
+                    inviteFriendListActivity = this.dfx.dfk;
+                    inviteFriendListActivity2 = this.dfx.dfk;
                     String string = inviteFriendListActivity2.getPageContext().getString(u.j.invite_friend_exceed_max_count);
-                    i = this.dcA.dcs;
+                    i = this.dfx.dfq;
                     inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
                     tbCheckBox.setChecked(false);
                     ((com.baidu.tbadk.coreExtra.relationship.a) obj).setChecked(false);
                     return;
                 }
-                this.dcA.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
+                this.dfx.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
                 return;
             }
-            this.dcA.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
+            this.dfx.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
         }
     }
 }

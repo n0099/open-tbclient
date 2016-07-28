@@ -6,11 +6,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cc implements View.OnClickListener {
-    final /* synthetic */ WriteMultiImgsActivity fKh;
+    final /* synthetic */ WriteMultiImgsActivity fVY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(WriteMultiImgsActivity writeMultiImgsActivity) {
-        this.fKh = writeMultiImgsActivity;
+        this.fVY = writeMultiImgsActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,41 +21,41 @@ public class cc implements View.OnClickListener {
         WriteImagesInfo writeImagesInfo3;
         WriteImagesInfo writeImagesInfo4;
         int i;
-        boolean bmF;
+        boolean bpz;
         com.baidu.tbadk.core.dialog.a aVar;
         com.baidu.tbadk.core.dialog.a aVar2;
         com.baidu.tbadk.core.dialog.a aVar3;
         com.baidu.tbadk.core.dialog.a aVar4;
         com.baidu.tbadk.core.dialog.a aVar5;
         com.baidu.tbadk.core.dialog.a aVar6;
-        rVar = this.fKh.fJQ;
-        rVar.blS();
-        writeImagesInfo = this.fKh.fJP;
+        rVar = this.fVY.fVH;
+        rVar.boN();
+        writeImagesInfo = this.fVY.fVG;
         if (writeImagesInfo != null) {
-            writeImagesInfo2 = this.fKh.fJP;
+            writeImagesInfo2 = this.fVY.fVG;
             if (writeImagesInfo2.getChosedFiles() != null) {
-                writeImagesInfo3 = this.fKh.fJP;
+                writeImagesInfo3 = this.fVY.fVG;
                 if (writeImagesInfo3.getChosedFiles().size() > 0) {
-                    writeImagesInfo4 = this.fKh.fJP;
+                    writeImagesInfo4 = this.fVY.fVG;
                     if (writeImagesInfo4.isOriginalImg()) {
-                        i = this.fKh.fKe;
+                        i = this.fVY.fVV;
                         if (i > 0) {
-                            bmF = this.fKh.bmF();
-                            if (bmF) {
-                                aVar = this.fKh.fKc;
+                            bpz = this.fVY.bpz();
+                            if (bpz) {
+                                aVar = this.fVY.fVT;
                                 if (aVar == null) {
-                                    this.fKh.fKc = new com.baidu.tbadk.core.dialog.a(this.fKh.getActivity());
-                                    aVar3 = this.fKh.fKc;
+                                    this.fVY.fVT = new com.baidu.tbadk.core.dialog.a(this.fVY.getActivity());
+                                    aVar3 = this.fVY.fVT;
                                     aVar3.bM(u.j.orginal_conflict_tip);
-                                    aVar4 = this.fKh.fKc;
+                                    aVar4 = this.fVY.fVT;
                                     aVar4.a(u.j.alert_yes_button, new cd(this));
-                                    aVar5 = this.fKh.fKc;
+                                    aVar5 = this.fVY.fVT;
                                     aVar5.b(u.j.alert_no_button, new ce(this));
-                                    aVar6 = this.fKh.fKc;
-                                    aVar6.b(this.fKh.getPageContext());
+                                    aVar6 = this.fVY.fVT;
+                                    aVar6.b(this.fVY.getPageContext());
                                 }
-                                aVar2 = this.fKh.fKc;
-                                aVar2.rT();
+                                aVar2 = this.fVY.fVT;
+                                aVar2.rS();
                                 return;
                             }
                         }
@@ -63,6 +63,6 @@ public class cc implements View.OnClickListener {
                 }
             }
         }
-        this.fKh.bmI();
+        this.fVY.bpC();
     }
 }

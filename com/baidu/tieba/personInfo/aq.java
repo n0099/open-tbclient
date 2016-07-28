@@ -1,27 +1,30 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tieba.person.a;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements c.b {
-    final /* synthetic */ f this$0;
+public class aq implements a.b {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(f fVar) {
-        this.this$0 = fVar;
+    public aq(h hVar) {
+        this.this$0 = hVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        this.this$0.eoP = false;
-        if (i != 0) {
-            if (i == 1) {
-                this.this$0.aMf();
+    @Override // com.baidu.tieba.person.a.b
+    public void a(int i, String str, ImageUploadResult imageUploadResult) {
+        List list;
+        if (i == 0 && imageUploadResult != null) {
+            String str2 = null;
+            if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
+                str2 = imageUploadResult.picInfo.bigPic.picUrl;
             }
-        } else {
-            this.this$0.aMe();
+            h hVar = this.this$0;
+            list = this.this$0.eAE;
+            hVar.h(str2, list);
+            this.this$0.iy(true);
         }
-        cVar.dismiss();
     }
 }

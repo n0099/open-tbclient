@@ -1,15 +1,15 @@
 package com.baidu.tieba.service;
 /* loaded from: classes.dex */
 class f implements Runnable {
-    final /* synthetic */ TiebaActiveService eIf;
+    final /* synthetic */ TiebaActiveService eVh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(TiebaActiveService tiebaActiveService) {
-        this.eIf = tiebaActiveService;
+        this.eVh = tiebaActiveService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.eIf.sendActive();
+        this.eVh.sendActive();
     }
 }

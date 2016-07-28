@@ -1,38 +1,20 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.y;
-import tbclient.User;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class m implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId eii = BdUniqueId.gen();
-    private y profitData;
-    private User user;
-
-    public User getUser() {
-        return this.user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-        if (user != null) {
-            y yVar = new y();
-            yVar.a(user.tw_anchor_info);
-            yVar.o(user.profit_list);
-            a(yVar);
-        }
-    }
-
-    public void a(y yVar) {
-        this.profitData = yVar;
-    }
-
-    public y aLi() {
-        return this.profitData;
-    }
+public class m implements v {
+    public static final BdUniqueId esn = BdUniqueId.gen();
+    public boolean cjo;
+    public String mContent;
+    public String mLink;
+    public String mTitle;
+    public UserData mUserData;
+    public String mVipIcon;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eii;
+        return esn;
     }
 }

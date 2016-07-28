@@ -3,118 +3,118 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class c implements b {
-    private Point dao;
-    private Point dap;
-    private Point daq;
-    private final int dar;
-    private final int das;
-    private a dau;
-    private int dav;
+    private Point ddm;
+    private Point ddn;
+    private Point ddo;
+    private final int ddp;
+    private final int ddq;
+    private a ddr;
+    private int dds;
     private float k;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(Point point);
 
-        void arY();
+        void asK();
     }
 
-    private int lq(int i) {
-        return (int) (((this.k * i) + this.dao.y) - (this.k * this.dao.x));
+    private int lw(int i) {
+        return (int) (((this.k * i) + this.ddm.y) - (this.k * this.ddm.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.daq.equals(this.dap)) {
-            switch (this.dav) {
+        if (!this.ddo.equals(this.ddn)) {
+            switch (this.dds) {
                 case 0:
-                    asf();
+                    asR();
                     break;
                 case 1:
-                    ash();
+                    asT();
                     break;
                 case 2:
-                    asg();
+                    asS();
                     break;
                 case 3:
-                    asi();
+                    asU();
                     break;
                 case 4:
-                    asj();
+                    asV();
                     break;
                 case 5:
-                    ask();
+                    asW();
                     break;
             }
             return false;
         }
-        if (this.dau != null) {
-            this.dau.arY();
+        if (this.ddr != null) {
+            this.ddr.asK();
         }
         return true;
     }
 
-    private void asf() {
-        this.daq.y += this.das;
-        if (this.daq.y > this.dap.y) {
-            this.daq.y = this.dap.y;
+    private void asR() {
+        this.ddo.y += this.ddq;
+        if (this.ddo.y > this.ddn.y) {
+            this.ddo.y = this.ddn.y;
         }
-        if (this.dau != null) {
-            this.dau.a(this.daq);
-        }
-    }
-
-    private void asg() {
-        this.daq.x += this.dar;
-        if (this.daq.x > this.dap.x) {
-            this.daq.x = this.dap.x;
-        }
-        if (this.dau != null) {
-            this.dau.a(this.daq);
+        if (this.ddr != null) {
+            this.ddr.a(this.ddo);
         }
     }
 
-    private void ash() {
-        this.daq.y -= this.das;
-        if (this.daq.y < this.dap.y) {
-            this.daq.y = this.dap.y;
+    private void asS() {
+        this.ddo.x += this.ddp;
+        if (this.ddo.x > this.ddn.x) {
+            this.ddo.x = this.ddn.x;
         }
-        if (this.dau != null) {
-            this.dau.a(this.daq);
-        }
-    }
-
-    private void asi() {
-        this.daq.x -= this.dar;
-        if (this.daq.x < this.dap.x) {
-            this.daq.x = this.dap.x;
-        }
-        if (this.dau != null) {
-            this.dau.a(this.daq);
+        if (this.ddr != null) {
+            this.ddr.a(this.ddo);
         }
     }
 
-    private void asj() {
-        this.daq.x -= this.dar;
-        this.daq.y = lq(this.daq.x);
-        if (this.daq.x < this.dap.x && this.daq.y < this.dap.y) {
-            this.daq.x = this.dap.x;
-            this.daq.y = this.dap.y;
+    private void asT() {
+        this.ddo.y -= this.ddq;
+        if (this.ddo.y < this.ddn.y) {
+            this.ddo.y = this.ddn.y;
         }
-        if (this.dau != null) {
-            this.dau.a(this.daq);
+        if (this.ddr != null) {
+            this.ddr.a(this.ddo);
         }
     }
 
-    private void ask() {
-        this.daq.x += this.dar;
-        this.daq.y = lq(this.daq.x);
-        if (this.daq.x > this.dap.x && this.daq.y > this.dap.y) {
-            this.daq.x = this.dap.x;
-            this.daq.y = this.dap.y;
+    private void asU() {
+        this.ddo.x -= this.ddp;
+        if (this.ddo.x < this.ddn.x) {
+            this.ddo.x = this.ddn.x;
         }
-        if (this.dau != null) {
-            this.dau.a(this.daq);
+        if (this.ddr != null) {
+            this.ddr.a(this.ddo);
+        }
+    }
+
+    private void asV() {
+        this.ddo.x -= this.ddp;
+        this.ddo.y = lw(this.ddo.x);
+        if (this.ddo.x < this.ddn.x && this.ddo.y < this.ddn.y) {
+            this.ddo.x = this.ddn.x;
+            this.ddo.y = this.ddn.y;
+        }
+        if (this.ddr != null) {
+            this.ddr.a(this.ddo);
+        }
+    }
+
+    private void asW() {
+        this.ddo.x += this.ddp;
+        this.ddo.y = lw(this.ddo.x);
+        if (this.ddo.x > this.ddn.x && this.ddo.y > this.ddn.y) {
+            this.ddo.x = this.ddn.x;
+            this.ddo.y = this.ddn.y;
+        }
+        if (this.ddr != null) {
+            this.ddr.a(this.ddo);
         }
     }
 }

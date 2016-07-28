@@ -27,7 +27,7 @@ public final class SessionManager {
         private String h;
         private long i;
 
-        private Session(JSONObject jSONObject, boolean z) {
+        private Session(JSONObject jSONObject, boolean z) throws JSONException {
             this.a = jSONObject.getString(SocialConstants.PARAM_MEDIA_TYPE);
             this.e = jSONObject.getString(SocialConstants.PARAM_ACCESS_TOKEN);
             if (jSONObject.has(SocialConstants.PARAM_ACCESS_TOKEN_SECRET)) {

@@ -54,7 +54,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         jSResultData.setErrorMsg("");
         JSResultData.Result result = new JSResultData.Result();
         jSResultData.setResult(result);
-        String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.m9getInst(), str);
+        String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.m10getInst(), str);
         if (installApkVersionName != null) {
             if (isInstall(installApkVersionName)) {
                 result.setIsInstall(1);
@@ -117,7 +117,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Ba().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m9getInst().getResources().getString(u.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.Ba().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m10getInst().getResources().getString(u.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -7,26 +7,26 @@ import com.baidu.tieba.u;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class t extends com.baidu.tbadk.editortools.view.c {
-    private SparseIntArray aqR;
-    LinkedList<s> aqj;
+    LinkedList<s> aqY;
+    private SparseIntArray arG;
 
     public t(Context context) {
         super(context);
-        this.aqR = new SparseIntArray();
+        this.arG = new SparseIntArray();
         setBackgroundColorId(u.d.common_color_10255);
         setToolId(2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h(LinkedList<s> linkedList) {
-        this.aqj = linkedList;
+        this.aqY = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.ab
     public void init() {
         setShowDelete(false);
         u uVar = new u();
-        uVar.h(this.aqj);
+        uVar.h(this.aqY);
         b(uVar);
     }
 
@@ -40,7 +40,7 @@ public class t extends com.baidu.tbadk.editortools.view.c {
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.aqR.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.arG.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -52,13 +52,13 @@ public class t extends com.baidu.tbadk.editortools.view.c {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.h.b.g(str, 1);
             }
         }
-        this.aqR.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.arG.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
     private void By() {
         int i = 0;
-        for (int i2 = 0; i2 < this.aqR.size(); i2++) {
-            i += this.aqR.valueAt(i2);
+        for (int i2 = 0; i2 < this.arG.size(); i2++) {
+            i += this.arG.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));
@@ -68,7 +68,7 @@ public class t extends com.baidu.tbadk.editortools.view.c {
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.ab
-    public void kF() {
-        super.kF();
+    public void kB() {
+        super.kB();
     }
 }

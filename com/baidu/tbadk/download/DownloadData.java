@@ -19,7 +19,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     private static final long serialVersionUID = 1402749061179345930L;
     private String action;
-    private transient d apE;
+    private transient d aqt;
     private String check;
     private String description;
     private int errorCode;
@@ -65,7 +65,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.apE = null;
+        this.aqt = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -81,7 +81,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.apE = null;
+        this.aqt = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -98,7 +98,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.apE = null;
+        this.aqt = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -116,7 +116,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.apE = null;
+        this.aqt = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -125,7 +125,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.apE = dVar;
+        this.aqt = dVar;
         this.status = 5;
     }
 
@@ -226,11 +226,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public d getCallback() {
-        return this.apE;
+        return this.aqt;
     }
 
     public void setCallback(d dVar) {
-        this.apE = dVar;
+        this.aqt = dVar;
     }
 
     public String getStatusMsg() {

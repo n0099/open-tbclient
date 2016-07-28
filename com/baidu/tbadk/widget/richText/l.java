@@ -4,8 +4,8 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.lib.a.b.a.a.i {
-    private boolean aEW;
-    private boolean aEX;
+    private boolean aFN;
+    private boolean aFO;
     private String cdn_src;
     private String link;
     private int mHeight;
@@ -16,8 +16,8 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.aEW = false;
-        this.aEX = true;
+        this.aFN = false;
+        this.aFO = true;
     }
 
     public l(PbContent pbContent) {
@@ -25,8 +25,8 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.aEW = false;
-        this.aEX = true;
+        this.aFN = false;
+        this.aFO = true;
         this.cdn_src = pbContent.cdn_src;
         this.link = pbContent.link;
         String str = pbContent.bsize;
@@ -46,7 +46,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i {
             this.mHeight = 1;
         }
         if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
-            this.aEW = true;
+            this.aFN = true;
         }
     }
 
@@ -58,7 +58,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i {
         return this.mHeight;
     }
 
-    public String Hf() {
+    public String Hd() {
         return this.cdn_src;
     }
 
@@ -66,7 +66,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i {
         return this.link;
     }
 
-    public boolean GY() {
-        return this.aEX;
+    public boolean GW() {
+        return this.aFO;
     }
 }

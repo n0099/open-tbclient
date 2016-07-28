@@ -16,100 +16,100 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    private static String lI;
-    private static String lJ;
-    private static String lK;
-    private static boolean lL;
-    private static String lM;
-    private f lN;
-    private d lO;
-    private long lP;
+    private static String mm;
+    private static String mn;
+    private static String mo;
+    private static boolean mp;
+    private static String mq;
+    private f mr;
+    private d ms;
+    private long mt;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.lP = com.baidu.adp.lib.stats.a.dO().dQ();
+        this.mt = com.baidu.adp.lib.stats.a.dN().dP();
     }
 
-    public static void ac(String str) {
-        lI = str;
+    public static void ae(String str) {
+        mm = str;
     }
 
-    public static void ad(String str) {
-        lM = str;
+    public static void af(String str) {
+        mq = str;
     }
 
     public static void setUserAgent(String str) {
-        lJ = str;
+        mn = str;
     }
 
     public static void setUid(String str) {
-        lK = str;
+        mo = str;
     }
 
     public static void setKeepAlive(boolean z) {
-        lL = z;
+        mp = z;
     }
 
-    public h a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) {
-        this.lN = new f();
-        a(this.lN, z);
-        this.lN.dv().setUrl(str);
-        this.lO = new d(this.lN);
-        this.lO.d(i, i3, i4);
-        return this.lN.dw();
+    public h a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
+        this.mr = new f();
+        a(this.mr, z);
+        this.mr.du().setUrl(str);
+        this.ms = new d(this.mr);
+        this.ms.e(i, i3, i4);
+        return this.mr.dv();
     }
 
-    public h a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) {
+    public h a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
         return a(str, false, i, i2, i3, i4, linkedList);
     }
 
-    public h a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) {
-        this.lN = new f();
-        a(this.lN, z);
-        this.lN.dv().setUrl(str);
+    public h a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
+        this.mr = new f();
+        a(this.mr, z);
+        this.mr.du().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.lN.dv().a(basicNameValuePair);
+                this.mr.du().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.lN.dv().o(next.getName(), next.getValue());
+                this.mr.du().o(next.getName(), next.getValue());
             }
         }
-        this.lO = new d(this.lN);
-        this.lO.f(i, i2, -1);
-        return this.lN.dw();
+        this.ms = new d(this.mr);
+        this.ms.g(i, i2, -1);
+        return this.mr.dv();
     }
 
-    public h a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) {
-        this.lN = new f();
-        a(this.lN, z);
-        this.lN.dv().setUrl(str);
+    public h a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
+        this.mr = new f();
+        a(this.mr, z);
+        this.mr.du().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.lN.dv().o(next.getName(), next.getValue());
+                this.mr.du().o(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.lN.dv().n(next2.getName(), next2.getValue());
+                this.mr.du().n(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.lN.dv().d(entry.getKey(), entry.getValue());
+                this.mr.du().d(entry.getKey(), entry.getValue());
             }
         }
-        this.lO = new d(this.lN);
-        this.lO.f(i, i2, -1);
-        return this.lN.dw();
+        this.ms = new d(this.mr);
+        this.ms.g(i, i2, -1);
+        return this.mr.dv();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, i iVar, boolean z2) {
@@ -117,11 +117,11 @@ public class a {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, i iVar, boolean z2, boolean z3) {
-        this.lN = new f();
-        b(this.lN);
-        this.lN.dv().setUrl(str);
-        this.lO = new d(this.lN);
-        return this.lO.a(str2, iVar, i, i2, i3, i4, z2, z3);
+        this.mr = new f();
+        b(this.mr);
+        this.mr.du().setUrl(str);
+        this.ms = new d(this.mr);
+        return this.ms.a(str2, iVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -129,54 +129,55 @@ public class a {
     }
 
     public void cancel() {
-        if (this.lO != null) {
-            this.lO.cancel();
+        if (this.ms != null) {
+            this.ms.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.lO != null) {
-            return this.lO.m4do();
+        if (this.ms != null) {
+            return this.ms.dn();
         }
         return false;
     }
 
-    public void dp() {
-        if (this.lO != null) {
-            this.lO.dp();
+    /* renamed from: do  reason: not valid java name */
+    public void m4do() {
+        if (this.ms != null) {
+            this.ms.m5do();
         }
     }
 
-    public f dD() {
-        return this.lN;
+    public f dC() {
+        return this.mr;
     }
 
     private void a(f fVar, boolean z) {
         if (fVar != null) {
-            if (!TextUtils.isEmpty(lI)) {
-                fVar.dv().o("Cookie", lI);
+            if (!TextUtils.isEmpty(mm)) {
+                fVar.du().o("Cookie", mm);
             } else {
-                fVar.dv().o("Cookie", "");
+                fVar.du().o("Cookie", "");
             }
-            if (!TextUtils.isEmpty(lK)) {
-                fVar.dv().o("client_user_token", lK);
+            if (!TextUtils.isEmpty(mo)) {
+                fVar.du().o("client_user_token", mo);
             }
-            if (!TextUtils.isEmpty(lJ)) {
-                fVar.dv().o("User-Agent", lJ);
+            if (!TextUtils.isEmpty(mn)) {
+                fVar.du().o("User-Agent", mn);
             }
             if (z) {
-                fVar.dv().o("Accept-Encoding", "gzip");
+                fVar.du().o("Accept-Encoding", "gzip");
             } else {
-                fVar.dv().o("Accept-Encoding", "");
+                fVar.du().o("Accept-Encoding", "");
             }
-            if (lL) {
-                fVar.dv().o("Connection", "Keep-Alive");
+            if (mp) {
+                fVar.du().o("Connection", "Keep-Alive");
             } else {
-                fVar.dv().o("Connection", IntentConfig.CLOSE);
+                fVar.du().o("Connection", IntentConfig.CLOSE);
             }
-            fVar.dv().o("client_logid", String.valueOf(this.lP));
-            if (!TextUtils.isEmpty(lM)) {
-                fVar.dv().o(SocialConstants.PARAM_CUID, lM);
+            fVar.du().o("client_logid", String.valueOf(this.mt));
+            if (!TextUtils.isEmpty(mq)) {
+                fVar.du().o(SocialConstants.PARAM_CUID, mq);
             }
         }
     }

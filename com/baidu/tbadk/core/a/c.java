@@ -3,10 +3,17 @@ package com.baidu.tbadk.core.a;
 import android.text.TextUtils;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
 import java.security.Key;
+import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.util.Random;
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
@@ -15,16 +22,16 @@ public class c {
 
     public c() {
         this.mKey = "kf1t9tsczk16vc8z";
-        this.mKey = ok();
+        this.mKey = nZ();
     }
 
-    private byte[] c(Key key, byte[] bArr) {
+    private byte[] c(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, key);
         return cipher.doFinal(bArr);
     }
 
-    public String encrypt(String str, String str2) {
+    public String encrypt(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
         int length;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
@@ -54,7 +61,7 @@ public class c {
         return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
     }
 
-    private String ok() {
+    private String nZ() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 16; i++) {

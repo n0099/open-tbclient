@@ -6,17 +6,17 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends CountDownTimer {
-    private final /* synthetic */ h dRH;
-    final /* synthetic */ PbInterviewStatusView dZh;
-    private final /* synthetic */ PbActivity dZi;
+    private final /* synthetic */ h edV;
+    final /* synthetic */ PbInterviewStatusView elJ;
+    private final /* synthetic */ PbActivity elK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity, h hVar) {
         super(j, j2);
-        this.dZh = pbInterviewStatusView;
-        this.dZi = pbActivity;
-        this.dRH = hVar;
+        this.elJ = pbInterviewStatusView;
+        this.elK = pbActivity;
+        this.edV = hVar;
     }
 
     @Override // android.os.CountDownTimer
@@ -25,6 +25,6 @@ public class n extends CountDownTimer {
 
     @Override // android.os.CountDownTimer
     public void onFinish() {
-        this.dZh.b(this.dZi, this.dRH);
+        this.elJ.b(this.elK, this.edV);
     }
 }

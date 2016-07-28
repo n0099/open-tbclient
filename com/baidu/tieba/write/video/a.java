@@ -7,40 +7,40 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements d.a {
-    final /* synthetic */ WriteLocationView fFY;
+    final /* synthetic */ WriteLocationView fRZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WriteLocationView writeLocationView) {
-        this.fFY = writeLocationView;
+        this.fRZ = writeLocationView;
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void Cm() {
+    public void Cl() {
         BaseActivity baseActivity;
-        baseActivity = this.fFY.bJz;
+        baseActivity = this.fRZ.bsn;
         baseActivity.showToast(u.j.no_network_guide);
-        this.fFY.b(0, true, null);
+        this.fRZ.c(0, true, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void fF(String str) {
+    public void fD(String str) {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        baseActivity = this.fFY.bJz;
+        baseActivity = this.fRZ.bsn;
         if (StringUtils.isNull(str)) {
-            baseActivity2 = this.fFY.bJz;
+            baseActivity2 = this.fRZ.bsn;
             str = baseActivity2.getResources().getString(u.j.location_fail);
         }
         baseActivity.showToast(str);
-        this.fFY.b(0, true, null);
+        this.fRZ.c(0, true, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
     public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
         if (aVar == null || StringUtils.isNull(aVar.getFormatted_address())) {
-            fF(null);
+            fD(null);
         } else {
-            this.fFY.b(2, true, aVar.getFormatted_address());
+            this.fRZ.c(2, true, aVar.getFormatted_address());
         }
     }
 }

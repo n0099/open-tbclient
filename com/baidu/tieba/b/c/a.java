@@ -4,27 +4,27 @@ public class a {
 
     /* renamed from: com.baidu.tieba.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0050a {
+    public static class C0051a {
         double x;
         double y;
 
-        public C0050a() {
+        public C0051a() {
         }
 
-        public C0050a(double d, double d2) {
+        public C0051a(double d, double d2) {
             this.x = d;
             this.y = d2;
         }
     }
 
-    public static C0050a a(C0050a c0050a, C0050a c0050a2, C0050a c0050a3, C0050a c0050a4, double d) {
-        if (d < 0.0d || d > 1.0d || c0050a == null || c0050a2 == null || c0050a3 == null || c0050a4 == null) {
+    public static C0051a a(C0051a c0051a, C0051a c0051a2, C0051a c0051a3, C0051a c0051a4, double d) {
+        if (d < 0.0d || d > 1.0d || c0051a == null || c0051a2 == null || c0051a3 == null || c0051a4 == null) {
             return null;
         }
-        C0050a c0050a5 = new C0050a();
-        c0050a5.x = a(c0050a.x, c0050a2.x, c0050a3.x, c0050a4.x, d);
-        c0050a5.y = a(c0050a.y, c0050a2.y, c0050a3.y, c0050a4.y, d);
-        return c0050a5;
+        C0051a c0051a5 = new C0051a();
+        c0051a5.x = a(c0051a.x, c0051a2.x, c0051a3.x, c0051a4.x, d);
+        c0051a5.y = a(c0051a.y, c0051a2.y, c0051a3.y, c0051a4.y, d);
+        return c0051a5;
     }
 
     public static double a(double d, double d2, double d3, double d4, double d5) {
@@ -45,7 +45,7 @@ public class a {
     }
 
     public static double a(int i, float f, float f2) {
-        C0050a a = a(new C0050a(0.0d, 0.0d), new C0050a(0.0d, f2), new C0050a(f - f2, f), new C0050a(f, f), ((i % f) + 1.0f) / f);
+        C0051a a = a(new C0051a(0.0d, 0.0d), new C0051a(0.0d, f2), new C0051a(f - f2, f), new C0051a(f, f), ((i % f) + 1.0f) / f);
         if (a == null) {
             return 0.0d;
         }
@@ -53,7 +53,7 @@ public class a {
     }
 
     public static double c(double d) {
-        C0050a a = a(new C0050a(0.0d, 0.0d), new C0050a(0.0d, 0.3d), new C0050a(0.2d, 1.0d), new C0050a(1.0d, 1.0d), d);
+        C0051a a = a(new C0051a(0.0d, 0.0d), new C0051a(0.0d, 0.3d), new C0051a(0.2d, 1.0d), new C0051a(1.0d, 1.0d), d);
         if (a == null) {
             return 0.0d;
         }

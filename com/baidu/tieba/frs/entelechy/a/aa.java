@@ -1,54 +1,30 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import com.baidu.tbadk.core.data.be;
+import com.baidu.tieba.card.bx;
 import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements com.baidu.adp.lib.f.c<TbImageView> {
-    final /* synthetic */ y bJN;
+public class aa extends bx<be> {
+    final /* synthetic */ z bLp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(y yVar) {
-        this.bJN = yVar;
+    public aa(z zVar) {
+        this.bLp = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: vz */
-    public TbImageView dF() {
-        TbPageContext tbPageContext;
-        tbPageContext = this.bJN.Ea;
-        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
-        tbImageView.setDrawBorder(true);
-        tbImageView.setBorderColor(av.getColor(u.d.common_color_10043));
-        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds1));
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: a */
-    public void l(TbImageView tbImageView) {
-        tbImageView.setOnClickListener(null);
-        tbImageView.setForegroundColor(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public TbImageView m(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public TbImageView n(TbImageView tbImageView) {
-        tbImageView.setOnClickListener(null);
-        tbImageView.setForegroundColor(0);
-        return tbImageView;
+    @Override // com.baidu.tieba.card.bx
+    public void a(View view, be beVar) {
+        if (view != null && beVar != null) {
+            if (view.getId() == u.g.frame_video) {
+                com.baidu.tieba.frs.h.b.aam().a(z.bSh, beVar, 4);
+            } else if (view.getId() == u.g.layout_root) {
+                com.baidu.tieba.frs.h.b.aam().a(z.bSh, beVar, 1);
+            } else if (view.getId() == u.g.image_user || view.getId() == u.g.user_name) {
+                com.baidu.tieba.frs.h.b.aam().a(z.bSh, beVar, 2);
+            }
+        }
     }
 }

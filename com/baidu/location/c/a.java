@@ -13,8 +13,8 @@ public class a {
     private static a a = null;
     private boolean b = false;
     private Handler c = null;
-    private AlarmManager GD = null;
-    private C0019a GE = null;
+    private AlarmManager GY = null;
+    private C0019a GZ = null;
     private PendingIntent f = null;
     private long g = 0;
 
@@ -47,21 +47,21 @@ public class a {
             return;
         }
         if (this.f != null) {
-            this.GD.cancel(this.f);
+            this.GY.cancel(this.f);
             this.f = null;
         }
         if (this.f == null) {
             this.f = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
-            this.GD.set(0, System.currentTimeMillis() + com.baidu.location.h.i.Jx, this.f);
+            this.GY.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.f);
         }
         Message message = new Message();
         message.what = 22;
-        if (System.currentTimeMillis() - this.g >= com.baidu.location.h.i.Jy) {
+        if (System.currentTimeMillis() - this.g >= com.baidu.location.h.i.U) {
             this.g = System.currentTimeMillis();
-            if (com.baidu.location.f.f.mu().i()) {
+            if (com.baidu.location.f.f.mk().i()) {
                 return;
             }
-            com.baidu.location.a.e.ly().b(message);
+            com.baidu.location.a.e.lu().b(message);
         }
     }
 
@@ -70,20 +70,20 @@ public class a {
         if (this.b) {
             try {
                 if (this.f != null) {
-                    this.GD.cancel(this.f);
+                    this.GY.cancel(this.f);
                     this.f = null;
                 }
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.GE);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.GZ);
             } catch (Exception e) {
             }
-            this.GD = null;
-            this.GE = null;
+            this.GY = null;
+            this.GZ = null;
             this.c = null;
             this.b = false;
         }
     }
 
-    public static synchronized a lM() {
+    public static synchronized a lG() {
         a aVar;
         synchronized (a.class) {
             if (a == null) {
@@ -95,15 +95,15 @@ public class a {
     }
 
     public void b() {
-        if (!this.b && com.baidu.location.h.i.Jx >= 10000) {
+        if (!this.b && com.baidu.location.h.i.T >= 10000) {
             if (this.c == null) {
                 this.c = new i(this);
             }
-            this.GD = (AlarmManager) com.baidu.location.f.getServiceContext().getSystemService("alarm");
-            this.GE = new C0019a(this, null);
-            com.baidu.location.f.getServiceContext().registerReceiver(this.GE, new IntentFilter("com.baidu.location.autonotifyloc_6.2.3"));
+            this.GY = (AlarmManager) com.baidu.location.f.getServiceContext().getSystemService("alarm");
+            this.GZ = new C0019a(this, null);
+            com.baidu.location.f.getServiceContext().registerReceiver(this.GZ, new IntentFilter("com.baidu.location.autonotifyloc_6.2.3"));
             this.f = PendingIntent.getBroadcast(com.baidu.location.f.getServiceContext(), 0, new Intent("com.baidu.location.autonotifyloc_6.2.3"), 134217728);
-            this.GD.set(0, System.currentTimeMillis() + com.baidu.location.h.i.Jx, this.f);
+            this.GY.set(0, System.currentTimeMillis() + com.baidu.location.h.i.T, this.f);
             this.b = true;
             this.g = System.currentTimeMillis();
         }

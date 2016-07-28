@@ -5,25 +5,25 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends CustomMessageListener {
-    final /* synthetic */ f this$0;
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(f fVar, int i) {
+    public aa(h hVar, int i) {
         super(i);
-        this.this$0 = fVar;
+        this.this$0 = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.person.a.at atVar;
-        com.baidu.tieba.person.a.at atVar2;
+        com.baidu.tieba.person.a.ar arVar;
+        com.baidu.tieba.person.a.ar arVar2;
         if (customResponsedMessage != null) {
-            atVar = this.this$0.eoM;
-            if (atVar != null) {
-                atVar2 = this.this$0.eoM;
-                atVar2.aKX();
+            arVar = this.this$0.eAC;
+            if (arVar != null) {
+                arVar2 = this.this$0.eAC;
+                arVar2.aNA();
             }
         }
     }

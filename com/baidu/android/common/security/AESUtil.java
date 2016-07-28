@@ -11,14 +11,14 @@ public final class AESUtil {
     private AESUtil() {
     }
 
-    public static byte[] decrypt(String str, String str2, byte[] bArr) {
+    public static byte[] decrypt(String str, String str2, byte[] bArr) throws Exception {
         SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
         return cipher.doFinal(bArr);
     }
 
-    public static byte[] encrypt(String str, String str2, byte[] bArr) {
+    public static byte[] encrypt(String str, String str2, byte[] bArr) throws Exception {
         SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));

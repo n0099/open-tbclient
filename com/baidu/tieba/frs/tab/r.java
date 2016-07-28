@@ -7,11 +7,11 @@ import com.baidu.tieba.frs.tab.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements TabMenuPopView.a {
-    final /* synthetic */ q bQV;
+    final /* synthetic */ q bST;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.bQV = qVar;
+        this.bST = qVar;
     }
 
     @Override // com.baidu.tieba.frs.TabMenuPopView.a
@@ -19,12 +19,12 @@ public class r implements TabMenuPopView.a {
         j jVar;
         j.b bVar;
         j jVar2;
-        jVar = this.bQV.bQP;
+        jVar = this.bST.bSN;
         if (jVar != null) {
-            jVar2 = this.bQV.bQP;
-            jVar2.ZO();
+            jVar2 = this.bST.bSN;
+            jVar2.aaq();
         }
-        bVar = this.bQV.bQS;
-        bVar.hR(dyVar.bGN);
+        bVar = this.bST.bSQ;
+        bVar.hS(dyVar.bIj);
     }
 }

@@ -76,7 +76,7 @@ public class a {
 
     public static Intent J(Context context, String str) {
         Class<?> intentClass;
-        if (str == null || str.length() <= 0 || (intentClass = TbadkCoreApplication.m9getInst().getIntentClass(LogoActivityConfig.class)) == null) {
+        if (str == null || str.length() <= 0 || (intentClass = TbadkCoreApplication.m10getInst().getIntentClass(LogoActivityConfig.class)) == null) {
             return null;
         }
         Intent intent = new Intent(context, intentClass);

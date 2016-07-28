@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dx implements View.OnClickListener {
-    final /* synthetic */ dt dSh;
-    private final /* synthetic */ String dSi;
+    final /* synthetic */ du eey;
+    private final /* synthetic */ String eez;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dx(dt dtVar, String str) {
-        this.dSh = dtVar;
-        this.dSi = str;
+    public dx(du duVar, String str) {
+        this.eey = duVar;
+        this.eez = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.dSi) && com.baidu.adp.lib.util.k.fI()) {
+        if (!StringUtils.isNull(this.eez) && com.baidu.adp.lib.util.k.fH()) {
             TiebaStatic.log("c10854");
-            com.baidu.tbadk.browser.f.v(this.dSh.dOg.getActivity(), this.dSi);
+            com.baidu.tbadk.browser.f.v(this.eey.eat.getActivity(), this.eez);
         }
     }
 }

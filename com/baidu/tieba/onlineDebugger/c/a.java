@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private static final HashMap<String, Class<?>> bxY = new HashMap<>();
+    private static final HashMap<String, Class<?>> bAm = new HashMap<>();
 
     static {
-        bxY.put("TbadkCoreApplication", TbadkCoreApplication.class);
-        bxY.put("BdActivityStack", com.baidu.adp.base.a.class);
+        bAm.put("TbadkCoreApplication", TbadkCoreApplication.class);
+        bAm.put("BdActivityStack", com.baidu.adp.base.a.class);
     }
 
     public static final Class<?> findClass(String str) {
         if (str == null) {
             return null;
         }
-        return bxY.get(str);
+        return bAm.get(str);
     }
 }

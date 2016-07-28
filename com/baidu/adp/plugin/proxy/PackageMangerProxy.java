@@ -41,7 +41,7 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public PackageInfo getPackageInfo(String str, int i) {
+    public PackageInfo getPackageInfo(String str, int i) throws PackageManager.NameNotFoundException {
         Plugin plugin2;
         return (!TextUtils.equals(this.mPackageName, str) || (plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPackageName)) == null) ? this.mPm.getPackageInfo(str, i) : plugin2.getPluginPackageInfo();
     }
@@ -52,22 +52,22 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public int[] getPackageGids(String str) {
+    public int[] getPackageGids(String str) throws PackageManager.NameNotFoundException {
         return this.mPm.getPackageGids(str);
     }
 
     @Override // android.content.pm.PackageManager
-    public PermissionInfo getPermissionInfo(String str, int i) {
+    public PermissionInfo getPermissionInfo(String str, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.getPermissionInfo(str, i);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PermissionInfo> queryPermissionsByGroup(String str, int i) {
+    public List<PermissionInfo> queryPermissionsByGroup(String str, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.queryPermissionsByGroup(str, i);
     }
 
     @Override // android.content.pm.PackageManager
-    public PermissionGroupInfo getPermissionGroupInfo(String str, int i) {
+    public PermissionGroupInfo getPermissionGroupInfo(String str, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.getPermissionGroupInfo(str, i);
     }
 
@@ -77,22 +77,22 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ApplicationInfo getApplicationInfo(String str, int i) {
+    public ApplicationInfo getApplicationInfo(String str, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.getApplicationInfo(str, i);
     }
 
     @Override // android.content.pm.PackageManager
-    public ActivityInfo getActivityInfo(ComponentName componentName, int i) {
+    public ActivityInfo getActivityInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.getActivityInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
-    public ActivityInfo getReceiverInfo(ComponentName componentName, int i) {
+    public ActivityInfo getReceiverInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.getReceiverInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
-    public ServiceInfo getServiceInfo(ComponentName componentName, int i) {
+    public ServiceInfo getServiceInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.getServiceInfo(componentName, i);
     }
 
@@ -197,7 +197,7 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) {
+    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.getInstrumentationInfo(componentName, i);
     }
 
@@ -212,7 +212,7 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getActivityIcon(Intent intent) {
+    public Drawable getActivityIcon(Intent intent) throws PackageManager.NameNotFoundException {
         return this.mPm.getActivityIcon(intent);
     }
 
@@ -227,7 +227,7 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getApplicationIcon(String str) {
+    public Drawable getApplicationIcon(String str) throws PackageManager.NameNotFoundException {
         return this.mPm.getApplicationIcon(str);
     }
 
@@ -247,17 +247,17 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public Resources getResourcesForActivity(ComponentName componentName) {
+    public Resources getResourcesForActivity(ComponentName componentName) throws PackageManager.NameNotFoundException {
         return this.mPm.getResourcesForActivity(componentName);
     }
 
     @Override // android.content.pm.PackageManager
-    public Resources getResourcesForApplication(ApplicationInfo applicationInfo) {
+    public Resources getResourcesForApplication(ApplicationInfo applicationInfo) throws PackageManager.NameNotFoundException {
         return this.mPm.getResourcesForApplication(applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
-    public Resources getResourcesForApplication(String str) {
+    public Resources getResourcesForApplication(String str) throws PackageManager.NameNotFoundException {
         return this.mPm.getResourcesForApplication(str);
     }
 
@@ -295,7 +295,7 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getActivityIcon(ComponentName componentName) {
+    public Drawable getActivityIcon(ComponentName componentName) throws PackageManager.NameNotFoundException {
         return this.mPm.getActivityIcon(componentName);
     }
 
@@ -350,12 +350,12 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getActivityLogo(ComponentName componentName) {
+    public Drawable getActivityLogo(ComponentName componentName) throws PackageManager.NameNotFoundException {
         return this.mPm.getActivityLogo(componentName);
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getActivityLogo(Intent intent) {
+    public Drawable getActivityLogo(Intent intent) throws PackageManager.NameNotFoundException {
         return this.mPm.getActivityLogo(intent);
     }
 
@@ -365,12 +365,12 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getApplicationLogo(String str) {
+    public Drawable getApplicationLogo(String str) throws PackageManager.NameNotFoundException {
         return this.mPm.getApplicationLogo(str);
     }
 
     @Override // android.content.pm.PackageManager
-    public ProviderInfo getProviderInfo(ComponentName componentName, int i) {
+    public ProviderInfo getProviderInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         return this.mPm.getProviderInfo(componentName, i);
     }
 

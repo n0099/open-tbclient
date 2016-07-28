@@ -9,10 +9,10 @@ import com.baidu.cloudsdk.social.share.uiwithlayout.ShareDialog;
 /* loaded from: classes.dex */
 public class t implements AsyncImageLoader.IAsyncImageLoaderListener {
     final /* synthetic */ RelativeLayout a;
-    final /* synthetic */ ShareDialog da;
+    final /* synthetic */ ShareDialog dD;
 
     public t(ShareDialog shareDialog, RelativeLayout relativeLayout) {
-        this.da = shareDialog;
+        this.dD = shareDialog;
         this.a = relativeLayout;
     }
 
@@ -26,9 +26,9 @@ public class t implements AsyncImageLoader.IAsyncImageLoaderListener {
             Log.e(str, "load image null");
             return;
         }
-        checkImageView = this.da.g;
+        checkImageView = this.dD.g;
         checkImageView.setImageBitmap(bitmap);
-        checkImageView2 = this.da.g;
+        checkImageView2 = this.dD.g;
         checkImageView2.setChecked(true);
         this.a.setVisibility(0);
     }

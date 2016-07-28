@@ -2,13 +2,14 @@ package com.baidu.location.b.b;
 
 import com.baidu.location.b.b.c;
 import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements Comparator<c.a> {
-    final /* synthetic */ c GC;
+public class d implements Comparator<c.a> {
+    final /* synthetic */ c GX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.GC = cVar;
+        this.GX = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -4,22 +4,22 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-    final /* synthetic */ z dNn;
-    private final /* synthetic */ int dNo;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dNp;
+    final /* synthetic */ z dZA;
+    private final /* synthetic */ int dZB;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dZC;
     private final /* synthetic */ int val$count;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(z zVar, int i, int i2, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dNn = zVar;
-        this.dNo = i;
+        this.dZA = zVar;
+        this.dZB = i;
         this.val$count = i2;
-        this.dNp = sVar;
+        this.dZC = sVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dNp.qE(Math.min(this.dNo + 5, this.val$count));
-        this.dNn.notifyDataSetChanged();
+        this.dZC.qZ(Math.min(this.dZB + 5, this.val$count));
+        this.dZA.notifyDataSetChanged();
     }
 }

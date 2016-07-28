@@ -1,105 +1,194 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.BaobaoTailView;
+import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tieba.pb.view.PbReplyEcommCard;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class ec extends y.a {
-    private TbPageContext Dp;
-    View.OnClickListener aWE;
-    public LinearLayout dSA;
-    public View dSB;
-    public RelativeLayout dSC;
-    public TbImageView dSD;
-    public TextView dSE;
-    public TextView dSF;
-    public TextView dSG;
-    public LinearLayout dSH;
-    public ImageView dSI;
-    public TextView dSJ;
-    public LinearLayout dSK;
-    public ImageView dSL;
-    public TextView dSM;
-    public View dSN;
-    private com.baidu.tbadk.core.data.ah dSO;
-    private com.baidu.tbadk.core.data.ah dSP;
-    private com.baidu.tbadk.core.data.ah dSQ;
-    private int mSkinType;
+    public TextView aPR;
+    public ViewStub aSW;
+    public TbImageView aSX;
+    UserIconBox aeT;
+    public TbImageView bHt;
+    public UserIconBox bVj;
+    public View dZD;
+    public View dZE;
+    public View dZF;
+    public View dZG;
+    public View dZH;
+    public HeadImageView dZI;
+    public ImageView dZJ;
+    public ImageView dZK;
+    public ImageView dZL;
+    public TextView dZM;
+    public TextView dZN;
+    public ImageView dZO;
+    public ImageView dZP;
+    public TbRichTextView dZQ;
+    public FrsPraiseView dZR;
+    public ImageView dZS;
+    public PbGiftListView dZT;
+    public RelativeLayout dZU;
+    public LinearLayout dZV;
+    public ImageView dZW;
+    public SubPbLayout dZX;
+    public BaobaoTailView dZY;
+    public RelativeLayout dZZ;
+    public RelativeLayout eaa;
+    public LinearLayout eab;
+    public TextView eac;
+    public LinearLayout ead;
+    public Button eae;
+    public LinearLayout eaf;
+    public TextView eag;
+    public View eah;
+    public View eai;
+    public LinearLayout eaj;
+    public ImageView eak;
+    public TextView eal;
+    public LinearLayout eam;
+    public ImageView ean;
+    public TextView eao;
+    public TextView eap;
+    public View eeD;
+    public RelativeLayout eeE;
+    public ImageView eeF;
+    public ClickableHeaderImageView eeG;
+    public TextView eeH;
+    public TbImageView eeI;
+    public FrameLayout eeJ;
+    public TbImageView eeK;
+    public GifView eeL;
+    public ThreadSkinView eeM;
+    public LinearLayout eeN;
+    private ViewStub eeO;
+    public PbReplyEcommCard eeP;
+    public LinearLayout eeQ;
+    public int mSkinType;
 
-    public ec(TbPageContext tbPageContext, View view) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [168=5] */
+    public ec(View view, boolean z, boolean z2, int i, boolean z3) {
         super(view);
         this.mSkinType = 3;
-        this.aWE = new ed(this);
-        this.Dp = tbPageContext;
-        this.dSA = (LinearLayout) view.findViewById(u.g.pb_news_info_layout);
-        this.dSB = view.findViewById(u.g.pb_list_item_top_line);
-        this.dSC = (RelativeLayout) view.findViewById(u.g.pb_top_code);
-        this.dSD = (TbImageView) view.findViewById(u.g.top_code_img);
-        this.dSE = (TextView) view.findViewById(u.g.top_code_get_btn);
-        this.dSF = (TextView) view.findViewById(u.g.top_code_detail_summary_text);
-        this.dSG = (TextView) view.findViewById(u.g.top_code_detail_subtitle_text);
-        this.dSH = (LinearLayout) view.findViewById(u.g.news_info);
-        this.dSI = (ImageView) view.findViewById(u.g.news_info_img);
-        this.dSJ = (TextView) view.findViewById(u.g.news_info_text);
-        this.dSK = (LinearLayout) view.findViewById(u.g.game_info);
-        this.dSL = (ImageView) view.findViewById(u.g.game_info_img);
-        this.dSM = (TextView) view.findViewById(u.g.game_info_text);
-        this.dSN = view.findViewById(u.g.pb_news_info_divider);
-        setOnClickListener(this.aWE);
-    }
-
-    public void a(dr drVar) {
-        if (drVar != null) {
-            this.dSO = drVar.dSd;
-            this.dSP = drVar.dSe;
-            this.dSQ = drVar.dSf;
-            if (this.dSO != null) {
-                this.dSD.c(this.dSO.OX, 10, false);
-                this.dSF.setText(this.dSO.summary);
-                this.dSG.setText(this.dSO.subtitle);
-                this.dSE.setText(this.dSO.Fg);
-                com.baidu.tbadk.core.util.av.k(this.dSE, u.f.selector_star_btn_like);
-                com.baidu.tbadk.core.util.av.j((View) this.dSE, u.f.news_text_color_selector);
-            } else {
-                this.dSC.setVisibility(8);
-            }
-            if (this.dSP != null) {
-                this.dSJ.setText(this.dSP.summary);
-                com.baidu.tbadk.core.util.av.k(this.dSI, u.f.icon_frs_news);
-            } else {
-                this.dSH.setVisibility(8);
-                this.dSJ.setVisibility(8);
-                this.dSI.setVisibility(8);
-            }
-            if (this.dSQ != null) {
-                this.dSM.setText(this.dSQ.summary);
-                com.baidu.tbadk.core.util.av.k(this.dSL, u.f.icon_frs_game);
-            } else {
-                this.dSK.setVisibility(8);
-                this.dSM.setVisibility(8);
-                this.dSM.setVisibility(8);
-            }
-            this.dSA.setTag(drVar);
+        this.dZH = view.findViewById(u.g.sub_pb_more);
+        this.dZZ = (RelativeLayout) view.findViewById(u.g.user_head_layout);
+        this.dZI = (HeadImageView) view.findViewById(u.g.photo);
+        this.aSW = (ViewStub) view.findViewById(u.g.viewstub_headimage_mask);
+        this.dZI.setRadius(com.baidu.adp.lib.util.k.c(view.getContext(), u.e.ds40));
+        this.aPR = (TextView) view.findViewById(u.g.user_name);
+        this.dZJ = (ImageView) view.findViewById(u.g.user_rank);
+        this.dZK = (ImageView) view.findViewById(u.g.user_bawu);
+        this.dZL = (ImageView) view.findViewById(u.g.user_gender);
+        this.dZP = (ImageView) view.findViewById(u.g.reply);
+        this.dZQ = (TbRichTextView) view.findViewById(u.g.richText);
+        this.eeD = view.findViewById(u.g.new_pb_list_item_line_full);
+        this.dZT = (PbGiftListView) view.findViewById(u.g.gift_list_view);
+        this.dZR = (FrsPraiseView) view.findViewById(u.g.pb_item_praise_view);
+        this.dZS = (ImageView) view.findViewById(u.g.pb_item_praise_bottomline);
+        this.eaj = (LinearLayout) view.findViewById(u.g.pb_item_location_container);
+        this.eal = (TextView) view.findViewById(u.g.pb_item_location_address);
+        this.eak = (ImageView) view.findViewById(u.g.pb_item_location_img);
+        this.eam = (LinearLayout) view.findViewById(u.g.pb_reply_location_container);
+        this.eao = (TextView) view.findViewById(u.g.pb_reply_location_address);
+        this.ean = (ImageView) view.findViewById(u.g.pb_reply_location_img);
+        this.eaa = (RelativeLayout) view.findViewById(u.g.pb_item_floor_layout);
+        this.dZO = (ImageView) view.findViewById(u.g.floor_owner);
+        this.dZM = (TextView) view.findViewById(u.g.floor);
+        this.dZN = (TextView) view.findViewById(u.g.time);
+        this.dZU = (RelativeLayout) view.findViewById(u.g.pb_post_header_layout);
+        this.dZX = (SubPbLayout) view.findViewById(u.g.pb_post_footer_layout);
+        this.dZV = (LinearLayout) view.findViewById(u.g.pb_subpb_layout_root);
+        this.dZW = (ImageView) view.findViewById(u.g.pb_post_footer_layout_line_top);
+        this.dZD = view;
+        this.dZE = view.findViewById(u.g.new_pb_list_item_line_top);
+        this.dZF = view.findViewById(u.g.new_pb_list_item_line_top_full);
+        this.dZG = view.findViewById(u.g.new_pb_list_item_blank_top);
+        this.dZQ.Hp();
+        this.dZQ.setImageViewStretch(true);
+        this.bHt = (TbImageView) view.findViewById(u.g.game_activity_banner);
+        this.eeH = (TextView) view.findViewById(u.g.action_button);
+        this.eeI = (TbImageView) view.findViewById(u.g.game_activity_banner);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m10getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.dZQ.getPaddingLeft()) - this.dZQ.getPaddingRight()) - ((int) TbadkCoreApplication.m10getInst().getResources().getDimension(u.e.ds60)), i);
+        this.dZQ.setMaxImageWidth(min);
+        this.dZQ.setMaxImageHeight((int) (min * 1.618f));
+        this.dZQ.setTextSize(TbConfig.getContentSize());
+        if (z) {
+            ViewGroup.LayoutParams layoutParams = this.dZI.getLayoutParams();
+            layoutParams.width = (int) TbadkCoreApplication.m10getInst().getResources().getDimension(u.e.ds80);
+            this.dZI.setLayoutParams(layoutParams);
+            this.dZI.setVisibility(0);
+        } else {
+            ViewGroup.LayoutParams layoutParams2 = this.dZI.getLayoutParams();
+            layoutParams2.width = (int) TbadkCoreApplication.m10getInst().getResources().getDimension(u.e.ds40);
+            this.dZI.setLayoutParams(layoutParams2);
+            this.dZI.setVisibility(4);
         }
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            this.Dp.getLayoutMode().ad(i == 1);
-            this.Dp.getLayoutMode().w(getView());
-            this.mSkinType = i;
+        this.dZQ.i(z2, false);
+        this.dZQ.setVoiceViewRes(u.h.voice_play_btn_new);
+        this.bVj = (UserIconBox) view.findViewById(u.g.user_icon_box);
+        this.aeT = (UserIconBox) view.findViewById(u.g.user_tshow_icon_box);
+        this.eab = (LinearLayout) view.findViewById(u.g.add_post_footer_layout);
+        if (z3) {
+            this.dZU.setVisibility(8);
+            this.dZP.setVisibility(8);
+            this.dZQ.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.dZQ.getLayoutParams();
+            layoutParams3.leftMargin = 0;
+            layoutParams3.rightMargin = 0;
+            layoutParams3.topMargin = 0;
+            layoutParams3.bottomMargin = 0;
+            this.dZQ.setLayoutParams(layoutParams3);
+            view.findViewById(u.g.pb_list_item_layout).setPadding(0, 0, 0, 0);
+            this.ead = (LinearLayout) view.findViewById(u.g.add_time_container);
+            this.eac = (TextView) view.findViewById(u.g.add_time);
+            this.eae = (Button) view.findViewById(u.g.manage_btn);
+            this.ead.setVisibility(0);
         }
+        this.eaf = (LinearLayout) view.findViewById(u.g.addition_more_container);
+        this.eag = (TextView) this.eaf.findViewById(u.g.addition_more);
+        this.eah = this.eaf.findViewById(u.g.addition_divider1);
+        this.eai = this.eaf.findViewById(u.g.addition_divider2);
+        this.dZY = (BaobaoTailView) view.findViewById(u.g.baobao_tail);
+        this.eap = (TextView) view.findViewById(u.g.pb_item_tail_content);
+        this.eeF = (ImageView) view.findViewById(u.g.replybtn);
+        this.eeG = (ClickableHeaderImageView) view.findViewById(u.g.god_user_photo);
+        this.aSX = (TbImageView) view.findViewById(u.g.user_head_mask);
+        this.eeG.setGodIconMargin(0);
+        this.eeJ = (FrameLayout) view.findViewById(u.g.lottery_tail);
+        this.eeK = (TbImageView) view.findViewById(u.g.lottery_tail_normalview);
+        this.eeL = (GifView) view.findViewById(u.g.lottery_tail_gifview);
+        this.eeM = (ThreadSkinView) view.findViewById(u.g.pb_item_thread_skin);
+        this.eeN = (LinearLayout) view.findViewById(u.g.middle);
+        this.eeO = (ViewStub) view.findViewById(u.g.reply_ecomm_card);
+        this.eeQ = (LinearLayout) view.findViewById(u.g.pb_list_content);
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.dSC.setOnClickListener(onClickListener);
-        this.dSH.setOnClickListener(onClickListener);
-        this.dSK.setOnClickListener(onClickListener);
+    public PbReplyEcommCard aJP() {
+        if (this.eeP == null) {
+            this.eeP = (PbReplyEcommCard) this.eeO.inflate();
+        }
+        return this.eeP;
     }
 }

@@ -5,39 +5,39 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class ac implements View.OnTouchListener {
-    private a eWq;
+    private a fjs;
     private int count = 0;
-    private long dMt = 0;
-    private long dMu = 0;
-    private long dMw = 500;
+    private long dYD = 0;
+    private long dYE = 0;
+    private long dYG = 500;
     private Handler mHandler = new ad(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void WO();
+        void Xg();
 
-        void WP();
+        void Xh();
     }
 
     public ac(a aVar) {
-        this.eWq = aVar;
+        this.fjs = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.eWq == null) {
+            if (this.fjs == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.dMt = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.dMw);
+                this.dYD = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.dYG);
                 return true;
             } else if (this.count == 2) {
-                this.dMu = System.currentTimeMillis();
-                if (this.dMu - this.dMt < this.dMw) {
-                    this.eWq.WP();
+                this.dYE = System.currentTimeMillis();
+                if (this.dYE - this.dYD < this.dYG) {
+                    this.fjs.Xh();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

@@ -18,7 +18,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class x extends ArrayAdapter {
     private SocialShareConfig b;
-    private a dd;
+    private a dG;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -30,7 +30,7 @@ public class x extends ArrayAdapter {
         private ImageView b;
         private TextView c;
         private TextView d;
-        private SwitchButton de;
+        private SwitchButton dH;
 
         private b() {
         }
@@ -44,7 +44,7 @@ public class x extends ArrayAdapter {
     public x(Context context, List list, a aVar) {
         super(context, 0, list);
         int i = 0;
-        this.dd = aVar;
+        this.dG = aVar;
         this.b = SocialShareConfig.getInstance(context);
         String string = this.b.getString("unbind");
         while (true) {
@@ -68,7 +68,7 @@ public class x extends ArrayAdapter {
         shareMediaItem.setChecked(z);
         if (z) {
             a(getContext(), shareMediaItem);
-            this.dd.onCheckStatusChanged(true, shareMediaItem.getMediaType());
+            this.dG.onCheckStatusChanged(true, shareMediaItem.getMediaType());
         }
         notifyDataSetChanged();
     }
@@ -88,7 +88,7 @@ public class x extends ArrayAdapter {
             bVar.c.setTextColor(Color.parseColor(p.a(getContext())));
             bVar.d = (TextView) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_desview"));
             bVar.d.setTextColor(Color.parseColor(p.p(getContext())));
-            bVar.de = (SwitchButton) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_switchbutton"));
+            bVar.dH = (SwitchButton) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_switchbutton"));
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
@@ -97,9 +97,9 @@ public class x extends ArrayAdapter {
         bVar.b.setImageResource(shareMediaItem.isChecked() ? p.i(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.i(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
         bVar.c.setText(this.b.getString(shareMediaItem.getMediaType().toString()));
         bVar.d.setText(shareMediaItem.getUserName());
-        bVar.de.setTag(shareMediaItem);
-        bVar.de.setOnCheckedChangeListener(new y(this, bVar));
-        bVar.de.setChecked(shareMediaItem.isChecked());
+        bVar.dH.setTag(shareMediaItem);
+        bVar.dH.setOnCheckedChangeListener(new y(this, bVar));
+        bVar.dH.setChecked(shareMediaItem.isChecked());
         return view;
     }
 }

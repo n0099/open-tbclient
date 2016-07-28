@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbTogetherhiAvatarList extends LinearLayout {
-    private int fiA;
-    private int fiy;
-    private int fiz;
+    private int fvA;
+    private int fvB;
+    private int fvC;
     private List<String> portraitList;
 
     public PbTogetherhiAvatarList(Context context) {
@@ -27,9 +27,9 @@ public class PbTogetherhiAvatarList extends LinearLayout {
         super(context, attributeSet);
         this.portraitList = new ArrayList();
         setOrientation(0);
-        this.fiy = getResources().getDimensionPixelSize(u.e.ds60);
-        this.fiz = getResources().getDimensionPixelSize(u.e.ds12);
-        this.fiA = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth() - getResources().getDimensionPixelSize(u.e.ds162);
+        this.fvA = getResources().getDimensionPixelSize(u.e.ds60);
+        this.fvB = getResources().getDimensionPixelSize(u.e.ds12);
+        this.fvC = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth() - getResources().getDimensionPixelSize(u.e.ds162);
     }
 
     public void setPortraitList(List<String> list) {
@@ -62,17 +62,17 @@ public class PbTogetherhiAvatarList extends LinearLayout {
         for (int i3 = 0; i3 < this.portraitList.size(); i3++) {
             String str = this.portraitList.get(i3);
             if (!TextUtils.isEmpty(str)) {
-                if (i2 <= this.fiA) {
+                if (i2 <= this.fvC) {
                     HeadImageView headImageView = new HeadImageView(getContext());
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fiy, this.fiy);
-                    layoutParams.setMargins(0, 0, this.fiz, 0);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fvA, this.fvA);
+                    layoutParams.setMargins(0, 0, this.fvB, 0);
                     headImageView.setIsRound(true);
                     headImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     addView(headImageView, layoutParams);
-                    String di = q.di(str);
-                    headImageView.setUrl(di);
-                    headImageView.c(di, 12, false);
-                    i2 = this.fiz + this.fiy + i2;
+                    String dh = q.dh(str);
+                    headImageView.setUrl(dh);
+                    headImageView.c(dh, 12, false);
+                    i2 = this.fvB + this.fvA + i2;
                 } else {
                     return;
                 }

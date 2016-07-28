@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class AppLegoStatic extends a {
     static {
-        e.cT().n(AppLegoStatic.class);
+        e.cS().n(AppLegoStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

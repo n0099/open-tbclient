@@ -1,26 +1,44 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.dg;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.pb.pb.main.dh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class di implements Runnable {
-    final /* synthetic */ dh dRF;
-    private final /* synthetic */ PbPageReadLocalResponseMessage dRG;
-    private final /* synthetic */ com.baidu.tieba.pb.data.h dRH;
+public class di extends CustomMessageListener {
+    final /* synthetic */ dh edS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public di(dh dhVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.data.h hVar) {
-        this.dRF = dhVar;
-        this.dRG = pbPageReadLocalResponseMessage;
-        this.dRH = hVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public di(dh dhVar, int i) {
+        super(i);
+        this.edS = dhVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        dg dgVar;
-        dg.a aVar;
-        dgVar = this.dRF.dRE;
-        aVar = dgVar.dRi;
-        aVar.a(true, 0, this.dRG.getUpdateType(), 0, this.dRH, this.dRG.getErrorString(), 0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage;
+        com.baidu.tieba.pb.data.h pbData;
+        dh.a aVar;
+        this.edS.edF = true;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.edS.unique_id;
+            if (tag != bdUniqueId || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
+                return;
+            }
+            this.edS.i(pbData);
+            this.edS.d(pbData);
+            if (pbData.aGY() != null) {
+                pbData.aGY().bG(0);
+            }
+            aVar = this.edS.edw;
+            if (aVar != null && pbData != null) {
+                com.baidu.adp.lib.h.h.dL().post(new dj(this, pbPageReadLocalResponseMessage, pbData));
+            }
+        }
     }
 }

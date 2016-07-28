@@ -1,45 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.ThreadInfo;
-import tbclient.ZhiBoInfoTW;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
-public class t extends az {
-    public static final BdUniqueId NX = BdUniqueId.gen();
-    private PhotoLiveCardData NY = null;
+public class t {
+    private String NY;
+    private String NZ;
+    private String Oa;
+    private String Ob;
+    private int Oc;
 
-    public PhotoLiveCardData oU() {
+    public void a(HeadSdk headSdk) {
+        if (headSdk != null) {
+            this.NY = headSdk.head_pic;
+            this.NZ = headSdk.head_text;
+            this.Oa = headSdk.sdk_name;
+            this.Ob = headSdk.sdk_params;
+            this.Oc = headSdk.head_type.intValue();
+        }
+    }
+
+    public String oF() {
         return this.NY;
     }
 
-    @Override // com.baidu.tbadk.core.data.az
-    public void a(ThreadInfo threadInfo) {
-        super.a(threadInfo);
-        if (threadInfo.twzhibo_info != null) {
-            a(threadInfo.twzhibo_info);
-        }
+    public String oG() {
+        return this.NZ;
     }
 
-    private void a(ZhiBoInfoTW zhiBoInfoTW) {
-        if (zhiBoInfoTW != null) {
-            if (this.NY == null) {
-                this.NY = new PhotoLiveCardData();
-            }
-            this.NY.parserProtobuf(zhiBoInfoTW);
-            this.NY.setShowExpressionViewIndexList(this.NY.getExpressionDatas());
-            if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
-                setId(String.valueOf(this.NY.getThreadId()));
-                cr(String.valueOf(this.NY.getThreadId()));
-            }
-            if (StringUtils.isNull(getForum_name())) {
-                setForum_name(this.NY.getForumName());
-            }
-        }
+    public String oH() {
+        return this.Ob;
     }
 
-    @Override // com.baidu.tbadk.core.data.az, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return NX;
+    public int oI() {
+        return this.Oc;
     }
 }

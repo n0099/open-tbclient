@@ -18,12 +18,12 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
-    private BdAsyncTask<?, ?, ?> aLs;
+    private BdAsyncTask<?, ?, ?> aMm;
     private String bduss;
-    private SapiWebView dIv;
+    private SapiWebView dUE;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.j avg = null;
-    private final a.InterfaceC0033a UB = new a(this);
+    private com.baidu.tbadk.coreExtra.view.j avV = null;
+    private final a.InterfaceC0033a Vl = new a(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -43,12 +43,12 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
             Toast.makeText(getPageContext().getPageActivity(), "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.dIv = (SapiWebView) findViewById(u.g.sapi_webview);
-        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.dIv);
-        this.dIv.setOnBackCallback(new c(this));
-        this.dIv.setOnFinishCallback(new d(this));
-        this.dIv.setAuthorizationListener(new e(this));
-        this.dIv.loadFillUProfile(this.bduss);
+        this.dUE = (SapiWebView) findViewById(u.g.sapi_webview);
+        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.dUE);
+        this.dUE.setOnBackCallback(new c(this));
+        this.dUE.setOnFinishCallback(new d(this));
+        this.dUE.setAuthorizationListener(new e(this));
+        this.dUE.loadFillUProfile(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,8 +59,8 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCN() {
-        TbadkCoreApplication.m9getInst().onUserChanged();
+    public void aFX() {
+        TbadkCoreApplication.m10getInst().onUserChanged();
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
         setResult(-1, intent);
@@ -68,34 +68,34 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCO() {
+    public void aFY() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            if (this.aLs != null) {
-                this.aLs.cancel();
+            if (this.aMm != null) {
+                this.aMm.cancel();
             }
-            this.aLs = com.baidu.tbadk.core.a.a.oe().a(session.username, session.bduss, "", this.UB);
+            this.aMm = com.baidu.tbadk.core.a.a.nT().a(session.username, session.bduss, "", this.Vl);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(AccountData accountData) {
-        if (this.avg == null) {
-            this.avg = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
-            this.avg.a(new f(this));
+        if (this.avV == null) {
+            this.avV = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
+            this.avV.a(new f(this));
         }
-        this.avg.zw();
-        this.avg.h(accountData);
-        this.avg.zs();
+        this.avV.zw();
+        this.avV.h(accountData);
+        this.avV.zs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aLs != null) {
-            this.aLs.cancel();
+        if (this.aMm != null) {
+            this.aMm.cancel();
         }
     }
 }

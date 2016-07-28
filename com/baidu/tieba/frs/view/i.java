@@ -5,15 +5,15 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 /* loaded from: classes.dex */
 class i implements Animation.AnimationListener {
-    private final /* synthetic */ float bTR;
-    final /* synthetic */ h bTS;
-    private final /* synthetic */ View py;
+    private final /* synthetic */ float bVR;
+    final /* synthetic */ h bVS;
+    private final /* synthetic */ View qa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, float f, View view) {
-        this.bTS = hVar;
-        this.bTR = f;
-        this.py = view;
+        this.bVS = hVar;
+        this.bVR = f;
+        this.qa = view;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,9 +26,9 @@ class i implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, this.bTR, 1.0f, 1.0f);
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, this.bVR, 1.0f, 1.0f);
         scaleAnimation.setFillAfter(true);
         scaleAnimation.setDuration(300L);
-        this.py.startAnimation(scaleAnimation);
+        this.qa.startAnimation(scaleAnimation);
     }
 }

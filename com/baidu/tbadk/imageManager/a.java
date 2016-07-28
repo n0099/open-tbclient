@@ -5,21 +5,21 @@ import android.content.Context;
 public interface a {
     int BD();
 
-    int fo(String str);
+    int fm(String str);
 
-    int fp(String str);
+    int fn(String str);
 
-    String fq(String str);
+    String fo(String str);
 
-    C0043a y(Context context, String str);
+    C0044a y(Context context, String str);
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0043a {
+    public static class C0044a {
         private int mHeight;
         private int mWidth;
 
-        public C0043a(int i, int i2) {
+        public C0044a(int i, int i2) {
             this.mWidth = 0;
             this.mHeight = 0;
             this.mWidth = i;

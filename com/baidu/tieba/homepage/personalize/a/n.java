@@ -8,30 +8,30 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements com.baidu.adp.lib.f.c<TbImageView> {
-    final /* synthetic */ l cry;
+    final /* synthetic */ l cui;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.cry = lVar;
+        this.cui = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: vz */
-    public TbImageView dF() {
+    public TbImageView dE() {
         TbPageContext tbPageContext;
-        tbPageContext = this.cry.Ea;
+        tbPageContext = this.cui.EA;
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
         tbImageView.setDrawBorder(true);
         tbImageView.setBorderColor(av.getColor(u.d.common_color_10264));
-        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(u.e.ds1));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds1));
         return tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: a */
-    public void l(TbImageView tbImageView) {
+    public void o(TbImageView tbImageView) {
         tbImageView.setOnClickListener(null);
         tbImageView.setForegroundColor(0);
     }
@@ -39,14 +39,14 @@ public class n implements com.baidu.adp.lib.f.c<TbImageView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: b */
-    public TbImageView m(TbImageView tbImageView) {
+    public TbImageView p(TbImageView tbImageView) {
         return tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: c */
-    public TbImageView n(TbImageView tbImageView) {
+    public TbImageView q(TbImageView tbImageView) {
         tbImageView.setOnClickListener(null);
         tbImageView.setForegroundColor(0);
         return tbImageView;

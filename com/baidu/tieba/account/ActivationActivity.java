@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.TopRecActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.aa;
+import com.baidu.tbadk.core.data.ad;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -30,36 +30,36 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class ActivationActivity extends BaseActivity<ActivationActivity> {
-    private static int aLI = 60;
+    private static int aMC = 60;
     public NavigationBar mNavigationBar;
-    private View afN = null;
-    private LinearLayout aLJ = null;
-    private ImageView aLK = null;
-    private ProgressBar aLL = null;
-    private ProgressBar aLM = null;
-    private TextView aLN = null;
-    private TextView akU = null;
-    private EditText aLO = null;
-    private RelativeLayout aLP = null;
-    private RelativeLayout aLQ = null;
-    private b aLR = null;
-    private a aLS = null;
-    private boolean aLT = false;
-    private int wc = aLI;
-    private RegistData aLU = null;
+    private View agC = null;
+    private LinearLayout aMD = null;
+    private ImageView aME = null;
+    private ProgressBar aMF = null;
+    private ProgressBar aMG = null;
+    private TextView aMH = null;
+    private TextView alK = null;
+    private EditText aMI = null;
+    private RelativeLayout aMJ = null;
+    private RelativeLayout aMK = null;
+    private b aML = null;
+    private a aMM = null;
+    private boolean aMN = false;
+    private int wD = aMC;
+    private RegistData aMO = null;
     private final Handler mHandler = new Handler();
-    private RelativeLayout aLn = null;
-    private View aLV = null;
-    private TextView aLW = null;
-    private TextView aLX = null;
-    private int aLY = 0;
-    private int aLZ = 0;
-    private boolean ajX = false;
-    private int aMa = 0;
+    private RelativeLayout aMh = null;
+    private View aMP = null;
+    private TextView aMQ = null;
+    private TextView aMR = null;
+    private int aMS = 0;
+    private int aMT = 0;
+    private boolean akM = false;
+    private int aMU = 0;
     private final Runnable mRunnable = new p(this);
     private final View.OnClickListener mOnClickListener = new q(this);
-    private final TextWatcher aMb = new r(this);
-    private final View.OnFocusChangeListener aMc = new s(this);
+    private final TextWatcher aMV = new r(this);
+    private final View.OnFocusChangeListener aMW = new s(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -68,141 +68,141 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
         setSwipeBackEnabled(false);
         setContentView(u.h.account_register_activation);
         initData(bundle);
-        nl();
-        Ja();
+        initUI();
+        IZ();
     }
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.aLU = (RegistData) bundle.getSerializable("data");
-            this.ajX = bundle.getBoolean(IntentConfig.CLOSE, false);
+            this.aMO = (RegistData) bundle.getSerializable("data");
+            this.akM = bundle.getBoolean(IntentConfig.CLOSE, false);
         } else {
             Intent intent = getIntent();
-            this.aLU = (RegistData) intent.getSerializableExtra("data");
-            this.ajX = intent.getBooleanExtra(IntentConfig.CLOSE, false);
+            this.aMO = (RegistData) intent.getSerializableExtra("data");
+            this.akM = intent.getBooleanExtra(IntentConfig.CLOSE, false);
         }
-        if (this.aLU == null) {
+        if (this.aMO == null) {
             setResult(0);
             finish();
-        } else if (this.aLU.getSmsCodeTime() > 0) {
-            aLI = this.aLU.getSmsCodeTime();
+        } else if (this.aMO.getSmsCodeTime() > 0) {
+            aMC = this.aMO.getSmsCodeTime();
         }
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.aLU = (RegistData) bundle.getSerializable("data");
-        this.ajX = bundle.getBoolean(IntentConfig.CLOSE, false);
+        this.aMO = (RegistData) bundle.getSerializable("data");
+        this.akM = bundle.getBoolean(IntentConfig.CLOSE, false);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("data", this.aLU);
-        bundle.putBoolean(IntentConfig.CLOSE, this.ajX);
+        bundle.putSerializable("data", this.aMO);
+        bundle.putBoolean(IntentConfig.CLOSE, this.akM);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         this.mHandler.removeCallbacks(this.mRunnable);
-        if (this.aLR != null) {
-            this.aLR.cancel();
+        if (this.aML != null) {
+            this.aML.cancel();
         }
-        if (this.aLS != null) {
-            this.aLS.cancel();
+        if (this.aMM != null) {
+            this.aMM.cancel();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ja() {
-        this.aLT = false;
-        this.aLQ.setEnabled(false);
-        this.wc = aLI;
-        this.aLN.setText(String.format(getPageContext().getString(u.j.resend_code_second), Integer.valueOf(this.wc)));
+    public void IZ() {
+        this.aMN = false;
+        this.aMK.setEnabled(false);
+        this.wD = aMC;
+        this.aMH.setText(String.format(getPageContext().getString(u.j.resend_code_second), Integer.valueOf(this.wD)));
         this.mHandler.postDelayed(this.mRunnable, 1000L);
     }
 
-    private void nl() {
-        this.aLn = (RelativeLayout) findViewById(u.g.container);
-        this.aLV = findViewById(u.g.title);
-        this.aLW = (TextView) findViewById(u.g.done_text);
+    private void initUI() {
+        this.aMh = (RelativeLayout) findViewById(u.g.container);
+        this.aMP = findViewById(u.g.title);
+        this.aMQ = (TextView) findViewById(u.g.done_text);
         this.mNavigationBar = (NavigationBar) findViewById(u.g.view_navigation_bar);
-        this.afN = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.agC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
         this.mNavigationBar.setTitleText(getPageContext().getString(u.j.create_bar));
-        this.aLP = (RelativeLayout) findViewById(u.g.done);
-        this.aLP.setEnabled(false);
-        this.aLQ = (RelativeLayout) findViewById(u.g.resend);
-        this.afN.setOnClickListener(this.mOnClickListener);
-        this.aLP.setOnClickListener(this.mOnClickListener);
-        this.aLQ.setOnClickListener(this.mOnClickListener);
-        this.aLN = (TextView) findViewById(u.g.resend_text);
-        this.aLO = (EditText) findViewById(u.g.edit_code);
-        this.aLO.addTextChangedListener(this.aMb);
-        this.aLO.setOnFocusChangeListener(this.aMc);
-        this.aLL = (ProgressBar) findViewById(u.g.progress_resend);
-        this.aLM = (ProgressBar) findViewById(u.g.progress_done);
-        this.aLK = (ImageView) findViewById(u.g.del_code);
-        this.aLK.setOnClickListener(this.mOnClickListener);
-        this.akU = (TextView) findViewById(u.g.text_error);
-        this.aLJ = (LinearLayout) findViewById(u.g.sms_code_input_bg);
-        this.aLY = this.aLJ.getPaddingLeft();
-        this.aLZ = this.aLJ.getPaddingRight();
-        this.aLJ.setBackgroundResource(u.f.pass_input);
-        this.aLJ.setPadding(this.aLY, 0, this.aLZ, 0);
-        this.aLX = (TextView) findViewById(u.g.no_receive_code);
-        ShowSoftKeyPadDelay(this.aLO, 150);
+        this.aMJ = (RelativeLayout) findViewById(u.g.done);
+        this.aMJ.setEnabled(false);
+        this.aMK = (RelativeLayout) findViewById(u.g.resend);
+        this.agC.setOnClickListener(this.mOnClickListener);
+        this.aMJ.setOnClickListener(this.mOnClickListener);
+        this.aMK.setOnClickListener(this.mOnClickListener);
+        this.aMH = (TextView) findViewById(u.g.resend_text);
+        this.aMI = (EditText) findViewById(u.g.edit_code);
+        this.aMI.addTextChangedListener(this.aMV);
+        this.aMI.setOnFocusChangeListener(this.aMW);
+        this.aMF = (ProgressBar) findViewById(u.g.progress_resend);
+        this.aMG = (ProgressBar) findViewById(u.g.progress_done);
+        this.aME = (ImageView) findViewById(u.g.del_code);
+        this.aME.setOnClickListener(this.mOnClickListener);
+        this.alK = (TextView) findViewById(u.g.text_error);
+        this.aMD = (LinearLayout) findViewById(u.g.sms_code_input_bg);
+        this.aMS = this.aMD.getPaddingLeft();
+        this.aMT = this.aMD.getPaddingRight();
+        this.aMD.setBackgroundResource(u.f.pass_input);
+        this.aMD.setPadding(this.aMS, 0, this.aMT, 0);
+        this.aMR = (TextView) findViewById(u.g.no_receive_code);
+        ShowSoftKeyPadDelay(this.aMI, 150);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        av.g(this.aLn, i);
-        av.i(this.aLV, i);
-        av.b(this.aLW, i);
-        av.b(this.aLN, i);
-        av.c(this.aLX, i);
+        av.g(this.aMh, i);
+        av.i(this.aMP, i);
+        av.b(this.aMQ, i);
+        av.b(this.aMH, i);
+        av.c(this.aMR, i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cc(boolean z) {
-        this.aLO.setEnabled(z);
-        this.aLO.setFocusable(z);
-        this.aLO.setFocusableInTouchMode(z);
-        this.aLK.setEnabled(z);
+    public void ce(boolean z) {
+        this.aMI.setEnabled(z);
+        this.aMI.setFocusable(z);
+        this.aMI.setFocusableInTouchMode(z);
+        this.aME.setEnabled(z);
         if (z) {
-            this.aLO.setTextColor(getResources().getColor(u.d.common_color_10046));
+            this.aMI.setTextColor(getResources().getColor(u.d.common_color_10046));
         } else {
-            this.aLO.setTextColor(getResources().getColor(u.d.common_color_10003));
+            this.aMI.setTextColor(getResources().getColor(u.d.common_color_10003));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(aa aaVar) {
+    public void a(ad adVar) {
         AccountData accountData = new AccountData();
-        accountData.setAccount(aaVar.getUser().getUserName());
-        if (aaVar.getUser().getPassword() != null) {
-            accountData.setPassword(aaVar.getUser().getPassword());
+        accountData.setAccount(adVar.getUser().getUserName());
+        if (adVar.getUser().getPassword() != null) {
+            accountData.setPassword(adVar.getUser().getPassword());
         } else {
-            accountData.setPassword(this.aLU.getPsw());
+            accountData.setPassword(this.aMO.getPsw());
         }
-        accountData.setID(aaVar.getUser().getUserId());
-        accountData.setBDUSS(aaVar.getUser().getBDUSS());
-        accountData.setPortrait(aaVar.getUser().getPortrait());
+        accountData.setID(adVar.getUser().getUserId());
+        accountData.setBDUSS(adVar.getUser().getBDUSS());
+        accountData.setPortrait(adVar.getUser().getPortrait());
         accountData.setIsActive(1);
-        if (aaVar.pt() != null) {
-            accountData.setTbs(aaVar.pt().getTbs());
+        if (adVar.pc() != null) {
+            accountData.setTbs(adVar.pc().getTbs());
         }
         com.baidu.tbadk.core.a.b.b(accountData);
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
         setResult(-1);
         finish();
-        if (this.ajX) {
-            Jb();
+        if (this.akM) {
+            Ja();
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "notlogin_11", "click", 1, new Object[0]);
             return;
         }
@@ -211,11 +211,11 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<String, Integer, aa> {
-        private ab LK;
+    public class a extends BdAsyncTask<String, Integer, ad> {
+        private ab LI;
 
         private a() {
-            this.LK = null;
+            this.LI = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -227,24 +227,24 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: s */
-        public aa doInBackground(String... strArr) {
+        public ad doInBackground(String... strArr) {
             try {
-                this.LK = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-                this.LK.n("un", ActivationActivity.this.aLU.getName());
-                this.LK.n("phonenum", ActivationActivity.this.aLU.getPhone());
-                this.LK.n("passwd", ActivationActivity.this.aLU.getPsw());
-                if (ActivationActivity.this.aLU.getVcode() != null) {
-                    this.LK.n("vcode", ActivationActivity.this.aLU.getVcode());
+                this.LI = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
+                this.LI.n("un", ActivationActivity.this.aMO.getName());
+                this.LI.n("phonenum", ActivationActivity.this.aMO.getPhone());
+                this.LI.n("passwd", ActivationActivity.this.aMO.getPsw());
+                if (ActivationActivity.this.aMO.getVcode() != null) {
+                    this.LI.n("vcode", ActivationActivity.this.aMO.getVcode());
                 }
-                if (ActivationActivity.this.aLU.getVcodeMd5() != null) {
-                    this.LK.n(GraffitiVcodeActivityConfig.VCODE_MD5, ActivationActivity.this.aLU.getVcodeMd5());
+                if (ActivationActivity.this.aMO.getVcodeMd5() != null) {
+                    this.LI.n(GraffitiVcodeActivityConfig.VCODE_MD5, ActivationActivity.this.aMO.getVcodeMd5());
                 }
-                this.LK.n("smscode", ActivationActivity.this.aLO.getText().toString());
-                String ta = this.LK.ta();
-                if (this.LK.ty().uv().nU()) {
-                    aa aaVar = new aa();
-                    aaVar.parserJson(ta);
-                    return aaVar;
+                this.LI.n("smscode", ActivationActivity.this.aMI.getText().toString());
+                String sZ = this.LI.sZ();
+                if (this.LI.tx().uv().nJ()) {
+                    ad adVar = new ad();
+                    adVar.parserJson(sZ);
+                    return adVar;
                 }
                 return null;
             } catch (Exception e) {
@@ -257,54 +257,54 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public void onPostExecute(aa aaVar) {
-            super.onPostExecute(aaVar);
-            ActivationActivity.this.aLM.setVisibility(8);
-            ActivationActivity.this.aLS = null;
-            ActivationActivity.this.cc(true);
-            if (ActivationActivity.this.aLT) {
-                ActivationActivity.this.aLQ.setEnabled(true);
+        public void onPostExecute(ad adVar) {
+            super.onPostExecute(adVar);
+            ActivationActivity.this.aMG.setVisibility(8);
+            ActivationActivity.this.aMM = null;
+            ActivationActivity.this.ce(true);
+            if (ActivationActivity.this.aMN) {
+                ActivationActivity.this.aMK.setEnabled(true);
             }
-            if (aaVar != null) {
-                ActivationActivity.this.a(aaVar);
+            if (adVar != null) {
+                ActivationActivity.this.a(adVar);
                 return;
             }
-            String errorString = this.LK.getErrorString();
+            String errorString = this.LI.getErrorString();
             if (errorString != null && errorString.length() > 0) {
-                ActivationActivity.this.akU.setVisibility(0);
-                ActivationActivity.this.akU.setText(errorString);
+                ActivationActivity.this.alK.setVisibility(0);
+                ActivationActivity.this.alK.setText(errorString);
             }
-            if (this.LK.tC() == 26) {
-                ActivationActivity.this.aMa = 26;
-                ActivationActivity.this.aLJ.setBackgroundResource(u.f.pass_input_wrong);
-                ActivationActivity.this.aLJ.setPadding(ActivationActivity.this.aLY, 0, ActivationActivity.this.aLZ, 0);
+            if (this.LI.tB() == 26) {
+                ActivationActivity.this.aMU = 26;
+                ActivationActivity.this.aMD.setBackgroundResource(u.f.pass_input_wrong);
+                ActivationActivity.this.aMD.setPadding(ActivationActivity.this.aMS, 0, ActivationActivity.this.aMT, 0);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            ActivationActivity.this.aLM.setVisibility(0);
-            ActivationActivity.this.aLQ.setEnabled(false);
-            ActivationActivity.this.cc(false);
-            ActivationActivity.this.akU.setVisibility(4);
-            ActivationActivity.this.akU.setText((CharSequence) null);
-            ActivationActivity.this.aLJ.setBackgroundResource(u.f.pass_input);
-            ActivationActivity.this.aLJ.setPadding(ActivationActivity.this.aLY, 0, ActivationActivity.this.aLZ, 0);
+            ActivationActivity.this.aMG.setVisibility(0);
+            ActivationActivity.this.aMK.setEnabled(false);
+            ActivationActivity.this.ce(false);
+            ActivationActivity.this.alK.setVisibility(4);
+            ActivationActivity.this.alK.setText((CharSequence) null);
+            ActivationActivity.this.aMD.setBackgroundResource(u.f.pass_input);
+            ActivationActivity.this.aMD.setPadding(ActivationActivity.this.aMS, 0, ActivationActivity.this.aMT, 0);
             super.onPreExecute();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ActivationActivity.this.aLS = null;
-            ActivationActivity.this.aLM.setVisibility(8);
-            if (ActivationActivity.this.aLT) {
-                ActivationActivity.this.aLQ.setEnabled(true);
+            ActivationActivity.this.aMM = null;
+            ActivationActivity.this.aMG.setVisibility(8);
+            if (ActivationActivity.this.aMN) {
+                ActivationActivity.this.aMK.setEnabled(true);
             }
-            if (this.LK != null) {
-                this.LK.dm();
+            if (this.LI != null) {
+                this.LI.dl();
             }
-            ActivationActivity.this.cc(true);
+            ActivationActivity.this.ce(true);
             super.cancel(true);
         }
     }
@@ -312,10 +312,10 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<String, Integer, Boolean> {
-        private ab LK;
+        private ab LI;
 
         private b() {
-            this.LK = null;
+            this.LI = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -325,13 +325,13 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ActivationActivity.this.aLR = null;
-            ActivationActivity.this.aLL.setVisibility(8);
-            if (ActivationActivity.this.aLO.length() == 6) {
-                ActivationActivity.this.aLP.setEnabled(true);
+            ActivationActivity.this.aML = null;
+            ActivationActivity.this.aMF.setVisibility(8);
+            if (ActivationActivity.this.aMI.length() == 6) {
+                ActivationActivity.this.aMJ.setEnabled(true);
             }
-            if (this.LK != null) {
-                this.LK.dm();
+            if (this.LI != null) {
+                this.LI.dl();
             }
             super.cancel(true);
         }
@@ -343,10 +343,10 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
         public Boolean doInBackground(String... strArr) {
             boolean z = false;
             try {
-                this.LK = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
-                this.LK.n("phonenum", ActivationActivity.this.aLU.getPhone());
-                this.LK.ta();
-                if (this.LK.ty().uv().nU()) {
+                this.LI = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
+                this.LI.n("phonenum", ActivationActivity.this.aMO.getPhone());
+                this.LI.sZ();
+                if (this.LI.tx().uv().nJ()) {
                     z = true;
                 }
             } catch (Exception e) {
@@ -358,39 +358,39 @@ public class ActivationActivity extends BaseActivity<ActivationActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
+        /* renamed from: c */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            ActivationActivity.this.aLR = null;
-            ActivationActivity.this.aLL.setVisibility(8);
-            if (ActivationActivity.this.aLO.length() == 6) {
-                ActivationActivity.this.aLP.setEnabled(true);
+            ActivationActivity.this.aML = null;
+            ActivationActivity.this.aMF.setVisibility(8);
+            if (ActivationActivity.this.aMI.length() == 6) {
+                ActivationActivity.this.aMJ.setEnabled(true);
             }
             if (bool.booleanValue()) {
-                ActivationActivity.this.Ja();
+                ActivationActivity.this.IZ();
                 return;
             }
-            String errorString = this.LK.getErrorString();
+            String errorString = this.LI.getErrorString();
             if (errorString != null && errorString.length() > 0) {
-                ActivationActivity.this.akU.setVisibility(0);
-                ActivationActivity.this.akU.setText(errorString);
+                ActivationActivity.this.alK.setVisibility(0);
+                ActivationActivity.this.alK.setText(errorString);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            ActivationActivity.this.aLL.setVisibility(0);
-            ActivationActivity.this.akU.setVisibility(4);
-            ActivationActivity.this.akU.setText((CharSequence) null);
-            ActivationActivity.this.aLP.setEnabled(false);
+            ActivationActivity.this.aMF.setVisibility(0);
+            ActivationActivity.this.alK.setVisibility(4);
+            ActivationActivity.this.alK.setText((CharSequence) null);
+            ActivationActivity.this.aMJ.setEnabled(false);
             super.onPreExecute();
         }
     }
 
-    private void Jb() {
-        if (TbadkCoreApplication.m9getInst().getIsFirstUse()) {
-            com.baidu.adp.lib.h.k.dN().b(new t(this));
+    private void Ja() {
+        if (TbadkCoreApplication.m10getInst().getIsFirstUse()) {
+            com.baidu.adp.lib.h.k.dM().e(new t(this));
         }
     }
 }

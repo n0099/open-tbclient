@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class ak implements com.baidu.adp.lib.guide.b {
-    private final /* synthetic */ String bFK;
-    final /* synthetic */ aj fbU;
+    private final /* synthetic */ String bGY;
+    final /* synthetic */ aj foY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar, String str) {
-        this.fbU = ajVar;
-        this.bFK = str;
+        this.foY = ajVar;
+        this.bGY = str;
     }
 
     @Override // com.baidu.adp.lib.guide.b
@@ -26,32 +26,32 @@ class ak implements com.baidu.adp.lib.guide.b {
         MainTabActivity mainTabActivity3;
         ab abVar4;
         MainTabActivity mainTabActivity4;
-        abVar = this.fbU.fbT;
-        mainTabActivity = abVar.fbI;
+        abVar = this.foY.foX;
+        mainTabActivity = abVar.foM;
         TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
-        textView.setText(this.bFK);
+        textView.setText(this.bGY);
         textView.setGravity(17);
         av.j((View) textView, u.d.cp_cont_i);
-        abVar2 = this.fbU.fbT;
-        mainTabActivity2 = abVar2.fbI;
+        abVar2 = this.foY.foX;
+        mainTabActivity2 = abVar2.foM;
         textView.setTextSize(0, mainTabActivity2.getResources().getDimensionPixelSize(u.e.fontsize28));
-        abVar3 = this.fbU.fbT;
-        mainTabActivity3 = abVar3.fbI;
+        abVar3 = this.foY.foX;
+        mainTabActivity3 = abVar3.foM;
         textView.setWidth(mainTabActivity3.getResources().getDimensionPixelSize(u.e.ds300));
-        abVar4 = this.fbU.fbT;
-        mainTabActivity4 = abVar4.fbI;
+        abVar4 = this.foY.foX;
+        mainTabActivity4 = abVar4.foM;
         textView.setHeight(mainTabActivity4.getResources().getDimensionPixelSize(u.e.ds76));
         av.k(textView, u.f.pic_sign_tip);
         return textView;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int cU() {
+    public int cT() {
         return 4;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int cV() {
+    public int cU() {
         return 48;
     }
 

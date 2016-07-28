@@ -10,11 +10,11 @@ import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements TextWatcher {
-    final /* synthetic */ m fGo;
+    final /* synthetic */ m fSp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.fGo = mVar;
+        this.fSp = mVar;
     }
 
     @Override // android.text.TextWatcher
@@ -28,22 +28,22 @@ public class n implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        long bld = m.fGg - this.fGo.bld();
-        if (bld >= 0) {
-            textView4 = this.fGo.fGl;
+        long bnZ = m.fSh - this.fSp.bnZ();
+        if (bnZ >= 0) {
+            textView4 = this.fSp.fSm;
             av.j((View) textView4, u.d.cp_cont_e);
         } else {
-            textView = this.fGo.fGl;
+            textView = this.fSp.fSm;
             av.j((View) textView, u.d.cp_cont_h);
         }
-        i4 = m.fGh;
-        if (bld <= i4) {
-            textView3 = this.fGo.fGl;
-            textView3.setText(ba.ue());
+        i4 = m.fSi;
+        if (bnZ <= i4) {
+            textView3 = this.fSp.fSm;
+            textView3.setText(ba.ud());
             return;
         }
-        textView2 = this.fGo.fGl;
-        textView2.setText(String.valueOf(bld));
+        textView2 = this.fSp.fSm;
+        textView2.setText(String.valueOf(bnZ));
     }
 
     @Override // android.text.TextWatcher

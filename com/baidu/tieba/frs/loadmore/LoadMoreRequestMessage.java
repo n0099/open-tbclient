@@ -12,6 +12,8 @@ import tbclient.ThreadList.ThreadListReqIdl;
 public class LoadMoreRequestMessage extends NetMessage {
     private String forumName;
     private long forum_id;
+    private long mLastClickTid;
+    private int mSortType;
     private int need_abstract;
     private int pn;
     private int st_type;
@@ -19,6 +21,14 @@ public class LoadMoreRequestMessage extends NetMessage {
 
     public LoadMoreRequestMessage() {
         super(CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
+    }
+
+    public void setLastClickTid(long j) {
+        this.mLastClickTid = j;
+    }
+
+    public void setSortType(int i) {
+        this.mSortType = i;
     }
 
     public void setThreadIds(String str) {
@@ -53,14 +63,16 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.need_abstract = Integer.valueOf(this.need_abstract);
         builder.user_id = Long.valueOf(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
         builder.forum_name = this.forumName;
-        builder.scr_dip = Double.valueOf(TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density);
-        int A = k.A(TbadkCoreApplication.m9getInst());
-        int B = k.B(TbadkCoreApplication.m9getInst());
+        builder.scr_dip = Double.valueOf(TbadkCoreApplication.m10getInst().getApp().getResources().getDisplayMetrics().density);
+        int A = k.A(TbadkCoreApplication.m10getInst());
+        int B = k.B(TbadkCoreApplication.m10getInst());
         builder.pn = Integer.valueOf(this.pn);
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(B);
         builder.scr_w = Integer.valueOf(A);
-        builder.q_type = Integer.valueOf(bb.uf().uh() ? 2 : 1);
+        builder.q_type = Integer.valueOf(bb.ue().ug() ? 2 : 1);
+        builder.last_click_tid = Long.valueOf(this.mLastClickTid);
+        builder.sort_type = Integer.valueOf(this.mSortType);
         if (z) {
             o.a(builder, true);
         }

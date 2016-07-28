@@ -3,46 +3,46 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class cx {
-    private long bGC;
-    private long bGD;
-    private long bGE;
-    private long bGF;
-    private long bGG;
+    private long bHY;
+    private long bHZ;
+    private long bIa;
+    private long bIb;
+    private long bIc;
 
     public cx(Context context) {
-        aR(0L);
-        aS(0L);
+        aM(0L);
+        aN(0L);
     }
 
-    public void aR(long j) {
-        this.bGC = j;
+    public void aM(long j) {
+        this.bHY = j;
     }
 
-    public void aS(long j) {
-        this.bGD = j;
+    public void aN(long j) {
+        this.bHZ = j;
     }
 
-    public long WT() {
-        return this.bGD + this.bGC + this.bGE;
+    public long Xl() {
+        return this.bHZ + this.bHY + this.bIa;
     }
 
-    public void aT(long j) {
-        this.bGE = j;
+    public void aO(long j) {
+        this.bIa = j;
     }
 
-    public void aU(long j) {
-        this.bGF = j;
+    public void aP(long j) {
+        this.bIb = j;
     }
 
-    public long WU() {
-        return this.bGF;
+    public long Xm() {
+        return this.bIb;
     }
 
-    public long WV() {
-        return this.bGG;
+    public long Xn() {
+        return this.bIc;
     }
 
-    public void aV(long j) {
-        this.bGG = j;
+    public void aQ(long j) {
+        this.bIc = j;
     }
 }

@@ -1276,16 +1276,16 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
+    public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         super.startIntentSender(intentSender, intent, i, i2, i3);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+    public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
     }
 
-    public void proxyStartIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+    public void proxyStartIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         super.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
     }
 
@@ -1466,7 +1466,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         if (this.mEntity != null) {
             this.mEntity.startIntentSender(intentSender, intent, i, i2, i3);
         } else {
@@ -1475,7 +1475,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         if (this.mEntity != null) {
             this.mEntity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         } else {

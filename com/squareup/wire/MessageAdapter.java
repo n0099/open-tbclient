@@ -354,7 +354,7 @@ public final class MessageAdapter<M extends Message> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void write(M m, WireOutput wireOutput) {
+    public void write(M m, WireOutput wireOutput) throws IOException {
         for (FieldInfo fieldInfo : getFields()) {
             Object fieldValue = getFieldValue(m, fieldInfo);
             if (fieldValue != null) {
@@ -381,7 +381,7 @@ public final class MessageAdapter<M extends Message> {
         m.writeUnknownFieldMap(wireOutput);
     }
 
-    private <T extends ExtendableMessage<?>> void writeExtensions(WireOutput wireOutput, ExtensionMap<T> extensionMap) {
+    private <T extends ExtendableMessage<?>> void writeExtensions(WireOutput wireOutput, ExtensionMap<T> extensionMap) throws IOException {
         for (Extension<T, ?> extension : extensionMap.getExtensions()) {
             Object obj = extensionMap.get(extension);
             int tag = extension.getTag();
@@ -399,14 +399,14 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    private void writeRepeated(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) {
+    private void writeRepeated(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
         Iterator<?> it = list.iterator();
         while (it.hasNext()) {
             writeValue(wireOutput, i, it.next(), datatype);
         }
     }
 
-    private void writePacked(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) {
+    private void writePacked(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
         int i2 = 0;
         Iterator<?> it = list.iterator();
         while (it.hasNext()) {
@@ -531,14 +531,14 @@ public final class MessageAdapter<M extends Message> {
         return serializedSize + WireOutput.varint32Size(serializedSize);
     }
 
-    private void writeValue(WireOutput wireOutput, int i, Object obj, Message.Datatype datatype) {
+    private void writeValue(WireOutput wireOutput, int i, Object obj, Message.Datatype datatype) throws IOException {
         wireOutput.writeTag(i, datatype.wireType());
         writeValueNoTag(wireOutput, obj, datatype);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.squareup.wire.MessageAdapter<M extends com.squareup.wire.Message> */
     /* JADX WARN: Multi-variable type inference failed */
-    private void writeValueNoTag(WireOutput wireOutput, Object obj, Message.Datatype datatype) {
+    private void writeValueNoTag(WireOutput wireOutput, Object obj, Message.Datatype datatype) throws IOException {
         switch ($SWITCH_TABLE$com$squareup$wire$Message$Datatype()[datatype.ordinal()]) {
             case 1:
                 wireOutput.writeSignedVarint32(((Integer) obj).intValue());
@@ -594,17 +594,17 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    private <M extends Message> void writeMessage(M m, WireOutput wireOutput) {
+    private <M extends Message> void writeMessage(M m, WireOutput wireOutput) throws IOException {
         wireOutput.writeVarint32(m.getSerializedSize());
         this.wire.messageAdapter(m.getClass()).write(m, wireOutput);
     }
 
-    private <E extends ProtoEnum> void writeEnum(E e, WireOutput wireOutput) {
+    private <E extends ProtoEnum> void writeEnum(E e, WireOutput wireOutput) throws IOException {
         wireOutput.writeVarint32(this.wire.enumAdapter(e.getClass()).toInt(e));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public M read(WireInput wireInput) {
+    public M read(WireInput wireInput) throws IOException {
         Message.Datatype datatype;
         Extension<ExtendableMessage<?>, ?> extension;
         Message.Label label;
@@ -679,7 +679,7 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    private Object readValue(WireInput wireInput, int i, Message.Datatype datatype) {
+    private Object readValue(WireInput wireInput, int i, Message.Datatype datatype) throws IOException {
         switch ($SWITCH_TABLE$com$squareup$wire$Message$Datatype()[datatype.ordinal()]) {
             case 1:
             case 3:
@@ -724,7 +724,7 @@ public final class MessageAdapter<M extends Message> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: com.squareup.wire.Wire */
     /* JADX WARN: Multi-variable type inference failed */
-    private Message readMessage(WireInput wireInput, int i) {
+    private Message readMessage(WireInput wireInput, int i) throws IOException {
         int readVarint32 = wireInput.readVarint32();
         if (wireInput.recursionDepth >= 64) {
             throw new IOException("Wire recursion limit exceeded");
@@ -753,7 +753,7 @@ public final class MessageAdapter<M extends Message> {
         return cls;
     }
 
-    private void readUnknownField(Message.Builder builder, WireInput wireInput, int i, WireType wireType) {
+    private void readUnknownField(Message.Builder builder, WireInput wireInput, int i, WireType wireType) throws IOException {
         switch ($SWITCH_TABLE$com$squareup$wire$WireType()[wireType.ordinal()]) {
             case 1:
                 builder.addVarint(i, wireInput.readVarint64());

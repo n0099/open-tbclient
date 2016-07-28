@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 /* loaded from: classes.dex */
 public class UpdateDialogStatic {
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(UpdateDialogConfig.class, UpdateDialog.class);
+        TbadkCoreApplication.m10getInst().RegisterIntent(UpdateDialogConfig.class, UpdateDialog.class);
     }
 }

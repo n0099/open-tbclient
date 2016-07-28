@@ -8,9 +8,9 @@ import com.baidu.tieba.frs.tab.TabData;
 import com.baidu.tieba.tbadkCore.p;
 /* loaded from: classes.dex */
 public interface d {
-    TabData Yb();
+    TabData Yv();
 
-    View Yc();
+    View Yw();
 
     void a(AbsListView absListView, int i, int i2, int i3, int i4);
 
@@ -18,11 +18,11 @@ public interface d {
 
     void a(dl dlVar);
 
-    void ag(View view);
+    void ae(View view);
 
     void b(BdListView bdListView, int i);
 
-    void dB(boolean z);
+    void dz(boolean z);
 
     void onChangeSkinType(int i);
 

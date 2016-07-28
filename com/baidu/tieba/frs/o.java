@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class o implements dl {
-    final /* synthetic */ FrsActivity bDB;
+    final /* synthetic */ FrsActivity bEL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsActivity frsActivity) {
-        this.bDB = frsActivity;
+        this.bEL = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.dl
@@ -19,21 +19,24 @@ class o implements dl {
         bq bqVar3;
         bq bqVar4;
         bq bqVar5;
-        bqVar = this.bDB.bCD;
-        bqVar.WD();
-        if (i == 1 || i == 2) {
-            bqVar2 = this.bDB.bCD;
-            bqVar2.dn(true);
-            bqVar3 = this.bDB.bCD;
-            bqVar3.dl(false);
-        } else {
-            bqVar4 = this.bDB.bCD;
-            bqVar4.m12do(true);
-            bqVar5 = this.bDB.bCD;
-            bqVar5.dl(true);
+        if (i != 1) {
+            com.baidu.tieba.card.bw.Lf().cm(false);
         }
-        this.bDB.UR();
-        this.bDB.bCQ.a(i, i2, dsVar);
+        bqVar = this.bEL.bDK;
+        bqVar.WU();
+        if (i == 1 || i == 2) {
+            bqVar2 = this.bEL.bDK;
+            bqVar2.dk(true);
+            bqVar3 = this.bEL.bDK;
+            bqVar3.di(false);
+        } else {
+            bqVar4 = this.bEL.bDK;
+            bqVar4.dl(true);
+            bqVar5 = this.bEL.bDK;
+            bqVar5.di(true);
+        }
+        this.bEL.VR();
+        this.bEL.bDX.a(i, i2, dsVar);
     }
 
     @Override // com.baidu.tieba.frs.dl
@@ -41,6 +44,6 @@ class o implements dl {
     }
 
     @Override // com.baidu.tieba.frs.dl
-    public void UC() {
+    public void Vk() {
     }
 }

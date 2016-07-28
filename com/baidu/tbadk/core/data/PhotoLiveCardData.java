@@ -6,7 +6,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.view.n;
 import com.baidu.tieba.u;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class PhotoLiveCardData implements Serializable {
     private int mShowStye = -1;
     private boolean isShowDiffViewInSameAdapter = false;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
-    private ArrayList<n> expressionList = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.coreExtra.view.n> expressionList = new ArrayList<>();
 
     public void setGodInfo(GodInfo godInfo) {
         this.godInfo = godInfo;
@@ -132,15 +131,15 @@ public class PhotoLiveCardData implements Serializable {
 
     @Deprecated
     public String buildRefreshTime() {
-        return String.valueOf(com.baidu.tbadk.core.util.ba.y(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(u.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.ba.D(this.postNum)});
+        return String.valueOf(com.baidu.tbadk.core.util.ba.t(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m10getInst().getString(u.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.ba.y(this.postNum)});
     }
 
     public String buildRefreshTimeWithPostNum() {
-        return String.valueOf(com.baidu.tbadk.core.util.ba.y(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(u.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.ba.D(this.postNum)});
+        return String.valueOf(com.baidu.tbadk.core.util.ba.t(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m10getInst().getString(u.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.ba.y(this.postNum)});
     }
 
     public String buildRefreshTimeWithoutPostNum() {
-        return TbadkCoreApplication.m9getInst().getString(u.j.photo_live_thread_expression_time, new Object[]{com.baidu.tbadk.core.util.ba.y(this.lastModifiedTime * 1000)});
+        return TbadkCoreApplication.m10getInst().getString(u.j.photo_live_thread_expression_time, new Object[]{com.baidu.tbadk.core.util.ba.t(this.lastModifiedTime * 1000)});
     }
 
     public void setPhotoLiveCover(String str) {
@@ -179,11 +178,11 @@ public class PhotoLiveCardData implements Serializable {
         this.title = str;
     }
 
-    public void setExpressionDatas(ArrayList<n> arrayList) {
+    public void setExpressionDatas(ArrayList<com.baidu.tbadk.coreExtra.view.n> arrayList) {
         this.expressionList = arrayList;
     }
 
-    public ArrayList<n> getExpressionDatas() {
+    public ArrayList<com.baidu.tbadk.coreExtra.view.n> getExpressionDatas() {
         return this.expressionList;
     }
 
@@ -285,7 +284,7 @@ public class PhotoLiveCardData implements Serializable {
                 int size = zhiBoInfoTW.labelInfo.size();
                 for (int i = 0; i < size; i++) {
                     if (zhiBoInfoTW.labelInfo.get(i) != null) {
-                        n nVar = new n();
+                        com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
                         nVar.dR(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
                         nVar.setLabelId(zhiBoInfoTW.labelInfo.get(i).labelId);
                         nVar.setLabelName(zhiBoInfoTW.labelInfo.get(i).labelContent);
@@ -321,7 +320,7 @@ public class PhotoLiveCardData implements Serializable {
         return nextInt;
     }
 
-    public void setShowExpressionViewIndexList(ArrayList<n> arrayList) {
+    public void setShowExpressionViewIndexList(ArrayList<com.baidu.tbadk.coreExtra.view.n> arrayList) {
         int size = arrayList.size();
         int i = 0;
         int i2 = -1;
@@ -330,7 +329,7 @@ public class PhotoLiveCardData implements Serializable {
             if (arrayList.get(i) != null) {
                 int random = getRandom(3, -1);
                 if (random == i2 || random == i3) {
-                    random = k(size, i2, i3);
+                    random = l(size, i2, i3);
                 }
                 if (i == 0) {
                     i2 = random;
@@ -349,7 +348,7 @@ public class PhotoLiveCardData implements Serializable {
         this.showExpressionViewIndex.addAll(arrayList);
     }
 
-    private int k(int i, int i2, int i3) {
+    private int l(int i, int i2, int i3) {
         for (int i4 = 0; i4 < i && i4 < 3; i4++) {
             if (i4 != i2 && i4 != i3) {
                 return i4;

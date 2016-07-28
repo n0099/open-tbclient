@@ -5,15 +5,15 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public interface g {
-    void Yh();
+    void YB();
 
     void a(Activity activity, View view, View view2);
 
     void a(f fVar);
 
-    void dC(boolean z);
+    void dA(boolean z);
 
-    void dD(boolean z);
+    void dB(boolean z);
 
     boolean isMenuShowing();
 

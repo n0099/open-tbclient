@@ -3,7 +3,7 @@ package com.baidu.tbadk.core;
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends com.baidu.tbadk.util.s<Boolean> {
+public class aa extends com.baidu.tbadk.util.t<Boolean> {
     final /* synthetic */ TbadkCoreApplication this$0;
     private final /* synthetic */ Context val$context;
 
@@ -15,7 +15,7 @@ public class aa extends com.baidu.tbadk.util.s<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.util.s
+    @Override // com.baidu.tbadk.util.t
     public Boolean doInBackground() {
         return Boolean.valueOf(com.baidu.tbadk.core.util.c.M(this.val$context));
     }

@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.bn;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d efY;
+    final /* synthetic */ d epX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.efY = dVar;
+        this.epX = dVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,22 +27,22 @@ public class e implements View.OnClickListener {
         Context context2;
         com.baidu.tieba.person.data.c cVar2;
         com.baidu.tieba.person.data.c cVar3;
-        context = this.efY.mContext;
+        context = this.epX.mContext;
         if (bn.ab(context)) {
-            cVar = this.efY.efX;
+            cVar = this.epX.epW;
             if (cVar.isSelf) {
                 TiebaStatic.log("person_self_attentionper_click");
             } else {
                 TiebaStatic.log("person_guid_attentionper_click");
                 ay ayVar = new ay("c10616");
-                str = this.efY.userId;
+                str = this.epX.userId;
                 TiebaStatic.log(ayVar.ab("obj_id", str));
             }
             MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.efY.mContext;
-            cVar2 = this.efY.efX;
+            context2 = this.epX.mContext;
+            cVar2 = this.epX.epW;
             String str2 = cVar2.userId;
-            cVar3 = this.efY.efX;
+            cVar3 = this.epX.epW;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(context2, true, str2, cVar3.sex)));
         }
     }

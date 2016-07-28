@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
 public class WriteImageActivityStatic {
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(WriteImageActivityConfig.class, WriteImageActivity.class);
+        TbadkCoreApplication.m10getInst().RegisterIntent(WriteImageActivityConfig.class, WriteImageActivity.class);
     }
 }

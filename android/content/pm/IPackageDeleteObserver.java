@@ -4,6 +4,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
+import android.os.RemoteException;
 /* loaded from: classes.dex */
 public interface IPackageDeleteObserver extends IInterface {
 
@@ -19,10 +20,10 @@ public interface IPackageDeleteObserver extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             return false;
         }
     }
 
-    void packageDeleted(String str, int i);
+    void packageDeleted(String str, int i) throws RemoteException;
 }

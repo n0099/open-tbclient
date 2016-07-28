@@ -21,16 +21,16 @@ import java.util.Map;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a cVN = null;
-    public static volatile int cVO = 0;
-    public static volatile int cVP = 0;
-    private a.c cVS;
-    private af cVT;
-    private WeakReference<a.InterfaceC0044a<ChatMessage>> cVU;
+    private static volatile a cYI = null;
+    public static volatile int cYJ = 0;
+    public static volatile int cYK = 0;
+    private a.c cYN;
+    private af cYO;
+    private WeakReference<a.InterfaceC0045a<ChatMessage>> cYP;
     private ae mSendCallback;
-    private final LinkedList<ChatMessage> cVQ = new LinkedList<>();
-    private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> cVR = new HashMap<>();
-    af.b cVV = new b(this);
+    private final LinkedList<ChatMessage> cYL = new LinkedList<>();
+    private final HashMap<String, com.baidu.tbadk.img.a<ChatMessage>> cYM = new HashMap<>();
+    af.b cYQ = new b(this);
 
     private a() {
         init();
@@ -41,9 +41,9 @@ public class a {
     }
 
     private void init() {
-        this.cVT = new af(null);
-        this.cVT.a(this.cVV);
-        this.cVS = new o(this);
+        this.cYO = new af(null);
+        this.cYO.a(this.cYQ);
+        this.cYN = new o(this);
     }
 
     public static String c(String str, String str2, int i, int i2) {
@@ -68,11 +68,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void be(String str, String str2) {
-        com.baidu.adp.widget.a.a fS = com.baidu.tbadk.imageManager.c.CQ().fS(str);
+    public void bf(String str, String str2) {
+        com.baidu.adp.widget.a.a fQ = com.baidu.tbadk.imageManager.c.CP().fQ(str);
         String str3 = String.valueOf(str2) + 10;
-        if (fS != null && fS.jc()) {
-            e(str3, fS);
+        if (fQ != null && fQ.jb()) {
+            e(str3, fQ);
         } else {
             new v(this, str, str3).execute(new Void[0]);
         }
@@ -80,40 +80,40 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.CQ().c(str, aVar);
-        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bc.dB(str), DiskFileOperate.Action.WRITE);
+        com.baidu.tbadk.imageManager.c.CP().c(str, aVar);
+        com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bc.dA(str), DiskFileOperate.Action.WRITE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        cVar.n(true);
-        cVar.setData(aVar.je());
-        cVar.q(false);
-        com.baidu.adp.lib.Disk.d.bH().c(cVar);
+        cVar.p(true);
+        cVar.setData(aVar.jd());
+        cVar.s(false);
+        com.baidu.adp.lib.Disk.d.bG().c(cVar);
     }
 
     public void c(ChatMessage chatMessage, String str) {
-        com.baidu.tbadk.img.a<ChatMessage> aVar = this.cVR.get(str);
+        com.baidu.tbadk.img.a<ChatMessage> aVar = this.cYM.get(str);
         if (aVar == null) {
             com.baidu.tbadk.img.a<ChatMessage> aVar2 = new com.baidu.tbadk.img.a<>(str, "IM");
-            aVar2.CT();
-            aVar2.y(chatMessage);
-            if (this.cVU != null && this.cVU.get() != null) {
-                aVar2.a(this.cVU.get());
+            aVar2.CS();
+            aVar2.B(chatMessage);
+            if (this.cYP != null && this.cYP.get() != null) {
+                aVar2.a(this.cYP.get());
             }
-            aVar2.a(this.cVS);
+            aVar2.a(this.cYN);
             if (chatMessage instanceof CommonGroupChatMessage) {
                 aVar2.setGroupId(((CommonGroupChatMessage) chatMessage).getGroupId());
             } else if (chatMessage instanceof PersonalChatMessage) {
-                aVar2.setGroupId(String.valueOf(cVO));
+                aVar2.setGroupId(String.valueOf(cYJ));
             } else if (chatMessage instanceof OfficialChatMessage) {
-                aVar2.setGroupId(String.valueOf(cVP));
+                aVar2.setGroupId(String.valueOf(cYK));
             }
             synchronized (a.class) {
-                this.cVR.put(str, aVar2);
+                this.cYM.put(str, aVar2);
             }
             aVar = aVar2;
         }
         chatMessage.setLogTime(System.currentTimeMillis());
         j(chatMessage);
-        aVar.bD(false);
+        aVar.bG(false);
     }
 
     public void a(VoiceMsgData voiceMsgData, ChatMessage chatMessage) {
@@ -122,29 +122,29 @@ public class a {
             chatMessage.getClientLogID();
             chatMessage.getCmd();
         }
-        this.cVT.b(voiceMsgData.getVoice_md5(), chatMessage);
+        this.cYO.b(voiceMsgData.getVoice_md5(), chatMessage);
     }
 
     public boolean k(ChatMessage chatMessage) {
-        if (this.cVR == null || chatMessage == null) {
+        if (this.cYM == null || chatMessage == null) {
             return false;
         }
-        for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.cVR.entrySet()) {
+        for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.cYM.entrySet()) {
             com.baidu.tbadk.img.a<ChatMessage> value = entry.getValue();
-            if (value != null && value.CS() != null) {
-                ChatMessage CS = value.CS();
-                if (chatMessage.getRecordId() != CS.getRecordId()) {
+            if (value != null && value.CR() != null) {
+                ChatMessage CR = value.CR();
+                if (chatMessage.getRecordId() != CR.getRecordId()) {
                     continue;
                 } else if (chatMessage.getCustomGroupType() == 2 || chatMessage.getCustomGroupType() == 4) {
-                    if (chatMessage.getToUserId() == CS.getToUserId()) {
-                        if (this.cVU != null && this.cVU.get() != null) {
-                            value.a(this.cVU.get());
+                    if (chatMessage.getToUserId() == CR.getToUserId()) {
+                        if (this.cYP != null && this.cYP.get() != null) {
+                            value.a(this.cYP.get());
                         }
                         return true;
                     }
-                } else if (chatMessage.getGroupId() != null && CS.getGroupId() != null && chatMessage.getGroupId().equals(CS.getGroupId())) {
-                    if (this.cVU != null && this.cVU.get() != null) {
-                        value.a(this.cVU.get());
+                } else if (chatMessage.getGroupId() != null && CR.getGroupId() != null && chatMessage.getGroupId().equals(CR.getGroupId())) {
+                    if (this.cYP != null && this.cYP.get() != null) {
+                        value.a(this.cYP.get());
                     }
                     return true;
                 }
@@ -155,20 +155,20 @@ public class a {
 
     private void l(ChatMessage chatMessage) {
         if (chatMessage != null) {
-            this.cVQ.add(chatMessage);
+            this.cYL.add(chatMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m(ChatMessage chatMessage) {
-        int a = a(chatMessage, this.cVQ);
+        int a = a(chatMessage, this.cYL);
         if (a >= 0) {
-            this.cVQ.remove(a);
+            this.cYL.remove(a);
         }
     }
 
     public boolean n(ChatMessage chatMessage) {
-        return a(chatMessage, this.cVQ) != -1;
+        return a(chatMessage, this.cYL) != -1;
     }
 
     private int a(ChatMessage chatMessage, LinkedList<ChatMessage> linkedList) {
@@ -191,35 +191,35 @@ public class a {
         return -1;
     }
 
-    public static a aqE() {
-        if (cVN == null) {
+    public static a arq() {
+        if (cYI == null) {
             synchronized (a.class) {
-                if (cVN == null) {
-                    cVN = new a();
+                if (cYI == null) {
+                    cYI = new a();
                 }
             }
         }
-        return cVN;
+        return cYI;
     }
 
-    public static void lg(int i) {
-        cVO = i;
+    public static void lm(int i) {
+        cYJ = i;
     }
 
-    public static void lh(int i) {
-        cVP = i;
+    public static void ln(int i) {
+        cYK = i;
     }
 
     public void b(String str, ad adVar) {
-        com.baidu.tbadk.util.t.b(new w(this, str), new x(this, adVar));
+        com.baidu.tbadk.util.u.b(new w(this, str), new x(this, adVar));
     }
 
     public void c(String str, ad adVar) {
-        com.baidu.tbadk.util.t.b(new y(this, str), new z(this, adVar));
+        com.baidu.tbadk.util.u.b(new y(this, str), new z(this, adVar));
     }
 
     public void d(String str, ad adVar) {
-        com.baidu.tbadk.util.t.b(new aa(this, str), new ab(this, adVar));
+        com.baidu.tbadk.util.u.b(new aa(this, str), new ab(this, adVar));
     }
 
     public void o(ChatMessage chatMessage) {
@@ -229,25 +229,25 @@ public class a {
             CommonMsgPojo commonMsgPojo = new CommonMsgPojo(commonGroupChatMessage);
             commonMsgPojo.setRead_flag(0);
             linkedList.add(commonMsgPojo);
-            com.baidu.tbadk.util.t.b(new i(this, commonGroupChatMessage, linkedList), new j(this, commonGroupChatMessage, chatMessage));
+            com.baidu.tbadk.util.u.b(new i(this, commonGroupChatMessage, linkedList), new j(this, commonGroupChatMessage, chatMessage));
         } else if (chatMessage instanceof PersonalChatMessage) {
             PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
             LinkedList linkedList2 = new LinkedList();
             CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(chatMessage);
             commonMsgPojo2.setRead_flag(0);
             linkedList2.add(commonMsgPojo2);
-            com.baidu.tbadk.util.t.b(new k(this, personalChatMessage, linkedList2), new l(this, personalChatMessage, chatMessage));
+            com.baidu.tbadk.util.u.b(new k(this, personalChatMessage, linkedList2), new l(this, personalChatMessage, chatMessage));
         } else if (chatMessage instanceof OfficialChatMessage) {
             OfficialChatMessage officialChatMessage = (OfficialChatMessage) chatMessage;
             LinkedList linkedList3 = new LinkedList();
             CommonMsgPojo commonMsgPojo3 = new CommonMsgPojo(chatMessage);
             commonMsgPojo3.setRead_flag(0);
             linkedList3.add(commonMsgPojo3);
-            com.baidu.tbadk.util.t.b(new m(this, officialChatMessage, linkedList3), new n(this, officialChatMessage, chatMessage));
+            com.baidu.tbadk.util.u.b(new m(this, officialChatMessage, linkedList3), new n(this, officialChatMessage, chatMessage));
         }
     }
 
-    public void setImageUploadUIProgressCallback(a.InterfaceC0044a<ChatMessage> interfaceC0044a) {
-        this.cVU = new WeakReference<>(interfaceC0044a);
+    public void setImageUploadUIProgressCallback(a.InterfaceC0045a<ChatMessage> interfaceC0045a) {
+        this.cYP = new WeakReference<>(interfaceC0045a);
     }
 }

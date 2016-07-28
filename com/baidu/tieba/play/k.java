@@ -7,13 +7,13 @@ import android.widget.MediaController;
 import com.baidu.tieba.play.j;
 /* loaded from: classes.dex */
 class k extends Handler {
-    final /* synthetic */ j eDO;
+    final /* synthetic */ j ePx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(j jVar, Looper looper) {
         super(looper);
-        this.eDO = jVar;
+        this.ePx = jVar;
     }
 
     @Override // android.os.Handler
@@ -22,33 +22,33 @@ class k extends Handler {
         boolean z2;
         MediaController.MediaPlayerControl mediaPlayerControl;
         MediaController.MediaPlayerControl mediaPlayerControl2;
-        int ajJ;
+        int akt;
         j.b bVar;
         int i;
         int i2;
         j.b bVar2;
         switch (message.what) {
             case 1:
-                z = this.eDO.cDm;
+                z = this.ePx.cGb;
                 if (!z) {
-                    z2 = this.eDO.cDn;
+                    z2 = this.ePx.cGc;
                     if (z2) {
-                        mediaPlayerControl = this.eDO.cDj;
+                        mediaPlayerControl = this.ePx.cFY;
                         if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.eDO.cDj;
+                            mediaPlayerControl2 = this.ePx.cFY;
                             if (!mediaPlayerControl2.isPlaying()) {
                                 return;
                             }
-                            ajJ = this.eDO.ajJ();
-                            bVar = this.eDO.aKf;
+                            akt = this.ePx.akt();
+                            bVar = this.ePx.aKY;
                             if (bVar != null) {
-                                bVar2 = this.eDO.aKf;
-                                bVar2.fu(ajJ);
+                                bVar2 = this.ePx.aKY;
+                                bVar2.ft(akt);
                             }
                             Message obtainMessage = obtainMessage(1);
-                            i = this.eDO.cDi;
-                            i2 = this.eDO.cDi;
-                            sendMessageDelayed(obtainMessage, i - (ajJ % i2));
+                            i = this.ePx.cFX;
+                            i2 = this.ePx.cFX;
+                            sendMessageDelayed(obtainMessage, i - (akt % i2));
                             return;
                         }
                         return;

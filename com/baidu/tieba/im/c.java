@@ -4,7 +4,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.u;
 import com.baidu.tieba.im.db.l;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -27,11 +27,11 @@ public class c extends CustomMessageListener {
                 com.baidu.tbadk.coreExtra.messageCenter.a.xn().setMsgGiftNum(0);
                 com.baidu.tbadk.coreExtra.messageCenter.a.xn().setMsgLiveVip(0);
                 com.baidu.tbadk.coreExtra.messageCenter.a.xn().xF();
-                t.FJ();
-                l.amU().amD();
-                com.baidu.tieba.im.db.k.amT().amD();
+                u.FM();
+                l.anF().ann();
+                com.baidu.tieba.im.db.k.anE().ann();
             }
-            t.b(new d(this, isNull), new e(this));
+            u.b(new d(this, isNull), new e(this));
         }
     }
 }

@@ -16,7 +16,7 @@ public class g implements com.baidu.adp.lib.f.c<TbImageView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: vz */
-    public TbImageView dF() {
+    public TbImageView dE() {
         TbImageView tbImageView = new TbImageView(this.val$context);
         tbImageView.setSupportNoImage(true);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -28,7 +28,7 @@ public class g implements com.baidu.adp.lib.f.c<TbImageView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: a */
-    public void l(TbImageView tbImageView) {
+    public void o(TbImageView tbImageView) {
         tbImageView.setBackgroundResource(0);
         tbImageView.setImageDrawable(null);
         tbImageView.setTag(null);
@@ -38,14 +38,14 @@ public class g implements com.baidu.adp.lib.f.c<TbImageView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: b */
-    public TbImageView m(TbImageView tbImageView) {
+    public TbImageView p(TbImageView tbImageView) {
         return tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: c */
-    public TbImageView n(TbImageView tbImageView) {
+    public TbImageView q(TbImageView tbImageView) {
         tbImageView.setBackgroundResource(0);
         tbImageView.setImageDrawable(null);
         tbImageView.setTag(null);

@@ -32,16 +32,16 @@ public class f extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements AsyncImageLoader.IAsyncImageLoaderListener {
-        private Uri cL;
+        private Uri cK;
 
         public a(Uri uri) {
-            this.cL = uri;
+            this.cK = uri;
         }
 
         @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
         public void onComplete(Bitmap bitmap) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                f.this.mShareContent.setImageUri(Uri.parse(ImageManager.getInstance().getCachedFilePath(this.cL)));
+                f.this.mShareContent.setImageUri(Uri.parse(ImageManager.getInstance().getCachedFilePath(this.cK)));
             }
             f.this.c();
         }

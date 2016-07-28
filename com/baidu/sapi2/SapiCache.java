@@ -19,6 +19,7 @@ import com.baidu.sapi2.utils.f;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
@@ -440,19 +441,19 @@ public final class SapiCache {
         }
     }
 
-    static String d(String str) {
+    static String d(String str) throws IOException {
         return a(new FileInputStream(new File(Environment.getExternalStorageDirectory(), str)));
     }
 
-    static String e(Context context, String str) {
+    static String e(Context context, String str) throws IOException {
         return a(context.openFileInput(str));
     }
 
-    static String f(Context context, String str) {
+    static String f(Context context, String str) throws IOException {
         return a(context.getAssets().open(str));
     }
 
-    static String a(InputStream inputStream) {
+    static String a(InputStream inputStream) throws IOException {
         try {
             byte[] bArr = new byte[inputStream.available()];
             inputStream.read(bArr);

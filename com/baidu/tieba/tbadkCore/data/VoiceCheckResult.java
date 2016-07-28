@@ -3,8 +3,8 @@ package com.baidu.tieba.tbadkCore.data;
 public class VoiceCheckResult {
     private String authSid;
     private String authToken;
-    private ResultCode eYo;
-    private boolean eYp;
+    private ResultCode flr;
+    private boolean fls;
     private boolean needVerify;
 
     /* loaded from: classes.dex */
@@ -13,7 +13,7 @@ public class VoiceCheckResult {
         FAIL,
         ACCOUNT_TYPE_CONFLICT;
 
-        /* JADX DEBUG: Replace access to removed values field (eYq) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (flt) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ResultCode[] valuesCustom() {
             ResultCode[] valuesCustom = values();
@@ -24,23 +24,23 @@ public class VoiceCheckResult {
         }
     }
 
-    public ResultCode bcA() {
-        return this.eYo;
+    public ResultCode bfP() {
+        return this.flr;
     }
 
-    public boolean bcB() {
-        return this.eYp;
+    public boolean bfQ() {
+        return this.fls;
     }
 
-    public boolean bcC() {
+    public boolean bfR() {
         return this.needVerify;
     }
 
-    public String bcD() {
+    public String bfS() {
         return this.authSid;
     }
 
-    public String bcE() {
+    public String bfT() {
         return this.authToken;
     }
 }

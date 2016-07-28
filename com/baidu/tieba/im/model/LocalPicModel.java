@@ -91,7 +91,7 @@ public class LocalPicModel extends e implements Serializable {
             super.onPostExecute((GetImageTask) responseData);
             LocalPicModel.this.mImageTask = null;
             if (LocalPicModel.this.mLoadDataCallBack != null) {
-                LocalPicModel.this.mLoadDataCallBack.d(responseData);
+                LocalPicModel.this.mLoadDataCallBack.g(responseData);
             }
         }
     }

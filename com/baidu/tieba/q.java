@@ -18,7 +18,7 @@ public class q {
     }
 
     public static void a(TbPageContext<?> tbPageContext, a aVar, RelativeLayout relativeLayout) {
-        if (com.baidu.tbadk.core.sharedPref.b.sO().getInt("logo_animation_overtime_count", 0) >= 2 || relativeLayout == null) {
+        if (com.baidu.tbadk.core.sharedPref.b.sN().getInt("logo_animation_overtime_count", 0) >= 2 || relativeLayout == null) {
             if (aVar != null) {
                 aVar.onCompleted();
                 return;

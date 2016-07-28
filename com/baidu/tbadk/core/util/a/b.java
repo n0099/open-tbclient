@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.t;
 /* loaded from: classes.dex */
 public class b {
-    private final i YQ = new i();
+    private final i Zz = new i();
     public boolean mIsNeedTbs = false;
-    public boolean YR = true;
+    public boolean ZA = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean YS = false;
-    public int YT = 0;
+    public boolean ZB = false;
+    public int ZC = 0;
 
     public i ux() {
-        return this.YQ;
+        return this.Zz;
     }
 
     public void a(t tVar) {
@@ -32,12 +32,12 @@ public class b {
         String str;
         boolean z = true;
         tVar.n("_client_type", "2");
-        if (!TbadkCoreApplication.m9getInst().isOfficial()) {
+        if (!TbadkCoreApplication.m10getInst().isOfficial()) {
             tVar.n("apid", TbConfig.SW_APID);
         }
         tVar.n("_client_version", TbConfig.getVersion());
-        if (TbadkCoreApplication.m9getInst().getImei() != null) {
-            tVar.n("_phone_imei", TbadkCoreApplication.m9getInst().getImei());
+        if (TbadkCoreApplication.m10getInst().getImei() != null) {
+            tVar.n("_phone_imei", TbadkCoreApplication.m10getInst().getImei());
         }
         String clientId = TbadkCoreApplication.getClientId();
         if (clientId != null) {
@@ -55,47 +55,47 @@ public class b {
         if (netType != null) {
             String wr = com.baidu.tbadk.coreExtra.b.a.wo().wr();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
-                if (TbadkCoreApplication.m9getInst().getKeepaliveWifi() == 1) {
+                if (TbadkCoreApplication.m10getInst().getKeepaliveWifi() == 1) {
                     str = String.valueOf(wr) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                    com.baidu.adp.lib.network.a.a.ac(str);
+                    com.baidu.adp.lib.network.a.a.ae(str);
                 }
                 z = false;
                 str = wr;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                com.baidu.adp.lib.network.a.a.ac(str);
+                com.baidu.adp.lib.network.a.a.ae(str);
             } else {
-                if (TbadkCoreApplication.m9getInst().getKeepaliveNonWifi() == 1) {
+                if (TbadkCoreApplication.m10getInst().getKeepaliveNonWifi() == 1) {
                     str = String.valueOf(wr) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                    com.baidu.adp.lib.network.a.a.ac(str);
+                    com.baidu.adp.lib.network.a.a.ae(str);
                 }
                 z = false;
                 str = wr;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                com.baidu.adp.lib.network.a.a.ac(str);
+                com.baidu.adp.lib.network.a.a.ae(str);
             }
         }
         if (this.mIsNeedTbs) {
-            tVar.n("tbs", TbadkCoreApplication.m9getInst().getTbs());
+            tVar.n("tbs", TbadkCoreApplication.m10getInst().getTbs());
         }
-        tVar.n(SocialConstants.PARAM_CUID, TbadkCoreApplication.m9getInst().getCuid());
+        tVar.n(SocialConstants.PARAM_CUID, TbadkCoreApplication.m10getInst().getCuid());
         tVar.n("timestamp", Long.toString(System.currentTimeMillis()));
         tVar.n("model", Build.MODEL);
     }
 
     public String uy() {
-        if (this.YQ.mUrl == null) {
+        if (this.Zz.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.YQ.mUrl.startsWith(str)) {
-            int indexOf = this.YQ.mUrl.indexOf(63);
+        if (this.Zz.mUrl.startsWith(str)) {
+            int indexOf = this.Zz.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.YQ.mUrl.length();
+                indexOf = this.Zz.mUrl.length();
             }
-            return this.YQ.mUrl.substring(str.length(), indexOf);
+            return this.Zz.mUrl.substring(str.length(), indexOf);
         }
-        return this.YQ.mUrl;
+        return this.Zz.mUrl;
     }
 }

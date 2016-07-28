@@ -9,29 +9,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b Kg = null;
-    private static a Kh = null;
-    private static boolean Ki = false;
-    private static String Kj = "";
-    private static transient List<String> Kk = new ArrayList(5);
+    private static b Kf = null;
+    private static a Kg = null;
+    private static boolean Kh = false;
+    private static String Ki = "";
+    private static transient List<String> Kj = new ArrayList(5);
 
     /* renamed from: com.baidu.tbadk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0031a {
-        private static SparseIntArray Kl = new SparseIntArray();
+        private static SparseIntArray Kk = new SparseIntArray();
 
         static {
-            Kl.put(2, 1);
-            Kl.put(4, 2);
-            Kl.put(8, 3);
-            Kl.put(12, 4);
-            Kl.put(16, 5);
-            Kl.put(20, 6);
-            Kl.put(24, 7);
+            Kk.put(2, 1);
+            Kk.put(4, 2);
+            Kk.put(8, 3);
+            Kk.put(12, 4);
+            Kk.put(16, 5);
+            Kk.put(20, 6);
+            Kk.put(24, 7);
         }
 
-        public static int aL(int i) {
-            return Kl.get(i);
+        public static int aO(int i) {
+            return Kk.get(i);
         }
     }
 
@@ -39,158 +39,158 @@ public class a {
     }
 
     public static a a(BaseFragmentActivity baseFragmentActivity) {
-        if (Kh == null) {
+        if (Kg == null) {
             synchronized (a.class) {
-                if (Kh == null) {
-                    Kh = new a();
-                    Kg = b.b(baseFragmentActivity);
+                if (Kg == null) {
+                    Kg = new a();
+                    Kf = b.b(baseFragmentActivity);
                 }
             }
-        } else if (Kg != null) {
-            Kg.a(baseFragmentActivity.getPageContext());
+        } else if (Kf != null) {
+            Kf.a(baseFragmentActivity.getPageContext());
         }
-        if (Ki && Kg != null) {
-            Kg.mZ();
-            Kg.na();
-            Ki = false;
+        if (Kh && Kf != null) {
+            Kf.mP();
+            Kf.mQ();
+            Kh = false;
         }
-        return Kh;
+        return Kg;
     }
 
     public static a b(BaseActivity baseActivity) {
-        if (Kh == null) {
+        if (Kg == null) {
             synchronized (a.class) {
-                if (Kh == null) {
-                    Kh = new a();
-                    Kg = b.c(baseActivity);
+                if (Kg == null) {
+                    Kg = new a();
+                    Kf = b.c(baseActivity);
                 }
             }
-        } else if (Kg != null) {
-            Kg.a(baseActivity.getPageContext());
+        } else if (Kf != null) {
+            Kf.a(baseActivity.getPageContext());
         }
-        if (Ki && Kg != null) {
-            Kg.mZ();
-            Kg.na();
-            Ki = false;
+        if (Kh && Kf != null) {
+            Kf.mP();
+            Kf.mQ();
+            Kh = false;
         }
-        return Kh;
+        return Kg;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        mU();
+        mK();
         if (z) {
-            mO();
+            mE();
         }
         if (z2) {
-            mP();
+            mF();
         }
-        aa(z3);
+        ac(z3);
         a(aVar);
     }
 
     public void a(TbPageContext tbPageContext, String str, String str2, String str3) {
-        mU();
-        if (Kg != null) {
-            Kg.a(tbPageContext, str, str2, str3);
+        mK();
+        if (Kf != null) {
+            Kf.a(tbPageContext, str, str2, str3);
         }
     }
 
-    public void mO() {
-        mU();
-        if (Kg != null) {
-            Kg.mZ();
-            Ki = false;
+    public void mE() {
+        mK();
+        if (Kf != null) {
+            Kf.mP();
+            Kh = false;
         }
     }
 
-    public void mP() {
-        mU();
-        if (Kg != null) {
-            Kg.na();
-            Ki = false;
+    public void mF() {
+        mK();
+        if (Kf != null) {
+            Kf.mQ();
+            Kh = false;
         }
     }
 
-    public void aa(boolean z) {
-        mU();
-        if (Kg != null) {
-            Kg.aa(z);
+    public void ac(boolean z) {
+        mK();
+        if (Kf != null) {
+            Kf.ac(z);
         }
     }
 
-    public boolean mQ() {
-        mU();
-        if (Kg != null) {
-            return Kg.mQ();
+    public boolean mG() {
+        mK();
+        if (Kf != null) {
+            return Kf.mG();
         }
         return false;
     }
 
     public void a(b.a aVar) {
-        mU();
-        if (Kg != null) {
-            Kg.c(aVar);
+        mK();
+        if (Kf != null) {
+            Kf.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        mU();
-        if (Kg != null) {
-            if (Kg.mW()) {
-                Kg.c(aVar);
+        mK();
+        if (Kf != null) {
+            if (Kf.mM()) {
+                Kf.c(aVar);
             }
-            Kg.mY();
+            Kf.mO();
         }
     }
 
     public void a(int i, b.a aVar) {
-        mU();
-        if (Kg != null) {
-            if (Kg.mW()) {
-                Kg.c(aVar);
+        mK();
+        if (Kf != null) {
+            if (Kf.mM()) {
+                Kf.c(aVar);
             }
-            Kg.aM(i);
+            Kf.aP(i);
         }
     }
 
-    public void mR() {
-        mU();
-        if (Kg != null) {
-            Kg.mR();
-            Ki = true;
+    public void mH() {
+        mK();
+        if (Kf != null) {
+            Kf.mH();
+            Kh = true;
         }
     }
 
-    public void mS() {
-        mU();
-        if (Kg != null) {
-            Kg.mS();
+    public void mI() {
+        mK();
+        if (Kf != null) {
+            Kf.mI();
         }
     }
 
-    public void mT() {
-        mU();
-        mS();
-        mR();
+    public void mJ() {
+        mK();
+        mI();
+        mH();
     }
 
-    private void mU() {
-        if (Kg == null) {
+    private void mK() {
+        if (Kf == null) {
         }
     }
 
-    public static void mV() {
+    public static void mL() {
         try {
-            if (Kg != null) {
-                if (Kh != null) {
-                    Kh.mT();
+            if (Kf != null) {
+                if (Kg != null) {
+                    Kg.mJ();
                 }
-                Kg.mX();
-                Kg.nb();
-                Kg = null;
+                Kf.mN();
+                Kf.mR();
+                Kf = null;
             }
-            if (Kh != null) {
-                Kh = null;
+            if (Kg != null) {
+                Kg = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

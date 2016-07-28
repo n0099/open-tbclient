@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ f eGS;
+    final /* synthetic */ f eTU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.eGS = fVar;
+        this.eTU = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class g extends HttpMessageListener {
                 if (!(orginalMessage instanceof AdUploadHttpRequest)) {
                     return;
                 }
-                this.eGS.cE(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                this.eTU.cR(((AdUploadHttpRequest) orginalMessage).getDataArray());
             }
         }
     }

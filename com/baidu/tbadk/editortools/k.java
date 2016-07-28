@@ -1,15 +1,15 @@
 package com.baidu.tbadk.editortools;
 /* loaded from: classes.dex */
 class k implements Runnable {
-    final /* synthetic */ j aqw;
+    final /* synthetic */ j arl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.aqw = jVar;
+        this.arl = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aqw.Br();
+        this.arl.Br();
     }
 }

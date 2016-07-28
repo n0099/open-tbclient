@@ -4,31 +4,31 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class bl extends CustomMessageListener {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bl(PbActivity pbActivity, int i) {
         super(i);
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tbadk.editortools.d.e eVar;
-        es esVar;
-        es esVar2;
+        ew ewVar;
+        ew ewVar2;
         com.baidu.tbadk.editortools.d.e eVar2;
         if (customResponsedMessage != null) {
-            eVar = this.dPF.dOX;
+            eVar = this.ebT.ebk;
             if (eVar != null) {
-                esVar2 = this.dPF.dOO;
-                eVar2 = this.dPF.dOX;
-                esVar2.gb(eVar2.BW());
+                ewVar2 = this.ebT.ebb;
+                eVar2 = this.ebT.ebk;
+                ewVar2.ge(eVar2.BW());
             }
-            esVar = this.dPF.dOO;
-            esVar.gc(false);
+            ewVar = this.ebT.ebb;
+            ewVar.gf(false);
         }
     }
 }

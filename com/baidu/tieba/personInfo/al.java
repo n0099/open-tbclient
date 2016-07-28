@@ -1,38 +1,55 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
+import com.baidu.tieba.person.god.i;
 import java.util.List;
+import tbclient.ThreadInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ f this$0;
+public class al implements i.a {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(f fVar) {
-        this.this$0 = fVar;
+    public al(h hVar) {
+        this.this$0 = hVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        List list;
-        List list2;
-        List list3;
-        if (view != null) {
-            list = this.this$0.eoO;
-            if (list != null) {
-                com.baidu.adp.widget.ListView.v vVar = null;
-                if (view.getTag() instanceof com.baidu.tieba.person.b.q) {
-                    vVar = ((com.baidu.tieba.person.b.q) view.getTag()).vP();
-                } else if (view.getTag() instanceof com.baidu.tieba.person.b.c) {
-                    vVar = ((com.baidu.tieba.person.b.c) view.getTag()).vP();
+    @Override // com.baidu.tieba.person.god.i.a
+    public void c(int i, List<ThreadInfo> list) {
+        bq bqVar;
+        bn bnVar;
+        bn bnVar2;
+        bq bqVar2;
+        bqVar = this.this$0.eAu;
+        if (bqVar != null) {
+            bnVar = this.this$0.ers;
+            if (bnVar != null) {
+                bnVar2 = this.this$0.ers;
+                bnVar2.cB(list);
+                bqVar2 = this.this$0.eAu;
+                bqVar2.aQj();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.person.god.i.a
+    public void fD(String str) {
+        com.baidu.tieba.person.god.i iVar;
+        bq bqVar;
+        bn bnVar;
+        bq bqVar2;
+        bq bqVar3;
+        iVar = this.this$0.esG;
+        if (iVar != null) {
+            bqVar = this.this$0.eAu;
+            if (bqVar != null) {
+                bnVar = this.this$0.ers;
+                if (com.baidu.tbadk.core.util.y.t(bnVar.aPC())) {
+                    bqVar3 = this.this$0.eAu;
+                    bqVar3.aQg();
+                    return;
                 }
-                list2 = this.this$0.eoO;
-                int a = com.baidu.tbadk.core.util.y.a(list2, vVar);
-                if (a >= 0) {
-                    f fVar = this.this$0;
-                    list3 = this.this$0.eoO;
-                    fVar.a(vVar, list3, a);
-                }
+                bqVar2 = this.this$0.eAu;
+                bqVar2.aNY();
             }
         }
     }

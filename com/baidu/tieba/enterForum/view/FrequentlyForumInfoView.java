@@ -12,10 +12,10 @@ import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrequentlyForumInfoView extends LinearLayout {
-    private TbPageContext Dp;
-    private TextView bvI;
-    private BdListView bvJ;
-    private com.baidu.tieba.enterForum.a.c bvK;
+    private TbPageContext DQ;
+    private TextView bxW;
+    private BdListView bxX;
+    private com.baidu.tieba.enterForum.a.c bxY;
 
     public FrequentlyForumInfoView(Context context) {
         super(context);
@@ -34,20 +34,20 @@ public class FrequentlyForumInfoView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(u.h.frequently_forum_info_view, this);
-        this.bvI = (TextView) findViewById(u.g.frequently_forum_info_title);
-        this.bvJ = (BdListView) findViewById(u.g.frequently_forum_info_listview);
-        this.bvK = new com.baidu.tieba.enterForum.a.c();
-        this.bvJ.setAdapter((ListAdapter) this.bvK);
+        this.bxW = (TextView) findViewById(u.g.frequently_forum_info_title);
+        this.bxX = (BdListView) findViewById(u.g.frequently_forum_info_listview);
+        this.bxY = new com.baidu.tieba.enterForum.a.c();
+        this.bxX.setAdapter((ListAdapter) this.bxY);
     }
 
     public void d(List<com.baidu.tbadk.data.e> list, TbPageContext<?> tbPageContext) {
-        this.Dp = tbPageContext;
-        this.bvK.a(list, tbPageContext);
-        this.bvK.a(this.bvJ);
+        this.DQ = tbPageContext;
+        this.bxY.a(list, tbPageContext);
+        this.bxY.c(this.bxX);
     }
 
     public void n(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.j.a.a(tbPageContext, this);
-        this.bvK.notifyDataSetChanged();
+        this.bxY.notifyDataSetChanged();
     }
 }

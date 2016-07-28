@@ -11,8 +11,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
 
     /* loaded from: classes.dex */
     public static class TBCdnMobileListData {
-        public String dgz = null;
-        public String dgA = null;
+        public String djx = null;
+        public String djy = null;
         public ArrayList<String> mobileIpList = new ArrayList<>();
     }
 
@@ -21,7 +21,7 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             try {
@@ -39,8 +39,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                             }
                         }
                     }
-                    this.mobileCdnData.dgz = optJSONObject.optString("testimg_url");
-                    this.mobileCdnData.dgA = optJSONObject.optString("testimg_md5");
+                    this.mobileCdnData.djx = optJSONObject.optString("testimg_url");
+                    this.mobileCdnData.djy = optJSONObject.optString("testimg_md5");
                 }
             } catch (Exception e) {
                 BdLog.e(e);

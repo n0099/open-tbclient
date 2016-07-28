@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c avb = new c();
-    private final HashMap<String, Class<? extends b>> avc = new HashMap<>();
+    private static c avQ = new c();
+    private final HashMap<String, Class<? extends b>> avR = new HashMap<>();
 
-    public static c CX() {
-        return avb;
+    public static c CW() {
+        return avQ;
     }
 
     private c() {
@@ -19,7 +19,7 @@ public class c {
         r(e.class);
     }
 
-    public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list) {
+    public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list) throws Exception {
         d dVar;
         Bitmap bitmap2;
         int i;
@@ -71,7 +71,7 @@ public class c {
         return bitmap;
     }
 
-    public Bitmap c(String str, List<ImageOperation> list) {
+    public Bitmap c(String str, List<ImageOperation> list) throws Exception {
         d dVar;
         int i;
         int i2 = 0;
@@ -99,20 +99,20 @@ public class c {
         } else {
             dVar = null;
         }
-        Bitmap fU = dVar != null ? dVar.fU(str) : null;
+        Bitmap fS = dVar != null ? dVar.fS(str) : null;
         if (list == null) {
-            return fU;
+            return fS;
         }
         while (true) {
-            Bitmap bitmap = fU;
+            Bitmap bitmap = fS;
             if (i2 < list.size()) {
                 b a = a(list.get(i2));
                 if (a == null) {
-                    fU = bitmap;
+                    fS = bitmap;
                 } else if (bitmap == null) {
-                    fU = a.fU(str);
+                    fS = a.fS(str);
                 } else {
-                    fU = a.b(bitmap, true);
+                    fS = a.b(bitmap, true);
                 }
                 i2++;
             } else {
@@ -123,7 +123,7 @@ public class c {
 
     protected b a(ImageOperation imageOperation) {
         b s;
-        Class<? extends b> cls = this.avc.get(imageOperation.actionName);
+        Class<? extends b> cls = this.avR.get(imageOperation.actionName);
         if (cls != null && (s = s(cls)) != null) {
             s.setParams(imageOperation.actionParam);
             return s;
@@ -134,7 +134,7 @@ public class c {
     private void r(Class<? extends b> cls) {
         b s = s(cls);
         if (s != null) {
-            this.avc.put(s.getActionName(), cls);
+            this.avR.put(s.getActionName(), cls);
         }
     }
 

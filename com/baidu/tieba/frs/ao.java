@@ -6,56 +6,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SignData;
 /* loaded from: classes.dex */
 class ao extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bDB;
+    final /* synthetic */ FrsActivity bEL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ao(FrsActivity frsActivity, int i) {
         super(i);
-        this.bDB = frsActivity;
+        this.bEL = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.tbadkCore.p pVar;
-        com.baidu.tieba.tbadkCore.p pVar2;
-        com.baidu.tieba.tbadkCore.p pVar3;
-        com.baidu.tieba.tbadkCore.p pVar4;
-        com.baidu.tieba.frs.i.p pVar5;
-        com.baidu.tieba.tbadkCore.p pVar6;
-        com.baidu.tieba.tbadkCore.p pVar7;
-        com.baidu.tieba.frs.i.p pVar8;
-        com.baidu.tieba.tbadkCore.p pVar9;
-        com.baidu.tieba.tbadkCore.p pVar10;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
-            pVar = this.bDB.bCF;
-            if (pVar != null) {
-                pVar2 = this.bDB.bCF;
-                if (pVar2.aDN() != null) {
-                    SignData signData = (SignData) customResponsedMessage.getData();
-                    if (signData.forumId != null) {
-                        String str = signData.forumId;
-                        pVar3 = this.bDB.bCF;
-                        if (str.equals(pVar3.aDN().getId())) {
-                            pVar4 = this.bDB.bCF;
-                            pVar4.d(signData);
-                            pVar5 = this.bDB.bCR;
-                            pVar6 = this.bDB.bCF;
-                            pVar5.g(pVar6);
-                            pVar7 = this.bDB.bCF;
-                            int user_level = pVar7.aDN().getUser_level();
-                            pVar8 = this.bDB.bCR;
-                            if (pVar8.aam()) {
-                                pVar10 = this.bDB.bCF;
-                                user_level = pVar10.aDN().getUser_level() + 1;
-                            }
-                            TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
-                            pVar9 = this.bDB.bCF;
-                            m9getInst.addSignedForum(pVar9.aDN().getName(), signData.sign_bonus_point, user_level);
-                        }
-                    }
+        com.baidu.tieba.frs.j.p pVar;
+        com.baidu.tieba.frs.j.p pVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && this.bEL.bDM != null && this.bEL.bDM.aGX() != null) {
+            SignData signData = (SignData) customResponsedMessage.getData();
+            if (signData.forumId != null && signData.forumId.equals(this.bEL.bDM.aGX().getId())) {
+                this.bEL.bDM.d(signData);
+                pVar = this.bEL.bDY;
+                pVar.g(this.bEL.bDM);
+                int user_level = this.bEL.bDM.aGX().getUser_level();
+                pVar2 = this.bEL.bDY;
+                if (pVar2.aaO()) {
+                    user_level = this.bEL.bDM.aGX().getUser_level() + 1;
                 }
+                TbadkCoreApplication.m10getInst().addSignedForum(this.bEL.bDM.aGX().getName(), signData.sign_bonus_point, user_level);
             }
         }
     }

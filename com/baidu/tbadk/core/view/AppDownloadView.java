@@ -18,10 +18,10 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class AppDownloadView extends LinearLayout {
-    private DownloadData aaf;
-    public ProgressBar aag;
-    public ImageView aah;
-    public TextView aai;
+    private DownloadData aaO;
+    public ProgressBar aaP;
+    public ImageView aaQ;
+    public TextView aaR;
     private CustomMessageListener downloadListener;
 
     public AppDownloadView(Context context, AttributeSet attributeSet, int i) {
@@ -46,16 +46,16 @@ public class AppDownloadView extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         View inflate = LayoutInflater.from(context).inflate(u.h.app_download_layout, (ViewGroup) this, true);
-        this.aag = (ProgressBar) inflate.findViewById(u.g.frs_app_push_progress);
-        this.aah = (ImageView) inflate.findViewById(u.g.frs_app_push_control);
-        this.aai = (TextView) inflate.findViewById(u.g.frs_app_push_percent);
+        this.aaP = (ProgressBar) inflate.findViewById(u.g.frs_app_push_progress);
+        this.aaQ = (ImageView) inflate.findViewById(u.g.frs_app_push_control);
+        this.aaR = (TextView) inflate.findViewById(u.g.frs_app_push_percent);
     }
 
     public void a(BdUniqueId bdUniqueId, DownloadData downloadData) {
         if (downloadData != null) {
-            this.aaf = (DownloadData) downloadData.clone();
-            if (this.aaf != null) {
-                setTag(this.aaf);
+            this.aaO = (DownloadData) downloadData.clone();
+            if (this.aaO != null) {
+                setTag(this.aaO);
                 a(downloadData);
             }
         }
@@ -66,7 +66,7 @@ public class AppDownloadView extends LinearLayout {
             switch (downloadData.getStatus()) {
                 case 1:
                     setVisibility(0);
-                    av.c(this.aah, u.f.icon_download_play);
+                    av.c(this.aaQ, u.f.icon_download_play);
                     break;
                 case 3:
                     setVisibility(8);
@@ -79,7 +79,7 @@ public class AppDownloadView extends LinearLayout {
                     break;
                 case 7:
                     setVisibility(0);
-                    av.c(this.aah, u.f.icon_download_pause);
+                    av.c(this.aaQ, u.f.icon_download_pause);
                     break;
             }
             int ak = com.baidu.tbadk.download.b.Ba().ak(downloadData.getId(), downloadData.getName());
@@ -94,18 +94,18 @@ public class AppDownloadView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void cG(int i) {
         int max = Math.max(0, i);
-        this.aag.setProgress(max);
-        this.aai.setText(String.valueOf(max) + "%");
+        this.aaP.setProgress(max);
+        this.aaR.setText(String.valueOf(max) + "%");
     }
 
     public static int b(DownloadData downloadData) {
-        if (com.baidu.tbadk.download.b.Ba().fj(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.Ba().fh(downloadData.getId())) {
             return 3;
         }
-        if (com.baidu.tbadk.download.b.Ba().fh(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.Ba().ff(downloadData.getId())) {
             return 5;
         }
-        if (com.baidu.tbadk.download.b.Ba().fg(downloadData.getId())) {
+        if (com.baidu.tbadk.download.b.Ba().fe(downloadData.getId())) {
             return 1;
         }
         if (!com.baidu.tbadk.download.b.Ba().al(downloadData.getId(), downloadData.getName())) {
@@ -156,10 +156,10 @@ public class AppDownloadView extends LinearLayout {
 
     /* loaded from: classes.dex */
     public static abstract class a implements View.OnClickListener {
-        protected AppDownloadView aak;
+        protected AppDownloadView aaT;
 
         public void b(AppDownloadView appDownloadView) {
-            this.aak = appDownloadView;
+            this.aaT = appDownloadView;
         }
     }
 }

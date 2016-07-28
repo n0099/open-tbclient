@@ -3,6 +3,7 @@ package com.baidu.android.common.net;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.logging.Log;
+import java.io.IOException;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -64,7 +65,7 @@ public class ProxyHttpClient extends DefaultHttpClient {
         return createHttpParams;
     }
 
-    public HttpResponse executeSafely(HttpUriRequest httpUriRequest) {
+    public HttpResponse executeSafely(HttpUriRequest httpUriRequest) throws ClientProtocolException, IOException {
         try {
             return execute(httpUriRequest);
         } catch (NullPointerException e) {
@@ -72,7 +73,7 @@ public class ProxyHttpClient extends DefaultHttpClient {
         }
     }
 
-    protected void finalize() {
+    protected void finalize() throws Throwable {
         super/*java.lang.Object*/.finalize();
         if (this.mLeakedException != null) {
             Log.e(TAG, "Leak found", this.mLeakedException);

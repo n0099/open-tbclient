@@ -5,13 +5,13 @@ import java.util.concurrent.Callable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Callable<String> {
-    final /* synthetic */ a Hw;
+    final /* synthetic */ a HO;
     final /* synthetic */ String a;
     final /* synthetic */ List b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str, List list) {
-        this.Hw = aVar;
+        this.HO = aVar;
         this.a = str;
         this.b = list;
     }
@@ -20,9 +20,9 @@ public class c implements Callable<String> {
     @Override // java.util.concurrent.Callable
     /* renamed from: a */
     public String call() {
-        String Y;
-        this.Hw.b(this.a, this.b);
-        Y = this.Hw.Y(true);
-        return Y;
+        String aa;
+        this.HO.b(this.a, this.b);
+        aa = this.HO.aa(true);
+        return aa;
     }
 }

@@ -10,26 +10,26 @@ import com.baidu.tieba.card.bp;
 import com.baidu.tieba.card.bx;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.a.a<o, a> {
-    private TbPageContext<?> Ea;
-    private BdUniqueId aSq;
-    private bx crx;
-    private bp cyD;
+    private TbPageContext<?> EA;
+    private BdUniqueId aTm;
+    private bp cBs;
+    private bx cuh;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.crx = new e(this);
-        this.Ea = tbPageContext;
+        this.cuh = new e(this);
+        this.EA = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bO */
+    /* renamed from: bW */
     public a a(ViewGroup viewGroup) {
-        this.cyD = new bp(this.Ea);
-        this.cyD.j(this.aSq);
-        this.cyD.a(this.crx);
-        return new a(this.cyD);
+        this.cBs = new bp(this.EA);
+        this.cBs.j(this.aTm);
+        this.cBs.a(this.cuh);
+        return new a(this.cBs);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,24 +37,24 @@ public class d extends com.baidu.tieba.a.a<o, a> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, o oVar, a aVar) {
         if (oVar != null) {
-            oVar.fI(i + 1);
+            oVar.fH(i + 1);
         }
-        aVar.cyF.a(oVar);
+        aVar.cBu.a(oVar);
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public bp cyF;
+        public bp cBu;
 
         public a(bp bpVar) {
             super(bpVar.getView());
-            this.cyF = bpVar;
+            this.cBu = bpVar;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aSq = bdUniqueId;
+        this.aTm = bdUniqueId;
     }
 }

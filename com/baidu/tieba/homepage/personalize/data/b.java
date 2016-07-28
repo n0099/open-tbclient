@@ -4,15 +4,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.at;
 /* loaded from: classes.dex */
 public class b extends c {
-    public static final BdUniqueId css = BdUniqueId.gen();
+    public static final BdUniqueId cvc = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.a.j, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return css;
+        return cvc;
     }
 
     public b() {
-        setStType(at.Lb());
+        setStType(at.La());
         setYuelaouLocate("ptrcard#");
     }
 }

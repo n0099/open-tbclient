@@ -1,20 +1,32 @@
 package com.baidu.tieba.homepage.personalize;
 
-import tbclient.Personalized.DataRes;
+import android.view.animation.Animation;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.util.g<DataRes> {
-    final /* synthetic */ a cqR;
+public class i implements Animation.AnimationListener {
+    final /* synthetic */ b ctz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(a aVar) {
-        this.cqR = aVar;
+    public i(b bVar) {
+        this.ctz = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.g
-    /* renamed from: b */
-    public void onReturnDataInUI(DataRes dataRes) {
-        this.cqR.a(dataRes);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        textView = this.ctz.TE;
+        if (textView == null) {
+            return;
+        }
+        this.ctz.ahG();
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

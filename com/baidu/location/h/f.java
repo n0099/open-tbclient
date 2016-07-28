@@ -14,9 +14,9 @@ public abstract class f {
     public String h = null;
     public int i = 3;
     public String j = null;
-    public Map<String, Object> Jl = null;
+    public Map<String, Object> Jx = null;
     public String l = null;
-    public byte[] Jm = null;
+    public byte[] m = null;
     public String n = null;
 
     private static int b(Context context, NetworkInfo networkInfo) {

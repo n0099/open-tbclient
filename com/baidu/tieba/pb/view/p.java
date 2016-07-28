@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements a.b {
-    final /* synthetic */ PbInterviewStatusView dZh;
+    final /* synthetic */ PbInterviewStatusView elJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbInterviewStatusView pbInterviewStatusView) {
-        this.dZh = pbInterviewStatusView;
+        this.elJ = pbInterviewStatusView;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -17,12 +17,12 @@ public class p implements a.b {
         CountDownTimer countDownTimer;
         com.baidu.tbadk.core.dialog.a aVar2;
         CountDownTimer countDownTimer2;
-        countDownTimer = this.dZh.dZd;
+        countDownTimer = this.elJ.elF;
         if (countDownTimer != null) {
-            countDownTimer2 = this.dZh.dZd;
+            countDownTimer2 = this.elJ.elF;
             countDownTimer2.cancel();
         }
-        aVar2 = this.dZh.dZa;
+        aVar2 = this.elJ.elC;
         aVar2.dismiss();
     }
 }

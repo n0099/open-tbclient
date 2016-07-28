@@ -6,11 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends Handler {
-    final /* synthetic */ c cRT;
+    final /* synthetic */ c cUO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.cRT = cVar;
+        this.cUO = cVar;
     }
 
     @Override // android.os.Handler
@@ -19,82 +19,82 @@ public class d extends Handler {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        long apk;
+        long apW;
         Handler handler5;
         Handler handler6;
-        long api;
+        long apU;
         Handler handler7;
         Handler handler8;
         Handler handler9;
-        long apk2;
+        long apW2;
         Handler handler10;
         Handler handler11;
         Handler handler12;
-        long api2;
+        long apU2;
         Handler handler13;
-        boolean apg;
+        boolean apS;
         Handler handler14;
         Handler handler15;
-        long api3;
+        long apU3;
         if (message.what == 2) {
-            handler13 = this.cRT.mHandler;
+            handler13 = this.cUO.mHandler;
             handler13.removeMessages(2);
-            apg = this.cRT.apg();
-            if (apg) {
-                this.cRT.nv = System.currentTimeMillis();
+            apS = this.cUO.apS();
+            if (apS) {
+                this.cUO.nX = System.currentTimeMillis();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    this.cRT.apd();
+                    this.cUO.apP();
                 }
             }
-            handler14 = this.cRT.mHandler;
-            handler15 = this.cRT.mHandler;
+            handler14 = this.cUO.mHandler;
+            handler15 = this.cUO.mHandler;
             Message obtainMessage = handler15.obtainMessage(2);
-            api3 = this.cRT.api();
-            handler14.sendMessageDelayed(obtainMessage, api3);
+            apU3 = this.cUO.apU();
+            handler14.sendMessageDelayed(obtainMessage, apU3);
         }
         if (message.what == 1) {
-            handler10 = this.cRT.mHandler;
+            handler10 = this.cUO.mHandler;
             handler10.removeMessages(2);
-            this.cRT.nv = System.currentTimeMillis();
+            this.cUO.nX = System.currentTimeMillis();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.cRT.apd();
+                this.cUO.apP();
             }
-            handler11 = this.cRT.mHandler;
-            handler12 = this.cRT.mHandler;
+            handler11 = this.cUO.mHandler;
+            handler12 = this.cUO.mHandler;
             Message obtainMessage2 = handler12.obtainMessage(2);
-            api2 = this.cRT.api();
-            handler11.sendMessageDelayed(obtainMessage2, api2);
+            apU2 = this.cUO.apU();
+            handler11.sendMessageDelayed(obtainMessage2, apU2);
         }
         if (message.what == 3) {
-            handler7 = this.cRT.mHandler;
+            handler7 = this.cUO.mHandler;
             handler7.removeMessages(3);
-            this.cRT.apc();
-            handler8 = this.cRT.mHandler;
-            handler9 = this.cRT.mHandler;
+            this.cUO.apO();
+            handler8 = this.cUO.mHandler;
+            handler9 = this.cUO.mHandler;
             Message obtainMessage3 = handler9.obtainMessage(3);
-            apk2 = this.cRT.apk();
-            handler8.sendMessageDelayed(obtainMessage3, apk2);
+            apW2 = this.cUO.apW();
+            handler8.sendMessageDelayed(obtainMessage3, apW2);
         }
         if (message.what == 4) {
-            handler = this.cRT.mHandler;
+            handler = this.cUO.mHandler;
             handler.removeMessages(3);
-            handler2 = this.cRT.mHandler;
+            handler2 = this.cUO.mHandler;
             handler2.removeMessages(2);
-            this.cRT.nv = System.currentTimeMillis();
-            this.cRT.apc();
+            this.cUO.nX = System.currentTimeMillis();
+            this.cUO.apO();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.cRT.apd();
+                this.cUO.apP();
             }
-            handler3 = this.cRT.mHandler;
-            handler4 = this.cRT.mHandler;
+            handler3 = this.cUO.mHandler;
+            handler4 = this.cUO.mHandler;
             Message obtainMessage4 = handler4.obtainMessage(3);
-            apk = this.cRT.apk();
-            handler3.sendMessageDelayed(obtainMessage4, apk);
-            handler5 = this.cRT.mHandler;
-            handler6 = this.cRT.mHandler;
+            apW = this.cUO.apW();
+            handler3.sendMessageDelayed(obtainMessage4, apW);
+            handler5 = this.cUO.mHandler;
+            handler6 = this.cUO.mHandler;
             Message obtainMessage5 = handler6.obtainMessage(2);
-            api = this.cRT.api();
-            handler5.sendMessageDelayed(obtainMessage5, api);
+            apU = this.cUO.apU();
+            handler5.sendMessageDelayed(obtainMessage5, apU);
         }
     }
 }

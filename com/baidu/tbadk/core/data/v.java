@@ -1,36 +1,45 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.ThreadInfo;
+import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
-public class v {
-    private String class_name = null;
-    private int Ok = 0;
+public class v extends be {
+    public static final BdUniqueId Og = BdUniqueId.gen();
+    private PhotoLiveCardData Oh = null;
 
-    public String pb() {
-        return this.class_name;
+    public PhotoLiveCardData oJ() {
+        return this.Oh;
     }
 
-    public int pc() {
-        return this.Ok;
+    @Override // com.baidu.tbadk.core.data.be
+    public void a(ThreadInfo threadInfo) {
+        super.a(threadInfo);
+        if (threadInfo.twzhibo_info != null) {
+            a(threadInfo.twzhibo_info);
+        }
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Ok = jSONObject.optInt("class_id", 0);
-                this.class_name = jSONObject.optString("class_name");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    private void a(ZhiBoInfoTW zhiBoInfoTW) {
+        if (zhiBoInfoTW != null) {
+            if (this.Oh == null) {
+                this.Oh = new PhotoLiveCardData();
+            }
+            this.Oh.parserProtobuf(zhiBoInfoTW);
+            this.Oh.setShowExpressionViewIndexList(this.Oh.getExpressionDatas());
+            if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
+                setId(String.valueOf(this.Oh.getThreadId()));
+                cr(String.valueOf(this.Oh.getThreadId()));
+            }
+            if (StringUtils.isNull(getForum_name())) {
+                setForum_name(this.Oh.getForumName());
             }
         }
     }
 
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.Ok = classify.class_id.intValue();
-            this.class_name = classify.class_name;
-        }
+    @Override // com.baidu.tbadk.core.data.be, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Og;
     }
 }

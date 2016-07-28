@@ -1,40 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ey implements Animation.AnimationListener {
-    final /* synthetic */ es dVR;
+public class ey implements Runnable {
+    final /* synthetic */ ew eiu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ey(es esVar) {
-        this.dVR = esVar;
+    public ey(ew ewVar) {
+        this.eiu = ewVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        com.baidu.tbadk.editortools.l lVar;
-        View view2;
-        com.baidu.tbadk.editortools.l lVar2;
-        es esVar = this.dVR;
-        view = this.dVR.dUN;
-        esVar.dUS = view.getVisibility() == 0;
-        lVar = this.dVR.BW;
-        if (lVar != null) {
-            lVar2 = this.dVR.BW;
-            lVar2.hide();
+    @Override // java.lang.Runnable
+    public void run() {
+        LinearLayout linearLayout;
+        ViewStub viewStub;
+        linearLayout = this.eiu.egz;
+        if (linearLayout == null) {
+            this.eiu.aKk();
         }
-        view2 = this.dVR.dUN;
-        view2.setVisibility(8);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+        viewStub = this.eiu.efV;
+        viewStub.setVisibility(0);
     }
 }

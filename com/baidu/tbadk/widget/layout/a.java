@@ -77,7 +77,7 @@ public class a implements f {
         if (i2 > 0) {
             int i3 = i + 3;
             List<String> a = y.a(list, i, i3);
-            cVar.setExtraCenterText(TbadkCoreApplication.m9getInst().getString(u.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
+            cVar.setExtraCenterText(TbadkCoreApplication.m10getInst().getString(u.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
             cVar.a(a, i, true);
             return i3;
         }

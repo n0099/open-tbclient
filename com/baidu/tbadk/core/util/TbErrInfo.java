@@ -102,7 +102,7 @@ public class TbErrInfo {
     public static final int STATS_OK = 0;
 
     public static String getErrMsg(int i) {
-        Resources resources = TbadkCoreApplication.m9getInst().getContext().getResources();
+        Resources resources = TbadkCoreApplication.m10getInst().getContext().getResources();
         switch (i) {
             case ERR_LIVE_PLAY_NO_STREAM /* -1129 */:
                 return resources.getString(u.j.tb_err_play_no_stream);
@@ -171,7 +171,7 @@ public class TbErrInfo {
     }
 
     public static int getFileHelperSDErr() {
-        switch (com.baidu.adp.lib.util.e.fa()) {
+        switch (com.baidu.adp.lib.util.e.eZ()) {
             case 1:
                 return -23;
             case 2:

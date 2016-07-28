@@ -14,127 +14,127 @@ import com.baidu.tieba.imMessageCenter.im.floatwindow.view.FloatingPersonalChatV
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class h {
-    private HeadImageView aOV;
-    private TextView dac;
-    private RelativeLayout dbc;
-    private ImageView dbd;
-    private TranslateAnimation dbe;
-    private TranslateAnimation dbf;
-    private int dbg;
-    private FloatingPersonalChatView.a dbj;
+    private HeadImageView aPP;
+    private RelativeLayout ddZ;
+    private TextView dda;
+    private ImageView dea;
+    private TranslateAnimation deb;
+    private TranslateAnimation dec;
+    private int ded;
+    private FloatingPersonalChatView.a deg;
     private final int index;
-    private boolean dbh = false;
-    private a dbi = new i(this);
-    private Point dad = new Point();
+    private boolean dee = false;
+    private a def = new i(this);
+    private Point ddb = new Point();
 
     /* loaded from: classes.dex */
     public interface a {
-        void asz();
+        void atl();
     }
 
     public h(RelativeLayout relativeLayout, int i) {
         this.index = i;
-        this.dbc = relativeLayout;
-        this.aOV = (HeadImageView) relativeLayout.findViewById(u.g.im_floating_head_view);
-        this.dac = (TextView) relativeLayout.findViewById(u.g.im_floating_unread_view);
-        this.dbd = (ImageView) relativeLayout.findViewById(u.g.im_floating_arrow);
-        this.aOV.setAutoChangeStyle(false);
-        this.aOV.setIsRound(true);
-        this.aOV.setTag(Integer.valueOf(i));
-        this.aOV.setOnLongClickListener(new j(this));
-        this.aOV.setOnTouchListener(new k(this));
+        this.ddZ = relativeLayout;
+        this.aPP = (HeadImageView) relativeLayout.findViewById(u.g.im_floating_head_view);
+        this.dda = (TextView) relativeLayout.findViewById(u.g.im_floating_unread_view);
+        this.dea = (ImageView) relativeLayout.findViewById(u.g.im_floating_arrow);
+        this.aPP.setAutoChangeStyle(false);
+        this.aPP.setIsRound(true);
+        this.aPP.setTag(Integer.valueOf(i));
+        this.aPP.setOnLongClickListener(new j(this));
+        this.aPP.setOnTouchListener(new k(this));
     }
 
     public void a(FloatingPersonalChatView.a aVar) {
-        this.dbj = aVar;
+        this.deg = aVar;
     }
 
     public boolean d(Animation animation) {
-        return this.dbf == animation;
+        return this.dec == animation;
     }
 
     public void a(com.baidu.adp.lib.h.d dVar) {
-        if (this.dbc.getVisibility() == 0) {
-            this.dbe = new TranslateAnimation(asw(), 0.0f, 0.0f, 0.0f);
-            this.dbe.setDuration(300L);
+        if (this.ddZ.getVisibility() == 0) {
+            this.deb = new TranslateAnimation(ati(), 0.0f, 0.0f, 0.0f);
+            this.deb.setDuration(300L);
             if (dVar != null) {
-                this.dbe.setAnimationListener(dVar);
+                this.deb.setAnimationListener(dVar);
             }
-            this.dbc.startAnimation(this.dbe);
+            this.ddZ.startAnimation(this.deb);
         }
     }
 
-    private int asw() {
+    private int ati() {
         int[] iArr = new int[2];
-        this.dbc.getLocationInWindow(iArr);
-        int A = com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m9getInst());
-        return ((A - iArr[0]) - this.dbc.getMeasuredWidth()) - com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m9getInst(), 10.0f);
+        this.ddZ.getLocationInWindow(iArr);
+        int A = com.baidu.adp.lib.util.k.A(TbadkCoreApplication.m10getInst());
+        return ((A - iArr[0]) - this.ddZ.getMeasuredWidth()) - com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m10getInst(), 10.0f);
     }
 
     public void b(com.baidu.adp.lib.h.d dVar) {
-        if (this.dbc.getVisibility() == 0) {
-            this.dbf = new TranslateAnimation(0.0f, asw(), 0.0f, 0.0f);
-            this.dbf.setDuration(300L);
+        if (this.ddZ.getVisibility() == 0) {
+            this.dec = new TranslateAnimation(0.0f, ati(), 0.0f, 0.0f);
+            this.dec.setDuration(300L);
             if (dVar != null) {
-                this.dbf.setAnimationListener(dVar);
+                this.dec.setAnimationListener(dVar);
             }
-            this.dbc.startAnimation(this.dbf);
+            this.ddZ.startAnimation(this.dec);
         }
     }
 
-    public void asx() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(this.dbc.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
+    public void atj() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(this.ddZ.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
-        this.dbc.startAnimation(translateAnimation);
+        this.ddZ.startAnimation(translateAnimation);
     }
 
-    public void asy() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(-this.dbc.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
+    public void atk() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(-this.ddZ.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
-        this.dbc.startAnimation(translateAnimation);
+        this.ddZ.startAnimation(translateAnimation);
     }
 
     public void a(boolean z, UserData userData, int i) {
         if (z && userData != null) {
-            this.dbg = userData.getConcern_num();
-            ls(userData.getConcern_num());
-            this.aOV.c(userData.getPortrait(), 12, false);
-            this.aOV.setUrl(userData.getPortrait());
+            this.ded = userData.getConcern_num();
+            ly(userData.getConcern_num());
+            this.aPP.c(userData.getPortrait(), 12, false);
+            this.aPP.setUrl(userData.getPortrait());
             if (i == this.index) {
-                this.dbd.setVisibility(0);
+                this.dea.setVisibility(0);
             } else {
-                this.dbd.setVisibility(8);
+                this.dea.setVisibility(8);
             }
-            this.dbc.setVisibility(0);
+            this.ddZ.setVisibility(0);
             return;
         }
-        this.dbc.setVisibility(8);
+        this.ddZ.setVisibility(8);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aOV.setOnClickListener(onClickListener);
+        this.aPP.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ls(int i) {
+    public void ly(int i) {
         int i2;
-        if (!this.dbh) {
+        if (!this.dee) {
             if (i <= 0) {
-                this.dac.setVisibility(8);
+                this.dda.setVisibility(8);
                 return;
             }
-            this.dac.setVisibility(0);
+            this.dda.setVisibility(0);
             if (i < 10) {
-                this.dac.setText(String.valueOf(i));
+                this.dda.setText(String.valueOf(i));
                 i2 = u.f.icon_news_head_prompt_one;
             } else if (i < 100) {
-                this.dac.setText(String.valueOf(i));
+                this.dda.setText(String.valueOf(i));
                 i2 = u.f.icon_news_head_prompt_two;
             } else {
-                this.dac.setText("   ");
+                this.dda.setText("   ");
                 i2 = u.f.icon_news_head_prompt_more;
             }
-            this.dac.setBackgroundResource(i2);
+            this.dda.setBackgroundResource(i2);
         }
     }
 }

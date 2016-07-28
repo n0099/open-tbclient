@@ -1,25 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ea implements View.OnClickListener {
-    private final /* synthetic */ int dNo;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.s dNp;
-    final /* synthetic */ dt dSh;
-    private final /* synthetic */ int val$count;
+public class ea extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    private final /* synthetic */ ec eeA;
+    final /* synthetic */ du eey;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ea(dt dtVar, int i, int i2, com.baidu.tieba.tbadkCore.data.s sVar) {
-        this.dSh = dtVar;
-        this.dNo = i;
-        this.val$count = i2;
-        this.dNp = sVar;
+    public ea(du duVar, ec ecVar, String str) {
+        this.eey = duVar;
+        this.eeA = ecVar;
+        this.val$url = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.dNp.qE(Math.min(this.dNo + 5, this.val$count));
-        this.dSh.notifyDataSetChanged();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        if (aVar == null) {
+            this.eeA.eeK.setVisibility(8);
+            this.eeA.eeL.setVisibility(8);
+        } else if (aVar.cd()) {
+            com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
+            aVar2.auG = this.val$url;
+            aVar2.auE = this.val$url;
+            this.eeA.eeL.setVisibility(0);
+            this.eeA.eeK.setVisibility(8);
+            this.eeA.eeL.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.eeA.eeL.a(aVar2);
+        } else {
+            this.eeA.eeL.setVisibility(8);
+            this.eeA.eeK.setVisibility(0);
+            this.eeA.eeK.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.eeA.eeK.c(this.val$url, 17, false);
+        }
     }
 }

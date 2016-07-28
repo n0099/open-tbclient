@@ -3,15 +3,15 @@ package com.baidu.tieba.tbadkCore.util;
 import com.baidu.tbadk.util.Error;
 /* loaded from: classes.dex */
 public interface p {
-    int afp();
+    int afS();
 
-    int afq();
+    int afT();
 
     void b(String str, com.baidu.tbadk.util.e<Error> eVar);
 
     void destroy();
 
-    String jO(String str);
+    String jU(String str);
 
-    boolean jQ(String str);
+    boolean jW(String str);
 }

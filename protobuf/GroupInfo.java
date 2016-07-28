@@ -1,7 +1,6 @@
 package protobuf;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.u;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
@@ -56,11 +55,11 @@ public final class GroupInfo extends Message {
     public final Integer isGroupManager;
     @ProtoField(tag = 24, type = Message.Datatype.INT32)
     public final Integer isHidePosition;
-    @ProtoField(tag = 34, type = Message.Datatype.INT32)
+    @ProtoField(tag = u.l.PullToRefresh_tb_ptrRotateDrawableWhilePulling, type = Message.Datatype.INT32)
     public final Integer isMemberGroup;
     @ProtoField(tag = 32, type = Message.Datatype.INT32)
     public final Integer isNewlyCreate;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_MY_COLLECT_UPDATE, type = Message.Datatype.INT32)
+    @ProtoField(tag = 33, type = Message.Datatype.INT32)
     public final Integer isRecentlyReply;
     @ProtoField(tag = 21, type = Message.Datatype.INT64)
     public final Long lastMsgId;
@@ -76,7 +75,7 @@ public final class GroupInfo extends Message {
     public final Integer memberNum;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String name;
-    @ProtoField(tag = TbConfig.NOTIFY_FANS_NEW_ID, type = Message.Datatype.STRING)
+    @ProtoField(tag = 26, type = Message.Datatype.STRING)
     public final String nickName;
     @ProtoField(tag = 10, type = Message.Datatype.STRING)
     public final String notice;

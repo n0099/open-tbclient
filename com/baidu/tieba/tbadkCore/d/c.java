@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static HashMap<String, f> eYI;
+    private static HashMap<String, f> flL;
 
     static {
         MessageManager.getInstance().registerListener(new d(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
-        eYI = new HashMap<>();
+        flL = new HashMap<>();
     }
 
     public static void i(String str, String str2, boolean z) {
@@ -17,8 +17,8 @@ public class c {
             str2 = "";
         }
         String str3 = String.valueOf(str) + str2;
-        if (!eYI.containsKey(str3)) {
-            eYI.put(str3, new f(str, str2, z));
+        if (!flL.containsKey(str3)) {
+            flL.put(str3, new f(str, str2, z));
         }
     }
 
@@ -27,41 +27,41 @@ public class c {
             str2 = "";
         }
         String str3 = String.valueOf(str) + str2;
-        if (!eYI.containsKey(str3)) {
-            eYI.put(str3, new f(str, str2, z));
+        if (!flL.containsKey(str3)) {
+            flL.put(str3, new f(str, str2, z));
         }
-        return eYI.get(str3);
+        return flL.get(str3);
     }
 
-    public static void bcJ() {
+    public static void bfY() {
     }
 
-    public static void qH(int i) {
-        for (String str : eYI.keySet()) {
-            a(eYI.get(str), i);
+    public static void rc(int i) {
+        for (String str : flL.keySet()) {
+            a(flL.get(str), i);
         }
     }
 
     public static void a(f fVar, int i) {
-        e eVar = fVar.eYM;
-        e eVar2 = fVar.eYN;
-        e eVar3 = fVar.eYO;
+        e eVar = fVar.flP;
+        e eVar2 = fVar.flQ;
+        e eVar3 = fVar.flR;
         if (eVar.num + eVar2.num + eVar3.num >= i) {
             com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
             dVar.q("act", fVar.type);
-            dVar.q("httpTimeCost", String.valueOf(eVar.eYJ));
+            dVar.q("httpTimeCost", String.valueOf(eVar.flM));
             dVar.q("httpNum", String.valueOf(eVar.num));
-            dVar.q("httpFailnum", String.valueOf(eVar.eYK));
+            dVar.q("httpFailnum", String.valueOf(eVar.flN));
             dVar.q("httpSize", String.valueOf(eVar.size));
-            dVar.q("socketTimeCost", String.valueOf(eVar2.eYJ));
+            dVar.q("socketTimeCost", String.valueOf(eVar2.flM));
             dVar.q("socketNum", String.valueOf(eVar2.num));
-            dVar.q("socketFailnum", String.valueOf(eVar2.eYK));
+            dVar.q("socketFailnum", String.valueOf(eVar2.flN));
             dVar.q("socketSize", String.valueOf(eVar2.size));
-            dVar.q("abortTimeCost", String.valueOf(eVar3.eYJ));
+            dVar.q("abortTimeCost", String.valueOf(eVar3.flM));
             dVar.q("abortNum", String.valueOf(eVar3.num));
-            dVar.q("netType", fVar.cRE);
-            dVar.q("isJson", fVar.eYL ? "1" : "0");
-            com.baidu.adp.lib.stats.a.dO().b("frs", dVar);
+            dVar.q("netType", fVar.cUz);
+            dVar.q("isJson", fVar.flO ? "1" : "0");
+            com.baidu.adp.lib.stats.a.dN().b("frs", dVar);
             eVar.reset();
             eVar2.reset();
             eVar3.reset();

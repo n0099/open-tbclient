@@ -16,9 +16,9 @@ public class al {
         if (context == null || bVar == null) {
             return false;
         }
-        String str = bVar.MH;
-        if (StringUtils.isNull(str) && bVar.MW != null) {
-            str = bVar.MW.userName;
+        String str = bVar.MF;
+        if (StringUtils.isNull(str) && bVar.MU != null) {
+            str = bVar.MU.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -30,30 +30,30 @@ public class al {
         if (context == null || bVar == null) {
             return false;
         }
-        if (!(!TextUtils.isEmpty(bVar.MN))) {
+        if (!(!TextUtils.isEmpty(bVar.MK))) {
             com.baidu.adp.lib.util.k.showToast(context, u.j.pb_app_error);
             return false;
-        } else if (!com.baidu.adp.lib.util.i.fr()) {
+        } else if (!com.baidu.adp.lib.util.i.fq()) {
             com.baidu.adp.lib.util.k.showToast(context, u.j.neterror);
             return false;
         } else {
             com.baidu.tbadk.distribute.a.AU().a(bVar);
-            String str2 = bVar.MH;
+            String str2 = bVar.MF;
             if (StringUtils.isNull(str2)) {
                 str2 = str;
             }
-            com.baidu.tbadk.download.b.Ba().a(bVar.MN, bVar.MK, str2, i, com.baidu.adp.lib.h.b.g(bVar.MG, 0));
+            com.baidu.tbadk.download.b.Ba().a(bVar.MK, bVar.MI, str2, i, com.baidu.adp.lib.h.b.g(bVar.ME, 0));
             return true;
         }
     }
 
-    public static final void f(com.baidu.tbadk.core.data.b bVar) {
-        com.baidu.tbadk.download.b.Ba().e(bVar.MK, bVar.MN, true);
+    public static final void e(com.baidu.tbadk.core.data.b bVar) {
+        com.baidu.tbadk.download.b.Ba().e(bVar.MI, bVar.MK, true);
     }
 
     public static final void a(Context context, r rVar) {
         if (context != null && rVar != null) {
-            G(context, rVar.ip());
+            G(context, rVar.io());
         }
     }
 

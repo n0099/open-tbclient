@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.a.b.a.b;
 /* loaded from: classes.dex */
 public class d implements h {
-    private byte hV;
+    private byte iD;
 
     public d(byte b) {
-        this.hV = b;
+        this.iD = b;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Integer.valueOf(this.hV);
+        return Integer.valueOf(this.iD);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Byte.valueOf(this.hV);
+        return Byte.valueOf(this.iD);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -24,16 +24,16 @@ public class d implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Byte.valueOf(this.hV);
+        return Byte.valueOf(this.iD);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object e(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Byte.valueOf(this.hV);
+        return Byte.valueOf(this.iD);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Byte.valueOf(this.hV);
+        return Byte.valueOf(this.iD);
     }
 }

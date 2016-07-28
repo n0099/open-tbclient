@@ -10,25 +10,25 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class b {
-    private static b atF = new b();
-    private GameInfoData atG;
-    private final com.baidu.adp.framework.listener.e atH = new c(this, 303009);
+    private static b auu = new b();
+    private GameInfoData auv;
+    private final com.baidu.adp.framework.listener.e auw = new c(this, 303009);
     private String mUrl;
 
     private b() {
-        MessageManager.getInstance().registerListener(this.atH);
+        MessageManager.getInstance().registerListener(this.auw);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new d(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static b CD() {
-        return atF;
+    public static b CC() {
+        return auu;
     }
 
     public void ao(String str, String str2) {
         this.mUrl = str2;
-        this.atG = null;
+        this.auv = null;
         if (!TextUtils.isEmpty(str)) {
             RequestGameDetailMessage requestGameDetailMessage = new RequestGameDetailMessage();
             requestGameDetailMessage.setGameId(str);
@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    private GameInfoData CE() {
+    private GameInfoData CD() {
         GameInfoData gameInfoData = new GameInfoData();
         gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(u.j.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
@@ -47,10 +47,10 @@ public class b {
     }
 
     public GameInfoData getGameInfoData() {
-        return this.atG == null ? CE() : this.atG;
+        return this.auv == null ? CD() : this.auv;
     }
 
-    public ShareFromGameCenterMsgData CF() {
+    public ShareFromGameCenterMsgData CE() {
         GameInfoData gameInfoData = getGameInfoData();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
         shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? gameInfoData.getGameName() : GameShareJsBridge.getInstance().getShareTitle());

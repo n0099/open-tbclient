@@ -1,14 +1,11 @@
 package com.baidu.tbadk.core.c;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes.dex */
-public @interface p {
-    boolean sC() default false;
+public abstract class p extends d {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract String mU();
 
-    String value() default "";
+    /* JADX INFO: Access modifiers changed from: protected */
+    public p(n nVar) {
+        super(nVar);
+    }
 }

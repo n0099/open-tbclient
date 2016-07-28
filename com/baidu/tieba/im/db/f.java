@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private static String dA = null;
-    private static volatile SQLiteDatabase dw = null;
-    public static HashMap<String, SQLiteDatabase> cKF = new HashMap<>();
+    private static String ed = null;
+    private static volatile SQLiteDatabase dZ = null;
+    public static HashMap<String, SQLiteDatabase> cNv = new HashMap<>();
 
-    public static synchronized SQLiteDatabase amI() {
+    public static synchronized SQLiteDatabase ans() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (f.class) {
             try {
@@ -26,34 +26,34 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db";
-                if (cKF.containsKey(str)) {
-                    sQLiteDatabase = cKF.get(str);
-                } else if (dw != null && str.equals(dA) && dw.isOpen()) {
-                    sQLiteDatabase = dw;
+                if (cNv.containsKey(str)) {
+                    sQLiteDatabase = cNv.get(str);
+                } else if (dZ != null && str.equals(ed) && dZ.isOpen()) {
+                    sQLiteDatabase = dZ;
                 } else {
-                    if (dw != null) {
-                        com.baidu.adp.lib.util.o.h(dw);
+                    if (dZ != null) {
+                        com.baidu.adp.lib.util.o.h(dZ);
                     }
-                    e eVar = new e(TbadkCoreApplication.m9getInst().getApp(), str);
-                    dA = str;
-                    dw = eVar.getWritableDatabase();
-                    sQLiteDatabase = dw;
+                    e eVar = new e(TbadkCoreApplication.m10getInst().getApp(), str);
+                    ed = str;
+                    dZ = eVar.getWritableDatabase();
+                    sQLiteDatabase = dZ;
                 }
             }
         }
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> amJ() {
+    public static LinkedList<String> ant() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase amI = amI();
+        SQLiteDatabase ans = ans();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (amI != null) {
+        if (ans != null) {
             try {
-                cursor2 = amI.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = ans.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -92,20 +92,20 @@ public class f {
         return linkedList;
     }
 
-    public static void kD(String str) {
+    public static void kK(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.amK().amL();
-                Iterator<String> it = amJ().iterator();
+                g.anu().anv();
+                Iterator<String> it = ant().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            g.amK().update("tb_message_center", contentValues, null, null);
+                            g.anu().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            g.amK().a(next, null, null);
+                            g.anu().a(next, null, null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class f {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            g.amK().endTransaction();
+            g.anu().endTransaction();
         }
     }
 }

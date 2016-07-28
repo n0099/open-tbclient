@@ -9,8 +9,13 @@ public class a extends com.baidu.tbadk.mvc.model.a<i, bf> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<i> DD() {
+    public Class<i> DC() {
         return i.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a
+    public int DD() {
+        return CmdConfigCustom.CMD_MENTION_ATME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
@@ -19,12 +24,7 @@ public class a extends com.baidu.tbadk.mvc.model.a<i, bf> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int DF() {
-        return CmdConfigCustom.CMD_MENTION_ATME_CACHE;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    public String Dp() {
+    public String Do() {
         return "tb_user_atme";
     }
 }

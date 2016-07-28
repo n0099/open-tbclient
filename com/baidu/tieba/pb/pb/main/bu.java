@@ -6,13 +6,13 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
 class bu extends CustomMessageListener {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bu(PbActivity pbActivity, int i) {
         super(i);
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,17 +22,17 @@ class bu extends CustomMessageListener {
             com.baidu.tieba.pb.e eVar = (com.baidu.tieba.pb.e) customResponsedMessage.getData();
             switch (eVar.getType()) {
                 case 0:
-                    this.dPF.b((com.baidu.tieba.pb.data.m) eVar.getData());
+                    this.ebT.b((com.baidu.tieba.pb.data.m) eVar.getData());
                     return;
                 case 1:
-                    this.dPF.a((a.b) eVar.getData());
+                    this.ebT.a((a.b) eVar.getData());
                     return;
                 case 2:
                     if (eVar.getData() == null) {
-                        this.dPF.a(false, (MarkData) null);
+                        this.ebT.a(false, (MarkData) null);
                         return;
                     } else {
-                        this.dPF.a(true, (MarkData) eVar.getData());
+                        this.ebT.a(true, (MarkData) eVar.getData());
                         return;
                     }
                 default:

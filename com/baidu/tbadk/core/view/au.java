@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class au implements Handler.Callback {
-    final /* synthetic */ at aeF;
+    final /* synthetic */ at aft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(at atVar) {
-        this.aeF = atVar;
+        this.aft = atVar;
     }
 
     @Override // android.os.Handler.Callback

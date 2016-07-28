@@ -17,7 +17,7 @@ public interface c {
 
     void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
 
-    void proxyFinalize();
+    void proxyFinalize() throws Throwable;
 
     PackageManager proxyGetPackageManager();
 

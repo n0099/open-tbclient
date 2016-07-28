@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -85,7 +86,7 @@ public final class UnknownFieldMap {
 
         public abstract int getSerializedSize();
 
-        public abstract void write(int i, WireOutput wireOutput);
+        public abstract void write(int i, WireOutput wireOutput) throws IOException;
 
         public FieldValue(int i, WireType wireType) {
             this.tag = i;
@@ -145,7 +146,7 @@ public final class UnknownFieldMap {
         }
 
         @Override // com.squareup.wire.UnknownFieldMap.FieldValue
-        public void write(int i, WireOutput wireOutput) {
+        public void write(int i, WireOutput wireOutput) throws IOException {
             wireOutput.writeTag(i, WireType.VARINT);
             wireOutput.writeVarint64(this.value.longValue());
         }
@@ -172,7 +173,7 @@ public final class UnknownFieldMap {
         }
 
         @Override // com.squareup.wire.UnknownFieldMap.FieldValue
-        public void write(int i, WireOutput wireOutput) {
+        public void write(int i, WireOutput wireOutput) throws IOException {
             wireOutput.writeTag(i, WireType.FIXED32);
             wireOutput.writeFixed32(this.value.intValue());
         }
@@ -199,7 +200,7 @@ public final class UnknownFieldMap {
         }
 
         @Override // com.squareup.wire.UnknownFieldMap.FieldValue
-        public void write(int i, WireOutput wireOutput) {
+        public void write(int i, WireOutput wireOutput) throws IOException {
             wireOutput.writeTag(i, WireType.FIXED64);
             wireOutput.writeFixed64(this.value.longValue());
         }
@@ -226,7 +227,7 @@ public final class UnknownFieldMap {
         }
 
         @Override // com.squareup.wire.UnknownFieldMap.FieldValue
-        public void write(int i, WireOutput wireOutput) {
+        public void write(int i, WireOutput wireOutput) throws IOException {
             wireOutput.writeTag(i, WireType.LENGTH_DELIMITED);
             wireOutput.writeVarint32(this.value.size());
             wireOutput.writeRawBytes(this.value.toByteArray());
@@ -328,7 +329,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void write(WireOutput wireOutput) {
+    public void write(WireOutput wireOutput) throws IOException {
         if (this.fieldMap != null) {
             for (Map.Entry<Integer, List<FieldValue>> entry : this.fieldMap.entrySet()) {
                 int intValue = entry.getKey().intValue();

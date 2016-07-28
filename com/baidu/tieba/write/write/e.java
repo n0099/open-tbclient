@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ AtListActivity fHT;
+    final /* synthetic */ AtListActivity fTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AtListActivity atListActivity) {
-        this.fHT = atListActivity;
+        this.fTK = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fHT.zt.requestFocus();
+        this.fTK.zU.requestFocus();
     }
 }

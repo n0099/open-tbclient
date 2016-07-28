@@ -1,79 +1,155 @@
 package com.baidu.tbadk.core.c;
 
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.tbadk.core.c.a;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d {
-    private static final b TF = new a(null);
-    private static final b TG = new c(null);
-    private static final boolean TH;
+public abstract class d implements j {
+    private final n Um;
+    private final HashMap<String, Method> Un = new HashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public interface b {
-        void q(String str, String str2, String str3);
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.c.d */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Multi-variable type inference failed */
+    public d(n nVar) {
+        this.Um = nVar;
+        q(getClass());
+        if (this.Un.isEmpty()) {
+            throw new IllegalStateException("No native methods found!");
+        }
     }
 
-    /* loaded from: classes.dex */
-    private static final class a implements b {
-        private a() {
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Context getContext() {
+        return this.Um.getContext();
+    }
 
-        /* synthetic */ a(a aVar) {
-            this();
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void sendMessage(Message<?> message) {
+        a.C0034a.sendMessage(message);
+    }
 
-        @Override // com.baidu.tbadk.core.c.d.b
-        public void q(String str, String str2, String str3) {
-            if (str2 != null) {
-                str3 = "code:" + str2 + " message:" + str3;
+    protected void c(String str, JSONObject jSONObject) {
+        if (TextUtils.isEmpty(str)) {
+            e.cC("sendResponseToJS got empty callbackId.");
+            return;
+        }
+        HashMap hashMap = new HashMap(4);
+        hashMap.put("errNo", "0");
+        hashMap.put("errMsg", ImagesInvalidReceiver.SUCCESS);
+        if (jSONObject != null) {
+            hashMap.put("data", jSONObject);
+        }
+        this.Um.a(o.c(str, hashMap));
+    }
+
+    @Override // com.baidu.tbadk.core.c.j
+    public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
+        Object invoke;
+        Method method = this.Un.get(str);
+        if (method != null) {
+            q qVar = (q) method.getAnnotation(q.class);
+            String optString = jSONObject2.optString("callbackId");
+            try {
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                if (!qVar.sB()) {
+                    if (parameterTypes.length == 2) {
+                        invoke = method.invoke(this, optString, jSONObject);
+                    } else if (parameterTypes.length == 1) {
+                        invoke = method.invoke(this, jSONObject);
+                    } else if (parameterTypes.length == 0) {
+                        e.cC("native method " + getClass().getSimpleName() + ":" + qVar.value() + " ignored all parameters.");
+                        invoke = method.invoke(this, new Object[0]);
+                    } else {
+                        a(str, jSONObject2, "500", "parameters too much!");
+                        return;
+                    }
+                    if (!TextUtils.isEmpty(optString)) {
+                        c(optString, (JSONObject) invoke);
+                        return;
+                    }
+                    return;
+                } else if (parameterTypes.length != 2) {
+                    if (parameterTypes.length == 1) {
+                        method.invoke(this, jSONObject);
+                        if (!TextUtils.isEmpty(optString)) {
+                            c(optString, null);
+                            return;
+                        }
+                        return;
+                    } else if (parameterTypes.length == 0) {
+                        e.cC("native method " + getClass().getSimpleName() + ":" + qVar.value() + " ignored all parameters.");
+                        method.invoke(this, new Object[0]);
+                        if (!TextUtils.isEmpty(optString)) {
+                            c(optString, null);
+                            return;
+                        }
+                        return;
+                    } else {
+                        a(str, jSONObject2, "500", "parameters too much!");
+                        return;
+                    }
+                } else {
+                    method.invoke(this, optString, jSONObject);
+                    return;
+                }
+            } catch (IllegalAccessException e) {
+                e.cC("native method call error:" + e.getMessage());
+                a(str, jSONObject2, "501", "IllegalAccessException:" + e.getMessage());
+                return;
+            } catch (InvocationTargetException e2) {
+                e.cC("native method call error:" + e2.getMessage());
+                a(str, jSONObject2, "502", "InvocationTargetException:" + e2.getMessage());
+                return;
+            } catch (Exception e3) {
+                e.cC("native method call error:" + e3.getMessage());
+                a(str, jSONObject2, "503", "Native call exception:" + e3.getMessage());
+                return;
             }
-            Log.e("BridgeLogger", str3);
         }
+        a(str, jSONObject2, "403", "method " + str + " not exists");
     }
 
-    /* loaded from: classes.dex */
-    private static final class c implements b {
-        private c() {
+    private void a(String str, JSONObject jSONObject, String str2, String str3) {
+        String optString = jSONObject.optString("callbackId");
+        if (TextUtils.isEmpty(optString)) {
+            e.cC("method " + str + " not found!");
+            return;
         }
+        HashMap hashMap = new HashMap(4);
+        hashMap.put("errNo", str2);
+        hashMap.put("errMsg", str3);
+        this.Um.a(o.c(optString, hashMap));
+    }
 
-        /* synthetic */ c(c cVar) {
-            this();
-        }
-
-        @Override // com.baidu.tbadk.core.c.d.b
-        public void q(String str, String str2, String str3) {
-            ay ayVar = new ay("c10729");
-            ayVar.ab("obj_param1", str);
-            ayVar.ab("obj_param2", str2);
-            ayVar.ab("obj_param3", str3);
-            if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(ayVar);
+    private void q(Class<? extends d> cls) {
+        Method[] declaredMethods;
+        for (Method method : cls.getDeclaredMethods()) {
+            q qVar = (q) method.getAnnotation(q.class);
+            if (qVar != null) {
+                String value = qVar.value();
+                if (TextUtils.isEmpty(value)) {
+                    value = null;
+                }
+                if (qVar.sB() && !Void.TYPE.equals(method.getReturnType())) {
+                    throw new IllegalArgumentException("Method with async flag should return void.");
+                }
+                if (TextUtils.isEmpty(value)) {
+                    value = method.getName();
+                }
+                method.setAccessible(true);
+                this.Un.put(value, method);
             }
         }
-    }
-
-    public static void q(String str, String str2, String str3) {
-        if (TH) {
-            TF.q(str, str2, str3);
+        Class<? super Object> superclass = cls.getSuperclass();
+        if (superclass != null && superclass != cls) {
+            q(superclass);
         }
-        TG.q(str, str2, str3);
-    }
-
-    public static void cC(String str) {
-        if (TH) {
-            TF.q(null, null, str);
-        }
-    }
-
-    public static void r(String str, String str2, String str3) {
-        cC(str3);
-    }
-
-    static {
-        TH = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

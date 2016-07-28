@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.recommendfrs.data;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.data.az;
-import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.data.ac;
+import com.baidu.tbadk.core.data.be;
 import com.baidu.tieba.card.a.g;
 import com.baidu.tieba.card.a.h;
 import com.baidu.tieba.lego.card.model.ICardInfo;
@@ -16,22 +16,22 @@ import tbclient.Personalized.TagInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private final TagInfo ctn;
-    private DataRes cto;
-    private int ctp;
-    private String cts;
-    private com.baidu.tieba.card.a.b ctt;
+    private final TagInfo cwc;
+    private DataRes cwd;
+    private int cwe;
+    private String cwh;
+    private com.baidu.tieba.card.a.b cwi;
     private boolean hasMore;
     private int pn;
-    private List<Object> awM = new ArrayList();
-    private boolean civ = false;
-    private boolean ctq = false;
-    private boolean ctr = false;
+    private List<Object> axA = new ArrayList();
+    private boolean ckI = false;
+    private boolean cwf = false;
+    private boolean cwg = false;
     private int dataType = 1;
-    private long cqk = 0;
+    private long csP = 0;
 
     public a(TagInfo tagInfo) {
-        this.ctn = tagInfo;
+        this.cwc = tagInfo;
     }
 
     public int getPn() {
@@ -39,31 +39,31 @@ public class a {
     }
 
     public void c(DataRes dataRes) {
-        this.cto = dataRes;
+        this.cwd = dataRes;
     }
 
-    public void jz(int i) {
-        this.ctp = i;
+    public void jF(int i) {
+        this.cwe = i;
     }
 
-    public int ahq() {
-        return this.ctp;
+    public int aia() {
+        return this.cwe;
     }
 
-    public boolean ahr() {
-        return this.ctq;
+    public boolean aib() {
+        return this.cwf;
     }
 
-    public boolean ahs() {
-        return this.ctr;
+    public boolean aic() {
+        return this.cwg;
     }
 
-    public TagInfo aht() {
-        return this.ctn;
+    public TagInfo aid() {
+        return this.cwc;
     }
 
-    public String ahu() {
-        return this.cts;
+    public String aie() {
+        return this.cwh;
     }
 
     public boolean hasMore() {
@@ -72,21 +72,21 @@ public class a {
 
     public void a(boolean z, c cVar, boolean z2) {
         if (z) {
-            this.ctr = true;
+            this.cwg = true;
         } else {
-            this.ctq = true;
+            this.cwf = true;
         }
         if (cVar != null) {
             this.pn = cVar.getPn();
             this.hasMore = cVar.getHasMore();
             if (cVar instanceof com.baidu.tieba.homepage.mygod.data.c) {
-                this.cqk = ((com.baidu.tieba.homepage.mygod.data.c) cVar).agM();
+                this.csP = ((com.baidu.tieba.homepage.mygod.data.c) cVar).ahs();
             }
             List<Object> a = a(z2, cVar);
             if (z2) {
-                this.awM.addAll(a);
+                this.axA.addAll(a);
             } else {
-                this.awM = a;
+                this.axA = a;
             }
         }
     }
@@ -115,7 +115,7 @@ public class a {
             }
             int size = list.size();
             if (size > 0) {
-                this.cts = ((ICardInfo) list.get(size - 1)).getFlipId();
+                this.cwh = ((ICardInfo) list.get(size - 1)).getFlipId();
             }
         }
     }
@@ -127,10 +127,10 @@ public class a {
                 if ((obj instanceof ExcellentThreadInfo) && (!z || !a((ExcellentThreadInfo) obj))) {
                     e eVar = new e();
                     eVar.b((ExcellentThreadInfo) obj);
-                    eVar.setShowImage(cVar.QL());
-                    if (eVar.ahC() != 33) {
+                    eVar.setShowImage(cVar.Ru());
+                    if (eVar.aim() != 33) {
                         list.add(eVar);
-                    } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                    } else if (TbadkCoreApplication.m10getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                         list.add(eVar);
                     }
                 }
@@ -141,34 +141,34 @@ public class a {
     private void c(List<Object> list, c cVar, boolean z) {
         if (list != null && cVar != null && cVar.getThreadList() != null && cVar.getThreadList().size() != 0) {
             if (!z) {
-                this.ctt = null;
+                this.cwi = null;
             }
             this.dataType = 2;
             for (Object obj : cVar.getThreadList()) {
-                if ((obj instanceof ThreadInfo) && (!z || !c((ThreadInfo) obj))) {
-                    az azVar = new az();
-                    azVar.a((ThreadInfo) obj);
+                if ((obj instanceof ThreadInfo) && (!z || !d((ThreadInfo) obj))) {
+                    be beVar = new be();
+                    beVar.a((ThreadInfo) obj);
                     g gVar = new g();
-                    gVar.threadData = azVar;
-                    if (!TextUtils.isEmpty(azVar.rr())) {
-                        z zVar = new z();
-                        zVar.cm(azVar.rr());
-                        this.ctt = zVar;
-                    } else if (azVar.Qz == 1) {
+                    gVar.threadData = beVar;
+                    if (!TextUtils.isEmpty(beVar.rq())) {
+                        ac acVar = new ac();
+                        acVar.cm(beVar.rq());
+                        this.cwi = acVar;
+                    } else if (beVar.QZ == 1) {
                         h hVar = new h();
-                        hVar.aVd = gVar;
+                        hVar.aWb = gVar;
                         a(hVar);
-                        this.ctt = hVar;
+                        this.cwi = hVar;
                     } else {
                         a(gVar);
-                        this.ctt = gVar;
+                        this.cwi = gVar;
                     }
-                    list.add(this.ctt);
+                    list.add(this.cwi);
                 }
             }
             if (cVar instanceof com.baidu.tieba.homepage.mygod.data.c) {
                 com.baidu.tieba.homepage.mygod.data.c cVar2 = (com.baidu.tieba.homepage.mygod.data.c) cVar;
-                if (this.pn == 1 && cVar2.agN() == 0) {
+                if (this.pn == 1 && cVar2.aht() == 0) {
                     list.add(0, new com.baidu.tieba.homepage.mygod.data.a());
                 }
             }
@@ -177,27 +177,27 @@ public class a {
 
     private void a(com.baidu.tieba.card.a.b bVar) {
         if (bVar != null && bVar.getType() != null) {
-            if (this.ctt == null) {
-                bVar.aUT = false;
-            } else if (this.ctt.getType() == null) {
-                bVar.aUT = false;
-            } else if (this.ctt instanceof g) {
+            if (this.cwi == null) {
+                bVar.aVQ = false;
+            } else if (this.cwi.getType() == null) {
+                bVar.aVQ = false;
+            } else if (this.cwi instanceof g) {
                 if (bVar instanceof g) {
-                    bVar.aUT = false;
+                    bVar.aVQ = false;
                 } else {
-                    bVar.aUT = true;
+                    bVar.aVQ = true;
                 }
             } else {
-                bVar.aUT = true;
+                bVar.aVQ = true;
             }
         }
     }
 
     private boolean a(ExcellentThreadInfo excellentThreadInfo) {
         int size;
-        if (excellentThreadInfo != null && (size = this.awM.size()) > 0) {
+        if (excellentThreadInfo != null && (size = this.axA.size()) > 0) {
             for (int i = 0; i < size; i++) {
-                Object obj = this.awM.get(i);
+                Object obj = this.axA.get(i);
                 if ((obj instanceof ExcellentThreadInfo) && excellentThreadInfo.excid == ((ExcellentThreadInfo) obj).excid) {
                     return true;
                 }
@@ -207,11 +207,11 @@ public class a {
         return false;
     }
 
-    private boolean c(ThreadInfo threadInfo) {
+    private boolean d(ThreadInfo threadInfo) {
         int size;
-        if (threadInfo != null && (size = this.awM.size()) > 0) {
+        if (threadInfo != null && (size = this.axA.size()) > 0) {
             for (int i = 0; i < size; i++) {
-                Object obj = this.awM.get(i);
+                Object obj = this.axA.get(i);
                 if ((obj instanceof ThreadInfo) && threadInfo.id == ((ThreadInfo) obj).id) {
                     return true;
                 }
@@ -221,23 +221,23 @@ public class a {
         return false;
     }
 
-    public List<Object> ahv() {
-        return this.awM;
+    public List<Object> aif() {
+        return this.axA;
     }
 
-    public void bt(List<Object> list) {
-        this.awM = list;
+    public void bx(List<Object> list) {
+        this.axA = list;
     }
 
-    public void eH(boolean z) {
-        this.civ = z;
+    public void eI(boolean z) {
+        this.ckI = z;
     }
 
     public int getDataType() {
         return this.dataType;
     }
 
-    public long agM() {
-        return this.cqk;
+    public long ahs() {
+        return this.csP;
     }
 }

@@ -5,23 +5,23 @@ import android.os.Looper;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class p extends t {
-    public int axS;
-    public long aya;
-    public long ayb;
-    public int ayc;
-    private a ayd = null;
-    private final Handler aye = new q(this, Looper.getMainLooper());
-    public long kW;
-    public long wh;
-    public long xM;
+    public int ayI;
+    public long ayQ;
+    public long ayR;
+    public int ayS;
+    private a ayT = null;
+    private final Handler ayU = new q(this, Looper.getMainLooper());
+    public long lB;
+    public long wI;
+    public long yn;
 
-    public void EN() {
-        this.aye.sendEmptyMessage(0);
+    public void EM() {
+        this.ayU.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EO() {
-        w wVar = (w) aa.EW().eS(this.ayk);
+    public void EN() {
+        w wVar = (w) aa.EV().eS(this.aza);
         if (wVar != null) {
             wVar.c(this);
         }
@@ -38,15 +38,15 @@ public class p extends t {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            p.this.axS = aa.EW().Fa();
-            p.this.EO();
+            p.this.ayI = aa.EV().EZ();
+            p.this.EN();
             return Boolean.TRUE;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
+        /* renamed from: c */
         public void onPostExecute(Boolean bool) {
         }
     }

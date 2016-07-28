@@ -22,6 +22,7 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
     private int is_myfriend;
     private int is_like = 0;
     private GodUserData godUserData = new GodUserData();
+    private UserTbVipInfoData bigVData = new UserTbVipInfoData();
     private String userId = null;
     private int type = 0;
     private int level_id = 0;
@@ -221,8 +222,16 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
         return this.godUserData;
     }
 
+    public UserTbVipInfoData getUserTbVipInfoData() {
+        return this.bigVData;
+    }
+
     public void setGodUserData(GodUserData godUserData) {
         this.godUserData = godUserData;
+    }
+
+    public void setTbVipInfoData(UserTbVipInfoData userTbVipInfoData) {
+        this.bigVData = userTbVipInfoData;
     }
 
     public int getGiftNum() {
@@ -286,6 +295,9 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
             if (user.god_data != null) {
                 this.godUserData.parserProtobuf(user.god_data);
             }
+            if (user.tb_vip != null) {
+                this.bigVData.parserProtobuf(user.tb_vip);
+            }
             this.godInfo = user.god_data;
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
@@ -324,6 +336,7 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");
                 JSONObject optJSONObject = jSONObject.optJSONObject("god_data");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("tb_vip");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         IconData iconData = new IconData();
@@ -348,9 +361,12 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
                 if (optJSONObject != null) {
                     this.godUserData.parseJson(optJSONObject);
                 }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("theme_card");
                 if (optJSONObject2 != null) {
-                    this.themeCard.parser(optJSONObject2);
+                    this.bigVData.parseJson(optJSONObject2);
+                }
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("theme_card");
+                if (optJSONObject3 != null) {
+                    this.themeCard.parser(optJSONObject3);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

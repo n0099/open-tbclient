@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.SyncServiceConfig;
 /* loaded from: classes.dex */
 public class TiebaSyncServiceStatic {
     static {
-        TbadkCoreApplication.m9getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
+        TbadkCoreApplication.m10getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
     }
 }

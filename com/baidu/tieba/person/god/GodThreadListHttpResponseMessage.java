@@ -17,7 +17,7 @@ public class GodThreadListHttpResponseMessage extends TbHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GodThreadListResIdl godThreadListResIdl = (GodThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, GodThreadListResIdl.class);
         if (godThreadListResIdl != null) {
             setError(godThreadListResIdl.error.errorno.intValue());

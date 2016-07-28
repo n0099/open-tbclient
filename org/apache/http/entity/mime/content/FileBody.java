@@ -2,6 +2,7 @@ package org.apache.http.entity.mime.content;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.apache.http.entity.mime.MIME;
@@ -37,17 +38,17 @@ public class FileBody extends AbstractContentBody {
         this(file, "application/octet-stream");
     }
 
-    public InputStream getInputStream() {
+    public InputStream getInputStream() throws IOException {
         return new FileInputStream(this.file);
     }
 
     @Deprecated
-    public void writeTo(OutputStream outputStream, int i) {
+    public void writeTo(OutputStream outputStream, int i) throws IOException {
         writeTo(outputStream);
     }
 
     @Override // org.apache.http.entity.mime.content.ContentBody
-    public void writeTo(OutputStream outputStream) {
+    public void writeTo(OutputStream outputStream) throws IOException {
         if (outputStream == null) {
             throw new IllegalArgumentException("Output stream may not be null");
         }

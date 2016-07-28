@@ -10,7 +10,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
 import com.baidu.location.a.b;
-import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -126,7 +125,7 @@ public final class LocationClient implements b.InterfaceC0018b {
                     }
                     LocationClient.this.onNewLocation(message, 21);
                     return;
-                case TbConfig.NOTIFY_FANS_NEW_ID /* 26 */:
+                case 26:
                     LocationClient.this.onNewLocation(message, 26);
                     return;
                 case 27:

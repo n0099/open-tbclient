@@ -7,13 +7,13 @@ public class a extends i {
     int errorCode;
     String errorMsg;
     int priority;
-    String tc;
-    PluginPackageManager.PluginStatus vJ;
-    String vK;
-    boolean vL;
+    String tG;
+    PluginPackageManager.PluginStatus wk;
+    String wl;
+    boolean wm;
 
-    public String ip() {
-        return this.tc;
+    public String io() {
+        return this.tG;
     }
 
     public int getPriority() {
@@ -28,7 +28,7 @@ public class a extends i {
         return this.errorMsg;
     }
 
-    public String iq() {
-        return this.vK;
+    public String ip() {
+        return this.wl;
     }
 }

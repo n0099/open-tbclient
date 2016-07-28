@@ -9,26 +9,26 @@ import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends CustomMessageListener {
-    final /* synthetic */ f eHG;
+    final /* synthetic */ f eUI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(f fVar, int i) {
         super(i);
-        this.eHG = fVar;
+        this.eUI = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage instanceof RemindRecommendMessage) && com.baidu.tbadk.coreExtra.messageCenter.c.xK().ye() && f.aUY()) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof RemindRecommendMessage) && com.baidu.tbadk.coreExtra.messageCenter.c.xK().ye() && f.aYl()) {
             int hours = new Date(System.currentTimeMillis()).getHours();
             if ((hours < 0 || hours > 7) && hours < 23) {
                 RemindRecommendMessage remindRecommendMessage = (RemindRecommendMessage) customResponsedMessage;
-                if (!this.eHG.eHx.isScreenOn()) {
-                    this.eHG.a(remindRecommendMessage);
+                if (!this.eUI.eUz.isScreenOn()) {
+                    this.eUI.a(remindRecommendMessage);
                 } else {
-                    this.eHG.b(remindRecommendMessage);
+                    this.eUI.b(remindRecommendMessage);
                 }
                 if (remindRecommendMessage.isLocal) {
                     TiebaStatic.log(new ay("c10316").s("obj_type", 2).s("obj_locate", 1));

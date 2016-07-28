@@ -1,26 +1,27 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends CustomMessageListener {
-    final /* synthetic */ f this$0;
+public class an implements c.b {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public an(f fVar, int i) {
-        super(i);
-        this.this$0 = fVar;
+    public an(h hVar) {
+        this.this$0 = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PersonChangeData)) {
-            return;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        this.this$0.eAF = false;
+        if (i != 0) {
+            if (i == 1) {
+                this.this$0.aPk();
+            }
+        } else {
+            this.this$0.aPj();
         }
-        this.this$0.a((PersonChangeData) customResponsedMessage.getData());
+        cVar.dismiss();
     }
 }

@@ -9,13 +9,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cj extends CustomMessageListener {
-    final /* synthetic */ ch dQo;
+    final /* synthetic */ ch ecD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cj(ch chVar, int i) {
         super(i);
-        this.dQo = chVar;
+        this.ecD = chVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -31,9 +31,9 @@ public class cj extends CustomMessageListener {
         List<DownloadData> data;
         boolean z;
         if (customResponsedMessage != null) {
-            hVar = this.dQo.dMC;
+            hVar = this.ecD.dYM;
             if (hVar != null) {
-                pbActivity = this.dQo.dOg;
+                pbActivity = this.ecD.eat;
                 if (!com.baidu.adp.base.l.q(pbActivity.getActivity()).isScroll() && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
                     Iterator<DownloadData> it = data.iterator();
                     while (true) {
@@ -46,7 +46,7 @@ public class cj extends CustomMessageListener {
                         }
                     }
                     if (z) {
-                        this.dQo.notifyDataSetChanged();
+                        this.ecD.notifyDataSetChanged();
                     }
                 }
             }

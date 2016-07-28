@@ -3,35 +3,35 @@ package com.baidu.tieba.card.a;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class r extends b implements s {
-    public static final BdUniqueId aVM = BdUniqueId.gen();
-    public boolean aUZ;
-    public long aVN;
-    public String aVO;
-    public String aVP;
-    public String aVQ;
-    public String aVR;
-    public String aVS;
-    public long aVT;
-    public String aVU;
+    public static final BdUniqueId aWK = BdUniqueId.gen();
+    public boolean aVX;
+    public long aWL;
+    public String aWM;
+    public String aWN;
+    public String aWO;
+    public String aWP;
+    public String aWQ;
+    public long aWR;
+    public String aWS;
     public String userName;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return aVM;
+        return aWK;
     }
 
     @Override // com.baidu.tieba.card.a.s
     public int getPosition() {
-        return (int) this.aVT;
+        return (int) this.aWR;
     }
 
     @Override // com.baidu.tieba.card.a.s
-    public boolean Lm() {
+    public boolean Ll() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.a.s
-    public void ck(boolean z) {
-        this.aUZ = z;
+    public void cn(boolean z) {
+        this.aVX = z;
     }
 }

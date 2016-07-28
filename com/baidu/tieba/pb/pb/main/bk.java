@@ -5,40 +5,40 @@ import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class bk implements com.baidu.adp.lib.f.c<View> {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aev */
-    public View dF() {
-        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.dPF.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
+    /* renamed from: aeY */
+    public View dE() {
+        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.ebT.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
         playVoiceBntNew.setPlayTimeTextView(u.e.fontsize28);
         return playVoiceBntNew;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ao */
-    public void l(View view) {
+    /* renamed from: am */
+    public void o(View view) {
         ((PlayVoiceBntNew) view).reset();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ap */
-    public View m(View view) {
+    /* renamed from: an */
+    public View p(View view) {
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aq */
-    public View n(View view) {
+    /* renamed from: ao */
+    public View q(View view) {
         ((PlayVoiceBntNew) view).reset();
         return view;
     }

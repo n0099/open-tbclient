@@ -2,6 +2,7 @@ package android.support.v4.net;
 
 import android.net.TrafficStats;
 import java.net.Socket;
+import java.net.SocketException;
 /* loaded from: classes.dex */
 class TrafficStatsCompatIcs {
     public static void clearThreadStatsTag() {
@@ -24,11 +25,11 @@ class TrafficStatsCompatIcs {
         TrafficStats.setThreadStatsTag(i);
     }
 
-    public static void tagSocket(Socket socket) {
+    public static void tagSocket(Socket socket) throws SocketException {
         TrafficStats.tagSocket(socket);
     }
 
-    public static void untagSocket(Socket socket) {
+    public static void untagSocket(Socket socket) throws SocketException {
         TrafficStats.untagSocket(socket);
     }
 }

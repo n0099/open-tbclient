@@ -8,11 +8,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class f implements View.OnClickListener {
-    final /* synthetic */ e fCS;
+    final /* synthetic */ e fQe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.fCS = eVar;
+        this.fQe = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,7 +25,7 @@ class f implements View.OnClickListener {
         o oVar2;
         j jVar3;
         int i2;
-        ImageFileInfo sb;
+        ImageFileInfo sv;
         o oVar3;
         AlbumActivity albumActivity2;
         ImageView imageView;
@@ -45,66 +45,66 @@ class f implements View.OnClickListener {
         int i6;
         j jVar4;
         int i7;
-        jVar = this.fCS.fCQ;
+        jVar = this.fQe.fQc;
         if (jVar != null) {
-            oVar = this.fCS.fCA;
+            oVar = this.fQe.fPM;
             if (oVar != null) {
-                albumActivity = this.fCS.fCP;
+                albumActivity = this.fQe.fQb;
                 if (albumActivity != null) {
-                    jVar2 = this.fCS.fCQ;
-                    i = this.fCS.atp;
-                    if (jVar2.sc(i)) {
-                        oVar2 = this.fCS.fCA;
-                        if ("-1".equals(oVar2.bkb())) {
-                            jVar4 = this.fCS.fCQ;
-                            i7 = this.fCS.atp;
-                            sb = jVar4.sb(i7 + 1);
+                    jVar2 = this.fQe.fQc;
+                    i = this.fQe.aue;
+                    if (jVar2.sw(i)) {
+                        oVar2 = this.fQe.fPM;
+                        if ("-1".equals(oVar2.bnx())) {
+                            jVar4 = this.fQe.fQc;
+                            i7 = this.fQe.aue;
+                            sv = jVar4.sv(i7 + 1);
                         } else {
-                            jVar3 = this.fCS.fCQ;
-                            i2 = this.fCS.atp;
-                            sb = jVar3.sb(i2);
+                            jVar3 = this.fQe.fQc;
+                            i2 = this.fQe.aue;
+                            sv = jVar3.sv(i2);
                         }
-                        oVar3 = this.fCS.fCA;
-                        if (oVar3.isAdded(sb)) {
-                            albumActivity6 = this.fCS.fCP;
-                            if (albumActivity6.e(sb)) {
-                                e eVar = this.fCS;
-                                imageView3 = this.fCS.fCR;
+                        oVar3 = this.fQe.fPM;
+                        if (oVar3.isAdded(sv)) {
+                            albumActivity6 = this.fQe.fQb;
+                            if (albumActivity6.e(sv)) {
+                                e eVar = this.fQe;
+                                imageView3 = this.fQe.fQd;
                                 eVar.b(imageView3, false);
-                                oVar5 = this.fCS.fCA;
-                                if ("-1".equals(oVar5.bkb())) {
-                                    albumActivity8 = this.fCS.fCP;
-                                    i6 = this.fCS.atp;
-                                    albumActivity8.Q(i6 + 1, false);
+                                oVar5 = this.fQe.fPM;
+                                if ("-1".equals(oVar5.bnx())) {
+                                    albumActivity8 = this.fQe.fQb;
+                                    i6 = this.fQe.aue;
+                                    albumActivity8.U(i6 + 1, false);
                                 } else {
-                                    albumActivity7 = this.fCS.fCP;
-                                    i5 = this.fCS.atp;
-                                    albumActivity7.Q(i5, false);
+                                    albumActivity7 = this.fQe.fQb;
+                                    i5 = this.fQe.aue;
+                                    albumActivity7.U(i5, false);
                                 }
                             }
                         } else {
-                            albumActivity2 = this.fCS.fCP;
-                            if (albumActivity2.d(sb)) {
-                                e eVar2 = this.fCS;
-                                imageView = this.fCS.fCR;
+                            albumActivity2 = this.fQe.fQb;
+                            if (albumActivity2.d(sv)) {
+                                e eVar2 = this.fQe;
+                                imageView = this.fQe.fQd;
                                 eVar2.b(imageView, true);
-                                oVar4 = this.fCS.fCA;
-                                if ("-1".equals(oVar4.bkb())) {
-                                    albumActivity5 = this.fCS.fCP;
-                                    i4 = this.fCS.atp;
-                                    albumActivity5.Q(i4 + 1, true);
+                                oVar4 = this.fQe.fPM;
+                                if ("-1".equals(oVar4.bnx())) {
+                                    albumActivity5 = this.fQe.fQb;
+                                    i4 = this.fQe.aue;
+                                    albumActivity5.U(i4 + 1, true);
                                 } else {
-                                    albumActivity3 = this.fCS.fCP;
-                                    i3 = this.fCS.atp;
-                                    albumActivity3.Q(i3, true);
+                                    albumActivity3 = this.fQe.fQb;
+                                    i3 = this.fQe.aue;
+                                    albumActivity3.U(i3, true);
                                 }
-                                albumActivity4 = this.fCS.fCP;
+                                albumActivity4 = this.fQe.fQb;
                                 Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), u.a.album_choose_icon);
-                                imageView2 = this.fCS.fCR;
+                                imageView2 = this.fQe.fQd;
                                 imageView2.startAnimation(loadAnimation);
                             }
                         }
-                        this.fCS.bjX();
+                        this.fQe.bnt();
                     }
                 }
             }

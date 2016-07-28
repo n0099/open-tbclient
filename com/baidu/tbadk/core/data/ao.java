@@ -1,156 +1,149 @@
 package com.baidu.tbadk.core.data;
 
-import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.FrsPage.CommonDistance;
-import tbclient.FrsPage.PostInfo;
-import tbclient.FrsPage.RecomUserInfo;
+import java.util.List;
+import java.util.Random;
+import tbclient.LabelInfo;
+import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
-public class ao extends az {
-    public static final BdUniqueId Ps = BdUniqueId.gen();
-    private String Pt;
-    private String Pu;
-    private int Pv;
-    private String Pz;
-    private aq Pw = new aq();
-    private com.baidu.tbadk.coreExtra.relationship.b Px = new com.baidu.tbadk.coreExtra.relationship.b();
-    private ArrayList<String> Py = new ArrayList<>();
-    private ArrayList<String> PA = new ArrayList<>();
+public class ao extends be {
+    public static final BdUniqueId Py = BdUniqueId.gen();
+    private List<PhotoLiveCardData> Pz;
+    private int PA = 0;
+    private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
-    public int pO() {
-        return this.Pv;
+    public void p(List<PhotoLiveCardData> list) {
+        this.Pz = list;
     }
 
-    public com.baidu.tbadk.coreExtra.relationship.b getLbsInfo() {
-        return this.Px;
-    }
-
-    public void a(CommonDistance commonDistance) {
-        if (commonDistance != null && commonDistance.distance != null) {
-            if (this.Px == null) {
-                this.Px = new com.baidu.tbadk.coreExtra.relationship.b();
-            }
-            this.Px.dL(commonDistance.is_hide.intValue());
-            this.Px.setTime(commonDistance.time.intValue());
-            int intValue = commonDistance.distance.intValue();
-            if (intValue > 0 && intValue <= 100) {
-                this.Px.eH("100米以内");
-            } else if (intValue > 100 && intValue <= 1000) {
-                this.Px.eH(String.valueOf(intValue) + "米");
-            } else if (intValue > 1000) {
-                this.Px.eH(String.valueOf(new BigDecimal(intValue / 1000.0f).setScale(1, 4).floatValue()) + "公里");
-            }
-        }
-    }
-
-    public void a(RecomUserInfo recomUserInfo) {
-        if (recomUserInfo != null) {
-            a(recomUserInfo.distanceinfo);
-            cn(recomUserInfo.message);
-            if (recomUserInfo.user_info != null && this.Pw != null) {
-                this.Pw.a(recomUserInfo.user_info);
-            }
-            if (recomUserInfo.common_forum != null) {
-                StringBuffer stringBuffer = new StringBuffer();
-                this.Pv = recomUserInfo.common_forum.size();
-                int i = this.Pv;
-                if (this.Pv > 2) {
-                    i = 2;
-                }
-                for (int i2 = 0; i2 < i; i2++) {
-                    if (recomUserInfo.common_forum.get(i2) != null) {
-                        stringBuffer.append(recomUserInfo.common_forum.get(i2).common_forum);
-                        if (i - 1 > i2) {
-                            stringBuffer.append("、");
-                        } else if (this.Pv > i) {
-                            stringBuffer.append("...");
-                        }
-                    }
-                }
-                this.Pt = stringBuffer.toString();
-            }
-            if (recomUserInfo.post_info != null) {
-                for (PostInfo postInfo : recomUserInfo.post_info) {
-                    this.Py.add(postInfo.common_post_pic);
-                    this.PA.add(postInfo.large_post_pic);
-                }
-            }
-            if (recomUserInfo.pos_name != null) {
-                this.Pu = recomUserInfo.pos_name;
+    public void a(be beVar, int i) {
+        if (beVar != null) {
+            setAuthor(beVar.getAuthor());
+            setTitle(beVar.getTitle());
+            setPhotoLiveCover(beVar.getPhotoLiveCover());
+            setForum_name(beVar.getForum_name());
+            cr(beVar.getTid());
+            p(beVar.qs());
+            setAddress(beVar.getAddress());
+            setId(beVar.getId());
+            setThreadType(beVar.getThreadType());
+            a(beVar.qp());
+            bH(beVar.qr());
+            setPost_num(beVar.getPost_num());
+            cs(beVar.qD());
+            cr(beVar.getTid());
+            setExpressionDatas(beVar.qN());
+            setShowExpressionViewIndexList(beVar.qN());
+            setId(beVar.getId());
+            this.RW = beVar.qQ();
+            this.RX = beVar.qR();
+            this.RY = beVar.qS();
+            if (getShowStyle() < 0) {
+                this.PA = getRandom(3, i);
             }
         }
     }
 
-    public String pP() {
-        return this.Pt;
+    public void a(ZhiBoInfoTW zhiBoInfoTW, int i) {
+        if (zhiBoInfoTW != null) {
+            if (zhiBoInfoTW.user != null) {
+                MetaData metaData = new MetaData();
+                metaData.setUserId(String.valueOf(zhiBoInfoTW.user.id));
+                metaData.setUserName(zhiBoInfoTW.user.name);
+                metaData.setPortrait(zhiBoInfoTW.user.portrait);
+                metaData.setFansNickName(zhiBoInfoTW.user.fans_nickname);
+                metaData.setFansNum(zhiBoInfoTW.user.fans_num.intValue());
+                setAuthor(metaData);
+            }
+            cs(zhiBoInfoTW.content);
+            setFid(zhiBoInfoTW.forum_id.longValue());
+            setExpressionDatas(q(zhiBoInfoTW.labelInfo));
+            bH(zhiBoInfoTW.reply_num.intValue());
+            setForum_name(zhiBoInfoTW.forum_name);
+            setPhotoLiveCover(zhiBoInfoTW.livecover_src);
+            p(zhiBoInfoTW.last_modified_time.longValue());
+            setPost_num(zhiBoInfoTW.post_num.intValue());
+            setTitle(zhiBoInfoTW.title);
+            setShowExpressionViewIndexList(q(zhiBoInfoTW.labelInfo));
+            this.PA = getRandom(3, i);
+            cr(String.valueOf(zhiBoInfoTW.thread_id));
+            setId(String.valueOf(zhiBoInfoTW.thread_id));
+            setThreadType(33);
+            setForum_name(zhiBoInfoTW.forum_name);
+        }
     }
 
-    public String pQ() {
-        return this.Pu;
+    private ArrayList<com.baidu.tbadk.coreExtra.view.n> q(List<LabelInfo> list) {
+        ArrayList<com.baidu.tbadk.coreExtra.view.n> arrayList = new ArrayList<>();
+        if (list == null || list.size() == 0) {
+            return arrayList;
+        }
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            LabelInfo labelInfo = list.get(i);
+            if (labelInfo != null) {
+                com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
+                nVar.dR(labelInfo.labelHot.intValue());
+                nVar.setLabelId(labelInfo.labelId);
+                nVar.setLabelName(labelInfo.labelContent);
+                arrayList.add(nVar);
+            }
+        }
+        return arrayList;
     }
 
-    public aq pR() {
-        return this.Pw;
+    public int getRandom(int i, int i2) {
+        int nextInt = new Random().nextInt(i);
+        if (nextInt == i2) {
+            return (nextInt + 1) % i;
+        }
+        return nextInt;
     }
 
-    public ArrayList<String> pS() {
-        return this.Py;
+    public void setShowExpressionViewIndexList(ArrayList<com.baidu.tbadk.coreExtra.view.n> arrayList) {
+        int size = arrayList.size();
+        int i = 0;
+        int i2 = -1;
+        int i3 = -1;
+        while (i < size && i < 3) {
+            if (arrayList.get(i) != null) {
+                int random = getRandom(3, -1);
+                if (random == i2 || random == i3) {
+                    random = l(size, i2, i3);
+                }
+                if (i == 0) {
+                    i2 = random;
+                }
+                if (i == 1) {
+                    i3 = random;
+                }
+                this.showExpressionViewIndex.add(Integer.valueOf(random));
+            }
+            i++;
+            i2 = i2;
+        }
     }
 
-    public ArrayList<String> pT() {
+    public ArrayList<Integer> getShowExpressionViewIndex() {
+        return this.showExpressionViewIndex;
+    }
+
+    private int l(int i, int i2, int i3) {
+        for (int i4 = 0; i4 < i && i4 < 3; i4++) {
+            if (i4 != i2 && i4 != i3) {
+                return i4;
+            }
+        }
+        return -1;
+    }
+
+    public int getShowStyle() {
         return this.PA;
     }
 
-    public void i(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            if (this.Pw == null) {
-                this.Pw = new aq();
-            }
-            this.Pw.i(jSONObject.optJSONObject("user_info"));
-            this.Pt = jSONObject.optString("common_forum");
-            this.Pt = jSONObject.optString("pos_name");
-            this.Pv = jSONObject.optInt("common_forum_count");
-            this.Pz = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
-            JSONArray optJSONArray = jSONObject.optJSONArray("common_pic_urls");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                if (this.Py == null) {
-                    this.Py = new ArrayList<>();
-                }
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                        this.Py.add(optJSONArray.optString(i));
-                    }
-                }
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("large_post_pic");
-            if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                if (this.PA == null) {
-                    this.PA = new ArrayList<>();
-                }
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                        this.PA.add(optJSONArray2.optString(i2));
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.data.az, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tbadk.core.data.be, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return Ps;
-    }
-
-    public String pU() {
-        return this.Pz;
-    }
-
-    public void cn(String str) {
-        this.Pz = str;
+        return Py;
     }
 }

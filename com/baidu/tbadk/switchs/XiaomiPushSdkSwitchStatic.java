@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class XiaomiPushSdkSwitchStatic extends a {
     static {
-        e.cT().n(XiaomiPushSdkSwitchStatic.class);
+        e.cS().n(XiaomiPushSdkSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

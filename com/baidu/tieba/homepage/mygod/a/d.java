@@ -11,15 +11,15 @@ import com.baidu.tieba.card.bx;
 import com.baidu.tieba.card.j;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<h, a> {
-    private TbPageContext<?> Ea;
-    public BdUniqueId aSq;
-    private bx<g> bJf;
-    private j cqf;
+    private TbPageContext<?> EA;
+    public BdUniqueId aTm;
+    private bx<g> bKK;
+    private j csK;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bJf = new e(this);
-        this.Ea = tbPageContext;
+        this.bKK = new e(this);
+        this.EA = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,29 +27,29 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ah */
     public a a(ViewGroup viewGroup) {
-        this.cqf = new j(this.Ea);
-        this.cqf.i(this.aSq);
-        return new a(this.cqf);
+        this.csK = new j(this.EA);
+        this.csK.i(this.aTm);
+        return new a(this.csK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, a aVar) {
-        aVar.cqh.a(hVar);
-        if (aVar.cqh.KR() != null) {
-            aVar.cqh.KR().a(this.bJf);
+        aVar.csM.a(hVar);
+        if (aVar.csM.KQ() != null) {
+            aVar.csM.KQ().a(this.bKK);
         }
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public j cqh;
+        public j csM;
 
         public a(j jVar) {
             super(jVar.getView());
-            this.cqh = jVar;
+            this.csM = jVar;
         }
     }
 }

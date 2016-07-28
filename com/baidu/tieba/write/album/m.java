@@ -4,18 +4,18 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class m implements com.baidu.tbadk.imageManager.b {
-    private final /* synthetic */ ViewGroup arK;
-    final /* synthetic */ l fDe;
+    private final /* synthetic */ ViewGroup asz;
+    final /* synthetic */ l fQr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, ViewGroup viewGroup) {
-        this.fDe = lVar;
-        this.arK = viewGroup;
+        this.fQr = lVar;
+        this.asz = viewGroup;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        HeadImageView headImageView = (HeadImageView) this.arK.findViewWithTag(str);
+        HeadImageView headImageView = (HeadImageView) this.asz.findViewWithTag(str);
         if (headImageView != null && aVar != null) {
             headImageView.invalidate();
         }

@@ -220,7 +220,7 @@ public class PersonInfoPostList implements Serializable {
                 }
             }
             this.isDeal = postInfoList.is_deal.booleanValue();
-            if (postInfoList.deal_info != null && EcommSwitchStatic.Fq()) {
+            if (postInfoList.deal_info != null && EcommSwitchStatic.Fr()) {
                 this.dealInfoData = new DealInfoData();
                 this.dealInfoData.parserProtobuf(postInfoList.deal_info);
             }

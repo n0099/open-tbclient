@@ -33,7 +33,7 @@ public class AsyncImageLoader extends AsyncTask {
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
-        public long skip(long j) {
+        public long skip(long j) throws IOException {
             long j2 = 0;
             while (j2 < j) {
                 long skip = this.in.skip(j - j2);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.d;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected c buf = SG();
+    protected c bwt = To();
 
-    public abstract c SG();
+    public abstract c To();
 }

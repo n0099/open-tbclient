@@ -3,59 +3,59 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
 class ag extends com.baidu.adp.base.g {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        es esVar;
+    public void g(Object obj) {
+        ew ewVar;
         com.baidu.tieba.tbadkCore.f.a aVar;
         com.baidu.tieba.tbadkCore.f.a aVar2;
         com.baidu.tieba.tbadkCore.f.a aVar3;
-        es esVar2;
+        ew ewVar2;
         com.baidu.tieba.tbadkCore.f.a aVar4;
-        es esVar3;
-        es esVar4;
-        dg dgVar;
+        ew ewVar3;
+        ew ewVar4;
+        dh dhVar;
         if (obj != null) {
-            aVar2 = this.dPF.dON;
+            aVar2 = this.ebT.eba;
             switch (aVar2.getLoadDataMode()) {
                 case 0:
-                    dgVar = this.dPF.dOf;
-                    dgVar.aFY();
-                    this.dPF.a((a.b) obj);
+                    dhVar = this.ebT.eas;
+                    dhVar.aJj();
+                    this.ebT.a((a.b) obj);
                     return;
                 case 1:
                     a.d dVar = (a.d) obj;
-                    esVar4 = this.dPF.dOO;
-                    esVar4.a(1, dVar.rg, dVar.eZR, true);
+                    ewVar4 = this.ebT.ebb;
+                    ewVar4.a(1, dVar.rJ, dVar.fmU, true);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    PbActivity pbActivity = this.dPF;
-                    aVar3 = this.dPF.dON;
+                    PbActivity pbActivity = this.ebT;
+                    aVar3 = this.ebT.eba;
                     pbActivity.a(aVar3.getLoadDataMode(), (a.f) obj);
                     return;
                 case 6:
                     a.f fVar = (a.f) obj;
-                    esVar2 = this.dPF.dOO;
-                    aVar4 = this.dPF.dON;
-                    esVar2.a(aVar4.getLoadDataMode(), fVar.rg, fVar.eZR, false);
-                    esVar3 = this.dPF.dOO;
-                    esVar3.ak(fVar.eZT);
+                    ewVar2 = this.ebT.ebb;
+                    aVar4 = this.ebT.eba;
+                    ewVar2.a(aVar4.getLoadDataMode(), fVar.rJ, fVar.fmU, false);
+                    ewVar3 = this.ebT.ebb;
+                    ewVar3.an(fVar.fmW);
                     return;
                 default:
                     return;
             }
         }
-        esVar = this.dPF.dOO;
-        aVar = this.dPF.dON;
-        esVar.a(aVar.getLoadDataMode(), false, (String) null, false);
+        ewVar = this.ebT.ebb;
+        aVar = this.ebT.eba;
+        ewVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

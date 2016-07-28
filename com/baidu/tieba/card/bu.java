@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class bu implements View.OnClickListener {
-    final /* synthetic */ bt aUC;
+    final /* synthetic */ bt aVy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(bt btVar) {
-        this.aUC = btVar;
+        this.aVy = btVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.baidu.tbadk.plugins.a.f(this.aUC.KN())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotRanklistActivityConfig(this.aUC.KN().getPageActivity()).createNormalConfig("homepage", "all")));
+        if (!com.baidu.tbadk.plugins.a.f(this.aVy.KM())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotRanklistActivityConfig(this.aVy.KM().getPageActivity()).createNormalConfig("homepage", "all")));
         }
     }
 }

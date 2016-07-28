@@ -43,25 +43,25 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 /* loaded from: classes.dex */
 public class m {
-    private static boolean ue = false;
-    private static boolean uf = false;
-    private static boolean ug = false;
-    private static boolean uh = false;
-    private static boolean ui = false;
-    private static Signature[] uj = null;
+    private static boolean uH = false;
+    private static boolean uI = false;
+    private static boolean uJ = false;
+    private static boolean uK = false;
+    private static boolean uL = false;
+    private static Signature[] uM = null;
 
     public static void onHandleIntent(Intent intent) {
         PluginSetting pluginSetting;
         if (intent == null) {
-            com.baidu.adp.plugin.b.a.hu().m("plugin_install", "handle_intent_null", null);
+            com.baidu.adp.plugin.b.a.ht().m("plugin_install", "handle_intent_null", null);
             return;
         }
         String action = intent.getAction();
         if (action == null) {
-            com.baidu.adp.plugin.b.a.hu().m("plugin_install", "intent_action_null", null);
+            com.baidu.adp.plugin.b.a.ht().m("plugin_install", "intent_action_null", null);
             return;
         }
-        ue = intent.getBooleanExtra("is_debug_plugin", false);
+        uH = intent.getBooleanExtra("is_debug_plugin", false);
         if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
             String stringExtra = intent.getStringExtra("install_src_file");
             String stringExtra2 = intent.getStringExtra("package_name");
@@ -73,20 +73,20 @@ public class m {
             a(stringExtra, stringExtra2, pluginSetting);
             return;
         }
-        com.baidu.adp.plugin.b.a.hu().m("plugin_install", "intent_action_name_not_match", null);
+        com.baidu.adp.plugin.b.a.ht().m("plugin_install", "intent_action_name_not_match", null);
     }
 
     private static void a(String str, String str2, PluginSetting pluginSetting) {
         if (TextUtils.isEmpty(str)) {
             d(str, str2, "srcfile_empty", "");
-            com.baidu.adp.plugin.b.a.hu().m("plugin_install", "srcfile_empty", str2);
+            com.baidu.adp.plugin.b.a.ht().m("plugin_install", "srcfile_empty", str2);
         } else if (str.startsWith("assets://")) {
             b(str, str2, pluginSetting);
         } else if (str.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
             c(str, str2, pluginSetting);
         } else {
             d(str, str2, "srcfile_illegal", "");
-            com.baidu.adp.plugin.b.a.hu().m("plugin_install", "srcfile_illegal", str2);
+            com.baidu.adp.plugin.b.a.ht().m("plugin_install", "srcfile_illegal", str2);
         }
     }
 
@@ -98,27 +98,27 @@ public class m {
     private static void b(String str, String str2, PluginSetting pluginSetting) {
         if (TextUtils.isEmpty(str)) {
             d(str, str2, "do_install", "");
-            com.baidu.adp.plugin.b.a.hu().m("plugin_install", "pkgname_null", str2);
+            com.baidu.adp.plugin.b.a.ht().m("plugin_install", "pkgname_null", str2);
             return;
         }
         String substring = str.substring("assets://".length());
         InputStream inputStream = null;
         try {
             inputStream = BdBaseApplication.getInst().getAssets().open(substring);
-            if (Util.j(inputStream.available())) {
+            if (Util.k(inputStream.available())) {
                 a(inputStream, str, str2, pluginSetting);
-                com.baidu.adp.lib.h.a.c(inputStream);
+                com.baidu.adp.lib.h.a.j(inputStream);
                 substring = substring;
             } else {
-                d(str, str2, "rom_size", String.valueOf(Util.iw()));
+                d(str, str2, "rom_size", String.valueOf(Util.iv()));
             }
         } catch (Exception e) {
             BdLog.e(e);
             d(str, str2, "open_assets", "assetsPath-" + substring + "-exp-" + e.getMessage());
-            com.baidu.adp.plugin.b.a hu = com.baidu.adp.plugin.b.a.hu();
-            hu.f("plugin_install", "open_assets_failed", str2, String.valueOf(e.getMessage()) + "---" + e.getClass().getName());
+            com.baidu.adp.plugin.b.a ht = com.baidu.adp.plugin.b.a.ht();
+            ht.f("plugin_install", "open_assets_failed", str2, String.valueOf(e.getMessage()) + "---" + e.getClass().getName());
         } finally {
-            com.baidu.adp.lib.h.a.c(inputStream);
+            com.baidu.adp.lib.h.a.j(inputStream);
         }
     }
 
@@ -128,7 +128,7 @@ public class m {
         int i;
         if (TextUtils.isEmpty(str)) {
             d(str, str2, "do_install", "");
-            com.baidu.adp.plugin.b.a.hu().m("plugin_install", "pkgname_null", str2);
+            com.baidu.adp.plugin.b.a.ht().m("plugin_install", "pkgname_null", str2);
             return;
         }
         String substring = str.substring(SkiaImageDecoder.FILE_PREFIX.length());
@@ -139,8 +139,8 @@ public class m {
                 int lastIndexOf = substring.lastIndexOf("_");
                 int g = lastIndexOf > 0 ? com.baidu.adp.lib.h.b.g(substring.substring(lastIndexOf + 1), -1) : -1;
                 if (g > 0) {
-                    if (g < PluginPackageManager.hG()) {
-                        com.baidu.adp.plugin.b.a.hu().e("plugin_install", "low_version_code", str2, " vc=" + String.valueOf(g) + " tiebaVC=" + PluginPackageManager.hG());
+                    if (g < PluginPackageManager.hF()) {
+                        com.baidu.adp.plugin.b.a.ht().e("plugin_install", "low_version_code", str2, " vc=" + String.valueOf(g) + " tiebaVC=" + PluginPackageManager.hF());
                         Intent intent = new Intent("com.baidu.adp.plugin.deleted");
                         intent.setPackage(BdBaseApplication.getInst().getPackageName());
                         intent.putExtra("package_name", str2);
@@ -148,56 +148,65 @@ public class m {
                         intent.putExtra("fail_reason", "low_version_code");
                         intent.putExtra("version_code", g);
                         BdBaseApplication.getInst().sendBroadcast(intent);
-                        com.baidu.adp.lib.h.a.c(null);
+                        com.baidu.adp.lib.h.a.j(null);
                         return;
                     } else if (pluginSetting != null && g == (i = pluginSetting.versionCode)) {
-                        com.baidu.adp.plugin.b.a.hu().e("plugin_install", "versionCode_is_equals", pluginSetting.packageName, String.valueOf(i) + " to " + g + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str);
+                        com.baidu.adp.plugin.b.a.ht().e("plugin_install", "versionCode_is_equals", pluginSetting.packageName, String.valueOf(i) + " to " + g + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str);
                         Intent intent2 = new Intent("com.baidu.adp.plugin.installcancel");
                         intent2.setPackage(BdBaseApplication.getInst().getPackageName());
                         intent2.putExtra("package_name", str2);
                         intent2.putExtra("install_src_file", str);
                         intent2.putExtra("install_dest_file", str);
                         intent2.putExtra("version_code", g);
-                        com.baidu.adp.lib.stats.a.dO().save();
+                        com.baidu.adp.lib.stats.a.dN().save();
                         BdBaseApplication.getInst().sendBroadcast(intent2);
-                        com.baidu.adp.lib.h.a.c(null);
+                        com.baidu.adp.lib.h.a.j(null);
                         return;
                     }
                 }
                 fileInputStream = new FileInputStream(file);
-            } catch (Throwable th) {
-                th = th;
+            } catch (Exception e) {
+                e = e;
             }
-        } catch (Exception e) {
-            e = e;
+        } catch (Throwable th) {
+            th = th;
         }
         try {
-            if (Util.j(fileInputStream.available())) {
+            if (Util.k(fileInputStream.available())) {
                 a(fileInputStream, str, str2, pluginSetting);
-                com.baidu.adp.lib.h.a.c(fileInputStream);
+                com.baidu.adp.lib.h.a.j(fileInputStream);
             } else {
-                d(str, str2, "rom_size", String.valueOf(Util.iw()));
-                com.baidu.adp.lib.h.a.c(fileInputStream);
+                d(str, str2, "rom_size", String.valueOf(Util.iv()));
+                com.baidu.adp.lib.h.a.j(fileInputStream);
             }
         } catch (Exception e2) {
             e = e2;
             fileInputStream2 = fileInputStream;
             BdLog.e(e);
             d(str, str2, "open_apk", e.getMessage());
-            com.baidu.adp.plugin.b.a.hu().f("plugin_install", "open_files_failed", str2, String.valueOf(e.getMessage()) + "---" + e.getClass().getName());
-            com.baidu.adp.lib.h.a.c(fileInputStream2);
+            com.baidu.adp.plugin.b.a.ht().f("plugin_install", "open_files_failed", str2, String.valueOf(e.getMessage()) + "---" + e.getClass().getName());
+            com.baidu.adp.lib.h.a.j(fileInputStream2);
         } catch (Throwable th2) {
             th = th2;
             fileInputStream2 = fileInputStream;
-            com.baidu.adp.lib.h.a.c(fileInputStream2);
+            com.baidu.adp.lib.h.a.j(fileInputStream2);
             throw th;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [614=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:233:0x07c0 */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:100:0x028a  */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x04cd  */
-    /* JADX WARN: Removed duplicated region for block: B:276:0x0101 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x04d1  */
+    /* JADX WARN: Removed duplicated region for block: B:274:0x0101 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r12v14, types: [android.content.Intent] */
+    /* JADX WARN: Type inference failed for: r2v25, types: [com.baidu.adp.base.BdBaseApplication] */
+    /* JADX WARN: Type inference failed for: r5v17, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r5v23 */
+    /* JADX WARN: Type inference failed for: r5v25, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v29 */
+    /* JADX WARN: Type inference failed for: r5v30 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -213,6 +222,7 @@ public class m {
         String str5;
         String str6;
         String message;
+        boolean z5;
         String str7;
         ZipFile zipFile;
         ZipEntry entry;
@@ -220,49 +230,51 @@ public class m {
         NamedNodeMap attributes;
         Node namedItem;
         Node namedItem2;
+        ?? r5;
         int lastIndexOf;
         int g;
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         int i2;
         ActivityManager activityManager;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        FileInputStream fileInputStream2;
-        com.baidu.adp.plugin.util.i e;
+        FileInputStream fileInputStream3;
+        com.baidu.adp.plugin.util.i l;
         String d;
         if (inputStream == null || str == null) {
             d(str, str2, "do_install", "");
-            com.baidu.adp.plugin.b.a.hu().m("plugin_install", "doinstall_param_null", str2);
+            com.baidu.adp.plugin.b.a.ht().m("plugin_install", "doinstall_param_null", str2);
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        File file = new File(Util.iv(), String.valueOf(System.currentTimeMillis()));
+        File file = new File(Util.iu(), String.valueOf(System.currentTimeMillis()));
         String a = Util.a(inputStream, file);
         if (!TextUtils.isEmpty(a)) {
             try {
                 file.delete();
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
             d(str, str2, "copy_temp_fail", a);
             return null;
         }
-        com.baidu.adp.plugin.b.a.hu().a("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
+        com.baidu.adp.plugin.b.a.ht().a("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
         String str8 = null;
-        boolean z5 = false;
         boolean z6 = false;
         boolean z7 = false;
-        String str9 = null;
         boolean z8 = false;
+        String str9 = null;
+        boolean z9 = false;
         long length = file.length();
         PackageInfo packageArchiveInfo = BdBaseApplication.getInst().getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 128);
         if (packageArchiveInfo == null || packageArchiveInfo.applicationInfo == null || packageArchiveInfo.packageName == null || packageArchiveInfo.versionCode == 0) {
             try {
                 zipFile = new ZipFile(file, 1);
                 entry = zipFile.getEntry("assets/AndroidManifest.xml");
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 z = false;
                 z2 = false;
-                exc = e3;
+                exc = e2;
                 z3 = false;
                 str3 = null;
                 i = 0;
@@ -271,16 +283,17 @@ public class m {
                 str5 = null;
                 str6 = null;
                 message = exc.getMessage();
+                z5 = z2;
                 if (!TextUtils.isEmpty(str6)) {
                 }
             }
             if (entry == null) {
                 try {
                     file.delete();
-                } catch (Exception e4) {
-                    BdLog.e(e4);
+                } catch (Exception e3) {
+                    BdLog.e(e3);
                 }
-                d(str, str2, "assetsmanifestnull", "avirom-" + Util.iw() + "-filesize-" + length + "-exp-" + ((String) null));
+                d(str, str2, "assetsmanifestnull", "avirom-" + Util.iv() + "-filesize-" + length + "-exp-" + ((String) null));
                 return null;
             }
             Element documentElement = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(zipFile.getInputStream(entry))).getDocumentElement();
@@ -289,10 +302,10 @@ public class m {
             String attribute = documentElement.getAttribute("android:versionName");
             try {
                 elementsByTagName = documentElement.getElementsByTagName("meta-data");
-            } catch (Exception e5) {
+            } catch (Exception e4) {
                 z = false;
                 z2 = false;
-                exc = e5;
+                exc = e4;
                 z3 = false;
                 str3 = null;
                 i = parseInt;
@@ -309,14 +322,14 @@ public class m {
                                 if (namedItem.getNodeValue().equals("is_inject_classloader")) {
                                     Node namedItem3 = attributes.getNamedItem("android:value");
                                     if (namedItem3 != null && namedItem3.getNodeValue() != null) {
-                                        z8 = Boolean.parseBoolean(namedItem3.getNodeValue());
+                                        z9 = Boolean.parseBoolean(namedItem3.getNodeValue());
                                     }
                                 } else if (namedItem.getNodeValue().equals("has_res")) {
                                     Node namedItem4 = attributes.getNamedItem("android:value");
                                     if (namedItem4 != null && namedItem4.getNodeValue() != null) {
                                         try {
-                                            z5 = Boolean.parseBoolean(namedItem4.getNodeValue());
-                                        } catch (Exception e6) {
+                                            z6 = Boolean.parseBoolean(namedItem4.getNodeValue());
+                                        } catch (Exception e5) {
                                         }
                                     }
                                 } else if (namedItem.getNodeValue().equals("require_load")) {
@@ -333,57 +346,59 @@ public class m {
                                     Node namedItem7 = attributes.getNamedItem("android:value");
                                     if (namedItem7 != null && namedItem7.getNodeValue() != null) {
                                         try {
-                                            z6 = Boolean.parseBoolean(namedItem7.getNodeValue());
-                                        } catch (Exception e7) {
+                                            z7 = Boolean.parseBoolean(namedItem7.getNodeValue());
+                                        } catch (Exception e6) {
                                         }
                                     }
                                 } else if (namedItem.getNodeValue().equals("is_patch") && (namedItem2 = attributes.getNamedItem("android:value")) != null && namedItem2.getNodeValue() != null) {
                                     try {
-                                        z7 = Boolean.parseBoolean(namedItem2.getNodeValue());
-                                    } catch (Exception e8) {
+                                        z8 = Boolean.parseBoolean(namedItem2.getNodeValue());
+                                    } catch (Exception e7) {
                                     }
                                 }
                             }
-                        } catch (Exception e9) {
-                            z = z6;
-                            z2 = z8;
-                            exc = e9;
-                            z3 = z5;
+                        } catch (Exception e8) {
+                            z = z7;
+                            z2 = z9;
+                            exc = e8;
+                            z3 = z6;
                             str3 = str9;
                             i = parseInt;
                             str4 = str8;
-                            z4 = z7;
+                            z4 = z8;
                             str5 = attribute;
                             str6 = null;
                             message = exc.getMessage();
+                            z5 = z2;
                             if (!TextUtils.isEmpty(str6)) {
                             }
                         }
                     }
-                    z = z6;
-                    z2 = z8;
+                    z = z7;
+                    z5 = z9;
                     message = null;
-                    z3 = z5;
+                    z3 = z6;
                     str3 = str9;
                     i = parseInt;
                     str4 = str8;
-                    z4 = z7;
+                    z4 = z8;
                     str5 = attribute;
                     if (!TextUtils.isEmpty(str6)) {
                         try {
                             file.delete();
-                        } catch (Exception e10) {
-                            BdLog.e(e10);
+                        } catch (Exception e9) {
+                            BdLog.e(e9);
                         }
-                        d(str, str2, "getpackageinfo_fail", "avirom-" + Util.iw() + "-filesize-" + length + "-exp-" + message);
+                        d(str, str2, "getpackageinfo_fail", "avirom-" + Util.iv() + "-filesize-" + length + "-exp-" + message);
                         return null;
                     }
-                    com.baidu.adp.plugin.b.a.hu().D("plugin_xml_parse", str6);
+                    com.baidu.adp.plugin.b.a.ht().D("plugin_xml_parse", str6);
                     str7 = null;
+                    r5 = z5;
                 }
             }
             z = false;
-            z2 = false;
+            z5 = false;
             message = null;
             z3 = false;
             str3 = null;
@@ -399,17 +414,18 @@ public class m {
             z3 = Util.d(packageArchiveInfo.applicationInfo);
             z = Util.e(packageArchiveInfo.applicationInfo);
             str3 = Util.a(packageArchiveInfo.applicationInfo);
-            z2 = Util.c(packageArchiveInfo.applicationInfo);
+            boolean c = Util.c(packageArchiveInfo.applicationInfo);
             z4 = Util.f(packageArchiveInfo.applicationInfo);
             str7 = Util.g(packageArchiveInfo.applicationInfo);
             str5 = packageArchiveInfo.versionName;
             i = packageArchiveInfo.versionCode;
+            r5 = c;
         }
-        if (!BdBaseApplication.getInst().isDebugMode() && !ue && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
+        if (!BdBaseApplication.getInst().isDebugMode() && !uH && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
             try {
                 file.delete();
-            } catch (Exception e11) {
-                BdLog.e(e11);
+            } catch (Exception e10) {
+                BdLog.e(e10);
             }
             d(str, str6, "signature_not_match", String.valueOf(str6) + "_" + d);
             return null;
@@ -421,22 +437,22 @@ public class m {
                 long length2 = file2.length();
                 InputStream inputStream2 = null;
                 try {
-                    fileInputStream2 = new FileInputStream(pluginSetting.apkPath);
                     try {
+                        fileInputStream3 = new FileInputStream(pluginSetting.apkPath);
                         try {
-                            com.baidu.adp.plugin.util.i e12 = Util.e(fileInputStream2);
+                            com.baidu.adp.plugin.util.i l2 = Util.l(fileInputStream3);
                             inputStream2 = BdBaseApplication.getInst().getAssets().open(str.substring("assets://".length()));
-                            if (e12.compareTo(Util.e(inputStream2)) != 0) {
-                                com.baidu.adp.plugin.b.a.hu().e("plugin_install", "versionequals_apktime_notequals", str6, String.valueOf(e12.toString()) + "-" + e.toString());
+                            if (l2.compareTo(Util.l(inputStream2)) != 0) {
+                                com.baidu.adp.plugin.b.a.ht().e("plugin_install", "versionequals_apktime_notequals", str6, String.valueOf(l2.toString()) + "-" + l.toString());
                             }
-                            com.baidu.adp.lib.h.a.c(fileInputStream2);
-                            com.baidu.adp.lib.h.a.c(inputStream2);
-                        } catch (Exception e13) {
-                            e = e13;
+                            com.baidu.adp.lib.h.a.j(fileInputStream3);
+                            com.baidu.adp.lib.h.a.j(inputStream2);
+                        } catch (Exception e11) {
+                            e = e11;
                             BdLog.e(e);
-                            com.baidu.adp.plugin.b.a.hu().e("plugin_install", "versionequals_apktime_error", str6, "exist-" + exists + "-isfile-" + isFile + "-length-" + length2 + "-" + e.getMessage());
-                            com.baidu.adp.lib.h.a.c(fileInputStream2);
-                            com.baidu.adp.lib.h.a.c(inputStream2);
+                            com.baidu.adp.plugin.b.a.ht().e("plugin_install", "versionequals_apktime_error", str6, "exist-" + exists + "-isfile-" + isFile + "-length-" + length2 + "-" + e.getMessage());
+                            com.baidu.adp.lib.h.a.j(fileInputStream3);
+                            com.baidu.adp.lib.h.a.j(inputStream2);
                             file.delete();
                             String str10 = null;
                             activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity");
@@ -444,38 +460,38 @@ public class m {
                                 while (r5.hasNext()) {
                                 }
                             }
-                            com.baidu.adp.plugin.b.a.hu().e("plugin_install", "versionCode_is_equals", pluginSetting.packageName, String.valueOf(i2) + " to " + i + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str + "-process-" + str10);
+                            com.baidu.adp.plugin.b.a.ht().e("plugin_install", "versionCode_is_equals", pluginSetting.packageName, String.valueOf(i2) + " to " + i + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str + "-process-" + str10);
                             Intent intent = new Intent("com.baidu.adp.plugin.installcancel");
                             intent.setPackage(BdBaseApplication.getInst().getPackageName());
                             intent.putExtra("package_name", str6);
                             intent.putExtra("install_src_file", str);
                             intent.putExtra("install_dest_file", str);
                             intent.putExtra("version_code", i);
-                            com.baidu.adp.lib.stats.a.dO().save();
+                            com.baidu.adp.lib.stats.a.dN().save();
                             BdBaseApplication.getInst().sendBroadcast(intent);
                             return null;
                         }
                     } catch (Throwable th) {
                         th = th;
-                        com.baidu.adp.lib.h.a.c(fileInputStream2);
-                        com.baidu.adp.lib.h.a.c(inputStream2);
+                        com.baidu.adp.lib.h.a.j(r5);
+                        com.baidu.adp.lib.h.a.j(null);
                         throw th;
                     }
-                } catch (Exception e14) {
-                    e = e14;
-                    fileInputStream2 = null;
+                } catch (Exception e12) {
+                    e = e12;
+                    fileInputStream3 = null;
                 } catch (Throwable th2) {
                     th = th2;
-                    fileInputStream2 = null;
-                    com.baidu.adp.lib.h.a.c(fileInputStream2);
-                    com.baidu.adp.lib.h.a.c(inputStream2);
+                    r5 = 0;
+                    com.baidu.adp.lib.h.a.j(r5);
+                    com.baidu.adp.lib.h.a.j(null);
                     throw th;
                 }
             }
             try {
                 file.delete();
-            } catch (Exception e15) {
-                e15.printStackTrace();
+            } catch (Exception e13) {
+                e13.printStackTrace();
             }
             String str102 = null;
             activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity");
@@ -486,14 +502,14 @@ public class m {
                     }
                 }
             }
-            com.baidu.adp.plugin.b.a.hu().e("plugin_install", "versionCode_is_equals", pluginSetting.packageName, String.valueOf(i2) + " to " + i + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str + "-process-" + str102);
+            com.baidu.adp.plugin.b.a.ht().e("plugin_install", "versionCode_is_equals", pluginSetting.packageName, String.valueOf(i2) + " to " + i + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str + "-process-" + str102);
             Intent intent2 = new Intent("com.baidu.adp.plugin.installcancel");
             intent2.setPackage(BdBaseApplication.getInst().getPackageName());
             intent2.putExtra("package_name", str6);
             intent2.putExtra("install_src_file", str);
             intent2.putExtra("install_dest_file", str);
             intent2.putExtra("version_code", i);
-            com.baidu.adp.lib.stats.a.dO().save();
+            com.baidu.adp.lib.stats.a.dN().save();
             BdBaseApplication.getInst().sendBroadcast(intent2);
             return null;
         } else {
@@ -506,7 +522,7 @@ public class m {
                 }
             }
             String str11 = String.valueOf(str6) + "_" + System.currentTimeMillis() + "_" + i;
-            File file3 = new File(Util.iv(), String.valueOf(str11) + ".apk");
+            File file3 = new File(Util.iu(), String.valueOf(str11) + ".apk");
             if (!file.equals(file3)) {
                 if (file.getParent().equals(file3.getParent())) {
                     try {
@@ -516,76 +532,76 @@ public class m {
                         if (!file3.exists() || file3.length() == 0) {
                             throw new Exception("rename fail");
                         }
-                    } catch (Exception e16) {
-                        BdLog.e(e16);
+                    } catch (Exception e14) {
+                        BdLog.e(e14);
                         if (file.exists()) {
                             file.delete();
                         }
-                        d(str, str6, "rename_todest_fail", e16.getMessage());
+                        d(str, str6, "rename_todest_fail", e14.getMessage());
                         return null;
                     }
                 } else {
                     try {
-                        FileInputStream fileInputStream3 = new FileInputStream(file);
+                        fileInputStream2 = new FileInputStream(file);
+                    } catch (Exception e15) {
+                        e = e15;
+                        fileInputStream = null;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        fileInputStream = null;
+                    }
+                    try {
+                        String a2 = Util.a(fileInputStream2, file3);
+                        file.delete();
+                        if (!TextUtils.isEmpty(a2)) {
+                            d(str, str6, "copy_todest_fail", a2);
+                            com.baidu.adp.lib.h.a.j(fileInputStream2);
+                            return null;
+                        }
+                        com.baidu.adp.lib.h.a.j(fileInputStream2);
+                    } catch (Exception e16) {
+                        e = e16;
+                        fileInputStream = fileInputStream2;
                         try {
-                            String a2 = Util.a(fileInputStream3, file3);
-                            file.delete();
-                            if (!TextUtils.isEmpty(a2)) {
-                                d(str, str6, "copy_todest_fail", a2);
-                                com.baidu.adp.lib.h.a.c(fileInputStream3);
-                                return null;
+                            BdLog.e(e);
+                            if (file3.exists()) {
+                                file3.delete();
                             }
-                            com.baidu.adp.lib.h.a.c(fileInputStream3);
-                        } catch (Exception e17) {
-                            e = e17;
-                            fileInputStream = fileInputStream3;
-                            try {
-                                BdLog.e(e);
-                                if (file3.exists()) {
-                                    file3.delete();
-                                }
-                                d(str, str6, "copy_todest_fail", e != null ? e.getMessage() : null);
-                                com.baidu.adp.lib.h.a.c(fileInputStream);
-                                return null;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                com.baidu.adp.lib.h.a.c(fileInputStream);
-                                throw th;
-                            }
+                            d(str, str6, "copy_todest_fail", e != null ? e.getMessage() : null);
+                            com.baidu.adp.lib.h.a.j(fileInputStream);
+                            return null;
                         } catch (Throwable th4) {
                             th = th4;
-                            fileInputStream = fileInputStream3;
-                            com.baidu.adp.lib.h.a.c(fileInputStream);
+                            com.baidu.adp.lib.h.a.j(fileInputStream);
                             throw th;
                         }
-                    } catch (Exception e18) {
-                        e = e18;
-                        fileInputStream = null;
                     } catch (Throwable th5) {
                         th = th5;
-                        fileInputStream = null;
+                        fileInputStream = fileInputStream2;
+                        com.baidu.adp.lib.h.a.j(fileInputStream);
+                        throw th;
                     }
                 }
             }
-            File file4 = new File(Util.iv(), str11);
+            File file4 = new File(Util.iu(), str11);
             try {
                 file4.mkdir();
-            } catch (Exception e19) {
-                BdLog.e(e19);
+            } catch (Exception e17) {
+                BdLog.e(e17);
             }
             File file5 = new File(file4, Plugin.SO_LIB_DIR_NAME);
             try {
                 file5.mkdir();
-            } catch (Exception e20) {
-                BdLog.e(e20);
+            } catch (Exception e18) {
+                BdLog.e(e18);
             }
             long currentTimeMillis2 = System.currentTimeMillis();
             l(file3.getAbsolutePath(), file5.getAbsolutePath(), str6);
-            com.baidu.adp.plugin.b.a.hu().a("plugin_extract_so", System.currentTimeMillis() - currentTimeMillis2, str6);
+            com.baidu.adp.plugin.b.a.ht().a("plugin_extract_so", System.currentTimeMillis() - currentTimeMillis2, str6);
             long currentTimeMillis3 = System.currentTimeMillis();
             a(file3.getAbsolutePath(), str6, file4);
-            com.baidu.adp.plugin.b.a.hu().a("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis3, str6);
-            Intent intent3 = new Intent("com.baidu.adp.plugin.installed");
+            com.baidu.adp.plugin.b.a.ht().a("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis3, str6);
+            ?? intent3 = new Intent("com.baidu.adp.plugin.installed");
             intent3.setPackage(BdBaseApplication.getInst().getPackageName());
             intent3.putExtra("package_name", str6);
             intent3.putExtra("install_src_file", str);
@@ -598,17 +614,17 @@ public class m {
             intent3.putExtra("is_third", z);
             intent3.putExtra("is_patch", z4);
             intent3.putExtra("replace_method_classes", str7);
-            intent3.putExtra("is_inject_classloader", z2);
-            com.baidu.adp.lib.stats.a.dO().save();
+            intent3.putExtra("is_inject_classloader", r5);
+            com.baidu.adp.lib.stats.a.dN().save();
             BdBaseApplication.getInst().sendBroadcast(intent3);
             try {
-                File[] listFiles = Util.iv().listFiles();
+                File[] listFiles = Util.iu().listFiles();
                 if (listFiles != null) {
                     for (File file6 : listFiles) {
                         if (file6 != null && file6.isDirectory()) {
                             String name = file6.getName();
                             if (name.startsWith(str6) && !name.equals(str11) && (lastIndexOf = name.lastIndexOf("_")) > 0 && (g = com.baidu.adp.lib.h.b.g(name.substring(lastIndexOf + 1), -1)) > 0 && g == i) {
-                                com.baidu.adp.plugin.b.a.hu().D("plugin_repeat_install", str6);
+                                com.baidu.adp.plugin.b.a.ht().D("plugin_repeat_install", str6);
                                 StringBuilder sb = new StringBuilder();
                                 if (pluginSetting != null) {
                                     sb.append("-");
@@ -622,7 +638,7 @@ public class m {
                                     sb.append("-");
                                     sb.append(pluginSetting.install_fail_count);
                                 }
-                                com.baidu.adp.plugin.b.a.hu().e("plugin_install", "plugin_repeat_install", str6, String.valueOf(file6.getAbsolutePath()) + "-" + file3.getAbsolutePath() + sb.toString());
+                                com.baidu.adp.plugin.b.a.ht().e("plugin_install", "plugin_repeat_install", str6, String.valueOf(file6.getAbsolutePath()) + "-" + file3.getAbsolutePath() + sb.toString());
                                 return str6;
                             }
                         }
@@ -646,7 +662,7 @@ public class m {
         try {
             BdBaseApplication.getInst().sendBroadcast(intent);
         } catch (Throwable th) {
-            com.baidu.adp.plugin.b.a.hu().e("plugin_install", "sendbroadcast_fail", str2, th.getMessage());
+            com.baidu.adp.plugin.b.a.ht().e("plugin_install", "sendbroadcast_fail", str2, th.getMessage());
         }
     }
 
@@ -711,7 +727,7 @@ public class m {
                     if (arrayList3.size() <= 0) {
                         return;
                     }
-                } else if (lowerCase.contains("armeabi-v7a") || str4.contains("armeabi-v7a") || ht()) {
+                } else if (lowerCase.contains("armeabi-v7a") || str4.contains("armeabi-v7a") || hs()) {
                     a(arrayList4, arrayList);
                     a(zipFile, str2, arrayList4);
                     if (arrayList4.size() <= 0) {
@@ -723,8 +739,8 @@ public class m {
                         return;
                     }
                 } else {
-                    com.baidu.adp.plugin.b.a.hu().bf("plugin_cpuarch_judge_fail");
-                    com.baidu.adp.plugin.b.a.hu().e("plugin_install", "cpuarch_judge_fail", str3, String.valueOf(lowerCase) + "-" + str4);
+                    com.baidu.adp.plugin.b.a.ht().bg("plugin_cpuarch_judge_fail");
+                    com.baidu.adp.plugin.b.a.ht().e("plugin_install", "cpuarch_judge_fail", str3, String.valueOf(lowerCase) + "-" + str4);
                     a(zipFile, str2, arrayList);
                     if (arrayList.size() <= 0) {
                         return;
@@ -734,7 +750,7 @@ public class m {
                 File file2 = new File(file.getParentFile(), String.valueOf(file.getName()) + "_tmp");
                 if (a(zipFile, new File(new File(str2).getParentFile(), "tmp"), file2, str3)) {
                     if (!file2.renameTo(file)) {
-                        com.baidu.adp.plugin.b.a.hu().e("plugin_install", "delete_so", str3, "delete so suc but rename fail");
+                        com.baidu.adp.plugin.b.a.ht().e("plugin_install", "delete_so", str3, "delete so suc but rename fail");
                         try {
                             file2.delete();
                             return;
@@ -744,7 +760,7 @@ public class m {
                     }
                     return;
                 }
-                com.baidu.adp.plugin.b.a.hu().e("plugin_install", "delete_so", str3, "delete so fail");
+                com.baidu.adp.plugin.b.a.ht().e("plugin_install", "delete_so", str3, "delete so fail");
                 try {
                     file2.delete();
                 } catch (Exception e3) {
@@ -768,7 +784,7 @@ public class m {
         try {
             try {
                 file.mkdirs();
-                com.baidu.adp.lib.util.e.h(file);
+                com.baidu.adp.lib.util.e.i(file);
                 file2.createNewFile();
                 outputStream = new FileOutputStream(file2);
             } catch (Throwable th) {
@@ -783,8 +799,8 @@ public class m {
                         try {
                             String name = nextElement.getName();
                             if (name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX)) {
-                                o.c(null);
-                                o.c(null);
+                                o.j(null);
+                                o.j(null);
                             } else {
                                 inputStream = zipFile.getInputStream(nextElement);
                                 try {
@@ -820,8 +836,8 @@ public class m {
                                     bufferedInputStream.close();
                                     zipOutputStream.flush();
                                     zipOutputStream.closeEntry();
-                                    o.c(inputStream);
-                                    o.c(bufferedInputStream);
+                                    o.j(inputStream);
+                                    o.j(bufferedInputStream);
                                 } catch (IOException e2) {
                                     e = e2;
                                     inputStream2 = inputStream;
@@ -830,14 +846,14 @@ public class m {
                                     } catch (Throwable th3) {
                                         th = th3;
                                         inputStream = inputStream2;
-                                        o.c(inputStream);
-                                        o.c(bufferedInputStream);
+                                        o.j(inputStream);
+                                        o.j(bufferedInputStream);
                                         throw th;
                                     }
                                 } catch (Throwable th4) {
                                     th = th4;
-                                    o.c(inputStream);
-                                    o.c(bufferedInputStream);
+                                    o.j(inputStream);
+                                    o.j(bufferedInputStream);
                                     throw th;
                                 }
                             }
@@ -851,10 +867,10 @@ public class m {
                             bufferedInputStream = null;
                         }
                     }
-                    o.b((OutputStream) zipOutputStream);
-                    o.b(outputStream);
+                    o.d(zipOutputStream);
+                    o.d(outputStream);
                     try {
-                        com.baidu.adp.lib.util.e.h(file);
+                        com.baidu.adp.lib.util.e.i(file);
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
@@ -864,11 +880,11 @@ public class m {
                     zipOutputStream3 = zipOutputStream;
                     outputStream2 = outputStream;
                     try {
-                        com.baidu.adp.plugin.b.a.hu().e("plugin_install", "delete_so", str, e.getMessage());
-                        o.b((OutputStream) zipOutputStream3);
-                        o.b(outputStream2);
+                        com.baidu.adp.plugin.b.a.ht().e("plugin_install", "delete_so", str, e.getMessage());
+                        o.d(zipOutputStream3);
+                        o.d(outputStream2);
                         try {
-                            com.baidu.adp.lib.util.e.h(file);
+                            com.baidu.adp.lib.util.e.i(file);
                         } catch (IOException e6) {
                             e6.printStackTrace();
                         }
@@ -877,10 +893,10 @@ public class m {
                         th = th6;
                         zipOutputStream2 = zipOutputStream3;
                         outputStream = outputStream2;
-                        o.b((OutputStream) zipOutputStream2);
-                        o.b(outputStream);
+                        o.d(zipOutputStream2);
+                        o.d(outputStream);
                         try {
-                            com.baidu.adp.lib.util.e.h(file);
+                            com.baidu.adp.lib.util.e.i(file);
                         } catch (IOException e7) {
                             e7.printStackTrace();
                         }
@@ -888,22 +904,22 @@ public class m {
                     }
                 } catch (IOException e8) {
                     e = e8;
-                    com.baidu.adp.plugin.b.a.hu().e("plugin_install", "delete_so", str, e.getMessage());
-                    o.b((OutputStream) zipOutputStream);
-                    o.b(outputStream);
+                    com.baidu.adp.plugin.b.a.ht().e("plugin_install", "delete_so", str, e.getMessage());
+                    o.d(zipOutputStream);
+                    o.d(outputStream);
                     try {
-                        com.baidu.adp.lib.util.e.h(file);
+                        com.baidu.adp.lib.util.e.i(file);
                     } catch (IOException e9) {
                         e9.printStackTrace();
                     }
                     return false;
                 } catch (Throwable th7) {
                     th = th7;
-                    com.baidu.adp.plugin.b.a.hu().e("plugin_install", "delete_so", str, th.getMessage());
-                    o.b((OutputStream) zipOutputStream);
-                    o.b(outputStream);
+                    com.baidu.adp.plugin.b.a.ht().e("plugin_install", "delete_so", str, th.getMessage());
+                    o.d(zipOutputStream);
+                    o.d(outputStream);
                     try {
-                        com.baidu.adp.lib.util.e.h(file);
+                        com.baidu.adp.lib.util.e.i(file);
                     } catch (IOException e10) {
                         e10.printStackTrace();
                     }
@@ -918,9 +934,9 @@ public class m {
             } catch (Throwable th8) {
                 th = th8;
                 zipOutputStream2 = null;
-                o.b((OutputStream) zipOutputStream2);
-                o.b(outputStream);
-                com.baidu.adp.lib.util.e.h(file);
+                o.d(zipOutputStream2);
+                o.d(outputStream);
+                com.baidu.adp.lib.util.e.i(file);
                 throw th;
             }
         } catch (ZipException e13) {
@@ -981,18 +997,18 @@ public class m {
                 } catch (IOException e) {
                     BdLog.e(e);
                 } finally {
-                    com.baidu.adp.lib.h.a.c(inputStream);
+                    com.baidu.adp.lib.h.a.j(inputStream);
                 }
             }
         }
     }
 
-    public static boolean hs() {
+    public static boolean hr() {
         String str;
-        if (ug) {
-            return uf;
+        if (uJ) {
+            return uI;
         }
-        ug = true;
+        uJ = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
             str = "none";
@@ -1006,24 +1022,24 @@ public class m {
                 str = "none";
             }
         }
-        if (lowerCase.contains("armeabi-v7a") || str.contains("armeabi-v7a") || ht()) {
-            uf = true;
+        if (lowerCase.contains("armeabi-v7a") || str.contains("armeabi-v7a") || hs()) {
+            uI = true;
         } else if (lowerCase.contains("armeabi") || str.contains("armeabi")) {
-            uf = true;
+            uI = true;
         }
-        return uf;
+        return uI;
     }
 
-    public static boolean ht() {
+    public static boolean hs() {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         InputStreamReader inputStreamReader2 = null;
-        if (ui) {
-            return uh;
+        if (uL) {
+            return uK;
         }
-        ui = true;
+        uL = true;
         try {
             fileInputStream = new FileInputStream("/proc/cpuinfo");
             try {
@@ -1084,10 +1100,10 @@ public class m {
                         }
                     }
                 }
-                uh = ((Integer) objArr[1]).intValue() == 7;
+                uK = ((Integer) objArr[1]).intValue() == 7;
                 o.b((Reader) bufferedReader);
                 o.b((Reader) inputStreamReader);
-                o.c(fileInputStream);
+                o.j(fileInputStream);
             } catch (Exception e3) {
                 e = e3;
                 inputStreamReader2 = inputStreamReader;
@@ -1096,22 +1112,22 @@ public class m {
                     BdLog.e(e);
                     o.b((Reader) bufferedReader);
                     o.b((Reader) inputStreamReader2);
-                    o.c(fileInputStream2);
-                    return uh;
+                    o.j(fileInputStream2);
+                    return uK;
                 } catch (Throwable th3) {
                     th = th3;
                     fileInputStream = fileInputStream2;
                     inputStreamReader = inputStreamReader2;
                     o.b((Reader) bufferedReader);
                     o.b((Reader) inputStreamReader);
-                    o.c(fileInputStream);
+                    o.j(fileInputStream);
                     throw th;
                 }
             } catch (Throwable th4) {
                 th = th4;
                 o.b((Reader) bufferedReader);
                 o.b((Reader) inputStreamReader);
-                o.c(fileInputStream);
+                o.j(fileInputStream);
                 throw th;
             }
         } catch (Exception e4) {
@@ -1124,7 +1140,7 @@ public class m {
             inputStreamReader = null;
             fileInputStream = null;
         }
-        return uh;
+        return uK;
     }
 
     private static void a(String str, String str2, File file) {
@@ -1132,15 +1148,15 @@ public class m {
         if (file != null) {
             File file2 = new File(str);
             if (!file2.exists()) {
-                com.baidu.adp.plugin.b.a.hu().e("plugin_install", "dexopt_file_illegal", str2, file2.getAbsolutePath());
+                com.baidu.adp.plugin.b.a.ht().e("plugin_install", "dexopt_file_illegal", str2, file2.getAbsolutePath());
             }
             if (file2.length() == 0) {
-                com.baidu.adp.plugin.b.a.hu().e("plugin_install", "dexopt_file_empty", str2, String.valueOf(file2.getAbsolutePath()) + "---" + file2.length());
+                com.baidu.adp.plugin.b.a.ht().e("plugin_install", "dexopt_file_empty", str2, String.valueOf(file2.getAbsolutePath()) + "---" + file2.length());
             }
             try {
                 dexClassLoader = new DexClassLoader(str, file.getAbsolutePath(), null, BdBaseApplication.getInst().getClassLoader());
             } catch (Exception e) {
-                com.baidu.adp.plugin.b.a.hu().e("plugin_install", "new_dexloader", str2, String.valueOf(e.getMessage()) + "---" + e.getClass().getName());
+                com.baidu.adp.plugin.b.a.ht().e("plugin_install", "new_dexloader", str2, String.valueOf(e.getMessage()) + "---" + e.getClass().getName());
                 BdLog.e(e);
                 dexClassLoader = null;
             }
@@ -1148,10 +1164,10 @@ public class m {
                 try {
                     dexClassLoader.loadClass(String.valueOf(str2) + ".Static");
                 } catch (ClassNotFoundException e2) {
-                    com.baidu.adp.plugin.b.a.hu().e("plugin_install", "loadR", str2, e2.getMessage());
+                    com.baidu.adp.plugin.b.a.ht().e("plugin_install", "loadR", str2, e2.getMessage());
                     BdLog.e(e2);
                 } catch (Exception e3) {
-                    com.baidu.adp.plugin.b.a.hu().e("plugin_install", "loadR2", str2, String.valueOf(e3.getMessage()) + "---" + e3.getClass().getName());
+                    com.baidu.adp.plugin.b.a.ht().e("plugin_install", "loadR2", str2, String.valueOf(e3.getMessage()) + "---" + e3.getClass().getName());
                     BdLog.e(e3);
                 }
             }
@@ -1160,24 +1176,24 @@ public class m {
 
     private static String d(String str, String str2, PluginSetting pluginSetting) {
         Signature[] signatureArr;
-        Signature[] bG;
+        Signature[] bH;
         File file;
-        if (uj == null) {
+        if (uM == null) {
             try {
-                uj = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                uM = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.hu().e("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
+                com.baidu.adp.plugin.b.a.ht().e("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
             }
         }
         try {
             signatureArr = BdBaseApplication.getInst().getPackageManager().getPackageArchiveInfo(str2, 64).signatures;
         } catch (Throwable th2) {
-            com.baidu.adp.plugin.b.a.hu().e("plugin_install", "getpluginsign_frompm_fail", str, th2.getMessage());
+            com.baidu.adp.plugin.b.a.ht().e("plugin_install", "getpluginsign_frompm_fail", str, th2.getMessage());
             signatureArr = null;
         }
         if (signatureArr == null) {
             try {
-                bG = com.baidu.adp.plugin.util.h.bG(str2);
+                bH = com.baidu.adp.plugin.util.h.bH(str2);
             } catch (IOException e) {
                 return e.getMessage();
             } catch (CertificateEncodingException e2) {
@@ -1186,16 +1202,16 @@ public class m {
                 return th3.getMessage();
             }
         } else {
-            bG = signatureArr;
+            bH = signatureArr;
         }
-        if (bG == null) {
+        if (bH == null) {
             return "get_newsignatures_null_" + str2;
         }
-        Signature[] signatureArr2 = uj;
+        Signature[] signatureArr2 = uM;
         if (signatureArr2 == null && (file = new File(BdBaseApplication.getInst().getPackageCodePath())) != null && file.exists()) {
             try {
-                signatureArr2 = com.baidu.adp.plugin.util.h.bG(file.getAbsolutePath());
-                uj = signatureArr2;
+                signatureArr2 = com.baidu.adp.plugin.util.h.bH(file.getAbsolutePath());
+                uM = signatureArr2;
             } catch (IOException e3) {
                 return e3.getMessage();
             } catch (CertificateEncodingException e4) {
@@ -1204,7 +1220,7 @@ public class m {
                 return th4.getMessage();
             }
         }
-        int a = Util.a(signatureArr2, bG);
+        int a = Util.a(signatureArr2, bH);
         if (a == 0) {
             return null;
         }
@@ -1223,9 +1239,9 @@ public class m {
             }
         }
         sb.append("_pluginsign");
-        if (bG != null) {
+        if (bH != null) {
             try {
-                for (Signature signature2 : bG) {
+                for (Signature signature2 : bH) {
                     if (signature2 != null) {
                         sb.append("_");
                         sb.append(signature2.toCharsString());

@@ -1,33 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.pb.pb.main.dh;
 /* loaded from: classes.dex */
-public class gk implements a.b {
-    private final /* synthetic */ TbPageContext azW;
-    final /* synthetic */ gi dWe;
+class gk implements dh.a {
+    final /* synthetic */ ReaderPbService eiB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gk(gi giVar, TbPageContext tbPageContext) {
-        this.dWe = giVar;
-        this.azW = tbPageContext;
+    public gk(ReaderPbService readerPbService) {
+        this.eiB = readerPbService;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.dialog.a aVar2;
-        String str;
-        String str2;
-        aVar2 = this.dWe.dWa;
-        aVar2.dismiss();
-        str = this.dWe.dWb;
-        if (!TextUtils.isEmpty(str)) {
-            Activity pageActivity = this.azW.getPageActivity();
-            str2 = this.dWe.dWb;
-            com.baidu.tbadk.browser.f.a(pageActivity, false, str2);
+    @Override // com.baidu.tieba.pb.pb.main.dh.a
+    public void c(com.baidu.tieba.pb.data.h hVar) {
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.dh.a
+    public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.dh.a
+    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.h hVar, String str, int i4) {
+        boolean z2;
+        eh ehVar;
+        ek ekVar;
+        eh ehVar2;
+        ek ekVar2;
+        ek ekVar3;
+        ek ekVar4;
+        z2 = this.eiB.isAlive;
+        if (!z2) {
+            ehVar = this.eiB.mReaderManager;
+            if (ehVar != null) {
+                ekVar = this.eiB.mReaderModel;
+                if (ekVar != null) {
+                    ehVar2 = this.eiB.mReaderManager;
+                    ekVar2 = this.eiB.mReaderModel;
+                    com.baidu.tieba.pb.data.h pbData = ekVar2.getPbData();
+                    ekVar3 = this.eiB.mReaderModel;
+                    boolean aJX = ekVar3.aJX();
+                    ekVar4 = this.eiB.mReaderModel;
+                    ehVar2.b(pbData, aJX, i2, ekVar4.aJY());
+                }
+            }
         }
     }
 }

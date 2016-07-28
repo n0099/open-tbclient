@@ -9,7 +9,7 @@ public class c {
     private String game_icon;
     private String post_url;
 
-    public String oy() {
+    public String on() {
         return this.game_icon;
     }
 
@@ -17,7 +17,7 @@ public class c {
         return this.post_url;
     }
 
-    public String ls() {
+    public String lo() {
         return this.button_text;
     }
 

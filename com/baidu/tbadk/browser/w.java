@@ -3,15 +3,15 @@ package com.baidu.tbadk.browser;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-class w implements com.baidu.tbadk.core.c.k {
-    final /* synthetic */ TbWebViewActivity Kx;
+class w implements com.baidu.tbadk.core.c.l {
+    final /* synthetic */ TbWebViewActivity Kw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(TbWebViewActivity tbWebViewActivity) {
-        this.Kx = tbWebViewActivity;
+        this.Kw = tbWebViewActivity;
     }
 
-    @Override // com.baidu.tbadk.core.c.k
+    @Override // com.baidu.tbadk.core.c.l
     public void m(List<Long> list) {
         if (list != null && list.size() != 0) {
             String str = "";
@@ -24,9 +24,9 @@ class w implements com.baidu.tbadk.core.c.k {
                     sb.append(it.next());
                     str = "_";
                 } else {
-                    com.baidu.adp.lib.stats.d dH = com.baidu.tbadk.performanceLog.z.dH();
-                    dH.a("frame_delta", sb.toString());
-                    com.baidu.adp.lib.stats.a.dO().a("webview", dH);
+                    com.baidu.adp.lib.stats.d dG = com.baidu.tbadk.performanceLog.z.dG();
+                    dG.c("frame_delta", sb.toString());
+                    com.baidu.adp.lib.stats.a.dN().a("webview", dG);
                     return;
                 }
             }

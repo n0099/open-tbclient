@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fJw;
+    final /* synthetic */ WriteActivity fVn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.fJw = writeActivity;
+        this.fVn = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,21 +24,21 @@ public class am implements View.OnClickListener {
         EditText editText;
         InputMethodManager inputMethodManager2;
         EditText editText2;
-        textView = this.fJw.fFn;
+        textView = this.fVn.faP;
         textView.setVisibility(0);
-        view2 = this.fJw.fFq;
+        view2 = this.fVn.faS;
         view2.setSelected(true);
-        bVar = this.fJw.fFo;
-        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.fJw.getPageContext().getPageActivity(), 1.0f));
-        lVar = this.fJw.aqo;
+        bVar = this.fVn.faQ;
+        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.fVn.getPageContext().getPageActivity(), 1.0f));
+        lVar = this.fVn.ard;
         lVar.zD();
-        WriteActivity writeActivity = this.fJw;
-        inputMethodManager = this.fJw.mInputManager;
-        editText = this.fJw.fFh;
+        WriteActivity writeActivity = this.fVn;
+        inputMethodManager = this.fVn.mInputManager;
+        editText = this.fVn.faJ;
         writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.fJw;
-        inputMethodManager2 = this.fJw.mInputManager;
-        editText2 = this.fJw.fFl;
+        WriteActivity writeActivity2 = this.fVn;
+        inputMethodManager2 = this.fVn.mInputManager;
+        editText2 = this.fVn.faN;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
     }
 }

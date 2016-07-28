@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class AppealActivity extends BaseActivity<AppealActivity> {
-    private TextView aMo;
-    private TextView aMp;
-    private TextView aMq;
-    private TextView aMr;
-    private String aMs;
-    private String aMt;
+    private TextView aNi;
+    private TextView aNj;
+    private TextView aNk;
+    private TextView aNl;
+    private String aNm;
+    private String aNn;
     private NavigationBar mNavigationBar;
     private String mUserName;
-    private final TextWatcher aMb = new a(this);
-    private final View.OnClickListener aMu = new b(this);
+    private final TextWatcher aMV = new a(this);
+    private final View.OnClickListener aNo = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -31,26 +31,26 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(u.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(u.j.appeal_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(u.j.appeal_submit_btn), this.aMu);
-        this.aMo = (TextView) findViewById(u.g.forbid_id);
-        this.aMp = (TextView) findViewById(u.g.forbid_reason);
-        this.aMq = (TextView) findViewById(u.g.appeal_reason);
-        this.aMr = (TextView) findViewById(u.g.remain_text_count);
-        this.aMr.setText(String.valueOf(150));
-        this.aMq.setFocusable(true);
-        this.aMq.setFocusableInTouchMode(true);
-        this.aMq.requestFocus();
-        k.b(getPageContext().getPageActivity(), this.aMq);
-        this.aMq.addTextChangedListener(this.aMb);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(u.j.appeal_submit_btn), this.aNo);
+        this.aNi = (TextView) findViewById(u.g.forbid_id);
+        this.aNj = (TextView) findViewById(u.g.forbid_reason);
+        this.aNk = (TextView) findViewById(u.g.appeal_reason);
+        this.aNl = (TextView) findViewById(u.g.remain_text_count);
+        this.aNl.setText(String.valueOf(150));
+        this.aNk.setFocusable(true);
+        this.aNk.setFocusableInTouchMode(true);
+        this.aNk.requestFocus();
+        k.c(getPageContext().getPageActivity(), this.aNk);
+        this.aNk.addTextChangedListener(this.aMV);
         initData();
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.aMs = intent.getStringExtra("forum_id");
-        this.aMt = intent.getStringExtra("user_id");
+        this.aNm = intent.getStringExtra("forum_id");
+        this.aNn = intent.getStringExtra("user_id");
         this.mUserName = intent.getStringExtra("user_name");
-        g.a(this.aMs, this.aMt, new d(this));
+        g.a(this.aNm, this.aNn, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -59,16 +59,16 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         aVar.cz(str);
         aVar.a(getPageContext().getString(u.j.anti_no_chance_pos), new e(this, z));
         aVar.b(getPageContext());
-        aVar.rT();
+        aVar.rS();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().ad(i == 1);
+        getLayoutMode().af(i == 1);
         getLayoutMode().w(findViewById(u.g.root));
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.aMq.setHintTextColor(av.getColor(u.d.common_color_10005));
+        this.aNk.setHintTextColor(av.getColor(u.d.common_color_10005));
     }
 }

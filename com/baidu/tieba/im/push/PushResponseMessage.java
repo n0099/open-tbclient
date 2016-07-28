@@ -19,10 +19,10 @@ public class PushResponseMessage extends ResponsePullMessage {
     }
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         PushMessageResIdl pushMessageResIdl = (PushMessageResIdl) new Wire(new Class[0]).parseFrom(bArr, PushMessageResIdl.class);
         if (pushMessageResIdl.data != null && pushMessageResIdl.data.msgs != null && pushMessageResIdl.data.msgs.data != null && pushMessageResIdl.data.msgs.data.msgInfo != null) {
-            TiebaStatic.eventStat(TbadkCoreApplication.m9getInst().getApp().getApplicationContext(), "push_content_receive", null);
+            TiebaStatic.eventStat(TbadkCoreApplication.m10getInst().getApp().getApplicationContext(), "push_content_receive", null);
             setGroupMsg(new LinkedList());
             MessageUtils.generatePushData(getGroupMsg(), 30, pushMessageResIdl.data.msgs.data.msgInfo, pushMessageResIdl.data.msgs.data.groupId);
         }

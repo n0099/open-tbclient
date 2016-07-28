@@ -1,24 +1,23 @@
 package com.baidu.tieba.personInfo;
 
+import android.content.DialogInterface;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements a.b {
-    private final /* synthetic */ UserMuteAddAndDelCustomMessage dWQ;
-    final /* synthetic */ f this$0;
+public class bc implements DialogInterface.OnCancelListener {
+    final /* synthetic */ h this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(f fVar, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-        this.this$0 = fVar;
-        this.dWQ = userMuteAddAndDelCustomMessage;
+    public bc(h hVar) {
+        this.this$0 = hVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        this.this$0.asK();
-        MessageManager.getInstance().sendMessage(this.dWQ);
-        aVar.dismiss();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        BdUniqueId bdUniqueId;
+        MessageManager messageManager = MessageManager.getInstance();
+        bdUniqueId = this.this$0.eAN;
+        messageManager.removeMessage(bdUniqueId);
     }
 }

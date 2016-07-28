@@ -17,18 +17,18 @@ class bn implements View.OnClickListener {
         boolean z;
         int i;
         boolean z2;
-        boolean rd;
-        z = this.this$0.dQZ;
+        boolean rN;
+        z = this.this$0.edn;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
-                if (this.this$0.cbl.getVisibility() != 0) {
-                    z2 = this.this$0.edn;
-                    if (z2 && this.this$0.edg != null && !this.this$0.edg.isRecycled()) {
+                if (this.this$0.cdm.getVisibility() != 0) {
+                    z2 = this.this$0.eyb;
+                    if (z2 && this.this$0.exU != null && !this.this$0.exU.isRecycled()) {
                         String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        rd = this.this$0.rd(str);
-                        if (rd) {
+                        rN = this.this$0.rN(str);
+                        if (rN) {
                             intent.putExtra("change", true);
                             intent.putExtra("file_name", str);
                         } else {

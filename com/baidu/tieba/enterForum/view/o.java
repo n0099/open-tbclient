@@ -10,53 +10,53 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
-    private View aRB;
-    private ViewEventCenter bfx;
-    private TextView buS;
-    private TextView buT;
-    private TextView buU;
-    private ImageView buV;
-    private View buW;
-    private TextView buX;
-    private TextView buY;
-    private TextView buZ;
-    private ImageView bva;
+    private View aSv;
+    private ViewEventCenter bgJ;
+    private TextView bxg;
+    private TextView bxh;
+    private TextView bxi;
+    private ImageView bxj;
+    private View bxk;
+    private TextView bxl;
+    private TextView bxm;
+    private TextView bxn;
+    private ImageView bxo;
 
     public o(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.bfx = viewEventCenter;
-        this.aRB = view.findViewById(u.g.left_container);
-        this.buS = (TextView) this.aRB.findViewById(u.g.sign);
-        this.buT = (TextView) this.aRB.findViewById(u.g.name);
-        this.buU = (TextView) this.aRB.findViewById(u.g.grade);
-        this.buV = (ImageView) this.aRB.findViewById(u.g.add);
-        this.buW = view.findViewById(u.g.right_container);
-        this.buX = (TextView) this.buW.findViewById(u.g.sign);
-        this.buY = (TextView) this.buW.findViewById(u.g.name);
-        this.buZ = (TextView) this.buW.findViewById(u.g.grade);
-        this.bva = (ImageView) this.buW.findViewById(u.g.add);
+        this.bgJ = viewEventCenter;
+        this.aSv = view.findViewById(u.g.left_container);
+        this.bxg = (TextView) this.aSv.findViewById(u.g.sign);
+        this.bxh = (TextView) this.aSv.findViewById(u.g.name);
+        this.bxi = (TextView) this.aSv.findViewById(u.g.grade);
+        this.bxj = (ImageView) this.aSv.findViewById(u.g.add);
+        this.bxk = view.findViewById(u.g.right_container);
+        this.bxl = (TextView) this.bxk.findViewById(u.g.sign);
+        this.bxm = (TextView) this.bxk.findViewById(u.g.name);
+        this.bxn = (TextView) this.bxk.findViewById(u.g.grade);
+        this.bxo = (ImageView) this.bxk.findViewById(u.g.add);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: a */
-    public void B(com.baidu.tieba.enterForum.b.a aVar) {
-        super.B(aVar);
+    public void E(com.baidu.tieba.enterForum.b.a aVar) {
+        super.E(aVar);
         if (aVar != null) {
-            a(aVar.RF(), true);
-            a(aVar.RG(), false);
-            b(aVar.RF(), true);
-            b(aVar.RG(), false);
+            a(aVar.Sm(), true);
+            a(aVar.Sn(), false);
+            b(aVar.Sm(), true);
+            b(aVar.Sn(), false);
         }
     }
 
     private void a(com.baidu.tieba.tbadkCore.x xVar, boolean z) {
         if (xVar != null) {
-            View view = z ? this.aRB : this.buW;
-            TextView textView = z ? this.buS : this.buX;
-            TextView textView2 = z ? this.buT : this.buY;
-            TextView textView3 = z ? this.buU : this.buZ;
-            ImageView imageView = z ? this.buV : this.bva;
+            View view = z ? this.aSv : this.bxk;
+            TextView textView = z ? this.bxg : this.bxl;
+            TextView textView2 = z ? this.bxh : this.bxm;
+            TextView textView3 = z ? this.bxi : this.bxn;
+            ImageView imageView = z ? this.bxj : this.bxo;
             switch (xVar.getType()) {
                 case 1:
                     view.setVisibility(0);
@@ -73,7 +73,7 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
                     imageView.setVisibility(8);
                     textView2.setVisibility(0);
                     textView2.setText(xVar.getName());
-                    if (xVar.bbo() == 0) {
+                    if (xVar.beC() == 0) {
                         textView.setVisibility(8);
                     } else {
                         textView.setVisibility(0);
@@ -92,9 +92,9 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
     private void b(com.baidu.tieba.tbadkCore.x xVar, boolean z) {
         View view;
         if (z) {
-            view = this.aRB;
+            view = this.aSv;
         } else {
-            view = this.buW;
+            view = this.bxk;
         }
         view.setOnClickListener(new p(this, xVar));
         view.setOnLongClickListener(new q(this, xVar));
@@ -103,13 +103,13 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
     @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.j.a.a(tbPageContext, getRootView());
-        this.aRB.setBackgroundDrawable(av.getDrawable(u.f.home_like_item_bg));
-        this.buW.setBackgroundDrawable(av.getDrawable(u.f.home_like_item_bg));
-        if (getData() != null && getData().RF() != null) {
-            av.k(this.buU, BitmapHelper.getGradeResourceIdNew(getData().RF().getLevel()));
+        this.aSv.setBackgroundDrawable(av.getDrawable(u.f.home_like_item_bg));
+        this.bxk.setBackgroundDrawable(av.getDrawable(u.f.home_like_item_bg));
+        if (getData() != null && getData().Sm() != null) {
+            av.k(this.bxi, BitmapHelper.getGradeResourceIdNew(getData().Sm().getLevel()));
         }
-        if (getData() != null && getData().RG() != null) {
-            av.k(this.buZ, BitmapHelper.getGradeResourceIdNew(getData().RG().getLevel()));
+        if (getData() != null && getData().Sn() != null) {
+            av.k(this.bxn, BitmapHelper.getGradeResourceIdNew(getData().Sn().getLevel()));
             return true;
         }
         return true;

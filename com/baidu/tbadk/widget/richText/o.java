@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class o {
-    private String On;
-    private int aFd;
-    private String aFe;
-    private int aFf;
-    private int aFg;
+    private String Oz;
+    private int aFU;
+    private String aFV;
+    private int aFW;
+    private int aFX;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class o {
     public void a(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.On = pbContent.src;
+            this.Oz = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aFd = pbContent.e_type.intValue();
-            this.aFe = pbContent.text;
+            this.aFU = pbContent.e_type.intValue();
+            this.aFV = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aFf = pbContent.count.intValue();
-            this.aFg = pbContent.origin_size.intValue();
+            this.aFW = pbContent.count.intValue();
+            this.aFX = pbContent.origin_size.intValue();
         }
     }
 
@@ -32,8 +32,8 @@ public class o {
         return this.videoUrl;
     }
 
-    public String pg() {
-        return this.On;
+    public String oP() {
+        return this.Oz;
     }
 
     public int getWidth() {
@@ -44,12 +44,12 @@ public class o {
         return this.height;
     }
 
-    public String Hn() {
-        return this.aFe;
+    public String Hl() {
+        return this.aFV;
     }
 
-    public boolean Ho() {
-        return this.aFd == 15;
+    public boolean Hm() {
+        return this.aFU == 15;
     }
 
     public boolean isAvaliable() {
@@ -60,11 +60,11 @@ public class o {
         return this.duration;
     }
 
-    public int Hp() {
-        return this.aFf;
+    public int Hn() {
+        return this.aFW;
     }
 
-    public void fl(int i) {
-        this.aFf = i;
+    public void fk(int i) {
+        this.aFW = i;
     }
 }

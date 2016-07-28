@@ -20,151 +20,151 @@ import com.baidu.tieba.u;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
-    private static b cZI;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.a cZL;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.e cZM;
-    private f cZN;
-    private boolean cZJ = false;
+    private static b dcG;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.a dcJ;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.e dcK;
+    private f dcL;
+    private boolean dcH = false;
     private boolean isBackground = false;
-    private boolean cZK = false;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.a cZO = new com.baidu.tieba.imMessageCenter.im.floatwindow.a();
-    private ArrayList<String> cZP = new ArrayList<>();
+    private boolean dcI = false;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.a dcM = new com.baidu.tieba.imMessageCenter.im.floatwindow.a();
+    private ArrayList<String> dcN = new ArrayList<>();
     private final Handler handler = new Handler(Looper.getMainLooper());
-    private e cZQ = new e();
-    private d cZR = new d();
-    private a cZS = new a();
-    private C0066b cZT = new C0066b();
-    private c cZU = new c();
-    private i cZV = new com.baidu.tieba.imMessageCenter.im.floatwindow.c(this);
-    private a.InterfaceC0067a cZW = new com.baidu.tieba.imMessageCenter.im.floatwindow.d(this);
+    private e dcO = new e();
+    private d dcP = new d();
+    private a dcQ = new a();
+    private C0066b dcR = new C0066b();
+    private c dcS = new c();
+    private i dcT = new com.baidu.tieba.imMessageCenter.im.floatwindow.c(this);
+    private a.InterfaceC0067a dcU = new com.baidu.tieba.imMessageCenter.im.floatwindow.d(this);
 
-    public static synchronized b arM() {
+    public static synchronized b asy() {
         b bVar;
         synchronized (b.class) {
-            if (cZI == null) {
-                cZI = new b();
+            if (dcG == null) {
+                dcG = new b();
             }
-            bVar = cZI;
+            bVar = dcG;
         }
         return bVar;
     }
 
-    public boolean lr(String str) {
-        return this.cZP.contains(str);
+    public boolean ly(String str) {
+        return this.dcN.contains(str);
     }
 
-    public void ls(String str) {
-        if (!StringUtils.isNull(str) && !this.cZP.contains(str)) {
-            this.cZP.add(str);
+    public void lz(String str) {
+        if (!StringUtils.isNull(str) && !this.dcN.contains(str)) {
+            this.dcN.add(str);
         }
     }
 
-    public void lt(String str) {
+    public void lA(String str) {
         if (!StringUtils.isNull(str)) {
-            this.cZP.remove(str);
+            this.dcN.remove(str);
         }
     }
 
     public void registerListener() {
-        MessageManager.getInstance().registerListener(this.cZR);
-        MessageManager.getInstance().registerListener(this.cZS);
-        MessageManager.getInstance().registerListener(this.cZQ);
-        MessageManager.getInstance().registerListener(this.cZT);
-        MessageManager.getInstance().registerListener(this.cZU);
+        MessageManager.getInstance().registerListener(this.dcP);
+        MessageManager.getInstance().registerListener(this.dcQ);
+        MessageManager.getInstance().registerListener(this.dcO);
+        MessageManager.getInstance().registerListener(this.dcR);
+        MessageManager.getInstance().registerListener(this.dcS);
     }
 
-    public void fR(boolean z) {
-        if (!arN()) {
-            if (this.cZO.arL()) {
-                arP();
-                if (!arR().asb()) {
-                    arR().a(this.handler, z);
+    public void fU(boolean z) {
+        if (!asz()) {
+            if (this.dcM.asx()) {
+                asB();
+                if (!asD().asN()) {
+                    asD().a(this.handler, z);
                     return;
                 }
                 return;
             }
-            fS(false);
+            fV(false);
         }
     }
 
-    private boolean arN() {
-        return TbadkCoreApplication.m9getInst().isMIUIRom() || !TbadkCoreApplication.m9getInst().isFloatingWindowOpened() || this.cZJ || !arO() || com.baidu.tbadk.coreExtra.messageCenter.c.xK().xN() == 0 || !com.baidu.tbadk.coreExtra.messageCenter.c.xK().xS();
+    private boolean asz() {
+        return TbadkCoreApplication.m10getInst().isMIUIRom() || !TbadkCoreApplication.m10getInst().isFloatingWindowOpened() || this.dcH || !asA() || com.baidu.tbadk.coreExtra.messageCenter.c.xK().xN() == 0 || !com.baidu.tbadk.coreExtra.messageCenter.c.xK().xS();
     }
 
-    private boolean arO() {
+    private boolean asA() {
         String topActivityClassName = UtilHelper.getTopActivityClassName();
         return (StringUtils.isNull(topActivityClassName) || "com.baidu.tieba.LogoActivity".equalsIgnoreCase(topActivityClassName) || "com.baidu.tieba.guide.NewUserGuideActivity".equalsIgnoreCase(topActivityClassName) || "com.baidu.tieba.topRec.TopRecActivity".equalsIgnoreCase(topActivityClassName) || "com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(topActivityClassName)) ? false : true;
     }
 
-    public void lu(String str) {
+    public void lB(String str) {
         if (!StringUtils.isNull(str)) {
-            this.cZO.ln(str);
-            arR().U(this.cZO.arI());
+            this.dcM.lu(str);
+            asD().W(this.dcM.asu());
         }
     }
 
-    public void lv(String str) {
-        if (!StringUtils.isNull(str) && this.cZO != null) {
-            this.cZO.lq(str);
+    public void lC(String str) {
+        if (!StringUtils.isNull(str) && this.dcM != null) {
+            this.dcM.lx(str);
         }
     }
 
-    public void lw(String str) {
-        this.cZO.lo(str);
-        if (!this.cZO.arL()) {
-            fS(false);
+    public void lD(String str) {
+        this.dcM.lv(str);
+        if (!this.dcM.asx()) {
+            fV(false);
         } else {
-            arP();
+            asB();
         }
     }
 
-    private void arP() {
-        arR().U(this.cZO.arI());
-        arR().ls(this.cZO.arH());
+    private void asB() {
+        asD().W(this.dcM.asu());
+        asD().ly(this.dcM.ast());
     }
 
-    public void fS(boolean z) {
-        if (this.cZL != null) {
-            arS().c(this.handler);
-            this.cZL.asd();
+    public void fV(boolean z) {
+        if (this.dcJ != null) {
+            asE().c(this.handler);
+            this.dcJ.asP();
             if (z) {
-                this.cZL.aR(0, getPaddingTop());
-                this.cZO.removeAll();
+                this.dcJ.aU(0, getPaddingTop());
+                this.dcM.removeAll();
             }
         }
     }
 
     public void an(String str, int i) {
-        if (arT().asb()) {
-            arT().ao(str, i);
+        if (asF().asN()) {
+            asF().ao(str, i);
         }
     }
 
     public void a(int i, int i2, String str, int i3) {
-        arT().b(i, i2, str, i3);
-        arS().b(this.handler);
+        asF().b(i, i2, str, i3);
+        asE().b(this.handler);
     }
 
-    public void aN(int i, int i2) {
-        arT().aQ(i, i2);
-        if (a(arT().arZ(), this.cZM.asq())) {
-            arS().asr();
+    public void aQ(int i, int i2) {
+        asF().aT(i, i2);
+        if (a(asF().asL(), this.dcK.atc())) {
+            asE().atd();
         } else {
-            arS().ass();
+            asE().ate();
         }
     }
 
     public void a(h.a aVar) {
-        if (a(arT().arZ(), arS().asq())) {
-            aVar.asz();
+        if (a(asF().asL(), asE().atc())) {
+            aVar.atl();
         }
-        arT().asd();
-        arS().c(this.handler);
+        asF().asP();
+        asE().c(this.handler);
     }
 
-    public void arQ() {
-        this.cZK = true;
-        arR().aso();
+    public void asC() {
+        this.dcI = true;
+        asD().ata();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -173,54 +173,54 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.a arR() {
-        if (this.cZL == null) {
-            this.cZL = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.a(TbadkCoreApplication.m9getInst());
-            this.cZL.a(this.cZV);
-            this.cZL.a(this.cZW);
-            this.cZL.aR(0, getPaddingTop());
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.a asD() {
+        if (this.dcJ == null) {
+            this.dcJ = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.a(TbadkCoreApplication.m10getInst());
+            this.dcJ.a(this.dcT);
+            this.dcJ.a(this.dcU);
+            this.dcJ.aU(0, getPaddingTop());
         }
-        return this.cZL;
+        return this.dcJ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.e arS() {
-        if (this.cZM == null) {
-            this.cZM = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.e(TbadkCoreApplication.m9getInst());
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.e asE() {
+        if (this.dcK == null) {
+            this.dcK = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.e(TbadkCoreApplication.m10getInst());
         }
-        return this.cZM;
+        return this.dcK;
     }
 
     private int getPaddingTop() {
-        int w = com.baidu.adp.lib.util.a.w(TbadkCoreApplication.m9getInst());
+        int w = com.baidu.adp.lib.util.a.w(TbadkCoreApplication.m10getInst());
         if (w == 0) {
             w = 25;
         }
-        Resources resources = TbadkCoreApplication.m9getInst().getResources();
-        int x = com.baidu.adp.lib.util.a.x(TbadkCoreApplication.m9getInst());
+        Resources resources = TbadkCoreApplication.m10getInst().getResources();
+        int x = com.baidu.adp.lib.util.a.x(TbadkCoreApplication.m10getInst());
         if (x == 0) {
             x = resources.getDimensionPixelSize(u.e.ds92);
         }
         return w + x + resources.getDimensionPixelSize(u.e.ds40);
     }
 
-    private f arT() {
-        if (this.cZN == null) {
-            this.cZN = new f();
+    private f asF() {
+        if (this.dcL == null) {
+            this.dcL = new f();
         }
-        return this.cZN;
+        return this.dcL;
     }
 
-    public void arU() {
-        this.cZJ = true;
-        this.cZO.arF();
-        arR().setTouchable(false);
+    public void asG() {
+        this.dcH = true;
+        this.dcM.asr();
+        asD().setTouchable(false);
     }
 
-    public void arV() {
-        this.cZJ = false;
-        this.cZO.arG();
-        arR().setTouchable(true);
+    public void asH() {
+        this.dcH = false;
+        this.dcM.ass();
+        asD().setTouchable(true);
     }
 
     /* loaded from: classes.dex */
@@ -233,20 +233,20 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int v;
-            if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m9getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.xK().yb() && !b.this.isBackground && com.baidu.tbadk.coreExtra.messageCenter.c.xK().xN() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xK().xS()) {
+            if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m10getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.xK().yb() && !b.this.isBackground && com.baidu.tbadk.coreExtra.messageCenter.c.xK().xN() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xK().xS()) {
                 MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
                 ImMessageCenterPojo data = memoryChangedMessage.getData();
                 if (memoryChangedMessage.getType() == 2) {
-                    b.this.lw(data.getGid());
-                } else if ((2 == data.getCustomGroupType() || -7 == data.getCustomGroupType()) && !b.this.cZP.contains(data.getGid())) {
-                    if ((com.baidu.tbadk.coreExtra.messageCenter.c.xK().xO() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.aqK().bg(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
+                    b.this.lD(data.getGid());
+                } else if ((2 == data.getCustomGroupType() || -7 == data.getCustomGroupType()) && !b.this.dcN.contains(data.getGid())) {
+                    if ((com.baidu.tbadk.coreExtra.messageCenter.c.xK().xO() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.arw().bh(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
                         if (2 == data.getCustomGroupType()) {
-                            v = b.this.cZO.u(data);
+                            v = b.this.dcM.u(data);
                         } else {
-                            v = -7 == data.getCustomGroupType() ? b.this.cZO.v(data) : 0;
+                            v = -7 == data.getCustomGroupType() ? b.this.dcM.v(data) : 0;
                         }
                         if (v != 0 && v != 3) {
-                            b.this.fR(true);
+                            b.this.fU(true);
                         }
                     }
                 }
@@ -272,22 +272,22 @@ public class b {
                     case 1:
                     case 3:
                         if (!isOpen) {
-                            b.this.fS(true);
+                            b.this.fV(true);
                             return;
                         }
                         return;
                     case 2:
-                        if (!isOpen && b.this.cZO.arK()) {
-                            b.this.fR(false);
+                        if (!isOpen && b.this.dcM.asw()) {
+                            b.this.fU(false);
                             return;
                         }
                         return;
                     case 4:
                         if (isOpen) {
-                            b.this.fR(true);
+                            b.this.fU(true);
                             return;
                         } else {
-                            b.this.fS(false);
+                            b.this.fV(false);
                             return;
                         }
                     default:
@@ -307,7 +307,7 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                b.this.fS(true);
+                b.this.fV(true);
             }
         }
     }
@@ -324,14 +324,14 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean data;
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
-                TbadkCoreApplication.m9getInst().setProcesBackground(data.booleanValue());
+                TbadkCoreApplication.m10getInst().setProcesBackground(data.booleanValue());
                 if (data.booleanValue()) {
                     b.this.isBackground = true;
-                    b.this.fS(false);
+                    b.this.fV(false);
                     return;
                 }
                 b.this.isBackground = false;
-                b.this.fR(true);
+                b.this.fU(true);
             }
         }
     }
@@ -346,7 +346,7 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015) {
-                b.this.fS(true);
+                b.this.fV(true);
             }
         }
     }

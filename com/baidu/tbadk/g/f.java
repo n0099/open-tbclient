@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class f extends a {
-    private TextView amM;
-    private ImageView avo;
-    private String[] avp;
-    private TextView avq;
-    private final int avr;
+    private Runnable Au;
+    private TextView anB;
+    private ImageView awd;
+    private String[] awe;
+    private TextView awf;
+    private final int awg;
     private int currentIndex;
-    private Runnable zS;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int De() {
+    public int Dd() {
         this.currentIndex++;
-        if (this.currentIndex >= this.avr) {
+        if (this.currentIndex >= this.awg) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -36,78 +36,78 @@ public class f extends a {
     public f(Context context, int i) {
         super(LayoutInflater.from(context).inflate(u.h.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
-        this.zS = new g(this);
-        this.avo = (ImageView) this.avm.findViewById(u.g.loading_animate_view);
+        this.Au = new g(this);
+        this.awd = (ImageView) this.awb.findViewById(u.g.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.avo.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.awd.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.avo.setLayoutParams(marginLayoutParams);
+                this.awd.setLayoutParams(marginLayoutParams);
             }
         }
-        this.amM = (TextView) this.avm.findViewById(u.g.loading_anim_ellipsis);
-        this.avq = (TextView) this.avm.findViewById(u.g.loading_text);
-        this.avp = context.getResources().getStringArray(u.b.loading_anim_text_array);
-        this.avr = this.avp.length;
+        this.anB = (TextView) this.awb.findViewById(u.g.loading_anim_ellipsis);
+        this.awf = (TextView) this.awb.findViewById(u.g.loading_text);
+        this.awe = context.getResources().getStringArray(u.b.loading_anim_text_array);
+        this.awg = this.awe.length;
+    }
+
+    private void De() {
+        if (this.awd != null && (this.awd.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.awd.getBackground()).start();
+        }
     }
 
     private void Df() {
-        if (this.avo != null && (this.avo.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.avo.getBackground()).start();
+        if (this.awd != null && (this.awd.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.awd.getBackground()).stop();
         }
     }
 
-    private void Dg() {
-        if (this.avo != null && (this.avo.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.avo.getBackground()).stop();
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.g.a
+    public void Db() {
+        av.k(this.awd, u.f.loading_animation);
+        De();
+        av.c(this.anB, u.d.cp_cont_c, 1);
+        av.c(this.awf, u.d.cp_cont_c, 1);
+        av.l(this.awb, u.d.cp_bg_line_d);
+        this.anB.setText(this.awe[0]);
+        TbadkCoreApplication.m10getInst().handler.removeCallbacks(this.Au);
+        TbadkCoreApplication.m10getInst().handler.postDelayed(this.Au, 200L);
+        this.awb.setClickable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.g.a
     public void Dc() {
-        av.k(this.avo, u.f.loading_animation);
         Df();
-        av.c(this.amM, u.d.cp_cont_c, 1);
-        av.c(this.avq, u.d.cp_cont_c, 1);
-        av.l(this.avm, u.d.cp_bg_line_d);
-        this.amM.setText(this.avp[0]);
-        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.zS);
-        TbadkCoreApplication.m9getInst().handler.postDelayed(this.zS, 200L);
-        this.avm.setClickable(true);
+        TbadkCoreApplication.m10getInst().handler.removeCallbacks(this.Au);
+        this.awd.setBackgroundResource(0);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.g.a
-    public void Dd() {
-        Dg();
-        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.zS);
-        this.avo.setBackgroundResource(0);
-    }
-
-    public void se() {
-        if (Db()) {
-            av.k(this.avo, u.f.loading_animation);
-            Df();
-            av.c(this.amM, u.d.cp_cont_c, 1);
-            av.c(this.avq, u.d.cp_cont_c, 1);
-            av.l(this.avm, u.d.cp_bg_line_d);
+    public void sd() {
+        if (Da()) {
+            av.k(this.awd, u.f.loading_animation);
+            De();
+            av.c(this.anB, u.d.cp_cont_c, 1);
+            av.c(this.awf, u.d.cp_cont_c, 1);
+            av.l(this.awb, u.d.cp_bg_line_d);
         }
     }
 
-    public View Dh() {
-        return this.avm;
+    public View Dg() {
+        return this.awb;
     }
 
     public void setTextColor(int i) {
-        this.amM.setTextColor(i);
-        this.avq.setTextColor(i);
+        this.anB.setTextColor(i);
+        this.awf.setTextColor(i);
     }
 
     public void cR(int i) {
-        if (this.avm != null) {
-            this.avm.setBackgroundColor(i);
+        if (this.awb != null) {
+            this.awb.setBackgroundColor(i);
         }
     }
 }

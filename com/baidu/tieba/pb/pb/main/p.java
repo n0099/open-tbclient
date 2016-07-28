@@ -3,22 +3,22 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.pb.pb.main.a.f;
 /* loaded from: classes.dex */
 class p implements f.a {
-    final /* synthetic */ PbActivity dPF;
+    final /* synthetic */ PbActivity ebT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbActivity pbActivity) {
-        this.dPF = pbActivity;
+        this.ebT = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.a.f.a
-    public void ht(boolean z) {
-        es esVar;
-        es esVar2;
-        this.dPF.hs(z);
-        esVar = this.dPF.dOO;
-        if (esVar.aHS() != null && z) {
-            esVar2 = this.dPF.dOO;
-            esVar2.hL(false);
+    public void hE(boolean z) {
+        ew ewVar;
+        ew ewVar2;
+        this.ebT.hD(z);
+        ewVar = this.ebT.ebb;
+        if (ewVar.aLc() != null && z) {
+            ewVar2 = this.ebT.ebb;
+            ewVar2.hX(false);
         }
     }
 }

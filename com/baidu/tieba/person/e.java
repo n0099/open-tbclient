@@ -1,51 +1,73 @@
 package com.baidu.tieba.person;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragment;
-import java.util.ArrayList;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public abstract class e extends FragmentPagerAdapter {
-    private int[] cUw;
-    private ArrayList<BaseFragment> ecO;
+public class e extends com.baidu.adp.base.f {
+    TextView epq;
+    TextView epr;
+    TextView eps;
+    View ept;
+    BaseFragment epu;
+    View mView;
 
-    protected abstract BaseFragment aKk();
+    public e(BaseFragment baseFragment) {
+        super(baseFragment.getPageContext());
+        this.epu = baseFragment;
+        a(baseFragment);
+    }
 
-    public e(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        super(basePersonInfoActivity.getSupportFragmentManager());
-        this.ecO = new ArrayList<>();
-        Bundle bundle = new Bundle();
-        bundle.putInt("page_type", 0);
-        BaseFragment aKk = aKk();
-        aKk.setArguments(bundle);
-        this.ecO.add(aKk);
+    private void a(BaseFragment baseFragment) {
+        this.mView = LayoutInflater.from(baseFragment.getPageContext().getPageActivity()).inflate(u.h.person_info_more_view, (ViewGroup) null);
+        this.epq = (TextView) this.mView.findViewById(u.g.person_info_more_view_item_friend);
+        this.epq.setOnClickListener(baseFragment);
+        this.epr = (TextView) this.mView.findViewById(u.g.person_info_more_view_item_black);
+        this.epr.setOnClickListener(baseFragment);
+        this.eps = (TextView) this.mView.findViewById(u.g.person_info_more_view_item_mute);
+        this.ept = this.mView.findViewById(u.g.person_info_more_view_item_line_mute);
+        this.eps.setOnClickListener(baseFragment);
+    }
+
+    public void t(boolean z, boolean z2) {
         if (z) {
-            this.cUw = new int[1];
-            return;
+            this.epq.setVisibility(0);
+        } else {
+            this.epq.setVisibility(8);
         }
-        Bundle bundle2 = new Bundle();
-        bundle2.putInt("page_type", 1);
-        BaseFragment aKk2 = aKk();
-        aKk2.setArguments(bundle2);
-        this.ecO.add(aKk2);
-        this.cUw = new int[]{0, 1};
-    }
-
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (i >= this.cUw.length || i < 0) {
-            return null;
+        if (z2) {
+            this.epr.setText(u.j.remove_block_chat);
+        } else {
+            this.epr.setText(u.j.block_chat_message);
         }
-        return this.ecO.get(i);
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.cUw.length;
+    public View getView() {
+        return this.mView;
     }
 
-    public int le(int i) {
-        return this.cUw[i];
+    public View aNq() {
+        return this.epq;
+    }
+
+    public View aNr() {
+        return this.epr;
+    }
+
+    public View aNs() {
+        return this.eps;
+    }
+
+    public void od(int i) {
+        this.eps.setVisibility(0);
+        this.ept.setVisibility(0);
+        if (i == 0) {
+            this.eps.setText(this.epu.getPageContext().getResources().getString(u.j.mute));
+        } else if (i == 1) {
+            this.eps.setText(this.epu.getPageContext().getResources().getString(u.j.un_mute));
+        }
     }
 }

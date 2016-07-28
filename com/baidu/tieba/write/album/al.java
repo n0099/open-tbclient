@@ -7,15 +7,15 @@ import com.baidu.tieba.write.view.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-class al implements a.InterfaceC0085a {
-    final /* synthetic */ ag fDY;
+class al implements a.InterfaceC0083a {
+    final /* synthetic */ ag fRl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ag agVar) {
-        this.fDY = agVar;
+        this.fRl = agVar;
     }
 
-    @Override // com.baidu.tieba.write.view.a.InterfaceC0085a
+    @Override // com.baidu.tieba.write.view.a.InterfaceC0083a
     public void a(int i, d dVar) {
         o oVar;
         o oVar2;
@@ -27,13 +27,13 @@ class al implements a.InterfaceC0085a {
         String albumId = dVar.getAlbumId();
         String name = dVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            oVar = this.fDY.fCA;
-            if (!albumId.equals(oVar.bkb())) {
-                oVar2 = this.fDY.fCA;
-                List<ImageFileInfo> bkd = oVar2.bkd();
+            oVar = this.fRl.fPM;
+            if (!albumId.equals(oVar.bnx())) {
+                oVar2 = this.fRl.fPM;
+                List<ImageFileInfo> bnz = oVar2.bnz();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : bkd) {
+                    for (ImageFileInfo imageFileInfo : bnz) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -41,14 +41,14 @@ class al implements a.InterfaceC0085a {
                     z = false;
                 } else {
                     z = true;
-                    list = bkd;
+                    list = bnz;
                 }
-                oVar3 = this.fDY.fCA;
-                oVar3.dd(list);
-                oVar4 = this.fDY.fCA;
-                oVar4.qL(albumId);
-                this.fDY.setData(list, z);
-                textView = this.fDY.Dj;
+                oVar3 = this.fRl.fPM;
+                oVar3.dp(list);
+                oVar4 = this.fRl.fPM;
+                oVar4.rw(albumId);
+                this.fRl.setData(list, z);
+                textView = this.fRl.DK;
                 textView.setText(name);
             }
         }

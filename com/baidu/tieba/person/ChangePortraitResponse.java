@@ -14,7 +14,7 @@ public class ChangePortraitResponse extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
             this.errCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE);
             this.errStr = jSONObject.optString(SocialConstants.PARAM_ERROR_MSG);

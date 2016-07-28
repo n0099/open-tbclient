@@ -1,22 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.u;
 /* loaded from: classes.dex */
-public class ef {
-    public boolean dMr;
-    public boolean dSS;
-    public int dST;
-    public int dSU;
-    public boolean dSV;
-    public boolean isAlive;
-    public boolean isSquence;
-    public int loadType;
-    public com.baidu.tieba.pb.data.h pbData;
-    public String postId;
-    public BdUniqueId tag;
-    public String threadId;
+public class ef extends cs<ds, ed> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ef(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+    }
 
-    public ef(BdUniqueId bdUniqueId) {
-        this.tag = bdUniqueId;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bs */
+    public ed a(ViewGroup viewGroup) {
+        return new ed(this.eat.getPageContext(), LayoutInflater.from(this.mContext).inflate(u.h.pb_page_news, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.cs, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, ds dsVar, ed edVar) {
+        super.a(i, view, viewGroup, (ViewGroup) dsVar, (ds) edVar);
+        if (dsVar != null) {
+            edVar.a(dsVar);
+            edVar.onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
+        }
+        return view;
     }
 }

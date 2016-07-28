@@ -6,15 +6,15 @@ import com.baidu.tieba.tbadkCore.writeModel.a;
 public interface c {
     boolean b(WebView webView, String str);
 
-    void bkV();
+    void bmZ();
 
     void c(a.d dVar);
 
-    void lh(boolean z);
+    void lv(boolean z);
 
     void onDestroy();
 
     void onPageFinished(WebView webView, String str);
 
-    void q(boolean z, String str);
+    void p(boolean z, String str);
 }

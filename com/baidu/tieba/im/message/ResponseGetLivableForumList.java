@@ -87,7 +87,7 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetLivableForumListResIdl getLivableForumListResIdl = (GetLivableForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetLivableForumListResIdl.class);
         setError(getLivableForumListResIdl.error.errorno.intValue());
         setErrorString(getLivableForumListResIdl.error.usermsg);

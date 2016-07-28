@@ -7,11 +7,11 @@ import com.baidu.tieba.pb.pb.sub.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements aw.a {
-    final /* synthetic */ NewSubPbActivity dWP;
+    final /* synthetic */ NewSubPbActivity ejr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(NewSubPbActivity newSubPbActivity) {
-        this.dWP = newSubPbActivity;
+        this.ejr = newSubPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0036, code lost:
@@ -33,34 +33,34 @@ public class ae implements aw.a {
         aw awVar3;
         aw awVar4;
         af afVar5;
-        afVar = this.dWP.dWE;
+        afVar = this.ejr.ejg;
         if (afVar != null) {
-            afVar5 = this.dWP.dWE;
-            afVar5.aIs();
+            afVar5 = this.ejr.ejg;
+            afVar5.aLD();
         }
         if (z) {
-            afVar2 = this.dWP.dWE;
+            afVar2 = this.ejr.ejg;
             afVar2.hideNoDataView();
             if (mVar != null) {
-                if (mVar.aEe() == null) {
-                    awVar4 = this.dWP.dWC;
+                if (mVar.aHp() == null) {
+                    awVar4 = this.ejr.eje;
                 }
-                com.baidu.tieba.tbadkCore.data.s aEe = mVar.aEe();
-                awVar = this.dWP.dWC;
-                aEe.a(awVar.aIV());
-                afVar3 = this.dWP.dWE;
+                com.baidu.tieba.tbadkCore.data.s aHp = mVar.aHp();
+                awVar = this.ejr.eje;
+                aHp.a(awVar.aMg());
+                afVar3 = this.ejr.ejg;
                 if (afVar3 != null) {
-                    afVar4 = this.dWP.dWE;
-                    awVar2 = this.dWP.dWC;
-                    int aDU = awVar2.aDU();
-                    awVar3 = this.dWP.dWC;
-                    afVar4.a(mVar, aDU, awVar3.aIX() != null);
+                    afVar4 = this.ejr.ejg;
+                    awVar2 = this.ejr.eje;
+                    int aHf = awVar2.aHf();
+                    awVar3 = this.ejr.eje;
+                    afVar4.a(mVar, aHf, awVar3.aMi() != null);
                 }
                 com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
                 eVar.setData(mVar);
-                pVar = this.dWP.deA;
+                pVar = this.ejr.dhw;
                 if (pVar != null) {
-                    pVar2 = this.dWP.deA;
+                    pVar2 = this.ejr.dhw;
                     pVar2.a(mVar.getAntiData());
                 }
                 eVar.setType(0);
@@ -69,7 +69,7 @@ public class ae implements aw.a {
             }
             return;
         }
-        this.dWP.showToast(str);
-        this.dWP.M(i, str);
+        this.ejr.showToast(str);
+        this.ejr.L(i, str);
     }
 }

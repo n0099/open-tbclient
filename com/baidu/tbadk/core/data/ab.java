@@ -1,27 +1,26 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.LotteryRegular;
+import tbclient.TwAnchorProfitItem;
+import tbclient.TwZhiBoUser;
 /* loaded from: classes.dex */
 public class ab {
-    private String OH;
-    private List<Integer> OI;
+    private TwZhiBoUser OO;
+    private List<TwAnchorProfitItem> OP;
 
-    public String pu() {
-        return this.OH;
+    public TwZhiBoUser oY() {
+        return this.OO;
     }
 
-    public List<Integer> pv() {
-        return this.OI;
+    public void a(TwZhiBoUser twZhiBoUser) {
+        this.OO = twZhiBoUser;
     }
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.OH = lotteryRegular.regular;
-        this.OI = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.OI.add(lotteryRegular.chance.get(i));
-        }
+    public List<TwAnchorProfitItem> oZ() {
+        return this.OP;
+    }
+
+    public void o(List<TwAnchorProfitItem> list) {
+        this.OP = list;
     }
 }

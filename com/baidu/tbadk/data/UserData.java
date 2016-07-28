@@ -2,6 +2,7 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import java.io.Serializable;
@@ -65,6 +66,7 @@ public class UserData extends MetaData {
     private String position;
     private int posts_num;
     private int sex;
+    private UserTbVipInfoData tbVipInfo;
     private String tb_age;
     private int userType;
     private UserVipInfoData vipInfo;
@@ -262,17 +264,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             k kVar = new k();
-            kVar.fc(getPortraitH());
-            kVar.fd(getPortrait());
-            kVar.bn(true);
+            kVar.fa(getPortraitH());
+            kVar.fb(getPortrait());
+            kVar.bq(true);
             this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         k kVar2 = new k();
-                        kVar2.fc(userPics.big);
-                        kVar2.fd(userPics.small);
-                        kVar2.bn(false);
+                        kVar2.fa(userPics.big);
+                        kVar2.fb(userPics.small);
+                        kVar2.bq(false);
                         this.mPhotoAlbum.add(kVar2);
                     }
                 }
@@ -354,6 +356,9 @@ public class UserData extends MetaData {
             NewParrScores newParrScores = user.parr_scores;
             if (newParrScores != null) {
                 this.mTDouNum = newParrScores.scores_total.longValue();
+                if (getUserId() != null && getUserId().equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
+                    TbadkCoreApplication.m10getInst().currentAccountTdouNum = this.mTDouNum;
+                }
             }
             if (user.tw_anchor_info != null) {
                 this.anchorLevel = user.tw_anchor_info.anchor_level.intValue();
@@ -448,9 +453,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 k kVar = new k();
-                kVar.fc(getPortraitH());
-                kVar.fd(getPortrait());
-                kVar.bn(true);
+                kVar.fa(getPortraitH());
+                kVar.fb(getPortrait());
+                kVar.bq(true);
                 this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -459,9 +464,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             k kVar2 = new k();
-                            kVar2.fc(jSONObject2.optString("big"));
-                            kVar2.fd(jSONObject2.optString("small"));
-                            kVar2.bn(false);
+                            kVar2.fa(jSONObject2.optString("big"));
+                            kVar2.fb(jSONObject2.optString("small"));
+                            kVar2.bq(false);
                             this.mPhotoAlbum.add(kVar2);
                         }
                     }

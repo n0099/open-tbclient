@@ -18,7 +18,7 @@ public class GodThreadListSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GodThreadListResIdl godThreadListResIdl = (GodThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, GodThreadListResIdl.class);
         if (godThreadListResIdl != null) {
             setError(godThreadListResIdl.error.errorno.intValue());

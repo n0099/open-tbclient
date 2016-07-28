@@ -6,15 +6,15 @@ import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
 class d implements NoNetworkView.a {
-    final /* synthetic */ GodThreadListActivity eiG;
+    final /* synthetic */ GodThreadListActivity esK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(GodThreadListActivity godThreadListActivity) {
-        this.eiG = godThreadListActivity;
+        this.esK = godThreadListActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aD(boolean z) {
+    public void aG(boolean z) {
         i iVar;
         h hVar;
         List list;
@@ -25,34 +25,34 @@ class d implements NoNetworkView.a {
         i iVar3;
         h hVar4;
         h hVar5;
-        iVar = this.eiG.eiC;
+        iVar = this.esK.esG;
         if (iVar != null) {
-            hVar = this.eiG.eiB;
+            hVar = this.esK.esF;
             if (hVar != null) {
-                list = this.eiG.eiD;
+                list = this.esK.esH;
                 if (list != null) {
-                    list2 = this.eiG.eiD;
+                    list2 = this.esK.esH;
                     if (list2.isEmpty()) {
                         if (z) {
-                            iVar2 = this.eiG.eiC;
-                            if (!iVar2.DK()) {
-                                iVar3 = this.eiG.eiC;
+                            iVar2 = this.esK.esG;
+                            if (!iVar2.DJ()) {
+                                iVar3 = this.esK.esG;
                                 if (iVar3.hasMore()) {
-                                    hVar4 = this.eiG.eiB;
-                                    hVar4.jB();
-                                    hVar5 = this.eiG.eiB;
-                                    hVar5.aLw();
+                                    hVar4 = this.esK.esF;
+                                    hVar4.jA();
+                                    hVar5 = this.esK.esF;
+                                    hVar5.aNZ();
                                     return;
                                 }
                                 return;
                             }
                             return;
                         }
-                        String string = TbadkCoreApplication.m9getInst().getString(u.j.neterror);
-                        hVar2 = this.eiG.eiB;
-                        hVar2.nK(string);
-                        hVar3 = this.eiG.eiB;
-                        hVar3.aLw();
+                        String string = TbadkCoreApplication.m10getInst().getString(u.j.neterror);
+                        hVar2 = this.esK.esF;
+                        hVar2.ox(string);
+                        hVar3 = this.esK.esF;
+                        hVar3.aNZ();
                     }
                 }
             }

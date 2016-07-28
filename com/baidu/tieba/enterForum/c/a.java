@@ -10,51 +10,51 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class a {
-    private static a btL;
+    private static a bvZ;
     private WindowManager bC;
-    private WindowManager.LayoutParams btI;
-    private ImageView btJ;
-    private boolean btK;
-    private int btM;
-    private boolean btN;
+    private WindowManager.LayoutParams bvW;
+    private ImageView bvX;
+    private boolean bvY;
+    private int bwa;
+    private boolean bwb;
     private int mHeight;
     private int mWidth;
 
-    public static a Sk() {
-        if (btL == null) {
+    public static a SS() {
+        if (bvZ == null) {
             synchronized (a.class) {
-                if (btL == null) {
-                    btL = new a();
+                if (bvZ == null) {
+                    bvZ = new a();
                 }
             }
         }
-        return btL;
+        return bvZ;
     }
 
     private a() {
     }
 
     public void i(Context context, int i) {
-        this.btN = true;
+        this.bwb = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.bC = (WindowManager) context.getSystemService("window");
-        this.btM = i;
+        this.bwa = i;
     }
 
     public void destroy() {
-        this.btN = false;
-        btL = null;
+        this.bwb = false;
+        bvZ = null;
     }
 
-    public boolean Sl() {
-        return this.btK;
+    public boolean ST() {
+        return this.bvY;
     }
 
     public void a(Context context, View view, int i, int i2) {
         if (view != null) {
-            this.btK = true;
+            this.bvY = true;
             view.setPressed(false);
             view.setDrawingCacheEnabled(true);
             Bitmap createBitmap = Bitmap.createBitmap(view.getDrawingCache());
@@ -66,29 +66,29 @@ public class a {
         }
     }
 
-    public void V(int i, int i2) {
-        Sm();
-        W(i, i2);
-        this.bC.updateViewLayout(this.btJ, this.btI);
+    public void W(int i, int i2) {
+        SU();
+        X(i, i2);
+        this.bC.updateViewLayout(this.bvX, this.bvW);
     }
 
-    private void Sm() {
-        if (!this.btN) {
+    private void SU() {
+        if (!this.bwb) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        Sm();
+        SU();
         if (bitmap != null) {
-            W(i, i2);
-            this.btJ = new ImageView(context);
-            this.btJ.setImageBitmap(bitmap);
+            X(i, i2);
+            this.bvX = new ImageView(context);
+            this.bvX.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && p(activity.getWindow().getDecorView())) {
                     try {
-                        this.bC.addView(this.btJ, this.btI);
+                        this.bC.addView(this.bvX, this.bvW);
                     } catch (Exception e) {
                     }
                 }
@@ -111,31 +111,31 @@ public class a {
         return false;
     }
 
-    private void Sn() {
-        this.btI = new WindowManager.LayoutParams();
-        this.btI.format = -3;
-        this.btI.gravity = 51;
-        this.btI.alpha = 1.0f;
-        this.btI.width = -2;
-        this.btI.height = -2;
-        this.btI.flags = 24;
+    private void SV() {
+        this.bvW = new WindowManager.LayoutParams();
+        this.bvW.format = -3;
+        this.bvW.gravity = 51;
+        this.bvW.alpha = 1.0f;
+        this.bvW.width = -2;
+        this.bvW.height = -2;
+        this.bvW.flags = 24;
     }
 
-    private void W(int i, int i2) {
-        if (this.btI == null) {
-            Sn();
+    private void X(int i, int i2) {
+        if (this.bvW == null) {
+            SV();
         }
-        this.btI.x = i - (this.mWidth / 2);
-        this.btI.y = (i2 - (this.mHeight / 2)) - this.btM;
+        this.bvW.x = i - (this.mWidth / 2);
+        this.bvW.y = (i2 - (this.mHeight / 2)) - this.bwa;
     }
 
-    public void So() {
-        if (this.btJ != null) {
+    public void SW() {
+        if (this.bvX != null) {
             if (this.bC != null) {
-                this.bC.removeView(this.btJ);
+                this.bC.removeView(this.bvX);
             }
-            this.btJ = null;
+            this.bvX = null;
         }
-        this.btK = false;
+        this.bvY = false;
     }
 }

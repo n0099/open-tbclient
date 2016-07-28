@@ -8,12 +8,12 @@ import com.baidu.tieba.card.bw;
 import com.baidu.tieba.card.bx;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements bx<com.baidu.tieba.card.a.n> {
-    final /* synthetic */ d crm;
+public class e extends bx<com.baidu.tieba.card.a.n> {
+    final /* synthetic */ d ctW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.crm = dVar;
+        this.ctW = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,45 +31,45 @@ public class e implements bx<com.baidu.tieba.card.a.n> {
         bk bkVar10;
         bk bkVar11;
         bk bkVar12;
-        bw.Lg().cj(true);
+        bw.Lf().cl(true);
         if (view != null) {
-            bkVar = this.crm.crl;
+            bkVar = this.ctW.ctV;
             if (bkVar != null) {
-                bkVar2 = this.crm.crl;
+                bkVar2 = this.ctW.ctV;
                 if (bkVar2.getView() != null) {
-                    bkVar3 = this.crm.crl;
-                    if (bkVar3.aUa != null && nVar != null && nVar.Ix() != null && !StringUtils.isNull(nVar.Ix().getTid())) {
+                    bkVar3 = this.ctW.ctV;
+                    if (bkVar3.aUW != null && nVar != null && nVar.Iw() != null && !StringUtils.isNull(nVar.Iw().getTid())) {
                         int id = view.getId();
-                        bkVar4 = this.crm.crl;
+                        bkVar4 = this.ctW.ctV;
                         if (id != bkVar4.getView().getId()) {
-                            bkVar5 = this.crm.crl;
-                            if (bkVar5.aUa.aUi != null) {
-                                bkVar11 = this.crm.crl;
-                                if (bkVar11.aUa.aUi.getBarNameTv() != null) {
+                            bkVar5 = this.ctW.ctV;
+                            if (bkVar5.aUW.aVe != null) {
+                                bkVar11 = this.ctW.ctV;
+                                if (bkVar11.aUW.aVe.getBarNameTv() != null) {
                                     int id2 = view.getId();
-                                    bkVar12 = this.crm.crl;
-                                    if (id2 == bkVar12.aUa.aUi.getBarNameTv().getId()) {
-                                        TiebaStatic.log(nVar.LE());
+                                    bkVar12 = this.ctW.ctV;
+                                    if (id2 == bkVar12.aUW.aVe.getBarNameTv().getId()) {
+                                        TiebaStatic.log(nVar.LD());
                                         return;
                                     }
                                 }
                             }
-                            bkVar6 = this.crm.crl;
-                            if (bkVar6.aUa.aSY != null) {
+                            bkVar6 = this.ctW.ctV;
+                            if (bkVar6.aUW.aTU != null) {
                                 int id3 = view.getId();
-                                bkVar10 = this.crm.crl;
-                                if (id3 == bkVar10.aUa.aSY.getId()) {
-                                    TiebaStatic.log(nVar.LF());
+                                bkVar10 = this.ctW.ctV;
+                                if (id3 == bkVar10.aUW.aTU.getId()) {
+                                    TiebaStatic.log(nVar.LE());
                                     return;
                                 }
                             }
-                            bkVar7 = this.crm.crl;
-                            if (bkVar7.aUa.aTM != null) {
-                                bkVar8 = this.crm.crl;
-                                if (bkVar8.aUa.aTM.aee != null) {
-                                    bkVar9 = this.crm.crl;
-                                    if (bkVar9.aUa.aTM.aee.getId() == view.getId()) {
-                                        TiebaStatic.log(nVar.LF());
+                            bkVar7 = this.ctW.ctV;
+                            if (bkVar7.aUW.aUI != null) {
+                                bkVar8 = this.ctW.ctV;
+                                if (bkVar8.aUW.aUI.aeS != null) {
+                                    bkVar9 = this.ctW.ctV;
+                                    if (bkVar9.aUW.aUI.aeS.getId() == view.getId()) {
+                                        TiebaStatic.log(nVar.LE());
                                         return;
                                     }
                                     return;
@@ -78,7 +78,7 @@ public class e implements bx<com.baidu.tieba.card.a.n> {
                             }
                             return;
                         }
-                        TiebaStatic.log(nVar.LC());
+                        TiebaStatic.log(nVar.LB());
                     }
                 }
             }

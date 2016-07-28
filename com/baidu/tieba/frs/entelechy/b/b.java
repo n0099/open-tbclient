@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tieba.frs.bq;
-import com.baidu.tieba.frs.i.p;
+import com.baidu.tieba.frs.j.p;
 import com.baidu.tieba.tbadkCore.m;
 /* loaded from: classes.dex */
 public interface b {
@@ -21,11 +21,11 @@ public interface b {
 
     void a(boolean z, d dVar, p pVar, bq bqVar, com.baidu.tieba.tbadkCore.p pVar2);
 
-    void af(View view);
+    void ad(View view);
 
     BannerView at(Context context);
 
     void b(BdTypeListView bdTypeListView, BannerView bannerView);
 
-    boolean hz(int i);
+    boolean hy(int i);
 }

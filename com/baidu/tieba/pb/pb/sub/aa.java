@@ -8,13 +8,13 @@ import com.baidu.tieba.u;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 class aa extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity dWP;
+    final /* synthetic */ NewSubPbActivity ejr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.dWP = newSubPbActivity;
+        this.ejr = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,14 +27,14 @@ class aa extends CustomMessageListener {
         af afVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.dWP.dWN;
+            bdUniqueId = this.ejr.ejp;
             if (tag == bdUniqueId) {
                 com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                afVar = this.dWP.dWE;
-                afVar.aHL();
-                obj = this.dWP.mExtra;
+                afVar = this.ejr.ejg;
+                afVar.aFN();
+                obj = this.ejr.mExtra;
                 SparseArray<Object> sparseArray = (SparseArray) obj;
-                DataRes dataRes = aVar.fAd;
+                DataRes dataRes = aVar.fNb;
                 if (aVar.error == 0 && dataRes != null) {
                     boolean z2 = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0) == 1;
                     sparseArray.put(u.g.tag_user_mute_visible, true);
@@ -47,13 +47,13 @@ class aa extends CustomMessageListener {
                 int intValue = sparseArray.get(u.g.tag_from) instanceof Integer ? ((Integer) sparseArray.get(u.g.tag_from)).intValue() : 0;
                 if (intValue != 0) {
                     if (intValue == 1) {
-                        afVar2 = this.dWP.dWE;
+                        afVar2 = this.ejr.ejg;
                         afVar2.a(sparseArray, z);
                         return;
                     }
                     return;
                 }
-                this.dWP.a(z, sparseArray);
+                this.ejr.a(z, sparseArray);
             }
         }
     }

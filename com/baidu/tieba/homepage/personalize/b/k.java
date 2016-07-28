@@ -7,13 +7,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends CustomMessageListener {
-    final /* synthetic */ g csR;
+    final /* synthetic */ g cvC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(g gVar, int i) {
         super(i);
-        this.csR = gVar;
+        this.cvC = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,23 +25,23 @@ public class k extends CustomMessageListener {
         int i = 0;
         if (customResponsedMessage != null) {
             if (!(customResponsedMessage.getData() instanceof ArrayList)) {
-                this.csR.csN = 0;
-                this.csR.csM = null;
+                this.cvC.cvy = 0;
+                this.cvC.cvx = null;
                 return;
             }
             ArrayList arrayList4 = (ArrayList) customResponsedMessage.getData();
-            arrayList = this.csR.csM;
+            arrayList = this.cvC.cvx;
             if (arrayList == null) {
                 if (arrayList4.size() > 0) {
-                    this.csR.csN = 1;
+                    this.cvC.cvy = 1;
                 } else {
-                    this.csR.csN = 2;
+                    this.cvC.cvy = 2;
                 }
             } else {
                 int size = arrayList4.size();
-                arrayList2 = this.csR.csM;
+                arrayList2 = this.cvC.cvx;
                 if (size != arrayList2.size()) {
-                    this.csR.csN = 1;
+                    this.cvC.cvy = 1;
                 } else {
                     while (true) {
                         int i2 = i;
@@ -49,21 +49,21 @@ public class k extends CustomMessageListener {
                             break;
                         }
                         if (i2 == arrayList4.size()) {
-                            this.csR.csN = 2;
+                            this.cvC.cvy = 2;
                         } else if (StringUtils.isNull((String) arrayList4.get(i2))) {
                             break;
                         } else {
-                            arrayList3 = this.csR.csM;
+                            arrayList3 = this.cvC.cvx;
                             if (!((String) arrayList4.get(i2)).equals(arrayList3.get(i2))) {
                                 break;
                             }
                         }
                         i = i2 + 1;
                     }
-                    this.csR.csN = 1;
+                    this.cvC.cvy = 1;
                 }
             }
-            this.csR.csM = arrayList4;
+            this.cvC.cvx = arrayList4;
         }
     }
 }
