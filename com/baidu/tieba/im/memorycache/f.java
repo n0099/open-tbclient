@@ -6,22 +6,22 @@ import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements a.InterfaceC0064a {
-    final /* synthetic */ b cUZ;
-    private final /* synthetic */ List cVa;
+public class f implements a.InterfaceC0065a {
+    final /* synthetic */ b dgJ;
+    private final /* synthetic */ List dgK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar, List list) {
-        this.cUZ = bVar;
-        this.cVa = list;
+        this.dgJ = bVar;
+        this.dgK = list;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0064a
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0065a
     public void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
             if (next.getCustomGroupType() == 2 && next.getIsFriend() == 1 && next.getIs_hidden() == 0) {
-                this.cVa.add(next);
+                this.dgK.add(next);
             }
         }
     }

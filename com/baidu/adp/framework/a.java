@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a eA;
-    private SparseArray<String> eB;
+    private static volatile a gM;
+    private SparseArray<String> gN;
 
-    public static a am() {
-        if (eA == null) {
+    public static a bh() {
+        if (gM == null) {
             synchronized (a.class) {
-                if (eA == null) {
-                    eA = new a();
+                if (gM == null) {
+                    gM = new a();
                 }
             }
         }
-        return eA;
+        return gM;
     }
 
     private a() {
-        this.eB = null;
-        this.eB = new SparseArray<>();
+        this.gN = null;
+        this.gN = new SparseArray<>();
     }
 
     public void c(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                y(str);
+                z(str);
             }
         }
     }
 
-    private void y(String str) {
+    private void z(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.eB.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.eB.get(i) + " 重复");
+                    if (this.gN.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.gN.get(i) + " 重复");
                     }
-                    this.eB.put(i, name);
+                    this.gN.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String u(int i) {
-        String str = this.eB.get(i);
+    public String H(int i) {
+        String str = this.gN.get(i);
         if (str != null) {
             return str;
         }

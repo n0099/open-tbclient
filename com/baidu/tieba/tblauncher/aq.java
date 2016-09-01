@@ -1,38 +1,47 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.GameCenterActivityConfig;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements View.OnClickListener {
-    final /* synthetic */ ab foX;
+public class aq implements a.b {
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a arh;
+    private final /* synthetic */ int cVm;
+    final /* synthetic */ ac fwR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ab abVar) {
-        this.foX = abVar;
+    public aq(ac acVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
+        this.fwR = acVar;
+        this.arh = aVar;
+        this.cVm = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
         MainTabActivity mainTabActivity3;
-        this.foX.eB(false);
-        imageView = this.foX.csA;
-        imageView.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.sN().putBoolean("game_is_show_tip", false);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP, false));
-        mainTabActivity = this.foX.foM;
-        mainTabActivity2 = this.foX.foM;
-        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameCenterActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        mainTabActivity3 = this.foX.foM;
-        TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "tb_gamecenter", "click", 1, "ref_type", "601");
+        this.arh.dismiss();
+        String str = null;
+        if (this.cVm == 0) {
+            str = "4006001000";
+            mainTabActivity3 = this.fwR.fwG;
+            TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
+        } else if (this.cVm == 1) {
+            str = "4005001000";
+            mainTabActivity = this.fwR.fwG;
+            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
+        }
+        mainTabActivity2 = this.fwR.fwG;
+        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(mainTabActivity2.getPageContext().getPageActivity(), 2);
+        if (!StringUtils.isNULL(str)) {
+            memberPayActivityConfig.setSceneId(str);
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
     }
 }

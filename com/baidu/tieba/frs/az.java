@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.bi;
 import com.baidu.tieba.frs.utils.a;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class az implements bi.a {
     @Override // com.baidu.tbadk.core.util.bi.a
@@ -80,11 +80,11 @@ class az implements bi.a {
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
             return 1;
         } else if (z && !TextUtils.isEmpty(str2)) {
-            com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m10getInst(), a.K(TbadkCoreApplication.m10getInst(), str2));
+            com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m9getInst(), a.L(TbadkCoreApplication.m9getInst(), str2));
             TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10320").s("obj_locate", 2).s("obj_type", 2));
             return 1;
         } else if (z3) {
-            tbPageContext.showToast(u.j.page_not_found);
+            tbPageContext.showToast(t.j.page_not_found);
             return 1;
         } else {
             return 3;

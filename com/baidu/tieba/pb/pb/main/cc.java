@@ -1,31 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cc extends CustomMessageListener {
-    final /* synthetic */ PbActivity ebT;
+public class cc implements a.b {
+    final /* synthetic */ PbActivity eob;
+    private final /* synthetic */ UserMuteAddAndDelCustomMessage eop;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc(PbActivity pbActivity, int i) {
-        super(i);
-        this.ebT = pbActivity;
+    public cc(PbActivity pbActivity, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+        this.eob = pbActivity;
+        this.eop = userMuteAddAndDelCustomMessage;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ew ewVar;
-        ew ewVar2;
-        ew ewVar3;
-        ewVar = this.ebT.ebb;
-        if (ewVar != null) {
-            ewVar2 = this.ebT.ebb;
-            if (ewVar2.aKs() != null) {
-                ewVar3 = this.ebT.ebb;
-                ewVar3.aKs().notifyDataSetChanged();
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        ex exVar;
+        exVar = this.eob.enh;
+        exVar.ayk();
+        MessageManager.getInstance().sendMessage(this.eop);
+        aVar.dismiss();
     }
 }

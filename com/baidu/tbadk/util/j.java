@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class j {
-    public static final boolean FD() {
+    public static final boolean GX() {
         int i = 0;
         Object d = com.baidu.adp.lib.a.a.a.d(Looper.myQueue(), "mMessages");
         if (d == null || !(d instanceof Message)) {

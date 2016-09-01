@@ -26,7 +26,7 @@ public class j {
         if (hVar == null) {
             return false;
         }
-        return h(hVar.getPageActivity());
+        return l(hVar.getPageActivity());
     }
 
     public static final boolean a(Dialog dialog, Activity activity) {
@@ -60,7 +60,7 @@ public class j {
     }
 
     public static final boolean a(PopupWindow popupWindow) {
-        if (popupWindow == null || u(popupWindow.getContentView().getContext()) || !p(popupWindow.getContentView())) {
+        if (popupWindow == null || E(popupWindow.getContentView().getContext()) || !p(popupWindow.getContentView())) {
             return false;
         }
         popupWindow.dismiss();
@@ -69,7 +69,7 @@ public class j {
 
     public static final boolean a(PopupWindow popupWindow, Activity activity) {
         if (popupWindow != null && activity != null) {
-            if (!u(activity) && p(activity.getWindow().getDecorView())) {
+            if (!E(activity) && p(activity.getWindow().getDecorView())) {
                 popupWindow.dismiss();
                 return true;
             }
@@ -79,7 +79,7 @@ public class j {
     }
 
     public static final boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (popupWindow == null || view == null || u(view.getContext()) || !p(view)) {
+        if (popupWindow == null || view == null || E(view.getContext()) || !p(view)) {
             return false;
         }
         try {
@@ -91,7 +91,7 @@ public class j {
     }
 
     public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (popupWindow == null || view == null || u(view.getContext()) || !p(view)) {
+        if (popupWindow == null || view == null || E(view.getContext()) || !p(view)) {
             return false;
         }
         try {
@@ -103,7 +103,7 @@ public class j {
     }
 
     public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (popupWindow == null || view == null || u(view.getContext()) || !p(view)) {
+        if (popupWindow == null || view == null || E(view.getContext()) || !p(view)) {
             return false;
         }
         try {
@@ -114,8 +114,8 @@ public class j {
         }
     }
 
-    public static final boolean h(Activity activity) {
-        if (activity == null || u(activity)) {
+    public static final boolean l(Activity activity) {
+        if (activity == null || E(activity)) {
             return false;
         }
         return p(activity.getWindow().getDecorView()) || !activity.getWindow().isActive();
@@ -136,7 +136,7 @@ public class j {
         return false;
     }
 
-    private static final boolean u(Context context) {
+    private static final boolean E(Context context) {
         if (context instanceof Activity) {
             return ((Activity) context).isFinishing();
         }

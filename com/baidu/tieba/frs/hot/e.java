@@ -2,39 +2,39 @@ package com.baidu.tieba.frs.hot;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.aj;
-import com.baidu.tieba.frs.dm;
-import com.baidu.tieba.frs.dv;
+import com.baidu.tbadk.core.data.ak;
+import com.baidu.tieba.frs.dh;
+import com.baidu.tieba.frs.dq;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d bRc;
+    final /* synthetic */ d ccl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.bRc = dVar;
+        this.ccl = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         int i;
-        aj ajVar;
+        ak akVar;
         ArrayList<v> arrayList;
-        dm dmVar;
+        dh dhVar;
         ArrayList arrayList2;
-        dv dvVar;
-        dm dmVar2;
-        dv dvVar2;
+        dq dqVar;
+        dh dhVar2;
+        dq dqVar2;
         ArrayList<v> arrayList3;
         ArrayList arrayList4;
-        dv dvVar3;
-        dv dvVar4;
-        dv dvVar5;
-        dv dvVar6;
-        dv dvVar7;
+        dq dqVar3;
+        dq dqVar4;
+        dq dqVar5;
+        dq dqVar6;
+        dq dqVar7;
         int i2;
         ArrayList arrayList5;
         ArrayList arrayList6;
@@ -46,72 +46,72 @@ public class e extends com.baidu.adp.framework.listener.a {
             if (responsedMessage instanceof ResponsedFrsHotHttpMessage) {
                 ResponsedFrsHotHttpMessage responsedFrsHotHttpMessage = (ResponsedFrsHotHttpMessage) responsedMessage;
                 arrayList = responsedFrsHotHttpMessage.getThreadList();
-                ajVar = responsedFrsHotHttpMessage.getPage();
+                akVar = responsedFrsHotHttpMessage.getPage();
                 i = responsedFrsHotHttpMessage.getError();
                 str = responsedFrsHotHttpMessage.getErrorString();
             } else if (responsedMessage instanceof ResponsedFrsHotSocketMessage) {
                 ResponsedFrsHotSocketMessage responsedFrsHotSocketMessage = (ResponsedFrsHotSocketMessage) responsedMessage;
                 arrayList = responsedFrsHotSocketMessage.getThreadList();
-                ajVar = responsedFrsHotSocketMessage.getPage();
+                akVar = responsedFrsHotSocketMessage.getPage();
                 i = responsedFrsHotSocketMessage.getError();
                 str = responsedFrsHotSocketMessage.getErrorString();
             } else {
                 i = 0;
-                ajVar = null;
+                akVar = null;
                 arrayList = null;
             }
-            if (ajVar != null) {
+            if (akVar != null) {
                 if (arrayList != null && arrayList.size() != 0) {
-                    int pl = ajVar.pl();
-                    i2 = this.bRc.bQX;
-                    if (pl > i2) {
-                        i3 = this.bRc.bQX;
+                    int qo = akVar.qo();
+                    i2 = this.ccl.ccg;
+                    if (qo > i2) {
+                        i3 = this.ccl.ccg;
                         if (i3 > 0) {
-                            z = this.bRc.bBP;
+                            z = this.ccl.bNs;
                             if (!z) {
-                                arrayList7 = this.bRc.bRa;
+                                arrayList7 = this.ccl.ccj;
                                 arrayList7.addAll(arrayList);
                             }
                         }
                     }
-                    if (ajVar.pl() > 0) {
-                        arrayList5 = this.bRc.bRa;
+                    if (akVar.qo() > 0) {
+                        arrayList5 = this.ccl.ccj;
                         arrayList5.clear();
-                        arrayList6 = this.bRc.bRa;
+                        arrayList6 = this.ccl.ccj;
                         arrayList6.addAll(arrayList);
                     }
                 }
-                dvVar4 = this.bRc.bQZ;
-                dvVar4.errCode = i;
-                dvVar5 = this.bRc.bQZ;
-                dvVar5.errMsg = str;
-                dvVar6 = this.bRc.bQZ;
-                dvVar6.pn = ajVar.pl();
-                dvVar7 = this.bRc.bQZ;
-                dvVar7.hasMore = ajVar.pn() == 1;
-                this.bRc.bQX = ajVar.pl();
+                dqVar4 = this.ccl.cci;
+                dqVar4.errCode = i;
+                dqVar5 = this.ccl.cci;
+                dqVar5.errMsg = str;
+                dqVar6 = this.ccl.cci;
+                dqVar6.pn = akVar.qo();
+                dqVar7 = this.ccl.cci;
+                dqVar7.hasMore = akVar.qq() == 1;
+                this.ccl.ccg = akVar.qo();
             }
-            this.bRc.bBP = false;
-            dmVar = this.bRc.bQY;
-            if (dmVar != null) {
-                arrayList2 = this.bRc.bRa;
+            this.ccl.bNs = false;
+            dhVar = this.ccl.cch;
+            if (dhVar != null) {
+                arrayList2 = this.ccl.ccj;
                 if (arrayList2 != null) {
-                    arrayList4 = this.bRc.bRa;
+                    arrayList4 = this.ccl.ccj;
                     if (arrayList4.size() != 0) {
-                        dvVar3 = this.bRc.bQZ;
-                        dvVar3.bIG = true;
-                        dmVar2 = this.bRc.bQY;
-                        dvVar2 = this.bRc.bQZ;
-                        arrayList3 = this.bRc.bRa;
-                        dmVar2.a(2, 0, dvVar2, arrayList3);
+                        dqVar3 = this.ccl.cci;
+                        dqVar3.bTI = true;
+                        dhVar2 = this.ccl.cch;
+                        dqVar2 = this.ccl.cci;
+                        arrayList3 = this.ccl.ccj;
+                        dhVar2.a(2, 0, dqVar2, arrayList3);
                     }
                 }
-                dvVar = this.bRc.bQZ;
-                dvVar.bIG = false;
-                dmVar2 = this.bRc.bQY;
-                dvVar2 = this.bRc.bQZ;
-                arrayList3 = this.bRc.bRa;
-                dmVar2.a(2, 0, dvVar2, arrayList3);
+                dqVar = this.ccl.cci;
+                dqVar.bTI = false;
+                dhVar2 = this.ccl.cch;
+                dqVar2 = this.ccl.cci;
+                arrayList3 = this.ccl.ccj;
+                dhVar2.a(2, 0, dqVar2, arrayList3);
             }
         }
     }

@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as gbI;
+    final /* synthetic */ as glO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.gbI = asVar;
+        this.glO = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.gbI.a = asInterface.getPackageName();
-            this.gbI.b = asInterface.getActivityName();
-            if (!this.gbI.startSingleSignOn()) {
-                this.gbI.startAuthDialog();
+            this.glO.a = asInterface.getPackageName();
+            this.glO.b = asInterface.getActivityName();
+            if (!this.glO.startSingleSignOn()) {
+                this.glO.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.gbI.startAuthDialog();
+            this.glO.startAuthDialog();
         } finally {
-            Context applicationContext = this.gbI.mActivity.getApplicationContext();
-            serviceConnection = this.gbI.gbH;
+            Context applicationContext = this.glO.mActivity.getApplicationContext();
+            serviceConnection = this.glO.glN;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.gbI.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.glO.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.gbI.startAuthDialog();
+            this.glO.startAuthDialog();
         }
     }
 }

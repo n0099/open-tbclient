@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class GuessYourLikeHeaderView extends LinearLayout {
-    private View fOa;
-    private TextView fOb;
-    private View fOc;
+    private View fWa;
+    private TextView fWb;
+    private View fWc;
 
     public GuessYourLikeHeaderView(Context context) {
         super(context);
@@ -31,52 +31,52 @@ public class GuessYourLikeHeaderView extends LinearLayout {
     }
 
     private void init() {
-        LayoutInflater.from(getContext()).inflate(u.h.guess_your_like_header, (ViewGroup) this, true);
-        this.fOa = findViewById(u.g.guess_your_like_top_line);
-        this.fOb = (TextView) findViewById(u.g.guess_your_like_title);
-        this.fOc = findViewById(u.g.guess_your_like_divider);
+        LayoutInflater.from(getContext()).inflate(t.h.guess_your_like_header, (ViewGroup) this, true);
+        this.fWa = findViewById(t.g.guess_your_like_top_line);
+        this.fWb = (TextView) findViewById(t.g.guess_your_like_title);
+        this.fWc = findViewById(t.g.guess_your_like_divider);
     }
 
-    public void sd() {
-        av.l(this, u.d.cp_bg_line_d);
-        av.l(this.fOa, u.d.cp_bg_line_c);
-        av.j((View) this.fOb, u.d.cp_cont_d);
-        av.l(this.fOc, u.d.cp_bg_line_b);
+    public void ti() {
+        av.l(this, t.d.cp_bg_line_d);
+        av.l(this.fWa, t.d.cp_bg_line_c);
+        av.j((View) this.fWb, t.d.cp_cont_d);
+        av.l(this.fWc, t.d.cp_bg_line_b);
     }
 
     public void setTitleText(String str) {
-        this.fOb.setText(str);
+        this.fWb.setText(str);
     }
 
     public void hide() {
-        bmC();
-        if (this.fOb.getVisibility() != 8) {
-            this.fOb.setVisibility(8);
+        bqn();
+        if (this.fWb.getVisibility() != 8) {
+            this.fWb.setVisibility(8);
         }
-        if (this.fOc.getVisibility() != 8) {
-            this.fOc.setVisibility(8);
+        if (this.fWc.getVisibility() != 8) {
+            this.fWc.setVisibility(8);
         }
     }
 
     public void show() {
-        bmD();
-        if (this.fOb.getVisibility() != 0) {
-            this.fOb.setVisibility(0);
+        bqo();
+        if (this.fWb.getVisibility() != 0) {
+            this.fWb.setVisibility(0);
         }
-        if (this.fOc.getVisibility() != 0) {
-            this.fOc.setVisibility(0);
-        }
-    }
-
-    public void bmC() {
-        if (this.fOa.getVisibility() != 8) {
-            this.fOa.setVisibility(8);
+        if (this.fWc.getVisibility() != 0) {
+            this.fWc.setVisibility(0);
         }
     }
 
-    public void bmD() {
-        if (this.fOa.getVisibility() != 0) {
-            this.fOa.setVisibility(0);
+    public void bqn() {
+        if (this.fWa.getVisibility() != 8) {
+            this.fWa.setVisibility(8);
+        }
+    }
+
+    public void bqo() {
+        if (this.fWa.getVisibility() != 0) {
+            this.fWa.setVisibility(0);
         }
     }
 }

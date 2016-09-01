@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class MemberPayActivityConfig extends IntentConfig {
     public static final String FROM = "from";
+    public static final int FROM_AVATAR_PENDANT_LIST = 22;
     public static final int FROM_BACKGROUND_DETAIL_DIALOG = 14;
     public static final int FROM_BACKGROUND_ITEM_DIALOG = 13;
     public static final int FROM_BACKGROUND_LIST_PAGE = 12;

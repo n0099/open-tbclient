@@ -4,18 +4,18 @@ public interface f {
 
     /* loaded from: classes.dex */
     public interface a extends f {
-        void cA();
-
-        void cB();
-
         String d(h<?> hVar);
+
+        void dv();
+
+        void dw();
     }
 
     /* loaded from: classes.dex */
     public interface b extends f {
-        void cC();
+        void dx();
 
-        void cD();
+        void dy();
 
         String e(h<?> hVar);
 
@@ -24,7 +24,7 @@ public interface f {
         void release();
     }
 
-    boolean cz();
+    boolean du();
 
     int getMaxSize();
 }

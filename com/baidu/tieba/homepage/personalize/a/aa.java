@@ -1,26 +1,26 @@
 package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
-import com.baidu.tieba.homepage.personalize.a.y;
+import com.baidu.tieba.homepage.personalize.a.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnClickListener {
-    final /* synthetic */ y.a cuJ;
+    final /* synthetic */ x.a cGn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(y.a aVar) {
-        this.cuJ = aVar;
+    public aa(x.a aVar) {
+        this.cGn = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.homepage.personalize.data.j jVar;
         com.baidu.tieba.homepage.personalize.data.j jVar2;
-        jVar = this.cuJ.cuE;
+        jVar = this.cGn.cGi;
         if (jVar != null) {
-            y.a aVar = this.cuJ;
-            jVar2 = this.cuJ.cuE;
-            aVar.a(jVar2.cvm, view, 1);
+            x.a aVar = this.cGn;
+            jVar2 = this.cGn.cGi;
+            aVar.a(jVar2.cGR, view, 2);
         }
     }
 }

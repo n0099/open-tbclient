@@ -1,21 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
-class h implements View.OnTouchListener {
-    final /* synthetic */ FrsActivity bEL;
+class h extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bQp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(FrsActivity frsActivity) {
-        this.bEL = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bQp = frsActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tieba.d.c cVar;
-        cVar = this.bEL.bEe;
-        cVar.onTouchEvent(motionEvent);
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
+            return;
+        }
+        this.bQp.a((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

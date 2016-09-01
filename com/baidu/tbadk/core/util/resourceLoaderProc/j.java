@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
 /* loaded from: classes.dex */
 public class j extends a {
-    private int Yd;
+    private int aaR;
 
     public j(int i) {
-        this.Yd = i;
+        this.aaR = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -27,33 +27,33 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
+    public boolean vM() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uI() {
+    public boolean vN() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
-        String str3 = String.valueOf(str) + (TbadkCoreApplication.m10getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a fQ = com.baidu.tbadk.imageManager.c.CP().fQ(str3);
-        if (fQ == null) {
-            Bitmap cA = av.cA(com.baidu.adp.lib.h.b.g(str2, 0));
-            if (cA == null) {
+        String str3 = String.valueOf(str) + (TbadkCoreApplication.m9getInst().getSkinType() == 1 ? "_1" : "");
+        com.baidu.adp.widget.a.a fT = com.baidu.tbadk.imageManager.c.Ek().fT(str3);
+        if (fT == null) {
+            Bitmap cN = av.cN(com.baidu.adp.lib.h.b.g(str2, 0));
+            if (cN == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cA, false, str2);
-            com.baidu.tbadk.imageManager.c.CP().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cN, false, str2);
+            com.baidu.tbadk.imageManager.c.Ek().c(str3, aVar);
             return aVar;
         }
-        return fQ;
+        return fT;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
-        return this.Yd;
+    public int vO() {
+        return this.aaR;
     }
 }

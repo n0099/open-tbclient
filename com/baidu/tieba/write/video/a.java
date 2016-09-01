@@ -2,45 +2,45 @@ package com.baidu.tieba.write.video;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.location.d;
-import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements d.a {
-    final /* synthetic */ WriteLocationView fRZ;
+    final /* synthetic */ WriteLocationView gce;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WriteLocationView writeLocationView) {
-        this.fRZ = writeLocationView;
+        this.gce = writeLocationView;
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void Cl() {
+    public void DG() {
         BaseActivity baseActivity;
-        baseActivity = this.fRZ.bsn;
-        baseActivity.showToast(u.j.no_network_guide);
-        this.fRZ.c(0, true, null);
+        baseActivity = this.gce.bDA;
+        baseActivity.showToast(t.j.no_network_guide);
+        this.gce.c(0, true, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void fD(String str) {
+    public void fG(String str) {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        baseActivity = this.fRZ.bsn;
+        baseActivity = this.gce.bDA;
         if (StringUtils.isNull(str)) {
-            baseActivity2 = this.fRZ.bsn;
-            str = baseActivity2.getResources().getString(u.j.location_fail);
+            baseActivity2 = this.gce.bDA;
+            str = baseActivity2.getResources().getString(t.j.location_fail);
         }
         baseActivity.showToast(str);
-        this.fRZ.c(0, true, null);
+        this.gce.c(0, true, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
     public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
         if (aVar == null || StringUtils.isNull(aVar.getFormatted_address())) {
-            fD(null);
+            fG(null);
         } else {
-            this.fRZ.c(2, true, aVar.getFormatted_address());
+            this.gce.c(2, true, aVar.getFormatted_address());
         }
     }
 }

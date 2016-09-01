@@ -5,13 +5,13 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.util.g<Boolean> {
-    private final /* synthetic */ ChatMessage cWb;
-    final /* synthetic */ e dfG;
+    private final /* synthetic */ ChatMessage dhL;
+    final /* synthetic */ e drn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar, ChatMessage chatMessage) {
-        this.dfG = eVar;
-        this.cWb = chatMessage;
+        this.drn = eVar;
+        this.dhL = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,14 +25,14 @@ public class g implements com.baidu.tbadk.util.g<Boolean> {
         PersonalMsglistModel personalMsglistModel4;
         MsgPageData msgPageData2;
         if (bool != null && bool.booleanValue()) {
-            personalMsglistModel = this.dfG.dfF;
+            personalMsglistModel = this.drn.drm;
             msgPageData = personalMsglistModel.mDatas;
-            msgPageData.getChatMessages().add(this.cWb);
-            personalMsglistModel2 = this.dfG.dfF;
+            msgPageData.getChatMessages().add(this.dhL);
+            personalMsglistModel2 = this.drn.drm;
             personalMsglistModel2.mLoadDataMode = 14;
-            personalMsglistModel3 = this.dfG.dfF;
+            personalMsglistModel3 = this.drn.drm;
             gVar = personalMsglistModel3.mLoadDataCallBack;
-            personalMsglistModel4 = this.dfG.dfF;
+            personalMsglistModel4 = this.drn.drm;
             msgPageData2 = personalMsglistModel4.mDatas;
             gVar.g(msgPageData2);
         }

@@ -1,34 +1,30 @@
 package com.baidu.tieba.homepage.personalize;
 
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnTouchListener {
-    final /* synthetic */ b ctz;
+public class o extends com.baidu.tbadk.util.t<Object> {
+    private final /* synthetic */ int VV;
+    final /* synthetic */ b this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(b bVar) {
-        this.ctz = bVar;
+    public o(b bVar, int i) {
+        this.this$0 = bVar;
+        this.VV = i;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        View.OnTouchListener onTouchListener;
-        com.baidu.tieba.d.a aVar;
-        com.baidu.tieba.d.a aVar2;
-        View.OnTouchListener onTouchListener2;
-        onTouchListener = this.ctz.ctf;
-        if (onTouchListener != null) {
-            onTouchListener2 = this.ctz.ctf;
-            onTouchListener2.onTouch(view, motionEvent);
+    @Override // com.baidu.tbadk.util.t
+    public Object doInBackground() {
+        String str;
+        String str2;
+        com.baidu.tbadk.core.b.a sT = com.baidu.tbadk.core.b.a.sT();
+        str = this.this$0.cEZ;
+        com.baidu.adp.lib.cache.o<String> N = sT.N(str, TbadkCoreApplication.getCurrentAccount());
+        if (N != null) {
+            str2 = this.this$0.cEZ;
+            N.a(str2, Integer.toString(this.VV), 43200000L);
+            return null;
         }
-        aVar = this.ctz.aLl;
-        if (aVar != null) {
-            aVar2 = this.ctz.aLl;
-            aVar2.onTouchEvent(motionEvent);
-            return false;
-        }
-        return false;
+        return null;
     }
 }

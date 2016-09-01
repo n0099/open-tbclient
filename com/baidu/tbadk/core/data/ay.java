@@ -1,57 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class ay extends be {
-    public static final BdUniqueId Qp = BdUniqueId.gen();
-    private PhotoLiveCardData Qq;
+public class ay {
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public PhotoLiveCardData b(be beVar, int i) {
-        if (this.Qq == null) {
-            if (beVar == null) {
-                return null;
-            }
-            this.Qq = new PhotoLiveCardData();
-            MetaData author = beVar.getAuthor();
-            if (author != null) {
-                this.Qq.setAuthorName(author.getUserName());
-                this.Qq.setAuthorPortrait(author.getPortrait());
-                this.Qq.setFansNum(author.getFansNum());
-                this.Qq.setNickName(author.getFansNickName());
-                this.Qq.setAuthorId(author.getUserId());
-                this.Qq.setGodInfo(author.getGodInfo());
-            }
-            PraiseData qp = beVar.qp();
-            if (qp != null) {
-                this.Qq.setPraiseNum((int) qp.getNum());
-            }
-            this.Qq.setDiscussNum(beVar.qr());
-            this.Qq.setPostNum(beVar.getPost_num());
-            this.Qq.setTitle(beVar.getTitle());
-            this.Qq.setLastModifiedTime(beVar.qs());
-            this.Qq.setPhotoLiveCover(beVar.getPhotoLiveCover());
-            this.Qq.setContent(beVar.qD());
-            this.Qq.setThreadId(com.baidu.adp.lib.h.b.c(beVar.getTid(), 0L));
-            this.Qq.setHeadlive(beVar.isHeadLive());
-            this.Qq.setExpressionDatas(beVar.qN());
-            if (this.Qq.getShowStyle() < 0) {
-                this.Qq.setShowStyle(this.Qq.getRandom(3, i));
-            }
-            this.Qq.setShowExpressionViewIndexList(this.Qq.getExpressionDatas());
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
         }
-        cr(beVar.getTid());
-        setId(beVar.getId());
-        setThreadType(beVar.getThreadType());
-        setForum_name(beVar.getForum_name());
-        return this.Qq;
     }
 
-    public PhotoLiveCardData pV() {
-        return this.Qq;
+    public String getUid() {
+        return this.uid;
     }
 
-    @Override // com.baidu.tbadk.core.data.be, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Qp;
+    public String getUname() {
+        return this.uname;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public String qS() {
+        return this.institute;
+    }
+
+    public int getIsLike() {
+        return this.isLike;
     }
 }

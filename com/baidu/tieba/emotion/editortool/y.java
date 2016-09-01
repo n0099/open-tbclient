@@ -4,15 +4,15 @@ import com.baidu.tbadk.editortools.emotiontool.a;
 import com.baidu.tieba.emotion.editortool.x;
 /* loaded from: classes.dex */
 class y implements a.InterfaceC0041a {
-    final /* synthetic */ x.a buv;
+    final /* synthetic */ x.a bFI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x.a aVar) {
-        this.buv = aVar;
+        this.bFI = aVar;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0041a
     public void a(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.buv.bus.add(cVar);
+        this.bFI.bFF.add(cVar);
     }
 }

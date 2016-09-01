@@ -1,24 +1,17 @@
 package com.baidu.tieba.recapp;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-public class b {
-    public static boolean c(Context context, Uri uri) {
-        Intent intent = new Intent();
-        intent.setData(uri);
-        try {
-            if (context.getPackageManager().resolveActivity(intent, 65536) == null) {
-                return false;
-            }
-        } catch (Exception e) {
-        }
-        try {
-            context.startActivity(intent);
-            return true;
-        } catch (Exception e2) {
-            return false;
-        }
-    }
+public interface b {
+    void a(com.baidu.tbadk.core.data.b bVar, String str);
+
+    void aaK();
+
+    String aaL();
+
+    void b(com.baidu.tbadk.core.data.b bVar, String str);
+
+    BaseActivity<?> getContext();
+
+    int getPageNum();
 }

@@ -6,16 +6,16 @@ import com.baidu.tbadk.coreExtra.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements j.a {
-    final /* synthetic */ SapiFastRegActivity dUT;
+    final /* synthetic */ SapiFastRegActivity egZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(SapiFastRegActivity sapiFastRegActivity) {
-        this.dUT = sapiFastRegActivity;
+        this.egZ = sapiFastRegActivity;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
-    public void i(AccountData accountData) {
-        this.dUT.dUR = RegisterActivityConfig.REGIST_USER;
-        this.dUT.q(accountData);
+    public void j(AccountData accountData) {
+        this.egZ.egX = RegisterActivityConfig.REGIST_USER;
+        this.egZ.r(accountData);
     }
 }

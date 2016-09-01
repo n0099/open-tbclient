@@ -5,17 +5,17 @@ import com.baidu.adp.plugin.packageManager.b;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 /* loaded from: classes.dex */
 class c implements com.baidu.adp.plugin.packageManager.pluginSettings.f {
-    final /* synthetic */ b.a vf;
-    private final /* synthetic */ Message vg;
+    final /* synthetic */ b.a xr;
+    private final /* synthetic */ Message xs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b.a aVar, Message message) {
-        this.vf = aVar;
-        this.vg = message;
+        this.xr = aVar;
+        this.xs = message;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginSettings.f
     public void a(PluginSettings pluginSettings) {
-        this.vg.obj = pluginSettings;
+        this.xs.obj = pluginSettings;
     }
 }

@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.p;
+import com.baidu.tbadk.coreExtra.data.s;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.writeModel.a;
-import com.baidu.tieba.u;
+import com.baidu.tieba.tbadkCore.writeModel.b;
 import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements a.d {
-    final /* synthetic */ d fRQ;
+public class f implements b.d {
+    final /* synthetic */ d gbV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.fRQ = dVar;
+        this.gbV = dVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, p pVar, WriteData writeData, AntiData antiData) {
+    @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, s sVar, WriteData writeData, AntiData antiData) {
         NewVcodeView newVcodeView;
         NewVcodeView newVcodeView2;
         NewVcodeView newVcodeView3;
@@ -43,51 +43,51 @@ public class f implements a.d {
         NewVcodeView newVcodeView14;
         NewVcodeView newVcodeView15;
         NewVcodeView newVcodeView16;
-        newVcodeView = this.fRQ.fRJ;
+        newVcodeView = this.gbV.gbO;
         newVcodeView.showPostThreadLoadingView(false);
-        newVcodeView2 = this.fRQ.fRJ;
+        newVcodeView2 = this.gbV.gbO;
         if (newVcodeView2 != null) {
             if (z) {
                 if (writeData != null && writeData.getVideoReviewType() == 1) {
-                    newVcodeView15 = this.fRQ.fRJ;
-                    newVcodeView16 = this.fRQ.fRJ;
-                    newVcodeView15.showToast(true, newVcodeView16.getContext().getResources().getString(u.j.video_send_success_under_review));
+                    newVcodeView15 = this.gbV.gbO;
+                    newVcodeView16 = this.gbV.gbO;
+                    newVcodeView15.showToast(true, newVcodeView16.getContext().getResources().getString(t.j.video_send_success_under_review));
                 } else if (writeData == null || writeData.getVideoReviewType() != 2) {
-                    newVcodeView8 = this.fRQ.fRJ;
-                    newVcodeView9 = this.fRQ.fRJ;
-                    newVcodeView8.showToast(true, newVcodeView9.getContext().getResources().getString(u.j.send_success));
+                    newVcodeView8 = this.gbV.gbO;
+                    newVcodeView9 = this.gbV.gbO;
+                    newVcodeView8.showToast(true, newVcodeView9.getContext().getResources().getString(t.j.send_success));
                 } else {
-                    newVcodeView10 = this.fRQ.fRJ;
-                    newVcodeView11 = this.fRQ.fRJ;
-                    newVcodeView10.showToast(true, newVcodeView11.getContext().getResources().getString(u.j.video_send_success));
+                    newVcodeView10 = this.gbV.gbO;
+                    newVcodeView11 = this.gbV.gbO;
+                    newVcodeView10.showToast(true, newVcodeView11.getContext().getResources().getString(t.j.video_send_success));
                 }
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                 intent.putExtras(bundle);
-                newVcodeView12 = this.fRQ.fRJ;
+                newVcodeView12 = this.gbV.gbO;
                 BaseActivity context = newVcodeView12.getContext();
-                newVcodeView13 = this.fRQ.fRJ;
+                newVcodeView13 = this.gbV.gbO;
                 newVcodeView13.getContext();
                 context.setResult(-1, intent);
-                newVcodeView14 = this.fRQ.fRJ;
+                newVcodeView14 = this.gbV.gbO;
                 newVcodeView14.getContext().finish();
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                newVcodeView6 = this.fRQ.fRJ;
+                newVcodeView6 = this.gbV.gbO;
                 newVcodeView6.getContext().setVisible(false);
                 MessageManager messageManager = MessageManager.getInstance();
-                newVcodeView7 = this.fRQ.fRJ;
+                newVcodeView7 = this.gbV.gbO;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(newVcodeView7.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
             } else if (postWriteCallBackData != null) {
                 if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                    newVcodeView4 = this.fRQ.fRJ;
-                    newVcodeView5 = this.fRQ.fRJ;
-                    newVcodeView4.showToast(false, newVcodeView5.getContext().getResources().getString(u.j.input_vcode_error));
+                    newVcodeView4 = this.gbV.gbO;
+                    newVcodeView5 = this.gbV.gbO;
+                    newVcodeView4.showToast(false, newVcodeView5.getContext().getResources().getString(t.j.input_vcode_error));
                 } else {
-                    newVcodeView3 = this.fRQ.fRJ;
+                    newVcodeView3 = this.gbV.gbO;
                     newVcodeView3.showToast(false, postWriteCallBackData.getErrorString());
                 }
-                this.fRQ.afX();
+                this.gbV.akI();
             }
         }
     }

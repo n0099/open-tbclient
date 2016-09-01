@@ -5,11 +5,11 @@ import android.hardware.SensorManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Runnable {
-    final /* synthetic */ f GR;
+    final /* synthetic */ f Jf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.GR = fVar;
+        this.Jf = fVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,12 +18,12 @@ public class k implements Runnable {
         SensorManager sensorManager2;
         SensorManager sensorManager3;
         f fVar;
-        sensorManager = this.GR.GB;
+        sensorManager = this.Jf.IO;
         if (sensorManager != null) {
-            sensorManager2 = this.GR.GB;
+            sensorManager2 = this.Jf.IO;
             Sensor defaultSensor = sensorManager2.getDefaultSensor(6);
-            sensorManager3 = this.GR.GB;
-            fVar = f.GC;
+            sensorManager3 = this.Jf.IO;
+            fVar = f.IP;
             sensorManager3.unregisterListener(fVar, defaultSensor);
         }
     }

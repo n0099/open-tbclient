@@ -4,29 +4,29 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.writeModel.a;
+import com.baidu.tieba.tbadkCore.writeModel.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements a.d {
-    final /* synthetic */ az dhD;
+public class be implements b.d {
+    final /* synthetic */ az dti;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(az azVar) {
-        this.dhD = azVar;
+        this.dti = azVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.p pVar, WriteData writeData, AntiData antiData) {
-        com.baidu.tbadk.editortools.d.p pVar2;
+    @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.s sVar, WriteData writeData, AntiData antiData) {
+        com.baidu.tbadk.editortools.d.p pVar;
         bf bfVar;
         bf bfVar2;
-        this.dhD.dgz.hideProgressBar();
-        pVar2 = this.dhD.dhw;
-        pVar2.Bl().hide();
-        bfVar = this.dhD.dgI;
-        bfVar.auv();
-        if (postWriteCallBackData != null && pVar == null && !AntiHelper.rg(postWriteCallBackData.getErrorCode())) {
-            bfVar2 = this.dhD.dgI;
+        this.dti.dsf.hideProgressBar();
+        pVar = this.dti.dtc;
+        pVar.CG().hide();
+        bfVar = this.dti.dso;
+        bfVar.azi();
+        if (postWriteCallBackData != null && sVar == null && !AntiHelper.rG(postWriteCallBackData.getErrorCode())) {
+            bfVar2 = this.dti.dso;
             bfVar2.showToast(postWriteCallBackData.getErrorString());
         }
     }

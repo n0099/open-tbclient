@@ -1,40 +1,41 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import android.content.Context;
 /* loaded from: classes.dex */
 public class e {
-    private d agT;
-    private boolean hZ;
-    private int mErrorCode;
-    private String mErrorString;
+    private final int ajO;
+    private final int ajP;
+    private final boolean ajQ;
+    private final Context mContext;
 
-    public d wx() {
-        return this.agT;
+    public e(Context context, int i, int i2, boolean z) {
+        this.mContext = context;
+        this.ajO = i;
+        this.ajP = i2;
+        this.ajQ = z;
     }
 
-    public void b(d dVar) {
-        this.agT = dVar;
+    public e(Context context, int i, int i2) {
+        this(context, i, i2, false);
     }
 
-    public boolean isSuccess() {
-        return this.hZ;
+    public Context getContext() {
+        return this.mContext;
     }
 
-    public void aw(boolean z) {
-        this.hZ = z;
+    public int xC() {
+        return this.ajO;
     }
 
-    public int getErrorCode() {
-        return this.mErrorCode;
+    public int xD() {
+        return this.ajP;
     }
 
-    public void setErrorCode(int i) {
-        this.mErrorCode = i;
+    public boolean xE() {
+        return this.ajQ;
     }
 
-    public String getErrorString() {
-        return this.mErrorString;
-    }
-
-    public void setErrorString(String str) {
-        this.mErrorString = str;
+    public boolean isAvailable() {
+        return this.mContext != null && this.ajO > 0 && this.ajP > 0;
     }
 }

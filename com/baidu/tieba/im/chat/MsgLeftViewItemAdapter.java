@@ -15,36 +15,36 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void eT(boolean z) {
+    public void fp(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: az */
     public ap.a<MsgleftView> a(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.EA);
-        return new a(msgleftView.ac(), msgleftView);
+        MsgleftView msgleftView = new MsgleftView(this.GM);
+        return new a(msgleftView.aX(), msgleftView);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        MsgleftView alo = aVar.alo();
-        alo.kw(this.cHN);
-        alo.eT(this.mNeedShowName);
+        MsgleftView aqd = aVar.aqd();
+        aqd.kZ(this.cTt);
+        aqd.fp(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        alo.a(this.cHE);
-        alo.setOnItemViewLongClickListener(this.cHF);
-        alo.setPosition(i);
-        alo.bt(this.mCurrentTime);
-        alo.bs(chatMessage.getCacheData().getLastMsgTime());
-        alo.a(viewGroup, chatMessage);
-        alo.b(viewGroup, chatMessage);
-        this.EA.getLayoutMode().af(false);
-        this.EA.getLayoutMode().w(view);
+        aqd.a(this.cTk);
+        aqd.setOnItemViewLongClickListener(this.cTl);
+        aqd.setPosition(i);
+        aqd.bP(this.mCurrentTime);
+        aqd.bO(chatMessage.getCacheData().getLastMsgTime());
+        aqd.a(viewGroup, chatMessage);
+        aqd.b(viewGroup, chatMessage);
+        this.GM.getLayoutMode().ah(false);
+        this.GM.getLayoutMode().x(view);
         return view;
     }
 

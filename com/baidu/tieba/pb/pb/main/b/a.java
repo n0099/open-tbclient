@@ -8,11 +8,11 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TextView eiQ;
-    private RadioButton eiR;
+    private TextView euX;
+    private RadioButton euY;
     private Context mContext;
 
     public a(Context context) {
@@ -22,52 +22,52 @@ public class a extends RelativeLayout {
     }
 
     private void init() {
-        LayoutInflater.from(this.mContext).inflate(u.h.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.eiQ = (TextView) findViewById(u.g.custom_check_radio_button_tv);
-        this.eiR = (RadioButton) findViewById(u.g.custom_check_radio_button_rb);
-        aLm();
+        LayoutInflater.from(this.mContext).inflate(t.h.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
+        this.euX = (TextView) findViewById(t.g.custom_check_radio_button_tv);
+        this.euY = (RadioButton) findViewById(t.g.custom_check_radio_button_rb);
+        aQd();
         setOnClickListener(new b(this));
     }
 
-    public void aLm() {
-        if (this.eiQ != null) {
-            av.a(this.eiQ, "cp_link_tip_a");
+    public void aQd() {
+        if (this.euX != null) {
+            av.a(this.euX, "cp_link_tip_a");
         }
     }
 
     public TextView getTv() {
-        return this.eiQ;
+        return this.euX;
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.eiR != null) {
-            this.eiR.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.euY != null) {
+            this.euY.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public RadioButton getRb() {
-        return this.eiR;
+        return this.euY;
     }
 
     public void setText(String str) {
-        if (this.eiQ != null) {
-            this.eiQ.setText(str);
+        if (this.euX != null) {
+            this.euX.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.eiR != null) {
-            this.eiR.setTag(obj);
+        if (this.euY != null) {
+            this.euY.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.eiR.getTag();
+        return this.euY.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.eiR.setChecked(z);
+        this.euY.setChecked(z);
     }
 }

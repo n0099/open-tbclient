@@ -1,132 +1,129 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
+import org.json.JSONObject;
 import tbclient.GraffitiRankItem;
-import tbclient.GraffitiRankListInfo;
-import tbclient.User;
 /* loaded from: classes.dex */
-public class aa extends com.baidu.tieba.tbadkCore.data.s {
-    public static final BdUniqueId OB = BdUniqueId.gen();
-    private int OC;
-    private int OD;
-    private List<UserData> OF;
-    private int OG;
-    private int OH;
-    private boolean OI;
-    private int OM;
-    private String mForumId;
-    private String mThreadId;
-    private boolean OJ = false;
-    private boolean OL = false;
-    private List<z> OE = new ArrayList();
+public class aa {
+    private long Rk;
+    private int Rl;
+    private String Rm;
+    private int Rn;
+    private long gid;
+    private String picId;
+    private int type = 1;
+    private long uid;
+    private String url;
 
-    public List<UserData> oS() {
-        return this.OF;
+    public long getGid() {
+        return this.gid;
     }
 
-    public void setThreadId(String str) {
-        this.mThreadId = str;
+    public void setGid(long j) {
+        this.gid = j;
     }
 
-    public String getForumId() {
-        return this.mForumId;
+    public long pP() {
+        return this.Rk;
     }
 
-    public void setForumId(String str) {
-        this.mForumId = str;
+    public void o(long j) {
+        this.Rk = j;
     }
 
-    public String getThreadId() {
-        return this.mThreadId;
+    public int pQ() {
+        return this.Rl;
     }
 
-    public List<z> getItems() {
-        return this.OE;
+    public void bH(int i) {
+        this.Rl = i;
     }
 
-    public void n(List<z> list) {
-        this.OE = list;
+    public String getUrl() {
+        return this.url;
     }
 
-    public int oT() {
-        return this.OG;
+    public void setUrl(String str) {
+        this.url = str;
     }
 
-    public int oU() {
-        return this.OH;
+    public long getUid() {
+        return this.uid;
     }
 
-    public boolean oV() {
-        return this.OI;
+    public void setUid(long j) {
+        this.uid = j;
     }
 
-    public void ak(boolean z) {
-        this.OI = z;
+    public String getPicId() {
+        return this.picId;
     }
 
-    public int getRole() {
-        return this.OM;
+    public void setPicId(String str) {
+        this.picId = str;
     }
 
-    public void bw(int i) {
-        this.OM = i;
+    public int pR() {
+        return this.Rn;
     }
 
-    public boolean oW() {
-        return this.OJ;
+    public void bI(int i) {
+        this.Rn = i;
     }
 
-    public void al(boolean z) {
-        this.OJ = z;
+    public int getType() {
+        return this.type;
     }
 
-    public boolean oX() {
-        return this.OL;
+    public void setType(int i) {
+        this.type = i;
     }
 
-    public void am(boolean z) {
-        this.OL = z;
+    public String pS() {
+        return this.Rm;
     }
 
-    public void a(GraffitiRankListInfo graffitiRankListInfo) {
-        if (graffitiRankListInfo != null) {
-            this.OC = graffitiRankListInfo.has_more.intValue();
-            this.OD = graffitiRankListInfo.total.intValue();
-            this.OG = graffitiRankListInfo.show_list_count.intValue();
-            this.OH = graffitiRankListInfo.quick_list_count.intValue();
-            this.OI = graffitiRankListInfo.has_state.intValue() == 1;
-            if (this.OE == null) {
-                this.OE = new ArrayList();
-            }
-            this.OE.clear();
-            List<GraffitiRankItem> list = graffitiRankListInfo.list;
-            if (list != null) {
-                for (GraffitiRankItem graffitiRankItem : list) {
-                    z zVar = new z();
-                    zVar.a(graffitiRankItem);
-                    if (zVar.oR()) {
-                        this.OE.add(zVar);
-                    }
-                }
-            }
-            if (this.OF == null) {
-                this.OF = new ArrayList();
-            }
-            this.OF.clear();
-            if (graffitiRankListInfo.consent_list != null) {
-                for (User user : graffitiRankListInfo.consent_list) {
-                    UserData userData = new UserData();
-                    userData.parserProtobuf(user);
-                    this.OF.add(userData);
-                }
+    public void cm(String str) {
+        this.Rm = str;
+    }
+
+    public void a(GraffitiRankItem graffitiRankItem) {
+        if (graffitiRankItem != null) {
+            this.type = 1;
+            this.gid = graffitiRankItem.gid.longValue();
+            this.Rk = graffitiRankItem.vote_count.longValue();
+            this.Rl = graffitiRankItem.is_vote.intValue();
+            this.url = graffitiRankItem.url;
+            this.Rm = graffitiRankItem.thumb_url;
+            this.uid = graffitiRankItem.uid.longValue();
+            this.picId = graffitiRankItem.pic_id;
+            this.Rn = graffitiRankItem.g_type.intValue();
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.type = 1;
+                this.gid = jSONObject.optLong("gid");
+                this.Rk = jSONObject.optLong("vote_count");
+                this.Rl = jSONObject.optInt("is_vote");
+                this.url = jSONObject.optString("url");
+                this.Rm = jSONObject.optString("thumb_url");
+                this.uid = jSONObject.optLong("uid");
+                this.picId = jSONObject.optString(GraffitiVcodeActivityConfig.PIC_ID);
+                this.Rn = jSONObject.optInt("g_type");
+            } catch (Exception e) {
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return OB;
+    public boolean pT() {
+        return this.Rn == 2 || this.Rn == 3;
+    }
+
+    public boolean pU() {
+        return getType() == 1 && getGid() > 0 && !TextUtils.isEmpty(pS()) && !TextUtils.isEmpty(getUrl());
     }
 }

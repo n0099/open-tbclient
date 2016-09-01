@@ -6,11 +6,11 @@ import android.widget.ListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ BdListView zP;
+    final /* synthetic */ BdListView Ce;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(BdListView bdListView) {
-        this.zP = bdListView;
+        this.Ce = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -19,20 +19,20 @@ public class o implements AdapterView.OnItemLongClickListener {
         e eVar2;
         AdapterView.OnItemLongClickListener onItemLongClickListener;
         AdapterView.OnItemLongClickListener onItemLongClickListener2;
-        eVar = this.zP.zq;
+        eVar = this.Ce.BF;
         int headersCount = eVar.getHeadersCount();
         if (i < headersCount) {
             return true;
         }
         int i2 = i - headersCount;
-        eVar2 = this.zP.zq;
+        eVar2 = this.Ce.BF;
         ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
         if (wrappedAdapter == null || i2 >= wrappedAdapter.getCount()) {
             return true;
         }
-        onItemLongClickListener = this.zP.zs;
+        onItemLongClickListener = this.Ce.BH;
         if (onItemLongClickListener != null) {
-            onItemLongClickListener2 = this.zP.zs;
+            onItemLongClickListener2 = this.Ce.BH;
             return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
         }
         return false;

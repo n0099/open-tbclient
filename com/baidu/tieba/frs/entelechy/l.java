@@ -1,35 +1,35 @@
 package com.baidu.tieba.frs.entelechy;
 
 import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.bi;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.tbadkCore.d.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements View.OnClickListener {
-    final /* synthetic */ e bJY;
+public class l implements View.OnClickListener {
+    final /* synthetic */ j bVn;
+    private final /* synthetic */ com.baidu.tbadk.core.data.l bVo;
+    private final /* synthetic */ String bVp;
+    private final /* synthetic */ String bVq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(e eVar) {
-        this.bJY = eVar;
+    public l(j jVar, com.baidu.tbadk.core.data.l lVar, String str, String str2) {
+        this.bVn = jVar;
+        this.bVo = lVar;
+        this.bVp = str;
+        this.bVq = str2;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: com.baidu.tieba.frs.FrsActivity */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        PopupWindow popupWindow;
-        TbPageContext tbPageContext;
         FrsActivity frsActivity;
-        TbPageContext tbPageContext2;
-        TbPageContext tbPageContext3;
-        popupWindow = this.bJY.bVh;
-        tbPageContext = this.bJY.DQ;
-        com.baidu.adp.lib.h.j.a(popupWindow, tbPageContext.getPageActivity());
-        frsActivity = this.bJY.bGh;
-        frsActivity.bDx = false;
-        tbPageContext2 = this.bJY.DQ;
-        String string = tbPageContext2.getResources().getString(u.j.experion_speed);
-        tbPageContext3 = this.bJY.DQ;
-        com.baidu.tbadk.browser.f.a(tbPageContext3.getPageActivity(), string, String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+        a.C0076a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", "c0130", "ad_plat", "CLICK", this.bVo.ps(), this.bVp, this.bVq, null);
+        a.bS("obj_url", this.bVo.getUrl());
+        a.save();
+        bi vx = bi.vx();
+        frsActivity = this.bVn.bRp;
+        vx.c(frsActivity.getPageContext(), new String[]{this.bVo.getUrl()});
     }
 }

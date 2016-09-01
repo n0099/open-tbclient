@@ -6,13 +6,13 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends Handler {
-    final /* synthetic */ e dYX;
+    final /* synthetic */ e elb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(e eVar, Looper looper) {
         super(looper);
-        this.dYX = eVar;
+        this.elb = eVar;
     }
 
     @Override // android.os.Handler
@@ -26,24 +26,24 @@ public class q extends Handler {
         Handler handler2;
         switch (message.what) {
             case 1:
-                yVar = this.dYX.dYN;
+                yVar = this.elb.ekR;
                 if (yVar != null) {
-                    yVar2 = this.dYX.dYN;
-                    if (yVar2.aKC != null) {
-                        yVar3 = this.dYX.dYN;
-                        if (yVar3.cEI != null) {
-                            yVar4 = this.dYX.dYN;
-                            if (yVar4.cEM != null) {
-                                yVar5 = this.dYX.dYN;
-                                if (yVar5.aKC.getCurrentPosition() <= 0) {
-                                    handler = this.dYX.mHandler;
+                    yVar2 = this.elb.ekR;
+                    if (yVar2.aPh != null) {
+                        yVar3 = this.elb.ekR;
+                        if (yVar3.cQp != null) {
+                            yVar4 = this.elb.ekR;
+                            if (yVar4.cQt != null) {
+                                yVar5 = this.elb.ekR;
+                                if (yVar5.aPh.getCurrentPosition() <= 0) {
+                                    handler = this.elb.mHandler;
                                     Message obtainMessage = handler.obtainMessage(1);
                                     obtainMessage.obj = message.obj;
-                                    handler2 = this.dYX.mHandler;
+                                    handler2 = this.elb.mHandler;
                                     handler2.sendMessageDelayed(obtainMessage, 50L);
                                     return;
                                 }
-                                this.dYX.e(false, 1);
+                                this.elb.d(false, 1);
                                 return;
                             }
                             return;

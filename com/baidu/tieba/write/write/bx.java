@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
 class bx implements a.b {
-    final /* synthetic */ WriteImageActivity.a fVF;
+    final /* synthetic */ WriteImageActivity.a gfK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bx(WriteImageActivity.a aVar) {
-        this.fVF = aVar;
+        this.gfK = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteImageActivity writeImageActivity;
         MessageManager messageManager = MessageManager.getInstance();
         writeImageActivity = WriteImageActivity.this;

@@ -1,23 +1,32 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tieba.u;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo extends y.a {
-    public TextView aes;
-    public TextView aev;
-    public int afy;
-    public TextView bGa;
-    public TextView bGb;
+public class bo implements Runnable {
+    final /* synthetic */ bm bSc;
 
-    public bo(View view) {
-        super(view);
-        this.afy = 3;
-        this.aes = (TextView) getView().findViewById(u.g.frs_god_lv_reply_time);
-        this.aev = (TextView) getView().findViewById(u.g.frs_god_praise_num);
-        this.bGb = (TextView) getView().findViewById(u.g.frs_god_reply_num);
-        this.bGa = (TextView) getView().findViewById(u.g.frs_god_item_location_address);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bo(bm bmVar) {
+        this.bSc = bmVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        ViewStub viewStub;
+        FrameLayout frameLayout;
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        viewStub = this.bSc.bRs;
+        if (viewStub != null) {
+            frameLayout = this.bSc.bRt;
+            frameLayout.setVisibility(0);
+            tbImageView = this.bSc.bRv;
+            tbImageView.setVisibility(0);
+            tbImageView2 = this.bSc.bRu;
+            tbImageView2.setVisibility(8);
+        }
     }
 }

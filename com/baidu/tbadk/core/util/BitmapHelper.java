@@ -18,7 +18,7 @@ import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -43,7 +43,7 @@ public class BitmapHelper {
         synchronized (BitmapHelper.class) {
             SoftReference<Bitmap> softReference = mBitmapHash.get(i);
             bitmap = softReference != null ? softReference.get() : null;
-            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.m10getInst().getApp(), i, options)) != null) {
+            if (bitmap == null && (bitmap = getResBitmap(TbadkCoreApplication.m9getInst().getApp(), i, options)) != null) {
                 mBitmapHash.put(i, new SoftReference<>(bitmap));
             }
         }
@@ -67,7 +67,7 @@ public class BitmapHelper {
                 try {
                     bitmap = BitmapFactory.decodeResource(resources, i, options);
                 } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.m10getInst().onAppMemoryLow();
+                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
                     mBitmapNightHash.put(i2, new SoftReference<>(bitmap));
@@ -94,7 +94,7 @@ public class BitmapHelper {
                 try {
                     bitmap = BitmapFactory.decodeResource(resources, i, options);
                 } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.m10getInst().onAppMemoryLow();
+                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
                     mBitmapThemeHash.put(i2, new SoftReference<>(bitmap));
@@ -156,7 +156,7 @@ public class BitmapHelper {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (OutOfMemoryError e) {
-            TbadkCoreApplication.m10getInst().onAppMemoryLow();
+            TbadkCoreApplication.m9getInst().onAppMemoryLow();
             return null;
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
@@ -249,7 +249,7 @@ public class BitmapHelper {
                 } catch (NullPointerException e) {
                     bitmap2 = bitmap3;
                 } catch (OutOfMemoryError e2) {
-                    TbadkCoreApplication.m10getInst().onAppMemoryLow();
+                    TbadkCoreApplication.m9getInst().onAppMemoryLow();
                     bitmap2 = bitmap3;
                 }
             }
@@ -503,19 +503,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream cX = m.cX(str);
-                BitmapFactory.decodeStream(cX, null, options);
+                InputStream da = m.da(str);
+                BitmapFactory.decodeStream(da, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.j(cX);
+                com.baidu.adp.lib.util.o.j(da);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream cX2 = m.cX(str);
-                        decodeStream = BitmapFactory.decodeStream(cX2, null, options);
-                        com.baidu.adp.lib.util.o.j(cX2);
+                        InputStream da2 = m.da(str);
+                        decodeStream = BitmapFactory.decodeStream(da2, null, options);
+                        com.baidu.adp.lib.util.o.j(da2);
                     }
                 }
             }
@@ -724,7 +724,7 @@ public class BitmapHelper {
                                             bitmap2 = bitmap;
                                             r2 = z;
                                             e = e;
-                                            TbadkCoreApplication.m10getInst().onAppMemoryLow();
+                                            TbadkCoreApplication.m9getInst().onAppMemoryLow();
                                             if (sb != null) {
                                                 sb.append("OOM ");
                                                 if (e != null) {
@@ -800,7 +800,7 @@ public class BitmapHelper {
         if (byteArrayInputStream != null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inDither = false;
-            options.inScreenDensity = TbadkCoreApplication.m10getInst().getResources().getDisplayMetrics().densityDpi;
+            options.inScreenDensity = TbadkCoreApplication.m9getInst().getResources().getDisplayMetrics().densityDpi;
             options.inTargetDensity = options.inScreenDensity;
             options.inDensity = options.inScreenDensity;
             try {
@@ -873,7 +873,7 @@ public class BitmapHelper {
                                         bitmap2 = bitmap;
                                         r2 = z;
                                         e = e6;
-                                        TbadkCoreApplication.m10getInst().onAppMemoryLow();
+                                        TbadkCoreApplication.m9getInst().onAppMemoryLow();
                                         e.printStackTrace();
                                         if (e != null && sb != null) {
                                             sb.append(String.valueOf(e.getClass().getName()) + " " + e.getMessage());
@@ -1021,41 +1021,41 @@ public class BitmapHelper {
     public static int getGradeResourceIdNew(int i) {
         switch (i) {
             case 1:
-                return u.f.icon_grade_lv1;
+                return t.f.icon_grade_lv1;
             case 2:
-                return u.f.icon_grade_lv2;
+                return t.f.icon_grade_lv2;
             case 3:
-                return u.f.icon_grade_lv3;
+                return t.f.icon_grade_lv3;
             case 4:
-                return u.f.icon_grade_lv4;
+                return t.f.icon_grade_lv4;
             case 5:
-                return u.f.icon_grade_lv5;
+                return t.f.icon_grade_lv5;
             case 6:
-                return u.f.icon_grade_lv6;
+                return t.f.icon_grade_lv6;
             case 7:
-                return u.f.icon_grade_lv7;
+                return t.f.icon_grade_lv7;
             case 8:
-                return u.f.icon_grade_lv8;
+                return t.f.icon_grade_lv8;
             case 9:
-                return u.f.icon_grade_lv9;
+                return t.f.icon_grade_lv9;
             case 10:
-                return u.f.icon_grade_lv10;
+                return t.f.icon_grade_lv10;
             case 11:
-                return u.f.icon_grade_lv11;
+                return t.f.icon_grade_lv11;
             case 12:
-                return u.f.icon_grade_lv12;
+                return t.f.icon_grade_lv12;
             case 13:
-                return u.f.icon_grade_lv13;
+                return t.f.icon_grade_lv13;
             case 14:
-                return u.f.icon_grade_lv14;
+                return t.f.icon_grade_lv14;
             case 15:
-                return u.f.icon_grade_lv15;
+                return t.f.icon_grade_lv15;
             case 16:
-                return u.f.icon_grade_lv16;
+                return t.f.icon_grade_lv16;
             case 17:
-                return u.f.icon_grade_lv17;
+                return t.f.icon_grade_lv17;
             case 18:
-                return u.f.icon_grade_lv18;
+                return t.f.icon_grade_lv18;
             default:
                 return 0;
         }
@@ -1064,41 +1064,41 @@ public class BitmapHelper {
     public static int getSmallGradeResourceIdNew(int i) {
         switch (i) {
             case 1:
-                return u.f.icon_small_grade_lv1;
+                return t.f.icon_small_grade_lv1;
             case 2:
-                return u.f.icon_small_grade_lv2;
+                return t.f.icon_small_grade_lv2;
             case 3:
-                return u.f.icon_small_grade_lv3;
+                return t.f.icon_small_grade_lv3;
             case 4:
-                return u.f.icon_small_grade_lv4;
+                return t.f.icon_small_grade_lv4;
             case 5:
-                return u.f.icon_small_grade_lv5;
+                return t.f.icon_small_grade_lv5;
             case 6:
-                return u.f.icon_small_grade_lv6;
+                return t.f.icon_small_grade_lv6;
             case 7:
-                return u.f.icon_small_grade_lv7;
+                return t.f.icon_small_grade_lv7;
             case 8:
-                return u.f.icon_small_grade_lv8;
+                return t.f.icon_small_grade_lv8;
             case 9:
-                return u.f.icon_small_grade_lv9;
+                return t.f.icon_small_grade_lv9;
             case 10:
-                return u.f.icon_small_grade_lv10;
+                return t.f.icon_small_grade_lv10;
             case 11:
-                return u.f.icon_small_grade_lv11;
+                return t.f.icon_small_grade_lv11;
             case 12:
-                return u.f.icon_small_grade_lv12;
+                return t.f.icon_small_grade_lv12;
             case 13:
-                return u.f.icon_small_grade_lv13;
+                return t.f.icon_small_grade_lv13;
             case 14:
-                return u.f.icon_small_grade_lv14;
+                return t.f.icon_small_grade_lv14;
             case 15:
-                return u.f.icon_small_grade_lv15;
+                return t.f.icon_small_grade_lv15;
             case 16:
-                return u.f.icon_small_grade_lv16;
+                return t.f.icon_small_grade_lv16;
             case 17:
-                return u.f.icon_small_grade_lv17;
+                return t.f.icon_small_grade_lv17;
             case 18:
-                return u.f.icon_small_grade_lv18;
+                return t.f.icon_small_grade_lv18;
             default:
                 return 0;
         }

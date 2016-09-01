@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.p;
+import com.baidu.tbadk.coreExtra.data.s;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.writeModel.a;
-import com.baidu.tieba.u;
+import com.baidu.tieba.tbadkCore.writeModel.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements a.d {
-    final /* synthetic */ a fPG;
+public class b implements b.d {
+    final /* synthetic */ a fZL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.fPG = aVar;
+        this.fZL = aVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, p pVar, WriteData writeData, AntiData antiData) {
+    @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, s sVar, WriteData writeData, AntiData antiData) {
         c cVar;
-        com.baidu.tieba.tbadkCore.writeModel.a aVar;
+        com.baidu.tieba.tbadkCore.writeModel.b bVar;
         c cVar2;
         WriteData writeData2;
         c cVar3;
@@ -43,60 +43,60 @@ public class b implements a.d {
         c cVar12;
         c cVar13;
         c cVar14;
-        com.baidu.tieba.tbadkCore.writeModel.a aVar2;
-        cVar = this.fPG.fPB;
+        com.baidu.tieba.tbadkCore.writeModel.b bVar2;
+        cVar = this.fZL.fZG;
         if (cVar != null) {
-            aVar = this.fPG.fPF;
-            if (aVar != null) {
-                cVar2 = this.fPG.fPB;
+            bVar = this.fZL.fZK;
+            if (bVar != null) {
+                cVar2 = this.fZL.fZG;
                 cVar2.showPostThreadLoadingView(false);
                 if (writeData == null) {
-                    aVar2 = this.fPG.fPF;
-                    writeData2 = aVar2.bbo();
+                    bVar2 = this.fZL.fZK;
+                    writeData2 = bVar2.beT();
                 } else {
                     writeData2 = writeData;
                 }
                 if (z) {
-                    cVar10 = this.fPG.fPB;
-                    cVar11 = this.fPG.fPB;
-                    cVar10.showToast(true, cVar11.getContext().getResources().getString(u.j.send_success));
+                    cVar10 = this.fZL.fZG;
+                    cVar11 = this.fZL.fZG;
+                    cVar10.showToast(true, cVar11.getContext().getResources().getString(t.j.send_success));
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    cVar12 = this.fPG.fPB;
+                    cVar12 = this.fZL.fZG;
                     BaseActivity context = cVar12.getContext();
-                    cVar13 = this.fPG.fPB;
+                    cVar13 = this.fZL.fZG;
                     cVar13.getContext();
                     context.setResult(-1, intent);
-                    cVar14 = this.fPG.fPB;
+                    cVar14 = this.fZL.fZG;
                     cVar14.getContext().finish();
-                } else if (writeData2 != null && pVar != null && !TextUtils.isEmpty(pVar.wJ())) {
-                    writeData2.setVcodeMD5(pVar.getVcode_md5());
-                    writeData2.setVcodeUrl(pVar.getVcode_pic_url());
-                    writeData2.setVcodeExtra(pVar.wK());
-                    cVar7 = this.fPG.fPB;
+                } else if (writeData2 != null && sVar != null && !TextUtils.isEmpty(sVar.xT())) {
+                    writeData2.setVcodeMD5(sVar.getVcode_md5());
+                    writeData2.setVcodeUrl(sVar.getVcode_pic_url());
+                    writeData2.setVcodeExtra(sVar.xU());
+                    cVar7 = this.fZL.fZG;
                     cVar7.getContext().setVisible(false);
-                    if (com.baidu.tbadk.k.a.gz(pVar.wJ())) {
+                    if (com.baidu.tbadk.k.a.gC(sVar.xT())) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        cVar9 = this.fPG.fPB;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(cVar9.getContext().getActivity(), 12006, writeData2, false, pVar.wJ())));
+                        cVar9 = this.fZL.fZG;
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(cVar9.getContext().getActivity(), 12006, writeData2, false, sVar.xT())));
                         return;
                     }
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    cVar8 = this.fPG.fPB;
+                    cVar8 = this.fZL.fZG;
                     messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(cVar8.getContext().getActivity(), writeData2, 12006)));
                 } else {
                     if (postWriteCallBackData != null) {
-                        cVar4 = this.fPG.fPB;
+                        cVar4 = this.fZL.fZG;
                         cVar4.showToast(true, postWriteCallBackData.getErrorString());
-                        cVar5 = this.fPG.fPB;
+                        cVar5 = this.fZL.fZG;
                         BaseActivity context2 = cVar5.getContext();
-                        cVar6 = this.fPG.fPB;
+                        cVar6 = this.fZL.fZG;
                         cVar6.getContext();
                         context2.setResult(0, null);
                     }
-                    cVar3 = this.fPG.fPB;
+                    cVar3 = this.fZL.fZG;
                     cVar3.getContext().finish();
                 }
             }

@@ -1,141 +1,101 @@
 package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.TextureVideoView;
-import com.baidu.tieba.card.bw;
-import com.baidu.tieba.card.bx;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.cd;
+import com.baidu.tieba.card.cf;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.o, a> {
-    private TbPageContext<?> EA;
-    public BdUniqueId aTm;
-    private com.baidu.tieba.homepage.personalize.b.f cug;
-    private bx cuh;
-    private com.baidu.tieba.card.z cuo;
+public class r extends cf<com.baidu.tieba.card.data.o> {
+    final /* synthetic */ q cFT;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cuh = new s(this);
-        this.EA = tbPageContext;
-        ahP();
-    }
-
-    private void ahP() {
-        com.baidu.tieba.card.a.o.aWz = "c10708";
-        com.baidu.tieba.card.a.o.aWA = "c10735";
-        com.baidu.tieba.card.a.o.aWB = "c10756";
-        com.baidu.tieba.card.a.o.aWC = "c10709";
-        com.baidu.tieba.card.a.o.aWD = "c10734";
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(q qVar) {
+        this.cFT = qVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
-    public a a(ViewGroup viewGroup) {
-        this.cuo = new com.baidu.tieba.card.z(this.EA);
-        this.cuo.j(this.aTm);
-        this.cuo.a(this.cuh);
-        return new a(this.cuo);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.o oVar, a aVar) {
-        if (oVar != null) {
-            oVar.fH(i + 1);
-        }
-        aVar.cuq.setVideoStatsData(b(oVar));
-        aVar.cuq.a(oVar);
-        if (oVar != null) {
-            bw.Lf().b(oVar.Lu());
-        }
-        return aVar.getView();
-    }
-
-    private TextureVideoView.c b(com.baidu.tieba.card.a.o oVar) {
-        TextureVideoView.c cVar = null;
-        if (oVar != null) {
-            cVar = new TextureVideoView.c();
-            cVar.mLocate = "1";
-            cVar.aep = oVar.QK;
-            if (oVar.Iw() != null) {
-                cVar.aeq = String.valueOf(oVar.Iw().getFid());
+    @Override // com.baidu.tieba.card.cf
+    public void a(View view, com.baidu.tieba.card.data.o oVar) {
+        com.baidu.tieba.homepage.personalize.b.f fVar;
+        com.baidu.tieba.card.t tVar;
+        com.baidu.tieba.card.t tVar2;
+        com.baidu.tieba.card.t tVar3;
+        com.baidu.tieba.card.t tVar4;
+        com.baidu.tieba.card.t tVar5;
+        com.baidu.tieba.card.t tVar6;
+        com.baidu.tieba.card.t tVar7;
+        com.baidu.tieba.card.t tVar8;
+        com.baidu.tieba.card.t tVar9;
+        com.baidu.tieba.card.t tVar10;
+        com.baidu.tieba.card.t tVar11;
+        com.baidu.tieba.card.t tVar12;
+        com.baidu.tieba.card.t tVar13;
+        com.baidu.tieba.homepage.personalize.b.f fVar2;
+        cd.NI().cr(true);
+        fVar = this.cFT.cFK;
+        if (fVar != null && oVar != null && oVar.Kw() != null && !StringUtils.isNull(oVar.Kw().getTid())) {
+            tVar = this.cFT.cFS;
+            if (tVar != null) {
+                tVar2 = this.cFT.cFS;
+                if (tVar2.getView() != null) {
+                    if ((view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.y.bI(com.baidu.adp.lib.h.b.c(oVar.Kw().getTid(), 0L))) {
+                        com.baidu.tieba.homepage.personalize.y.bH(com.baidu.adp.lib.h.b.c(oVar.Kw().getTid(), 0L));
+                        fVar2 = this.cFT.cFK;
+                        fVar2.a(com.baidu.adp.lib.h.b.c(oVar.Kw().getTid(), 0L), oVar.getWeight(), oVar.getSource(), oVar.NJ(), oVar.NL(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
+                    }
+                    int id = view.getId();
+                    tVar3 = this.cFT.cFS;
+                    if (id != tVar3.getView().getId()) {
+                        tVar4 = this.cFT.cFS;
+                        if (tVar4.aZd != null) {
+                            tVar12 = this.cFT.cFS;
+                            if (tVar12.aZd.getBarNameTv() != null) {
+                                int id2 = view.getId();
+                                tVar13 = this.cFT.cFS;
+                                if (id2 == tVar13.aZd.getBarNameTv().getId()) {
+                                    TiebaStatic.log(oVar.Oa());
+                                    return;
+                                }
+                            }
+                        }
+                        tVar5 = this.cFT.cFS;
+                        if (tVar5.aZc != null) {
+                            int id3 = view.getId();
+                            tVar11 = this.cFT.cFS;
+                            if (id3 == tVar11.aZc.getId()) {
+                                TiebaStatic.log(oVar.Ob());
+                                return;
+                            }
+                        }
+                        tVar6 = this.cFT.cFS;
+                        if (tVar6.aZf != null) {
+                            tVar9 = this.cFT.cFS;
+                            if (tVar9.aZf.ahN != null) {
+                                int id4 = view.getId();
+                                tVar10 = this.cFT.cFS;
+                                if (id4 == tVar10.aZf.ahN.getId()) {
+                                    TiebaStatic.log(oVar.Ob());
+                                    return;
+                                }
+                            }
+                        }
+                        tVar7 = this.cFT.cFS;
+                        if (tVar7.aZe != null) {
+                            int id5 = view.getId();
+                            tVar8 = this.cFT.cFS;
+                            if (id5 == tVar8.aZe.getId()) {
+                                TiebaStatic.log(oVar.Oj());
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    TiebaStatic.log(oVar.NZ());
+                }
             }
         }
-        return cVar;
-    }
-
-    /* loaded from: classes.dex */
-    public static class a extends y.a implements com.baidu.tieba.play.d {
-        public com.baidu.tieba.card.z cuq;
-
-        public a(com.baidu.tieba.card.z zVar) {
-            super(zVar.getView());
-            this.cuq = zVar;
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public boolean IA() {
-            if (this.cuq == null) {
-                return false;
-            }
-            return this.cuq.IA();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public boolean isPlaying() {
-            if (this.cuq == null) {
-                return false;
-            }
-            return this.cuq.isPlaying();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public void Iz() {
-            if (this.cuq != null) {
-                this.cuq.Iz();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public void stopPlay() {
-            if (this.cuq != null) {
-                this.cuq.stopPlay();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public View getVideoContainer() {
-            if (this.cuq == null) {
-                return null;
-            }
-            return this.cuq.getVideoContainer();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public String getPlayUrl() {
-            if (this.cuq == null) {
-                return null;
-            }
-            return this.cuq.getPlayUrl();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public int getCurrentPosition() {
-            if (this.cuq == null) {
-                return 0;
-            }
-            return this.cuq.getCurrentPosition();
-        }
-    }
-
-    public void a(com.baidu.tieba.homepage.personalize.b.f fVar) {
-        this.cug = fVar;
     }
 }

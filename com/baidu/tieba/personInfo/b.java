@@ -1,35 +1,25 @@
 package com.baidu.tieba.personInfo;
 
-import java.util.ArrayList;
-import java.util.List;
 import tbclient.BookInfo;
-import tbclient.TbBookrack;
 /* loaded from: classes.dex */
 public class b {
-    public String booktown;
-    public List<c> dMn;
-    public int eAf;
-    public String icon;
-    public String tip;
-    public String title;
+    public int PQ;
+    public int Qa;
+    public String bookId;
+    public String dLj;
+    public long eGK;
+    public String ecc;
+    public long updateTime;
 
-    public void a(TbBookrack tbBookrack) {
-        if (tbBookrack != null) {
-            this.booktown = tbBookrack.booktown;
-            this.eAf = tbBookrack.num.intValue();
-            this.title = tbBookrack.title;
-            this.icon = tbBookrack.icon;
-            this.tip = tbBookrack.tip;
-            this.dMn = new ArrayList();
-            if (tbBookrack.book_list != null) {
-                for (BookInfo bookInfo : tbBookrack.book_list) {
-                    if (bookInfo != null) {
-                        c cVar = new c();
-                        cVar.a(bookInfo);
-                        this.dMn.add(cVar);
-                    }
-                }
-            }
+    public void a(BookInfo bookInfo) {
+        if (bookInfo != null) {
+            this.bookId = bookInfo.book_id;
+            this.dLj = bookInfo.title;
+            this.ecc = bookInfo.cover;
+            this.updateTime = bookInfo.update_time.intValue();
+            this.Qa = bookInfo.book_type.intValue();
+            this.eGK = bookInfo.forum_id.longValue();
+            this.PQ = bookInfo.total_chapter.intValue();
         }
     }
 }

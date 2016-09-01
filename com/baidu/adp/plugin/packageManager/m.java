@@ -21,11 +21,11 @@ public class m extends BdAsyncTask<Void, Void, Void> {
             ((ThreadLocal) d).set(Looper.getMainLooper());
         }
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            com.baidu.adp.plugin.b.a.ht().bg("plugin_asyncinit_fail");
-            com.baidu.adp.lib.h.h.dL().post(new n(this));
+            com.baidu.adp.plugin.b.a.io().bh("plugin_asyncinit_fail");
+            com.baidu.adp.lib.h.h.eG().post(new n(this));
             return null;
         }
-        this.this$0.hM();
+        this.this$0.iH();
         return null;
     }
 }

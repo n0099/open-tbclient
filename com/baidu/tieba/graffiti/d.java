@@ -19,9 +19,9 @@ import com.baidu.tbadk.switchs.GraffitiSwitchStatic;
 import com.baidu.tieba.tbadkCore.util.p;
 /* loaded from: classes.dex */
 public class d {
-    private static final GraffitiSwitchStatic ckR = new GraffitiSwitchStatic();
+    private static final GraffitiSwitchStatic cwc = new GraffitiSwitchStatic();
 
-    public static boolean a(Context context, String str, String str2, int i) {
+    public static boolean b(Context context, String str, String str2, int i) {
         return a(context, str, str2, null, i);
     }
 
@@ -29,7 +29,7 @@ public class d {
         p pVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, p.class);
         if (runTask != null && (pVar = (p) runTask.getData()) != null) {
-            if (pVar.afS() <= 0) {
+            if (pVar.akD() <= 0) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i, str, str2)));
             } else {
                 new GraffitiTabActivityConfig(context, str, str2, str3).start();
@@ -39,35 +39,35 @@ public class d {
         return false;
     }
 
-    public static void j(Context context, int i) {
+    public static void l(Context context, int i) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i)));
     }
 
-    public static boolean aeW() {
-        return ckR.ec() && TbadkCoreApplication.m10getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
+    public static boolean ajH() {
+        return cwc.eX() && TbadkCoreApplication.m9getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
     }
 
     public static boolean al(View view) {
-        boolean ec = ckR.ec();
+        boolean eX = cwc.eX();
         if (view != null && view.getVisibility() != 8) {
-            view.setVisibility(ec ? 8 : 0);
+            view.setVisibility(eX ? 8 : 0);
         }
-        return !ec;
+        return !eX;
     }
 
-    public static String f(String str, int i, int i2) {
-        return com.baidu.adp.lib.util.t.aT(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
+    public static String g(String str, int i, int i2) {
+        return com.baidu.adp.lib.util.t.aU(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
     }
 
     public static String a(UploadedImageInfo uploadedImageInfo) {
         if (uploadedImageInfo == null || StringUtils.isNull(uploadedImageInfo.getPic_id())) {
             return null;
         }
-        return String.format("#(graffiti,%s,%d,%d,%s)", uploadedImageInfo.getPic_id(), Integer.valueOf(uploadedImageInfo.getWidth()), Integer.valueOf(uploadedImageInfo.getHeight()), f(uploadedImageInfo.getPic_id(), uploadedImageInfo.getWidth(), uploadedImageInfo.getHeight()));
+        return String.format("#(graffiti,%s,%d,%d,%s)", uploadedImageInfo.getPic_id(), Integer.valueOf(uploadedImageInfo.getWidth()), Integer.valueOf(uploadedImageInfo.getHeight()), g(uploadedImageInfo.getPic_id(), uploadedImageInfo.getWidth(), uploadedImageInfo.getHeight()));
     }
 
     public static void o(Intent intent) {
-        if (intent != null || aeW()) {
+        if (intent != null || ajH()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new j(intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME), intent.getIntExtra("from", -1))));
         }
     }

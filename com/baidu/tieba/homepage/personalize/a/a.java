@@ -2,70 +2,73 @@ package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.card.ap;
+import com.baidu.tieba.card.cd;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.d, C0061a> {
-    private TbPageContext<?> EA;
-    private boolean aav;
-    private int mSkinType;
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, C0062a> {
+    private TbPageContext<?> GM;
+    private BdUniqueId aYu;
+    private com.baidu.tieba.card.j cFu;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.a.d.aVW);
-        this.mSkinType = 3;
-        this.aav = false;
-        this.EA = tbPageContext;
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.b.cGH);
+        this.GM = tbPageContext;
+        this.cFu = new com.baidu.tieba.card.j(this.GM);
+        this.cFu.j("c10715", "c10741", "c10713", "c10740");
+        this.cFu.setFrom("home");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ai */
-    public C0061a a(ViewGroup viewGroup) {
-        try {
-            return new C0061a(new com.baidu.tieba.card.e(this.EA));
-        } catch (VerifyError e) {
-            BdLog.e(e.toString());
-            return new C0061a(new View(this.EA.getPageActivity()));
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        this.aYu = bdUniqueId;
+        if (this.cFu != null) {
+            this.cFu.i(this.aYu);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.d dVar, C0061a c0061a) {
-        if (c0061a != null && c0061a.ctO == null) {
-            return c0061a.getView();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, C0062a c0062a) {
+        if (c0062a.cFv == null) {
+            return null;
         }
-        this.mSkinType = TbadkCoreApplication.m10getInst().getSkinType();
-        this.EA.getLayoutMode().af(this.mSkinType == 1);
-        this.EA.getLayoutMode().w(view);
-        c0061a.ctO.d(this.EA, TbadkCoreApplication.m10getInst().getSkinType());
-        c0061a.ctO.setFromCDN(this.aav);
-        c0061a.ctO.a(dVar);
-        return c0061a.getView();
+        c0062a.cFv.a((com.baidu.tieba.card.data.j) bVar);
+        cd.NI().b(new ay("c10715").ab("obj_param3", ap.NC()));
+        return c0062a.getView();
     }
 
-    public void setFromCDN(boolean z) {
-        this.aav = z;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: ab */
+    public C0062a a(ViewGroup viewGroup) {
+        if (this.cFu == null) {
+            this.cFu = new com.baidu.tieba.card.j(this.GM);
+            this.cFu.i(this.aYu);
+            this.cFu.j("c10715", "c10741", "c10713", "c10740");
+        }
+        return new C0062a(this.cFu);
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.cFu != null) {
+            this.cFu.onChangeSkinType(this.GM, i);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.homepage.personalize.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0061a extends y.a {
-        public com.baidu.tieba.card.e ctO;
+    public class C0062a extends y.a {
+        public com.baidu.tieba.card.j cFv;
 
-        public C0061a(com.baidu.tieba.card.e eVar) {
-            super(eVar.getView());
-            this.ctO = eVar;
-        }
-
-        public C0061a(View view) {
-            super(view);
+        public C0062a(com.baidu.tieba.card.j jVar) {
+            super(jVar.getView());
+            this.cFv = jVar;
         }
     }
 }

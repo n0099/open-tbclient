@@ -1,11 +1,11 @@
 package com.baidu.tieba.write.video;
 /* loaded from: classes.dex */
 class h implements Runnable {
-    final /* synthetic */ WriteVideoActivity fSg;
+    final /* synthetic */ WriteVideoActivity gcl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(WriteVideoActivity writeVideoActivity) {
-        this.fSg = writeVideoActivity;
+        this.gcl = writeVideoActivity;
     }
 
     @Override // java.lang.Runnable
@@ -13,10 +13,10 @@ class h implements Runnable {
         com.baidu.tbadk.core.dialog.e eVar;
         com.baidu.tbadk.core.dialog.e eVar2;
         int i;
-        eVar = this.fSg.fSb;
+        eVar = this.gcl.gcg;
         if (eVar != null) {
-            eVar2 = this.fSg.fSb;
-            i = this.fSg.fSd;
+            eVar2 = this.gcl.gcg;
+            i = this.gcl.gci;
             eVar2.setPercent(i);
         }
     }

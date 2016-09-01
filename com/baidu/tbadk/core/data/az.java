@@ -1,52 +1,68 @@
 package com.baidu.tbadk.core.data;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.Banner;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class az {
-    protected String img_url = null;
-    protected String link = null;
-    protected String Qr = null;
+    private ag SS;
+    private List<d> ST;
+    private String SU;
+    private List<e> SV;
+    private String SW;
+    private List<af> SX;
 
-    public String pY() {
-        return this.img_url;
+    public ag qT() {
+        return this.SS;
     }
 
-    public void cp(String str) {
-        this.img_url = str;
+    public List<d> qU() {
+        return this.ST;
     }
 
-    public String getLink() {
-        return this.link;
+    public String qV() {
+        return this.SU;
     }
 
-    public void setLink(String str) {
-        this.link = str;
+    public List<e> qW() {
+        return this.SV;
     }
 
-    public void a(Banner banner) {
-        if (banner != null) {
-            a(banner, null);
-        }
+    public String qX() {
+        return this.SW;
     }
 
-    public void a(Banner banner, Context context) {
-        if (banner != null) {
-            try {
-                cp(banner.pic_url);
-                setLink(banner.link);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    public List<af> qY() {
+        return this.SX;
+    }
+
+    public void a(SeniorLottery seniorLottery) {
+        if (seniorLottery != null) {
+            this.SS = new ag();
+            this.SS.a(seniorLottery.theme);
+            this.ST = new ArrayList();
+            int size = seniorLottery.award_info.size();
+            for (int i = 0; i < size; i++) {
+                d dVar = new d();
+                dVar.a(seniorLottery.award_info.get(i));
+                this.ST.add(dVar);
+            }
+            this.SU = seniorLottery.myaward;
+            this.SV = new ArrayList();
+            int size2 = seniorLottery.luck_users.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                e eVar = new e();
+                eVar.a(seniorLottery.luck_users.get(i2));
+                this.SV.add(eVar);
+            }
+            this.SW = seniorLottery.act_desc;
+            this.SX = new ArrayList();
+            int size3 = seniorLottery.act_regular.size();
+            for (int i3 = 0; i3 < size3; i3++) {
+                af afVar = new af();
+                afVar.a(seniorLottery.act_regular.get(i3));
+                this.SX.add(afVar);
             }
         }
-    }
-
-    public String pZ() {
-        return this.Qr;
-    }
-
-    public void cq(String str) {
-        this.Qr = str;
     }
 }

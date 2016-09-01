@@ -1,41 +1,45 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
+import android.graphics.drawable.NinePatchDrawable;
+import android.text.TextUtils;
 import android.view.View;
-import com.baidu.tieba.u;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements View.OnClickListener {
-    final /* synthetic */ af eka;
+public class an extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ ag ewi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(af afVar) {
-        this.eka = afVar;
+    public an(ag agVar) {
+        this.ewi = agVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SparseArray<Object> sparseArray;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        View view;
         NewSubPbActivity newSubPbActivity;
         NewSubPbActivity newSubPbActivity2;
-        if (view != null && (sparseArray = (SparseArray) view.getTag()) != null) {
-            boolean booleanValue = sparseArray.get(u.g.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(u.g.tag_should_manage_visible)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(u.g.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(u.g.tag_user_mute_visible)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(u.g.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(u.g.tag_should_delete_visible)).booleanValue() : false;
-            if (booleanValue) {
-                if (booleanValue2) {
-                    sparseArray.put(u.g.tag_from, 1);
-                    newSubPbActivity2 = this.eka.ejw;
-                    newSubPbActivity2.d(sparseArray);
-                    return;
+        if (aVar != null && !TextUtils.isEmpty(str)) {
+            view = this.ewi.evB;
+            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewWithTag(str);
+            if (tbRichTextView != null) {
+                newSubPbActivity = this.ewi.evD;
+                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(newSubPbActivity.getResources(), aVar.jV(), aVar.jV().getNinePatchChunk(), aVar.jZ(), null);
+                if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
+                    ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ad.mAlpha);
                 }
-                this.eka.aZ(view);
-            } else if (booleanValue2) {
-                sparseArray.put(u.g.tag_from, 0);
-                newSubPbActivity = this.eka.ejw;
-                newSubPbActivity.d(sparseArray);
-            } else if (booleanValue3) {
-                this.eka.a(((Integer) sparseArray.get(u.g.tag_del_post_type)).intValue(), (String) sparseArray.get(u.g.tag_del_post_id), ((Integer) sparseArray.get(u.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(u.g.tag_del_post_is_self)).booleanValue());
+                if (tbRichTextView instanceof TbRichTextView) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
+                    newSubPbActivity2 = this.ewi.evD;
+                    layoutParams.bottomMargin = (int) newSubPbActivity2.getResources().getDimension(t.e.ds20);
+                    tbRichTextView.setLayoutParams(layoutParams);
+                    tbRichTextView.setBackgroundDrawable(ninePatchDrawable);
+                }
             }
         }
     }

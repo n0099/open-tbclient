@@ -7,35 +7,40 @@ import com.baidu.tbadk.core.util.bi;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
     static {
-        Wl();
-        bhr();
-        bhp();
-        bhq();
+        abi();
+        bkU();
+        bkS();
+        bkT();
+        bkV();
         MessageManager.getInstance().registerListener(new u(CmdConfigCustom.START_GO_HOME));
-        bi.us().a(new v());
+        bi.vx().a(new v());
     }
 
-    private static void Wl() {
+    private static void abi() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new w());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bhp() {
+    private static void bkS() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new x());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bhq() {
+    private static void bkT() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHOW_GAME_ICON, new y());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bhr() {
+    private static void bkU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new z());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void bkV() {
+        bi.vx().a(new aa());
     }
 }

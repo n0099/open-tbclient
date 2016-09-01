@@ -1,31 +1,19 @@
 package com.baidu.tieba.card;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends Handler {
-    final /* synthetic */ z aUu;
+public class aa implements MediaPlayer.OnErrorListener {
+    final /* synthetic */ t aZF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(z zVar, Looper looper) {
-        super(looper);
-        this.aUu = zVar;
+    public aa(t tVar) {
+        this.aZF = tVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        switch (message.what) {
-            case 202:
-                this.aUu.KU();
-                return;
-            case 203:
-                this.aUu.KV();
-                return;
-            default:
-                return;
-        }
+    @Override // android.media.MediaPlayer.OnErrorListener
+    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+        this.aZF.d(true, 4);
+        return true;
     }
 }

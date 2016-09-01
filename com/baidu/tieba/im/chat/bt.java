@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt extends com.baidu.adp.base.g {
-    final /* synthetic */ TalkableActivity cIT;
+    final /* synthetic */ TalkableActivity cUy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(TalkableActivity talkableActivity) {
-        this.cIT = talkableActivity;
+        this.cUy = talkableActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v12, resolved type: com.baidu.tieba.im.chat.TalkableActivity */
@@ -20,77 +20,77 @@ public class bt extends com.baidu.adp.base.g {
     @Override // com.baidu.adp.base.g
     public void g(Object obj) {
         long j;
-        if (!com.baidu.adp.lib.util.i.fq()) {
-            if (this.cIT.cIF != null) {
-                this.cIT.cIF.displayNoNetwork();
+        if (!com.baidu.adp.lib.util.i.gm()) {
+            if (this.cUy.cUk != null) {
+                this.cUy.cUk.displayNoNetwork();
             }
-        } else if (this.cIT.cIF != null) {
-            this.cIT.cIF.hideNoNetwork();
+        } else if (this.cUy.cUk != null) {
+            this.cUy.cUk.hideNoNetwork();
         }
-        switch (this.cIT.cIG.getLoadDataMode()) {
+        switch (this.cUy.cUl.getLoadDataMode()) {
             case 1:
-                j = this.cIT.cIN;
+                j = this.cUy.cUs;
                 if (j > -1) {
-                    this.cIT.cIN = -1L;
+                    this.cUy.cUs = -1L;
                 }
-                this.cIT.cIF.closeProgress();
-                this.cIT.cIF.refreshGo2New(this.cIT.cIG.getData());
+                this.cUy.cUk.closeProgress();
+                this.cUy.cUk.refreshGo2New(this.cUy.cUl.getData());
                 return;
             case 2:
-                this.cIT.cIF.refreshPrepage(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshPrepage(this.cUy.cUl.getData());
                 return;
             case 3:
-                this.cIT.cIF.refreshCheckNew(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshCheckNew(this.cUy.cUl.getData());
                 return;
             case 4:
-                this.cIT.cIF.refreshGo2New(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshGo2New(this.cUy.cUl.getData());
                 return;
             case 5:
-                this.cIT.cIF.refreshNormal(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
                 return;
             case 6:
-                this.cIT.cIF.refreshNormal(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
                 return;
             case 7:
-                this.cIT.cIF.refreshNormal(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
                 return;
             case 8:
                 if (obj != null && (obj instanceof String)) {
                     String str = (String) obj;
-                    this.cIT.cIF.setDraft(str);
-                    this.cIT.cIG.setDraft(str);
+                    this.cUy.cUk.setDraft(str);
+                    this.cUy.cUl.setDraft(str);
                     return;
                 }
                 return;
             case 9:
-                this.cIT.cIP = false;
-                this.cIT.finish();
+                this.cUy.cUu = false;
+                this.cUy.finish();
                 return;
             case 10:
                 if (obj != null && (obj instanceof String)) {
-                    this.cIT.cIF.refreshHeaderFooter((String) obj, true);
+                    this.cUy.cUk.refreshHeaderFooter((String) obj, true);
                     return;
                 }
                 return;
             case 11:
-                TbadkCoreApplication.m10getInst().login(this.cIT.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.cIT.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
-                this.cIT.cIP = false;
-                this.cIT.finish();
+                TbadkCoreApplication.m9getInst().login(this.cUy.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.cUy.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
+                this.cUy.cUu = false;
+                this.cUy.finish();
                 return;
             case 12:
-                this.cIT.cIF.refreshGo2New(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshGo2New(this.cUy.cUl.getData());
                 return;
             case 13:
-                this.cIT.cIF.refreshNormal(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
                 break;
             case 14:
                 break;
             case 15:
-                this.cIT.cIF.refreshNormal(this.cIT.cIG.getData());
+                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
                 return;
             default:
                 return;
         }
-        this.cIT.cIF.refreshNormal(this.cIT.cIG.getData());
+        this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
     }
 }

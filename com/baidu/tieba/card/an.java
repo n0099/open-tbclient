@@ -12,49 +12,49 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ al aUz;
+    final /* synthetic */ al aZM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(al alVar) {
-        this.aUz = alVar;
+        this.aZM = alVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.be beVar;
-        com.baidu.tbadk.core.data.be beVar2;
-        com.baidu.tbadk.core.data.be beVar3;
-        com.baidu.tbadk.core.data.be beVar4;
-        com.baidu.tbadk.core.data.be beVar5;
+        com.baidu.tbadk.core.data.bg bgVar;
+        com.baidu.tbadk.core.data.bg bgVar2;
+        com.baidu.tbadk.core.data.bg bgVar3;
+        com.baidu.tbadk.core.data.bg bgVar4;
+        com.baidu.tbadk.core.data.bg bgVar5;
         TbPageContext tbPageContext;
-        com.baidu.tbadk.core.data.be beVar6;
-        com.baidu.tbadk.core.data.be beVar7;
-        com.baidu.tbadk.core.data.be beVar8;
-        com.baidu.tieba.card.a.o oVar;
-        beVar = this.aUz.abb;
-        if (beVar != null) {
-            beVar2 = this.aUz.abb;
-            if (beVar2.getAuthor() != null) {
-                beVar3 = this.aUz.abb;
-                if (!StringUtils.isNull(beVar3.getAuthor().getName_show())) {
-                    beVar4 = this.aUz.abb;
-                    if (!StringUtils.isNull(beVar4.getAuthor().getUserId())) {
-                        beVar5 = this.aUz.abb;
-                        if (beVar5.getForum_name() != null) {
-                            if (this.aUz.KN() != null) {
-                                bx<com.baidu.tieba.card.a.o> KN = this.aUz.KN();
-                                oVar = this.aUz.aUw;
-                                KN.a(view, oVar);
+        com.baidu.tbadk.core.data.bg bgVar6;
+        com.baidu.tbadk.core.data.bg bgVar7;
+        com.baidu.tbadk.core.data.bg bgVar8;
+        com.baidu.tieba.card.data.m mVar;
+        bgVar = this.aZM.adL;
+        if (bgVar != null) {
+            bgVar2 = this.aZM.adL;
+            if (bgVar2.getAuthor() != null) {
+                bgVar3 = this.aZM.adL;
+                if (!StringUtils.isNull(bgVar3.getAuthor().getName_show())) {
+                    bgVar4 = this.aZM.adL;
+                    if (!StringUtils.isNull(bgVar4.getAuthor().getUserId())) {
+                        bgVar5 = this.aZM.adL;
+                        if (bgVar5.getForum_name() != null) {
+                            if (this.aZM.getOnSubCardOnClickListenner() != null) {
+                                cf<com.baidu.tieba.card.data.m> onSubCardOnClickListenner = this.aZM.getOnSubCardOnClickListenner();
+                                mVar = this.aZM.aZL;
+                                onSubCardOnClickListenner.a(view, mVar);
                             }
                             MessageManager messageManager = MessageManager.getInstance();
-                            tbPageContext = this.aUz.EA;
+                            tbPageContext = this.aZM.GM;
                             Activity pageActivity = tbPageContext.getPageActivity();
-                            beVar6 = this.aUz.abb;
-                            String userId = beVar6.getAuthor().getUserId();
-                            beVar7 = this.aUz.abb;
-                            String name_show = beVar7.getAuthor().getName_show();
-                            beVar8 = this.aUz.abb;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, beVar8.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            bgVar6 = this.aZM.adL;
+                            String userId = bgVar6.getAuthor().getUserId();
+                            bgVar7 = this.aZM.adL;
+                            String name_show = bgVar7.getAuthor().getName_show();
+                            bgVar8 = this.aZM.adL;
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, bgVar8.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }
                 }

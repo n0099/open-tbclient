@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.eD.dispatchResponsedMessage(customResponsedMessage);
+                    this.gP.dispatchResponsedMessage(customResponsedMessage);
                     return;
                 }
                 return;
@@ -49,7 +49,7 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.eD.dispatchResponsedMessage(customResponsedMessage);
+                    this.gP.dispatchResponsedMessage(customResponsedMessage);
                 }
             } else {
                 new a(customMessage, customMessageTask).execute(new String[0]);
@@ -61,16 +61,16 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
-        private CustomMessage eE;
-        private CustomMessageTask eF;
+        private CustomMessage gQ;
+        private CustomMessageTask gR;
 
-        public CustomMessage an() {
-            return this.eE;
+        public CustomMessage bi() {
+            return this.gQ;
         }
 
         public a(CustomMessage customMessage, CustomMessageTask customMessageTask) {
-            this.eE = null;
-            this.eF = null;
+            this.gQ = null;
+            this.gR = null;
             setPriority(customMessageTask.getPriority());
             setParallel(customMessageTask.getParallel());
             setTag(customMessage.getTag());
@@ -79,8 +79,8 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
             if (customMessageTask.isImme()) {
                 setPriority(4);
             }
-            this.eE = customMessage;
-            this.eF = customMessageTask;
+            this.gQ = customMessage;
+            this.gR = customMessageTask;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,15 +88,15 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: e */
         public CustomResponsedMessage doInBackground(String... strArr) {
-            if (this.eF == null) {
+            if (this.gR == null) {
                 return null;
             }
-            if (this.eF.getRunnable() == null) {
-                BdLog.e("CustomTask :" + this.eF.getClass().getName() + "did not contain a runnable!!");
+            if (this.gR.getRunnable() == null) {
+                BdLog.e("CustomTask :" + this.gR.getClass().getName() + "did not contain a runnable!!");
                 return null;
             }
             try {
-                return this.eF.getRunnable().run(this.eE);
+                return this.gR.getRunnable().run(this.gQ);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -109,11 +109,11 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
         /* renamed from: a */
         public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                customResponsedMessage.setOrginalMessage(this.eE);
-                b.this.eD.dispatchResponsedMessage(customResponsedMessage);
+                customResponsedMessage.setOrginalMessage(this.gQ);
+                b.this.gP.dispatchResponsedMessage(customResponsedMessage);
                 return;
             }
-            BdLog.e("CustomTask :" + this.eF.getClass().getName() + "returns a NULL!!");
+            BdLog.e("CustomTask :" + this.gR.getClass().getName() + "returns a NULL!!");
         }
     }
 
@@ -146,7 +146,7 @@ public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, Custom
         while (it.hasNext()) {
             BdAsyncTask<?, ?, ?> next = it.next();
             if (next instanceof a) {
-                linkedList.add(((a) next).an());
+                linkedList.add(((a) next).bi());
             }
         }
         return linkedList;

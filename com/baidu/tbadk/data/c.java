@@ -4,28 +4,28 @@ import org.json.JSONObject;
 import tbclient.VipCloseAd;
 /* loaded from: classes.dex */
 public class c {
-    private int apc = 1;
-    private int apd;
+    private int asj = 1;
+    private int ask;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.apc = jSONObject.optInt("is_open");
-            this.apd = jSONObject.optInt("vip_close");
+            this.asj = jSONObject.optInt("is_open");
+            this.ask = jSONObject.optInt("vip_close");
         }
     }
 
     public void a(VipCloseAd vipCloseAd) {
         if (vipCloseAd != null) {
-            this.apc = vipCloseAd.is_open.intValue();
-            this.apd = vipCloseAd.vip_close.intValue();
+            this.asj = vipCloseAd.is_open.intValue();
+            this.ask = vipCloseAd.vip_close.intValue();
         }
     }
 
-    public int AB() {
-        return this.apc;
+    public int BQ() {
+        return this.asj;
     }
 
-    public int AC() {
-        return this.apd;
+    public int BR() {
+        return this.ask;
     }
 }

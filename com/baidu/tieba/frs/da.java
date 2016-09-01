@@ -1,12 +1,8 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes.dex */
-public class da implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId bIh = BdUniqueId.gen();
-
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return bIh;
-    }
+public class da {
+    public int bTs;
+    public List<cy> bTt;
 }

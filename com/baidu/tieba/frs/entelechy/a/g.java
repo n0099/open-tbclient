@@ -1,27 +1,56 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.aq;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.frs.entelechy.view.ah;
 /* loaded from: classes.dex */
-public class g extends CustomMessageListener {
-    final /* synthetic */ c bKI;
+public class g extends com.baidu.adp.widget.ListView.a<aq, a> implements com.baidu.tieba.frs.g.e {
+    private TbPageContext<?> GM;
+    private ah bVT;
+    private cf bVU;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(c cVar, int i) {
-        super(i);
-        this.bKI = cVar;
+    public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.bVU = new h(this);
+        this.GM = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-            com.baidu.tieba.lego.c.b bVar = new com.baidu.tieba.lego.c.b();
-            bVar.aMb = String.valueOf(customResponsedMessage.getData());
-            bVar.drN = true;
-            this.bKI.H(bVar);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: w */
+    public a a(ViewGroup viewGroup) {
+        this.bVT = new ah(this.GM);
+        this.bVT.i(this.GM.getUniqueId());
+        return new a(this.bVT);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, aq aqVar, a aVar) {
+        if (aVar == null || aVar.bVW == null) {
+            return null;
+        }
+        aVar.bVW.onBindDataToView(aqVar);
+        aVar.bVW.setOnSubCardOnClickListenner(this.bVU);
+        com.baidu.tieba.frs.g.b.aeX().a(cdn, aqVar);
+        return aVar.getView();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a extends y.a {
+        public ah bVW;
+
+        public a(ah ahVar) {
+            super(ahVar.getView());
+            this.bVW = ahVar;
         }
     }
 }

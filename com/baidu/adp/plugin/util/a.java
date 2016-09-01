@@ -23,7 +23,7 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0013a {
         public String mErrMsg;
-        public boolean wu;
+        public boolean yG;
     }
 
     public static C0013a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
@@ -117,14 +117,14 @@ public class a {
             a(w, w.getClass(), "dexElements", d);
             Object d2 = d(y(w), y(w2));
             if (d2 instanceof File[]) {
-                Arrays.sort((File[]) d2, is());
+                Arrays.sort((File[]) d2, jn());
                 list = d2;
             } else {
                 boolean z2 = d2 instanceof List;
                 list = d2;
                 if (z2) {
                     List list2 = (List) d2;
-                    Collections.sort(list2, is());
+                    Collections.sort(list2, jn());
                     list = list2;
                 }
             }
@@ -239,7 +239,7 @@ public class a {
 
     private static C0013a a(boolean z, Throwable th) {
         C0013a c0013a = new C0013a();
-        c0013a.wu = z;
+        c0013a.yG = z;
         c0013a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0013a;
     }
@@ -276,7 +276,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> is() {
+    private static final Comparator<File> jn() {
         return new c();
     }
 

@@ -1,17 +1,25 @@
 package com.baidu.tieba.frs;
-
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-class af implements dm {
-    final /* synthetic */ FrsActivity bEL;
+class af extends com.baidu.adp.base.g {
+    final /* synthetic */ FrsActivity bQp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(FrsActivity frsActivity) {
-        this.bEL = frsActivity;
+        this.bQp = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.dm
-    public void a(int i, int i2, dv dvVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        com.baidu.adp.lib.h.h.dL().post(new ag(this));
+    @Override // com.baidu.adp.base.g
+    public void g(Object obj) {
+        com.baidu.tieba.frs.i.aa aaVar;
+        boolean z = false;
+        if (obj instanceof Boolean) {
+            z = ((Boolean) obj).booleanValue();
+        }
+        if (z) {
+            aaVar = this.bQp.bPD;
+            aaVar.eh(true);
+            return;
+        }
+        this.bQp.refresh();
     }
 }

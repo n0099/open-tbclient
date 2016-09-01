@@ -7,20 +7,20 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements TextWatcher {
-    final /* synthetic */ InputView asK;
+    final /* synthetic */ InputView avR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(InputView inputView) {
-        this.asK = inputView;
+        this.avR = inputView;
     }
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         TextWatcher textWatcher;
         TextWatcher textWatcher2;
-        textWatcher = this.asK.asG;
+        textWatcher = this.avR.avN;
         if (textWatcher != null) {
-            textWatcher2 = this.asK.asG;
+            textWatcher2 = this.avR.avN;
             textWatcher2.beforeTextChanged(charSequence, i, i2, i3);
         }
     }
@@ -30,34 +30,34 @@ public class b implements TextWatcher {
         TextWatcher textWatcher;
         boolean z;
         Pattern pattern;
-        SpannableStringBuilder fu;
+        SpannableStringBuilder fx;
         int i4;
         int i5;
         TextWatcher textWatcher2;
-        textWatcher = this.asK.asG;
+        textWatcher = this.avR.avN;
         if (textWatcher != null) {
-            textWatcher2 = this.asK.asG;
+            textWatcher2 = this.avR.avN;
             textWatcher2.onTextChanged(charSequence, i, i2, i3);
         }
-        z = this.asK.asI;
+        z = this.avR.avP;
         if (z) {
-            pattern = InputView.asE;
+            pattern = InputView.avL;
             if (!pattern.matcher(charSequence.subSequence(i, i + i3)).find()) {
                 return;
             }
-            fu = this.asK.fu(charSequence.toString());
-            this.asK.asI = false;
-            this.asK.asJ = i + i3;
-            this.asK.setText(fu);
+            fx = this.avR.fx(charSequence.toString());
+            this.avR.avP = false;
+            this.avR.avQ = i + i3;
+            this.avR.setText(fx);
             return;
         }
-        this.asK.asI = true;
-        i4 = this.asK.asJ;
+        this.avR.avP = true;
+        i4 = this.avR.avQ;
         if (i4 != -1) {
-            InputView inputView = this.asK;
-            i5 = this.asK.asJ;
+            InputView inputView = this.avR;
+            i5 = this.avR.avQ;
             inputView.setSelection(i5);
-            this.asK.asJ = -1;
+            this.avR.avQ = -1;
         }
     }
 
@@ -65,13 +65,13 @@ public class b implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         TextWatcher textWatcher;
         TextWatcher textWatcher2;
-        textWatcher = this.asK.asG;
+        textWatcher = this.avR.avN;
         if (textWatcher != null) {
-            textWatcher2 = this.asK.asG;
+            textWatcher2 = this.avR.avN;
             textWatcher2.afterTextChanged(editable);
         }
         if (editable != null && editable.toString().trim() != null) {
-            this.asK.b(new com.baidu.tbadk.editortools.a(4, -1, this.asK.getText().toString()));
+            this.avR.b(new com.baidu.tbadk.editortools.a(4, -1, this.avR.getText().toString()));
         }
     }
 }

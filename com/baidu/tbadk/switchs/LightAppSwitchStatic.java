@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class LightAppSwitchStatic extends a {
     static {
-        e.cS().n(LightAppSwitchStatic.class);
+        e.dN().n(LightAppSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -9,11 +9,6 @@ import com.baidu.tbadk.core.util.ba;
 public class VideoListActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";
     public static final String KEY_SOURCE = "KEY_SOURCE";
-    public static final String KEY_SOURCE_FRS = "frs";
-    public static final String KEY_SOURCE_FRS_FIVE = "floor5";
-    public static final String KEY_SOURCE_FRS_HEAD = "headvideo";
-    public static final String KEY_SOURCE_HOME = "index";
-    public static final String KEY_SOURCE_PB = "pb";
     public static final String KEY_THREAD_ID = "KEY_THREAD_ID";
     private Context mContext;
 
@@ -33,6 +28,18 @@ public class VideoListActivityConfig extends IntentConfig {
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
             }
+        }
+        return this;
+    }
+
+    public VideoListActivityConfig createNormalCfg(long j, String str) {
+        Intent intent = getIntent();
+        intent.putExtra("user_id", j);
+        if (!ba.isEmpty(str)) {
+            intent.putExtra(KEY_SOURCE, str);
+        }
+        if (!(this.mContext instanceof Activity)) {
+            intent.addFlags(268435456);
         }
         return this;
     }

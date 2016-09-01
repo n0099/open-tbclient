@@ -1,156 +1,139 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.FeedForumData;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.base.e {
-    private String fjf;
-    private a fjg;
-    private String fjh;
-    private String from;
-    private String mForumId;
-    private String mForumName;
+public class y {
+    private String aRv;
+    private int cur_score;
+    private int frb;
+    private int frc;
+    private List<FeedForumData> frd = new ArrayList();
+    private int is_like;
+    private String level_name;
+    private int levelup_score;
+    private int user_level;
 
-    public y(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.mForumName = null;
-        this.mForumId = null;
-        this.fjf = null;
-        this.fjg = null;
+    public y() {
+        setLike(0);
+        this.frb = 0;
+        this.frc = 0;
+        this.user_level = 0;
+        setLevelName("");
+        setCurScore(0);
+        setLevelupScore(0);
     }
 
-    public void setFrom(String str) {
-        this.from = str;
+    public String aaL() {
+        return this.aRv;
     }
 
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
+    public void hi(String str) {
+        this.aRv = str;
     }
 
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
+    public int getUserLevel() {
+        return this.user_level;
     }
 
-    public void beD() {
-        if (this.fjg != null) {
-            this.fjg.cancel();
-            this.fjg = null;
+    public void setUserLevel(int i) {
+        if (i >= 0) {
+            this.user_level = i;
         }
     }
 
-    public void I(String str, String str2, String str3) {
-        bO(str, str2);
-        this.fjf = str3;
-    }
-
-    public void bO(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.fjg == null) {
-            this.mForumName = str;
-            this.mForumId = str2;
-            this.fjg = new a(this, null);
-            this.fjg.setPriority(2);
-            this.fjg.execute(new Object[0]);
+    public void parserJson(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            parserJson(jSONObject.optJSONObject(LoginActivityConfig.INFO));
+            g(jSONObject.optJSONArray("feed_forum"));
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
-    public boolean beE() {
-        return this.fjg != null;
-    }
-
-    public void qh(String str) {
-        this.fjh = str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<Object, Integer, z> {
-        private volatile com.baidu.tbadk.core.util.ab afX;
-
-        private a() {
-            this.afX = null;
-        }
-
-        /* synthetic */ a(y yVar, a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: G */
-        public z doInBackground(Object... objArr) {
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                this.afX = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
-                this.afX.n("kw", y.this.mForumName);
-                this.afX.n("fid", y.this.mForumId);
-                this.afX.n("st_type", y.this.from);
-                if (!StringUtils.isNull(y.this.fjh)) {
-                    this.afX.n("dev_id", y.this.fjh);
-                }
-                if (!TextUtils.isEmpty(y.this.fjf)) {
-                    this.afX.n("pagefrom", y.this.fjf);
-                }
-                this.afX.n("user_name", TbadkCoreApplication.getCurrentAccountName());
-                this.afX.n("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.afX.n("forum_name", y.this.mForumName);
-                this.afX.tx().uu().mIsNeedTbs = true;
-                String sZ = this.afX.sZ();
-                if (!this.afX.tx().uv().tA()) {
-                    y.this.setErrorCode(this.afX.tC());
-                    y.this.setErrorString(this.afX.tD());
+                setLike(jSONObject.optInt("is_like", 0));
+                this.frb = jSONObject.optInt("is_black", 0);
+                this.frc = jSONObject.optInt("like_num", 0);
+                this.user_level = jSONObject.optInt("level_id", 0);
+                setLevelName(jSONObject.optString("level_name", ""));
+                setLevelupScore(jSONObject.optInt("levelup_score", 0));
+                setCurScore(jSONObject.optInt("cur_score", 0));
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public void g(JSONArray jSONArray) {
+        int i = 0;
+        while (true) {
+            try {
+                int i2 = i;
+                if (i2 < jSONArray.length()) {
+                    JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
+                    FeedForumData feedForumData = new FeedForumData();
+                    feedForumData.setForumId(jSONObject.getString("forum_id"));
+                    feedForumData.setForumName(jSONObject.getString("forum_name"));
+                    feedForumData.setMemberCount(Integer.parseInt(jSONObject.getString("member_count")));
+                    feedForumData.setPostNum(Integer.parseInt(jSONObject.getString("post_num")));
+                    feedForumData.setAvatar(jSONObject.getString("avatar"));
+                    feedForumData.setReason(jSONObject.getString("reason"));
+                    feedForumData.setIsLike(Integer.parseInt(jSONObject.getString("is_like")));
+                    feedForumData.setPos(Integer.parseInt(jSONObject.getString("pos")));
+                    this.frd.add(feedForumData);
+                    i = i2 + 1;
                 } else {
-                    y.this.setErrorCode(this.afX.tB());
-                    y.this.setErrorString(this.afX.getErrorString());
-                }
-                if (this.afX.tx().uv().nJ() && sZ != null) {
-                    z zVar = new z();
-                    zVar.parserJson(sZ);
-                    zVar.gF(y.this.mForumId);
-                    return zVar;
+                    return;
                 }
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                e.printStackTrace();
+                return;
             }
-            z zVar2 = new z();
-            zVar2.setLike(0);
-            zVar2.gF(y.this.mForumId);
-            return zVar2;
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onPostExecute(z zVar) {
-            y.this.fjg = null;
-            if (this.afX != null && this.afX.tx().uv().nJ() && y.this.getErrorCode() == 0 && zVar != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.h.b.c(zVar.beF(), 0L))));
-                TbadkCoreApplication.m10getInst().addLikeForum(y.this.mForumName);
-            }
-            if (y.this.mLoadDataCallBack != null) {
-                y.this.mLoadDataCallBack.g(zVar);
-            }
-        }
+    public void setLike(int i) {
+        this.is_like = i;
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            if (this.afX != null) {
-                this.afX.dl();
-                this.afX = null;
-            }
-            y.this.fjg = null;
-            super.cancel(true);
-            y.this.mLoadDataCallBack.g(null);
-        }
+    public int isLike() {
+        return this.is_like;
+    }
+
+    public void setLevelName(String str) {
+        this.level_name = str;
+    }
+
+    public String getLevelName() {
+        return this.level_name;
+    }
+
+    public void setCurScore(int i) {
+        this.cur_score = i;
+    }
+
+    public int getCurScore() {
+        return this.cur_score;
+    }
+
+    public void setLevelupScore(int i) {
+        this.levelup_score = i;
+    }
+
+    public int getLevelupScore() {
+        return this.levelup_score;
+    }
+
+    public List<FeedForumData> bhb() {
+        return this.frd;
     }
 }

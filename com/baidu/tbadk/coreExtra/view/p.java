@@ -5,20 +5,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ MultiImageView amm;
+    final /* synthetic */ MultiImageView apt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(MultiImageView multiImageView) {
-        this.amm = multiImageView;
+        this.apt = multiImageView;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         ViewPager.OnPageChangeListener onPageChangeListener;
         ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.amm.amg;
+        onPageChangeListener = this.apt.apm;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.amm.amg;
+            onPageChangeListener2 = this.apt.apm;
             onPageChangeListener2.onPageScrollStateChanged(i);
         }
     }
@@ -27,9 +27,9 @@ public class p implements ViewPager.OnPageChangeListener {
     public void onPageScrolled(int i, float f, int i2) {
         ViewPager.OnPageChangeListener onPageChangeListener;
         ViewPager.OnPageChangeListener onPageChangeListener2;
-        onPageChangeListener = this.amm.amg;
+        onPageChangeListener = this.apt.apm;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.amm.amg;
+            onPageChangeListener2 = this.apt.apm;
             onPageChangeListener2.onPageScrolled(i, f, i2);
         }
     }
@@ -46,41 +46,41 @@ public class p implements ViewPager.OnPageChangeListener {
         h hVar4;
         boolean z3;
         h hVar5;
-        hVar = this.amm.amf;
+        hVar = this.apt.apl;
         View findViewWithTag = hVar.findViewWithTag(String.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof u)) {
-            z3 = this.amm.aml;
-            ((u) findViewWithTag).bi(z3);
+            z3 = this.apt.aps;
+            ((u) findViewWithTag).bk(z3);
             com.baidu.tbadk.widget.a imageView = ((u) findViewWithTag).getImageView();
             if (imageView != null) {
-                hVar5 = this.amm.amf;
+                hVar5 = this.apt.apl;
                 hVar5.setSelectedView(imageView);
-                imageView.Gc();
+                imageView.Hw();
             }
         }
-        hVar2 = this.amm.amf;
+        hVar2 = this.apt.apl;
         int childCount = hVar2.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            hVar4 = this.amm.amf;
+            hVar4 = this.apt.apl;
             View childAt = hVar4.getChildAt(i2);
             if (childAt != null && (childAt instanceof u)) {
-                ((u) childAt).zU();
+                ((u) childAt).Bj();
             }
         }
-        z = this.amm.amj;
-        if (z && (com.baidu.adp.lib.util.i.fu() || com.baidu.adp.lib.util.i.fr())) {
+        z = this.apt.apq;
+        if (z && (com.baidu.adp.lib.util.i.gq() || com.baidu.adp.lib.util.i.gn())) {
             for (int i3 = 0; i3 < childCount; i3++) {
-                hVar3 = this.amm.amf;
+                hVar3 = this.apt.apl;
                 View childAt2 = hVar3.getChildAt(i3);
                 if (childAt2 != null && (childAt2 instanceof u)) {
-                    z2 = this.amm.alu;
-                    ((u) childAt2).bm(z2);
+                    z2 = this.apt.aoA;
+                    ((u) childAt2).bo(z2);
                 }
             }
         }
-        onPageChangeListener = this.amm.amg;
+        onPageChangeListener = this.apt.apm;
         if (onPageChangeListener != null) {
-            onPageChangeListener2 = this.amm.amg;
+            onPageChangeListener2 = this.apt.apm;
             onPageChangeListener2.onPageSelected(i);
         }
     }

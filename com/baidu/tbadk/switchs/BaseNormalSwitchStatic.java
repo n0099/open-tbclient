@@ -31,7 +31,7 @@ public abstract class BaseNormalSwitchStatic extends a {
         return 10;
     }
 
-    public boolean ec() {
-        return e.cS().ab(getName()) == getDefaultType();
+    public boolean eX() {
+        return e.dN().ac(getName()) == getDefaultType();
     }
 }

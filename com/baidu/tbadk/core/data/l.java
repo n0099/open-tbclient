@@ -27,7 +27,7 @@ public class l {
         return this.text;
     }
 
-    public String ov() {
+    public String pr() {
         return this.headline_cover;
     }
 
@@ -35,7 +35,7 @@ public class l {
         return this.url;
     }
 
-    public String ow() {
+    public String ps() {
         return this.obj_id;
     }
 }

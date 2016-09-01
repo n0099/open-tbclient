@@ -11,13 +11,13 @@ import tbclient.User;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ b ctz;
+    final /* synthetic */ b this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(b bVar, int i) {
         super(i);
-        this.ctz = bVar;
+        this.this$0 = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,22 +34,22 @@ public class f extends CustomMessageListener {
         int intValue;
         DataRes.Builder builder5;
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            builder = this.ctz.csT;
+            builder = this.this$0.cEz;
             if (builder != null) {
-                builder2 = this.ctz.csT;
+                builder2 = this.this$0.cEz;
                 if (!com.baidu.tbadk.core.util.y.t(builder2.thread_list)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                     if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                         return;
                     }
                     for (int i = 0; i < builder3.thread_list.size(); i++) {
-                        builder4 = this.ctz.csT;
+                        builder4 = this.this$0.cEz;
                         ThreadInfo threadInfo = builder4.thread_list.get(i);
                         if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == com.baidu.adp.lib.h.b.c(updateAttentionMessage.getData().toUid, -1L)) {
                             ThreadInfo.Builder builder6 = new ThreadInfo.Builder(threadInfo);
                             User.Builder builder7 = new User.Builder(builder6.author);
                             GodInfo.Builder builder8 = new GodInfo.Builder(builder7.god_data);
-                            if (updateAttentionMessage.getData().ahS) {
+                            if (updateAttentionMessage.getData().akW) {
                                 intValue = builder7.fans_num.intValue() + 1;
                                 builder8.followed = 1;
                             } else {
@@ -59,7 +59,7 @@ public class f extends CustomMessageListener {
                             builder7.fans_num = Integer.valueOf(intValue);
                             builder7.god_data = builder8.build(true);
                             builder6.author = builder7.build(true);
-                            builder5 = this.ctz.csT;
+                            builder5 = this.this$0.cEz;
                             builder5.thread_list.set(i, builder6.build(true));
                             return;
                         }

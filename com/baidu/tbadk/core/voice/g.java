@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.core.voice.service.MediaService;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BroadcastReceiver {
@@ -54,7 +54,7 @@ public class g extends BroadcastReceiver {
                 int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
                 VoiceManager.b playView2 = this.this$0.getPlayView();
                 if (playView2 != null) {
-                    playView2.aF(intExtra);
+                    playView2.aS(intExtra);
                 }
                 if (this.this$0.mCurPlayModel != null) {
                     this.this$0.mCurPlayModel.elapse = intExtra;
@@ -85,9 +85,9 @@ public class g extends BroadcastReceiver {
                     VoiceManager.b playView4 = this.this$0.getPlayView();
                     if (playView4 != null) {
                         if (intExtra2 == 2) {
-                            string = com.baidu.adp.lib.voice.l.getString(u.j.voice_err_io);
+                            string = com.baidu.adp.lib.voice.l.getString(t.j.voice_err_io);
                         } else {
-                            string = com.baidu.adp.lib.voice.l.getString(u.j.voice_err_play);
+                            string = com.baidu.adp.lib.voice.l.getString(t.j.voice_err_play);
                         }
                         playView4.onShowErr(5, string);
                     }
@@ -104,7 +104,7 @@ public class g extends BroadcastReceiver {
                 }
                 VoiceManager.b playView5 = this.this$0.getPlayView();
                 if (playView5 != null) {
-                    playView5.kI();
+                    playView5.lD();
                 }
                 MediaService.startPlay(context);
             } else {

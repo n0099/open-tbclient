@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.tab;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.frs.dy;
+import com.baidu.tieba.frs.dt;
 import com.baidu.tieba.frs.tab.j;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements AdapterView.OnItemClickListener {
-    final /* synthetic */ n bSP;
+    final /* synthetic */ n cdV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar) {
-        this.bSP = nVar;
+        this.cdV = nVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,31 +21,31 @@ public class p implements AdapterView.OnItemClickListener {
         j jVar;
         BaseAdapter baseAdapter;
         j.b bVar;
-        List<dy> list;
+        List<dt> list;
         BaseAdapter baseAdapter2;
         j.b bVar2;
         j jVar2;
-        jVar = this.bSP.bSN;
+        jVar = this.cdV.cdT;
         if (jVar != null) {
-            jVar2 = this.bSP.bSN;
-            jVar2.aaq();
+            jVar2 = this.cdV.cdT;
+            jVar2.afb();
         }
-        baseAdapter = this.bSP.bSO;
+        baseAdapter = this.cdV.cdU;
         if (baseAdapter != null) {
-            bVar = this.bSP.bSs;
+            bVar = this.cdV.cdy;
             if (bVar != null) {
-                list = this.bSP.aMv;
-                for (dy dyVar : list) {
-                    if (dyVar != null) {
-                        dyVar.isSelected = false;
+                list = this.cdV.aRP;
+                for (dt dtVar : list) {
+                    if (dtVar != null) {
+                        dtVar.isSelected = false;
                     }
                 }
-                baseAdapter2 = this.bSP.bSO;
-                dy dyVar2 = (dy) baseAdapter2.getItem(i);
-                if (dyVar2 != null) {
-                    dyVar2.isSelected = true;
-                    bVar2 = this.bSP.bSs;
-                    bVar2.hS(dyVar2.bIj);
+                baseAdapter2 = this.cdV.cdU;
+                dt dtVar2 = (dt) baseAdapter2.getItem(i);
+                if (dtVar2 != null) {
+                    dtVar2.isSelected = true;
+                    bVar2 = this.cdV.cdy;
+                    bVar2.iv(dtVar2.bTp);
                 }
             }
         }

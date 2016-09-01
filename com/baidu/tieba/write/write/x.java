@@ -5,24 +5,24 @@ import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements a.b {
-    final /* synthetic */ WriteActivity fVn;
+    final /* synthetic */ WriteActivity gfs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(WriteActivity writeActivity) {
-        this.fVn = writeActivity;
+        this.gfs = writeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         d.a aVar2;
         com.baidu.tieba.tbadkCore.location.d dVar;
-        if (!com.baidu.adp.lib.util.i.fq()) {
-            aVar2 = this.fVn.atn;
-            aVar2.Cl();
+        if (!com.baidu.adp.lib.util.i.gm()) {
+            aVar2 = this.gfs.awu;
+            aVar2.DG();
         } else {
-            this.fVn.b(1, true, null);
-            dVar = this.fVn.asY;
-            dVar.bgp();
+            this.gfs.b(1, true, null);
+            dVar = this.gfs.awf;
+            dVar.bjQ();
         }
         aVar.dismiss();
     }

@@ -1,28 +1,48 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tieba.frs.ba;
+import com.baidu.tieba.tbadkCore.p;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bJx;
-    final /* synthetic */ ab bLs;
+public interface af {
+    void a(com.baidu.adp.widget.ListView.w wVar);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ab abVar, ThemeCardInUserData themeCardInUserData) {
-        this.bLs = abVar;
-        this.bJx = themeCardInUserData;
-    }
+    void a(com.baidu.adp.widget.ListView.x xVar);
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        tbPageContext = this.bLs.EA;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bJx.getCardId())));
-    }
+    void a(ba baVar);
+
+    void a(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, p pVar);
+
+    HashMap<Integer, bg> acX();
+
+    void acY();
+
+    int acZ();
+
+    int ach();
+
+    int ada();
+
+    int adb();
+
+    int adc();
+
+    int add();
+
+    void aw(String str, String str2);
+
+    void dT(boolean z);
+
+    boolean k(BdUniqueId bdUniqueId);
+
+    void notifyDataSetChanged();
+
+    void onDestory();
+
+    void setForumName(String str);
+
+    void setFromCDN(boolean z);
 }

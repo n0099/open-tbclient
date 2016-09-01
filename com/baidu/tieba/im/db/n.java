@@ -4,21 +4,21 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.util.t;
 /* loaded from: classes.dex */
 class n extends t<Void> {
-    final /* synthetic */ m cNF;
-    private final /* synthetic */ CustomResponsedMessage cNG;
+    final /* synthetic */ m cZk;
+    private final /* synthetic */ CustomResponsedMessage cZl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar, CustomResponsedMessage customResponsedMessage) {
-        this.cNF = mVar;
-        this.cNG = customResponsedMessage;
+        this.cZk = mVar;
+        this.cZl = customResponsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.t
-    /* renamed from: Jn */
+    /* renamed from: LP */
     public Void doInBackground() {
-        if (this.cNG.getData() instanceof String) {
-            f.kK((String) this.cNG.getData());
+        if (this.cZl.getData() instanceof String) {
+            f.lt((String) this.cZl.getData());
             return null;
         }
         return null;

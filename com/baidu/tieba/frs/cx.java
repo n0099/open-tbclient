@@ -1,48 +1,12 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
+import android.view.View;
+import com.baidu.adp.widget.ListView.y;
 /* loaded from: classes.dex */
-public class cx {
-    private long bHY;
-    private long bHZ;
-    private long bIa;
-    private long bIb;
-    private long bIc;
+public class cx extends y.a {
+    public com.baidu.tbadk.g.f bTo;
 
-    public cx(Context context) {
-        aM(0L);
-        aN(0L);
-    }
-
-    public void aM(long j) {
-        this.bHY = j;
-    }
-
-    public void aN(long j) {
-        this.bHZ = j;
-    }
-
-    public long Xl() {
-        return this.bHZ + this.bHY + this.bIa;
-    }
-
-    public void aO(long j) {
-        this.bIa = j;
-    }
-
-    public void aP(long j) {
-        this.bIb = j;
-    }
-
-    public long Xm() {
-        return this.bIb;
-    }
-
-    public long Xn() {
-        return this.bIc;
-    }
-
-    public void aQ(long j) {
-        this.bIc = j;
+    public cx(View view) {
+        super(view);
     }
 }

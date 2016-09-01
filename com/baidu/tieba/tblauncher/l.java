@@ -9,13 +9,13 @@ class l extends com.baidu.tbadk.pageStayDuration.b {
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean Em() {
+    public boolean FG() {
         return true;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public int En() {
-        return com.baidu.tbadk.pageStayDuration.e.Es().Eu();
+    public int FH() {
+        return com.baidu.tbadk.pageStayDuration.e.FM().FO();
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b

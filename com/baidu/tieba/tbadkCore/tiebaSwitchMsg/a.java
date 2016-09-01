@@ -26,27 +26,27 @@ class a extends CustomMessageListener {
         GroupNewsPojo p;
         PluginNetConfigInfos parse;
         int i = 0;
-        if (TbadkCoreApplication.m10getInst().isMainProcess(true) && c.ij().ig().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
+        if (TbadkCoreApplication.m9getInst().isMainProcess(true) && c.je().jb().getPlugins().size() != 0 && customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && !TextUtils.isEmpty(p.getCmd())) {
             String content = p.getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
                     JSONObject jSONObject = new JSONObject(content).getJSONObject("userMsg");
                     if (jSONObject != null) {
                         String string = jSONObject.getString("client_version");
-                        String hS = PluginPackageManager.hG().hS();
-                        if (!TextUtils.isEmpty(hS)) {
-                            String[] split = hS.split("\\.");
+                        String iN = PluginPackageManager.iB().iN();
+                        if (!TextUtils.isEmpty(iN)) {
+                            String[] split = iN.split("\\.");
                             if (split.length != 0 && split.length != 3) {
                                 String str = "";
                                 for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
                                     str = String.valueOf(str) + split[i2] + ".";
                                 }
-                                hS = str.substring(0, str.length() - 1);
+                                iN = str.substring(0, str.length() - 1);
                             }
-                            if (Util.K(string, hS) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
+                            if (Util.K(string, iN) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                                 PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
-                                PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.hG().getPluginConfig(pluginConfig.package_name);
-                                d.id().ie().addOrUpdateConfig(pluginConfig);
+                                PluginNetConfigInfos.PluginConfig pluginConfig2 = PluginPackageManager.iB().getPluginConfig(pluginConfig.package_name);
+                                d.iY().iZ().addOrUpdateConfig(pluginConfig);
                                 if (pluginConfig2 == null) {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                                     return;

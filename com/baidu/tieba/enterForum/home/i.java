@@ -1,30 +1,20 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ e bvs;
+public class i implements NoNetworkView.a {
+    final /* synthetic */ e bGG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(e eVar) {
-        this.bvs = eVar;
+        this.bGG = eVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        FragmentTabWidget fragmentTabWidget;
-        fragmentTabWidget = this.bvs.bvo;
-        fragmentTabWidget.g(i, true);
-        this.bvs.gM(i);
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aH(boolean z) {
+        if (this.bGG.bGD == 0 && this.bGG.bGw != null) {
+            this.bGG.bGw.dj(z);
+        }
     }
 }

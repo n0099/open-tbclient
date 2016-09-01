@@ -10,26 +10,26 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends CountDownTimer {
-    final /* synthetic */ PbInterviewStatusView elJ;
-    private final /* synthetic */ PbActivity elK;
+    final /* synthetic */ PbInterviewStatusView exP;
+    private final /* synthetic */ PbActivity exQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity) {
         super(j, j2);
-        this.elJ = pbInterviewStatusView;
-        this.elK = pbActivity;
+        this.exP = pbInterviewStatusView;
+        this.exQ = pbActivity;
     }
 
     @Override // android.os.CountDownTimer
     public void onTick(long j) {
         TextView textView;
-        textView = this.elJ.elx;
+        textView = this.exP.exD;
         textView.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
     }
 
@@ -43,22 +43,22 @@ public class o extends CountDownTimer {
         ImageView imageView2;
         FrameLayout frameLayout;
         ay ayVar = new ay("c11106");
-        str = this.elJ.NX;
+        str = this.exP.QF;
         TiebaStatic.log(ayVar.ab("obj_id", str));
-        this.elJ.elG = false;
-        textView = this.elJ.elu;
-        textView.setText(this.elK.getPageContext().getPageActivity().getString(u.j.interview_live_start));
-        textView2 = this.elJ.elu;
-        textView2.setTextSize(0, k.c(this.elK.getPageContext().getPageActivity(), u.e.fontsize24));
-        imageView = this.elJ.elv;
+        this.exP.exM = false;
+        textView = this.exP.exA;
+        textView.setText(this.exQ.getPageContext().getPageActivity().getString(t.j.interview_live_start));
+        textView2 = this.exP.exA;
+        textView2.setTextSize(0, k.e(this.exQ.getPageContext().getPageActivity(), t.e.fontsize24));
+        imageView = this.exP.exB;
         imageView.setVisibility(0);
-        view = this.elJ.elA;
+        view = this.exP.exG;
         view.setVisibility(8);
-        imageView2 = this.elJ.elz;
+        imageView2 = this.exP.exF;
         imageView2.setVisibility(0);
-        frameLayout = this.elJ.elw;
+        frameLayout = this.exP.exC;
         frameLayout.setVisibility(8);
-        this.elJ.setClickable(true);
-        this.elJ.elH = true;
+        this.exP.setClickable(true);
+        this.exP.exN = true;
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends CustomMessageListener {
-    final /* synthetic */ g cvC;
+    final /* synthetic */ g cHg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(g gVar, int i) {
         super(i);
-        this.cvC = gVar;
+        this.cHg = gVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -28,32 +28,32 @@ public class j extends CustomMessageListener {
         String str3;
         if (customResponsedMessage != null) {
             if (!(customResponsedMessage.getData() instanceof com.baidu.tieba.homepage.personalize.data.i)) {
-                this.cvC.cvw = null;
-                this.cvC.cvy = 0;
+                this.cHg.cHa = null;
+                this.cHg.cHc = 0;
                 return;
             }
             com.baidu.tieba.homepage.personalize.data.i iVar = (com.baidu.tieba.homepage.personalize.data.i) customResponsedMessage.getData();
-            if (iVar.cvk) {
-                str2 = this.cvC.cvw;
+            if (iVar.cGO) {
+                str2 = this.cHg.cHa;
                 if (!StringUtils.isNull(str2)) {
-                    str3 = this.cvC.cvw;
-                    if (str3.equals(iVar.cvj)) {
-                        this.cvC.cvy = 2;
-                        this.cvC.cvw = iVar.cvj;
+                    str3 = this.cHg.cHa;
+                    if (str3.equals(iVar.PE)) {
+                        this.cHg.cHc = 2;
+                        this.cHg.cHa = iVar.PE;
                         return;
                     }
                 }
-                this.cvC.cvy = 1;
-                this.cvC.cvw = iVar.cvj;
+                this.cHg.cHc = 1;
+                this.cHg.cHa = iVar.PE;
                 return;
             }
-            str = this.cvC.cvw;
+            str = this.cHg.cHa;
             if (StringUtils.isNull(str)) {
-                this.cvC.cvy = 2;
+                this.cHg.cHc = 2;
             } else {
-                this.cvC.cvy = 1;
+                this.cHg.cHc = 1;
             }
-            this.cvC.cvw = null;
+            this.cHg.cHa = null;
         }
     }
 }

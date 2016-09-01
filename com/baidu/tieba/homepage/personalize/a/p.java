@@ -1,61 +1,70 @@
 package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.card.bw;
-import com.baidu.tieba.card.bx;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.k, a> {
-    private TbPageContext<?> EA;
-    public BdUniqueId aTm;
-    private com.baidu.tieba.card.u cuk;
-    private bx<com.baidu.tieba.card.a.k> cul;
+public class p extends cf<com.baidu.tieba.card.data.k> {
+    final /* synthetic */ o cFQ;
 
-    public p(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.a.k.OB);
-        this.cul = new q(this);
-        this.EA = tbPageContext;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(o oVar) {
+        this.cFQ = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ap */
-    public a a(ViewGroup viewGroup) {
-        this.cuk = new com.baidu.tieba.card.u(this.EA, this.aTm);
-        return new a(this.cuk);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.k kVar, a aVar) {
-        this.cuk = aVar.cun;
-        aVar.cun.d(this.EA, TbadkCoreApplication.m10getInst().getSkinType());
-        aVar.cun.a(kVar);
-        aVar.cun.a(this.cul);
-        bw.Lf().b(new ay("c11006"));
-        return aVar.getView();
-    }
-
-    public void jz(int i) {
-        if (this.cuk != null) {
-            this.cuk.d(this.EA, i);
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class a extends y.a {
-        public com.baidu.tieba.card.u cun;
-
-        public a(com.baidu.tieba.card.u uVar) {
-            super(uVar.getView());
-            this.cun = uVar;
+    @Override // com.baidu.tieba.card.cf
+    public void a(View view, com.baidu.tieba.card.data.k kVar) {
+        com.baidu.tieba.card.o oVar;
+        com.baidu.tieba.card.o oVar2;
+        com.baidu.tieba.card.o oVar3;
+        com.baidu.tieba.card.o oVar4;
+        com.baidu.tieba.card.o oVar5;
+        com.baidu.tieba.card.o oVar6;
+        com.baidu.tieba.card.o oVar7;
+        com.baidu.tieba.card.o oVar8;
+        if (view != null) {
+            oVar = this.cFQ.cFO;
+            if (oVar != null) {
+                oVar2 = this.cFQ.cFO;
+                if (oVar2.aYU != null) {
+                    oVar3 = this.cFQ.cFO;
+                    if (oVar3.aYU.aYZ != null) {
+                        oVar4 = this.cFQ.cFO;
+                        if (oVar4.aYU.aYX != null) {
+                            oVar5 = this.cFQ.cFO;
+                            if (oVar5.aYU.getView() != null) {
+                                int id = view.getId();
+                                oVar6 = this.cFQ.cFO;
+                                if (id == oVar6.aYU.aYZ.getId() && (view.getTag() instanceof MetaData)) {
+                                    if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
+                                        TiebaStatic.log(new ay("c10803").s("obj_locate", 6));
+                                        return;
+                                    }
+                                    return;
+                                }
+                                int id2 = view.getId();
+                                oVar7 = this.cFQ.cFO;
+                                if (id2 != oVar7.aYU.getView().getId()) {
+                                    int id3 = view.getId();
+                                    oVar8 = this.cFQ.cFO;
+                                    if (id3 != oVar8.aYU.aYX.getId()) {
+                                        return;
+                                    }
+                                }
+                                if (view.getTag(t.g.rec_god_item_root) instanceof String) {
+                                    TiebaStatic.log(new ay("c11005").ab("obj_id", (String) view.getTag(t.g.rec_god_item_root)));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

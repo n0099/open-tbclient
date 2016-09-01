@@ -1,11 +1,37 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.b;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface dk {
-    void Xr();
+public class dk implements Handler.Callback {
+    final /* synthetic */ dj bTE;
 
-    void a(b bVar, String str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dk(dj djVar) {
+        this.bTE = djVar;
+    }
 
-    void b(b bVar, String str);
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        Handler handler;
+        if ((message.what != 1 && message.what != 2) || !this.bTE.YM()) {
+            switch (message.what) {
+                case 1:
+                    this.bTE.YJ();
+                    return true;
+                case 2:
+                    this.bTE.YH();
+                    return true;
+                case 3:
+                    this.bTE.YI();
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        handler = this.bTE.mHandler;
+        handler.sendEmptyMessageDelayed(message.what, 100L);
+        return true;
+    }
 }

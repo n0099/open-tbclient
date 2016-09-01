@@ -7,11 +7,11 @@ import com.baidu.tieba.homepage.framework.indicator.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ r crM;
+    final /* synthetic */ r cCU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(r rVar) {
-        this.crM = rVar;
+        this.cCU = rVar;
     }
 
     @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
@@ -20,14 +20,14 @@ public class t extends com.baidu.adp.lib.h.d {
         ViewGroup viewGroup;
         View view;
         r.a aVar2;
-        this.crM.asQ = false;
-        aVar = this.crM.crK;
+        this.cCU.avX = false;
+        aVar = this.cCU.cCS;
         if (aVar != null) {
-            aVar2 = this.crM.crK;
-            aVar2.ahi();
+            aVar2 = this.cCU.cCS;
+            aVar2.alT();
         }
-        viewGroup = this.crM.crJ;
-        view = this.crM.axO;
+        viewGroup = this.cCU.cCR;
+        view = this.cCU.aAV;
         viewGroup.removeView(view);
     }
 }

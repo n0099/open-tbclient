@@ -1,63 +1,38 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.widget.RelativeLayout;
+import android.content.Intent;
+import android.view.View;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.LogoActivity;
 /* loaded from: classes.dex */
-class d implements Runnable {
-    final /* synthetic */ LogoActivity aIj;
+class d implements View.OnClickListener {
+    final /* synthetic */ c aLB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(LogoActivity logoActivity) {
-        this.aIj = logoActivity;
+    public d(c cVar) {
+        this.aLB = cVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        RelativeLayout relativeLayout;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LogoActivity logoActivity;
         LogoActivity.a aVar;
-        LogoActivity.a aVar2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        RelativeLayout relativeLayout2;
-        RelativeLayout relativeLayout3;
-        RelativeLayout relativeLayout4;
-        RelativeLayout relativeLayout5;
-        relativeLayout = this.aIj.mRootView;
-        if (relativeLayout != null) {
-            bitmap = this.aIj.aHY;
-            if (bitmap != null) {
-                LogoActivity logoActivity = this.aIj;
-                bitmap2 = this.aIj.aHY;
-                logoActivity.aHU = bitmap2;
-                bitmap3 = this.aIj.aHU;
-                if (bitmap3 != null) {
-                    com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10859"));
-                    this.aIj.aHZ = true;
-                    bitmap4 = this.aIj.aHU;
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap4);
-                    relativeLayout2 = this.aIj.mRootView;
-                    relativeLayout2.removeAllViews();
-                    relativeLayout3 = this.aIj.mRootView;
-                    relativeLayout3.setBackgroundDrawable(bitmapDrawable);
-                    relativeLayout4 = this.aIj.mRootView;
-                    relativeLayout4.setFocusable(true);
-                    relativeLayout5 = this.aIj.mRootView;
-                    relativeLayout5.setOnClickListener(new e(this));
-                }
-                com.baidu.tbadk.performanceLog.ab.Fb().Z(System.currentTimeMillis());
-                com.baidu.tieba.c.a.Md().Mi();
-            }
-        }
-        com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
-        aVar = this.aIj.aIc;
-        dL.removeCallbacks(aVar);
-        com.baidu.adp.lib.h.h dL2 = com.baidu.adp.lib.h.h.dL();
-        aVar2 = this.aIj.aIc;
-        dL2.postDelayed(aVar2, 1500L);
+        LogoActivity logoActivity2;
+        LogoActivity logoActivity3;
+        com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10793"));
+        Intent intent = new Intent();
+        intent.putExtra("class", 30);
+        intent.putExtra("jump_url", "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + com.baidu.tieba.d.a.OI().OP());
+        intent.putExtra("is_ad", true);
+        TbadkCoreApplication.setIntent(intent);
+        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
+        logoActivity = this.aLB.aLA;
+        aVar = logoActivity.aLt;
+        eG.removeCallbacks(aVar);
+        logoActivity2 = this.aLB.aLA;
+        logoActivity2.aLr = true;
+        logoActivity3 = this.aLB.aLA;
+        logoActivity3.Je();
     }
 }

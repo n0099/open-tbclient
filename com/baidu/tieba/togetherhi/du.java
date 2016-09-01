@@ -3,16 +3,16 @@ package com.baidu.tieba.togetherhi;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class du implements a.b {
-    final /* synthetic */ TogetherhiH5ProxyActivity fBI;
+    final /* synthetic */ TogetherhiH5ProxyActivity fKd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public du(TogetherhiH5ProxyActivity togetherhiH5ProxyActivity) {
-        this.fBI = togetherhiH5ProxyActivity;
+        this.fKd = togetherhiH5ProxyActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
+    public void onClick(a aVar) {
         aVar.dismiss();
-        this.fBI.finish();
+        this.fKd.finish();
     }
 }

@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        es(str2);
+                        ev(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        es(str2);
+                        ev(str2);
                     }
                 }
             }
@@ -68,47 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yg() {
+    public void zt() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String yh() {
+    public String zu() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void es(String str) {
-        String yh = yh();
-        if (!TextUtils.equals(yh, str) || !isFileExist(yh)) {
-            ah(str, yh);
+    public void ev(String str) {
+        String zu = zu();
+        if (!TextUtils.equals(zu, str) || !isFileExist(zu)) {
+            ah(str, zu);
         }
     }
 
     private boolean isFileExist(String str) {
-        File cR = m.cR(bc.dA(str));
-        return cR != null && cR.exists() && cR.isFile();
+        File cU = m.cU(bc.dC(str));
+        return cU != null && cU.exists() && cU.isFile();
     }
 
     private void ah(String str, String str2) {
-        if (i.fr()) {
-            new a(str, bc.dA(str), str2).execute(new String[0]);
+        if (i.gn()) {
+            new a(str, bc.dC(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private ab LI = null;
-        private final String VE;
-        private final String aiB;
-        private final String aiC;
+        private ab NX = null;
+        private final String Yr;
+        private final String alG;
+        private final String alH;
 
         public a(String str, String str2, String str3) {
-            this.aiB = str;
-            this.VE = str2;
-            this.aiC = str3;
+            this.alG = str;
+            this.Yr = str2;
+            this.alH = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,14 +118,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.LI = new ab(this.aiB);
-                bool = Boolean.valueOf(this.LI.a(String.valueOf(this.VE) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.NX = new ab(this.alG);
+                bool = Boolean.valueOf(this.NX.a(String.valueOf(this.Yr) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(m.h(null, String.valueOf(this.VE) + ".tmp", null, this.VE)) && !TextUtils.isEmpty(this.aiB) && !this.aiB.equals(this.aiC)) {
-                        m.cZ(bc.dA(this.aiC));
+                    if (!StringUtils.isNull(m.i(null, String.valueOf(this.Yr) + ".tmp", null, this.Yr)) && !TextUtils.isEmpty(this.alG) && !this.alG.equals(this.alH)) {
+                        m.dc(bc.dC(this.alH));
                     }
                 } else {
-                    m.cZ(String.valueOf(this.VE) + ".tmp");
+                    m.dc(String.valueOf(this.Yr) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -139,7 +139,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if (bool != null && bool.booleanValue()) {
-                new b().yg();
+                new b().zt();
             }
         }
     }

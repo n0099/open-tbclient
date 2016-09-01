@@ -23,11 +23,11 @@ public class RequestFrsHotThreadMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.scr_w = Integer.valueOf(k.A(TbadkCoreApplication.m10getInst()));
-        builder.scr_h = Integer.valueOf(k.B(TbadkCoreApplication.m10getInst()));
-        builder.scr_dip = Double.valueOf(TbadkCoreApplication.m10getInst().getApp().getResources().getDisplayMetrics().density);
-        builder.q_type = Integer.valueOf(bb.ue().ug() ? 2 : 1);
-        if (l.nL().nR()) {
+        builder.scr_w = Integer.valueOf(k.K(TbadkCoreApplication.m9getInst()));
+        builder.scr_h = Integer.valueOf(k.L(TbadkCoreApplication.m9getInst()));
+        builder.scr_dip = Double.valueOf(TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density);
+        builder.q_type = Integer.valueOf(bb.vk().vm() ? 2 : 1);
+        if (l.oG().oM()) {
             builder.rn = 35;
         } else {
             builder.rn = 50;

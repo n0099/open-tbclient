@@ -13,28 +13,28 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private static b auA;
+    private static b axH;
 
     private b() {
     }
 
-    public static b CH() {
-        if (auA == null) {
+    public static b Ec() {
+        if (axH == null) {
             synchronized (b.class) {
-                if (auA == null) {
-                    auA = new b();
+                if (axH == null) {
+                    axH = new b();
                 }
             }
         }
-        return auA;
+        return axH;
     }
 
-    public void CI() {
+    public void Ed() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void CJ() {
+    public void Ee() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -59,7 +59,10 @@ public class b {
             currentAccountObj.setMemberType(userData.getIsMem());
             currentAccountObj.setVipInfo(userData.getUserVipInfo());
             currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
-            TbadkCoreApplication.m10getInst().setDefaultBubble(userData.getBimg_url());
+            if (userData.getGodUserData() != null) {
+                currentAccountObj.setGodType(userData.getGodUserData().getType());
+            }
+            TbadkCoreApplication.m9getInst().setDefaultBubble(userData.getBimg_url());
             h payMemberInfoData = userData.getPayMemberInfoData();
             if (currentAccountObj.getVipInfo() != null) {
                 currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
@@ -68,12 +71,12 @@ public class b {
             }
             com.baidu.tbadk.data.c closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.AB());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.AC());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.BQ());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.BR());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            k.dM().e(new c(this, currentAccountObj));
+            k.eH().e(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }

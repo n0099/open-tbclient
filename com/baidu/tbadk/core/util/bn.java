@@ -12,77 +12,77 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bn {
-    public static ax Zs;
-    public static ax Zt;
-    private static int Zo = -1;
-    private static int Zp = -1;
-    private static boolean Zq = false;
-    private static com.baidu.adp.lib.f.a<Integer, Integer> Zr = new com.baidu.adp.lib.f.a<>(500);
+    public static ax ach;
+    public static ax aci;
+    private static int acd = -1;
+    private static int ace = -1;
+    private static boolean acf = false;
+    private static com.baidu.adp.lib.f.a<Integer, Integer> acg = new com.baidu.adp.lib.f.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean z(View view);
+        boolean A(View view);
     }
 
-    public static void Y(Context context) {
+    public static void ai(Context context) {
         mAppContext = context;
-        Zq = true;
+        acf = true;
     }
 
-    private static void ut() {
+    private static void vy() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            Zp = mAppContext.getResources().getColor(u.d.common_color_10097);
-            Zo = mAppContext.getResources().getColor(u.d.common_color_10004);
+            ace = mAppContext.getResources().getColor(t.d.common_color_10097);
+            acd = mAppContext.getResources().getColor(t.d.common_color_10004);
         }
     }
 
-    private static int cF(int i) {
-        return aC(i == 1);
+    private static int cU(int i) {
+        return aD(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int aC(boolean z) {
-        if (Zq) {
-            Zq = false;
-            ut();
+    public static int aD(boolean z) {
+        if (acf) {
+            acf = false;
+            vy();
         }
-        return z ? Zo : Zp;
-    }
-
-    public static void B(View view) {
-        if (view instanceof ViewGroup) {
-            c((ViewGroup) view, TbadkCoreApplication.m10getInst().getSkinType());
-        }
+        return z ? acd : ace;
     }
 
     public static void C(View view) {
+        if (view instanceof ViewGroup) {
+            c((ViewGroup) view, TbadkCoreApplication.m9getInst().getSkinType());
+        }
+    }
+
+    public static void D(View view) {
         if (view != null) {
-            Zr.remove(Integer.valueOf(System.identityHashCode(view)));
+            acg.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void c(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = Zr.get(Integer.valueOf(identityHashCode));
+        Integer num = acg.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             d(viewGroup, i);
-            Zr.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            acg.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
     public static void a(ViewGroup viewGroup, boolean z, a aVar) {
-        if (!z || !aVar.z(viewGroup)) {
+        if (!z || !aVar.A(viewGroup)) {
             LinkedList linkedList = new LinkedList();
             while (true) {
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = viewGroup.getChildAt(i);
-                    if (!aVar.z(childAt)) {
+                    if (!aVar.A(childAt)) {
                         if (childAt instanceof ViewGroup) {
                             linkedList.addLast((ViewGroup) childAt);
                         }
@@ -113,10 +113,10 @@ public class bn {
         }
     }
 
-    public static void Z(Context context) {
+    public static void aj(Context context) {
         if (context != null) {
-            if (Zs != null) {
-                Zs.X(context);
+            if (ach != null) {
+                ach.ah(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
@@ -124,10 +124,10 @@ public class bn {
         }
     }
 
-    public static void aa(Context context) {
+    public static void ak(Context context) {
         if (context != null) {
-            if (Zt != null) {
-                Zt.X(context);
+            if (aci != null) {
+                aci.ah(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
@@ -135,10 +135,10 @@ public class bn {
         }
     }
 
-    public static boolean ab(Context context) {
+    public static boolean al(Context context) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            Z(context);
+            aj(context);
         }
         return isLogin;
     }
@@ -155,13 +155,13 @@ public class bn {
 
     public static void c(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cF(i));
+            textView.setTextColor(cU(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cF(i));
+            checkBox.setTextColor(cU(i));
         }
     }
 

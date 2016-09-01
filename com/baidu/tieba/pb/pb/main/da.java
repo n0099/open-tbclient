@@ -6,65 +6,65 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class da {
-    private BaseActivity bem;
-    private dh eas;
-    private boolean ecS = false;
-    private final CustomMessageListener ecT = new db(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
-    private final CustomMessageListener ecU = new dc(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
+    private BaseActivity aPR;
+    private dh emx;
+    private boolean eoX = false;
+    private final CustomMessageListener eoY = new db(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
+    private final CustomMessageListener eoZ = new dc(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
 
     public da(dh dhVar, BaseActivity baseActivity) {
-        this.eas = dhVar;
-        this.bem = baseActivity;
-        this.bem.registerListener(this.ecT);
-        this.bem.registerListener(this.ecU);
+        this.emx = dhVar;
+        this.aPR = baseActivity;
+        this.aPR.registerListener(this.eoY);
+        this.aPR.registerListener(this.eoZ);
     }
 
-    public boolean aIF() {
-        return (this.eas == null || this.eas.getPbData() == null || this.eas.getPbData().aGV() == null || this.eas.getPbData().getPage() == null || !this.eas.aIX() || this.eas.getPbData().aGV().oV() || !aIK() || com.baidu.tbadk.core.util.y.s(this.eas.getPbData().aGV().getItems()) == 0 || this.eas.getPbData().getPage().pn() != 0 || this.eas.getPbData().getPage().pi() < 4 || this.eas.getPbData().aGV().oX()) ? false : true;
+    public boolean aNw() {
+        return (this.emx == null || this.emx.getPbData() == null || this.emx.getPbData().aLN() == null || this.emx.getPbData().getPage() == null || !this.emx.aNO() || this.emx.getPbData().aLN().pY() || !aNB() || com.baidu.tbadk.core.util.y.s(this.emx.getPbData().aLN().getItems()) == 0 || this.emx.getPbData().getPage().qq() != 0 || this.emx.getPbData().getPage().ql() < 4 || this.emx.getPbData().aLN().qa()) ? false : true;
     }
 
-    public boolean aIG() {
-        return (this.eas == null || this.eas.getPbData() == null || this.eas.getPbData().aGV() == null || this.eas.getPbData().getPage() == null || !this.eas.aIX() || this.eas.getPbData().aGV().oV() || !aIK() || com.baidu.tbadk.core.util.y.s(this.eas.getPbData().aGV().getItems()) == 0 || this.eas.getPbData().getPage().pl() != 2 || this.eas.getPbData().aGV().oW()) ? false : true;
+    public boolean aNx() {
+        return (this.emx == null || this.emx.getPbData() == null || this.emx.getPbData().aLN() == null || this.emx.getPbData().getPage() == null || !this.emx.aNO() || this.emx.getPbData().aLN().pY() || !aNB() || com.baidu.tbadk.core.util.y.s(this.emx.getPbData().aLN().getItems()) == 0 || this.emx.getPbData().getPage().qo() != 2 || this.emx.getPbData().aLN().pZ()) ? false : true;
     }
 
-    public void aIH() {
-        if (this.eas != null && this.eas.getPbData() != null && this.eas.getPbData().aGV() != null) {
-            this.eas.getPbData().aGV().am(true);
+    public void aNy() {
+        if (this.emx != null && this.emx.getPbData() != null && this.emx.getPbData().aLN() != null) {
+            this.emx.getPbData().aLN().ao(true);
         }
     }
 
-    public void aII() {
-        if (this.eas != null && this.eas.getPbData() != null && this.eas.getPbData().aGV() != null) {
-            this.eas.getPbData().aGV().al(true);
+    public void aNz() {
+        if (this.emx != null && this.emx.getPbData() != null && this.emx.getPbData().aLN() != null) {
+            this.emx.getPbData().aLN().an(true);
         }
     }
 
-    public com.baidu.tbadk.core.data.aa aIJ() {
-        if (!aIK() || this.eas == null || this.eas.getPbData() == null) {
+    public com.baidu.tbadk.core.data.ab aNA() {
+        if (!aNB() || this.emx == null || this.emx.getPbData() == null) {
             return null;
         }
-        return this.eas.getPbData().aGV();
+        return this.emx.getPbData().aLN();
     }
 
-    public boolean aIK() {
-        return com.baidu.tieba.graffiti.d.aeW() && aIL();
+    public boolean aNB() {
+        return com.baidu.tieba.graffiti.d.ajH() && aNC();
     }
 
-    private boolean aIL() {
-        if (this.eas == null || this.eas.getPbData() == null) {
+    private boolean aNC() {
+        if (this.emx == null || this.emx.getPbData() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.s sVar = (com.baidu.tieba.tbadkCore.data.s) com.baidu.tbadk.core.util.y.c(this.eas.getPbData().aGZ(), 0);
-        return sVar != null && (sVar.getType() == com.baidu.tieba.tbadkCore.data.s.fkG || sVar.getType() == com.baidu.tieba.tbadkCore.data.s.QC || sVar.getType() == com.baidu.tieba.tbadkCore.data.s.fkJ);
+        com.baidu.tieba.tbadkCore.data.q qVar = (com.baidu.tieba.tbadkCore.data.q) com.baidu.tbadk.core.util.y.c(this.emx.getPbData().aLR(), 0);
+        return qVar != null && (qVar.getType() == com.baidu.tieba.tbadkCore.data.q.fsz || qVar.getType() == com.baidu.tieba.tbadkCore.data.q.Tl || qVar.getType() == com.baidu.tieba.tbadkCore.data.q.fsC);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean aIM() {
-        if (com.baidu.tieba.graffiti.d.aeW() && !this.ecS) {
-            this.ecS = true;
-            int i = com.baidu.tbadk.core.sharedPref.b.sN().getInt("graffiti_tips_show_config", 0);
+    public boolean aND() {
+        if (com.baidu.tieba.graffiti.d.ajH() && !this.eoX) {
+            this.eoX = true;
+            int i = com.baidu.tbadk.core.sharedPref.b.tS().getInt("graffiti_tips_show_config", 0);
             if (i < 3) {
-                com.baidu.tbadk.core.sharedPref.b.sN().putInt("graffiti_tips_show_config", i + 1);
+                com.baidu.tbadk.core.sharedPref.b.tS().putInt("graffiti_tips_show_config", i + 1);
                 return true;
             }
             return false;
@@ -76,8 +76,8 @@ public class da {
     public void j(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
             String str = (String) customResponsedMessage.getData();
-            if (this.eas != null && this.eas.getPbData() != null && this.eas.getPbData().aGV() != null && str.equals(this.eas.getThreadID())) {
-                this.eas.getPbData().aGV().ak(true);
+            if (this.emx != null && this.emx.getPbData() != null && this.emx.getPbData().aLN() != null && str.equals(this.emx.getThreadID())) {
+                this.emx.getPbData().aLN().am(true);
             }
         }
     }

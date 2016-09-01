@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ e csG;
+    final /* synthetic */ e cDO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(e eVar) {
-        this.csG = eVar;
+        this.cDO = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         Context context2;
-        context = this.csG.mContext;
+        context = this.cDO.mContext;
         if (context != null) {
             MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.csG.mContext;
+            context2 = this.cDO.mContext;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(context2)));
         }
     }

@@ -3,60 +3,60 @@ package com.baidu.tieba.tbadkCore.d;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.d flH;
-    private final int flI = 10;
-    private final int flJ = 3000;
-    public String flK = null;
-    public boolean aac = false;
+    private com.baidu.adp.lib.stats.d ftB;
+    private final int ftC = 10;
+    private final int ftD = 3000;
+    public String ftE = null;
+    public boolean acR = false;
 
     public b(String str) {
-        O(str, false);
+        S(str, false);
     }
 
-    public void O(String str, boolean z) {
-        this.flK = str;
-        this.aac = z;
-        this.flH = new com.baidu.adp.lib.stats.d("dbg");
+    public void S(String str, boolean z) {
+        this.ftE = str;
+        this.acR = z;
+        this.ftB = new com.baidu.adp.lib.stats.d("dbg");
         c.i(str, getNetType(), z);
     }
 
     public void start() {
-        this.flH.ed();
+        this.ftB.eY();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f bfX;
-        if (this.flH != null && (bfX = bfX()) != null) {
+        f bjy;
+        if (this.ftB != null && (bjy = bjy()) != null) {
             if (z) {
-                if (bfX.flP != null) {
-                    bfX.flP.num++;
+                if (bjy.ftJ != null) {
+                    bjy.ftJ.num++;
                     if (z2) {
-                        bfX.flP.flM += j2;
-                        bfX.flP.size += j;
+                        bjy.ftJ.ftG += j2;
+                        bjy.ftJ.size += j;
                     } else {
-                        bfX.flP.flN++;
+                        bjy.ftJ.ftH++;
                     }
                 } else {
                     return;
                 }
-            } else if (bfX.flQ != null) {
-                bfX.flQ.num++;
+            } else if (bjy.ftK != null) {
+                bjy.ftK.num++;
                 if (z2) {
-                    bfX.flQ.flM += j3;
-                    bfX.flQ.size += j;
+                    bjy.ftK.ftG += j3;
+                    bjy.ftK.size += j;
                     j2 = j3;
                 } else {
-                    bfX.flQ.flN++;
+                    bjy.ftK.ftH++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.flH = null;
+            this.ftB = null;
             if (z2) {
-                c.a(bfX, 10);
+                c.a(bjy, 10);
             }
-            if (this.flK == "frsStat") {
+            if (this.ftE == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
                     dVar.q("act", "frs");
@@ -66,41 +66,41 @@ public class b {
                     dVar.q("errCode", String.valueOf(i));
                     dVar.q("errMsg", str);
                     dVar.q("down", String.valueOf(j));
-                    com.baidu.adp.lib.stats.a.dN().b("frs", dVar);
+                    com.baidu.adp.lib.stats.a.eI().b("frs", dVar);
                 }
             }
         }
     }
 
     public void destory() {
-        f bfX;
-        if (this.flH != null && (bfX = bfX()) != null && bfX.flR != null) {
-            long ee = this.flH.ee();
-            if (ee > 3000) {
-                e eVar = bfX.flR;
-                eVar.flM = ee + eVar.flM;
-                bfX.flR.num++;
-                c.a(bfX, 10);
+        f bjy;
+        if (this.ftB != null && (bjy = bjy()) != null && bjy.ftL != null) {
+            long eZ = this.ftB.eZ();
+            if (eZ > 3000) {
+                e eVar = bjy.ftL;
+                eVar.ftG = eZ + eVar.ftG;
+                bjy.ftL.num++;
+                c.a(bjy, 10);
             }
         }
     }
 
-    private f bfX() {
-        return c.j(this.flK, getNetType(), this.aac);
+    private f bjy() {
+        return c.j(this.ftE, getNetType(), this.acR);
     }
 
     private String getNetType() {
-        int fw = i.fw();
-        if (fw == 0) {
+        int gs = i.gs();
+        if (gs == 0) {
             return "N";
         }
-        if (fw == 1) {
+        if (gs == 1) {
             return "WIFI";
         }
-        if (fw == 3) {
+        if (gs == 3) {
             return "3G";
         }
-        if (fw != 2) {
+        if (gs != 2) {
             return "N";
         }
         return "2G";

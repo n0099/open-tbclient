@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import tbclient.CommonReq;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
 /* loaded from: classes.dex */
@@ -14,7 +13,6 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer back;
     private Integer banner;
     private String cacheKey;
-    private CommonReq common;
     private Context context;
     private Integer floor_rn;
     private boolean isFromMark;
@@ -300,14 +298,6 @@ public class PbPageRequestMessage extends NetMessage {
         this.arround = num;
     }
 
-    public CommonReq get_common() {
-        return this.common;
-    }
-
-    public void set_common(CommonReq commonReq) {
-        this.common = commonReq;
-    }
-
     public int getUpdateType() {
         return this.updateType;
     }
@@ -383,7 +373,6 @@ public class PbPageRequestMessage extends NetMessage {
             builder.thread_type = get_thread_type();
             builder.banner = get_banner();
             builder.arround = get_arround();
-            builder.common = get_common();
             builder.msg_click = get_message_click();
             builder.last = get_last();
             builder.lastids = getLastids();
@@ -397,9 +386,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.st_task = Long.valueOf(this.opMessageID);
             }
             builder.obj_param1 = this.objParam1;
-            if (z) {
-                com.baidu.tbadk.util.o.a(builder, true);
-            }
+            com.baidu.tbadk.util.o.a(builder, true, false, true);
             PbPageReqIdl.Builder builder2 = new PbPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

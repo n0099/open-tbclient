@@ -4,7 +4,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.lib.Disk.ops.d {
-    private final /* synthetic */ com.baidu.adp.lib.stats.base.a oR;
+    private final /* synthetic */ com.baidu.adp.lib.stats.base.a ri;
     final /* synthetic */ j this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +12,14 @@ public class o extends com.baidu.adp.lib.Disk.ops.d {
     public o(j jVar, String str, String str2, DiskFileOperate.Action action, com.baidu.adp.lib.stats.base.a aVar) {
         super(str, str2, action);
         this.this$0 = jVar;
-        this.oR = aVar;
+        this.ri = aVar;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void m(boolean z) {
-        super.m(z);
+    public void o(boolean z) {
+        super.o(z);
         if (z) {
-            this.oR.i(bV().length());
+            this.ri.i(cQ().length());
         }
     }
 }

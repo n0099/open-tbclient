@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class bc {
-    private static final char[] qo = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] sE = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String b(PackageInfo packageInfo) throws NumberFormatException {
         long j = 0;
@@ -49,9 +49,9 @@ public class bc {
             for (int i2 = 0; i2 < 16; i2++) {
                 byte b = digest[i2];
                 int i3 = i + 1;
-                cArr[i] = qo[(b >>> 4) & 15];
+                cArr[i] = sE[(b >>> 4) & 15];
                 i = i3 + 1;
-                cArr[i3] = qo[b & 15];
+                cArr[i3] = sE[b & 15];
             }
             return new String(cArr);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class bc {
         return null;
     }
 
-    public static String dA(String str) {
-        return com.baidu.adp.lib.util.t.aT(str);
+    public static String dC(String str) {
+        return com.baidu.adp.lib.util.t.aU(str);
     }
 }

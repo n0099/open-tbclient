@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    private final /* synthetic */ Timer Ar;
-    final /* synthetic */ c As;
-    private final /* synthetic */ View qa;
+    private final /* synthetic */ Timer CF;
+    final /* synthetic */ c CG;
+    private final /* synthetic */ View so;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
-        this.As = cVar;
-        this.qa = view;
-        this.Ar = timer;
+        this.CG = cVar;
+        this.so = view;
+        this.CF = timer;
     }
 
     @Override // java.lang.Runnable
@@ -31,32 +31,32 @@ class d implements Runnable {
         b bVar6;
         int i3;
         b bVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.qa.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.so.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        bVar = this.As.Aq;
-        i = bVar.zY;
+        bVar = this.CG.CE;
+        i = bVar.Cn;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        bVar2 = this.As.Aq;
-        i2 = bVar2.Ao;
+        bVar2 = this.CG.CE;
+        i2 = bVar2.CC;
         if (i5 <= i2) {
-            bVar6 = this.As.Aq;
-            i3 = bVar6.Ao;
+            bVar6 = this.CG.CE;
+            i3 = bVar6.CC;
             layoutParams.bottomMargin = i3;
-            this.Ar.cancel();
-            bVar7 = this.As.Aq;
-            bVar7.Ap = true;
+            this.CF.cancel();
+            bVar7 = this.CG.CE;
+            bVar7.CD = true;
         }
-        this.qa.setLayoutParams(layoutParams);
-        bVar3 = this.As.Aq;
-        z = bVar3.Ap;
+        this.so.setLayoutParams(layoutParams);
+        bVar3 = this.CG.CE;
+        z = bVar3.CD;
         if (z) {
-            bVar4 = this.As.Aq;
-            gVar = bVar4.Aa;
+            bVar4 = this.CG.CE;
+            gVar = bVar4.Cp;
             if (gVar != null) {
-                bVar5 = this.As.Aq;
-                gVar2 = bVar5.Aa;
-                gVar2.jG();
+                bVar5 = this.CG.CE;
+                gVar2 = bVar5.Cp;
+                gVar2.kB();
             }
         }
     }

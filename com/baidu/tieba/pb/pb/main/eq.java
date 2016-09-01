@@ -12,6 +12,6 @@ class eq extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ep.aJZ().reset();
+        ep.aOQ().reset();
     }
 }

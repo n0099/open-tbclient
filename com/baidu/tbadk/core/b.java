@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private StringBuffer LA = new StringBuffer();
-    private String Lf;
-    private int Lg;
-    private int Lh;
-    private int Li;
-    private int Lj;
-    private int Lk;
-    private int Ll;
-    private int Lm;
-    private int Ln;
-    private int Lo;
-    private int Lp;
-    private int Lq;
-    private int Lr;
-    private int Ls;
-    private int Lt;
-    private int Lu;
-    private int Lv;
-    private int Lw;
-    private int Lx;
-    private int Ly;
-    private int Lz;
+    private int NA;
+    private int NB;
+    private int NC;
+    private int ND;
+    private int NE;
+    private int NF;
+    private int NG;
+    private int NH;
+    private int NI;
+    private int NJ;
+    private int NK;
+    private int NL;
+    private int NM;
+    private StringBuffer NN = new StringBuffer();
+    private String Ns;
+    private int Nt;
+    private int Nu;
+    private int Nv;
+    private int Nw;
+    private int Nx;
+    private int Ny;
+    private int Nz;
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.LA.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.NN.toString() + "]";
     }
 
-    public void bZ(String str) {
-        this.LA.append(str).append(" || ");
+    public void ca(String str) {
+        this.NN.append(str).append(" || ");
     }
 
-    public int no() {
-        return this.Lu;
+    public int oj() {
+        return this.NH;
     }
 
-    public void aR(int i) {
-        this.Lu = i;
+    public void be(int i) {
+        this.NH = i;
     }
 
-    public int np() {
-        return this.Lv;
+    public int ok() {
+        return this.NI;
     }
 
-    public void aS(int i) {
-        this.Lv = i;
+    public void bf(int i) {
+        this.NI = i;
     }
 
-    public int nq() {
-        return this.Ls;
+    public int ol() {
+        return this.NF;
     }
 
-    public void aT(int i) {
-        this.Ls = i;
+    public void bg(int i) {
+        this.NF = i;
     }
 
-    public int nr() {
-        return this.Lt;
+    public int om() {
+        return this.NG;
     }
 
-    public void aU(int i) {
-        this.Lt = i;
+    public void bh(int i) {
+        this.NG = i;
     }
 
-    public int ns() {
-        return this.Lq;
+    public int on() {
+        return this.ND;
     }
 
-    public void aV(int i) {
-        this.Lq = i;
+    public void bi(int i) {
+        this.ND = i;
     }
 
-    public int nt() {
-        return this.Lr;
+    public int oo() {
+        return this.NE;
     }
 
-    public void aW(int i) {
-        this.Lr = i;
+    public void bj(int i) {
+        this.NE = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int nu() {
-        return this.Lw;
+    public int op() {
+        return this.NJ;
     }
 
-    public void aX(int i) {
-        this.Lw = i;
+    public void bk(int i) {
+        this.NJ = i;
     }
 
-    public int nv() {
-        return this.Lx;
+    public int oq() {
+        return this.NK;
     }
 
-    public void aY(int i) {
-        this.Lx = i;
+    public void bl(int i) {
+        this.NK = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void ca(String str) {
-        this.Lf = str;
+    public void cb(String str) {
+        this.Ns = str;
     }
 
-    public int nw() {
-        return this.Lg;
+    public int or() {
+        return this.Nt;
     }
 
-    public void aZ(int i) {
-        this.Lg = i;
+    public void bm(int i) {
+        this.Nt = i;
     }
 
-    public int nx() {
-        return this.Lh;
+    public int os() {
+        return this.Nu;
     }
 
-    public void ba(int i) {
-        this.Lh = i;
+    public void bn(int i) {
+        this.Nu = i;
     }
 
-    public int ny() {
-        return this.Lk;
+    public int ot() {
+        return this.Nx;
     }
 
-    public void bb(int i) {
-        this.Lk = i;
+    public void bo(int i) {
+        this.Nx = i;
     }
 
-    public int nz() {
-        return this.Ll;
+    public int ou() {
+        return this.Ny;
     }
 
-    public void bc(int i) {
-        this.Ll = i;
+    public void bp(int i) {
+        this.Ny = i;
     }
 
-    public int nA() {
-        return this.Li;
+    public int ov() {
+        return this.Nv;
     }
 
-    public void bd(int i) {
-        this.Li = i;
+    public void bq(int i) {
+        this.Nv = i;
     }
 
-    public int nB() {
-        return this.Lj;
+    public int ow() {
+        return this.Nw;
     }
 
-    public void be(int i) {
-        this.Lj = i;
+    public void br(int i) {
+        this.Nw = i;
     }
 
-    public int nC() {
-        return this.Ln;
+    public int ox() {
+        return this.NA;
     }
 
-    public int nD() {
-        return this.Lm;
+    public int oy() {
+        return this.Nz;
     }
 
-    public void bf(int i) {
-        this.Lm = i;
+    public void bs(int i) {
+        this.Nz = i;
     }
 
-    public void bg(int i) {
-        this.Ln = i;
+    public void bt(int i) {
+        this.NA = i;
     }
 
-    public int nE() {
-        return this.Lp;
+    public int oz() {
+        return this.NC;
     }
 
-    public void bh(int i) {
-        this.Lp = i;
+    public void bu(int i) {
+        this.NC = i;
     }
 
-    public int nF() {
-        return this.Lo;
+    public int oA() {
+        return this.NB;
     }
 
-    public void bi(int i) {
-        this.Lo = i;
+    public void bv(int i) {
+        this.NB = i;
     }
 
-    public int nG() {
-        return this.Ly;
+    public int oB() {
+        return this.NL;
     }
 
-    public void bj(int i) {
-        this.Ly = i;
+    public void bw(int i) {
+        this.NL = i;
     }
 
-    public int nH() {
-        return this.Lz;
+    public int oC() {
+        return this.NM;
     }
 
-    public void bk(int i) {
-        this.Lz = i;
+    public void bx(int i) {
+        this.NM = i;
     }
 }

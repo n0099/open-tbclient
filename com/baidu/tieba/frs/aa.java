@@ -1,31 +1,40 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class aa extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bEL;
+class aa implements NoNetworkView.a {
+    final /* synthetic */ FrsActivity bQp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bEL = frsActivity;
+    public aa(FrsActivity frsActivity) {
+        this.bQp = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String str;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.be)) {
-            com.baidu.tbadk.core.data.be beVar = (com.baidu.tbadk.core.data.be) customResponsedMessage.getData();
-            this.bEL.bDu = beVar.getId();
-            str = this.bEL.bDu;
-            if (TextUtils.isEmpty(str) || beVar.qp() == null) {
-                return;
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aH(boolean z) {
+        bm bmVar;
+        bm bmVar2;
+        boolean z2;
+        bm bmVar3;
+        bm bmVar4;
+        if (z) {
+            bmVar = this.bQp.bPo;
+            if (!bmVar.aaS()) {
+                if (this.bQp.bPq == null || this.bQp.bPq.getThreadList().size() == 0) {
+                    FrsActivity frsActivity = this.bQp;
+                    bmVar2 = this.bQp.bPo;
+                    frsActivity.hideNetRefreshView(bmVar2.getRootView());
+                    z2 = this.bQp.bOZ;
+                    if (!z2) {
+                        FrsActivity frsActivity2 = this.bQp;
+                        bmVar3 = this.bQp.bPo;
+                        frsActivity2.showLoadingView(bmVar3.getRootView(), true);
+                        bmVar4 = this.bQp.bPo;
+                        bmVar4.dJ(false);
+                    }
+                    this.bQp.refresh();
+                }
             }
-            this.bEL.hl(beVar.qp().getIsLike());
         }
     }
 }

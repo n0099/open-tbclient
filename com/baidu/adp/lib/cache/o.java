@@ -14,24 +14,24 @@ public interface o<T> {
 
     /* loaded from: classes.dex */
     public static class c<T> {
-        public T iZ;
-        public long jP;
         public String key;
-        public long kf;
+        public T lo;
+        public long mh;
+        public long mx;
     }
 
     /* loaded from: classes.dex */
     public interface d<T> extends o<T> {
-        String cI();
+        String dD();
 
-        n<T> cJ();
+        n<T> dE();
 
-        void cK();
+        void dF();
     }
 
-    c<T> S(String str);
+    c<T> T(String str);
 
-    void T(String str);
+    void U(String str);
 
     void a(String str, a<T> aVar);
 

@@ -4,20 +4,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ x KM;
+    final /* synthetic */ x MZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.KM = xVar;
+        this.MZ = xVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         BaseWebViewActivity baseWebViewActivity;
         BaseWebViewActivity baseWebViewActivity2;
-        baseWebViewActivity = this.KM.Kz;
+        baseWebViewActivity = this.MZ.MM;
         if (baseWebViewActivity != null) {
-            baseWebViewActivity2 = this.KM.Kz;
+            baseWebViewActivity2 = this.MZ.MM;
             baseWebViewActivity2.finish();
         }
     }

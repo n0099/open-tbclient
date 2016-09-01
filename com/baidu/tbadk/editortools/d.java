@@ -5,14 +5,14 @@ import android.content.Context;
 public abstract class d {
     protected abstract void a(f fVar);
 
-    protected abstract f ag(Context context);
+    protected abstract f aq(Context context);
 
     protected abstract void b(f fVar);
 
-    public f af(Context context) {
-        f ag = ag(context);
-        a(ag);
-        b(ag);
-        return ag;
+    public f ap(Context context) {
+        f aq = aq(context);
+        a(aq);
+        b(aq);
+        return aq;
     }
 }

@@ -22,94 +22,94 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class l {
-    private static String aBJ = "native_crash_log.log";
-    private static List<String> aBK = new ArrayList();
-    private static BroadcastReceiver ul = new m();
-    private static BdNativeCrash.NativeCrashCallback aBL = new n();
+    private static String aEQ = "native_crash_log.log";
+    private static List<String> aER = new ArrayList();
+    private static BroadcastReceiver wy = new m();
+    private static BdNativeCrash.NativeCrashCallback aES = new n();
 
-    public static void FE() {
+    public static void GY() {
         if (BdNativeCrash.mbLibLoaded) {
             BdNativeCrash.getInstance().initCrash(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.getInstance().setCrashCallback(aBL);
-            FF();
+            BdNativeCrash.getInstance().setCrashCallback(aES);
+            GZ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void gp(String str) {
+    public static void gs(String str) {
         int i;
         int i2;
         int i3;
         int i4;
         if (!TextUtils.isEmpty(str)) {
             try {
-                int i5 = com.baidu.tbadk.core.sharedPref.b.sN().getInt("crash_limit_count", 100);
+                int i5 = com.baidu.tbadk.core.sharedPref.b.tS().getInt("crash_limit_count", 100);
                 i = i5 < 10 ? 10 : i5;
             } catch (Throwable th) {
                 i = 100;
             }
             try {
-                int uc = ba.uc();
-                byte[] aF = com.baidu.adp.lib.util.e.aF(aBJ);
+                int vi = ba.vi();
+                byte[] aG = com.baidu.adp.lib.util.e.aG(aEQ);
                 String str2 = null;
-                if (aF != null) {
-                    str2 = new String(aF);
+                if (aG != null) {
+                    str2 = new String(aG);
                 }
                 if (TextUtils.isEmpty(str2)) {
-                    i2 = uc;
+                    i2 = vi;
                     i3 = 0;
                 } else {
                     String[] split = str2.split(":");
                     if (split == null || split.length != 2) {
-                        i2 = uc;
+                        i2 = vi;
                         i3 = 0;
                     } else {
                         int g = com.baidu.adp.lib.h.b.g(split[0], 0);
-                        int g2 = com.baidu.adp.lib.h.b.g(split[1], uc);
+                        int g2 = com.baidu.adp.lib.h.b.g(split[1], vi);
                         i3 = g;
                         i2 = g2;
                     }
                 }
-                if ((i2 == uc ? i3 : 0) > i) {
+                if ((i2 == vi ? i3 : 0) > i) {
                     File file = new File(str);
                     if (file.exists()) {
                         file.delete();
                     }
-                    com.baidu.adp.plugin.b.a.ht().bg("native_crash_count_overrun");
+                    com.baidu.adp.plugin.b.a.io().bh("native_crash_count_overrun");
                     return;
                 }
-                com.baidu.adp.lib.util.e.e(aBJ, (String.valueOf(i4 + 1) + ":" + uc).getBytes());
+                com.baidu.adp.lib.util.e.e(aEQ, (String.valueOf(i4 + 1) + ":" + vi).getBytes());
             } catch (Throwable th2) {
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean gq(String str) {
+    public static boolean gt(String str) {
         if ("libpluginhook.so".equals(str)) {
-            com.baidu.adp.plugin.b.a.ht().bg("plugin_patch_native_crashed");
-            com.baidu.tbadk.core.sharedPref.b.sN().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.sN().getInt("plugin_patch_hook_failed_count", 0) + 1);
+            com.baidu.adp.plugin.b.a.io().bh("plugin_patch_native_crashed");
+            com.baidu.tbadk.core.sharedPref.b.tS().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.tS().getInt("plugin_patch_hook_failed_count", 0) + 1);
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean gr(String str) {
-        PluginSettings ig = com.baidu.adp.plugin.packageManager.pluginSettings.c.ij().ig();
-        if (ig == null) {
+    public static boolean gu(String str) {
+        PluginSettings jb = com.baidu.adp.plugin.packageManager.pluginSettings.c.je().jb();
+        if (jb == null) {
             return false;
         }
-        Map<String, PluginSetting> plugins = ig.getPlugins();
+        Map<String, PluginSetting> plugins = jb.getPlugins();
         if (plugins == null || plugins.isEmpty()) {
             return false;
         }
         for (PluginSetting pluginSetting : plugins.values()) {
             if (aq(str, pluginSetting.apkPath)) {
-                int i = com.baidu.tbadk.core.sharedPref.b.sN().getInt("native_crash_count_" + pluginSetting.packageName, 0);
-                com.baidu.tbadk.core.sharedPref.b.sN().putInt("native_crash_count_" + pluginSetting.packageName, i + 1);
+                int i = com.baidu.tbadk.core.sharedPref.b.tS().getInt("native_crash_count_" + pluginSetting.packageName, 0);
+                com.baidu.tbadk.core.sharedPref.b.tS().putInt("native_crash_count_" + pluginSetting.packageName, i + 1);
                 if (i >= 3) {
-                    com.baidu.adp.plugin.b.a.ht().D("plugin_native_crashed", pluginSetting.packageName);
+                    com.baidu.adp.plugin.b.a.io().D("plugin_native_crashed", pluginSetting.packageName);
                 }
                 return true;
             }
@@ -159,12 +159,12 @@ public class l {
         return z;
     }
 
-    private static void FF() {
+    private static void GZ() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.adp.plugin.installed");
-            applicationContext.registerReceiver(ul, intentFilter);
+            applicationContext.registerReceiver(wy, intentFilter);
         } catch (Exception e) {
             BdLog.e(e);
         }

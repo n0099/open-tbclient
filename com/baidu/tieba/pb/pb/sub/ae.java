@@ -1,75 +1,71 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.sub.aw;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class ae implements aw.a {
-    final /* synthetic */ NewSubPbActivity ejr;
+class ae extends CustomMessageListener {
+    final /* synthetic */ NewSubPbActivity evy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(NewSubPbActivity newSubPbActivity) {
-        this.ejr = newSubPbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(NewSubPbActivity newSubPbActivity, int i) {
+        super(i);
+        this.evy = newSubPbActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0036, code lost:
-        if (r0 != null) goto L26;
-     */
-    @Override // com.baidu.tieba.pb.pb.sub.aw.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(boolean z, int i, String str, com.baidu.tieba.pb.data.m mVar) {
-        af afVar;
-        af afVar2;
-        aw awVar;
-        af afVar3;
-        com.baidu.tbadk.editortools.d.p pVar;
-        com.baidu.tbadk.editortools.d.p pVar2;
-        af afVar4;
-        aw awVar2;
-        aw awVar3;
-        aw awVar4;
-        af afVar5;
-        afVar = this.ejr.ejg;
-        if (afVar != null) {
-            afVar5 = this.ejr.ejg;
-            afVar5.aLD();
-        }
-        if (z) {
-            afVar2 = this.ejr.ejg;
-            afVar2.hideNoDataView();
-            if (mVar != null) {
-                if (mVar.aHp() == null) {
-                    awVar4 = this.ejr.eje;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ax axVar;
+        ax axVar2;
+        ax axVar3;
+        ax axVar4;
+        ax axVar5;
+        ax axVar6;
+        ax axVar7;
+        ag agVar;
+        ax axVar8;
+        ax axVar9;
+        ax axVar10;
+        ax axVar11;
+        ax axVar12;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (!StringUtils.isNull(currentAccount)) {
+                com.baidu.tbadk.data.j jVar = (com.baidu.tbadk.data.j) customResponsedMessage.getData();
+                axVar = this.evy.evl;
+                if (axVar.aQK() != null) {
+                    axVar2 = this.evy.evl;
+                    if (axVar2.aQK().aMh() != null) {
+                        axVar3 = this.evy.evl;
+                        if (axVar3.aQK().aMh().getAuthor() != null) {
+                            axVar4 = this.evy.evl;
+                            if (currentAccount.equals(axVar4.aQK().aMh().getAuthor().getUserId())) {
+                                axVar5 = this.evy.evl;
+                                if (axVar5.aQK().aMh().getAuthor().getPendantData() != null) {
+                                    axVar6 = this.evy.evl;
+                                    axVar6.aQK().aMh().getAuthor().getPendantData().cq(jVar.rc());
+                                    axVar7 = this.evy.evl;
+                                    axVar7.aQK().aMh().getAuthor().getPendantData().P(jVar.Cd());
+                                    agVar = this.evy.evn;
+                                    axVar8 = this.evy.evl;
+                                    com.baidu.tieba.tbadkCore.data.q aMh = axVar8.aQK().aMh();
+                                    axVar9 = this.evy.evl;
+                                    boolean avC = axVar9.aQK().avC();
+                                    axVar10 = this.evy.evl;
+                                    boolean nv = axVar10.aQK().nv();
+                                    axVar11 = this.evy.evl;
+                                    int aLX = axVar11.aLX();
+                                    axVar12 = this.evy.evl;
+                                    agVar.a(aMh, avC, nv, aLX, axVar12.aRa() != null);
+                                }
+                            }
+                        }
+                    }
                 }
-                com.baidu.tieba.tbadkCore.data.s aHp = mVar.aHp();
-                awVar = this.ejr.eje;
-                aHp.a(awVar.aMg());
-                afVar3 = this.ejr.ejg;
-                if (afVar3 != null) {
-                    afVar4 = this.ejr.ejg;
-                    awVar2 = this.ejr.eje;
-                    int aHf = awVar2.aHf();
-                    awVar3 = this.ejr.eje;
-                    afVar4.a(mVar, aHf, awVar3.aMi() != null);
-                }
-                com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
-                eVar.setData(mVar);
-                pVar = this.ejr.dhw;
-                if (pVar != null) {
-                    pVar2 = this.ejr.dhw;
-                    pVar2.a(mVar.getAntiData());
-                }
-                eVar.setType(0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, eVar));
-                return;
             }
-            return;
         }
-        this.ejr.showToast(str);
-        this.ejr.L(i, str);
     }
 }

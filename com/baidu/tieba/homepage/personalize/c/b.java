@@ -1,24 +1,24 @@
 package com.baidu.tieba.homepage.personalize.c;
 
 import android.view.View;
-import com.baidu.tieba.card.bx;
+import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a cvG;
+    final /* synthetic */ a cHk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cvG = aVar;
+        this.cHk = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         e eVar;
-        if (this.cvG.KN() != null) {
-            bx<e> KN = this.cvG.KN();
-            eVar = this.cvG.cvF;
-            KN.a(view, eVar);
+        if (this.cHk.getOnSubCardOnClickListenner() != null) {
+            cf<e> onSubCardOnClickListenner = this.cHk.getOnSubCardOnClickListenner();
+            eVar = this.cHk.cHj;
+            onSubCardOnClickListenner.a(view, eVar);
         }
     }
 }

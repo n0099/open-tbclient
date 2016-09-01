@@ -4,25 +4,25 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class l extends a {
-    private int Yd;
-    private boolean aav;
-    private boolean aaw;
-    private boolean aax;
+    private int aaR;
+    private boolean adl;
+    private boolean adm;
+    private boolean adn;
     private int height;
     private int width;
 
     public l(boolean z, boolean z2, boolean z3, int i) {
-        this.aav = true;
-        this.aaw = false;
-        this.aax = false;
-        this.Yd = 0;
+        this.adl = true;
+        this.adm = false;
+        this.adn = false;
+        this.aaR = 0;
         this.width = 0;
         this.height = 0;
-        this.aav = z;
-        this.aaw = z2;
-        this.aax = z3;
-        this.Yd = i;
-        this.width = Math.min(com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m10getInst().getApp(), 427.0f), (int) TbConfig.PB_IMAGE_NEW_MAX_WIDTH);
+        this.adl = z;
+        this.adm = z2;
+        this.adn = z3;
+        this.aaR = i;
+        this.width = Math.min(com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m9getInst().getApp(), 427.0f), (int) TbConfig.PB_IMAGE_NEW_MAX_WIDTH);
         this.height = (int) (this.width * 1.6f);
     }
 
@@ -38,21 +38,21 @@ public class l extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.aav;
+        return this.adl;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
-        return this.aax;
+    public boolean vM() {
+        return this.adn;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uI() {
-        return this.aaw;
+    public boolean vN() {
+        return this.adm;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
-        return this.Yd;
+    public int vO() {
+        return this.aaR;
     }
 }

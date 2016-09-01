@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.view.animation.Animation;
+import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
-import com.baidu.tieba.q;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements GifView.a {
-    private final /* synthetic */ ImageView aIp;
-    private final /* synthetic */ GifView aIq;
-    private final /* synthetic */ long aIr;
-    private final /* synthetic */ q.a aIs;
+public class r implements Animation.AnimationListener {
+    private final /* synthetic */ GifView aLH;
+    private final /* synthetic */ TextView aLK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(ImageView imageView, GifView gifView, long j, q.a aVar) {
-        this.aIp = imageView;
-        this.aIq = gifView;
-        this.aIr = j;
-        this.aIs = aVar;
+    public r(GifView gifView, TextView textView) {
+        this.aLH = gifView;
+        this.aLK = textView;
     }
 
-    @Override // com.baidu.tbadk.gif.GifView.a
-    public void onStop() {
-        this.aIp.setVisibility(8);
-        this.aIq.release();
-        if (System.currentTimeMillis() - this.aIr > 3000) {
-            com.baidu.tbadk.core.sharedPref.b.sN().putInt("logo_animation_overtime_count", com.baidu.tbadk.core.sharedPref.b.sN().getInt("logo_animation_overtime_count", 0) + 1);
-        }
-        if (this.aIs != null) {
-            this.aIs.onCompleted();
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.aLH.setVisibility(0);
+        this.aLH.Ef();
+        com.baidu.adp.lib.h.h.eG().postDelayed(new s(this, this.aLK), 800L);
     }
 }

@@ -7,54 +7,54 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class aa {
-    private static String azJ = "tb_perfor_samllflow_time";
-    private static volatile aa azM;
-    private long azL;
-    private boolean azH = false;
-    private long azK = 86400;
-    private long azI = com.baidu.tbadk.core.sharedPref.b.sN().getLong(azJ, 0);
+    private static String aCQ = "tb_perfor_samllflow_time";
+    private static volatile aa aCT;
+    private long aCS;
+    private boolean aCO = false;
+    private long aCR = 86400;
+    private long aCP = com.baidu.tbadk.core.sharedPref.b.tS().getLong(aCQ, 0);
 
-    public static aa EV() {
-        if (azM == null) {
+    public static aa Gp() {
+        if (aCT == null) {
             synchronized (aa.class) {
-                if (azM == null) {
-                    azM = new aa();
+                if (aCT == null) {
+                    aCT = new aa();
                 }
             }
         }
-        return azM;
+        return aCT;
     }
 
     private aa() {
-        this.azL = 0L;
-        this.azL = this.azK;
+        this.aCS = 0L;
+        this.aCS = this.aCR;
     }
 
-    public boolean EW() {
-        if (!this.azH || (System.currentTimeMillis() - this.azI) / 1000 <= this.azL) {
-            return this.azH;
+    public boolean Gq() {
+        if (!this.aCO || (System.currentTimeMillis() - this.aCP) / 1000 <= this.aCS) {
+            return this.aCO;
         }
         return false;
     }
 
-    public void bS(boolean z) {
+    public void bU(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.azI || currentTimeMillis - this.azI >= this.azL) {
-                this.azI = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.sN().putLong(azJ, this.azI);
+            if (0 == this.aCP || currentTimeMillis - this.aCP >= this.aCS) {
+                this.aCP = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.tS().putLong(aCQ, this.aCP);
             }
         } else {
-            this.azI = 0L;
-            com.baidu.tbadk.core.sharedPref.b.sN().putLong(azJ, this.azI);
+            this.aCP = 0L;
+            com.baidu.tbadk.core.sharedPref.b.tS().putLong(aCQ, this.aCP);
         }
-        this.azH = z;
-        if (com.baidu.adp.lib.stats.a.dN().dU()) {
-            ab.Fb().Fc();
+        this.aCO = z;
+        if (com.baidu.adp.lib.stats.a.eI().eP()) {
+            ab.Gv().Gw();
         }
     }
 
-    public String EX() {
+    public String Gr() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -68,7 +68,7 @@ public class aa {
         }
     }
 
-    public final String EY() {
+    public final String Gs() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -84,25 +84,25 @@ public class aa {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.fq()) {
+        if (!com.baidu.adp.lib.util.i.gm()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.fr()) {
+        if (com.baidu.adp.lib.util.i.gn()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.ft()) {
+        if (com.baidu.adp.lib.util.i.gp()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.fu()) {
+        if (com.baidu.adp.lib.util.i.gq()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.fv()) {
+        if (!com.baidu.adp.lib.util.i.gr()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String eR(int i) {
+    public static String ff(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -115,8 +115,8 @@ public class aa {
         return "WIFI";
     }
 
-    public z eS(int i) {
-        if (EW()) {
+    public z fg(int i) {
+        if (Gq()) {
             switch (i) {
                 case 1000:
                     ac acVar = new ac();
@@ -149,9 +149,9 @@ public class aa {
         return null;
     }
 
-    public void O(long j) {
+    public void S(long j) {
         if (j > 0) {
-            this.azL = j;
+            this.aCS = j;
         }
     }
 
@@ -170,7 +170,7 @@ public class aa {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int EZ() {
+    public int Gt() {
         BufferedReader bufferedReader;
         Process process;
         String str;

@@ -1,44 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.t;
+import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements PbActivity.a {
-    final /* synthetic */ PbActivity ebT;
+public class aw implements c.b {
+    final /* synthetic */ PbActivity eob;
+    private final /* synthetic */ SparseArray eoc;
+    private final /* synthetic */ boolean eod;
+    private final /* synthetic */ String eoe;
+    private final /* synthetic */ String eog;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(PbActivity pbActivity) {
-        this.ebT = pbActivity;
+    public aw(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str, String str2) {
+        this.eob = pbActivity;
+        this.eoc = sparseArray;
+        this.eod = z;
+        this.eoe = str;
+        this.eog = str2;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
-    public void g(Object obj) {
-        dh dhVar;
-        dh dhVar2;
-        dh dhVar3;
-        dh dhVar4;
-        Object[] objArr = (Object[]) obj;
-        dhVar = this.ebT.eas;
-        String valueOf = String.valueOf(dhVar.getPbData().getUserData().getUserId());
-        String str = "";
-        if (objArr.length > 1) {
-            str = String.valueOf(objArr[1]);
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        BdUniqueId bdUniqueId;
+        BdUniqueId bdUniqueId2;
+        switch (i) {
+            case 0:
+                String str = (String) this.eoc.get(t.g.tag_user_mute_mute_username);
+                UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
+                boolean z = this.eod;
+                String str2 = this.eoe;
+                String str3 = this.eog;
+                bdUniqueId = this.eob.enx;
+                userMuteAddAndDelCustomMessage.setData(z, str2, str, (String) this.eoc.get(t.g.tag_user_mute_thread_id), (String) this.eoc.get(t.g.tag_user_mute_post_id), 1, str3, bdUniqueId);
+                bdUniqueId2 = this.eob.enx;
+                userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
+                this.eob.a(this.eod, userMuteAddAndDelCustomMessage, this.eog, str);
+                break;
         }
-        String str2 = "";
-        if (objArr.length > 2) {
-            str2 = String.valueOf(objArr[2]);
-        }
-        PbActivity pbActivity = this.ebT;
-        Activity pageActivity = this.ebT.getPageContext().getPageActivity();
-        dhVar2 = this.ebT.eas;
-        String id = dhVar2.getPbData().aGX().getId();
-        dhVar3 = this.ebT.eas;
-        String name = dhVar3.getPbData().aGX().getName();
-        dhVar4 = this.ebT.eas;
-        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, dhVar4.getPbData().aGY().getId(), valueOf, str, str2)));
+        cVar.dismiss();
     }
 }

@@ -1,34 +1,33 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.media.MediaPlayer;
-import android.os.Handler;
-import com.baidu.tbadk.core.view.at;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ a bLV;
+public class f implements Animation.AnimationListener {
+    final /* synthetic */ a bXm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.bLV = aVar;
+        this.bXm = aVar;
     }
 
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        Handler handler;
-        if (mediaPlayer != null) {
-            try {
-                mediaPlayer.setVolume(0.0f, 0.0f);
-                mediaPlayer.setLooping(true);
-                mediaPlayer.start();
-                if (at.vG().vL()) {
-                    mediaPlayer.seekTo(0);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            handler = this.bLV.aUo;
-            handler.sendEmptyMessageDelayed(202, 300L);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        tbImageView = this.bXm.aZj;
+        if (tbImageView != null) {
+            tbImageView2 = this.bXm.aZj;
+            tbImageView2.setVisibility(8);
         }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -1,27 +1,11 @@
 package com.baidu.tieba.frs;
-
-import android.text.TextUtils;
-import android.util.SparseArray;
 /* loaded from: classes.dex */
-public class dg {
-    private static dg bIp = new dg();
-    private final SparseArray<String> bIo = new SparseArray<>();
+public interface dg {
+    void a(int i, int i2, dn dnVar);
 
-    private dg() {
-    }
+    void a(dh dhVar);
 
-    public static dg Xp() {
-        return bIp;
-    }
+    void aaf();
 
-    public void hu(int i) {
-        this.bIo.put(i, "1");
-    }
-
-    public boolean hv(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return !TextUtils.isEmpty(this.bIo.get(i));
-    }
+    void init();
 }

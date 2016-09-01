@@ -4,73 +4,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.data.k;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class d extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.holder.f> {
-    private com.baidu.tieba.person.data.c epW;
-    private String userId;
+public class d extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.person.holder.d> {
+    private View.OnClickListener eBD;
+    private TbPageContext mTbPageContext;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.userId = "";
+    public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.mTbPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bC */
-    public com.baidu.tieba.person.holder.f a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.holder.f(LayoutInflater.from(this.mContext).inflate(u.h.personinfo_attention_view, viewGroup, false));
+    /* renamed from: bu */
+    public com.baidu.tieba.person.holder.d a(ViewGroup viewGroup) {
+        return new com.baidu.tieba.person.holder.d(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(t.h.user_pic_nomal_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.holder.f fVar) {
-        a(fVar, view);
-        if (cVar != null && this.aNz) {
-            a(fVar, cVar, view);
-            this.aNz = false;
+    public View a(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.person.holder.d dVar) {
+        if (dVar == null || kVar == null) {
+            return null;
         }
-        return view;
+        dVar.H(this.eBD);
+        dVar.c(kVar);
+        return dVar.getView();
     }
 
-    private void a(com.baidu.tieba.person.holder.f fVar, com.baidu.tieba.person.data.c cVar, View view) {
-        if (cVar != null) {
-            this.userId = cVar.userId;
-            fVar.euq.setText(this.mContext.getResources().getString(u.j.attention_other));
-            if (cVar.erN > 0) {
-                fVar.eus.setVisibility(4);
-                fVar.eur.setVisibility(0);
-                fVar.eut.setVisibility(0);
-                fVar.eur.setText(new StringBuilder(String.valueOf(cVar.erN)).toString());
-            } else {
-                fVar.eus.setVisibility(0);
-                fVar.eur.setVisibility(4);
-                fVar.eut.setVisibility(4);
-            }
-            a(view, cVar);
-        }
-    }
-
-    private void a(com.baidu.tieba.person.holder.f fVar, View view) {
-        if (fVar.afy != TbadkCoreApplication.m10getInst().getSkinType()) {
-            av.k(view, u.f.addresslist_item_bg);
-            av.c(fVar.euq, u.d.cp_cont_f, 1);
-            av.c(fVar.eur, u.d.cp_cont_c, 1);
-            av.c(fVar.eus, u.d.cp_cont_d, 1);
-            av.c(fVar.eut, u.f.icon_arrow_tab);
-        }
-    }
-
-    private void a(View view, com.baidu.tieba.person.data.c cVar) {
-        if (cVar != null) {
-            this.epW = cVar;
-            view.setOnClickListener(new e(this));
-        }
+    public void H(View.OnClickListener onClickListener) {
+        this.eBD = onClickListener;
     }
 }

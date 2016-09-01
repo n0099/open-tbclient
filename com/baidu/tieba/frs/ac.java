@@ -1,82 +1,35 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.b;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ac implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ FrsActivity bEL;
+class ac extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bQp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(FrsActivity frsActivity) {
-        this.bEL = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bQp = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.x
-    public boolean b(View view, com.baidu.adp.widget.ListView.v vVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
-        com.baidu.tbadk.core.data.be beVar;
-        com.baidu.tbadk.core.data.be beVar2;
-        com.baidu.tbadk.core.data.be beVar3;
-        com.baidu.tbadk.core.data.be beVar4;
-        com.baidu.tbadk.core.data.be beVar5;
-        com.baidu.tbadk.core.data.be beVar6;
-        com.baidu.tbadk.core.data.be beVar7;
-        bq bqVar;
-        if (bdUniqueId == null) {
-            return false;
-        }
-        if (bdUniqueId.getId() == b.Mw.getId() || bdUniqueId.getId() == b.Mx.getId() || bdUniqueId.getId() == b.My.getId()) {
-            this.bEL.bDO = (com.baidu.tbadk.core.data.be) vVar;
-            beVar = this.bEL.bDO;
-            if (beVar instanceof b) {
-                beVar2 = this.bEL.bDO;
-                b bVar = (b) beVar2;
-                if (bVar.om()) {
-                    return false;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2001124) {
+                if (customResponsedMessage.getCmd() != 2001122) {
+                    return;
                 }
-                if (bVar.MD == 0) {
-                    this.bEL.a(bVar, i, true);
-                }
-                TiebaStatic.eventStat(this.bEL.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                this.bQp.e(customResponsedMessage);
+                return;
             }
-        } else if (bdUniqueId.getId() != com.baidu.tieba.tbadkCore.ab.fjp.getId()) {
-            if (bdUniqueId.getId() == b.Mz.getId() || bdUniqueId.getId() == b.MA.getId() || bdUniqueId.getId() == b.MB.getId()) {
-                if (vVar instanceof b) {
-                    b bVar2 = (b) vVar;
-                    if (bVar2.ol()) {
-                        if (bVar2.MD == 0) {
-                            this.bEL.a(bVar2, i, true);
-                        }
-                        TiebaStatic.eventStat(this.bEL.getPageContext().getPageActivity(), "frs_tb_arc", "");
-                    }
-                }
-            } else if (vVar instanceof com.baidu.tbadk.core.data.be) {
-                this.bEL.bDO = (com.baidu.tbadk.core.data.be) vVar;
-                beVar3 = this.bEL.bDO;
-                if (!beVar3.isPhotoLiveThread()) {
-                    beVar4 = this.bEL.bDO;
-                    if (!(beVar4 instanceof com.baidu.tbadk.core.data.ap)) {
-                        FrsActivity frsActivity = this.bEL;
-                        beVar5 = this.bEL.bDO;
-                        frsActivity.mThreadId = beVar5.getId();
-                        beVar6 = this.bEL.bDO;
-                        String qC = beVar6.qC();
-                        if (qC == null || qC.equals("")) {
-                            this.bEL.bDI = false;
-                        } else {
-                            this.bEL.bDI = true;
-                        }
-                        FrsActivity frsActivity2 = this.bEL;
-                        beVar7 = this.bEL.bDO;
-                        frsActivity2.d(beVar7);
-                        bqVar = this.bEL.bDK;
-                        bqVar.WA();
-                    }
-                }
-            }
+            this.bQp.d(customResponsedMessage);
         }
-        return true;
     }
 }

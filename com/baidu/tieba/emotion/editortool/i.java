@@ -4,18 +4,18 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 class i implements com.baidu.adp.lib.f.c<GridView> {
-    final /* synthetic */ EmotionTabContentView btA;
+    final /* synthetic */ EmotionTabContentView bEM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(EmotionTabContentView emotionTabContentView) {
-        this.btA = emotionTabContentView;
+        this.bEM = emotionTabContentView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: RT */
-    public GridView dE() {
-        return new GridView(this.btA.getContext());
+    /* renamed from: WF */
+    public GridView ez() {
+        return new GridView(this.bEM.getContext());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

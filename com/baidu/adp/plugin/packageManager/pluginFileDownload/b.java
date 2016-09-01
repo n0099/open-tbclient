@@ -7,9 +7,9 @@ public abstract class b {
 
     public abstract void b(BdFileDownloadData bdFileDownloadData, int i);
 
-    public abstract void bu(String str);
+    public abstract void bv(String str);
 
-    public abstract List<BdFileDownloadData> ia();
+    public abstract List<BdFileDownloadData> iV();
 
     public void h(BdFileDownloadData bdFileDownloadData) {
         a(bdFileDownloadData, 1);

@@ -1,18 +1,16 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import com.baidu.tbadk.core.view.UserLikeButton;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class s implements UserLikeButton.a {
-    final /* synthetic */ r bLX;
+class s implements View.OnClickListener {
+    final /* synthetic */ p bXn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar) {
-        this.bLX = rVar;
+    public s(p pVar) {
+        this.bXn = pVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.UserLikeButton.a
-    public void cY(int i) {
-        this.bLX.fE(i);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
     }
 }

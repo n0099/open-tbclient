@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.plugins.g;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TogetherhiH5ProxyActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,27 +31,27 @@ public class TogetherhiH5ProxyActivity extends BaseActivity {
     private void h(Intent intent) {
         Uri data = intent.getData();
         if (data == null || TextUtils.isEmpty(data.getScheme())) {
-            bjN();
+            bnw();
             return;
         }
         String scheme = intent.getScheme();
-        if (g.Fl()) {
+        if (g.GF()) {
             if ("thactivity".equals(scheme)) {
                 ThActivityDetailActivityConfig thActivityDetailActivityConfig = new ThActivityDetailActivityConfig(getActivity());
-                thActivityDetailActivityConfig.createActivityDetailConfig(qR(data.getPath()), "FROM_H5");
+                thActivityDetailActivityConfig.createActivityDetailConfig(rB(data.getPath()), "FROM_H5");
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, thActivityDetailActivityConfig));
             } else if ("thhi".equals(scheme)) {
                 ThHiDetailConfig thHiDetailConfig = new ThHiDetailConfig(getActivity());
-                thHiDetailConfig.createHiDetailConfig(qS(data.getPath()), "FROM_H5");
+                thHiDetailConfig.createHiDetailConfig(rC(data.getPath()), "FROM_H5");
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, thHiDetailConfig));
             }
             finish();
             return;
         }
-        bjN();
+        bnw();
     }
 
-    private String qR(String str) {
+    private String rB(String str) {
         int indexOf;
         int length;
         if (!TextUtils.isEmpty(str) && !StringUtils.isNull(str) && (indexOf = str.indexOf("album_id=")) >= 0 && (length = indexOf + "album_id=".length()) <= str.length()) {
@@ -60,7 +60,7 @@ public class TogetherhiH5ProxyActivity extends BaseActivity {
         return null;
     }
 
-    private long qS(String str) {
+    private long rC(String str) {
         int indexOf;
         int length;
         if (!TextUtils.isEmpty(str) && !StringUtils.isNull(str) && (indexOf = str.indexOf("hid=")) >= 0 && (length = indexOf + "hid=".length()) <= str.length()) {
@@ -73,10 +73,10 @@ public class TogetherhiH5ProxyActivity extends BaseActivity {
         return 0L;
     }
 
-    private void bjN() {
+    private void bnw() {
         a aVar = new a(getActivity());
-        aVar.cz(getResources().getString(u.j.th_plugin_not_install_tips));
-        aVar.b(u.j.know, new du(this));
-        aVar.b(getPageContext()).rS();
+        aVar.cB(getResources().getString(t.j.th_plugin_not_install_tips));
+        aVar.b(t.j.know, new du(this));
+        aVar.b(getPageContext()).sX();
     }
 }

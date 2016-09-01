@@ -11,303 +11,303 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.BannerThreadInfoData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.TextureVideoView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import com.baidu.tieba.view.AudioAnimationView;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout {
-    private int Ae;
-    private TextureVideoView aKC;
-    private TbImageView aKD;
-    private ImageView aKE;
-    private String aKF;
-    private View aKG;
-    private View aKP;
-    private AudioAnimationView aUg;
-    private ImageView aUi;
-    private TextView aeS;
-    private View bQc;
-    private TextView bQd;
-    private TextView bQe;
-    private View bQf;
-    private TextView bQg;
-    private ProgressBar bQh;
-    private View bQi;
-    private View bQj;
-    private ClickableHeaderImageView bQk;
-    private View bQl;
-    private View bQm;
-    private View bQn;
-    private String bQo;
-    private int bQp;
-    private int bQq;
-    private be bQr;
-    private int bQs;
+    private int Cs;
+    private String aMC;
+    private TextureVideoView aPh;
+    private TbImageView aPj;
+    private ImageView aPk;
+    private View aPl;
+    private View aPt;
+    private AudioAnimationView aZo;
+    private ImageView aZq;
+    private TextView ahN;
+    private int cbA;
+    private View cbk;
+    private TextView cbl;
+    private TextView cbm;
+    private View cbn;
+    private TextView cbo;
+    private ProgressBar cbp;
+    private View cbq;
+    private View cbr;
+    private ClickableHeaderImageView cbs;
+    private View cbt;
+    private View cbu;
+    private View cbv;
+    private String cbw;
+    private int cbx;
+    private int cby;
+    private bg cbz;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private View mRootView;
     private int mSkinType;
 
-    public be getThreadInfo() {
-        return this.bQr;
+    public bg getThreadInfo() {
+        return this.cbz;
     }
 
     public String getVideoUrl() {
-        return this.aKF;
+        return this.aMC;
     }
 
     public boolean isPlaying() {
-        return this.aKC != null && this.aKC.isPlaying();
+        return this.aPh != null && this.aPh.isPlaying();
     }
 
     public int getBgResId() {
-        return this.bQq;
+        return this.cby;
     }
 
     public View getVideoContainer() {
-        return this.bQc;
+        return this.cbk;
     }
 
     public e(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.bQp = 1;
-        this.bQs = 0;
+        this.cbx = 1;
+        this.cbA = 0;
         this.mOnClickListener = new f(this);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        this.mRootView = LayoutInflater.from(context).inflate(u.h.forum_head_video_item, this);
+        this.mRootView = LayoutInflater.from(context).inflate(t.h.forum_head_video_item, this);
         View view = this.mRootView;
-        this.bQc = view.findViewById(u.g.video_view_layout);
-        this.aKP = view.findViewById(u.g.black_mask);
-        this.aKD = (TbImageView) view.findViewById(u.g.video_thumbnail);
-        this.aKD.setDefaultBgResource(u.f.pic_bg_video_frs);
-        this.aKC = (TextureVideoView) view.findViewById(u.g.videoView);
-        this.aKC.setAutoDownload(false);
-        this.aUi = (ImageView) view.findViewById(u.g.video_list_loading_image);
-        this.bQh = (ProgressBar) view.findViewById(u.g.loading_progress);
-        this.aKG = view.findViewById(u.g.video_list_layout_loading);
-        this.aUg = (AudioAnimationView) view.findViewById(u.g.auto_video_play_state);
-        this.aUg.setCertainColumnCount(4);
-        this.aUg.setColumnColor(u.d.cp_cont_i);
-        this.bQf = view.findViewById(u.g.video_view_error_layout);
-        this.bQg = (TextView) view.findViewById(u.g.auto_video_error_tips);
-        this.bQj = view.findViewById(u.g.video_info_container);
-        this.bQi = view.findViewById(u.g.video_info_layout);
-        this.aeS = (TextView) view.findViewById(u.g.user_name);
-        this.bQk = (ClickableHeaderImageView) view.findViewById(u.g.iv_user_avatar);
-        this.bQk.setClickable(false);
-        this.bQk.setIsGod(false);
-        this.bQk.setBorderWidth(com.baidu.adp.lib.util.k.c(this.mContext, u.e.ds4));
-        this.aKE = (ImageView) view.findViewById(u.g.img_play);
-        this.bQd = (TextView) view.findViewById(u.g.tv_video_info);
-        this.bQe = (TextView) view.findViewById(u.g.tv_play_count);
-        this.bQl = view.findViewById(u.g.blur_bg);
-        this.bQm = view.findViewById(u.g.divider_1);
-        this.bQn = view.findViewById(u.g.divider_2);
-        this.aKE.setOnClickListener(this.mOnClickListener);
-        this.aKE.setClickable(false);
+        this.cbk = view.findViewById(t.g.video_view_layout);
+        this.aPt = view.findViewById(t.g.black_mask);
+        this.aPj = (TbImageView) view.findViewById(t.g.video_thumbnail);
+        this.aPj.setDefaultBgResource(t.f.pic_bg_video_frs);
+        this.aPh = (TextureVideoView) view.findViewById(t.g.videoView);
+        this.aPh.setAutoDownload(false);
+        this.aZq = (ImageView) view.findViewById(t.g.video_list_loading_image);
+        this.cbp = (ProgressBar) view.findViewById(t.g.loading_progress);
+        this.aPl = view.findViewById(t.g.video_list_layout_loading);
+        this.aZo = (AudioAnimationView) view.findViewById(t.g.auto_video_play_state);
+        this.aZo.setCertainColumnCount(4);
+        this.aZo.setColumnColor(t.d.cp_cont_i);
+        this.cbn = view.findViewById(t.g.video_view_error_layout);
+        this.cbo = (TextView) view.findViewById(t.g.auto_video_error_tips);
+        this.cbr = view.findViewById(t.g.video_info_container);
+        this.cbq = view.findViewById(t.g.video_info_layout);
+        this.ahN = (TextView) view.findViewById(t.g.user_name);
+        this.cbs = (ClickableHeaderImageView) view.findViewById(t.g.iv_user_avatar);
+        this.cbs.setClickable(false);
+        this.cbs.setIsGod(false);
+        this.cbs.setBorderWidth(com.baidu.adp.lib.util.k.e(this.mContext, t.e.ds4));
+        this.aPk = (ImageView) view.findViewById(t.g.img_play);
+        this.cbl = (TextView) view.findViewById(t.g.tv_video_info);
+        this.cbm = (TextView) view.findViewById(t.g.tv_play_count);
+        this.cbt = view.findViewById(t.g.blur_bg);
+        this.cbu = view.findViewById(t.g.divider_1);
+        this.cbv = view.findViewById(t.g.divider_2);
+        this.aPk.setOnClickListener(this.mOnClickListener);
+        this.aPk.setClickable(false);
     }
 
     public void onChangeSkinType(com.baidu.adp.base.h<?> hVar, int i) {
         if (this.mSkinType != i) {
-            av.l(this.bQc, u.d.cp_bg_line_k);
-            av.l(this.aKP, u.d.cp_bg_line_k);
-            av.l(this.bQm, u.d.cp_bg_line_k_alpha5);
-            av.l(this.bQn, u.d.cp_bg_line_k_alpha10);
-            av.j((View) this.bQd, u.d.cp_cont_b);
-            av.j((View) this.aeS, u.d.cp_cont_b);
-            av.j((View) this.bQe, u.d.cp_cont_d);
-            av.c(this.aKE, u.f.btn_icon_play_video_n);
-            av.c(this.aUi, u.f.btn_icon_video_n);
-            av.l(this.bQf, u.d.common_color_10014);
-            av.j((View) this.bQg, u.d.cp_cont_i);
-            Zz();
+            av.l(this.cbk, t.d.cp_bg_line_k);
+            av.l(this.aPt, t.d.cp_bg_line_k);
+            av.l(this.cbu, t.d.cp_bg_line_k_alpha5);
+            av.l(this.cbv, t.d.cp_bg_line_k_alpha10);
+            av.j((View) this.cbl, t.d.cp_cont_b);
+            av.j((View) this.ahN, t.d.cp_cont_b);
+            av.j((View) this.cbm, t.d.cp_cont_d);
+            av.c(this.aPk, t.f.btn_icon_play_video_n);
+            av.c(this.aZq, t.f.btn_icon_video_n);
+            av.l(this.cbn, t.d.common_color_10014);
+            av.j((View) this.cbo, t.d.cp_cont_i);
+            ael();
             this.mSkinType = i;
         }
     }
 
-    public void Zy() {
-        if (this.aKD != null) {
-            this.aKD.c(this.bQo, 10, false);
+    public void aek() {
+        if (this.aPj != null) {
+            this.aPj.c(this.cbw, 10, false);
         }
     }
 
     public void setVideoBlurViewBackgroundDrawable(Drawable drawable) {
-        if (this.bQl != null) {
-            this.bQl.setBackgroundDrawable(drawable);
+        if (this.cbt != null) {
+            this.cbt.setBackgroundDrawable(drawable);
         }
     }
 
     public void setVideoBlurViewBackgroundResId(int i) {
-        this.bQq = i;
+        this.cby = i;
     }
 
     public void setVideoBlurViewMaskColor(int i) {
-        av.l(this.bQj, i);
+        av.l(this.cbr, i);
     }
 
-    private void Zz() {
-        if (this.bQk != null) {
-            this.bQk.setBorderColor(av.getColor(u.d.cp_bg_line_d_alpha70));
+    private void ael() {
+        if (this.cbs != null) {
+            this.cbs.setBorderColor(av.getColor(t.d.cp_bg_line_d_alpha70));
         }
-        if (this.bQe != null) {
-            this.bQe.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(u.f.icon_video_num_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.cbm != null) {
+            this.cbm.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(t.f.icon_video_num_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        if (this.bQg != null) {
-            this.bQg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, av.getDrawable(u.f.icon_toast_game_error), (Drawable) null, (Drawable) null);
+        if (this.cbo != null) {
+            this.cbo.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, av.getDrawable(t.f.icon_toast_game_error), (Drawable) null, (Drawable) null);
         }
-        if (this.aKD != null) {
-            this.aKD.setDefaultErrorResource(0);
-            this.aKD.setDefaultBgResource(u.f.pic_bg_video_frs);
+        if (this.aPj != null) {
+            this.aPj.setDefaultErrorResource(0);
+            this.aPj.setDefaultBgResource(t.f.pic_bg_video_frs);
         }
-        if (this.aUg != null) {
-            this.aUg.setColumnColor(u.d.cp_cont_i);
+        if (this.aZo != null) {
+            this.aZo.setColumnColor(t.d.cp_cont_i);
         }
     }
 
-    public void ZA() {
-        if (this.bQe != null) {
-            this.bQs++;
-            if (this.bQs > 0) {
-                this.bQe.setVisibility(0);
-                this.bQe.setText(ba.w(this.bQs));
+    public void aem() {
+        if (this.cbm != null) {
+            this.cbA++;
+            if (this.cbA > 0) {
+                this.cbm.setVisibility(0);
+                this.cbm.setText(ba.w(this.cbA));
                 return;
             }
-            this.bQe.setVisibility(8);
+            this.cbm.setVisibility(8);
         }
     }
 
     public void a(MediaPlayer.OnPreparedListener onPreparedListener, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
-        this.aKC.setOnPreparedListener(onPreparedListener);
-        this.aKC.setOnCompletionListener(onCompletionListener);
-        this.aKC.setOnErrorListener(onErrorListener);
+        this.aPh.setOnPreparedListener(onPreparedListener);
+        this.aPh.setOnCompletionListener(onCompletionListener);
+        this.aPh.setOnErrorListener(onErrorListener);
     }
 
     public void setVideoPlayState(int i) {
         if (i == 1) {
-            this.bQp = 1;
-            this.aKD.setVisibility(0);
-            this.aKP.setVisibility(0);
-            this.aKE.setVisibility(0);
-            this.aKG.setVisibility(8);
-            this.bQf.setVisibility(8);
-            this.aUg.setVisibility(8);
-            this.aUg.bmz();
+            this.cbx = 1;
+            this.aPj.setVisibility(0);
+            this.aPt.setVisibility(0);
+            this.aPk.setVisibility(0);
+            this.aPl.setVisibility(8);
+            this.cbn.setVisibility(8);
+            this.aZo.setVisibility(8);
+            this.aZo.bqi();
         } else if (i == 2) {
-            this.bQp = 2;
-            this.aKD.setVisibility(0);
-            this.aKP.setVisibility(0);
-            this.aKE.setVisibility(8);
-            this.aKG.setVisibility(0);
-            this.bQf.setVisibility(8);
-            this.aUg.setVisibility(8);
-            this.aUg.bmz();
+            this.cbx = 2;
+            this.aPj.setVisibility(0);
+            this.aPt.setVisibility(0);
+            this.aPk.setVisibility(8);
+            this.aPl.setVisibility(0);
+            this.cbn.setVisibility(8);
+            this.aZo.setVisibility(8);
+            this.aZo.bqi();
         } else if (i == 3) {
-            this.bQp = 3;
-            this.aKD.setVisibility(8);
-            this.aKP.setVisibility(8);
-            this.aKE.setVisibility(8);
-            this.aKG.setVisibility(8);
-            this.bQf.setVisibility(8);
-            this.aUg.setVisibility(0);
-            this.aUg.start();
+            this.cbx = 3;
+            this.aPj.setVisibility(8);
+            this.aPt.setVisibility(8);
+            this.aPk.setVisibility(8);
+            this.aPl.setVisibility(8);
+            this.cbn.setVisibility(8);
+            this.aZo.setVisibility(0);
+            this.aZo.start();
         } else if (i == 4) {
-            this.bQp = 4;
-            this.aKD.setVisibility(0);
-            this.aKP.setVisibility(0);
-            this.aKE.setVisibility(0);
-            this.aKG.setVisibility(8);
-            this.bQf.setVisibility(0);
-            this.aUg.setVisibility(8);
-            this.aUg.bmz();
+            this.cbx = 4;
+            this.aPj.setVisibility(0);
+            this.aPt.setVisibility(0);
+            this.aPk.setVisibility(0);
+            this.aPl.setVisibility(8);
+            this.cbn.setVisibility(0);
+            this.aZo.setVisibility(8);
+            this.aZo.bqi();
         }
     }
 
     public void stopPlayback() {
-        if (this.aKC != null) {
+        if (this.aPh != null) {
             setVideoPlayState(1);
-            this.aKC.stopPlayback();
+            this.aPh.stopPlayback();
         }
     }
 
-    public void ZB() {
-        if (this.aKC != null && this.aKC.isPlaying()) {
+    public void pausePlay() {
+        if (this.aPh != null && this.aPh.isPlaying()) {
             setVideoPlayState(1);
-            this.aKC.pause();
+            this.aPh.pause();
         }
     }
 
-    public void Iz() {
-        if (this.aKC != null) {
+    public void Kz() {
+        if (this.aPh != null) {
             setVideoPlayState(2);
-            this.aKC.u(this.aKF, this.Ae);
-            this.aKC.start();
+            this.aPh.setVideoPathNoCache(this.aMC);
+            this.aPh.start();
         }
     }
 
-    private TextureVideoView.c h(be beVar) {
-        if (beVar == null) {
+    private TextureVideoView.c h(bg bgVar) {
+        if (bgVar == null) {
             return null;
         }
         TextureVideoView.c cVar = new TextureVideoView.c();
         cVar.mLocate = "4";
-        cVar.aeq = String.valueOf(beVar.getFid());
-        cVar.aep = beVar.getTid();
+        cVar.ahj = String.valueOf(bgVar.getFid());
+        cVar.ahi = bgVar.getTid();
         return cVar;
     }
 
     public void a(BannerThreadInfoData bannerThreadInfoData) {
-        be beVar;
-        if (bannerThreadInfoData != null && (beVar = bannerThreadInfoData.threadData) != null && beVar.qM() != null && beVar.getAuthor() != null) {
-            this.aKC.setVideoStatsData(h(beVar));
-            this.bQr = beVar;
-            VideoInfo qM = beVar.qM();
-            this.aKF = qM.video_url;
-            this.Ae = qM.video_duration.intValue();
-            this.bQo = qM.thumbnail_url;
-            MetaData author = beVar.getAuthor();
-            this.aKD.setVisibility(0);
-            this.aKP.setVisibility(0);
-            this.aKE.setVisibility(0);
-            this.aKG.setVisibility(8);
-            this.aKC.stopPlayback();
-            this.bQs = qM.play_count.intValue();
-            if (this.bQs > 0) {
-                this.bQe.setVisibility(0);
-                this.bQe.setText(ba.w(this.bQs));
+        bg bgVar;
+        if (bannerThreadInfoData != null && (bgVar = bannerThreadInfoData.threadData) != null && bgVar.rR() != null && bgVar.getAuthor() != null) {
+            this.aPh.setVideoStatsData(h(bgVar));
+            this.cbz = bgVar;
+            VideoInfo rR = bgVar.rR();
+            this.aMC = rR.video_url;
+            this.Cs = rR.video_duration.intValue();
+            this.cbw = rR.thumbnail_url;
+            MetaData author = bgVar.getAuthor();
+            this.aPj.setVisibility(0);
+            this.aPt.setVisibility(0);
+            this.aPk.setVisibility(0);
+            this.aPl.setVisibility(8);
+            this.aPh.stopPlayback();
+            this.cbA = rR.play_count.intValue();
+            if (this.cbA > 0) {
+                this.cbm.setVisibility(0);
+                this.cbm.setText(ba.w(this.cbA));
             } else {
-                this.bQe.setVisibility(8);
+                this.cbm.setVisibility(8);
             }
-            this.bQd.setText(beVar.getTitle());
-            if (this.bQr.qy()) {
-                this.bQk.setIsGod(true);
+            this.cbl.setText(bgVar.getTitle());
+            if (this.cbz.rD()) {
+                this.cbs.setIsGod(true);
             } else {
-                this.bQk.setIsGod(false);
+                this.cbs.setIsGod(false);
             }
-            this.bQk.setData(this.bQr);
-            this.aeS.setText(author.getName_show());
+            this.cbs.setData(this.cbz);
+            this.ahN.setText(author.getName_show());
         }
     }
 
     public void onDestory() {
-        if (this.aKD != null) {
-            this.aKD.setImageBitmap(null);
+        if (this.aPj != null) {
+            this.aPj.setImageBitmap(null);
         }
-        if (this.bQk != null) {
-            this.bQk.setImageBitmap(null);
+        if (this.cbs != null) {
+            this.cbs.setImageBitmap(null);
         }
-        if (this.aKC != null) {
-            this.aKC.stopPlayback();
+        if (this.aPh != null) {
+            this.aPh.stopPlayback();
         }
     }
 }

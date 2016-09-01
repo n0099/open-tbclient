@@ -4,44 +4,44 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b {
-    private int dUB;
-    private String dUC;
-    private boolean dUD;
-    private int dUy;
-    private String dUz;
+    private int egE;
+    private String egF;
+    private int egH;
+    private String egI;
+    private boolean egJ;
     private String msgContent;
     private int msgType;
     private String toUid;
 
     public b(a aVar) {
         this();
-        this.dUy = aVar.aFT();
-        this.toUid = aVar.aFU();
+        this.egE = aVar.aKL();
+        this.toUid = aVar.aKM();
         this.msgType = aVar.getMsgType();
-        this.dUz = aVar.getToUid();
+        this.egF = aVar.getToUid();
     }
 
     public b() {
-        this.dUD = !TbadkCoreApplication.m10getInst().isDebugMode();
-        np(2);
-        nK(TbConfig.getVersion());
-        this.dUz = TbadkCoreApplication.getCurrentAccount();
+        this.egJ = !TbadkCoreApplication.m9getInst().isDebugMode();
+        nS(2);
+        ou(TbConfig.getVersion());
+        this.egF = TbadkCoreApplication.getCurrentAccount();
     }
 
-    public String aFU() {
-        return this.dUz;
+    public String aKM() {
+        return this.egF;
     }
 
     public String getToUid() {
         return this.toUid;
     }
 
-    public void np(int i) {
-        this.dUB = i;
+    public void nS(int i) {
+        this.egH = i;
     }
 
-    public void nK(String str) {
-        this.dUC = str;
+    public void ou(String str) {
+        this.egI = str;
     }
 
     public void setMsgType(int i) {

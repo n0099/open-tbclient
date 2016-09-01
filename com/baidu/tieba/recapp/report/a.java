@@ -6,69 +6,87 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject eTG;
-    private String eTH;
-    private int eTI;
-    private String eTL;
-    private JSONObject eTM;
     private String extInfo;
+    private JSONObject faS;
+    private String faT;
+    private int faU;
+    private String faX;
+    private JSONObject faY;
+    private int faZ;
+    private int fba;
+    private int fbb;
     private int pageNumber;
-    private long eTK = System.currentTimeMillis() / 1000;
-    private int eTJ = i.fw();
+    private long faW = System.currentTimeMillis() / 1000;
+    private int faV = i.gs();
 
-    public void pI(String str) {
+    public void qs(String str) {
         this.extInfo = str;
     }
 
-    public void pJ(String str) {
-        this.eTH = str;
+    public void qt(String str) {
+        this.faT = str;
     }
 
-    public void qf(int i) {
-        this.eTI = i;
+    public void qD(int i) {
+        this.faU = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void pK(String str) {
-        this.eTL = str;
+    public void qu(String str) {
+        this.faX = str;
     }
 
-    public void bL(String str, String str2) {
-        if (this.eTG == null) {
-            this.eTG = new JSONObject();
+    public void qE(int i) {
+        this.faZ = i;
+    }
+
+    public void qF(int i) {
+        this.fba = i;
+    }
+
+    public void qG(int i) {
+        this.fbb = i;
+    }
+
+    public void bM(String str, String str2) {
+        if (this.faS == null) {
+            this.faS = new JSONObject();
         }
         try {
-            this.eTG.put(str, str2);
+            this.faS.put(str, str2);
         } catch (Exception e) {
         }
     }
 
-    public JSONObject aYb() {
-        if (this.eTM != null) {
-            return this.eTM;
+    public JSONObject bbt() {
+        if (this.faY != null) {
+            return this.faY;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("da_locate", this.eTI);
-            jSONObject.put("da_type", this.eTH);
+            jSONObject.put("da_locate", this.faU);
+            jSONObject.put("da_type", this.faT);
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.eTK);
-            jSONObject.put("net_type", this.eTJ);
+            jSONObject.put("origin_time", this.faW);
+            jSONObject.put("net_type", this.faV);
             jSONObject.put("page_num", this.pageNumber);
-            jSONObject.put("da_price", this.eTL);
+            jSONObject.put("da_price", this.faX);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
+            jSONObject.put("action_type", this.faZ);
+            jSONObject.put("total_dur", this.fba);
+            jSONObject.put("play_dur", this.fbb);
         } catch (JSONException e) {
         }
-        if (this.eTG != null) {
+        if (this.faS != null) {
             try {
-                jSONObject.put("ext", this.eTG);
+                jSONObject.put("ext", this.faS);
             } catch (Exception e2) {
             }
         }
-        this.eTM = jSONObject;
+        this.faY = jSONObject;
         return jSONObject;
     }
 }

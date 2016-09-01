@@ -83,9 +83,11 @@ public class CmdConfigCustom {
     public static final int CMD_CLEAR_VIDEO_CACHE = 2016476;
     public static final int CMD_CLOSE_INTEREST_GUIDE = 2001402;
     public static final int CMD_CLOSE_MATINTAB = 2001384;
+    public static final int CMD_CLOSE_MATINTAB1 = 2002024;
     public static final int CMD_CLOSE_NEW_USER_GUIDE = 2001401;
     public static final int CMD_CLOSR_READER_SDK = 2001430;
     public static final int CMD_COLLECTION_PLUGIN_INSTALL_SUCCESS = 2902080;
+    public static final int CMD_COMMON_WEBVIEW_ENABLE_TOUCH = 2002503;
     public static final int CMD_CREATE_HANDLE_SSOSERVICE_IMPL = 2902060;
     public static final int CMD_CREATE_SUCCESS_MSG = 2001107;
     public static final int CMD_CURRENT_PAGE_FINISH_REFRESH = 2016477;
@@ -129,6 +131,7 @@ public class CmdConfigCustom {
     public static final int CMD_FACESHOP_FACEPACKAGEDETAIL = 2902014;
     public static final int CMD_FACESHOP_FACEPURCHASERECORDS = 2902015;
     public static final int CMD_FILE_DOWNLOAD = 2001122;
+    public static final int CMD_FINISH_VIDEO_MID_PAGE_ACTIVITY = 2016484;
     public static final int CMD_FLOAT_RECORD_VIEW_CTRL = 2001307;
     public static final int CMD_FLOAT_WINDOW_SWITCH_CHANGED = 2001257;
     public static final int CMD_FORUMFEED_PLUGIN_INSTALL_SUCCESS = 2902110;
@@ -139,6 +142,7 @@ public class CmdConfigCustom {
     public static final int CMD_FRIEND_FEED_SWITCH_CHANGE = 2902112;
     public static final int CMD_FRS_ADD_ADAPTER = 2003008;
     public static final int CMD_FRS_ADD_MODEL = 2003011;
+    public static final int CMD_FRS_DISMISS_DIVIDER_BOTTOM_HEADER = 2003021;
     public static final int CMD_FRS_EXPERIENCE_TIP = 2001359;
     public static final int CMD_FRS_EXTRA_LOADED = 2003017;
     public static final int CMD_FRS_GROUP_MENU = 2003013;
@@ -168,12 +172,14 @@ public class CmdConfigCustom {
     public static final int CMD_GET_LIVE_CHANGED_INFO = 2001338;
     public static final int CMD_GET_LIVE_PLAY_IMAGE = 2001269;
     public static final int CMD_GET_MANGA_DB_DATA = 2001432;
+    public static final int CMD_GET_MANGA_READ_RECORD = 2001434;
     public static final int CMD_GET_MEMBER_CENTER_CACHE = 2016460;
     public static final int CMD_GET_NEW_FRIEND_DATA_BY_ID = 2001312;
     public static final int CMD_GET_OFFICIAL_ACCOUNT = 2001272;
     public static final int CMD_GET_RECOMMEND_DETAIL = 2001313;
     public static final int CMD_GET_SHARE_FROM_GAME_CENTER_DATA = 2001268;
     public static final int CMD_GET_SKIN_FROM_DB = 2001388;
+    public static final int CMD_GET_VIDEO_CACHE_CLIENT = 2016479;
     public static final int CMD_GET_XIAOYING_PANNEL_TOOL = 2001357;
     public static final int CMD_GET_XIAOYING_TOOL = 2001356;
     public static final int CMD_GOD_FEED_MSG_RECIEVED = 2016324;
@@ -240,6 +246,8 @@ public class CmdConfigCustom {
     public static final int CMD_INIT_TTS_MODEL = 2016424;
     public static final int CMD_INSERT_CONTACT = 2001183;
     public static final int CMD_INSERT_SKINT_DATA_TO_DB = 2001367;
+    public static final int CMD_JUDGE_TO_HOTTOPIC_FROM_FRS = 2003019;
+    public static final int CMD_JUDGE_TO_HOTTOPIC_FROM_PB = 2003020;
     public static final int CMD_LEAKCANARY_INSTALL = 2010003;
     public static final int CMD_LEFT_NAVI_SCAN = 2001309;
     public static final int CMD_LEFT_NAV_DRESSUP_CENTER_TIP = 2001372;
@@ -328,6 +336,9 @@ public class CmdConfigCustom {
     public static final int CMD_PERSON_EXTRA_NEW = 2016478;
     public static final int CMD_PERSON_INFO_ADD_ADAPTER = 2016473;
     public static final int CMD_PERSON_INFO_CHANGED = 2001253;
+    public static final int CMD_PERSON_LIKE_FORUM = 2001516;
+    public static final int CMD_PERSON_RED_TIP = 2001514;
+    public static final int CMD_PERSON_UNLIKE_FORUM = 2001517;
     public static final int CMD_PERSON_WALLET_ITEM_CLICK = 2001394;
     public static final int CMD_PHOTO_LIVE_MISSON_UPDATE_SUCCESS = 2004510;
     public static final int CMD_PHOTO_LIVE_PLUGIN_INSTALL_SUCCESS = 2004509;
@@ -398,6 +409,7 @@ public class CmdConfigCustom {
     public static final int CMD_SCREEN_DIALOG = 2001362;
     public static final int CMD_SCREEN_LOCK_NOTIFY = 2016200;
     public static final int CMD_SELECT_LOCATION = 2001232;
+    public static final int CMD_SEND_BOOK_READ_RECORD_TO_FRS = 2001435;
     public static final int CMD_SEND_GIFT_SUCCESS = 2001376;
     public static final int CMD_SETTING_READ_FINISH = 2001318;
     public static final int CMD_SET_INTEREST_GUIDE = 2001405;
@@ -409,7 +421,6 @@ public class CmdConfigCustom {
     public static final int CMD_SHOW_FLOATING_LAYER_MAINTAB = 2001314;
     public static final int CMD_SHOW_GAME_ICON = 2001258;
     public static final int CMD_SHOW_GAME_MSG_TIP = 2001236;
-    public static final int CMD_SHOW_GIFT_MSG_TIP = 2001237;
     public static final int CMD_SHOW_GO_TO_MY_LIVE_TIPS = 2016305;
     public static final int CMD_SHOW_SPRING_EGG = 2001125;
     public static final int CMD_SIGNALL_ON_CLICK = 2001260;
@@ -462,7 +473,10 @@ public class CmdConfigCustom {
     public static final int CMD_UPDATES_MODEL = 2001305;
     public static final int CMD_UPDATE_ATTENTION = 2001118;
     public static final int CMD_UPDATE_FRS_LIKE_STATUS = 2001273;
+    public static final int CMD_UPDATE_INSTALL_STATUS = 2001513;
+    public static final int CMD_UPDATE_PENDANT = 2016483;
     public static final int CMD_UPDATE_SUCCESS_MSG = 2001108;
+    public static final int CMD_UPDATE_VERSION_MSG = 2001515;
     public static final int CMD_UPLOAD_FAIL = 2001221;
     public static final int CMD_UPLOAD_STAT = 2001327;
     public static final int CMD_USER_MUTE_ADD = 2001506;
@@ -489,6 +503,10 @@ public class CmdConfigCustom {
     public static final int CMD_VOICE_RECORDER_RES_TOOL = 2001298;
     public static final int CMD_VOICE_STOP_PLAY = 2001280;
     public static final int CMD_VOICE_USE = 2001326;
+    public static final int CMD_VR_GET_PAGE_TIME = 2016482;
+    public static final int CMD_VR_GL_ERROR = 2016485;
+    public static final int CMD_VR_LOGO_DOWNLAOD = 2016480;
+    public static final int CMD_VR_LOGO_OPEN = 2016481;
     public static final int CMD_WEBVIEW_PROXY = 2001315;
     public static final int CMD_WRITE_PB_HISTORY = 2001191;
     public static final int CMD_WRITE_SEARCHPERSON_HISTORY = 2001194;

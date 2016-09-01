@@ -11,19 +11,19 @@ import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class k implements ServiceConnection {
     final /* synthetic */ d this$0;
-    private final /* synthetic */ Intent uD;
     private final /* synthetic */ Context val$context;
+    private final /* synthetic */ Intent wP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(d dVar, Intent intent, Context context) {
         this.this$0 = dVar;
-        this.uD = intent;
+        this.wP = intent;
         this.val$context = context;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.this$0.hi();
+        this.this$0.id();
     }
 
     @Override // android.content.ServiceConnection
@@ -31,14 +31,14 @@ public class k implements ServiceConnection {
         c cVar;
         c cVar2;
         this.this$0.messenger = new Messenger(iBinder);
-        String stringExtra = this.uD.getStringExtra("package_name");
-        cVar = this.this$0.ut;
+        String stringExtra = this.wP.getStringExtra("package_name");
+        cVar = this.this$0.wF;
         if (cVar == null) {
             return;
         }
-        cVar2 = this.this$0.ut;
-        if (TextUtils.equals(stringExtra, cVar2.tG)) {
-            this.val$context.startService(this.uD);
+        cVar2 = this.this$0.wF;
+        if (TextUtils.equals(stringExtra, cVar2.vT)) {
+            this.val$context.startService(this.wP);
         }
     }
 }

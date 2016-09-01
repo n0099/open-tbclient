@@ -1,28 +1,29 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.b;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.c.a;
 /* loaded from: classes.dex */
-class x implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bEL;
+class x implements a.InterfaceC0053a {
+    final /* synthetic */ w bQt;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(FrsActivity frsActivity) {
-        this.bEL = frsActivity;
+    public x(w wVar, String str) {
+        this.bQt = wVar;
+        this.val$url = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bq bqVar;
-        int intValue = ((Integer) view.getTag()).intValue();
-        bqVar = this.bEL.bDK;
-        com.baidu.adp.widget.ListView.v aw = bqVar.WN().aw(intValue);
-        if (aw instanceof b) {
-            b bVar = (b) aw;
-            if (!bVar.om()) {
-                return;
-            }
-            this.bEL.b(bVar);
-        }
+    @Override // com.baidu.tieba.c.a.InterfaceC0053a
+    public void Np() {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        FrsActivity frsActivity3;
+        frsActivity = this.bQt.bQp;
+        com.baidu.tbadk.browser.f.u(frsActivity.getPageContext().getPageActivity(), this.val$url);
+        com.baidu.tbadk.core.util.ay ayVar = new com.baidu.tbadk.core.util.ay("c10502");
+        frsActivity2 = this.bQt.bQp;
+        com.baidu.tbadk.core.util.ay ab = ayVar.ab("fid", frsActivity2.bPq.aLP().getId());
+        frsActivity3 = this.bQt.bQp;
+        TiebaStatic.log(ab.ab("uid", frsActivity3.bPq.getUserData().getUserId()));
     }
 }

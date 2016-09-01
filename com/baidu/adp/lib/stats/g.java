@@ -4,17 +4,17 @@ import android.content.Context;
 import android.support.v4.os.EnvironmentCompat;
 /* loaded from: classes.dex */
 public class g {
-    public static String v(Context context) {
+    public static String F(Context context) {
         if (context == null) {
             return null;
         }
-        if (com.baidu.adp.lib.util.i.fr()) {
+        if (com.baidu.adp.lib.util.i.gn()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.fs()) {
-            int fz = com.baidu.adp.lib.util.i.fz();
+        if (com.baidu.adp.lib.util.i.go()) {
+            int gv = com.baidu.adp.lib.util.i.gv();
             StringBuilder sb = new StringBuilder();
-            switch (fz) {
+            switch (gv) {
                 case 1:
                     sb.append('M');
                     break;
@@ -33,11 +33,11 @@ public class g {
             } else {
                 sb.append("_NET_");
             }
-            if (com.baidu.adp.lib.util.i.fu()) {
+            if (com.baidu.adp.lib.util.i.gq()) {
                 sb.append("3G");
-            } else if (com.baidu.adp.lib.util.i.ft()) {
+            } else if (com.baidu.adp.lib.util.i.gp()) {
                 sb.append("4G");
-            } else if (com.baidu.adp.lib.util.i.fv()) {
+            } else if (com.baidu.adp.lib.util.i.gr()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

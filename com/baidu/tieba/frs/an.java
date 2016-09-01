@@ -4,35 +4,34 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.EcommSellerErrorActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.view.b;
 import com.baidu.tieba.frs.ecomm.EcommCanSendThreadResponseMessage;
 import com.baidu.tieba.frs.ecomm.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements a.InterfaceC0056a {
-    final /* synthetic */ FrsActivity bEL;
+public class an implements a.InterfaceC0057a {
+    final /* synthetic */ FrsActivity bQp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(FrsActivity frsActivity) {
-        this.bEL = frsActivity;
+        this.bQp = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ecomm.a.InterfaceC0056a
+    @Override // com.baidu.tieba.frs.ecomm.a.InterfaceC0057a
     public void a(int i, String str, EcommCanSendThreadResponseMessage ecommCanSendThreadResponseMessage) {
-        b bVar;
-        b bVar2;
-        bVar = this.bEL.bdy;
-        if (bVar != null) {
-            bVar2 = this.bEL.bdy;
-            bVar2.aE(false);
+        com.baidu.tbadk.core.view.a aVar;
+        com.baidu.tbadk.core.view.a aVar2;
+        aVar = this.bQp.boU;
+        if (aVar != null) {
+            aVar2 = this.bQp.boU;
+            aVar2.aF(false);
         }
         if (ecommCanSendThreadResponseMessage != null && (ecommCanSendThreadResponseMessage instanceof EcommCanSendThreadResponseMessage)) {
             if (ecommCanSendThreadResponseMessage.getError() == 0) {
-                this.bEL.bDH = ecommCanSendThreadResponseMessage.address;
-                this.bEL.VI();
+                this.bQp.bPl = ecommCanSendThreadResponseMessage.address;
+                this.bQp.aaD();
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EcommSellerErrorActivityConfig(this.bEL.getPageContext().getPageActivity(), ecommCanSendThreadResponseMessage.getError(), ecommCanSendThreadResponseMessage.getErrorString())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EcommSellerErrorActivityConfig(this.bQp.getPageContext().getPageActivity(), ecommCanSendThreadResponseMessage.getError(), ecommCanSendThreadResponseMessage.getErrorString())));
         }
     }
 }

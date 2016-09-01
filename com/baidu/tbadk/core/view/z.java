@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.TextureVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements TextureView.SurfaceTextureListener {
-    final /* synthetic */ TextureVideoView aeo;
+    final /* synthetic */ TextureVideoView ahh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(TextureVideoView textureVideoView) {
-        this.aeo = textureVideoView;
+        this.ahh = textureVideoView;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -19,17 +19,17 @@ public class z implements TextureView.SurfaceTextureListener {
         boolean z;
         TextureVideoView.a aVar;
         TextureVideoView.a aVar2;
-        this.aeo.mSurfaceTexture = surfaceTexture;
-        this.aeo.aea = true;
-        z = this.aeo.aeb;
+        this.ahh.mSurfaceTexture = surfaceTexture;
+        this.ahh.agR = true;
+        z = this.ahh.agS;
         if (z) {
-            this.aeo.aeb = false;
-            this.aeo.vs();
+            this.ahh.agS = false;
+            this.ahh.ww();
         }
-        aVar = this.aeo.aee;
+        aVar = this.ahh.agV;
         if (aVar != null) {
-            aVar2 = this.aeo.aee;
-            aVar2.vw();
+            aVar2 = this.ahh.agV;
+            aVar2.wB();
         }
     }
 
@@ -43,19 +43,19 @@ public class z implements TextureView.SurfaceTextureListener {
         MediaController mediaController;
         MediaController mediaController2;
         TextureVideoView.b bVar2;
-        bVar = this.aeo.adX;
+        bVar = this.ahh.agO;
         if (bVar != null) {
-            bVar2 = this.aeo.adX;
-            bVar2.vx();
+            bVar2 = this.ahh.agO;
+            bVar2.onSurfaceDestroyed();
         }
-        this.aeo.mSurfaceTexture = null;
-        mediaController = this.aeo.adN;
+        this.ahh.mSurfaceTexture = null;
+        mediaController = this.ahh.agE;
         if (mediaController != null) {
-            mediaController2 = this.aeo.adN;
+            mediaController2 = this.ahh.agE;
             mediaController2.hide();
         }
-        this.aeo.stopPlayback();
-        this.aeo.aeb = false;
+        this.ahh.stopPlayback();
+        this.ahh.agS = false;
         return false;
     }
 

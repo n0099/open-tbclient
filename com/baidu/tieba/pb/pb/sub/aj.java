@@ -1,22 +1,18 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements Runnable {
-    private final /* synthetic */ boolean eiv;
-    final /* synthetic */ af eka;
+public class aj implements a.b {
+    final /* synthetic */ ag ewi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(af afVar, boolean z) {
-        this.eka = afVar;
-        this.eiv = z;
+    public aj(ag agVar) {
+        this.ewi = agVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        bdListView = this.eka.zU;
-        bdListView.setEnabled(this.eiv);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

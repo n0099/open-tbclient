@@ -17,21 +17,21 @@ class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ab abVar;
-        ab abVar2;
+        ac acVar;
+        ac acVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             int a = MainTabActivity.a(newsNotifyMessage);
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xK().yf()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zs()) {
                 a -= newsNotifyMessage.getMsgOfficialMerge();
             }
             if (a == 0) {
-                abVar2 = this.this$0.foy;
-                abVar2.b(true, false, 0);
+                acVar2 = this.this$0.fwr;
+                acVar2.a(true, false, 0);
                 return;
             }
-            abVar = this.this$0.foy;
-            abVar.b(true, true, a);
+            acVar = this.this$0.fwr;
+            acVar.a(true, true, a);
         }
     }
 }

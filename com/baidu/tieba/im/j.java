@@ -23,12 +23,12 @@ class j extends com.baidu.adp.framework.listener.e {
             RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-            imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.b.a.le(requestAddGroupMessage.getGroupType()));
+            imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.b.a.lH(requestAddGroupMessage.getGroupType()));
             AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
             if (addGroupInfo != null) {
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.bH(1L));
+                imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.cd(1L));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_UPDATE_ITEM_CREATE_GROUP, imMessageCenterPojo));
             }
         }

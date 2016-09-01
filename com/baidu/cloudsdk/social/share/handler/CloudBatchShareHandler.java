@@ -82,7 +82,7 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
     /* JADX INFO: Access modifiers changed from: protected */
     public void doShare(ShareContent shareContent, MediaType mediaType, MultipartRequestParams multipartRequestParams, IBaiduListener iBaiduListener) {
         multipartRequestParams.put(SocialConstants.PARAM_CLIENT_TYPE, SocialConstants.ANDROID_CLIENT_TYPE);
-        multipartRequestParams.put(PARAM_TITLE, shareContent.getTitle());
+        multipartRequestParams.put("title", shareContent.getTitle());
         multipartRequestParams.put("content", shareContent.getContent());
         multipartRequestParams.put("url", shareContent.getLinkUrl());
         SocialShareConfig socialShareConfig = SocialShareConfig.getInstance(this.mContext);

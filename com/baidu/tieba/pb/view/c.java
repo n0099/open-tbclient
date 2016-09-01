@@ -4,13 +4,13 @@ import android.view.View;
 import com.baidu.tieba.pb.b;
 /* loaded from: classes.dex */
 public interface c {
-    void Yy();
+    void a(com.baidu.tieba.tbadkCore.data.q qVar, b.a aVar);
 
-    void a(com.baidu.tieba.tbadkCore.data.s sVar, b.a aVar);
+    void aQH();
 
-    void aLQ();
+    void adk();
 
-    void auh();
+    void ayV();
 
     View getView();
 

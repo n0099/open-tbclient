@@ -1,87 +1,79 @@
 package com.baidu.tieba.homepage.personalize.a;
 
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.bk;
-import com.baidu.tieba.card.bw;
-import com.baidu.tieba.card.bx;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.al;
+import com.baidu.tieba.card.cd;
+import com.baidu.tieba.card.cf;
 /* loaded from: classes.dex */
-public class e extends bx<com.baidu.tieba.card.a.n> {
-    final /* synthetic */ d ctW;
+public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.m, a> {
+    private TbPageContext<?> GM;
+    public BdUniqueId aYu;
+    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> bUs;
+    private com.baidu.adp.lib.f.b<TbImageView> bUt;
+    private cf bWv;
+    private al cFC;
+    private com.baidu.tieba.homepage.personalize.b.f cFD;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar) {
-        this.ctW = dVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.bWv = new f(this);
+        this.bUs = new com.baidu.adp.lib.f.b<>(new g(this), 6, 0);
+        this.bUt = new com.baidu.adp.lib.f.b<>(new h(this), 12, 0);
+        this.GM = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.bx
-    public void a(View view, com.baidu.tieba.card.a.n nVar) {
-        bk bkVar;
-        bk bkVar2;
-        bk bkVar3;
-        bk bkVar4;
-        bk bkVar5;
-        bk bkVar6;
-        bk bkVar7;
-        bk bkVar8;
-        bk bkVar9;
-        bk bkVar10;
-        bk bkVar11;
-        bk bkVar12;
-        bw.Lf().cl(true);
-        if (view != null) {
-            bkVar = this.ctW.ctV;
-            if (bkVar != null) {
-                bkVar2 = this.ctW.ctV;
-                if (bkVar2.getView() != null) {
-                    bkVar3 = this.ctW.ctV;
-                    if (bkVar3.aUW != null && nVar != null && nVar.Iw() != null && !StringUtils.isNull(nVar.Iw().getTid())) {
-                        int id = view.getId();
-                        bkVar4 = this.ctW.ctV;
-                        if (id != bkVar4.getView().getId()) {
-                            bkVar5 = this.ctW.ctV;
-                            if (bkVar5.aUW.aVe != null) {
-                                bkVar11 = this.ctW.ctV;
-                                if (bkVar11.aUW.aVe.getBarNameTv() != null) {
-                                    int id2 = view.getId();
-                                    bkVar12 = this.ctW.ctV;
-                                    if (id2 == bkVar12.aUW.aVe.getBarNameTv().getId()) {
-                                        TiebaStatic.log(nVar.LD());
-                                        return;
-                                    }
-                                }
-                            }
-                            bkVar6 = this.ctW.ctV;
-                            if (bkVar6.aUW.aTU != null) {
-                                int id3 = view.getId();
-                                bkVar10 = this.ctW.ctV;
-                                if (id3 == bkVar10.aUW.aTU.getId()) {
-                                    TiebaStatic.log(nVar.LE());
-                                    return;
-                                }
-                            }
-                            bkVar7 = this.ctW.ctV;
-                            if (bkVar7.aUW.aUI != null) {
-                                bkVar8 = this.ctW.ctV;
-                                if (bkVar8.aUW.aUI.aeS != null) {
-                                    bkVar9 = this.ctW.ctV;
-                                    if (bkVar9.aUW.aUI.aeS.getId() == view.getId()) {
-                                        TiebaStatic.log(nVar.LE());
-                                        return;
-                                    }
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        TiebaStatic.log(nVar.LB());
-                    }
-                }
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: ae */
+    public a a(ViewGroup viewGroup) {
+        this.cFC = new al(this.GM);
+        this.cFC.setConstrainLayoutPool(this.bUs);
+        this.cFC.setConstrainImagePool(this.bUt);
+        this.cFC.j(this.aYu);
+        return new a(this.cFC);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.m mVar, a aVar) {
+        if (mVar != null) {
+            mVar.gf(i + 1);
         }
+        aVar.cFF.a(mVar);
+        aVar.cFF.setOnSubCardOnClickListenner(this.bWv);
+        if (mVar.threadData != null && mVar.threadData.getTid() != null) {
+            cd.NI().b(new ay("c11003").ab("tid", mVar.threadData.getTid()));
+        }
+        return aVar.getView();
+    }
+
+    public void setFromCDN(boolean z) {
+        if (this.cFC != null) {
+            this.cFC.setFromCDN(z);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a extends y.a {
+        public al cFF;
+
+        public a(al alVar) {
+            super(alVar.getView());
+            this.cFF = alVar;
+        }
+    }
+
+    public void a(com.baidu.tieba.homepage.personalize.b.f fVar) {
+        this.cFD = fVar;
     }
 }

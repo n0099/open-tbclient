@@ -1,54 +1,54 @@
 package com.baidu.tieba.homepage.personalize;
 
 import android.widget.AbsListView;
-import com.baidu.tbadk.core.view.at;
-import com.baidu.tieba.card.bw;
+import com.baidu.tbadk.core.view.au;
+import com.baidu.tieba.card.cd;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements AbsListView.OnScrollListener {
-    private int ctw = -1;
-    private int ctx = 0;
-    private boolean cty = false;
-    final /* synthetic */ b ctz;
+    private int cFc = -1;
+    private int cFd = 0;
+    private boolean cFe = false;
+    final /* synthetic */ b this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.ctz = bVar;
+        this.this$0 = bVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        com.baidu.tieba.play.f fVar;
+        com.baidu.tieba.play.i iVar;
         boolean z;
-        com.baidu.tieba.play.f fVar2;
+        com.baidu.tieba.play.i iVar2;
         int i2;
         int i3;
         boolean z2;
-        if (this.ctz.ctc == null) {
-            this.ctz.ctc = new com.baidu.tbadk.performanceLog.m();
-            this.ctz.ctc.eQ(1005);
-            this.ctz.ctc.pageType = 1;
+        if (this.this$0.cEI == null) {
+            this.this$0.cEI = new com.baidu.tbadk.performanceLog.m();
+            this.this$0.cEI.fe(1005);
+            this.this$0.cEI.pageType = 1;
         }
-        if (this.ctz.csC != null) {
-            this.ctz.csC.onScrollStateChanged(absListView, i);
+        if (this.this$0.cDK != null) {
+            this.this$0.cDK.onScrollStateChanged(absListView, i);
         }
-        this.ctz.ctc.EC();
-        at.vG().aL(i == 0);
+        this.this$0.cEI.FW();
+        au.wK().aM(i == 0);
         if (i == 0) {
-            bw.Lf().cl(true);
-            if (this.cty) {
-                this.ctz.ahF();
+            cd.NI().cr(true);
+            if (this.cFe) {
+                this.this$0.amu();
             }
-            this.cty = false;
-            fVar = this.ctz.aJx;
-            if (fVar != null) {
-                z = this.ctz.cth;
+            this.cFe = false;
+            iVar = this.this$0.aNV;
+            if (iVar != null) {
+                z = this.this$0.cEN;
                 if (z) {
-                    fVar2 = this.ctz.aJx;
-                    i2 = this.ctz.aLr;
-                    i3 = this.ctz.aLq;
-                    z2 = this.ctz.aLm;
-                    fVar2.a(i2, i3, z2, 1);
+                    iVar2 = this.this$0.aNV;
+                    i2 = this.this$0.aQc;
+                    i3 = this.this$0.aQb;
+                    z2 = this.this$0.aPX;
+                    iVar2.a(i2, i3, z2, 1);
                 }
             }
         }
@@ -56,24 +56,24 @@ public class c implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.ctx > i) {
-            this.cty = true;
+        if (this.cFd > i) {
+            this.cFe = true;
         }
-        if (this.ctz.csC != null) {
-            this.ctz.csC.a(absListView, this.ctx, i, i2, i3);
+        if (this.this$0.cDK != null) {
+            this.this$0.cDK.a(absListView, this.cFd, i, i2, i3);
         }
-        this.ctx = i;
+        this.cFd = i;
         int i4 = (i + i2) - 1;
-        if (!this.cty && this.ctw != i4) {
-            this.ctw = i4;
-            this.ctz.jx(this.ctw);
+        if (!this.cFe && this.cFc != i4) {
+            this.cFc = i4;
+            this.this$0.ka(this.cFc);
         }
-        if (this.cty && this.ctw != i) {
-            this.ctw = i;
-            this.ctz.jx(this.ctw);
+        if (this.cFe && this.cFc != i) {
+            this.cFc = i;
+            this.this$0.ka(this.cFc);
         }
-        this.ctz.ctu = i;
-        this.ctz.aLr = i;
-        this.ctz.aLq = (i + i2) - 1;
+        this.this$0.cFa = i;
+        this.this$0.aQc = i;
+        this.this$0.aQb = (i + i2) - 1;
     }
 }

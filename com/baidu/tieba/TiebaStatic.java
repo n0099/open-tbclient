@@ -7,11 +7,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TiebaStatic {
     static {
-        bi.us().a(new ab());
+        bi.vx().a(new aa());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String gC(String str) {
+    public static String gF(String str) {
         URL url;
         try {
             url = new URL(str);

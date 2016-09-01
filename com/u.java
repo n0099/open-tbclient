@@ -5,15 +5,15 @@ import android.text.TextWatcher;
 import com.baidu.cloudsdk.social.share.uiwithlayout.ShareDialog;
 /* loaded from: classes.dex */
 public class u implements TextWatcher {
-    final /* synthetic */ ShareDialog dE;
+    final /* synthetic */ ShareDialog fR;
 
     public u(ShareDialog shareDialog) {
-        this.dE = shareDialog;
+        this.fR = shareDialog;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.dE.a(this.dE.mMaxLength - editable.length());
+        this.fR.a(this.fR.mMaxLength - editable.length());
     }
 
     @Override // android.text.TextWatcher

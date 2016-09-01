@@ -11,11 +11,11 @@ public interface a {
         void b(SQLiteDatabase sQLiteDatabase);
     }
 
+    boolean D(Context context);
+
     void a(InterfaceC0003a interfaceC0003a);
 
     SQLiteDatabase getWritableDatabase();
 
     void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
-
-    boolean t(Context context);
 }

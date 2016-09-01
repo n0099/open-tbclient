@@ -39,9 +39,9 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startForeground(2147483646, new Notification());
             } catch (Exception e) {
-                com.baidu.adp.lib.stats.d an = com.baidu.adp.lib.stats.a.dN().an("dbg");
-                an.q("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
-                com.baidu.adp.lib.stats.a.dN().b("PARCEL_NULLPOINT", an);
+                com.baidu.adp.lib.stats.d ao = com.baidu.adp.lib.stats.a.eI().ao("dbg");
+                ao.q("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
+                com.baidu.adp.lib.stats.a.eI().b("PARCEL_NULLPOINT", ao);
             }
         }
         bindServiceInternal();
@@ -59,18 +59,18 @@ public class BdSocketDaemonService extends BdBaseService {
         try {
             unbindService(this.conn);
         } catch (Exception e) {
-            com.baidu.adp.lib.stats.d an = com.baidu.adp.lib.stats.a.dN().an("dbg");
-            an.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-unbindService");
-            com.baidu.adp.lib.stats.a.dN().b("PARCEL_NULLPOINT", an);
+            com.baidu.adp.lib.stats.d ao = com.baidu.adp.lib.stats.a.eI().ao("dbg");
+            ao.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-unbindService");
+            com.baidu.adp.lib.stats.a.eI().b("PARCEL_NULLPOINT", ao);
         }
         Intent intent = new Intent();
         intent.setClass(this, BdSocketDaemonService.class);
         try {
             startService(intent);
         } catch (Exception e2) {
-            com.baidu.adp.lib.stats.d an2 = com.baidu.adp.lib.stats.a.dN().an("dbg");
-            an2.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
-            com.baidu.adp.lib.stats.a.dN().b("PARCEL_NULLPOINT", an2);
+            com.baidu.adp.lib.stats.d ao2 = com.baidu.adp.lib.stats.a.eI().ao("dbg");
+            ao2.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
+            com.baidu.adp.lib.stats.a.eI().b("PARCEL_NULLPOINT", ao2);
         }
     }
 

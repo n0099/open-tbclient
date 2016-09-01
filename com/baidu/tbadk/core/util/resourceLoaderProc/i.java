@@ -5,10 +5,10 @@ import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class i extends a {
-    private int Yd;
+    private int aaR;
 
     public i(int i) {
-        this.Yd = i;
+        this.aaR = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -27,22 +27,22 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uH() {
+    public boolean vM() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uI() {
+    public boolean vN() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a fQ = com.baidu.tbadk.imageManager.c.CP().fQ(str);
-        if (fQ == null || fQ.ja() == null) {
+        com.baidu.adp.widget.a.a fT = com.baidu.tbadk.imageManager.c.Ek().fT(str);
+        if (fT == null || fT.jV() == null) {
             return null;
         }
-        return fQ;
+        return fT;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -55,7 +55,7 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int uJ() {
-        return this.Yd;
+    public int vO() {
+        return this.aaR;
     }
 }

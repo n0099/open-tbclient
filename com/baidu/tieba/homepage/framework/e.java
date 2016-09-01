@@ -7,13 +7,13 @@ import tbclient.Personalized.TagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment cqJ;
+    final /* synthetic */ RecommendFrsControlFragment cBR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
         super(i);
-        this.cqJ = recommendFrsControlFragment;
+        this.cBR = recommendFrsControlFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,13 +26,13 @@ public class e extends CustomMessageListener {
             Object data = customResponsedMessage.getData();
             if (data instanceof TagInfo) {
                 TagInfo tagInfo = (TagInfo) data;
-                scrollFragmentTabHost = this.cqJ.cqw;
+                scrollFragmentTabHost = this.cBR.cBE;
                 if (scrollFragmentTabHost != null) {
-                    scrollFragmentTabHost2 = this.cqJ.cqw;
-                    int bg = scrollFragmentTabHost2.bg(tagInfo.tag_code.longValue());
-                    if (bg >= 0) {
-                        scrollFragmentTabHost3 = this.cqJ.cqw;
-                        scrollFragmentTabHost3.setCurrentTab(bg);
+                    scrollFragmentTabHost2 = this.cBR.cBE;
+                    int bC = scrollFragmentTabHost2.bC(tagInfo.tag_code.longValue());
+                    if (bC >= 0) {
+                        scrollFragmentTabHost3 = this.cBR.cBE;
+                        scrollFragmentTabHost3.setCurrentTab(bC);
                     }
                 }
             }

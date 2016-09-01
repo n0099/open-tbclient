@@ -1,23 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class dd {
-    private static dd bIl = new dd();
-    private SparseArray<de> bIk = new SparseArray<>();
+    private static final dd bTx = new dd();
+    private LongSparseArray<LinkedList<String>> bTw = new LongSparseArray<>();
 
     private dd() {
     }
 
-    public static dd Xo() {
-        return bIl;
+    public static dd acn() {
+        return bTx;
     }
 
-    public void a(int i, de deVar) {
-        this.bIk.put(i, deVar);
+    public void g(long j, String str) {
+        LinkedList<String> linkedList = this.bTw.get(j);
+        if (linkedList == null) {
+            linkedList = new LinkedList<>();
+            this.bTw.put(j, linkedList);
+        }
+        linkedList.add(str);
     }
 
-    public de hs(int i) {
-        return this.bIk.get(i);
+    public boolean h(long j, String str) {
+        LinkedList<String> linkedList = this.bTw.get(j);
+        return linkedList != null && linkedList.contains(str);
+    }
+
+    public void bn(long j) {
+        LinkedList<String> linkedList = this.bTw.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
+        }
     }
 }

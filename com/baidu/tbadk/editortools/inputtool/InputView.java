@@ -16,44 +16,43 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.f;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.coreExtra.data.i;
 import com.baidu.tbadk.editortools.ab;
 import com.baidu.tbadk.editortools.l;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class InputView extends EditText implements ab {
-    private static final Pattern asE = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    private static final Pattern asF = Pattern.compile("#\\([^#\\)\\(]+\\)$");
-    private int Cv;
-    private l Cw;
-    private boolean asD;
-    private TextWatcher asG;
-    private boolean asH;
-    private boolean asI;
-    private int asJ;
+    private static final Pattern avL = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    private static final Pattern avM = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    private int EI;
+    private l EJ;
+    private boolean avK;
+    private TextWatcher avN;
+    private boolean avO;
+    private boolean avP;
+    private int avQ;
 
     public InputView(Context context, boolean z) {
         super(context);
-        this.Cv = 0;
-        this.asD = false;
-        this.asG = null;
-        this.asH = true;
-        this.asI = true;
-        this.asJ = -1;
-        setMinHeight(context.getResources().getDimensionPixelSize(u.e.ds80));
+        this.EI = 0;
+        this.avK = false;
+        this.avN = null;
+        this.avO = true;
+        this.avP = true;
+        this.avQ = -1;
+        setMinHeight(context.getResources().getDimensionPixelSize(t.e.ds80));
         setMaxLines(4);
         if (z) {
-            setHint(context.getString(u.j.pb_reply_hint));
+            setHint(context.getString(t.j.pb_reply_hint));
         }
-        setTextSize(0, getResources().getDimensionPixelSize(u.e.ds28));
-        setTextColor(getResources().getColor(u.d.cp_cont_b));
-        setHintTextColor(getResources().getColor(u.d.cp_cont_e));
-        setBackgroundResource(u.f.foot_bar_input);
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(u.e.ds20);
-        setPadding(dimensionPixelSize, context.getResources().getDimensionPixelSize(u.e.ds4), dimensionPixelSize, context.getResources().getDimensionPixelSize(u.e.ds6));
+        setTextSize(0, getResources().getDimensionPixelSize(t.e.ds28));
+        setTextColor(getResources().getColor(t.d.cp_cont_b));
+        setHintTextColor(getResources().getColor(t.d.cp_cont_e));
+        setBackgroundResource(t.f.foot_bar_input);
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(t.e.ds20);
+        setPadding(dimensionPixelSize, context.getResources().getDimensionPixelSize(t.e.ds4), dimensionPixelSize, context.getResources().getDimensionPixelSize(t.e.ds6));
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
         addTextChangedListener(new b(this));
         setOnTouchListener(new c(this));
@@ -66,7 +65,7 @@ public class InputView extends EditText implements ab {
                 case 3:
                     if (getSelectionStart() > 0) {
                         String substring = getText().toString().substring(0, getSelectionStart());
-                        Matcher matcher = asF.matcher(substring);
+                        Matcher matcher = avM.matcher(substring);
                         if (matcher.find()) {
                             getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                             return;
@@ -81,7 +80,7 @@ public class InputView extends EditText implements ab {
                         setText((CharSequence) null);
                         return;
                     } else if (aVar.data instanceof String) {
-                        setText(fu((String) aVar.data));
+                        setText(fx((String) aVar.data));
                         setSelection(getText().length());
                         b(new com.baidu.tbadk.editortools.a(5, -1, null));
                         requestFocus();
@@ -102,19 +101,19 @@ public class InputView extends EditText implements ab {
                     }
                     return;
                 case 24:
-                    if (aVar.data != null && (aVar.data instanceof i)) {
-                        i iVar = (i) aVar.data;
-                        if ((!this.asD || iVar.wB() == EmotionGroupType.LOCAL) && iVar.getName() != null) {
+                    if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.l)) {
+                        com.baidu.tbadk.coreExtra.data.l lVar = (com.baidu.tbadk.coreExtra.data.l) aVar.data;
+                        if ((!this.avK || lVar.xL() == EmotionGroupType.LOCAL) && lVar.getName() != null) {
                             String editable = getText().toString();
-                            if (this.asH && fv(editable) >= 10 && getContext() != null) {
-                                f.sT().showToast(u.j.too_many_face);
+                            if (this.avO && fy(editable) >= 10 && getContext() != null) {
+                                f.tY().showToast(t.j.too_many_face);
                                 return;
                             }
-                            String name = iVar.getName();
-                            EmotionGroupType wB = iVar.wB();
-                            if (wB == EmotionGroupType.LOCAL) {
+                            String name = lVar.getName();
+                            EmotionGroupType xL = lVar.xL();
+                            if (xL == EmotionGroupType.LOCAL) {
                                 if (name != null) {
-                                    com.baidu.adp.lib.g.c.dF().a(name, 20, new d(this, new SpannableStringBuilder(name), wB), 0, 0, BdUniqueId.gen(), null, name, false, null);
+                                    com.baidu.adp.lib.g.c.eA().a(name, 20, new d(this, new SpannableStringBuilder(name), xL), 0, 0, BdUniqueId.gen(), null, name, false, null);
                                     return;
                                 }
                                 return;
@@ -133,9 +132,9 @@ public class InputView extends EditText implements ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(InputView inputView, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.a.a aVar, EmotionGroupType emotionGroupType) {
-        Bitmap ja = aVar.ja();
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(ja);
-        int width = ja.getWidth();
+        Bitmap jV = aVar.jV();
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(jV);
+        int width = jV.getWidth();
         if (emotionGroupType == EmotionGroupType.LOCAL) {
             width = (int) (0.5d * width);
         }
@@ -146,16 +145,16 @@ public class InputView extends EditText implements ab {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public SpannableStringBuilder fu(String str) {
+    public SpannableStringBuilder fx(String str) {
         CustomResponsedMessage runTask;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        Matcher matcher = asE.matcher(spannableStringBuilder);
+        Matcher matcher = avL.matcher(spannableStringBuilder);
         while (matcher.find()) {
             String group = matcher.group();
             int start = matcher.start();
             int end = matcher.end();
             if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                com.baidu.adp.lib.g.c.dF().a(group, 20, new e(this, spannableStringBuilder, start, end), 0, 0, BdUniqueId.gen(), null, group, false, null);
+                com.baidu.adp.lib.g.c.eA().a(group, 20, new e(this, spannableStringBuilder, start, end), 0, 0, BdUniqueId.gen(), null, group, false, null);
             }
         }
         return spannableStringBuilder;
@@ -181,12 +180,12 @@ public class InputView extends EditText implements ab {
         }
     }
 
-    private static int fv(String str) {
+    private static int fy(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = asE.matcher(str);
+        Matcher matcher = avL.matcher(str);
         int i = 0;
         while (matcher.find()) {
             String group = matcher.group();
@@ -198,29 +197,29 @@ public class InputView extends EditText implements ab {
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.asD = z;
+        this.avK = z;
     }
 
     @Override // com.baidu.tbadk.editortools.ab
     public void setEditorTools(l lVar) {
-        this.Cw = lVar;
+        this.EJ = lVar;
     }
 
     @Override // com.baidu.tbadk.editortools.ab
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Cw != null) {
-            this.Cw.b(aVar);
+        if (this.EJ != null) {
+            this.EJ.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.ab
     public void setToolId(int i) {
-        this.Cv = i;
+        this.EI = i;
     }
 
     @Override // com.baidu.tbadk.editortools.ab
     public int getToolId() {
-        return this.Cv;
+        return this.EI;
     }
 
     @Override // com.baidu.tbadk.editortools.ab
@@ -228,7 +227,7 @@ public class InputView extends EditText implements ab {
     }
 
     @Override // com.baidu.tbadk.editortools.ab
-    public void kB() {
+    public void lw() {
         setVisibility(0);
     }
 
@@ -239,22 +238,22 @@ public class InputView extends EditText implements ab {
 
     @Override // com.baidu.tbadk.editortools.ab
     public void onChangeSkinType(int i) {
-        av.d(this, u.f.foot_bar_input, i);
-        av.b(this, u.d.cp_cont_b, 2, i);
+        av.d(this, t.f.foot_bar_input, i);
+        av.b(this, t.d.cp_cont_b, 2, i);
         if (i == 0) {
-            setHintTextColor(getContext().getResources().getColor(u.d.cp_cont_e));
+            setHintTextColor(getContext().getResources().getColor(t.d.cp_cont_e));
         } else {
-            setHintTextColor(av.getColor(u.d.cp_cont_e));
+            setHintTextColor(av.getColor(i, t.d.cp_cont_e));
         }
     }
 
     public void setOutTextWather(TextWatcher textWatcher) {
-        if (this.asG != textWatcher) {
-            this.asG = textWatcher;
+        if (this.avN != textWatcher) {
+            this.avN = textWatcher;
         }
     }
 
     public void setNeedFaceMaxCount(boolean z) {
-        this.asH = z;
+        this.avO = z;
     }
 }

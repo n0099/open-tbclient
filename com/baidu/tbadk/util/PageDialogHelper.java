@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class PageDialogHelper {
 
@@ -16,7 +16,7 @@ public class PageDialogHelper {
         DIALOG,
         NORMAL;
 
-        /* JADX DEBUG: Replace access to removed values field (aBP) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aEW) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PayForm[] valuesCustom() {
             PayForm[] valuesCustom = values();
@@ -34,7 +34,7 @@ public class PageDialogHelper {
             payForm = PayForm.NOT_SET;
         }
         if (payForm == PayForm.NOT_SET) {
-            com.baidu.tbadk.coreExtra.data.h consumePathData = TbadkCoreApplication.m10getInst().getConsumePathData();
+            com.baidu.tbadk.coreExtra.data.k consumePathData = TbadkCoreApplication.m9getInst().getConsumePathData();
             int intExtra = intent.getIntExtra("pay_type", i);
             if (consumePathData != null) {
                 z = consumePathData.i(intExtra, str);
@@ -52,12 +52,12 @@ public class PageDialogHelper {
             activity.setTheme(16973835);
             activity.requestWindowFeature(1);
         } else {
-            activity.setTheme(u.k.swipeback_activity_style);
+            activity.setTheme(t.k.swipeback_activity_style);
         }
         return z;
     }
 
-    public static void o(Activity activity) {
+    public static void s(Activity activity) {
         WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         attributes.x = 0;

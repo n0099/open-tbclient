@@ -16,16 +16,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s extends n implements k {
-    private static final int[] UX = {1500, 2000, 3500, 4600, 6000, 8000};
-    private static final int[] UY = {201, 202, 203};
-    private static final int[] UZ = {501, 502, 503};
-    private final g UR;
-    private final com.baidu.tbadk.core.c.c US;
-    private final c UT;
-    private final HashMap<String, j> UU;
-    private String UV;
-    private int UW;
-    private final HashMap<String, o> Un;
+    private static final int[] XK = {1500, 2000, 3500, 4600, 6000, 8000};
+    private static final int[] XL = {201, 202, 203};
+    private static final int[] XM = {501, 502, 503};
+    private final g XE;
+    private final com.baidu.tbadk.core.c.c XF;
+    private final c XG;
+    private final HashMap<String, j> XH;
+    private String XI;
+    private int XJ;
+    private final HashMap<String, o> Xc;
     private int status;
 
     private s(WebView webView, com.baidu.tbadk.core.c.b bVar) {
@@ -34,16 +34,16 @@ public class s extends n implements k {
 
     private s(WebView webView, g gVar, com.baidu.tbadk.core.c.c cVar, com.baidu.tbadk.core.c.b bVar) {
         super(webView, bVar);
-        this.UV = String.valueOf(System.currentTimeMillis());
+        this.XI = String.valueOf(System.currentTimeMillis());
         this.status = -1;
-        this.UW = -1;
-        this.UR = gVar;
-        this.US = cVar;
-        this.US.a(this);
-        this.UR.a(this);
-        this.UT = new c(this);
-        this.UU = new HashMap<>(16);
-        this.Un = new HashMap<>(8);
+        this.XJ = -1;
+        this.XE = gVar;
+        this.XF = cVar;
+        this.XF.a(this);
+        this.XE.a(this);
+        this.XG = new c(this);
+        this.XH = new HashMap<>(16);
+        this.Xc = new HashMap<>(8);
         init();
     }
 
@@ -58,14 +58,14 @@ public class s extends n implements k {
         WebViewClient webViewClient = fVar.webViewClient;
         WebChromeClient webChromeClient = fVar.chromeClient;
         s sVar = new s(fVar, bVar);
-        sVar.UR.a(webViewClient);
-        sVar.US.a(webChromeClient);
+        sVar.XE.a(webViewClient);
+        sVar.XF.a(webChromeClient);
         return sVar;
     }
 
     @Override // com.baidu.tbadk.core.c.n
     public void a(String str, d dVar) {
-        if (this.UU.put(str, dVar) != null) {
+        if (this.XH.put(str, dVar) != null) {
             throw new IllegalArgumentException("handler " + str + " exists.");
         }
     }
@@ -76,14 +76,14 @@ public class s extends n implements k {
     }
 
     @Override // com.baidu.tbadk.core.c.k
-    public void sx() {
-        this.UW++;
-        int i = this.UW;
+    public void tC() {
+        this.XJ++;
+        int i = this.XJ;
         HashMap hashMap = new HashMap();
         hashMap.put("platform", SocialConstants.ANDROID_CLIENT_TYPE);
         hashMap.put("version", "1.0");
-        hashMap.put("logid", sC());
-        a(o.a(hashMap, UX[this.UW % UX.length], new t(this, i)), true);
+        hashMap.put("logid", tH());
+        a(o.a(hashMap, XK[this.XJ % XK.length], new t(this, i)), true);
         S("100", "");
     }
 
@@ -91,48 +91,48 @@ public class s extends n implements k {
     public void a(o oVar, int i) {
         this.status = 0;
         long currentTimeMillis = System.currentTimeMillis();
-        if (i >= 0 && i < UY.length) {
-            S(String.valueOf(UY[i]), String.valueOf(currentTimeMillis - oVar.start));
+        if (i >= 0 && i < XL.length) {
+            S(String.valueOf(XL[i]), String.valueOf(currentTimeMillis - oVar.start));
         } else {
             BdLog.e("pingIndex " + i + " out of bounds.");
         }
     }
 
     @Override // com.baidu.tbadk.core.c.k
-    public void cD(String str) {
+    public void cF(String str) {
         if (TextUtils.isEmpty(str)) {
-            e.cC("invalid callbackId.");
+            e.cE("invalid callbackId.");
             return;
         }
-        o remove = this.Un.remove(str);
+        o remove = this.Xc.remove(str);
         if (remove != null) {
-            e.cC("(" + remove.cmd + ", " + remove.method + ", " + str + ") timeout.");
+            e.cE("(" + remove.cmd + ", " + remove.method + ", " + str + ") timeout.");
             remove.a(1, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cG(String str) {
-        this.UW = -1;
+    public void cI(String str) {
+        this.XJ = -1;
         if (this.status != 2 && this.status != 1) {
-            e.cC("current status " + this.status + ", broken because url changed to " + str);
+            e.cE("current status " + this.status + ", broken because url changed to " + str);
             this.status = 2;
         }
-        if (r.cE(str) && r.cF(str)) {
-            e.cC("current status " + this.status + ", constructing bridge for " + str);
-            if (this.UJ != null) {
-                this.UJ.sp();
+        if (r.cG(str) && r.cH(str)) {
+            e.cE("current status " + this.status + ", constructing bridge for " + str);
+            if (this.Xx != null) {
+                this.Xx.tu();
             }
-            d(this.UI);
-            if (this.UJ != null) {
-                this.UJ.sq();
+            d(this.Xw);
+            if (this.Xx != null) {
+                this.Xx.tv();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String P(String str, String str2) {
-        e.cC("got js prompt in url:" + str + " with content:" + str2);
+        e.cE("got js prompt in url:" + str + " with content:" + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
             String optString = jSONObject.optString("messageType");
@@ -143,11 +143,11 @@ public class s extends n implements k {
             } else if ("response".equals(optString)) {
                 d(jSONObject.optString("callbackId"), jSONObject.optJSONObject("outputData"));
             } else {
-                e.r(sC(), "105", "invalid message type " + optString);
+                e.q(tH(), "105", "invalid message type " + optString);
             }
             return null;
         } catch (JSONException e) {
-            e.r(sC(), "109", e.getMessage());
+            e.q(tH(), "109", e.getMessage());
             return null;
         }
     }
@@ -156,46 +156,46 @@ public class s extends n implements k {
         if (this.status != -1) {
             throw new IllegalStateException("Can't init bridge more than once.");
         }
-        this.UI.getSettings().setJavaScriptEnabled(true);
-        this.UI.setWebViewClient(this.UR);
-        this.UI.setWebChromeClient(this.US);
+        this.Xw.getSettings().setJavaScriptEnabled(true);
+        this.Xw.setWebViewClient(this.XE);
+        this.Xw.setWebChromeClient(this.XF);
         this.status = 1;
     }
 
     private void a(o oVar, boolean z) {
         if (!z) {
             if (this.status != 0) {
-                e.r(sC(), "101", "(" + oVar.cmd + ", " + oVar.method + ") is called before bridge ready");
+                e.q(tH(), "101", "(" + oVar.cmd + ", " + oVar.method + ") is called before bridge ready");
             }
             if (TextUtils.isEmpty(oVar.cmd) || TextUtils.isEmpty(oVar.method)) {
-                e.r(sC(), "102", "the alias class or method is empty");
+                e.q(tH(), "102", "the alias class or method is empty");
                 oVar.a(3, new IllegalArgumentException("cmd or method is illegal."));
                 return;
             }
         }
-        if (!TextUtils.isEmpty(oVar.UN)) {
+        if (!TextUtils.isEmpty(oVar.XB)) {
             if (oVar.type != 3) {
-                this.Un.put(oVar.UN, oVar);
-                if (oVar.UO > 0) {
-                    this.UT.sendMessageDelayed(Message.obtain(this.UT, 2, oVar.UN), oVar.UO);
+                this.Xc.put(oVar.XB, oVar);
+                if (oVar.XC > 0) {
+                    this.XG.sendMessageDelayed(Message.obtain(this.XG, 2, oVar.XB), oVar.XC);
                 } else if (oVar.cmd != null || oVar.method != null) {
-                    e.cC("ignore timeout check for method call (" + oVar.cmd + ", " + oVar.method + ").");
+                    e.cE("ignore timeout check for method call (" + oVar.cmd + ", " + oVar.method + ").");
                 }
             } else {
-                e.cC("ignore timeout check for response method, callbackId " + oVar.UN);
+                e.cE("ignore timeout check for response method, callbackId " + oVar.XB);
             }
         }
         try {
-            String sz = oVar.sz();
-            this.UI.loadUrl(sz);
-            e.cC(sz);
+            String tE = oVar.tE();
+            this.Xw.loadUrl(tE);
+            e.cE(tE);
         } catch (NullPointerException e) {
             S("500", e.getMessage());
         } catch (JSONException e2) {
             if (z) {
                 S("102", e2.getMessage());
             } else {
-                e.cC(e2.getMessage());
+                e.cE(e2.getMessage());
             }
             oVar.a(2, e2);
         }
@@ -203,67 +203,67 @@ public class s extends n implements k {
 
     private void a(String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         if (this.status != 0) {
-            e.r(sC(), "106", "bridge is not ready");
+            e.q(tH(), "106", "bridge is not ready");
         }
-        j jVar = this.UU.get(str);
+        j jVar = this.XH.get(str);
         if (jVar == null) {
             jVar = new b(this, str);
-            e.r(sC(), "107", "cmd " + str + " not found");
+            e.q(tH(), "107", "cmd " + str + " not found");
         }
         jVar.a(str2, jSONObject, jSONObject2);
     }
 
     private void d(String str, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str)) {
-            e.cC("invalid callbackId.");
+            e.cE("invalid callbackId.");
             return;
         }
-        this.UT.removeMessages(2, str);
-        o remove = this.Un.remove(str);
+        this.XG.removeMessages(2, str);
+        o remove = this.Xc.remove(str);
         if (remove != null) {
             remove.l(jSONObject);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String sC() {
-        return this.UV;
+    public String tH() {
+        return this.XI;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void S(String str, String str2) {
-        e.q(sC(), str, str2);
+        e.p(tH(), str, str2);
     }
 
     private void d(WebView webView) {
-        this.UV = String.valueOf(System.currentTimeMillis());
+        this.XI = String.valueOf(System.currentTimeMillis());
         try {
             InputStream open = webView.getContext().getAssets().open("bridge.dist.min.js");
             byte[] bArr = new byte[open.available()];
             open.read(bArr);
             open.close();
-            StringBuilder sE = sE();
-            sE.append(new String(bArr));
-            webView.loadUrl("javascript:" + sE.toString());
-            this.UT.sendEmptyMessageDelayed(1, 0L);
+            StringBuilder tJ = tJ();
+            tJ.append(new String(bArr));
+            webView.loadUrl("javascript:" + tJ.toString());
+            this.XG.sendEmptyMessageDelayed(1, 0L);
         } catch (Throwable th) {
             S("102", th.getMessage());
-            e.cC(th.toString());
+            e.cE(th.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sD() {
-        e.cC("reInject for pingIndex " + this.UW);
-        d(this.UI);
+    public void tI() {
+        e.cE("reInject for pingIndex " + this.XJ);
+        d(this.Xw);
     }
 
-    private StringBuilder sE() throws JSONException {
+    private StringBuilder tJ() throws JSONException {
         StringBuilder sb = new StringBuilder("window.HYBRID_INITIAL_DATA=");
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("platform", SocialConstants.ANDROID_CLIENT_TYPE);
         jSONObject.put("version", "1.0");
-        jSONObject.put("logid", sC());
+        jSONObject.put("logid", tH());
         sb.append(jSONObject.toString());
         sb.append(';');
         return sb;
@@ -272,25 +272,25 @@ public class s extends n implements k {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class c extends Handler {
-        private final WeakReference<k> Vc;
+        private final WeakReference<k> XP;
 
         public c(k kVar) {
-            this.Vc = new WeakReference<>(kVar);
+            this.XP = new WeakReference<>(kVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            k kVar = this.Vc.get();
+            k kVar = this.XP.get();
             if (kVar == null) {
-                e.cC("TimeHandler got null bridge reference.");
+                e.cE("TimeHandler got null bridge reference.");
                 return;
             }
             switch (message.what) {
                 case 1:
-                    kVar.sx();
+                    kVar.tC();
                     return;
                 case 2:
-                    kVar.cD((String) message.obj);
+                    kVar.cF((String) message.obj);
                     return;
                 default:
                     throw new IllegalArgumentException("Invalid message.");
@@ -301,11 +301,11 @@ public class s extends n implements k {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class b implements j {
-        private final n Um;
+        private final n Xb;
         private final String cmd;
 
         protected b(n nVar, String str) {
-            this.Um = nVar;
+            this.Xb = nVar;
             this.cmd = str;
         }
 
@@ -313,13 +313,13 @@ public class s extends n implements k {
         public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
             String optString = jSONObject2.optString("callbackId");
             if (TextUtils.isEmpty(optString)) {
-                e.cC("scope " + this.cmd + " not found!");
+                e.cE("scope " + this.cmd + " not found!");
                 return;
             }
             HashMap hashMap = new HashMap(4);
             hashMap.put("errNo", "107");
             hashMap.put("errMsg", "cmd " + this.cmd + " not found");
-            this.Um.a(o.c(optString, hashMap));
+            this.Xb.a(o.c(optString, hashMap));
         }
     }
 

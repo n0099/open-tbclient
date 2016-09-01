@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.j;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class MorePopupWindow extends PopupWindow {
     private Activity mActivity;
@@ -93,9 +93,9 @@ public class MorePopupWindow extends PopupWindow {
     private void applaySkin(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.af(i == 1);
+            cVar.ah(i == 1);
             try {
-                cVar.w(this.mContentView);
+                cVar.x(this.mContentView);
             } catch (IllegalArgumentException e) {
                 BdLog.e(e.toString());
             }
@@ -110,9 +110,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int A = com.baidu.adp.lib.util.k.A(context);
-        this.mContentView.getLayoutParams().width = A;
-        setWidth(A);
+        int K = com.baidu.adp.lib.util.k.K(context);
+        this.mContentView.getLayoutParams().width = K;
+        setWidth(K);
     }
 
     public void setWindowHeight(int i) {
@@ -144,7 +144,7 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
-        setAnimationStyle(u.k.pop_window_anim);
+        setAnimationStyle(t.k.pop_window_anim);
         setFocusable(z);
         com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
     }
@@ -155,11 +155,11 @@ public class MorePopupWindow extends PopupWindow {
             int measuredWidth = this.mContentView.getMeasuredWidth();
             int measuredHeight = this.mContentView.getMeasuredHeight();
             setWidth(measuredWidth);
-            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(u.e.ds4));
+            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(t.e.ds4));
             setHeight(this.mWindowHeight);
-            int[] D = com.baidu.adp.lib.util.k.D(this.mActivity);
-            if (D != null && D.length > 1 && D[0] > measuredWidth) {
-                this.mShowRightTopXOff = D[0] - measuredWidth;
+            int[] N = com.baidu.adp.lib.util.k.N(this.mActivity);
+            if (N != null && N.length > 1 && N[0] > measuredWidth) {
+                this.mShowRightTopXOff = N[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

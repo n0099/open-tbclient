@@ -2,7 +2,7 @@ package com.baidu.audiorecorder.lib.voice;
 
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class b implements Handler.Callback {
     @Override // android.os.Handler.Callback
@@ -33,110 +33,110 @@ class b implements Handler.Callback {
         com.baidu.adp.lib.voice.k kVar23;
         switch (message.what) {
             case 0:
-                kVar20 = a.BL;
+                kVar20 = a.DY;
                 if (kVar20 != null) {
-                    kVar21 = a.BL;
-                    str = a.BK;
+                    kVar21 = a.DY;
+                    str = a.DX;
                     kVar21.k(str, message.arg1);
-                    a.BL = null;
+                    a.DY = null;
                     break;
                 }
                 break;
             case 1:
             case 3:
-                kVar9 = a.BL;
+                kVar9 = a.DY;
                 if (kVar9 != null) {
-                    if (com.baidu.adp.lib.util.e.fa()) {
-                        kVar11 = a.BL;
-                        kVar11.f(message.what, com.baidu.adp.lib.voice.l.getString(u.j.voice_err_create_file_fail));
+                    if (com.baidu.adp.lib.util.e.fV()) {
+                        kVar11 = a.DY;
+                        kVar11.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_create_file_fail));
                     } else {
-                        kVar10 = a.BL;
-                        kVar10.f(message.what, com.baidu.adp.lib.voice.l.getString(u.j.voice_err_sdcard_nospace));
+                        kVar10 = a.DY;
+                        kVar10.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_sdcard_nospace));
                     }
-                    a.BL = null;
+                    a.DY = null;
                     break;
                 }
                 break;
             case 2:
-                kVar3 = a.BL;
+                kVar3 = a.DY;
                 if (kVar3 != null) {
-                    kVar4 = a.BL;
-                    kVar4.f(message.what, com.baidu.adp.lib.voice.l.getString(u.j.voice_err_file_fail));
-                    a.BL = null;
+                    kVar4 = a.DY;
+                    kVar4.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_file_fail));
+                    a.DY = null;
                     break;
                 }
                 break;
             case 4:
-                kVar18 = a.BL;
+                kVar18 = a.DY;
                 if (kVar18 != null) {
-                    kVar19 = a.BL;
-                    kVar19.al(message.arg1);
+                    kVar19 = a.DY;
+                    kVar19.ay(message.arg1);
                     break;
                 }
                 break;
             case 5:
-                kVar5 = a.BL;
+                kVar5 = a.DY;
                 if (kVar5 != null) {
-                    kVar6 = a.BL;
-                    kVar6.f(message.what, com.baidu.adp.lib.voice.l.getString(u.j.voice_err_load_lib_fail));
-                    a.BL = null;
+                    kVar6 = a.DY;
+                    kVar6.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_load_lib_fail));
+                    a.DY = null;
                     break;
                 }
                 break;
             case 6:
-                kVar = a.BL;
+                kVar = a.DY;
                 if (kVar != null) {
-                    kVar2 = a.BL;
-                    kVar2.f(message.what, com.baidu.adp.lib.voice.l.getString(u.j.voice_err_init_fail));
-                    a.BL = null;
+                    kVar2 = a.DY;
+                    kVar2.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_init_fail));
+                    a.DY = null;
                     break;
                 }
                 break;
             case 7:
-                kVar14 = a.BL;
+                kVar14 = a.DY;
                 if (kVar14 != null) {
-                    kVar15 = a.BL;
-                    kVar15.f(message.what, com.baidu.adp.lib.voice.l.getString(u.j.voice_record_timeout_tip));
-                    a.BL = null;
+                    kVar15 = a.DY;
+                    kVar15.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_record_timeout_tip));
+                    a.DY = null;
                     break;
                 }
                 break;
             case 8:
-                kVar12 = a.BL;
+                kVar12 = a.DY;
                 if (kVar12 != null) {
-                    kVar13 = a.BL;
-                    kVar13.f(message.what, com.baidu.adp.lib.voice.l.getString(u.j.voice_record_short_tip));
-                    a.BL = null;
+                    kVar13 = a.DY;
+                    kVar13.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_record_short_tip));
+                    a.DY = null;
                     break;
                 }
                 break;
             case 9:
-                kVar16 = a.BL;
+                kVar16 = a.DY;
                 if (kVar16 != null) {
-                    kVar17 = a.BL;
-                    kVar17.am(message.arg1);
+                    kVar17 = a.DY;
+                    kVar17.az(message.arg1);
                     break;
                 }
                 break;
             case 100:
-                kVar7 = a.BL;
+                kVar7 = a.DY;
                 if (kVar7 != null) {
-                    kVar8 = a.BL;
-                    kVar8.fV();
+                    kVar8 = a.DY;
+                    kVar8.gR();
                     break;
                 }
                 break;
             default:
-                kVar22 = a.BL;
+                kVar22 = a.DY;
                 if (kVar22 != null) {
-                    kVar23 = a.BL;
-                    kVar23.f(message.what, com.baidu.adp.lib.voice.l.getString(u.j.voice_err_other));
-                    a.BL = null;
+                    kVar23 = a.DY;
+                    kVar23.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_other));
+                    a.DY = null;
                     break;
                 }
                 break;
         }
-        a.BI = 0;
+        a.DV = 0;
         return false;
     }
 }

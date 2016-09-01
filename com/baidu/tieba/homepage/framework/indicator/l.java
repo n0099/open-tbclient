@@ -3,11 +3,11 @@ package com.baidu.tieba.homepage.framework.indicator;
 import android.view.View;
 /* loaded from: classes.dex */
 class l implements com.baidu.tbadk.widget.layout.i {
-    final /* synthetic */ ScrollFragmentTabHost crx;
+    final /* synthetic */ ScrollFragmentTabHost cCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.crx = scrollFragmentTabHost;
+        this.cCF = scrollFragmentTabHost;
     }
 
     @Override // com.baidu.tbadk.widget.layout.i
@@ -16,16 +16,16 @@ class l implements com.baidu.tbadk.widget.layout.i {
         r rVar;
         r rVar2;
         a aVar2;
-        this.crx.topHeight = i2;
-        aVar = this.crx.crl;
+        this.cCF.topHeight = i2;
+        aVar = this.cCF.cCt;
         if (aVar != null) {
-            aVar2 = this.crx.crl;
+            aVar2 = this.cCF.cCt;
             aVar2.b(view, i, i2, i3, i4);
         }
-        rVar = this.crx.cro;
+        rVar = this.cCF.cCw;
         if (rVar != null) {
-            rVar2 = this.crx.cro;
-            rVar2.jr(i2);
+            rVar2 = this.cCF.cCw;
+            rVar2.jT(i2);
         }
     }
 }

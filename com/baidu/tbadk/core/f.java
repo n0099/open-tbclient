@@ -4,15 +4,15 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements DialogInterface.OnCancelListener {
-    final /* synthetic */ BaseFragmentActivity LH;
+    final /* synthetic */ BaseFragmentActivity NW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(BaseFragmentActivity baseFragmentActivity) {
-        this.LH = baseFragmentActivity;
+        this.NW = baseFragmentActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.LH.mWaitingDialog = null;
+        this.NW.mWaitingDialog = null;
     }
 }

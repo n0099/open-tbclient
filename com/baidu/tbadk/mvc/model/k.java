@@ -20,19 +20,19 @@ public class k extends HttpMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        this.this$0.axe = false;
-        if (this.this$0.axh != null) {
-            com.baidu.adp.lib.h.h.dL().removeCallbacks(this.this$0.axh);
+        this.this$0.aAl = false;
+        if (this.this$0.aAo != null) {
+            com.baidu.adp.lib.h.h.eG().removeCallbacks(this.this$0.aAo);
         }
         if (httpResponsedMessage instanceof MvcJsonHttpResponsedMessage) {
             if (httpResponsedMessage.getOrginalMessage() instanceof MvcHttpMessage) {
-                if (this.this$0.awW != null) {
-                    this.this$0.awW.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
+                if (this.this$0.aAd != null) {
+                    this.this$0.aAd.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
                 }
-            } else if (TbadkCoreApplication.m10getInst().isDebugMode()) {
+            } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {
                 throw new RuntimeException("mvc netmodel HttpListener jsonHttpResponsedMessage originaMessage error");
             }
-        } else if (TbadkCoreApplication.m10getInst().isDebugMode()) {
+        } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {
             throw new RuntimeException("mvc netmodel HttpListener jsonHttpResponsedMessage error");
         }
     }

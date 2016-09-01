@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fVn;
+    final /* synthetic */ WriteActivity gfs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.fVn = writeActivity;
+        this.gfs = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,22 +20,22 @@ public class an implements View.OnClickListener {
         com.baidu.tieba.write.b bVar;
         com.baidu.tbadk.editortools.l lVar;
         InputMethodManager inputMethodManager;
-        EditText bpk;
+        EditText btz;
         InputMethodManager inputMethodManager2;
-        EditText bpj;
-        textView = this.fVn.faP;
+        EditText bty;
+        textView = this.gfs.fjd;
         textView.setSelected(true);
-        bVar = this.fVn.faQ;
-        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.fVn.getPageContext().getPageActivity(), 1.0f));
-        lVar = this.fVn.ard;
-        lVar.zD();
-        WriteActivity writeActivity = this.fVn;
-        inputMethodManager = this.fVn.mInputManager;
-        bpk = this.fVn.bpk();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, bpk);
-        WriteActivity writeActivity2 = this.fVn;
-        inputMethodManager2 = this.fVn.mInputManager;
-        bpj = this.fVn.bpj();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bpj);
+        bVar = this.gfs.fje;
+        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.gfs.getPageContext().getPageActivity(), 1.0f));
+        lVar = this.gfs.auk;
+        lVar.AS();
+        WriteActivity writeActivity = this.gfs;
+        inputMethodManager = this.gfs.mInputManager;
+        btz = this.gfs.btz();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, btz);
+        WriteActivity writeActivity2 = this.gfs;
+        inputMethodManager2 = this.gfs.mInputManager;
+        bty = this.gfs.bty();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bty);
     }
 }

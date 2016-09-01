@@ -7,7 +7,7 @@ public interface g {
 
     /* loaded from: classes.dex */
     public interface a {
-        void A(String str);
+        void B(String str);
 
         void a(int i, c cVar);
 
@@ -23,7 +23,7 @@ public interface g {
 
         void e(Map<String, String> map);
 
-        void ge();
+        void gZ();
 
         void r(byte[] bArr);
     }

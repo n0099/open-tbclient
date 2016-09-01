@@ -1,50 +1,39 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Message;
+import com.baidu.tieba.tbadkCore.ab;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements View.OnTouchListener {
-    private a fjs;
-    private int count = 0;
-    private long dYD = 0;
-    private long dYE = 0;
-    private long dYG = 500;
-    private Handler mHandler = new ad(this);
+public class ac extends Handler {
+    final /* synthetic */ ab frl;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void Xg();
-
-        void Xh();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(ab abVar) {
+        this.frl = abVar;
     }
 
-    public ac(a aVar) {
-        this.fjs = aVar;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            if (this.fjs == null) {
-                return false;
-            }
-            this.count++;
-            if (this.count == 1) {
-                this.dYD = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.dYG);
-                return true;
-            } else if (this.count == 2) {
-                this.dYE = System.currentTimeMillis();
-                if (this.dYE - this.dYD < this.dYG) {
-                    this.fjs.Xh();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        ab.a aVar;
+        ab.a aVar2;
+        if (message.what == 2) {
+            this.frl.count = 0;
+            this.frl.ekH = 0L;
+            this.frl.ekI = 0L;
+        } else if (message.what == 1) {
+            i = this.frl.count;
+            if (i == 1) {
+                aVar = this.frl.frk;
+                if (aVar != null) {
+                    aVar2 = this.frl.frk;
+                    aVar2.acd();
                 }
-                this.mHandler.sendEmptyMessage(2);
-                return true;
-            } else {
-                return true;
+                this.frl.count = 0;
+                this.frl.ekH = 0L;
+                this.frl.ekI = 0L;
             }
         }
-        return true;
     }
 }

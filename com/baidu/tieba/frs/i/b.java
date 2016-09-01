@@ -1,34 +1,54 @@
 package com.baidu.tieba.frs.i;
 
+import android.app.Activity;
+import android.os.Handler;
 import android.view.View;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.browser.f;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.be;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.u;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ a bSW;
+public class b implements Runnable {
+    final /* synthetic */ a ceH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bSW = aVar;
+        this.ceH = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        v aw;
-        BaseActivity baseActivity;
-        if (this.bSW.aw(((Integer) view.getTag()).intValue()) instanceof be) {
-            String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((be) aw).getAuthor().getUserId();
-            String string = TbadkCoreApplication.m10getInst().getString(u.j.user_icon_web_view_title);
-            baseActivity = this.bSW.bem;
-            f.a(baseActivity.getApplicationContext(), string, str, true, true, true);
-            TiebaStatic.log(new ay("c10134").s("obj_type", 3));
+    @Override // java.lang.Runnable
+    public void run() {
+        TbPageContext tbPageContext;
+        View view;
+        TbPageContext tbPageContext2;
+        int i;
+        View e;
+        View view2;
+        PopupWindow popupWindow;
+        View view3;
+        Handler handler;
+        tbPageContext = this.ceH.GM;
+        if (tbPageContext != null) {
+            view = this.ceH.ceE;
+            if (view != null) {
+                tbPageContext2 = this.ceH.GM;
+                Activity pageActivity = tbPageContext2.getPageActivity();
+                int e2 = com.baidu.adp.lib.util.k.e(pageActivity, t.e.ds64);
+                a aVar = this.ceH;
+                i = this.ceH.ceB;
+                e = aVar.e(pageActivity, i);
+                int[] iArr = new int[2];
+                view2 = this.ceH.ceE;
+                view2.getLocationInWindow(iArr);
+                int e3 = com.baidu.adp.lib.util.k.e(pageActivity, t.e.ds32);
+                int e4 = com.baidu.adp.lib.util.k.e(pageActivity, t.e.ds16) + (iArr[1] - e2);
+                this.ceH.ceF = new PopupWindow(e, -2, e2);
+                popupWindow = this.ceH.ceF;
+                view3 = this.ceH.ceE;
+                popupWindow.showAtLocation(view3, 53, e3, e4);
+                handler = this.ceH.mHandler;
+                handler.postDelayed(new c(this), 3000L);
+            }
         }
     }
 }

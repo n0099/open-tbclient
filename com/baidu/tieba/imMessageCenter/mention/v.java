@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.util.bn;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    final /* synthetic */ k dgL;
+    final /* synthetic */ k dsr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(k kVar) {
-        this.dgL = kVar;
+        this.dsr = kVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         bf bfVar;
         bf bfVar2;
-        bfVar = this.dgL.dgI;
+        bfVar = this.dsr.dso;
         TiebaStatic.eventStat(bfVar.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
-        bfVar2 = this.dgL.dgI;
-        bn.Z(bfVar2.getPageContext().getPageActivity());
+        bfVar2 = this.dsr.dso;
+        bn.aj(bfVar2.getPageContext().getPageActivity());
     }
 }

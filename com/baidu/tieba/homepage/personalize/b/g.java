@@ -19,17 +19,17 @@ import java.util.ArrayList;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
-    private com.baidu.adp.framework.listener.a aMd;
-    private boolean bOA;
-    private boolean bOz;
-    private CustomMessageListener cvA;
-    private CustomMessageListener cvB;
-    private a cvu;
-    private String cvv;
-    private String cvw;
-    private ArrayList<String> cvx;
-    private int cvy;
-    private CustomMessageListener cvz;
+    private com.baidu.adp.framework.listener.a aRx;
+    private boolean bZR;
+    private boolean bZS;
+    private a cGY;
+    private String cGZ;
+    private String cHa;
+    private ArrayList<String> cHb;
+    private int cHc;
+    private CustomMessageListener cHd;
+    private CustomMessageListener cHe;
+    private CustomMessageListener cHf;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -40,24 +40,24 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
 
     public g(com.baidu.adp.base.h<BaseFragmentActivity> hVar, BdUniqueId bdUniqueId) {
         super(hVar);
-        this.aMd = new h(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
-        this.bOz = false;
-        this.bOA = false;
-        this.cvy = 0;
-        this.cvz = new i(this, CmdConfigCustom.CMD_SET_NU_SEX_GUIDE);
-        this.cvA = new j(this, CmdConfigCustom.CMD_SET_NU_AGE_GUIDE);
-        this.cvB = new k(this, CmdConfigCustom.CMD_SET_INTEREST_GUIDE);
+        this.aRx = new h(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+        this.bZR = false;
+        this.bZS = false;
+        this.cHc = 0;
+        this.cHd = new i(this, CmdConfigCustom.CMD_SET_NU_SEX_GUIDE);
+        this.cHe = new j(this, CmdConfigCustom.CMD_SET_NU_AGE_GUIDE);
+        this.cHf = new k(this, CmdConfigCustom.CMD_SET_INTEREST_GUIDE);
         setUniqueId(bdUniqueId);
-        LJ();
-        LI();
-        registerListener(this.aMd);
-        registerListener(this.cvz);
-        registerListener(this.cvA);
-        registerListener(this.cvB);
+        Oo();
+        On();
+        registerListener(this.aRx);
+        registerListener(this.cHd);
+        registerListener(this.cHe);
+        registerListener(this.cHf);
     }
 
     public void a(a aVar) {
-        this.cvu = aVar;
+        this.cGY = aVar;
     }
 
     public void a(int i, boolean z, int i2, int i3, int i4, int i5) {
@@ -70,13 +70,13 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         recPersonalizeRequest.setPn(i4);
         recPersonalizeRequest.setSuggestCount(i5);
         recPersonalizeRequest.setTagCode(i2);
-        if ((!StringUtils.isNull(this.cvv) || !StringUtils.isNull(this.cvw)) && !com.baidu.tbadk.core.sharedPref.b.sN().getBoolean("close_new_user_guide_tip", false)) {
-            recPersonalizeRequest.setSexTag(this.cvv);
-            recPersonalizeRequest.seAgeTag(this.cvw);
-        } else if (this.cvx != null) {
-            recPersonalizeRequest.setInterestGuideTag(this.cvx);
+        if ((!StringUtils.isNull(this.cGZ) || !StringUtils.isNull(this.cHa)) && !com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("close_new_user_guide_tip", false)) {
+            recPersonalizeRequest.setSexTag(this.cGZ);
+            recPersonalizeRequest.seAgeTag(this.cHa);
+        } else if (this.cHb != null) {
+            recPersonalizeRequest.setInterestGuideTag(this.cHb);
         }
-        recPersonalizeRequest.setTagType(this.cvy);
+        recPersonalizeRequest.setTagType(this.cHc);
         sendMessage(recPersonalizeRequest);
     }
 
@@ -92,14 +92,14 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
         return false;
     }
 
-    private void LI() {
+    private void On() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309264);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
-        bVar.j(true);
+        bVar.l(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void LJ() {
+    private void Oo() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, com.baidu.tieba.tbadkCore.a.a.aG(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
@@ -108,30 +108,30 @@ public class g extends com.baidu.adp.base.e<BaseFragmentActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(ResponsedMessage<?> responsedMessage) {
-        if (!this.bOA) {
-            this.bOA = true;
+        if (!this.bZS) {
+            this.bZS = true;
             a(1, false, responsedMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(ResponsedMessage<?> responsedMessage) {
-        if (!this.bOA) {
-            this.bOA = true;
+        if (!this.bZS) {
+            this.bZS = true;
             a(1, true, responsedMessage);
         }
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (aa.EV().EW() && com.baidu.tieba.homepage.framework.a.agL().getCreateTime() > 0) {
-            long jk = com.baidu.tieba.homepage.framework.a.agL().jk(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.agL().getCreateTime();
-            n nVar = new n(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.agL().jj(1), false, jk + createTime);
+        if (aa.Gp().Gq() && com.baidu.tieba.homepage.framework.a.alw().getCreateTime() > 0) {
+            long jM = com.baidu.tieba.homepage.framework.a.alw().jM(1);
+            long createTime = com.baidu.tieba.homepage.framework.a.alw().getCreateTime();
+            n nVar = new n(1005, z, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.alw().jL(1), false, jM + createTime);
             if (nVar != null) {
                 nVar.pageType = i;
-                nVar.EQ();
+                nVar.Gk();
             }
-            com.baidu.tieba.homepage.framework.a.agL().setCreateTime(0L);
+            com.baidu.tieba.homepage.framework.a.alw().setCreateTime(0L);
         }
     }
 }

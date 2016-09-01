@@ -8,7 +8,7 @@ public class v {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int gw(String str) {
+    public static int gz(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -24,7 +24,7 @@ public class v {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public static String eW(int i) {
+    public static String fk(int i) {
         if (i >= 100000000) {
             return String.valueOf(i / 100000000) + "亿+";
         }
@@ -34,21 +34,21 @@ public class v {
         return new StringBuilder().append(i).toString();
     }
 
-    public static String G(String str, int i) {
+    public static String F(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gw(str) > i) {
+        if (gz(str) > i) {
             return String.valueOf(d(str, 0, i - 2)) + "...";
         }
         return str;
     }
 
-    public static String H(String str, int i) {
+    public static String G(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gw(str) > i) {
+        if (gz(str) > i) {
             return d(str, 0, i);
         }
         return str;
@@ -86,7 +86,7 @@ public class v {
         return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
     }
 
-    public static String I(String str, int i) {
+    public static String H(String str, int i) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return sb.toString();

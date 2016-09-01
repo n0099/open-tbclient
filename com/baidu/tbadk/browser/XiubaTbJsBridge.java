@@ -3,7 +3,9 @@ package com.baidu.tbadk.browser;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbPageContext;
@@ -12,7 +14,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -22,6 +24,8 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     private static final String INTERFACE_NAME = "XiubaJSBridge";
     private static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
     private static final String METHOD_DOWNLOAD_APK = "downLoadAPK";
+    private static final String METHOD_TOUCH_CLOSE = "touch_close";
+    private static final String METHOD_TOUCH_OPEN = "touch_open";
     private static final String XIUBA_PACKAGE = "com.xiu8.baidu.activity";
     private static final int XIUBA_VERSION_FIRST = 3;
     private static final int XIUBA_VERSION_SECOND = 2;
@@ -54,7 +58,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         jSResultData.setErrorMsg("");
         JSResultData.Result result = new JSResultData.Result();
         jSResultData.setResult(result);
-        String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.m10getInst(), str);
+        String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.m9getInst(), str);
         if (installApkVersionName != null) {
             if (isInstall(installApkVersionName)) {
                 result.setIsInstall(1);
@@ -117,7 +121,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Ba().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m10getInst().getResources().getString(u.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.Cv().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m9getInst().getResources().getString(t.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -198,6 +202,11 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
+    private String isEnableWebViewTouch(Boolean bool) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_COMMON_WEBVIEW_ENABLE_TOUCH, bool));
+        return "";
+    }
+
     @Override // com.baidu.tieba.tbadkCore.e.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if (INTERFACE_NAME.equals(str)) {
@@ -217,6 +226,18 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                     return true;
                 } catch (Exception e2) {
                     e2.printStackTrace();
+                }
+            } else if (METHOD_TOUCH_CLOSE.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(isEnableWebViewTouch(false));
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+            } else if (METHOD_TOUCH_OPEN.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(isEnableWebViewTouch(true));
+                } catch (Exception e4) {
+                    e4.printStackTrace();
                 }
             }
         }

@@ -5,31 +5,31 @@ import com.baidu.tbadk.core.util.y;
 import java.util.List;
 /* loaded from: classes.dex */
 class t implements MediaPlayer.OnCompletionListener {
-    final /* synthetic */ ForumHeadVideoView bQU;
-    private long bQV;
+    final /* synthetic */ ForumHeadVideoView ccd;
+    private long cce;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(ForumHeadVideoView forumHeadVideoView) {
-        this.bQU = forumHeadVideoView;
+        this.ccd = forumHeadVideoView;
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener
     public void onCompletion(MediaPlayer mediaPlayer) {
         List list;
-        e currentVideoItemView = this.bQU.getCurrentVideoItemView();
+        e currentVideoItemView = this.ccd.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
-            list = this.bQU.aMv;
+            list = this.ccd.aRP;
             if (y.s(list) == 1 && mediaPlayer != null && mediaPlayer.isLooping()) {
-                if (System.currentTimeMillis() - this.bQV > 100) {
-                    currentVideoItemView.ZA();
-                    this.bQV = System.currentTimeMillis();
-                    this.bQU.p(currentVideoItemView.getThreadInfo());
+                if (System.currentTimeMillis() - this.cce > 100) {
+                    currentVideoItemView.aem();
+                    this.cce = System.currentTimeMillis();
+                    this.ccd.p(currentVideoItemView.getThreadInfo());
                     return;
                 }
                 return;
             }
             currentVideoItemView.setVideoPlayState(1);
-            this.bQU.ZL();
+            this.ccd.aev();
         }
     }
 }

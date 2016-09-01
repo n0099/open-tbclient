@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class p {
-    public void eX() {
+    public void fS() {
         new a(null).execute(new String[0]);
     }
 
@@ -25,28 +25,28 @@ public class p {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            eX();
+            fS();
             return null;
         }
 
-        private void eX() {
+        private void fS() {
             int i;
-            ArrayList<com.baidu.adp.lib.stats.base.c> F = com.baidu.adp.lib.stats.base.b.F(true);
-            if (F != null && F.size() != 0) {
+            ArrayList<com.baidu.adp.lib.stats.base.c> H = com.baidu.adp.lib.stats.base.b.H(true);
+            if (H != null && H.size() != 0) {
                 int i2 = 0;
-                Iterator<com.baidu.adp.lib.stats.base.c> it = F.iterator();
+                Iterator<com.baidu.adp.lib.stats.base.c> it = H.iterator();
                 while (true) {
                     i = i2;
                     if (!it.hasNext()) {
                         break;
                     }
-                    i2 = (int) (it.next().of + i);
+                    i2 = (int) (it.next().qA + i);
                 }
                 int i3 = i - 31457280;
                 ArrayList arrayList = new ArrayList();
                 if (i3 > 0) {
-                    Collections.sort(F, new com.baidu.adp.lib.stats.base.d());
-                    Iterator<com.baidu.adp.lib.stats.base.c> it2 = F.iterator();
+                    Collections.sort(H, new com.baidu.adp.lib.stats.base.d());
+                    Iterator<com.baidu.adp.lib.stats.base.c> it2 = H.iterator();
                     while (true) {
                         int i4 = i3;
                         if (!it2.hasNext()) {
@@ -54,18 +54,18 @@ public class p {
                         }
                         com.baidu.adp.lib.stats.base.c next = it2.next();
                         arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.of);
+                        i3 = (int) (i4 - next.qA);
                         if (i3 <= 0) {
                             break;
                         }
                     }
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                Iterator<com.baidu.adp.lib.stats.base.c> it3 = F.iterator();
+                Iterator<com.baidu.adp.lib.stats.base.c> it3 = H.iterator();
                 while (it3.hasNext()) {
                     com.baidu.adp.lib.stats.base.c next2 = it3.next();
                     if (next2 != null) {
-                        long j = next2.og;
+                        long j = next2.qB;
                         if (j != 0 && j + TbConfig.APP_OVERDUR_DRAFT_BOX < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }

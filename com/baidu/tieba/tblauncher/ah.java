@@ -1,21 +1,44 @@
 package com.baidu.tieba.tblauncher;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.bn;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah implements View.OnClickListener {
-    final /* synthetic */ ab foX;
+public class ah implements View.OnClickListener {
+    final /* synthetic */ ac fwR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ab abVar) {
-        this.foX = abVar;
+    public ah(ac acVar) {
+        this.fwR = acVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL));
-        com.baidu.tbadk.core.sharedPref.b.sN().putBoolean("enter_forum_edit_mode", false);
+        MainTabActivity mainTabActivity;
+        int i;
+        MainTabActivity mainTabActivity2;
+        mainTabActivity = this.fwR.fwG;
+        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        String str = "";
+        i = this.fwR.dWX;
+        switch (i) {
+            case 1:
+                str = "forum";
+                break;
+            case 2:
+                str = "kantie";
+                break;
+            case 3:
+                str = "message";
+                break;
+            case 8:
+                str = "profile";
+                break;
+        }
+        TiebaStatic.log(new ay("c10517").ab("obj_source", str));
+        mainTabActivity2 = this.fwR.fwG;
+        bn.aj(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

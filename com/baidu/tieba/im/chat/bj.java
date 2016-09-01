@@ -3,15 +3,15 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 /* loaded from: classes.dex */
 class bj implements View.OnClickListener {
-    final /* synthetic */ MsgleftView cIs;
+    final /* synthetic */ MsgleftView cTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(MsgleftView msgleftView) {
-        this.cIs = msgleftView;
+        this.cTX = msgleftView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cIs.cHE.a(view, 2, this.cIs.alw, 0L);
+        this.cTX.cTk.a(view, 2, this.cTX.aoC, 0L);
     }
 }

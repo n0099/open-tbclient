@@ -1,21 +1,11 @@
 package com.baidu.tbadk.coreExtra.data;
-
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
-    private String checkUrl;
+    public String userId;
+    public String userName;
 
-    public String wI() {
-        return this.checkUrl;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.checkUrl = jSONObject.optString("checkurl", null);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public o(String str, String str2) {
+        this.userId = str;
+        this.userName = str2;
     }
 }

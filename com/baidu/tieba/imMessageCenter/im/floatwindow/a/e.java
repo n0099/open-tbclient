@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 /* loaded from: classes.dex */
 public class e implements b {
-    private int ddx;
-    private a ddy;
+    private int dpe;
+    private a dpf;
     private int end;
     private final int speed;
     private int start;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eN(int i);
+        void fb(int i);
     }
 
     public e(int i) {
@@ -18,33 +18,33 @@ public class e implements b {
 
     public void setStart(int i) {
         this.start = i;
-        this.ddx = i;
+        this.dpe = i;
     }
 
-    public void lx(int i) {
+    public void ma(int i) {
         this.end = i;
     }
 
     public void a(a aVar) {
-        this.ddy = aVar;
+        this.dpf = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (this.ddx != this.end) {
+        if (this.dpe != this.end) {
             if (this.end > this.start) {
-                this.ddx += this.speed;
-                if (this.ddx > this.end) {
-                    this.ddx = this.end;
+                this.dpe += this.speed;
+                if (this.dpe > this.end) {
+                    this.dpe = this.end;
                 }
             } else {
-                this.ddx -= this.speed;
-                if (this.ddx < this.end) {
-                    this.ddx = this.end;
+                this.dpe -= this.speed;
+                if (this.dpe < this.end) {
+                    this.dpe = this.end;
                 }
             }
-            if (this.ddy != null) {
-                this.ddy.eN(this.ddx);
+            if (this.dpf != null) {
+                this.dpf.fb(this.dpe);
             }
             return false;
         }

@@ -5,30 +5,30 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class a {
-    private static a ddj;
-    private final HandlerC0065a ddk = new HandlerC0065a(Looper.getMainLooper());
+    private static a doR;
+    private final HandlerC0066a doS = new HandlerC0066a(Looper.getMainLooper());
 
     private a() {
     }
 
-    public static a asQ() {
-        if (ddj == null) {
-            ddj = new a();
+    public static a axE() {
+        if (doR == null) {
+            doR = new a();
         }
-        return ddj;
+        return doR;
     }
 
     public void a(b bVar) {
         Message obtain = Message.obtain();
         obtain.what = 1;
         obtain.obj = bVar;
-        this.ddk.sendMessage(obtain);
+        this.doS.sendMessage(obtain);
     }
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.floatwindow.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class HandlerC0065a extends Handler {
-        public HandlerC0065a(Looper looper) {
+    private class HandlerC0066a extends Handler {
+        public HandlerC0066a(Looper looper) {
             super(looper);
         }
 
@@ -42,7 +42,7 @@ public class a {
                         Message obtain = Message.obtain();
                         obtain.what = 1;
                         obtain.obj = bVar;
-                        a.this.ddk.sendMessage(obtain);
+                        a.this.doS.sendMessage(obtain);
                         return;
                     }
                     return;

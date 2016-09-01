@@ -19,7 +19,9 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
     private static final long serialVersionUID = -2658065756886586092L;
     private String fansNickName;
     private int gender;
+    public boolean isGodUser;
     private int is_myfriend;
+    private j pendantData;
     private int is_like = 0;
     private GodUserData godUserData = new GodUserData();
     private UserTbVipInfoData bigVData = new UserTbVipInfoData();
@@ -35,8 +37,8 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
     private ArrayList<IconData> mTShowIconInfoNew = new ArrayList<>();
     private int is_bawu = 0;
     private String bawu_type = null;
-    private int concernNum = 0;
-    private int fansNum = 0;
+    private int concernNum = -1;
+    private int fansNum = -1;
     private boolean mHadConcerned = false;
     @Deprecated
     private GodInfo godInfo = null;
@@ -301,6 +303,10 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
             this.godInfo = user.god_data;
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
+            if (user.pendant != null) {
+                this.pendantData = new j();
+                this.pendantData.a(user.pendant);
+            }
         }
     }
 
@@ -376,5 +382,13 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
 
     public ThemeCardInUserData getThemeCard() {
         return this.themeCard;
+    }
+
+    public j getPendantData() {
+        return this.pendantData;
+    }
+
+    public void setPendantData(j jVar) {
+        this.pendantData = jVar;
     }
 }

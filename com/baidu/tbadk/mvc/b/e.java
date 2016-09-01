@@ -1,9 +1,9 @@
 package com.baidu.tbadk.mvc.b;
 /* loaded from: classes.dex */
 public interface e extends d {
-    String Do();
+    String EI();
 
-    boolean Dp();
+    boolean EJ();
 
     boolean isNeedUid();
 }

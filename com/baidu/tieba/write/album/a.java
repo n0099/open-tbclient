@@ -3,17 +3,17 @@ package com.baidu.tieba.write.album;
 import android.app.AlertDialog;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ AlbumActivity fPW;
+    final /* synthetic */ AlbumActivity gaa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AlbumActivity albumActivity) {
-        this.fPW = albumActivity;
+        this.gaa = albumActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         AlertDialog alertDialog;
-        alertDialog = this.fPW.fPS;
+        alertDialog = this.gaa.fZW;
         alertDialog.dismiss();
     }
 }

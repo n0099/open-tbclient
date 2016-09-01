@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class el extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ ek efy;
+    final /* synthetic */ ek erD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public el(ek ekVar, int i, int i2) {
         super(i, i2);
-        this.efy = ekVar;
+        this.erD = ekVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -19,16 +19,16 @@ public class el extends com.baidu.adp.framework.listener.a {
         boolean z;
         BdUniqueId bdUniqueId;
         if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
-            z = this.efy.efw;
+            z = this.erD.erB;
             if (!z) {
                 BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
-                bdUniqueId = this.efy.mTag;
+                bdUniqueId = this.erD.mTag;
                 if (tag == bdUniqueId && !responsedMessage.hasError()) {
                     if (responsedMessage instanceof pbPageSocketResponseMessage) {
-                        this.efy.a((pbPageSocketResponseMessage) responsedMessage);
+                        this.erD.a((pbPageSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof pbPageHttpResponseMessage) {
-                        this.efy.a((pbPageHttpResponseMessage) responsedMessage);
+                        this.erD.a((pbPageHttpResponseMessage) responsedMessage);
                     }
                 }
             }

@@ -1,28 +1,86 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class ca implements c.b {
-    final /* synthetic */ bq bGW;
+public class ca extends y.a {
+    public TextView aYh;
+    public UserIconBox ahO;
+    public UserIconBox ahP;
+    public TextView ahn;
+    public TextView ahq;
+    public int ait;
+    public TextView bRi;
+    public TextView bRj;
+    public RelativeLayout bSA;
+    public TbImageView bSB;
+    public TextView bSC;
+    public ThreadSkinView bSD;
+    public int bSi;
+    public FrameLayout bSj;
+    public LinearLayout bSk;
+    public RelativeLayout bSl;
+    public TbImageView bSm;
+    public TextView bSn;
+    public PlayVoiceBnt bSo;
+    public FrsCommonImageLayout bSp;
+    public TextView bSq;
+    public HeadImageView bSr;
+    public TextView bSs;
+    public TextView bSt;
+    public RelativeLayout bSu;
+    public LinearLayout bSv;
+    public LinearLayout bSw;
+    public LinearLayout bSx;
+    public View bSy;
+    public TbImageView bSz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(bq bqVar) {
-        this.bGW = bqVar;
-    }
-
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        cVar.dismiss();
-        if (i == 0) {
-            frsActivity2 = this.bGW.bGh;
-            frsActivity2.Wf();
-        } else if (i == 1) {
-            frsActivity = this.bGW.bGh;
-            com.baidu.tbadk.core.util.au.l(frsActivity.getPageContext().getPageActivity());
-        }
+    public ca(View view, int i) {
+        super(view);
+        this.ait = 3;
+        this.bSi = 0;
+        this.bSi = i;
+        this.bSj = (FrameLayout) view.findViewById(t.g.frs_list);
+        this.bSu = (RelativeLayout) view.findViewById(t.g.frs_item_user_info_view);
+        this.bSv = (LinearLayout) view.findViewById(t.g.frs_item_base_user_info);
+        this.bSk = (LinearLayout) view.findViewById(t.g.frs_list_item_top_linear_layout);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bSk.getLayoutParams();
+        layoutParams.topMargin = i;
+        this.bSk.setLayoutParams(layoutParams);
+        this.bSl = (RelativeLayout) view.findViewById(t.g.frs_list_item_top_card);
+        this.bSm = (TbImageView) view.findViewById(t.g.frs_normal_item_theme_card);
+        this.bSr = (HeadImageView) view.findViewById(t.g.frs_photo);
+        this.ahO = (UserIconBox) view.findViewById(t.g.frs_user_tshow_icon_box);
+        this.ahP = (UserIconBox) view.findViewById(t.g.frs_user_icon_box);
+        this.bSq = (TextView) view.findViewById(t.g.frs_lv_author);
+        this.ahn = (TextView) view.findViewById(t.g.frs_lv_reply_time);
+        this.aYh = (TextView) view.findViewById(t.g.frs_lv_title);
+        this.bSn = (TextView) view.findViewById(t.g.abstract_text);
+        this.bSo = (PlayVoiceBnt) view.findViewById(t.g.abstract_voice);
+        this.bSp = (FrsCommonImageLayout) view.findViewById(t.g.abstract_img_layout);
+        this.ahq = (TextView) view.findViewById(t.g.frs_praise_num);
+        this.bSs = (TextView) view.findViewById(t.g.action_button);
+        this.bRj = (TextView) view.findViewById(t.g.frs_reply_num);
+        this.bSt = (TextView) view.findViewById(t.g.frs_more_abstract);
+        this.bSw = (LinearLayout) view.findViewById(t.g.frs_item_num);
+        this.bSx = (LinearLayout) view.findViewById(t.g.frs_item_loc_view);
+        this.bRi = (TextView) view.findViewById(t.g.frs_item_location_address);
+        this.bSy = view.findViewById(t.g.frs_item_location_sep);
+        this.bSz = (TbImageView) view.findViewById(t.g.game_activity_banner);
+        this.bSB = (TbImageView) view.findViewById(t.g.app_code_banner);
+        this.bSC = (TextView) view.findViewById(t.g.app_code_btn);
+        this.bSA = (RelativeLayout) view.findViewById(t.g.app_code_wrapper);
+        this.bSD = (ThreadSkinView) view.findViewById(t.g.frs_thread_skin);
     }
 }

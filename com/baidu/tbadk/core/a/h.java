@@ -1,21 +1,36 @@
 package com.baidu.tbadk.core.a;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.HashMap;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h {
-    public static HashMap<String, Integer> Mj = new HashMap<>();
 
-    public static int br(int i) {
-        String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i;
-        if (Mj.containsKey(str)) {
-            return Mj.get(str).intValue();
-        }
-        Mj.put(str, 1);
-        return 1;
+    /* loaded from: classes.dex */
+    public interface a {
+        void onFailed();
+
+        void onSuccess(String str);
     }
 
-    public static void n(int i, int i2) {
-        Mj.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i, Integer.valueOf(i2));
+    public static boolean oV() {
+        return com.baidu.adp.lib.c.e.dN().ac("android_stoken") == 1;
+    }
+
+    public static String d(AccountData accountData) {
+        if (accountData != null && oV()) {
+            return accountData.getStoken();
+        }
+        return null;
+    }
+
+    public void a(String str, a aVar) {
+        if (!StringUtils.isNull(str)) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(TbConfig.PassConfig.TPL);
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new i(this, aVar), str, linkedList);
+        }
     }
 }

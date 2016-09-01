@@ -3,6 +3,7 @@ package com.baidu.tieba.recapp.report;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -11,33 +12,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements d {
-    private TbHttpMessageTask eTS;
-    private HttpMessageListener eTR = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
-    private ArrayList<a> eTT = new ArrayList<>();
+    private TbHttpMessageTask fbh;
+    private HttpMessageListener fbg = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
+    private ArrayList<a> fbi = new ArrayList<>();
 
     public f() {
-        aYf();
-        MessageManager.getInstance().registerListener(this.eTR);
+        bbx();
+        MessageManager.getInstance().registerListener(this.fbg);
     }
 
-    private void aYf() {
-        this.eTS = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "http://als.baidu.com/dalog/logForC");
-        this.eTS.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.eTS.setIsNeedAddCommenParam(true);
-        this.eTS.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void bbx() {
+        this.fbh = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/dalog/logForC");
+        this.fbh.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.fbh.setIsNeedAddCommenParam(true);
+        this.fbh.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.d
     public void b(a aVar) {
         if (aVar != null) {
+            com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.m9getInst().getAdAdSense();
+            if (!(adAdSense == null || adAdSense.xx())) {
+                this.fbh.setUrl("http://als.baidu.com/dalog/logForC");
+            }
             d(aVar);
-            aYg();
+            bby();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void aYe() {
-        aYg();
+    public void bbw() {
+        bby();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -47,15 +52,15 @@ public class f implements d {
         }
     }
 
-    private void aYg() {
-        if (y.s(this.eTT) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.eTT), this.eTS);
-            this.eTT.clear();
+    private void bby() {
+        if (y.s(this.fbi) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fbi), this.fbh);
+            this.fbi.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cR(List<a> list) {
+    public void cV(List<a> list) {
         if (y.s(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
@@ -67,10 +72,10 @@ public class f implements d {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (y.s(this.eTT) >= 20) {
-                this.eTT.remove(0);
+            if (y.s(this.fbi) >= 20) {
+                this.fbi.remove(0);
             }
-            this.eTT.add(aVar);
+            this.fbi.add(aVar);
         }
     }
 }

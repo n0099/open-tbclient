@@ -1,50 +1,76 @@
 package com.baidu.tieba.model;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* loaded from: classes.dex */
-public class e {
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+public class e extends com.baidu.adp.base.e {
+    public long Mn;
+    private a dWh;
+    private final HttpMessageListener dWi;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void nx(int i);
+
+        void onError(int i, String str);
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("config");
-                if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("switch")) != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                        if (jSONObject2 != null) {
-                            String optString = jSONObject2.optString("name");
-                            Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                            if ("switch_login_passv6".equals(optString)) {
-                                com.baidu.adp.lib.c.e.cS().d(optString, valueOf.intValue());
-                                com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
-                            }
-                            if (TextUtils.equals("uninstall_feed_back_switch", optString)) {
-                                com.baidu.adp.lib.c.e.cS().d(optString, valueOf.intValue());
-                            }
-                            if (TextUtils.equals("android_voice_secret", optString)) {
-                                com.baidu.adp.lib.c.e.cS().d(optString, valueOf.intValue());
-                            }
-                            if (TextUtils.equals("switch_low_version_login_passv6", optString)) {
-                                com.baidu.adp.lib.c.e.cS().d(optString, valueOf.intValue());
-                                com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    public void a(a aVar) {
+        this.dWh = aVar;
+    }
+
+    public e(Context context) {
+        super(null);
+        this.Mn = 300000L;
+        this.dWi = new f(this, CmdConfigHttp.REPORT_USER_INFO);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public boolean aHE() {
+        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m9getInst().getReporyUserInfoLastTime()) >= this.Mn;
+    }
+
+    public void aHF() {
+        TbadkCoreApplication.m9getInst().setReporyUserInfoCurrentTime();
+    }
+
+    public void cr(long j) {
+        this.Mn = j;
+    }
+
+    public void aHG() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
+        tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+        messageManager.registerListener(this.dWi);
+    }
+
+    public void b(int i, float f, float f2) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.REPORT_USER_INFO);
+        httpMessage.addParam("type", String.valueOf(i));
+        httpMessage.addParam("lng", String.valueOf(f));
+        httpMessage.addParam("lat", String.valueOf(f2));
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void unRegisterListener() {
+        MessageManager.getInstance().unRegisterListener(this.dWi);
     }
 }

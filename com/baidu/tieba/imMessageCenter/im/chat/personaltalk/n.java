@@ -4,19 +4,19 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class n implements a.b {
-    final /* synthetic */ PersonalTalkSettingActivity dcj;
+    final /* synthetic */ PersonalTalkSettingActivity dnR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.dcj = personalTalkSettingActivity;
+        this.dnR = personalTalkSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         r rVar;
         aVar.dismiss();
         TiebaStatic.log("personalchat_morepage_addblack");
-        rVar = this.dcj.dch;
-        rVar.fS(true);
+        rVar = this.dnR.dnP;
+        rVar.go(true);
     }
 }

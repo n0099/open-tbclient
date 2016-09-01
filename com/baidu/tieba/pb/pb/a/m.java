@@ -4,15 +4,15 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements MediaPlayer.OnCompletionListener {
-    final /* synthetic */ e dYX;
+    final /* synthetic */ e elb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(e eVar) {
-        this.dYX = eVar;
+        this.elb = eVar;
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener
     public void onCompletion(MediaPlayer mediaPlayer) {
-        this.dYX.aHD();
+        this.elb.aMv();
     }
 }

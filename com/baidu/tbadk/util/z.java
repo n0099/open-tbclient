@@ -76,7 +76,7 @@ public class z {
         String name;
         if (wire != null && cls != null) {
             String str = "wire_" + cls.getName();
-            File file = new File(TbadkCoreApplication.m10getInst().getCacheDir(), String.valueOf(str) + "_" + TbConfig.getVersion());
+            File file = new File(TbadkCoreApplication.m9getInst().getCacheDir(), String.valueOf(str) + "_" + TbConfig.getVersion());
             byte[] bArr = null;
             try {
                 if (file.exists() && (bArr = v(file)) != null) {
@@ -94,7 +94,7 @@ public class z {
                 } catch (Throwable th2) {
                 }
             }
-            File cacheDir = TbadkCoreApplication.m10getInst().getCacheDir();
+            File cacheDir = TbadkCoreApplication.m9getInst().getCacheDir();
             if (cacheDir != null && (listFiles = cacheDir.listFiles()) != null) {
                 for (File file2 : listFiles) {
                     if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {

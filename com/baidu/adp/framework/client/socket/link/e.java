@@ -4,7 +4,7 @@ import com.baidu.adp.lib.webSocket.m;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface e {
-    void A(String str);
+    void B(String str);
 
     void a(com.baidu.adp.lib.webSocket.c cVar);
 

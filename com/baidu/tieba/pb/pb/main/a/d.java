@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a eiM;
+    final /* synthetic */ a euT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.eiM = aVar;
+        this.euT = aVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
@@ -23,19 +23,19 @@ public class d implements View.OnClickListener {
         PbActivity pbActivity2;
         PbActivity pbActivity3;
         PbActivity pbActivity4;
-        pbActivity = this.eiM.eat;
+        pbActivity = this.euT.emy;
         if (pbActivity.checkUpIsLogin()) {
             String str = null;
             if (view.getTag() != null) {
                 str = (String) view.getTag();
             }
-            pbActivity2 = this.eiM.eat;
-            if (bn.ab(pbActivity2.getActivity()) && str != null) {
-                bi us = bi.us();
-                pbActivity4 = this.eiM.eat;
-                us.c(pbActivity4.getPageContext(), new String[]{str});
+            pbActivity2 = this.euT.emy;
+            if (bn.al(pbActivity2.getActivity()) && str != null) {
+                bi vx = bi.vx();
+                pbActivity4 = this.euT.emy;
+                vx.c(pbActivity4.getPageContext(), new String[]{str});
             }
-            pbActivity3 = this.eiM.eat;
+            pbActivity3 = this.euT.emy;
             TiebaStatic.eventStat(pbActivity3.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
         }
     }

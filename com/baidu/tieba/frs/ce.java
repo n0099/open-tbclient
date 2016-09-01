@@ -1,86 +1,45 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.pb.ThreadSkinView;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
-import com.baidu.tieba.u;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ce extends y.a {
-    public TextView aSZ;
-    public UserIconBox aeT;
-    public UserIconBox aeU;
-    public TextView aes;
-    public TextView aev;
-    public int afy;
-    public TextView bGa;
-    public TextView bGb;
-    public int bHc;
-    public FrameLayout bHd;
-    public LinearLayout bHe;
-    public RelativeLayout bHf;
-    public TbImageView bHg;
-    public TextView bHh;
-    public PlayVoiceBnt bHi;
-    public FrsCommonImageLayout bHj;
-    public TextView bHk;
-    public HeadImageView bHl;
-    public TextView bHm;
-    public TextView bHn;
-    public RelativeLayout bHo;
-    public LinearLayout bHp;
-    public LinearLayout bHq;
-    public LinearLayout bHr;
-    public View bHs;
-    public TbImageView bHt;
-    public RelativeLayout bHu;
-    public TbImageView bHv;
-    public TextView bHw;
-    public ThreadSkinView bHx;
+public class ce implements View.OnClickListener {
+    final /* synthetic */ cd bSJ;
+    private final /* synthetic */ com.baidu.tbadk.core.data.av bSK;
 
-    public ce(View view, int i) {
-        super(view);
-        this.afy = 3;
-        this.bHc = 0;
-        this.bHc = i;
-        this.bHd = (FrameLayout) view.findViewById(u.g.frs_list);
-        this.bHo = (RelativeLayout) view.findViewById(u.g.frs_item_user_info_view);
-        this.bHp = (LinearLayout) view.findViewById(u.g.frs_item_base_user_info);
-        this.bHe = (LinearLayout) view.findViewById(u.g.frs_list_item_top_linear_layout);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bHe.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.bHe.setLayoutParams(layoutParams);
-        this.bHf = (RelativeLayout) view.findViewById(u.g.frs_list_item_top_card);
-        this.bHg = (TbImageView) view.findViewById(u.g.frs_normal_item_theme_card);
-        this.bHl = (HeadImageView) view.findViewById(u.g.frs_photo);
-        this.aeT = (UserIconBox) view.findViewById(u.g.frs_user_tshow_icon_box);
-        this.aeU = (UserIconBox) view.findViewById(u.g.frs_user_icon_box);
-        this.bHk = (TextView) view.findViewById(u.g.frs_lv_author);
-        this.aes = (TextView) view.findViewById(u.g.frs_lv_reply_time);
-        this.aSZ = (TextView) view.findViewById(u.g.frs_lv_title);
-        this.bHh = (TextView) view.findViewById(u.g.abstract_text);
-        this.bHi = (PlayVoiceBnt) view.findViewById(u.g.abstract_voice);
-        this.bHj = (FrsCommonImageLayout) view.findViewById(u.g.abstract_img_layout);
-        this.aev = (TextView) view.findViewById(u.g.frs_praise_num);
-        this.bHm = (TextView) view.findViewById(u.g.action_button);
-        this.bGb = (TextView) view.findViewById(u.g.frs_reply_num);
-        this.bHn = (TextView) view.findViewById(u.g.frs_more_abstract);
-        this.bHq = (LinearLayout) view.findViewById(u.g.frs_item_num);
-        this.bHr = (LinearLayout) view.findViewById(u.g.frs_item_loc_view);
-        this.bGa = (TextView) view.findViewById(u.g.frs_item_location_address);
-        this.bHs = view.findViewById(u.g.frs_item_location_sep);
-        this.bHt = (TbImageView) view.findViewById(u.g.game_activity_banner);
-        this.bHv = (TbImageView) view.findViewById(u.g.app_code_banner);
-        this.bHw = (TextView) view.findViewById(u.g.app_code_btn);
-        this.bHu = (RelativeLayout) view.findViewById(u.g.app_code_wrapper);
-        this.bHx = (ThreadSkinView) view.findViewById(u.g.frs_thread_skin);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ce(cd cdVar, com.baidu.tbadk.core.data.av avVar) {
+        this.bSJ = cdVar;
+        this.bSK = avVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.data.av avVar;
+        Context context;
+        Context context2;
+        com.baidu.tbadk.core.data.av avVar2;
+        TiebaStatic.log("cluster_btn_addFd");
+        com.baidu.tbadk.core.data.ax qE = this.bSK.qE();
+        avVar = this.bSJ.bSI;
+        if (avVar != null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context2 = this.bSJ.mContext;
+            String valueOf = String.valueOf(qE.getUserId());
+            String name = qE.getName();
+            String qO = qE.qO();
+            avVar2 = this.bSJ.bSI;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context2, valueOf, name, qO, null, false, AddFriendActivityConfig.TYPE_FRS_RECOM, avVar2.qH())));
+            return;
+        }
+        MessageManager messageManager2 = MessageManager.getInstance();
+        context = this.bSJ.mContext;
+        messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(qE.getUserId()), qE.getName(), qE.qO(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
     }
 }

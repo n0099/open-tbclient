@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 /* loaded from: classes.dex */
 public class InviteFriendListActivityStatic {
     static {
-        TbadkCoreApplication.m10getInst().RegisterIntent(InviteFriendListActivityConfig.class, InviteFriendListActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(InviteFriendListActivityConfig.class, InviteFriendListActivity.class);
     }
 }

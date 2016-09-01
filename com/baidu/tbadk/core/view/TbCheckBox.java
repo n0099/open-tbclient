@@ -3,11 +3,10 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a adj;
+    private a afY;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,7 +22,7 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        vm();
+        wq();
     }
 
     public TbCheckBox(Context context) {
@@ -38,29 +37,29 @@ public class TbCheckBox extends ImageView {
 
     private void initialize() {
         setOnClickListener(new s(this));
-        vm();
+        wq();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.adj = aVar;
+        this.afY = aVar;
     }
 
-    public void vm() {
-        if (vn()) {
-            av.c(this, u.f.icon_set_list_ok_s);
-            setContentDescription(getResources().getString(u.j.check_box_checked));
+    public void wq() {
+        if (wr()) {
+            com.baidu.tbadk.core.util.av.c(this, t.f.icon_set_list_ok_s);
+            setContentDescription(getResources().getString(t.j.check_box_checked));
             return;
         }
-        av.c(this, u.f.icon_set_list_ok_n);
-        setContentDescription(getResources().getString(u.j.check_box_not_checked));
+        com.baidu.tbadk.core.util.av.c(this, t.f.icon_set_list_ok_n);
+        setContentDescription(getResources().getString(t.j.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return vn();
+        return wr();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean vn() {
+    public boolean wr() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -73,9 +72,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        vm();
-        if (this.adj != null) {
-            this.adj.a(this, z, getTag());
+        wq();
+        if (this.afY != null) {
+            this.afY.a(this, z, getTag());
         }
     }
 }

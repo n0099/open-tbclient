@@ -3,7 +3,7 @@ package com.baidu.tieba.vote;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tieba.tbadkCore.data.s;
+import com.baidu.tieba.tbadkCore.data.q;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -157,6 +157,6 @@ public class VoteDataInfo implements v, Serializable {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return s.fkJ;
+        return q.fsC;
     }
 }

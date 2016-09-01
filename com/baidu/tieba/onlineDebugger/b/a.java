@@ -1,7 +1,7 @@
 package com.baidu.tieba.onlineDebugger.b;
 /* loaded from: classes.dex */
 public class a {
-    public void nC(String str) {
+    public void om(String str) {
         char[] charArray;
         if (str == null) {
             throw new RuntimeException("command null");

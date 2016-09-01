@@ -5,39 +5,39 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class c {
-    public static String aHw() {
-        int fontSize = TbadkCoreApplication.m10getInst().getFontSize();
+    public static String aMo() {
+        int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
         if (fontSize == 0) {
-            return TbadkCoreApplication.m10getInst().getString(u.j.toast_font_size_xlarge);
+            return TbadkCoreApplication.m9getInst().getString(t.j.toast_font_size_xlarge);
         }
         if (fontSize == 1) {
-            return TbadkCoreApplication.m10getInst().getString(u.j.toast_font_size_big);
+            return TbadkCoreApplication.m9getInst().getString(t.j.toast_font_size_big);
         }
         if (fontSize == 2) {
-            return TbadkCoreApplication.m10getInst().getString(u.j.toast_font_size_mid);
+            return TbadkCoreApplication.m9getInst().getString(t.j.toast_font_size_mid);
         }
-        return TbadkCoreApplication.m10getInst().getString(u.j.toast_font_size_small);
+        return TbadkCoreApplication.m9getInst().getString(t.j.toast_font_size_small);
     }
 
-    public static void aHx() {
+    public static void aMp() {
         int i = 1;
-        int fontSize = TbadkCoreApplication.m10getInst().getFontSize();
+        int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
         if (fontSize != 0) {
             i = fontSize == 1 ? 2 : fontSize == 2 ? 3 : 3;
         }
         if (fontSize != i) {
-            TbadkCoreApplication.m10getInst().setFontSize(i);
+            TbadkCoreApplication.m9getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
-        BdToast.a(TbadkCoreApplication.m10getInst(), aHw(), u.f.icon_word_t_size, 0).sa();
+        BdToast.a(TbadkCoreApplication.m9getInst(), aMo(), t.f.icon_word_t_size, 0).tf();
     }
 
-    public static void aHy() {
+    public static void aMq() {
         int i = 1;
-        int fontSize = TbadkCoreApplication.m10getInst().getFontSize();
+        int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
         if (fontSize == 0) {
             i = 0;
         } else if (fontSize == 1) {
@@ -46,15 +46,15 @@ public class c {
             i = 2;
         }
         if (fontSize != i) {
-            TbadkCoreApplication.m10getInst().setFontSize(i);
+            TbadkCoreApplication.m9getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
-        BdToast.a(TbadkCoreApplication.m10getInst(), aHw(), u.f.icon_word_t_size, 0).sa();
+        BdToast.a(TbadkCoreApplication.m9getInst(), aMo(), t.f.icon_word_t_size, 0).tf();
     }
 
-    public static void nw(int i) {
-        if (TbadkCoreApplication.m10getInst().getFontSize() != i) {
-            TbadkCoreApplication.m10getInst().setFontSize(i);
+    public static void nZ(int i) {
+        if (TbadkCoreApplication.m9getInst().getFontSize() != i) {
+            TbadkCoreApplication.m9getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
     }

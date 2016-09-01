@@ -1,69 +1,33 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.bn;
-import com.baidu.tieba.u;
-import java.util.ArrayList;
+import com.baidu.tieba.pb.a.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements AdapterView.OnItemClickListener {
-    final /* synthetic */ af eka;
+public class ap implements d.a {
+    final /* synthetic */ ag ewi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(af afVar) {
-        this.eka = afVar;
+    public ap(ag agVar) {
+        this.ewi = agVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
-    @Override // android.widget.AdapterView.OnItemClickListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        NewSubPbActivity newSubPbActivity;
-        ArrayList arrayList;
-        SparseArray sparseArray;
-        com.baidu.tbadk.editortools.d.p pVar;
-        com.baidu.tbadk.editortools.d.p pVar2;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        ArrayList arrayList4;
-        newSubPbActivity = this.eka.ejw;
-        if (bn.ab(newSubPbActivity.getPageContext().getPageActivity())) {
-            arrayList = this.eka.ejU;
-            if (arrayList != null) {
-                arrayList2 = this.eka.ejU;
-                if (i < arrayList2.size()) {
-                    arrayList3 = this.eka.ejU;
-                    if (arrayList3.get(i) != null) {
-                        af afVar = this.eka;
-                        arrayList4 = this.eka.ejU;
-                        afVar.ejV = ((com.baidu.tieba.tbadkCore.data.s) arrayList4.get(i)).getId();
-                        sparseArray = (SparseArray) view.getTag();
-                        if (sparseArray == null) {
-                            String str = (String) sparseArray.get(u.g.tag_photo_username);
-                            String str2 = (String) sparseArray.get(u.g.tag_photo_userid);
-                            if (str != null) {
-                                pVar = this.eka.dhw;
-                                pVar.setReplyId(str2);
-                                pVar2 = this.eka.dhw;
-                                pVar2.fJ(str);
-                                this.eka.e(i, view);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                }
-            }
-            this.eka.ejV = null;
-            sparseArray = (SparseArray) view.getTag();
-            if (sparseArray == null) {
-            }
-        }
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.ewi.ir(false);
+        this.ewi.aY(view);
+        this.ewi.ir(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        return true;
     }
 }

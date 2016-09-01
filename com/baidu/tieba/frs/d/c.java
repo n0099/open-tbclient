@@ -3,44 +3,44 @@ package com.baidu.tieba.frs.d;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.tieba.frs.ce;
-import com.baidu.tieba.u;
+import com.baidu.tieba.frs.ca;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.lib.f.c<ce> {
-    final /* synthetic */ a bRh;
+public class c implements com.baidu.adp.lib.f.c<ca> {
+    final /* synthetic */ a cct;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bRh = aVar;
+        this.cct = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ZV */
-    public ce dE() {
+    /* renamed from: aeF */
+    public ca ez() {
         Context context;
-        context = this.bRh.mContext;
-        return new ce(LayoutInflater.from(context).inflate(u.h.frs_item, (ViewGroup) null), 0);
+        context = this.cct.mContext;
+        return new ca(LayoutInflater.from(context).inflate(t.h.frs_item, (ViewGroup) null), 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: a */
-    public void o(ce ceVar) {
+    public void o(ca caVar) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: b */
-    public ce p(ce ceVar) {
-        return ceVar;
+    public ca p(ca caVar) {
+        return caVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: c */
-    public ce q(ce ceVar) {
-        return ceVar;
+    public ca q(ca caVar) {
+        return caVar;
     }
 }

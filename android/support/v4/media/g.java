@@ -5,9 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.KeyEvent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends BroadcastReceiver {
+class g extends BroadcastReceiver {
     final /* synthetic */ d this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */

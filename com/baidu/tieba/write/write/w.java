@@ -3,19 +3,19 @@ package com.baidu.tieba.write.write;
 import com.baidu.tieba.tbadkCore.b.a;
 /* loaded from: classes.dex */
 class w implements a.InterfaceC0074a {
-    final /* synthetic */ WriteActivity fVn;
+    final /* synthetic */ WriteActivity gfs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(WriteActivity writeActivity) {
-        this.fVn = writeActivity;
+        this.gfs = writeActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0074a
-    public void jo() {
+    public void kj() {
         com.baidu.tbadk.editortools.l lVar;
-        this.fVn.dBu = null;
-        this.fVn.lz(false);
-        lVar = this.fVn.ard;
+        this.gfs.dNj = null;
+        this.gfs.lP(false);
+        lVar = this.gfs.auk;
         lVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
     }
 }

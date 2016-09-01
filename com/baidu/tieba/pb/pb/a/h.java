@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ e dYX;
+    final /* synthetic */ e elb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(e eVar, int i) {
         super(i);
-        this.dYX = eVar;
+        this.elb = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,28 +27,28 @@ public class h extends CustomMessageListener {
         com.baidu.tieba.pb.data.h hVar4;
         com.baidu.tieba.pb.data.h hVar5;
         if (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.r) {
-            hVar = this.dYX.dYM;
+            hVar = this.elb.ekQ;
             if (hVar != null) {
                 com.baidu.tieba.graffiti.r rVar = (com.baidu.tieba.graffiti.r) customResponsedMessage.getData();
                 if (rVar.threadId != null) {
                     String str = rVar.threadId;
-                    hVar2 = this.dYX.dYM;
+                    hVar2 = this.elb.ekQ;
                     if (str.equals(hVar2.getThreadId())) {
                         UserData userData = new UserData();
                         userData.setName_show(TbadkCoreApplication.getCurrentAccountName());
-                        hVar3 = this.dYX.dYM;
-                        if (hVar3.aGV() != null) {
-                            hVar4 = this.dYX.dYM;
-                            if (hVar4.aGV().oS() != null) {
-                                hVar5 = this.dYX.dYM;
-                                hVar5.aGV().oS().add(0, userData);
+                        hVar3 = this.elb.ekQ;
+                        if (hVar3.aLN() != null) {
+                            hVar4 = this.elb.ekQ;
+                            if (hVar4.aLN().pV() != null) {
+                                hVar5 = this.elb.ekQ;
+                                hVar5.aLN().pV().add(0, userData);
                             }
                         }
-                        e eVar = this.dYX;
-                        e eVar2 = this.dYX;
-                        yVar = this.dYX.dYN;
+                        e eVar = this.elb;
+                        e eVar2 = this.elb;
+                        yVar = this.elb.ekR;
                         a = eVar2.a(yVar, userData);
-                        eVar.hv(a);
+                        eVar.hR(a);
                     }
                 }
             }

@@ -6,11 +6,11 @@ import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 import java.util.Date;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a ePS;
+    final /* synthetic */ PluginDownloadActivity.a eXd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PluginDownloadActivity.a aVar) {
-        this.ePS = aVar;
+        this.eXd = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,7 +21,7 @@ class p implements View.OnClickListener {
         pluginDownloadActivity.setResult(0);
         pluginDownloadActivity2 = PluginDownloadActivity.this;
         pluginDownloadActivity2.finish();
-        com.baidu.tbadk.core.sharedPref.b.sN().putBoolean(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
-        com.baidu.tbadk.core.sharedPref.b.sN().putLong(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
+        com.baidu.tbadk.core.sharedPref.b.tS().putBoolean(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
+        com.baidu.tbadk.core.sharedPref.b.tS().putLong(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
     }
 }

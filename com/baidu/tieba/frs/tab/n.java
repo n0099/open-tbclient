@@ -6,58 +6,58 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.frs.dy;
+import com.baidu.tieba.frs.dt;
 import com.baidu.tieba.frs.tab.j;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n implements f {
-    private List<dy> aMv;
-    private BdListView bSM;
-    private j bSN;
-    private j.b bSs;
+    private List<dt> aRP;
+    private BdListView cdS;
+    private j cdT;
+    private j.b cdy;
     private Context mContext;
-    private final BaseAdapter bSO = new o(this);
-    private AdapterView.OnItemClickListener zr = new p(this);
+    private final BaseAdapter cdU = new o(this);
+    private AdapterView.OnItemClickListener BG = new p(this);
 
     private void initView() {
-        this.bSM = new BdListView(this.mContext);
-        this.bSM.setAlwaysDrawnWithCacheEnabled(false);
-        this.bSM.setDivider(null);
-        this.bSM.setDividerHeight(0);
-        this.bSM.setSelector(17170445);
-        this.bSM.setCacheColorHint(this.mContext.getResources().getColor(17170445));
-        this.bSM.setOnItemClickListener(this.zr);
-        this.bSM.setAdapter((ListAdapter) this.bSO);
+        this.cdS = new BdListView(this.mContext);
+        this.cdS.setAlwaysDrawnWithCacheEnabled(false);
+        this.cdS.setDivider(null);
+        this.cdS.setDividerHeight(0);
+        this.cdS.setSelector(17170445);
+        this.cdS.setCacheColorHint(this.mContext.getResources().getColor(17170445));
+        this.cdS.setOnItemClickListener(this.BG);
+        this.cdS.setAdapter((ListAdapter) this.cdU);
     }
 
     @Override // com.baidu.tieba.frs.tab.f
     public void a(Context context, j jVar) {
         if (context != null && jVar != null) {
             this.mContext = context;
-            this.bSN = jVar;
-            this.bSs = jVar.aar();
+            this.cdT = jVar;
+            this.cdy = jVar.afc();
             initView();
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public void setData(List<dy> list) {
-        this.aMv = list;
-        this.bSO.notifyDataSetChanged();
+    public void setData(List<dt> list) {
+        this.aRP = list;
+        this.cdU.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.frs.tab.f
     public View getView() {
-        return this.bSM;
+        return this.cdS;
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public void vm() {
-        this.bSO.notifyDataSetChanged();
+    public void wq() {
+        this.cdU.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public int aao() {
+    public int aeZ() {
         return 0;
     }
 }

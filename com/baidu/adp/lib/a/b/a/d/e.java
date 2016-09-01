@@ -11,37 +11,37 @@ public class e implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Class<?> ci = cVar.ci();
-        if (ci == Byte.class || ci == Byte.TYPE) {
+        Class<?> dd = cVar.dd();
+        if (dd == Byte.class || dd == Byte.TYPE) {
             return Byte.valueOf((byte) this.value);
         }
-        if (ci == Short.class || ci == Short.TYPE) {
+        if (dd == Short.class || dd == Short.TYPE) {
             return Short.valueOf((short) this.value);
         }
-        if (ci == Integer.class || ci == Integer.TYPE) {
+        if (dd == Integer.class || dd == Integer.TYPE) {
             return Integer.valueOf(this.value);
         }
-        if (ci == Long.class || ci == Long.TYPE) {
+        if (dd == Long.class || dd == Long.TYPE) {
             return Long.valueOf(this.value);
         }
-        if (ci == Float.class || ci == Float.TYPE) {
+        if (dd == Float.class || dd == Float.TYPE) {
             return Float.valueOf(this.value);
         }
-        if (ci == Double.class || ci == Double.TYPE) {
+        if (dd == Double.class || dd == Double.TYPE) {
             return Double.valueOf(this.value);
         }
-        if (ci == Character.class || ci == Character.TYPE) {
+        if (dd == Character.class || dd == Character.TYPE) {
             return Character.valueOf(this.value);
         }
-        if (ci == Boolean.class || ci == Boolean.TYPE) {
+        if (dd == Boolean.class || dd == Boolean.TYPE) {
             return Boolean.valueOf(((byte) this.value) == 0);
-        } else if (ci == String.class) {
+        } else if (dd == String.class) {
             return String.valueOf(this.value);
         } else {
-            if (ci == char[].class) {
+            if (dd == char[].class) {
                 return String.valueOf(this.value).toCharArray();
             }
-            if (ci == byte[].class) {
+            if (dd == byte[].class) {
                 try {
                     return com.baidu.adp.lib.util.c.decode(String.valueOf(this.value), 0);
                 } catch (IOException e) {

@@ -7,7 +7,7 @@ public interface d {
 
     d at(String str, int i);
 
-    d bq(String str, String str2);
+    d br(String str, String str2);
 
-    d n(String str, long j);
+    d o(String str, long j);
 }

@@ -1,31 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private String agQ;
-    private long agR;
-    private int agS;
+    private String appId = "";
+    private String ajM = "";
+    private String packageName = "";
+    private boolean ajN = false;
 
-    public String getMd5() {
-        return this.agQ;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.appId = jSONObject.optString("app_id", "");
+            this.ajM = jSONObject.optString("app_name", "");
+            this.packageName = jSONObject.optString("package_name", "");
+        }
     }
 
-    public void setMd5(String str) {
-        this.agQ = str;
+    public String getAppId() {
+        return this.appId;
     }
 
-    public long getTotalLength() {
-        return this.agR;
+    public String getPackageName() {
+        return this.packageName;
     }
 
-    public void K(long j) {
-        this.agR = j;
+    public boolean xB() {
+        return this.ajN;
     }
 
-    public int ww() {
-        return this.agS;
-    }
-
-    public void dk(int i) {
-        this.agS = i;
+    public void aO(boolean z) {
+        this.ajN = z;
     }
 }

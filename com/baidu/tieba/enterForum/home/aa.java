@@ -1,24 +1,21 @@
 package com.baidu.tieba.enterForum.home;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.bi;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
-    final /* synthetic */ y bvS;
-    private final /* synthetic */ String bvU;
+class aa implements View.OnClickListener {
+    final /* synthetic */ z bHg;
+    private final /* synthetic */ View bHh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(y yVar, String str) {
-        this.bvS = yVar;
-        this.bvU = str;
+    public aa(z zVar, View view) {
+        this.bHg = zVar;
+        this.bHh = view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        k kVar;
-        bi us = bi.us();
-        kVar = this.bvS.bvO;
-        us.a(kVar.aNO.getPageContext(), new String[]{this.bvU}, true);
+        if (this.bHh != null) {
+            this.bHh.setVisibility(8);
+        }
     }
 }

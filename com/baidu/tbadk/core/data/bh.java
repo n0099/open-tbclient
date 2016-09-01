@@ -1,40 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import tbclient.PbContent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh {
-    private String title = null;
-    private String title_link = null;
-    private String author = null;
-    private int id = 0;
+public class bh extends com.baidu.tbadk.widget.richText.h {
+    final /* synthetic */ bg UL;
+    private final /* synthetic */ PbContent UM;
 
-    public String getTitle() {
-        return this.title;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bh(bg bgVar, int i, String str, PbContent pbContent) {
+        super(i, str);
+        this.UL = bgVar;
+        this.UM = pbContent;
     }
 
-    public String rE() {
-        return this.title_link;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.title = jSONObject.getString("title");
-            this.title_link = jSONObject.getString("title_link");
-            this.author = jSONObject.getString("author");
-            this.id = jSONObject.getInt("id");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void a(TopNotice topNotice) {
-        if (topNotice != null) {
-            this.title = topNotice.title;
-            this.title_link = topNotice.title_link;
-            this.author = topNotice.author;
-            this.id = topNotice.id.intValue();
+    @Override // com.baidu.tbadk.widget.richText.h, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        if (!TextUtils.isEmpty(this.UM.link)) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c11455").ab("obj_locate", "frs"));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_JUDGE_TO_HOTTOPIC_FROM_FRS, this.UM.link));
         }
     }
 }

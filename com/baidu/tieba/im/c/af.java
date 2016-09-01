@@ -5,8 +5,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.e {
-    private a cZe;
-    private b cZf;
+    private a dkN;
+    private b dkO;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -28,24 +28,24 @@ public class af extends com.baidu.adp.base.e {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.cZe = new a(str, chatMessage);
-        this.cZe.execute(new Object[0]);
+        this.dkN = new a(str, chatMessage);
+        this.dkN.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.cZf = bVar;
+        this.dkO = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String cZg;
-        private ChatMessage cZh;
-        private ac cZi = new ac();
+        private String dkP;
+        private ChatMessage dkQ;
+        private ac dkR = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.cZg = str;
-            this.cZh = chatMessage;
+            this.dkP = str;
+            this.dkQ = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class af extends com.baidu.adp.base.e {
         /* renamed from: u */
         public String doInBackground(Object... objArr) {
             try {
-                return this.cZi.li(this.cZg);
+                return this.dkR.lR(this.dkP);
             } catch (Exception e) {
                 return null;
             }
@@ -63,11 +63,11 @@ public class af extends com.baidu.adp.base.e {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: er */
+        /* renamed from: eu */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (af.this.cZf != null) {
-                af.this.cZf.a(str, this.cZh);
+            if (af.this.dkO != null) {
+                af.this.dkO.a(str, this.dkQ);
             }
         }
     }

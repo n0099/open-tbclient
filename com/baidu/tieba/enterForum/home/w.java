@@ -1,29 +1,24 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ k bvO;
-    private final /* synthetic */ String bvQ;
-    private final /* synthetic */ boolean bvR;
+public class w extends CustomMessageListener {
+    final /* synthetic */ l bHc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(k kVar, String str, boolean z) {
-        this.bvO = kVar;
-        this.bvQ = str;
-        this.bvR = z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(l lVar, int i) {
+        super(i);
+        this.bHc = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        if (!TextUtils.isEmpty(this.bvQ)) {
-            com.baidu.tieba.im.settingcache.h.arv().g(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bvQ), this.bvR);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009503 && this.bHc.bGJ != null) {
+            this.bHc.bGJ.Yo();
         }
-        return null;
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tieba.imMessageCenter.mention;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements Runnable {
-    final /* synthetic */ w dgQ;
+    final /* synthetic */ w dsw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(w wVar) {
-        this.dgQ = wVar;
+        this.dsw = wVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.dgQ.aXi.jA();
+        this.dsw.bdb.kv();
     }
 }

@@ -4,15 +4,15 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements a.b {
-    final /* synthetic */ NewSubPbActivity ejr;
+    final /* synthetic */ NewSubPbActivity evy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NewSubPbActivity newSubPbActivity) {
-        this.ejr = newSubPbActivity;
+        this.evy = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
     }
 }

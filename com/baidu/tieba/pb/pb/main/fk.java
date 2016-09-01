@@ -1,27 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.view.View;
+import android.widget.CompoundButton;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fk implements View.OnClickListener {
-    final /* synthetic */ ew eiu;
+public class fk implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ ex euB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fk(ew ewVar) {
-        this.eiu = ewVar;
+    public fk(ex exVar) {
+        this.euB = exVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        PbActivity pbActivity;
-        dialog = this.eiu.ehc;
-        if (dialog instanceof Dialog) {
-            dialog2 = this.eiu.ehc;
-            pbActivity = this.eiu.eat;
-            com.baidu.adp.lib.h.j.b(dialog2, pbActivity.getPageContext());
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        List list;
+        List<com.baidu.tieba.pb.pb.main.b.a> list2;
+        String str;
+        String str2;
+        if (z) {
+            this.euB.etp = (String) compoundButton.getTag();
+            list = this.euB.esb;
+            if (list != null) {
+                list2 = this.euB.esb;
+                for (com.baidu.tieba.pb.pb.main.b.a aVar : list2) {
+                    String str3 = (String) aVar.getTag();
+                    if (str3 != null) {
+                        str = this.euB.etp;
+                        if (str != null) {
+                            str2 = this.euB.etp;
+                            if (!str3.equals(str2)) {
+                                aVar.setChecked(false);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

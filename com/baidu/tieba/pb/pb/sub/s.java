@@ -1,20 +1,48 @@
 package com.baidu.tieba.pb.pb.sub;
+
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class s extends com.baidu.tbadk.pageStayDuration.b {
-    final /* synthetic */ NewSubPbActivity ejr;
+class s implements com.baidu.adp.lib.f.c<LinearLayout> {
+    final /* synthetic */ NewSubPbActivity evy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NewSubPbActivity newSubPbActivity) {
-        this.ejr = newSubPbActivity;
+        this.evy = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean Em() {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: aNm */
+    public LinearLayout ez() {
+        LinearLayout linearLayout = new LinearLayout(this.evy.getPageContext().getPageActivity());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        linearLayout.setLayoutParams(layoutParams);
+        linearLayout.setGravity(16);
+        linearLayout.setBaselineAligned(true);
+        linearLayout.setOrientation(1);
+        linearLayout.setLayoutParams(layoutParams);
+        return linearLayout;
     }
 
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public int En() {
-        return com.baidu.tbadk.pageStayDuration.e.Es().Eu();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public void o(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: d */
+    public LinearLayout p(LinearLayout linearLayout) {
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: e */
+    public LinearLayout q(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+        return linearLayout;
     }
 }

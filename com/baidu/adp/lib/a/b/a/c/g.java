@@ -8,34 +8,34 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Set<String> iO;
-    private Message iR;
+    private Set<String> ld;
+    private Message lg;
 
     public g(Message message) {
-        this.iR = message;
+        this.lg = message;
         List<Field> m = com.baidu.adp.lib.a.a.a.m(message.getClass());
-        this.iO = new HashSet();
+        this.ld = new HashSet();
         if (m != null && m.size() > 0) {
             for (Field field : m) {
                 if (field != null) {
-                    this.iO.add(field.getName());
+                    this.ld.add(field.getName());
                 }
             }
         }
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> cg() {
-        return this.iO;
+    public Set<String> db() {
+        return this.ld;
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.a.a.a.d(this.iR, str);
+        return com.baidu.adp.lib.a.a.a.d(this.lg, str);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
     public void j(String str, Object obj) {
-        com.baidu.adp.lib.a.a.a.a(this.iR, str, obj);
+        com.baidu.adp.lib.a.a.a.a(this.lg, str, obj);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c

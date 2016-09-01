@@ -1,41 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.CompoundButton;
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fj implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ ew eiu;
+public class fj extends CustomMessageListener {
+    final /* synthetic */ ex euB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fj(ew ewVar) {
-        this.eiu = ewVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fj(ex exVar, int i) {
+        super(i);
+        this.euB = exVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        List list;
-        List<com.baidu.tieba.pb.pb.main.b.a> list2;
-        String str;
-        String str2;
-        if (z) {
-            this.eiu.ehi = (String) compoundButton.getTag();
-            list = this.eiu.efW;
-            if (list != null) {
-                list2 = this.eiu.efW;
-                for (com.baidu.tieba.pb.pb.main.b.a aVar : list2) {
-                    String str3 = (String) aVar.getTag();
-                    if (str3 != null) {
-                        str = this.eiu.ehi;
-                        if (str != null) {
-                            str2 = this.eiu.ehi;
-                            if (!str3.equals(str2)) {
-                                aVar.setChecked(false);
-                            }
-                        }
-                    }
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            this.euB.etA = false;
         }
     }
 }

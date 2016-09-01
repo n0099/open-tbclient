@@ -1,18 +1,18 @@
 package com.baidu.tbadk.widget.richText;
 /* loaded from: classes.dex */
 class t extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbRichTextView aGW;
+    final /* synthetic */ TbRichTextView aKi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(TbRichTextView tbRichTextView) {
-        this.aGW = tbRichTextView;
+        this.aKi = tbRichTextView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.g.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        this.aGW.e(aVar);
+        this.aKi.e(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,7 +23,7 @@ class t extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.g.b
-    public void ah(String str) {
-        super.ah(str);
+    public void ai(String str) {
+        super.ai(str);
     }
 }

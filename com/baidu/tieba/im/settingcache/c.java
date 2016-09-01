@@ -6,26 +6,26 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.util.u;
 /* loaded from: classes.dex */
 public class c extends a {
-    private static c cZn = new c();
+    private static c dkW = new c();
 
     private c() {
     }
 
-    public static c art() {
-        return cZn;
+    public static c awh() {
+        return dkW;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bi */
-    public GroupSettingItemData bg(String str, String str2) {
+    /* renamed from: bj */
+    public GroupSettingItemData bh(String str, String str2) {
         GroupSettingItemData groupSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.cZk) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.cZk.get(str3);
+        synchronized (this.dkT) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.dkT.get(str3);
             groupSettingItemData = aVar instanceof GroupSettingItemData ? (GroupSettingItemData) aVar : null;
         }
         if (groupSettingItemData == null) {
@@ -34,7 +34,7 @@ public class c extends a {
             groupSettingItemData2.setGid(str2);
             groupSettingItemData2.setAcceptNotify(true);
             groupSettingItemData2.setInGroup(true);
-            if (com.baidu.adp.lib.util.k.fG()) {
+            if (com.baidu.adp.lib.util.k.gC()) {
                 a(groupSettingItemData2, null);
                 return groupSettingItemData2;
             }
@@ -44,24 +44,24 @@ public class c extends a {
         return groupSettingItemData;
     }
 
-    public void anp() {
+    public void ase() {
         super.v(GroupSettingItemData.class);
     }
 
     public void b(String str, String str2, boolean z, com.baidu.tbadk.util.g<Void> gVar) {
-        GroupSettingItemData bg = bg(str, str2);
-        if (bg != null) {
-            bg.setAlreadyApply(z);
-            bg.setLastApplyTimeStamp(System.currentTimeMillis());
-            a(bg, gVar);
+        GroupSettingItemData bh = bh(str, str2);
+        if (bh != null) {
+            bh.setAlreadyApply(z);
+            bh.setLastApplyTimeStamp(System.currentTimeMillis());
+            a(bh, gVar);
         }
     }
 
     public void c(String str, String str2, boolean z, com.baidu.tbadk.util.g<Void> gVar) {
-        GroupSettingItemData bg = bg(str, str2);
-        if (bg != null) {
-            bg.setInGroup(z);
-            a(bg, gVar);
+        GroupSettingItemData bh = bh(str, str2);
+        if (bh != null) {
+            bh.setInGroup(z);
+            a(bh, gVar);
         }
     }
 
@@ -71,8 +71,8 @@ public class c extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> ars() {
-        return com.baidu.tbadk.core.b.a.rO().cw("tb.im_group_setting");
+    public o<String> awg() {
+        return com.baidu.tbadk.core.b.a.sT().cy("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -87,13 +87,13 @@ public class c extends a {
                 }
                 return;
             }
-            o<String> ars = ars();
+            o<String> awg = awg();
             String str = String.valueOf(uid) + "@" + gid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.cZk) {
-                this.cZk.put(str, groupSettingItemData);
+            synchronized (this.dkT) {
+                this.dkT.put(str, groupSettingItemData);
             }
-            ars.k(str, jsonStrWithObject);
+            awg.k(str, jsonStrWithObject);
         }
     }
 
@@ -110,8 +110,8 @@ public class c extends a {
                 return;
             }
             String str = String.valueOf(uid) + "@" + gid;
-            synchronized (this.cZk) {
-                this.cZk.put(str, groupSettingItemData);
+            synchronized (this.dkT) {
+                this.dkT.put(str, groupSettingItemData);
             }
             u.b(new e(this, groupSettingItemData, str), gVar);
         }
@@ -120,8 +120,8 @@ public class c extends a {
     public void b(String str, String str2, com.baidu.tbadk.util.g<Void> gVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String str3 = String.valueOf(str) + "@" + str2;
-            synchronized (this.cZk) {
-                this.cZk.remove(str3);
+            synchronized (this.dkT) {
+                this.dkT.remove(str3);
             }
             u.b(new f(this, str3), gVar);
         }

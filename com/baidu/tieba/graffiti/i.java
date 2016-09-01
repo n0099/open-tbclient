@@ -14,8 +14,8 @@ public class i implements com.baidu.adp.lib.f.c<View> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aeY */
-    public View dE() {
+    /* renamed from: ajJ */
+    public View ez() {
         return new e(this.val$context);
     }
 

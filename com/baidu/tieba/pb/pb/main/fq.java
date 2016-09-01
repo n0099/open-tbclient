@@ -1,43 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.u;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class fq implements View.OnClickListener {
-    private final /* synthetic */ String aKw;
-    private final /* synthetic */ MetaData bFU;
-    final /* synthetic */ ew eiu;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.d.a eiz;
+class fq implements Runnable {
+    final /* synthetic */ fp euF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fq(ew ewVar, String str, com.baidu.tbadk.coreExtra.d.a aVar, MetaData metaData) {
-        this.eiu = ewVar;
-        this.aKw = str;
-        this.eiz = aVar;
-        this.bFU = metaData;
+    public fq(fp fpVar) {
+        this.euF = fpVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // java.lang.Runnable
+    public void run() {
+        ex exVar;
         PbActivity pbActivity;
+        ex exVar2;
         PbActivity pbActivity2;
-        PbActivity pbActivity3;
-        if (!com.baidu.adp.lib.util.i.fq()) {
-            pbActivity3 = this.eiu.eat;
-            pbActivity3.showToast(u.j.neterror);
-            return;
-        }
-        pbActivity = this.eiu.eat;
-        if (com.baidu.tbadk.core.util.bn.ab(pbActivity.getApplicationContext())) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10803").ab("tid", this.aKw).s("obj_locate", 3));
-            com.baidu.tbadk.coreExtra.d.a aVar = this.eiz;
-            String portrait = this.bFU.getPortrait();
-            String userId = this.bFU.getUserId();
-            pbActivity2 = this.eiu.eat;
-            aVar.a(true, portrait, userId, true, pbActivity2.getUniqueId());
-        }
+        ex exVar3;
+        RelativeLayout relativeLayout;
+        exVar = this.euF.euB;
+        pbActivity = exVar.emy;
+        exVar2 = this.euF.euB;
+        pbActivity2 = exVar2.emy;
+        exVar3 = this.euF.euB;
+        relativeLayout = exVar3.dXV;
+        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
     }
 }

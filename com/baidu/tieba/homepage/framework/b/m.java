@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.bn;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ e csG;
+    final /* synthetic */ e cDO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(e eVar) {
-        this.csG = eVar;
+        this.cDO = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,13 +20,13 @@ public class m implements View.OnClickListener {
         Context context;
         Context context2;
         Context context3;
-        context = this.csG.mContext;
+        context = this.cDO.mContext;
         if (context != null) {
-            context2 = this.csG.mContext;
+            context2 = this.cDO.mContext;
             TiebaStatic.eventStat(context2, "notlogin_3", "click", 1, new Object[0]);
             TiebaStatic.log(new ay("c10517").ab("obj_source", "forum"));
-            context3 = this.csG.mContext;
-            bn.Z(context3);
+            context3 = this.cDO.mContext;
+            bn.aj(context3);
         }
     }
 }

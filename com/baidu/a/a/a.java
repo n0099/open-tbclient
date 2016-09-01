@@ -13,7 +13,7 @@ public class a extends com.baidu.a.b.a {
     }
 
     public static void a(Activity activity, String[] strArr, int i) {
-        if (com.baidu.a.a.mw()) {
+        if (com.baidu.a.a.nr()) {
             c.a(activity, strArr, i);
         } else if (activity instanceof InterfaceC0000a) {
             a(activity, strArr, i, (InterfaceC0000a) activity);
@@ -21,7 +21,7 @@ public class a extends com.baidu.a.b.a {
     }
 
     public static void a(Activity activity, String[] strArr, int i, InterfaceC0000a interfaceC0000a) {
-        if (com.baidu.a.a.mw()) {
+        if (com.baidu.a.a.nr()) {
             c.a(activity, strArr, i);
         } else if (!activity.isFinishing() && interfaceC0000a != null) {
             new Handler(Looper.getMainLooper()).post(new b(strArr, activity, interfaceC0000a, i));

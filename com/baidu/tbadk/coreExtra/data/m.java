@@ -1,28 +1,34 @@
 package com.baidu.tbadk.coreExtra.data;
-
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m {
-    private String ahs;
-    private ArrayList<Object> aht;
+    private int akp;
+    private int akq;
+    private int akr;
 
-    public m() {
-        m(new ArrayList<>());
+    public int xN() {
+        if (this.akp == 0) {
+            return Integer.MAX_VALUE;
+        }
+        return this.akp;
     }
 
-    public String wG() {
-        return this.ahs;
+    public void eg(String str) {
+        this.akp = com.baidu.adp.lib.h.b.g(str, 0);
+    }
+
+    public int xO() {
+        return this.akq;
     }
 
     public void eh(String str) {
-        this.ahs = str;
+        this.akq = com.baidu.adp.lib.h.b.g(str, 0);
     }
 
-    public ArrayList<Object> wH() {
-        return this.aht;
+    public int xP() {
+        return this.akr;
     }
 
-    public void m(ArrayList<Object> arrayList) {
-        this.aht = arrayList;
+    public void ei(String str) {
+        this.akr = com.baidu.adp.lib.h.b.g(str, 0);
     }
 }

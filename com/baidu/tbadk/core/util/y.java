@@ -49,6 +49,13 @@ public class y {
         return list.remove(i);
     }
 
+    public static <T> boolean b(List<T> list, T t) {
+        if (list == null) {
+            return false;
+        }
+        return list.add(t);
+    }
+
     public static <T> boolean a(List<T> list, int i, T t) {
         if (list == null || i > list.size() || i < 0) {
             return false;

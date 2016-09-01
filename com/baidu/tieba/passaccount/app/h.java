@@ -4,23 +4,23 @@ import com.baidu.sapi2.SapiWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements SapiWebView.OnBackCallback {
-    final /* synthetic */ ForgetPwdActivity dUG;
+    final /* synthetic */ ForgetPwdActivity egM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ForgetPwdActivity forgetPwdActivity) {
-        this.dUG = forgetPwdActivity;
+        this.egM = forgetPwdActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
     public void onBack() {
         SapiWebView sapiWebView;
         SapiWebView sapiWebView2;
-        sapiWebView = this.dUG.dUE;
+        sapiWebView = this.egM.egK;
         if (sapiWebView.canGoBack()) {
-            sapiWebView2 = this.dUG.dUE;
+            sapiWebView2 = this.egM.egK;
             sapiWebView2.goBack();
             return;
         }
-        this.dUG.finish();
+        this.egM.finish();
     }
 }

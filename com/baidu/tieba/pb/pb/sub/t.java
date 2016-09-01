@@ -1,26 +1,20 @@
 package com.baidu.tieba.pb.pb.sub;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements a.b {
-    final /* synthetic */ NewSubPbActivity ejr;
-    private final /* synthetic */ UserMuteAddAndDelCustomMessage ejs;
+class t extends com.baidu.tbadk.pageStayDuration.b {
+    final /* synthetic */ NewSubPbActivity evy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(NewSubPbActivity newSubPbActivity, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-        this.ejr = newSubPbActivity;
-        this.ejs = userMuteAddAndDelCustomMessage;
+    public t(NewSubPbActivity newSubPbActivity) {
+        this.evy = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        af afVar;
-        afVar = this.ejr.ejg;
-        afVar.atw();
-        MessageManager.getInstance().sendMessage(this.ejs);
-        aVar.dismiss();
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean FG() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public int FH() {
+        return com.baidu.tbadk.pageStayDuration.e.FM().FO();
     }
 }

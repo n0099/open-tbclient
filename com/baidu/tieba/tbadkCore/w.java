@@ -1,213 +1,77 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
-public class w {
-    public static void r(List<com.baidu.adp.widget.ListView.v> list, int i) {
-        int i2;
-        boolean z;
-        if (list != null && list.size() != 0) {
-            boolean z2 = MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null;
-            int i3 = 0;
-            while (i3 < list.size()) {
-                if (list.get(i3) instanceof com.baidu.tbadk.core.data.ac) {
-                    if (z2) {
-                        if (!((com.baidu.tbadk.core.data.ac) list.get(i3)).isValid()) {
-                            ((com.baidu.tbadk.core.data.ac) list.get(i3)).pa();
-                        }
-                        if (((com.baidu.tbadk.core.data.ac) list.get(i3)).isValid()) {
-                            ICardInfo pb = ((com.baidu.tbadk.core.data.ac) list.get(i3)).pb();
-                            int viewCount = pb.getViewCount();
-                            ArrayList arrayList = new ArrayList();
-                            for (int i4 = 0; i4 < viewCount; i4++) {
-                                ICardInfo viewItem = pb.getViewItem(i4, i);
-                                if (viewItem != null) {
-                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.c.doX.get(viewItem.getCardType()));
-                                    arrayList.add(viewItem);
-                                }
-                            }
-                            if (arrayList.size() == 0) {
-                                z = true;
-                                i2 = 1;
-                            } else {
-                                list.remove(i3);
-                                list.addAll(i3, arrayList);
-                                i2 = arrayList.size();
-                                z = false;
-                            }
-                        } else {
-                            z = true;
-                            i2 = 1;
-                        }
-                    } else {
-                        z = true;
-                        i2 = 1;
-                    }
-                    if (z) {
-                        list.remove(i3);
-                        i2 = 0;
-                    }
-                } else {
-                    i2 = 1;
-                }
-                i3 = i2 + i3;
+public class w implements com.baidu.tbadk.mvc.b.a {
+    private String ast;
+    private int cgE;
+    private int fqW;
+    private String mId;
+    private String mName;
+    private int mType;
+
+    public w() {
+    }
+
+    public w(int i) {
+        this.mType = i;
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public void eo(int i) {
+        this.fqW = i;
+    }
+
+    public int bii() {
+        return this.fqW;
+    }
+
+    public void setLevel(int i) {
+        this.cgE = i;
+    }
+
+    public int getLevel() {
+        return this.cgE;
+    }
+
+    public String getAvatar() {
+        return this.ast;
+    }
+
+    public void a(LikeForum likeForum) {
+        if (likeForum != null) {
+            a(likeForum, null);
+        }
+    }
+
+    public void a(LikeForum likeForum, Context context) {
+        if (likeForum != null) {
+            try {
+                this.mId = String.valueOf(likeForum.forum_id);
+                this.mName = likeForum.forum_name;
+                this.fqW = likeForum.is_sign.intValue();
+                this.cgE = likeForum.level_id.intValue();
+                this.ast = likeForum.avatar;
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    public static void s(List<Object> list, int i) {
-        int i2;
-        boolean z;
-        if (list != null && list.size() != 0) {
-            boolean z2 = MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null;
-            int i3 = 0;
-            while (i3 < list.size()) {
-                if (list.get(i3) instanceof ICardInfo) {
-                    if (z2) {
-                        ICardInfo iCardInfo = (ICardInfo) list.get(i3);
-                        int viewCount = iCardInfo.getViewCount();
-                        ArrayList arrayList = new ArrayList();
-                        for (int i4 = 0; i4 < viewCount; i4++) {
-                            ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
-                            if (viewItem != null) {
-                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.c.doX.get(viewItem.getCardType()));
-                                arrayList.add(viewItem);
-                            }
-                        }
-                        if (arrayList.size() == 0) {
-                            z = true;
-                            i2 = 1;
-                        } else {
-                            list.remove(i3);
-                            list.addAll(i3, arrayList);
-                            i2 = arrayList.size();
-                            z = false;
-                        }
-                    } else {
-                        z = true;
-                        i2 = 1;
-                    }
-                    if (z) {
-                        list.remove(i3);
-                        i2 = 0;
-                    }
-                } else {
-                    i2 = 1;
-                }
-                i3 = i2 + i3;
-            }
-        }
+    public int getType() {
+        return this.mType;
     }
 
-    public static ArrayList<BdUniqueId> beB() {
-        int size = com.baidu.tieba.lego.card.c.doX.size();
-        ArrayList<BdUniqueId> arrayList = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            arrayList.add(com.baidu.tieba.lego.card.c.doX.valueAt(i));
-        }
-        return arrayList;
-    }
-
-    public static String qd(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject != null) {
-                return jSONObject.optString(LegoListActivityConfig.ITEM_ID);
-            }
-            return "";
-        } catch (JSONException e) {
-            return "";
-        }
-    }
-
-    public static String qe(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject != null) {
-                return jSONObject.optString("stat_time_count");
-            }
-            return "";
-        } catch (JSONException e) {
-            return "";
-        }
-    }
-
-    public static int qf(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 2;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject != null) {
-                int optInt = jSONObject.optInt("page_type");
-                if (optInt > 0) {
-                    return optInt;
-                }
-                return 2;
-            }
-            return 2;
-        } catch (JSONException e) {
-            return 2;
-        }
-    }
-
-    public static int qg(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 30;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject != null) {
-                int optInt = jSONObject.optInt(LegoListActivityConfig.RN);
-                if (optInt > 0) {
-                    return optInt;
-                }
-                return 30;
-            }
-            return 30;
-        } catch (JSONException e) {
-            return 30;
-        }
-    }
-
-    public static int i(TbPageContext tbPageContext, String str) {
-        if (tbPageContext == null || TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        if (!str.startsWith("tieba://deeplink?")) {
-            return !j(tbPageContext, str) ? 0 : 2;
-        }
-        Uri parse = Uri.parse(str);
-        if (com.baidu.tieba.recapp.b.c(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter("jump")))) {
-            return 1;
-        }
-        return !j(tbPageContext, parse.getQueryParameter("wap")) ? 0 : 2;
-    }
-
-    private static boolean j(TbPageContext tbPageContext, String str) {
-        String[] strArr = {str};
-        if (bi.us().dI(str)) {
-            bi.us().a(tbPageContext, strArr, true);
-            return true;
-        }
-        return bi.us().c(tbPageContext, strArr);
+    public void setType(int i) {
+        this.mType = i;
     }
 }

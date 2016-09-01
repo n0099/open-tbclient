@@ -6,20 +6,20 @@ import android.widget.AbsListView;
 import com.baidu.tbadk.editortools.view.b;
 /* loaded from: classes.dex */
 class v implements b.a {
-    final /* synthetic */ u arH;
+    final /* synthetic */ u auO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.arH = uVar;
+        this.auO = uVar;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b.a
     public View getView(int i, View view, ViewGroup viewGroup) {
-        e em;
-        em = this.arH.em(i);
-        if (em.getLayoutParams() == null) {
-            em.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        e eA;
+        eA = this.auO.eA(i);
+        if (eA.getLayoutParams() == null) {
+            eA.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
         }
-        return em;
+        return eA;
     }
 }

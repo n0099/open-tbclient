@@ -5,14 +5,14 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends com.baidu.tbadk.util.t<Boolean> {
-    final /* synthetic */ a cYR;
-    private final /* synthetic */ PersonalChatMessage cYX;
+    final /* synthetic */ a dkA;
+    private final /* synthetic */ PersonalChatMessage dkG;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(a aVar, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
-        this.cYR = aVar;
-        this.cYX = personalChatMessage;
+        this.dkA = aVar;
+        this.dkG = personalChatMessage;
         this.val$list = linkedList;
     }
 
@@ -20,6 +20,6 @@ public class k extends com.baidu.tbadk.util.t<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.t
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.l.anF().a(com.baidu.tieba.im.util.h.p(this.cYX), this.val$list, false));
+        return Boolean.valueOf(com.baidu.tieba.im.db.l.asu().a(com.baidu.tieba.im.util.h.p(this.dkG), this.val$list, false));
     }
 }

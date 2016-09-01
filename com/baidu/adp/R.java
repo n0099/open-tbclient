@@ -10,196 +10,196 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class attr {
-        public static final int adjustViewBounds = 0x7f01001e;
-        public static final int adpFooterDurationTime = 0x7f01002a;
-        public static final int adpFooterNeedRefreshDelta = 0x7f010027;
-        public static final int adpHeaderDurationTime = 0x7f010029;
-        public static final int adpHeaderHeight = 0x7f010028;
-        public static final int adpHeaderNeedRefreshDelta = 0x7f010026;
-        public static final int adpMode = 0x7f010025;
-        public static final int autoHide = 0x7f010034;
-        public static final int background = 0x7f01003c;
-        public static final int beforeExpandHeight = 0x7f010049;
-        public static final int borderColor = 0x7f010017;
-        public static final int borderSurroundContent = 0x7f010018;
-        public static final int borderWidth = 0x7f010016;
-        public static final int border_color = 0x7f010022;
-        public static final int border_width = 0x7f010021;
-        public static final int bottomHeight = 0x7f010040;
-        public static final int bottomOffset = 0x7f01003e;
-        public static final int circle_image = 0x7f01004c;
-        public static final int circle_size = 0x7f01004b;
-        public static final int columnOrientation = 0x7f010041;
-        public static final int corner_radius = 0x7f010020;
-        public static final int count = 0x7f010035;
-        public static final int direction = 0x7f01002b;
-        public static final int drawable = 0x7f010032;
-        public static final int drawerType = 0x7f01001b;
-        public static final int empty_view = 0x7f010030;
-        public static final int expandDistance = 0x7f01004a;
-        public static final int foregroundColor = 0x7f01001f;
-        public static final int gifIcon = 0x7f01001a;
-        public static final int hasBorder = 0x7f010015;
-        public static final int isRound = 0x7f010014;
-        public static final int is_oval = 0x7f010024;
-        public static final int layout_clear = 0x7f010045;
-        public static final int layout_column = 0x7f010044;
-        public static final int leftOffset = 0x7f010036;
-        public static final int leftWidth = 0x7f010038;
-        public static final int maxHeight = 0x7f01001d;
-        public static final int maxWidth = 0x7f01001c;
-        public static final int max_height = 0x7f01002c;
-        public static final int nightBackground = 0x7f010046;
-        public static final int nightSrc = 0x7f010048;
-        public static final int nightTextColor = 0x7f010047;
-        public static final int radius = 0x7f010013;
-        public static final int refresher_content = 0x7f01002f;
-        public static final int refresher_head = 0x7f01002e;
-        public static final int rightOffset = 0x7f010037;
-        public static final int rightWidth = 0x7f010039;
-        public static final int round_background = 0x7f010023;
-        public static final int selector = 0x7f010033;
-        public static final int showGifIcon = 0x7f010019;
-        public static final int spacing = 0x7f010031;
-        public static final int spacingLeft = 0x7f010042;
-        public static final int spacingRight = 0x7f010043;
-        public static final int tapBack = 0x7f01003b;
-        public static final int threshold_height = 0x7f01002d;
-        public static final int topHeight = 0x7f01003f;
-        public static final int topOffset = 0x7f01003d;
-        public static final int track = 0x7f01003a;
+        public static final int adjustViewBounds = 0x7f01000b;
+        public static final int adpFooterDurationTime = 0x7f010017;
+        public static final int adpFooterNeedRefreshDelta = 0x7f010014;
+        public static final int adpHeaderDurationTime = 0x7f010016;
+        public static final int adpHeaderHeight = 0x7f010015;
+        public static final int adpHeaderNeedRefreshDelta = 0x7f010013;
+        public static final int adpMode = 0x7f010012;
+        public static final int autoHide = 0x7f010021;
+        public static final int background = 0x7f010029;
+        public static final int beforeExpandHeight = 0x7f010036;
+        public static final int borderColor = 0x7f010004;
+        public static final int borderSurroundContent = 0x7f010005;
+        public static final int borderWidth = 0x7f010003;
+        public static final int border_color = 0x7f01000f;
+        public static final int border_width = 0x7f01000e;
+        public static final int bottomHeight = 0x7f01002d;
+        public static final int bottomOffset = 0x7f01002b;
+        public static final int circle_image = 0x7f010039;
+        public static final int circle_size = 0x7f010038;
+        public static final int columnOrientation = 0x7f01002e;
+        public static final int corner_radius = 0x7f01000d;
+        public static final int count = 0x7f010022;
+        public static final int direction = 0x7f010018;
+        public static final int drawable = 0x7f01001f;
+        public static final int drawerType = 0x7f010008;
+        public static final int empty_view = 0x7f01001d;
+        public static final int expandDistance = 0x7f010037;
+        public static final int foregroundColor = 0x7f01000c;
+        public static final int gifIcon = 0x7f010007;
+        public static final int hasBorder = 0x7f010002;
+        public static final int isRound = 0x7f010001;
+        public static final int is_oval = 0x7f010011;
+        public static final int layout_clear = 0x7f010032;
+        public static final int layout_column = 0x7f010031;
+        public static final int leftOffset = 0x7f010023;
+        public static final int leftWidth = 0x7f010025;
+        public static final int maxHeight = 0x7f01000a;
+        public static final int maxWidth = 0x7f010009;
+        public static final int max_height = 0x7f010019;
+        public static final int nightBackground = 0x7f010033;
+        public static final int nightSrc = 0x7f010035;
+        public static final int nightTextColor = 0x7f010034;
+        public static final int radius = 0x7f010000;
+        public static final int refresher_content = 0x7f01001c;
+        public static final int refresher_head = 0x7f01001b;
+        public static final int rightOffset = 0x7f010024;
+        public static final int rightWidth = 0x7f010026;
+        public static final int round_background = 0x7f010010;
+        public static final int selector = 0x7f010020;
+        public static final int showGifIcon = 0x7f010006;
+        public static final int spacing = 0x7f01001e;
+        public static final int spacingLeft = 0x7f01002f;
+        public static final int spacingRight = 0x7f010030;
+        public static final int tapBack = 0x7f010028;
+        public static final int threshold_height = 0x7f01001a;
+        public static final int topHeight = 0x7f01002c;
+        public static final int topOffset = 0x7f01002a;
+        public static final int track = 0x7f010027;
     }
 
     /* loaded from: classes.dex */
     public static final class color {
-        public static final int swipe_layout_night_bg = 0x7f0a0026;
-        public static final int swipe_layout_normal_bg = 0x7f0a0025;
-        public static final int transparent = 0x7f0a001b;
+        public static final int swipe_layout_night_bg = 0x7f080001;
+        public static final int swipe_layout_normal_bg = 0x7f080000;
+        public static final int transparent = 0x7f080002;
     }
 
     /* loaded from: classes.dex */
     public static final class dimen {
-        public static final int adp_foot_need_refresh_delta = 0x7f080020;
-        public static final int adp_head_need_refresh_delta = 0x7f08001f;
-        public static final int adp_head_view_height = 0x7f080021;
+        public static final int adp_foot_need_refresh_delta = 0x7f090001;
+        public static final int adp_head_need_refresh_delta = 0x7f090000;
+        public static final int adp_head_view_height = 0x7f090002;
     }
 
     /* loaded from: classes.dex */
     public static final class drawable {
         public static final int adp_down_arrow = 0x7f02000e;
-        public static final int bg_switch_close = 0x7f0202e7;
-        public static final int bg_switch_open = 0x7f0202e8;
-        public static final int btn_handle = 0x7f0204e4;
-        public static final int icon_gif = 0x7f020bb4;
-        public static final int listview_pull_refresh01 = 0x7f02121a;
-        public static final int listview_pull_refresh02 = 0x7f02121c;
+        public static final int bg_switch_close = 0x7f0202da;
+        public static final int bg_switch_open = 0x7f0202db;
+        public static final int btn_handle = 0x7f0204cc;
+        public static final int icon_gif = 0x7f020b6e;
+        public static final int listview_pull_refresh01 = 0x7f0211d4;
+        public static final int listview_pull_refresh02 = 0x7f0211d6;
     }
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int both = 0x7f070003;
-        public static final int common = 0x7f07000f;
-        public static final int disabled = 0x7f070000;
-        public static final int foot_layout_progress = 0x7f07039f;
-        public static final int foot_layout_text = 0x7f07039e;
-        public static final int foot_ly = 0x7f0703a1;
-        public static final int head_layout_left_arrow = 0x7f07039c;
-        public static final int head_layout_left_progressbar = 0x7f07039d;
-        public static final int head_layout_refresh_time = 0x7f07039b;
-        public static final int head_layout_title = 0x7f07039a;
-        public static final int head_ly = 0x7f0703a0;
-        public static final int head_text_container = 0x7f070399;
-        public static final int manualOnly = 0x7f070004;
-        public static final int pullFromEnd = 0x7f070002;
-        public static final int pullFromStart = 0x7f070001;
-        public static final int pull_content = 0x7f071453;
-        public static final int pull_image = 0x7f071452;
-        public static final int pull_root = 0x7f071451;
-        public static final int pull_text = 0x7f071454;
-        public static final int pull_time = 0x7f071455;
-        public static final int shader = 0x7f070010;
+        public static final int both = 0x7f070005;
+        public static final int common = 0x7f070000;
+        public static final int disabled = 0x7f070002;
+        public static final int foot_layout_progress = 0x7f070369;
+        public static final int foot_layout_text = 0x7f070368;
+        public static final int foot_ly = 0x7f07036b;
+        public static final int head_layout_left_arrow = 0x7f070366;
+        public static final int head_layout_left_progressbar = 0x7f070367;
+        public static final int head_layout_refresh_time = 0x7f070365;
+        public static final int head_layout_title = 0x7f070364;
+        public static final int head_ly = 0x7f07036a;
+        public static final int head_text_container = 0x7f070363;
+        public static final int manualOnly = 0x7f070006;
+        public static final int pullFromEnd = 0x7f070004;
+        public static final int pullFromStart = 0x7f070003;
+        public static final int pull_content = 0x7f071382;
+        public static final int pull_image = 0x7f071381;
+        public static final int pull_root = 0x7f071380;
+        public static final int pull_text = 0x7f071383;
+        public static final int pull_time = 0x7f071384;
+        public static final int shader = 0x7f070001;
     }
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int adp_default_header_layout = 0x7f030030;
-        public static final int adp_detault_footer_layout = 0x7f030031;
-        public static final int adp_pull_refresh_scroll_view = 0x7f030032;
-        public static final int pull_view = 0x7f0303a4;
+        public static final int adp_default_header_layout = 0x7f03002b;
+        public static final int adp_detault_footer_layout = 0x7f03002c;
+        public static final int adp_pull_refresh_scroll_view = 0x7f03002d;
+        public static final int pull_view = 0x7f030384;
     }
 
     /* loaded from: classes.dex */
     public static final class string {
-        public static final int FileWriteError = 0x7f090080;
-        public static final int Waiting = 0x7f090070;
-        public static final int adp_label_name = 0x7f090060;
-        public static final int adp_loading = 0x7f09007a;
-        public static final int adp_pull_to_refresh = 0x7f090071;
-        public static final int adp_pull_up_to_get_more = 0x7f090073;
-        public static final int adp_pull_view_date_tip = 0x7f090076;
-        public static final int adp_refreshed = 0x7f090078;
-        public static final int adp_refreshing = 0x7f090072;
-        public static final int adp_release_to_get_more = 0x7f090077;
-        public static final int adp_release_to_refresh = 0x7f090079;
-        public static final int capture_package_swtich = 0x7f090068;
-        public static final int data_too_big = 0x7f09007f;
-        public static final int debug_app_name = 0x7f090061;
-        public static final int debug_close = 0x7f09006c;
-        public static final int debug_opened = 0x7f090069;
-        public static final int dialog_cancel = 0x7f09006b;
-        public static final int dialog_ok = 0x7f09006a;
-        public static final int error_unkown_try_again = 0x7f09007e;
-        public static final int im_error_codec = 0x7f090074;
-        public static final int im_error_default = 0x7f090075;
-        public static final int item_close = 0x7f090067;
-        public static final int item_open = 0x7f090066;
-        public static final int lcsReOnlineSucc = 0x7f090081;
-        public static final int load_res_failed = 0x7f090083;
-        public static final int location_all_offline = 0x7f09009c;
-        public static final int location_gps_offline = 0x7f09009a;
-        public static final int location_net_offline = 0x7f09009b;
-        public static final int location_out_time = 0x7f09009d;
-        public static final int memoryerror = 0x7f09007d;
-        public static final int neterror = 0x7f09007c;
-        public static final int plugin_tip_installing = 0x7f090090;
-        public static final int pluginstatus_btn_restartapp = 0x7f090098;
-        public static final int pluginstatus_click_detail = 0x7f090099;
-        public static final int pluginstatus_resolve_need_restart = 0x7f090094;
-        public static final int pluginstatus_resolve_rom_too_small = 0x7f090092;
-        public static final int pluginstatus_resolve_unknown = 0x7f090096;
-        public static final int pluginstatus_tip_need_restart = 0x7f090093;
-        public static final int pluginstatus_tip_rom_too_small = 0x7f090091;
-        public static final int pluginstatus_tip_timeout_last = 0x7f090097;
-        public static final int pluginstatus_tip_title = 0x7f09008f;
-        public static final int pluginstatus_tip_unknown = 0x7f090095;
-        public static final int prompt = 0x7f09006d;
-        public static final int prompt_close_debug = 0x7f09006e;
-        public static final int prompt_switch = 0x7f09006f;
-        public static final int rom_too_small = 0x7f09008e;
-        public static final int send_error = 0x7f09007b;
-        public static final int share_to = 0x7f090082;
-        public static final int switch_debug = 0x7f090064;
-        public static final int switch_ok = 0x7f090065;
-        public static final int tiebaDebug = 0x7f090063;
-        public static final int title_activity_main = 0x7f090062;
-        public static final int voice_err_create_file_fail = 0x7f090088;
-        public static final int voice_err_file_fail = 0x7f09008b;
-        public static final int voice_err_init_fail = 0x7f09008c;
-        public static final int voice_err_load_lib_fail = 0x7f09008a;
-        public static final int voice_err_no_file = 0x7f090084;
-        public static final int voice_err_other = 0x7f09008d;
-        public static final int voice_err_play = 0x7f090085;
-        public static final int voice_err_sdcard_nospace = 0x7f090089;
-        public static final int voice_record_short_tip = 0x7f090087;
-        public static final int voice_record_timeout_tip = 0x7f090086;
+        public static final int FileWriteError = 0x7f0a0020;
+        public static final int Waiting = 0x7f0a0010;
+        public static final int adp_label_name = 0x7f0a0000;
+        public static final int adp_loading = 0x7f0a001a;
+        public static final int adp_pull_to_refresh = 0x7f0a0011;
+        public static final int adp_pull_up_to_get_more = 0x7f0a0013;
+        public static final int adp_pull_view_date_tip = 0x7f0a0016;
+        public static final int adp_refreshed = 0x7f0a0018;
+        public static final int adp_refreshing = 0x7f0a0012;
+        public static final int adp_release_to_get_more = 0x7f0a0017;
+        public static final int adp_release_to_refresh = 0x7f0a0019;
+        public static final int capture_package_swtich = 0x7f0a0008;
+        public static final int data_too_big = 0x7f0a001f;
+        public static final int debug_app_name = 0x7f0a0001;
+        public static final int debug_close = 0x7f0a000c;
+        public static final int debug_opened = 0x7f0a0009;
+        public static final int dialog_cancel = 0x7f0a000b;
+        public static final int dialog_ok = 0x7f0a000a;
+        public static final int error_unkown_try_again = 0x7f0a001e;
+        public static final int im_error_codec = 0x7f0a0014;
+        public static final int im_error_default = 0x7f0a0015;
+        public static final int item_close = 0x7f0a0007;
+        public static final int item_open = 0x7f0a0006;
+        public static final int lcsReOnlineSucc = 0x7f0a0021;
+        public static final int load_res_failed = 0x7f0a0023;
+        public static final int location_all_offline = 0x7f0a003c;
+        public static final int location_gps_offline = 0x7f0a003a;
+        public static final int location_net_offline = 0x7f0a003b;
+        public static final int location_out_time = 0x7f0a003d;
+        public static final int memoryerror = 0x7f0a001d;
+        public static final int neterror = 0x7f0a001c;
+        public static final int plugin_tip_installing = 0x7f0a0030;
+        public static final int pluginstatus_btn_restartapp = 0x7f0a0038;
+        public static final int pluginstatus_click_detail = 0x7f0a0039;
+        public static final int pluginstatus_resolve_need_restart = 0x7f0a0034;
+        public static final int pluginstatus_resolve_rom_too_small = 0x7f0a0032;
+        public static final int pluginstatus_resolve_unknown = 0x7f0a0036;
+        public static final int pluginstatus_tip_need_restart = 0x7f0a0033;
+        public static final int pluginstatus_tip_rom_too_small = 0x7f0a0031;
+        public static final int pluginstatus_tip_timeout_last = 0x7f0a0037;
+        public static final int pluginstatus_tip_title = 0x7f0a002f;
+        public static final int pluginstatus_tip_unknown = 0x7f0a0035;
+        public static final int prompt = 0x7f0a000d;
+        public static final int prompt_close_debug = 0x7f0a000e;
+        public static final int prompt_switch = 0x7f0a000f;
+        public static final int rom_too_small = 0x7f0a002e;
+        public static final int send_error = 0x7f0a001b;
+        public static final int share_to = 0x7f0a0022;
+        public static final int switch_debug = 0x7f0a0004;
+        public static final int switch_ok = 0x7f0a0005;
+        public static final int tiebaDebug = 0x7f0a0003;
+        public static final int title_activity_main = 0x7f0a0002;
+        public static final int voice_err_create_file_fail = 0x7f0a0028;
+        public static final int voice_err_file_fail = 0x7f0a002b;
+        public static final int voice_err_init_fail = 0x7f0a002c;
+        public static final int voice_err_load_lib_fail = 0x7f0a002a;
+        public static final int voice_err_no_file = 0x7f0a0024;
+        public static final int voice_err_other = 0x7f0a002d;
+        public static final int voice_err_play = 0x7f0a0025;
+        public static final int voice_err_sdcard_nospace = 0x7f0a0029;
+        public static final int voice_record_short_tip = 0x7f0a0027;
+        public static final int voice_record_timeout_tip = 0x7f0a0026;
     }
 
     /* loaded from: classes.dex */
     public static final class style {
-        public static final int AppBaseTheme = 0x7f0b0018;
-        public static final int AppTheme = 0x7f0b0019;
-        public static final int swipeback_activity_style = 0x7f0b001b;
-        public static final int window_translucent = 0x7f0b001a;
+        public static final int AppBaseTheme = 0x7f0b0000;
+        public static final int AppTheme = 0x7f0b0001;
+        public static final int swipeback_activity_style = 0x7f0b0003;
+        public static final int window_translucent = 0x7f0b0002;
     }
 
     /* loaded from: classes.dex */

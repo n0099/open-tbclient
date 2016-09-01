@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.util.y;
 import java.util.List;
 /* loaded from: classes.dex */
 class s implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ ForumHeadVideoView bQU;
+    final /* synthetic */ ForumHeadVideoView ccd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ForumHeadVideoView forumHeadVideoView) {
-        this.bQU = forumHeadVideoView;
+        this.ccd = forumHeadVideoView;
     }
 
     @Override // android.media.MediaPlayer.OnPreparedListener
@@ -22,16 +22,16 @@ class s implements MediaPlayer.OnPreparedListener {
                 e.printStackTrace();
             }
         }
-        list = this.bQU.aMv;
+        list = this.ccd.aRP;
         if (y.s(list) > 1) {
             mediaPlayer.setLooping(false);
         } else {
             mediaPlayer.setLooping(true);
         }
-        e currentVideoItemView = this.bQU.getCurrentVideoItemView();
+        e currentVideoItemView = this.ccd.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
             currentVideoItemView.setVideoPlayState(3);
-            this.bQU.p(currentVideoItemView.getThreadInfo());
+            this.ccd.p(currentVideoItemView.getThreadInfo());
         }
     }
 }

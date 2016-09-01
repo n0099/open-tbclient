@@ -1,26 +1,30 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import com.baidu.tbadk.core.view.TextureVideoView;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements Runnable {
-    final /* synthetic */ a bLV;
+public class j implements TbImageView.a {
+    final /* synthetic */ a bXm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar) {
-        this.bLV = aVar;
+        this.bXm = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TextureVideoView textureVideoView;
-        TextureVideoView textureVideoView2;
-        textureVideoView = this.bLV.aUd;
-        if (textureVideoView != null) {
-            textureVideoView2 = this.bLV.aUd;
-            if (!textureVideoView2.isPlaying()) {
-                this.bLV.e(true, 1);
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void u(String str, boolean z) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        if (z) {
+            tbImageView = this.bXm.aZj;
+            if (tbImageView != null) {
+                tbImageView2 = this.bXm.aZj;
+                tbImageView2.setDefaultBgResource(0);
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

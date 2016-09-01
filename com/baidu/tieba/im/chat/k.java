@@ -5,22 +5,22 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnTouchListener {
-    final /* synthetic */ AbsMsglistView cGO;
-    private final /* synthetic */ MsglistActivity cGP;
+    final /* synthetic */ AbsMsglistView cSu;
+    private final /* synthetic */ MsglistActivity cSv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(AbsMsglistView absMsglistView, MsglistActivity msglistActivity) {
-        this.cGO = absMsglistView;
-        this.cGP = msglistActivity;
+        this.cSu = absMsglistView;
+        this.cSv = msglistActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.adp.lib.util.k.b(this.cGP.getActivity(), this.cGP.getActivity().getCurrentFocus());
-        if (this.cGO.mTool != null) {
-            this.cGO.mTool.zD();
+        com.baidu.adp.lib.util.k.b(this.cSv.getActivity(), this.cSv.getActivity().getCurrentFocus());
+        if (this.cSu.mTool != null) {
+            this.cSu.mTool.AS();
         }
-        this.cGO.MainOnTouch();
+        this.cSu.MainOnTouch();
         return false;
     }
 }

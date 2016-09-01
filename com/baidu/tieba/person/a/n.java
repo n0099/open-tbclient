@@ -1,47 +1,36 @@
 package com.baidu.tieba.person.a;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.person.data.h;
-import com.baidu.tieba.u;
+import android.widget.AdapterView;
+import com.baidu.adp.lib.util.i;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.person.g;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements View.OnClickListener {
-    final /* synthetic */ l eqg;
+public class n implements AdapterView.OnItemClickListener {
+    final /* synthetic */ l eBU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.eqg = lVar;
+        this.eBU = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        String str;
-        String str2;
-        String str3;
-        com.baidu.adp.widget.ListView.w wVar;
-        z = this.eqg.isSelf;
-        if (!z) {
-            str = this.eqg.userId;
-            if (str != null) {
-                if (view.getId() == u.g.bar_head) {
-                    ay s = new ay("c10619").s("obj_type", 1);
-                    str3 = this.eqg.userId;
-                    TiebaStatic.log(s.ab("obj_id", str3));
-                } else if (view.getId() == u.g.bar_none) {
-                    ay s2 = new ay("c10619").s("obj_type", 3);
-                    str2 = this.eqg.userId;
-                    TiebaStatic.log(s2.ab("obj_id", str2));
-                }
-            }
-        } else if (view.getId() == u.g.bar_head) {
-            TiebaStatic.log(new ay("c10593").s("obj_type", 1));
-        } else if (view.getId() == u.g.bar_none) {
-            TiebaStatic.log(new ay("c10593").s("obj_type", 3));
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        h hVar;
+        TbPageContext tbPageContext;
+        if (!i.fZ()) {
+            tbPageContext = this.eBU.bKX;
+            tbPageContext.showToast(t.j.neterror);
+            return;
         }
-        wVar = this.eqg.eqf;
-        wVar.a(view, null, h.esb, null, 0, view.getId());
+        hVar = this.eBU.eBT;
+        g.a item = hVar.getItem(i);
+        if (item == null) {
+            return;
+        }
+        this.eBU.pq(item.eBA);
+        this.eBU.a(item);
     }
 }

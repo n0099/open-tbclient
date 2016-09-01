@@ -4,126 +4,74 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.be;
-import com.baidu.tbadk.core.view.TextureVideoView;
-import com.baidu.tieba.card.bx;
-import com.baidu.tieba.frs.entelechy.view.aw;
-import com.baidu.tieba.frs.entelechy.view.n;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.frs.entelechy.view.az;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.widget.ListView.a<be, a> implements aw, com.baidu.tieba.frs.h.e {
-    private TbPageContext<?> EA;
-    private bx<be> bKK;
-    private n bLo;
-    private String forumName;
+public class z extends com.baidu.adp.widget.ListView.a<bg, a> implements az, com.baidu.tieba.frs.g.e {
+    private TbPageContext<?> GM;
+    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> bUs;
+    private com.baidu.adp.lib.f.b<TbImageView> bUt;
+    private int bVX;
+    private com.baidu.tieba.frs.entelechy.view.x bWB;
+    private cf<bg> bWv;
+    private String mForumName;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public z(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bKK = new aa(this);
-        this.EA = tbPageContext;
+        this.bVX = 0;
+        this.bWv = new aa(this);
+        this.bUs = new com.baidu.adp.lib.f.b<>(new ab(this), 6, 0);
+        this.bUt = new com.baidu.adp.lib.f.b<>(new ac(this), 12, 0);
+        this.GM = tbPageContext;
+        this.bVX = com.baidu.adp.lib.util.k.e(this.GM.getPageActivity(), t.e.ds14);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: G */
+    /* renamed from: E */
     public a a(ViewGroup viewGroup) {
-        this.bLo = new n(this.EA);
-        this.bLo.j(this.EA.getUniqueId());
-        this.bLo.setForumName(this.forumName);
-        return new a(this.bLo);
-    }
-
-    private TextureVideoView.c h(be beVar) {
-        if (beVar == null) {
-            return null;
-        }
-        TextureVideoView.c cVar = new TextureVideoView.c();
-        cVar.mLocate = beVar.rp() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
-        cVar.aeq = bSh.bRZ;
-        cVar.aep = beVar.getTid();
-        return cVar;
+        this.bWB = new com.baidu.tieba.frs.entelechy.view.x(this.GM);
+        this.bWB.setConstrainLayoutPool(this.bUs);
+        this.bWB.setConstrainImagePool(this.bUt);
+        this.bWB.j(this.GM.getUniqueId());
+        return new a(this.bWB);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, be beVar, a aVar) {
-        aVar.bLq.setVideoStatsData(h(beVar));
-        aVar.bLq.i(beVar);
-        aVar.bLq.a(this.bKK);
-        com.baidu.tieba.frs.h.b.aam().a(bSh, beVar);
+    public View a(int i, View view, ViewGroup viewGroup, bg bgVar, a aVar) {
+        aVar.bWD.onBindDataToView(bgVar);
+        aVar.bWD.setForumName(this.mForumName);
+        aVar.bWD.setOnSubCardOnClickListenner(this.bWv);
+        com.baidu.tieba.frs.g.b.aeX().a(cdn, bgVar);
         return aVar.getView();
     }
 
-    @Override // com.baidu.tieba.frs.entelechy.view.aw
-    public void setForumName(String str) {
-        this.forumName = str;
+    public void setFromCDN(boolean z) {
+        if (this.bWB != null) {
+            this.bWB.setFromCDN(z);
+        }
     }
 
+    @Override // com.baidu.tieba.frs.entelechy.view.az
+    public void setForumName(String str) {
+        this.mForumName = str;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class a extends y.a implements com.baidu.tieba.play.d {
-        public n bLq;
+    public class a extends y.a {
+        public com.baidu.tieba.frs.entelechy.view.x bWD;
 
-        public a(n nVar) {
-            super(nVar.getView());
-            this.bLq = nVar;
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public boolean IA() {
-            if (this.bLq == null) {
-                return false;
-            }
-            return this.bLq.IA();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public boolean isPlaying() {
-            if (this.bLq == null) {
-                return false;
-            }
-            return this.bLq.isPlaying();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public void Iz() {
-            if (this.bLq != null) {
-                this.bLq.Iz();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public void stopPlay() {
-            if (this.bLq != null) {
-                this.bLq.stopPlay();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public View getVideoContainer() {
-            if (this.bLq == null) {
-                return null;
-            }
-            return this.bLq.getVideoContainer();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public String getPlayUrl() {
-            if (this.bLq == null) {
-                return null;
-            }
-            return this.bLq.getPlayUrl();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public int getCurrentPosition() {
-            if (this.bLq == null) {
-                return 0;
-            }
-            return this.bLq.getCurrentPosition();
+        public a(com.baidu.tieba.frs.entelechy.view.x xVar) {
+            super(xVar.getView());
+            this.bWD = xVar;
         }
     }
 }

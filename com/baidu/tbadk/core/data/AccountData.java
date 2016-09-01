@@ -24,6 +24,7 @@ public class AccountData implements Serializable {
     private String mPassword = null;
     private String BDUSS = null;
     private String mTbs = null;
+    private String mStoken = null;
     private int mIsActive = 0;
     private long mTime = 0;
     private int mPersonalGid = 0;
@@ -34,6 +35,14 @@ public class AccountData implements Serializable {
 
     public void setID(String str) {
         this.mID = str;
+    }
+
+    public void setStoken(String str) {
+        this.mStoken = str;
+    }
+
+    public String getStoken() {
+        return this.mStoken;
     }
 
     public String getAccount() {

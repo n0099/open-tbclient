@@ -3,31 +3,31 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class ad implements com.baidu.adp.lib.network.http.i {
-    int XB = 0;
-    int XC = 0;
-    int XD = 0;
-    final /* synthetic */ ac XE;
-    private final /* synthetic */ Handler XF;
-    private final /* synthetic */ int XG;
+    int aap = 0;
+    int aaq = 0;
+    int aar = 0;
+    final /* synthetic */ ac aas;
+    private final /* synthetic */ Handler aat;
+    private final /* synthetic */ int aau;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ac acVar, Handler handler, int i) {
-        this.XE = acVar;
-        this.XF = handler;
-        this.XG = i;
+        this.aas = acVar;
+        this.aat = handler;
+        this.aau = i;
     }
 
     @Override // com.baidu.adp.lib.network.http.i
-    public void d(int i, int i2) {
+    public void f(int i, int i2) {
         if (i2 > 0) {
-            this.XB = i2 / 50;
+            this.aap = i2 / 50;
         }
-        this.XC += i - this.XD;
-        this.XD = i;
-        if (this.XF != null) {
-            if (this.XC > this.XB || i == i2) {
-                this.XC = 0;
-                this.XF.sendMessage(this.XF.obtainMessage(this.XG, i, i2));
+        this.aaq += i - this.aar;
+        this.aar = i;
+        if (this.aat != null) {
+            if (this.aaq > this.aap || i == i2) {
+                this.aaq = 0;
+                this.aat.sendMessage(this.aat.obtainMessage(this.aau, i, i2));
             }
         }
     }

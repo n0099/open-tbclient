@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import java.io.Serializable;
+import tbclient.Voice;
 /* loaded from: classes.dex */
 public class VoiceData {
 
@@ -24,6 +25,14 @@ public class VoiceData {
             this.voice_status = 1;
             this.elapse = 0;
             this.isLocal = false;
+        }
+
+        public void parserProtobuf(Voice voice) {
+            if (voice != null) {
+                init();
+                this.duration = voice.during_time.intValue() / 1000;
+                this.voiceId = voice.voice_md5;
+            }
         }
     }
 }

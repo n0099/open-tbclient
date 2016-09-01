@@ -4,16 +4,16 @@ import android.util.DisplayMetrics;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class b {
-    private static b aBA;
+    private static b aEH;
 
-    public static b Fx() {
-        if (aBA == null) {
-            aBA = new b();
+    public static b GR() {
+        if (aEH == null) {
+            aEH = new b();
         }
-        return aBA;
+        return aEH;
     }
 
-    public String gj(String str) {
+    public String gm(String str) {
         String str2;
         new DisplayMetrics();
         if (BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi <= 240) {

@@ -4,23 +4,23 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tieba.frs.ce;
-import com.baidu.tieba.frs.cy;
-import com.baidu.tieba.u;
+import com.baidu.tieba.frs.ca;
+import com.baidu.tieba.frs.cu;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class e extends y.a {
-    public TextView bRj;
-    public LinearLayout bRk;
-    public TextView bRl;
-    public View bRm;
-    public ce bRn;
-    public cy bRo;
+    public cu ccA;
+    public TextView ccv;
+    public LinearLayout ccw;
+    public TextView ccx;
+    public View ccy;
+    public ca ccz;
 
     public e(View view) {
         super(view);
-        this.bRj = (TextView) view.findViewById(u.g.storecard_title);
-        this.bRk = (LinearLayout) view.findViewById(u.g.storecard_middle_layout);
-        this.bRl = (TextView) view.findViewById(u.g.storecard_all_list);
-        this.bRm = view.findViewById(u.g.storecard_close_click);
+        this.ccv = (TextView) view.findViewById(t.g.storecard_title);
+        this.ccw = (LinearLayout) view.findViewById(t.g.storecard_middle_layout);
+        this.ccx = (TextView) view.findViewById(t.g.storecard_all_list);
+        this.ccy = view.findViewById(t.g.storecard_close_click);
     }
 }

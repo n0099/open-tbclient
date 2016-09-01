@@ -1,87 +1,36 @@
 package com.baidu.tieba.frs;
 
-import android.content.res.Resources;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.adp.widget.ListView.y.a;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.d.a;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public abstract class bj<T, V extends y.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int bFC;
-    protected static final int bFD;
-    protected static final int bFE;
-    protected int bDE;
-    protected com.baidu.tieba.tbadkCore.p bDM;
-    protected ba bFF;
-    protected ListView bFG;
-    protected bi bFH;
-    protected BaseActivity<?> bem;
-    protected boolean mIsFromCDN;
-    protected int mSkinType;
+class bj implements View.OnClickListener {
+    private final /* synthetic */ MetaData bRc;
+    private final /* synthetic */ BaseActivity bRe;
+    private final /* synthetic */ com.baidu.tbadk.core.data.bg bRf;
+    private final /* synthetic */ boolean bRg;
+    private final /* synthetic */ BdUniqueId bRh;
 
-    static {
-        Resources resources = TbadkCoreApplication.m10getInst().getContext().getResources();
-        bFC = resources.getDimensionPixelSize(u.e.ds8);
-        bFD = resources.getDimensionPixelSize(u.e.ds16);
-        bFE = resources.getDimensionPixelSize(u.e.ds1);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bj(BaseActivity baseActivity, com.baidu.tbadk.core.data.bg bgVar, MetaData metaData, boolean z, BdUniqueId bdUniqueId) {
+        this.bRe = baseActivity;
+        this.bRf = bgVar;
+        this.bRc = metaData;
+        this.bRg = z;
+        this.bRh = bdUniqueId;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bj(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity == null ? null : baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mIsFromCDN = false;
-        e(baseActivity);
-    }
-
-    public void e(BaseActivity<?> baseActivity) {
-        if (baseActivity != null) {
-            this.mContext = baseActivity.getActivity();
-            this.bem = baseActivity;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!com.baidu.adp.lib.util.i.gm()) {
+            this.bRe.showToast(t.j.neterror);
+        } else if (com.baidu.tbadk.core.util.bn.al(this.bRe.getApplicationContext())) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10803").ab("tid", this.bRf.getTid()).s("obj_locate", 2));
+            new a(null).a(true, this.bRc.getPortrait(), this.bRc.getUserId(), this.bRg, this.bRh);
         }
-    }
-
-    public void release() {
-        this.mContext = null;
-        this.bem = null;
-        this.bFF = null;
-        this.yE = null;
-        this.yF = null;
-        if (this.bFH != null) {
-            this.bFH.destory();
-            this.bFH = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.m10getInst().getSkinType();
-        this.bFG = (ListView) viewGroup;
-        return null;
-    }
-
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
-    }
-
-    public void a(com.baidu.tieba.tbadkCore.p pVar) {
-        this.bDM = pVar;
-    }
-
-    public void a(ba baVar) {
-        this.bFF = baVar;
-    }
-
-    public void hn(int i) {
-        this.bDE = i;
-    }
-
-    public void a(bi biVar) {
-        this.bFH = biVar;
     }
 }

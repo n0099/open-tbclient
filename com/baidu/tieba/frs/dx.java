@@ -1,38 +1,82 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.u;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.widget.vote.a;
+import com.baidu.tieba.t;
+import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class dx implements BdSwitchView.a {
-    final /* synthetic */ dw bJb;
+public class dx implements a {
+    private int bUk = -1;
+    private String bUl = null;
+    private int mPercent = 0;
+    private boolean bUm = false;
+    private int[] bUn = {t.f.icon_grade_vote_num1, t.f.icon_grade_vote_num2, t.f.icon_grade_vote_num3};
+    private int[] bUo = {t.f.icon_grade_vote_no1, t.f.icon_grade_vote_no2, t.f.icon_grade_vote_no3};
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dx(dw dwVar) {
-        this.bJb = dwVar;
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Cj() {
+        return this.bUk;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        com.baidu.adp.base.h hVar;
-        com.baidu.adp.base.h hVar2;
-        com.baidu.adp.base.h hVar3;
-        com.baidu.adp.base.h hVar4;
-        if (switchState == BdSwitchView.SwitchState.ON) {
-            hVar3 = this.bJb.mContext;
-            StringBuilder sb = new StringBuilder(String.valueOf(hVar3.getString(u.j.image_show_setting)));
-            hVar4 = this.bJb.mContext;
-            view.setContentDescription(sb.append(hVar4.getString(u.j.now_state_on)).toString());
-            com.baidu.tbadk.core.l.nL().bq(0);
-            com.baidu.tbadk.core.l.nL().ag(true);
-        } else {
-            hVar = this.bJb.mContext;
-            StringBuilder sb2 = new StringBuilder(String.valueOf(hVar.getString(u.j.image_show_setting)));
-            hVar2 = this.bJb.mContext;
-            view.setContentDescription(sb2.append(hVar2.getString(u.j.now_state_off)).toString());
-            com.baidu.tbadk.core.l.nL().ag(false);
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Cg() {
+        return this.bUl;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Ch() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Ck() {
+        return this.mPercent;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Ci() {
+        return String.valueOf(this.mPercent) + "%";
+    }
+
+    public void dS(boolean z) {
+        this.bUm = z;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public boolean isSelected() {
+        return true;
+    }
+
+    public void a(int i, PollOption pollOption, long j) {
+        int[] iArr = this.bUm ? this.bUn : this.bUo;
+        switch (i) {
+            case 1:
+                this.bUk = iArr[0];
+                break;
+            case 2:
+                this.bUk = iArr[1];
+                break;
+            case 3:
+                this.bUk = iArr[2];
+                break;
+            default:
+                this.bUk = -1;
+                break;
         }
-        this.bJb.bIY = true;
+        this.bUl = pollOption.text;
+        if (j > 0) {
+            this.mPercent = (int) ((pollOption.num.longValue() * 100) / j);
+        } else {
+            this.mPercent = 0;
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Cl() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int getId() {
+        return 0;
     }
 }

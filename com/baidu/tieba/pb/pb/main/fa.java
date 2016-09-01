@@ -1,41 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
-import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fa implements Animation.AnimationListener {
-    final /* synthetic */ ew eiu;
-    private final /* synthetic */ View eiw;
+public class fa implements Runnable {
+    final /* synthetic */ ex euB;
+    private final /* synthetic */ boolean euC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fa(ew ewVar, View view) {
-        this.eiu = ewVar;
-        this.eiw = view;
+    public fa(ex exVar, boolean z) {
+        this.euB = exVar;
+        this.euC = z;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.eiu.efS.setTitleVisibility(false);
-        this.eiw.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ObservedChangeLinearLayout observedChangeLinearLayout;
-        PbActivity pbActivity;
-        observedChangeLinearLayout = this.eiu.egH;
-        observedChangeLinearLayout.setVisibility(8);
-        this.eiu.efS.setTitleVisibility(true);
-        this.eiw.setVisibility(8);
-        this.eiu.hX(true);
-        this.eiu.aKY();
-        pbActivity = this.eiu.eat;
-        pbActivity.hD(false);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // java.lang.Runnable
+    public void run() {
+        BdTypeListView bdTypeListView;
+        bdTypeListView = this.euB.bBT;
+        bdTypeListView.setEnabled(this.euC);
     }
 }

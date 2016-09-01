@@ -4,29 +4,29 @@ import android.location.Address;
 import com.baidu.adp.lib.e.a;
 /* loaded from: classes.dex */
 class h implements a.InterfaceC0005a {
-    final /* synthetic */ UpdateInfoService eVl;
+    final /* synthetic */ UpdateInfoService fdw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(UpdateInfoService updateInfoService) {
-        this.eVl = updateInfoService;
+        this.fdw = updateInfoService;
     }
 
     @Override // com.baidu.adp.lib.e.a.InterfaceC0005a
     public void b(int i, String str, Address address) {
-        com.baidu.tieba.model.c cVar;
-        com.baidu.tieba.model.c cVar2;
-        com.baidu.tieba.model.c cVar3;
+        com.baidu.tieba.model.e eVar;
+        com.baidu.tieba.model.e eVar2;
+        com.baidu.tieba.model.e eVar3;
         switch (i) {
             case 0:
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    cVar = this.eVl.mModel;
-                    if (cVar.aCQ()) {
-                        cVar2 = this.eVl.mModel;
-                        cVar2.b(1, longitude, latitude);
-                        cVar3 = this.eVl.mModel;
-                        cVar3.aCR();
+                    eVar = this.fdw.mModel;
+                    if (eVar.aHE()) {
+                        eVar2 = this.fdw.mModel;
+                        eVar2.b(1, longitude, latitude);
+                        eVar3 = this.fdw.mModel;
+                        eVar3.aHF();
                         return;
                     }
                     return;

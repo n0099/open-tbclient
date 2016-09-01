@@ -1,15 +1,15 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.s;
+import com.baidu.tieba.tbadkCore.data.q;
 import tbclient.PbPage.GodCard;
 /* loaded from: classes.dex */
-public class c extends s {
-    public static final BdUniqueId dXK = BdUniqueId.gen();
-    private String FG;
-    private String dXL;
-    private String dXM;
-    private int dXN;
+public class c extends q {
+    public static final BdUniqueId ejP = BdUniqueId.gen();
+    private String HT;
+    private String Pz;
+    private String ejQ;
+    private int ejR;
     private String picUrl;
     private String portrait;
     private String text;
@@ -19,12 +19,12 @@ public class c extends s {
         if (godCard != null) {
             this.userName = godCard.user_name;
             this.portrait = godCard.portrait;
-            this.dXL = godCard.time_ex;
+            this.ejQ = godCard.time_ex;
             this.text = godCard.text;
             this.picUrl = godCard.pic_url;
-            this.FG = godCard.button_text;
-            this.dXM = godCard.button_url;
-            this.dXN = godCard.show_floor.intValue();
+            this.HT = godCard.button_text;
+            this.Pz = godCard.button_url;
+            this.ejR = godCard.show_floor.intValue();
         }
     }
 
@@ -36,9 +36,9 @@ public class c extends s {
         return this.portrait;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.s
-    public String aGL() {
-        return this.dXL;
+    @Override // com.baidu.tieba.tbadkCore.data.q
+    public String aLD() {
+        return this.ejQ;
     }
 
     public String getText() {
@@ -49,20 +49,20 @@ public class c extends s {
         return this.picUrl;
     }
 
-    public String aGM() {
-        return this.FG;
+    public String aLE() {
+        return this.HT;
     }
 
-    public String aGN() {
-        return this.dXM;
+    public String aLF() {
+        return this.Pz;
     }
 
-    public int aGO() {
-        return this.dXN;
+    public int aLG() {
+        return this.ejR;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dXK;
+        return ejP;
     }
 }

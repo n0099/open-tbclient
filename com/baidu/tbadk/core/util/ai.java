@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ai {
-    private static ai XW;
-    private static final BdUniqueId XX = BdUniqueId.gen();
+    private static ai aaK;
+    private static final BdUniqueId aaL = BdUniqueId.gen();
 
-    public static synchronized ai tK() {
+    public static synchronized ai uQ() {
         ai aiVar;
         synchronized (ai.class) {
-            if (XW == null) {
-                XW = new ai();
+            if (aaK == null) {
+                aaK = new ai();
             }
-            aiVar = XW;
+            aiVar = aaK;
         }
         return aiVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String XY;
-        private final boolean XZ;
-        private final boolean Ya;
-        private final boolean Yb;
+        private final String aaM;
+        private final boolean aaN;
+        private final boolean aaO;
+        private final boolean aaP;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.XY = str2;
-            this.XZ = z;
-            this.Ya = z2;
-            this.Yb = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ai.XX));
+            this.aaM = str2;
+            this.aaN = z;
+            this.aaO = z2;
+            this.aaP = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ai.aaL));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class ai {
         /* renamed from: i */
         public String doInBackground(String... strArr) {
             try {
-                ai.this.b(this.imageUrl, this.XY, this.XZ, this.Ya, this.Yb);
+                ai.this.b(this.imageUrl, this.aaM, this.aaN, this.aaO, this.aaP);
             } catch (Throwable th) {
                 TiebaStatic.imgError(TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
             }
@@ -54,17 +54,17 @@ public class ai {
 
     public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String dA = bc.dA(str);
-            az.tX().ac(str2, dA);
+            String dC = bc.dC(str);
+            az.vd().ac(str2, dC);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int dx = az.tX().dx(dA);
-                    if (dx > 0) {
+                    int dA = az.vd().dA(dC);
+                    if (dA > 0) {
                         if (z) {
-                            Bitmap dv = az.tX().dv(dA);
-                            com.baidu.tbadk.imageManager.c.CP().eD(dx);
-                            if (dv != null) {
-                                a(str, dv, z2, az.tX().dw(dA), z3, dA);
+                            Bitmap dy = az.vd().dy(dC);
+                            com.baidu.tbadk.imageManager.c.Ek().eR(dA);
+                            if (dy != null) {
+                                a(str, dy, z2, az.vd().dz(dC), z3, dC);
                             }
                         }
                     }
@@ -77,7 +77,7 @@ public class ai {
         new a(str2, str2, z3, z3, z3).execute(new String[0]);
     }
 
-    public Bitmap f(Bitmap bitmap) {
+    public Bitmap g(Bitmap bitmap) {
         return a(bitmap, true);
     }
 
@@ -105,20 +105,20 @@ public class ai {
     }
 
     private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.CP().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.Ek().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
         Bitmap bitmap2;
-        Bitmap f = z2 ? f(bitmap) : bitmap;
-        if (!z || f == null) {
-            bitmap2 = f;
+        Bitmap g = z2 ? g(bitmap) : bitmap;
+        if (!z || g == null) {
+            bitmap2 = g;
         } else {
-            float f2 = 10.0f;
-            bitmap2 = BitmapHelper.getRoundedCornerBitmap(f, (f.getHeight() < 100 || f.getWidth() < 100) ? 5.0f : 5.0f, true);
+            float f = 10.0f;
+            bitmap2 = BitmapHelper.getRoundedCornerBitmap(g, (g.getHeight() < 100 || g.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            az.tX().h(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
+            az.vd().h(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
         }
         return bitmap2;
     }
@@ -140,7 +140,7 @@ public class ai {
         int i4;
         int i5;
         int i6 = 70;
-        int tu = LocalViewSize.tq().tu();
+        int uA = LocalViewSize.uw().uA();
         if (z) {
             if (i / i2 >= 3) {
                 z2 = true;
@@ -151,21 +151,21 @@ public class ai {
                 z2 = true;
                 i3 = i2;
             }
-            if (i4 <= i3 && i4 > tu) {
-                i3 = (int) (i3 / (i4 / tu));
-            } else if (i3 > i4 || i3 <= tu) {
-                tu = i4;
+            if (i4 <= i3 && i4 > uA) {
+                i3 = (int) (i3 / (i4 / uA));
+            } else if (i3 > i4 || i3 <= uA) {
+                uA = i4;
             } else {
-                tu = (int) (i4 / (i3 / tu));
-                i3 = tu;
+                uA = (int) (i4 / (i3 / uA));
+                i3 = uA;
             }
-            if (z2 && i <= tu && i2 <= i3) {
-                tu = (int) (tu * 0.9d);
+            if (z2 && i <= uA && i2 <= i3) {
+                uA = (int) (uA * 0.9d);
                 i3 = (int) (i3 * 0.9d);
             }
-            if (tu < 70 || i3 >= 70) {
+            if (uA < 70 || i3 >= 70) {
                 i6 = i3;
-                i5 = tu;
+                i5 = uA;
             } else {
                 i5 = 70;
             }
@@ -178,15 +178,15 @@ public class ai {
         }
         if (i3 > i4) {
         }
-        tu = i4;
+        uA = i4;
         if (z2) {
-            tu = (int) (tu * 0.9d);
+            uA = (int) (uA * 0.9d);
             i3 = (int) (i3 * 0.9d);
         }
-        if (tu < 70) {
+        if (uA < 70) {
         }
         i6 = i3;
-        i5 = tu;
+        i5 = uA;
         return new com.baidu.tbadk.core.util.b.a(i5, i6, z2);
     }
 }

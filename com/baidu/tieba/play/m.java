@@ -1,67 +1,73 @@
 package com.baidu.tieba.play;
 
-import android.os.Handler;
-import android.widget.MediaController;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import com.baidu.tieba.play.j;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class m implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ j ePx;
+public class m {
+    private static e eWE = aZW();
+    private static boolean eWF = true;
+    private static boolean eWG = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
-        this.ePx = jVar;
+    private static e aZW() {
+        eWF = com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("prefs_save_paled_video", true);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, e.class);
+        if (runTask != null) {
+            return (e) runTask.getData();
+        }
+        return null;
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        Handler handler;
-        Handler handler2;
-        this.ePx.cGb = true;
-        handler = this.ePx.mHandler;
-        handler.removeMessages(1);
-        handler2 = this.ePx.ePw;
-        handler2.removeMessages(2);
+    public static String gZ(String str) {
+        if (eWG && eWF && eWE != null) {
+            return eWE.gZ(str);
+        }
+        return str;
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        TextView textView;
-        j.a aVar;
-        j.a aVar2;
-        TextView textView2;
-        String kr;
-        if (z) {
-            mediaPlayerControl = this.ePx.cFY;
-            long duration = (mediaPlayerControl.getDuration() * i) / 10000;
-            mediaPlayerControl2 = this.ePx.cFY;
-            mediaPlayerControl2.seekTo((int) duration);
-            textView = this.ePx.cFZ;
-            if (textView != null) {
-                textView2 = this.ePx.cFZ;
-                kr = this.ePx.kr((int) duration);
-                textView2.setText(kr);
-            }
-            aVar = this.ePx.aLf;
-            if (aVar != null) {
-                aVar2 = this.ePx.aLf;
-                aVar2.II();
-            }
+    public static String ha(String str) {
+        if (eWE != null) {
+            return eWE.ha(str);
+        }
+        return null;
+    }
+
+    public static void G(Context context, String str) {
+        if (eWE != null) {
+            eWE.G(context, str);
         }
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        Handler handler;
-        Handler handler2;
-        this.ePx.cGb = false;
-        this.ePx.akt();
-        handler = this.ePx.mHandler;
-        handler.sendEmptyMessage(1);
-        handler2 = this.ePx.ePw;
-        handler2.sendEmptyMessage(2);
+    public static void H(Context context, String str) {
+        if (eWG && eWF && eWE != null) {
+            eWE.H(context, str);
+        }
+    }
+
+    public static void hb(String str) {
+        if (eWG && eWF && eWE != null) {
+            eWE.hb(str);
+        }
+    }
+
+    public static void ax(Context context) {
+        if (eWE != null) {
+            eWE.ax(context);
+        }
+    }
+
+    public static void aw(Context context) {
+        if (eWE != null) {
+            eWE.aw(context);
+        }
+    }
+
+    public static void jV(boolean z) {
+        eWF = z;
+    }
+
+    public static void aZX() {
+        eWG = com.baidu.adp.lib.c.e.dN().ac("android_video_cache_open") == 1;
     }
 }

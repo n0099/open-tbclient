@@ -2,29 +2,29 @@ package com.baidu.tieba.account;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class r implements TextWatcher {
-    final /* synthetic */ ActivationActivity aMX;
+    final /* synthetic */ ActivationActivity aSr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ActivationActivity activationActivity) {
-        this.aMX = activationActivity;
+        this.aSr = activationActivity;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         int i;
         if (editable.length() == 6) {
-            this.aMX.aMJ.setEnabled(true);
+            this.aSr.aSd.setEnabled(true);
         } else {
-            this.aMX.aMJ.setEnabled(false);
+            this.aSr.aSd.setEnabled(false);
         }
-        i = this.aMX.aMU;
+        i = this.aSr.aSo;
         if (i != 0) {
-            this.aMX.aMU = 0;
-            this.aMX.aMD.setBackgroundResource(u.f.pass_input);
-            this.aMX.aMD.setPadding(this.aMX.aMS, 0, this.aMX.aMT, 0);
+            this.aSr.aSo = 0;
+            this.aSr.aRX.setBackgroundResource(t.f.pass_input);
+            this.aSr.aRX.setPadding(this.aSr.aSm, 0, this.aSr.aSn, 0);
         }
     }
 

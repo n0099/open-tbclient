@@ -2,20 +2,20 @@ package com.baidu.tbadk.core.util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements Runnable {
-    final /* synthetic */ am Yp;
+    final /* synthetic */ am abd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar) {
-        this.Yp = amVar;
+        this.abd = amVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.sharedPref.b.sN().remove("pull_image_url");
-        com.baidu.tbadk.core.sharedPref.b.sN().remove("pull_image_num");
-        com.baidu.tbadk.core.sharedPref.b.sN().remove("pullview_background_color_day");
-        com.baidu.tbadk.core.sharedPref.b.sN().remove("pullview_background_color_night");
-        this.Yp.tT();
-        this.Yp.tO();
+        com.baidu.tbadk.core.sharedPref.b.tS().remove("pull_image_url");
+        com.baidu.tbadk.core.sharedPref.b.tS().remove("pull_image_num");
+        com.baidu.tbadk.core.sharedPref.b.tS().remove("pullview_background_color_day");
+        com.baidu.tbadk.core.sharedPref.b.tS().remove("pullview_background_color_night");
+        this.abd.uZ();
+        this.abd.uU();
     }
 }

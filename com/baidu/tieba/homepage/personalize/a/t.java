@@ -1,53 +1,76 @@
 package com.baidu.tieba.homepage.personalize.a;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.bt;
-import com.baidu.tieba.card.bw;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.a.q, a> {
-    private TbPageContext<?> EA;
+public class t extends BaseAdapter {
+    private com.baidu.tieba.homepage.personalize.data.h cFW;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public t(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.a.q.aWG);
-        this.EA = tbPageContext;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.cFW == null || this.cFW.cGM == null) {
+            return 0;
+        }
+        return this.cFW.cGM.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ar */
-    public a a(ViewGroup viewGroup) {
-        bt btVar = new bt(this.EA);
-        btVar.aw("c10716", "c10717");
-        return new a(btVar);
+    @Override // android.widget.Adapter
+    /* renamed from: kd */
+    public com.baidu.tieba.homepage.personalize.data.i getItem(int i) {
+        if (this.cFW == null || this.cFW.cGM == null) {
+            return null;
+        }
+        return this.cFW.cGM.get(i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.a.q qVar, a aVar) {
-        if (qVar != null) {
-            qVar.aWJ = i + 1;
-            aVar.bMZ.d(this.EA, TbadkCoreApplication.m10getInst().getSkinType());
-        }
-        aVar.bMZ.a(qVar);
-        bw.Lf().he("c10716");
-        return aVar.getView();
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class a extends y.a {
-        public bt bMZ;
-
-        public a(bt btVar) {
-            super(btVar.getView());
-            this.bMZ = btVar;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        TextView textView;
+        if (view instanceof TextView) {
+            textView = (TextView) view;
+        } else {
+            int dimensionPixelSize = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.ds10);
+            textView = new TextView(viewGroup.getContext());
+            textView.setSingleLine();
+            textView.setEllipsize(TextUtils.TruncateAt.END);
+            textView.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+            textView.setGravity(17);
+            textView.setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.fontsize28));
+            textView.setLayoutParams(new AbsListView.LayoutParams(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.ds146), TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.ds60)));
         }
+        com.baidu.tieba.homepage.personalize.data.i item = getItem(i);
+        if (item != null) {
+            textView.setText(item.PE);
+            if (item.cGO) {
+                av.j((View) textView, t.d.cp_cont_g);
+                av.k(textView, t.f.shape_semi_circle_all_selected);
+            } else {
+                av.j((View) textView, t.d.cp_cont_f);
+                av.k(textView, t.f.shape_semi_circle_all_line);
+            }
+        }
+        return textView;
+    }
+
+    public void a(com.baidu.tieba.homepage.personalize.data.h hVar) {
+        this.cFW = hVar;
+        notifyDataSetChanged();
+    }
+
+    public com.baidu.tieba.homepage.personalize.data.h amF() {
+        return this.cFW;
     }
 }

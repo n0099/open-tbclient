@@ -4,69 +4,69 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.homepage.personalize.b;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements b.a {
-    final /* synthetic */ z ctN;
+    final /* synthetic */ z cFs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar) {
-        this.ctN = zVar;
+        this.cFs = zVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.b.a
-    public void av(int i, int i2) {
+    public void az(int i, int i2) {
         com.baidu.tieba.homepage.framework.c cVar;
-        boolean ahL;
+        boolean amA;
         TagInfo tagInfo;
         com.baidu.tieba.homepage.framework.c cVar2;
         TagInfo tagInfo2;
         com.baidu.tieba.homepage.framework.c cVar3;
         TagInfo tagInfo3;
-        cVar = this.ctN.ctH;
+        cVar = this.cFs.cFm;
         if (cVar == null) {
-            this.ctN.showNetRefreshView(this.ctN, TbadkCoreApplication.m10getInst().getString(u.j.neterror), true);
-            this.ctN.IM();
+            this.cFs.showNetRefreshView(this.cFs, TbadkCoreApplication.m9getInst().getString(t.j.neterror), true);
+            this.cFs.Lb();
             return;
         }
-        ahL = this.ctN.ahL();
-        this.ctN.IL();
-        if (ahL) {
-            this.ctN.j(true, TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds520));
+        amA = this.cFs.amA();
+        this.cFs.La();
+        if (amA) {
+            this.cFs.i(true, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.ds520));
         }
-        tagInfo = this.ctN.ctE;
+        tagInfo = this.cFs.cFj;
         if (tagInfo != null) {
-            tagInfo2 = this.ctN.ctE;
+            tagInfo2 = this.cFs.cFj;
             if (tagInfo2.tag_code != null) {
-                cVar3 = this.ctN.ctH;
-                tagInfo3 = this.ctN.ctE;
-                cVar3.r(tagInfo3.tag_code.intValue(), i, i2);
+                cVar3 = this.cFs.cFm;
+                tagInfo3 = this.cFs.cFj;
+                cVar3.s(tagInfo3.tag_code.intValue(), i, i2);
                 return;
             }
         }
-        cVar2 = this.ctN.ctH;
-        cVar2.r(0, i, i2);
+        cVar2 = this.cFs.cFm;
+        cVar2.s(0, i, i2);
     }
 
     @Override // com.baidu.tieba.homepage.personalize.b.a
-    public void s(int i, int i2, int i3) {
+    public void t(int i, int i2, int i3) {
         com.baidu.tieba.homepage.framework.c cVar;
         TagInfo tagInfo;
         TagInfo tagInfo2;
         com.baidu.tieba.homepage.framework.c cVar2;
         TagInfo tagInfo3;
-        cVar = this.ctN.ctH;
+        cVar = this.cFs.cFm;
         if (cVar != null) {
-            tagInfo = this.ctN.ctE;
+            tagInfo = this.cFs.cFj;
             if (tagInfo != null) {
-                tagInfo2 = this.ctN.ctE;
+                tagInfo2 = this.cFs.cFj;
                 if (tagInfo2.tag_code != null) {
-                    cVar2 = this.ctN.ctH;
-                    tagInfo3 = this.ctN.ctE;
-                    cVar2.i(tagInfo3.tag_code.intValue(), i, i2, i3);
+                    cVar2 = this.cFs.cFm;
+                    tagInfo3 = this.cFs.cFj;
+                    cVar2.j(tagInfo3.tag_code.intValue(), i, i2, i3);
                 }
             }
         }
@@ -76,13 +76,13 @@ public class aa implements b.a {
     public void onError(int i, String str) {
         BdTypeListView bdTypeListView;
         TbPageContext tbPageContext;
-        this.ctN.IM();
+        this.cFs.Lb();
         if (i != 1) {
-            bdTypeListView = this.ctN.ctF;
+            bdTypeListView = this.cFs.cFk;
             bdTypeListView.setVisibility(8);
-            this.ctN.showNetRefreshView(this.ctN, str, true);
-        } else if (com.baidu.adp.lib.util.i.fq()) {
-            tbPageContext = this.ctN.pageContext;
+            this.cFs.showNetRefreshView(this.cFs, str, true);
+        } else if (com.baidu.adp.lib.util.i.gm()) {
+            tbPageContext = this.cFs.pageContext;
             tbPageContext.showToast(str);
         }
     }
@@ -90,20 +90,20 @@ public class aa implements b.a {
     @Override // com.baidu.tieba.homepage.personalize.b.a
     public void onSuccess() {
         BdTypeListView bdTypeListView;
-        this.ctN.IM();
-        this.ctN.IL();
-        bdTypeListView = this.ctN.ctF;
+        this.cFs.Lb();
+        this.cFs.La();
+        bdTypeListView = this.cFs.cFk;
         bdTypeListView.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.homepage.personalize.b.a
-    public void bs(List<TagInfo> list) {
+    public void bu(List<TagInfo> list) {
         com.baidu.tieba.homepage.framework.c cVar;
         com.baidu.tieba.homepage.framework.c cVar2;
-        cVar = this.ctN.ctH;
+        cVar = this.cFs.cFm;
         if (cVar != null) {
-            cVar2 = this.ctN.ctH;
-            cVar2.bm(list);
+            cVar2 = this.cFs.cFm;
+            cVar2.bo(list);
         }
     }
 }

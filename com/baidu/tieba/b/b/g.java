@@ -4,68 +4,68 @@ import android.content.Context;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.b.b.a {
-    private int aQO;
-    private a aQP;
+    private int aWm;
+    private a aWn;
     private Handler mHandler;
     private float mRadius;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ch(boolean z);
+        void cn(boolean z);
     }
 
     public g(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.aQO = 1;
-        this.aQP = null;
-        da();
+        this.aWm = 1;
+        this.aWn = null;
+        dV();
     }
 
-    private void da() {
+    private void dV() {
         this.mHandler = new Handler(new h(this));
     }
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
-        this.aQE = this.mRadius;
-        this.aQD = this.mRadius;
+        this.aWc = this.mRadius;
+        this.aWb = this.mRadius;
     }
 
-    public void Kd() {
-        JY();
-        this.aQE = this.mRadius;
-        this.aQD = this.mRadius;
-        fB(4);
+    public void MF() {
+        MA();
+        this.aWc = this.mRadius;
+        this.aWb = this.mRadius;
+        fZ(4);
         a(new i(this));
         a(new j(this));
     }
 
-    public void Ke() {
-        JY();
-        fB(2);
+    public void MG() {
+        MA();
+        fZ(2);
         a(new k(this));
         a(new l(this));
     }
 
     public int getViewStatus() {
-        return this.aQO;
+        return this.aWm;
     }
 
-    public void fB(int i) {
-        this.aQO = i;
+    public void fZ(int i) {
+        this.aWm = i;
     }
 
     @Override // com.baidu.tieba.b.b.a
-    public void uE() {
-        super.uE();
-        this.aQE = this.mRadius;
-        this.aQD = this.mRadius;
-        this.aQO = 1;
+    public void vJ() {
+        super.vJ();
+        this.aWc = this.mRadius;
+        this.aWb = this.mRadius;
+        this.aWm = 1;
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.aQP = aVar;
+        this.aWn = aVar;
     }
 }

@@ -20,7 +20,7 @@ public class PbEcommRecommendResponsedHttpMessage extends JsonHttpResponsedMessa
                 this.mData = new j();
                 this.mData.recommendations = optJSONObject.optLong("recommendations");
                 this.mData.add = optJSONObject.optInt("add");
-                this.mData.dYo = optJSONObject.optInt("reduce");
+                this.mData.eks = optJSONObject.optInt("reduce");
             }
         }
     }

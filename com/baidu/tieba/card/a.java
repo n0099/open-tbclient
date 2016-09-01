@@ -6,18 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.a.b;
+import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
-public abstract class a<T extends com.baidu.tieba.card.a.b> implements View.OnClickListener {
-    private bx<T> aSh;
-    private String aaf;
-    private Context mContext;
-    private TbPageContext<?> mTbPageContext;
+public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
+    private cf<T> aXH;
+    protected ce aXI;
+    private String acU;
+    public Context mContext;
+    public TbPageContext<?> mTbPageContext;
     public int mSkinType = 3;
     private BdUniqueId mTag = null;
     private View mView = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null, false);
 
     public abstract int getLayout();
+
+    public abstract void onBindDataToView(T t);
+
+    public abstract void onChangeSkinType(TbPageContext<?> tbPageContext, int i);
 
     public a(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
@@ -33,11 +38,11 @@ public abstract class a<T extends com.baidu.tieba.card.a.b> implements View.OnCl
     }
 
     public String getFrom() {
-        return this.aaf;
+        return this.acU;
     }
 
     public void setFrom(String str) {
-        this.aaf = str;
+        this.acU = str;
     }
 
     public View getView() {
@@ -48,15 +53,28 @@ public abstract class a<T extends com.baidu.tieba.card.a.b> implements View.OnCl
         return this.mContext;
     }
 
-    public TbPageContext<?> KM() {
+    public TbPageContext<?> getTbPageContext() {
         return this.mTbPageContext;
     }
 
-    public void a(bx<T> bxVar) {
-        this.aSh = bxVar;
+    public void onStart() {
     }
 
-    public bx<T> KN() {
-        return this.aSh;
+    public void onPause() {
+    }
+
+    public void onDestroy() {
+    }
+
+    public void setOnSubCardOnClickListenner(cf<T> cfVar) {
+        this.aXH = cfVar;
+    }
+
+    public void setOnCardStatisticsCallback(ce ceVar) {
+        this.aXI = ceVar;
+    }
+
+    public cf<T> getOnSubCardOnClickListenner() {
+        return this.aXH;
     }
 }

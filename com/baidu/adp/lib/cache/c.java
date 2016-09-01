@@ -7,17 +7,17 @@ import com.baidu.adp.lib.cache.f;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-    protected String jA;
-    protected f.b jB;
-    protected f.a jC;
-    protected int jD;
-    protected LinkedList<String> jE = new LinkedList<>();
-    private Object jF = new Object();
-    protected final com.baidu.adp.base.a.b jz;
+    protected final com.baidu.adp.base.a.b lQ;
+    protected String lR;
+    protected f.b lS;
+    protected f.a lT;
+    protected int lU;
+    protected LinkedList<String> lV = new LinkedList<>();
+    private Object lW = new Object();
 
-    public abstract String F(String str);
+    public abstract String G(String str);
 
-    protected abstract boolean G(String str);
+    protected abstract boolean H(String str);
 
     protected abstract ContentValues a(h<T> hVar);
 
@@ -25,29 +25,29 @@ public abstract class c<T> {
 
     protected abstract h<T> c(SQLiteDatabase sQLiteDatabase, String str) throws Throwable;
 
-    public abstract int cu();
-
     public abstract Cursor d(SQLiteDatabase sQLiteDatabase, String str);
 
+    public abstract int dp();
+
     public c(com.baidu.adp.base.a.b bVar) {
-        this.jz = bVar;
+        this.lQ = bVar;
     }
 
     public void a(f fVar, String str) {
-        this.jA = str;
+        this.lR = str;
         if (fVar instanceof f.b) {
-            this.jB = (f.b) fVar;
+            this.lS = (f.b) fVar;
         }
         if (fVar instanceof f.a) {
-            this.jC = (f.a) fVar;
+            this.lT = (f.a) fVar;
         }
     }
 
-    public h<T> H(String str) {
+    public h<T> I(String str) {
         try {
-            return c(this.jz.ae(), str);
+            return c(this.lQ.aZ(), str);
         } catch (Throwable th) {
-            this.jz.d(th, "get");
+            this.lQ.d(th, "get");
             return null;
         }
     }
@@ -55,154 +55,154 @@ public abstract class c<T> {
     public void b(h<T> hVar) {
         String e;
         try {
-            synchronized (this.jF) {
-                this.jE.remove(hVar.jL);
+            synchronized (this.lW) {
+                this.lV.remove(hVar.mc);
             }
             ContentValues a = a(hVar);
-            SQLiteDatabase ae = this.jz.ae();
-            if (ae.update(this.jA, a, "m_key = ?", new String[]{hVar.jL}) == 0) {
-                ae.insert(this.jA, null, a);
-                if (this.jC != null) {
-                    cv();
+            SQLiteDatabase aZ = this.lQ.aZ();
+            if (aZ.update(this.lR, a, "m_key = ?", new String[]{hVar.mc}) == 0) {
+                aZ.insert(this.lR, null, a);
+                if (this.lT != null) {
+                    dq();
                 }
             }
-            if (this.jB != null && (e = this.jB.e(hVar)) != null) {
-                I(e);
+            if (this.lS != null && (e = this.lS.e(hVar)) != null) {
+                J(e);
             }
         } catch (Throwable th) {
-            this.jz.d(th, "addOrUpdateTextCacheItem");
+            this.lQ.d(th, "addOrUpdateTextCacheItem");
         }
     }
 
-    protected void cv() {
-        if (this.jC != null) {
-            this.jD++;
-            if (this.jD >= ((int) Math.min(this.jC.getMaxSize() * 0.2d, 5.0d))) {
-                this.jD = 0;
-                com.baidu.adp.lib.h.k.dM().f(new d(this));
+    protected void dq() {
+        if (this.lT != null) {
+            this.lU++;
+            if (this.lU >= ((int) Math.min(this.lT.getMaxSize() * 0.2d, 5.0d))) {
+                this.lU = 0;
+                com.baidu.adp.lib.h.k.eH().f(new d(this));
             }
         }
     }
 
-    public int I(String str) {
+    public int J(String str) {
         try {
-            return this.jz.ae().delete(this.jA, "m_key = ?", new String[]{str});
+            return this.lQ.aZ().delete(this.lR, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.jz.d(th, "deleteCacheItem");
+            this.lQ.d(th, "deleteCacheItem");
             return 0;
         }
     }
 
-    public void J(String str) {
-        this.jD = 0;
-        synchronized (this.jF) {
-            this.jE.clear();
+    public void K(String str) {
+        this.lU = 0;
+        synchronized (this.lW) {
+            this.lV.clear();
         }
-        if (G(str)) {
-            BdCacheService.cG().cH().V(str);
+        if (H(str)) {
+            BdCacheService.dB().dC().W(str);
         }
     }
 
     public synchronized void c(String str, boolean z) {
-        synchronized (this.jF) {
-            if (!this.jE.contains(str)) {
-                this.jE.addLast(str);
+        synchronized (this.lW) {
+            if (!this.lV.contains(str)) {
+                this.lV.addLast(str);
                 if (z) {
-                    cv();
-                }
-            }
-        }
-    }
-
-    public void K(String str) {
-        if (this.jC != null) {
-            Cursor cursor = null;
-            try {
-                this.jC.cA();
-                cursor = d(this.jz.ae(), str);
-                while (cursor.moveToNext()) {
-                    h<?> hVar = new h<>();
-                    hVar.jL = cursor.getString(cursor.getColumnIndex("m_key"));
-                    hVar.jN = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    hVar.jO = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    hVar.jP = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String d = this.jC.d(hVar);
-                    if (d != null) {
-                        c(d, false);
-                    }
-                }
-                cw();
-            } catch (Throwable th) {
-                try {
-                    this.jz.d(th, "performEvict");
-                } finally {
-                    com.baidu.adp.lib.h.a.a(cursor);
-                    this.jC.cB();
+                    dq();
                 }
             }
         }
     }
 
     public void L(String str) {
-        if (this.jB != null) {
+        if (this.lT != null) {
             Cursor cursor = null;
             try {
-                this.jB.cC();
-                cursor = d(this.jz.ae(), str);
+                this.lT.dv();
+                cursor = d(this.lQ.aZ(), str);
                 while (cursor.moveToNext()) {
                     h<?> hVar = new h<>();
-                    hVar.jL = cursor.getString(cursor.getColumnIndex("m_key"));
-                    hVar.jN = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    hVar.jO = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    hVar.jP = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String f = this.jB.f(hVar);
+                    hVar.mc = cursor.getString(cursor.getColumnIndex("m_key"));
+                    hVar.mf = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    hVar.mg = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                    hVar.mh = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    String d = this.lT.d(hVar);
+                    if (d != null) {
+                        c(d, false);
+                    }
+                }
+                dr();
+            } catch (Throwable th) {
+                try {
+                    this.lQ.d(th, "performEvict");
+                } finally {
+                    com.baidu.adp.lib.h.a.a(cursor);
+                    this.lT.dw();
+                }
+            }
+        }
+    }
+
+    public void M(String str) {
+        if (this.lS != null) {
+            Cursor cursor = null;
+            try {
+                this.lS.dx();
+                cursor = d(this.lQ.aZ(), str);
+                while (cursor.moveToNext()) {
+                    h<?> hVar = new h<>();
+                    hVar.mc = cursor.getString(cursor.getColumnIndex("m_key"));
+                    hVar.mf = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    hVar.mg = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                    hVar.mh = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    String f = this.lS.f(hVar);
                     if (f != null) {
                         c(f, false);
                     }
                 }
-                cw();
+                dr();
             } catch (Throwable th) {
                 try {
-                    this.jz.d(th, "performPump");
+                    this.lQ.d(th, "performPump");
                 } finally {
                     com.baidu.adp.lib.h.a.a(cursor);
-                    this.jB.cD();
+                    this.lS.dy();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cw() {
+    public void dr() {
         String removeFirst;
-        if (!this.jE.isEmpty()) {
-            SQLiteDatabase ae = this.jz.ae();
-            ae.beginTransaction();
+        if (!this.lV.isEmpty()) {
+            SQLiteDatabase aZ = this.lQ.aZ();
+            aZ.beginTransaction();
             while (true) {
                 try {
-                    synchronized (this.jF) {
-                        if (!this.jE.isEmpty()) {
-                            removeFirst = this.jE.removeFirst();
+                    synchronized (this.lW) {
+                        if (!this.lV.isEmpty()) {
+                            removeFirst = this.lV.removeFirst();
                         } else {
-                            ae.setTransactionSuccessful();
-                            this.jD = 0;
+                            aZ.setTransactionSuccessful();
+                            this.lU = 0;
                             return;
                         }
                     }
-                    ae.delete(this.jA, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+                    aZ.delete(this.lR, "m_key = ?", new String[]{String.valueOf(removeFirst)});
                 } catch (Throwable th) {
                     try {
-                        this.jz.d(th, "performCleanup");
+                        this.lQ.d(th, "performCleanup");
                         return;
                     } finally {
-                        ae.endTransaction();
+                        aZ.endTransaction();
                     }
                 }
             }
         }
     }
 
-    public com.baidu.adp.base.a.b cx() {
-        return this.jz;
+    public com.baidu.adp.base.a.b ds() {
+        return this.lQ;
     }
 }

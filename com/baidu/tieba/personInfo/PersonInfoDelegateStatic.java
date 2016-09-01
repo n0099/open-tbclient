@@ -6,20 +6,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private ImageView dCN;
-    private Boolean eAq = false;
-    private CustomMessageListener eAr;
+    private ImageView dOC;
+    private Boolean eGL = false;
+    private CustomMessageListener eGM;
 
     static {
-        f fVar = new f(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-        fVar.setPriority(12);
-        MessageManager.getInstance().registerListener(fVar);
+        c cVar = new c(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
+        cVar.setPriority(12);
+        MessageManager.getInstance().registerListener(cVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -28,43 +29,43 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Dk() {
+    public com.baidu.tbadk.mainTab.c EE() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.awB = new h();
+        cVar.azI = new com.baidu.tieba.personCenter.a();
         cVar.type = 8;
-        cVar.awC = u.j.mine;
-        cVar.awD = u.f.s_tabbar_icon_four_bg;
+        cVar.azJ = t.j.mine;
+        cVar.azK = t.f.s_tabbar_icon_four_bg;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator ah(Context context) {
-        this.awo = (FragmentTabIndicator) LayoutInflater.from(context).inflate(u.h.fragmenttabindicator, (ViewGroup) null);
-        this.dCN = new ImageView(context);
+    public FragmentTabIndicator ar(Context context) {
+        this.azv = (FragmentTabIndicator) LayoutInflater.from(context).inflate(t.h.fragmenttabindicator, (ViewGroup) null);
+        this.dOC = new ImageView(context);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.awA = this.awo;
-        aVar.lg = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
-        aVar.view = this.dCN;
-        aVar.awy = u.f.icon_news_down_bar_one;
-        if (this.eAq.booleanValue()) {
-            this.dCN.setVisibility(0);
+        aVar.azH = this.azv;
+        aVar.nB = k.dip2px(context, 3.0f);
+        aVar.view = this.dOC;
+        aVar.azF = t.f.icon_news_down_bar_one;
+        if (this.eGL.booleanValue()) {
+            this.dOC.setVisibility(0);
         } else {
-            this.dCN.setVisibility(8);
+            this.dOC.setVisibility(8);
         }
-        this.awo.a("emotion", aVar);
-        return this.awo;
+        this.azv.a("emotion", aVar);
+        return this.azv;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Dj() {
-        this.eAr = new g(this, CmdConfigCustom.MAINTAB_PERSON_TIP);
-        this.eAr.setPriority(12);
-        MessageManager.getInstance().registerListener(this.eAr);
+    public void ED() {
+        this.eGM = new d(this, CmdConfigCustom.MAINTAB_PERSON_TIP);
+        this.eGM.setPriority(12);
+        MessageManager.getInstance().registerListener(this.eGM);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void ay() {
-        super.ay();
-        MessageManager.getInstance().unRegisterListener(this.eAr);
+    public void bt() {
+        super.bt();
+        MessageManager.getInstance().unRegisterListener(this.eGM);
     }
 }

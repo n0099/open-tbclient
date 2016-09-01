@@ -1,33 +1,23 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.view.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends CustomMessageListener {
-    final /* synthetic */ k bvO;
+public class n implements t.b {
+    final /* synthetic */ l bHc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(k kVar, int i) {
-        super(i);
-        this.bvO = kVar;
+    public n(l lVar) {
+        this.bHc = lVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean SJ;
-        boolean z;
-        SJ = this.bvO.SJ();
-        if (!SJ) {
-            this.bvO.SK();
-        } else {
-            this.bvO.SM();
-        }
-        z = this.bvO.bvB;
-        if (z) {
-            this.bvO.bvv.jA();
-        }
+    @Override // com.baidu.tbadk.core.view.t.b
+    public void aI(boolean z) {
+        com.baidu.tieba.enterForum.c.c cVar;
+        String str;
+        cVar = this.bHc.bGK;
+        str = this.bHc.bGM;
+        cVar.dm(!StringUtils.isNull(str));
     }
 }

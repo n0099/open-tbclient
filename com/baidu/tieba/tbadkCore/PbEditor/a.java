@@ -6,31 +6,31 @@ import com.baidu.tbadk.core.util.bh;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static String beJ() {
+    private static String bio() {
         return "key_baobao_count" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    private static String beK() {
+    private static String bip() {
         return "key_baobao_last_time" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public static boolean beL() {
-        return !bh.e(new Date(System.currentTimeMillis()), new Date(b.sN().getLong(beK(), 0L))) || b.sN().getInt(beJ(), 0) < 3;
+    public static boolean biq() {
+        return !bh.e(new Date(System.currentTimeMillis()), new Date(b.tS().getLong(bip(), 0L))) || b.tS().getInt(bio(), 0) < 3;
     }
 
-    public static void beM() {
-        b.sN().putBoolean("key_baobao_tip_pb", true);
+    public static void bir() {
+        b.tS().putBoolean("key_baobao_tip_pb", true);
     }
 
-    public static void beN() {
+    public static void bis() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = b.sN().getLong(beK(), 0L);
-        b.sN().putLong(beK(), currentTimeMillis);
-        int i = b.sN().getInt(beJ(), 0);
+        long j = b.tS().getLong(bip(), 0L);
+        b.tS().putLong(bip(), currentTimeMillis);
+        int i = b.tS().getInt(bio(), 0);
         if (bh.e(new Date(currentTimeMillis), new Date(j))) {
-            b.sN().putInt(beJ(), i + 1);
+            b.tS().putInt(bio(), i + 1);
         } else {
-            b.sN().putInt(beJ(), 1);
+            b.tS().putInt(bio(), 1);
         }
     }
 }

@@ -1,29 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.b;
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class al implements a.b {
-    private final /* synthetic */ int Tf;
-    private final /* synthetic */ b aSL;
-    final /* synthetic */ FrsActivity bEL;
-    private final /* synthetic */ boolean bEU;
+class al extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bQp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(FrsActivity frsActivity, b bVar, boolean z, int i) {
-        this.bEL = frsActivity;
-        this.aSL = bVar;
-        this.bEU = z;
-        this.Tf = i;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public al(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bQp = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
-        if (this.aSL.ol()) {
-            this.bEL.a(this.aSL, this.bEU ? "area_download" : "btn_download");
-            this.bEL.d(this.aSL, this.Tf);
-            aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.y)) {
+            this.bQp.b((com.baidu.tieba.tbadkCore.y) customResponsedMessage.getData());
         }
     }
 }

@@ -140,7 +140,7 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m11clone() {
+    public ImMessageCenterShowItemData m10clone() {
         try {
             return (ImMessageCenterShowItemData) super.clone();
         } catch (CloneNotSupportedException e) {

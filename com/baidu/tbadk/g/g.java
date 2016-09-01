@@ -6,25 +6,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ f awh;
+    final /* synthetic */ f azo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.awh = fVar;
+        this.azo = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int Dd;
+        int Ex;
         TextView textView;
         String[] strArr;
         Runnable runnable;
-        Dd = this.awh.Dd();
-        textView = this.awh.anB;
-        strArr = this.awh.awe;
-        textView.setText(strArr[Dd]);
-        Handler handler = TbadkCoreApplication.m10getInst().handler;
-        runnable = this.awh.Au;
+        Ex = this.azo.Ex();
+        textView = this.azo.aqI;
+        strArr = this.azo.azl;
+        textView.setText(strArr[Ex]);
+        Handler handler = TbadkCoreApplication.m9getInst().handler;
+        runnable = this.azo.CI;
         handler.postDelayed(runnable, 200L);
     }
 }

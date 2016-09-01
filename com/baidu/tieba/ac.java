@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements DialogInterface.OnCancelListener {
+public class ac implements DialogInterface.OnDismissListener {
     final /* synthetic */ UpdateDialog this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +11,9 @@ public class ac implements DialogInterface.OnCancelListener {
         this.this$0 = updateDialog;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.this$0.aJf.dismiss();
-        this.this$0.finish();
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.this$0.aMw.dismiss();
+        this.this$0.mHandler.postDelayed(new ad(this), 100L);
     }
 }

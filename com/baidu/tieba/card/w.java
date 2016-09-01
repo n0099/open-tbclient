@@ -1,34 +1,25 @@
 package com.baidu.tieba.card;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GodSquareActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ u aTO;
+    final /* synthetic */ t aZF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(u uVar) {
-        this.aTO = uVar;
+    public w(t tVar) {
+        this.aZF = tVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        if (!TbadkCoreApplication.m10getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
-            tbPageContext2 = this.aTO.DQ;
-            tbPageContext2.showToast(u.j.pluginstatus_tip_timeout_last);
-            return;
+        com.baidu.tieba.card.data.o oVar;
+        com.baidu.tieba.card.data.o oVar2;
+        oVar = this.aZF.aZr;
+        if (oVar != null && this.aZF.getOnSubCardOnClickListenner() != null) {
+            cf<com.baidu.tieba.card.data.o> onSubCardOnClickListenner = this.aZF.getOnSubCardOnClickListenner();
+            oVar2 = this.aZF.aZr;
+            onSubCardOnClickListenner.a(view, oVar2);
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.aTO.DQ;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GodSquareActivityConfig(tbPageContext.getPageActivity())));
     }
 }

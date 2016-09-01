@@ -7,23 +7,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q implements h {
-    private SparseArray<?> iM;
+    private SparseArray<?> lb;
 
     public q(SparseArray<?> sparseArray) {
-        this.iM = sparseArray;
+        this.lb = sparseArray;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Type[] ch = cVar.ch();
+        Type[] dc = cVar.dc();
         JSONObject jSONObject = new JSONObject();
-        int size = this.iM.size();
+        int size = this.lb.size();
         for (int i = 0; i < size; i++) {
-            int keyAt = this.iM.keyAt(i);
-            Object obj = this.iM.get(keyAt);
+            int keyAt = this.lb.keyAt(i);
+            Object obj = this.lb.get(keyAt);
             if (obj != null) {
-                if (ch != null && ch.length >= 1) {
-                    Object a = com.baidu.adp.lib.a.b.a.e.f.l(obj).a(new com.baidu.adp.lib.a.b.a.e.c(ch[0]));
+                if (dc != null && dc.length >= 1) {
+                    Object a = com.baidu.adp.lib.a.b.a.e.f.l(obj).a(new com.baidu.adp.lib.a.b.a.e.c(dc[0]));
                     if (a != null) {
                         try {
                             jSONObject.put(String.valueOf(keyAt), a);
@@ -31,7 +31,7 @@ public class q implements h {
                         }
                     }
                 } else {
-                    Object a2 = com.baidu.adp.lib.a.b.a.e.f.l(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.ci()));
+                    Object a2 = com.baidu.adp.lib.a.b.a.e.f.l(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.dd()));
                     if (a2 != null) {
                         try {
                             jSONObject.put(String.valueOf(keyAt), a2);
@@ -60,7 +60,7 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.iM;
+        return this.lb;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -80,6 +80,6 @@ public class q implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.iM;
+        return this.lb;
     }
 }

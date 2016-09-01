@@ -4,46 +4,46 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.tieba.frs.cy;
-import com.baidu.tieba.u;
+import com.baidu.tieba.frs.cu;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements com.baidu.adp.lib.f.c<cy> {
-    final /* synthetic */ a bRh;
+public class b implements com.baidu.adp.lib.f.c<cu> {
+    final /* synthetic */ a cct;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bRh = aVar;
+        this.cct = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ZU */
-    public cy dE() {
+    /* renamed from: aeE */
+    public cu ez() {
         Context context;
-        context = this.bRh.mContext;
-        cy cyVar = new cy(LayoutInflater.from(context).inflate(u.h.frs_item_single_photolivecard, (ViewGroup) null));
-        ((LinearLayout.LayoutParams) cyVar.bIe.getLayoutParams()).topMargin = 0;
-        return cyVar;
+        context = this.cct.mContext;
+        cu cuVar = new cu(LayoutInflater.from(context).inflate(t.h.frs_item_single_photolivecard, (ViewGroup) null));
+        ((LinearLayout.LayoutParams) cuVar.bTk.getLayoutParams()).topMargin = 0;
+        return cuVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: a */
-    public void o(cy cyVar) {
+    public void o(cu cuVar) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: b */
-    public cy p(cy cyVar) {
-        return cyVar;
+    public cu p(cu cuVar) {
+        return cuVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
     /* renamed from: c */
-    public cy q(cy cyVar) {
-        return cyVar;
+    public cu q(cu cuVar) {
+        return cuVar;
     }
 }

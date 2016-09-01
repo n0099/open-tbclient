@@ -24,7 +24,7 @@ public class z implements CustomMessageTask.CustomRunnable<IntentConfig> {
             IntentConfig data = customMessage.getData();
             Class<?> intentClass = this.this$0.getIntentClass(data.getClass());
             if (this.this$0.getIntentClass(AlbumActivityConfig.class) == null) {
-                TiebaStatic.log(new ay("inter_config_disappear").s("obj_param1", at.tV().tW()));
+                TiebaStatic.log(new ay("inter_config_disappear").s("obj_param1", at.vb().vc()));
             }
             if (intentClass != null) {
                 data.setComponentClass(intentClass);

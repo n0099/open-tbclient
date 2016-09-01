@@ -1,20 +1,28 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.media.MediaPlayer;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements MediaPlayer.OnErrorListener {
-    final /* synthetic */ a bLV;
+public class g implements View.OnClickListener {
+    private final /* synthetic */ ThemeCardInUserData bUy;
+    final /* synthetic */ a bXm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(a aVar) {
-        this.bLV = aVar;
+    public g(a aVar, ThemeCardInUserData themeCardInUserData) {
+        this.bXm = aVar;
+        this.bUy = themeCardInUserData;
     }
 
-    @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        this.bLV.KX();
-        this.bLV.e(true, 4);
-        return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bXm.Gd;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bUy.getCardId())));
     }
 }

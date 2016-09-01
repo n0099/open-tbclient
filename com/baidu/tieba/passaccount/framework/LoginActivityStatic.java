@@ -7,7 +7,7 @@ import com.baidu.tieba.passaccount.app.LoginActivity;
 /* loaded from: classes.dex */
 public class LoginActivityStatic {
     static {
-        TbadkCoreApplication.m10getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
-        bi.us().a(new b());
+        TbadkCoreApplication.m9getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
+        bi.vx().a(new b());
     }
 }

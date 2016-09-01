@@ -1,86 +1,99 @@
 package com.baidu.tieba.card;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.UserLikeButton;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class i extends com.baidu.tieba.horizonalList.widget.n {
-    public BarImageView aSM;
-    public TextView aSN;
-    public TextView aSO;
-    private com.baidu.tieba.card.a.e aSP;
-    private int mSkinType;
+public class i extends a<com.baidu.tieba.card.data.i> {
+    private View GB;
+    private TbPageContext<?> GM;
+    private TextView aYA;
+    private TextView aYB;
+    private MetaData aYD;
+    private com.baidu.tieba.card.data.i aYE;
+    private TextView aYF;
+    public UserLikeButton aYi;
+    public ClickableHeaderImageView aYy;
 
-    public i(View view) {
-        super(view);
-        this.aSM = null;
-        this.aSN = null;
-        this.aSO = null;
-        this.mSkinType = 3;
+    public i(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        this.GM = tbPageContext;
+        getView().setOnClickListener(this);
+        this.aYy = (ClickableHeaderImageView) getView().findViewById(t.g.god_header_view);
+        this.aYy.setGodIconMargin(t.e.ds6);
+        this.aYy.setAfterClickListener(this);
+        this.aYA = (TextView) getView().findViewById(t.g.god_name);
+        this.aYB = (TextView) getView().findViewById(t.g.god_describe);
+        this.aYF = (TextView) getView().findViewById(t.g.rec_reason);
+        this.aYi = (UserLikeButton) getView().findViewById(t.g.god_like_btn);
+        this.aYi.setAfterClickListener(this);
+        this.GB = getView().findViewById(t.g.bottom_line);
     }
 
-    @Override // com.baidu.tieba.horizonalList.widget.n
-    public void a(com.baidu.tieba.horizonalList.widget.l lVar) {
-        if (lVar != null && (lVar instanceof com.baidu.tieba.card.a.e)) {
-            this.aSP = (com.baidu.tieba.card.a.e) lVar;
-            this.aSM.setTag(this.aSP.forumAvatar);
-            this.aSM.setTag(u.g.tag_forum_name, this.aSP.forumName);
-            this.aSM.c(this.aSP.forumAvatar, 15, false);
-            this.aSN.setText(String.valueOf(com.baidu.tbadk.core.util.ba.getFixedText(this.aSP.forumName, 4, true)) + getView().getContext().getResources().getString(u.j.forum));
-            this.aSN.setTag(u.g.tag_forum_name, this.aSP.forumName);
-            this.aSO.setTag(u.g.tag_forum_id, Long.valueOf(this.aSP.forumId));
-            this.aSO.setTag(u.g.tag_forum_name, this.aSP.forumName);
-            getView().setTag(u.g.tag_forum_id, Long.valueOf(this.aSP.forumId));
-            getView().setTag(u.g.tag_forum_name, this.aSP.forumName);
-            b(this.aSO, this.aSP.isLiked);
-            this.aSM.setOnClickListener(this.akQ);
-            this.aSO.setOnClickListener(this.akQ);
-            this.aSN.setOnClickListener(this.akQ);
-            getView().setOnClickListener(this.akQ);
+    public void i(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null && this.aYi != null) {
+            this.aYi.i(bdUniqueId);
         }
-        onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.horizonalList.widget.n
-    public com.baidu.tieba.horizonalList.widget.n T(View view) {
-        i iVar = new i(view);
-        iVar.aSM = (BarImageView) view.findViewById(u.g.forum_avatar);
-        iVar.aSM.setGifIconSupport(false);
-        iVar.aSN = (TextView) view.findViewById(u.g.m_forum_name_textview);
-        iVar.aSO = (TextView) view.findViewById(u.g.forum_add_love);
-        iVar.cAB = 16908308;
-        return iVar;
-    }
-
-    @Override // com.baidu.tieba.horizonalList.widget.n
-    public void onChangeSkinType(int i) {
+    @Override // com.baidu.tieba.card.a
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.av.l(getView(), u.d.cp_bg_line_d);
-            com.baidu.tbadk.core.util.av.j((View) this.aSN, u.d.cp_cont_b);
-            b(this.aSO, this.aSP.isLiked);
+            com.baidu.tbadk.core.util.av.k(getView(), t.f.home_thread_card_item_bg);
+            com.baidu.tbadk.core.util.av.j((View) this.aYA, t.d.cp_cont_b);
+            com.baidu.tbadk.core.util.av.j((View) this.aYB, t.d.cp_cont_d);
+            com.baidu.tbadk.core.util.av.j((View) this.aYF, t.d.cp_cont_d);
+            com.baidu.tbadk.core.util.av.l(this.GB, t.d.cp_bg_line_b);
         }
         this.mSkinType = i;
     }
 
-    private void b(TextView textView, boolean z) {
-        textView.setTag(u.g.forum_follow, Boolean.valueOf(z));
-        if (z) {
-            textView.setEnabled(false);
-            com.baidu.tbadk.core.util.av.c(textView, u.d.cp_cont_d, 1);
-            textView.setText(TbadkCoreApplication.m10getInst().getString(u.j.relate_forum_is_followed));
-            textView.setBackgroundDrawable(null);
-            textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            textView.setPadding(0, 0, 0, 0);
-            return;
+    @Override // com.baidu.tieba.card.a
+    public int getLayout() {
+        return t.h.card_god_square_rec_god;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.a
+    /* renamed from: a */
+    public void onBindDataToView(com.baidu.tieba.card.data.i iVar) {
+        if (iVar != null && iVar.author != null && iVar.author.getGodUserData() != null) {
+            this.aYE = iVar;
+            this.aYD = iVar.author;
+            this.aYy.setData(iVar.author);
+            this.aYA.setText(iVar.author.getName_show());
+            this.aYB.setText(iVar.author.getGodUserData().getIntro());
+            String string = this.GM.getResources().getString(t.j.recommend_reason);
+            String recommendReason = iVar.author.getGodUserData().getRecommendReason();
+            if (StringUtils.isNull(recommendReason)) {
+                this.aYF.setText("");
+            } else {
+                this.aYF.setText(String.format(string, recommendReason));
+            }
+            this.aYi.setData(iVar.author);
+            onChangeSkinType(null, TbadkCoreApplication.m9getInst().getSkinType());
         }
-        com.baidu.tbadk.core.util.av.c(textView, u.d.btn_forum_focus_color, 1);
-        textView.setText(TbadkCoreApplication.m10getInst().getString(u.j.forum_list_attention_tv));
-        com.baidu.tbadk.core.util.av.k(textView, u.f.btn_focus_border_bg);
-        textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.av.getDrawable(u.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-        textView.setEnabled(true);
-        textView.setPadding(TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds18), 0, TbadkCoreApplication.m10getInst().getResources().getDimensionPixelSize(u.e.ds10), 0);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (getOnSubCardOnClickListenner() != null) {
+            getOnSubCardOnClickListenner().a(view, this.aYE);
+        }
+        if (view == getView() && this.aYD != null && !StringUtils.isNull(this.aYD.getName_show()) && !StringUtils.isNull(this.aYD.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.GM.getPageActivity(), this.aYD.getUserId(), this.aYD.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        }
     }
 }

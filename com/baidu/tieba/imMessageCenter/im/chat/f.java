@@ -11,13 +11,13 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsI
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonalChatActivity dbu;
+    final /* synthetic */ PersonalChatActivity dnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(PersonalChatActivity personalChatActivity, int i, boolean z) {
         super(i, z);
-        this.dbu = personalChatActivity;
+        this.dnc = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,37 +35,37 @@ class f extends com.baidu.adp.framework.listener.e {
         Runnable runnable;
         long j2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.dbu.dbl = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.dbu.dbl;
+            this.dnc.dmT = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+            bVar = this.dnc.dmT;
             if (bVar != null) {
-                msglistModel = this.dbu.cIG;
+                msglistModel = this.dnc.cUl;
                 UserData user = ((PersonalMsglistModel) msglistModel).getUser();
                 if (user != null) {
-                    absMsglistView = this.dbu.cIF;
+                    absMsglistView = this.dnc.cUk;
                     String userName = user.getUserName();
-                    bVar2 = this.dbu.dbl;
+                    bVar2 = this.dnc.dmT;
                     absMsglistView.refreshPersonalHeadFooter(userName, bVar2);
-                    PersonalChatActivity personalChatActivity = this.dbu;
-                    PersonalChatActivity personalChatActivity2 = this.dbu;
-                    bVar3 = this.dbu.dbl;
-                    personalChatActivity.dbk = personalChatActivity2.lr(ba.s(bVar3.getTime()));
-                    j = this.dbu.dbk;
+                    PersonalChatActivity personalChatActivity = this.dnc;
+                    PersonalChatActivity personalChatActivity2 = this.dnc;
+                    bVar3 = this.dnc.dmT;
+                    personalChatActivity.dmS = personalChatActivity2.ma(ba.r(bVar3.getTime()));
+                    j = this.dnc.dmS;
                     if (j != 0) {
-                        handler = this.dbu.mHandler;
-                        runnable = this.dbu.dbp;
-                        j2 = this.dbu.dbk;
+                        handler = this.dnc.mHandler;
+                        runnable = this.dnc.dmX;
+                        j2 = this.dnc.dmS;
                         handler.postDelayed(runnable, j2);
                     }
-                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e asa = PersonalChatActivityStatic.asa();
-                    str = this.dbu.dbm;
+                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e awO = PersonalChatActivityStatic.awO();
+                    str = this.dnc.dmU;
                     String str2 = String.valueOf(str) + "&" + user.getUserId();
-                    bVar4 = this.dbu.dbl;
-                    asa.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                    bVar4 = this.dnc.dmT;
+                    awO.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
                 } else {
                     return;
                 }
             }
-            TbadkCoreApplication.m10getInst().getAlarmManager().mx();
+            TbadkCoreApplication.m9getInst().getAlarmManager().ns();
         }
     }
 }

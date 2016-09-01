@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.dialog;
 /* loaded from: classes.dex */
 public class h {
-    private boolean TJ;
+    private boolean Wz;
     private String desc;
     private String tip;
 
@@ -11,10 +11,10 @@ public class h {
     public h(String str, String str2, boolean z) {
         this.tip = str;
         this.desc = str2;
-        this.TJ = z;
+        this.Wz = z;
     }
 
-    public String sb() {
+    public String tg() {
         return this.tip;
     }
 
@@ -23,10 +23,10 @@ public class h {
     }
 
     public boolean isChecked() {
-        return this.TJ;
+        return this.Wz;
     }
 
     public void setChecked(boolean z) {
-        this.TJ = z;
+        this.Wz = z;
     }
 }

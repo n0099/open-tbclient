@@ -1,5 +1,8 @@
 package com.baidu.tieba.frs.d;
 
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,119 +16,120 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.data.be;
-import com.baidu.tbadk.core.data.v;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.w;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.l;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
-import com.baidu.tieba.frs.bj;
-import com.baidu.tieba.frs.ce;
-import com.baidu.tieba.frs.cy;
+import com.baidu.tieba.frs.bf;
+import com.baidu.tieba.frs.ca;
+import com.baidu.tieba.frs.cu;
+import com.baidu.tieba.t;
 import com.baidu.tieba.tbadkCore.util.s;
-import com.baidu.tieba.u;
+import com.baidu.tieba.view.y;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a extends bj<v, e> implements View.OnClickListener, PhotoLiveCardView.b {
-    private TbPageContext<?> EA;
-    private boolean bKF;
-    private com.baidu.adp.lib.f.b<cy> bRf;
-    private com.baidu.adp.lib.f.b<ce> bRg;
+public class a extends bf<w, e> implements View.OnClickListener, PhotoLiveCardView.b {
+    private TbPageContext<?> GM;
+    private boolean bVP;
+    private com.baidu.adp.lib.f.b<cu> ccr;
+    private com.baidu.adp.lib.f.b<ca> ccs;
 
     public a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.bKF = false;
-        this.bRf = new com.baidu.adp.lib.f.b<>(new b(this), 5, 0);
-        this.bRg = new com.baidu.adp.lib.f.b<>(new c(this), 5, 0);
-        this.EA = baseActivity.getPageContext();
+        this.bVP = false;
+        this.ccr = new com.baidu.adp.lib.f.b<>(new b(this), 5, 0);
+        this.ccs = new com.baidu.adp.lib.f.b<>(new c(this), 5, 0);
+        this.GM = baseActivity.getPageContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: S */
     public e a(ViewGroup viewGroup) {
-        return new e(LayoutInflater.from(this.mContext).inflate(u.h.frs_item_store_card, (ViewGroup) null));
+        return new e(LayoutInflater.from(this.mContext).inflate(t.h.frs_item_store_card, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bj, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, v vVar, e eVar) {
-        super.a(i, view, viewGroup, (ViewGroup) vVar, (v) eVar);
-        com.baidu.tbadk.j.a.a(this.EA, view);
-        if (vVar.getThreadType() == 33) {
-            if (eVar.bRn != null) {
-                eVar.bRk.removeView(eVar.bRn.bHd);
-                this.bRg.n(eVar.bRn);
-                eVar.bRn = null;
+    @Override // com.baidu.tieba.frs.bf, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, w wVar, e eVar) {
+        super.a(i, view, viewGroup, (ViewGroup) wVar, (w) eVar);
+        com.baidu.tbadk.j.a.a(this.GM, view);
+        if (wVar.getThreadType() == 33) {
+            if (eVar.ccz != null) {
+                eVar.ccw.removeView(eVar.ccz.bSj);
+                this.ccs.n(eVar.ccz);
+                eVar.ccz = null;
             }
-            if (eVar.bRo == null) {
-                eVar.bRo = this.bRf.dD();
-                eVar.bRk.addView(eVar.bRo.bId);
-                eVar.bRo.vm();
+            if (eVar.ccA == null) {
+                eVar.ccA = this.ccr.ey();
+                eVar.ccw.addView(eVar.ccA.bTj);
+                eVar.ccA.wq();
             }
-            a(eVar.bRo, vVar);
+            a(eVar.ccA, wVar);
         } else {
-            if (eVar.bRo != null) {
-                eVar.bRk.removeView(eVar.bRo.bId);
-                this.bRf.n(eVar.bRo);
-                eVar.bRo = null;
+            if (eVar.ccA != null) {
+                eVar.ccw.removeView(eVar.ccA.bTj);
+                this.ccr.n(eVar.ccA);
+                eVar.ccA = null;
             }
-            if (eVar.bRn == null) {
-                eVar.bRn = this.bRg.dD();
-                eVar.bRk.addView(eVar.bRn.bHd);
+            if (eVar.ccz == null) {
+                eVar.ccz = this.ccs.ey();
+                eVar.ccw.addView(eVar.ccz.bSj);
             }
-            a(eVar.bRn, vVar);
+            a(eVar.ccz, wVar);
         }
-        eVar.bRm.setOnClickListener(this);
-        eVar.bRm.setTag(vVar);
+        eVar.ccy.setOnClickListener(this);
+        eVar.ccy.setTag(wVar);
         return view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bFF != null && view != null) {
+        if (this.bQN != null && view != null) {
             int id = view.getId();
             Object tag = view.getTag();
-            if (tag instanceof be) {
-                this.bFF.a(id, 0, view, null, (be) tag);
+            if (tag instanceof bg) {
+                this.bQN.a(id, 0, view, null, (bg) tag);
             }
         }
     }
 
-    private void a(cy cyVar, v vVar) {
-        PhotoLiveCardData oJ = vVar.oJ();
-        if (oJ != null) {
-            if (2 == b(oJ)) {
-                cyVar.bIe.setShowContent(true);
-                cyVar.bIe.setShowCover(false);
-                cyVar.bIe.setShowExpression(false);
+    private void a(cu cuVar, w wVar) {
+        PhotoLiveCardData pM = wVar.pM();
+        if (pM != null) {
+            if (2 == b(pM)) {
+                cuVar.bTk.setShowContent(true);
+                cuVar.bTk.setShowCover(false);
+                cuVar.bTk.setShowExpression(false);
             } else {
-                cyVar.bIe.setShowContent(false);
-                cyVar.bIe.setShowCover(true);
-                cyVar.bIe.setShowExpression(true);
+                cuVar.bTk.setShowContent(false);
+                cuVar.bTk.setShowCover(true);
+                cuVar.bTk.setShowExpression(true);
             }
-            cyVar.bIe.setChooseStyle(oJ.getShowStyle());
-            cyVar.bIe.setShowLiveIcon(true);
-            cyVar.bIe.setHeadPaddingTop(u.e.ds24);
-            cyVar.bIe.setPortraitClicklistener(this);
-            cyVar.bIe.setShowImage(l.nL().nR());
-            if (oJ.isShowDiffViewInSameAdapter()) {
-                cyVar.bIe.setShowBottom(true);
-                cyVar.bIe.setShowRefreshTimeInButtom(true);
-                cyVar.bIe.setShowHeadLiveIcon(true);
-                cyVar.bIe.setShowRefreshTimeInHead(false);
-                cyVar.bIe.setContentPaddingBottom(0);
+            cuVar.bTk.setChooseStyle(pM.getShowStyle());
+            cuVar.bTk.setShowLiveIcon(true);
+            cuVar.bTk.setHeadPaddingTop(t.e.ds24);
+            cuVar.bTk.setPortraitClicklistener(this);
+            cuVar.bTk.setShowImage(l.oG().oM());
+            if (pM.isShowDiffViewInSameAdapter()) {
+                cuVar.bTk.setShowBottom(true);
+                cuVar.bTk.setShowRefreshTimeInButtom(true);
+                cuVar.bTk.setShowHeadLiveIcon(true);
+                cuVar.bTk.setShowRefreshTimeInHead(false);
+                cuVar.bTk.setContentPaddingBottom(0);
             } else {
-                cyVar.bIe.setShowBottom(false);
-                cyVar.bIe.setShowRefreshTimeInHead(true);
-                cyVar.bIe.setShowHeadLiveIcon(false);
-                cyVar.bIe.setShowRefreshTimeInButtom(false);
-                cyVar.bIe.setContentPaddingBottom(u.e.ds36);
+                cuVar.bTk.setShowBottom(false);
+                cuVar.bTk.setShowRefreshTimeInHead(true);
+                cuVar.bTk.setShowHeadLiveIcon(false);
+                cuVar.bTk.setShowRefreshTimeInButtom(false);
+                cuVar.bTk.setContentPaddingBottom(t.e.ds36);
             }
-            cyVar.bIe.setData(oJ);
+            cuVar.bTk.setData(pM);
         }
     }
 
@@ -144,85 +148,88 @@ public class a extends bj<v, e> implements View.OnClickListener, PhotoLiveCardVi
         }
     }
 
-    private void a(ce ceVar, v vVar) {
+    private void a(ca caVar, w wVar) {
         int i;
-        if (ceVar != null && vVar != null) {
-            if (ceVar.afy != this.mSkinType) {
-                av.k(ceVar.bHe, u.f.frs_item_control_btn_bg);
-                av.k(ceVar.bHn, u.f.frs_item_abstract_more_text_bg);
-                ceVar.afy = this.mSkinType;
+        if (caVar != null && wVar != null) {
+            if (caVar.ait != this.mSkinType) {
+                av.k(caVar.bSk, t.f.frs_item_control_btn_bg);
+                av.k(caVar.bSt, t.f.frs_item_abstract_more_text_bg);
+                caVar.ait = this.mSkinType;
             }
-            ceVar.bHm.setOnClickListener(this);
-            ceVar.bHn.setOnClickListener(this);
-            ceVar.bHm.setTag(vVar);
-            ceVar.bHn.setTag(vVar);
-            ceVar.bGa.setVisibility(8);
-            ceVar.bHs.setVisibility(8);
-            ceVar.aes.setText(ba.t(vVar.qs() * 1000));
-            if (l.nL().nN() && vVar.getAuthor() != null) {
-                ceVar.bHl.setVisibility(0);
-                String portrait = vVar.getAuthor().getPortrait();
-                ceVar.bHl.setUserId(vVar.getAuthor().getUserId());
-                ceVar.bHl.setImageDrawable(null);
-                ceVar.bHl.c(portrait, 28, false);
-                ceVar.bHl.setOnClickListener(new d(this, vVar));
+            caVar.bSs.setOnClickListener(this);
+            caVar.bSt.setOnClickListener(this);
+            caVar.bSs.setTag(wVar);
+            caVar.bSt.setTag(wVar);
+            caVar.bRi.setVisibility(8);
+            caVar.bSy.setVisibility(8);
+            caVar.ahn.setText(ba.t(wVar.rw() * 1000));
+            if (l.oG().oI() && wVar.getAuthor() != null) {
+                caVar.bSr.setVisibility(0);
+                String portrait = wVar.getAuthor().getPortrait();
+                caVar.bSr.setUserId(wVar.getAuthor().getUserId());
+                caVar.bSr.setImageDrawable(null);
+                caVar.bSr.c(portrait, 28, false);
+                caVar.bSr.setOnClickListener(new d(this, wVar));
             } else {
-                ceVar.bHl.setVisibility(8);
+                caVar.bSr.setVisibility(8);
             }
-            ceVar.aeU.setVisibility(8);
-            ceVar.aeT.setVisibility(8);
-            ceVar.bHk.setText(vVar.getAuthor().getName_show());
-            av.c(ceVar.bHk, u.d.cp_cont_c, 1);
-            s readThreadHistory = TbadkCoreApplication.m10getInst().getReadThreadHistory();
-            if (vVar.qK() == 1) {
-                ceVar.aSZ.setVisibility(8);
+            caVar.ahP.setVisibility(8);
+            caVar.ahO.setVisibility(8);
+            caVar.bSq.setText(wVar.getAuthor().getName_show());
+            av.c(caVar.bSq, t.d.cp_cont_c, 1);
+            s readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
+            if (wVar.rP() == 1) {
+                caVar.aYh.setVisibility(8);
             } else {
-                ceVar.aSZ.setVisibility(0);
-                vVar.rd();
-                ceVar.aSZ.setText(vVar.qV());
-                if (readThreadHistory != null && readThreadHistory.qv(vVar.getId())) {
-                    av.c(ceVar.aSZ, u.d.cp_cont_c, 1);
+                caVar.aYh.setVisibility(0);
+                wVar.si();
+                SpannableStringBuilder sa = wVar.sa();
+                caVar.aYh.setOnTouchListener(new y(sa));
+                caVar.aYh.setText(sa);
+                if (readThreadHistory != null && readThreadHistory.rf(wVar.getId())) {
+                    av.c(caVar.aYh, t.d.cp_cont_c, 1);
                 } else {
-                    av.c(ceVar.aSZ, u.d.cp_cont_b, 1);
+                    av.c(caVar.aYh, t.d.cp_cont_b, 1);
                 }
             }
             StringBuffer stringBuffer = new StringBuffer();
-            if (vVar.qD() != null && vVar.qD().trim().length() > 0) {
-                stringBuffer.append(vVar.qD());
+            if (wVar.rI() != null && wVar.rI().trim().length() > 0) {
+                stringBuffer.append(wVar.rI());
             }
-            ArrayList<MediaData> qF = vVar.qF();
-            if (qF != null) {
+            ArrayList<MediaData> rK = wVar.rK();
+            if (rK != null) {
                 StringBuffer stringBuffer2 = new StringBuffer();
-                for (int i2 = 0; i2 < qF.size(); i2++) {
-                    if (qF.get(i2).getVideoUrl() != null && qF.get(i2).getVideoUrl().endsWith("swf")) {
-                        stringBuffer2.append(qF.get(i2).getVideoUrl());
+                for (int i2 = 0; i2 < rK.size(); i2++) {
+                    if (rK.get(i2).getVideoUrl() != null && rK.get(i2).getVideoUrl().endsWith("swf")) {
+                        stringBuffer2.append(rK.get(i2).getVideoUrl());
                     }
                 }
                 stringBuffer.append(stringBuffer2.toString());
-                if (stringBuffer.length() > 0) {
+                if (!TextUtils.isEmpty(wVar.g(stringBuffer.toString(), true))) {
                     if (stringBuffer.length() > 170) {
-                        ceVar.bHn.setVisibility(0);
-                        ceVar.bHh.setText(String.valueOf(stringBuffer.toString().substring(0, 170)) + "...");
+                        caVar.bSt.setVisibility(0);
                     } else {
-                        ceVar.bHn.setVisibility(8);
-                        ceVar.bHh.setText(stringBuffer.toString());
+                        caVar.bSt.setVisibility(8);
                     }
-                    ceVar.bHh.setVisibility(0);
-                    if (readThreadHistory != null && readThreadHistory.qv(vVar.getId())) {
-                        av.c(ceVar.bHh, u.d.cp_cont_c, 1);
+                    SpannableString cu = wVar.cu(stringBuffer.toString());
+                    caVar.bSn.setOnTouchListener(new y(cu));
+                    caVar.bSn.setText(cu);
+                    caVar.bSn.setVisibility(0);
+                    if (readThreadHistory != null && readThreadHistory.rf(wVar.getId())) {
+                        av.c(caVar.bSn, t.d.cp_cont_c, 1);
                     } else {
-                        av.c(ceVar.bHh, u.d.cp_cont_b, 1);
+                        av.c(caVar.bSn, t.d.cp_cont_b, 1);
                     }
                 } else {
-                    ceVar.bHn.setVisibility(8);
-                    ceVar.bHh.setVisibility(8);
+                    caVar.bSt.setVisibility(8);
+                    caVar.bSn.setVisibility(8);
                 }
             }
-            if (l.nL().nR() && qF != null && qF.size() > 0) {
+            if (l.oG().oM() && rK != null && rK.size() > 0) {
                 int i3 = 0;
                 int i4 = 0;
-                for (int i5 = 0; i5 < qF.size(); i5++) {
-                    if (qF.get(i5) != null && (qF.get(i5).getType() == 3 || qF.get(i5).getType() == 5)) {
+                for (int i5 = 0; i5 < rK.size(); i5++) {
+                    if (rK.get(i5) != null && (rK.get(i5).getType() == 3 || rK.get(i5).getType() == 5)) {
                         i4++;
                         i3++;
                     }
@@ -231,9 +238,9 @@ public class a extends bj<v, e> implements View.OnClickListener, PhotoLiveCardVi
                     MediaData[] mediaDataArr = new MediaData[i4];
                     int i6 = 0;
                     int i7 = 0;
-                    while (i7 < qF.size() && i6 < i4) {
-                        if (qF.get(i7).getType() == 3 || qF.get(i7).getType() == 5) {
-                            mediaDataArr[i6] = qF.get(i7);
+                    while (i7 < rK.size() && i6 < i4) {
+                        if (rK.get(i7).getType() == 3 || rK.get(i7).getType() == 5) {
+                            mediaDataArr[i6] = rK.get(i7);
                             i = i6 + 1;
                         } else {
                             i = i6;
@@ -241,45 +248,45 @@ public class a extends bj<v, e> implements View.OnClickListener, PhotoLiveCardVi
                         i7++;
                         i6 = i;
                     }
-                    ceVar.bHj.setVisibility(0);
-                    ceVar.bHj.a(vVar, this.bDM.aGX().getName(), this.bDM.aGX().getId(), vVar.getTid());
-                    ceVar.bHj.setShowBig(this.bKF);
-                    ceVar.bHj.setDrawNum(true);
-                    ceVar.bHj.setFromCDN(this.mIsFromCDN);
-                    ceVar.bHj.a(this.bem.getPageContext(), mediaDataArr, i3);
-                    ceVar.bHj.setImageFrom("other");
+                    caVar.bSp.setVisibility(0);
+                    caVar.bSp.a(wVar, this.bPq.aLP().getName(), this.bPq.aLP().getId(), wVar.getTid());
+                    caVar.bSp.setShowBig(this.bVP);
+                    caVar.bSp.setDrawNum(true);
+                    caVar.bSp.setFromCDN(this.mIsFromCDN);
+                    caVar.bSp.a(this.aPR.getPageContext(), mediaDataArr, i3);
+                    caVar.bSp.setImageFrom("other");
                 } else {
-                    ceVar.bHj.setVisibility(8);
+                    caVar.bSp.setVisibility(8);
                 }
             } else {
-                ceVar.bHj.setVisibility(8);
+                caVar.bSp.setVisibility(8);
             }
-            ceVar.bHi.setVisibility(8);
-            if (vVar.qp() != null && vVar.qp().getNum() > 0) {
-                ceVar.aev.setVisibility(0);
-                ceVar.aev.setText(ba.y(vVar.qp().getNum()));
+            caVar.bSo.setVisibility(8);
+            if (wVar.rt() != null && wVar.rt().getNum() > 0) {
+                caVar.ahq.setVisibility(0);
+                caVar.ahq.setText(ba.y(wVar.rt().getNum()));
             } else {
-                ceVar.aev.setVisibility(8);
+                caVar.ahq.setVisibility(8);
             }
-            com.baidu.tieba.graffiti.d.al(ceVar.aev);
-            int qr = vVar.qr();
-            if (qr > 0) {
-                ceVar.bGb.setVisibility(0);
-                ceVar.bGb.setText(ba.y(qr));
+            com.baidu.tieba.graffiti.d.al(caVar.ahq);
+            int rv = wVar.rv();
+            if (rv > 0) {
+                caVar.bRj.setVisibility(0);
+                caVar.bRj.setText(ba.y(rv));
             } else {
-                ceVar.bGb.setVisibility(8);
+                caVar.bRj.setVisibility(8);
             }
-            ceVar.bHm.setVisibility(8);
+            caVar.bSs.setVisibility(8);
         }
     }
 
-    public void dx(boolean z) {
-        if (this.bKF != z) {
-            this.bKF = z;
+    public void dT(boolean z) {
+        if (this.bVP != z) {
+            this.bVP = z;
         }
     }
 
-    public int ZT() {
-        return u.g.storecard_close_click;
+    public int aeD() {
+        return t.g.storecard_close_click;
     }
 }

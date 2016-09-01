@@ -10,7 +10,7 @@ import tbclient.ExcFrsPage.DataReq;
 import tbclient.ExcFrsPage.ExcFrsPageReqIdl;
 /* loaded from: classes.dex */
 public class d implements h {
-    private long cwl;
+    private long cHQ;
     private int pn;
     private long tagCode;
 
@@ -26,29 +26,29 @@ public class d implements h {
         this.tagCode = j;
     }
 
-    public long aig() {
-        return this.cwl;
+    public long amU() {
+        return this.cHQ;
     }
 
-    public void bo(long j) {
-        this.cwl = j;
+    public void bK(long j) {
+        this.cHQ = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> ld() {
+    public HashMap<String, Object> lY() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object Y(boolean z) {
+    public Object aa(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.pn);
-        builder.scr_w = Integer.valueOf(k.A(TbadkCoreApplication.m10getInst()));
-        builder.scr_h = Integer.valueOf(k.B(TbadkCoreApplication.m10getInst()));
-        builder.scr_dip = Double.valueOf(k.C(TbadkCoreApplication.m10getInst()));
+        builder.scr_w = Integer.valueOf(k.K(TbadkCoreApplication.m9getInst()));
+        builder.scr_h = Integer.valueOf(k.L(TbadkCoreApplication.m9getInst()));
+        builder.scr_dip = Double.valueOf(k.M(TbadkCoreApplication.m9getInst()));
         builder.tag_code = Long.valueOf(this.tagCode);
-        builder.q_type = Integer.valueOf(bb.ue().ug() ? 2 : 1);
-        builder.last_rank = Long.valueOf(this.cwl);
+        builder.q_type = Integer.valueOf(bb.vk().vm() ? 2 : 1);
+        builder.last_rank = Long.valueOf(this.cHQ);
         ExcFrsPageReqIdl.Builder builder2 = new ExcFrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
         o.a(builder2.data, true);

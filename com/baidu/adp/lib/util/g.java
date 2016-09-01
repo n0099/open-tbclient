@@ -16,20 +16,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class g {
-    private static g pq = null;
+    private static g rD = null;
 
-    public static g fc() {
+    public static g fX() {
         g gVar;
-        if (pq == null) {
+        if (rD == null) {
             synchronized (g.class) {
-                if (pq == null) {
-                    pq = new g();
+                if (rD == null) {
+                    rD = new g();
                 }
-                gVar = pq;
+                gVar = rD;
             }
             return gVar;
         }
-        return pq;
+        return rD;
     }
 
     public boolean a(String str, int i, h hVar) {
@@ -48,11 +48,11 @@ public class g {
             if (z2) {
                 z = z2;
             } else {
-                String aK = aK(str);
-                File file = new File(aK);
+                String aL = aL(str);
+                File file = new File(aL);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        boolean b = b(aK, sb);
+                        boolean b = b(aL, sb);
                         if (b) {
                             sb.append("-Succ2-");
                             z = b;
@@ -65,14 +65,14 @@ public class g {
                         z = z2;
                     }
                 } else {
-                    a aVar = new a(str, aK, sb, hVar);
+                    a aVar = new a(str, aL, sb, hVar);
                     aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     aVar.execute(new Object[0]);
                     return false;
                 }
             }
             if (sb.length() > 0) {
-                com.baidu.adp.lib.stats.a.dN().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, sb.toString(), new Object[0]);
+                com.baidu.adp.lib.stats.a.eI().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, sb.toString(), new Object[0]);
             }
         }
         return z;
@@ -97,11 +97,11 @@ public class g {
             }
         }
         if (!z2) {
-            String aK = aK(str);
-            File file = new File(aK);
+            String aL = aL(str);
+            File file = new File(aL);
             if (file.exists()) {
                 if (file.length() > 0) {
-                    boolean b = b(aK, sb);
+                    boolean b = b(aL, sb);
                     if (b) {
                         sb.append("-Succ2-");
                         z = b;
@@ -110,7 +110,7 @@ public class g {
                         z = b;
                     }
                     if (sb.length() <= 0) {
-                        com.baidu.adp.lib.stats.a.dN().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, sb.toString(), new Object[0]);
+                        com.baidu.adp.lib.stats.a.eI().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, sb.toString(), new Object[0]);
                         return z;
                     }
                     return z;
@@ -124,7 +124,7 @@ public class g {
     }
 
     private boolean a(String str, StringBuilder sb) {
-        boolean b = b(aJ(str), sb);
+        boolean b = b(aK(str), sb);
         if (!b) {
             try {
                 System.loadLibrary(str);
@@ -158,11 +158,11 @@ public class g {
         }
     }
 
-    private String aJ(String str) {
+    private String aK(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + Plugin.SO_LIB_DIR_NAME + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    private String aK(String str) {
+    private String aL(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
@@ -214,9 +214,9 @@ public class g {
                                     }
                                 }
                                 byteArrayOutputStream.flush();
-                                String aK = aK(str2);
-                                a(aK, byteArrayOutputStream.toByteArray(), sb);
-                                if (b(aK, sb)) {
+                                String aL = aL(str2);
+                                a(aL, byteArrayOutputStream.toByteArray(), sb);
+                                if (b(aL, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.h.a.d(byteArrayOutputStream);
@@ -287,25 +287,25 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Object, Object> {
-        String pr;
-        String ps;
-        StringBuilder pt;
-        h pu;
-        boolean pv = false;
+        String rE;
+        String rF;
+        StringBuilder rG;
+        h rH;
+        boolean rI = false;
 
         public a(String str, String str2, StringBuilder sb, h hVar) {
-            this.pr = str;
-            this.ps = str2;
-            this.pt = sb;
-            this.pu = hVar;
+            this.rE = str;
+            this.rF = str2;
+            this.rG = sb;
+            this.rH = hVar;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Object doInBackground(Object... objArr) {
-            this.pv = g.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.pr, this.pt);
-            if (!this.pv) {
-                g.this.a(this.ps, "".getBytes(), this.pt);
+            this.rI = g.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.rE, this.rG);
+            if (!this.rI) {
+                g.this.a(this.rF, "".getBytes(), this.rG);
                 return null;
             }
             return null;
@@ -315,11 +315,11 @@ public class g {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.pt.length() > 0) {
-                com.baidu.adp.lib.stats.a.dN().a("so", "load_" + this.pr + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.pt.toString(), new Object[0]);
+            if (this.rG.length() > 0) {
+                com.baidu.adp.lib.stats.a.eI().a("so", "load_" + this.rE + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.rG.toString(), new Object[0]);
             }
-            if (this.pu != null) {
-                this.pu.m(this.pv);
+            if (this.rH != null) {
+                this.rH.o(this.rI);
             }
         }
     }
