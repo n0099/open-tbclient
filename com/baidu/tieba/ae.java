@@ -1,21 +1,24 @@
 package com.baidu.tieba;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae implements Runnable {
-    final /* synthetic */ ad aJh;
+public class ae implements View.OnClickListener {
+    final /* synthetic */ UpdateDialog this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar) {
-        this.aJh = adVar;
+    public ae(UpdateDialog updateDialog) {
+        this.this$0 = updateDialog;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        UpdateDialog updateDialog;
-        UpdateDialog updateDialog2;
-        updateDialog = this.aJh.this$0;
-        if (updateDialog.aJd.forceUpdate()) {
-            updateDialog2 = this.aJh.this$0;
-            com.baidu.tbadk.core.d.b.d(updateDialog2.getPageContext().getPageActivity(), 200);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        z = this.this$0.aLQ;
+        if (z) {
+            this.this$0.Jn();
         }
+        this.this$0.aMw.dismiss();
+        this.this$0.finish();
     }
 }

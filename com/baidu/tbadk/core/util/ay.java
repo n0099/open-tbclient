@@ -40,7 +40,7 @@ public class ay {
         return this;
     }
 
-    public void dt(String str) {
+    public void dw(String str) {
         int indexOf;
         if (!ba.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
             this.params.remove(indexOf);

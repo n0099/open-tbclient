@@ -1,53 +1,106 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.Page;
 /* loaded from: classes.dex */
 public class ak {
-    private int Ph;
-    private ArrayList<a> Pi;
+    private int RO = 0;
+    private int total_num = 0;
+    private int current_page = 0;
+    private int RQ = 0;
+    private int has_more = 0;
+    private int RR = 0;
+    private int total_count = 0;
+    private int RP = 0;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public String FC;
-        public int giftId;
-        public int num;
-        public String thumbnailUrl;
+    public int ql() {
+        return this.RO;
     }
 
-    public void a(PbPresent pbPresent) {
-        if (pbPresent != null) {
-            this.Ph = pbPresent.total.intValue();
-            if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.Pi = new ArrayList<>();
-                for (PbPresentList pbPresentList : pbPresent.list) {
-                    if (pbPresentList != null) {
-                        a aVar = new a();
-                        aVar.giftId = pbPresentList.gift_id.intValue();
-                        aVar.FC = pbPresentList.gift_name;
-                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
-                        aVar.num = pbPresentList.num.intValue();
-                        this.Pi.add(aVar);
-                    }
-                }
-            }
+    public void bK(int i) {
+        this.RO = i;
+    }
+
+    public int pa() {
+        return this.total_num;
+    }
+
+    public void bL(int i) {
+        this.total_num = i;
+    }
+
+    public int qm() {
+        return this.total_count;
+    }
+
+    public int qn() {
+        return this.RP;
+    }
+
+    public void bM(int i) {
+        this.RP = i;
+    }
+
+    public int qo() {
+        return this.current_page;
+    }
+
+    public void bN(int i) {
+        this.current_page = i;
+    }
+
+    public int qp() {
+        return this.RQ;
+    }
+
+    public void bO(int i) {
+        this.RQ = i;
+    }
+
+    public void bP(int i) {
+        this.has_more = i;
+    }
+
+    public int qq() {
+        return this.has_more;
+    }
+
+    public void bQ(int i) {
+        this.RR = i;
+    }
+
+    public int qr() {
+        return this.RR;
+    }
+
+    public void a(Page page) {
+        if (page != null) {
+            this.RO = page.total_page.intValue();
+            this.total_num = page.total_num.intValue();
+            this.total_count = page.total_count.intValue();
+            this.current_page = page.current_page.intValue();
+            this.RQ = page.page_size.intValue();
+            this.has_more = page.has_more.intValue();
+            this.RR = page.has_prev.intValue();
+            this.RP = page.lz_total_floor.intValue();
         }
     }
 
-    public int pp() {
-        return this.Ph;
-    }
-
-    public void bE(int i) {
-        this.Ph = i;
-    }
-
-    public ArrayList<a> pq() {
-        return this.Pi;
-    }
-
-    public void h(ArrayList<a> arrayList) {
-        this.Pi = arrayList;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.RO = jSONObject.optInt("total_page", 0);
+                this.total_num = jSONObject.optInt("total_num", 0);
+                this.total_count = jSONObject.optInt("total_count", 0);
+                this.current_page = jSONObject.optInt("current_page", 0);
+                this.RQ = jSONObject.optInt("page_size", 0);
+                this.has_more = jSONObject.optInt("has_more", 0);
+                this.RR = jSONObject.optInt("has_prev", 0);
+                this.RP = jSONObject.optInt("lz_total_floor", 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

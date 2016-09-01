@@ -5,11 +5,11 @@ import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements SubsamplingScaleImageView.OnImageEventListener {
-    final /* synthetic */ u anX;
+    final /* synthetic */ u are;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(u uVar) {
-        this.anX = uVar;
+        this.are = uVar;
     }
 
     @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
@@ -26,9 +26,9 @@ public class x implements SubsamplingScaleImageView.OnImageEventListener {
 
     @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
     public void onReady() {
-        this.anX.mProgressBar.setVisibility(8);
-        this.anX.anH.Gc();
-        this.anX.anH.setVisibility(4);
+        this.are.mProgressBar.setVisibility(8);
+        this.are.aqO.Hw();
+        this.are.aqO.setVisibility(4);
     }
 
     @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener

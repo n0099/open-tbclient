@@ -1,22 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-public class cu implements a.b {
-    private final /* synthetic */ FrsActivity bHQ;
-    private final /* synthetic */ com.baidu.tieba.frs.view.n bHR;
+public class cu extends y.a {
+    public int ait;
+    public TbImageView bSm;
+    public FrameLayout bTj;
+    public PhotoLiveCardView bTk;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cu(FrsActivity frsActivity, com.baidu.tieba.frs.view.n nVar) {
-        this.bHQ = frsActivity;
-        this.bHR = nVar;
+    public cu(View view) {
+        super(view);
+        this.ait = 3;
+        this.bTj = (FrameLayout) view.findViewById(t.g.live_card_layout);
+        this.bSm = (TbImageView) view.findViewById(t.g.frs_single_livecard_theme_card);
+        this.bTk = (PhotoLiveCardView) view.findViewById(t.g.item_live_card);
+        this.bTk.setAllowGreyState(true);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(a aVar) {
-        this.bHQ.HidenSoftKeyPad((InputMethodManager) this.bHQ.getSystemService("input_method"), this.bHR.getChatMsgView());
-        aVar.dismiss();
+    public void wq() {
+        if (this.bTk != null) {
+            this.bTk.wq();
+        }
     }
 }

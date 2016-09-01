@@ -3,13 +3,11 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.o;
-import tbclient.CommonReq;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
 /* loaded from: classes.dex */
 public class RealTimeRequest extends NetMessage {
     private String abtest_tag;
-    private CommonReq common;
     private int location;
     private String source;
     private long tid;
@@ -18,14 +16,6 @@ public class RealTimeRequest extends NetMessage {
 
     public RealTimeRequest() {
         super(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, 309277);
-    }
-
-    public CommonReq getCommon() {
-        return this.common;
-    }
-
-    public void setCommon(CommonReq commonReq) {
-        this.common = commonReq;
     }
 
     public long getTid() {
@@ -79,7 +69,6 @@ public class RealTimeRequest extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.common = getCommon();
         builder.tid = Long.valueOf(this.tid);
         builder.weight = this.weight;
         builder.source = this.source;

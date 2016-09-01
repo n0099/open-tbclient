@@ -1,28 +1,30 @@
 package com.baidu.tieba.frs.entelechy;
 
-import android.view.MotionEvent;
+import android.content.Context;
 import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements View.OnTouchListener {
-    final /* synthetic */ e bJY;
+public class m implements View.OnClickListener {
+    final /* synthetic */ j bVn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(e eVar) {
-        this.bJY = eVar;
+    public m(j jVar) {
+        this.bVn = jVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        PopupWindow popupWindow;
-        FrsActivity frsActivity;
-        if (motionEvent.getAction() == 4) {
-            popupWindow = this.bJY.bVh;
-            com.baidu.adp.lib.h.j.a(popupWindow);
-            frsActivity = this.bJY.bGh;
-            frsActivity.bDx = false;
-        }
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        String str;
+        MessageManager messageManager = MessageManager.getInstance();
+        tbPageContext = this.bVn.Gd;
+        Context context = tbPageContext.getContext();
+        str = this.bVn.mForumId;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_DETAIL, new ForumDetailActivityConfig(context, str, ForumDetailActivityConfig.FromType.FRS)));
     }
 }

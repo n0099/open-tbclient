@@ -2,16 +2,16 @@ package com.baidu.tieba.homepage.framework;
 
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.framework.q;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements q.a {
-    final /* synthetic */ RecommendFrsControlFragment cqJ;
+    final /* synthetic */ RecommendFrsControlFragment cBR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cqJ = recommendFrsControlFragment;
+        this.cBR = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tieba.homepage.framework.q.a
@@ -21,25 +21,25 @@ public class f implements q.a {
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
         if (z) {
-            this.cqJ.agP();
+            this.cBR.alA();
         }
         if (z) {
-            scrollFragmentTabHost3 = this.cqJ.cqw;
-            if (!scrollFragmentTabHost3.ahe() && cVar != null && cVar.isEmpty()) {
-                if (this.cqJ.getPageContext() == null || this.cqJ.getPageContext().getResources() == null) {
+            scrollFragmentTabHost3 = this.cBR.cBE;
+            if (!scrollFragmentTabHost3.alP() && cVar != null && cVar.isEmpty()) {
+                if (this.cBR.getPageContext() == null || this.cBR.getPageContext().getResources() == null) {
                     return;
                 }
-                this.cqJ.B(this.cqJ.getPageContext().getResources().getString(u.j.neterror), false);
+                this.cBR.F(this.cBR.getPageContext().getResources().getString(t.j.neterror), false);
                 return;
             }
         }
         if (z3) {
-            scrollFragmentTabHost2 = this.cqJ.cqw;
-            j2 = scrollFragmentTabHost2.f(j, str);
+            scrollFragmentTabHost2 = this.cBR.cBE;
+            j2 = scrollFragmentTabHost2.i(j, str);
         } else {
             j2 = j;
         }
-        scrollFragmentTabHost = this.cqJ.cqw;
+        scrollFragmentTabHost = this.cBR.cBE;
         scrollFragmentTabHost.b(z, j2, cVar, z2);
     }
 
@@ -48,29 +48,29 @@ public class f implements q.a {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
-        this.cqJ.agP();
-        scrollFragmentTabHost = this.cqJ.cqw;
-        if (!scrollFragmentTabHost.ahe()) {
-            if (this.cqJ.getPageContext() == null || this.cqJ.getPageContext().getResources() == null) {
+        this.cBR.alA();
+        scrollFragmentTabHost = this.cBR.cBE;
+        if (!scrollFragmentTabHost.alP()) {
+            if (this.cBR.getPageContext() == null || this.cBR.getPageContext().getResources() == null) {
                 return;
             }
-            this.cqJ.B(this.cqJ.getPageContext().getResources().getString(u.j.net_error_text, str2, Integer.valueOf(i)), false);
+            this.cBR.F(this.cBR.getPageContext().getResources().getString(t.j.net_error_text, str2, Integer.valueOf(i)), false);
             return;
         }
         if (z) {
-            scrollFragmentTabHost3 = this.cqJ.cqw;
-            j = scrollFragmentTabHost3.f(j, str);
+            scrollFragmentTabHost3 = this.cBR.cBE;
+            j = scrollFragmentTabHost3.i(j, str);
         }
-        scrollFragmentTabHost2 = this.cqJ.cqw;
+        scrollFragmentTabHost2 = this.cBR.cBE;
         scrollFragmentTabHost2.a(j, str2, i);
     }
 
     @Override // com.baidu.tieba.homepage.framework.q.a
     public void a(long j, DataRes dataRes, boolean z) {
         ScrollFragmentTabHost scrollFragmentTabHost;
-        this.cqJ.agP();
-        this.cqJ.IL();
-        scrollFragmentTabHost = this.cqJ.cqw;
+        this.cBR.alA();
+        this.cBR.La();
+        scrollFragmentTabHost = this.cBR.cBE;
         scrollFragmentTabHost.c(j, dataRes, z);
     }
 }

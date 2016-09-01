@@ -1,31 +1,24 @@
 package com.baidu.tieba.homepage.recommendfrs;
 
-import com.baidu.adp.lib.cache.o;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.t;
+import com.baidu.tieba.homepage.framework.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends t<String> {
-    final /* synthetic */ b cwb;
+public class i implements com.baidu.tbadk.util.g<String> {
+    private final /* synthetic */ x cCr;
+    final /* synthetic */ b cHG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(b bVar) {
-        this.cwb = bVar;
+    public i(b bVar, x xVar) {
+        this.cHG = bVar;
+        this.cCr = xVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.t
-    /* renamed from: agZ */
-    public String doInBackground() {
-        String str;
-        String str2;
-        com.baidu.tbadk.core.b.a rO = com.baidu.tbadk.core.b.a.rO();
-        str = this.cwb.crc;
-        o<String> N = rO.N(str, TbadkCoreApplication.getCurrentAccount());
-        if (N != null) {
-            str2 = this.cwb.crd;
-            return N.get(str2);
+    @Override // com.baidu.tbadk.util.g
+    /* renamed from: kN */
+    public void onReturnDataInUI(String str) {
+        if (str != null && this.cCr != null) {
+            this.cCr.jO(com.baidu.adp.lib.h.b.g(str, 0));
         }
-        return null;
     }
 }

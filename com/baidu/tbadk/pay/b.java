@@ -6,18 +6,18 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.clientConfig.ClientConfigNetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private a ayd;
-    private final com.baidu.adp.framework.listener.a aye;
+    private a aBk;
+    private final com.baidu.adp.framework.listener.a aBl;
 
     public b(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.aye = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.ayd = aVar;
-        registerListener(this.aye);
+        this.aBl = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.aBk = aVar;
+        registerListener(this.aBl);
     }
 
     @Override // com.baidu.adp.base.e
@@ -30,10 +30,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void Ex() {
-        if (!e.Ey().Ez()) {
-            if (this.ayd != null) {
-                this.ayd.Ev();
+    public void FR() {
+        if (!e.FS().FT()) {
+            if (this.aBk != null) {
+                this.aBk.FP();
                 return;
             }
             return;
@@ -44,7 +44,7 @@ public class b extends com.baidu.adp.base.e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aye);
+        MessageManager.getInstance().unRegisterListener(this.aBl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -55,19 +55,19 @@ public class b extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.ayd != null) {
-                this.ayd.onError(TbadkCoreApplication.m10getInst().getString(u.j.data_load_error));
+            if (this.aBk != null) {
+                this.aBk.onError(TbadkCoreApplication.m9getInst().getString(t.j.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.ayd != null) {
-                this.ayd.Ew();
+            if (this.aBk != null) {
+                this.aBk.FQ();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.ayd != null) {
-                this.ayd.Ev();
+            if (this.aBk != null) {
+                this.aBk.FP();
             }
-        } else if (this.ayd != null) {
-            this.ayd.onError("");
+        } else if (this.aBk != null) {
+            this.aBk.onError("");
         }
     }
 }

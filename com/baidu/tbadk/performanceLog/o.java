@@ -3,98 +3,98 @@ package com.baidu.tbadk.performanceLog;
 public class o extends ac {
     @Override // com.baidu.tbadk.performanceLog.ac
     public void a(v vVar) {
-        if (aa.EV().EW()) {
-            com.baidu.adp.lib.stats.d dG = dG();
-            dG.q("action", "time_t");
-            a(dG, vVar);
-            dG.q("ishttp", vVar.azq ? "1" : "0");
-            dG.q("issuccess", vVar.isSuccess ? "1" : "0");
-            dG.q("nettype", aa.EV().getNetType());
-            dG.q("ct", String.valueOf(vVar.azd));
-            dG.q("wt", String.valueOf(vVar.azl));
-            dG.q("qt", String.valueOf(vVar.aze));
-            dG.q("connt", String.valueOf(vVar.azf));
-            dG.q("rwt", String.valueOf(vVar.azg));
-            dG.q("dect", String.valueOf(vVar.azh));
-            dG.q("parset", String.valueOf(vVar.azi));
-            dG.q("rendert", String.valueOf(vVar.azk));
-            dG.q("ss", String.valueOf(vVar.azo));
-            dG.q("hs", String.valueOf(vVar.azp));
-            if (vVar.azq && vVar.socketErrNo != 0) {
-                dG.q("salno", String.valueOf(vVar.socketErrNo));
+        if (aa.Gp().Gq()) {
+            com.baidu.adp.lib.stats.d eB = eB();
+            eB.q("action", "time_t");
+            a(eB, vVar);
+            eB.q("ishttp", vVar.aCx ? "1" : "0");
+            eB.q("issuccess", vVar.isSuccess ? "1" : "0");
+            eB.q("nettype", aa.Gp().getNetType());
+            eB.q("ct", String.valueOf(vVar.aCk));
+            eB.q("wt", String.valueOf(vVar.aCs));
+            eB.q("qt", String.valueOf(vVar.aCl));
+            eB.q("connt", String.valueOf(vVar.aCm));
+            eB.q("rwt", String.valueOf(vVar.aCn));
+            eB.q("dect", String.valueOf(vVar.aCo));
+            eB.q("parset", String.valueOf(vVar.aCp));
+            eB.q("rendert", String.valueOf(vVar.aCr));
+            eB.q("ss", String.valueOf(vVar.aCv));
+            eB.q("hs", String.valueOf(vVar.aCw));
+            if (vVar.aCx && vVar.socketErrNo != 0) {
+                eB.q("salno", String.valueOf(vVar.socketErrNo));
                 if (vVar.socketCostTime != 0) {
-                    dG.q("scosttime", String.valueOf(vVar.socketCostTime));
+                    eB.q("scosttime", String.valueOf(vVar.socketCostTime));
                 }
             }
             if (vVar.errCode != 0) {
-                dG.d("errcode", Integer.valueOf(vVar.errCode));
+                eB.d("errcode", Integer.valueOf(vVar.errCode));
             }
-            if (vVar.azq) {
-                dG.q("c_logid", String.valueOf(vVar.azu));
+            if (vVar.aCx) {
+                eB.q("c_logid", String.valueOf(vVar.aCB));
             } else {
-                dG.q("seq_id", String.valueOf(vVar.sequenceID & 4294967295L));
+                eB.q("seq_id", String.valueOf(vVar.sequenceID & 4294967295L));
             }
-            com.baidu.adp.lib.stats.a.dN().a(this.subType, dG);
+            com.baidu.adp.lib.stats.a.eI().a(this.subType, eB);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void b(v vVar) {
-        if (aa.EV().EW() && vVar.azm > 0) {
-            com.baidu.adp.lib.stats.d dG = dG();
-            dG.q("action", "readCache_t");
-            a(dG, vVar);
-            dG.q("rct", String.valueOf(vVar.azm));
-            com.baidu.adp.lib.stats.a.dN().a(this.subType, dG);
+        if (aa.Gp().Gq() && vVar.aCt > 0) {
+            com.baidu.adp.lib.stats.d eB = eB();
+            eB.q("action", "readCache_t");
+            a(eB, vVar);
+            eB.q("rct", String.valueOf(vVar.aCt));
+            com.baidu.adp.lib.stats.a.eI().a(this.subType, eB);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void c(v vVar) {
-        if (aa.EV().EW() && vVar.azn > 0) {
-            com.baidu.adp.lib.stats.d dG = dG();
-            dG.q("action", "writeCache_t");
-            a(dG, vVar);
-            dG.q("wct", String.valueOf(vVar.azn));
-            com.baidu.adp.lib.stats.a.dN().a(this.subType, dG);
+        if (aa.Gp().Gq() && vVar.aCu > 0) {
+            com.baidu.adp.lib.stats.d eB = eB();
+            eB.q("action", "writeCache_t");
+            a(eB, vVar);
+            eB.q("wct", String.valueOf(vVar.aCu));
+            com.baidu.adp.lib.stats.a.eI().a(this.subType, eB);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void a(u uVar, String str) {
-        if (uVar != null && str != null && aa.EV().EW()) {
-            com.baidu.adp.lib.stats.d dG = dG();
-            dG.q("action", "resource_t");
-            dG.q("actype", str);
-            dG.q("issuccess", uVar.isSuccess ? "1" : "0");
-            dG.q("isfs", uVar.azb ? "1" : "0");
-            dG.q("ct", String.valueOf(uVar.yn));
-            dG.q("from", String.valueOf(uVar.ym));
-            com.baidu.adp.lib.stats.a.dN().a(this.subType, dG);
+        if (uVar != null && str != null && aa.Gp().Gq()) {
+            com.baidu.adp.lib.stats.d eB = eB();
+            eB.q("action", "resource_t");
+            eB.q("actype", str);
+            eB.q("issuccess", uVar.isSuccess ? "1" : "0");
+            eB.q("isfs", uVar.aCi ? "1" : "0");
+            eB.q("ct", String.valueOf(uVar.AA));
+            eB.q("from", String.valueOf(uVar.Az));
+            com.baidu.adp.lib.stats.a.eI().a(this.subType, eB);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void g(e eVar) {
-        if (eVar != null && aa.EV().EW()) {
-            com.baidu.adp.lib.stats.d dG = dG();
-            dG.q("action", "fluency_t");
-            a(dG, eVar);
-            dG.q("fps", String.valueOf(eVar.EF()));
-            dG.q("memp", String.valueOf(eVar.EH()));
-            dG.q("cpu", String.valueOf(eVar.EI()));
-            com.baidu.adp.lib.stats.a.dN().a(this.subType, dG);
+        if (eVar != null && aa.Gp().Gq()) {
+            com.baidu.adp.lib.stats.d eB = eB();
+            eB.q("action", "fluency_t");
+            a(eB, eVar);
+            eB.q("fps", String.valueOf(eVar.FZ()));
+            eB.q("memp", String.valueOf(eVar.Gb()));
+            eB.q("cpu", String.valueOf(eVar.Gc()));
+            com.baidu.adp.lib.stats.a.eI().a(this.subType, eB);
         }
     }
 
     @Override // com.baidu.tbadk.performanceLog.ac
     public void h(e eVar) {
-        if (aa.EV().EW()) {
-            com.baidu.adp.lib.stats.d dG = dG();
-            dG.q("action", "gc_t");
-            a(dG, eVar);
-            dG.q("gc", String.valueOf(eVar.EG()));
-            com.baidu.adp.lib.stats.a.dN().a(this.subType, dG);
+        if (aa.Gp().Gq()) {
+            com.baidu.adp.lib.stats.d eB = eB();
+            eB.q("action", "gc_t");
+            a(eB, eVar);
+            eB.q("gc", String.valueOf(eVar.Ga()));
+            com.baidu.adp.lib.stats.a.eI().a(this.subType, eB);
         }
     }
 

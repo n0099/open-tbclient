@@ -7,10 +7,17 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
-    private String aFR;
+    private String aJc;
+    private int aJd;
+    private int color = -1;
     private int mType;
     private String mUrl;
 
@@ -34,19 +41,38 @@ public class h extends ClickableSpan {
         this.mType = i;
     }
 
-    public void gA(String str) {
-        this.aFR = str;
+    public void fw(int i) {
+        this.aJd = i;
+    }
+
+    public void setColor(int i) {
+        this.color = i;
+    }
+
+    public void gD(String str) {
+        this.aJc = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         super.updateDrawState(textPaint);
         textPaint.setUnderlineText(false);
+        if (this.color != -1) {
+            textPaint.bgColor = this.color;
+        } else if (this.aJd == 1) {
+            if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
+                textPaint.bgColor = av.getColor(t.d.cp_bg_line_c);
+            } else {
+                textPaint.bgColor = av.getColor(t.d.cp_bg_line_z);
+            }
+        } else if (this.aJd == 2) {
+            textPaint.bgColor = av.getColor(t.d.transparent);
+        }
     }
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aFR)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aJc)));
     }
 
     public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {
@@ -59,6 +85,10 @@ public class h extends ClickableSpan {
                     return;
                 case 16:
                     mVar.A(pageActivity, str);
+                    return;
+                case 18:
+                    TiebaStatic.log(new ay("c11455").ab("obj_locate", "pb"));
+                    mVar.B(pageActivity, str);
                     return;
                 case 32:
                     mVar.C(pageActivity, str);

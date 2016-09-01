@@ -11,13 +11,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class g extends CustomMessageListener {
-    final /* synthetic */ PersonalChatActivity dbu;
+    final /* synthetic */ PersonalChatActivity dnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(PersonalChatActivity personalChatActivity, int i) {
         super(i);
-        this.dbu = personalChatActivity;
+        this.dnc = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,36 +46,36 @@ class g extends CustomMessageListener {
                         JSONObject optJSONObject = new JSONObject(content).optJSONObject("eventParam");
                         if (optJSONObject != null) {
                             long optLong = optJSONObject.optLong("user_id");
-                            personalMsglistModel = this.dbu.dbn;
+                            personalMsglistModel = this.dnc.dmV;
                             if (optLong == com.baidu.adp.lib.h.b.c(personalMsglistModel.getUser().getUserId(), 0L)) {
                                 String optString = optJSONObject.optString("message");
                                 if (cmd.equals("apply_new_friend")) {
-                                    personalChatView6 = this.dbu.dbo;
+                                    personalChatView6 = this.dnc.dmW;
                                     personalChatView6.a(PersonalMsglistModel.CardStatus.AGREE, true, optString);
-                                    personalMsglistModel7 = this.dbu.dbn;
+                                    personalMsglistModel7 = this.dnc.dmV;
                                     personalMsglistModel7.a(PersonalMsglistModel.CardStatus.AGREE);
                                 } else if (cmd.equals("passed_new_friend")) {
-                                    personalChatView4 = this.dbu.dbo;
+                                    personalChatView4 = this.dnc.dmW;
                                     personalChatView4.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    personalMsglistModel5 = this.dbu.dbn;
+                                    personalMsglistModel5 = this.dnc.dmV;
                                     personalMsglistModel5.a(PersonalMsglistModel.CardStatus.PASS);
-                                    personalMsglistModel6 = this.dbu.dbn;
+                                    personalMsglistModel6 = this.dnc.dmV;
                                     personalMsglistModel6.setIsFriend(1);
-                                    personalChatView5 = this.dbu.dbo;
+                                    personalChatView5 = this.dnc.dmW;
                                     personalChatView5.getBtnGroupInfo().setVisibility(0);
                                 } else if (cmd.equals("apply_add_friend")) {
-                                    personalChatView3 = this.dbu.dbo;
+                                    personalChatView3 = this.dnc.dmW;
                                     personalChatView3.a(PersonalMsglistModel.CardStatus.WAIT, true, new String[0]);
-                                    personalMsglistModel4 = this.dbu.dbn;
+                                    personalMsglistModel4 = this.dnc.dmV;
                                     personalMsglistModel4.a(PersonalMsglistModel.CardStatus.WAIT);
                                 } else if (cmd.equals("apply_pass_friend")) {
-                                    personalChatView = this.dbu.dbo;
+                                    personalChatView = this.dnc.dmW;
                                     personalChatView.a(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                                    personalMsglistModel2 = this.dbu.dbn;
+                                    personalMsglistModel2 = this.dnc.dmV;
                                     personalMsglistModel2.a(PersonalMsglistModel.CardStatus.PASS);
-                                    personalMsglistModel3 = this.dbu.dbn;
+                                    personalMsglistModel3 = this.dnc.dmV;
                                     personalMsglistModel3.setIsFriend(1);
-                                    personalChatView2 = this.dbu.dbo;
+                                    personalChatView2 = this.dnc.dmW;
                                     personalChatView2.getBtnGroupInfo().setVisibility(0);
                                 }
                             }

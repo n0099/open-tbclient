@@ -7,7 +7,7 @@ public class a implements b {
     private String fieldName;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
-    public Object Q(Object obj) {
+    public Object S(Object obj) {
         Field b;
         if (obj != null) {
             if (obj instanceof Class) {
@@ -36,7 +36,7 @@ public class a implements b {
         return null;
     }
 
-    public void nz(String str) {
+    public void oj(String str) {
         this.fieldName = str;
     }
 }

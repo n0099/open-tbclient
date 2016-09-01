@@ -8,26 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j extends PagerAdapter {
-    private com.baidu.tbadk.img.b anU;
-    private AlbumActivity fQb;
-    private Map<Integer, Boolean> fQn = new HashMap();
-    private ColorDrawable fQo;
+    private com.baidu.tbadk.img.b arb;
+    private AlbumActivity gaf;
+    private Map<Integer, Boolean> gas = new HashMap();
+    private ColorDrawable gat;
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
-    private int sS;
+    private int vi;
 
     public j(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
-        this.fQb = albumActivity;
-        this.anU = bVar;
-        this.sS = com.baidu.adp.lib.util.k.A(this.fQb.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.k.B(this.fQb.getPageContext().getContext()) - ((int) this.fQb.getResources().getDimension(u.e.ds166));
-        this.fQo = new ColorDrawable(this.fQb.getResources().getColor(u.d.black_alpha100));
+        this.gaf = albumActivity;
+        this.arb = bVar;
+        this.vi = com.baidu.adp.lib.util.k.K(this.gaf.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.k.L(this.gaf.getPageContext().getContext()) - ((int) this.gaf.getResources().getDimension(t.e.ds166));
+        this.gat = new ColorDrawable(this.gaf.getResources().getColor(t.d.black_alpha100));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -57,43 +57,43 @@ public class j extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo sv(int i) {
+    public ImageFileInfo sW(int i) {
         return (ImageFileInfo) com.baidu.tbadk.core.util.y.c(this.mList, i);
     }
 
-    public boolean sw(int i) {
-        if (this.fQn.get(Integer.valueOf(i)) == null) {
+    public boolean sX(int i) {
+        if (this.gas.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.fQn.get(Integer.valueOf(i)).booleanValue();
+        return this.gas.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        ImageFileInfo sv;
-        View inflate = LayoutInflater.from(this.fQb.getPageContext().getContext()).inflate(u.h.album_big_image_item, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(u.g.big_image);
+        ImageFileInfo sW;
+        View inflate = LayoutInflater.from(this.gaf.getPageContext().getContext()).inflate(t.h.album_big_image_item, (ViewGroup) null);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(t.g.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultErrorResource(0);
-        tbImageView.setDefaultBgResource(u.d.black_alpha100);
-        tbImageView.setBg(this.fQo);
+        tbImageView.setDefaultBgResource(t.d.black_alpha100);
+        tbImageView.setBg(this.gat);
         ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.y.c(this.mList, 0);
         if (imageFileInfo != null && "-2".equals(imageFileInfo.getAlbumId())) {
-            sv = sv(i + 1);
+            sW = sW(i + 1);
         } else {
-            sv = sv(i);
+            sW = sW(i);
         }
-        this.fQn.put(Integer.valueOf(i), false);
-        if (sv != null) {
-            sv.clearPageActions();
-            sv.addPageAction(com.baidu.tbadk.img.effect.d.D(this.sS, this.mMaxHeight));
-            tbImageView.setTag(sv.toCachedKey(false));
-            if (this.anU.a(sv, false) != null) {
+        this.gas.put(Integer.valueOf(i), false);
+        if (sW != null) {
+            sW.clearPageActions();
+            sW.addPageAction(com.baidu.tbadk.img.effect.d.F(this.vi, this.mMaxHeight));
+            tbImageView.setTag(sW.toCachedKey(false));
+            if (this.arb.a(sW, false) != null) {
                 tbImageView.invalidate();
-                this.fQn.put(Integer.valueOf(i), true);
+                this.gas.put(Integer.valueOf(i), true);
             } else {
-                this.anU.a(sv, new k(this, viewGroup, i), false);
+                this.arb.a(sW, new k(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

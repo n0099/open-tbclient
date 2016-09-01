@@ -4,11 +4,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 class w implements com.baidu.tbadk.core.c.l {
-    final /* synthetic */ TbWebViewActivity Kw;
+    final /* synthetic */ TbWebViewActivity MI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(TbWebViewActivity tbWebViewActivity) {
-        this.Kw = tbWebViewActivity;
+        this.MI = tbWebViewActivity;
     }
 
     @Override // com.baidu.tbadk.core.c.l
@@ -24,9 +24,9 @@ class w implements com.baidu.tbadk.core.c.l {
                     sb.append(it.next());
                     str = "_";
                 } else {
-                    com.baidu.adp.lib.stats.d dG = com.baidu.tbadk.performanceLog.z.dG();
-                    dG.c("frame_delta", sb.toString());
-                    com.baidu.adp.lib.stats.a.dN().a("webview", dG);
+                    com.baidu.adp.lib.stats.d eB = com.baidu.tbadk.performanceLog.z.eB();
+                    eB.c("frame_delta", sb.toString());
+                    com.baidu.adp.lib.stats.a.eI().a("webview", eB);
                     return;
                 }
             }

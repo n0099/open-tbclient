@@ -1,25 +1,20 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
 import com.baidu.tbadk.core.util.bn;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj implements bn.a {
-    final /* synthetic */ ai aeQ;
-    private final /* synthetic */ String aeR;
+public class aj implements com.baidu.tbadk.imageManager.b {
+    final /* synthetic */ UserIconBox ahK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ai aiVar, String str) {
-        this.aeQ = aiVar;
-        this.aeR = str;
+    public aj(UserIconBox userIconBox) {
+        this.ahK = userIconBox;
     }
 
-    @Override // com.baidu.tbadk.core.util.bn.a
-    public boolean z(View view) {
-        Object tag = view.getTag();
-        if (tag != null && this.aeR.equals(tag)) {
-            view.invalidate();
-            return false;
+    @Override // com.baidu.tbadk.imageManager.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        if (aVar != null && str != null) {
+            bn.a(this.ahK, false, new ak(this, str));
         }
-        return false;
     }
 }

@@ -1,23 +1,22 @@
 package com.baidu.tieba.card;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements View.OnClickListener {
-    final /* synthetic */ bk aUZ;
+class bm implements View.OnClickListener {
+    final /* synthetic */ bl bau;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bk bkVar) {
-        this.aUZ = bkVar;
+    public bm(bl blVar) {
+        this.bau = blVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.card.a.n nVar;
-        if (this.aUZ.KN() != null) {
-            bx<com.baidu.tieba.card.a.n> KN = this.aUZ.KN();
-            nVar = this.aUZ.aUV;
-            KN.a(view, nVar);
+        com.baidu.tieba.card.data.o oVar;
+        if (this.bau.getOnSubCardOnClickListenner() != null) {
+            cf<com.baidu.tieba.card.data.o> onSubCardOnClickListenner = this.bau.getOnSubCardOnClickListenner();
+            oVar = this.bau.aZr;
+            onSubCardOnClickListenner.a(view, oVar);
         }
     }
 }

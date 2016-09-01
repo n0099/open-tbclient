@@ -11,10 +11,10 @@ public class PluginLoadedMessage extends CustomResponsedMessage<a> {
     public static class a {
         public String errMsg;
         public int errNo;
-        public String uQ;
+        public String xc;
 
         public a(String str, int i, String str2) {
-            this.uQ = str;
+            this.xc = str;
             this.errNo = i;
             this.errMsg = str2;
         }

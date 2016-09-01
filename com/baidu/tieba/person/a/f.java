@@ -1,51 +1,55 @@
 package com.baidu.tieba.person.a;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.u;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.data.k;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class f extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.d, com.baidu.tieba.person.holder.a> {
-    private View.OnClickListener afk;
-    private BaseFragmentActivity bgI;
-    private com.baidu.tieba.person.data.d epY;
-    protected int mSkinType;
+public class f {
+    private List<com.baidu.adp.widget.ListView.a> bOr = new ArrayList();
+    private HTypeListView eBH;
+    private d eBI;
+    private a eBJ;
+    private com.baidu.tieba.personCenter.a.b eBK;
+    private BdUniqueId mId;
+    private TbPageContext mTbPageContext;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public f(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.afk = new g(this);
-        this.bgI = baseFragmentActivity;
+    public f(TbPageContext tbPageContext, HTypeListView hTypeListView) {
+        this.mTbPageContext = tbPageContext;
+        this.eBH = hTypeListView;
+        this.mId = tbPageContext.getUniqueId();
+        aqf();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bD */
-    public com.baidu.tieba.person.holder.a a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.holder.a(LayoutInflater.from(this.mContext).inflate(u.h.personinfo_book_shelf, viewGroup, false), this.afk);
+    private void aqf() {
+        this.eBI = new d(this.mTbPageContext, k.asV);
+        this.eBJ = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.eBW);
+        this.eBK = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eDy);
+        this.bOr.add(this.eBI);
+        this.bOr.add(this.eBJ);
+        this.bOr.add(this.eBK);
+        this.eBH.g(this.bOr);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.d dVar, com.baidu.tieba.person.holder.a aVar) {
-        this.mSkinType = TbadkCoreApplication.m10getInst().getSkinType();
-        if (this.aNz) {
-            a(aVar, dVar);
-            this.aNz = false;
+    public void setDatas(List<v> list) {
+        if (this.eBH != null) {
+            this.eBH.setData(list);
         }
-        com.baidu.tbadk.j.a.a(this.bgI.getPageContext(), view);
-        return view;
     }
 
-    private void a(com.baidu.tieba.person.holder.a aVar, com.baidu.tieba.person.data.d dVar) {
-        if (dVar != null && aVar != null) {
-            this.epY = dVar;
-            aVar.a(dVar);
+    public void notifyDataSetChanged() {
+        if (this.eBH != null && (this.eBH.getAdapter() instanceof y)) {
+            ((y) this.eBH.getAdapter()).notifyDataSetChanged();
         }
+    }
+
+    public void setItemOnclickListener(View.OnClickListener onClickListener) {
+        this.eBI.H(onClickListener);
+        this.eBJ.H(onClickListener);
     }
 }

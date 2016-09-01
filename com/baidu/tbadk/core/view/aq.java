@@ -1,86 +1,80 @@
 package com.baidu.tbadk.core.view;
 
 import android.content.Context;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.be;
-import com.baidu.tbadk.core.view.UserLikeButton;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.data.GodUserData;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq extends CustomMessageListener {
-    final /* synthetic */ UserLikeButton afm;
+public class aq implements View.OnClickListener {
+    final /* synthetic */ UserLikeButton aih;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq(UserLikeButton userLikeButton, int i) {
-        super(i);
-        this.afm = userLikeButton;
+    public aq(UserLikeButton userLikeButton) {
+        this.aih = userLikeButton;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        be beVar;
-        be beVar2;
-        be beVar3;
-        be beVar4;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.c.a aVar;
+        View.OnClickListener onClickListener;
         Context context;
-        be beVar5;
-        be beVar6;
-        be beVar7;
-        int fansNum;
-        be beVar8;
-        be beVar9;
-        UserLikeButton.a aVar;
-        UserLikeButton.a aVar2;
-        be beVar10;
-        be beVar11;
-        be beVar12;
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            beVar = this.afm.abb;
-            if (beVar != null) {
-                beVar2 = this.afm.abb;
-                if (beVar2.getAuthor() != null) {
-                    beVar3 = this.afm.abb;
-                    if (!StringUtils.isNull(beVar3.getAuthor().getUserId()) && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
-                        String str = updateAttentionMessage.getData().toUid;
-                        beVar4 = this.afm.abb;
-                        if (str.equals(beVar4.getAuthor().getUserId())) {
-                            if (!updateAttentionMessage.getData().tF) {
-                                context = this.afm.mContext;
-                                com.baidu.adp.lib.util.k.showToast(context, updateAttentionMessage.getData().errorString);
-                                return;
-                            }
-                            if (updateAttentionMessage.getData().ahS) {
-                                beVar10 = this.afm.abb;
-                                beVar10.getAuthor().getGodUserData().setFollowed(1);
-                                beVar11 = this.afm.abb;
-                                beVar11.getAuthor().setHadConcerned(true);
-                                beVar12 = this.afm.abb;
-                                fansNum = beVar12.getAuthor().getFansNum() + 1;
-                            } else {
-                                beVar5 = this.afm.abb;
-                                beVar5.getAuthor().getGodUserData().setFollowed(0);
-                                beVar6 = this.afm.abb;
-                                beVar6.getAuthor().setHadConcerned(false);
-                                beVar7 = this.afm.abb;
-                                fansNum = beVar7.getAuthor().getFansNum() - 1;
-                            }
-                            beVar8 = this.afm.abb;
-                            beVar8.getAuthor().getGodUserData().setIsFromNetWork(false);
-                            beVar9 = this.afm.abb;
-                            beVar9.getAuthor().setFansNum(fansNum);
-                            aVar = this.afm.aff;
-                            if (aVar != null) {
-                                aVar2 = this.afm.aff;
-                                aVar2.cY(fansNum);
-                            }
-                            this.afm.aJ(false);
-                        }
+        bg bgVar;
+        bg bgVar2;
+        int i;
+        boolean hadConcerned;
+        com.baidu.tbadk.coreExtra.d.a aVar2;
+        String str;
+        BdUniqueId bdUniqueId;
+        View.OnClickListener onClickListener2;
+        Context context2;
+        Context context3;
+        com.baidu.tbadk.c.a aVar3;
+        aVar = this.aih.aie;
+        if (aVar != null) {
+            aVar3 = this.aih.aie;
+            if (aVar3.w(view)) {
+                return;
+            }
+        }
+        if (!com.baidu.adp.lib.util.i.fZ()) {
+            context2 = this.aih.mContext;
+            if (context2 != null) {
+                context3 = this.aih.mContext;
+                com.baidu.adp.lib.util.k.showToast(context3, t.j.network_ungeilivable);
+            }
+        }
+        onClickListener = this.aih.adM;
+        if (onClickListener != null) {
+            onClickListener2 = this.aih.adM;
+            onClickListener2.onClick(this.aih);
+        }
+        context = this.aih.mContext;
+        if (bn.al(context)) {
+            bgVar = this.aih.adL;
+            if (bgVar != null) {
+                bgVar2 = this.aih.adL;
+                MetaData author = bgVar2.getAuthor();
+                if (author != null && author.getGodUserData() != null) {
+                    GodUserData godUserData = author.getGodUserData();
+                    i = this.aih.es;
+                    if (i == 1) {
+                        hadConcerned = godUserData.getFollowed() == 1;
+                    } else {
+                        hadConcerned = author.hadConcerned();
                     }
+                    boolean z = godUserData.getType() == 2;
+                    aVar2 = this.aih.aib;
+                    boolean z2 = hadConcerned ? false : true;
+                    String portrait = author.getPortrait();
+                    String userId = author.getUserId();
+                    str = this.aih.aic;
+                    bdUniqueId = this.aih.aid;
+                    aVar2.a(z2, portrait, userId, z, str, bdUniqueId);
                 }
             }
         }

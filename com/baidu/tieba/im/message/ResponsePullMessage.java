@@ -93,14 +93,14 @@ public class ResponsePullMessage extends SocketResponsedMessage {
         if (groupMsg != null && groupMsg.size() != 0) {
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData.getGroupInfo() != null && groupMsgData.getGroupInfo().getCustomType() == 4 && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0 && listMessage.get(0).getSid() > 0) {
-                    a.aqV().a(groupMsgData, isPulledMessage());
+                    a.avJ().a(groupMsgData, isPulledMessage());
                 }
             }
             long currentTimeMillis = System.currentTimeMillis();
             int i3 = 0;
             try {
                 try {
-                    com.baidu.tieba.im.db.g.anu().anv();
+                    com.baidu.tieba.im.db.g.asj().ask();
                     ImMessageCenterPojo imMessageCenterPojo = null;
                     Iterator<GroupMsgData> it = groupMsg.iterator();
                     ImMessageCenterPojo imMessageCenterPojo2 = null;
@@ -113,12 +113,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 String valueOf = String.valueOf(i3.getGroupInfo().getGroupId());
                                 int customType = i3.getGroupInfo().getCustomType();
                                 int userType = i3.getGroupInfo().getUserType();
-                                ImMessageCenterPojo ad = i.anz().ad(valueOf, customType);
+                                ImMessageCenterPojo ad = i.aso().ad(valueOf, customType);
                                 if (ad != null) {
                                     ad.setUserType(userType);
                                 }
                                 if (customType == 4 && imMessageCenterPojo == null) {
-                                    ImMessageCenterPojo ad2 = i.anz().ad("-1000", -8);
+                                    ImMessageCenterPojo ad2 = i.aso().ad("-1000", -8);
                                     if (ad2 == null) {
                                         ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
                                         imMessageCenterPojo3.setGid("-1000");
@@ -129,7 +129,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         imMessageCenterPojo = ad2;
                                     }
                                 }
-                                if (customType == 2 && imMessageCenterPojo2 == null && hasStranger(i3) && (imMessageCenterPojo2 = i.anz().ad("-1001", -7)) == null) {
+                                if (customType == 2 && imMessageCenterPojo2 == null && hasStranger(i3) && (imMessageCenterPojo2 = i.aso().ad("-1001", -7)) == null) {
                                     imMessageCenterPojo2 = new ImMessageCenterPojo();
                                     imMessageCenterPojo2.setGid("-1001");
                                     imMessageCenterPojo2.setCustomGroupType(-7);
@@ -147,12 +147,12 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                     if (i3.getListMessage() != null && i3.getListMessage().size() != 0) {
                                         ChatMessage chatMessage = i3.getListMessage().get(0);
                                         ImMessageCenterPojo imMessageCenterPojo4 = new ImMessageCenterPojo();
-                                        imMessageCenterPojo4.setGid(String.valueOf(com.baidu.tieba.im.c.a.cYJ));
+                                        imMessageCenterPojo4.setGid(String.valueOf(com.baidu.tieba.im.c.a.dks));
                                         imMessageCenterPojo4.setCustomGroupType(-1);
                                         imMessageCenterPojo4.setIs_hidden(1);
                                         imMessageCenterPojo4.setPulled_msgId(chatMessage.getMsgId());
-                                        i.anz().c(imMessageCenterPojo4);
-                                        i3 = new StringBuilder("pullMessage insertMessagecent personal_Group gid = ").append(com.baidu.tieba.im.c.a.cYJ).append(" msgid = ");
+                                        i.aso().c(imMessageCenterPojo4);
+                                        i3 = new StringBuilder("pullMessage insertMessagecent personal_Group gid = ").append(com.baidu.tieba.im.c.a.dks).append(" msgid = ");
                                         BdLog.i(i3.append(chatMessage.getMsgId()).toString());
                                     }
                                 } else if (i3.getCmd() == 2013010) {
@@ -166,17 +166,17 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         if (chatMessage2.getSid() <= 0) {
                                             if (isPulledMessage()) {
                                                 imMessageCenterPojo5.setPushIds("");
-                                                com.baidu.tieba.im.push.f.aqX().ara();
+                                                com.baidu.tieba.im.push.f.avL().avO();
                                             } else if (chatMessage2.getUserInfo() != null && chatMessage2.getUserInfo().getUserType() == 4) {
-                                                Long aqY = com.baidu.tieba.im.push.f.aqX().aqY();
-                                                if (aqY != null && aqY.longValue() != 0) {
+                                                Long avM = com.baidu.tieba.im.push.f.avL().avM();
+                                                if (avM != null && avM.longValue() != 0) {
                                                     imMessageCenterPojo5.setPulled_msgId(0L);
-                                                    imMessageCenterPojo5.setPushIds(com.baidu.tieba.im.push.f.aqX().arc());
+                                                    imMessageCenterPojo5.setPushIds(com.baidu.tieba.im.push.f.avL().avQ());
                                                 } else {
                                                     imMessageCenterPojo5.setPushIds("");
                                                 }
                                             }
-                                            i.anz().a(imMessageCenterPojo5, 1, 2);
+                                            i.aso().a(imMessageCenterPojo5, 1, 2);
                                         }
                                         i3 = new StringBuilder("pullMessage insertMessagecent offical_Group gid = ").append(i3.getGroupInfo().getGroupId()).append(" msgid = ");
                                         BdLog.i(i3.append(chatMessage2.getMsgId()).toString());
@@ -187,11 +187,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                     if (i3.getGroupInfo().getGroupId() == 10) {
                                         p.a(i3, ad, new g(this));
                                     } else {
-                                        long[] b = p.alN().b(i3);
+                                        long[] b = p.aqC().b(i3);
                                         if (b != null) {
-                                            long bI = com.baidu.tieba.im.util.g.bI(b[1]);
-                                            i3 = p.alN();
-                                            i3.l(String.valueOf(b[0]), bI);
+                                            long ce = com.baidu.tieba.im.util.g.ce(b[1]);
+                                            i3 = p.aqC();
+                                            i3.m(String.valueOf(b[0]), ce);
                                         }
                                     }
                                 } else if (i3.getCmd() == 2013008) {
@@ -202,50 +202,50 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             e = e;
                             i3 = i2;
                             BdLog.e(e.getMessage());
-                            com.baidu.tieba.im.db.g.anu().endTransaction();
+                            com.baidu.tieba.im.db.g.asj().endTransaction();
                             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                             com.baidu.tbadk.performanceLog.p pVar = new com.baidu.tbadk.performanceLog.p();
-                            pVar.ayQ = getCmd();
+                            pVar.aBX = getCmd();
                             if (this.performanceData != null) {
-                                pVar.lB = this.performanceData.hb;
-                                pVar.wI = getDownSize();
-                                pVar.ayR = currentTimeMillis2;
-                                pVar.ayS = i3;
-                                pVar.yn = this.performanceData.gY;
+                                pVar.nU = this.performanceData.ju;
+                                pVar.yU = getDownSize();
+                                pVar.aBY = currentTimeMillis2;
+                                pVar.aBZ = i3;
+                                pVar.AA = this.performanceData.jr;
                                 i3 = 1002;
-                                pVar.eQ(1002);
-                                pVar.EM();
+                                pVar.fe(1002);
+                                pVar.Gg();
                             }
                         } catch (Throwable th) {
                             th = th;
-                            com.baidu.tieba.im.db.g.anu().endTransaction();
+                            com.baidu.tieba.im.db.g.asj().endTransaction();
                             long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
                             com.baidu.tbadk.performanceLog.p pVar2 = new com.baidu.tbadk.performanceLog.p();
-                            pVar2.ayQ = getCmd();
+                            pVar2.aBX = getCmd();
                             if (this.performanceData != null) {
-                                pVar2.lB = this.performanceData.hb;
-                                pVar2.wI = getDownSize();
-                                pVar2.ayR = currentTimeMillis3;
-                                pVar2.ayS = i2;
-                                pVar2.yn = this.performanceData.gY;
-                                pVar2.eQ(1002);
-                                pVar2.EM();
+                                pVar2.nU = this.performanceData.ju;
+                                pVar2.yU = getDownSize();
+                                pVar2.aBY = currentTimeMillis3;
+                                pVar2.aBZ = i2;
+                                pVar2.AA = this.performanceData.jr;
+                                pVar2.fe(1002);
+                                pVar2.Gg();
                             }
                             throw th;
                         }
                     }
-                    com.baidu.tieba.im.db.g.anu().endTransaction();
+                    com.baidu.tieba.im.db.g.asj().endTransaction();
                     long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
                     com.baidu.tbadk.performanceLog.p pVar3 = new com.baidu.tbadk.performanceLog.p();
-                    pVar3.ayQ = getCmd();
+                    pVar3.aBX = getCmd();
                     if (this.performanceData != null) {
-                        pVar3.lB = this.performanceData.hb;
-                        pVar3.wI = getDownSize();
-                        pVar3.ayR = currentTimeMillis4;
-                        pVar3.ayS = i2;
-                        pVar3.yn = this.performanceData.gY;
-                        pVar3.eQ(1002);
-                        pVar3.EM();
+                        pVar3.nU = this.performanceData.ju;
+                        pVar3.yU = getDownSize();
+                        pVar3.aBY = currentTimeMillis4;
+                        pVar3.aBZ = i2;
+                        pVar3.AA = this.performanceData.jr;
+                        pVar3.fe(1002);
+                        pVar3.Gg();
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -280,7 +280,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                     GroupMsgData obtainGroupData = obtainGroupData(groupInfo);
                     if (obtainGroupData == null) {
                         BdLog.e("obtainGroupData == null !!!!");
-                    } else if (TbadkCoreApplication.m10getInst().getCustomizedFilter() == null || TbadkCoreApplication.m10getInst().getCustomizedFilter().bm(obtainGroupData.getGroupInfo().getCustomType())) {
+                    } else if (TbadkCoreApplication.m9getInst().getCustomizedFilter() == null || TbadkCoreApplication.m9getInst().getCustomizedFilter().bz(obtainGroupData.getGroupInfo().getCustomType())) {
                         getGroupMsg().add(obtainGroupData);
                         LinkedList<ChatMessage> linkedList = new LinkedList<>();
                         obtainGroupData.setListMessageData(linkedList);
@@ -291,8 +291,8 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 try {
                                     MsgInfo msgInfo = list.get(i3);
                                     if (msgInfo != null && (obtainMessage = obtainMessage(groupInfo, msgInfo)) != null) {
-                                        long bH = com.baidu.tieba.im.util.g.bH(msgInfo.msgId.longValue());
-                                        obtainMessage.setMsgId(bH);
+                                        long cd = com.baidu.tieba.im.util.g.cd(msgInfo.msgId.longValue());
+                                        obtainMessage.setMsgId(cd);
                                         obtainMessage.setGroupId(String.valueOf(msgInfo.groupId));
                                         obtainMessage.setMsgType(msgInfo.msgType.intValue());
                                         long longValue3 = msgInfo.userId.longValue();
@@ -300,7 +300,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                         if (TbadkCoreApplication.isLogin() && String.valueOf(longValue3).equals(TbadkCoreApplication.getCurrentAccount())) {
                                             obtainMessage.setRecordId(msgInfo.recordId.longValue());
                                         } else {
-                                            obtainMessage.setRecordId(bH);
+                                            obtainMessage.setRecordId(cd);
                                         }
                                         UserData userData = new UserData();
                                         obtainMessage.setUserInfo(userData);
@@ -379,11 +379,11 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                     linkedList.remove(0);
                                                     linkedList.add(obtainMessage);
                                                 }
-                                                if (i5 == 4 && com.baidu.tieba.im.push.f.aqX().bE(obtainMessage.getMsgId())) {
+                                                if (i5 == 4 && com.baidu.tieba.im.push.f.avL().ca(obtainMessage.getMsgId())) {
                                                     BdLog.i("msg is contained in PushIdsCacheManager");
                                                 } else if (obtainMessage.getMsgType() == 99) {
                                                     BdLog.i("msg is MSG_UNSHOW_OPERATER_ACCOUNT");
-                                                } else if (TbadkCoreApplication.m10getInst().getCustomizedFilter() == null || TbadkCoreApplication.m10getInst().getCustomizedFilter().bm(4)) {
+                                                } else if (TbadkCoreApplication.m9getInst().getCustomizedFilter() == null || TbadkCoreApplication.m9getInst().getCustomizedFilter().bz(4)) {
                                                     if (hashMap2.get(String.valueOf(longValue2)) == null) {
                                                         GroupMsgData groupMsgData = new GroupMsgData(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD);
                                                         groupMsgData.getGroupInfo().setUserType(i5);
@@ -409,7 +409,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                                     linkedList.remove(0);
                                                     linkedList.add(obtainMessage);
                                                 }
-                                                if (TbadkCoreApplication.m10getInst().getCustomizedFilter() == null || TbadkCoreApplication.m10getInst().getCustomizedFilter().bm(2)) {
+                                                if (TbadkCoreApplication.m9getInst().getCustomizedFilter() == null || TbadkCoreApplication.m9getInst().getCustomizedFilter().bz(2)) {
                                                     if (hashMap.get(String.valueOf(longValue)) == null) {
                                                         GroupMsgData groupMsgData2 = new GroupMsgData(CmdConfigCustom.MESSAGE_LIST_PERSONAL_CMD);
                                                         groupMsgData2.getGroupInfo().setCustomType(2);

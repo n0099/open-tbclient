@@ -1,73 +1,78 @@
 package com.baidu.tieba.d;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.GuildActivityConfig;
+import com.baidu.tbadk.core.sharedPref.b;
+import com.baidu.tbadk.core.util.ba;
+import java.util.Date;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0054a aLt;
-    private float aZu;
-    private float aZv;
-    private Handler.Callback aZw = new b(this);
-    private Handler mHandler = new Handler(this.aZw);
+    private static a bei;
+    private HashMap<String, Integer> bej = new HashMap<>();
+    private HashMap<String, String> bek = new HashMap<>();
+    private String bel;
 
-    /* renamed from: com.baidu.tieba.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0054a {
-        void K(int i, int i2);
-
-        void L(int i, int i2);
-    }
-
-    public void a(InterfaceC0054a interfaceC0054a) {
-        this.aLt = interfaceC0054a;
-    }
-
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.aZv = motionEvent.getRawY();
-                return true;
-            case 1:
-            default:
-                return true;
-            case 2:
-                float rawX = motionEvent.getRawX();
-                float rawY = motionEvent.getRawY();
-                int i = (int) (rawX - this.aZu);
-                int i2 = (int) (rawY - this.aZv);
-                if (this.aLt != null) {
-                    if (i2 > 0) {
-                        O(i, i2);
-                    } else {
-                        P(i, i2);
-                    }
-                }
-                this.aZu = rawX;
-                this.aZv = rawY;
-                return true;
+    public static synchronized a OI() {
+        a aVar;
+        synchronized (a.class) {
+            if (bei == null) {
+                bei = new a();
+            }
+            aVar = bei;
         }
+        return aVar;
     }
 
-    public void O(int i, int i2) {
-        this.mHandler.removeMessages(1);
-        if (!this.mHandler.hasMessages(0)) {
-            Message message = new Message();
-            message.what = 0;
-            message.arg1 = i;
-            message.arg2 = i2;
-            this.mHandler.sendMessageDelayed(message, 60L);
-        }
+    private a() {
+        OM();
+        this.bel = ba.vh();
     }
 
-    public void P(int i, int i2) {
-        this.mHandler.removeMessages(0);
-        if (!this.mHandler.hasMessages(1)) {
-            Message message = new Message();
-            message.what = 1;
-            message.arg1 = i;
-            message.arg2 = i2;
-            this.mHandler.sendMessageDelayed(message, 100L);
+    public boolean OJ() {
+        Date handleDate = StringUtils.handleDate("2016-02-07 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        Date handleDate2 = StringUtils.handleDate("2016-02-08 23:59:59", "yyyy-MM-dd HH:mm:ss");
+        if (handleDate == null || handleDate2 == null) {
+            return false;
         }
+        Date date = new Date(System.currentTimeMillis());
+        return date.getTime() - handleDate.getTime() >= 0 && handleDate2.getTime() - date.getTime() >= 0 && !b.tS().getBoolean(GuildActivityConfig.CUSTOM_GUIDE_SHOWED, false);
+    }
+
+    public boolean OK() {
+        Date handleDate = StringUtils.handleDate("2016-02-09 00:00:00", "yyyy-MM-dd HH:mm:ss");
+        Date handleDate2 = StringUtils.handleDate("2016-02-14 23:59:59", "yyyy-MM-dd HH:mm:ss");
+        if (handleDate == null || handleDate2 == null) {
+            return false;
+        }
+        Date date = new Date(System.currentTimeMillis());
+        return date.getTime() - handleDate.getTime() >= 0 && handleDate2.getTime() - date.getTime() >= 0 && !b.tS().getBoolean(this.bel, false);
+    }
+
+    public Integer OL() {
+        Integer num = this.bej.get(this.bel);
+        if (num == null || b.tS().getBoolean(this.bel, false)) {
+            return 0;
+        }
+        return Integer.valueOf(num.intValue());
+    }
+
+    private void OM() {
+        this.bek.put("2016-02-09", "444");
+        this.bek.put("2016-02-10", "445");
+        this.bek.put("2016-02-11", "446");
+        this.bek.put("2016-02-13", "448");
+    }
+
+    public void ON() {
+        b.tS().putBoolean(this.bel, true);
+    }
+
+    public void OO() {
+        b.tS().putBoolean(GuildActivityConfig.CUSTOM_GUIDE_SHOWED, true);
+    }
+
+    public String OP() {
+        return this.bek.get(this.bel);
     }
 }

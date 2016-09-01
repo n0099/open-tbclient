@@ -7,12 +7,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class dn {
-    private BaseActivity bem;
-    private dh eas;
+    private BaseActivity aPR;
+    private dh emx;
 
     public dn(dh dhVar, BaseActivity baseActivity) {
-        this.eas = dhVar;
-        this.bem = baseActivity;
+        this.emx = dhVar;
+        this.aPR = baseActivity;
     }
 
     public String x(Intent intent) {

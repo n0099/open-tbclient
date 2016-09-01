@@ -1,43 +1,33 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.Topic;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import tbclient.PbContent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi {
-    private int Sm = 0;
-    private int Sn = 0;
-    private String link = "";
+public class bi extends com.baidu.tbadk.widget.richText.h {
+    final /* synthetic */ bg UL;
+    private final /* synthetic */ PbContent UM;
+    private final /* synthetic */ boolean UN;
 
-    public int rF() {
-        return this.Sm;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bi(bg bgVar, int i, String str, PbContent pbContent, boolean z) {
+        super(i, str);
+        this.UL = bgVar;
+        this.UM = pbContent;
+        this.UN = z;
     }
 
-    public int rG() {
-        return this.Sn;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Sm = jSONObject.optInt("is_lpost", 0);
-                this.Sn = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.Sm = topic.is_lpost.intValue();
-            this.Sn = topic.topic_type.intValue();
-            this.link = topic.link;
+    @Override // com.baidu.tbadk.widget.richText.h, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        if (!TextUtils.isEmpty(this.UM.link)) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c11455").ab("obj_locate", this.UN ? "pb" : "frs"));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.UN ? CmdConfigCustom.CMD_JUDGE_TO_HOTTOPIC_FROM_PB : CmdConfigCustom.CMD_JUDGE_TO_HOTTOPIC_FROM_FRS, this.UM.link));
         }
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.tieba.account;
 import android.os.Handler;
 import android.widget.TextView;
 import com.baidu.tieba.account.ActivationActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class p implements Runnable {
-    final /* synthetic */ ActivationActivity aMX;
+    final /* synthetic */ ActivationActivity aSr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ActivationActivity activationActivity) {
-        this.aMX = activationActivity;
+        this.aSr = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -23,28 +23,28 @@ class p implements Runnable {
         Runnable runnable;
         TextView textView2;
         ActivationActivity.a aVar;
-        ActivationActivity activationActivity = this.aMX;
-        i = activationActivity.wD;
-        activationActivity.wD = i - 1;
-        i2 = this.aMX.wD;
+        ActivationActivity activationActivity = this.aSr;
+        i = activationActivity.yP;
+        activationActivity.yP = i - 1;
+        i2 = this.aSr.yP;
         if (i2 <= 0) {
-            this.aMX.aMN = true;
-            textView2 = this.aMX.aMH;
-            textView2.setText(this.aMX.getPageContext().getString(u.j.resend_code));
-            aVar = this.aMX.aMM;
+            this.aSr.aSh = true;
+            textView2 = this.aSr.aSb;
+            textView2.setText(this.aSr.getPageContext().getString(t.j.resend_code));
+            aVar = this.aSr.aSg;
             if (aVar == null) {
-                this.aMX.aMK.setEnabled(true);
+                this.aSr.aSe.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.aMX.getPageContext().getString(u.j.resend_code_second);
-        i3 = this.aMX.wD;
+        String string = this.aSr.getPageContext().getString(t.j.resend_code_second);
+        i3 = this.aSr.yP;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.aMX.aMH;
+        textView = this.aSr.aSb;
         textView.setText(format);
-        handler = this.aMX.mHandler;
-        runnable = this.aMX.mRunnable;
+        handler = this.aSr.mHandler;
+        runnable = this.aSr.mRunnable;
         handler.postDelayed(runnable, 1000L);
     }
 }

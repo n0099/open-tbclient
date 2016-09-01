@@ -1,7 +1,7 @@
 package com.baidu.location.f;
 /* loaded from: classes.dex */
 public final class f {
-    public static g mk() {
-        return e.mi();
+    public static g nf() {
+        return e.nd();
     }
 }

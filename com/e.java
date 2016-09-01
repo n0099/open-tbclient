@@ -22,6 +22,7 @@ import com.baidu.cloudsdk.social.core.util.RequestCodeManager;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
 import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 /* loaded from: classes.dex */
 public class e extends c {
     private String a;
@@ -139,7 +140,7 @@ public class e extends c {
         }
         Uri imageUri = shareContent.getImageUri();
         Bundle bundle = new Bundle();
-        bundle.putString("title", title);
+        bundle.putString(VrPlayerActivityConfig.TITLE, title);
         bundle.putString("summary", content);
         bundle.putString("targetUrl", shareContent.getLinkUrl());
         if (imageUri != null) {

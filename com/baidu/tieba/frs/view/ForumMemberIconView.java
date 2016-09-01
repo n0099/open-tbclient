@@ -10,48 +10,48 @@ import com.baidu.adp.base.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ForumMemberIconView extends LinearLayout {
-    private TextView aMx;
-    private View bxB;
-    private TbImageView bym;
+    private TextView aRR;
+    private View bIQ;
+    private TbImageView bJO;
     private Context context;
     private String mUrl;
 
     public ForumMemberIconView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.context = context;
-        ar(context);
+        aE(context);
     }
 
     public ForumMemberIconView(Context context) {
         super(context);
         this.context = context;
-        ar(context);
+        aE(context);
     }
 
     public void setIcon(String str) {
-        this.bym.c(str, 10, false);
+        this.bJO.c(str, 10, false);
     }
 
     public void setUrl(String str) {
         this.mUrl = str;
     }
 
-    private void ar(Context context) {
-        this.bxB = findViewById(u.g.forum_member_icon_layout);
-        LayoutInflater.from(context).inflate(u.h.frs_forum_member_view, this);
-        this.bym = (TbImageView) findViewById(u.g.forum_member_image_icon);
-        this.aMx = (TextView) findViewById(u.g.forum_member_text);
-        this.bym.setDefaultBgResource(u.f.transparent_bg);
-        this.bym.setAutoChangeStyle(false);
-        this.bxB.setOnClickListener(new b(this, (TbPageContext) l.s(context)));
+    private void aE(Context context) {
+        this.bIQ = findViewById(t.g.forum_member_icon_layout);
+        LayoutInflater.from(context).inflate(t.h.frs_forum_member_view, this);
+        this.bJO = (TbImageView) findViewById(t.g.forum_member_image_icon);
+        this.aRR = (TextView) findViewById(t.g.forum_member_text);
+        this.bJO.setDefaultBgResource(t.f.transparent_bg);
+        this.bJO.setAutoChangeStyle(false);
+        this.bIQ.setOnClickListener(new b(this, (TbPageContext) l.C(context)));
     }
 
-    public void e(TbPageContext<?> tbPageContext, int i) {
-        av.k(this.bxB, u.f.forum_member_icon_bg);
-        av.j((View) this.aMx, u.d.common_color_10248);
-        this.bym.invalidate();
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        av.k(this.bIQ, t.f.forum_member_icon_bg);
+        av.j((View) this.aRR, t.d.common_color_10248);
+        this.bJO.invalidate();
     }
 }

@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.d;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a Ve = null;
+    private static a XR = null;
 
-    public static void d(Context context, int i) {
-        if (Ve != null) {
-            Ve.d(context, i);
+    public static void f(Context context, int i) {
+        if (XR != null) {
+            XR.f(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (Ve != null) {
-            Ve.b(context, i, z);
+        if (XR != null) {
+            XR.b(context, i, z);
         }
     }
 
-    public static void L(Context context) {
-        if (Ve != null) {
-            Ve.L(context);
+    public static void V(Context context) {
+        if (XR != null) {
+            XR.V(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (Ve != null) {
-            Ve.c(context, i, z);
+        if (XR != null) {
+            XR.c(context, i, z);
         }
     }
 
-    public static Class<?> sG() {
-        if (Ve == null) {
+    public static Class<?> tL() {
+        if (XR == null) {
             return null;
         }
-        return Ve.sG();
+        return XR.tL();
     }
 
-    public static String sH() {
-        if (Ve == null) {
+    public static String tM() {
+        if (XR == null) {
             return null;
         }
-        return Ve.sH();
+        return XR.tM();
     }
 
     public static void a(a aVar) {
-        Ve = aVar;
+        XR = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (Ve == null) {
+        if (XR == null) {
             return -1;
         }
-        return Ve.getCurrentTabType();
+        return XR.getCurrentTabType();
     }
 }

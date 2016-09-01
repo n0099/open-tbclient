@@ -1,55 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.cq;
-import com.baidu.tieba.u;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.pb.data.PbEcommRecommendMessage;
+import com.baidu.tieba.pb.data.PbEcommRecommendResponsedHttpMessage;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
-class l implements cq.a {
-    final /* synthetic */ PbActivity ebT;
+class l extends HttpMessageListener {
+    final /* synthetic */ PbActivity eob;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(PbActivity pbActivity) {
-        this.ebT = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(PbActivity pbActivity, int i) {
+        super(i);
+        this.eob = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cq.a
-    public void j(int i, long j) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         dh dhVar;
+        ex exVar;
         dh dhVar2;
-        ew ewVar;
         dh dhVar3;
-        if (i != 0) {
-            this.ebT.showToast(u.j.operation_failed);
-            return;
-        }
-        this.ebT.nA(2);
-        ep.aJZ().reset();
-        dhVar = this.ebT.eas;
-        dhVar.aJn();
-        dhVar2 = this.ebT.eas;
-        ArrayList<com.baidu.tieba.tbadkCore.data.s> aGZ = dhVar2.getPbData().aGZ();
-        if (aGZ != null) {
-            Iterator<com.baidu.tieba.tbadkCore.data.s> it = aGZ.iterator();
-            boolean z = false;
-            while (it.hasNext()) {
-                com.baidu.tieba.tbadkCore.data.s next = it.next();
-                if (ev.g(next) && next.bfL().getTemplateId() == j) {
-                    it.remove();
-                    z = true;
+        if (httpResponsedMessage instanceof PbEcommRecommendResponsedHttpMessage) {
+            PbEcommRecommendResponsedHttpMessage pbEcommRecommendResponsedHttpMessage = (PbEcommRecommendResponsedHttpMessage) httpResponsedMessage;
+            if (httpResponsedMessage.hasError() || pbEcommRecommendResponsedHttpMessage.mData == null) {
+                if (!StringUtils.isNULL(httpResponsedMessage.getErrorString())) {
+                    this.eob.showToast(httpResponsedMessage.getErrorString());
+                } else {
+                    this.eob.showToast(t.j.neterror);
                 }
+            } else if (pbEcommRecommendResponsedHttpMessage.mData != null && (httpResponsedMessage.getOrginalMessage() instanceof PbEcommRecommendMessage)) {
+                PbEcommRecommendMessage pbEcommRecommendMessage = (PbEcommRecommendMessage) httpResponsedMessage.getOrginalMessage();
+                long j = pbEcommRecommendResponsedHttpMessage.mData.recommendations;
+                dhVar = this.eob.emx;
+                dhVar.getPbData().aLQ().Uw.recommendations = j;
+                if (pbEcommRecommendMessage != null) {
+                    dhVar3 = this.eob.emx;
+                    dhVar3.getPbData().aLQ().sx().hasRecommend = pbEcommRecommendMessage.recommend;
+                }
+                exVar = this.eob.enh;
+                dhVar2 = this.eob.emx;
+                exVar.j(dhVar2.getPbData());
             }
-            if (z) {
-                ewVar = this.ebT.ebb;
-                dhVar3 = this.ebT.eas;
-                ewVar.j(dhVar3.getPbData());
-            }
-            this.ebT.showToast(u.j.operation_success);
         }
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.cq.a
-    public void onError(int i, String str) {
-        this.ebT.showToast(u.j.operation_failed);
     }
 }

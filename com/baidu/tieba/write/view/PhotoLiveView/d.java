@@ -7,21 +7,21 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.editortools.l;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import com.baidu.tieba.write.write.WriteActivity;
 import java.io.File;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    private final /* synthetic */ ViewGroup asz;
-    private final /* synthetic */ boolean fSA;
-    final /* synthetic */ a fSz;
+    private final /* synthetic */ ViewGroup avG;
+    final /* synthetic */ a gcE;
+    private final /* synthetic */ boolean gcF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, ViewGroup viewGroup, boolean z) {
-        this.fSz = aVar;
-        this.asz = viewGroup;
-        this.fSA = z;
+        this.gcE = aVar;
+        this.avG = viewGroup;
+        this.gcF = z;
     }
 
     @Override // android.view.View.OnClickListener
@@ -40,29 +40,29 @@ class d implements View.OnClickListener {
         LinkedList linkedList4;
         LinkedList linkedList5;
         LinkedList linkedList6;
-        int indexOfChild = this.asz.indexOfChild(view);
+        int indexOfChild = this.avG.indexOfChild(view);
         if (indexOfChild >= 0) {
-            if (this.fSA) {
-                baseActivity2 = this.fSz.bsn;
+            if (this.gcF) {
+                baseActivity2 = this.gcE.bDA;
                 if (baseActivity2 instanceof WriteActivity) {
-                    linkedList2 = this.fSz.chosedFiles;
+                    linkedList2 = this.gcE.chosedFiles;
                     if (linkedList2 != null) {
-                        linkedList4 = this.fSz.chosedFiles;
+                        linkedList4 = this.gcE.chosedFiles;
                         if (linkedList4.size() > 0) {
-                            linkedList5 = this.fSz.chosedFiles;
-                            linkedList6 = this.fSz.chosedFiles;
+                            linkedList5 = this.gcE.chosedFiles;
+                            linkedList6 = this.gcE.chosedFiles;
                             linkedList5.remove(linkedList6.size() - 1);
                         }
                     }
-                    baseActivity3 = this.fSz.bsn;
-                    linkedList3 = this.fSz.chosedFiles;
+                    baseActivity3 = this.gcE.bDA;
+                    linkedList3 = this.gcE.chosedFiles;
                     ((WriteActivity) baseActivity3).o(linkedList3);
-                    baseActivity4 = this.fSz.bsn;
+                    baseActivity4 = this.gcE.bDA;
                     ((WriteActivity) baseActivity4).d((com.baidu.tbadk.editortools.a) null);
                     return;
                 }
             }
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.fSz.getItem(indexOfChild);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.gcE.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
@@ -70,19 +70,19 @@ class d implements View.OnClickListener {
                 z = file.exists() && file.length() != 0;
             }
             if (!z) {
-                context = this.fSz.mContext;
-                k.b(context, u.j.editor_mutiiamge_image_error);
+                context = this.gcE.mContext;
+                k.d(context, t.j.editor_mutiiamge_image_error);
                 return;
             }
-            lVar = this.fSz.aqK;
+            lVar = this.gcE.atR;
             if (lVar != null) {
-                if (this.fSz.bog()) {
-                    this.fSz.boh();
+                if (this.gcE.bsv()) {
+                    this.gcE.bsw();
                 }
-                baseActivity = this.fSz.bsn;
-                linkedList = this.fSz.chosedFiles;
+                baseActivity = this.gcE.bDA;
+                linkedList = this.gcE.chosedFiles;
                 ((WriteActivity) baseActivity).o(linkedList);
-                lVar2 = this.fSz.aqK;
+                lVar2 = this.gcE.atR;
                 lVar2.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
             }
         }

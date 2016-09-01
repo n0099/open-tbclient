@@ -5,30 +5,30 @@ import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class a implements a.InterfaceC0033a {
-    final /* synthetic */ FillUProfileActivity dUF;
+    final /* synthetic */ FillUProfileActivity egL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FillUProfileActivity fillUProfileActivity) {
-        this.dUF = fillUProfileActivity;
+        this.egL = fillUProfileActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
-    public void ce(String str) {
+    public void cf(String str) {
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void a(AccountData accountData) {
         if (accountData.getAccount() != null && !"".equals(accountData.getAccount())) {
             com.baidu.tbadk.core.a.b.b(accountData);
-            TbadkCoreApplication.setCurrentAccount(accountData, this.dUF.getPageContext().getPageActivity());
-            this.dUF.aFX();
+            TbadkCoreApplication.setCurrentAccount(accountData, this.egL.getPageContext().getPageActivity());
+            this.egL.aKP();
             return;
         }
-        this.dUF.j(accountData);
+        this.egL.k(accountData);
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void b(String str, int i, String str2) {
-        this.dUF.showToast(str2);
+        this.egL.showToast(str2);
     }
 }

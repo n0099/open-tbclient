@@ -8,116 +8,116 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class f {
-    private View bGN;
-    private Animation bIs;
-    private Animation bIt;
-    private a ebv;
-    private View eiN;
+    private View bJv;
+    private Animation bTy;
+    private Animation bTz;
+    private a enD;
+    private View euU;
     private Context mContext;
-    private boolean aml = false;
-    private int aLv = 0;
-    private boolean eiO = false;
-    private boolean bIA = false;
-    private boolean bIz = true;
-    private final Handler.Callback bIB = new g(this);
-    private final Handler mHandler = new Handler(this.bIB);
-    private boolean bIy = UtilHelper.canUseStyleImmersiveSticky();
+    private boolean aps = false;
+    private int aQi = 0;
+    private boolean euV = false;
+    private boolean bJx = false;
+    private boolean bJy = true;
+    private final Handler.Callback bJz = new g(this);
+    private final Handler mHandler = new Handler(this.bJz);
+    private boolean bJw = UtilHelper.canUseStyleImmersiveSticky();
 
     /* loaded from: classes.dex */
     public interface a {
-        void hE(boolean z);
+        void dr(boolean z);
     }
 
     public void a(a aVar) {
-        this.ebv = aVar;
+        this.enD = aVar;
     }
 
-    public void dq(boolean z) {
-        this.bIA = z;
+    public void dp(boolean z) {
+        this.bJx = z;
     }
 
-    public void ih(boolean z) {
-        this.aml = z;
+    public void iC(boolean z) {
+        this.aps = z;
     }
 
     public f(Context context, View view, View view2) {
         this.mContext = context;
-        this.eiN = view;
-        this.bGN = view2;
-        XD();
-        ds(false);
+        this.euU = view;
+        this.bJv = view2;
+        YP();
+        dq(false);
     }
 
-    private void Xs() {
-        this.bIs = AnimationUtils.loadAnimation(this.mContext, u.a.bavigationbar_slide_out);
-        this.bIs.setAnimationListener(new h(this));
+    private void YF() {
+        this.bTy = AnimationUtils.loadAnimation(this.mContext, t.a.bavigationbar_slide_out);
+        this.bTy.setAnimationListener(new h(this));
     }
 
-    private void Xt() {
-        this.bIt = AnimationUtils.loadAnimation(this.mContext, u.a.bavigationbar_slide_in);
-        this.bIt.setAnimationListener(new i(this));
+    private void YG() {
+        this.bTz = AnimationUtils.loadAnimation(this.mContext, t.a.bavigationbar_slide_in);
+        this.bTz.setAnimationListener(new i(this));
     }
 
-    public void Xu() {
-        k(false, false);
+    public void YH() {
+        m(false, false);
     }
 
-    public void Xv() {
-        k(false, true);
+    public void YI() {
+        m(false, true);
     }
 
-    public void k(boolean z, boolean z2) {
-        if (this.eiN != null && this.eiN.getVisibility() == 0 && !XA()) {
+    public void m(boolean z, boolean z2) {
+        if (this.euU != null && this.euU.getVisibility() == 0 && !YM()) {
             if (z2) {
-                this.eiN.setVisibility(8);
+                this.euU.setVisibility(8);
                 return;
             }
-            if (this.bIs == null) {
-                Xs();
+            if (this.bTy == null) {
+                YF();
             }
-            if (this.bIt != null) {
-                this.bIt.cancel();
+            if (this.bTz != null) {
+                this.bTz.cancel();
             }
-            this.eiN.startAnimation(this.bIs);
+            this.euU.startAnimation(this.bTy);
         }
     }
 
-    public void Xw() {
-        if (this.eiN != null && this.eiN.getVisibility() != 0 && !XA()) {
-            this.eiN.setVisibility(0);
-            if (this.bIt == null) {
-                Xt();
+    public void YJ() {
+        if (this.euU != null && this.euU.getVisibility() != 0 && !YM()) {
+            this.euU.setVisibility(0);
+            if (this.bTz == null) {
+                YG();
             }
-            if (this.bIs != null) {
-                this.bIs.cancel();
+            if (this.bTy != null) {
+                this.bTy.cancel();
             }
-            this.eiN.startAnimation(this.bIt);
+            this.euU.startAnimation(this.bTz);
         }
     }
 
-    public void Xx() {
+    public void YK() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void Xy() {
+    public void YL() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void Xz() {
+    public void aco() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean XA() {
-        return ac(this.eiN);
+    public boolean YM() {
+        return ac(this.euU);
     }
 
     private boolean ac(View view) {
@@ -125,60 +125,60 @@ public class f {
         return (view == null || (animation = view.getAnimation()) == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
     }
 
-    public void XB() {
-        if (this.bIz) {
-            if (this.aml) {
-                ds(true);
-            } else if (this.eiN != null && this.eiN.getVisibility() != 8) {
-                if (this.eiO) {
-                    ds(false);
+    public void YN() {
+        if (this.bJy) {
+            if (this.aps) {
+                dq(true);
+            } else if (this.euU != null && this.euU.getVisibility() != 8) {
+                if (this.euV) {
+                    dq(false);
                 } else {
-                    Xy();
+                    YL();
                 }
             }
         }
     }
 
-    public void XC() {
-        if (this.bIz) {
-            if (this.aml) {
-                ds(true);
-            } else if (this.eiN != null && this.eiN.getVisibility() != 0) {
-                Xx();
+    public void YO() {
+        if (this.bJy) {
+            if (this.aps) {
+                dq(true);
+            } else if (this.euU != null && this.euU.getVisibility() != 0) {
+                YK();
             }
         }
     }
 
-    public void ii(boolean z) {
-        this.eiO = z;
+    public void iD(boolean z) {
+        this.euV = z;
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.bIz && this.eiN != null) {
-            if ((this.eiO || i > this.aLv) && this.eiN.getVisibility() != 8) {
-                XB();
-            } else if ((this.eiO || i < this.aLv) && this.eiN.getVisibility() != 0) {
-                XC();
+        if (this.bJy && this.euU != null) {
+            if ((this.euV || i > this.aQi) && this.euU.getVisibility() != 8) {
+                YN();
+            } else if ((this.euV || i < this.aQi) && this.euU.getVisibility() != 0) {
+                YO();
             }
-            this.aLv = i;
+            this.aQi = i;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.bIz) {
-            if (this.aml) {
-                ds(true);
+        if (this.bJy) {
+            if (this.aps) {
+                dq(true);
             } else if (absListView != null && i == 0) {
                 int firstVisiblePosition = absListView.getFirstVisiblePosition();
-                if (firstVisiblePosition > this.aLv) {
-                    Xy();
-                } else if (firstVisiblePosition < this.aLv) {
-                    Xx();
-                } else if (firstVisiblePosition == this.aLv) {
-                    if (firstVisiblePosition == 0 || !this.bIA || b(absListView)) {
-                        Xx();
+                if (firstVisiblePosition > this.aQi) {
+                    YL();
+                } else if (firstVisiblePosition < this.aQi) {
+                    YK();
+                } else if (firstVisiblePosition == this.aQi) {
+                    if (firstVisiblePosition == 0 || !this.bJx || b(absListView)) {
+                        YK();
                     } else {
-                        Xy();
+                        YL();
                     }
                 }
             }
@@ -192,26 +192,26 @@ public class f {
         return true;
     }
 
-    private void XD() {
-        if (this.bGN != null) {
-            if (this.bIy && this.bGN.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.bGN.getLayoutParams();
+    private void YP() {
+        if (this.bJv != null) {
+            if (this.bJw && this.bJv.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = this.bJv.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                this.bGN.setLayoutParams(layoutParams);
-                ds(true);
+                this.bJv.setLayoutParams(layoutParams);
+                dq(true);
                 return;
             }
-            ds(false);
+            dq(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ds(boolean z) {
-        if (this.bGN != null) {
-            if (this.bIy && z && this.bGN.getVisibility() != 0) {
-                this.bGN.setVisibility(0);
-            } else if (!z && this.bGN.getVisibility() != 8) {
-                this.bGN.setVisibility(8);
+    public void dq(boolean z) {
+        if (this.bJv != null) {
+            if (this.bJw && z && this.bJv.getVisibility() != 0) {
+                this.bJv.setVisibility(0);
+            } else if (!z && this.bJv.getVisibility() != 8) {
+                this.bJv.setVisibility(8);
             }
         }
     }

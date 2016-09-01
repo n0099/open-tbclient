@@ -6,21 +6,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements a.InterfaceC0033a {
-    final /* synthetic */ LoginActivity dUO;
+    final /* synthetic */ LoginActivity egU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(LoginActivity loginActivity) {
-        this.dUO = loginActivity;
+        this.egU = loginActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
-    public void ce(String str) {
-        if (this.dUO.getLoadingDialog() == null || !this.dUO.getLoadingDialog().isShowing()) {
-            this.dUO.showLoadingDialog(this.dUO.getPageContext().getString(u.j.sapi_logining), new m(this));
+    public void cf(String str) {
+        if (this.egU.getLoadingDialog() == null || !this.egU.getLoadingDialog().isShowing()) {
+            this.egU.showLoadingDialog(this.egU.getPageContext().getString(t.j.sapi_logining), new m(this));
         }
     }
 
@@ -28,20 +28,20 @@ public class l implements a.InterfaceC0033a {
     public void a(AccountData accountData) {
         int i;
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
-        this.dUO.closeLoadingDialog();
+        this.egU.closeLoadingDialog();
         if (!TextUtils.isEmpty(accountData.getAccount())) {
-            p(accountData);
-            this.dUO.Ja();
-            i = this.dUO.mFrom;
+            q(accountData);
+            this.egU.LC();
+            i = this.egU.mFrom;
             if (i != 4) {
-                this.dUO.aFX();
+                this.egU.aKP();
                 return;
             } else {
-                this.dUO.Jb();
+                this.egU.LD();
                 return;
             }
         }
-        this.dUO.j(accountData);
+        this.egU.k(accountData);
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
@@ -49,20 +49,20 @@ public class l implements a.InterfaceC0033a {
         SapiWebView sapiWebView;
         SapiWebView sapiWebView2;
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
-        this.dUO.closeLoadingDialog();
-        this.dUO.showToast(str2);
-        if (com.baidu.adp.lib.util.i.fq()) {
-            sapiWebView = this.dUO.dUH;
+        this.egU.closeLoadingDialog();
+        this.egU.showToast(str2);
+        if (com.baidu.adp.lib.util.i.gm()) {
+            sapiWebView = this.egU.egN;
             if (sapiWebView != null) {
-                sapiWebView2 = this.dUO.dUH;
+                sapiWebView2 = this.egU.egN;
                 sapiWebView2.loadLogin();
             }
         }
     }
 
-    private void p(AccountData accountData) {
-        com.baidu.adp.lib.h.k.dM().e(new n(this, accountData));
-        TbadkCoreApplication.setCurrentAccount(accountData, this.dUO.getPageContext().getPageActivity());
-        com.baidu.tbadk.browser.f.H(TbadkCoreApplication.m10getInst());
+    private void q(AccountData accountData) {
+        com.baidu.adp.lib.h.k.eH().e(new n(this, accountData));
+        TbadkCoreApplication.setCurrentAccount(accountData, this.egU.getPageContext().getPageActivity());
+        com.baidu.tbadk.browser.f.R(TbadkCoreApplication.m9getInst());
     }
 }

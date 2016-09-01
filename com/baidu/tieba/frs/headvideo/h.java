@@ -6,37 +6,37 @@ import com.baidu.tieba.frs.headvideo.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ g bQx;
+    final /* synthetic */ g cbF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(g gVar, int i, int i2) {
         super(i, i2);
-        this.bQx = gVar;
+        this.cbF = gVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        String ZD;
+        String Lp;
         g.a aVar;
         g.a aVar2;
-        this.bQx.axe = false;
+        this.cbF.aAl = false;
         if (responsedMessage != null) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
-                ZD = this.bQx.ZD();
+                Lp = this.cbF.Lp();
                 if (!StringUtils.isNull(errorString)) {
-                    ZD = errorString;
+                    Lp = errorString;
                 }
-                aVar = this.bQx.bQv;
+                aVar = this.cbF.cbD;
                 if (aVar != null) {
-                    aVar2 = this.bQx.bQv;
-                    aVar2.fD(ZD);
+                    aVar2 = this.cbF.cbD;
+                    aVar2.fG(Lp);
                 }
             } else if (responsedMessage instanceof ForumHeadVideoListHttpResponseMessage) {
-                this.bQx.a(((ForumHeadVideoListHttpResponseMessage) responsedMessage).getData());
+                this.cbF.a(((ForumHeadVideoListHttpResponseMessage) responsedMessage).getData());
             } else if (responsedMessage instanceof ForumHeadVideoListSocketResponseMessage) {
-                this.bQx.a(((ForumHeadVideoListSocketResponseMessage) responsedMessage).getData());
+                this.cbF.a(((ForumHeadVideoListSocketResponseMessage) responsedMessage).getData());
             }
         }
     }

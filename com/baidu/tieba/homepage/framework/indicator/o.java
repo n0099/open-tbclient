@@ -11,105 +11,105 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class o {
-    private View axO;
-    private View crA;
-    private SlidingTabLayout crB;
-    private Animation crC;
-    private Animation crD;
-    private boolean crE = true;
-    private com.baidu.adp.lib.h.d crF = new p(this);
-    private ImageView cry;
-    private TextView crz;
+    private View aAV;
+    private ImageView cCG;
+    private TextView cCH;
+    private View cCI;
+    private SlidingTabLayout cCJ;
+    private Animation cCK;
+    private Animation cCL;
+    private boolean cCM = true;
+    private com.baidu.adp.lib.h.d cCN = new p(this);
     private Context mContext;
 
     public o(Context context, View view) {
         this.mContext = context;
-        this.axO = view;
-        this.crz = (TextView) view.findViewById(u.g.tab_widget_switch);
-        this.crA = view.findViewById(u.g.tab_widget_line);
-        this.cry = (ImageView) view.findViewById(u.g.tab_widget_more);
-        this.cry.setContentDescription("展开");
-        this.crB = (SlidingTabLayout) view.findViewById(u.g.tab_widget_sliding_tab);
+        this.aAV = view;
+        this.cCH = (TextView) view.findViewById(t.g.tab_widget_switch);
+        this.cCI = view.findViewById(t.g.tab_widget_line);
+        this.cCG = (ImageView) view.findViewById(t.g.tab_widget_more);
+        this.cCG.setContentDescription("展开");
+        this.cCJ = (SlidingTabLayout) view.findViewById(t.g.tab_widget_sliding_tab);
     }
 
-    public void q(View.OnClickListener onClickListener) {
-        if (this.cry != null) {
-            this.cry.setOnClickListener(onClickListener);
+    public void o(View.OnClickListener onClickListener) {
+        if (this.cCG != null) {
+            this.cCG.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.crB != null) {
-            this.crB.setViewPager(viewPager);
+        if (this.cCJ != null) {
+            this.cCJ.setViewPager(viewPager);
         }
     }
 
     public void onChangeSkinType(int i) {
-        av.l(this.axO, u.d.common_color_10274);
-        av.l(this.crz, u.d.cp_bg_line_e);
-        av.c(this.crz, u.d.cp_cont_f, 1);
-        av.l(this.crA, u.d.cp_bg_line_b);
-        if (this.crE) {
-            av.c(this.cry, u.f.icon_triangle_down_normal);
-            av.k(this.cry, u.f.rec_frs_btn_more_selector);
+        av.l(this.aAV, t.d.common_color_10274);
+        av.l(this.cCH, t.d.cp_bg_line_e);
+        av.c(this.cCH, t.d.cp_cont_f, 1);
+        av.l(this.cCI, t.d.cp_bg_line_b);
+        if (this.cCM) {
+            av.c(this.cCG, t.f.icon_triangle_down_normal);
+            av.k(this.cCG, t.f.rec_frs_btn_more_selector);
         } else {
-            av.c(this.cry, u.f.icon_triangle_up_normal);
-            av.k(this.cry, u.f.rec_frs_btn_more_up_selector);
+            av.c(this.cCG, t.f.icon_triangle_up_normal);
+            av.k(this.cCG, t.f.rec_frs_btn_more_up_selector);
         }
-        if (this.crB != null) {
-            this.crB.onChangeSkinType(i);
+        if (this.cCJ != null) {
+            this.cCJ.onChangeSkinType(i);
         }
     }
 
-    public void ahj() {
-        this.crE = false;
+    public void alU() {
+        this.cCM = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, true));
-        if (this.crz != null) {
-            this.crz.clearAnimation();
-            this.crz.setVisibility(0);
-            this.crz.startAnimation(getInAnimation());
+        if (this.cCH != null) {
+            this.cCH.clearAnimation();
+            this.cCH.setVisibility(0);
+            this.cCH.startAnimation(getInAnimation());
         }
-        av.c(this.cry, u.f.icon_triangle_up_normal);
-        av.k(this.cry, u.f.rec_frs_btn_more_up_selector);
-        this.crB.setDrawBottomLine(false);
-        this.crA.setVisibility(8);
+        av.c(this.cCG, t.f.icon_triangle_up_normal);
+        av.k(this.cCG, t.f.rec_frs_btn_more_up_selector);
+        this.cCJ.setDrawBottomLine(false);
+        this.cCI.setVisibility(8);
     }
 
-    public void ahk() {
-        this.crE = true;
+    public void alV() {
+        this.cCM = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, false));
-        if (this.crz != null) {
-            this.crz.clearAnimation();
-            this.crz.startAnimation(getOutAnimation());
+        if (this.cCH != null) {
+            this.cCH.clearAnimation();
+            this.cCH.startAnimation(getOutAnimation());
         }
-        av.c(this.cry, u.f.icon_triangle_down_normal);
-        av.k(this.cry, u.f.rec_frs_btn_more_selector);
-        this.crB.setDrawBottomLine(true);
-        this.crA.setVisibility(0);
+        av.c(this.cCG, t.f.icon_triangle_down_normal);
+        av.k(this.cCG, t.f.rec_frs_btn_more_selector);
+        this.cCJ.setDrawBottomLine(true);
+        this.cCI.setVisibility(0);
     }
 
     private Animation getInAnimation() {
-        if (this.crC == null) {
-            this.crC = AnimationUtils.loadAnimation(this.mContext, u.a.fade_in);
-            this.crC.setAnimationListener(this.crF);
+        if (this.cCK == null) {
+            this.cCK = AnimationUtils.loadAnimation(this.mContext, t.a.fade_in);
+            this.cCK.setAnimationListener(this.cCN);
         }
-        return this.crC;
+        return this.cCK;
     }
 
     private Animation getOutAnimation() {
-        if (this.crD == null) {
-            this.crD = AnimationUtils.loadAnimation(this.mContext, u.a.fade_out);
-            this.crD.setAnimationListener(this.crF);
+        if (this.cCL == null) {
+            this.cCL = AnimationUtils.loadAnimation(this.mContext, t.a.fade_out);
+            this.cCL.setAnimationListener(this.cCN);
         }
-        return this.crD;
+        return this.cCL;
     }
 
-    public void an(int i, int i2) {
-        if (this.crB != null) {
-            this.crB.an(i, i2);
+    public void as(int i, int i2) {
+        if (this.cCJ != null) {
+            this.cCJ.as(i, i2);
         }
     }
 }

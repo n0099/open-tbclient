@@ -6,46 +6,46 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d gr = null;
-    private SecretKey gs = null;
-    private byte[] gt = null;
+    private static d iK = null;
+    private SecretKey iL = null;
+    private byte[] iM = null;
 
-    public static d bg() {
-        if (gr == null) {
+    public static d cb() {
+        if (iK == null) {
             synchronized (d.class) {
-                if (gr == null) {
-                    gr = new d();
+                if (iK == null) {
+                    iK = new d();
                 }
             }
         }
-        return gr;
+        return iK;
     }
 
     public void j(byte[] bArr) {
         try {
             PublicKey p = v.p(bArr);
-            String ah = v.ah(32);
-            byte[] bArr2 = new byte[ah.length()];
-            for (int i = 0; i < ah.length(); i++) {
-                bArr2[i] = (byte) ah.charAt(i);
+            String au = v.au(32);
+            byte[] bArr2 = new byte[au.length()];
+            for (int i = 0; i < au.length(); i++) {
+                bArr2[i] = (byte) au.charAt(i);
             }
-            this.gs = v.aU(ah);
-            this.gt = v.a(p, bArr2);
+            this.iL = v.aV(au);
+            this.iM = v.a(p, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.gs = null;
-            this.gt = new byte[0];
+            this.iL = null;
+            this.iM = new byte[0];
         }
     }
 
     private d() {
     }
 
-    public byte[] bh() {
-        return this.gt;
+    public byte[] cc() {
+        return this.iM;
     }
 
     public SecretKey getSecretKey() {
-        return this.gs;
+        return this.iL;
     }
 }

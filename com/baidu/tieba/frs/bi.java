@@ -1,29 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import java.util.HashMap;
+import android.view.View;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class bi {
-    private HashMap<String, Drawable> bFB = new HashMap<>();
+class bi implements View.OnClickListener {
+    private final /* synthetic */ MetaData bRc;
+    private final /* synthetic */ View.OnClickListener bRd;
 
-    public Drawable o(int i, int i2) {
-        String Z = Z(i, i2);
-        Drawable drawable = this.bFB.get(Z);
-        if (drawable == null) {
-            Drawable o = com.baidu.tbadk.core.util.av.o(i2, i);
-            this.bFB.put(Z, o);
-            return o.getConstantState().newDrawable();
-        }
-        return drawable.getConstantState().newDrawable();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bi(MetaData metaData, View.OnClickListener onClickListener) {
+        this.bRc = metaData;
+        this.bRd = onClickListener;
     }
 
-    private String Z(int i, int i2) {
-        return String.valueOf(i) + "_" + i2;
-    }
-
-    public void destory() {
-        if (!this.bFB.isEmpty()) {
-            this.bFB.clear();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10632").ab("obj_id", this.bRc.getUserId()));
+        this.bRd.onClick(view);
     }
 }

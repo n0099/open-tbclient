@@ -7,41 +7,23 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.k;
 import com.baidu.adp.lib.util.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.u;
-import java.io.File;
+import com.baidu.tieba.t;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    public static void G(Context context, String str) {
-        if (TextUtils.isEmpty(str)) {
-            k.showToast(context, u.j.pb_app_error);
-            return;
-        }
-        File cR = m.cR(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cR != null) {
-            Intent intent = new Intent();
-            intent.addFlags(268435456);
-            intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(cR), "application/vnd.android.package-archive");
-            context.startActivity(intent);
-        }
-    }
-
     /* JADX WARN: Code restructure failed: missing block: B:6:0x001a, code lost:
         return true;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean H(Context context, String str) {
+    public static boolean I(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -56,7 +38,7 @@ public class a {
         }
     }
 
-    public static boolean I(Context context, String str) {
+    public static boolean J(Context context, String str) {
         String str2;
         String str3 = Build.MODEL;
         if (!TextUtils.isEmpty(str3) && str3.startsWith("MI")) {
@@ -68,15 +50,15 @@ public class a {
         } else {
             str2 = "content://com.android.launcher2.settings/favorites?notify=true";
         }
-        Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(u.j.bar)}, null);
+        Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(t.j.bar)}, null);
         boolean z = query != null && query.getCount() > 0;
         o.a(query);
         return z;
     }
 
-    public static Intent J(Context context, String str) {
+    public static Intent K(Context context, String str) {
         Class<?> intentClass;
-        if (str == null || str.length() <= 0 || (intentClass = TbadkCoreApplication.m10getInst().getIntentClass(LogoActivityConfig.class)) == null) {
+        if (str == null || str.length() <= 0 || (intentClass = TbadkCoreApplication.m9getInst().getIntentClass(LogoActivityConfig.class)) == null) {
             return null;
         }
         Intent intent = new Intent(context, intentClass);
@@ -90,7 +72,7 @@ public class a {
         return intent;
     }
 
-    public static Intent K(Context context, String str) {
+    public static Intent L(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }

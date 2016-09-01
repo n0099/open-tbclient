@@ -4,11 +4,13 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.t;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.a.h;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.a.j;
 import com.baidu.tbadk.core.util.af;
@@ -85,17 +87,17 @@ public class a extends com.baidu.adp.framework.a.d {
             }
         }
         httpMessage.addHeader("client_logid", String.valueOf(httpMessage.getClientLogID()));
-        httpMessage.addHeader(SocialConstants.PARAM_CUID, TbadkCoreApplication.m10getInst().getCuid());
+        httpMessage.addHeader(SocialConstants.PARAM_CUID, TbadkCoreApplication.m9getInst().getCuid());
     }
 
     private void c(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
         httpMessage.addParam("_client_type", "2");
-        if (!TbadkCoreApplication.m10getInst().isOfficial()) {
+        if (!TbadkCoreApplication.m9getInst().isOfficial()) {
             httpMessage.addParam("apid", TbConfig.SW_APID);
         }
         httpMessage.addParam("_client_version", TbConfig.getVersion());
-        if (TbadkCoreApplication.m10getInst().getImei() != null) {
-            httpMessage.addParam("_phone_imei", TbadkCoreApplication.m10getInst().getImei());
+        if (TbadkCoreApplication.m9getInst().getImei() != null) {
+            httpMessage.addParam("_phone_imei", TbadkCoreApplication.m9getInst().getImei());
         }
         String clientId = TbadkCoreApplication.getClientId();
         if (clientId != null) {
@@ -110,21 +112,21 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = j.getNetType();
         if (netType != null) {
-            if (com.baidu.tbadk.coreExtra.b.a.wo().wp()) {
-                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.wo().wq()));
+            if (com.baidu.tbadk.coreExtra.b.a.xs().xt()) {
+                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xs().xu()));
             }
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
-                if (TbadkCoreApplication.m10getInst().getKeepaliveWifi() == 1) {
+                if (TbadkCoreApplication.m9getInst().getKeepaliveWifi() == 1) {
                     httpMessage.addCookie("ka", TbConfig.ST_TYPE_OPEN);
                 }
-            } else if (TbadkCoreApplication.m10getInst().getKeepaliveNonWifi() == 1) {
+            } else if (TbadkCoreApplication.m9getInst().getKeepaliveNonWifi() == 1) {
                 httpMessage.addCookie("ka", TbConfig.ST_TYPE_OPEN);
             }
         }
         if (tbHttpMessageTask.isNeedTbs()) {
-            httpMessage.addParam("tbs", TbadkCoreApplication.m10getInst().getTbs());
+            httpMessage.addParam("tbs", TbadkCoreApplication.m9getInst().getTbs());
         }
-        httpMessage.addParam(SocialConstants.PARAM_CUID, TbadkCoreApplication.m10getInst().getCuid());
+        httpMessage.addParam(SocialConstants.PARAM_CUID, TbadkCoreApplication.m9getInst().getCuid());
         httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
         httpMessage.addParam("model", Build.MODEL);
     }
@@ -133,6 +135,10 @@ public class a extends com.baidu.adp.framework.a.d {
         String currentBduss = TbadkCoreApplication.getCurrentBduss();
         if (currentBduss != null) {
             httpMessage.addParam("BDUSS", currentBduss);
+            String d = h.d(TbadkCoreApplication.getCurrentAccountInfo());
+            if (!StringUtils.isNull(d)) {
+                httpMessage.addParam("stoken", d);
+            }
         }
     }
 
@@ -151,22 +157,22 @@ public class a extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, t.aT(stringBuffer.toString()));
+        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, t.aU(stringBuffer.toString()));
     }
 
     private void e(HttpMessage httpMessage) {
-        af.a tH = af.tH();
-        if (tH != null) {
-            httpMessage.addParam("stTime", String.valueOf(tH.mTime));
-            httpMessage.addParam("stSize", String.valueOf(tH.XP));
-            httpMessage.addParam("stTimesNum", String.valueOf(tH.XQ));
-            httpMessage.addParam("stMode", String.valueOf(tH.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(tH.XO));
+        af.a uN = af.uN();
+        if (uN != null) {
+            httpMessage.addParam("stTime", String.valueOf(uN.mTime));
+            httpMessage.addParam("stSize", String.valueOf(uN.aaD));
+            httpMessage.addParam("stTimesNum", String.valueOf(uN.aaE));
+            httpMessage.addParam("stMode", String.valueOf(uN.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(uN.aaC));
         }
-        int cr = af.cr(0);
-        if (cr == 0 && tH != null) {
-            cr = tH.XQ;
+        int cE = af.cE(0);
+        if (cE == 0 && uN != null) {
+            cE = uN.aaE;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cr));
+        httpMessage.addParam("stErrorNums", String.valueOf(cE));
     }
 }

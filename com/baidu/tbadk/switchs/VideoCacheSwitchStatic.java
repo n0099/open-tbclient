@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class VideoCacheSwitchStatic extends a {
     static {
-        e.cS().n(VideoCacheSwitchStatic.class);
+        e.dN().n(VideoCacheSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

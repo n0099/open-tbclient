@@ -1,14 +1,14 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import com.baidu.tieba.card.a.s;
+import com.baidu.tieba.card.data.s;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class b implements Comparator<s> {
-    final /* synthetic */ a cvr;
+    final /* synthetic */ a cGV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cvr = aVar;
+        this.cGV = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,7 +1,7 @@
 package android.support.v4.text;
 
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class TextUtilsCompat {
@@ -14,13 +14,13 @@ public class TextUtilsCompat {
         for (int i = 0; i < str.length(); i++) {
             char charAt = str.charAt(i);
             switch (charAt) {
-                case u.l.PullToRefresh_tb_ptrRotateDrawableWhilePulling /* 34 */:
+                case '\"':
                     sb.append("&quot;");
                     break;
-                case u.l.PullToRefresh_adapterViewBackground /* 38 */:
+                case t.l.PullToRefresh_adapterViewBackground /* 38 */:
                     sb.append("&amp;");
                     break;
-                case u.l.PullToRefresh_headerBackground /* 39 */:
+                case t.l.PullToRefresh_headerBackground /* 39 */:
                     sb.append("&#39;");
                     break;
                 case '<':

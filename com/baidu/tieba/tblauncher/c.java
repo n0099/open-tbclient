@@ -19,7 +19,7 @@ class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.h)) {
             this.this$0.a((com.baidu.tbadk.data.h) customResponsedMessage.getData());
-            TbadkCoreApplication.m10getInst().setPaymemberInfo((com.baidu.tbadk.data.h) customResponsedMessage.getData());
+            TbadkCoreApplication.m9getInst().setPaymemberInfo((com.baidu.tbadk.data.h) customResponsedMessage.getData());
         }
     }
 }

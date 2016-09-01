@@ -5,15 +5,15 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements Runnable {
-    final /* synthetic */ g Co;
-    private final /* synthetic */ String Cq;
-    private final /* synthetic */ int Cr;
+    final /* synthetic */ g EB;
+    private final /* synthetic */ String ED;
+    private final /* synthetic */ int EE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar, String str, int i) {
-        this.Co = gVar;
-        this.Cq = str;
-        this.Cr = i;
+        this.EB = gVar;
+        this.ED = str;
+        this.EE = i;
     }
 
     @Override // java.lang.Runnable
@@ -22,18 +22,18 @@ public class j implements Runnable {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        String str = com.baidu.tbadk.core.voice.a.b.dW(com.baidu.tbadk.core.voice.i.dV(this.Cq)).md5;
-        handler = this.Co.mHandle;
+        String str = com.baidu.tbadk.core.voice.a.b.dZ(com.baidu.tbadk.core.voice.i.dY(this.ED)).md5;
+        handler = this.EB.mHandle;
         if (handler != null) {
-            handler2 = this.Co.mHandle;
-            handler2.removeCallbacks(this.Co.Cn);
+            handler2 = this.EB.mHandle;
+            handler2.removeCallbacks(this.EB.EA);
             if (StringUtils.isNull(str)) {
-                handler4 = this.Co.mHandle;
+                handler4 = this.EB.mHandle;
                 handler4.post(new k(this));
                 return;
             }
-            handler3 = this.Co.mHandle;
-            handler3.post(new l(this, str, this.Cr));
+            handler3 = this.EB.mHandle;
+            handler3.post(new l(this, str, this.EE));
         }
     }
 }

@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private static d Hf = null;
+    private static d Js = null;
     private long b = 0;
     private long c = 0;
     private long d = 0;
@@ -16,7 +16,7 @@ public class d {
     private String g = "loc.map.baidu.com";
     private String h = "dns.map.baidu.com";
     private int i = 0;
-    private a Hg = new a();
+    private a Jt = new a();
 
     /* loaded from: classes.dex */
     private class a extends com.baidu.location.h.f {
@@ -28,7 +28,7 @@ public class d {
         @Override // com.baidu.location.h.f
         public void a() {
             if (d.this.h.equals("dns.map.baidu.com") || System.currentTimeMillis() - d.this.b > 720000) {
-                switch (com.baidu.location.f.c.mh().g()) {
+                switch (com.baidu.location.f.c.nc().g()) {
                     case 1:
                         d.this.h = "111.13.100.247";
                         break;
@@ -229,11 +229,11 @@ public class d {
         }
     }
 
-    public static d lJ() {
-        if (Hf == null) {
-            Hf = new d();
+    public static d mE() {
+        if (Js == null) {
+            Js = new d();
         }
-        return Hf;
+        return Js;
     }
 
     public String b() {
@@ -242,7 +242,7 @@ public class d {
             str = this.g;
         }
         if (System.currentTimeMillis() - this.b > 300000) {
-            this.Hg.b();
+            this.Jt.b();
         }
         return str;
     }

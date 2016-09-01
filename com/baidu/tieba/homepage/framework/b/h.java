@@ -5,17 +5,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnTouchListener {
-    final /* synthetic */ e csG;
+    final /* synthetic */ e cDO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.csG = eVar;
+        this.cDO = eVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tieba.d.c cVar;
-        cVar = this.csG.csD;
+        com.baidu.tieba.e.c cVar;
+        cVar = this.cDO.cDL;
         cVar.onTouchEvent(motionEvent);
         return false;
     }

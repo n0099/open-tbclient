@@ -6,63 +6,63 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
-    private final int qH;
-    private final int qI;
-    private ByteBuffer qJ;
+    private final int sX;
+    private final int sY;
+    private ByteBuffer sZ;
 
     public a() {
         this(131072, 65536);
     }
 
     public a(int i, int i2) {
-        this.qH = i;
-        this.qI = i2;
-        this.qJ = ByteBuffer.allocateDirect(this.qH);
-        this.qJ.clear();
+        this.sX = i;
+        this.sY = i2;
+        this.sZ = ByteBuffer.allocateDirect(this.sX);
+        this.sZ.clear();
     }
 
-    public ByteBuffer fX() {
-        return this.qJ;
+    public ByteBuffer gT() {
+        return this.sZ;
     }
 
     public Buffer flip() {
-        return this.qJ.flip();
+        return this.sZ.flip();
     }
 
     public Buffer clear() {
-        return this.qJ.clear();
+        return this.sZ.clear();
     }
 
     public int remaining() {
-        return this.qJ.remaining();
+        return this.sZ.remaining();
     }
 
-    public synchronized void an(int i) {
-        if (i > this.qJ.capacity()) {
-            ByteBuffer byteBuffer = this.qJ;
-            int position = this.qJ.position();
-            this.qJ = ByteBuffer.allocateDirect(((i / this.qI) + 1) * this.qI);
+    public synchronized void aA(int i) {
+        if (i > this.sZ.capacity()) {
+            ByteBuffer byteBuffer = this.sZ;
+            int position = this.sZ.position();
+            this.sZ = ByteBuffer.allocateDirect(((i / this.sY) + 1) * this.sY);
             byteBuffer.clear();
-            this.qJ.clear();
-            this.qJ.put(byteBuffer);
-            this.qJ.position(position);
+            this.sZ.clear();
+            this.sZ.put(byteBuffer);
+            this.sZ.position(position);
         }
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(int i) throws IOException {
-        if (this.qJ.position() + 1 > this.qJ.capacity()) {
-            an(this.qJ.capacity() + 1);
+        if (this.sZ.position() + 1 > this.sZ.capacity()) {
+            aA(this.sZ.capacity() + 1);
         }
-        this.qJ.put((byte) i);
+        this.sZ.put((byte) i);
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.qJ.position() + i2 > this.qJ.capacity()) {
-            an(this.qJ.capacity() + i2);
+        if (this.sZ.position() + i2 > this.sZ.capacity()) {
+            aA(this.sZ.capacity() + i2);
         }
-        this.qJ.put(bArr, i, i2);
+        this.sZ.put(bArr, i, i2);
     }
 
     @Override // java.io.OutputStream
@@ -74,7 +74,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void fY() throws IOException {
+    public synchronized void gU() throws IOException {
         write(13);
         write(10);
     }

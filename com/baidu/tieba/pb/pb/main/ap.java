@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class ap extends CustomMessageListener {
-    final /* synthetic */ PbActivity ebT;
+    final /* synthetic */ PbActivity eob;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ap(PbActivity pbActivity, int i) {
         super(i);
-        this.ebT = pbActivity;
+        this.eob = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,25 +18,25 @@ class ap extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         dh dhVar;
         com.baidu.tbadk.editortools.d.e eVar;
-        ew ewVar;
+        ex exVar;
         com.baidu.tbadk.editortools.d.e eVar2;
-        ew ewVar2;
-        ew ewVar3;
+        ex exVar2;
+        ex exVar3;
         com.baidu.tbadk.editortools.d.e eVar3;
-        dhVar = this.ebT.eas;
+        dhVar = this.eob.emx;
         if (dhVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            eVar = this.ebT.ebk;
+            eVar = this.eob.ens;
             if (eVar != null) {
-                ewVar3 = this.ebT.ebb;
-                eVar3 = this.ebT.ebk;
-                ewVar3.ge(eVar3.BW());
+                exVar3 = this.eob.enh;
+                eVar3 = this.eob.ens;
+                exVar3.gA(eVar3.Dr());
             }
-            ewVar = this.ebT.ebb;
-            ewVar.aKg();
-            eVar2 = this.ebT.ebk;
-            eVar2.BZ();
-            ewVar2 = this.ebT.ebb;
-            ewVar2.avR();
+            exVar = this.eob.enh;
+            exVar.aOX();
+            eVar2 = this.eob.ens;
+            eVar2.Du();
+            exVar2 = this.eob.enh;
+            exVar2.aAE();
         }
     }
 }

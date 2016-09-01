@@ -1,61 +1,131 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bi;
+import com.baidu.tieba.t;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class ci extends CustomMessageListener {
-    final /* synthetic */ ch ecD;
+class ci implements bi.a {
+    Pattern eou = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ci(ch chVar, int i) {
-        super(i);
-        this.ecD = chVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        List list2;
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        PbActivity pbActivity;
-        ArrayList arrayList;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.d)) {
-            AbsDelegateAdapterList beX = ((com.baidu.tieba.tbadkCore.data.d) customResponsedMessage.getData()).beX();
-            Iterator it = beX.iterator();
-            while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                if (aVar instanceof cs) {
-                    pbActivity = this.ecD.eat;
-                    ((cs) aVar).ac(pbActivity);
-                    if (aVar instanceof com.baidu.tieba.pb.pb.a.a) {
-                        arrayList = this.ecD.ecx;
-                        arrayList.add((com.baidu.tieba.pb.pb.a.a) aVar);
-                    }
-                    if (aVar instanceof com.baidu.tieba.pb.pb.a.b) {
-                        this.ecD.ecs = (com.baidu.tieba.pb.pb.a.b) aVar;
+    @Override // com.baidu.tbadk.core.util.bi.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        String as;
+        boolean z;
+        String str;
+        boolean z2;
+        String str2;
+        boolean z3 = false;
+        if (strArr == null || strArr.length == 0 || strArr[0] == null) {
+            return 3;
+        }
+        String lowerCase = strArr[0].toLowerCase();
+        Matcher matcher = this.eou.matcher(lowerCase);
+        String str3 = "";
+        if (matcher.find()) {
+            String group = matcher.group(1);
+            str = "allthread";
+            if (lowerCase != null) {
+                String[] split = lowerCase.split("&");
+                for (int i = 0; i < split.length; i++) {
+                    if (split[i] != null && split[i].startsWith("thread_type=")) {
+                        str2 = split[i].substring("thread_type=".length());
+                        break;
                     }
                 }
             }
-            ArrayList arrayList2 = new ArrayList();
-            arrayList2.addAll(beX);
-            list = this.ecD.ecB;
-            list.clear();
-            list2 = this.ecD.ecB;
-            list2.addAll(arrayList2);
-            bdTypeListView = this.ecD.bqG;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.ecD.bqG;
-                bdTypeListView2.g(arrayList2);
+            str2 = "";
+            str3 = str2;
+            z2 = false;
+            as = group;
+            z = true;
+        } else if (lowerCase != null && lowerCase.startsWith("http://tieba.baidu.com/f?")) {
+            String substring = lowerCase.substring("http://tieba.baidu.com/f?".length());
+            if (substring != null) {
+                String[] split2 = substring.split("&");
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= split2.length) {
+                        as = null;
+                        z = false;
+                        break;
+                    } else if (split2[i2] == null || !split2[i2].startsWith("kz=")) {
+                        i2++;
+                    } else {
+                        as = split2[i2].substring(3);
+                        z = true;
+                        break;
+                    }
+                }
+                if (!TextUtils.isEmpty(as) && as.contains("&")) {
+                    as = as.split("&")[0];
+                }
+                if (TextUtils.isEmpty(as)) {
+                    as = null;
+                }
+            } else {
+                z = false;
+                as = null;
             }
+            str = "allthread";
+            z2 = false;
+        } else if (!lowerCase.startsWith("pb:")) {
+            if (lowerCase.startsWith("com.baidu.tieba://?kz=")) {
+                as = lowerCase.substring("com.baidu.tieba://?kz=".length());
+                z = false;
+                str = null;
+                z2 = true;
+            } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kz=")) {
+                return 3;
+            } else {
+                as = com.baidu.tbadk.util.y.as(lowerCase, "kz=");
+                z = false;
+                str = null;
+                z2 = false;
+            }
+        } else {
+            as = lowerCase.substring(3);
+            if (strArr.length > 1) {
+                str = strArr[1];
+                z2 = false;
+                z = true;
+            } else {
+                z = true;
+                str = null;
+                z2 = false;
+            }
+        }
+        if (!StringUtils.isNull(as, true) && tbPageContext != null) {
+            if (!StringUtils.isNull(str3) && com.baidu.adp.lib.h.b.g(str3, 0) == 33 && TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                z3 = true;
+            }
+            if (z3) {
+                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext.getPageActivity(), as).oW()));
+                return 1;
+            }
+            PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(as, null, str);
+            createNormalCfg.setVideo_source("push");
+            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
+            return 1;
+        } else if (z2 && !TextUtils.isEmpty(as)) {
+            com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m9getInst(), ew.L(TbadkCoreApplication.m9getInst(), as));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10320").s("obj_locate", 3).s("obj_type", 2));
+            return 1;
+        } else if (z) {
+            tbPageContext.showToast(t.j.page_not_found);
+            return 1;
+        } else {
+            return 3;
         }
     }
 }

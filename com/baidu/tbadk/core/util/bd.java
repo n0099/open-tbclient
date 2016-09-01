@@ -6,14 +6,14 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class bd extends com.baidu.adp.base.a.c {
     public bd(Context context) {
-        super(context, TbConfig.PHONE_DATEBASE_NAME, 14);
+        super(context, TbConfig.PHONE_DATEBASE_NAME, 15);
     }
 
     @Override // com.baidu.adp.base.a.c
     public void c(SQLiteDatabase sQLiteDatabase) {
         try {
             b(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255))");
+            b(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255))");
             b(sQLiteDatabase, "CREATE TABLE if not exists search_data(key, account, time)");
             b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
             b(sQLiteDatabase, "CREATE TABLE if not exists mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost int,forumName varchar(30),forumId varchar(30),threadId varchar(30))");
@@ -108,6 +108,9 @@ public class bd extends com.baidu.adp.base.a.c {
         }
         if (i < 14) {
             m(sQLiteDatabase);
+        }
+        if (i < 15) {
+            b(sQLiteDatabase, "ALTER TABLE account_data ADD stoken varchar(255)");
         }
     }
 

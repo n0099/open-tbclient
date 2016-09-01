@@ -4,98 +4,98 @@ import com.baidu.tieba.frs.entelechy.b.b;
 import com.baidu.tieba.tbadkCore.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class d implements dm {
-    final /* synthetic */ FrsActivity bEL;
+class d implements dh {
+    final /* synthetic */ FrsActivity bQp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FrsActivity frsActivity) {
-        this.bEL = frsActivity;
+        this.bQp = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.dm
-    public void a(int i, int i2, dv dvVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        bq bqVar;
+    @Override // com.baidu.tieba.frs.dh
+    public void a(int i, int i2, dq dqVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
+        bm bmVar;
         b bVar;
-        bq bqVar2;
-        bq bqVar3;
-        bq bqVar4;
-        bq bqVar5;
-        dm dmVar;
-        dm dmVar2;
-        bq bqVar6;
-        bq bqVar7;
-        bq bqVar8;
-        bq bqVar9;
-        com.baidu.tieba.frs.j.p pVar;
+        bm bmVar2;
+        bm bmVar3;
+        bm bmVar4;
+        bm bmVar5;
+        dh dhVar;
+        dh dhVar2;
+        bm bmVar6;
+        bm bmVar7;
+        bm bmVar8;
+        bm bmVar9;
+        com.baidu.tieba.frs.i.p pVar;
         b bVar2;
-        bq bqVar10;
-        bqVar = this.bEL.bDK;
-        if (bqVar.Wr() instanceof com.baidu.tieba.frs.tab.h) {
-            bqVar10 = this.bEL.bDK;
-            ((com.baidu.tieba.frs.tab.h) bqVar10.Wr()).aap();
+        bm bmVar10;
+        bmVar = this.bQp.bPo;
+        if (bmVar.abo() instanceof com.baidu.tieba.frs.tab.h) {
+            bmVar10 = this.bQp.bPo;
+            ((com.baidu.tieba.frs.tab.h) bmVar10.abo()).afa();
         }
-        bVar = this.bEL.bEi;
+        bVar = this.bQp.bPM;
         if (bVar != null) {
-            pVar = this.bEL.bDY;
-            bVar2 = this.bEL.bEi;
-            pVar.dK(bVar2.hy(i));
+            pVar = this.bQp.bPC;
+            bVar2 = this.bQp.bPM;
+            pVar.eg(bVar2.ib(i));
         }
         e.a aVar = new e.a();
-        if (dvVar != null) {
-            aVar.isSuccess = dvVar.errCode == 0;
-            aVar.errorCode = dvVar.errCode;
-            aVar.errorMsg = dvVar.errMsg;
+        if (dqVar != null) {
+            aVar.isSuccess = dqVar.errCode == 0;
+            aVar.errorCode = dqVar.errCode;
+            aVar.errorMsg = dqVar.errMsg;
             if (aVar.isSuccess) {
                 if (arrayList == null || arrayList.size() == 0) {
-                    bqVar6 = this.bEL.bDK;
-                    bqVar6.WT();
-                } else if (dvVar.hasMore) {
-                    bqVar9 = this.bEL.bDK;
-                    bqVar9.WR();
-                } else if (dvVar.bIG) {
-                    bqVar8 = this.bEL.bDK;
-                    bqVar8.WS();
+                    bmVar6 = this.bQp.bPo;
+                    bmVar6.abP();
+                } else if (dqVar.hasMore) {
+                    bmVar9 = this.bQp.bPo;
+                    bmVar9.abN();
+                } else if (dqVar.bTI) {
+                    bmVar8 = this.bQp.bPo;
+                    bmVar8.abO();
                 } else {
-                    bqVar7 = this.bEL.bDK;
-                    bqVar7.WT();
+                    bmVar7 = this.bQp.bPo;
+                    bmVar7.abP();
                 }
             }
         } else {
-            dvVar = new dv();
-            dvVar.pn = 1;
-            dvVar.hasMore = false;
-            dvVar.bIG = false;
+            dqVar = new dq();
+            dqVar.pn = 1;
+            dqVar.hasMore = false;
+            dqVar.bTI = false;
         }
         if (i == 1) {
-            this.bEL.bDW = true;
-            this.bEL.bEs.a(this.bEL.bDX.getType(), false, aVar);
+            this.bQp.bPA = true;
+            this.bQp.bPW.a(this.bQp.bPB.getType(), false, aVar);
         } else {
-            if (dvVar.errCode != 0 || arrayList == null || arrayList.size() == 0) {
+            if (dqVar.errCode != 0 || arrayList == null || arrayList.size() == 0) {
                 if (340001 == aVar.errorCode) {
-                    FrsActivity frsActivity = this.bEL;
-                    bqVar3 = this.bEL.bDK;
-                    frsActivity.showNetRefreshViewNoClick(bqVar3.getRootView(), aVar.errorMsg, true);
+                    FrsActivity frsActivity = this.bQp;
+                    bmVar3 = this.bQp.bPo;
+                    frsActivity.showNetRefreshViewNoClick(bmVar3.getRootView(), aVar.errorMsg, true);
                 } else {
-                    FrsActivity frsActivity2 = this.bEL;
-                    bqVar2 = this.bEL.bDK;
-                    frsActivity2.showNetRefreshView(bqVar2.getRootView(), aVar.errorMsg, true);
+                    FrsActivity frsActivity2 = this.bQp;
+                    bmVar2 = this.bQp.bPo;
+                    frsActivity2.showNetRefreshView(bmVar2.getRootView(), aVar.errorMsg, true);
                 }
-                this.bEL.setNetRefreshViewEmotionDefMarginTop();
+                this.bQp.setNetRefreshViewEmotionDefMarginTop();
             }
-            this.bEL.VK();
-            bqVar4 = this.bEL.bDK;
-            bqVar4.getListView().jz();
-            if (this.bEL.VY().Zj() != null) {
-                this.bEL.bDM = this.bEL.VY().Zj();
+            this.bQp.aaF();
+            bmVar4 = this.bQp.bPo;
+            bmVar4.getListView().ku();
+            if (this.bQp.aaV().adV() != null) {
+                this.bQp.bPq = this.bQp.aaV().adV();
             }
-            bqVar5 = this.bEL.bDK;
-            bqVar5.dj(false);
+            bmVar5 = this.bQp.bPo;
+            bmVar5.dH(false);
         }
-        dmVar = this.bEL.bEK;
-        if (dmVar == null) {
+        dhVar = this.bQp.bQo;
+        if (dhVar == null) {
             return;
         }
-        dmVar2 = this.bEL.bEK;
-        dmVar2.a(i, i2, dvVar, arrayList);
+        dhVar2 = this.bQp.bQo;
+        dhVar2.a(i, i2, dqVar, arrayList);
     }
 }

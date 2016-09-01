@@ -7,13 +7,13 @@ import java.util.List;
 public interface c {
     void a(a.InterfaceC0033a interfaceC0033a);
 
-    void f(AccountData accountData);
-
     void g(AccountData accountData);
 
-    AccountData sL();
+    void h(AccountData accountData);
 
-    void wm();
+    AccountData tQ();
 
-    List<AccountData> wn();
+    void xq();
+
+    List<AccountData> xr();
 }

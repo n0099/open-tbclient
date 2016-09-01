@@ -7,29 +7,29 @@ import com.baidu.tieba.write.view.PostCategoryView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fVn;
+    final /* synthetic */ WriteActivity gfs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(WriteActivity writeActivity) {
-        this.fVn = writeActivity;
+        this.gfs = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PostCategoryView postCategoryView;
         InputMethodManager inputMethodManager;
-        EditText bpk;
+        EditText btz;
         InputMethodManager inputMethodManager2;
-        EditText bpj;
-        postCategoryView = this.fVn.fUH;
-        postCategoryView.boj();
-        WriteActivity writeActivity = this.fVn;
-        inputMethodManager = this.fVn.mInputManager;
-        bpk = this.fVn.bpk();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, bpk);
-        WriteActivity writeActivity2 = this.fVn;
-        inputMethodManager2 = this.fVn.mInputManager;
-        bpj = this.fVn.bpj();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bpj);
+        EditText bty;
+        postCategoryView = this.gfs.geM;
+        postCategoryView.bsy();
+        WriteActivity writeActivity = this.gfs;
+        inputMethodManager = this.gfs.mInputManager;
+        btz = this.gfs.btz();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, btz);
+        WriteActivity writeActivity2 = this.gfs;
+        inputMethodManager2 = this.gfs.mInputManager;
+        bty = this.gfs.bty();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bty);
     }
 }

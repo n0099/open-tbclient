@@ -1,81 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.v;
-import com.baidu.tbadk.core.util.ay;
-import java.io.File;
-import java.io.FileInputStream;
-import java.security.PublicKey;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.ak;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class ah {
-    public static boolean c(String str, File file) {
-        if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
-            com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "checkRSA input args is null"));
-            return false;
-        }
+    public static String getTiebaApkMd5() {
+        String str = null;
         try {
-            PublicKey p = v.p(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-            if (p == null) {
-                com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "publicKeyCode is null").ab("obj_source", file.getName()));
-                return false;
+            String versionName = TbadkCoreApplication.m9getInst().getVersionName();
+            String string = com.baidu.tbadk.core.sharedPref.b.tS().getString("version_name", "");
+            if (!TextUtils.isEmpty(versionName)) {
+                if (versionName.equals(string)) {
+                    str = com.baidu.tbadk.core.sharedPref.b.tS().getString("apk_md5", "");
+                } else {
+                    com.baidu.tbadk.core.sharedPref.b.tS().putString("version_name", versionName);
+                    String d = bc.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.tS().putString("apk_md5", d);
+                    str = d;
+                }
             }
-            byte[] gE = gE(str);
-            if (gE == null || gE.length <= 0) {
-                com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "server_data is null").ab("obj_source", file.getName()));
-                return false;
-            }
-            byte[] b = v.b(p, gE);
-            if (b == null || b.length <= 0) {
-                com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "des is null").ab("obj_source", file.getName()));
-                return false;
-            }
-            String trim = new String(b, "UTF-8").trim();
-            String k = com.baidu.adp.lib.util.t.k(new FileInputStream(file));
-            if (k != null) {
-                k = k.trim();
-            }
-            if (TextUtils.isEmpty(k) || TextUtils.isEmpty(trim)) {
-                com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "apkMd5 or serverMD5 is null").ab("obj_source", file.getName()));
-                return false;
-            } else if (k.equalsIgnoreCase(trim)) {
-                return true;
-            } else {
-                com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "apkMd5 != serverMD5").ab("obj_source", file.getName()));
-                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
-                return false;
-            }
-        } catch (Exception e) {
-            com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10836").ab("obj_type", "exception:" + e.getMessage()).ab("obj_source", file.getName()));
-            BdLog.e("download MD5 RSA ERROR！Exception:" + e.getMessage() + " ; file:" + file.getName());
-            return false;
+        } catch (PackageManager.NameNotFoundException e) {
+            BdLog.detailException(e);
         }
+        return str;
     }
 
-    private static int g(char c) {
-        int digit = Character.digit(c, 16);
-        if (digit == -1) {
-            throw new RuntimeException("Illegal hexadecimal character " + c);
+    public static boolean b(PackageManager packageManager) {
+        for (PackageInfo packageInfo : packageManager.getInstalledPackages(8192)) {
+            if (packageInfo != null) {
+                String str = packageInfo.packageName;
+                if (!TextUtils.isEmpty(str) && str.equals("com.baidu.appsearch")) {
+                    return packageInfo.versionCode >= 16782633;
+                }
+            }
         }
-        return digit;
+        return false;
     }
 
-    public static byte[] gE(String str) {
-        int i = 0;
-        if (str == null) {
-            throw new IllegalArgumentException("binary string is null");
+    public static boolean a(Context context, CombineDownload combineDownload) {
+        return (combineDownload == null || ak.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+    }
+
+    public static void a(Context context, VersionData versionData) {
+        String str = "-1";
+        try {
+            str = bc.b(TbadkCoreApplication.m9getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 64));
+        } catch (PackageManager.NameNotFoundException e) {
+            BdLog.detailException(e);
+        } catch (NumberFormatException e2) {
+            BdLog.detailException(e2);
         }
-        char[] charArray = str.toCharArray();
-        byte[] bArr = new byte[charArray.length / 2];
-        if (charArray.length % 2 != 0) {
-            return null;
-        }
-        for (int i2 = 0; i + 1 < charArray.length && i2 < bArr.length; i2++) {
-            int i3 = i + 1;
-            int g = g(charArray[i]) << 4;
-            i = i3 + 1;
-            bArr[i2] = (byte) (g(charArray[i3]) | g);
-        }
-        return bArr;
+        Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+        intent.setFlags(268435488);
+        intent.putExtra("id", TbadkCoreApplication.m9getInst().getContext().getPackageName());
+        intent.putExtra("backup", "0");
+        intent.putExtra("func", "11");
+        Bundle bundle = new Bundle();
+        bundle.putInt("versioncode", versionData.getNewVersionCode());
+        bundle.putLong("patch_size", com.baidu.adp.lib.h.b.c(versionData.getPatchSize(), 0L));
+        bundle.putString("patch_url", versionData.getPatch());
+        bundle.putString("sname", context.getString(t.j.app_name));
+        bundle.putString("packagename", TbadkCoreApplication.m9getInst().getContext().getPackageName());
+        bundle.putString("downurl", versionData.getUrl());
+        bundle.putString("versionname", versionData.getNewVersion());
+        bundle.putString("iconurl", versionData.getTiebaIconUrl());
+        bundle.putString("updatetime", ba.d(new Date(System.currentTimeMillis())));
+        bundle.putString("size", versionData.getSize());
+        bundle.putString("signmd5", str);
+        bundle.putString("tj", String.valueOf(str) + context.getString(t.j.app_name));
+        intent.putExtra("extra_client_downloadinfo", bundle);
+        context.startActivity(intent);
     }
 }

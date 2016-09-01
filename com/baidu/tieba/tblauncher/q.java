@@ -17,22 +17,22 @@ class q extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ab abVar;
-        ab abVar2;
-        ab abVar3;
+        ac acVar;
+        ac acVar2;
+        ac acVar3;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            int oldSkinType = TbadkCoreApplication.m10getInst().getOldSkinType();
+            int oldSkinType = TbadkCoreApplication.m9getInst().getOldSkinType();
             if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
                 if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-                    abVar3 = this.this$0.foy;
-                    abVar3.bhv().cj(1);
-                } else if (TbadkCoreApplication.m10getInst().isThemeIconCover()) {
-                    abVar2 = this.this$0.foy;
-                    abVar2.bhv().cj(2);
+                    acVar3 = this.this$0.fwr;
+                    acVar3.bkZ().cw(1);
+                } else if (TbadkCoreApplication.m9getInst().isThemeIconCover()) {
+                    acVar2 = this.this$0.fwr;
+                    acVar2.bkZ().cw(2);
                 } else {
-                    abVar = this.this$0.foy;
-                    abVar.bhv().cj(1);
+                    acVar = this.this$0.fwr;
+                    acVar.bkZ().cw(1);
                 }
             }
         }

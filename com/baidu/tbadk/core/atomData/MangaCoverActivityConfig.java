@@ -7,6 +7,7 @@ public class MangaCoverActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FROM = "from";
     public static final int FROM_CATEGORY = 3;
+    public static final int FROM_FRS_BOOK_HEADER = 5;
     public static final int FROM_FRS_HEAD_SDK = 4;
     public static final int FROM_FRS_SHLEF = 1;
     public static final int FROM_MY_SHELF = 2;

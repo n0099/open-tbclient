@@ -5,34 +5,34 @@ import android.view.WindowManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class j {
-    protected View ddg;
-    private boolean awc = false;
-    protected WindowManager ddh = (WindowManager) TbadkCoreApplication.m10getInst().getSystemService("window");
-    protected WindowManager.LayoutParams ddi = asM();
+    protected View doO;
+    private boolean azj = false;
+    protected WindowManager doP = (WindowManager) TbadkCoreApplication.m9getInst().getSystemService("window");
+    protected WindowManager.LayoutParams doQ = axA();
 
-    public abstract WindowManager.LayoutParams asM();
+    public abstract WindowManager.LayoutParams axA();
 
     public j(View view) {
-        this.ddg = view;
+        this.doO = view;
     }
 
-    public boolean asN() {
-        return this.awc && this.ddg.getParent() != null;
+    public boolean axB() {
+        return this.azj && this.doO.getParent() != null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void asO() {
-        if (this.ddh != null && this.ddi != null && this.ddg.getParent() == null) {
-            this.awc = true;
-            this.ddh.addView(this.ddg, this.ddi);
+    public void axC() {
+        if (this.doP != null && this.doQ != null && this.doO.getParent() == null) {
+            this.azj = true;
+            this.doP.addView(this.doO, this.doQ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void asP() {
-        if (this.ddh != null && this.ddg.getParent() != null) {
-            this.awc = false;
-            this.ddh.removeView(this.ddg);
+    public void axD() {
+        if (this.doP != null && this.doO.getParent() != null) {
+            this.azj = false;
+            this.doP.removeView(this.doO);
         }
     }
 }

@@ -3,19 +3,19 @@ package com.baidu.tieba.homepage.framework.indicator;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class j implements NoNetworkView.a {
-    final /* synthetic */ ScrollFragmentTabHost crx;
+    final /* synthetic */ ScrollFragmentTabHost cCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.crx = scrollFragmentTabHost;
+        this.cCF = scrollFragmentTabHost;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aG(boolean z) {
+    public void aH(boolean z) {
         a aVar;
-        if (z && com.baidu.tieba.homepage.framework.a.a.ahm().css) {
-            aVar = this.crx.crl;
-            aVar.ew(true);
+        if (z && com.baidu.tieba.homepage.framework.a.a.alX().cDA) {
+            aVar = this.cCF.cCt;
+            aVar.eS(true);
         }
     }
 }

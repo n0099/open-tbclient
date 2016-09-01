@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.switchs.EcommSwitchStatic;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -16,14 +17,14 @@ public class DealInfoIMData implements Serializable {
     public String url;
 
     public static DealInfoIMData parseData(String str) {
-        if (str == null || (TextUtils.isEmpty(str) && !EcommSwitchStatic.Fr())) {
+        if (str == null || (TextUtils.isEmpty(str) && !EcommSwitchStatic.GL())) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             DealInfoIMData dealInfoIMData = new DealInfoIMData();
             dealInfoIMData.productId = jSONObject.getLong("productId");
-            dealInfoIMData.title = jSONObject.getString("title");
+            dealInfoIMData.title = jSONObject.getString(VrPlayerActivityConfig.TITLE);
             dealInfoIMData.shipFee = (float) jSONObject.getDouble("shipFee");
             dealInfoIMData.url = jSONObject.getString("url");
             dealInfoIMData.count = jSONObject.getInt("count");
@@ -39,7 +40,7 @@ public class DealInfoIMData implements Serializable {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("productId", this.productId);
-            jSONObject.put("title", this.title);
+            jSONObject.put(VrPlayerActivityConfig.TITLE, this.title);
             jSONObject.put("shipFee", this.shipFee);
             jSONObject.put("url", this.url);
             jSONObject.put("count", this.count);

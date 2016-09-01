@@ -8,13 +8,13 @@ public interface a {
 
     boolean a(j jVar, int i);
 
-    void bL(String str);
+    void bM(String str);
 
-    void kA();
+    void lt();
 
-    void ky();
+    boolean lu();
 
-    boolean kz();
+    void lv();
 
     void release();
 }

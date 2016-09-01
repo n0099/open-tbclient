@@ -17,34 +17,34 @@ import android.widget.Adapter;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public abstract class g<T extends Adapter> extends ViewGroup {
-    public boolean abK;
+    public boolean aeA;
     @ViewDebug.ExportedProperty(category = "scrolling")
-    protected int bml;
+    protected int bxA;
+    protected int cKA;
+    protected long cKB;
+    protected long cKC;
+    protected boolean cKD;
+    int cKE;
+    e cKF;
+    c cKG;
+    d cKH;
     @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
-    protected int cgS;
-    protected int cyU;
-    protected int cyV;
-    protected long cyW;
-    protected long cyX;
-    protected boolean cyY;
-    int cyZ;
-    e cza;
-    c czb;
-    d czc;
+    protected int cKI;
+    protected long cKJ;
+    protected long cKK;
     @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
-    protected int czd;
-    protected long cze;
-    protected long czf;
+    protected int cKL;
+    protected int cKM;
+    AccessibilityManager cKN;
+    protected int cKO;
+    protected long cKP;
+    private boolean cKQ;
+    private boolean cKR;
+    private g<T>.f cKS;
+    protected boolean cKT;
+    protected int cKz;
     @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
-    protected int czg;
-    protected int czh;
-    AccessibilityManager czi;
-    protected int czj;
-    protected long czk;
-    private boolean czl;
-    private boolean czm;
-    private g<T>.f czn;
-    protected boolean czo;
+    protected int csf;
     private View mEmptyView;
     protected boolean mInLayout;
     private int mLayoutWidth;
@@ -76,67 +76,67 @@ public abstract class g<T extends Adapter> extends ViewGroup {
 
     public g(Context context) {
         super(context);
-        this.bml = 0;
-        this.cyW = Long.MIN_VALUE;
-        this.cyY = false;
+        this.bxA = 0;
+        this.cKB = Long.MIN_VALUE;
+        this.cKD = false;
         this.mInLayout = false;
-        this.czd = -1;
-        this.cze = Long.MIN_VALUE;
-        this.cgS = -1;
-        this.czf = Long.MIN_VALUE;
-        this.czj = -1;
-        this.czk = Long.MIN_VALUE;
-        this.czo = false;
+        this.cKI = -1;
+        this.cKJ = Long.MIN_VALUE;
+        this.csf = -1;
+        this.cKK = Long.MIN_VALUE;
+        this.cKO = -1;
+        this.cKP = Long.MIN_VALUE;
+        this.cKT = false;
     }
 
     public g(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bml = 0;
-        this.cyW = Long.MIN_VALUE;
-        this.cyY = false;
+        this.bxA = 0;
+        this.cKB = Long.MIN_VALUE;
+        this.cKD = false;
         this.mInLayout = false;
-        this.czd = -1;
-        this.cze = Long.MIN_VALUE;
-        this.cgS = -1;
-        this.czf = Long.MIN_VALUE;
-        this.czj = -1;
-        this.czk = Long.MIN_VALUE;
-        this.czo = false;
+        this.cKI = -1;
+        this.cKJ = Long.MIN_VALUE;
+        this.csf = -1;
+        this.cKK = Long.MIN_VALUE;
+        this.cKO = -1;
+        this.cKP = Long.MIN_VALUE;
+        this.cKT = false;
     }
 
     public g(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bml = 0;
-        this.cyW = Long.MIN_VALUE;
-        this.cyY = false;
+        this.bxA = 0;
+        this.cKB = Long.MIN_VALUE;
+        this.cKD = false;
         this.mInLayout = false;
-        this.czd = -1;
-        this.cze = Long.MIN_VALUE;
-        this.cgS = -1;
-        this.czf = Long.MIN_VALUE;
-        this.czj = -1;
-        this.czk = Long.MIN_VALUE;
-        this.czo = false;
+        this.cKI = -1;
+        this.cKJ = Long.MIN_VALUE;
+        this.csf = -1;
+        this.cKK = Long.MIN_VALUE;
+        this.cKO = -1;
+        this.cKP = Long.MIN_VALUE;
+        this.cKT = false;
         if (!isInEditMode()) {
-            this.czi = (AccessibilityManager) getContext().getSystemService("accessibility");
+            this.cKN = (AccessibilityManager) getContext().getSystemService("accessibility");
         }
     }
 
     public void setOnItemClickListener(c cVar) {
-        this.czb = cVar;
+        this.cKG = cVar;
     }
 
     public final c getOnItemClickListener() {
-        return this.czb;
+        return this.cKG;
     }
 
     public boolean performItemClick(View view, int i, long j) {
-        if (this.czb != null) {
+        if (this.cKG != null) {
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            this.czb.a(this, view, i, j);
+            this.cKG.a(this, view, i, j);
             return true;
         }
         return false;
@@ -146,19 +146,19 @@ public abstract class g<T extends Adapter> extends ViewGroup {
         if (!isLongClickable()) {
             setLongClickable(true);
         }
-        this.czc = dVar;
+        this.cKH = dVar;
     }
 
     public final d getOnItemLongClickListener() {
-        return this.czc;
+        return this.cKH;
     }
 
     public void setOnItemSelectedListener(e eVar) {
-        this.cza = eVar;
+        this.cKF = eVar;
     }
 
     public final e getOnItemSelectedListener() {
-        return this.cza;
+        return this.cKF;
     }
 
     /* loaded from: classes.dex */
@@ -217,12 +217,12 @@ public abstract class g<T extends Adapter> extends ViewGroup {
 
     @ViewDebug.CapturedViewProperty
     public int getSelectedItemPosition() {
-        return this.czd;
+        return this.cKI;
     }
 
     @ViewDebug.CapturedViewProperty
     public long getSelectedItemId() {
-        return this.cze;
+        return this.cKJ;
     }
 
     public Object getSelectedItem() {
@@ -236,7 +236,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
 
     @ViewDebug.CapturedViewProperty
     public int getCount() {
-        return this.czg;
+        return this.cKL;
     }
 
     public int getPositionForView(View view) {
@@ -254,24 +254,24 @@ public abstract class g<T extends Adapter> extends ViewGroup {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             if (getChildAt(i).equals(view)) {
-                return i + this.bml;
+                return i + this.bxA;
             }
         }
         return -1;
     }
 
     public int getFirstVisiblePosition() {
-        return this.bml;
+        return this.bxA;
     }
 
     public int getLastVisiblePosition() {
-        return (this.bml + getChildCount()) - 1;
+        return (this.bxA + getChildCount()) - 1;
     }
 
     public void setEmptyView(View view) {
         this.mEmptyView = view;
         T adapter = getAdapter();
-        eK(adapter == null || adapter.isEmpty());
+        fg(adapter == null || adapter.isEmpty());
     }
 
     public View getEmptyView() {
@@ -287,9 +287,9 @@ public abstract class g<T extends Adapter> extends ViewGroup {
         boolean z2 = true;
         T adapter = getAdapter();
         boolean z3 = adapter == null || adapter.getCount() == 0;
-        this.czl = z;
+        this.cKQ = z;
         if (!z) {
-            this.czm = false;
+            this.cKR = false;
         }
         if (!z || (z3 && !isInFilterMode())) {
             z2 = false;
@@ -302,9 +302,9 @@ public abstract class g<T extends Adapter> extends ViewGroup {
         boolean z2 = true;
         T adapter = getAdapter();
         boolean z3 = adapter == null || adapter.getCount() == 0;
-        this.czm = z;
+        this.cKR = z;
         if (z) {
-            this.czl = true;
+            this.cKQ = true;
         }
         if (!z || (z3 && !isInFilterMode())) {
             z2 = false;
@@ -313,21 +313,21 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aiY() {
+    public void anM() {
         boolean z = false;
         T adapter = getAdapter();
         boolean z2 = !(adapter == null || adapter.getCount() == 0) || isInFilterMode();
-        super.setFocusableInTouchMode(z2 && this.czm);
-        super.setFocusable(z2 && this.czl);
+        super.setFocusableInTouchMode(z2 && this.cKR);
+        super.setFocusable(z2 && this.cKQ);
         if (this.mEmptyView != null) {
             if (adapter == null || adapter.isEmpty()) {
                 z = true;
             }
-            eK(z);
+            fg(z);
         }
     }
 
-    private void eK(boolean z) {
+    private void fg(boolean z) {
         if (isInFilterMode()) {
             z = false;
         }
@@ -338,7 +338,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
             } else {
                 setVisibility(0);
             }
-            if (this.abK) {
+            if (this.aeA) {
                 onLayout(false, getLeft(), getTop(), getRight(), getBottom());
                 return;
             }
@@ -375,7 +375,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable czp = null;
+        private Parcelable cKU = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -383,33 +383,33 @@ public abstract class g<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
-            g.this.abK = true;
-            g.this.czh = g.this.czg;
-            g.this.czg = g.this.getAdapter().getCount();
-            if (g.this.getAdapter().hasStableIds() && this.czp != null && g.this.czh == 0 && g.this.czg > 0) {
-                g.this.onRestoreInstanceState(this.czp);
-                this.czp = null;
+            g.this.aeA = true;
+            g.this.cKM = g.this.cKL;
+            g.this.cKL = g.this.getAdapter().getCount();
+            if (g.this.getAdapter().hasStableIds() && this.cKU != null && g.this.cKM == 0 && g.this.cKL > 0) {
+                g.this.onRestoreInstanceState(this.cKU);
+                this.cKU = null;
             } else {
-                g.this.ajf();
+                g.this.anT();
             }
-            g.this.aiY();
+            g.this.anM();
             g.this.requestLayout();
         }
 
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
-            g.this.abK = true;
+            g.this.aeA = true;
             if (g.this.getAdapter().hasStableIds()) {
-                this.czp = g.this.onSaveInstanceState();
+                this.cKU = g.this.onSaveInstanceState();
             }
-            g.this.czh = g.this.czg;
-            g.this.czg = 0;
-            g.this.cgS = -1;
-            g.this.czf = Long.MIN_VALUE;
-            g.this.czd = -1;
-            g.this.cze = Long.MIN_VALUE;
-            g.this.cyY = false;
-            g.this.aiY();
+            g.this.cKM = g.this.cKL;
+            g.this.cKL = 0;
+            g.this.csf = -1;
+            g.this.cKK = Long.MIN_VALUE;
+            g.this.cKI = -1;
+            g.this.cKJ = Long.MIN_VALUE;
+            g.this.cKD = false;
+            g.this.anM();
             g.this.requestLayout();
         }
     }
@@ -418,7 +418,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.czn);
+        removeCallbacks(this.cKS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -433,47 +433,47 @@ public abstract class g<T extends Adapter> extends ViewGroup {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (g.this.abK) {
+            if (g.this.aeA) {
                 if (g.this.getAdapter() != null) {
                     g.this.post(this);
                     return;
                 }
                 return;
             }
-            g.this.aja();
-            g.this.ajb();
+            g.this.anO();
+            g.this.anP();
         }
     }
 
-    void aiZ() {
-        if (this.cza != null || this.czi.isEnabled()) {
-            if (this.mInLayout || this.czo) {
-                if (this.czn == null) {
-                    this.czn = new f(this, null);
+    void anN() {
+        if (this.cKF != null || this.cKN.isEnabled()) {
+            if (this.mInLayout || this.cKT) {
+                if (this.cKS == null) {
+                    this.cKS = new f(this, null);
                 }
-                post(this.czn);
+                post(this.cKS);
                 return;
             }
-            aja();
-            ajb();
+            anO();
+            anP();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aja() {
-        if (this.cza != null) {
+    public void anO() {
+        if (this.cKF != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
-                this.cza.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
+                this.cKF.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
                 return;
             }
-            this.cza.d(this);
+            this.cKF.d(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajb() {
-        if (this.czi.isEnabled() && getSelectedItemPosition() >= 0) {
+    public void anP() {
+        if (this.cKN.isEnabled() && getSelectedItemPosition() >= 0) {
             sendAccessibilityEvent(4);
         }
     }
@@ -500,7 +500,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
         accessibilityNodeInfo.setClassName(g.class.getName());
-        accessibilityNodeInfo.setScrollable(ajc());
+        accessibilityNodeInfo.setScrollable(anQ());
         View selectedView = getSelectedView();
         if (selectedView != null) {
             accessibilityNodeInfo.setEnabled(selectedView.isEnabled());
@@ -511,7 +511,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         super.onInitializeAccessibilityEvent(accessibilityEvent);
         accessibilityEvent.setClassName(g.class.getName());
-        accessibilityEvent.setScrollable(ajc());
+        accessibilityEvent.setScrollable(anQ());
         View selectedView = getSelectedView();
         if (selectedView != null) {
             accessibilityEvent.setEnabled(selectedView.isEnabled());
@@ -522,7 +522,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
         accessibilityEvent.setItemCount(getCount());
     }
 
-    private boolean ajc() {
+    private boolean anQ() {
         int count;
         T adapter = getAdapter();
         if (adapter == null || (count = adapter.getCount()) <= 0) {
@@ -534,7 +534,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
     public boolean canAnimate() {
-        return super.canAnimate() && this.czg > 0;
+        return super.canAnimate() && this.cKL > 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0021  */
@@ -544,13 +544,13 @@ public abstract class g<T extends Adapter> extends ViewGroup {
     void handleDataChanged() {
         boolean z;
         boolean z2;
-        int i = this.czg;
+        int i = this.cKL;
         if (i > 0) {
-            if (this.cyY) {
-                this.cyY = false;
-                int aje = aje();
-                if (aje >= 0 && C(aje, true) == aje) {
-                    setNextSelectedPositionInt(aje);
+            if (this.cKD) {
+                this.cKD = false;
+                int anS = anS();
+                if (anS >= 0 && C(anS, true) == anS) {
+                    setNextSelectedPositionInt(anS);
                     z2 = true;
                     if (!z2) {
                         int selectedItemPosition = getSelectedItemPosition();
@@ -564,7 +564,7 @@ public abstract class g<T extends Adapter> extends ViewGroup {
                         int C2 = C < 0 ? C(selectedItemPosition, false) : C;
                         if (C2 >= 0) {
                             setNextSelectedPositionInt(C2);
-                            ajd();
+                            anR();
                             z = true;
                         }
                     }
@@ -579,32 +579,32 @@ public abstract class g<T extends Adapter> extends ViewGroup {
             z = false;
         }
         if (!z) {
-            this.cgS = -1;
-            this.czf = Long.MIN_VALUE;
-            this.czd = -1;
-            this.cze = Long.MIN_VALUE;
-            this.cyY = false;
-            ajd();
+            this.csf = -1;
+            this.cKK = Long.MIN_VALUE;
+            this.cKI = -1;
+            this.cKJ = Long.MIN_VALUE;
+            this.cKD = false;
+            anR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ajd() {
-        if (this.cgS != this.czj || this.czf != this.czk) {
-            aiZ();
-            this.czj = this.cgS;
-            this.czk = this.czf;
+    public void anR() {
+        if (this.csf != this.cKO || this.cKK != this.cKP) {
+            anN();
+            this.cKO = this.csf;
+            this.cKP = this.cKK;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aje() {
-        int i = this.czg;
+    public int anS() {
+        int i = this.cKL;
         if (i == 0) {
             return -1;
         }
-        long j = this.cyW;
-        int i2 = this.cyV;
+        long j = this.cKB;
+        int i2 = this.cKA;
         if (j == Long.MIN_VALUE) {
             return -1;
         }
@@ -649,46 +649,46 @@ public abstract class g<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setSelectedPositionInt(int i) {
-        this.cgS = i;
-        this.czf = getItemIdAtPosition(i);
+        this.csf = i;
+        this.cKK = getItemIdAtPosition(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setNextSelectedPositionInt(int i) {
-        this.czd = i;
-        this.cze = getItemIdAtPosition(i);
-        if (this.cyY && this.cyZ == 0 && i >= 0) {
-            this.cyV = i;
-            this.cyW = this.cze;
+        this.cKI = i;
+        this.cKJ = getItemIdAtPosition(i);
+        if (this.cKD && this.cKE == 0 && i >= 0) {
+            this.cKA = i;
+            this.cKB = this.cKJ;
         }
     }
 
-    public void ajf() {
+    public void anT() {
         if (getChildCount() > 0) {
-            this.cyY = true;
-            this.cyX = this.mLayoutWidth;
-            if (this.cgS >= 0) {
-                View childAt = getChildAt(this.cgS - this.bml);
-                this.cyW = this.cze;
-                this.cyV = this.czd;
+            this.cKD = true;
+            this.cKC = this.mLayoutWidth;
+            if (this.csf >= 0) {
+                View childAt = getChildAt(this.csf - this.bxA);
+                this.cKB = this.cKJ;
+                this.cKA = this.cKI;
                 if (childAt != null) {
-                    this.cyU = childAt.getLeft();
+                    this.cKz = childAt.getLeft();
                 }
-                this.cyZ = 0;
+                this.cKE = 0;
                 return;
             }
             View childAt2 = getChildAt(0);
             T adapter = getAdapter();
-            if (this.bml >= 0 && this.bml < adapter.getCount()) {
-                this.cyW = adapter.getItemId(this.bml);
+            if (this.bxA >= 0 && this.bxA < adapter.getCount()) {
+                this.cKB = adapter.getItemId(this.bxA);
             } else {
-                this.cyW = -1L;
+                this.cKB = -1L;
             }
-            this.cyV = this.bml;
+            this.cKA = this.bxA;
             if (childAt2 != null) {
-                this.cyU = childAt2.getLeft();
+                this.cKz = childAt2.getLeft();
             }
-            this.cyZ = 1;
+            this.cKE = 1;
         }
     }
 }

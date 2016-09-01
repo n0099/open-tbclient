@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class ConveneThreadOpenStatic extends a {
     static {
-        e.cS().n(ConveneThreadOpenStatic.class);
+        e.dN().n(ConveneThreadOpenStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

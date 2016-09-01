@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements Animation.AnimationListener {
-    final /* synthetic */ t bWD;
+    final /* synthetic */ t chN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.bWD = tVar;
+        this.chN = tVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -17,12 +17,12 @@ public class u implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (animation == this.bWD.bWz) {
-            this.bWD.mState = 0;
+        if (animation == this.chN.chJ) {
+            this.chN.mState = 0;
             return;
         }
-        this.bWD.mState = 1;
-        this.bWD.aS(8000L);
+        this.chN.mState = 1;
+        this.chN.bo(8000L);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

@@ -2,11 +2,11 @@ package com.baidu.tieba.vote;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.widget.vote.b {
-    final /* synthetic */ b fOr;
+    final /* synthetic */ b fXg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.fOr = bVar;
+        this.fXg = bVar;
     }
 
     @Override // com.baidu.tbadk.widget.vote.b
@@ -15,13 +15,13 @@ public class c implements com.baidu.tbadk.widget.vote.b {
         VoteDataInfo voteDataInfo2;
         VoteDataInfo voteDataInfo3;
         VoteDataInfo voteDataInfo4;
-        voteDataInfo = this.fOr.fOm;
+        voteDataInfo = this.fXg.fXb;
         if (voteDataInfo != null) {
-            voteDataInfo2 = this.fOr.fOm;
+            voteDataInfo2 = this.fXg.fXb;
             if (voteDataInfo2.getOptions() != null && i >= 0) {
-                voteDataInfo3 = this.fOr.fOm;
+                voteDataInfo3 = this.fXg.fXb;
                 if (i < voteDataInfo3.getOptions().size()) {
-                    voteDataInfo4 = this.fOr.fOm;
+                    voteDataInfo4 = this.fXg.fXb;
                     ((f) voteDataInfo4.getOptions().get(i)).setSelected(z);
                 }
             }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -50,11 +50,6 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_THREAD_TIME = "thread_time";
     public static final String KEY_THREAD_TYPE = "thread_type";
     public static String KEY_VIDEO_SOURCE = "key_video_source";
-    public static final String KEY_VIDOE_SOURCE_FRS = "frs";
-    public static final String KEY_VIDOE_SOURCE_FRS_5FLOOR = "floor5";
-    public static final String KEY_VIDOE_SOURCE_HOME = "index";
-    public static final String KEY_VIDOE_SOURCE_MID = "midpage";
-    public static final String KEY_VIDOE_SOURCE_PUSH = "push";
     public static final String KYE_IS_START_FOR_RESULT = "is_start_for_result";
     public static final String PRAISE_DATA = "praise_data";
     public static final String QUERY_WORD = "query_word";
@@ -245,15 +240,15 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(be beVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (beVar != null) {
+    public PbActivityConfig createFromThreadCfg(bg bgVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bgVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", beVar.getId());
-            intent.putExtra("is_good", beVar.qu());
-            intent.putExtra("is_top", beVar.qt());
-            intent.putExtra(KEY_THREAD_TIME, beVar.qs());
+            intent.putExtra("thread_id", bgVar.getId());
+            intent.putExtra("is_good", bgVar.ry());
+            intent.putExtra("is_top", bgVar.rx());
+            intent.putExtra(KEY_THREAD_TIME, bgVar.rw());
             intent.putExtra("st_type", str2);
-            intent.putExtra("from_frs", beVar.qt() != 2);
+            intent.putExtra("from_frs", bgVar.rx() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
@@ -262,10 +257,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (beVar.qp() == null ? 0L : beVar.qp().getNum()));
-            if (beVar.getAuthor() != null && beVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, beVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, beVar.getAuthor().getGodUserData().getFollowed());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bgVar.rt() == null ? 0L : bgVar.rt().getNum()));
+            if (bgVar.getAuthor() != null && bgVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bgVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bgVar.getAuthor().getGodUserData().getFollowed());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }

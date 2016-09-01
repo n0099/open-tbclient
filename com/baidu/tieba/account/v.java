@@ -4,31 +4,31 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class v implements a.InterfaceC0033a {
-    final /* synthetic */ NotLoginGuideActivity aNg;
+    final /* synthetic */ NotLoginGuideActivity aSA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NotLoginGuideActivity notLoginGuideActivity) {
-        this.aNg = notLoginGuideActivity;
+        this.aSA = notLoginGuideActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
-    public void ce(String str) {
-        if (this.aNg.getLoadingDialog() == null || !this.aNg.getLoadingDialog().isShowing()) {
-            this.aNg.showLoadingDialog(this.aNg.getPageContext().getString(u.j.sapi_logining), new w(this));
+    public void cf(String str) {
+        if (this.aSA.getLoadingDialog() == null || !this.aSA.getLoadingDialog().isShowing()) {
+            this.aSA.showLoadingDialog(this.aSA.getPageContext().getString(t.j.sapi_logining), new w(this));
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
-        this.aNg.closeLoadingDialog();
+        this.aSA.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.aNg.j(accountData);
+            this.aSA.k(accountData);
         } else {
-            this.aNg.o(accountData);
+            this.aSA.p(accountData);
         }
     }
 
@@ -37,16 +37,16 @@ class v implements a.InterfaceC0033a {
         int i2;
         int i3;
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
-        this.aNg.closeLoadingDialog();
-        i2 = this.aNg.aNe;
+        this.aSA.closeLoadingDialog();
+        i2 = this.aSA.aSy;
         if (i2 != 1) {
-            i3 = this.aNg.aNe;
+            i3 = this.aSA.aSy;
             if (i3 != 2) {
                 return;
             }
-            this.aNg.Jf();
+            this.aSA.LH();
             return;
         }
-        this.aNg.Je();
+        this.aSA.LG();
     }
 }

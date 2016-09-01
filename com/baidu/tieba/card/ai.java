@@ -1,18 +1,18 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.core.view.TextureVideoView;
+import com.baidu.tbadk.core.view.UserLikeButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements TextureVideoView.b {
-    final /* synthetic */ z aUu;
+public class ai implements UserLikeButton.a {
+    final /* synthetic */ ah aZK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(z zVar) {
-        this.aUu = zVar;
+    public ai(ah ahVar) {
+        this.aZK = ahVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.TextureVideoView.b
-    public void vx() {
-        this.aUu.stopPlay();
+    @Override // com.baidu.tbadk.core.view.UserLikeButton.a
+    public void dm(int i) {
+        this.aZK.gc(i);
     }
 }

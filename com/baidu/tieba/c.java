@@ -1,43 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.LogoActivity;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    final /* synthetic */ LogoActivity aIj;
+class c implements Runnable {
+    final /* synthetic */ LogoActivity aLA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(LogoActivity logoActivity, int i) {
-        super(i);
-        this.aIj = logoActivity;
+    public c(LogoActivity logoActivity) {
+        this.aLA = logoActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // java.lang.Runnable
+    public void run() {
+        RelativeLayout relativeLayout;
         LogoActivity.a aVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
-            Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                String str = (String) data;
-                if (!TextUtils.isEmpty(str) && !TextUtils.equals("advertevent", Uri.parse(str).getScheme())) {
-                    Intent intent = new Intent();
-                    intent.putExtra("class", 30);
-                    intent.putExtra("jump_url", str);
-                    intent.putExtra("is_ad", true);
-                    TbadkCoreApplication.setIntent(intent);
+        LogoActivity.a aVar2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        RelativeLayout relativeLayout2;
+        RelativeLayout relativeLayout3;
+        RelativeLayout relativeLayout4;
+        RelativeLayout relativeLayout5;
+        relativeLayout = this.aLA.mRootView;
+        if (relativeLayout != null) {
+            bitmap = this.aLA.aLp;
+            if (bitmap != null) {
+                LogoActivity logoActivity = this.aLA;
+                bitmap2 = this.aLA.aLp;
+                logoActivity.aLl = bitmap2;
+                bitmap3 = this.aLA.aLl;
+                if (bitmap3 != null) {
+                    com.baidu.tbadk.core.util.TiebaStatic.log(new ay("c10859"));
+                    this.aLA.aLq = true;
+                    bitmap4 = this.aLA.aLl;
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap4);
+                    relativeLayout2 = this.aLA.mRootView;
+                    relativeLayout2.removeAllViews();
+                    relativeLayout3 = this.aLA.mRootView;
+                    relativeLayout3.setBackgroundDrawable(bitmapDrawable);
+                    relativeLayout4 = this.aLA.mRootView;
+                    relativeLayout4.setFocusable(true);
+                    relativeLayout5 = this.aLA.mRootView;
+                    relativeLayout5.setOnClickListener(new d(this));
                 }
-                com.baidu.adp.lib.h.h dL = com.baidu.adp.lib.h.h.dL();
-                aVar = this.aIj.aIc;
-                dL.removeCallbacks(aVar);
-                this.aIj.HK();
+                com.baidu.tbadk.performanceLog.ab.Gv().ad(System.currentTimeMillis());
+                com.baidu.tieba.d.a.OI().ON();
             }
         }
+        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
+        aVar = this.aLA.aLt;
+        eG.removeCallbacks(aVar);
+        com.baidu.adp.lib.h.h eG2 = com.baidu.adp.lib.h.h.eG();
+        aVar2 = this.aLA.aLt;
+        eG2.postDelayed(aVar2, 1500L);
     }
 }

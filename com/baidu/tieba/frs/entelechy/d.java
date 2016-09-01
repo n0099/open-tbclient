@@ -1,56 +1,59 @@
 package com.baidu.tieba.frs.entelechy;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.entelechy.a.ai;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tieba.frs.entelechy.b.a {
-    @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.g XS() {
-        return new com.baidu.tieba.frs.g.a();
+public class d implements View.OnClickListener {
+    final /* synthetic */ a bUW;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(a aVar) {
+        this.bUW = aVar;
     }
 
-    @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.d N(FrsActivity frsActivity) {
-        return new com.baidu.tieba.frs.entelechy.c.a(frsActivity);
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b XT() {
-        return new n();
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.view.c a(String str, FrsActivity frsActivity, int i) {
-        b eVar;
-        if (frsActivity == null) {
-            return null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.data.q qVar;
+        com.baidu.tbadk.core.data.q qVar2;
+        ViewGroup viewGroup;
+        FrsActivity frsActivity;
+        com.baidu.tbadk.core.data.q qVar3;
+        FrsActivity frsActivity2;
+        if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+            frsActivity2 = this.bUW.bRp;
+            com.baidu.adp.lib.util.k.showToast(frsActivity2.getPageContext().getPageActivity(), t.j.book_plugin_not_install_tip);
+            return;
         }
-        if ("frs_page".equals(str)) {
-            eVar = new o(frsActivity, null, null, i);
-        } else {
-            eVar = new e(frsActivity, null, null, i);
+        qVar = this.bUW.bUQ;
+        int px = qVar.px();
+        if (px == 1 || px == 2) {
+            qVar2 = this.bUW.bUQ;
+            String bookId = qVar2.getBookId();
+            int id = view.getId();
+            viewGroup = this.bUW.bUO;
+            if (id != viewGroup.getId()) {
+                frsActivity = this.bUW.bRp;
+                if (!frsActivity.checkUpIsLogin()) {
+                    return;
+                }
+                this.bUW.O(bookId, -1);
+                TiebaStatic.log(new ay("C11579").s("obj_param2", 2).ab("obj_param1", bookId));
+                return;
+            }
+            qVar3 = this.bUW.bUQ;
+            int g = com.baidu.adp.lib.h.b.g(qVar3.pD(), -1);
+            if (g <= 0) {
+                return;
+            }
+            this.bUW.O(bookId, g);
+            TiebaStatic.log(new ay("C11580").s("obj_param2", 2).ab("obj_param1", bookId));
         }
-        eVar.b(frsActivity.Wg());
-        eVar.b(frsActivity.Wh());
-        return eVar;
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.b.a
-    public ai a(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z) {
-        return new com.baidu.tieba.frs.entelechy.a.c(frsActivity, bdTypeListView, z);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.frs.entelechy.b.a
-    /* renamed from: a */
-    public com.baidu.tieba.frs.j.h c(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.j.h(frsActivity, noPressedRelativeLayout);
-    }
-
-    @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.c b(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.j.d(frsActivity, noPressedRelativeLayout);
     }
 }

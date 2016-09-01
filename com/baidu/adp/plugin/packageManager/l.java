@@ -5,27 +5,27 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 /* loaded from: classes.dex */
 class l implements com.baidu.adp.plugin.install.b {
-    final /* synthetic */ k vB;
-    private final /* synthetic */ BdFileDownloadData vC;
+    final /* synthetic */ k xN;
+    private final /* synthetic */ BdFileDownloadData xO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar, BdFileDownloadData bdFileDownloadData) {
-        this.vB = kVar;
-        this.vC = bdFileDownloadData;
+        this.xN = kVar;
+        this.xO = bdFileDownloadData;
     }
 
     @Override // com.baidu.adp.plugin.install.b
-    public void bb(String str) {
+    public void bc(String str) {
         PluginPackageManager pluginPackageManager;
         e eVar;
         PluginPackageManager pluginPackageManager2;
         e eVar2;
-        pluginPackageManager = this.vB.this$0;
-        eVar = pluginPackageManager.vw;
+        pluginPackageManager = this.xN.this$0;
+        eVar = pluginPackageManager.xI;
         if (eVar != null) {
-            pluginPackageManager2 = this.vB.this$0;
-            eVar2 = pluginPackageManager2.vw;
-            eVar2.a(this.vC, 0, "");
+            pluginPackageManager2 = this.xN.this$0;
+            eVar2 = pluginPackageManager2.xI;
+            eVar2.a(this.xO, 0, "");
         }
     }
 
@@ -36,17 +36,17 @@ class l implements com.baidu.adp.plugin.install.b {
         String str3;
         PluginPackageManager pluginPackageManager2;
         e eVar2;
-        pluginPackageManager = this.vB.this$0;
-        eVar = pluginPackageManager.vw;
+        pluginPackageManager = this.xN.this$0;
+        eVar = pluginPackageManager.xI;
         if (eVar != null) {
             if ("rom_size".equals(str2)) {
                 str3 = BdBaseApplication.getInst().getString(R.string.rom_too_small);
             } else {
                 str3 = "";
             }
-            pluginPackageManager2 = this.vB.this$0;
-            eVar2 = pluginPackageManager2.vw;
-            eVar2.a(this.vC, -1, str3);
+            pluginPackageManager2 = this.xN.this$0;
+            eVar2 = pluginPackageManager2.xI;
+            eVar2.a(this.xO, -1, str3);
         }
     }
 }

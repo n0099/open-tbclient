@@ -6,43 +6,43 @@ import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private boolean ND;
-    private int NE;
-    private int NF;
-    private int NG = 25;
-    private int NH = 25;
-    private int NI = 10;
+    private boolean Qb;
+    private int Qc;
+    private int Qd;
+    private int Qe = 25;
+    private int Qf = 25;
+    private int Qg = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.NG;
+        return this.Qe;
     }
 
     public int getErrRank() {
-        return this.NH;
+        return this.Qf;
     }
 
     public int getSlowRank() {
-        return this.NI;
+        return this.Qg;
     }
 
     public boolean ismSwitch() {
-        return this.ND;
+        return this.Qb;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.ND != z) {
-            com.baidu.adp.lib.stats.d dG = com.baidu.tbadk.core.util.v.dG();
-            dG.q("act", "fallback");
-            dG.q("result", z ? "1" : "0");
-            dG.q("type", "switch");
-            com.baidu.adp.lib.stats.a.dN().b("img", dG);
+        if (this.Qb != z) {
+            com.baidu.adp.lib.stats.d eB = com.baidu.tbadk.core.util.v.eB();
+            eB.q("act", "fallback");
+            eB.q("result", z ? "1" : "0");
+            eB.q("type", "switch");
+            com.baidu.adp.lib.stats.a.eI().b("img", eB);
         }
-        this.ND = z;
+        this.Qb = z;
     }
 
     public int getSlowNumber() {
-        return this.NE;
+        return this.Qc;
     }
 
     public int getTime() {
@@ -50,7 +50,7 @@ public class k {
     }
 
     public int getErrNumber() {
-        return this.NF;
+        return this.Qd;
     }
 
     public void parseJson(String str) {
@@ -59,7 +59,7 @@ public class k {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.ND = false;
+            this.Qb = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -68,30 +68,30 @@ public class k {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.ND = true;
+                    this.Qb = true;
                 } else {
-                    this.ND = false;
+                    this.Qb = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.NF = optJSONObject.optInt("num");
+                    this.Qd = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.NE = optJSONObject2.optInt("num");
+                    this.Qc = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.NG = optJSONObject3.optInt("succ");
-                    this.NH = optJSONObject3.optInt("err");
-                    this.NI = optJSONObject3.optInt("slow");
+                    this.Qe = optJSONObject3.optInt("succ");
+                    this.Qf = optJSONObject3.optInt("err");
+                    this.Qg = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.NE <= 0 || this.NF <= 0) {
-                    this.ND = false;
+                if (this.time <= 0 || this.Qc <= 0 || this.Qd <= 0) {
+                    this.Qb = false;
                 }
             } catch (Exception e) {
-                this.ND = false;
+                this.Qb = false;
                 BdLog.e(e.getMessage());
             }
         }

@@ -9,11 +9,11 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
-    final /* synthetic */ c bwk;
+    final /* synthetic */ c bHy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bwk = cVar;
+        this.bHy = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,22 +21,22 @@ public class d extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: e */
     public com.baidu.tieba.enterForum.b.b doInBackground(Void... voidArr) {
-        o<byte[]> M = com.baidu.tbadk.core.b.a.rO().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> M = com.baidu.tbadk.core.b.a.sT().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
         com.baidu.tieba.enterForum.b.b bVar = new com.baidu.tieba.enterForum.b.b();
         byte[] bArr = M.get("forumRecommend_cache_key");
         if (bArr != null) {
-            bVar.aw(true);
+            bVar.ax(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null) {
                     bVar.a(forumRecommendResIdl.data);
-                    bVar.cN(true);
+                    bVar.dh(true);
                 }
             } catch (Exception e) {
-                bVar.aw(false);
+                bVar.ax(false);
             }
-            if (bVar.isSuccess() && !bVar.St()) {
-                bVar.Ss().Sy();
+            if (bVar.isSuccess() && !bVar.Xf()) {
+                bVar.Xe().Xk();
             }
         }
         return bVar;
@@ -52,13 +52,13 @@ public class d extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
         c.a aVar = new c.a();
         aVar.type = 0;
         if (bVar != null && bVar.isSuccess()) {
-            aVar.bwm = true;
-            aVar.bwn = bVar;
+            aVar.bHA = true;
+            aVar.bHB = bVar;
         } else {
-            aVar.bwm = false;
-            aVar.bwn = bVar;
+            aVar.bHA = false;
+            aVar.bHB = bVar;
         }
-        bVar2 = this.bwk.bwe;
+        bVar2 = this.bHy.bHs;
         bVar2.a(aVar);
     }
 }

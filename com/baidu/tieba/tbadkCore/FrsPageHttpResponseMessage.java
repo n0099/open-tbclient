@@ -1,6 +1,10 @@
 package com.baidu.tieba.tbadkCore;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
@@ -42,7 +46,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 this.needCache = mVar.isNeedCache();
                 this.mCategoryId = mVar.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = mVar.bdy();
+                this.mSortType = mVar.bhc();
                 this.mIsGood = mVar.getIsGood();
             }
         }
@@ -61,10 +65,21 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         setData(this.responseData);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+        int g;
+        CustomResponsedMessage runTask;
+        super.beforeDispatchInBackGround(i, (int) bArr);
+        if (this.responseData.bhB() != null && !StringUtils.isNull(this.responseData.bhB().getBookId(), true) && !this.responseData.bhB().getBookId().equals("0") && this.responseData.bhB().px() == 3 && (g = com.baidu.adp.lib.h.b.g(this.responseData.bhB().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+            this.responseData.h(Integer.valueOf(((Integer) runTask.getData()).intValue()));
+        }
+    }
+
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aGX() != null) {
-            d.bdv().a(d.bdv().e(this.responseData.aGX().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aLP() != null) {
+            d.bgZ().a(d.bgZ().e(this.responseData.aLP().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
         }
     }
 

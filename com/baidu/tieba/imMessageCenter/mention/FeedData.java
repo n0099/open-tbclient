@@ -4,6 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.ThreadExpressionActivityConfig;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
@@ -116,7 +117,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("type", this.type);
-            jSONObject.put("title", this.title);
+            jSONObject.put(VrPlayerActivityConfig.TITLE, this.title);
             jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.time / 1000);
             jSONObject.put(ImageViewerConfig.FORUM_NAME, this.fname);
             jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.content);
@@ -150,7 +151,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
         if (jSONObject != null) {
             try {
                 this.type = jSONObject.optInt("type", 0);
-                this.title = jSONObject.optString("title");
+                this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
                 this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
                 this.fname = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);

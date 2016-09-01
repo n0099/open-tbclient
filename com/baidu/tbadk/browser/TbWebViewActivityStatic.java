@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 /* loaded from: classes.dex */
 public class TbWebViewActivityStatic {
     static {
-        TbadkCoreApplication.m10getInst().RegisterIntent(TbWebViewActivityConfig.class, TbWebViewActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(TbWebViewActivityConfig.class, TbWebViewActivity.class);
     }
 }

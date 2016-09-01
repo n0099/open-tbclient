@@ -15,6 +15,7 @@ public class CmdConfigHttp {
     public static final int CMD_ALL_THEME_LIST = 1003032;
     public static final int CMD_APPLY_COPY_THREAD = 1003066;
     public static final int CMD_APPLY_GAME_CODE = 1003015;
+    public static final int CMD_AVATAR_PENDANT_LIST = 1003178;
     public static final int CMD_BUBBLE_CATEGORY = 1003039;
     public static final int CMD_BUBBLE_GROUP = 1003054;
     public static final int CMD_BUBBLE_LIST = 1003055;
@@ -51,6 +52,7 @@ public class CmdConfigHttp {
     public static final int CMD_FORUM_CLASS_LIST = 1003061;
     public static final int CMD_FOUND_NEW = 1003003;
     public static final int CMD_FRS_HEAD_VIDEO_LIST = 1003106;
+    public static final int CMD_GET_BARRAGE_LIST = 1003180;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BOOKRACK = 1003157;
     public static final int CMD_GET_BOOKS_BY_IDS = 1003160;
@@ -87,6 +89,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_USER_BOOK_HISTORY = 1003165;
     public static final int CMD_GET_USER_FORUM_STORE = 1003068;
     public static final int CMD_GET_USER_INFO = 1003001;
+    public static final int CMD_GET_USER_INFO1 = 1006121;
     public static final int CMD_GET_USER_ORDER = 1003075;
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
@@ -114,6 +117,7 @@ public class CmdConfigHttp {
     public static final int CMD_PERSONAL_BACKGROUND_GROUP = 1003033;
     public static final int CMD_PERSONAL_BACKGROUND_LIST = 1003034;
     public static final int CMD_PERSONAL_BACKGROUND_SET = 1003036;
+    public static final int CMD_PERSON_POLYMERIC = 1003181;
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_RECOMMEND_FRS = 1003011;
     public static final int CMD_RECOMMEND_FRS_GOD = 1003073;
@@ -125,6 +129,7 @@ public class CmdConfigHttp {
     public static final int CMD_SEND_BLESS = 1003080;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;
+    public static final int CMD_SET_PENDANT = 1003179;
     public static final int CMD_SET_PERSONAL_CARD = 1003095;
     public static final int CMD_SET_PRIVILEGE = 1003152;
     public static final int CMD_SET_READER_LACK_IMAGE_URL = 1003169;
@@ -149,6 +154,7 @@ public class CmdConfigHttp {
     public static final int CMD_USER_MUTE_DEL = 1003028;
     public static final int CMD_USER_MUTE_QUERY = 1003026;
     public static final int CMD_VOTE_GRAFFITI = 1003083;
+    public static final int CMD_VR_LOGO = 1003182;
     public static final int CMG_SET_FANS_NICKNAME = 1003040;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISCOVER_TAB_HTTP_CMD = 1001300;

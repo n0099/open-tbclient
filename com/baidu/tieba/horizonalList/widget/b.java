@@ -2,25 +2,25 @@ package com.baidu.tieba.horizonalList.widget;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ AbsHListView cyi;
+    final /* synthetic */ AbsHListView cJN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AbsHListView absHListView) {
-        this.cyi = absHListView;
+        this.cJN = absHListView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.cyi.cxj) {
-            AbsHListView absHListView = this.cyi;
-            this.cyi.cxk = false;
-            absHListView.cxj = false;
-            this.cyi.setChildrenDrawnWithCacheEnabled(false);
-            if ((this.cyi.getPersistentDrawingCache() & 2) == 0) {
-                this.cyi.setChildrenDrawingCacheEnabled(false);
+        if (this.cJN.cIO) {
+            AbsHListView absHListView = this.cJN;
+            this.cJN.cIP = false;
+            absHListView.cIO = false;
+            this.cJN.setChildrenDrawnWithCacheEnabled(false);
+            if ((this.cJN.getPersistentDrawingCache() & 2) == 0) {
+                this.cJN.setChildrenDrawingCacheEnabled(false);
             }
-            if (!this.cyi.isAlwaysDrawnWithCacheEnabled()) {
-                this.cyi.invalidate();
+            if (!this.cJN.isAlwaysDrawnWithCacheEnabled()) {
+                this.cJN.invalidate();
             }
         }
     }

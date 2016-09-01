@@ -3,11 +3,11 @@ package com.baidu.tieba.imMessageCenter.im.chat;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 /* loaded from: classes.dex */
 class j implements com.baidu.tbadk.util.g<Boolean> {
-    final /* synthetic */ PersonalChatActivity dbu;
+    final /* synthetic */ PersonalChatActivity dnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PersonalChatActivity personalChatActivity) {
-        this.dbu = personalChatActivity;
+        this.dnc = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,11 +17,11 @@ class j implements com.baidu.tbadk.util.g<Boolean> {
         AbsMsglistView absMsglistView2;
         if (bool != null) {
             if (bool.booleanValue()) {
-                absMsglistView2 = this.dbu.cIF;
+                absMsglistView2 = this.dnc.cUk;
                 absMsglistView2.closeNotNotify();
                 return;
             }
-            absMsglistView = this.dbu.cIF;
+            absMsglistView = this.dnc.cUk;
             absMsglistView.showNotNotfiy();
         }
     }

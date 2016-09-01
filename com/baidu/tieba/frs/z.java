@@ -1,39 +1,34 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
-class z implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity bEL;
+class z extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bQp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(FrsActivity frsActivity) {
-        this.bEL = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bQp = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aG(boolean z) {
-        bq bqVar;
-        bq bqVar2;
-        boolean z2;
-        bq bqVar3;
-        bq bqVar4;
-        if (z) {
-            bqVar = this.bEL.bDK;
-            if (!bqVar.VV()) {
-                if (this.bEL.bDM == null || this.bEL.bDM.getThreadList().size() == 0) {
-                    FrsActivity frsActivity = this.bEL;
-                    bqVar2 = this.bEL.bDK;
-                    frsActivity.hideNetRefreshView(bqVar2.getRootView());
-                    z2 = this.bEL.bDv;
-                    if (!z2) {
-                        FrsActivity frsActivity2 = this.bEL;
-                        bqVar3 = this.bEL.bDK;
-                        frsActivity2.showLoadingView(bqVar3.getRootView(), true);
-                        bqVar4 = this.bEL.bDK;
-                        bqVar4.dl(false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof UpdateAttentionMessage) {
+            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
+                if (!updateAttentionMessage.getData().vS) {
+                    if (updateAttentionMessage.getData().errorString != null) {
+                        this.bQp.showToast(updateAttentionMessage.getData().errorString);
+                        return;
                     }
-                    this.bEL.refresh();
+                    return;
                 }
+                this.bQp.b(updateAttentionMessage);
+                this.bQp.a(updateAttentionMessage);
             }
         }
     }

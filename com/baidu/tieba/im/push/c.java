@@ -10,13 +10,13 @@ import java.util.Vector;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends Handler {
-    final /* synthetic */ a cXQ;
+    final /* synthetic */ a djz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, Looper looper) {
         super(looper);
-        this.cXQ = aVar;
+        this.djz = aVar;
     }
 
     @Override // android.os.Handler
@@ -29,12 +29,12 @@ public class c extends Handler {
                 return;
             case 10002:
                 MessageManager messageManager = MessageManager.getInstance();
-                customMessageListener = this.cXQ.cWW;
+                customMessageListener = this.djz.diG;
                 messageManager.registerListener(customMessageListener);
                 return;
             case 10003:
                 if (message.getData() != null && message.getData().containsKey("groupId")) {
-                    vector = this.cXQ.cXP;
+                    vector = this.djz.djy;
                     vector.remove(Long.valueOf(message.getData().getLong("groupId")));
                     return;
                 }

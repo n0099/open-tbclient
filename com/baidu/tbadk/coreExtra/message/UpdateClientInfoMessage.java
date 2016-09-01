@@ -19,15 +19,16 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
     private double lng;
     private Integer pub_env;
     private byte[] secretKey;
+    private String stoken;
     private int width;
 
     public UpdateClientInfoMessage() {
         super(1001);
         this.device = new HashMap();
         try {
-            if (TbadkCoreApplication.m10getInst().getLocationShared()) {
-                this.lat = b.a(TbadkCoreApplication.m10getInst().getLocationLat(), 0.0d);
-                this.lng = b.a(TbadkCoreApplication.m10getInst().getLocationLng(), 0.0d);
+            if (TbadkCoreApplication.m9getInst().getLocationShared()) {
+                this.lat = b.a(TbadkCoreApplication.m9getInst().getLocationLat(), 0.0d);
+                this.lng = b.a(TbadkCoreApplication.m9getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -70,8 +71,9 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         return this.bduss;
     }
 
-    public void setBduss(String str) {
+    public void setBduss(String str, String str2) {
         this.bduss = str;
+        this.stoken = str2;
     }
 
     public void addUserInfo(String str, String str2) {
@@ -108,6 +110,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.bduss = getBduss();
         builder.device = getDevice();
+        builder.stoken = this.stoken;
         builder.secretKey = ByteString.of(getSecretKey());
         builder.height = Integer.valueOf(getHeight());
         builder.width = Integer.valueOf(getWidth());

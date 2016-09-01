@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.view.t;
 import com.baidu.tieba.im.message.RequestMemoryListMessage;
 /* loaded from: classes.dex */
 class l implements t.b {
-    final /* synthetic */ f dca;
+    final /* synthetic */ f dnI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(f fVar) {
-        this.dca = fVar;
+        this.dnI = fVar;
     }
 
     @Override // com.baidu.tbadk.core.view.t.b
-    public void aH(boolean z) {
+    public void aI(boolean z) {
         if (!z) {
-            this.dca.sendMessage(new RequestMemoryListMessage(1));
+            this.dnI.sendMessage(new RequestMemoryListMessage(1));
         }
     }
 }

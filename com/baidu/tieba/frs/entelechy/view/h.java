@@ -1,30 +1,34 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.media.MediaPlayer;
+import android.os.Handler;
+import com.baidu.tbadk.core.view.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements TbImageView.a {
-    final /* synthetic */ a bLV;
+public class h implements MediaPlayer.OnPreparedListener {
+    final /* synthetic */ a bXm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.bLV = aVar;
+        this.bXm = aVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void t(String str, boolean z) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        if (z) {
-            tbImageView = this.bLV.aUb;
-            if (tbImageView != null) {
-                tbImageView2 = this.bLV.aUb;
-                tbImageView2.setDefaultBgResource(0);
+    @Override // android.media.MediaPlayer.OnPreparedListener
+    public void onPrepared(MediaPlayer mediaPlayer) {
+        Handler handler;
+        if (mediaPlayer != null) {
+            try {
+                mediaPlayer.setVolume(0.0f, 0.0f);
+                mediaPlayer.setLooping(true);
+                mediaPlayer.start();
+                if (au.wK().wP()) {
+                    mediaPlayer.seekTo(0);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            handler = this.bXm.aZx;
+            handler.sendEmptyMessageDelayed(202, 300L);
         }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
     }
 }

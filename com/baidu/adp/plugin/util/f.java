@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static final HashMap<Class<?>, Class<?>> wv = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> yH = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class f {
     }
 
     static {
-        wv.put(Boolean.class, Boolean.TYPE);
-        wv.put(Byte.class, Byte.TYPE);
-        wv.put(Character.class, Character.TYPE);
-        wv.put(Short.class, Short.TYPE);
-        wv.put(Integer.class, Integer.TYPE);
-        wv.put(Float.class, Float.TYPE);
-        wv.put(Long.class, Long.TYPE);
-        wv.put(Double.class, Double.TYPE);
-        wv.put(Boolean.TYPE, Boolean.TYPE);
-        wv.put(Byte.TYPE, Byte.TYPE);
-        wv.put(Character.TYPE, Character.TYPE);
-        wv.put(Short.TYPE, Short.TYPE);
-        wv.put(Integer.TYPE, Integer.TYPE);
-        wv.put(Float.TYPE, Float.TYPE);
-        wv.put(Long.TYPE, Long.TYPE);
-        wv.put(Double.TYPE, Double.TYPE);
+        yH.put(Boolean.class, Boolean.TYPE);
+        yH.put(Byte.class, Byte.TYPE);
+        yH.put(Character.class, Character.TYPE);
+        yH.put(Short.class, Short.TYPE);
+        yH.put(Integer.class, Integer.TYPE);
+        yH.put(Float.class, Float.TYPE);
+        yH.put(Long.class, Long.TYPE);
+        yH.put(Double.class, Double.TYPE);
+        yH.put(Boolean.TYPE, Boolean.TYPE);
+        yH.put(Byte.TYPE, Byte.TYPE);
+        yH.put(Character.TYPE, Character.TYPE);
+        yH.put(Short.TYPE, Short.TYPE);
+        yH.put(Integer.TYPE, Integer.TYPE);
+        yH.put(Float.TYPE, Float.TYPE);
+        yH.put(Long.TYPE, Long.TYPE);
+        yH.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T a(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -81,7 +81,7 @@ public class f {
             return false;
         } else {
             for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (wv.containsKey(clsArr[i]) && wv.get(clsArr[i]).equals(wv.get(clsArr2[i])))) {
+                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (yH.containsKey(clsArr[i]) && yH.get(clsArr[i]).equals(yH.get(clsArr2[i])))) {
                     return true;
                 }
             }

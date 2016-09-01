@@ -1,19 +1,24 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements View.OnClickListener {
-    final /* synthetic */ u aTO;
+public class v extends CustomMessageListener {
+    final /* synthetic */ t aZF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar) {
-        this.aTO = uVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(t tVar, int i) {
+        super(i);
+        this.aZF = tVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.aTO.KN() != null) {
-            this.aTO.KN().a(view, null);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016477) {
+            this.aZF.aZv = false;
         }
     }
 }

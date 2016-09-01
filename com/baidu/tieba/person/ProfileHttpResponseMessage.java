@@ -4,7 +4,7 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.h.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.person.f;
+import com.baidu.tieba.person.g;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
@@ -17,7 +17,7 @@ import tbclient.Profile.UserGodInfo;
 import tbclient.TbBookrack;
 import tbclient.User;
 /* loaded from: classes.dex */
-public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
+public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implements c {
     private static final String PROFILE_CACHE_KEY = "profile_cache_key";
     private Anti anti_stat;
     public TbBookrack bookrack;
@@ -28,7 +28,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     private int pageNum;
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
-    public f ucCardData;
+    public g ucCardData;
     private User user;
     private UserGodInfo userGodInfo;
     public DealWindow window;
@@ -57,10 +57,30 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
         return this.error_hint;
     }
 
+    @Override // com.baidu.tieba.person.c
+    public g getUcCardData() {
+        return this.ucCardData;
+    }
+
+    @Override // com.baidu.tieba.person.c
+    public TbBookrack getBookrackData() {
+        return this.bookrack;
+    }
+
+    @Override // com.baidu.tieba.person.c
     public UserGodInfo getUserGodInfo() {
         return this.userGodInfo;
     }
 
+    public boolean isError() {
+        return hasError();
+    }
+
+    public String getErrorMsg() {
+        return getErrorString();
+    }
+
+    @Override // com.baidu.tieba.person.c
     public User GetUser() {
         return this.user;
     }
@@ -102,7 +122,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
             this.tainfo = profileResIdl.data.tainfo;
             this.post_list = profileResIdl.data.post_list;
             if (profileResIdl.data.uc_card != null) {
-                this.ucCardData = new f();
+                this.ucCardData = new g();
                 this.ucCardData.a(profileResIdl.data.uc_card);
             }
             this.bookrack = profileResIdl.data.tbbookrack;
@@ -114,7 +134,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> M = com.baidu.tbadk.core.b.a.rO().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> M = com.baidu.tbadk.core.b.a.sT().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             M.k(PROFILE_CACHE_KEY, bArr);
         }
@@ -125,18 +145,23 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         o<String> N;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (N = com.baidu.tbadk.core.b.a.rO().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<f.a> list = this.ucCardData.epx;
-            list.get(4).yg = 8L;
+        if (this.ucCardData != null && (N = com.baidu.tbadk.core.b.a.sT().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.eBB;
+            list.get(4).At = 8L;
             if (list != null) {
-                for (f.a aVar : list) {
-                    if (aVar.yg > b.c(N.get(aVar.title), 0L)) {
-                        aVar.epy = true;
+                for (g.a aVar : list) {
+                    if (aVar.At > b.c(N.get(aVar.title), 0L)) {
+                        aVar.eBC = true;
                     } else {
-                        aVar.epy = false;
+                        aVar.eBC = false;
                     }
                 }
             }
         }
+    }
+
+    @Override // com.baidu.tieba.person.c
+    public int getErrorCode() {
+        return getError();
     }
 }

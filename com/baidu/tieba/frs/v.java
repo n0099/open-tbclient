@@ -1,49 +1,29 @@
 package com.baidu.tieba.frs;
-
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.aj;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements aj.a {
-    final /* synthetic */ FrsActivity bEL;
+public class v implements com.baidu.tbadk.util.e<Boolean> {
+    final /* synthetic */ u bQs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(FrsActivity frsActivity) {
-        this.bEL = frsActivity;
+    public v(u uVar) {
+        this.bQs = uVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.aj.a
-    public void gR(String str) {
-        boolean z;
-        com.baidu.tbadk.core.data.be beVar;
-        com.baidu.tbadk.core.data.be beVar2;
-        int i = 1;
-        z = this.bEL.bDt;
-        if (z) {
-            beVar = this.bEL.bDs;
-            if (beVar != null) {
-                beVar2 = this.bEL.bDs;
-                if (beVar2.qp().getIsLike() == 1) {
-                    i = 0;
-                }
-            }
-            this.bEL.hl(i);
-        }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.aj.a
-    public void u(int i, String str) {
-        boolean z;
-        z = this.bEL.bDt;
-        if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.rg(i)) {
-                AntiHelper.O(this.bEL.getPageContext().getPageActivity(), str);
-            } else {
-                this.bEL.showToast(str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.e
+    /* renamed from: e */
+    public void F(Boolean bool) {
+        FrsActivity frsActivity;
+        bm bmVar;
+        FrsActivity frsActivity2;
+        bm bmVar2;
+        if (bool != null) {
+            frsActivity = this.bQs.bQp;
+            bmVar = frsActivity.bPo;
+            if (bmVar != null) {
+                frsActivity2 = this.bQs.bQp;
+                bmVar2 = frsActivity2.bPo;
+                bmVar2.abV();
             }
         }
     }

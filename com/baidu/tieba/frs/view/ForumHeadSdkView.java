@@ -9,62 +9,62 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ForumHeadSdkView extends LinearLayout {
-    private TextView SW;
-    private TbImageView bUx;
-    private com.baidu.tbadk.core.data.t bUy;
-    private TbImageView bqh;
-    private View bxB;
+    private TextView VM;
+    private TbImageView bBu;
+    private View bIQ;
+    private TbImageView cfF;
+    private com.baidu.tbadk.core.data.u cfG;
 
     public ForumHeadSdkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        ar(context);
+        aE(context);
     }
 
     public ForumHeadSdkView(Context context) {
         super(context);
-        ar(context);
+        aE(context);
     }
 
-    private void ar(Context context) {
-        LayoutInflater.from(context).inflate(u.h.frs_head_sdk_view, this);
-        this.bxB = findViewById(u.g.frs_head_sdk_container);
-        this.bqh = (TbImageView) findViewById(u.g.frs_head_sdk_image);
-        this.bUx = (TbImageView) findViewById(u.g.frs_head_sdk_title_image);
-        this.SW = (TextView) findViewById(u.g.frs_head_sdk_title);
+    private void aE(Context context) {
+        LayoutInflater.from(context).inflate(t.h.frs_head_sdk_view, this);
+        this.bIQ = findViewById(t.g.frs_head_sdk_container);
+        this.bBu = (TbImageView) findViewById(t.g.frs_head_sdk_image);
+        this.cfF = (TbImageView) findViewById(t.g.frs_head_sdk_title_image);
+        this.VM = (TextView) findViewById(t.g.frs_head_sdk_title);
     }
 
-    public void setData(com.baidu.tbadk.core.data.t tVar) {
-        if (tVar != null) {
-            this.bUy = tVar;
-            this.bqh.c(this.bUy.oF(), 10, false);
-            String oG = this.bUy.oG();
-            if (StringUtils.isNull(oG)) {
-                this.SW.setVisibility(8);
-                this.bUx.setVisibility(8);
-            } else if (oG.startsWith("http")) {
-                this.SW.setVisibility(8);
-                this.bUx.c(oG, 10, false);
+    public void setData(com.baidu.tbadk.core.data.u uVar) {
+        if (uVar != null) {
+            this.cfG = uVar;
+            this.bBu.c(this.cfG.pI(), 10, false);
+            String pJ = this.cfG.pJ();
+            if (StringUtils.isNull(pJ)) {
+                this.VM.setVisibility(8);
+                this.cfF.setVisibility(8);
+            } else if (pJ.startsWith("http")) {
+                this.VM.setVisibility(8);
+                this.cfF.c(pJ, 10, false);
             } else {
-                this.bUx.setVisibility(8);
-                this.SW.setText(oG);
+                this.cfF.setVisibility(8);
+                this.VM.setText(pJ);
             }
         }
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.bxB.setOnClickListener(onClickListener);
+        this.bIQ.setOnClickListener(onClickListener);
     }
 
-    public void e(TbPageContext<?> tbPageContext, int i) {
-        this.bqh.invalidate();
-        tbPageContext.getLayoutMode().af(i == 1);
-        tbPageContext.getLayoutMode().w(this);
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        this.bBu.invalidate();
+        tbPageContext.getLayoutMode().ah(i == 1);
+        tbPageContext.getLayoutMode().x(this);
     }
 
     public void show() {
-        this.bxB.setVisibility(0);
+        this.bIQ.setVisibility(0);
     }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ActivitySponsor;
+import tbclient.Ecom;
 import tbclient.GiftInfo;
 import tbclient.LikeForumInfo;
 import tbclient.MyGroupInfo;
@@ -41,6 +42,7 @@ public class UserData extends MetaData {
     private boolean isManager;
     private boolean isMask;
     private int isOfficialAccount;
+    private boolean isSeller;
     private int is_mem;
     private long lastReplyTime;
     private String lat;
@@ -62,7 +64,7 @@ public class UserData extends MetaData {
     private String password;
     private h payMemberInfo;
     private Permission permission;
-    private j personPrivate;
+    private i personPrivate;
     private String position;
     private int posts_num;
     private int sex;
@@ -70,6 +72,7 @@ public class UserData extends MetaData {
     private String tb_age;
     private int userType;
     private UserVipInfoData vipInfo;
+    private int visitorNum;
 
     public int getMarkCount() {
         return this.markCount;
@@ -87,12 +90,12 @@ public class UserData extends MetaData {
         this.newMarkCount = i;
     }
 
-    public j getPersonPrivate() {
+    public i getPersonPrivate() {
         return this.personPrivate;
     }
 
-    public void setPersonPrivate(j jVar) {
-        this.personPrivate = jVar;
+    public void setPersonPrivate(i iVar) {
+        this.personPrivate = iVar;
     }
 
     public List<MyLikeForum> getLikeForum() {
@@ -182,6 +185,10 @@ public class UserData extends MetaData {
         this.mActivitySponsorData = aVar;
     }
 
+    public boolean isSeller() {
+        return this.isSeller;
+    }
+
     public UserData() {
         this.password = null;
         this.isManager = false;
@@ -190,12 +197,13 @@ public class UserData extends MetaData {
         this.mGroup = new ArrayList();
         this.mGift = new ArrayList();
         this.mPhotoAlbum = new ArrayList();
+        this.isSeller = false;
         this.ip = null;
         this.BDUSS = null;
-        this.like_bars = 0;
+        this.like_bars = -1;
         this.sex = 1;
         this.intro = null;
-        this.posts_num = 0;
+        this.posts_num = -1;
         setHave_attention(0);
         this.tb_age = "";
         this.markCount = 0;
@@ -212,6 +220,7 @@ public class UserData extends MetaData {
         this.mGroup = new ArrayList();
         this.mGift = new ArrayList();
         this.mPhotoAlbum = new ArrayList();
+        this.isSeller = false;
         setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
@@ -242,6 +251,10 @@ public class UserData extends MetaData {
         return this.password;
     }
 
+    public int getVisitorNum() {
+        return this.visitorNum;
+    }
+
     @Override // com.baidu.tbadk.data.MetaData
     public void parserProtobuf(User user) {
         if (user != null) {
@@ -258,23 +271,24 @@ public class UserData extends MetaData {
             this.managerLevel = user.is_manager.intValue();
             this.markCount = user.bookmark_count.intValue();
             this.newMarkCount = user.bookmark_new_count.intValue();
+            this.visitorNum = user.visitor_num.intValue();
             this.isOfficialAccount = user.is_guanfang.intValue();
             if (this.mPhotoAlbum == null) {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
             k kVar = new k();
-            kVar.fa(getPortraitH());
-            kVar.fb(getPortrait());
-            kVar.bq(true);
+            kVar.fd(getPortraitH());
+            kVar.fe(getPortrait());
+            kVar.bs(true);
             this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         k kVar2 = new k();
-                        kVar2.fa(userPics.big);
-                        kVar2.fb(userPics.small);
-                        kVar2.bq(false);
+                        kVar2.fd(userPics.big);
+                        kVar2.fe(userPics.small);
+                        kVar2.bs(false);
                         this.mPhotoAlbum.add(kVar2);
                     }
                 }
@@ -311,7 +325,7 @@ public class UserData extends MetaData {
             this.isFriend = user.is_friend.intValue();
             PrivSets privSets = user.priv_sets;
             if (privSets != null) {
-                this.personPrivate = new j();
+                this.personPrivate = new i();
                 this.personPrivate.a(privSets);
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
@@ -357,7 +371,7 @@ public class UserData extends MetaData {
             if (newParrScores != null) {
                 this.mTDouNum = newParrScores.scores_total.longValue();
                 if (getUserId() != null && getUserId().equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-                    TbadkCoreApplication.m10getInst().currentAccountTdouNum = this.mTDouNum;
+                    TbadkCoreApplication.m9getInst().currentAccountTdouNum = this.mTDouNum;
                 }
             }
             if (user.tw_anchor_info != null) {
@@ -368,6 +382,9 @@ public class UserData extends MetaData {
             if (activitySponsor != null) {
                 this.mActivitySponsorData = new a();
                 this.mActivitySponsorData.a(activitySponsor);
+            }
+            if (user.ecom != null) {
+                this.isSeller = user.ecom.is_seller != Ecom.DEFAULT_IS_SELLER;
             }
         }
     }
@@ -435,7 +452,7 @@ public class UserData extends MetaData {
                 this.mGiftNum = jSONObject.optInt("gift_num");
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("priv_sets");
                 if (optJSONObject4 != null) {
-                    this.personPrivate = new j();
+                    this.personPrivate = new i();
                     this.personPrivate.parserJson(optJSONObject4);
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("pay_member_info");
@@ -453,9 +470,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 k kVar = new k();
-                kVar.fa(getPortraitH());
-                kVar.fb(getPortrait());
-                kVar.bq(true);
+                kVar.fd(getPortraitH());
+                kVar.fe(getPortrait());
+                kVar.bs(true);
                 this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -464,9 +481,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             k kVar2 = new k();
-                            kVar2.fa(jSONObject2.optString("big"));
-                            kVar2.fb(jSONObject2.optString("small"));
-                            kVar2.bq(false);
+                            kVar2.fd(jSONObject2.optString("big"));
+                            kVar2.fe(jSONObject2.optString("small"));
+                            kVar2.bs(false);
                             this.mPhotoAlbum.add(kVar2);
                         }
                     }

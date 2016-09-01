@@ -3,6 +3,7 @@ package com.baidu.tbadk.baseEditMark;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -213,7 +214,7 @@ public class MarkData implements Serializable {
             this.mThreadId = jSONObject.optString("thread_id");
             this.mPostId = jSONObject.optString("mark_pid");
             this.mForumName = jSONObject.optString("forum_name");
-            this.mTitle = jSONObject.optString("title");
+            this.mTitle = jSONObject.optString(VrPlayerActivityConfig.TITLE);
             this.mAuthorName = jSONObject.optJSONObject("author").optString(IntentConfig.NAME_SHOW);
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");

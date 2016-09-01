@@ -1,18 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.MotionEvent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fu implements View.OnTouchListener {
-    final /* synthetic */ ew eiu;
+public class fu implements View.OnClickListener {
+    final /* synthetic */ ex euB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fu(ew ewVar) {
-        this.eiu = ewVar;
+    public fu(ex exVar) {
+        this.euB = exVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        this.euB.aPO();
+        pbActivity = this.euB.emy;
+        if (pbActivity.bRE != null) {
+            pbActivity2 = this.euB.emy;
+            pbActivity2.bRE.onClick(view);
+        }
     }
 }

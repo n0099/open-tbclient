@@ -10,6 +10,6 @@ class i implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.this$0.foJ = true;
+        this.this$0.fwD = true;
     }
 }

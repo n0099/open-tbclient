@@ -1,63 +1,46 @@
 package com.baidu.tieba.play;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
-import com.baidu.tieba.play.j;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends Handler {
-    final /* synthetic */ j ePx;
+public class k extends CustomMessageListener {
+    final /* synthetic */ i eWz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(j jVar, Looper looper) {
-        super(looper);
-        this.ePx = jVar;
+    public k(i iVar, int i) {
+        super(i);
+        this.eWz = iVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
         boolean z2;
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        int akt;
-        j.b bVar;
-        int i;
-        int i2;
-        j.b bVar2;
-        switch (message.what) {
-            case 1:
-                z = this.ePx.cGb;
-                if (!z) {
-                    z2 = this.ePx.cGc;
-                    if (z2) {
-                        mediaPlayerControl = this.ePx.cFY;
-                        if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.ePx.cFY;
-                            if (!mediaPlayerControl2.isPlaying()) {
-                                return;
-                            }
-                            akt = this.ePx.akt();
-                            bVar = this.ePx.aKY;
-                            if (bVar != null) {
-                                bVar2 = this.ePx.aKY;
-                                bVar2.ft(akt);
-                            }
-                            Message obtainMessage = obtainMessage(1);
-                            i = this.ePx.cFX;
-                            i2 = this.ePx.cFX;
-                            sendMessageDelayed(obtainMessage, i - (akt % i2));
-                            return;
-                        }
-                        return;
-                    }
-                    return;
+        l lVar;
+        l lVar2;
+        l lVar3;
+        l lVar4;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
+            this.eWz.aZR();
+            z = this.eWz.eWv;
+            if (z) {
+                z2 = this.eWz.eWv;
+                if (z2) {
+                    i iVar = this.eWz;
+                    lVar = this.eWz.eWu;
+                    int aZS = lVar.aZS();
+                    lVar2 = this.eWz.eWu;
+                    int aZT = lVar2.aZT();
+                    lVar3 = this.eWz.eWu;
+                    boolean aZU = lVar3.aZU();
+                    lVar4 = this.eWz.eWu;
+                    iVar.a(aZS, aZT, aZU, lVar4.aZV());
                 }
-                return;
-            default:
-                return;
+            }
         }
     }
 }

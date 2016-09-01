@@ -1,26 +1,16 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.ViewStub;
-import android.widget.LinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.tbadkCore.b.a;
 /* loaded from: classes.dex */
-public class ey implements Runnable {
-    final /* synthetic */ ew eiu;
+class ey implements a.InterfaceC0074a {
+    final /* synthetic */ ex euB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ey(ew ewVar) {
-        this.eiu = ewVar;
+    public ey(ex exVar) {
+        this.euB = exVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        LinearLayout linearLayout;
-        ViewStub viewStub;
-        linearLayout = this.eiu.egz;
-        if (linearLayout == null) {
-            this.eiu.aKk();
-        }
-        viewStub = this.eiu.efV;
-        viewStub.setVisibility(0);
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0074a
+    public void kj() {
     }
 }

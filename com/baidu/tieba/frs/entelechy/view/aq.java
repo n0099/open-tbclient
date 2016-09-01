@@ -1,70 +1,25 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.content.Context;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.u;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq extends LinearLayout {
-    Animation bGv;
-    View bMu;
-    TbImageView bMv;
-    private int mSkinType;
+public class aq extends CustomMessageListener {
+    final /* synthetic */ ap bXM;
 
-    public aq(Context context) {
-        super(context);
-        this.mSkinType = 3;
-        this.bGv = null;
-        ar(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aq(ap apVar, int i) {
+        super(i);
+        this.bXM = apVar;
     }
 
-    public void ar(Context context) {
-        if (context != null) {
-            setOrientation(1);
-            setGravity(1);
-            av.k(this, u.f.bg_pull_up_refresh_selector);
-            this.bMu = new View(context);
-            this.bMu.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(u.e.ds1)));
-            av.k(this.bMu, u.d.common_color_10208);
-            addView(this.bMu);
-            this.bMv = new TbImageView(context);
-            int c = com.baidu.adp.lib.util.k.c(getContext(), u.e.ds40);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(c, c);
-            layoutParams.topMargin = com.baidu.adp.lib.util.k.c(getContext(), u.e.ds20);
-            this.bMv.setLayoutParams(layoutParams);
-            av.c(this.bMv, u.f.icon_frs_reload);
-            addView(this.bMv);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && this.bXM.adL != null && this.bXM.adL.getTid() != null && this.bXM.VM != null && ((String) customResponsedMessage.getData()).equals(this.bXM.adL.getTid())) {
+            com.baidu.tieba.card.ap.a(this.bXM.VM, this.bXM.adL.getId(), t.d.cp_cont_b, t.d.cp_cont_d);
         }
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            av.k(this.bMu, u.d.common_color_10208);
-            av.c(this.bMv, u.f.icon_frs_reload);
-            av.k(this, u.f.bg_pull_up_refresh_selector);
-            this.mSkinType = i;
-        }
-    }
-
-    private Animation getClickRotateAnimation() {
-        if (this.bGv == null) {
-            this.bGv = AnimationUtils.loadAnimation(getContext(), u.a.refresh_rotate);
-            this.bGv.setInterpolator(new LinearInterpolator());
-            this.bGv.setFillAfter(true);
-        }
-        return this.bGv;
-    }
-
-    public void YH() {
-        this.bMv.startAnimation(getClickRotateAnimation());
-    }
-
-    public void YI() {
-        this.bMv.clearAnimation();
     }
 }

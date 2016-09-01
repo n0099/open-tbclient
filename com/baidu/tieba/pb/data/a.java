@@ -12,19 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public List<com.baidu.adp.widget.ListView.a> bCN;
-    public ArrayList<v> btF;
-    public PbActivity dXE;
-    public DealInfoData dXF;
-    public View.OnClickListener dXG;
-    public cs dXH;
+    public ArrayList<v> bER;
+    public List<com.baidu.adp.widget.ListView.a> bOr;
+    public PbActivity ejJ;
+    public DealInfoData ejK;
+    public View.OnClickListener ejL;
+    public cs ejM;
     public int id;
 
     public a(int i) {
         this.id = i;
     }
 
-    public void aGK() {
+    public void aLC() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.ECOMM_PB_ADAPTER, this));
     }
 }

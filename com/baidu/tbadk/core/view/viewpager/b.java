@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.view.viewpager.a;
 import com.baidu.tbadk.core.view.viewpager.a.C0036a;
 /* loaded from: classes.dex */
 public abstract class b<T extends v, V extends a.C0036a> {
-    protected a<T, V> afA;
+    protected BdUniqueId AV;
+    protected a<T, V> aiv;
     protected Context mContext;
-    protected BdUniqueId yG;
 
     /* loaded from: classes.dex */
     public interface a<T extends v, V extends a.C0036a> {
@@ -25,21 +25,21 @@ public abstract class b<T extends v, V extends a.C0036a> {
 
     protected b(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.yG = bdUniqueId;
+        this.AV = bdUniqueId;
     }
 
     public BdUniqueId getType() {
-        return this.yG;
+        return this.AV;
     }
 
     public void b(V v, T t) {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.afA = aVar;
+        this.aiv = aVar;
     }
 
-    public a<T, V> vQ() {
-        return this.afA;
+    public a<T, V> wU() {
+        return this.aiv;
     }
 }

@@ -5,15 +5,15 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ NavigationBar acn;
+    final /* synthetic */ NavigationBar afd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NavigationBar navigationBar) {
-        this.acn = navigationBar;
+        this.afd = navigationBar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,15 +21,15 @@ public class o implements View.OnClickListener {
         boolean z;
         Activity activity;
         Activity activity2;
-        z = this.acn.mClickIsVaild;
+        z = this.afd.mClickIsVaild;
         if (z) {
             int id = view.getId();
-            if (id == u.g.navigationBarGoBack) {
-                activity2 = this.acn.mCurrentActivity;
+            if (id == t.g.navigationBarGoBack) {
+                activity2 = this.afd.mCurrentActivity;
                 activity2.finish();
-            } else if (id == u.g.navigationBarHome) {
+            } else if (id == t.g.navigationBarHome) {
                 MessageManager messageManager = MessageManager.getInstance();
-                activity = this.acn.mCurrentActivity;
+                activity = this.afd.mCurrentActivity;
                 messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, activity));
             }
         }

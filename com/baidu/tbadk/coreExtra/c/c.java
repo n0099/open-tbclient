@@ -15,18 +15,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c ahQ;
+    private static c akU;
 
     private c() {
     }
 
-    public static synchronized c xj() {
+    public static synchronized c yw() {
         c cVar;
         synchronized (c.class) {
-            if (ahQ == null) {
-                ahQ = new c();
+            if (akU == null) {
+                akU = new c();
             }
-            cVar = ahQ;
+            cVar = akU;
         }
         return cVar;
     }
@@ -62,16 +62,16 @@ public class c {
     }
 
     public boolean b(GameInfoData gameInfoData) {
-        SQLiteDatabase xi = b.xi();
+        SQLiteDatabase yv = b.yv();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (gameInfoData == null || xi == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
+        if (gameInfoData == null || yv == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
             return false;
         }
         try {
-            o(xi);
+            o(yv);
             ContentValues a = a(gameInfoData);
-            if (xi.update("table_download" + currentAccount, a, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
-                xi.insert("table_download" + currentAccount, null, a);
+            if (yv.update("table_download" + currentAccount, a, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
+                yv.insert("table_download" + currentAccount, null, a);
                 return true;
             }
             return true;
@@ -81,16 +81,16 @@ public class c {
         }
     }
 
-    public boolean x(String str, int i) {
-        SQLiteDatabase xi = b.xi();
+    public boolean w(String str, int i) {
+        SQLiteDatabase yv = b.yv();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || xi == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || yv == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("label", Integer.valueOf(i));
-            if (xi.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+            if (yv.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -99,16 +99,16 @@ public class c {
         return false;
     }
 
-    public boolean ej(String str) {
-        SQLiteDatabase xi = b.xi();
+    public boolean em(String str) {
+        SQLiteDatabase yv = b.yv();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || xi == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || yv == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("current_Time", Long.valueOf(System.currentTimeMillis()));
-            if (xi.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+            if (yv.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -118,20 +118,20 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [198=4] */
-    public boolean ek(String str) {
+    public boolean en(String str) {
         Cursor cursor;
-        SQLiteDatabase xi = b.xi();
+        SQLiteDatabase yv = b.yv();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || xi == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || yv == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
-            cursor = xi.query("table_download" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
+            cursor = yv.query("table_download" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     try {
                         if (cursor.getCount() > 0) {
-                            if (xi.delete("table_download" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
+                            if (yv.delete("table_download" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
                                 o.a(cursor);
                                 return true;
                             }
@@ -169,15 +169,15 @@ public class c {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
-    public GameInfoData el(String str) {
+    public GameInfoData eo(String str) {
         Cursor cursor;
-        SQLiteDatabase xi = b.xi();
+        SQLiteDatabase yv = b.yv();
         ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (xi != null) {
+        if (yv != null) {
             try {
                 if (!TextUtils.isEmpty(currentAccount)) {
                     try {
-                        cursor = xi.query("table_download" + currentAccount, null, "andr_pk_name= ?", new String[]{str}, null, null, null);
+                        cursor = yv.query("table_download" + currentAccount, null, "andr_pk_name= ?", new String[]{str}, null, null, null);
                         if (cursor != null) {
                             try {
                                 if (cursor.moveToFirst()) {
@@ -241,16 +241,16 @@ public class c {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
-    public List<GameInfoData> xk() {
+    public List<GameInfoData> yx() {
         Cursor cursor;
-        SQLiteDatabase xi = b.xi();
+        SQLiteDatabase yv = b.yv();
         ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
         ArrayList arrayList = new ArrayList();
-        if (xi != null) {
+        if (yv != null) {
             try {
                 if (!TextUtils.isEmpty(currentAccount)) {
                     try {
-                        cursor = xi.query("table_download" + currentAccount, null, "label=0 OR label=1", null, null, null, "current_Time DESC");
+                        cursor = yv.query("table_download" + currentAccount, null, "label=0 OR label=1", null, null, null, "current_Time DESC");
                         if (cursor != null) {
                             while (cursor.moveToNext()) {
                                 try {
@@ -313,17 +313,17 @@ public class c {
         return arrayList;
     }
 
-    public List<GameInfoData> dl(int i) {
+    public List<GameInfoData> dz(int i) {
         Cursor cursor;
-        SQLiteDatabase xi = b.xi();
+        SQLiteDatabase yv = b.yv();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         ArrayList arrayList = new ArrayList();
-        if (xi == null || TextUtils.isEmpty(currentAccount)) {
+        if (yv == null || TextUtils.isEmpty(currentAccount)) {
             return arrayList;
         }
         if (i == 3 || i == 2) {
             try {
-                cursor = xi.query("table_download" + currentAccount, null, "label=" + i, null, "current_TimeDESC", null, null);
+                cursor = yv.query("table_download" + currentAccount, null, "label=" + i, null, "current_TimeDESC", null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {

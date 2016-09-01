@@ -29,6 +29,7 @@ public class WriteData implements Serializable {
     private boolean isAd;
     private boolean isBabaoPosted;
     private String mBaobaoContent;
+    private long mBarrageTime;
     private int mCategoryFrom;
     private int mCategoryTo;
     private String mContent;
@@ -45,6 +46,7 @@ public class WriteData implements Serializable {
     private String mHiContent;
     private boolean mIsAddition;
     private boolean mIsBaobao;
+    private boolean mIsBarrage;
     private boolean mIsFrsReply;
     private boolean mIsGiftPost;
     private boolean mIsInterviewLivew;
@@ -89,6 +91,22 @@ public class WriteData implements Serializable {
         this.isBabaoPosted = z;
     }
 
+    public boolean isBarrage() {
+        return this.mIsBarrage;
+    }
+
+    public void setIsBarrage(boolean z) {
+        this.mIsBarrage = z;
+    }
+
+    public long getBarrageTime() {
+        return this.mBarrageTime;
+    }
+
+    public void setBarrageTime(long j) {
+        this.mBarrageTime = j;
+    }
+
     public WriteData() {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
         this.mCategoryFrom = -1;
@@ -123,6 +141,8 @@ public class WriteData implements Serializable {
         this.mShareReferUrl = null;
         this.mShareLocalImageData = null;
         this.mIsGiftPost = false;
+        this.mIsBarrage = false;
+        this.mBarrageTime = 0L;
     }
 
     public WriteData(int i) {
@@ -174,6 +194,8 @@ public class WriteData implements Serializable {
                 jSONObject.put("mTaskId", this.mTaskId);
             }
             jSONObject.put("mGraffitiFileName", this.mGraffitiFileName);
+            jSONObject.put("is_barrage", this.mIsBarrage);
+            jSONObject.put("barrage_time", this.mBarrageTime);
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -213,6 +235,8 @@ public class WriteData implements Serializable {
             if (jSONObject.has("mHiContent") && (obj = jSONObject.get("mHiContent")) != null && (obj instanceof String)) {
                 writeData.mHiContent = obj.toString();
             }
+            writeData.mIsBarrage = jSONObject.optBoolean("is_barrage");
+            writeData.mBarrageTime = jSONObject.getLong("barrage_time");
             return writeData;
         } catch (Exception e) {
             return null;

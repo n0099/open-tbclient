@@ -1,64 +1,47 @@
 package com.baidu.tbadk.core.view;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
+import android.content.Context;
 /* loaded from: classes.dex */
-public class at {
-    private static at afo = new at();
-    private Handler afr;
-    private int afp = 0;
-    private boolean afq = true;
-    private Handler.Callback afs = new au(this);
+class at implements com.baidu.adp.lib.f.c<HeadImageView> {
+    private final /* synthetic */ Context val$context;
 
-    public static at vG() {
-        return afo;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(Context context) {
+        this.val$context = context;
     }
 
-    private at() {
-        HandlerThread handlerThread = new HandlerThread("release_media");
-        handlerThread.start();
-        this.afr = new Handler(handlerThread.getLooper(), this.afs);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: wH */
+    public HeadImageView ez() {
+        return new HeadImageView(this.val$context);
     }
 
-    public void s(TextureVideoView textureVideoView) {
-        if (textureVideoView != null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            obtain.obj = textureVideoView;
-            this.afr.sendMessage(obtain);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void o(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
     }
 
-    public void vH() {
-        this.afp++;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public HeadImageView p(HeadImageView headImageView) {
+        return headImageView;
     }
 
-    public void vI() {
-        this.afp--;
-        if (this.afp < 0) {
-            this.afp = 0;
-        }
-    }
-
-    public int vJ() {
-        return this.afp;
-    }
-
-    public void aL(boolean z) {
-        this.afq = z;
-    }
-
-    public boolean vK() {
-        return this.afq;
-    }
-
-    public boolean vL() {
-        return Build.MODEL != null && Build.MODEL.equals("MI 5");
-    }
-
-    public boolean vM() {
-        return "2014811".equals(Build.MODEL);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public HeadImageView q(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+        return headImageView;
     }
 }

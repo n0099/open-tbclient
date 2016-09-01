@@ -1,67 +1,50 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import android.os.Handler;
+import android.widget.ImageView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements com.baidu.adp.lib.guide.b {
-    private final /* synthetic */ String bGY;
-    final /* synthetic */ aj foY;
+public class ak implements Runnable {
+    final /* synthetic */ ac fwR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar, String str) {
-        this.foY = ajVar;
-        this.bGY = str;
+    public ak(ac acVar) {
+        this.fwR = acVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        ab abVar;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
         MainTabActivity mainTabActivity;
-        ab abVar2;
+        ImageView imageView;
+        com.baidu.adp.lib.guide.d dVar2;
+        com.baidu.adp.lib.guide.d dVar3;
         MainTabActivity mainTabActivity2;
-        ab abVar3;
-        MainTabActivity mainTabActivity3;
-        ab abVar4;
-        MainTabActivity mainTabActivity4;
-        abVar = this.foY.foX;
-        mainTabActivity = abVar.foM;
-        TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
-        textView.setText(this.bGY);
-        textView.setGravity(17);
-        av.j((View) textView, u.d.cp_cont_i);
-        abVar2 = this.foY.foX;
-        mainTabActivity2 = abVar2.foM;
-        textView.setTextSize(0, mainTabActivity2.getResources().getDimensionPixelSize(u.e.fontsize28));
-        abVar3 = this.foY.foX;
-        mainTabActivity3 = abVar3.foM;
-        textView.setWidth(mainTabActivity3.getResources().getDimensionPixelSize(u.e.ds300));
-        abVar4 = this.foY.foX;
-        mainTabActivity4 = abVar4.foM;
-        textView.setHeight(mainTabActivity4.getResources().getDimensionPixelSize(u.e.ds76));
-        av.k(textView, u.f.pic_sign_tip);
-        return textView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int cT() {
-        return 4;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int cU() {
-        return 48;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getXOffset() {
-        return 5;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getYOffset() {
-        return 0;
+        Handler handler;
+        Runnable runnable;
+        dVar = this.fwR.Hs;
+        if (dVar == null) {
+            mainTabActivity = this.fwR.fwG;
+            String string = mainTabActivity.getPageContext().getPageActivity().getResources().getString(t.j.messge_tab_change_tip);
+            if (!StringUtils.isNull(string)) {
+                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+                imageView = this.fwR.fwJ;
+                gVar.o(imageView).ad(0).y(true).z(true);
+                gVar.a(new al(this, string));
+                this.fwR.Hs = gVar.dQ();
+                dVar2 = this.fwR.Hs;
+                dVar2.w(false);
+                dVar3 = this.fwR.Hs;
+                mainTabActivity2 = this.fwR.fwG;
+                dVar3.j(mainTabActivity2.getPageContext().getPageActivity());
+                this.fwR.fwM = true;
+                this.fwR.aca();
+                handler = this.fwR.mHandler;
+                runnable = this.fwR.bSa;
+                handler.postDelayed(runnable, 3000L);
+            }
+        }
     }
 }

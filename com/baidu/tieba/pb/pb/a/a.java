@@ -4,23 +4,23 @@ import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
 public interface a {
-    void I(View.OnClickListener onClickListener);
+    void G(View.OnClickListener onClickListener);
 
     void a(com.baidu.tieba.pb.a.d dVar);
 
     void b(com.baidu.tieba.pb.data.h hVar);
 
-    void hr(boolean z);
+    void hN(boolean z);
 
-    void hs(boolean z);
+    void hO(boolean z);
 
-    void ht(boolean z);
+    void hP(boolean z);
 
-    void hu(boolean z);
+    void hQ(boolean z);
 
-    void nx(int i);
+    void oL(String str);
 
-    void ob(String str);
+    void oa(int i);
 
     void setCommonClickListener(View.OnClickListener onClickListener);
 

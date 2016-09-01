@@ -1,24 +1,30 @@
 package com.baidu.tieba.card;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends CustomMessageListener {
-    final /* synthetic */ z aUu;
+public class ab implements TbImageView.a {
+    final /* synthetic */ t aZF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(z zVar, int i) {
-        super(i);
-        this.aUu = zVar;
+    public ab(t tVar) {
+        this.aZF = tVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016477) {
-            this.aUu.aUn = false;
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void u(String str, boolean z) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        if (z) {
+            tbImageView = this.aZF.aZj;
+            if (tbImageView != null) {
+                tbImageView2 = this.aZF.aZj;
+                tbImageView2.setDefaultBgResource(0);
+            }
         }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

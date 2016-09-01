@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class EmotionIntefaceStatic {
     static {
-        com.baidu.adp.lib.g.c.dF().a(20, new com.baidu.tieba.emotion.a.a());
+        com.baidu.adp.lib.g.c.eA().a(20, new com.baidu.tieba.emotion.a.a());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
-        TbadkCoreApplication.m10getInst().registerReceiver(new a(), intentFilter);
+        TbadkCoreApplication.m9getInst().registerReceiver(new a(), intentFilter);
         b bVar = new b(CmdConfigCustom.EDITOR_COLLECT_TOOL);
         c cVar = new c(CmdConfigCustom.EMOTION_COLLECT_GROUPS);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, new d());

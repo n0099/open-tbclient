@@ -1,49 +1,57 @@
 package com.baidu.tieba.person.a;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.u;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.y;
+import java.util.List;
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
-    final /* synthetic */ f epZ;
+public class g implements v {
+    public static final BdUniqueId eBL = BdUniqueId.gen();
+    private boolean isSelf;
+    private List<v> mPhotoAlbum;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.epZ = fVar;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return eBL;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.person.data.d dVar;
-        com.baidu.tieba.person.data.d dVar2;
-        BaseFragmentActivity baseFragmentActivity;
-        com.baidu.tieba.person.data.d dVar3;
-        BaseFragmentActivity baseFragmentActivity2;
-        dVar = this.epZ.epY;
-        if (dVar != null) {
-            dVar2 = this.epZ.epY;
-            if (!StringUtils.isNull(dVar2.erR)) {
-                if (!TbadkCoreApplication.m10getInst().appResponseToIntentClass(MyBookrackActivityConfig.class)) {
-                    baseFragmentActivity2 = this.epZ.bgI;
-                    com.baidu.adp.lib.util.k.showToast(baseFragmentActivity2.getPageContext().getPageActivity(), u.j.book_plugin_not_install_tip);
-                    return;
-                }
-                baseFragmentActivity = this.epZ.bgI;
-                Activity pageActivity = baseFragmentActivity.getPageContext().getPageActivity();
-                dVar3 = this.epZ.epY;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyBookrackActivityConfig(pageActivity, 0, dVar3.erR)));
-                TiebaStatic.log(new ay("c11390").s("obj_type", 2));
+    public List<v> getPhotoAlbum() {
+        return this.mPhotoAlbum;
+    }
+
+    public void setPhotoAlbum(List<v> list) {
+        this.mPhotoAlbum = list;
+    }
+
+    public void f(UserData userData) {
+        if (userData != null) {
+            if (userData.getUserId() != null && userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                this.isSelf = true;
+            } else {
+                this.isSelf = false;
+            }
+            setPhotoAlbum(userData.getPhotoAlbum());
+            if (this.isSelf && getPhotoAlbum() != null && !cx(getPhotoAlbum()) && getPhotoAlbum().size() < 9) {
+                com.baidu.tieba.person.data.a aVar = new com.baidu.tieba.person.data.a();
+                aVar.oI(9 - getPhotoAlbum().size());
+                getPhotoAlbum().add(aVar);
             }
         }
+    }
+
+    private boolean cx(List<v> list) {
+        int s = y.s(list);
+        if (s == 0) {
+            return false;
+        }
+        for (int i = s - 1; i >= 0; i--) {
+            v vVar = (v) y.c(list, i);
+            if (vVar != null && (vVar instanceof com.baidu.tieba.person.data.a)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

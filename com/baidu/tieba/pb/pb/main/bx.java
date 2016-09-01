@@ -1,43 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bx implements a.b {
-    final /* synthetic */ PbActivity ebT;
+    private final /* synthetic */ String bVp;
+    private final /* synthetic */ String bVq;
+    final /* synthetic */ PbActivity eob;
+    private final /* synthetic */ long eom;
+    private final /* synthetic */ String eon;
+    private final /* synthetic */ String eoo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(PbActivity pbActivity) {
-        this.ebT = pbActivity;
+    public bx(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
+        this.eob = pbActivity;
+        this.eom = j;
+        this.eon = str;
+        this.bVp = str2;
+        this.bVq = str3;
+        this.eoo = str4;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.adp.base.h hVar;
-        com.baidu.adp.base.h hVar2;
-        if (Build.VERSION.SDK_INT < 11) {
-            aVar.dismiss();
-            hVar2 = this.ebT.ebn;
-            ((TbPageContext) hVar2).showToast(u.j.frs_header_games_unavailable);
-            return;
-        }
-        TiebaStatic.log("c10025");
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        dh dhVar;
+        dh dhVar2;
+        com.baidu.tieba.pb.b.a(this.eom, this.eon, null, "PB", "BTN_FBOK", "CLICK_FEEDBACK", "tpoint", null, null, this.bVp, this.bVq, this.eoo);
         aVar.dismiss();
-        hVar = this.ebT.ebn;
-        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) hVar.getPageActivity(), 2, true, 4);
-        if (!StringUtils.isNULL("4010001001")) {
-            memberPayActivityConfig.setSceneId("4010001001");
+        if (this.eob.checkUpIsLogin()) {
+            dhVar = this.eob.emx;
+            if (dhVar.aOk() != null) {
+                dhVar2 = this.eob.emx;
+                dhVar2.aOk().cB(this.eom);
+            }
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
     }
 }

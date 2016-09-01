@@ -2,37 +2,26 @@ package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.p;
-import java.util.ArrayList;
-import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ c bKI;
+    final /* synthetic */ a bVS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(c cVar, int i) {
+    public e(a aVar, int i) {
         super(i);
-        this.bKI = cVar;
+        this.bVS = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        ArrayList<com.baidu.adp.widget.ListView.v> arrayList;
-        p pVar;
-        if (customResponsedMessage != null) {
-            list = this.bKI.bKC;
-            if (!com.baidu.tbadk.core.util.y.t(list)) {
-                return;
-            }
-            this.bKI.Yk();
-            c cVar = this.bKI;
-            arrayList = this.bKI.btF;
-            pVar = this.bKI.bKE;
-            cVar.a(arrayList, pVar);
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
+            com.baidu.tieba.lego.c.b bVar = new com.baidu.tieba.lego.c.b();
+            bVar.aRv = String.valueOf(customResponsedMessage.getData());
+            bVar.dDC = true;
+            this.bVS.K(bVar);
         }
     }
 }

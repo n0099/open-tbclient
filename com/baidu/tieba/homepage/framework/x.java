@@ -1,5 +1,5 @@
 package com.baidu.tieba.homepage.framework;
 /* loaded from: classes.dex */
 public interface x {
-    void jm(int i);
+    void jO(int i);
 }

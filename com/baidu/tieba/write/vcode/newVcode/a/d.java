@@ -9,42 +9,42 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.writeModel.a;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
+import com.baidu.tieba.tbadkCore.writeModel.b;
 import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* loaded from: classes.dex */
 public class d implements c {
-    private String cnN;
-    private String cnO;
-    private final com.baidu.tieba.tbadkCore.writeModel.a fPF;
-    private final NewVcodeView fRJ;
-    private boolean fRN = false;
-    private String fRO = null;
-    private Runnable fRP = new e(this);
-    private final a.d atp = new f(this);
+    private String cyW;
+    private String cyX;
+    private final com.baidu.tieba.tbadkCore.writeModel.b fZK;
+    private final NewVcodeView gbO;
+    private boolean gbS = false;
+    private String gbT = null;
+    private Runnable gbU = new e(this);
+    private final b.d aww = new f(this);
 
-    public d(NewVcodeView newVcodeView, com.baidu.tieba.tbadkCore.writeModel.a aVar) {
-        this.fRJ = newVcodeView;
-        this.fPF = aVar;
-        this.fPF.b(this.atp);
+    public d(NewVcodeView newVcodeView, com.baidu.tieba.tbadkCore.writeModel.b bVar) {
+        this.gbO = newVcodeView;
+        this.fZK = bVar;
+        this.fZK.b(this.aww);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public boolean b(WebView webView, String str) {
         if (str.contains("objc:jsChangeVcode")) {
-            this.cnN = com.baidu.tbadk.k.a.gy(str);
-            if (this.cnN != null && this.fPF.bbo() != null) {
-                this.fRJ.runJsMethod(this.cnN, "'" + this.fPF.bbo().getVcodeUrl() + "'");
+            this.cyW = com.baidu.tbadk.k.a.gB(str);
+            if (this.cyW != null && this.fZK.beT() != null) {
+                this.gbO.runJsMethod(this.cyW, "'" + this.fZK.beT().getVcodeUrl() + "'");
                 return true;
             }
             return false;
         } else if (str.equals("objc:jumpToFeedback()")) {
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.fRJ.getContext().getActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0);
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.gbO.getContext().getActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0);
             writeActivityConfig.setIsVcodeFeedBack();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
             return true;
         } else if (str.contains("objc:jsSubmit")) {
-            return jY(com.baidu.tbadk.k.a.gy(str));
+            return kG(com.baidu.tbadk.k.a.gB(str));
         } else {
             return false;
         }
@@ -52,73 +52,73 @@ public class d implements c {
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public void onPageFinished(WebView webView, String str) {
-        if (this.fRJ != null) {
-            this.fRJ.showWebViewDelay(500);
-            if (this.fRN) {
-                h.dL().postDelayed(this.fRP, 500L);
+        if (this.gbO != null) {
+            this.gbO.showWebViewDelay(500);
+            if (this.gbS) {
+                h.eG().postDelayed(this.gbU, 500L);
             }
         }
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void p(boolean z, String str) {
-        this.fRN = z;
-        this.fRO = str;
+    public void o(boolean z, String str) {
+        this.gbS = z;
+        this.gbT = str;
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void lv(boolean z) {
-        this.fRJ.setRatio(1.2631578f);
-        this.fRJ.showWebView(false);
+    public void lL(boolean z) {
+        this.gbO.setRatio(1.2631578f);
+        this.gbO.showWebView(false);
         String str = String.valueOf(TbConfig.SERVER_ADDRESS_WEB_VIEW) + "mo/q/captcha";
         if (z) {
             str = String.valueOf(str) + "?feedback=1";
         }
-        this.fRJ.getWebView().loadUrl(str);
+        this.gbO.getWebView().loadUrl(str);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public void onDestroy() {
-        h.dL().removeCallbacks(this.fRP);
+        h.eG().removeCallbacks(this.gbU);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void c(a.d dVar) {
+    public void c(b.d dVar) {
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void bmZ() {
-        this.fRJ.showPostThreadLoadingView(false);
-        this.fPF.cancelLoadData();
+    public void brq() {
+        this.gbO.showPostThreadLoadingView(false);
+        this.fZK.cancelLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afX() {
-        this.fRJ.runJsMethod(this.cnO, "'" + this.fPF.bbo().getVcodeUrl() + "'");
+    public void akI() {
+        this.gbO.runJsMethod(this.cyX, "'" + this.fZK.beT().getVcodeUrl() + "'");
     }
 
-    private boolean jY(String str) {
+    private boolean kG(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
             return false;
         }
-        this.cnO = split[0];
-        rA(split[1]);
+        this.cyX = split[0];
+        sk(split[1]);
         return true;
     }
 
-    private void rA(String str) {
-        if (!k.fH()) {
-            this.fRJ.getContext().showToast(u.j.neterror);
-            this.fRJ.getContext().finish();
+    private void sk(String str) {
+        if (!k.gD()) {
+            this.gbO.getContext().showToast(t.j.neterror);
+            this.gbO.getContext().finish();
         } else if (!StringUtils.isNull(str)) {
-            this.fRJ.showPostThreadLoadingView(true);
-            this.fPF.bbo().setVcode(str);
-            this.fPF.bbo().setVcodeType("4");
-            this.fPF.bgM();
+            this.gbO.showPostThreadLoadingView(true);
+            this.fZK.beT().setVcode(str);
+            this.fZK.beT().setVcodeType("4");
+            this.fZK.bkn();
         } else {
-            this.fRJ.getContext().showToast(u.j.neterror);
-            this.fRJ.getContext().finish();
+            this.gbO.getContext().showToast(t.j.neterror);
+            this.gbO.getContext().finish();
         }
     }
 }

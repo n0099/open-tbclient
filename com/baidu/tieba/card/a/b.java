@@ -1,8 +1,13 @@
 package com.baidu.tieba.card.a;
 
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public abstract class b implements v {
-    public boolean aVQ = false;
-    public boolean aVR = false;
+public class b extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId Ro = BdUniqueId.gen();
+    public String title;
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Ro;
+    }
 }

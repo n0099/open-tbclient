@@ -5,20 +5,20 @@ import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ c fPL;
+    final /* synthetic */ c fZP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.fPL = cVar;
+        this.fZP = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         a aVar;
         BaseActivity baseActivity;
-        aVar = this.fPL.fPC;
-        aVar.bmZ();
-        baseActivity = this.fPL.ate;
+        aVar = this.fZP.fZH;
+        aVar.brq();
+        baseActivity = this.fZP.awl;
         baseActivity.finish();
     }
 }

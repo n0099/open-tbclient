@@ -90,18 +90,18 @@ public class RecPersonalizeRequest extends NetMessage {
     protected Object encode(boolean z) {
         int i = 1;
         DataReq.Builder builder = new DataReq.Builder();
-        o.a(builder, true);
+        o.a(builder, true, false, true);
         builder.need_tags = Integer.valueOf(this.needTag ? 1 : 0);
         builder.load_type = Integer.valueOf(this.loadType);
         builder.page_thread_count = Integer.valueOf(this.threadCount);
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = Integer.valueOf(this.tagCode);
-        builder.scr_w = Integer.valueOf(k.A(TbadkCoreApplication.m10getInst()));
-        builder.scr_h = Integer.valueOf(k.B(TbadkCoreApplication.m10getInst()));
-        builder.scr_dip = Double.valueOf(k.C(TbadkCoreApplication.m10getInst()));
+        builder.scr_w = Integer.valueOf(k.K(TbadkCoreApplication.m9getInst()));
+        builder.scr_h = Integer.valueOf(k.L(TbadkCoreApplication.m9getInst()));
+        builder.scr_dip = Double.valueOf(k.M(TbadkCoreApplication.m9getInst()));
         builder.q_type = 1;
-        if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.sN().getBoolean("has_requested_new_user_guide", false)) {
+        if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;
         }
         builder.need_age_module = Integer.valueOf(i);

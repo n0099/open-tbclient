@@ -30,7 +30,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("class", 0);
                 intent2.putExtra("url", intent.getStringExtra("url"));
                 intent2.putExtra("from", stringExtra2);
-                TiebaStatic.eventStat(TbadkCoreApplication.m10getInst().getApp(), "aladdin", null, 1, "st_type", stringExtra2, "st_param", intent.getStringExtra("url"));
+                TiebaStatic.eventStat(TbadkCoreApplication.m9getInst().getApp(), "aladdin", null, 1, "st_type", stringExtra2, "st_param", intent.getStringExtra("url"));
             } else if (stringExtra.equals("pb")) {
                 intent2.putExtra("class", 1);
                 intent2.putExtra("id", intent.getStringExtra("id"));

@@ -14,7 +14,7 @@ class f implements Parcelable.Creator<AbsHListView.SavedState> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: jU */
+    /* renamed from: kx */
     public AbsHListView.SavedState[] newArray(int i) {
         return new AbsHListView.SavedState[i];
     }

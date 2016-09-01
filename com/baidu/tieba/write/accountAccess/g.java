@@ -4,15 +4,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends WebViewClient {
-    final /* synthetic */ c fPL;
+    final /* synthetic */ c fZP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.fPL = cVar;
+        this.fZP = cVar;
     }
 
     @Override // android.webkit.WebViewClient
@@ -24,20 +24,20 @@ public class g extends WebViewClient {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        aVar = this.fPL.fPC;
+        aVar = this.fZP.fZH;
         if (aVar == null) {
             return false;
         }
-        z = this.fPL.cnV;
+        z = this.fZP.cze;
         if (!z) {
-            this.fPL.cnV = true;
-            this.fPL.lq(false);
-            this.fPL.bnd();
-            aVar3 = this.fPL.fPC;
-            aVar3.bmY();
+            this.fZP.cze = true;
+            this.fZP.lG(false);
+            this.fZP.brt();
+            aVar3 = this.fZP.fZH;
+            aVar3.brp();
         }
-        aVar2 = this.fPL.fPC;
-        return aVar2.rs(str);
+        aVar2 = this.fZP.fZH;
+        return aVar2.sc(str);
     }
 
     @Override // android.webkit.WebViewClient
@@ -45,11 +45,11 @@ public class g extends WebViewClient {
         a aVar;
         a aVar2;
         super.onPageFinished(webView, str);
-        this.fPL.cnV = true;
-        aVar = this.fPL.fPC;
+        this.fZP.cze = true;
+        aVar = this.fZP.fZH;
         if (aVar != null) {
-            aVar2 = this.fPL.fPC;
-            aVar2.bmY();
+            aVar2 = this.fZP.fZH;
+            aVar2.brp();
         }
     }
 
@@ -58,10 +58,10 @@ public class g extends WebViewClient {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
         super.onReceivedError(webView, i, str, str2);
-        this.fPL.lq(false);
-        baseActivity = this.fPL.ate;
-        baseActivity.showToast(u.j.neterror);
-        baseActivity2 = this.fPL.ate;
+        this.fZP.lG(false);
+        baseActivity = this.fZP.awl;
+        baseActivity.showToast(t.j.neterror);
+        baseActivity2 = this.fZP.awl;
         baseActivity2.finish();
     }
 }

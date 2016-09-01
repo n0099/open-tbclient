@@ -17,25 +17,25 @@ import com.baidu.tieba.im.settingcache.g;
 import com.baidu.tieba.im.settingcache.h;
 import com.baidu.tieba.im.settingcache.j;
 import com.baidu.tieba.im.settingcache.l;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b cYb;
+    private static volatile b djK;
     private List<ImMessageCenterPojo> mList = new LinkedList();
-    private final CustomMessageListener cKz = new c(this, 0);
+    private final CustomMessageListener cWe = new c(this, 0);
 
-    public static b ard() {
-        if (cYb == null) {
+    public static b avR() {
+        if (djK == null) {
             synchronized (b.class) {
-                if (cYb == null) {
-                    cYb = new b();
+                if (djK == null) {
+                    djK = new b();
                 }
             }
         }
-        return cYb;
+        return djK;
     }
 
     private b() {
@@ -43,11 +43,11 @@ public class b {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.cKz);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.cKz);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.cKz);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.cKz);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.cKz);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.cWe);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.cWe);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.cWe);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.cWe);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.cWe);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -68,19 +68,19 @@ public class b {
             } else if (memoryChangedMessage.getType() == 2) {
                 d(data, this.mList);
             }
-            cY(n);
+            dv(n);
         }
     }
 
     private boolean n(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1) {
-            return j.arw().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            return j.awk().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         }
         if (imMessageCenterPojo.getCustomGroupType() == 1) {
-            return com.baidu.tieba.im.settingcache.c.art().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            return com.baidu.tieba.im.settingcache.c.awh().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         }
         if (imMessageCenterPojo.getCustomGroupType() == 4) {
-            return h.arv().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            return h.awj().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         }
         return imMessageCenterPojo.getCustomGroupType() == -3 || imMessageCenterPojo.getCustomGroupType() == -4 || imMessageCenterPojo.getCustomGroupType() == -5 || imMessageCenterPojo.getCustomGroupType() == -10;
     }
@@ -97,56 +97,56 @@ public class b {
                         this.mList.add(imMessageCenterPojo);
                     }
                 }
-                cY(false);
+                dv(false);
             }
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [242=7] */
     /* JADX INFO: Access modifiers changed from: private */
-    public void cY(boolean z) {
+    public void dv(boolean z) {
         com.baidu.tbadk.coreExtra.d.e eVar = new com.baidu.tbadk.coreExtra.d.e();
-        eVar.be(z);
+        eVar.bg(z);
         d(eVar);
-        eVar.yt();
-        eVar.yu();
-        eVar.dx(com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yN());
-        eVar.dz(com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yB());
-        eVar.dC(com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yz());
-        eVar.dB(com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yy());
-        eVar.dA(com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yw());
-        eVar.dF(com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yR());
-        j(eVar.yX(), com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yX());
-        eVar.dJ(com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yV());
-        k(eVar.yY(), com.baidu.tbadk.coreExtra.messageCenter.a.xn().xI().yY());
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.xK().xZ()) {
-            eVar.dt(0);
-        }
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.xK().xS()) {
-            eVar.dD(0);
-        }
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.xK().yf()) {
-            eVar.dw(0);
-            eVar.dG(0);
-            eVar.dK(0);
-        }
-        if (!TbadkCoreApplication.m10getInst().isPromotedMessageOn()) {
-            eVar.dK(0);
-        }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.xK().xN() <= 0) {
-            eVar.dt(0);
-            eVar.dD(0);
-            eVar.dG(0);
-            eVar.dw(0);
-            eVar.dK(0);
+        eVar.zG();
+        eVar.zH();
+        eVar.dL(com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().Aa());
+        eVar.dN(com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().zO());
+        eVar.dQ(com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().zM());
+        eVar.dP(com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().zL());
+        eVar.dO(com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().zJ());
+        eVar.dT(com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().Ae());
+        j(eVar.Ak(), com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().Ak());
+        eVar.dX(com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().Ai());
+        k(eVar.Al(), com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().Al());
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zm()) {
             eVar.dH(0);
-            eVar.dI(0);
-            eVar.be(false);
         }
-        if ((((((((eVar.yN() + eVar.yv()) + eVar.yw()) + eVar.yy()) + eVar.yT()) + eVar.yz()) + eVar.yR()) + eVar.yV()) - eVar.yC() <= 0) {
-            eVar.be(false);
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zf()) {
+            eVar.dR(0);
         }
-        com.baidu.tbadk.coreExtra.messageCenter.a.xn().b(eVar);
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zs()) {
+            eVar.dK(0);
+            eVar.dU(0);
+            eVar.dY(0);
+        }
+        if (!TbadkCoreApplication.m9getInst().isPromotedMessageOn()) {
+            eVar.dY(0);
+        }
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.yX().za() <= 0) {
+            eVar.dH(0);
+            eVar.dR(0);
+            eVar.dU(0);
+            eVar.dK(0);
+            eVar.dY(0);
+            eVar.dV(0);
+            eVar.dW(0);
+            eVar.bg(false);
+        }
+        if ((((((((eVar.Aa() + eVar.zI()) + eVar.zJ()) + eVar.zL()) + eVar.Ag()) + eVar.zM()) + eVar.Ae()) + eVar.Ai()) - eVar.zP() <= 0) {
+            eVar.bg(false);
+        }
+        com.baidu.tbadk.coreExtra.messageCenter.a.yA().b(eVar);
     }
 
     private void j(List<e.b> list, List<e.b> list2) {
@@ -154,8 +154,8 @@ public class b {
             for (e.b bVar : list) {
                 if (bVar != null) {
                     for (e.b bVar2 : list2) {
-                        if (bVar2 != null && bVar.ajC == bVar2.ajC) {
-                            bVar.ajD = bVar2.unReadCount;
+                        if (bVar2 != null && bVar.amH == bVar2.amH) {
+                            bVar.amI = bVar2.unReadCount;
                         }
                     }
                 }
@@ -168,8 +168,8 @@ public class b {
             for (e.a aVar : list) {
                 if (aVar != null) {
                     for (e.a aVar2 : list2) {
-                        if (aVar2 != null && aVar.ajC == aVar2.ajC) {
-                            aVar.ajD = aVar2.unReadCount;
+                        if (aVar2 != null && aVar.amH == aVar2.amH) {
+                            aVar.amI = aVar2.unReadCount;
                         }
                     }
                 }
@@ -198,106 +198,106 @@ public class b {
     private void a(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
         if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -10 && !StringUtils.isNull(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0) {
             e.a aVar = new e.a();
-            aVar.ajC = com.baidu.adp.lib.h.b.g(imMessageCenterPojo.getGid(), 0);
+            aVar.amH = com.baidu.adp.lib.h.b.g(imMessageCenterPojo.getGid(), 0);
             aVar.groupName = imMessageCenterPojo.getGroup_name();
-            String string = TbadkCoreApplication.m10getInst().getResources().getString(u.j.live_chat_room_more_livenotify);
-            String string2 = TbadkCoreApplication.m10getInst().getResources().getString(u.j.living_vip_msg_start, imMessageCenterPojo.getGroup_name());
+            String string = TbadkCoreApplication.m9getInst().getResources().getString(t.j.live_chat_room_more_livenotify);
+            String string2 = TbadkCoreApplication.m9getInst().getResources().getString(t.j.living_vip_msg_start, imMessageCenterPojo.getGroup_name());
             aVar.title = string;
             aVar.content = string2;
             aVar.unReadCount = imMessageCenterPojo.getUnread_count();
-            eVar.yY().add(aVar);
-            eVar.dI(eVar.yV() + imMessageCenterPojo.getUnread_count());
+            eVar.Al().add(aVar);
+            eVar.dW(eVar.Ai() + imMessageCenterPojo.getUnread_count());
         }
     }
 
     private void b(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
         if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 1) {
-            HashMap<String, String> yJ = eVar.yJ();
-            if (!com.baidu.tieba.im.settingcache.c.art().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
-                eVar.dy(eVar.yC() + imMessageCenterPojo.getUnread_count());
+            HashMap<String, String> zW = eVar.zW();
+            if (!com.baidu.tieba.im.settingcache.c.awh().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+                eVar.dM(eVar.zP() + imMessageCenterPojo.getUnread_count());
             } else if (imMessageCenterPojo.getUnread_count() > 0) {
                 if (TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name())) {
-                    eVar.et(imMessageCenterPojo.getLast_content());
+                    eVar.ew(imMessageCenterPojo.getLast_content());
                 } else {
-                    eVar.et(String.valueOf(imMessageCenterPojo.getLast_user_name()) + ":" + imMessageCenterPojo.getLast_content());
+                    eVar.ew(String.valueOf(imMessageCenterPojo.getLast_user_name()) + ":" + imMessageCenterPojo.getLast_content());
                 }
-                yJ.put(imMessageCenterPojo.getGid(), imMessageCenterPojo.getGroup_name());
+                zW.put(imMessageCenterPojo.getGid(), imMessageCenterPojo.getGroup_name());
             }
-            eVar.dt(eVar.yv() + imMessageCenterPojo.getUnread_count());
+            eVar.dH(eVar.zI() + imMessageCenterPojo.getUnread_count());
         }
     }
 
     private void c(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
         int userType;
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && h.arv().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) && !StringUtils.isNull(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0 && (userType = imMessageCenterPojo.getUserType()) != 3) {
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && h.awj().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) && !StringUtils.isNull(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0 && (userType = imMessageCenterPojo.getUserType()) != 3) {
             e.b bVar = new e.b();
-            bVar.ajC = com.baidu.adp.lib.h.b.g(imMessageCenterPojo.getGid(), 0);
-            bVar.ajF = imMessageCenterPojo.getGroup_name();
+            bVar.amH = com.baidu.adp.lib.h.b.g(imMessageCenterPojo.getGid(), 0);
+            bVar.amK = imMessageCenterPojo.getGroup_name();
             if (userType == 4) {
                 bVar.title = imMessageCenterPojo.getGroup_name();
                 bVar.content = imMessageCenterPojo.getLast_content();
-                bVar.ajE = String.valueOf(imMessageCenterPojo.getGroup_name()) + ":" + imMessageCenterPojo.getLast_content();
+                bVar.amJ = String.valueOf(imMessageCenterPojo.getGroup_name()) + ":" + imMessageCenterPojo.getLast_content();
             } else {
-                bVar.content = String.valueOf(TbadkCoreApplication.m10getInst().getContext().getString(u.j.official_msg_list_name, imMessageCenterPojo.getGroup_name())) + " : " + imMessageCenterPojo.getLast_content();
-                bVar.ajE = bVar.content;
+                bVar.content = String.valueOf(TbadkCoreApplication.m9getInst().getContext().getString(t.j.official_msg_list_name, imMessageCenterPojo.getGroup_name())) + " : " + imMessageCenterPojo.getLast_content();
+                bVar.amJ = bVar.content;
             }
             bVar.userType = userType;
             bVar.unReadCount = imMessageCenterPojo.getUnread_count();
-            eVar.yX().add(bVar);
+            eVar.Ak().add(bVar);
             if (userType == 4) {
-                eVar.dK(eVar.yZ() + imMessageCenterPojo.getUnread_count());
+                eVar.dY(eVar.Am() + imMessageCenterPojo.getUnread_count());
             }
-            eVar.dw(eVar.yz() + imMessageCenterPojo.getUnread_count());
+            eVar.dK(eVar.zM() + imMessageCenterPojo.getUnread_count());
         }
     }
 
     private void d(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && j.arw().bh(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && j.awk().bi(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
             if (imMessageCenterPojo.getUnread_count() > 0) {
-                eVar.ez(imMessageCenterPojo.getLast_content());
+                eVar.eC(imMessageCenterPojo.getLast_content());
                 String group_name = imMessageCenterPojo.getGroup_name();
-                HashMap<String, String> yP = eVar.yP();
-                if (yP != null) {
-                    yP.put(imMessageCenterPojo.getGid(), group_name);
+                HashMap<String, String> Ac = eVar.Ac();
+                if (Ac != null) {
+                    Ac.put(imMessageCenterPojo.getGid(), group_name);
                 }
             }
-            eVar.dD(eVar.yN() + imMessageCenterPojo.getUnread_count());
+            eVar.dR(eVar.Aa() + imMessageCenterPojo.getUnread_count());
         }
     }
 
     private void e(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && l.arx().isAcceptNotify()) {
-            eVar.dH(imMessageCenterPojo.getUnread_count());
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && l.awl().isAcceptNotify()) {
+            eVar.dV(imMessageCenterPojo.getUnread_count());
         }
     }
 
     private void f(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && g.aru().isAcceptNotify()) {
-            eVar.dG(imMessageCenterPojo.getUnread_count());
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && g.awi().isAcceptNotify()) {
+            eVar.dU(imMessageCenterPojo.getUnread_count());
         }
     }
 
     private void g(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
         if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -4) {
-            eVar.dv(imMessageCenterPojo.getUnread_count());
-            eVar.ey(imMessageCenterPojo.getLast_content());
-            eVar.ev(imMessageCenterPojo.getGroup_name());
+            eVar.dJ(imMessageCenterPojo.getUnread_count());
+            eVar.eB(imMessageCenterPojo.getLast_content());
+            eVar.ey(imMessageCenterPojo.getGroup_name());
         }
     }
 
     private void h(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
         if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -3) {
-            eVar.ew(imMessageCenterPojo.getGroup_name());
-            eVar.ex(imMessageCenterPojo.getLast_content());
-            eVar.du(imMessageCenterPojo.getUnread_count());
+            eVar.ez(imMessageCenterPojo.getGroup_name());
+            eVar.eA(imMessageCenterPojo.getLast_content());
+            eVar.dI(imMessageCenterPojo.getUnread_count());
         }
     }
 
     private void i(ImMessageCenterPojo imMessageCenterPojo, com.baidu.tbadk.coreExtra.d.e eVar) {
         if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -5) {
-            eVar.dE(imMessageCenterPojo.getUnread_count());
-            eVar.eB(imMessageCenterPojo.getGroup_name());
-            eVar.eC(imMessageCenterPojo.getLast_content());
+            eVar.dS(imMessageCenterPojo.getUnread_count());
+            eVar.eE(imMessageCenterPojo.getGroup_name());
+            eVar.eF(imMessageCenterPojo.getLast_content());
         }
     }
 

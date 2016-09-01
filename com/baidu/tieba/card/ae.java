@@ -1,19 +1,18 @@
 package com.baidu.tieba.card;
 
-import android.media.MediaPlayer;
+import com.baidu.tbadk.core.view.TextureVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements MediaPlayer.OnErrorListener {
-    final /* synthetic */ z aUu;
+public class ae implements TextureVideoView.b {
+    final /* synthetic */ t aZF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(z zVar) {
-        this.aUu = zVar;
+    public ae(t tVar) {
+        this.aZF = tVar;
     }
 
-    @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        this.aUu.e(true, 4);
-        return true;
+    @Override // com.baidu.tbadk.core.view.TextureVideoView.b
+    public void onSurfaceDestroyed() {
+        this.aZF.stopPlay();
     }
 }

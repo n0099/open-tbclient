@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tbadk.editortools.view.CommonTabContentView;
 /* loaded from: classes.dex */
 class w implements CommonTabContentView.c {
-    final /* synthetic */ u arH;
+    final /* synthetic */ u auO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(u uVar) {
-        this.arH = uVar;
+        this.auO = uVar;
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
@@ -16,10 +16,10 @@ class w implements CommonTabContentView.c {
         l lVar;
         l lVar2;
         if (view instanceof e) {
-            lVar = this.arH.Cw;
+            lVar = this.auO.EJ;
             if (lVar != null) {
-                lVar2 = this.arH.Cw;
-                lVar2.H(view);
+                lVar2 = this.auO.EJ;
+                lVar2.I(view);
             }
         }
     }

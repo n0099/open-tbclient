@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,9 +16,9 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
     private Context mContext;
-    private boolean eUK = false;
-    private boolean eUL = false;
-    private List<p> eUJ = new ArrayList();
+    private boolean fcW = false;
+    private boolean fcX = false;
+    private List<p> fcV = new ArrayList();
 
     public n(Context context) {
         this.mContext = context;
@@ -26,15 +26,15 @@ public class n extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eUJ != null) {
-            return this.eUJ.size();
+        if (this.fcV != null) {
+            return this.fcV.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eUJ.get(i);
+        return this.fcV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -44,13 +44,13 @@ public class n extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        p pVar = this.eUJ.get(i);
-        if (this.eUK) {
-            if (this.eUL && pVar.customGroupType == 4) {
+        p pVar = this.fcV.get(i);
+        if (this.fcW) {
+            if (this.fcX && pVar.customGroupType == 4) {
                 return b(pVar, view, viewGroup, false);
             }
             return a(pVar, view, viewGroup, true);
-        } else if (this.eUL) {
+        } else if (this.fcX) {
             return b(pVar, view, viewGroup, getCount() == 1);
         } else if (i == 0) {
             return a(pVar, view, viewGroup);
@@ -65,18 +65,18 @@ public class n extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         if (aVar == null) {
-            view = LayoutInflater.from(this.mContext).inflate(u.h.screenlock_show_item_view_1, viewGroup, false);
-            aVar = bm(view);
+            view = LayoutInflater.from(this.mContext).inflate(t.h.screenlock_show_item_view_1, viewGroup, false);
+            aVar = bl(view);
             view.setTag(aVar);
         }
-        aVar.eUM.setText(pVar.content);
-        aVar.eUj.setText(pVar.groupName);
-        aVar.eUN.setText(qh(pVar.eUX));
-        aVar.eUk.setText(cy(pVar.lastTime));
+        aVar.fcY.setText(pVar.content);
+        aVar.fcv.setText(pVar.groupName);
+        aVar.fcZ.setText(qJ(pVar.fdj));
+        aVar.fcw.setText(cR(pVar.lastTime));
         if (z) {
-            aVar.ajP.setVisibility(0);
+            aVar.amU.setVisibility(0);
         } else {
-            aVar.ajP.setVisibility(8);
+            aVar.amU.setVisibility(8);
         }
         return view;
     }
@@ -87,11 +87,11 @@ public class n extends BaseAdapter {
             bVar = (b) view.getTag();
         }
         if (bVar == null) {
-            view = LayoutInflater.from(this.mContext).inflate(u.h.screenlock_show_item_view_2, viewGroup, false);
-            bVar = bn(view);
+            view = LayoutInflater.from(this.mContext).inflate(t.h.screenlock_show_item_view_2, viewGroup, false);
+            bVar = bm(view);
             view.setTag(bVar);
         }
-        bVar.eUM.setText(pVar.content);
+        bVar.fcY.setText(pVar.content);
         return view;
     }
 
@@ -101,11 +101,11 @@ public class n extends BaseAdapter {
             cVar = (c) view.getTag();
         }
         if (cVar == null) {
-            view = LayoutInflater.from(this.mContext).inflate(u.h.screenlock_show_item_view_3, viewGroup, false);
-            cVar = bo(view);
+            view = LayoutInflater.from(this.mContext).inflate(t.h.screenlock_show_item_view_3, viewGroup, false);
+            cVar = bn(view);
             view.setTag(cVar);
         }
-        cVar.eUP.setText(pVar.content);
+        cVar.fdb.setText(pVar.content);
         return view;
     }
 
@@ -115,47 +115,47 @@ public class n extends BaseAdapter {
             dVar = (d) view.getTag();
         }
         if (dVar == null) {
-            view = LayoutInflater.from(this.mContext).inflate(u.h.screenlock_show_item_view_4, viewGroup, false);
-            dVar = bp(view);
+            view = LayoutInflater.from(this.mContext).inflate(t.h.screenlock_show_item_view_4, viewGroup, false);
+            dVar = bo(view);
             view.setTag(dVar);
         }
-        dVar.eUQ.setText(pVar.groupName);
-        dVar.eUk.setText(cy(pVar.lastTime));
-        dVar.eUR.setText(pVar.title);
-        dVar.eUP.setText(pVar.content);
-        dVar.eUS.setDefaultResource(u.f.icon_default_bear);
-        dVar.eUS.c(pVar.pic, 10, false);
+        dVar.fdc.setText(pVar.groupName);
+        dVar.fcw.setText(cR(pVar.lastTime));
+        dVar.fdd.setText(pVar.title);
+        dVar.fdb.setText(pVar.content);
+        dVar.fde.setDefaultResource(t.f.icon_default_bear);
+        dVar.fde.c(pVar.pic, 10, false);
         if (z) {
-            dVar.eUT.setVisibility(0);
-            dVar.ajP.setVisibility(8);
+            dVar.fdf.setVisibility(0);
+            dVar.amU.setVisibility(8);
         } else {
-            dVar.eUT.setVisibility(8);
-            dVar.ajP.setVisibility(0);
+            dVar.fdf.setVisibility(8);
+            dVar.amU.setVisibility(0);
         }
         return view;
     }
 
-    public String cy(long j) {
+    public String cR(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String qh(int i) {
+    public String qJ(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 
     public void setData(List<p> list) {
-        this.eUJ = list;
+        this.fcV = list;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        View ajP;
-        TextView eUM;
-        TextView eUN;
-        TextView eUj;
-        TextView eUk;
+        View amU;
+        TextView fcY;
+        TextView fcZ;
+        TextView fcv;
+        TextView fcw;
 
         private a() {
         }
@@ -168,7 +168,7 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        TextView eUM;
+        TextView fcY;
 
         private b() {
         }
@@ -181,7 +181,7 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c {
-        TextView eUP;
+        TextView fdb;
 
         private c() {
         }
@@ -194,13 +194,13 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class d {
-        View ajP;
-        TextView eUP;
-        TextView eUQ;
-        TextView eUR;
-        TbImageView eUS;
-        TextView eUT;
-        TextView eUk;
+        View amU;
+        TextView fcw;
+        TextView fdb;
+        TextView fdc;
+        TextView fdd;
+        TbImageView fde;
+        TextView fdf;
 
         private d() {
         }
@@ -210,46 +210,46 @@ public class n extends BaseAdapter {
         }
     }
 
-    private a bm(View view) {
+    private a bl(View view) {
         a aVar = new a(this, null);
-        aVar.eUj = (TextView) view.findViewById(u.g.friend_name_show1);
-        aVar.eUk = (TextView) view.findViewById(u.g.last_msg_time_show1);
-        aVar.eUM = (TextView) view.findViewById(u.g.one_msg_content_show1);
-        aVar.eUN = (TextView) view.findViewById(u.g.unread_msg_count_show1);
-        aVar.ajP = view.findViewById(u.g.line);
+        aVar.fcv = (TextView) view.findViewById(t.g.friend_name_show1);
+        aVar.fcw = (TextView) view.findViewById(t.g.last_msg_time_show1);
+        aVar.fcY = (TextView) view.findViewById(t.g.one_msg_content_show1);
+        aVar.fcZ = (TextView) view.findViewById(t.g.unread_msg_count_show1);
+        aVar.amU = view.findViewById(t.g.line);
         return aVar;
     }
 
-    private b bn(View view) {
+    private b bm(View view) {
         b bVar = new b(this, null);
-        bVar.eUM = (TextView) view.findViewById(u.g.msg_content_2);
+        bVar.fcY = (TextView) view.findViewById(t.g.msg_content_2);
         return bVar;
     }
 
-    private c bo(View view) {
+    private c bn(View view) {
         c cVar = new c(this, null);
-        cVar.eUP = (TextView) view.findViewById(u.g.one_msg_content);
+        cVar.fdb = (TextView) view.findViewById(t.g.one_msg_content);
         return cVar;
     }
 
-    private d bp(View view) {
+    private d bo(View view) {
         d dVar = new d(this, null);
-        dVar.eUQ = (TextView) view.findViewById(u.g.push_msg_name);
-        dVar.eUR = (TextView) view.findViewById(u.g.push_msg_title);
-        dVar.eUk = (TextView) view.findViewById(u.g.push_msg_time);
-        dVar.eUP = (TextView) view.findViewById(u.g.push_msg_content);
-        dVar.eUT = (TextView) view.findViewById(u.g.push_msg_go);
-        dVar.eUS = (TbImageView) view.findViewById(u.g.push_msg_pic);
-        dVar.eUS.setAutoChangeStyle(false);
-        dVar.ajP = view.findViewById(u.g.line);
+        dVar.fdc = (TextView) view.findViewById(t.g.push_msg_name);
+        dVar.fdd = (TextView) view.findViewById(t.g.push_msg_title);
+        dVar.fcw = (TextView) view.findViewById(t.g.push_msg_time);
+        dVar.fdb = (TextView) view.findViewById(t.g.push_msg_content);
+        dVar.fdf = (TextView) view.findViewById(t.g.push_msg_go);
+        dVar.fde = (TbImageView) view.findViewById(t.g.push_msg_pic);
+        dVar.fde.setAutoChangeStyle(false);
+        dVar.amU = view.findViewById(t.g.line);
         return dVar;
     }
 
-    public void jR(boolean z) {
-        this.eUK = z;
+    public void kd(boolean z) {
+        this.fcW = z;
     }
 
-    public void jS(boolean z) {
-        this.eUL = z;
+    public void ke(boolean z) {
+        this.fcX = z;
     }
 }

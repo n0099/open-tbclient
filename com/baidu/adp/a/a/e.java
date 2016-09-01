@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int eu;
-    private a ev;
+    private int gG;
+    private a gH;
 
-    public a ak() throws IOException {
+    public a bf() throws IOException {
         a aVar = new a();
-        aVar.ex = x(String.valueOf("/proc/uid_stat/") + this.eu + "/tcp_rcv");
-        aVar.ey = x(String.valueOf("/proc/uid_stat/") + this.eu + "/tcp_snd");
-        aVar.ew = d.a(aVar.ex + aVar.ey);
+        aVar.gJ = y(String.valueOf("/proc/uid_stat/") + this.gG + "/tcp_rcv");
+        aVar.gK = y(String.valueOf("/proc/uid_stat/") + this.gG + "/tcp_snd");
+        aVar.gI = d.a(aVar.gJ + aVar.gK);
         return aVar;
     }
 
-    public a al() throws IOException {
-        a ak = ak();
-        this.ev.ex = d.a(ak.ex - d.aj().ex);
-        this.ev.ey = d.a(ak.ey - d.aj().ey);
-        this.ev.ew = d.a(ak.ew - d.aj().ew);
-        return this.ev;
+    public a bg() throws IOException {
+        a bf = bf();
+        this.gH.gJ = d.a(bf.gJ - d.be().gJ);
+        this.gH.gK = d.a(bf.gK - d.be().gK);
+        this.gH.gI = d.a(bf.gI - d.be().gI);
+        return this.gH;
     }
 
-    public double x(String str) {
+    public double y(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(al());
+                d.a(bg());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!ah()) {
+            if (!bc()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double ew = 0.0d;
-        double ex = 0.0d;
-        double ey = 0.0d;
+        double gI = 0.0d;
+        double gJ = 0.0d;
+        double gK = 0.0d;
 
         public a() {
         }

@@ -1,11 +1,37 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface dl {
-    void Vk();
+public class dl implements Animation.AnimationListener {
+    final /* synthetic */ dj bTE;
 
-    void a(int i, int i2, ds dsVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dl(dj djVar) {
+        this.bTE = djVar;
+    }
 
-    void a(dm dmVar);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
 
-    void init();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        View view2;
+        View view3;
+        view = this.bTE.bTA;
+        if (view != null) {
+            view2 = this.bTE.bTA;
+            view2.clearAnimation();
+            view3 = this.bTE.bTA;
+            view3.setVisibility(8);
+            this.bTE.dq(true);
+        }
+    }
 }

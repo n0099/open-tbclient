@@ -14,11 +14,13 @@ public class af implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        z = this.this$0.aIz;
-        if (z) {
-            this.this$0.HT();
-        }
-        this.this$0.aJf.dismiss();
-        this.this$0.finish();
+        boolean z2;
+        boolean z3;
+        this.this$0.aMw.Jj();
+        UpdateDialog updateDialog = this.this$0;
+        z = this.this$0.aMr;
+        z2 = this.this$0.aMs;
+        z3 = this.this$0.aMt;
+        updateDialog.c(z, z2, z3);
     }
 }

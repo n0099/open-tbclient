@@ -15,11 +15,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class bi {
-    private static bi Zg = new bj();
+    private static bi abV = new bj();
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final List<a> Zh;
-    private final ConcurrentHashMap<String, b> Zi;
-    private c Zj;
+    private final List<a> abW;
+    private final ConcurrentHashMap<String, b> abX;
+    private c abY;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -41,9 +41,9 @@ public class bi {
     }
 
     private bi() {
-        this.Zh = new LinkedList();
-        this.Zi = new ConcurrentHashMap<>();
-        this.Zj = null;
+        this.abW = new LinkedList();
+        this.abX = new ConcurrentHashMap<>();
+        this.abY = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -67,27 +67,27 @@ public class bi {
         return spannableString;
     }
 
-    public static bi us() {
-        return Zg;
+    public static bi vx() {
+        return abV;
     }
 
     public void a(a aVar) {
-        if (com.baidu.adp.lib.util.k.fG()) {
+        if (com.baidu.adp.lib.util.k.gC()) {
             b(aVar);
         } else {
-            com.baidu.adp.lib.h.h.dL().post(new bk(this, aVar));
+            com.baidu.adp.lib.h.h.eG().post(new bk(this, aVar));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
-        if (!this.Zh.contains(aVar)) {
-            this.Zh.add(aVar);
+        if (!this.abW.contains(aVar)) {
+            this.abW.add(aVar);
         }
     }
 
     public void a(c cVar) {
-        this.Zj = cVar;
+        this.abY = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -99,7 +99,7 @@ public class bi {
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
-        for (a aVar : this.Zh) {
+        for (a aVar : this.abW) {
             if (aVar != null && (a2 = aVar.a(tbPageContext, strArr)) != 3) {
                 return a2;
             }
@@ -114,12 +114,12 @@ public class bi {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.Zi.get(dH(str2));
+        b bVar = this.abX.get(dJ(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, dG(dF(str2)));
+            bVar.a(tbPageContext, dI(dH(str2)));
             return true;
         }
-        Iterator<a> it = this.Zh.iterator();
+        Iterator<a> it = this.abW.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z3 = false;
@@ -131,8 +131,8 @@ public class bi {
                 break;
             }
         }
-        if (!z3 && this.Zj != null) {
-            if (str2.contains("nohead:url") || str2.contains("booktown")) {
+        if (!z3 && this.abY != null) {
+            if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
             }
@@ -142,7 +142,7 @@ public class bi {
         return z4;
     }
 
-    public static Map<String, String> dD(String str) {
+    public static Map<String, String> dF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -160,7 +160,7 @@ public class bi {
         return null;
     }
 
-    public static String dE(String str) {
+    public static String dG(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -168,7 +168,7 @@ public class bi {
         return split[1];
     }
 
-    private String dF(String str) {
+    private String dH(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -176,7 +176,7 @@ public class bi {
         return null;
     }
 
-    private Map<String, String> dG(String str) {
+    private Map<String, String> dI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -195,7 +195,7 @@ public class bi {
         return hashMap;
     }
 
-    private String dH(String str) {
+    private String dJ(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -215,20 +215,20 @@ public class bi {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.Zj.a(tbPageContext, str, str2, z, dVar, z2);
+            this.abY.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String dH = dH(str);
-            if (!StringUtils.isNull(dH)) {
-                this.Zi.put(dH, bVar);
+            String dJ = dJ(str);
+            if (!StringUtils.isNull(dJ)) {
+                this.abX.put(dJ, bVar);
             }
         }
     }
 
-    public boolean dI(String str) {
+    public boolean dK(String str) {
         return pattern.matcher(str).find();
     }
 }

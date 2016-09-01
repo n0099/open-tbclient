@@ -14,24 +14,24 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0072a c0072a = new C0072a(null);
-            c0072a.epo = str;
-            c0072a.epp = bVar;
-            c0072a.execute("");
+            C0071a c0071a = new C0071a(null);
+            c0071a.eBt = str;
+            c0071a.eBu = bVar;
+            c0071a.execute("");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0072a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String epo;
-        public b epp;
+    public static class C0071a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String eBt;
+        public b eBu;
 
-        private C0072a() {
+        private C0071a() {
         }
 
-        /* synthetic */ C0072a(C0072a c0072a) {
+        /* synthetic */ C0071a(C0071a c0071a) {
             this();
         }
 
@@ -40,7 +40,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.c("user_pics").s(m.cQ(this.epo), false);
+            return new com.baidu.tbadk.img.c("user_pics").t(m.cT(this.eBt), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,14 +49,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.epp != null) {
+            if (this.eBu != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.epp.a(i, str, imageUploadResult);
+                this.eBu.a(i, str, imageUploadResult);
             }
         }
     }

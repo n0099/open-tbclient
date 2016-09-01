@@ -5,7 +5,7 @@ import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class AdSdkSwitchStatic extends a {
     static {
-        e.cS().n(AdSdkSwitchStatic.class);
+        e.dN().n(AdSdkSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

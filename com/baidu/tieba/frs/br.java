@@ -1,23 +1,22 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements BannerView.a {
-    final /* synthetic */ bq bGW;
+public class br implements Runnable {
+    final /* synthetic */ bm bSc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bq bqVar) {
-        this.bGW = bqVar;
+    public br(bm bmVar) {
+        this.bSc = bmVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zp() {
-        this.bGW.Ww();
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zq() {
-        this.bGW.WG();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
+        com.baidu.adp.lib.guide.d dVar2;
+        dVar = this.bSc.Hs;
+        if (dVar != null) {
+            dVar2 = this.bSc.Hs;
+            dVar2.dismiss();
+        }
     }
 }

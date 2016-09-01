@@ -7,24 +7,24 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.c {
-    private TbPageContext<PbActivity> EA;
-    private TextView eld;
-    private View.OnClickListener ele = new e(this);
+    private TbPageContext<PbActivity> GM;
+    private TextView exi;
+    private View.OnClickListener exj = new e(this);
     private View mRootView;
 
     public d(TbPageContext<PbActivity> tbPageContext) {
-        this.EA = tbPageContext;
+        this.GM = tbPageContext;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View jp() {
-        this.mRootView = LayoutInflater.from(this.EA.getPageActivity()).inflate(u.h.login_see_more_layout, (ViewGroup) null);
-        this.eld = (TextView) this.mRootView.findViewById(u.g.login_button);
-        this.eld.setOnClickListener(this.ele);
-        cT(TbadkCoreApplication.m10getInst().getSkinType());
+    public View kk() {
+        this.mRootView = LayoutInflater.from(this.GM.getPageActivity()).inflate(t.h.login_see_more_layout, (ViewGroup) null);
+        this.exi = (TextView) this.mRootView.findViewById(t.g.login_button);
+        this.exi.setOnClickListener(this.exj);
+        dh(TbadkCoreApplication.m9getInst().getSkinType());
         return this.mRootView;
     }
 
@@ -32,7 +32,7 @@ public class d extends com.baidu.adp.widget.ListView.c {
     public void onClick() {
     }
 
-    public void cT(int i) {
-        com.baidu.tbadk.j.a.a(this.EA, this.mRootView);
+    public void dh(int i) {
+        com.baidu.tbadk.j.a.a(this.GM, this.mRootView);
     }
 }

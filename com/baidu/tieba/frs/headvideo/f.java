@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.view.TextureVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ e bQt;
+    final /* synthetic */ e cbB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bQt = eVar;
+        this.cbB = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,22 +21,22 @@ public class f implements View.OnClickListener {
         TextureVideoView textureVideoView2;
         TextureVideoView textureVideoView3;
         int id = view.getId();
-        imageView = this.bQt.aKE;
+        imageView = this.cbB.aPk;
         if (id == imageView.getId()) {
-            i = this.bQt.bQp;
+            i = this.cbB.cbx;
             if (i == 2) {
-                textureVideoView2 = this.bQt.aKC;
+                textureVideoView2 = this.cbB.aPh;
                 if (textureVideoView2.isPlaying()) {
-                    this.bQt.ZB();
+                    this.cbB.pausePlay();
                     return;
                 }
-                this.bQt.Iz();
-                textureVideoView3 = this.bQt.aKC;
+                this.cbB.Kz();
+                textureVideoView3 = this.cbB.aPh;
                 textureVideoView3.setPlayMode("2");
                 return;
             }
-            this.bQt.Iz();
-            textureVideoView = this.bQt.aKC;
+            this.cbB.Kz();
+            textureVideoView = this.cbB.aPh;
             textureVideoView.setPlayMode("2");
         }
     }

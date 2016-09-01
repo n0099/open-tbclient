@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a eiM;
+    final /* synthetic */ a euT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.eiM = aVar;
+        this.euT = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,13 +33,13 @@ public class b implements View.OnClickListener {
             str2 = ((HeadImageView) view).getUserName();
             str3 = userId;
         } else {
-            if (view.getTag(u.g.tag_user_id) instanceof String) {
-                str = (String) view.getTag(u.g.tag_user_id);
+            if (view.getTag(t.g.tag_user_id) instanceof String) {
+                str = (String) view.getTag(t.g.tag_user_id);
             } else {
                 str = view.getTag() instanceof String ? (String) view.getTag() : null;
             }
-            if (view.getTag(u.g.tag_user_name) instanceof String) {
-                str2 = (String) view.getTag(u.g.tag_user_name);
+            if (view.getTag(t.g.tag_user_name) instanceof String) {
+                str2 = (String) view.getTag(t.g.tag_user_name);
                 str3 = str;
             } else {
                 str2 = null;
@@ -47,13 +47,13 @@ public class b implements View.OnClickListener {
             }
         }
         if (str3 != null) {
-            pbActivity = this.eiM.eat;
-            if (pbActivity.aHO() != null) {
+            pbActivity = this.euT.emy;
+            if (pbActivity.aMG() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                pbActivity2 = this.eiM.eat;
+                pbActivity2 = this.euT.emy;
                 Activity pageActivity = pbActivity2.getPageContext().getPageActivity();
-                pbActivity3 = this.eiM.eat;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.aHO().aIW(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                pbActivity3 = this.euT.emy;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.aMG().aNN(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }

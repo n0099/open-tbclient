@@ -1,20 +1,20 @@
 package com.baidu.tieba.tbadkCore.location;
 /* loaded from: classes.dex */
 public class c {
-    private static c fmG;
+    private static c fuA;
     private a mLocationData;
-    private boolean mNoLongerShowAddress = com.baidu.tbadk.core.sharedPref.b.sN().getBoolean("no_longer_show_address", false);
+    private boolean mNoLongerShowAddress = com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("no_longer_show_address", false);
     private long mTimeStamp;
 
-    public static c bgi() {
-        if (fmG == null) {
+    public static c bjJ() {
+        if (fuA == null) {
             synchronized (c.class) {
-                if (fmG == null) {
-                    fmG = new c();
+                if (fuA == null) {
+                    fuA = new c();
                 }
             }
         }
-        return fmG;
+        return fuA;
     }
 
     public long getTimeStamp() {

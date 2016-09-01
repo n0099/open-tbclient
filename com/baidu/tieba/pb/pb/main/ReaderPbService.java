@@ -17,11 +17,11 @@ public class ReaderPbService extends BdBaseService {
     private String postId;
     private String threadId;
     private BdUniqueId mTagId = BdUniqueId.gen();
-    private CustomMessageListener mPassDataListener = new gg(this, CmdConfigCustom.CMD_TTS_TRANSFOR_PBDATA);
-    private CustomMessageListener menuOptionListener = new gh(this, CmdConfigCustom.CMD_TTS_MENU_OPTION);
-    private CustomMessageListener audioPowerChangeListener = new gi(this, CmdConfigCustom.CMD_TTS_CHANGE_PB_POWER);
-    private eh.a mRefreshCallback = new gj(this);
-    private dh.a mLoadDataCallback = new gk(this);
+    private CustomMessageListener mPassDataListener = new gh(this, CmdConfigCustom.CMD_TTS_TRANSFOR_PBDATA);
+    private CustomMessageListener menuOptionListener = new gi(this, CmdConfigCustom.CMD_TTS_MENU_OPTION);
+    private CustomMessageListener audioPowerChangeListener = new gj(this, CmdConfigCustom.CMD_TTS_CHANGE_PB_POWER);
+    private eh.a mRefreshCallback = new gk(this);
+    private dh.a mLoadDataCallback = new gl(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setReadModel(eg egVar) {
@@ -32,12 +32,12 @@ public class ReaderPbService extends BdBaseService {
                 this.mReaderModel.b(this.mLoadDataCallback);
             }
             this.mReaderModel.setPbData(egVar.pbData);
-            this.mReaderModel.hS(egVar.dYB);
-            this.mReaderModel.setHostMode(egVar.efj);
-            this.mReaderModel.hR(egVar.isSquence);
+            this.mReaderModel.in(egVar.ekF);
+            this.mReaderModel.setHostMode(egVar.ero);
+            this.mReaderModel.im(egVar.isSquence);
             this.mReaderModel.setThreadId(this.threadId);
             this.mReaderModel.setPostId(this.postId);
-            this.mReaderModel.hT(this.isAlive);
+            this.mReaderModel.io(this.isAlive);
         }
     }
 

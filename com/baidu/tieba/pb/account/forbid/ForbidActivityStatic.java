@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 /* loaded from: classes.dex */
 public class ForbidActivityStatic {
     static {
-        TbadkCoreApplication.m10getInst().RegisterIntent(ForbidActivityConfig.class, ForbidActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterIntent(ForbidActivityConfig.class, ForbidActivity.class);
     }
 }

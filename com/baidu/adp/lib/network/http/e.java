@@ -1,21 +1,21 @@
 package com.baidu.adp.lib.network.http;
 /* loaded from: classes.dex */
 public class e {
-    public long lJ = -1;
-    public long lK = -1;
-    public long lL = -1;
-    public long lM = -1;
-    public int lN = 0;
-    public long lO = -1;
-    public long lP = -1;
-    public String lQ = "";
-    public int lR = -1;
+    public long oc = -1;
+    public long od = -1;
+    public long oe = -1;
+    public long of = -1;
+    public int og = 0;
+    public long oh = -1;
+    public long oi = -1;
+    public String oj = "";
+    public int ol = -1;
     public int errorCode = 0;
-    public int lS = 0;
-    public String lT = null;
-    public String lU = null;
+    public int om = 0;
+    public String oo = null;
+    public String oq = null;
     public String url = null;
-    public String lV = null;
-    public String lW = null;
-    public int lX = 0;
+    public String or = null;
+    public String ot = null;
+    public int ou = 0;
 }

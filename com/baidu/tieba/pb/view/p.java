@@ -5,24 +5,24 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements a.b {
-    final /* synthetic */ PbInterviewStatusView elJ;
+    final /* synthetic */ PbInterviewStatusView exP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbInterviewStatusView pbInterviewStatusView) {
-        this.elJ = pbInterviewStatusView;
+        this.exP = pbInterviewStatusView;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         CountDownTimer countDownTimer;
         com.baidu.tbadk.core.dialog.a aVar2;
         CountDownTimer countDownTimer2;
-        countDownTimer = this.elJ.elF;
+        countDownTimer = this.exP.exL;
         if (countDownTimer != null) {
-            countDownTimer2 = this.elJ.elF;
+            countDownTimer2 = this.exP.exL;
             countDownTimer2.cancel();
         }
-        aVar2 = this.elJ.elC;
+        aVar2 = this.exP.exI;
         aVar2.dismiss();
     }
 }

@@ -1,62 +1,63 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-class ak implements TbRichTextView.d {
-    final /* synthetic */ PbActivity ebT;
+class ak implements BdListView.e {
+    final /* synthetic */ PbActivity eob;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PbActivity pbActivity) {
-        this.ebT = pbActivity;
+        this.eob = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.d
-    public void a(View view, String str, int i) {
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void kx() {
+        boolean z;
+        boolean z2;
         dh dhVar;
+        ex exVar;
         dh dhVar2;
         dh dhVar3;
+        ex exVar2;
         dh dhVar4;
-        try {
-            TiebaStatic.eventStat(this.ebT.getPageContext().getPageActivity(), "pic_pb", "");
-            PbActivity.b bVar = new PbActivity.b();
-            this.ebT.a(str, i, bVar);
-            if (!bVar.eck) {
-                dhVar3 = this.ebT.eas;
-                boolean aJh = dhVar3.aJh();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = bVar.eci;
-                dhVar4 = this.ebT.eas;
-                ImageViewerConfig createConfig = new ImageViewerConfig(this.ebT.getPageContext().getPageActivity()).createConfig(bVar.ech, 0, bVar.forumName, bVar.forumId, bVar.threadId, bVar.ecj, bVar.ech.get(0), aJh, concurrentHashMap, true, false, dhVar4.getHostMode());
-                createConfig.getIntent().putExtra("from", "pb");
-                this.ebT.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
+        dh dhVar5;
+        ex exVar3;
+        dh dhVar6;
+        ex exVar4;
+        z = this.eob.enO;
+        if (z && this.eob.aMY()) {
+            this.eob.aNa();
+        }
+        z2 = this.eob.mIsLogin;
+        if (z2) {
+            dhVar = this.eob.emx;
+            if (dhVar.ic(false)) {
+                exVar4 = this.eob.enh;
+                exVar4.aPq();
+                TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
             } else {
-                ImageViewerConfig imageViewerConfig = new ImageViewerConfig(this.ebT.getPageContext().getPageActivity());
-                ArrayList<String> arrayList = bVar.ech;
-                int i2 = bVar.index;
-                String str2 = bVar.forumName;
-                String str3 = bVar.forumId;
-                String str4 = bVar.threadId;
-                boolean z = bVar.ecj;
-                String str5 = bVar.lastId;
-                dhVar = this.ebT.eas;
-                boolean aJh2 = dhVar.aJh();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = bVar.eci;
-                dhVar2 = this.ebT.eas;
-                ImageViewerConfig createConfig2 = imageViewerConfig.createConfig(arrayList, i2, str2, str3, str4, z, str5, aJh2, concurrentHashMap2, true, false, dhVar2.getHostMode());
-                createConfig2.getIntent().putExtra("from", "pb");
-                this.ebT.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
+                exVar = this.eob.enh;
+                dhVar2 = this.eob.emx;
+                exVar.m(dhVar2.getPbData());
+                dhVar3 = this.eob.emx;
+                if (dhVar3 != null) {
+                    exVar2 = this.eob.enh;
+                    if (exVar2 != null) {
+                        dhVar4 = this.eob.emx;
+                        if (dhVar4.aOj() != null) {
+                            dhVar5 = this.eob.emx;
+                            if (dhVar5.aOj().aNw()) {
+                                exVar3 = this.eob.enh;
+                                exVar3.aNH();
+                                dhVar6 = this.eob.emx;
+                                dhVar6.aOj().aNy();
+                            }
+                        }
+                    }
+                }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            this.eob.enO = true;
         }
     }
 }

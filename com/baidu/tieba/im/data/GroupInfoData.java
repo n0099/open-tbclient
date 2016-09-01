@@ -164,7 +164,7 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements v, al,
         ArrayList<ak> arrayList = new ArrayList<>();
         ak akVar = new ak();
         akVar.imgUrl = this.portrait;
-        akVar.Yd = 10;
+        akVar.aaR = 10;
         arrayList.add(akVar);
         return arrayList;
     }

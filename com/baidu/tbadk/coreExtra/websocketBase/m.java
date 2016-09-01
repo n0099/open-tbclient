@@ -4,33 +4,33 @@ import com.baidu.tbadk.coreExtra.websocketBase.a;
 import java.util.List;
 /* loaded from: classes.dex */
 class m implements a.InterfaceC0039a {
-    final /* synthetic */ l aoS;
+    final /* synthetic */ l arZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.aoS = lVar;
+        this.arZ = lVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0039a
-    public void Ad() {
+    public void Bs() {
         i iVar;
         i iVar2;
         i iVar3;
         List list;
         i iVar4;
         i iVar5;
-        iVar = this.aoS.aoQ;
+        iVar = this.arZ.arX;
         iVar.currentIndex = 0;
-        iVar2 = this.aoS.aoQ;
-        iVar2.aoc = a.zX().Aa();
-        iVar3 = this.aoS.aoQ;
-        list = iVar3.aoc;
+        iVar2 = this.arZ.arX;
+        iVar2.arj = a.Bm().Bp();
+        iVar3 = this.arZ.arX;
+        list = iVar3.arj;
         if (list != null) {
-            iVar5 = this.aoS.aoQ;
-            iVar5.eW("change ip to reconnect with DNS' failed.");
+            iVar5 = this.arZ.arX;
+            iVar5.eZ("change ip to reconnect with DNS' failed.");
             return;
         }
-        iVar4 = this.aoS.aoQ;
-        iVar4.aoO = false;
+        iVar4 = this.arZ.arX;
+        iVar4.arV = false;
     }
 }

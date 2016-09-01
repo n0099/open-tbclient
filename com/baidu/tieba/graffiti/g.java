@@ -4,29 +4,29 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.util.Error;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.util.e<Error> {
-    final /* synthetic */ e clc;
+    final /* synthetic */ e cwn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.clc = eVar;
+        this.cwn = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.e
     /* renamed from: a */
     public void F(Error error) {
-        this.clc.ckZ = false;
+        this.cwn.cwk = false;
         if (error != null && error.getCode() == 0) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new j(null, 3)));
-            com.baidu.adp.lib.util.k.showToast(this.clc.getContext(), this.clc.getContext().getString(u.j.save_success));
+            com.baidu.adp.lib.util.k.showToast(this.cwn.getContext(), this.cwn.getContext().getString(t.j.save_success));
         } else if (error != null && error.getCode() == -1132) {
-            com.baidu.adp.lib.util.k.showToast(this.clc.getContext(), this.clc.getContext().getString(u.j.graffiti_save_full));
+            com.baidu.adp.lib.util.k.showToast(this.cwn.getContext(), this.cwn.getContext().getString(t.j.graffiti_save_full));
         } else {
-            com.baidu.adp.lib.util.k.showToast(this.clc.getContext(), this.clc.getContext().getString(u.j.save_error));
+            com.baidu.adp.lib.util.k.showToast(this.cwn.getContext(), this.cwn.getContext().getString(t.j.save_error));
         }
     }
 }

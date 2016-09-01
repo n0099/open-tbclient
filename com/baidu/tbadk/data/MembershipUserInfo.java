@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.VipShowInfo;
@@ -17,7 +18,7 @@ public class MembershipUserInfo extends com.baidu.adp.lib.a.b.a.a.i implements S
             this.mVipIcon = jSONObject.optString("vip_icon");
             this.mLink = jSONObject.optString("link");
             this.mContent = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-            this.mTitle = jSONObject.optString("title");
+            this.mTitle = jSONObject.optString(VrPlayerActivityConfig.TITLE);
         }
     }
 

@@ -5,171 +5,171 @@ import android.os.SystemClock;
 import com.baidu.tieba.imMessageCenter.im.floatwindow.a.c;
 /* loaded from: classes.dex */
 public class d implements b {
-    private c.a ddr;
-    private int dds;
-    private float ddt;
-    private float ddv;
-    private final long ddw;
+    private c.a doZ;
+    private int dpa;
+    private float dpb;
+    private float dpc;
+    private final long dpd;
     private float k;
     private long startTime;
-    private Point ddm = new Point();
-    private Point ddo = new Point();
-    private Point ddn = new Point();
+    private Point doU = new Point();
+    private Point doW = new Point();
+    private Point doV = new Point();
 
     public d(long j) {
-        this.ddw = j;
+        this.dpd = j;
     }
 
     public void a(c.a aVar) {
-        this.ddr = aVar;
+        this.doZ = aVar;
     }
 
     public void a(Point point, Point point2) {
-        this.ddm.x = point.x;
-        this.ddm.y = point.y;
-        this.ddo.x = point.x;
-        this.ddo.y = point.y;
-        this.ddn.x = point2.x;
-        this.ddn.y = point2.y;
+        this.doU.x = point.x;
+        this.doU.y = point.y;
+        this.doW.x = point.x;
+        this.doW.y = point.y;
+        this.doV.x = point2.x;
+        this.doV.y = point2.y;
         b(point, point2);
         this.startTime = SystemClock.elapsedRealtime();
     }
 
     private void b(Point point, Point point2) {
         if (point.x == point2.x) {
-            this.ddv = Math.abs(point2.y - point.y) / ((float) this.ddw);
+            this.dpc = Math.abs(point2.y - point.y) / ((float) this.dpd);
             if (point2.y > point.y) {
-                this.dds = 0;
+                this.dpa = 0;
             } else {
-                this.dds = 1;
+                this.dpa = 1;
             }
         } else if (point.y == point2.y) {
-            this.ddt = Math.abs(point2.x - point.x) / ((float) this.ddw);
+            this.dpb = Math.abs(point2.x - point.x) / ((float) this.dpd);
             if (point2.x > point.x) {
-                this.dds = 2;
+                this.dpa = 2;
             } else {
-                this.dds = 3;
+                this.dpa = 3;
             }
         } else {
             float f = point2.x - point.x;
             this.k = (point2.y - point.y) / f;
-            this.ddt = Math.abs(f) / ((float) this.ddw);
+            this.dpb = Math.abs(f) / ((float) this.dpd);
             if (f > 0.0f) {
-                this.dds = 5;
+                this.dpa = 5;
             } else {
-                this.dds = 4;
+                this.dpa = 4;
             }
         }
     }
 
-    private int lw(int i) {
-        return (int) (((this.k * i) + this.ddm.y) - (this.k * this.ddm.x));
+    private int lZ(int i) {
+        return (int) (((this.k * i) + this.doU.y) - (this.k * this.doU.x));
     }
 
-    private long asX() {
+    private long axL() {
         return SystemClock.elapsedRealtime() - this.startTime;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.ddo.equals(this.ddn)) {
-            switch (this.dds) {
+        if (!this.doW.equals(this.doV)) {
+            switch (this.dpa) {
                 case 0:
-                    asR();
+                    axF();
                     break;
                 case 1:
-                    asT();
+                    axH();
                     break;
                 case 2:
-                    asS();
+                    axG();
                     break;
                 case 3:
-                    asU();
+                    axI();
                     break;
                 case 4:
-                    asV();
+                    axJ();
                     break;
                 case 5:
-                    asW();
+                    axK();
                     break;
             }
             return false;
         }
-        if (this.ddr != null) {
-            this.ddr.asK();
+        if (this.doZ != null) {
+            this.doZ.axy();
         }
         return true;
     }
 
-    private void asR() {
-        this.ddo.y = (int) (this.ddm.y + (this.ddv * ((float) asX())));
-        if (this.ddo.y > this.ddn.y) {
-            this.ddo.y = this.ddn.y;
+    private void axF() {
+        this.doW.y = (int) (this.doU.y + (this.dpc * ((float) axL())));
+        if (this.doW.y > this.doV.y) {
+            this.doW.y = this.doV.y;
         }
-        if (this.ddr != null) {
-            this.ddr.a(this.ddo);
-        }
-    }
-
-    private void asS() {
-        this.ddo.x = (int) (this.ddm.x + (this.ddt * ((float) asX())));
-        if (this.ddo.x > this.ddn.x) {
-            this.ddo.x = this.ddn.x;
-        }
-        if (this.ddr != null) {
-            this.ddr.a(this.ddo);
+        if (this.doZ != null) {
+            this.doZ.a(this.doW);
         }
     }
 
-    private void asT() {
-        this.ddo.y = (int) (this.ddm.y - (this.ddv * ((float) asX())));
-        if (this.ddo.y < this.ddn.y) {
-            this.ddo.y = this.ddn.y;
+    private void axG() {
+        this.doW.x = (int) (this.doU.x + (this.dpb * ((float) axL())));
+        if (this.doW.x > this.doV.x) {
+            this.doW.x = this.doV.x;
         }
-        if (this.ddr != null) {
-            this.ddr.a(this.ddo);
-        }
-    }
-
-    private void asU() {
-        this.ddo.x = (int) (this.ddm.x - (this.ddt * ((float) asX())));
-        if (this.ddo.x < this.ddn.x) {
-            this.ddo.x = this.ddn.x;
-        }
-        if (this.ddr != null) {
-            this.ddr.a(this.ddo);
+        if (this.doZ != null) {
+            this.doZ.a(this.doW);
         }
     }
 
-    private void asV() {
+    private void axH() {
+        this.doW.y = (int) (this.doU.y - (this.dpc * ((float) axL())));
+        if (this.doW.y < this.doV.y) {
+            this.doW.y = this.doV.y;
+        }
+        if (this.doZ != null) {
+            this.doZ.a(this.doW);
+        }
+    }
+
+    private void axI() {
+        this.doW.x = (int) (this.doU.x - (this.dpb * ((float) axL())));
+        if (this.doW.x < this.doV.x) {
+            this.doW.x = this.doV.x;
+        }
+        if (this.doZ != null) {
+            this.doZ.a(this.doW);
+        }
+    }
+
+    private void axJ() {
         boolean z = true;
-        this.ddo.x = (int) (this.ddm.x - (this.ddt * ((float) asX())));
-        this.ddo.y = lw(this.ddo.x);
-        if (this.ddm.y <= this.ddn.y ? this.ddo.y <= this.ddn.y : this.ddo.y >= this.ddn.y) {
+        this.doW.x = (int) (this.doU.x - (this.dpb * ((float) axL())));
+        this.doW.y = lZ(this.doW.x);
+        if (this.doU.y <= this.doV.y ? this.doW.y <= this.doV.y : this.doW.y >= this.doV.y) {
             z = false;
         }
-        if (this.ddo.x < this.ddn.x || z) {
-            this.ddo.x = this.ddn.x;
-            this.ddo.y = this.ddn.y;
+        if (this.doW.x < this.doV.x || z) {
+            this.doW.x = this.doV.x;
+            this.doW.y = this.doV.y;
         }
-        if (this.ddr != null) {
-            this.ddr.a(this.ddo);
+        if (this.doZ != null) {
+            this.doZ.a(this.doW);
         }
     }
 
-    private void asW() {
+    private void axK() {
         boolean z = true;
-        this.ddo.x = (int) (this.ddm.x + (this.ddt * ((float) asX())));
-        this.ddo.y = lw(this.ddo.x);
-        if (this.ddm.y <= this.ddn.y ? this.ddo.y <= this.ddn.y : this.ddo.y >= this.ddn.y) {
+        this.doW.x = (int) (this.doU.x + (this.dpb * ((float) axL())));
+        this.doW.y = lZ(this.doW.x);
+        if (this.doU.y <= this.doV.y ? this.doW.y <= this.doV.y : this.doW.y >= this.doV.y) {
             z = false;
         }
-        if (this.ddo.x > this.ddn.x || z) {
-            this.ddo.x = this.ddn.x;
-            this.ddo.y = this.ddn.y;
+        if (this.doW.x > this.doV.x || z) {
+            this.doW.x = this.doV.x;
+            this.doW.y = this.doV.y;
         }
-        if (this.ddr != null) {
-            this.ddr.a(this.ddo);
+        if (this.doZ != null) {
+            this.doZ.a(this.doW);
         }
     }
 }

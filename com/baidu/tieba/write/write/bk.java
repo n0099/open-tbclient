@@ -10,6 +10,6 @@ class bk implements bi.b {
         if (tbPageContext == null) {
             return;
         }
-        WriteActivityStatic.w(tbPageContext);
+        WriteActivityStatic.D(tbPageContext);
     }
 }

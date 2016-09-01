@@ -1,25 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.PbPage.NewsInfo;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class al {
-    public String FG;
-    public String Pj;
-    public int Pk;
-    public String Pl;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    private int RT;
+    private ArrayList<a> RU;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.Pj = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.Pk = newsInfo.news_type.intValue();
-            this.Pl = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.FG = newsInfo.button_text;
+    /* loaded from: classes.dex */
+    public static class a {
+        public String HP;
+        public String QV;
+        public int giftId;
+        public int num;
+    }
+
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.RT = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.RU = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.HP = pbPresentList.gift_name;
+                        aVar.QV = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.RU.add(aVar);
+                    }
+                }
+            }
         }
+    }
+
+    public int qs() {
+        return this.RT;
+    }
+
+    public void bR(int i) {
+        this.RT = i;
+    }
+
+    public ArrayList<a> qt() {
+        return this.RU;
+    }
+
+    public void h(ArrayList<a> arrayList) {
+        this.RU = arrayList;
     }
 }

@@ -6,10 +6,10 @@ import android.os.Bundle;
 import com.baidu.cloudsdk.common.util.PositionManager;
 /* loaded from: classes.dex */
 public class an implements LocationListener {
-    final /* synthetic */ PositionManager.a fYz;
+    final /* synthetic */ PositionManager.a giF;
 
     public an(PositionManager.a aVar) {
-        this.fYz = aVar;
+        this.giF = aVar;
     }
 
     @Override // android.location.LocationListener

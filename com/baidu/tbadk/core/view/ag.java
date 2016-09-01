@@ -1,53 +1,73 @@
 package com.baidu.tbadk.core.view;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.be;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class ag extends CustomMessageListener {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayout aeG;
+class ag implements View.OnClickListener {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ahB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, int i) {
-        super(i);
-        this.aeG = threadCommentAndPraiseInfoLayout;
+    public ag(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
+        this.ahB = threadCommentAndPraiseInfoLayout;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        be beVar;
-        be beVar2;
-        be beVar3;
-        be beVar4;
-        be beVar5;
-        be beVar6;
-        be beVar7;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof be)) {
-            beVar = this.aeG.abb;
-            if (beVar != null) {
-                beVar2 = this.aeG.abb;
-                if (beVar2 != null) {
-                    beVar3 = this.aeG.abb;
-                    if (beVar3.getId() != null) {
-                        be beVar8 = (be) customResponsedMessage.getData();
-                        if (!TextUtils.isEmpty(beVar8.getId()) && beVar8.qp() != null) {
-                            String id = beVar8.getId();
-                            beVar4 = this.aeG.abb;
-                            if (id.equals(beVar4.getId())) {
-                                beVar5 = this.aeG.abb;
-                                if (beVar5.qp() != null) {
-                                    beVar7 = this.aeG.abb;
-                                    beVar7.qp().setNum(beVar8.qp().getNum());
-                                }
-                                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.aeG;
-                                beVar6 = this.aeG.abb;
-                                threadCommentAndPraiseInfoLayout.a(beVar6);
-                            }
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
+    @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onClick(View view) {
+        bg bgVar;
+        bg bgVar2;
+        String str;
+        Context context;
+        bg bgVar3;
+        View.OnClickListener onClickListener;
+        View.OnClickListener onClickListener2;
+        String str2;
+        Context context2;
+        bg bgVar4;
+        String str3;
+        String str4;
+        bgVar = this.ahB.adL;
+        if (bgVar != null) {
+            bgVar2 = this.ahB.adL;
+            if (!StringUtils.isNull(bgVar2.getForum_name())) {
+                str = this.ahB.ahs;
+                if (!StringUtils.isNull(str)) {
+                    str2 = this.ahB.aht;
+                    if (!StringUtils.isNull(str2)) {
+                        MessageManager messageManager = MessageManager.getInstance();
+                        context2 = this.ahB.mContext;
+                        FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context2);
+                        bgVar4 = this.ahB.adL;
+                        String forum_name = bgVar4.getForum_name();
+                        str3 = this.ahB.ahs;
+                        str4 = this.ahB.aht;
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(forum_name, str3, str4)));
+                        onClickListener = this.ahB.ahu;
+                        if (onClickListener == null) {
+                            onClickListener2 = this.ahB.ahu;
+                            onClickListener2.onClick(view);
+                            return;
                         }
+                        return;
                     }
+                }
+                MessageManager messageManager2 = MessageManager.getInstance();
+                context = this.ahB.mContext;
+                FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(context);
+                bgVar3 = this.ahB.adL;
+                messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(bgVar3.getForum_name(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                onClickListener = this.ahB.ahu;
+                if (onClickListener == null) {
                 }
             }
         }

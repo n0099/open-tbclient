@@ -15,7 +15,7 @@ class b extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("com.baidu.location")) {
-            TbadkCoreApplication.m10getInst().addBDLocCrashCount();
+            TbadkCoreApplication.m9getInst().addBDLocCrashCount();
         }
     }
 }

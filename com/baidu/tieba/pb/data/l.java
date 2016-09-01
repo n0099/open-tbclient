@@ -1,14 +1,14 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.s;
+import com.baidu.tieba.tbadkCore.data.q;
 /* loaded from: classes.dex */
-public class l extends s {
-    public static final BdUniqueId dYt = BdUniqueId.gen();
+public class l extends q {
+    public static final BdUniqueId ekx = BdUniqueId.gen();
     private int position = 0;
 
-    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return dYt;
+        return ekx;
     }
 }

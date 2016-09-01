@@ -11,17 +11,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.InterfaceC0047a<com.baidu.tieba.myCollection.baseHistory.b> {
-    final /* synthetic */ RecommendFrsControlFragment cqJ;
+    final /* synthetic */ RecommendFrsControlFragment cBR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cqJ = recommendFrsControlFragment;
+        this.cBR = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0047a
     public void a(ReadCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> readCacheRespMsg, ReadCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && (readCacheRespMsg.getData() instanceof List)) {
-            com.baidu.tieba.tbadkCore.util.o godFeedReadHistory = TbadkCoreApplication.m10getInst().getGodFeedReadHistory();
+            com.baidu.tieba.tbadkCore.util.o godFeedReadHistory = TbadkCoreApplication.m9getInst().getGodFeedReadHistory();
             for (com.baidu.tieba.myCollection.baseHistory.b bVar : readCacheRespMsg.getData()) {
                 if (bVar != null && !StringUtils.isNull(bVar.getThreadId()) && godFeedReadHistory != null) {
                     godFeedReadHistory.a(bVar.getThreadId(), bVar);

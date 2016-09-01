@@ -2,15 +2,15 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.widget.layout.i {
-    final /* synthetic */ z dgV;
+    final /* synthetic */ z dsB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(z zVar) {
-        this.dgV = zVar;
+        this.dsB = zVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.i
@@ -19,9 +19,9 @@ public class ad implements com.baidu.tbadk.widget.layout.i {
         bf bfVar2;
         if (i2 != i4) {
             int lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-            bfVar = this.dgV.dgz;
-            bfVar2 = this.dgV.dgz;
-            bfVar2.lH(lightStatusBarHeight + com.baidu.adp.lib.util.k.c(bfVar.getPageContext().getPageActivity(), u.e.ds98) + i2);
+            bfVar = this.dsB.dsf;
+            bfVar2 = this.dsB.dsf;
+            bfVar2.mk(lightStatusBarHeight + com.baidu.adp.lib.util.k.e(bfVar.getPageContext().getPageActivity(), t.e.ds98) + i2);
         }
     }
 }

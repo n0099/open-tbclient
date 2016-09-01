@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private static String ed = null;
-    private static volatile SQLiteDatabase dZ = null;
-    public static HashMap<String, SQLiteDatabase> cNv = new HashMap<>();
+    private static String gq = null;
+    private static volatile SQLiteDatabase gm = null;
+    public static HashMap<String, SQLiteDatabase> cZa = new HashMap<>();
 
-    public static synchronized SQLiteDatabase ans() {
+    public static synchronized SQLiteDatabase ash() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (f.class) {
             try {
@@ -26,34 +26,34 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db";
-                if (cNv.containsKey(str)) {
-                    sQLiteDatabase = cNv.get(str);
-                } else if (dZ != null && str.equals(ed) && dZ.isOpen()) {
-                    sQLiteDatabase = dZ;
+                if (cZa.containsKey(str)) {
+                    sQLiteDatabase = cZa.get(str);
+                } else if (gm != null && str.equals(gq) && gm.isOpen()) {
+                    sQLiteDatabase = gm;
                 } else {
-                    if (dZ != null) {
-                        com.baidu.adp.lib.util.o.h(dZ);
+                    if (gm != null) {
+                        com.baidu.adp.lib.util.o.h(gm);
                     }
-                    e eVar = new e(TbadkCoreApplication.m10getInst().getApp(), str);
-                    ed = str;
-                    dZ = eVar.getWritableDatabase();
-                    sQLiteDatabase = dZ;
+                    e eVar = new e(TbadkCoreApplication.m9getInst().getApp(), str);
+                    gq = str;
+                    gm = eVar.getWritableDatabase();
+                    sQLiteDatabase = gm;
                 }
             }
         }
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> ant() {
+    public static LinkedList<String> asi() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase ans = ans();
+        SQLiteDatabase ash = ash();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (ans != null) {
+        if (ash != null) {
             try {
-                cursor2 = ans.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = ash.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -92,20 +92,20 @@ public class f {
         return linkedList;
     }
 
-    public static void kK(String str) {
+    public static void lt(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.anu().anv();
-                Iterator<String> it = ant().iterator();
+                g.asj().ask();
+                Iterator<String> it = asi().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            g.anu().update("tb_message_center", contentValues, null, null);
+                            g.asj().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            g.anu().a(next, null, null);
+                            g.asj().a(next, null, null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class f {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            g.anu().endTransaction();
+            g.asj().endTransaction();
         }
     }
 }

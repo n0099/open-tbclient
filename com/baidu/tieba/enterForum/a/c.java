@@ -24,26 +24,26 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.e;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter implements View.OnClickListener {
-    private TbPageContext DQ;
-    private List<e> aMv;
+    private TbPageContext Gd;
+    private List<e> aRP;
 
     public void a(List<e> list, TbPageContext<?> tbPageContext) {
-        this.aMv = list;
-        this.DQ = tbPageContext;
+        this.aRP = list;
+        this.Gd = tbPageContext;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aMv == null || this.aMv.size() <= 0) {
+        if (this.aRP == null || this.aRP.size() <= 0) {
             return 0;
         }
-        return this.aMv.size();
+        return this.aRP.size();
     }
 
     @Override // android.widget.Adapter
@@ -53,34 +53,34 @@ public class c extends BaseAdapter implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gI */
+    /* renamed from: hk */
     public e getItem(int i) {
-        if (this.aMv == null || this.aMv.size() <= 0 || this.aMv.size() <= i) {
+        if (this.aRP == null || this.aRP.size() <= 0 || this.aRP.size() <= i) {
             return null;
         }
-        return this.aMv.get(i);
+        return this.aRP.get(i);
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.DQ.getPageActivity()).inflate(u.h.frequently_forum_info_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.Gd.getPageActivity()).inflate(t.h.frequently_forum_info_item, (ViewGroup) null);
             a aVar2 = new a(this, null);
-            aVar2.bux = (LinearLayout) view.findViewById(u.g.frequently_forum_info_item);
-            aVar2.buy = (BarImageView) view.findViewById(u.g.frequently_forum_icon);
-            aVar2.buz = (TextView) view.findViewById(u.g.forum_name);
-            aVar2.buA = (ImageView) view.findViewById(u.g.level_info);
-            aVar2.buB = (ImageView) view.findViewById(u.g.sign_icon);
-            aVar2.buC = (TextView) view.findViewById(u.g.new_thread_count);
-            aVar2.buG = (TextView) view.findViewById(u.g.post_thread_count);
-            aVar2.buD = (HeadImageView) view.findViewById(u.g.post_thread_person_one);
-            aVar2.buE = (HeadImageView) view.findViewById(u.g.post_thread_person_two);
-            aVar2.buF = (HeadImageView) view.findViewById(u.g.post_thread_person_three);
-            aVar2.buH = (LinearLayout) view.findViewById(u.g.new_thread);
-            aVar2.buI = (LinearLayout) view.findViewById(u.g.post_thread);
-            aVar2.buJ = (TextView) view.findViewById(u.g.new_thread_describe);
-            aVar2.buK = (TextView) view.findViewById(u.g.post_thread_describe);
+            aVar2.bFK = (LinearLayout) view.findViewById(t.g.frequently_forum_info_item);
+            aVar2.bFL = (BarImageView) view.findViewById(t.g.frequently_forum_icon);
+            aVar2.bFM = (TextView) view.findViewById(t.g.forum_name);
+            aVar2.bFN = (ImageView) view.findViewById(t.g.level_info);
+            aVar2.bFO = (ImageView) view.findViewById(t.g.sign_icon);
+            aVar2.bFP = (TextView) view.findViewById(t.g.new_thread_count);
+            aVar2.bFT = (TextView) view.findViewById(t.g.post_thread_count);
+            aVar2.bFQ = (HeadImageView) view.findViewById(t.g.post_thread_person_one);
+            aVar2.bFR = (HeadImageView) view.findViewById(t.g.post_thread_person_two);
+            aVar2.bFS = (HeadImageView) view.findViewById(t.g.post_thread_person_three);
+            aVar2.bFU = (LinearLayout) view.findViewById(t.g.new_thread);
+            aVar2.bFV = (LinearLayout) view.findViewById(t.g.post_thread);
+            aVar2.bFW = (TextView) view.findViewById(t.g.new_thread_describe);
+            aVar2.bFX = (TextView) view.findViewById(t.g.post_thread_describe);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -88,60 +88,60 @@ public class c extends BaseAdapter implements View.OnClickListener {
         }
         e item = getItem(i);
         if (item != null) {
-            aVar.buy.c(item.AE(), 10, false);
-            aVar.buz.setText(TbadkCoreApplication.m10getInst().getString(u.j.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(item.getForumName(), 6, true)}));
-            av.k(aVar.buA, BitmapHelper.getGradeResourceIdNew(item.AG()));
-            if (StringUtils.isNull(item.AF()) || com.baidu.adp.lib.h.b.g(item.AF(), 0) == 0) {
-                aVar.buC.setVisibility(8);
-                aVar.buJ.setText(this.DQ.getResources().getString(u.j.zero_new_thread_describe));
+            aVar.bFL.c(item.BT(), 10, false);
+            aVar.bFM.setText(TbadkCoreApplication.m9getInst().getString(t.j.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(item.getForumName(), 6, true)}));
+            av.k(aVar.bFN, BitmapHelper.getGradeResourceIdNew(item.BV()));
+            if (StringUtils.isNull(item.BU()) || com.baidu.adp.lib.h.b.g(item.BU(), 0) == 0) {
+                aVar.bFP.setVisibility(8);
+                aVar.bFW.setText(this.Gd.getResources().getString(t.j.zero_new_thread_describe));
             } else {
-                aVar.buC.setVisibility(0);
-                aVar.buJ.setText(this.DQ.getResources().getString(u.j.new_thread_describe));
-                aVar.buC.setText(ba.cE(com.baidu.adp.lib.h.b.g(item.AF(), 0)));
+                aVar.bFP.setVisibility(0);
+                aVar.bFW.setText(this.Gd.getResources().getString(t.j.new_thread_describe));
+                aVar.bFP.setText(ba.cS(com.baidu.adp.lib.h.b.g(item.BU(), 0)));
             }
             if (item.isSign()) {
-                aVar.buB.setVisibility(0);
+                aVar.bFO.setVisibility(0);
             } else {
-                aVar.buB.setVisibility(8);
+                aVar.bFO.setVisibility(8);
             }
-            if (item.AH() != null) {
-                if (item.AH().size() > 3) {
-                    aVar.buG.setVisibility(0);
-                    aVar.buG.setText("...");
-                    aVar.buK.setText(this.DQ.getResources().getString(u.j.post_thread_describe));
-                } else if (item.AH().size() <= 0) {
-                    aVar.buG.setVisibility(8);
-                    aVar.buK.setText(this.DQ.getResources().getString(u.j.zero_post_thread_describe));
+            if (item.BW() != null) {
+                if (item.BW().size() > 3) {
+                    aVar.bFT.setVisibility(0);
+                    aVar.bFT.setText("...");
+                    aVar.bFX.setText(this.Gd.getResources().getString(t.j.post_thread_describe));
+                } else if (item.BW().size() <= 0) {
+                    aVar.bFT.setVisibility(8);
+                    aVar.bFX.setText(this.Gd.getResources().getString(t.j.zero_post_thread_describe));
                 } else {
-                    aVar.buK.setText(this.DQ.getResources().getString(u.j.post_thread_describe));
-                    aVar.buG.setVisibility(8);
+                    aVar.bFX.setText(this.Gd.getResources().getString(t.j.post_thread_describe));
+                    aVar.bFT.setVisibility(8);
                 }
-                aVar.buD.setDefaultResource(17170445);
-                aVar.buD.setDefaultErrorResource(u.f.icon_default_avatar100);
-                aVar.buD.setDefaultBgResource(u.d.cp_bg_line_e);
-                aVar.buD.setRadius(k.c(this.DQ.getPageActivity(), u.e.ds70));
-                aVar.buE.setDefaultResource(17170445);
-                aVar.buE.setDefaultErrorResource(u.f.icon_default_avatar100);
-                aVar.buE.setDefaultBgResource(u.d.cp_bg_line_e);
-                aVar.buE.setRadius(k.c(this.DQ.getPageActivity(), u.e.ds70));
-                aVar.buF.setDefaultResource(17170445);
-                aVar.buF.setDefaultErrorResource(u.f.icon_default_avatar100);
-                aVar.buF.setDefaultBgResource(u.d.cp_bg_line_e);
-                aVar.buF.setRadius(k.c(this.DQ.getPageActivity(), u.e.ds70));
+                aVar.bFQ.setDefaultResource(17170445);
+                aVar.bFQ.setDefaultErrorResource(t.f.icon_default_avatar100);
+                aVar.bFQ.setDefaultBgResource(t.d.cp_bg_line_e);
+                aVar.bFQ.setRadius(k.e(this.Gd.getPageActivity(), t.e.ds70));
+                aVar.bFR.setDefaultResource(17170445);
+                aVar.bFR.setDefaultErrorResource(t.f.icon_default_avatar100);
+                aVar.bFR.setDefaultBgResource(t.d.cp_bg_line_e);
+                aVar.bFR.setRadius(k.e(this.Gd.getPageActivity(), t.e.ds70));
+                aVar.bFS.setDefaultResource(17170445);
+                aVar.bFS.setDefaultErrorResource(t.f.icon_default_avatar100);
+                aVar.bFS.setDefaultBgResource(t.d.cp_bg_line_e);
+                aVar.bFS.setRadius(k.e(this.Gd.getPageActivity(), t.e.ds70));
             }
             List<HeadImageView> arrayList = new ArrayList<>();
-            arrayList.add(aVar.buD);
-            arrayList.add(aVar.buE);
-            arrayList.add(aVar.buF);
-            d(item.AH(), arrayList);
+            arrayList.add(aVar.bFQ);
+            arrayList.add(aVar.bFR);
+            arrayList.add(aVar.bFS);
+            d(item.BW(), arrayList);
             W(view);
-            aVar.buI.setTag(item);
-            aVar.buH.setTag(item);
-            aVar.bux.setTag(item);
+            aVar.bFV.setTag(item);
+            aVar.bFU.setTag(item);
+            aVar.bFK.setTag(item);
         }
-        aVar.buI.setOnClickListener(this);
-        aVar.buH.setOnClickListener(this);
-        aVar.bux.setOnClickListener(this);
+        aVar.bFV.setOnClickListener(this);
+        aVar.bFU.setOnClickListener(this);
+        aVar.bFK.setOnClickListener(this);
         return view;
     }
 
@@ -187,8 +187,8 @@ public class c extends BaseAdapter implements View.OnClickListener {
     }
 
     private void W(View view) {
-        this.DQ.getLayoutMode().af(TbadkCoreApplication.m10getInst().getSkinType() == 1);
-        this.DQ.getLayoutMode().w(view);
+        this.Gd.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        this.Gd.getLayoutMode().x(view);
     }
 
     public void c(ListView listView) {
@@ -208,20 +208,20 @@ public class c extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes.dex */
     private class a {
-        ImageView buA;
-        ImageView buB;
-        TextView buC;
-        HeadImageView buD;
-        HeadImageView buE;
-        HeadImageView buF;
-        TextView buG;
-        LinearLayout buH;
-        LinearLayout buI;
-        TextView buJ;
-        TextView buK;
-        LinearLayout bux;
-        BarImageView buy;
-        TextView buz;
+        LinearLayout bFK;
+        BarImageView bFL;
+        TextView bFM;
+        ImageView bFN;
+        ImageView bFO;
+        TextView bFP;
+        HeadImageView bFQ;
+        HeadImageView bFR;
+        HeadImageView bFS;
+        TextView bFT;
+        LinearLayout bFU;
+        LinearLayout bFV;
+        TextView bFW;
+        TextView bFX;
 
         private a() {
         }
@@ -231,9 +231,9 @@ public class c extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    private void f(String str, String str2, boolean z) {
-        if (ba.aM(str2)) {
-            this.DQ.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.DQ.getPageActivity()).createNormalCfg(str2, str, z)));
+    private void e(String str, String str2, boolean z) {
+        if (ba.aN(str2)) {
+            this.Gd.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.Gd.getPageActivity()).createNormalCfg(str2, str, z)));
         }
     }
 
@@ -241,13 +241,13 @@ public class c extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view) {
         e eVar;
         if (view != null && (view.getTag() instanceof e) && (eVar = (e) view.getTag()) != null) {
-            boolean z = !y.t(eVar.AH());
-            if (view.getId() == u.g.new_thread) {
-                f(FrsActivityConfig.FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD, eVar.getForumName(), z);
-            } else if (view.getId() == u.g.post_thread) {
-                f(FrsActivityConfig.FRS_FROM_FREQUENTLY_FORUM_POST_THREAD, eVar.getForumName(), z);
-            } else if (view.getId() == u.g.frequently_forum_info_item) {
-                f(FrsActivityConfig.FRS_FORUM_FREQUENTLY_FORUM, eVar.getForumName(), z);
+            boolean z = !y.t(eVar.BW());
+            if (view.getId() == t.g.new_thread) {
+                e(FrsActivityConfig.FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD, eVar.getForumName(), z);
+            } else if (view.getId() == t.g.post_thread) {
+                e(FrsActivityConfig.FRS_FROM_FREQUENTLY_FORUM_POST_THREAD, eVar.getForumName(), z);
+            } else if (view.getId() == t.g.frequently_forum_info_item) {
+                e(FrsActivityConfig.FRS_FORUM_FREQUENTLY_FORUM, eVar.getForumName(), z);
             }
         }
     }

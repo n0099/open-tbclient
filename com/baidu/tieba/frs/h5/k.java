@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.h5;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.frs.df;
+import com.baidu.tieba.frs.db;
 /* loaded from: classes.dex */
 class k extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,11 +13,11 @@ class k extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof df)) {
-            df dfVar = (df) customResponsedMessage.getData();
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof db)) {
+            db dbVar = (db) customResponsedMessage.getData();
             i iVar = new i();
-            iVar.setTag(dfVar.aTm);
-            dfVar.a(100, iVar);
+            iVar.setTag(dbVar.aYu);
+            dbVar.a(100, iVar);
         }
     }
 }

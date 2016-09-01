@@ -5,24 +5,24 @@ import com.baidu.tieba.imMessageCenter.im.floatwindow.view.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements h.a {
-    final /* synthetic */ h deh;
+    final /* synthetic */ h dpP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.deh = hVar;
+        this.dpP = hVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.h.a
-    public void atl() {
+    public void axZ() {
         FloatingPersonalChatView.a aVar;
         FloatingPersonalChatView.a aVar2;
         int i;
-        aVar = this.deh.deg;
+        aVar = this.dpP.dpO;
         if (aVar == null) {
             return;
         }
-        aVar2 = this.deh.deg;
-        i = this.deh.index;
+        aVar2 = this.dpP.dpO;
+        i = this.dpP.index;
         aVar2.delete(i);
     }
 }

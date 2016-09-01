@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class t {
-    private static final char[] qo = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] sE = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String toMd5(byte[] bArr) {
         try {
@@ -23,8 +23,8 @@ public class t {
         }
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (int i = 0; i < bArr.length; i++) {
-            sb.append(qo[(bArr[i] & 240) >>> 4]);
-            sb.append(qo[bArr[i] & 15]);
+            sb.append(sE[(bArr[i] & 240) >>> 4]);
+            sb.append(sE[bArr[i] & 15]);
         }
         return sb.toString();
     }
@@ -52,7 +52,7 @@ public class t {
         return str;
     }
 
-    public static String aT(String str) {
+    public static String aU(String str) {
         if (str == null) {
             return null;
         }

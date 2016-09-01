@@ -1,28 +1,38 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tieba.play.f;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bJx;
-    final /* synthetic */ a bLV;
+public class e implements f.a {
+    final /* synthetic */ a bXm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar, ThemeCardInUserData themeCardInUserData) {
-        this.bLV = aVar;
-        this.bJx = themeCardInUserData;
+    public e(a aVar) {
+        this.bXm = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        tbPageContext = this.bLV.DQ;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bJx.getCardId())));
+    @Override // com.baidu.tieba.play.f.a
+    public void NB() {
+        bg bgVar;
+        bg bgVar2;
+        bg bgVar3;
+        bg bgVar4;
+        bg bgVar5;
+        bg bgVar6;
+        bgVar = this.bXm.adL;
+        if (bgVar != null) {
+            bgVar2 = this.bXm.adL;
+            if (bgVar2.rR() != null) {
+                bgVar3 = this.bXm.adL;
+                String str = bgVar3.su() ? "floor5" : "frs";
+                bgVar4 = this.bXm.adL;
+                String str2 = bgVar4.rR().video_md5;
+                bgVar5 = this.bXm.adL;
+                String tid = bgVar5.getTid();
+                bgVar6 = this.bXm.adL;
+                com.baidu.tieba.play.h.l(str2, tid, new StringBuilder(String.valueOf(bgVar6.getFid())).toString(), str);
+            }
+        }
     }
 }

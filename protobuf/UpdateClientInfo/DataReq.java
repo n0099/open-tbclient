@@ -8,6 +8,7 @@ public final class DataReq extends Message {
     public static final String DEFAULT_BDUSS = "";
     public static final String DEFAULT_DEVICE = "";
     public static final String DEFAULT_PROJECT = "";
+    public static final String DEFAULT_STOKEN = "";
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String bduss;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
@@ -26,6 +27,8 @@ public final class DataReq extends Message {
     public final Integer pub_env;
     @ProtoField(tag = 3, type = Message.Datatype.BYTES)
     public final ByteString secretKey;
+    @ProtoField(tag = 12, type = Message.Datatype.STRING)
+    public final String stoken;
     @ProtoField(tag = 8, type = Message.Datatype.INT32)
     public final Integer unread_msg;
     @ProtoField(tag = 6, type = Message.Datatype.INT32)
@@ -98,9 +101,14 @@ public final class DataReq extends Message {
             }
             if (builder.groupId == null) {
                 this.groupId = DEFAULT_GROUPID;
-                return;
             } else {
                 this.groupId = builder.groupId;
+            }
+            if (builder.stoken == null) {
+                this.stoken = "";
+                return;
+            } else {
+                this.stoken = builder.stoken;
                 return;
             }
         }
@@ -115,6 +123,7 @@ public final class DataReq extends Message {
         this.pub_env = builder.pub_env;
         this.project = builder.project;
         this.groupId = builder.groupId;
+        this.stoken = builder.stoken;
     }
 
     /* loaded from: classes.dex */
@@ -128,6 +137,7 @@ public final class DataReq extends Message {
         public String project;
         public Integer pub_env;
         public ByteString secretKey;
+        public String stoken;
         public Integer unread_msg;
         public Integer width;
 
@@ -148,6 +158,7 @@ public final class DataReq extends Message {
                 this.pub_env = dataReq.pub_env;
                 this.project = dataReq.project;
                 this.groupId = dataReq.groupId;
+                this.stoken = dataReq.stoken;
             }
         }
 

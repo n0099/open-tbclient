@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.bi;
 /* loaded from: classes.dex */
 public class ChatMessageActivityStatic {
     static {
-        TbadkCoreApplication.m10getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
-        ajQ();
+        TbadkCoreApplication.m9getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
+        aoE();
     }
 
-    private static void ajQ() {
-        bi.us().a(new b());
+    private static void aoE() {
+        bi.vx().a(new b());
     }
 }

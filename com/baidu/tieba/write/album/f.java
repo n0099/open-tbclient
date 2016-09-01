@@ -5,14 +5,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class f implements View.OnClickListener {
-    final /* synthetic */ e fQe;
+    final /* synthetic */ e gaj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.fQe = eVar;
+        this.gaj = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,7 +25,7 @@ class f implements View.OnClickListener {
         o oVar2;
         j jVar3;
         int i2;
-        ImageFileInfo sv;
+        ImageFileInfo sW;
         o oVar3;
         AlbumActivity albumActivity2;
         ImageView imageView;
@@ -45,66 +45,66 @@ class f implements View.OnClickListener {
         int i6;
         j jVar4;
         int i7;
-        jVar = this.fQe.fQc;
+        jVar = this.gaj.gah;
         if (jVar != null) {
-            oVar = this.fQe.fPM;
+            oVar = this.gaj.fZQ;
             if (oVar != null) {
-                albumActivity = this.fQe.fQb;
+                albumActivity = this.gaj.gaf;
                 if (albumActivity != null) {
-                    jVar2 = this.fQe.fQc;
-                    i = this.fQe.aue;
-                    if (jVar2.sw(i)) {
-                        oVar2 = this.fQe.fPM;
-                        if ("-1".equals(oVar2.bnx())) {
-                            jVar4 = this.fQe.fQc;
-                            i7 = this.fQe.aue;
-                            sv = jVar4.sv(i7 + 1);
+                    jVar2 = this.gaj.gah;
+                    i = this.gaj.axl;
+                    if (jVar2.sX(i)) {
+                        oVar2 = this.gaj.fZQ;
+                        if ("-1".equals(oVar2.brN())) {
+                            jVar4 = this.gaj.gah;
+                            i7 = this.gaj.axl;
+                            sW = jVar4.sW(i7 + 1);
                         } else {
-                            jVar3 = this.fQe.fQc;
-                            i2 = this.fQe.aue;
-                            sv = jVar3.sv(i2);
+                            jVar3 = this.gaj.gah;
+                            i2 = this.gaj.axl;
+                            sW = jVar3.sW(i2);
                         }
-                        oVar3 = this.fQe.fPM;
-                        if (oVar3.isAdded(sv)) {
-                            albumActivity6 = this.fQe.fQb;
-                            if (albumActivity6.e(sv)) {
-                                e eVar = this.fQe;
-                                imageView3 = this.fQe.fQd;
+                        oVar3 = this.gaj.fZQ;
+                        if (oVar3.isAdded(sW)) {
+                            albumActivity6 = this.gaj.gaf;
+                            if (albumActivity6.e(sW)) {
+                                e eVar = this.gaj;
+                                imageView3 = this.gaj.gai;
                                 eVar.b(imageView3, false);
-                                oVar5 = this.fQe.fPM;
-                                if ("-1".equals(oVar5.bnx())) {
-                                    albumActivity8 = this.fQe.fQb;
-                                    i6 = this.fQe.aue;
-                                    albumActivity8.U(i6 + 1, false);
+                                oVar5 = this.gaj.fZQ;
+                                if ("-1".equals(oVar5.brN())) {
+                                    albumActivity8 = this.gaj.gaf;
+                                    i6 = this.gaj.axl;
+                                    albumActivity8.W(i6 + 1, false);
                                 } else {
-                                    albumActivity7 = this.fQe.fQb;
-                                    i5 = this.fQe.aue;
-                                    albumActivity7.U(i5, false);
+                                    albumActivity7 = this.gaj.gaf;
+                                    i5 = this.gaj.axl;
+                                    albumActivity7.W(i5, false);
                                 }
                             }
                         } else {
-                            albumActivity2 = this.fQe.fQb;
-                            if (albumActivity2.d(sv)) {
-                                e eVar2 = this.fQe;
-                                imageView = this.fQe.fQd;
+                            albumActivity2 = this.gaj.gaf;
+                            if (albumActivity2.d(sW)) {
+                                e eVar2 = this.gaj;
+                                imageView = this.gaj.gai;
                                 eVar2.b(imageView, true);
-                                oVar4 = this.fQe.fPM;
-                                if ("-1".equals(oVar4.bnx())) {
-                                    albumActivity5 = this.fQe.fQb;
-                                    i4 = this.fQe.aue;
-                                    albumActivity5.U(i4 + 1, true);
+                                oVar4 = this.gaj.fZQ;
+                                if ("-1".equals(oVar4.brN())) {
+                                    albumActivity5 = this.gaj.gaf;
+                                    i4 = this.gaj.axl;
+                                    albumActivity5.W(i4 + 1, true);
                                 } else {
-                                    albumActivity3 = this.fQe.fQb;
-                                    i3 = this.fQe.aue;
-                                    albumActivity3.U(i3, true);
+                                    albumActivity3 = this.gaj.gaf;
+                                    i3 = this.gaj.axl;
+                                    albumActivity3.W(i3, true);
                                 }
-                                albumActivity4 = this.fQe.fQb;
-                                Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), u.a.album_choose_icon);
-                                imageView2 = this.fQe.fQd;
+                                albumActivity4 = this.gaj.gaf;
+                                Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), t.a.album_choose_icon);
+                                imageView2 = this.gaj.gai;
                                 imageView2.startAnimation(loadAnimation);
                             }
                         }
-                        this.fQe.bnt();
+                        this.gaj.brJ();
                     }
                 }
             }

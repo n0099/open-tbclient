@@ -1,61 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.u;
-import tbclient.UserMuteCheck.DataRes;
+import com.baidu.tieba.t;
+import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* loaded from: classes.dex */
 class w extends CustomMessageListener {
-    final /* synthetic */ PbActivity ebT;
+    final /* synthetic */ PbActivity eob;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(PbActivity pbActivity, int i) {
         super(i);
-        this.ebT = pbActivity;
+        this.eob = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         BdUniqueId bdUniqueId;
-        ew ewVar;
-        Object obj;
-        ew ewVar2;
-        boolean z = false;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
+        ex exVar;
+        com.baidu.tbadk.core.view.h hVar;
+        com.baidu.adp.base.h hVar2;
+        com.baidu.tbadk.core.view.h hVar3;
+        com.baidu.adp.base.h hVar4;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.ebT.ebp;
+            bdUniqueId = this.eob.enx;
             if (tag == bdUniqueId) {
-                com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                ewVar = this.ebT.ebb;
-                ewVar.aFN();
-                obj = this.ebT.mExtra;
-                SparseArray<Object> sparseArray = (SparseArray) obj;
-                DataRes dataRes = aVar.fNb;
-                if (aVar.error == 0 && dataRes != null) {
-                    int g = com.baidu.adp.lib.h.b.g(dataRes.is_mute, 0);
-                    String str = dataRes.mute_confirm;
-                    boolean z2 = g == 1;
-                    if (com.baidu.tbadk.core.util.ba.isEmpty(str)) {
-                        sparseArray.put(u.g.tag_user_mute_msg, "确定禁言？");
-                    } else {
-                        sparseArray.put(u.g.tag_user_mute_msg, str);
-                    }
-                    sparseArray.put(u.g.tag_user_mute_visible, true);
-                    z = z2;
-                } else {
-                    sparseArray.put(u.g.tag_user_mute_visible, false);
+                exVar = this.eob.enh;
+                exVar.aKF();
+                UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
+                if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
+                    hVar3 = this.eob.enw;
+                    hVar4 = this.eob.env;
+                    hVar3.c(hVar4.getResources().getString(t.j.un_mute_success));
+                    return;
                 }
-                int intValue = ((Integer) sparseArray.get(u.g.tag_from)).intValue();
-                if (intValue == 0) {
-                    this.ebT.a(z, sparseArray);
-                } else if (intValue == 1) {
-                    ewVar2 = this.ebT.ebb;
-                    ewVar2.a(sparseArray, z);
+                String muteMessage = userMuteDelResponseMessage.getMuteMessage();
+                if (com.baidu.tbadk.core.util.ba.isEmpty(muteMessage)) {
+                    hVar2 = this.eob.env;
+                    muteMessage = hVar2.getResources().getString(t.j.un_mute_fail);
                 }
+                hVar = this.eob.enw;
+                hVar.d(muteMessage);
             }
         }
     }

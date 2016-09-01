@@ -1,73 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.u;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.util.y;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.base.f {
-    TextView epq;
-    TextView epr;
-    TextView eps;
-    View ept;
-    BaseFragment epu;
-    View mView;
-
-    public e(BaseFragment baseFragment) {
-        super(baseFragment.getPageContext());
-        this.epu = baseFragment;
-        a(baseFragment);
-    }
-
-    private void a(BaseFragment baseFragment) {
-        this.mView = LayoutInflater.from(baseFragment.getPageContext().getPageActivity()).inflate(u.h.person_info_more_view, (ViewGroup) null);
-        this.epq = (TextView) this.mView.findViewById(u.g.person_info_more_view_item_friend);
-        this.epq.setOnClickListener(baseFragment);
-        this.epr = (TextView) this.mView.findViewById(u.g.person_info_more_view_item_black);
-        this.epr.setOnClickListener(baseFragment);
-        this.eps = (TextView) this.mView.findViewById(u.g.person_info_more_view_item_mute);
-        this.ept = this.mView.findViewById(u.g.person_info_more_view_item_line_mute);
-        this.eps.setOnClickListener(baseFragment);
-    }
-
-    public void t(boolean z, boolean z2) {
-        if (z) {
-            this.epq.setVisibility(0);
-        } else {
-            this.epq.setVisibility(8);
+class e implements bi.a {
+    @Override // com.baidu.tbadk.core.util.bi.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
         }
-        if (z2) {
-            this.epr.setText(u.j.remove_block_chat);
-        } else {
-            this.epr.setText(u.j.block_chat_message);
+        String str = strArr[0];
+        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), y.as(str, "userid="), y.as(str, "un="))));
+            return 1;
         }
-    }
-
-    public View getView() {
-        return this.mView;
-    }
-
-    public View aNq() {
-        return this.epq;
-    }
-
-    public View aNr() {
-        return this.epr;
-    }
-
-    public View aNs() {
-        return this.eps;
-    }
-
-    public void od(int i) {
-        this.eps.setVisibility(0);
-        this.ept.setVisibility(0);
-        if (i == 0) {
-            this.eps.setText(this.epu.getPageContext().getResources().getString(u.j.mute));
-        } else if (i == 1) {
-            this.eps.setText(this.epu.getPageContext().getResources().getString(u.j.un_mute));
-        }
+        return 3;
     }
 }

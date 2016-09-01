@@ -6,27 +6,27 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class au implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ long aOv;
-    final /* synthetic */ as cWf;
+    private final /* synthetic */ long aTP;
+    final /* synthetic */ as dhP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(as asVar, long j) {
-        this.cWf = asVar;
-        this.aOv = j;
+        this.dhP = asVar;
+        this.aTP = j;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.g.anu().anv();
-            com.baidu.tieba.im.db.i.anz().ac(String.valueOf(this.aOv), 2);
-            com.baidu.tieba.im.db.l.anF().kC(String.valueOf(this.aOv));
+            com.baidu.tieba.im.db.g.asj().ask();
+            com.baidu.tieba.im.db.i.aso().ac(String.valueOf(this.aTP), 2);
+            com.baidu.tieba.im.db.l.asu().ll(String.valueOf(this.aTP));
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);
             return null;
         } finally {
-            com.baidu.tieba.im.db.g.anu().endTransaction();
+            com.baidu.tieba.im.db.g.asj().endTransaction();
         }
     }
 }

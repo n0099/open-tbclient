@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String fku;
-    private int fkv;
-    private String fkw;
-    private String fkx;
-    private String fky;
+    private String fsn;
+    private int fso;
+    private String fsp;
+    private String fsq;
+    private String fsr;
     private int height;
     private String subTitle;
     private int width;
 
     public k(Timgs timgs) {
-        this.fku = null;
-        this.fkv = 0;
-        this.fkw = null;
-        this.fkx = null;
-        this.fky = null;
+        this.fsn = null;
+        this.fso = 0;
+        this.fsp = null;
+        this.fsq = null;
+        this.fsr = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.fku = timgs.img_url;
-            this.fkv = timgs.flag.intValue();
-            this.fkw = timgs.url;
-            this.fkx = timgs.big_cdn_url;
-            this.fky = timgs.des_main;
+            this.fsn = timgs.img_url;
+            this.fso = timgs.flag.intValue();
+            this.fsp = timgs.url;
+            this.fsq = timgs.big_cdn_url;
+            this.fsr = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,16 +50,16 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.fku;
+        return this.fsn;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicLinkUrl() {
-        return this.fkw;
+        return this.fsp;
     }
 
-    public String bfh() {
-        return this.fky;
+    public String biM() {
+        return this.fsr;
     }
 
     public String getSubTitle() {
@@ -74,7 +74,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String bfi() {
-        return this.fkx;
+    public String biN() {
+        return this.fsq;
     }
 }

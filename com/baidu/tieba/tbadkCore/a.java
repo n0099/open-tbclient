@@ -24,7 +24,7 @@ public class a {
     public static final void a(TbPageContextSupport tbPageContextSupport, View view, int i, Animation.AnimationListener animationListener) {
         if (view != null) {
             try {
-                a(tbPageContextSupport, view, AnimationUtils.loadAnimation(TbadkCoreApplication.m10getInst().getContext(), i), animationListener);
+                a(tbPageContextSupport, view, AnimationUtils.loadAnimation(TbadkCoreApplication.m9getInst().getContext(), i), animationListener);
             } catch (Resources.NotFoundException e) {
                 e.printStackTrace();
             }

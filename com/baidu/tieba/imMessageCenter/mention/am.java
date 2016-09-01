@@ -9,22 +9,22 @@ public class am extends com.baidu.tbadk.mvc.model.a<ay, bf> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<ay> DC() {
+    public Class<ay> EW() {
         return ay.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int DD() {
+    public int EX() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int DE() {
+    public int EY() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String Do() {
+    public String EI() {
         return "tb_user_replyme";
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,8 +13,8 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String aMb;
-        public String cJD;
+        public String aRv;
+        public String cVi;
         public long picId;
         public String src;
         public String text;
@@ -22,7 +23,7 @@ public class r {
         public int userType;
     }
 
-    public static List<a> aZ(String str, String str2) {
+    public static List<a> ba(String str, String str2) {
         return a(str, str2, null);
     }
 
@@ -40,7 +41,7 @@ public class r {
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                String optString = optJSONObject.optString("title");
+                String optString = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
                 String optString2 = optJSONObject.optString("url");
                 String optString3 = optJSONObject.optString("src");
                 String optString4 = optJSONObject.optString("text");
@@ -51,9 +52,9 @@ public class r {
                 aVar.title = optString;
                 aVar.text = optString4;
                 aVar.src = optString3;
-                aVar.aMb = str2;
+                aVar.aRv = str2;
                 aVar.picId = optLong;
-                aVar.cJD = optString5;
+                aVar.cVi = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }

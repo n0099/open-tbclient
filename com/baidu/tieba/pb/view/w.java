@@ -9,7 +9,7 @@ public class w extends com.baidu.tbadk.core.view.w {
     }
 
     @Override // com.baidu.tbadk.core.view.t, com.baidu.adp.widget.ListView.d
-    public View jp() {
-        return super.jp();
+    public View kk() {
+        return super.kk();
     }
 }

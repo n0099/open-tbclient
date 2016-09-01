@@ -8,20 +8,20 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements a.b {
-    final /* synthetic */ a lt;
+    final /* synthetic */ a nO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.lt = aVar;
+        this.nO = aVar;
     }
 
     @Override // com.baidu.adp.lib.e.a.b
     public void a(int i, String str, Address address, long j, boolean z) {
-        this.lt.lj = j;
-        this.lt.lp = address;
-        this.lt.lm = z;
-        this.lt.errorCode = i;
-        this.lt.dc();
+        this.nO.nE = j;
+        this.nO.nK = address;
+        this.nO.nH = z;
+        this.nO.errorCode = i;
+        this.nO.dX();
         switch (i) {
             case 1:
                 if (StringUtils.isNull(str)) {
@@ -48,6 +48,6 @@ public class b implements a.b {
                 }
                 break;
         }
-        this.lt.a(i, str, address);
+        this.nO.a(i, str, address);
     }
 }

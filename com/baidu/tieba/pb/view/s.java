@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.core.view.j;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class s extends PopupWindow {
-    private int elM;
+    private int exS;
     private j mContainer;
     private View mContentView;
 
@@ -20,7 +20,7 @@ public class s extends PopupWindow {
         super(activity);
         this.mContainer = null;
         this.mContentView = null;
-        this.elM = 0;
+        this.exS = 0;
         init(activity, view, drawable, aVar);
     }
 
@@ -29,20 +29,20 @@ public class s extends PopupWindow {
         this.mContainer = new j(activity, this.mContentView, aVar);
         TypedValue typedValue = new TypedValue();
         if (activity != null && activity.getApplicationContext().getTheme() != null && activity.getApplicationContext().getTheme().resolveAttribute(16843499, typedValue, true)) {
-            this.elM = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
+            this.exS = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
         }
         setContentView(this.mContainer);
         setOutsideTouchable(true);
         setFocusable(true);
         setHeight(-1);
         setWidth(-1);
-        if (aMs() && this.mContainer != null && (this.mContainer.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+        if (aRh() && this.mContainer != null && (this.mContainer.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
-            layoutParams.bottomMargin = this.elM;
+            layoutParams.bottomMargin = this.exS;
             this.mContentView.setLayoutParams(layoutParams);
         }
-        setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(u.d.common_color_10022)));
-        setAnimationStyle(u.k.pb_more_pop_anim);
+        setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(t.d.common_color_10022)));
+        setAnimationStyle(t.k.pb_more_pop_anim);
     }
 
     @Override // android.widget.PopupWindow
@@ -50,7 +50,7 @@ public class s extends PopupWindow {
         return this.mContentView;
     }
 
-    private boolean aMs() {
+    private boolean aRh() {
         return Build.MODEL != null && Build.MODEL.equals("Nexus 6");
     }
 }

@@ -25,7 +25,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     private String stType;
     private int updateType;
     private int withGroup;
-    private String aey = "";
+    private String aht = "";
     private int mSortType = -1;
 
     public boolean isNeedCache() {
@@ -45,7 +45,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     public void setYuelaouLocate(String str) {
-        this.aey = str;
+        this.aht = str;
     }
 
     public void setLastId(String str) {
@@ -72,7 +72,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         this.mSortType = i;
     }
 
-    public int bdy() {
+    public int bhc() {
         return this.mSortType;
     }
 
@@ -145,12 +145,12 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> ld() {
+    public HashMap<String, Object> lY() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object Y(boolean z) {
+    public Object aa(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
@@ -170,24 +170,22 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.aey;
+        builder.yuelaou_locate = this.aht;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        if (z) {
-            com.baidu.tbadk.util.o.a(builder, true);
-        }
+        com.baidu.tbadk.util.o.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Do() {
+    public String EI() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Dp() {
+    public boolean EJ() {
         return false;
     }
 

@@ -4,27 +4,29 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.h.b;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.bi;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.personInfo.PersonInfoActivity;
+import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
 import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
 import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 /* loaded from: classes.dex */
 public class PersonInfoActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new c());
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new d());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        Iu();
-        bi.us().a(new d());
+        Kt();
+        bi.vx().a(new e());
     }
 
-    private static void Iu() {
+    private static void Kt() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aG("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -41,23 +43,19 @@ public class PersonInfoActivityStatic {
     public static void a(PersonInfoActivityConfig personInfoActivityConfig) {
         Context context = personInfoActivityConfig.getContext();
         String stringExtra = personInfoActivityConfig.getIntent().getStringExtra("user_id");
-        String stringExtra2 = personInfoActivityConfig.getIntent().getStringExtra("user_name");
-        String stringExtra3 = personInfoActivityConfig.getIntent().getStringExtra("from");
-        String stringExtra4 = personInfoActivityConfig.getIntent().getStringExtra("st_type");
+        personInfoActivityConfig.getIntent().getStringExtra("user_name");
+        personInfoActivityConfig.getIntent().getStringExtra("from");
+        personInfoActivityConfig.getIntent().getStringExtra("st_type");
         if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals("0") && !stringExtra.startsWith("-")) {
             Intent intent = personInfoActivityConfig.getIntent();
-            intent.setClass(context, PersonInfoActivity.class);
-            if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(stringExtra)) {
-                intent.putExtra("self", true);
+            intent.setClass(context, PersonPolymericActivity.class);
+            intent.putExtra("user_id", b.c(stringExtra, 0L));
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                intent.putExtra(PersonPolymericActivityConfig.IS_USER_SELF, TbadkCoreApplication.getCurrentAccount().equals(stringExtra));
             } else {
-                intent.putExtra("self", false);
+                intent.putExtra(PersonPolymericActivityConfig.IS_USER_SELF, false);
             }
-            intent.putExtra("un", stringExtra);
-            intent.putExtra("name", stringExtra2);
-            intent.putExtra("from_forum", stringExtra3);
-            intent.putExtra("st_type", stringExtra4);
-            intent.putExtra("tab_page", false);
-            personInfoActivityConfig.setComponentClass(PersonInfoActivity.class);
+            personInfoActivityConfig.setComponentClass(PersonPolymericActivity.class);
             personInfoActivityConfig.run();
         }
     }

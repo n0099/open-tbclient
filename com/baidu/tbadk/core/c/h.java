@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private a Ut = null;
+    private a Xi = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final h UH = new h();
+        private static final h Xv = new h();
     }
 
-    public static h sr() {
-        return c.UH;
+    public static h tw() {
+        return c.Xv;
     }
 
     public void a(int i, l lVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.Ut = new a(i, lVar, null);
-                this.Ut.st();
+                this.Xi = new a(i, lVar, null);
+                this.Xi.ty();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        private final List<Long> UF = new ArrayList(240);
-        private final List<Integer> UG = new ArrayList(15);
-        protected a Ut;
+        protected a Xi;
+        private final List<Long> Xt = new ArrayList(240);
+        private final List<Integer> Xu = new ArrayList(15);
 
         public b(a aVar) {
-            this.Ut = aVar;
+            this.Xi = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,86 +63,86 @@ public class h {
         }
 
         private void q(long j) {
-            this.UF.add(Long.valueOf(j));
-            this.Ut.st();
+            this.Xt.add(Long.valueOf(j));
+            this.Xi.ty();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.Ut = null;
-            this.UF.clear();
-            this.UG.clear();
+            this.Xi = null;
+            this.Xt.clear();
+            this.Xu.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private final b UB;
-        private final int UC;
-        private final l UD;
-        private final Class<?> Uu;
-        private final Object Uv;
-        private final Class<?> Uw;
-        private final Method Ux;
-        private final Object Uy;
-        private final Method Uz;
+        private final Class<?> Xj;
+        private final Object Xk;
+        private final Class<?> Xl;
+        private final Method Xm;
+        private final Object Xn;
+        private final Method Xo;
+        private final b Xp;
+        private final int Xq;
+        private final l Xr;
         private int index;
 
         private a(int i, l lVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.Uw = Class.forName("android.view.Choreographer");
-            this.Uu = Class.forName("android.view.Choreographer$FrameCallback");
-            this.UB = new b(this);
-            this.Uv = Proxy.newProxyInstance(this.Uu.getClassLoader(), new Class[]{this.Uu}, this.UB);
-            this.Ux = this.Uw.getMethod("getInstance", new Class[0]);
-            this.Uy = this.Ux.invoke(null, new Object[0]);
-            this.Uz = this.Uw.getMethod("postFrameCallback", this.Uu);
-            this.UC = i <= 0 ? 16 : i;
-            this.UD = lVar;
+            this.Xl = Class.forName("android.view.Choreographer");
+            this.Xj = Class.forName("android.view.Choreographer$FrameCallback");
+            this.Xp = new b(this);
+            this.Xk = Proxy.newProxyInstance(this.Xj.getClassLoader(), new Class[]{this.Xj}, this.Xp);
+            this.Xm = this.Xl.getMethod("getInstance", new Class[0]);
+            this.Xn = this.Xm.invoke(null, new Object[0]);
+            this.Xo = this.Xl.getMethod("postFrameCallback", this.Xj);
+            this.Xq = i <= 0 ? 16 : i;
+            this.Xr = lVar;
         }
 
         /* synthetic */ a(int i, l lVar, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this(i, lVar);
         }
 
-        private void ss() throws InvocationTargetException, IllegalAccessException {
-            this.Uz.invoke(this.Uy, this.Uv);
+        private void tx() throws InvocationTargetException, IllegalAccessException {
+            this.Xo.invoke(this.Xn, this.Xk);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void st() {
-            if (this.index >= this.UC) {
-                com.baidu.adp.lib.h.h.dL().post(new i(this));
+        public void ty() {
+            if (this.index >= this.Xq) {
+                com.baidu.adp.lib.h.h.eG().post(new i(this));
                 return;
             }
             this.index++;
             try {
-                ss();
+                tx();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> su() {
-            return this.UB.UF;
+        private List<Long> tz() {
+            return this.Xp.Xt;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.UB.destroy();
+            this.Xp.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> sv() {
+        public List<Long> tA() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> su = su();
-            int size = su.size();
+            List<Long> tz = tz();
+            int size = tz.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(su.get(i2 + 1).longValue() - su.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(tz.get(i2 + 1).longValue() - tz.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

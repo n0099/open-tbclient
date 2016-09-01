@@ -14,69 +14,69 @@ import android.widget.ImageView;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class BdExpandImageView extends ImageView {
+    private float AY;
+    protected float AZ;
+    protected float Ba;
+    private final float Bb;
+    private final Rect Bc;
+    private final Rect Bd;
+    private int Be;
+    private boolean Bf;
+    private float Bg;
+    private final DisplayMetrics Bh;
     private final Paint paint;
-    private float yJ;
-    protected float yK;
-    protected float yL;
-    private final float yM;
-    private final Rect yN;
-    private final Rect yO;
-    private int yP;
-    private boolean yQ;
-    private float yR;
-    private final DisplayMetrics yS;
 
     public BdExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.yJ = 0.0f;
-        this.yN = new Rect();
-        this.yO = new Rect();
+        this.AY = 0.0f;
+        this.Bc = new Rect();
+        this.Bd = new Rect();
         setScaleType(ImageView.ScaleType.MATRIX);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
-        this.yJ = obtainStyledAttributes.getDimensionPixelSize(1, 0) / 2.0f;
-        this.yK = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.AY = obtainStyledAttributes.getDimensionPixelSize(1, 0) / 2.0f;
+        this.AZ = obtainStyledAttributes.getDimensionPixelSize(0, 0);
         obtainStyledAttributes.recycle();
-        this.yL = getResources().getDisplayMetrics().widthPixels;
-        this.yM = this.yK + (this.yJ * 2.0f);
+        this.Ba = getResources().getDisplayMetrics().widthPixels;
+        this.Bb = this.AZ + (this.AY * 2.0f);
         this.paint = new Paint();
-        this.yS = getResources().getDisplayMetrics();
+        this.Bh = getResources().getDisplayMetrics();
     }
 
     @Override // android.widget.ImageView
     protected boolean setFrame(int i, int i2, int i3, int i4) {
-        this.yQ = true;
+        this.Bf = true;
         return super.setFrame(i, i2, i3, i4);
     }
 
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        if (this.yQ) {
-            jk();
+        if (this.Bf) {
+            kf();
         }
     }
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
-        if (this.yQ) {
-            jk();
+        if (this.Bf) {
+            kf();
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        jk();
+        kf();
     }
 
-    private void jk() {
+    private void kf() {
         Drawable drawable = getDrawable();
         if (drawable != null) {
             int measuredHeight = getMeasuredHeight();
             int intrinsicHeight = drawable.getIntrinsicHeight();
-            this.yR = intrinsicHeight / 10.0f;
-            this.yP = (int) (intrinsicHeight - (((((this.yM - measuredHeight) / 2.0f) * this.yR) / this.yJ) * 2.0f));
+            this.Bg = intrinsicHeight / 10.0f;
+            this.Be = (int) (intrinsicHeight - (((((this.Bb - measuredHeight) / 2.0f) * this.Bg) / this.AY) * 2.0f));
         }
     }
 
@@ -85,15 +85,15 @@ public class BdExpandImageView extends ImageView {
         Bitmap bitmap;
         Drawable drawable = getDrawable();
         if (drawable != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
-            int scaledWidth = bitmap.getScaledWidth(this.yS);
-            int scaledHeight = (bitmap.getScaledHeight(this.yS) - this.yP) / 2;
-            this.yN.set(0, scaledHeight, scaledWidth, this.yP + scaledHeight);
+            int scaledWidth = bitmap.getScaledWidth(this.Bh);
+            int scaledHeight = (bitmap.getScaledHeight(this.Bh) - this.Be) / 2;
+            this.Bc.set(0, scaledHeight, scaledWidth, this.Be + scaledHeight);
             int width = getWidth();
-            float max = Math.max(width / scaledWidth, getHeight() / this.yP);
+            float max = Math.max(width / scaledWidth, getHeight() / this.Be);
             int i = (int) (scaledWidth * max);
             int i2 = (i - width) / 2;
-            this.yO.set(-i2, 0, i - (i2 * 2), (int) (max * this.yP));
-            canvas.drawBitmap(bitmap, this.yN, this.yO, this.paint);
+            this.Bd.set(-i2, 0, i - (i2 * 2), (int) (max * this.Be));
+            canvas.drawBitmap(bitmap, this.Bc, this.Bd, this.paint);
         }
     }
 

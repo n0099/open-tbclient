@@ -4,79 +4,79 @@ import android.view.View;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 public class c {
-    private FrsActivity bGh;
-    private com.baidu.tieba.frs.j.p bIw;
-    private b bPY;
-    private boolean bPZ = false;
-    private boolean bQa = false;
+    private FrsActivity bRp;
+    private com.baidu.tieba.frs.i.p bTC;
+    private b cbg;
+    private boolean cbh = false;
+    private boolean cbi = false;
     private View mRootView;
 
-    public boolean Zt() {
-        return this.bPZ && !Zu();
+    public boolean aef() {
+        return this.cbh && !aeg();
     }
 
-    public void dH(boolean z) {
-        this.bPZ = z;
+    public void ed(boolean z) {
+        this.cbh = z;
     }
 
-    private boolean Zu() {
-        return this.bPY != null && this.bPY.Da();
+    private boolean aeg() {
+        return this.cbg != null && this.cbg.Eu();
     }
 
-    public c(FrsActivity frsActivity, View view, com.baidu.tieba.frs.j.p pVar) {
-        this.bGh = frsActivity;
+    public c(FrsActivity frsActivity, View view, com.baidu.tieba.frs.i.p pVar) {
+        this.bRp = frsActivity;
         this.mRootView = view;
-        this.bIw = pVar;
+        this.bTC = pVar;
     }
 
-    public void Zv() {
-        if (this.bPY == null && this.bGh != null) {
-            this.bPY = new b(this.bGh.getPageContext().getPageActivity());
+    public void aeh() {
+        if (this.cbg == null && this.bRp != null) {
+            this.cbg = new b(this.bRp.getPageContext().getPageActivity());
         }
-        if (this.mRootView != null && this.bPY != null) {
-            this.bPY.L(this.mRootView);
-            this.bPY.Dg().setOnTouchListener(new d(this));
+        if (this.mRootView != null && this.cbg != null) {
+            this.cbg.M(this.mRootView);
+            this.cbg.EA().setOnTouchListener(new d(this));
         }
     }
 
-    public void XB() {
-        if (this.bPY != null && Zu()) {
-            Zw();
-            if (this.bIw != null && this.bIw.aaE() != null) {
-                ForumHeadVideoView aba = this.bIw.aaE().aba();
-                if (aba != null) {
-                    aba.ZJ();
+    public void YN() {
+        if (this.cbg != null && aeg()) {
+            aei();
+            if (this.bTC != null && this.bTC.afp() != null) {
+                ForumHeadVideoView afL = this.bTC.afp().afL();
+                if (afL != null) {
+                    afL.aet();
                 }
-                a.Zr();
+                a.aed();
             }
         }
     }
 
-    public void Zw() {
-        if (this.bPY != null && this.mRootView != null) {
-            this.bPY.K(this.mRootView);
+    public void aei() {
+        if (this.cbg != null && this.mRootView != null) {
+            this.cbg.L(this.mRootView);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bPY != null) {
-            this.bPY.onChangeSkinType(i);
+        if (this.cbg != null) {
+            this.cbg.onChangeSkinType(i);
         }
     }
 
-    public void dI(boolean z) {
-        ForumHeadVideoView aba;
-        this.bQa = z;
-        if (this.bQa && this.bIw != null && this.bIw.aaE() != null && (aba = this.bIw.aaE().aba()) != null) {
-            aba.stopPlay();
+    public void ee(boolean z) {
+        ForumHeadVideoView afL;
+        this.cbi = z;
+        if (this.cbi && this.bTC != null && this.bTC.afp() != null && (afL = this.bTC.afp().afL()) != null) {
+            afL.stopPlay();
         }
     }
 
-    public boolean Zx() {
-        return this.bQa;
+    public boolean aej() {
+        return this.cbi;
     }
 
     public void onDestroy() {
-        Zw();
+        aei();
     }
 }

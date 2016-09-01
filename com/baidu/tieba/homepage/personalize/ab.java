@@ -5,16 +5,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends CustomMessageListener {
-    final /* synthetic */ z ctN;
+    final /* synthetic */ z cFs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ab(z zVar, int i) {
         super(i);
-        this.ctN = zVar;
+        this.cFs = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +30,7 @@ public class ab extends CustomMessageListener {
                 }
             }
             if (z) {
-                this.ctN.agq();
+                com.baidu.adp.lib.h.h.eG().postDelayed(new ac(this), TimeUnit.SECONDS.toMillis(2L));
             }
         }
     }

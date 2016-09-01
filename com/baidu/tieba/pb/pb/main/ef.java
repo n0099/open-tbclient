@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class ef extends cs<ds, ed> {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -16,9 +16,9 @@ public class ef extends cs<ds, ed> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bs */
+    /* renamed from: bj */
     public ed a(ViewGroup viewGroup) {
-        return new ed(this.eat.getPageContext(), LayoutInflater.from(this.mContext).inflate(u.h.pb_page_news, viewGroup, false));
+        return new ed(this.emy.getPageContext(), LayoutInflater.from(this.mContext).inflate(t.h.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class ef extends cs<ds, ed> {
         super.a(i, view, viewGroup, (ViewGroup) dsVar, (ds) edVar);
         if (dsVar != null) {
             edVar.a(dsVar);
-            edVar.onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
+            edVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
         return view;
     }

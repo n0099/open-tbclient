@@ -8,14 +8,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.q;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbTogetherhiAvatarList extends LinearLayout {
-    private int fvA;
-    private int fvB;
-    private int fvC;
+    private int fDW;
+    private int fDX;
+    private int fDY;
     private List<String> portraitList;
 
     public PbTogetherhiAvatarList(Context context) {
@@ -27,9 +27,9 @@ public class PbTogetherhiAvatarList extends LinearLayout {
         super(context, attributeSet);
         this.portraitList = new ArrayList();
         setOrientation(0);
-        this.fvA = getResources().getDimensionPixelSize(u.e.ds60);
-        this.fvB = getResources().getDimensionPixelSize(u.e.ds12);
-        this.fvC = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth() - getResources().getDimensionPixelSize(u.e.ds162);
+        this.fDW = getResources().getDimensionPixelSize(t.e.ds60);
+        this.fDX = getResources().getDimensionPixelSize(t.e.ds12);
+        this.fDY = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getWidth() - getResources().getDimensionPixelSize(t.e.ds162);
     }
 
     public void setPortraitList(List<String> list) {
@@ -62,17 +62,17 @@ public class PbTogetherhiAvatarList extends LinearLayout {
         for (int i3 = 0; i3 < this.portraitList.size(); i3++) {
             String str = this.portraitList.get(i3);
             if (!TextUtils.isEmpty(str)) {
-                if (i2 <= this.fvC) {
+                if (i2 <= this.fDY) {
                     HeadImageView headImageView = new HeadImageView(getContext());
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fvA, this.fvA);
-                    layoutParams.setMargins(0, 0, this.fvB, 0);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fDW, this.fDW);
+                    layoutParams.setMargins(0, 0, this.fDX, 0);
                     headImageView.setIsRound(true);
                     headImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     addView(headImageView, layoutParams);
-                    String dh = q.dh(str);
-                    headImageView.setUrl(dh);
-                    headImageView.c(dh, 12, false);
-                    i2 = this.fvB + this.fvA + i2;
+                    String dk = q.dk(str);
+                    headImageView.setUrl(dk);
+                    headImageView.c(dk, 12, false);
+                    i2 = this.fDX + this.fDW + i2;
                 } else {
                     return;
                 }

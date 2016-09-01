@@ -11,7 +11,7 @@ public class a extends Observable {
         notifyObservers();
     }
 
-    public long nn() {
+    public long oi() {
         return this.album_id;
     }
 }

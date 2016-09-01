@@ -8,51 +8,51 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.g.a {
-    private TextView Tl;
-    private ImageView bPX;
+    private TextView Wb;
+    private ImageView cbf;
 
     public b(Context context) {
-        this(context, com.baidu.adp.lib.util.k.c(context, u.e.ds96));
+        this(context, com.baidu.adp.lib.util.k.e(context, t.e.ds96));
     }
 
     public b(Context context, int i) {
-        super(LayoutInflater.from(context).inflate(u.h.forum_head_video_guide_view, (ViewGroup) null));
-        this.bPX = (ImageView) this.awb.findViewById(u.g.iv_show_img);
-        this.Tl = (TextView) this.awb.findViewById(u.g.tv_show_text);
+        super(LayoutInflater.from(context).inflate(t.h.forum_head_video_guide_view, (ViewGroup) null));
+        this.cbf = (ImageView) this.azi.findViewById(t.g.iv_show_img);
+        this.Wb = (TextView) this.azi.findViewById(t.g.tv_show_text);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.bPX.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.cbf.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.bPX.setLayoutParams(marginLayoutParams);
+                this.cbf.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.g.a
-    public void Db() {
-        onChangeSkinType(TbadkCoreApplication.m10getInst().getSkinType());
-        this.awb.setClickable(true);
+    public void Ev() {
+        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        this.azi.setClickable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.g.a
-    public void Dc() {
-        this.bPX.setBackgroundResource(0);
-        this.bPX.setImageBitmap(null);
+    public void Ew() {
+        this.cbf.setBackgroundResource(0);
+        this.cbf.setImageBitmap(null);
     }
 
     public void onChangeSkinType(int i) {
-        av.c(this.bPX, u.f.iocn_video_tip, i);
-        av.e(this.awb, u.d.black_alpha40, i);
-        av.c(this.Tl, u.d.cp_cont_g, 1);
+        av.c(this.cbf, t.f.iocn_video_tip, i);
+        av.e(this.azi, t.d.black_alpha40, i);
+        av.c(this.Wb, t.d.cp_cont_g, 1);
     }
 
-    public View Dg() {
-        return this.awb;
+    public View EA() {
+        return this.azi;
     }
 }

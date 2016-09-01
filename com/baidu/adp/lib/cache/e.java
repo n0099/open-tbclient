@@ -4,24 +4,24 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class e<T> implements n<T> {
-    protected final boolean jH;
-    protected final f jI;
+    protected final boolean lY;
+    protected final f lZ;
 
-    public abstract h<T> M(String str);
+    public abstract h<T> N(String str);
 
-    public abstract void N(String str);
+    public abstract void O(String str);
 
-    protected abstract void O(String str);
+    protected abstract void P(String str);
 
     public abstract void c(h<T> hVar);
 
     public e(f fVar, boolean z) {
-        this.jI = fVar;
-        this.jH = z;
+        this.lZ = fVar;
+        this.lY = z;
     }
 
     protected String h(String str, String str2) {
-        if (this.jH) {
+        if (this.lY) {
             return String.valueOf(str) + "@" + str2;
         }
         return str2;
@@ -29,21 +29,21 @@ public abstract class e<T> implements n<T> {
 
     protected h<T> j(String str, String str2) {
         String h = h(str, str2);
-        h<T> M = M(h);
-        if (M == null) {
+        h<T> N = N(h);
+        if (N == null) {
             BdLog.isDebugMode();
             return null;
-        } else if (M.jP < System.currentTimeMillis()) {
-            O(h);
+        } else if (N.mh < System.currentTimeMillis()) {
+            P(h);
             BdLog.isDebugMode();
             return null;
         } else {
-            if (this.jI.cz()) {
-                M.jO = System.currentTimeMillis();
-                c(M);
+            if (this.lZ.du()) {
+                N.mg = System.currentTimeMillis();
+                c(N);
             }
             BdLog.isDebugMode();
-            return M;
+            return N;
         }
     }
 
@@ -53,7 +53,7 @@ public abstract class e<T> implements n<T> {
         if (j == null) {
             return null;
         }
-        return j.iZ;
+        return j.lo;
     }
 
     @Override // com.baidu.adp.lib.cache.n
@@ -64,31 +64,31 @@ public abstract class e<T> implements n<T> {
         }
         o.c<T> cVar = new o.c<>();
         cVar.key = str2;
-        cVar.iZ = j.iZ;
-        cVar.jP = j.jP;
-        cVar.kf = j.jN;
+        cVar.lo = j.lo;
+        cVar.mh = j.mh;
+        cVar.mx = j.mf;
         return cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.n
     public void a(String str, String str2, T t, long j) {
         h<T> hVar = new h<>();
-        hVar.jL = h(str, str2);
-        hVar.jM = str;
-        hVar.jP = j;
-        hVar.iZ = t;
-        hVar.jO = System.currentTimeMillis();
-        hVar.jN = System.currentTimeMillis();
+        hVar.mc = h(str, str2);
+        hVar.md = str;
+        hVar.mh = j;
+        hVar.lo = t;
+        hVar.mg = System.currentTimeMillis();
+        hVar.mf = System.currentTimeMillis();
         c(hVar);
     }
 
     @Override // com.baidu.adp.lib.cache.n
     public void m(String str, String str2) {
-        N(h(str, str2));
+        O(h(str, str2));
     }
 
     @Override // com.baidu.adp.lib.cache.n
-    public f cy() {
-        return this.jI;
+    public f dt() {
+        return this.lZ;
     }
 }

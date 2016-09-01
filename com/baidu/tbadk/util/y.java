@@ -20,7 +20,7 @@ public class y {
         return "";
     }
 
-    public static Bundle gx(String str) {
+    public static Bundle gA(String str) {
         URL url;
         String query;
         String[] split;
@@ -50,17 +50,17 @@ public class y {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aBZ;
+        public String aFg;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aBZ = "";
+            this.aFg = "";
             this.BDUSS = str;
-            this.aBZ = str2;
+            this.aFg = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aBZ != null ? this.aBZ.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aFg != null ? this.aFg.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -76,7 +76,7 @@ public class y {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aBZ == null ? aVar.aBZ == null : this.aBZ.equals(aVar.aBZ);
+                return this.aFg == null ? aVar.aFg == null : this.aFg.equals(aVar.aFg);
             }
             return false;
         }

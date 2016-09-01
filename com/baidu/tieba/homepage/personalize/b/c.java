@@ -1,9 +1,9 @@
 package com.baidu.tieba.homepage.personalize.b;
 
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.card.a.s;
+import com.baidu.tieba.card.data.s;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.Personalized.DataRes;
@@ -11,17 +11,17 @@ import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes.dex */
 public class c {
     public static void a(DataRes.Builder builder, List<v> list) {
-        bv(list);
+        bx(list);
         b(builder, list);
     }
 
-    private static void bv(List<v> list) {
+    private static void bx(List<v> list) {
         if (list != null) {
             int s = y.s(list);
             for (int i = 0; i < s; i++) {
                 v vVar = (v) y.c(list, i);
                 if (vVar instanceof s) {
-                    ((s) vVar).cn(true);
+                    ((s) vVar).ct(true);
                 }
             }
             for (int i2 = 0; i2 < s; i2++) {
@@ -29,8 +29,8 @@ public class c {
                 v vVar3 = (v) y.c(list, i2 + 1);
                 if ((vVar2 instanceof s) && (vVar3 instanceof s)) {
                     s sVar = (s) vVar3;
-                    if (((s) vVar2).Ll()) {
-                        sVar.cn(false);
+                    if (((s) vVar2).NO()) {
+                        sVar.ct(false);
                     }
                 }
             }
@@ -38,8 +38,8 @@ public class c {
     }
 
     private static void b(DataRes.Builder builder, List<v> list) {
-        com.baidu.tieba.card.a.c cVar;
-        be Iw;
+        com.baidu.tieba.card.data.c cVar;
+        bg Kw;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             HashMap hashMap = new HashMap();
@@ -51,10 +51,10 @@ public class c {
             int s = y.s(list);
             for (int i = 0; i < s; i++) {
                 v vVar = (v) y.c(list, i);
-                if ((vVar instanceof com.baidu.tieba.card.a.c) && (Iw = (cVar = (com.baidu.tieba.card.a.c) vVar).Iw()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.h.b.c(Iw.getTid(), 0L)))) != null) {
+                if ((vVar instanceof com.baidu.tieba.card.data.c) && (Kw = (cVar = (com.baidu.tieba.card.data.c) vVar).Kw()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.h.b.c(Kw.getTid(), 0L)))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.hf(threadPersonalized.abtest_tag);
+                    cVar.hK(threadPersonalized.abtest_tag);
                 }
             }
         }

@@ -6,13 +6,13 @@ import com.baidu.tieba.pb.pb.main.ct;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cu extends HttpMessageListener {
-    final /* synthetic */ ct ecP;
+    final /* synthetic */ ct eoU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cu(ct ctVar, int i) {
         super(i);
-        this.ecP = ctVar;
+        this.eoU = ctVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class cu extends HttpMessageListener {
         ct.a aVar2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
             if (httpResponsedMessage.getStatusCode() != 200) {
-                aVar = this.ecP.ebO;
+                aVar = this.eoU.enW;
                 aVar.h(-1, null, null);
                 return;
             }
@@ -33,7 +33,7 @@ public class cu extends HttpMessageListener {
             if (errorCode == 0) {
                 errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
             }
-            aVar2 = this.ecP.ebO;
+            aVar2 = this.eoU.enW;
             aVar2.h(errorCode, errorMessage, tid);
         }
     }

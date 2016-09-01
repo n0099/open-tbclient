@@ -1,35 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.pb.pb.main.a.f;
 /* loaded from: classes.dex */
-class q extends CustomMessageListener {
-    final /* synthetic */ PbActivity ebT;
+class q implements f.a {
+    final /* synthetic */ PbActivity eob;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(PbActivity pbActivity, int i) {
-        super(i);
-        this.ebT = pbActivity;
+    public q(PbActivity pbActivity) {
+        this.eob = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
-                if (!updateAttentionMessage.getData().tF) {
-                    if (updateAttentionMessage.getData().errorString != null) {
-                        this.ebT.showToast(updateAttentionMessage.getData().errorString);
-                        return;
-                    }
-                    return;
-                }
-                this.ebT.b(updateAttentionMessage);
-                this.ebT.a(updateAttentionMessage);
-            }
+    @Override // com.baidu.tieba.pb.pb.main.a.f.a
+    public void dr(boolean z) {
+        ex exVar;
+        ex exVar2;
+        this.eob.hZ(z);
+        exVar = this.eob.enh;
+        if (exVar.aPT() != null && z) {
+            exVar2 = this.eob.enh;
+            exVar2.is(false);
         }
     }
 }

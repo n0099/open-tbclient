@@ -1,22 +1,18 @@
 package com.baidu.tieba.frs.entelechy;
 
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.FrsActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements a.b {
-    final /* synthetic */ o bKe;
+public class p implements a.b {
+    final /* synthetic */ j bVn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar) {
-        this.bKe = oVar;
+    public p(j jVar) {
+        this.bVn = jVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
-    public void a(com.baidu.tbadk.core.dialog.a aVar) {
-        FrsActivity frsActivity;
-        frsActivity = this.bKe.bGh;
-        TiebaStatic.eventStat(frsActivity.getPageContext().getPageActivity(), "consume_7", "click");
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
     }
 }

@@ -1,70 +1,88 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
-import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public class e {
-    public static void P(Context context, String str) {
-        if (!StringUtils.isNull(str)) {
-            Toast makeText = Toast.makeText(context, str, 0);
-            if (makeText.getView() != null) {
-                View findViewById = makeText.getView().findViewById(16908299);
-                if (findViewById instanceof TextView) {
-                    ((TextView) findViewById).setGravity(17);
-                }
-                makeText.show();
-            }
-        }
+    final AntiData antiData;
+    private String colorMsg;
+    final int errorCode;
+    private String errorString;
+    private int isCopyTWZhibo;
+    private String preMsg;
+    private String threadId = null;
+    private String postId = null;
+
+    public e(int i, String str, AntiData antiData) {
+        this.errorCode = i;
+        this.errorString = str;
+        this.antiData = antiData;
     }
 
-    public static void g(Context context, View view) {
-        Toast toast = new Toast(context);
-        toast.setView(view);
-        toast.setGravity(17, 0, 0);
-        toast.setDuration(3000);
-        toast.show();
+    public boolean hasError() {
+        return this.errorCode != 0;
     }
 
-    public static void c(Context context, String str, String str2, String str3) {
-        View inflate = LayoutInflater.from(context).inflate(u.h.post_write_or_reply_lay, (ViewGroup) null);
-        View findViewById = inflate.findViewById(u.g.experience_score);
-        TextView textView = (TextView) inflate.findViewById(u.g.success_text);
-        TextView textView2 = (TextView) inflate.findViewById(u.g.pre_msg);
-        TextView textView3 = (TextView) inflate.findViewById(u.g.color_msg);
-        if (StringUtils.isNull(str)) {
-            str = context.getString(u.j.send_success);
-        }
-        textView.setText(str);
-        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            findViewById.setVisibility(0);
-            textView2.setText(str2);
-            textView3.setText(str3);
-        }
-        g(context, inflate);
+    public boolean bkr() {
+        return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public static void a(ab abVar, WriteData writeData) {
-        if (writeData != null && writeData.isHasLocationData()) {
-            abVar.n("is_location", "2");
-            Address z = com.baidu.adp.lib.e.a.cZ().z(false);
-            if (z != null) {
-                abVar.n("lat", String.valueOf(z.getLatitude()));
-                abVar.n("lng", String.valueOf(z.getLongitude()));
-            }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bgi().getLocationData();
-            if (locationData != null) {
-                abVar.n("name", locationData.getFormatted_address());
-                abVar.n("sn", locationData.getSn());
-            }
-        }
+    public boolean bks() {
+        return this.errorCode == 227001;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public String getErrorString() {
+        return this.errorString;
+    }
+
+    public void setErrorString(String str) {
+        this.errorString = str;
+    }
+
+    public AntiData getAntiData() {
+        return this.antiData;
+    }
+
+    public String getPreMsg() {
+        return this.preMsg;
+    }
+
+    public void setPreMsg(String str) {
+        this.preMsg = str;
+    }
+
+    public String getColorMsg() {
+        return this.colorMsg;
+    }
+
+    public void setColorMsg(String str) {
+        this.colorMsg = str;
+    }
+
+    public String getThreadId() {
+        return this.threadId;
+    }
+
+    public void setThreadId(String str) {
+        this.threadId = str;
+    }
+
+    public String getPostId() {
+        return this.postId;
+    }
+
+    public void setPostId(String str) {
+        this.postId = str;
+    }
+
+    public void setIsCopyTWZhibo(int i) {
+        this.isCopyTWZhibo = i;
+    }
+
+    public int getIsCopyTWZhibo() {
+        return this.isCopyTWZhibo;
     }
 }

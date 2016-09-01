@@ -9,6 +9,6 @@ public class b extends SocketMessageTask {
     }
 
     private void init() {
-        j(true);
+        l(true);
     }
 }

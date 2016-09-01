@@ -8,53 +8,53 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class p {
-    private static final byte[] aBM = new byte[1];
-    private static p aBN = null;
-    private CustomMessageListener oz;
+    private static final byte[] aET = new byte[1];
+    private static p aEU = null;
+    private CustomMessageListener qQ;
 
-    public static p FG() {
-        if (aBN == null) {
-            synchronized (aBM) {
-                if (aBN == null) {
-                    aBN = new p();
+    public static p Ha() {
+        if (aEU == null) {
+            synchronized (aET) {
+                if (aEU == null) {
+                    aEU = new p();
                 }
             }
         }
-        return aBN;
+        return aEU;
     }
 
     private p() {
         com.baidu.adp.lib.util.i.init();
     }
 
-    public void FH() {
+    public void Hb() {
         try {
-            if (this.oz == null) {
-                this.oz = FI();
-                MessageManager.getInstance().registerListener(this.oz);
+            if (this.qQ == null) {
+                this.qQ = Hc();
+                MessageManager.getInstance().registerListener(this.qQ);
             }
         } catch (Exception e) {
-            this.oz = null;
+            this.qQ = null;
             BdLog.e(e.getMessage());
         }
     }
 
-    private CustomMessageListener FI() {
+    private CustomMessageListener Hc() {
         return new q(this, 2000994);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FJ() {
+    public void Hd() {
         try {
-            boolean fq = com.baidu.adp.lib.util.i.fq();
-            if (fq) {
-                if (com.baidu.adp.lib.util.i.fr()) {
-                    bb.ue().aB(true);
-                } else if (com.baidu.adp.lib.util.i.fs()) {
-                    bb.ue().aB(false);
+            boolean gm = com.baidu.adp.lib.util.i.gm();
+            if (gm) {
+                if (com.baidu.adp.lib.util.i.gn()) {
+                    bb.vk().aC(true);
+                } else if (com.baidu.adp.lib.util.i.go()) {
+                    bb.vk().aC(false);
                 }
             }
-            NoNetworkView.setIsHasNetwork(fq);
+            NoNetworkView.setIsHasNetwork(gm);
             CompatibleUtile.dealWebView(null);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

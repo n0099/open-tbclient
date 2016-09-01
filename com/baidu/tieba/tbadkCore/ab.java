@@ -1,40 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.be;
+import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class ab extends be {
-    public static final BdUniqueId fjp = BdUniqueId.gen();
-    private boolean fjq;
-    private q fjr;
-    private String fortune_desc;
+public class ab implements View.OnTouchListener {
+    private a frk;
+    private int count = 0;
+    private long ekH = 0;
+    private long ekI = 0;
+    private long ekK = 500;
+    private Handler mHandler = new ac(this);
 
-    public boolean beG() {
-        return this.fjq;
+    /* loaded from: classes.dex */
+    public interface a {
+        void acd();
+
+        void ace();
     }
 
-    public void kw(boolean z) {
-        this.fjq = z;
+    public ab(a aVar) {
+        this.frk = aVar;
     }
 
-    public String beH() {
-        return this.fortune_desc;
-    }
-
-    public void qi(String str) {
-        this.fortune_desc = str;
-    }
-
-    public q beI() {
-        return this.fjr;
-    }
-
-    public void b(q qVar) {
-        this.fjr = qVar;
-    }
-
-    @Override // com.baidu.tbadk.core.data.be, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return fjp;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            if (this.frk == null) {
+                return false;
+            }
+            this.count++;
+            if (this.count == 1) {
+                this.ekH = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.ekK);
+                return true;
+            } else if (this.count == 2) {
+                this.ekI = System.currentTimeMillis();
+                if (this.ekI - this.ekH < this.ekK) {
+                    this.frk.ace();
+                }
+                this.mHandler.sendEmptyMessage(2);
+                return true;
+            } else {
+                return true;
+            }
+        }
+        return true;
     }
 }

@@ -6,19 +6,19 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.v;
+import com.baidu.tbadk.core.data.w;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.tbadkCore.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bRh;
-    private final /* synthetic */ v bRi;
+    final /* synthetic */ a cct;
+    private final /* synthetic */ w ccu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar, v vVar) {
-        this.bRh = aVar;
-        this.bRi = vVar;
+    public d(a aVar, w wVar) {
+        this.cct = aVar;
+        this.ccu = wVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,16 +28,16 @@ public class d implements View.OnClickListener {
         p pVar2;
         p pVar3;
         String str = "";
-        pVar = this.bRh.bDM;
+        pVar = this.cct.bPq;
         if (pVar != null) {
-            pVar2 = this.bRh.bDM;
-            if (pVar2.aGX() != null) {
-                pVar3 = this.bRh.bDM;
-                str = pVar3.aGX().getName();
+            pVar2 = this.cct.bPq;
+            if (pVar2.aLP() != null) {
+                pVar3 = this.cct.bPq;
+                str = pVar3.aLP().getName();
             }
         }
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.bRh.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bRi.getAuthor().getUserId(), this.bRi.getAuthor().getName_show(), str, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        context = this.cct.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.ccu.getAuthor().getUserId(), this.ccu.getAuthor().getName_show(), str, AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

@@ -1,53 +1,63 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.u;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class g extends RelativeLayout implements View.OnClickListener {
-    private HeadImageView bFm;
-    private ImageView fOe;
+public class g extends LinkMovementMethod {
+    private static g fVR;
+    private int fVP;
+    private int fVQ;
 
-    public g(Context context) {
-        super(context);
-        this.bFm = new HeadImageView(context);
-        this.fOe = new ImageView(context);
-        addView(this.bFm);
-        addView(this.fOe);
-        ((RelativeLayout.LayoutParams) this.fOe.getLayoutParams()).addRule(12);
-        ((RelativeLayout.LayoutParams) this.fOe.getLayoutParams()).addRule(11);
-        av.c(this.fOe, u.f.profit_lock);
-        this.bFm.setAlpha(0.3f);
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        com.baidu.tbadk.widget.richText.h a = a(textView, spannable, motionEvent);
+        if (a == null) {
+            return super.onTouchEvent(textView, spannable, motionEvent);
+        }
+        if (motionEvent.getAction() == 0) {
+            this.fVP = (int) motionEvent.getX();
+            this.fVQ = (int) motionEvent.getY();
+            if (a != null) {
+                a.fw(1);
+                Selection.setSelection(spannable, spannable.getSpanStart(a), spannable.getSpanEnd(a));
+            }
+            textView.invalidate();
+        } else if (motionEvent.getAction() == 2) {
+            if (a != null && (Math.abs(this.fVP - motionEvent.getX()) > 20.0f || Math.abs(this.fVQ - motionEvent.getY()) > 20.0f)) {
+                a.fw(2);
+                textView.invalidate();
+                Selection.removeSelection(spannable);
+            }
+        } else if ((motionEvent.getAction() == 1 || motionEvent.getAction() == 3) && a != null) {
+            a.fw(2);
+            textView.invalidate();
+            Selection.removeSelection(spannable);
+        }
+        return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public void bw(int i, int i2) {
-        getLayoutParams().height = i2;
-        getLayoutParams().width = i;
+    public static g bql() {
+        if (fVR == null) {
+            fVR = new g();
+        }
+        return fVR;
     }
 
-    public void bx(int i, int i2) {
-        this.bFm.getLayoutParams().height = i2;
-        this.bFm.getLayoutParams().width = i;
-    }
-
-    public void by(int i, int i2) {
-        this.fOe.getLayoutParams().height = i2;
-        this.fOe.getLayoutParams().width = i;
-    }
-
-    public HeadImageView getIcon() {
-        return this.bFm;
-    }
-
-    public ImageView getLock() {
-        return this.fOe;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    private com.baidu.tbadk.widget.richText.h a(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+        int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+        int scrollX = x + textView.getScrollX();
+        int scrollY = y + textView.getScrollY();
+        Layout layout = textView.getLayout();
+        int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+        com.baidu.tbadk.widget.richText.h[] hVarArr = (com.baidu.tbadk.widget.richText.h[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.h.class);
+        if (hVarArr == null || hVarArr.length <= 0 || hVarArr[0] == null) {
+            return null;
+        }
+        return hVarArr[0];
     }
 }

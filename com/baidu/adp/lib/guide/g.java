@@ -5,89 +5,89 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a kS;
-    private boolean kV;
-    private List<b> kW = new ArrayList();
-    private Configuration kO = new Configuration();
+    private a nm;
+    private boolean nq;
+    private List<b> nr = new ArrayList();
+    private Configuration ni = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
-        void cW();
+        void dR();
 
         void onDismiss();
     }
 
-    public g Q(int i) {
-        if (this.kV) {
+    public g ad(int i) {
+        if (this.nq) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.kO.mAlpha = i;
+        this.ni.mAlpha = i;
         return this;
     }
 
     public g o(View view) {
-        if (this.kV) {
+        if (this.nq) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.kO.bL = view;
+        this.ni.bL = view;
         return this;
     }
 
-    public g R(int i) {
-        if (this.kV) {
+    public g ae(int i) {
+        if (this.nq) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.kO.kH = i;
-        return this;
-    }
-
-    public g v(boolean z) {
-        if (this.kV) {
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        this.kO.kJ = z;
-        return this;
-    }
-
-    public g w(boolean z) {
-        if (this.kV) {
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        this.kO.kK = z;
-        return this;
-    }
-
-    public g a(b bVar) {
-        if (this.kV) {
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        this.kW.add(bVar);
+        this.ni.nb = i;
         return this;
     }
 
     public g x(boolean z) {
-        this.kO.kF = z;
+        if (this.nq) {
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        this.ni.nd = z;
         return this;
     }
 
-    public d cV() {
+    public g y(boolean z) {
+        if (this.nq) {
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        this.ni.ne = z;
+        return this;
+    }
+
+    public g a(b bVar) {
+        if (this.nq) {
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        this.nr.add(bVar);
+        return this;
+    }
+
+    public g z(boolean z) {
+        this.ni.mZ = z;
+        return this;
+    }
+
+    public d dQ() {
         d dVar = new d();
-        dVar.a((b[]) this.kW.toArray(new b[this.kW.size()]));
-        dVar.a(this.kO);
-        dVar.a(this.kS);
-        this.kW = null;
-        this.kO = null;
-        this.kS = null;
-        this.kV = true;
+        dVar.a((b[]) this.nr.toArray(new b[this.nr.size()]));
+        dVar.a(this.ni);
+        dVar.a(this.nm);
+        this.nr = null;
+        this.ni = null;
+        this.nm = null;
+        this.nq = true;
         return dVar;
     }
 }

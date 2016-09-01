@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 class dg implements Runnable {
-    final /* synthetic */ de eda;
+    final /* synthetic */ de epf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dg(de deVar) {
-        this.eda = deVar;
+        this.epf = deVar;
     }
 
     @Override // java.lang.Runnable
@@ -14,11 +14,11 @@ class dg implements Runnable {
         com.baidu.adp.lib.guide.d dVar;
         dd ddVar2;
         com.baidu.adp.lib.guide.d dVar2;
-        ddVar = this.eda.ecZ;
-        dVar = ddVar.ecW;
+        ddVar = this.epf.epe;
+        dVar = ddVar.epb;
         if (dVar != null) {
-            ddVar2 = this.eda.ecZ;
-            dVar2 = ddVar2.ecW;
+            ddVar2 = this.epf.epe;
+            dVar2 = ddVar2.epb;
             dVar2.dismiss();
         }
     }

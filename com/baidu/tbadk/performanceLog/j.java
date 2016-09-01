@@ -4,27 +4,27 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.a.a {
-    private String ayJ = "dalvikvm";
-    private String[] ayK = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private d ayL = null;
-    private int ayC = 0;
-    private final int ayM = 10000;
-    private a ayN = null;
-    private final Handler ayO = new k(this);
+    private String aBQ = "dalvikvm";
+    private String[] aBR = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private d aBS = null;
+    private int aBJ = 0;
+    private final int aBT = 10000;
+    private a aBU = null;
+    private final Handler aBV = new k(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void eN(int i);
+        void fb(int i);
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
-        if (!ah()) {
+        if (!bc()) {
             super.start();
-            this.ayO.sendEmptyMessageDelayed(0, 10000L);
-            EK();
+            this.aBV.sendEmptyMessageDelayed(0, 10000L);
+            Ge();
             try {
-                d.a(this.ayJ, new l(this));
+                d.a(this.aBQ, new l(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -34,27 +34,27 @@ public class j extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        EL();
+        Gf();
     }
 
-    private void EK() {
-        if (this.ayL == null) {
-            this.ayL = new d();
+    private void Ge() {
+        if (this.aBS == null) {
+            this.aBS = new d();
         }
-        if (!this.ayL.ah()) {
-            new Thread(this.ayL).start();
+        if (!this.aBS.bc()) {
+            new Thread(this.aBS).start();
         }
     }
 
-    private void EL() {
-        if (this.ayL != null && this.ayL.ah()) {
-            this.ayL.stop();
+    private void Gf() {
+        if (this.aBS != null && this.aBS.bc()) {
+            this.aBS.stop();
         }
     }
 
     public void a(a aVar) {
-        if (this.ayN == null) {
-            this.ayN = aVar;
+        if (this.aBU == null) {
+            this.aBU = aVar;
         }
     }
 }

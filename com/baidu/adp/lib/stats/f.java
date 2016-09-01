@@ -6,15 +6,15 @@ public class f {
     public String mCuid;
     public String mNetType;
     public String mUid;
-    public String nA;
-    public String nB;
-    public String nC;
-    public String nD;
-    public String nE;
-    public String nu;
-    public String nv;
-    public String nw;
-    public String nx;
-    public String ny;
-    public String nz;
+    public String pP;
+    public String pQ;
+    public String pR;
+    public String pS;
+    public String pT;
+    public String pU;
+    public String pV;
+    public String pW;
+    public String pX;
+    public String pY;
+    public String pZ;
 }

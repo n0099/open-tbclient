@@ -1,42 +1,110 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.be;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class am extends be {
-    public static final BdUniqueId fjD = BdUniqueId.gen();
-    private bg fjE;
-    private bj fjF;
-    private boolean fjG = false;
+public class am {
+    private String acU = "bar_detail";
+    private a frA;
 
-    @Override // com.baidu.tbadk.core.data.be, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return fjD;
+    /* loaded from: classes.dex */
+    public interface a {
+        void i(String str, long j);
+
+        void j(String str, long j);
     }
 
-    public boolean beO() {
-        return this.fjG;
+    public void setFrom(String str) {
+        this.acU = str;
     }
 
-    public void kx(boolean z) {
-        this.fjG = z;
+    public void a(a aVar) {
+        this.frA = aVar;
     }
 
-    public bg beP() {
-        return this.fjE;
+    public void s(String str, long j) {
+        new b(str, j, this.acU, this.frA).execute(new Integer[0]);
     }
 
-    public void a(bg bgVar) {
-        this.fjE = bgVar;
-    }
+    /* loaded from: classes.dex */
+    private static class b extends BdAsyncTask<Integer, Integer, Integer> {
+        private String acU;
+        private com.baidu.tbadk.core.util.ab aiS = null;
+        private WeakReference<a> frB;
+        private long mForumId;
+        private String mForumName;
 
-    public bj beQ() {
-        return this.fjF;
-    }
+        public b(String str, long j, String str2, a aVar) {
+            this.mForumName = null;
+            this.mForumId = 0L;
+            this.frB = null;
+            this.mForumName = str;
+            this.mForumId = j;
+            this.frB = new WeakReference<>(aVar);
+            this.acU = str2;
+            setPriority(3);
+        }
 
-    public void a(bj bjVar) {
-        this.fjF = bjVar;
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public Integer doInBackground(Integer... numArr) {
+            try {
+                if (this.mForumId != 0 && this.mForumName != null) {
+                    this.aiS = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
+                    this.aiS.n("fid", String.valueOf(this.mForumId));
+                    this.aiS.n("kw", this.mForumName);
+                    this.aiS.n("favo_type", "1");
+                    this.aiS.n("st_type", this.acU);
+                    this.aiS.uD().vz().mIsNeedTbs = true;
+                    this.aiS.ue();
+                }
+                return 1;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return 0;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            super.onPostExecute((b) num);
+            if (this.frB != null) {
+                com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
+                aVar.forumId = this.mForumId;
+                a aVar2 = this.frB.get();
+                if (aVar2 != null) {
+                    if (this.aiS != null) {
+                        if (this.aiS.uD().vA().oE()) {
+                            if (num.intValue() == 1) {
+                                TbadkCoreApplication.m9getInst().delLikeForum(this.mForumName);
+                                aVar2.i(this.mForumName, this.mForumId);
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
+                                aVar.isSuccess = true;
+                            } else {
+                                aVar2.j(this.mForumName, this.mForumId);
+                                aVar.isSuccess = false;
+                            }
+                        } else {
+                            aVar2.j(this.mForumName, this.mForumId);
+                            aVar.isSuccess = false;
+                        }
+                    } else {
+                        aVar2.j(this.mForumName, this.mForumId);
+                        aVar.isSuccess = false;
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_UNLIKE_FORUM, aVar));
+                }
+            }
+        }
     }
 }

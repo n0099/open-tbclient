@@ -8,19 +8,21 @@ import com.baidu.tbadk.core.view.TextureVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ TextureVideoView aeo;
+    final /* synthetic */ TextureVideoView ahh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(TextureVideoView textureVideoView) {
-        this.aeo = textureVideoView;
+        this.ahh = textureVideoView;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00b6  */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00d2  */
     @Override // android.media.MediaPlayer.OnPreparedListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onPrepared(MediaPlayer mediaPlayer) {
+        Runnable runnable;
+        Runnable runnable2;
         MediaPlayer.OnPreparedListener onPreparedListener;
         MediaController mediaController;
         int i;
@@ -38,77 +40,83 @@ public class ab implements MediaPlayer.OnPreparedListener {
         MediaController mediaController6;
         MediaPlayer.OnPreparedListener onPreparedListener2;
         MediaPlayer mediaPlayer2;
+        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
+        runnable = this.ahh.ahg;
+        eG.removeCallbacks(runnable);
+        com.baidu.adp.lib.h.h eG2 = com.baidu.adp.lib.h.h.eG();
+        runnable2 = this.ahh.ahg;
+        eG2.postDelayed(runnable2, 200L);
         if (mediaPlayer != null) {
             try {
-                this.aeo.adL = mediaPlayer.getVideoWidth();
-                this.aeo.adM = mediaPlayer.getVideoHeight();
-                this.aeo.adI = 2;
-                TextureVideoView textureVideoView = this.aeo;
-                TextureVideoView textureVideoView2 = this.aeo;
-                this.aeo.adV = true;
-                textureVideoView2.adU = true;
-                textureVideoView.adT = true;
-                onPreparedListener = this.aeo.adP;
+                this.ahh.agC = mediaPlayer.getVideoWidth();
+                this.ahh.agD = mediaPlayer.getVideoHeight();
+                this.ahh.agz = 2;
+                TextureVideoView textureVideoView = this.ahh;
+                TextureVideoView textureVideoView2 = this.ahh;
+                this.ahh.agM = true;
+                textureVideoView2.agL = true;
+                textureVideoView.agK = true;
+                onPreparedListener = this.ahh.agG;
                 if (onPreparedListener != null) {
-                    onPreparedListener2 = this.aeo.adP;
-                    mediaPlayer2 = this.aeo.adK;
+                    onPreparedListener2 = this.ahh.agG;
+                    mediaPlayer2 = this.ahh.agB;
                     onPreparedListener2.onPrepared(mediaPlayer2);
                 }
-                mediaController = this.aeo.adN;
+                mediaController = this.ahh.agE;
                 if (mediaController != null) {
-                    mediaController6 = this.aeo.adN;
+                    mediaController6 = this.ahh.agE;
                     mediaController6.setEnabled(true);
                 }
-                i = this.aeo.adS;
+                i = this.ahh.agJ;
                 if (i != 0) {
-                    this.aeo.seekTo(i);
+                    this.ahh.seekTo(i);
                 }
-                i2 = this.aeo.adL;
+                i2 = this.ahh.agC;
                 if (i2 != 0) {
-                    i4 = this.aeo.adM;
+                    i4 = this.ahh.agD;
                     if (i4 != 0) {
-                        this.aeo.requestLayout();
-                        i5 = this.aeo.adJ;
+                        this.ahh.requestLayout();
+                        i5 = this.ahh.agA;
                         if (i5 == 3) {
-                            this.aeo.start();
-                            mediaController4 = this.aeo.adN;
+                            this.ahh.start();
+                            mediaController4 = this.ahh.agE;
                             if (mediaController4 != null) {
-                                mediaController5 = this.aeo.adN;
+                                mediaController5 = this.ahh.agE;
                                 mediaController5.show();
                             }
-                        } else if (!this.aeo.isPlaying() && (i != 0 || this.aeo.getCurrentPosition() > 0)) {
-                            mediaController2 = this.aeo.adN;
+                        } else if (!this.ahh.isPlaying() && (i != 0 || this.ahh.getCurrentPosition() > 0)) {
+                            mediaController2 = this.ahh.agE;
                             if (mediaController2 != null) {
-                                mediaController3 = this.aeo.adN;
+                                mediaController3 = this.ahh.agE;
                                 mediaController3.show(0);
                             }
                         }
                         ay ayVar = new ay("c11244");
                         ayVar.ab("obj_duration", "0");
-                        str = this.aeo.aeh;
+                        str = this.ahh.agY;
                         ayVar.ab("obj_type", str);
-                        cVar = this.aeo.aeg;
+                        cVar = this.ahh.agX;
                         if (cVar != null) {
-                            cVar2 = this.aeo.aeg;
+                            cVar2 = this.ahh.agX;
                             cVar2.a(ayVar);
                         }
                         TiebaStatic.log(ayVar);
-                        this.aeo.startTime = System.currentTimeMillis();
+                        this.ahh.startTime = System.currentTimeMillis();
                     }
                 }
-                i3 = this.aeo.adJ;
+                i3 = this.ahh.agA;
                 if (i3 == 3) {
-                    this.aeo.start();
+                    this.ahh.start();
                 }
                 ay ayVar2 = new ay("c11244");
                 ayVar2.ab("obj_duration", "0");
-                str = this.aeo.aeh;
+                str = this.ahh.agY;
                 ayVar2.ab("obj_type", str);
-                cVar = this.aeo.aeg;
+                cVar = this.ahh.agX;
                 if (cVar != null) {
                 }
                 TiebaStatic.log(ayVar2);
-                this.aeo.startTime = System.currentTimeMillis();
+                this.ahh.startTime = System.currentTimeMillis();
             } catch (IllegalStateException e) {
                 e.printStackTrace();
             }

@@ -1,6 +1,5 @@
 package protobuf;
 
-import com.baidu.tieba.u;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
@@ -55,7 +54,7 @@ public final class GroupInfo extends Message {
     public final Integer isGroupManager;
     @ProtoField(tag = 24, type = Message.Datatype.INT32)
     public final Integer isHidePosition;
-    @ProtoField(tag = u.l.PullToRefresh_tb_ptrRotateDrawableWhilePulling, type = Message.Datatype.INT32)
+    @ProtoField(tag = 34, type = Message.Datatype.INT32)
     public final Integer isMemberGroup;
     @ProtoField(tag = 32, type = Message.Datatype.INT32)
     public final Integer isNewlyCreate;

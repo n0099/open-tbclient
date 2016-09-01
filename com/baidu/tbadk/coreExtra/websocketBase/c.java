@@ -4,11 +4,11 @@ public class c {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static c aoj = new c(null);
+        private static c arq = new c(null);
     }
 
-    public static c Af() {
-        return a.aoj;
+    public static c Bu() {
+        return a.arq;
     }
 
     private c() {
@@ -18,19 +18,19 @@ public class c {
         this();
     }
 
-    public void Ag() {
-        eT("kLCSError=1");
+    public void Bv() {
+        eW("kLCSError=1");
     }
 
-    public void dU(int i) {
-        eT("kNetStatus=" + i);
+    public void ei(int i) {
+        eW("kNetStatus=" + i);
     }
 
-    public void eS(String str) {
-        eT("kNewIpResult=" + str);
+    public void eV(String str) {
+        eW("kNewIpResult=" + str);
     }
 
-    private void eT(String str) {
-        com.baidu.adp.framework.client.socket.k.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.j.LR, str);
+    private void eW(String str) {
+        com.baidu.adp.framework.client.socket.k.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.j.Of, str);
     }
 }

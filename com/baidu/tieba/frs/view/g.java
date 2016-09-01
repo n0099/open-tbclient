@@ -11,46 +11,46 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ c bVP;
+    final /* synthetic */ c cgZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.bVP = cVar;
+        this.cgZ = cVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v9, resolved type: com.baidu.tieba.frs.FrsActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.t bdW;
-        int oI;
-        if (this.bVP.bLD != null && this.bVP.bLD.bdW() != null && (oI = (bdW = this.bVP.bLD.bdW()).oI()) != 0) {
-            if (oI == 1) {
-                if (TbadkCoreApplication.m10getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
-                    if (this.bVP.bGh != null) {
-                        long c = com.baidu.adp.lib.h.b.c(this.bVP.bGh.getForumId(), 0L);
+        com.baidu.tbadk.core.data.u bhA;
+        int pL;
+        if (this.cgZ.bWN != null && this.cgZ.bWN.bhA() != null && (pL = (bhA = this.cgZ.bWN.bhA()).pL()) != 0) {
+            if (pL == 1) {
+                if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
+                    if (this.cgZ.bRp != null) {
+                        long c = com.baidu.adp.lib.h.b.c(this.cgZ.bRp.getForumId(), 0L);
                         TiebaStatic.log(new ay("c11200").ab("obj_param1", String.valueOf(c)));
-                        MangaCoverActivityConfig mangaCoverActivityConfig = new MangaCoverActivityConfig(this.bVP.DQ.getPageActivity(), c);
+                        MangaCoverActivityConfig mangaCoverActivityConfig = new MangaCoverActivityConfig(this.cgZ.Gd.getPageActivity(), c);
                         mangaCoverActivityConfig.setFrom(4);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, mangaCoverActivityConfig));
                         return;
                     }
                     return;
                 }
-                com.baidu.adp.lib.util.k.showToast(this.bVP.bGh.getPageContext().getPageActivity(), u.j.manga_plugin_not_install_tip);
-            } else if (oI == 2) {
-                if (!StringUtils.isNull(bdW.oH())) {
-                    bi.us().c(this.bVP.bGh.getPageContext(), new String[]{bdW.oH()});
+                com.baidu.adp.lib.util.k.showToast(this.cgZ.bRp.getPageContext().getPageActivity(), t.j.manga_plugin_not_install_tip);
+            } else if (pL == 2) {
+                if (!StringUtils.isNull(bhA.pK())) {
+                    bi.vx().c(this.cgZ.bRp.getPageContext(), new String[]{bhA.pK()});
                 }
-            } else if (oI == 3) {
-                if (TbadkCoreApplication.m10getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    this.bVP.bGh.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BookCoverActivityConfig(this.bVP.bGh.getPageContext().getPageActivity(), bdW.oH())));
+            } else if (pL == 3) {
+                if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+                    this.cgZ.bRp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BookCoverActivityConfig(this.cgZ.bRp.getPageContext().getPageActivity(), bhA.pK())));
                 } else {
-                    com.baidu.adp.lib.util.k.showToast(this.bVP.bGh.getPageContext().getPageActivity(), u.j.book_plugin_not_install_tip);
+                    com.baidu.adp.lib.util.k.showToast(this.cgZ.bRp.getPageContext().getPageActivity(), t.j.book_plugin_not_install_tip);
                 }
             }
         }

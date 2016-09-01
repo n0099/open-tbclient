@@ -1,28 +1,24 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bJx;
-    final /* synthetic */ ae bMe;
+    final /* synthetic */ ah bXw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ae aeVar, ThemeCardInUserData themeCardInUserData) {
-        this.bMe = aeVar;
-        this.bJx = themeCardInUserData;
+    public ai(ah ahVar) {
+        this.bXw = ahVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TbPageContext tbPageContext;
-        tbPageContext = this.bMe.EA;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bJx.getCardId())));
+        com.baidu.tbadk.core.data.aq aqVar;
+        if (this.bXw.getOnSubCardOnClickListenner() != null) {
+            cf<com.baidu.tbadk.core.data.aq> onSubCardOnClickListenner = this.bXw.getOnSubCardOnClickListenner();
+            aqVar = this.bXw.bXu;
+            onSubCardOnClickListenner.a(view, aqVar);
+        }
     }
 }

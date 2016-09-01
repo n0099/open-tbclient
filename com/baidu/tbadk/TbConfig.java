@@ -8,7 +8,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
@@ -28,6 +28,7 @@ public class TbConfig {
     public static final int AUTO_PLAY_ALWAYS = 2;
     public static final int AUTO_PLAY_CLOSED = 1;
     public static final int AUTO_PLAY_IN_WIFI = 0;
+    public static final String AVATAR_PENDANT = "c/e/theme/getPendantByCategory";
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
     public static final int BIG_IMAGE_MIN_SIZE = 80;
     public static final int BIG_PHOTO_MAX_SIZE = 110;
@@ -135,6 +136,7 @@ public class TbConfig {
     public static final String FUNCTION_INTRO_WEBVIEW = "mo/q/topic_page/110_1";
     public static final String GAME_SEARCH_RESULT = "c/u/game/searchGame";
     public static final String GET_BANNER_GAME = "c/u/game/getgameadvertise";
+    public static final String GET_BARRAGE_LIST = "c/f/video/getBarrageList";
     public static final String GET_BAWU_INFO = "c/f/forum/getBawuInfo";
     public static final String GET_BOOK_DETAIL_INFO = "c/e/tbread/getBookDetailInfo";
     public static final String GET_BOOK_DIRECTORY_INFO = "c/e/tbread/getBookDirectory";
@@ -336,7 +338,7 @@ public class TbConfig {
     public static final String RECOMMEND_HOME_PAGE_ADDRESS = "c/f/excellent/personalized";
     public static final String REGISTER_ADDRESS = "c/m/register";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
-    public static final String REPORT_APPLIST = "http://als.baidu.com/device/logForC";
+    public static final String REPORT_APPLIST = "https://als.baidu.com/device/logForC";
     public static final String SAVE_GAME_STATUS = "c/c/game/saveGameStatus";
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
     public static final String SEND_BLESS = "c/b/commit/sendBless";
@@ -345,6 +347,7 @@ public class TbConfig {
     public static final String SETTINGFILE = "settings";
     public static final String SET_COMMON_FORUM_STATE = "c/c/forum/setCommonForumState";
     public static final String SET_MEMBER_CLOSE_AD = "c/c/encourage/member/closeAd";
+    public static final String SET_PENDANT = "c/c/encourage/theme/setPendant";
     public static final String SET_PERSONAL_CARD = "c/c/encourage/theme/setCard";
     public static final String SET_PRIVATE = "c/c/friend/setprivate";
     public static final String SET_USER_BOOK_HISTORY = "c/c/encourage/tbread/setUserBookHistory";
@@ -453,7 +456,7 @@ public class TbConfig {
     public static boolean KUANG_TEST_MODE = false;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
     private static String POSITION_PAGER_ID = "2631903";
-    public static final String ECOMM_FEED_BACK_NAME = TbadkCoreApplication.m10getInst().getString(u.j.ecomm_feed_back_name);
+    public static final String ECOMM_FEED_BACK_NAME = TbadkCoreApplication.m9getInst().getString(t.j.ecomm_feed_back_name);
     private static String VERSION = "";
     private static String SUB_VERSION = "";
     private static String LEGO_LIB_VERSION = "1.0.0";
@@ -649,7 +652,7 @@ public class TbConfig {
     }
 
     public static int getBigImageMaxUsedMemoryForRemoteProcess() {
-        return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.m10getInst().getContext()) * 0.28d);
+        return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.m9getInst().getContext()) * 0.28d);
     }
 
     public static String getFrom() {
@@ -709,7 +712,7 @@ public class TbConfig {
     }
 
     public static int getNameSize() {
-        switch (TbadkCoreApplication.m10getInst().getFontSize()) {
+        switch (TbadkCoreApplication.m9getInst().getFontSize()) {
             case 0:
             case 1:
                 return 13;
@@ -721,7 +724,7 @@ public class TbConfig {
     }
 
     public static int getContentSize() {
-        switch (TbadkCoreApplication.m10getInst().getFontSize()) {
+        switch (TbadkCoreApplication.m9getInst().getFontSize()) {
             case 0:
                 return 20;
             case 1:
@@ -756,7 +759,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.A(context) * k.B(context));
+            int sqrt = (int) Math.sqrt(k.K(context) * k.L(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

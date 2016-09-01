@@ -5,11 +5,11 @@ import com.baidu.tieba.onlineDebugger.command.h;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class d implements b {
-    private String dUi;
+    private String ego;
     private String fieldName;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
-    public Object Q(Object obj) {
+    public Object S(Object obj) {
         Field b;
         String str = null;
         if (obj != null) {
@@ -23,18 +23,18 @@ public class d implements b {
                     if (!b.isAccessible()) {
                         b.setAccessible(true);
                     }
-                    if (this.dUi.contains(".") || (this.dUi.contains("(") && this.dUi.contains(")"))) {
-                        h nQ = com.baidu.tieba.onlineDebugger.e.b.nQ("get " + this.dUi);
-                        if (nQ != null) {
-                            Object aFP = nQ.aFP();
-                            if (aFP != null) {
-                                str = aFP.toString();
+                    if (this.ego.contains(".") || (this.ego.contains("(") && this.ego.contains(")"))) {
+                        h oA = com.baidu.tieba.onlineDebugger.e.b.oA("get " + this.ego);
+                        if (oA != null) {
+                            Object aKH = oA.aKH();
+                            if (aKH != null) {
+                                str = aKH.toString();
                             }
                         } else {
-                            str = this.dUi;
+                            str = this.ego;
                         }
                     } else {
-                        str = this.dUi;
+                        str = this.ego;
                     }
                     BdLog.e(String.valueOf(obj.toString()) + " before setField " + this.fieldName + " value = " + (str == null ? "null" : str.toString()));
                     com.baidu.tieba.onlineDebugger.d.a(b, obj, str);
@@ -54,11 +54,11 @@ public class d implements b {
         return null;
     }
 
-    public void nz(String str) {
+    public void oj(String str) {
         this.fieldName = str;
     }
 
-    public void nB(String str) {
-        this.dUi = str;
+    public void ol(String str) {
+        this.ego = str;
     }
 }

@@ -1,36 +1,38 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.enterForum.home.e;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ e bvs;
+public class f implements bi.a {
+    final /* synthetic */ e bGG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(e eVar, int i) {
-        super(i);
-        this.bvs = eVar;
+    public f(e eVar) {
+        this.bGG = eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.enterForum.d.b Tn;
-        e.a aVar;
-        e.a aVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016461 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.enterForum.d.a) && (Tn = ((com.baidu.tieba.enterForum.d.a) customResponsedMessage.getData()).Tn()) != null) {
-            this.bvs.bvk = Tn.To();
-            if (this.bvs.bvk != null && this.bvs.bvk.bww != null) {
-                this.bvs.bvk.bww.g(this.bvs);
-                aVar = this.bvs.bvp;
-                if (aVar != null) {
-                    aVar2 = this.bvs.bvp;
-                    aVar2.notifyDataSetChanged();
-                }
+    @Override // com.baidu.tbadk.core.util.bi.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (strArr == null || strArr.length <= 0) {
+            return 3;
+        }
+        String str = strArr[0];
+        boolean isInstalledPackage = this.bGG.getBaseFragmentActivity() != null ? UtilHelper.isInstalledPackage(this.bGG.getBaseFragmentActivity().getBaseContext(), "com.baidu.wefan") : false;
+        if (!TextUtils.isEmpty(str) && str.startsWith("wefan:") && isInstalledPackage) {
+            try {
+                Intent intent = new Intent();
+                intent.setData(Uri.parse(str));
+                this.bGG.getBaseFragmentActivity().startActivity(intent);
+                return 0;
+            } catch (Exception e) {
+                return 3;
             }
         }
+        return 3;
     }
 }

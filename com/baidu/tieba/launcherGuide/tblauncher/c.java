@@ -3,14 +3,14 @@ package com.baidu.tieba.launcherGuide.tblauncher;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GuideActivity dmX;
+    final /* synthetic */ GuideActivity dyF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GuideActivity guideActivity) {
-        this.dmX = guideActivity;
+        this.dyF = guideActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -30,56 +30,56 @@ class c implements ViewPager.OnPageChangeListener {
         View view6;
         IndicatorView indicatorView5;
         View view7;
-        i2 = this.dmX.dmS;
+        i2 = this.dyF.dyA;
         if (i != i2 - 1) {
-            view = this.dmX.dmL;
+            view = this.dyF.dyt;
             view.setVisibility(8);
-            this.dmX.lS(u.e.ds120);
-            i3 = this.dmX.dmR;
+            this.dyF.mv(t.e.ds120);
+            i3 = this.dyF.dyz;
             switch (i3) {
                 case 1:
-                    indicatorView3 = this.dmX.dmK;
-                    indicatorView3.setVisibility(8);
+                    indicatorView3 = this.dyF.dys;
+                    indicatorView3.setVisibility(0);
                     break;
                 case 2:
-                    indicatorView2 = this.dmX.dmK;
+                    indicatorView2 = this.dyF.dys;
                     indicatorView2.setVisibility(0);
                     break;
                 case 3:
-                    indicatorView = this.dmX.dmK;
+                    indicatorView = this.dyF.dys;
                     indicatorView.setVisibility(0);
                     break;
             }
         } else {
-            i4 = this.dmX.dmR;
+            i4 = this.dyF.dyz;
             switch (i4) {
                 case 1:
-                    this.dmX.lS(u.e.ds60);
-                    view6 = this.dmX.dmL;
+                    this.dyF.mv(t.e.ds60);
+                    view6 = this.dyF.dyt;
                     view6.setVisibility(0);
-                    indicatorView5 = this.dmX.dmK;
-                    indicatorView5.setVisibility(8);
+                    indicatorView5 = this.dyF.dys;
+                    indicatorView5.setVisibility(4);
                     break;
                 case 2:
-                    view5 = this.dmX.dmL;
+                    view5 = this.dyF.dyt;
                     view5.setVisibility(0);
                     break;
                 case 3:
-                    view4 = this.dmX.dmL;
+                    view4 = this.dyF.dyt;
                     view4.setVisibility(8);
                     break;
                 default:
-                    view7 = this.dmX.dmL;
+                    view7 = this.dyF.dyt;
                     view7.setVisibility(8);
                     break;
             }
         }
-        view2 = this.dmX.dmL;
+        view2 = this.dyF.dyt;
         if (view2.getVisibility() == 0) {
-            view3 = this.dmX.dmL;
+            view3 = this.dyF.dyt;
             view3.requestFocus();
         }
-        indicatorView4 = this.dmX.dmK;
+        indicatorView4 = this.dyF.dys;
         indicatorView4.setPosition(i);
     }
 

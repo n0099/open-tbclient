@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
 /* loaded from: classes.dex */
 public class WXEntryActivityStatic {
     static {
-        TbadkCoreApplication.m10getInst().RegisterOrUpdateIntent(WXEntryActivityConfig.class, WXEntryActivity.class);
+        TbadkCoreApplication.m9getInst().RegisterOrUpdateIntent(WXEntryActivityConfig.class, WXEntryActivity.class);
     }
 }

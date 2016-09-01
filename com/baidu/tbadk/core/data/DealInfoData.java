@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.switchs.EcommSwitchStatic;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class DealInfoData implements Serializable {
     public float unitPrice;
 
     public void parserProtobuf(DealInfo dealInfo) {
-        if (dealInfo != null || EcommSwitchStatic.Fr()) {
+        if (dealInfo != null || EcommSwitchStatic.GL()) {
             if (dealInfo.auth_info != null) {
                 this.authInfo = new ArrayList<>();
                 for (DealAuthInfo dealAuthInfo : dealInfo.auth_info) {
@@ -83,7 +84,7 @@ public class DealInfoData implements Serializable {
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (EcommSwitchStatic.Fr() && jSONObject != null) {
+        if (EcommSwitchStatic.GL() && jSONObject != null) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("auth_info");
                 if (optJSONArray != null) {
@@ -113,7 +114,7 @@ public class DealInfoData implements Serializable {
                 this.shipFee = ((float) jSONObject.optLong("ship_fee")) / 100.0f;
                 this.status = jSONObject.optInt("status");
                 this.stock = jSONObject.optLong("stock");
-                this.title = jSONObject.optString("title");
+                this.title = jSONObject.optString(VrPlayerActivityConfig.TITLE);
                 this.unitPrice = ((float) jSONObject.optLong("unit_price")) / 100.0f;
             } catch (Exception e) {
                 BdLog.e(e.toString());

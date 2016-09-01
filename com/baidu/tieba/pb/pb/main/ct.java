@@ -7,10 +7,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class ct {
-    private BaseActivity bem;
-    private dh eas;
-    private a ebO = null;
-    protected final HttpMessageListener ecO = new cu(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+    private BaseActivity aPR;
+    private dh emx;
+    private a enW = null;
+    protected final HttpMessageListener eoT = new cu(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,19 +18,19 @@ public class ct {
     }
 
     public ct(dh dhVar, BaseActivity baseActivity) {
-        this.eas = dhVar;
-        this.bem = baseActivity;
-        this.bem.registerListener(this.ecO);
+        this.emx = dhVar;
+        this.aPR = baseActivity;
+        this.aPR.registerListener(this.eoT);
     }
 
     public void a(a aVar) {
-        this.ebO = aVar;
+        this.enW = aVar;
     }
 
-    public void nC(int i) {
-        if (this.eas != null) {
+    public void og(int i) {
+        if (this.emx != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.eas.getThreadID());
+            httpMessage.addParam("thread_id", this.emx.getThreadID());
             httpMessage.addParam("status", String.valueOf(i));
             MessageManager.getInstance().sendMessage(httpMessage);
         }

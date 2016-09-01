@@ -3,21 +3,21 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-public class ds extends com.baidu.tieba.tbadkCore.data.s {
-    public static final BdUniqueId eet = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.al eeu;
-    public com.baidu.tbadk.core.data.al eev;
-    public com.baidu.tbadk.core.data.al eew;
+public class ds extends com.baidu.tieba.tbadkCore.data.q {
+    public static final BdUniqueId eqy = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.am eqA;
+    public com.baidu.tbadk.core.data.am eqB;
+    public com.baidu.tbadk.core.data.am eqz;
 
-    @Override // com.baidu.tieba.tbadkCore.data.s, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eet;
+        return eqy;
     }
 
     public boolean hasData() {
-        if (this.eeu == null || StringUtils.isNull(this.eeu.summary)) {
-            if (this.eev == null || StringUtils.isNull(this.eev.summary)) {
-                return (this.eew == null || StringUtils.isNull(this.eew.summary)) ? false : true;
+        if (this.eqz == null || StringUtils.isNull(this.eqz.summary)) {
+            if (this.eqA == null || StringUtils.isNull(this.eqA.summary)) {
+                return (this.eqB == null || StringUtils.isNull(this.eqB.summary)) ? false : true;
             }
             return true;
         }

@@ -4,22 +4,22 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class q {
-    public static String qm = "yyyy-MM-dd HH:mm:ss";
-    public static HashMap<String, String> qn = new HashMap<>();
+    public static String sC = "yyyy-MM-dd HH:mm:ss";
+    public static HashMap<String, String> sD = new HashMap<>();
 
     static {
-        qn.put("java.lang.String", "java.lang.String");
-        qn.put("java.lang.Integer", "java.lang.Integer");
-        qn.put("java.lang.Double", "java.lang.Double");
-        qn.put("java.lang.Float", "java.lang.Float");
-        qn.put("java.lang.Boolean", "java.lang.Boolean");
-        qn.put("java.lang.Character", "java.lang.Character");
-        qn.put("java.lang.Short", "java.lang.Short");
-        qn.put("java.lang.Long", "java.lang.Long");
-        qn.put("java.lang.Byte", "java.lang.Byte");
-        qn.put("java.util.Date", "java.util.Date");
-        qn.put("java.lang.Integer", "java.lang.Integer");
-        qn.put("java.lang.Integer", "java.lang.Integer");
+        sD.put("java.lang.String", "java.lang.String");
+        sD.put("java.lang.Integer", "java.lang.Integer");
+        sD.put("java.lang.Double", "java.lang.Double");
+        sD.put("java.lang.Float", "java.lang.Float");
+        sD.put("java.lang.Boolean", "java.lang.Boolean");
+        sD.put("java.lang.Character", "java.lang.Character");
+        sD.put("java.lang.Short", "java.lang.Short");
+        sD.put("java.lang.Long", "java.lang.Long");
+        sD.put("java.lang.Byte", "java.lang.Byte");
+        sD.put("java.util.Date", "java.util.Date");
+        sD.put("java.lang.Integer", "java.lang.Integer");
+        sD.put("java.lang.Integer", "java.lang.Integer");
     }
 
     public static Object a(Object obj, Field field) {

@@ -1,74 +1,88 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.enterForum.c.c;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends CustomMessageListener {
-    final /* synthetic */ k bvO;
+public class af implements c.b {
+    final /* synthetic */ l bHc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public af(k kVar, int i) {
-        super(i);
-        this.bvO = kVar;
+    public af(l lVar) {
+        this.bHc = lVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // com.baidu.tieba.enterForum.c.c.b
+    public void a(c.a aVar) {
+        long j;
+        long j2;
         com.baidu.tieba.enterForum.c.c cVar;
+        long j3;
         com.baidu.tieba.enterForum.c.c cVar2;
         com.baidu.tieba.enterForum.c.c cVar3;
         com.baidu.tieba.enterForum.c.c cVar4;
-        com.baidu.tieba.enterForum.c.c cVar5;
+        boolean isShow;
         boolean z;
-        com.baidu.tieba.enterForum.c.c cVar6;
-        com.baidu.tieba.enterForum.c.c cVar7;
-        com.baidu.tieba.enterForum.c.c cVar8;
-        com.baidu.tieba.enterForum.c.c cVar9;
-        com.baidu.tieba.enterForum.c.c cVar10;
-        com.baidu.tbadk.data.e eVar = (com.baidu.tbadk.data.e) customResponsedMessage.getData();
-        if (eVar != null) {
-            cVar = this.bvO.bvw;
-            if (cVar != null) {
-                cVar2 = this.bvO.bvw;
-                if (cVar2.Tc() != null) {
-                    cVar3 = this.bvO.bvw;
-                    if (cVar3.Tc().Sp() != null) {
-                        cVar4 = this.bvO.bvw;
-                        if (cVar4.Tc().Sp().Su() != null) {
-                            cVar5 = this.bvO.bvw;
-                            int size = cVar5.Tc().Sp().Su().size();
-                            int i = 0;
-                            while (true) {
-                                if (i >= size) {
-                                    z = false;
-                                    break;
-                                }
-                                cVar8 = this.bvO.bvw;
-                                if (cVar8.Tc().Sp().Su().get(i) != null) {
-                                    cVar9 = this.bvO.bvw;
-                                    if (cVar9.Tc().Sp().Su().get(i).getForumId() == eVar.getForumId()) {
-                                        cVar10 = this.bvO.bvw;
-                                        cVar10.Tc().Sp().Su().remove(i);
-                                        z = true;
-                                        break;
-                                    }
-                                }
-                                i++;
-                            }
-                            if (!z) {
-                                cVar7 = this.bvO.bvw;
-                                cVar7.Tc().Sp().Su().add(0, eVar);
-                            }
-                            com.baidu.tieba.enterForum.view.e eVar2 = this.bvO.bvv;
-                            cVar6 = this.bvO.bvw;
-                            eVar2.b(cVar6.Tc().Sp().Su(), this.bvO.bvu.getPageContext());
-                        }
+        com.baidu.tieba.enterForum.c.c cVar5;
+        if (aVar != null && this.bHc.bGI.isAdded()) {
+            this.bHc.e(true, "");
+            if (aVar.type == 1) {
+                this.bHc.bGJ.Yi();
+            }
+            if (aVar.bHA) {
+                if (aVar.type == 1) {
+                    this.bHc.bGL = true;
+                    new com.baidu.tieba.enterForum.b.b();
+                    this.bHc.a(aVar.bHB);
+                } else if (aVar.type == 0) {
+                    z = this.bHc.bGL;
+                    if (!z) {
+                        new com.baidu.tieba.enterForum.b.b();
+                        com.baidu.tieba.enterForum.b.b bVar = aVar.bHB;
+                        cVar5 = this.bHc.bGK;
+                        cVar5.e(bVar);
+                        this.bHc.a(bVar);
                     }
                 }
+            } else if (aVar.bHz != null && !aVar.bHz.equals("")) {
+                this.bHc.aTi.showToast(aVar.bHz);
             }
+            if (aVar.type == 1 && TbadkCoreApplication.m9getInst().getIsNewRegUser()) {
+                isShow = this.bHc.isShow();
+                if (isShow) {
+                    TbadkCoreApplication.m9getInst().setIsNewRegUser(false);
+                }
+            }
+            if (aVar.type == 1) {
+                j = this.bHc.bGO;
+                if (j > -1) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    j2 = this.bHc.bGO;
+                    cVar = this.bHc.bGK;
+                    long XM = cVar.XM();
+                    j3 = this.bHc.bGO;
+                    long j4 = XM - j3;
+                    cVar2 = this.bHc.bGK;
+                    long XK = cVar2.XK();
+                    cVar3 = this.bHc.bGK;
+                    long XL = cVar3.XL();
+                    cVar4 = this.bHc.bGK;
+                    TiebaStatic.page("op_forum_enter", currentTimeMillis - j2, j4, XK, XL, currentTimeMillis - cVar4.XJ());
+                    this.bHc.bGO = -1L;
+                }
+            }
+            if (aVar.bHB != null && aVar.bHB.getHotSearchInfoData() != null) {
+                com.baidu.tieba.enterForum.b.d hotSearchInfoData = aVar.bHB.getHotSearchInfoData();
+                com.baidu.tbadk.core.sharedPref.b.tS().putLong("hot_search_id", hotSearchInfoData.getId());
+                com.baidu.tbadk.core.sharedPref.b.tS().putString("hot_search_name", hotSearchInfoData.getName());
+                com.baidu.tbadk.core.sharedPref.b.tS().putString("hot_search_title", hotSearchInfoData.Xh());
+                com.baidu.tbadk.core.sharedPref.b.tS().putLong("hot_search_type", hotSearchInfoData.Xi());
+                this.bHc.setSearchHint(hotSearchInfoData.Xh());
+                return;
+            }
+            this.bHc.setSearchHint(this.bHc.aTi.getResources().getString(t.j.enter_forum_search_tip));
         }
     }
 }

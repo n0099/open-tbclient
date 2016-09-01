@@ -4,14 +4,14 @@ import android.widget.TextView;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class e implements com.baidu.adp.plugin.packageManager.e {
-    final /* synthetic */ PluginDetailActivity ePG;
+    final /* synthetic */ PluginDetailActivity eWR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PluginDetailActivity pluginDetailActivity) {
-        this.ePG = pluginDetailActivity;
+        this.eWR = pluginDetailActivity;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.e
@@ -23,15 +23,15 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         TextView textView3;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.ePG.ePF;
+            pluginConfig = this.eWR.eWQ;
             if (id.equals(pluginConfig.package_name)) {
-                z = this.ePG.cAO;
+                z = this.eWR.cMt;
                 if (!z) {
-                    textView = this.ePG.ePE;
-                    av.c(textView, u.d.cp_cont_d, 1);
-                    textView2 = this.ePG.ePE;
-                    textView2.setText(this.ePG.getPageContext().getResources().getString(u.j.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
-                    textView3 = this.ePG.ePE;
+                    textView = this.eWR.eWP;
+                    av.c(textView, t.d.cp_cont_d, 1);
+                    textView2 = this.eWR.eWP;
+                    textView2.setText(this.eWR.getPageContext().getResources().getString(t.j.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
+                    textView3 = this.eWR.eWP;
                     textView3.setEnabled(false);
                 }
             }
@@ -45,13 +45,13 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         TextView textView2;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.ePG.ePF;
+            pluginConfig = this.eWR.eWQ;
             if (id.equals(pluginConfig.package_name)) {
-                textView = this.ePG.ePE;
-                textView.setText(this.ePG.getPageContext().getString(u.j.plugin_download_finished));
-                textView2 = this.ePG.ePE;
+                textView = this.eWR.eWP;
+                textView.setText(this.eWR.getPageContext().getString(t.j.plugin_download_finished));
+                textView2 = this.eWR.eWP;
                 textView2.setEnabled(false);
-                this.ePG.cAO = true;
+                this.eWR.cMt = true;
             }
         }
     }
@@ -61,11 +61,11 @@ class e implements com.baidu.adp.plugin.packageManager.e {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.ePG.ePF;
+            pluginConfig = this.eWR.eWQ;
             if (id.equals(pluginConfig.package_name)) {
-                this.ePG.showToast(bdFileDownloadData.getStatusMsg());
-                this.ePG.aWG();
-                this.ePG.cAO = true;
+                this.eWR.showToast(bdFileDownloadData.getStatusMsg());
+                this.eWR.aZZ();
+                this.eWR.cMt = true;
             }
         }
     }
@@ -73,11 +73,11 @@ class e implements com.baidu.adp.plugin.packageManager.e {
     @Override // com.baidu.adp.plugin.packageManager.e
     public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
         if (i == 0) {
-            this.ePG.showToast(this.ePG.getPageContext().getString(u.j.plugin_installation_finished));
-            this.ePG.aWG();
+            this.eWR.showToast(this.eWR.getPageContext().getString(t.j.plugin_installation_finished));
+            this.eWR.aZZ();
             return;
         }
-        this.ePG.showToast(String.valueOf(this.ePG.getPageContext().getString(u.j.plugin_installation_failed)) + str);
-        this.ePG.aWG();
+        this.eWR.showToast(String.valueOf(this.eWR.getPageContext().getString(t.j.plugin_installation_failed)) + str);
+        this.eWR.aZZ();
     }
 }

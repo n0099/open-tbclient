@@ -123,6 +123,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
@@ -620,7 +621,7 @@ public final class b {
                             SapiResult.Action action = new SapiResult.Action();
                             action.actionMode = SapiResult.ActionMode.fromString(optJSONObject.optString("action"));
                             action.actionType = SapiResult.ActionType.fromString(optJSONObject.optString("type"));
-                            action.actionTitle = optJSONObject.optString("title");
+                            action.actionTitle = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
                             action.actionUrl = optJSONObject.optString("url");
                             loginResult.action = action;
                             if (jSONObject2.optInt("needvcode") == 1) {

@@ -6,17 +6,24 @@ import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu.tbadk.core.util.al, com.baidu.tbadk.core.util.x, TbCheckBox.b {
+    public static final int TYPE_COMMON_ATTENTION = 1;
     public static final int TYPE_NORMAL_USER = 0;
+    public static final int TYPE_OHTER_ATTENTION = 2;
+    public static final int TYPE_OTHER_TITLE = 0;
+    public static final String TYPE_USER = "type_user";
     private static final long serialVersionUID = -2636990595209169859L;
+    public int mAttentionType;
     private boolean mIsChecked;
 
     public UserData() {
         this.mIsChecked = false;
+        this.mAttentionType = 2;
     }
 
     public UserData(long j, String str, String str2, int i) {
         super(j, str, str2, i);
         this.mIsChecked = false;
+        this.mAttentionType = 2;
     }
 
     public boolean isSupportImageSize() {
@@ -68,7 +75,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu
         ArrayList<com.baidu.tbadk.core.util.ak> arrayList = new ArrayList<>();
         com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak();
         akVar.imgUrl = getPortrait();
-        akVar.Yd = 12;
+        akVar.aaR = 12;
         arrayList.add(akVar);
         return arrayList;
     }

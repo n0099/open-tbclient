@@ -11,9 +11,9 @@ import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.mvc.b.b, j {
-    protected List<Object> crH;
-    protected List<Object> cwj;
-    protected boolean cwk = true;
+    protected List<Object> cCP;
+    protected List<Object> cHO;
+    protected boolean cHP = true;
     protected boolean mHasMore;
     protected int pn;
 
@@ -22,11 +22,11 @@ public class c implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     public boolean isEmpty() {
-        return this.crH == null || this.crH.size() <= 0 || this.cwj == null || this.cwj.size() <= 0;
+        return this.cCP == null || this.cCP.size() <= 0 || this.cHO == null || this.cHO.size() <= 0;
     }
 
     public List<Object> getThreadList() {
-        return this.cwj;
+        return this.cHO;
     }
 
     public boolean getHasMore() {
@@ -46,16 +46,16 @@ public class c implements com.baidu.tbadk.mvc.b.b, j {
         ExcFrsPageResIdl excFrsPageResIdl;
         if ((message instanceof ExcFrsPageResIdl) && (excFrsPageResIdl = (ExcFrsPageResIdl) message) != null && excFrsPageResIdl.error != null && excFrsPageResIdl.error.errorno.intValue() == 0 && excFrsPageResIdl.data != null) {
             if (excFrsPageResIdl.data.thread_list != null) {
-                this.cwj = new ArrayList();
-                this.cwj.addAll(excFrsPageResIdl.data.thread_list);
+                this.cHO = new ArrayList();
+                this.cHO.addAll(excFrsPageResIdl.data.thread_list);
             }
             this.mHasMore = excFrsPageResIdl.data.has_more.intValue() == 1;
             this.pn = excFrsPageResIdl.data.pn.intValue();
             if (excFrsPageResIdl.data.tag_list != null) {
-                this.crH = new ArrayList();
+                this.cCP = new ArrayList();
                 for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
                     if (excellentTagInfo != null) {
-                        this.crH.add(excellentTagInfo);
+                        this.cCP.add(excellentTagInfo);
                     }
                 }
             }
@@ -63,7 +63,7 @@ public class c implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Dn() {
+    public byte[] EH() {
         return null;
     }
 
@@ -78,7 +78,7 @@ public class c implements com.baidu.tbadk.mvc.b.b, j {
         }
     }
 
-    public boolean Ru() {
-        return this.cwk;
+    public boolean Wg() {
+        return this.cHP;
     }
 }

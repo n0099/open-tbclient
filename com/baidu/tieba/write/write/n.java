@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
-    private ArrayList<MetaData> TD;
-    private TbCheckBox.a dfe;
-    private AtListActivity fTM;
-    private boolean fTO;
+    private ArrayList<MetaData> Wt;
+    private TbCheckBox.a dqL;
+    private AtListActivity gdQ;
+    private boolean gdS;
     private final Context mContext;
-    private b fTN = null;
-    private ViewGroup dfg = null;
+    private b gdR = null;
+    private ViewGroup dqN = null;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,40 +29,40 @@ public class n extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.fTN = bVar;
+        this.gdR = bVar;
     }
 
     public n(AtListActivity atListActivity, boolean z) {
-        this.fTO = true;
-        this.fTM = atListActivity;
-        this.mContext = this.fTM.getPageContext().getContext();
-        this.fTO = z;
+        this.gdS = true;
+        this.gdQ = atListActivity;
+        this.mContext = this.gdQ.getPageContext().getContext();
+        this.gdS = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setData(ArrayList<MetaData> arrayList) {
-        this.TD = arrayList;
+        this.Wt = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.dfe = aVar;
+        this.dqL = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.TD == null) {
+        if (this.Wt == null) {
             return 0;
         }
-        return this.TD.size();
+        return this.Wt.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sO */
+    /* renamed from: tp */
     public MetaData getItem(int i) {
-        if (this.TD != null && i < this.TD.size()) {
-            return this.TD.get(i);
+        if (this.Wt != null && i < this.Wt.size()) {
+            return this.Wt.get(i);
         }
         return null;
     }
@@ -75,8 +75,8 @@ public class n extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (this.dfg == null) {
-            this.dfg = viewGroup;
+        if (this.dqN == null) {
+            this.dqN = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
@@ -85,58 +85,58 @@ public class n extends BaseAdapter {
             aVar = null;
         }
         if (aVar != null) {
-            return aVar.axO;
+            return aVar.aAV;
         }
         return null;
     }
 
     private a a(Object obj, MetaData metaData) {
         a aVar;
-        int skinType = TbadkCoreApplication.m10getInst().getSkinType();
+        int skinType = TbadkCoreApplication.m9getInst().getSkinType();
         if (obj == null) {
-            aVar = boK();
+            aVar = bsZ();
         } else {
             aVar = (a) obj;
         }
-        if (this.fTN != null) {
-            this.fTN.a(aVar.axO, metaData);
+        if (this.gdR != null) {
+            this.gdR.a(aVar.aAV, metaData);
         }
         String portrait = metaData.getPortrait();
-        aVar.aPR.setText(metaData.getName_show());
-        aVar.dfi.setTagData(metaData);
-        aVar.deN.setTag(portrait);
-        if (this.fTO) {
-            aVar.dfi.setVisibility(0);
+        aVar.aVl.setText(metaData.getName_show());
+        aVar.dqP.setTagData(metaData);
+        aVar.dqu.setTag(portrait);
+        if (this.gdS) {
+            aVar.dqP.setVisibility(0);
         } else {
-            aVar.dfi.setVisibility(8);
+            aVar.dqP.setVisibility(8);
         }
-        aVar.deN.c(portrait, 12, false);
-        this.fTM.getPageContext().getLayoutMode().af(skinType == 1);
-        this.fTM.getPageContext().getLayoutMode().w(aVar.axO);
+        aVar.dqu.c(portrait, 12, false);
+        this.gdQ.getPageContext().getLayoutMode().ah(skinType == 1);
+        this.gdQ.getPageContext().getLayoutMode().x(aVar.aAV);
         return aVar;
     }
 
-    private a boK() {
+    private a bsZ() {
         a aVar = new a(this, null);
-        aVar.axO = LayoutInflater.from(this.mContext).inflate(u.h.invite_friend_list_item, (ViewGroup) null);
-        aVar.deN = (HeadImageView) aVar.axO.findViewById(u.g.photo);
-        aVar.deN.setIsRound(false);
-        aVar.aPR = (TextView) aVar.axO.findViewById(u.g.txt_user_name);
-        aVar.dfi = (TbCheckBox) aVar.axO.findViewById(u.g.ckb_select);
-        if (this.dfe != null) {
-            aVar.dfi.setStatedChangedListener(this.dfe);
+        aVar.aAV = LayoutInflater.from(this.mContext).inflate(t.h.invite_friend_list_item, (ViewGroup) null);
+        aVar.dqu = (HeadImageView) aVar.aAV.findViewById(t.g.photo);
+        aVar.dqu.setIsRound(false);
+        aVar.aVl = (TextView) aVar.aAV.findViewById(t.g.txt_user_name);
+        aVar.dqP = (TbCheckBox) aVar.aAV.findViewById(t.g.ckb_select);
+        if (this.dqL != null) {
+            aVar.dqP.setStatedChangedListener(this.dqL);
         }
-        aVar.axO.setTag(aVar);
+        aVar.aAV.setTag(aVar);
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public TextView aPR;
-        public View axO;
-        public HeadImageView deN;
-        public TbCheckBox dfi;
+        public View aAV;
+        public TextView aVl;
+        public TbCheckBox dqP;
+        public HeadImageView dqu;
 
         private a() {
         }

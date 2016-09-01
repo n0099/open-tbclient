@@ -1,35 +1,35 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.u;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.view.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements BdListView.e {
-    final /* synthetic */ z ctN;
+public class ae implements t.c {
+    final /* synthetic */ z cFs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(z zVar) {
-        this.ctN = zVar;
+        this.cFs = zVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void jC() {
-        PbListView pbListView;
+    @Override // com.baidu.tbadk.core.view.t.c
+    public void aJ(boolean z) {
         b bVar;
-        PbListView pbListView2;
-        PbListView pbListView3;
-        TbPageContext tbPageContext;
-        pbListView = this.ctN.bjZ;
-        if (pbListView != null) {
-            pbListView2 = this.ctN.bjZ;
-            pbListView2.vh();
-            pbListView3 = this.ctN.bjZ;
-            tbPageContext = this.ctN.pageContext;
-            pbListView3.cU(com.baidu.adp.lib.util.k.c(tbPageContext.getPageActivity(), u.e.ds110));
+        b bVar2;
+        b bVar3;
+        b bVar4;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_TO_REFRESH, Boolean.valueOf(z)));
+        bVar = this.cFs.cFn;
+        if (bVar != null) {
+            bVar2 = this.cFs.cFn;
+            if (bVar2.Ki() != null) {
+                bVar4 = this.cFs.cFn;
+                bVar4.Ki().aZR();
+            }
+            bVar3 = this.cFs.cFn;
+            bVar3.fb(false);
         }
-        bVar = this.ctN.ctI;
-        bVar.Wd();
     }
 }

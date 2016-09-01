@@ -6,11 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends Handler {
-    final /* synthetic */ c cUO;
+    final /* synthetic */ c dgy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.cUO = cVar;
+        this.dgy = cVar;
     }
 
     @Override // android.os.Handler
@@ -19,82 +19,82 @@ public class d extends Handler {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        long apW;
+        long auK;
         Handler handler5;
         Handler handler6;
-        long apU;
+        long auI;
         Handler handler7;
         Handler handler8;
         Handler handler9;
-        long apW2;
+        long auK2;
         Handler handler10;
         Handler handler11;
         Handler handler12;
-        long apU2;
+        long auI2;
         Handler handler13;
-        boolean apS;
+        boolean auG;
         Handler handler14;
         Handler handler15;
-        long apU3;
+        long auI3;
         if (message.what == 2) {
-            handler13 = this.cUO.mHandler;
+            handler13 = this.dgy.mHandler;
             handler13.removeMessages(2);
-            apS = this.cUO.apS();
-            if (apS) {
-                this.cUO.nX = System.currentTimeMillis();
+            auG = this.dgy.auG();
+            if (auG) {
+                this.dgy.qs = System.currentTimeMillis();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    this.cUO.apP();
+                    this.dgy.auD();
                 }
             }
-            handler14 = this.cUO.mHandler;
-            handler15 = this.cUO.mHandler;
+            handler14 = this.dgy.mHandler;
+            handler15 = this.dgy.mHandler;
             Message obtainMessage = handler15.obtainMessage(2);
-            apU3 = this.cUO.apU();
-            handler14.sendMessageDelayed(obtainMessage, apU3);
+            auI3 = this.dgy.auI();
+            handler14.sendMessageDelayed(obtainMessage, auI3);
         }
         if (message.what == 1) {
-            handler10 = this.cUO.mHandler;
+            handler10 = this.dgy.mHandler;
             handler10.removeMessages(2);
-            this.cUO.nX = System.currentTimeMillis();
+            this.dgy.qs = System.currentTimeMillis();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.cUO.apP();
+                this.dgy.auD();
             }
-            handler11 = this.cUO.mHandler;
-            handler12 = this.cUO.mHandler;
+            handler11 = this.dgy.mHandler;
+            handler12 = this.dgy.mHandler;
             Message obtainMessage2 = handler12.obtainMessage(2);
-            apU2 = this.cUO.apU();
-            handler11.sendMessageDelayed(obtainMessage2, apU2);
+            auI2 = this.dgy.auI();
+            handler11.sendMessageDelayed(obtainMessage2, auI2);
         }
         if (message.what == 3) {
-            handler7 = this.cUO.mHandler;
+            handler7 = this.dgy.mHandler;
             handler7.removeMessages(3);
-            this.cUO.apO();
-            handler8 = this.cUO.mHandler;
-            handler9 = this.cUO.mHandler;
+            this.dgy.auC();
+            handler8 = this.dgy.mHandler;
+            handler9 = this.dgy.mHandler;
             Message obtainMessage3 = handler9.obtainMessage(3);
-            apW2 = this.cUO.apW();
-            handler8.sendMessageDelayed(obtainMessage3, apW2);
+            auK2 = this.dgy.auK();
+            handler8.sendMessageDelayed(obtainMessage3, auK2);
         }
         if (message.what == 4) {
-            handler = this.cUO.mHandler;
+            handler = this.dgy.mHandler;
             handler.removeMessages(3);
-            handler2 = this.cUO.mHandler;
+            handler2 = this.dgy.mHandler;
             handler2.removeMessages(2);
-            this.cUO.nX = System.currentTimeMillis();
-            this.cUO.apO();
+            this.dgy.qs = System.currentTimeMillis();
+            this.dgy.auC();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.cUO.apP();
+                this.dgy.auD();
             }
-            handler3 = this.cUO.mHandler;
-            handler4 = this.cUO.mHandler;
+            handler3 = this.dgy.mHandler;
+            handler4 = this.dgy.mHandler;
             Message obtainMessage4 = handler4.obtainMessage(3);
-            apW = this.cUO.apW();
-            handler3.sendMessageDelayed(obtainMessage4, apW);
-            handler5 = this.cUO.mHandler;
-            handler6 = this.cUO.mHandler;
+            auK = this.dgy.auK();
+            handler3.sendMessageDelayed(obtainMessage4, auK);
+            handler5 = this.dgy.mHandler;
+            handler6 = this.dgy.mHandler;
             Message obtainMessage5 = handler6.obtainMessage(2);
-            apU = this.cUO.apU();
-            handler5.sendMessageDelayed(obtainMessage5, apU);
+            auI = this.dgy.auI();
+            handler5.sendMessageDelayed(obtainMessage5, auI);
         }
     }
 }

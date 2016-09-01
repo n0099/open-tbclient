@@ -2,21 +2,21 @@ package com.baidu.tieba.homepage.personalize;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements com.baidu.tbadk.util.g<String> {
-    private final /* synthetic */ a ctC;
-    final /* synthetic */ b ctz;
+    private final /* synthetic */ a cFh;
+    final /* synthetic */ b this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(b bVar, a aVar) {
-        this.ctz = bVar;
-        this.ctC = aVar;
+        this.this$0 = bVar;
+        this.cFh = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.g
-    /* renamed from: kf */
+    /* renamed from: kN */
     public void onReturnDataInUI(String str) {
-        if (this.ctC != null) {
-            this.ctC.jm(com.baidu.adp.lib.h.b.g(str, 0));
+        if (this.cFh != null) {
+            this.cFh.jO(com.baidu.adp.lib.h.b.g(str, 0));
         }
     }
 }

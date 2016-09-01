@@ -8,13 +8,13 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.util.g<CommonMsgPojo> {
-    private final /* synthetic */ String cIU;
-    final /* synthetic */ PersonalMsglistModel dfF;
+    private final /* synthetic */ String cUz;
+    final /* synthetic */ PersonalMsglistModel drm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PersonalMsglistModel personalMsglistModel, String str) {
-        this.dfF = personalMsglistModel;
-        this.cIU = str;
+        this.drm = personalMsglistModel;
+        this.cUz = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class e implements com.baidu.tbadk.util.g<CommonMsgPojo> {
     public void onReturnDataInUI(CommonMsgPojo commonMsgPojo) {
         ChatMessage createMessage;
         if (commonMsgPojo == null) {
-            createMessage = this.dfF.createMessage((short) 23, this.cIU);
+            createMessage = this.drm.createMessage((short) 23, this.cUz);
             LinkedList linkedList = new LinkedList();
             CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(createMessage);
             commonMsgPojo2.setRead_flag(0);

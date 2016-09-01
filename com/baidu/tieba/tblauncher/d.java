@@ -18,27 +18,27 @@ class d extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> nk;
-        ab abVar;
+        ArrayList<com.baidu.tbadk.mainTab.b> of;
+        ac acVar;
         boolean z;
-        ab abVar2;
-        ab abVar3;
+        ac acVar2;
+        ac acVar3;
         int i;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (nk = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).nk()) != null && nk.size() != 0) {
-            abVar = this.this$0.foy;
-            abVar.ag(nk);
-            z = this.this$0.fot;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (of = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).of()) != null && of.size() != 0) {
+            acVar = this.this$0.fwr;
+            acVar.af(of);
+            z = this.this$0.fwm;
             if (z) {
-                abVar3 = this.this$0.foy;
-                FragmentTabHost bhv = abVar3.bhv();
-                i = this.this$0.f1for;
-                bhv.setCurrentTabByType(i);
+                acVar3 = this.this$0.fwr;
+                FragmentTabHost bkZ = acVar3.bkZ();
+                i = this.this$0.fwl;
+                bkZ.setCurrentTabByType(i);
             } else {
                 this.this$0.C(this.this$0.getIntent());
             }
-            this.this$0.fot = false;
-            abVar2 = this.this$0.foy;
-            abVar2.bhs();
+            this.this$0.fwm = false;
+            acVar2 = this.this$0.fwr;
+            acVar2.bkW();
         }
     }
 }

@@ -1,36 +1,41 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import tbclient.FrsPage.TopNotice;
 /* loaded from: classes.dex */
 public class bl {
-    private int Sq = 0;
-    private bk Sr = new bk();
+    private String title = null;
+    private String title_link = null;
+    private String author = null;
+    private int id = 0;
 
-    public boolean rK() {
-        return this.Sq != 0;
+    public String getTitle() {
+        return this.title;
     }
 
-    public bk rL() {
-        return this.Sr;
+    public String sJ() {
+        return this.title_link;
     }
 
-    public void a(Yule yule) {
-        if (yule != null) {
-            this.Sq = yule.activity_show.intValue();
-            this.Sr.a(yule.yule_activity);
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.title = jSONObject.getString(VrPlayerActivityConfig.TITLE);
+            this.title_link = jSONObject.getString("title_link");
+            this.author = jSONObject.getString("author");
+            this.id = jSONObject.getInt("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Sq = jSONObject.optInt("activity_show");
-                this.Sr.parserJson(jSONObject.optJSONObject("yule_activity"));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    public void a(TopNotice topNotice) {
+        if (topNotice != null) {
+            this.title = topNotice.title;
+            this.title_link = topNotice.title_link;
+            this.author = topNotice.author;
+            this.id = topNotice.id.intValue();
         }
     }
 }

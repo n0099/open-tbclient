@@ -13,190 +13,190 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class o {
-    private static final HashMap<String, String> cGR = new HashMap<>();
+    private static final HashMap<String, String> cSx = new HashMap<>();
 
     static {
-        cGR.put("#(呵呵)", "image_emoticon");
-        cGR.put("#(哈哈)", "image_emoticon2");
-        cGR.put("#(吐舌)", "image_emoticon3");
-        cGR.put("#(啊)", "image_emoticon4");
-        cGR.put("#(啊?)", "image_emoticon4");
-        cGR.put("#(酷)", "image_emoticon5");
-        cGR.put("#(怒)", "image_emoticon6");
-        cGR.put("#(开心)", "image_emoticon7");
-        cGR.put("#(汗)", "image_emoticon8");
-        cGR.put("#(泪)", "image_emoticon9");
-        cGR.put("#(黑线)", "image_emoticon10");
-        cGR.put("#(鄙视)", "image_emoticon11");
-        cGR.put("#(不高兴)", "image_emoticon12");
-        cGR.put("#(真棒)", "image_emoticon13");
-        cGR.put("#(钱)", "image_emoticon14");
-        cGR.put("#(疑问)", "image_emoticon15");
-        cGR.put("#(阴险)", "image_emoticon16");
-        cGR.put("#(吐)", "image_emoticon17");
-        cGR.put("#(咦)", "image_emoticon18");
-        cGR.put("#(咦?)", "image_emoticon18");
-        cGR.put("#(委屈)", "image_emoticon19");
-        cGR.put("#(花心)", "image_emoticon20");
-        cGR.put("#(呼~)", "image_emoticon21");
-        cGR.put("#(笑眼)", "image_emoticon22");
-        cGR.put("#(冷)", "image_emoticon23");
-        cGR.put("#(太开心)", "image_emoticon24");
-        cGR.put("#(滑稽)", "image_emoticon25");
-        cGR.put("#(勉强)", "image_emoticon26");
-        cGR.put("#(狂汗)", "image_emoticon27");
-        cGR.put("#(乖)", "image_emoticon28");
-        cGR.put("#(睡觉)", "image_emoticon29");
-        cGR.put("#(惊哭)", "image_emoticon30");
-        cGR.put("#(升起)", "image_emoticon31");
-        cGR.put("#(惊讶)", "image_emoticon32");
-        cGR.put("#(喷)", "image_emoticon33");
-        cGR.put("#(爱心)", "image_emoticon34");
-        cGR.put("#(心碎)", "image_emoticon35");
-        cGR.put("#(玫瑰)", "image_emoticon36");
-        cGR.put("#(礼物)", "image_emoticon37");
-        cGR.put("#(彩虹)", "image_emoticon38");
-        cGR.put("#(星星月亮)", "image_emoticon39");
-        cGR.put("#(太阳)", "image_emoticon40");
-        cGR.put("#(钱币)", "image_emoticon41");
-        cGR.put("#(灯泡)", "image_emoticon42");
-        cGR.put("#(茶杯)", "image_emoticon43");
-        cGR.put("#(蛋糕)", "image_emoticon44");
-        cGR.put("#(音乐)", "image_emoticon45");
-        cGR.put("#(haha)", "image_emoticon46");
-        cGR.put("#(胜利)", "image_emoticon47");
-        cGR.put("#(大拇指)", "image_emoticon48");
-        cGR.put("#(弱)", "image_emoticon49");
-        cGR.put("#(OK)", "image_emoticon50");
-        cGR.put("#(哼)", "image_emoticon61");
-        cGR.put("#(吃瓜)", "image_emoticon62");
-        cGR.put("#(扔便便)", "image_emoticon63");
-        cGR.put("#(惊恐)", "image_emoticon64");
-        cGR.put("#(哎呦)", "image_emoticon65");
-        cGR.put("#(小乖)", "image_emoticon66");
-        cGR.put("#(捂嘴笑)", "image_emoticon67");
-        cGR.put("#(你懂的)", "image_emoticon68");
-        cGR.put("#(what)", "image_emoticon69");
-        cGR.put("#(酸爽)", "image_emoticon70");
-        cGR.put("#(呀咩爹)", "image_emoticon71");
-        cGR.put("#(笑尿)", "image_emoticon72");
-        cGR.put("#(挖鼻)", "image_emoticon73");
-        cGR.put("#(犀利)", "image_emoticon74");
-        cGR.put("#(小红脸)", "image_emoticon75");
-        cGR.put("#(懒得理)", "image_emoticon76");
-        cGR.put("#(沙发)", "image_emoticon77");
-        cGR.put("#(手纸)", "image_emoticon78");
-        cGR.put("#(香蕉)", "image_emoticon79");
-        cGR.put("#(便便)", "image_emoticon80");
-        cGR.put("#(药丸)", "image_emoticon81");
-        cGR.put("#(红领巾)", "image_emoticon82");
-        cGR.put("#(蜡烛)", "image_emoticon83");
-        cGR.put("#(三道杠)", "image_emoticon84");
-        cGR.put("#(赖皮)", "ali_001");
-        cGR.put("#(感动)", "ali_002");
-        cGR.put("#(十分惊讶)", "ali_003");
-        cGR.put("#(怒气)", "ali_004");
-        cGR.put("#(哭泣)", "ali_005");
-        cGR.put("#(吃惊)", "ali_006");
-        cGR.put("#(嘲弄)", "ali_007");
-        cGR.put("#(飘过)", "ali_008");
-        cGR.put("#(转圈哭)", "ali_009");
-        cGR.put("#(神经病)", "ali_010");
-        cGR.put("#(揪耳朵)", "ali_011");
-        cGR.put("#(惊汗)", "ali_012");
-        cGR.put("#(隐身)", "ali_013");
-        cGR.put("#(不要嘛)", "ali_014");
-        cGR.put("#(遁)", "ali_015");
-        cGR.put("#(不公平)", "ali_016");
-        cGR.put("#(爬来了)", "ali_017");
-        cGR.put("#(蛋花哭)", "ali_018");
-        cGR.put("#(温暖)", "ali_019");
-        cGR.put("#(点头)", "ali_020");
-        cGR.put("#(撒钱)", "ali_021");
-        cGR.put("#(献花)", "ali_022");
-        cGR.put("#(寒)", "ali_023");
-        cGR.put("#(傻笑)", "ali_024");
-        cGR.put("#(扭扭)", "ali_025");
-        cGR.put("#(疯)", "ali_026");
-        cGR.put("#(抓狂)", "ali_027");
-        cGR.put("#(抓)", "ali_028");
-        cGR.put("#(蜷)", "ali_029");
-        cGR.put("#(挠墙)", "ali_030");
-        cGR.put("#(狂笑)", "ali_031");
-        cGR.put("#(抱枕)", "ali_032");
-        cGR.put("#(吼叫)", "ali_033");
-        cGR.put("#(嚷)", "ali_034");
-        cGR.put("#(唠叨)", "ali_035");
-        cGR.put("#(捏脸)", "ali_036");
-        cGR.put("#(爆笑)", "ali_037");
-        cGR.put("#(郁闷)", "ali_038");
-        cGR.put("#(潜水)", "ali_039");
-        cGR.put("#(十分开心)", "ali_040");
-        cGR.put("#(冷笑话)", "ali_041");
-        cGR.put("#(顶！)", "ali_042");
-        cGR.put("#(潜)", "ali_043");
-        cGR.put("#(画圈圈)", "ali_044");
-        cGR.put("#(玩电脑)", "ali_045");
-        cGR.put("#(狂吐)", "ali_046");
-        cGR.put("#(哭着跑)", "ali_047");
-        cGR.put("#(阿狸侠)", "ali_048");
-        cGR.put("#(冷死了)", "ali_049");
-        cGR.put("#(惆怅~)", "ali_050");
-        cGR.put("#(摸头)", "ali_051");
-        cGR.put("#(蹭)", "ali_052");
-        cGR.put("#(打滚)", "ali_053");
-        cGR.put("#(叩拜)", "ali_054");
-        cGR.put("#(摸)", "ali_055");
-        cGR.put("#(数钱)", "ali_056");
-        cGR.put("#(拖走)", "ali_057");
-        cGR.put("#(热)", "ali_058");
-        cGR.put("#(加1)", "ali_059");
-        cGR.put("#(压力)", "ali_060");
-        cGR.put("#(表逼我)", "ali_061");
-        cGR.put("#(人呢)", "ali_062");
-        cGR.put("#(摇晃)", "ali_063");
-        cGR.put("#(打地鼠)", "ali_064");
-        cGR.put("#(这个屌)", "ali_065");
-        cGR.put("#(恐慌)", "ali_066");
-        cGR.put("#(晕乎乎)", "ali_067");
-        cGR.put("#(浮云)", "ali_068");
-        cGR.put("#(给力)", "ali_069");
-        cGR.put("#(杯具了)", "ali_070");
-        cGR.put("#(焦糖舞)", "yz_001");
-        cGR.put("#(翻滚)", "yz_002");
-        cGR.put("#(拍屁股做鬼脸)", "yz_003");
-        cGR.put("#(不)", "yz_004");
-        cGR.put("#(河蟹掉啦)", "yz_005");
-        cGR.put("#(哦耶)", "yz_006");
-        cGR.put("#(我倒)", "yz_007");
-        cGR.put("#(投降)", "yz_008");
-        cGR.put("#(微笑)", "b01");
-        cGR.put("#(帅哥)", "b02");
-        cGR.put("#(美女)", "b03");
-        cGR.put("#(老大)", "b04");
-        cGR.put("#(哈哈哈)", "b05");
-        cGR.put("#(奸笑)", "b06");
-        cGR.put("#(傻乐)", "b07");
-        cGR.put("#(飞吻)", "b08");
-        cGR.put("#(害羞)", "b09");
-        cGR.put("#(花痴)", "b10");
-        cGR.put("#(憧憬)", "b11");
-        cGR.put("#(你牛)", "b12");
-        cGR.put("#(鼓掌)", "b13");
-        cGR.put("#(可爱)", "b14");
-        cGR.put("#(太委屈)", "b15");
-        cGR.put("#(大哭)", "b16");
-        cGR.put("#(泪奔)", "b17");
-        cGR.put("#(寻死)", "b18");
-        cGR.put("#(非常惊讶)", "b19");
-        cGR.put("#(表示疑问)", "b20");
+        cSx.put("#(呵呵)", "image_emoticon");
+        cSx.put("#(哈哈)", "image_emoticon2");
+        cSx.put("#(吐舌)", "image_emoticon3");
+        cSx.put("#(啊)", "image_emoticon4");
+        cSx.put("#(啊?)", "image_emoticon4");
+        cSx.put("#(酷)", "image_emoticon5");
+        cSx.put("#(怒)", "image_emoticon6");
+        cSx.put("#(开心)", "image_emoticon7");
+        cSx.put("#(汗)", "image_emoticon8");
+        cSx.put("#(泪)", "image_emoticon9");
+        cSx.put("#(黑线)", "image_emoticon10");
+        cSx.put("#(鄙视)", "image_emoticon11");
+        cSx.put("#(不高兴)", "image_emoticon12");
+        cSx.put("#(真棒)", "image_emoticon13");
+        cSx.put("#(钱)", "image_emoticon14");
+        cSx.put("#(疑问)", "image_emoticon15");
+        cSx.put("#(阴险)", "image_emoticon16");
+        cSx.put("#(吐)", "image_emoticon17");
+        cSx.put("#(咦)", "image_emoticon18");
+        cSx.put("#(咦?)", "image_emoticon18");
+        cSx.put("#(委屈)", "image_emoticon19");
+        cSx.put("#(花心)", "image_emoticon20");
+        cSx.put("#(呼~)", "image_emoticon21");
+        cSx.put("#(笑眼)", "image_emoticon22");
+        cSx.put("#(冷)", "image_emoticon23");
+        cSx.put("#(太开心)", "image_emoticon24");
+        cSx.put("#(滑稽)", "image_emoticon25");
+        cSx.put("#(勉强)", "image_emoticon26");
+        cSx.put("#(狂汗)", "image_emoticon27");
+        cSx.put("#(乖)", "image_emoticon28");
+        cSx.put("#(睡觉)", "image_emoticon29");
+        cSx.put("#(惊哭)", "image_emoticon30");
+        cSx.put("#(升起)", "image_emoticon31");
+        cSx.put("#(惊讶)", "image_emoticon32");
+        cSx.put("#(喷)", "image_emoticon33");
+        cSx.put("#(爱心)", "image_emoticon34");
+        cSx.put("#(心碎)", "image_emoticon35");
+        cSx.put("#(玫瑰)", "image_emoticon36");
+        cSx.put("#(礼物)", "image_emoticon37");
+        cSx.put("#(彩虹)", "image_emoticon38");
+        cSx.put("#(星星月亮)", "image_emoticon39");
+        cSx.put("#(太阳)", "image_emoticon40");
+        cSx.put("#(钱币)", "image_emoticon41");
+        cSx.put("#(灯泡)", "image_emoticon42");
+        cSx.put("#(茶杯)", "image_emoticon43");
+        cSx.put("#(蛋糕)", "image_emoticon44");
+        cSx.put("#(音乐)", "image_emoticon45");
+        cSx.put("#(haha)", "image_emoticon46");
+        cSx.put("#(胜利)", "image_emoticon47");
+        cSx.put("#(大拇指)", "image_emoticon48");
+        cSx.put("#(弱)", "image_emoticon49");
+        cSx.put("#(OK)", "image_emoticon50");
+        cSx.put("#(哼)", "image_emoticon61");
+        cSx.put("#(吃瓜)", "image_emoticon62");
+        cSx.put("#(扔便便)", "image_emoticon63");
+        cSx.put("#(惊恐)", "image_emoticon64");
+        cSx.put("#(哎呦)", "image_emoticon65");
+        cSx.put("#(小乖)", "image_emoticon66");
+        cSx.put("#(捂嘴笑)", "image_emoticon67");
+        cSx.put("#(你懂的)", "image_emoticon68");
+        cSx.put("#(what)", "image_emoticon69");
+        cSx.put("#(酸爽)", "image_emoticon70");
+        cSx.put("#(呀咩爹)", "image_emoticon71");
+        cSx.put("#(笑尿)", "image_emoticon72");
+        cSx.put("#(挖鼻)", "image_emoticon73");
+        cSx.put("#(犀利)", "image_emoticon74");
+        cSx.put("#(小红脸)", "image_emoticon75");
+        cSx.put("#(懒得理)", "image_emoticon76");
+        cSx.put("#(沙发)", "image_emoticon77");
+        cSx.put("#(手纸)", "image_emoticon78");
+        cSx.put("#(香蕉)", "image_emoticon79");
+        cSx.put("#(便便)", "image_emoticon80");
+        cSx.put("#(药丸)", "image_emoticon81");
+        cSx.put("#(红领巾)", "image_emoticon82");
+        cSx.put("#(蜡烛)", "image_emoticon83");
+        cSx.put("#(三道杠)", "image_emoticon84");
+        cSx.put("#(赖皮)", "ali_001");
+        cSx.put("#(感动)", "ali_002");
+        cSx.put("#(十分惊讶)", "ali_003");
+        cSx.put("#(怒气)", "ali_004");
+        cSx.put("#(哭泣)", "ali_005");
+        cSx.put("#(吃惊)", "ali_006");
+        cSx.put("#(嘲弄)", "ali_007");
+        cSx.put("#(飘过)", "ali_008");
+        cSx.put("#(转圈哭)", "ali_009");
+        cSx.put("#(神经病)", "ali_010");
+        cSx.put("#(揪耳朵)", "ali_011");
+        cSx.put("#(惊汗)", "ali_012");
+        cSx.put("#(隐身)", "ali_013");
+        cSx.put("#(不要嘛)", "ali_014");
+        cSx.put("#(遁)", "ali_015");
+        cSx.put("#(不公平)", "ali_016");
+        cSx.put("#(爬来了)", "ali_017");
+        cSx.put("#(蛋花哭)", "ali_018");
+        cSx.put("#(温暖)", "ali_019");
+        cSx.put("#(点头)", "ali_020");
+        cSx.put("#(撒钱)", "ali_021");
+        cSx.put("#(献花)", "ali_022");
+        cSx.put("#(寒)", "ali_023");
+        cSx.put("#(傻笑)", "ali_024");
+        cSx.put("#(扭扭)", "ali_025");
+        cSx.put("#(疯)", "ali_026");
+        cSx.put("#(抓狂)", "ali_027");
+        cSx.put("#(抓)", "ali_028");
+        cSx.put("#(蜷)", "ali_029");
+        cSx.put("#(挠墙)", "ali_030");
+        cSx.put("#(狂笑)", "ali_031");
+        cSx.put("#(抱枕)", "ali_032");
+        cSx.put("#(吼叫)", "ali_033");
+        cSx.put("#(嚷)", "ali_034");
+        cSx.put("#(唠叨)", "ali_035");
+        cSx.put("#(捏脸)", "ali_036");
+        cSx.put("#(爆笑)", "ali_037");
+        cSx.put("#(郁闷)", "ali_038");
+        cSx.put("#(潜水)", "ali_039");
+        cSx.put("#(十分开心)", "ali_040");
+        cSx.put("#(冷笑话)", "ali_041");
+        cSx.put("#(顶！)", "ali_042");
+        cSx.put("#(潜)", "ali_043");
+        cSx.put("#(画圈圈)", "ali_044");
+        cSx.put("#(玩电脑)", "ali_045");
+        cSx.put("#(狂吐)", "ali_046");
+        cSx.put("#(哭着跑)", "ali_047");
+        cSx.put("#(阿狸侠)", "ali_048");
+        cSx.put("#(冷死了)", "ali_049");
+        cSx.put("#(惆怅~)", "ali_050");
+        cSx.put("#(摸头)", "ali_051");
+        cSx.put("#(蹭)", "ali_052");
+        cSx.put("#(打滚)", "ali_053");
+        cSx.put("#(叩拜)", "ali_054");
+        cSx.put("#(摸)", "ali_055");
+        cSx.put("#(数钱)", "ali_056");
+        cSx.put("#(拖走)", "ali_057");
+        cSx.put("#(热)", "ali_058");
+        cSx.put("#(加1)", "ali_059");
+        cSx.put("#(压力)", "ali_060");
+        cSx.put("#(表逼我)", "ali_061");
+        cSx.put("#(人呢)", "ali_062");
+        cSx.put("#(摇晃)", "ali_063");
+        cSx.put("#(打地鼠)", "ali_064");
+        cSx.put("#(这个屌)", "ali_065");
+        cSx.put("#(恐慌)", "ali_066");
+        cSx.put("#(晕乎乎)", "ali_067");
+        cSx.put("#(浮云)", "ali_068");
+        cSx.put("#(给力)", "ali_069");
+        cSx.put("#(杯具了)", "ali_070");
+        cSx.put("#(焦糖舞)", "yz_001");
+        cSx.put("#(翻滚)", "yz_002");
+        cSx.put("#(拍屁股做鬼脸)", "yz_003");
+        cSx.put("#(不)", "yz_004");
+        cSx.put("#(河蟹掉啦)", "yz_005");
+        cSx.put("#(哦耶)", "yz_006");
+        cSx.put("#(我倒)", "yz_007");
+        cSx.put("#(投降)", "yz_008");
+        cSx.put("#(微笑)", "b01");
+        cSx.put("#(帅哥)", "b02");
+        cSx.put("#(美女)", "b03");
+        cSx.put("#(老大)", "b04");
+        cSx.put("#(哈哈哈)", "b05");
+        cSx.put("#(奸笑)", "b06");
+        cSx.put("#(傻乐)", "b07");
+        cSx.put("#(飞吻)", "b08");
+        cSx.put("#(害羞)", "b09");
+        cSx.put("#(花痴)", "b10");
+        cSx.put("#(憧憬)", "b11");
+        cSx.put("#(你牛)", "b12");
+        cSx.put("#(鼓掌)", "b13");
+        cSx.put("#(可爱)", "b14");
+        cSx.put("#(太委屈)", "b15");
+        cSx.put("#(大哭)", "b16");
+        cSx.put("#(泪奔)", "b17");
+        cSx.put("#(寻死)", "b18");
+        cSx.put("#(非常惊讶)", "b19");
+        cSx.put("#(表示疑问)", "b20");
     }
 
     private static String getName(String str) {
-        return cGR.get(str);
+        return cSx.get(str);
     }
 
-    public static List<TbFaceManager.RichUnit> kk(String str) {
+    public static List<TbFaceManager.RichUnit> kT(String str) {
         String str2 = "";
         ArrayList arrayList = new ArrayList();
         int length = str.length();
@@ -219,10 +219,10 @@ public class o {
                     str2 = String.valueOf(str2) + str3;
                 } else {
                     if (!TextUtils.isEmpty(str2)) {
-                        arrayList.add(kl(str2));
+                        arrayList.add(kU(str2));
                         str2 = "";
                     }
-                    arrayList.add(aY(str3, name));
+                    arrayList.add(aZ(str3, name));
                 }
             } else {
                 str2 = String.valueOf(str2) + charAt;
@@ -230,19 +230,19 @@ public class o {
             i++;
         }
         if (!TextUtils.isEmpty(str2)) {
-            arrayList.add(kl(str2));
+            arrayList.add(kU(str2));
         }
         return arrayList;
     }
 
-    private static TbFaceManager.RichUnit kl(String str) {
+    private static TbFaceManager.RichUnit kU(String str) {
         TbFaceManager.RichUnit richUnit = new TbFaceManager.RichUnit();
         richUnit.text = str;
         richUnit.type = 0;
         return richUnit;
     }
 
-    private static TbFaceManager.RichUnit aY(String str, String str2) {
+    private static TbFaceManager.RichUnit aZ(String str, String str2) {
         String substring = str.substring(2, str.length() - 1);
         TbFaceManager.RichUnit richUnit = new TbFaceManager.RichUnit();
         richUnit.text = str2;
@@ -283,14 +283,14 @@ public class o {
                             if (i == 1) {
                                 cVar.append(str2);
                             } else {
-                                SpannableString M = M(context, str2);
-                                if (M != null) {
-                                    cVar.append(M);
+                                SpannableString N = N(context, str2);
+                                if (N != null) {
+                                    cVar.append(N);
                                 }
                             }
                             str2 = "";
                         }
-                        SpannableString a = a(cVar.GH(), name, str3);
+                        SpannableString a = a(cVar.Ie(), name, str3);
                         if (a != null) {
                             cVar.append(a);
                         }
@@ -304,9 +304,9 @@ public class o {
                 if (i == 1) {
                     cVar.append(str2);
                 } else {
-                    SpannableString M2 = M(context, str2);
-                    if (M2 != null) {
-                        cVar.append(M2);
+                    SpannableString N2 = N(context, str2);
+                    if (N2 != null) {
+                        cVar.append(N2);
                     }
                 }
             }
@@ -317,16 +317,16 @@ public class o {
 
     private static SpannableString a(ArrayList<com.baidu.tbadk.widget.richText.e> arrayList, String str, String str2) {
         SpannableString spannableString = null;
-        int fm = TbFaceManager.CO().fm(str);
-        if (fm != 0) {
+        int fp = TbFaceManager.Ej().fp(str);
+        if (fp != 0) {
             spannableString = new SpannableString(String.valueOf(str2) + " ");
-            com.baidu.tbadk.widget.richText.e eVar = new com.baidu.tbadk.widget.richText.e(TbadkCoreApplication.m10getInst(), fm);
+            com.baidu.tbadk.widget.richText.e eVar = new com.baidu.tbadk.widget.richText.e(TbadkCoreApplication.m9getInst(), fp);
             if (arrayList != null) {
                 arrayList.add(eVar);
             }
-            a.C0044a fM = TbFaceManager.CO().fM(str);
-            if (fM != null) {
-                int width = (int) (0.5d * fM.getWidth());
+            a.C0044a fP = TbFaceManager.Ej().fP(str);
+            if (fP != null) {
+                int width = (int) (0.5d * fP.getWidth());
                 eVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 eVar.setBounds(new Rect(0, 0, 0, 0));
@@ -336,7 +336,7 @@ public class o {
         return spannableString;
     }
 
-    private static SpannableString M(Context context, String str) {
+    private static SpannableString N(Context context, String str) {
         if (str == null) {
             return null;
         }

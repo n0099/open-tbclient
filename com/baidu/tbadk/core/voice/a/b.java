@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a dW(String str) {
+    public static a dZ(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.dg(aVar.error_code);
-        } else if (!m.cO(String.valueOf(m.getCacheDir()) + "voice")) {
+            aVar.error_msg = a.du(aVar.error_code);
+        } else if (!m.cR(String.valueOf(m.getCacheDir()) + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.dg(aVar.error_code);
+            aVar.error_msg = a.du(aVar.error_code);
         } else {
-            String k = t.k(m.cY(str));
+            String k = t.k(m.db(str));
             if (k == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.dg(aVar.error_code);
+                aVar.error_msg = a.du(aVar.error_code);
             } else {
                 String b = m.b(k, 1, true);
                 if (m.aa(str, b)) {
@@ -25,7 +25,7 @@ public class b {
                     aVar.md5 = k;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.dg(aVar.error_code);
+                    aVar.error_msg = a.du(aVar.error_code);
                 }
             }
         }
@@ -36,7 +36,7 @@ public class b {
         return m.aa(str, m.b(str2, 1, true));
     }
 
-    public static synchronized void vX() {
+    public static synchronized void xb() {
         synchronized (b.class) {
             File file = new File(String.valueOf(m.getCacheDir()) + "voice");
             if (file.exists() && file.isDirectory()) {

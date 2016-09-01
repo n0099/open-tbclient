@@ -10,12 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private TbPageContext<?> EA;
-    private ArrayList<com.baidu.tbadk.core.data.be> fTT;
+    private TbPageContext<?> GM;
+    private ArrayList<com.baidu.tbadk.core.data.bg> gdX;
     private Context mContext;
     private int mSkinType;
 
@@ -26,30 +26,30 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.fTT = null;
+        this.gdX = null;
         this.mSkinType = 3;
         this.mContext = context;
-        this.mSkinType = TbadkCoreApplication.m10getInst().getSkinType();
+        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(ArrayList<com.baidu.tbadk.core.data.be> arrayList, TbPageContext<?> tbPageContext) {
+    public void a(ArrayList<com.baidu.tbadk.core.data.bg> arrayList, TbPageContext<?> tbPageContext) {
         int i = 0;
-        this.EA = tbPageContext;
+        this.GM = tbPageContext;
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.fTT = new ArrayList<>(arrayList.subList(0, 3));
+            this.gdX = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.fTT = arrayList;
+            this.gdX = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.fTT.size()) {
-                addView(d(this.fTT.get(i2), i2));
+            if (i2 < this.gdX.size()) {
+                addView(d(this.gdX.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -57,25 +57,25 @@ public class FeedBackTopListView extends LinearLayout {
         }
     }
 
-    private View d(com.baidu.tbadk.core.data.be beVar, int i) {
-        if (beVar == null) {
+    private View d(com.baidu.tbadk.core.data.bg bgVar, int i) {
+        if (bgVar == null) {
             return null;
         }
-        View inflate = LayoutInflater.from(this.mContext).inflate(u.h.frs_top_item, (ViewGroup) null);
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(u.g.frs_top_item);
-        TextView textView = (TextView) inflate.findViewById(u.g.frs_top_title);
-        inflate.findViewById(u.g.frs_top_divider);
-        String tid = beVar.getTid();
-        textView.setText(beVar.getTitle());
-        this.EA.getLayoutMode().af(this.mSkinType == 1);
-        this.EA.getLayoutMode().w(inflate);
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.av.getDrawable(u.f.icon_notice);
-        com.baidu.tbadk.core.util.av.k(linearLayout, u.f.bg_frs_top_middle_selector);
+        View inflate = LayoutInflater.from(this.mContext).inflate(t.h.frs_top_item, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(t.g.frs_top_item);
+        TextView textView = (TextView) inflate.findViewById(t.g.frs_top_title);
+        inflate.findViewById(t.g.frs_top_divider);
+        String tid = bgVar.getTid();
+        textView.setText(bgVar.getTitle());
+        this.GM.getLayoutMode().ah(this.mSkinType == 1);
+        this.GM.getLayoutMode().x(inflate);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.av.getDrawable(t.f.icon_notice);
+        com.baidu.tbadk.core.util.av.k(linearLayout, t.f.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }
         textView.setCompoundDrawables(bitmapDrawable, null, null, null);
-        linearLayout.setOnClickListener(new q(this, beVar, tid));
+        linearLayout.setOnClickListener(new q(this, bgVar, tid));
         return inflate;
     }
 }

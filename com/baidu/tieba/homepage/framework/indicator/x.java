@@ -6,29 +6,29 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class x extends RelativeLayout {
-    private TextView Tl;
-    private TextView csi;
+    private TextView Wb;
+    private TextView cDq;
     private View mRootView;
 
     public x(Context context) {
         super(context);
-        this.mRootView = LayoutInflater.from(context).inflate(u.h.tab_item_view, this);
-        this.Tl = (TextView) this.mRootView.findViewById(u.g.tab_item_textview);
-        this.csi = (TextView) this.mRootView.findViewById(u.g.tab_item_red_tip);
+        this.mRootView = LayoutInflater.from(context).inflate(t.h.tab_item_view, this);
+        this.Wb = (TextView) this.mRootView.findViewById(t.g.tab_item_textview);
+        this.cDq = (TextView) this.mRootView.findViewById(t.g.tab_item_red_tip);
     }
 
     public TextView getTextView() {
-        return this.Tl;
+        return this.Wb;
     }
 
     public TextView getRedTipView() {
-        return this.csi;
+        return this.cDq;
     }
 
-    public void sd() {
-        av.k(this.csi, u.f.icon_news_down_bar_one);
+    public void ti() {
+        av.k(this.cDq, t.f.icon_news_down_bar_one);
     }
 }

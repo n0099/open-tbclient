@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 class p implements AdapterView.OnItemSelectedListener {
-    final /* synthetic */ BdListView zP;
+    final /* synthetic */ BdListView Ce;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(BdListView bdListView) {
-        this.zP = bdListView;
+        this.Ce = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
@@ -18,16 +18,16 @@ class p implements AdapterView.OnItemSelectedListener {
         e eVar2;
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        eVar = this.zP.zq;
+        eVar = this.Ce.BF;
         int headersCount = eVar.getHeadersCount();
         if (i >= headersCount) {
             int i2 = i - headersCount;
-            eVar2 = this.zP.zq;
+            eVar2 = this.Ce.BF;
             ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
             if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-                onItemSelectedListener = this.zP.zt;
+                onItemSelectedListener = this.Ce.BI;
                 if (onItemSelectedListener != null) {
-                    onItemSelectedListener2 = this.zP.zt;
+                    onItemSelectedListener2 = this.Ce.BI;
                     onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
                 }
             }
@@ -38,9 +38,9 @@ class p implements AdapterView.OnItemSelectedListener {
     public void onNothingSelected(AdapterView<?> adapterView) {
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        onItemSelectedListener = this.zP.zt;
+        onItemSelectedListener = this.Ce.BI;
         if (onItemSelectedListener != null) {
-            onItemSelectedListener2 = this.zP.zt;
+            onItemSelectedListener2 = this.Ce.BI;
             onItemSelectedListener2.onNothingSelected(adapterView);
         }
     }

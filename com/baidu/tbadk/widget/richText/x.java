@@ -6,18 +6,18 @@ import com.baidu.tbadk.plugins.XiaoyingUtil;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aGW;
-    private final /* synthetic */ o aGY;
+    final /* synthetic */ TbRichTextView aKi;
+    private final /* synthetic */ o aKk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(TbRichTextView tbRichTextView, o oVar) {
-        this.aGW = tbRichTextView;
-        this.aGY = oVar;
+        this.aKi = tbRichTextView;
+        this.aKk = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TiebaStatic.log("c10643");
-        XiaoyingUtil.startPlayXiaoyingVideo(this.aGW.getContext(), this.aGY.getVideoUrl(), this.aGY.getWidth(), this.aGY.getHeight(), this.aGY.oP());
+        XiaoyingUtil.startPlayXiaoyingVideo(this.aKi.getContext(), this.aKk.getVideoUrl(), this.aKk.getWidth(), this.aKk.getHeight(), this.aKk.pS());
     }
 }

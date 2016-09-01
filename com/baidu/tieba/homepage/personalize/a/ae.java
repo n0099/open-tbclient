@@ -2,33 +2,26 @@ package com.baidu.tieba.homepage.personalize.a;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.List;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ ad cvb;
+    final /* synthetic */ ac cGG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(ad adVar, int i) {
+    public ae(ac acVar, int i) {
         super(i);
-        this.cvb = adVar;
+        this.cGG = acVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        List<com.baidu.adp.widget.ListView.v> list2;
-        if (customResponsedMessage == null) {
+        UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+        if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().vS) {
             return;
         }
-        this.cvb.Yk();
-        list = this.cvb.cuM;
-        if (list != null) {
-            ad adVar = this.cvb;
-            list2 = this.cvb.cuM;
-            adVar.bt(list2);
-        }
+        this.cGG.K(updateAttentionMessage.getData());
     }
 }

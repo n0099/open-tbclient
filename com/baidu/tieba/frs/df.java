@@ -1,71 +1,14 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class df extends SparseArray<dl> {
-    public BdUniqueId aTm = null;
+public interface df {
+    void a(TbPageContext tbPageContext, View view, int i, boolean z);
 
-    public void a(dm dmVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                dl valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(dmVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
+    void c(com.baidu.tieba.tbadkCore.p pVar);
 
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                dl valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
+    void changeSkinType(int i);
 
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                dl valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.Vk();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void a(int i, dl dlVar) {
-        if (i > 100) {
-            i = 100;
-        }
-        put(i, dlVar);
-    }
-
-    public dl ht(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return get(i);
-    }
+    void hide();
 }

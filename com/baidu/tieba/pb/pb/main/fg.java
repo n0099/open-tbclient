@@ -3,39 +3,44 @@ package com.baidu.tieba.pb.pb.main;
 import android.app.Dialog;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.u;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fg implements View.OnClickListener {
-    private final /* synthetic */ boolean ebV;
-    final /* synthetic */ ew eiu;
+    final /* synthetic */ ex euB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fg(ew ewVar, boolean z) {
-        this.eiu = ewVar;
-        this.ebV = z;
+    public fg(ex exVar) {
+        this.euB = exVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        PbActivity pbActivity;
+        PbActivity.a aVar;
+        PbActivity.a aVar2;
         Dialog dialog2;
         Dialog dialog3;
-        PbActivity pbActivity2;
-        dialog = this.eiu.egQ;
+        PbActivity pbActivity;
+        dialog = this.euB.esW;
         if (dialog != null) {
-            dialog2 = this.eiu.egQ;
+            dialog2 = this.euB.esW;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.eiu.egQ;
-                pbActivity2 = this.eiu.eat;
-                com.baidu.adp.lib.h.j.b(dialog3, pbActivity2.getPageContext());
+                dialog3 = this.euB.esW;
+                pbActivity = this.euB.emy;
+                com.baidu.adp.lib.h.j.b(dialog3, pbActivity.getPageContext());
             }
         }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            pbActivity = this.eiu.eat;
-            pbActivity.a(this.ebV, (String) sparseArray.get(u.g.tag_user_mute_mute_userid), sparseArray);
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray == null) {
+            return;
         }
+        aVar = this.euB.euu;
+        if (aVar == null) {
+            return;
+        }
+        aVar2 = this.euB.euu;
+        aVar2.g(new Object[]{sparseArray.get(t.g.tag_manage_user_identity), sparseArray.get(t.g.tag_forbid_user_name), sparseArray.get(t.g.tag_forbid_user_post_id)});
     }
 }

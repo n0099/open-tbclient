@@ -3,15 +3,15 @@ package com.baidu.tieba.passaccount.app;
 import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
 class i implements SapiWebView.ChangePwdCallback {
-    final /* synthetic */ ForgetPwdActivity dUG;
+    final /* synthetic */ ForgetPwdActivity egM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ForgetPwdActivity forgetPwdActivity) {
-        this.dUG = forgetPwdActivity;
+        this.egM = forgetPwdActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
     public void onSuccess() {
-        this.dUG.finish();
+        this.egM.finish();
     }
 }

@@ -4,11 +4,11 @@ import com.baidu.tieba.imMessageCenter.mention.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements as.a {
-    final /* synthetic */ az dhD;
+    final /* synthetic */ az dti;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(az azVar) {
-        this.dhD = azVar;
+        this.dti = azVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.as.a
@@ -19,29 +19,29 @@ public class ba implements as.a {
         FeedData feedData2;
         com.baidu.tbadk.editortools.d.p pVar3;
         FeedData feedData3;
-        this.dhD.mForumId = String.valueOf(j);
-        this.dhD.dhy = j2;
-        this.dhD.dhz = j3;
-        pVar = this.dhD.dhw;
+        this.dti.mForumId = String.valueOf(j);
+        this.dti.dte = j2;
+        this.dti.dtf = j3;
+        pVar = this.dti.dtc;
         if (pVar != null) {
-            feedData = this.dhD.dhx;
+            feedData = this.dti.dtd;
             if (feedData.getIsFloor()) {
-                feedData2 = this.dhD.dhx;
+                feedData2 = this.dti.dtd;
                 if (feedData2.getReplyer() != null) {
-                    if (this.dhD.dgz != null) {
-                        this.dhD.dgz.auu();
+                    if (this.dti.dsf != null) {
+                        this.dti.dsf.azh();
                     }
-                    pVar3 = this.dhD.dhw;
-                    feedData3 = this.dhD.dhx;
-                    pVar3.fG(feedData3.getReplyer().getUserName());
+                    pVar3 = this.dti.dtc;
+                    feedData3 = this.dti.dtd;
+                    pVar3.fJ(feedData3.getReplyer().getUserName());
                     return;
                 }
             }
-            if (this.dhD.dgz != null) {
-                this.dhD.dgz.auu();
+            if (this.dti.dsf != null) {
+                this.dti.dsf.azh();
             }
-            pVar2 = this.dhD.dhw;
-            pVar2.fG(null);
+            pVar2 = this.dti.dtc;
+            pVar2.fJ(null);
         }
     }
 }

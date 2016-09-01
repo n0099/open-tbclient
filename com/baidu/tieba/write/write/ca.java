@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ca implements View.OnClickListener {
-    final /* synthetic */ WriteMultiImgsActivity fVY;
+    final /* synthetic */ WriteMultiImgsActivity ggd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ca(WriteMultiImgsActivity writeMultiImgsActivity) {
-        this.fVY = writeMultiImgsActivity;
+        this.ggd = writeMultiImgsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         r rVar;
-        rVar = this.fVY.fVH;
-        rVar.sP(Integer.parseInt(view.getTag().toString()));
+        rVar = this.ggd.gfM;
+        rVar.tq(Integer.parseInt(view.getTag().toString()));
     }
 }

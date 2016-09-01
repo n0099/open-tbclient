@@ -8,18 +8,18 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends com.baidu.tbadk.util.t<DataRes> {
-    final /* synthetic */ b ctz;
+    final /* synthetic */ b this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(b bVar) {
-        this.ctz = bVar;
+        this.this$0 = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.t
-    /* renamed from: ahK */
+    /* renamed from: amz */
     public DataRes doInBackground() {
-        com.baidu.adp.lib.cache.o<byte[]> M = com.baidu.tbadk.core.b.a.rO().M("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
+        com.baidu.adp.lib.cache.o<byte[]> M = com.baidu.tbadk.core.b.a.sT().M("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
         if (M == null) {
             return null;
         }

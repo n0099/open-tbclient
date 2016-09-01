@@ -1,25 +1,26 @@
 package com.baidu.tieba.personInfo;
 
-import tbclient.BookInfo;
+import android.os.Bundle;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mainTab.e;
 /* loaded from: classes.dex */
-public class c {
-    public int NC;
-    public int Nt;
-    public String bookId;
-    public String dPX;
-    public String dzu;
-    public long eAg;
-    public long updateTime;
+class c extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(int i) {
+        super(i);
+    }
 
-    public void a(BookInfo bookInfo) {
-        if (bookInfo != null) {
-            this.bookId = bookInfo.book_id;
-            this.dzu = bookInfo.title;
-            this.dPX = bookInfo.cover;
-            this.updateTime = bookInfo.update_time.intValue();
-            this.NC = bookInfo.book_type.intValue();
-            this.eAg = bookInfo.forum_id.longValue();
-            this.Nt = bookInfo.total_chapter.intValue();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.mainTab.c EF;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+            PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
+            ((e) customResponsedMessage.getData()).a(personInfoDelegateStatic);
+            if (((e) customResponsedMessage.getData()).getContext() != null && (EF = personInfoDelegateStatic.EF()) != null) {
+                EF.azI.setArguments(new Bundle());
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d {
-    public static final Class<?> ny(String str) {
+    public static final Class<?> oi(String str) {
         if (str == null) {
             return null;
         }
@@ -47,14 +47,14 @@ public class d {
     }
 
     public static final Object c(String str, Class<?> cls) {
-        h nQ;
+        h oA;
         if (str == null) {
             return null;
         }
         String trim = str.trim();
-        if (trim.startsWith("$") && (nQ = com.baidu.tieba.onlineDebugger.e.b.nQ("get " + trim)) != null) {
+        if (trim.startsWith("$") && (oA = com.baidu.tieba.onlineDebugger.e.b.oA("get " + trim)) != null) {
             try {
-                return nQ.aFP();
+                return oA.aKH();
             } catch (Exception e) {
                 return null;
             }
@@ -123,7 +123,7 @@ public class d {
                         return trim;
                     } else {
                         if (cls == Context.class) {
-                            return TbadkCoreApplication.m10getInst().getApplicationContext();
+                            return TbadkCoreApplication.m9getInst().getApplicationContext();
                         }
                         return null;
                     }
@@ -133,12 +133,12 @@ public class d {
         }
     }
 
-    public static String P(Object obj) {
+    public static String R(Object obj) {
         StringBuilder sb = new StringBuilder();
         if (obj instanceof List) {
             sb.append('[');
             for (Object obj2 : (List) obj) {
-                sb.append(P(obj2));
+                sb.append(R(obj2));
                 sb.append('\n');
             }
             sb.append(']');
@@ -146,7 +146,7 @@ public class d {
         if (obj.getClass().isArray()) {
             sb.append('[');
             for (Object obj3 : (Object[]) obj) {
-                sb.append(P(obj3));
+                sb.append(R(obj3));
                 sb.append('\n');
             }
             sb.append(']');
@@ -154,7 +154,7 @@ public class d {
         if (obj instanceof Set) {
             sb.append('(');
             for (Object obj4 : (Set) obj) {
-                sb.append(P(obj4));
+                sb.append(R(obj4));
                 sb.append('\n');
             }
             sb.append(')');
@@ -162,9 +162,9 @@ public class d {
         if (obj instanceof Map) {
             sb.append('{');
             for (Map.Entry entry : ((Map) obj).entrySet()) {
-                sb.append(P(entry.getKey()));
+                sb.append(R(entry.getKey()));
                 sb.append(':');
-                sb.append(P(entry.getValue()));
+                sb.append(R(entry.getValue()));
                 sb.append('\n');
             }
             sb.append('}');
@@ -177,7 +177,7 @@ public class d {
                 Object obj5 = sparseArray.get(keyAt);
                 sb.append(keyAt);
                 sb.append(':');
-                sb.append(P(obj5));
+                sb.append(R(obj5));
                 sb.append('\n');
             }
             sb.append("]}");

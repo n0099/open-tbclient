@@ -2,10 +2,10 @@ package com.baidu.tieba.homepage.personalize.b;
 
 import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.ac;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.card.a.s;
+import com.baidu.tieba.card.data.s;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -15,16 +15,16 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.homepage.personalize.c.f cvq = new com.baidu.tieba.homepage.personalize.c.f();
-    private final d cvo = new d();
-    private final int cvp = com.baidu.tbadk.core.sharedPref.b.sN().getInt("home_page_max_thread_count", 300);
+    private com.baidu.tieba.homepage.personalize.c.f cGU = new com.baidu.tieba.homepage.personalize.c.f();
+    private final d cGS = new d();
+    private final int cGT = com.baidu.tbadk.core.sharedPref.b.tS().getInt("home_page_max_thread_count", 300);
 
-    public int ahS() {
-        return this.cvp;
+    public int amH() {
+        return this.cGT;
     }
 
     public d a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        return a(z, builder, builder2, i, this.cvp);
+        return a(z, builder, builder2, i, this.cGT);
     }
 
     public d a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i, int i2) {
@@ -44,13 +44,13 @@ public class a {
         e.f(builder);
         e.f(builder2);
         List<s> d = e.d(builder);
-        bu(d);
+        bw(d);
         List<v> i3 = i(builder.thread_list, d);
-        this.cvq.bw(i3);
+        this.cGU.by(i3);
         a(i3, builder);
         c.a(builder, i3);
-        this.cvo.cvs = i3;
-        return this.cvo;
+        this.cGS.cGW = i3;
+        return this.cGS;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -103,7 +103,7 @@ public class a {
                 int s2 = y.s(list2) - 1;
                 i2 = 0;
                 while (s2 >= 0) {
-                    this.cvq.a(z, s2, list, list2);
+                    this.cGU.a(z, s2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) y.c(list2, s2);
                     if (threadInfo3 == null || TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (threadInfo3 == null || threadInfo3.tid == null) {
@@ -124,11 +124,11 @@ public class a {
                     i2 = i3;
                 }
             }
-            this.cvo.cvt = (y.s(list) - s) - i2;
+            this.cGS.cGX = (y.s(list) - s) - i2;
         }
     }
 
-    private void bu(List<s> list) {
+    private void bw(List<s> list) {
         if (list != null) {
             Collections.sort(list, new b(this));
         }
@@ -141,16 +141,16 @@ public class a {
         LinkedList linkedList = new LinkedList();
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null) {
-                be beVar = new be();
-                beVar.a(threadInfo);
-                if (!TextUtils.isEmpty(beVar.rq())) {
-                    ac acVar = new ac();
-                    acVar.cm(beVar.rq());
-                    linkedList.add(acVar);
+                bg bgVar = new bg();
+                bgVar.a(threadInfo);
+                if (!TextUtils.isEmpty(bgVar.sv())) {
+                    ad adVar = new ad();
+                    adVar.cn(bgVar.sv());
+                    linkedList.add(adVar);
                 } else {
-                    com.baidu.tieba.card.a.c q = e.q(beVar);
+                    com.baidu.tieba.card.data.c q = e.q(bgVar);
                     if (q != null) {
-                        q.QK = beVar.getTid();
+                        q.Tt = bgVar.getTid();
                     }
                     if (q != null && q.isValid()) {
                         linkedList.add(q);
@@ -193,7 +193,7 @@ public class a {
     private void a(List<v> list, DataRes.Builder builder) {
         com.baidu.tieba.homepage.personalize.data.h a;
         if (builder != null && list != null) {
-            if (!com.baidu.tbadk.core.sharedPref.b.sN().getBoolean("close_new_user_guide_tip", false) && builder.age_sex != null) {
+            if (!com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("close_new_user_guide_tip", false) && builder.age_sex != null) {
                 com.baidu.tieba.homepage.personalize.data.j b = com.baidu.tieba.homepage.personalize.data.j.b(builder);
                 if (b != null) {
                     list.add(0, b);

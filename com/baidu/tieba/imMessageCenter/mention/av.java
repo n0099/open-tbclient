@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av extends CustomMessageListener {
-    final /* synthetic */ au dhr;
+    final /* synthetic */ au dsX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public av(au auVar, int i) {
         super(i);
-        this.dhr = auVar;
+        this.dsX = auVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,8 +20,8 @@ public class av extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         bf bfVar;
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-            bfVar = this.dhr.dgz;
-            bfVar.aux().auf();
+            bfVar = this.dsX.dsf;
+            bfVar.azk().ayT();
         }
     }
 }

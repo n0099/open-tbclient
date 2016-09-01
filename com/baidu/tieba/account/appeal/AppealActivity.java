@@ -9,66 +9,66 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class AppealActivity extends BaseActivity<AppealActivity> {
-    private TextView aNi;
-    private TextView aNj;
-    private TextView aNk;
-    private TextView aNl;
-    private String aNm;
-    private String aNn;
+    private TextView aSC;
+    private TextView aSD;
+    private TextView aSE;
+    private TextView aSF;
+    private String aSG;
+    private String aSH;
     private NavigationBar mNavigationBar;
     private String mUserName;
-    private final TextWatcher aMV = new a(this);
-    private final View.OnClickListener aNo = new b(this);
+    private final TextWatcher aSp = new a(this);
+    private final View.OnClickListener aSI = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(u.h.account_appeal_activity);
-        this.mNavigationBar = (NavigationBar) findViewById(u.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(getPageContext().getString(u.j.appeal_title));
+        setContentView(t.h.account_appeal_activity);
+        this.mNavigationBar = (NavigationBar) findViewById(t.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(getPageContext().getString(t.j.appeal_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(u.j.appeal_submit_btn), this.aNo);
-        this.aNi = (TextView) findViewById(u.g.forbid_id);
-        this.aNj = (TextView) findViewById(u.g.forbid_reason);
-        this.aNk = (TextView) findViewById(u.g.appeal_reason);
-        this.aNl = (TextView) findViewById(u.g.remain_text_count);
-        this.aNl.setText(String.valueOf(150));
-        this.aNk.setFocusable(true);
-        this.aNk.setFocusableInTouchMode(true);
-        this.aNk.requestFocus();
-        k.c(getPageContext().getPageActivity(), this.aNk);
-        this.aNk.addTextChangedListener(this.aMV);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(t.j.appeal_submit_btn), this.aSI);
+        this.aSC = (TextView) findViewById(t.g.forbid_id);
+        this.aSD = (TextView) findViewById(t.g.forbid_reason);
+        this.aSE = (TextView) findViewById(t.g.appeal_reason);
+        this.aSF = (TextView) findViewById(t.g.remain_text_count);
+        this.aSF.setText(String.valueOf(150));
+        this.aSE.setFocusable(true);
+        this.aSE.setFocusableInTouchMode(true);
+        this.aSE.requestFocus();
+        k.c(getPageContext().getPageActivity(), this.aSE);
+        this.aSE.addTextChangedListener(this.aSp);
         initData();
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.aNm = intent.getStringExtra("forum_id");
-        this.aNn = intent.getStringExtra("user_id");
+        this.aSG = intent.getStringExtra("forum_id");
+        this.aSH = intent.getStringExtra("user_id");
         this.mUserName = intent.getStringExtra("user_name");
-        g.a(this.aNm, this.aNn, new d(this));
+        g.a(this.aSG, this.aSH, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void u(String str, boolean z) {
+    public void v(String str, boolean z) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.cz(str);
-        aVar.a(getPageContext().getString(u.j.anti_no_chance_pos), new e(this, z));
+        aVar.cB(str);
+        aVar.a(getPageContext().getString(t.j.anti_no_chance_pos), new e(this, z));
         aVar.b(getPageContext());
-        aVar.rS();
+        aVar.sX();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().af(i == 1);
-        getLayoutMode().w(findViewById(u.g.root));
+        getLayoutMode().ah(i == 1);
+        getLayoutMode().x(findViewById(t.g.root));
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.aNk.setHintTextColor(av.getColor(u.d.common_color_10005));
+        this.aSE.setHintTextColor(av.getColor(t.d.common_color_10005));
     }
 }

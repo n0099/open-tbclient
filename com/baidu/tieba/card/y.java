@@ -1,52 +1,33 @@
 package com.baidu.tieba.card;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
-    final /* synthetic */ x aTT;
+public class y implements Animation.AnimationListener {
+    final /* synthetic */ t aZF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar) {
-        this.aTT = xVar;
+    public y(t tVar) {
+        this.aZF = tVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.card.a.l lVar;
-        com.baidu.tieba.card.a.l lVar2;
-        com.baidu.tieba.card.a.l lVar3;
-        com.baidu.tieba.card.a.l lVar4;
-        Context context;
-        com.baidu.tieba.card.a.l lVar5;
-        com.baidu.tieba.card.a.l lVar6;
-        lVar = this.aTT.aTS;
-        if (lVar != null) {
-            lVar2 = this.aTT.aTS;
-            if (lVar2.author != null) {
-                lVar3 = this.aTT.aTS;
-                if (!StringUtils.isNull(lVar3.author.getName_show())) {
-                    lVar4 = this.aTT.aTS;
-                    if (!StringUtils.isNull(lVar4.author.getUserId())) {
-                        if (this.aTT.akQ != null) {
-                            this.aTT.akQ.onClick(view);
-                        }
-                        MessageManager messageManager = MessageManager.getInstance();
-                        context = this.aTT.mContext;
-                        lVar5 = this.aTT.aTS;
-                        String userId = lVar5.author.getUserId();
-                        lVar6 = this.aTT.aTS;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, lVar6.author.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
-                    }
-                }
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        tbImageView = this.aZF.aZj;
+        if (tbImageView != null) {
+            tbImageView2 = this.aZF.aZj;
+            tbImageView2.setVisibility(8);
         }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

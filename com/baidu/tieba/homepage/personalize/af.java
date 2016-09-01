@@ -1,32 +1,35 @@
 package com.baidu.tieba.homepage.personalize;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.view.t;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements t.a {
-    final /* synthetic */ z ctN;
+public class af implements BdListView.e {
+    final /* synthetic */ z cFs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(z zVar) {
-        this.ctN = zVar;
+        this.cFs = zVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.t.a
-    public void E(View view) {
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void kx() {
+        PbListView pbListView;
         b bVar;
-        b bVar2;
-        b bVar3;
-        bVar = this.ctN.ctI;
-        if (bVar != null) {
-            bVar2 = this.ctN.ctI;
-            bVar2.eF(true);
-            bVar3 = this.ctN.ctI;
-            bVar3.ahx();
+        PbListView pbListView2;
+        PbListView pbListView3;
+        TbPageContext tbPageContext;
+        pbListView = this.cFs.bvo;
+        if (pbListView != null) {
+            pbListView2 = this.cFs.bvo;
+            pbListView2.wl();
+            pbListView3 = this.cFs.bvo;
+            tbPageContext = this.cFs.pageContext;
+            pbListView3.di(com.baidu.adp.lib.util.k.e(tbPageContext.getPageActivity(), t.e.ds110));
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_FINISH_REFRESH, true));
+        bVar = this.cFs.cFn;
+        bVar.aba();
     }
 }

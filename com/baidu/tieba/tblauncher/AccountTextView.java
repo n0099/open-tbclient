@@ -1,25 +1,11 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class AccountTextView extends TextView {
     private String text;
-
-    public AccountTextView(Context context) {
-        super(context);
-    }
-
-    public AccountTextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-    }
-
-    public AccountTextView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {

@@ -10,79 +10,79 @@ import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ConstrainImageGroup extends LinearLayout {
-    private com.baidu.adp.lib.f.b<c> aDG;
-    private com.baidu.adp.lib.f.b<TbImageView> aDH;
-    private f aDI;
-    private int aDJ;
-    private double aDK;
-    private h aDL;
-    private View.OnClickListener aDM;
-    private ViewGroup.OnHierarchyChangeListener aDN;
-    private boolean aav;
+    private com.baidu.adp.lib.f.b<c> aGN;
+    private com.baidu.adp.lib.f.b<TbImageView> aGO;
+    private f aGP;
+    private int aGQ;
+    private double aGR;
+    private h aGS;
+    private View.OnClickListener aGT;
+    private ViewGroup.OnHierarchyChangeListener aGU;
+    private boolean adl;
 
     public ConstrainImageGroup(Context context) {
         super(context);
-        this.aDI = new a();
-        this.aav = false;
-        this.aDN = new b(this);
+        this.aGP = new a();
+        this.adl = false;
+        this.aGU = new b(this);
         setOrientation(1);
-        setOnHierarchyChangeListener(this.aDN);
+        setOnHierarchyChangeListener(this.aGU);
     }
 
     public ConstrainImageGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aDI = new a();
-        this.aav = false;
-        this.aDN = new b(this);
+        this.aGP = new a();
+        this.adl = false;
+        this.aGU = new b(this);
         setOrientation(1);
-        setOnHierarchyChangeListener(this.aDN);
+        setOnHierarchyChangeListener(this.aGU);
     }
 
     public ConstrainImageGroup(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aDI = new a();
-        this.aav = false;
-        this.aDN = new b(this);
+        this.aGP = new a();
+        this.adl = false;
+        this.aGU = new b(this);
         setOrientation(1);
-        setOnHierarchyChangeListener(this.aDN);
+        setOnHierarchyChangeListener(this.aGU);
     }
 
     public void setFromCDN(boolean z) {
-        this.aav = z;
+        this.adl = z;
     }
 
     public void setSingleImageRatio(double d) {
-        this.aDK = d;
+        this.aGR = d;
     }
 
     public void setChildClickListener(View.OnClickListener onClickListener) {
-        this.aDM = onClickListener;
+        this.aGT = onClickListener;
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.f.b<c> bVar) {
-        this.aDG = bVar;
+        this.aGN = bVar;
     }
 
     public void setImageClickListener(h hVar) {
-        this.aDL = hVar;
+        this.aGS = hVar;
     }
 
     public void setImageViewPool(com.baidu.adp.lib.f.b<TbImageView> bVar) {
-        this.aDH = bVar;
+        this.aGO = bVar;
     }
 
     public void setImageMargin(int i) {
         if (i >= 0) {
-            this.aDJ = i;
+            this.aGQ = i;
         } else {
-            this.aDJ = 0;
+            this.aGQ = 0;
         }
     }
 
     public void setImageUrls(List<String> list) {
         int i;
-        if (!y.t(list) && this.aDG != null) {
-            fc(y.s(list));
+        if (!y.t(list) && this.aGN != null) {
+            fq(y.s(list));
             int childCount = getChildCount();
             int i2 = 0;
             int i3 = 0;
@@ -90,13 +90,13 @@ public class ConstrainImageGroup extends LinearLayout {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof c) {
                     c cVar = (c) childAt;
-                    cVar.setImageClickListener(this.aDL);
-                    cVar.setFromCDN(this.aav);
-                    if (this.aDK > 0.0d && childCount == 1) {
-                        cVar.setSingleImageRatio(this.aDK);
+                    cVar.setImageClickListener(this.aGS);
+                    cVar.setFromCDN(this.adl);
+                    if (this.aGR > 0.0d && childCount == 1) {
+                        cVar.setSingleImageRatio(this.aGR);
                     }
-                    cVar.setOnClickListener(this.aDM);
-                    i = this.aDI.a(cVar, list, i2, i3);
+                    cVar.setOnClickListener(this.aGT);
+                    i = this.aGP.a(cVar, list, i2, i3);
                 } else {
                     i = i3;
                 }
@@ -106,11 +106,11 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    private void fc(int i) {
-        int fb = this.aDI.fb(i);
-        int childCount = getChildCount() - fb;
+    private void fq(int i) {
+        int fp = this.aGP.fp(i);
+        int childCount = getChildCount() - fp;
         if (childCount > 0) {
-            removeViews(fb, childCount);
+            removeViews(fp, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
@@ -120,23 +120,23 @@ public class ConstrainImageGroup extends LinearLayout {
     }
 
     private c getConstrainImageLayout() {
-        c dD = this.aDG.dD();
-        dD.setImagePadding(this.aDJ);
-        dD.setImageViewObjectPool(this.aDH);
-        dD.setImageMaxChildCount(-1);
-        dD.setExtraCenterText(null);
+        c ey = this.aGN.ey();
+        ey.setImagePadding(this.aGQ);
+        ey.setImageViewObjectPool(this.aGO);
+        ey.setImageMaxChildCount(-1);
+        ey.setExtraCenterText(null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = this.aDJ;
-        dD.setLayoutParams(layoutParams);
-        return dD;
+        layoutParams.topMargin = this.aGQ;
+        ey.setLayoutParams(layoutParams);
+        return ey;
     }
 
-    public void sd() {
+    public void ti() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt instanceof c) {
-                ((c) childAt).sd();
+                ((c) childAt).ti();
             }
         }
     }

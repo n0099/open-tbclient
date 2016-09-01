@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.u;
+import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements bi.a {
     @Override // com.baidu.tbadk.core.util.bi.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        Bundle gx;
+        Bundle gA;
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;
         }
@@ -52,11 +52,11 @@ public class k implements bi.a {
             tbPageContext.getPageActivity().finish();
             return 1;
         } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("pay=1") && (tbPageContext instanceof Activity)) {
-            UtilHelper.showToast(tbPageContext.getPageActivity(), u.j.buy_sucess);
+            UtilHelper.showToast(tbPageContext.getPageActivity(), t.j.buy_sucess);
             ((Activity) tbPageContext).finish();
             return 0;
         } else if (str.startsWith("tieba://focusforum")) {
-            TbadkCoreApplication.m10getInst().setLikeBarChanged(true);
+            TbadkCoreApplication.m9getInst().setLikeBarChanged(true);
             return 0;
         } else if (str.startsWith("baiduxiuba://")) {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -69,7 +69,7 @@ public class k implements bi.a {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.y.as(str, "bindid=")));
             tbPageContext.getPageActivity().finish();
             return 1;
-        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gx = com.baidu.tbadk.util.y.gx(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gx.getString("path"))) {
+        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gA = com.baidu.tbadk.util.y.gA(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gA.getString("path"))) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
             return 0;
         } else {
@@ -85,7 +85,7 @@ public class k implements bi.a {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_RANK, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring2, str2)));
                             }
                         } else {
-                            Static.c(tbPageContext, str.substring(3), tbPageContext.getString(u.j.kn_zhibo), false, true, false, false);
+                            Static.c(tbPageContext, str.substring(3), tbPageContext.getString(t.j.kn_zhibo), false, true, false, false);
                         }
                     } else {
                         Static.c(tbPageContext, str3, str.substring(6), false, true, true, false);

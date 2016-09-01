@@ -7,29 +7,29 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class m extends l {
-    private Rect il;
-    private boolean tc;
-    private Path tq;
+    private Rect kF;
+    private Path vD;
+    private boolean vr;
 
     private void c(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.tq == null || this.tc != this.sF.tc) {
+            if (this.vD == null || this.vr != this.uV.vr) {
                 z = true;
             }
-            if (this.il == null || !this.il.contains(rect)) {
+            if (this.kF == null || !this.kF.contains(rect)) {
                 z = true;
             }
-            this.tc = this.sF.tc;
+            this.vr = this.uV.vr;
             if (z) {
-                this.il = rect;
-                this.tq = new Path();
-                if (this.tc) {
-                    this.tq.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+                this.kF = rect;
+                this.vD = new Path();
+                if (this.vr) {
+                    this.vD.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.tq.addRoundRect(new RectF(rect), this.sF.mRadius, this.sF.mRadius, Path.Direction.CCW);
+                    this.vD.addRoundRect(new RectF(rect), this.uV.mRadius, this.uV.mRadius, Path.Direction.CCW);
                 }
-                this.tq.close();
+                this.vD.close();
             }
         }
     }
@@ -39,7 +39,7 @@ public class m extends l {
         canvas.save();
         c(drawable.getBounds());
         try {
-            canvas.clipPath(this.tq);
+            canvas.clipPath(this.vD);
         } catch (Exception e) {
         }
         drawable.draw(canvas);

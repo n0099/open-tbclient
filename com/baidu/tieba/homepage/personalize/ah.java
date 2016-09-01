@@ -1,24 +1,27 @@
 package com.baidu.tieba.homepage.personalize;
 
 import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tieba.homepage.personalize.a.i;
+import com.baidu.tieba.homepage.personalize.a.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ z ctN;
+public class ah implements AbsListView.RecyclerListener {
+    final /* synthetic */ z cFs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(z zVar) {
-        this.ctN = zVar;
+        this.cFs = zVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        b bVar;
-        b bVar2;
-        bVar = this.ctN.ctI;
-        if (bVar != null) {
-            bVar2 = this.ctN.ctI;
-            bVar2.update();
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        if (view != null) {
+            if (view.getTag() instanceof q.a) {
+                ((q.a) view.getTag()).cFU.stopPlay();
+            } else if (view.getTag() instanceof i.a) {
+                ((i.a) view.getTag()).cFI.stopPlay();
+            }
         }
     }
 }

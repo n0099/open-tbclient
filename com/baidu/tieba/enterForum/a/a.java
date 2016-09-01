@@ -4,32 +4,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.enterForum.view.m;
-import com.baidu.tieba.tbadkCore.x;
+import com.baidu.tieba.enterForum.e.m;
+import com.baidu.tieba.tbadkCore.w;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.mvc.g.d<x, com.baidu.tbadk.mvc.d.b, m> implements d {
-    private int buw;
+public class a extends com.baidu.tbadk.mvc.g.d<w, com.baidu.tbadk.mvc.d.b, m> implements d {
+    private int bFJ;
 
     public a(TbPageContext<?> tbPageContext, Class<m> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.buw = -1;
+        this.bFJ = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.d
-    public void V(int i, int i2) {
-        List<x> Ea = Ea();
-        com.baidu.tieba.enterForum.c.b.SX().c(Ea, i, i2);
-        A(Ea);
+    public void aa(int i, int i2) {
+        List<w> Fu = Fu();
+        com.baidu.tieba.enterForum.c.b.XI().c(Fu, i, i2);
+        A(Fu);
     }
 
     @Override // com.baidu.tieba.enterForum.a.d
-    public void gH(int i) {
-        this.buw = i;
+    public void hj(int i) {
+        this.bFJ = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.d
-    public void Sl() {
+    public void WX() {
         notifyDataSetChanged();
     }
 
@@ -37,7 +37,7 @@ public class a extends com.baidu.tbadk.mvc.g.d<x, com.baidu.tbadk.mvc.d.b, m> im
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.buw) {
+            if (i == this.bFJ) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);
