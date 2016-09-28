@@ -5,6 +5,7 @@ public class CmdConfigHttp {
     public static final int BAWU_TEAM_INFO_CMD = 1001705;
     public static final int BG_LOGIN_HTTP_CMD = 1001101;
     public static final int BUYPROPS_CMD = 1001504;
+    public static final int CAD_AD_STATISTIC_UPLOAD = 1003183;
     public static final int CDN_IPLIST_CMD = 1002600;
     public static final int CLEAR_LOCATION_INFO = 1001508;
     public static final int CMD_ADD_MSG_RECORD = 1003071;
@@ -100,6 +101,7 @@ public class CmdConfigHttp {
     public static final int CMD_HOT_TOPIC = 1003041;
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
+    public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
     public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
     public static final int CMD_MANGA_CHAPTER_ALL = 1003087;
@@ -109,6 +111,7 @@ public class CmdConfigHttp {
     public static final int CMD_MANGA_REPORT_TYPE = 1003088;
     public static final int CMD_MEMBERCENTER_INDEX = 1003048;
     public static final int CMD_MEMBER_CLOSE_AD = 1003090;
+    public static final int CMD_NEG_FEED_BACK = 1003184;
     public static final int CMD_OP_BOOKRACK = 1003163;
     public static final int CMD_PAYMENT_CONFIRM_INFO = 1001536;
     public static final int CMD_PAYMENT_PAY = 1001537;
@@ -122,6 +125,7 @@ public class CmdConfigHttp {
     public static final int CMD_RECOMMEND_FRS = 1003011;
     public static final int CMD_RECOMMEND_FRS_GOD = 1003073;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
+    public static final int CMD_RECOMMEND_VIDEO = 1003185;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
     public static final int CMD_SAVE_GAME_STATUS = 1003059;
     public static final int CMD_SELLER_CONFIRM_DELIVERY = 1003172;

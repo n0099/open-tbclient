@@ -1,26 +1,21 @@
 package com.baidu.tbadk.plugins;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
-public class i implements a.b {
-    private final /* synthetic */ Activity aDR;
-    private final /* synthetic */ TbPageContext aDS;
-
+class i extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(Activity activity, TbPageContext tbPageContext) {
-        this.aDR = activity;
-        this.aDS = tbPageContext;
+    public i(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aDS.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.aDR, "com.baidu.tieba.pluginTogetherHi")));
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+            PluginCenter.getInstance().startRetryLaunchPlugins();
+        }
     }
 }

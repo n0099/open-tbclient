@@ -2,17 +2,17 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.an;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class o extends CustomMessageListener {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(PbActivity pbActivity, int i) {
         super(i);
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,48 +27,48 @@ class o extends CustomMessageListener {
         dh dhVar5;
         dh dhVar6;
         dh dhVar7;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.x)) {
-            com.baidu.tbadk.core.data.x xVar = (com.baidu.tbadk.core.data.x) customResponsedMessage.getData();
-            al.a aVar = new al.a();
-            aVar.giftId = xVar.id;
-            aVar.HP = xVar.name;
-            aVar.QV = xVar.QV;
-            dhVar = this.eob.emx;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.z)) {
+            com.baidu.tbadk.core.data.z zVar = (com.baidu.tbadk.core.data.z) customResponsedMessage.getData();
+            an.a aVar = new an.a();
+            aVar.giftId = zVar.id;
+            aVar.HP = zVar.name;
+            aVar.Rb = zVar.Rb;
+            dhVar = this.eqa.eov;
             com.baidu.tieba.pb.data.h pbData = dhVar.getPbData();
             if (pbData != null) {
-                dhVar2 = this.eob.emx;
-                if (dhVar2.aNU() != null) {
-                    dhVar4 = this.eob.emx;
-                    if (dhVar4.aNU().getUserIdLong() == xVar.toUserId) {
-                        exVar2 = this.eob.enh;
-                        int i = xVar.sendCount;
-                        dhVar5 = this.eob.emx;
+                dhVar2 = this.eqa.eov;
+                if (dhVar2.aOC() != null) {
+                    dhVar4 = this.eqa.eov;
+                    if (dhVar4.aOC().getUserIdLong() == zVar.toUserId) {
+                        exVar2 = this.eqa.epe;
+                        int i = zVar.sendCount;
+                        dhVar5 = this.eqa.eov;
                         com.baidu.tieba.pb.data.h pbData2 = dhVar5.getPbData();
-                        dhVar6 = this.eob.emx;
-                        boolean aNO = dhVar6.aNO();
-                        dhVar7 = this.eob.emx;
-                        exVar2.a(i, pbData2, aNO, dhVar7.aOd());
+                        dhVar6 = this.eqa.eov;
+                        boolean aOw = dhVar6.aOw();
+                        dhVar7 = this.eqa.eov;
+                        exVar2.a(i, pbData2, aOw, dhVar7.aOL());
                     }
                 }
-                if (pbData.aLR() != null && pbData.aLR().size() >= 1 && pbData.aLR().get(0) != null) {
-                    long c = com.baidu.adp.lib.h.b.c(pbData.aLR().get(0).getId(), 0L);
-                    dhVar3 = this.eob.emx;
+                if (pbData.aMt() != null && pbData.aMt().size() >= 1 && pbData.aMt().get(0) != null) {
+                    long c = com.baidu.adp.lib.h.b.c(pbData.aMt().get(0).getId(), 0L);
+                    dhVar3 = this.eqa.eov;
                     long c2 = com.baidu.adp.lib.h.b.c(dhVar3.getThreadID(), 0L);
-                    if (c == xVar.postId && c2 == xVar.threadId) {
-                        com.baidu.tbadk.core.data.al bjl = pbData.aLR().get(0).bjl();
-                        if (bjl == null) {
-                            bjl = new com.baidu.tbadk.core.data.al();
+                    if (c == zVar.postId && c2 == zVar.threadId) {
+                        com.baidu.tbadk.core.data.an bjX = pbData.aMt().get(0).bjX();
+                        if (bjX == null) {
+                            bjX = new com.baidu.tbadk.core.data.an();
                         }
-                        ArrayList<al.a> qt = bjl.qt();
-                        if (qt == null) {
-                            qt = new ArrayList<>();
+                        ArrayList<an.a> qE = bjX.qE();
+                        if (qE == null) {
+                            qE = new ArrayList<>();
                         }
-                        qt.add(0, aVar);
-                        bjl.bR(xVar.sendCount + bjl.qs());
-                        bjl.h(qt);
-                        pbData.aLR().get(0).a(bjl);
-                        exVar = this.eob.enh;
-                        exVar.aPj().notifyDataSetChanged();
+                        qE.add(0, aVar);
+                        bjX.bR(zVar.sendCount + bjX.qD());
+                        bjX.h(qE);
+                        pbData.aMt().get(0).a(bjX);
+                        exVar = this.eqa.epe;
+                        exVar.aPS().notifyDataSetChanged();
                     }
                 }
             }

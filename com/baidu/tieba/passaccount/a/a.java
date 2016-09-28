@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.passaccount.a.f;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a eha = null;
-    private InterfaceC0069a ehb = null;
-    private final a.InterfaceC0033a ehc = new b(this);
-    private final f.a ehd = new d(this);
+    private static a eiY = null;
+    private InterfaceC0072a eiZ = null;
+    private final a.InterfaceC0033a eja = new b(this);
+    private final f.a ejb = new d(this);
 
     /* renamed from: com.baidu.tieba.passaccount.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0069a {
+    public interface InterfaceC0072a {
         void cf(String str);
 
         void onSuccess();
@@ -25,11 +25,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a aKU() {
-        if (eha == null) {
-            eha = new a();
+    public static a aLw() {
+        if (eiY == null) {
+            eiY = new a();
         }
-        return eha;
+        return eiY;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -44,7 +44,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                     try {
                         bVar.pX = split[0];
                         if (split.length >= 2) {
-                            bVar.Os = split[1];
+                            bVar.Ot = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -63,11 +63,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void oP() {
+    public void oQ() {
         AccountData currentAccountObj;
         a.b ce;
         if (i.gm() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ce = ce(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ce.pX, ce.Os, currentAccountObj.getStoken(), this.ehc);
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ce.pX, ce.Ot, currentAccountObj.getStoken(), this.eja);
         }
     }
 

@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class HotTopicActivityConfig extends IntentConfig {
+    public static final String HOT_TOPIC_SELECT_STRING = "hot_string";
     public static final String ST_TYPE = "hot_topic";
 
     public HotTopicActivityConfig(Context context) {

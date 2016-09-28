@@ -1,37 +1,31 @@
 package com.baidu.tieba.f;
 
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements Handler.Callback {
-    final /* synthetic */ c bJA;
+public class d extends CustomMessageListener {
+    final /* synthetic */ a feW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
-        this.bJA = cVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(a aVar, int i) {
+        super(i);
+        this.feW = aVar;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        Handler handler;
-        if ((message.what != 1 && message.what != 2) || !this.bJA.YM()) {
-            switch (message.what) {
-                case 1:
-                    this.bJA.YJ();
-                    return true;
-                case 2:
-                    this.bJA.YH();
-                    return true;
-                case 3:
-                    this.bJA.YI();
-                    return true;
-                default:
-                    return false;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        if (customResponsedMessage != null && com.baidu.tbadk.core.sharedPref.b.uh().getLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L) < TbadkCoreApplication.m9getInst().getLastUpdateThemeTime()) {
+            this.feW.feK = true;
+            a aVar = this.feW;
+            z = this.feW.feK;
+            aVar.feD = z ? true : this.feW.feD;
+            com.baidu.tbadk.core.sharedPref.b.uh().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            this.feW.bcp();
         }
-        handler = this.bJA.mHandler;
-        handler.sendEmptyMessageDelayed(message.what, 100L);
-        return true;
     }
 }

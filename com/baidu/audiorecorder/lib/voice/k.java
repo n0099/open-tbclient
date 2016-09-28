@@ -1,6 +1,6 @@
 package com.baidu.audiorecorder.lib.voice;
 
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class k implements Runnable {
     final /* synthetic */ j EF;
@@ -17,7 +17,7 @@ class k implements Runnable {
         gVar = this.EF.EB;
         com.baidu.adp.lib.voice.j jVar = gVar.Ex;
         gVar2 = this.EF.EB;
-        jVar.onShowErr(4, gVar2.context.getString(t.j.voice_error_file_md5));
+        jVar.onShowErr(4, gVar2.context.getString(r.j.voice_error_file_md5));
         com.baidu.adp.lib.voice.l.sU = 1;
     }
 }

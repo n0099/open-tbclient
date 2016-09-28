@@ -1,22 +1,37 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends CustomMessageListener {
-    final /* synthetic */ b this$0;
+public class w extends com.baidu.tbadk.util.t<DataRes> {
+    final /* synthetic */ m this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(b bVar, int i) {
-        super(i);
-        this.this$0 = bVar;
+    public w(m mVar) {
+        this.this$0 = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.fa(false);
+    @Override // com.baidu.tbadk.util.t
+    /* renamed from: amR */
+    public DataRes doInBackground() {
+        com.baidu.adp.lib.cache.o<byte[]> M = com.baidu.tbadk.core.b.a.ti().M("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
+        if (M == null) {
+            return null;
+        }
+        byte[] bArr = M.get("0");
+        if (bArr == null || bArr.length == 0) {
+            return null;
+        }
+        try {
+            return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+        } catch (IOException e) {
+            BdLog.e(e);
+            return null;
+        }
     }
 }

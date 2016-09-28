@@ -8,13 +8,13 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements com.baidu.tbadk.util.g<Boolean> {
-    final /* synthetic */ PersonalMsglistModel drm;
-    private final /* synthetic */ String drp;
+    final /* synthetic */ PersonalMsglistModel dsJ;
+    private final /* synthetic */ String dsM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PersonalMsglistModel personalMsglistModel, String str) {
-        this.drm = personalMsglistModel;
-        this.drp = str;
+        this.dsJ = personalMsglistModel;
+        this.dsM = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class i implements com.baidu.tbadk.util.g<Boolean> {
     public void onReturnDataInUI(Boolean bool) {
         ChatMessage createMessage;
         if (bool == null || bool.booleanValue()) {
-            createMessage = this.drm.createMessage((short) 26, this.drp);
+            createMessage = this.dsJ.createMessage((short) 26, this.dsM);
             createMessage.getLocalData().setStatus((short) 0);
             LinkedList linkedList = new LinkedList();
             CommonMsgPojo commonMsgPojo = new CommonMsgPojo(createMessage);

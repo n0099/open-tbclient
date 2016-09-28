@@ -4,11 +4,11 @@ import android.location.Address;
 import com.baidu.adp.lib.e.a;
 /* loaded from: classes.dex */
 class h implements a.InterfaceC0005a {
-    final /* synthetic */ UpdateInfoService fdw;
+    final /* synthetic */ UpdateInfoService fge;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(UpdateInfoService updateInfoService) {
-        this.fdw = updateInfoService;
+        this.fge = updateInfoService;
     }
 
     @Override // com.baidu.adp.lib.e.a.InterfaceC0005a
@@ -21,12 +21,12 @@ class h implements a.InterfaceC0005a {
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    eVar = this.fdw.mModel;
-                    if (eVar.aHE()) {
-                        eVar2 = this.fdw.mModel;
+                    eVar = this.fge.mModel;
+                    if (eVar.aIf()) {
+                        eVar2 = this.fge.mModel;
                         eVar2.b(1, longitude, latitude);
-                        eVar3 = this.fdw.mModel;
-                        eVar3.aHF();
+                        eVar3 = this.fge.mModel;
+                        eVar3.aIg();
                         return;
                     }
                     return;

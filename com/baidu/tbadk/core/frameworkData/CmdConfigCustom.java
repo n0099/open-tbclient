@@ -34,6 +34,7 @@ public class CmdConfigCustom {
     public static final int CMD_APPLY_NEW_FRIEND_LOCAL = 2001176;
     public static final int CMD_APPLY_PASSFRIEND = 2001227;
     public static final int CMD_APPLY_REPLY_MESSAGE = 2001225;
+    public static final int CMD_APP_DOWNLOAD_MSG = 2016484;
     public static final int CMD_AUDIO_VIEW_SHOW_WHEN_LOCK_DESTROY = 2016434;
     public static final int CMD_AUDIO_VIEW_START_PALY = 2016437;
     public static final int CMD_BACKGROUND_SWTICH = 2001011;
@@ -104,6 +105,7 @@ public class CmdConfigCustom {
     public static final int CMD_DELETE_ACCOUNT = 2001193;
     public static final int CMD_DELETE_ALL_SKIN_FILE = 2001386;
     public static final int CMD_DELETE_CONTACT = 2001184;
+    public static final int CMD_DELETE_DOWNLOAD_MSG = 2016483;
     public static final int CMD_DELETE_GRAFFITI_SUCCESS = 2001421;
     public static final int CMD_DELETE_MSG = 2001113;
     public static final int CMD_DELETE_SKINT_DATA_FROM_DB = 2001371;
@@ -131,7 +133,7 @@ public class CmdConfigCustom {
     public static final int CMD_FACESHOP_FACEPACKAGEDETAIL = 2902014;
     public static final int CMD_FACESHOP_FACEPURCHASERECORDS = 2902015;
     public static final int CMD_FILE_DOWNLOAD = 2001122;
-    public static final int CMD_FINISH_VIDEO_MID_PAGE_ACTIVITY = 2016484;
+    public static final int CMD_FINISH_VIDEO_MID_PAGE_ACTIVITY = 2016486;
     public static final int CMD_FLOAT_RECORD_VIEW_CTRL = 2001307;
     public static final int CMD_FLOAT_WINDOW_SWITCH_CHANGED = 2001257;
     public static final int CMD_FORUMFEED_PLUGIN_INSTALL_SUCCESS = 2902110;
@@ -176,6 +178,7 @@ public class CmdConfigCustom {
     public static final int CMD_GET_MEMBER_CENTER_CACHE = 2016460;
     public static final int CMD_GET_NEW_FRIEND_DATA_BY_ID = 2001312;
     public static final int CMD_GET_OFFICIAL_ACCOUNT = 2001272;
+    public static final int CMD_GET_QUICK_PLAYER_FACTORY = 2016490;
     public static final int CMD_GET_RECOMMEND_DETAIL = 2001313;
     public static final int CMD_GET_SHARE_FROM_GAME_CENTER_DATA = 2001268;
     public static final int CMD_GET_SKIN_FROM_DB = 2001388;
@@ -224,6 +227,8 @@ public class CmdConfigCustom {
     public static final int CMD_HOME_PAGE_WRITE_CACHE = 2016315;
     public static final int CMD_HOME_TAB_LAST_READ_POSITION = 2001433;
     public static final int CMD_HOT_GROUPS_LOCAL = 2001116;
+    public static final int CMD_HOT_TOPIC_SELECT_CACHE = 2016491;
+    public static final int CMD_HOT_TOPIC_TOOL_CRTL = 2016489;
     public static final int CMD_IMMERSIVE_STICKY_SWITCH_STATUS_CHANGE = 2016323;
     public static final int CMD_IM_GROUP_CONFIRM_PASSED = 2001220;
     public static final int CMD_IM_PUSH_NOTIFY_APPLY_JOIN_FAIL = 2001131;
@@ -246,8 +251,6 @@ public class CmdConfigCustom {
     public static final int CMD_INIT_TTS_MODEL = 2016424;
     public static final int CMD_INSERT_CONTACT = 2001183;
     public static final int CMD_INSERT_SKINT_DATA_TO_DB = 2001367;
-    public static final int CMD_JUDGE_TO_HOTTOPIC_FROM_FRS = 2003019;
-    public static final int CMD_JUDGE_TO_HOTTOPIC_FROM_PB = 2003020;
     public static final int CMD_LEAKCANARY_INSTALL = 2010003;
     public static final int CMD_LEFT_NAVI_SCAN = 2001309;
     public static final int CMD_LEFT_NAV_DRESSUP_CENTER_TIP = 2001372;
@@ -305,6 +308,7 @@ public class CmdConfigCustom {
     public static final int CMD_MY_HISTORY_RES_TOOL = 2001303;
     public static final int CMD_MY_LIVE_RES_TOOL = 2001304;
     public static final int CMD_MY_WALLET = 2001358;
+    public static final int CMD_NEG_FEED_BACK_DISMISS_WINDOW = 2016493;
     public static final int CMD_NEIGHBORS = 2902001;
     public static final int CMD_NEW_FRIEND_ACTION_ADD_LOCAL = 2001173;
     public static final int CMD_NEW_FRIEND_ACTION_DELETE_LOCAL = 2001174;
@@ -438,6 +442,7 @@ public class CmdConfigCustom {
     public static final int CMD_SQUARE_FORUM_SQUARE = 2902023;
     public static final int CMD_SQUARE_FORUM_WEEKLY = 2902029;
     public static final int CMD_START_FRS_GOOD_ACTIVITY = 2003010;
+    public static final int CMD_START_HOT_TOPIC_ACTIVITY = 2016492;
     public static final int CMD_START_PLAY = 2001605;
     public static final int CMD_START_TRAFFICSTATSSERVICE = 2905001;
     public static final int CMD_START_USER_MUTE_LIST_ACTIVITY = 2016302;
@@ -474,7 +479,7 @@ public class CmdConfigCustom {
     public static final int CMD_UPDATE_ATTENTION = 2001118;
     public static final int CMD_UPDATE_FRS_LIKE_STATUS = 2001273;
     public static final int CMD_UPDATE_INSTALL_STATUS = 2001513;
-    public static final int CMD_UPDATE_PENDANT = 2016483;
+    public static final int CMD_UPDATE_PENDANT = 2016485;
     public static final int CMD_UPDATE_SUCCESS_MSG = 2001108;
     public static final int CMD_UPDATE_VERSION_MSG = 2001515;
     public static final int CMD_UPLOAD_FAIL = 2001221;
@@ -504,7 +509,7 @@ public class CmdConfigCustom {
     public static final int CMD_VOICE_STOP_PLAY = 2001280;
     public static final int CMD_VOICE_USE = 2001326;
     public static final int CMD_VR_GET_PAGE_TIME = 2016482;
-    public static final int CMD_VR_GL_ERROR = 2016485;
+    public static final int CMD_VR_GL_ERROR = 2016487;
     public static final int CMD_VR_LOGO_DOWNLAOD = 2016480;
     public static final int CMD_VR_LOGO_OPEN = 2016481;
     public static final int CMD_WEBVIEW_PROXY = 2001315;
@@ -521,12 +526,7 @@ public class CmdConfigCustom {
     public static final int DAILY_RECOMMEND_CUSTOM_CMD = 2010020;
     public static final int DEAL_INTENT = 2012000;
     public static final int DEAL_YY_NOTIFICATION = 2012100;
-    public static final int DISCOVER_ADD_VIEW = 2009501;
-    public static final int DISCOVER_CUSTOM_BASE_CMD = 2009500;
     public static final int DISCOVER_FRIEND_FEED_NEW = 2012119;
-    public static final int DISCOVER_MORE_ADD_VIEW = 2009502;
-    public static final int DISCOVER_NEED_ADD_VIEW = 2009503;
-    public static final int DISCOVER_NEED_REFRESH_NET_PLUGIN = 2009504;
     public static final int ECOMM_PB_ADAPTER = 2016471;
     public static final int ECOMM_PB_VIEW = 2016472;
     public static final int EDITOR_COLLECT_TOOL = 2010044;
@@ -638,6 +638,7 @@ public class CmdConfigCustom {
     public static final int MYLIVE_TAB_ADD_FRAGMENT = 2016220;
     public static final int MYLIVE_TAB_EDIT_ACTION = 2016222;
     public static final int MYLIVE_TAB_EDIT_ENABLE = 2016221;
+    public static final int NEG_FEED_BACK_DELETE = 2016488;
     public static final int NEW_USER_GUIDE_PAGE = 2012116;
     public static final int PB_ACTION_PRAISE = 2004004;
     public static final int PB_ACTIVITY_ON_DESTROY = 2004014;

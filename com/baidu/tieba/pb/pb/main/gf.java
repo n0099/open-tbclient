@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public abstract class gf {
-    protected BaseActivity aPR;
+    protected BaseActivity aRd;
     protected View mRootView;
 
     protected abstract void a(e eVar);
@@ -12,7 +12,7 @@ public abstract class gf {
     protected abstract void onChangeSkinType(int i);
 
     public gf(BaseActivity baseActivity, View view) {
-        this.aPR = baseActivity;
+        this.aRd = baseActivity;
         this.mRootView = view;
     }
 
@@ -21,7 +21,7 @@ public abstract class gf {
     }
 
     public void b(e eVar) {
-        if (this.aPR != null && this.mRootView != null) {
+        if (this.aRd != null && this.mRootView != null) {
             a(eVar);
         }
     }

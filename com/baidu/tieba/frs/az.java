@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.frs.utils.a;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class az implements bi.a {
-    @Override // com.baidu.tbadk.core.util.bi.a
+class az implements bh.a {
+    @Override // com.baidu.tbadk.core.util.bh.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         boolean z;
         boolean z2;
@@ -81,10 +81,10 @@ class az implements bi.a {
             return 1;
         } else if (z && !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m9getInst(), a.L(TbadkCoreApplication.m9getInst(), str2));
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10320").s("obj_locate", 2).s("obj_type", 2));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c10320").s("obj_locate", 2).s("obj_type", 2));
             return 1;
         } else if (z3) {
-            tbPageContext.showToast(t.j.page_not_found);
+            tbPageContext.showToast(r.j.page_not_found);
             return 1;
         } else {
             return 3;

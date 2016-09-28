@@ -1,43 +1,46 @@
 package com.baidu.tieba.card;
 
-import android.text.TextPaint;
+import android.app.Activity;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs extends com.baidu.tieba.view.q {
-    final /* synthetic */ br bbb;
+public class bs implements View.OnClickListener {
+    final /* synthetic */ bp bbs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(br brVar) {
-        this.bbb = brVar;
+    public bs(bp bpVar) {
+        this.bbs = bpVar;
     }
 
-    @Override // android.text.style.ClickableSpan
+    @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         CardPersonDynamicThreadData cardPersonDynamicThreadData;
+        TbPageContext tbPageContext;
         CardPersonDynamicThreadData cardPersonDynamicThreadData2;
+        TbPageContext tbPageContext2;
         CardPersonDynamicThreadData cardPersonDynamicThreadData3;
-        cardPersonDynamicThreadData = this.bbb.baN;
-        if (cardPersonDynamicThreadData != null) {
-            cardPersonDynamicThreadData2 = this.bbb.baN;
-            if (!StringUtils.isNull(cardPersonDynamicThreadData2.forumName)) {
-                MessageManager messageManager = MessageManager.getInstance();
-                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bbb.mContext);
-                cardPersonDynamicThreadData3 = this.bbb.baN;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createNormalCfg(cardPersonDynamicThreadData3.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
-            }
+        if (this.bbs.getOnSubCardOnClickListenner() != null) {
+            cd<CardPersonDynamicThreadData> onSubCardOnClickListenner = this.bbs.getOnSubCardOnClickListenner();
+            cardPersonDynamicThreadData3 = this.bbs.bbe;
+            onSubCardOnClickListenner.a(view, cardPersonDynamicThreadData3);
         }
-    }
-
-    @Override // com.baidu.tieba.view.q
-    public void a(TextPaint textPaint, boolean z) {
-        textPaint.setColor(z ? this.bbb.mContext.getResources().getColor(t.d.cp_link_tip_c) : this.bbb.mContext.getResources().getColor(t.d.cp_link_tip_a));
+        cardPersonDynamicThreadData = this.bbs.bbe;
+        if (cardPersonDynamicThreadData.bcK == 33) {
+            TiebaStatic.log("c10254");
+            tbPageContext = this.bbs.GM;
+            Activity pageActivity = tbPageContext.getPageActivity();
+            cardPersonDynamicThreadData2 = this.bbs.bbe;
+            PhotoLiveActivityConfig oX = new PhotoLiveActivityConfig.a(pageActivity, cardPersonDynamicThreadData2.threadId).ck(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bF(23014).oX();
+            tbPageContext2 = this.bbs.GM;
+            tbPageContext2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, oX));
+            return;
+        }
+        this.bbs.Of();
     }
 }

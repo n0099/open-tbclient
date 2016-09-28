@@ -1,53 +1,48 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.LogoActivity;
-import com.baidu.tieba.p;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements p.a {
-    final /* synthetic */ k aLF;
+public class l implements Animation.AnimationListener {
+    final /* synthetic */ LogoActivity aKV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.aLF = kVar;
+    public l(LogoActivity logoActivity) {
+        this.aKV = logoActivity;
     }
 
-    @Override // com.baidu.tieba.p.a
-    public void onCompleted() {
-        LogoActivity logoActivity;
-        boolean Jc;
-        LogoActivity logoActivity2;
-        boolean z;
-        LogoActivity logoActivity3;
-        LogoActivity.a aVar;
-        LogoActivity logoActivity4;
-        Bitmap bitmap;
-        LogoActivity logoActivity5;
-        Runnable runnable;
-        LogoActivity logoActivity6;
-        logoActivity = this.aLF.aLA;
-        Jc = logoActivity.Jc();
-        if (Jc) {
-            logoActivity6 = this.aLF.aLA;
-            logoActivity6.finish();
-            return;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        int i;
+        int i2;
+        RelativeLayout relativeLayout2;
+        relativeLayout = this.aKV.mRootView;
+        if (relativeLayout != null) {
+            relativeLayout2 = this.aKV.mRootView;
+            relativeLayout2.setVisibility(8);
         }
-        logoActivity2 = this.aLF.aLA;
-        z = logoActivity2.aLm;
-        if (!z) {
-            logoActivity4 = this.aLF.aLA;
-            bitmap = logoActivity4.aLp;
-            if (bitmap != null && com.baidu.tieba.d.a.OI().OK()) {
-                com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-                logoActivity5 = this.aLF.aLA;
-                runnable = logoActivity5.aLu;
-                eG.post(runnable);
-                return;
-            }
+        i = this.aKV.aKN;
+        if (i >= 0) {
+            LogoActivity logoActivity = this.aKV;
+            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this.aKV.getPageContext().getPageActivity());
+            i2 = this.aKV.aKN;
+            logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig.createNormalCfg(i2)));
+        } else {
+            this.aKV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.aKV.getPageContext().getPageActivity()).createNormalCfg(2)));
         }
-        com.baidu.adp.lib.h.h eG2 = com.baidu.adp.lib.h.h.eG();
-        logoActivity3 = this.aLF.aLA;
-        aVar = logoActivity3.aLt;
-        eG2.post(aVar);
+        this.aKV.finish();
     }
 }

@@ -54,7 +54,7 @@ public class ForumHeadVideoListRequestMessage extends NetMessage {
             builder.active_tid = Long.valueOf(this.activeTid);
             int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m9getInst().getApp());
             int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m9getInst().getApp());
-            int viewImageQuality = com.baidu.tbadk.core.l.oG().getViewImageQuality();
+            int viewImageQuality = com.baidu.tbadk.core.l.oH().getViewImageQuality();
             builder.scr_w = Integer.valueOf(K);
             builder.scr_h = Integer.valueOf(L);
             builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.M(TbadkCoreApplication.m9getInst().getApp()));

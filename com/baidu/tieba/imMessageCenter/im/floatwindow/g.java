@@ -8,65 +8,65 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends j {
-    private int bLq;
-    private long doD;
-    private Point doJ;
-    protected final int doK;
-    private i doL;
-    private boolean doM;
+    private int bLr;
+    private long dqb;
+    private Point dqh;
+    protected final int dqi;
+    private i dqj;
+    private boolean dqk;
 
     public g(View view) {
         super(view);
-        this.doM = true;
-        this.bLq = 0;
-        this.doK = k.K(TbadkCoreApplication.m9getInst());
-        this.doJ = new Point();
-        this.doO.setOnTouchListener(new h(this));
-        this.bLq = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m9getInst());
-        if (this.bLq == 0) {
-            this.bLq = 25;
+        this.dqk = true;
+        this.bLr = 0;
+        this.dqi = k.K(TbadkCoreApplication.m9getInst());
+        this.dqh = new Point();
+        this.dqm.setOnTouchListener(new h(this));
+        this.bLr = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m9getInst());
+        if (this.bLr == 0) {
+            this.bLr = 25;
         }
     }
 
     public void setTouchable(boolean z) {
-        this.doM = z;
+        this.dqk = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aW(int i, int i2) {
-        this.doD = SystemClock.elapsedRealtime();
-        this.doJ.x = i;
-        this.doJ.y = i2;
-        if (this.doL != null) {
-            this.doL.aW(i, i2);
+    public void aY(int i, int i2) {
+        this.dqb = SystemClock.elapsedRealtime();
+        this.dqh.x = i;
+        this.dqh.y = i2;
+        if (this.dqj != null) {
+            this.dqj.aY(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aV(int i, int i2) {
-        aZ(this.doJ.x + i, (i2 - this.doJ.y) - this.bLq);
-        if (this.doL != null) {
-            this.doL.aV(i, i2);
+    public void aX(int i, int i2) {
+        bb(this.dqh.x + i, (i2 - this.dqh.y) - this.bLr);
+        if (this.dqj != null) {
+            this.dqj.aX(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axw() {
-        if (this.doL != null) {
-            if (SystemClock.elapsedRealtime() - this.doD > 200) {
-                this.doL.axw();
+    public void axV() {
+        if (this.dqj != null) {
+            if (SystemClock.elapsedRealtime() - this.dqb > 200) {
+                this.dqj.axV();
             } else {
-                this.doL.axx();
+                this.dqj.axW();
             }
         }
     }
 
     public void a(i iVar) {
-        this.doL = iVar;
+        this.dqj = iVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams axA() {
+    public WindowManager.LayoutParams axZ() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -2;
@@ -77,29 +77,29 @@ public class g extends j {
         return layoutParams;
     }
 
-    public void aY(int i, int i2) {
-        if (this.doQ != null) {
+    public void ba(int i, int i2) {
+        if (this.dqo != null) {
             if (i >= 0) {
-                this.doQ.x = i;
+                this.dqo.x = i;
             }
             if (i2 >= 0) {
-                this.doQ.y = i2;
+                this.dqo.y = i2;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aZ(int i, int i2) {
-        if (this.doQ != null) {
-            int i3 = this.doK - i;
+    public void bb(int i, int i2) {
+        if (this.dqo != null) {
+            int i3 = this.dqi - i;
             if (i3 >= 0) {
-                this.doQ.x = i3;
+                this.dqo.x = i3;
             }
             if (i2 >= 0) {
-                this.doQ.y = i2;
+                this.dqo.y = i2;
             }
-            if (this.doP != null && this.doO.getParent() != null) {
-                this.doP.updateViewLayout(this.doO, this.doQ);
+            if (this.dqn != null && this.dqm.getParent() != null) {
+                this.dqn.updateViewLayout(this.dqm, this.dqo);
             }
         }
     }

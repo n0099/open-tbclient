@@ -6,20 +6,20 @@ import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements a.InterfaceC0065a {
-    final /* synthetic */ b dgJ;
-    private final /* synthetic */ List dgK;
+public class r implements a.InterfaceC0068a {
+    final /* synthetic */ b dig;
+    private final /* synthetic */ List dih;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(b bVar, List list) {
-        this.dgJ = bVar;
-        this.dgK = list;
+        this.dig = bVar;
+        this.dih = list;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0065a
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0068a
     public void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
-            this.dgK.add(it.next());
+            this.dih.add(it.next());
         }
     }
 }

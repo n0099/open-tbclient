@@ -7,11 +7,11 @@ import com.baidu.tieba.pb.pb.sub.ax;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements ax.a {
-    final /* synthetic */ NewSubPbActivity evy;
+    final /* synthetic */ NewSubPbActivity exF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(NewSubPbActivity newSubPbActivity) {
-        this.evy = newSubPbActivity;
+        this.exF = newSubPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0036, code lost:
@@ -21,47 +21,47 @@ public class b implements ax.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(boolean z, int i, String str, com.baidu.tieba.pb.data.m mVar) {
+    public void a(boolean z, int i, String str, com.baidu.tieba.pb.data.n nVar) {
         ag agVar;
         ag agVar2;
         ax axVar;
         ag agVar3;
-        com.baidu.tbadk.editortools.d.p pVar;
-        com.baidu.tbadk.editortools.d.p pVar2;
+        com.baidu.tbadk.editortools.e.p pVar;
+        com.baidu.tbadk.editortools.e.p pVar2;
         ag agVar4;
         ax axVar2;
         ax axVar3;
         ax axVar4;
         ag agVar5;
-        agVar = this.evy.evn;
+        agVar = this.exF.exu;
         if (agVar != null) {
-            agVar5 = this.evy.evn;
-            agVar5.aQt();
+            agVar5 = this.exF.exu;
+            agVar5.aRb();
         }
         if (z) {
-            agVar2 = this.evy.evn;
+            agVar2 = this.exF.exu;
             agVar2.hideNoDataView();
-            if (mVar != null) {
-                if (mVar.aMh() == null) {
-                    axVar4 = this.evy.evl;
+            if (nVar != null) {
+                if (nVar.aMN() == null) {
+                    axVar4 = this.exF.exr;
                 }
-                com.baidu.tieba.tbadkCore.data.q aMh = mVar.aMh();
-                axVar = this.evy.evl;
-                aMh.a(axVar.aQY());
-                agVar3 = this.evy.evn;
+                com.baidu.tieba.tbadkCore.data.q aMN = nVar.aMN();
+                axVar = this.exF.exr;
+                aMN.a(axVar.aRG());
+                agVar3 = this.exF.exu;
                 if (agVar3 != null) {
-                    agVar4 = this.evy.evn;
-                    axVar2 = this.evy.evl;
-                    int aLX = axVar2.aLX();
-                    axVar3 = this.evy.evl;
-                    agVar4.a(mVar, aLX, axVar3.aRa() != null);
+                    agVar4 = this.exF.exu;
+                    axVar2 = this.exF.exr;
+                    int aMz = axVar2.aMz();
+                    axVar3 = this.exF.exr;
+                    agVar4.a(nVar, aMz, axVar3.aRI() != null);
                 }
                 com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
-                eVar.setData(mVar);
-                pVar = this.evy.dtc;
+                eVar.setData(nVar);
+                pVar = this.exF.duz;
                 if (pVar != null) {
-                    pVar2 = this.evy.dtc;
-                    pVar2.a(mVar.getAntiData());
+                    pVar2 = this.exF.duz;
+                    pVar2.a(nVar.getAntiData());
                 }
                 eVar.setType(0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, eVar));
@@ -69,7 +69,7 @@ public class b implements ax.a {
             }
             return;
         }
-        this.evy.showToast(str);
-        this.evy.M(i, str);
+        this.exF.showToast(str);
+        this.exF.M(i, str);
     }
 }

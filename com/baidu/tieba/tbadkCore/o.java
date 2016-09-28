@@ -5,77 +5,77 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class o {
-    private int fqG = 0;
-    private int asj = 0;
-    private String fqH = null;
-    private String fqI = null;
-    private int fqJ = 0;
-    private int fqK = 0;
-    private int fqL = 0;
-    private int fqM = 0;
-    private int fqN = 0;
-    private int fqO = 0;
-    private long fqP = 0;
-    private long fqQ = 0;
-    private boolean fqR = false;
-    private long fqS = 0;
-    private String fqT = null;
+    private int fto = 0;
+    private int arU = 0;
+    private String ftp = null;
+    private String ftq = null;
+    private int ftr = 0;
+    private int fts = 0;
+    private int ftt = 0;
+    private int ftu = 0;
+    private int ftv = 0;
+    private int ftw = 0;
+    private long ftx = 0;
+    private long fty = 0;
+    private boolean ftz = false;
+    private long ftA = 0;
+    private String ftB = null;
 
-    public int bhI() {
-        return this.fqG;
+    public int bis() {
+        return this.fto;
     }
 
-    public String bhJ() {
-        return this.fqH;
+    public String bit() {
+        return this.ftp;
     }
 
-    public String bhK() {
-        return this.fqI;
+    public String biu() {
+        return this.ftq;
     }
 
-    public boolean bhL() {
-        return this.fqR;
+    public boolean biv() {
+        return this.ftz;
     }
 
-    public long bhM() {
-        return this.fqS;
+    public long biw() {
+        return this.ftA;
     }
 
-    public String bhN() {
-        return this.fqT;
+    public String bix() {
+        return this.ftB;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.fqG = starInfo.has_frs_star.intValue();
-            if (this.fqG == 1) {
-                this.fqH = starInfo.top;
-                this.fqI = starInfo.head;
+            this.fto = starInfo.has_frs_star.intValue();
+            if (this.fto == 1) {
+                this.ftp = starInfo.top;
+                this.ftq = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {
-                    this.fqJ = fans.is_get.intValue();
-                    this.fqK = fans.num.intValue();
-                    this.asj = fans.open.intValue();
-                    this.fqP = fans.left_time.intValue();
+                    this.ftr = fans.is_get.intValue();
+                    this.fts = fans.num.intValue();
+                    this.arU = fans.open.intValue();
+                    this.ftx = fans.left_time.intValue();
                 }
-                this.fqQ = this.fqP;
+                this.fty = this.ftx;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.fqL = size.width.intValue();
-                    this.fqM = size.height.intValue();
+                    this.ftt = size.width.intValue();
+                    this.ftu = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.fqN = size2.width.intValue();
-                    this.fqO = size2.height.intValue();
+                    this.ftv = size2.width.intValue();
+                    this.ftw = size2.height.intValue();
                 }
             }
-            this.fqR = starInfo.trade != null;
-            if (this.fqR) {
+            this.ftz = starInfo.trade != null;
+            if (this.ftz) {
                 if (starInfo.trade.time != null) {
-                    this.fqS = starInfo.trade.time.intValue();
+                    this.ftA = starInfo.trade.time.intValue();
                 }
-                this.fqT = starInfo.trade.url;
+                this.ftB = starInfo.trade.url;
             }
         }
     }

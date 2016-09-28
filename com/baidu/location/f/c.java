@@ -1,6 +1,4 @@
 package com.baidu.location.f;
-
-import android.support.v4.os.EnvironmentCompat;
 /* loaded from: classes.dex */
 public final class c {
     public static String a(int i) {
@@ -27,7 +25,7 @@ public final class c {
             case 13:
                 return "4G";
             default:
-                return EnvironmentCompat.MEDIA_UNKNOWN;
+                return "unknown";
         }
     }
 

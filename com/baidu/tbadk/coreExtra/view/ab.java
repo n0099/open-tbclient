@@ -1,22 +1,18 @@
 package com.baidu.tbadk.coreExtra.view;
-
-import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements a.b {
-    private final /* synthetic */ String abe;
-    final /* synthetic */ u are;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a arh;
+public class ab implements com.baidu.tbadk.imageManager.b {
+    final /* synthetic */ u aqO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(u uVar, com.baidu.tbadk.core.dialog.a aVar, String str) {
-        this.are = uVar;
-        this.arh = aVar;
-        this.abe = str;
+    public ab(u uVar) {
+        this.aqO = uVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.arh.dismiss();
-        this.are.eS(this.abe);
+    @Override // com.baidu.tbadk.imageManager.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        this.aqO.aqE = true;
+        this.aqO.mProgressBar.setVisibility(8);
+        this.aqO.b(aVar);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.audiorecorder.lib.voice;
 
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class b implements Handler.Callback {
     @Override // android.os.Handler.Callback
@@ -48,10 +48,10 @@ class b implements Handler.Callback {
                 if (kVar9 != null) {
                     if (com.baidu.adp.lib.util.e.fV()) {
                         kVar11 = a.DY;
-                        kVar11.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_create_file_fail));
+                        kVar11.f(message.what, com.baidu.adp.lib.voice.l.getString(r.j.voice_err_create_file_fail));
                     } else {
                         kVar10 = a.DY;
-                        kVar10.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_sdcard_nospace));
+                        kVar10.f(message.what, com.baidu.adp.lib.voice.l.getString(r.j.voice_err_sdcard_nospace));
                     }
                     a.DY = null;
                     break;
@@ -61,7 +61,7 @@ class b implements Handler.Callback {
                 kVar3 = a.DY;
                 if (kVar3 != null) {
                     kVar4 = a.DY;
-                    kVar4.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_file_fail));
+                    kVar4.f(message.what, com.baidu.adp.lib.voice.l.getString(r.j.voice_err_file_fail));
                     a.DY = null;
                     break;
                 }
@@ -78,7 +78,7 @@ class b implements Handler.Callback {
                 kVar5 = a.DY;
                 if (kVar5 != null) {
                     kVar6 = a.DY;
-                    kVar6.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_load_lib_fail));
+                    kVar6.f(message.what, com.baidu.adp.lib.voice.l.getString(r.j.voice_err_load_lib_fail));
                     a.DY = null;
                     break;
                 }
@@ -87,7 +87,7 @@ class b implements Handler.Callback {
                 kVar = a.DY;
                 if (kVar != null) {
                     kVar2 = a.DY;
-                    kVar2.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_init_fail));
+                    kVar2.f(message.what, com.baidu.adp.lib.voice.l.getString(r.j.voice_err_init_fail));
                     a.DY = null;
                     break;
                 }
@@ -96,7 +96,7 @@ class b implements Handler.Callback {
                 kVar14 = a.DY;
                 if (kVar14 != null) {
                     kVar15 = a.DY;
-                    kVar15.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_record_timeout_tip));
+                    kVar15.f(message.what, com.baidu.adp.lib.voice.l.getString(r.j.voice_record_timeout_tip));
                     a.DY = null;
                     break;
                 }
@@ -105,7 +105,7 @@ class b implements Handler.Callback {
                 kVar12 = a.DY;
                 if (kVar12 != null) {
                     kVar13 = a.DY;
-                    kVar13.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_record_short_tip));
+                    kVar13.f(message.what, com.baidu.adp.lib.voice.l.getString(r.j.voice_record_short_tip));
                     a.DY = null;
                     break;
                 }
@@ -130,7 +130,7 @@ class b implements Handler.Callback {
                 kVar22 = a.DY;
                 if (kVar22 != null) {
                     kVar23 = a.DY;
-                    kVar23.f(message.what, com.baidu.adp.lib.voice.l.getString(t.j.voice_err_other));
+                    kVar23.f(message.what, com.baidu.adp.lib.voice.l.getString(r.j.voice_err_other));
                     a.DY = null;
                     break;
                 }

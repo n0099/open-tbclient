@@ -5,36 +5,36 @@ import com.baidu.tbadk.widget.LineCountNotifyTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements LineCountNotifyTextView.a {
-    final /* synthetic */ c cIi;
-    private final /* synthetic */ com.baidu.tieba.homepage.recommendfrs.data.e cIj;
+    final /* synthetic */ c cJa;
+    private final /* synthetic */ com.baidu.tieba.homepage.recommendfrs.data.e cJb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar, com.baidu.tieba.homepage.recommendfrs.data.e eVar) {
-        this.cIi = cVar;
-        this.cIj = eVar;
+        this.cJa = cVar;
+        this.cJb = eVar;
     }
 
     @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
-    public void HC() {
+    public void HB() {
         LineCountNotifyTextView lineCountNotifyTextView;
         int i;
         TextView textView;
         TextView textView2;
         TextView textView3;
-        lineCountNotifyTextView = this.cIi.cIg;
+        lineCountNotifyTextView = this.cJa.cIY;
         int lineCount = lineCountNotifyTextView.getLineCount();
-        i = this.cIi.cIf;
+        i = this.cJa.cIX;
         if (i != lineCount) {
             if (lineCount == 1) {
-                textView3 = this.cIi.cIh;
+                textView3 = this.cJa.cIZ;
                 textView3.setMaxLines(2);
             } else {
-                textView2 = this.cIi.cIh;
+                textView2 = this.cJa.cIZ;
                 textView2.setMaxLines(1);
             }
         }
-        this.cIi.cIf = lineCount;
-        textView = this.cIi.cIh;
-        textView.setText(this.cIj.getDesc());
+        this.cJa.cIX = lineCount;
+        textView = this.cJa.cIZ;
+        textView.setText(this.cJb.getDesc());
     }
 }

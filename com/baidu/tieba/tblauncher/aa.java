@@ -1,23 +1,59 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class aa implements bi.a {
-    @Override // com.baidu.tbadk.core.util.bi.a
-    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        if (tbPageContext == null || strArr == null || strArr.length == 0) {
-            return 3;
+public class aa implements com.baidu.tbadk.core.d.a {
+    private b fzi;
+
+    @Override // com.baidu.tbadk.core.d.a
+    public void b(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i, z)));
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public void f(Context context, int i) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public void V(Context context) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            f(context, 1);
+        } else {
+            f(context, 0);
         }
-        String str = strArr[0];
-        if (StringUtils.isNull(str) || !str.startsWith("tiebavr:") || TbadkCoreApplication.m9getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
-            return 3;
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public void c(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public Class<?> ua() {
+        return MainTabActivity.class;
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public String ub() {
+        return MainTabActivity.class.getName();
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public int getCurrentTabType() {
+        if (this.fzi != null) {
+            return this.fzi.getCurrentTabType();
         }
-        tbPageContext.showToast(t.j.vr_plugin_not_available);
-        return 1;
+        return -1;
+    }
+
+    public void a(b bVar) {
+        this.fzi = bVar;
     }
 }

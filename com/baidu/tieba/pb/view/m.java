@@ -11,15 +11,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ PbGiftListView exz;
+    final /* synthetic */ PbGiftListView ezG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PbGiftListView pbGiftListView) {
-        this.exz = pbGiftListView;
+        this.ezG = pbGiftListView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,23 +30,23 @@ public class m implements View.OnClickListener {
         String str2;
         long j2;
         long j3;
-        context = this.exz.mContext;
+        context = this.ezG.mContext;
         TbPageContext tbPageContext = (TbPageContext) l.C(context);
         if (tbPageContext != null) {
             if (TbadkCoreApplication.isLogin()) {
-                str = this.exz.toUserName;
+                str = this.ezG.toUserName;
                 if (!StringUtils.isNull(str)) {
                     Activity pageActivity = tbPageContext.getPageActivity();
-                    j = this.exz.toUserId;
-                    str2 = this.exz.toUserName;
-                    j2 = this.exz.threadId;
-                    j3 = this.exz.postId;
+                    j = this.ezG.toUserId;
+                    str2 = this.ezG.toUserName;
+                    j2 = this.ezG.threadId;
+                    j3 = this.ezG.postId;
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
                     return;
                 }
                 return;
             }
-            bn.al(tbPageContext.getPageActivity());
+            bm.ak(tbPageContext.getPageActivity());
         }
     }
 }

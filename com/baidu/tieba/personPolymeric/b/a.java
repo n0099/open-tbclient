@@ -5,118 +5,118 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.r;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.personPolymeric.mode.a {
     private TbPageContext GM;
-    private com.baidu.tbadk.core.view.a bGR;
-    private BdUniqueId eHk;
-    private int eHi = -1;
-    private String eHj = "";
-    private com.baidu.tbadk.core.view.h enw = new com.baidu.tbadk.core.view.h();
+    private com.baidu.tbadk.core.view.a bHa;
+    private BdUniqueId eJo;
+    private int eJm = -1;
+    private String eJn = "";
+    private com.baidu.tbadk.core.view.h ept = new com.baidu.tbadk.core.view.h();
 
     public BdUniqueId getUniqueId() {
-        return this.eHk;
+        return this.eJo;
     }
 
     public a(TbPageContext tbPageContext) {
         this.GM = tbPageContext;
-        this.enw.aeI = 1000L;
-        this.eHk = tbPageContext.getUniqueId();
+        this.ept.aeT = 1000L;
+        this.eJo = tbPageContext.getUniqueId();
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_REGISTER_LISTENER);
-        userMuteAddAndDelCustomMessage.mId = this.eHk;
+        userMuteAddAndDelCustomMessage.mId = this.eJo;
         userMuteAddAndDelCustomMessage.from = 0;
-        userMuteAddAndDelCustomMessage.setTag(this.eHk);
+        userMuteAddAndDelCustomMessage.setTag(this.eJo);
         MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
         UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_REGISTER_LISTENER);
-        userMuteCheckCustomMessage.mId = this.eHk;
-        userMuteCheckCustomMessage.setTag(this.eHk);
+        userMuteCheckCustomMessage.mId = this.eJo;
+        userMuteCheckCustomMessage.setTag(this.eJo);
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
-    public int aTn() {
-        return this.eHi;
+    public int aTK() {
+        return this.eJm;
     }
 
-    public String aTo() {
-        return this.eHj;
+    public String aTL() {
+        return this.eJn;
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.a
     public void a(int i, int i2, String str, int i3, String str2) {
-        if (this.bGR != null) {
-            this.bGR.aF(false);
+        if (this.bHa != null) {
+            this.bHa.aF(false);
         }
-        this.eHi = i2;
-        this.eHj = str;
+        this.eJm = i2;
+        this.eJn = str;
         if (i3 == 0) {
             if (i == 1) {
-                this.enw.c(this.GM.getString(t.j.mute_success));
+                this.ept.c(this.GM.getString(r.j.mute_success));
             } else if (i == 2) {
-                this.enw.c(this.GM.getResources().getString(t.j.un_mute_success));
+                this.ept.c(this.GM.getResources().getString(r.j.un_mute_success));
             }
         } else if (i3 == 220017) {
             if (TextUtils.isEmpty(str2)) {
-                str2 = this.GM.getString(t.j.mute_error_beyond_limit);
+                str2 = this.GM.getString(r.j.mute_error_beyond_limit);
             }
-            fI(str2);
+            fM(str2);
         } else if (i3 == 1990043) {
-            aNj();
+            aNP();
         } else {
-            if (ba.isEmpty(str2)) {
+            if (az.isEmpty(str2)) {
                 if (i == 1) {
-                    str2 = this.GM.getResources().getString(t.j.mute_fail);
+                    str2 = this.GM.getResources().getString(r.j.mute_fail);
                 } else if (i == 2) {
-                    str2 = this.GM.getResources().getString(t.j.un_mute_fail);
+                    str2 = this.GM.getResources().getString(r.j.un_mute_fail);
                 }
             }
-            this.enw.d(str2);
+            this.ept.d(str2);
         }
     }
 
-    public void ayk() {
-        if (this.bGR == null) {
-            this.bGR = new com.baidu.tbadk.core.view.a(this.GM);
-            this.bGR.c(new b(this));
+    public void ayI() {
+        if (this.bHa == null) {
+            this.bHa = new com.baidu.tbadk.core.view.a(this.GM);
+            this.bHa.c(new b(this));
         }
-        this.bGR.aF(true);
+        this.bHa.aF(true);
     }
 
-    public void fI(String str) {
+    public void fM(String str) {
         if (str == null) {
             str = "";
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.GM.getPageActivity());
-        aVar.cB(str);
-        aVar.b(t.j.know, new c(this));
-        aVar.b(this.GM).sX();
+        aVar.cD(str);
+        aVar.b(r.j.know, new c(this));
+        aVar.b(this.GM).tm();
     }
 
-    public void aNj() {
+    public void aNP() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.GM.getPageActivity());
-        aVar.cB(this.GM.getString(t.j.mute_is_super_member_function));
-        aVar.a(t.j.open_now, new d(this));
-        aVar.b(t.j.cancel, new e(this));
-        aVar.b(this.GM).sX();
+        aVar.cD(this.GM.getString(r.j.mute_is_super_member_function));
+        aVar.a(r.j.open_now, new d(this));
+        aVar.b(r.j.cancel, new e(this));
+        aVar.b(this.GM).tm();
     }
 
     public void a(boolean z, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage, String str, String str2) {
         if (z) {
-            ayk();
+            ayI();
             MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
             return;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.GM.getPageActivity());
-        if (ba.isEmpty(str)) {
-            aVar.cB(this.GM.getResources().getString(t.j.block_mute_message_alert, str2));
+        if (az.isEmpty(str)) {
+            aVar.cD(this.GM.getResources().getString(r.j.block_mute_message_alert, str2));
         } else {
-            aVar.cB(str);
+            aVar.cD(str);
         }
-        aVar.a(t.j.confirm, new f(this, userMuteAddAndDelCustomMessage));
-        aVar.b(t.j.cancel, new g(this));
-        aVar.b(this.GM).sX();
+        aVar.a(r.j.confirm, new f(this, userMuteAddAndDelCustomMessage));
+        aVar.b(r.j.cancel, new g(this));
+        aVar.b(this.GM).tm();
     }
 }

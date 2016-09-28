@@ -1,65 +1,22 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.SurfaceTexture;
-import android.view.TextureView;
-import android.widget.MediaController;
-import com.baidu.tbadk.core.view.TextureVideoView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.b.d.a;
+import javax.microedition.khronos.egl.EGL10;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.egl.EGLDisplay;
 /* loaded from: classes.dex */
-public class z implements TextureView.SurfaceTextureListener {
-    final /* synthetic */ TextureVideoView ahh;
+class z implements a.e {
+    final /* synthetic */ y agQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(TextureVideoView textureVideoView) {
-        this.ahh = textureVideoView;
+    public z(y yVar) {
+        this.agQ = yVar;
     }
 
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        boolean z;
-        TextureVideoView.a aVar;
-        TextureVideoView.a aVar2;
-        this.ahh.mSurfaceTexture = surfaceTexture;
-        this.ahh.agR = true;
-        z = this.ahh.agS;
-        if (z) {
-            this.ahh.agS = false;
-            this.ahh.ww();
-        }
-        aVar = this.ahh.agV;
-        if (aVar != null) {
-            aVar2 = this.ahh.agV;
-            aVar2.wB();
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        TextureVideoView.b bVar;
-        MediaController mediaController;
-        MediaController mediaController2;
-        TextureVideoView.b bVar2;
-        bVar = this.ahh.agO;
-        if (bVar != null) {
-            bVar2 = this.ahh.agO;
-            bVar2.onSurfaceDestroyed();
-        }
-        this.ahh.mSurfaceTexture = null;
-        mediaController = this.ahh.agE;
-        if (mediaController != null) {
-            mediaController2 = this.ahh.agE;
-            mediaController2.hide();
-        }
-        this.ahh.stopPlayback();
-        this.ahh.agS = false;
-        return false;
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+    @Override // com.baidu.tieba.b.d.a.e
+    public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
+        EGLConfig[] eGLConfigArr = new EGLConfig[1];
+        egl10.eglChooseConfig(eGLDisplay, new int[]{12339, 4, 12324, 8, 12323, 8, 12322, 8, 12325, 16, 12338, 1, 12337, 1, 12344}, eGLConfigArr, 1, new int[1]);
+        return eGLConfigArr[0];
     }
 }

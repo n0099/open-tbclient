@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.core.view.j;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class s extends PopupWindow {
-    private int exS;
+    private int ezZ;
     private j mContainer;
     private View mContentView;
 
@@ -20,29 +20,31 @@ public class s extends PopupWindow {
         super(activity);
         this.mContainer = null;
         this.mContentView = null;
-        this.exS = 0;
+        this.ezZ = 0;
         init(activity, view, drawable, aVar);
     }
 
     private void init(Activity activity, View view, Drawable drawable, j.a aVar) {
-        this.mContentView = view;
-        this.mContainer = new j(activity, this.mContentView, aVar);
-        TypedValue typedValue = new TypedValue();
-        if (activity != null && activity.getApplicationContext().getTheme() != null && activity.getApplicationContext().getTheme().resolveAttribute(16843499, typedValue, true)) {
-            this.exS = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
+        if (activity != null) {
+            this.mContentView = view;
+            this.mContainer = new j(activity, this.mContentView, aVar);
+            TypedValue typedValue = new TypedValue();
+            if (activity.getApplicationContext().getTheme() != null && activity.getApplicationContext().getTheme().resolveAttribute(16843499, typedValue, true)) {
+                this.ezZ = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getApplicationContext().getResources().getDisplayMetrics());
+            }
+            setContentView(this.mContainer);
+            setOutsideTouchable(true);
+            setFocusable(true);
+            setHeight(-1);
+            setWidth(-1);
+            if (aRP() && this.mContainer != null && (this.mContainer.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
+                layoutParams.bottomMargin = this.ezZ;
+                this.mContentView.setLayoutParams(layoutParams);
+            }
+            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(r.d.common_color_10022)));
+            setAnimationStyle(r.k.pb_more_pop_anim);
         }
-        setContentView(this.mContainer);
-        setOutsideTouchable(true);
-        setFocusable(true);
-        setHeight(-1);
-        setWidth(-1);
-        if (aRh() && this.mContainer != null && (this.mContainer.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
-            layoutParams.bottomMargin = this.exS;
-            this.mContentView.setLayoutParams(layoutParams);
-        }
-        setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(t.d.common_color_10022)));
-        setAnimationStyle(t.k.pb_more_pop_anim);
     }
 
     @Override // android.widget.PopupWindow
@@ -50,7 +52,7 @@ public class s extends PopupWindow {
         return this.mContentView;
     }
 
-    private boolean aRh() {
+    private boolean aRP() {
         return Build.MODEL != null && Build.MODEL.equals("Nexus 6");
     }
 }

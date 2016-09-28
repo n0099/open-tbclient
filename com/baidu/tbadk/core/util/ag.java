@@ -5,7 +5,7 @@ import android.content.Context;
 import android.support.v4.util.ArrayMap;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ag {
@@ -91,7 +91,7 @@ public class ag {
         }
         try {
             if (com.baidu.a.a.nr() && com.baidu.a.a.a.t(ag, "android.permission.RECORD_AUDIO")) {
-                com.baidu.adp.lib.util.k.showToast(ag, t.j.record_audio_permission_denied_fun_disable);
+                com.baidu.adp.lib.util.k.showToast(ag, r.j.record_audio_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {
@@ -137,7 +137,7 @@ public class ag {
         }
         try {
             if (com.baidu.a.a.nr() && com.baidu.a.a.a.t(ag, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                com.baidu.adp.lib.util.k.showToast(ag, t.j.write_external_storage_permission_denied_fun_disable);
+                com.baidu.adp.lib.util.k.showToast(ag, r.j.write_external_storage_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {

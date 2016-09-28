@@ -11,11 +11,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.InterfaceC0047a<com.baidu.tieba.myCollection.baseHistory.b> {
-    final /* synthetic */ RecommendFrsControlFragment cBR;
+    final /* synthetic */ RecommendFrsControlFragment cCw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cBR = recommendFrsControlFragment;
+        this.cCw = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0047a

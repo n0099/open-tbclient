@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final AtomicReference<a> eie = new AtomicReference<>(null);
+    public static final AtomicReference<a> ekc = new AtomicReference<>(null);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -13,7 +13,7 @@ public class d {
     }
 
     public static com.baidu.tieba.pb.view.c a(BdBaseActivity<?> bdBaseActivity) {
-        a aVar = eie.get();
+        a aVar = ekc.get();
         if (aVar == null) {
             BdLog.e("PbExtra project load failed");
             return null;

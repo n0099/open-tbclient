@@ -24,8 +24,8 @@ public class ax extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ImMessageCenterPojo imMessageCenterPojo;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016013 && (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) != null) {
-            b.auN().k(imMessageCenterPojo);
-            b.auN().j(imMessageCenterPojo);
+            b.avm().k(imMessageCenterPojo);
+            b.avm().j(imMessageCenterPojo);
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ay(this, imMessageCenterPojo));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

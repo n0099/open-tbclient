@@ -8,29 +8,29 @@ import com.baidu.tieba.tbadkCore.ai;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class y implements ai.a {
-    final /* synthetic */ FrsActivity bQp;
+    final /* synthetic */ FrsActivity bQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(FrsActivity frsActivity) {
-        this.bQp = frsActivity;
+        this.bQi = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ai.a
-    public void hu(String str) {
+    public void hB(String str) {
         boolean z;
-        com.baidu.tbadk.core.data.bg bgVar;
-        com.baidu.tbadk.core.data.bg bgVar2;
+        com.baidu.tbadk.core.data.bi biVar;
+        com.baidu.tbadk.core.data.bi biVar2;
         int i = 1;
-        z = this.bQp.bOX;
+        z = this.bQi.bOR;
         if (z) {
-            bgVar = this.bQp.bOW;
-            if (bgVar != null) {
-                bgVar2 = this.bQp.bOW;
-                if (bgVar2.rt().getIsLike() == 1) {
+            biVar = this.bQi.bOQ;
+            if (biVar != null) {
+                biVar2 = this.bQi.bOQ;
+                if (biVar2.rF().getIsLike() == 1) {
                     i = 0;
                 }
             }
-            this.bQp.hO(i);
+            this.bQi.hS(i);
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
     }
@@ -38,12 +38,12 @@ class y implements ai.a {
     @Override // com.baidu.tieba.tbadkCore.ai.a
     public void v(int i, String str) {
         boolean z;
-        z = this.bQp.bOX;
+        z = this.bQi.bOR;
         if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.rG(i)) {
-                AntiHelper.R(this.bQp.getPageContext().getPageActivity(), str);
+            if (AntiHelper.rU(i)) {
+                AntiHelper.R(this.bQi.getPageContext().getPageActivity(), str);
             } else {
-                this.bQp.showToast(str);
+                this.bQi.showToast(str);
             }
         }
     }

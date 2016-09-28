@@ -119,7 +119,7 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             return this;
         }
 
-        public PhotoLiveActivityConfig oW() {
+        public PhotoLiveActivityConfig oX() {
             return new PhotoLiveActivityConfig(this, null);
         }
     }

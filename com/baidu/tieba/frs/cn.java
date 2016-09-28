@@ -9,19 +9,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class cn implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext aDS;
-    private final /* synthetic */ String bHe;
+    private final /* synthetic */ TbPageContext aDv;
+    private final /* synthetic */ String bHm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cn(TbPageContext tbPageContext, String str) {
-        this.aDS = tbPageContext;
-        this.bHe = str;
+        this.aDv = tbPageContext;
+        this.bHm = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aDS.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.aDS.getPageActivity(), 23007)));
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10125").ab("fid", this.bHe).s("obj_type", 1));
+        this.aDv.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.aDv.getPageActivity(), 23007)));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c10125").ab("fid", this.bHm).s("obj_type", 1));
     }
 }

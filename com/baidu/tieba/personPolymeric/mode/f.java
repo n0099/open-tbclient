@@ -7,13 +7,13 @@ import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ c eIL;
+    final /* synthetic */ c eKP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(c cVar, int i) {
         super(i);
-        this.eIL = cVar;
+        this.eKP = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,15 +25,15 @@ public class f extends CustomMessageListener {
         String str;
         if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.eIL.unique_id;
+            bdUniqueId = this.eKP.unique_id;
             if (tag == bdUniqueId) {
                 UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                 if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                    this.eIL.eHi = 1;
+                    this.eKP.eJm = 1;
                 }
-                aVar = this.eIL.eIJ;
-                i = this.eIL.eHi;
-                str = this.eIL.eHj;
+                aVar = this.eKP.eKN;
+                i = this.eKP.eJm;
+                str = this.eKP.eJn;
                 aVar.a(1, i, str, userMuteAddResponseMessage.getMuteErrorCode(), userMuteAddResponseMessage.getErrorString());
             }
         }

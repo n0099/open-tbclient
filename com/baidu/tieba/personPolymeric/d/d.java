@@ -3,17 +3,17 @@ package com.baidu.tieba.personPolymeric.d;
 import android.widget.TextView;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ b eIZ;
+    final /* synthetic */ b eLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i) {
         super(i);
-        this.eIZ = bVar;
+        this.eLc = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,25 +25,25 @@ public class d extends CustomMessageListener {
         TextView textView;
         com.baidu.tieba.personPolymeric.c.a aVar3;
         if (customResponsedMessage != null) {
-            z = this.eIZ.bcA;
+            z = this.eLc.bcU;
             if (!z) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof com.baidu.tieba.tbadkCore.writeModel.a) {
                     long j = ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId;
-                    aVar = this.eIZ.eIY;
+                    aVar = this.eLc.eLb;
                     if (j == aVar.forumId) {
                         if (((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                            aVar2 = this.eIZ.eIY;
-                            aVar2.akW = false;
-                            textView = this.eIZ.cvn;
+                            aVar2 = this.eLc.eLb;
+                            aVar2.akC = false;
+                            textView = this.eLc.cvK;
                             textView.setVisibility(0);
-                            b bVar = this.eIZ;
-                            aVar3 = this.eIZ.eIY;
-                            bVar.iR(aVar3.akW);
-                            com.baidu.adp.lib.util.k.showToast(this.eIZ.mContext, t.j.person_polymeric_unattention_success);
+                            b bVar = this.eLc;
+                            aVar3 = this.eLc.eLb;
+                            bVar.iU(aVar3.akC);
+                            com.baidu.adp.lib.util.k.showToast(this.eLc.mContext, r.j.person_polymeric_unattention_success);
                             return;
                         }
-                        com.baidu.adp.lib.util.k.showToast(this.eIZ.mContext, t.j.person_polymeric_unattention_faild);
+                        com.baidu.adp.lib.util.k.showToast(this.eLc.mContext, r.j.person_polymeric_unattention_faild);
                     }
                 }
             }

@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends com.baidu.tbadk.util.i {
-    final /* synthetic */ l fsw;
+    final /* synthetic */ l fvc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(l lVar, Context context) {
         super(context);
-        this.fsw = lVar;
+        this.fvc = lVar;
     }
 
     @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
@@ -23,13 +23,13 @@ public class o extends com.baidu.tbadk.util.i {
         String str;
         String str2;
         String str3;
-        str = this.fsw.text;
+        str = this.fvc.text;
         if (str != null) {
-            str3 = this.fsw.text;
+            str3 = this.fvc.text;
             str3.replace("@", "").replace(" ", "");
         }
         PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(getContext());
-        str2 = this.fsw.link;
+        str2 = this.fvc.link;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig.createNormalConfig(com.baidu.adp.lib.h.b.c(str2, 0L), false)));
     }
 }

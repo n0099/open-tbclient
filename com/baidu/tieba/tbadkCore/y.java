@@ -9,11 +9,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private String aRv;
     private int cur_score;
-    private int frb;
-    private int frc;
-    private List<FeedForumData> frd = new ArrayList();
+    private String fid;
+    private int ftJ;
+    private int ftK;
+    private List<FeedForumData> ftL = new ArrayList();
     private int is_like;
     private String level_name;
     private int levelup_score;
@@ -21,20 +21,20 @@ public class y {
 
     public y() {
         setLike(0);
-        this.frb = 0;
-        this.frc = 0;
+        this.ftJ = 0;
+        this.ftK = 0;
         this.user_level = 0;
         setLevelName("");
         setCurScore(0);
         setLevelupScore(0);
     }
 
-    public String aaL() {
-        return this.aRv;
+    public String getFid() {
+        return this.fid;
     }
 
-    public void hi(String str) {
-        this.aRv = str;
+    public void setFid(String str) {
+        this.fid = str;
     }
 
     public int getUserLevel() {
@@ -61,8 +61,8 @@ public class y {
         if (jSONObject != null) {
             try {
                 setLike(jSONObject.optInt("is_like", 0));
-                this.frb = jSONObject.optInt("is_black", 0);
-                this.frc = jSONObject.optInt("like_num", 0);
+                this.ftJ = jSONObject.optInt("is_black", 0);
+                this.ftK = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLevelName(jSONObject.optString("level_name", ""));
                 setLevelupScore(jSONObject.optInt("levelup_score", 0));
@@ -89,7 +89,7 @@ public class y {
                     feedForumData.setReason(jSONObject.getString("reason"));
                     feedForumData.setIsLike(Integer.parseInt(jSONObject.getString("is_like")));
                     feedForumData.setPos(Integer.parseInt(jSONObject.getString("pos")));
-                    this.frd.add(feedForumData);
+                    this.ftL.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -133,7 +133,7 @@ public class y {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> bhb() {
-        return this.frd;
+    public List<FeedForumData> bhJ() {
+        return this.ftL;
     }
 }

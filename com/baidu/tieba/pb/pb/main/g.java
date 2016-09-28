@@ -3,55 +3,55 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class g extends gf {
-    private TextView emB;
+    private TextView eoz;
 
     public g(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.emB = null;
+        this.eoz = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.gf
     protected void a(e eVar) {
-        this.emB = (TextView) this.mRootView.findViewById(t.g.icon_push);
-        this.emB.setVisibility(8);
+        this.eoz = (TextView) this.mRootView.findViewById(r.g.icon_push);
+        this.eoz.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.gf
     protected void onChangeSkinType(int i) {
     }
 
-    public void hT(boolean z) {
-        if (this.emB != null) {
+    public void hW(boolean z) {
+        if (this.eoz != null) {
             if (z) {
-                this.emB.setText(t.j.push);
-                com.baidu.tbadk.core.util.av.j((View) this.emB, t.f.push_text_selector);
-                com.baidu.tbadk.core.util.av.k(this.emB, t.f.push_bg_selector);
-                this.emB.setClickable(true);
+                this.eoz.setText(r.j.push);
+                com.baidu.tbadk.core.util.av.j((View) this.eoz, r.f.push_text_selector);
+                com.baidu.tbadk.core.util.av.k(this.eoz, r.f.push_bg_selector);
+                this.eoz.setClickable(true);
             } else {
-                this.emB.setText(t.j.already_push);
-                com.baidu.tbadk.core.util.av.k(this.emB, t.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.av.j((View) this.emB, t.d.cp_cont_d);
-                this.emB.setClickable(false);
+                this.eoz.setText(r.j.already_push);
+                com.baidu.tbadk.core.util.av.k(this.eoz, r.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.av.j((View) this.eoz, r.d.cp_cont_d);
+                this.eoz.setClickable(false);
             }
-            this.emB.setVisibility(0);
+            this.eoz.setVisibility(0);
         }
     }
 
-    public void s(com.baidu.tbadk.core.data.bg bgVar) {
-        if (bgVar != null && bgVar.rT() != null) {
-            int status = bgVar.rT().getStatus();
+    public void s(com.baidu.tbadk.core.data.bi biVar) {
+        if (biVar != null && biVar.sf() != null) {
+            int status = biVar.sf().getStatus();
             if (status == 1) {
-                hT(true);
+                hW(true);
             } else if (status == 2) {
-                hT(false);
+                hW(false);
             }
         }
     }
 
-    public TextView aMA() {
-        return this.emB;
+    public TextView aNf() {
+        return this.eoz;
     }
 }

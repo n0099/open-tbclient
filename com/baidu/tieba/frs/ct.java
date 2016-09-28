@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class ct {
-    private long bTe;
-    private long bTf;
-    private long bTg;
-    private long bTh;
-    private long bTi;
+    private long bSX;
+    private long bSY;
+    private long bSZ;
+    private long bTa;
+    private long bTb;
 
     public ct(Context context) {
         bi(0L);
@@ -15,34 +15,34 @@ public class ct {
     }
 
     public void bi(long j) {
-        this.bTe = j;
+        this.bSX = j;
     }
 
     public void bj(long j) {
-        this.bTf = j;
+        this.bSY = j;
     }
 
-    public long aci() {
-        return this.bTf + this.bTe + this.bTg;
+    public long acv() {
+        return this.bSY + this.bSX + this.bSZ;
     }
 
     public void bk(long j) {
-        this.bTg = j;
+        this.bSZ = j;
     }
 
     public void bl(long j) {
-        this.bTh = j;
+        this.bTa = j;
     }
 
-    public long acj() {
-        return this.bTh;
+    public long acw() {
+        return this.bTa;
     }
 
-    public long ack() {
-        return this.bTi;
+    public long acx() {
+        return this.bTb;
     }
 
     public void bm(long j) {
-        this.bTi = j;
+        this.bTb = j;
     }
 }

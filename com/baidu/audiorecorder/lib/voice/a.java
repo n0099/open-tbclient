@@ -26,6 +26,7 @@ public class a {
                 new Thread(DW).start();
                 return true;
             }
+            DW = null;
             return false;
         }
         return false;

@@ -1,32 +1,19 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tieba.p;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class q implements GifView.a {
-    private final /* synthetic */ ImageView aLG;
-    private final /* synthetic */ GifView aLH;
-    private final /* synthetic */ long aLI;
-    private final /* synthetic */ p.a aLJ;
+class q implements Runnable {
+    private final /* synthetic */ TextView aLe;
+    final /* synthetic */ p aLf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(ImageView imageView, GifView gifView, long j, p.a aVar) {
-        this.aLG = imageView;
-        this.aLH = gifView;
-        this.aLI = j;
-        this.aLJ = aVar;
+    public q(p pVar, TextView textView) {
+        this.aLf = pVar;
+        this.aLe = textView;
     }
 
-    @Override // com.baidu.tbadk.gif.GifView.a
-    public void onStop() {
-        this.aLG.setVisibility(8);
-        this.aLH.release();
-        if (System.currentTimeMillis() - this.aLI > 3000) {
-            com.baidu.tbadk.core.sharedPref.b.tS().putInt("logo_animation_overtime_count", com.baidu.tbadk.core.sharedPref.b.tS().getInt("logo_animation_overtime_count", 0) + 1);
-        }
-        if (this.aLJ != null) {
-            this.aLJ.onCompleted();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.aLe.setVisibility(0);
     }
 }

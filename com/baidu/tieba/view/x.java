@@ -6,45 +6,45 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class x extends RelativeLayout implements View.OnClickListener {
-    private HeadImageView eWM;
-    private ImageView fWR;
+    private HeadImageView eZt;
+    private ImageView fYV;
 
     public x(Context context) {
         super(context);
-        this.eWM = new HeadImageView(context);
-        this.fWR = new ImageView(context);
-        addView(this.eWM);
-        addView(this.fWR);
-        ((RelativeLayout.LayoutParams) this.fWR.getLayoutParams()).addRule(12);
-        ((RelativeLayout.LayoutParams) this.fWR.getLayoutParams()).addRule(11);
-        av.c(this.fWR, t.f.profit_lock);
-        this.eWM.setAlpha(0.3f);
+        this.eZt = new HeadImageView(context);
+        this.fYV = new ImageView(context);
+        addView(this.eZt);
+        addView(this.fYV);
+        ((RelativeLayout.LayoutParams) this.fYV.getLayoutParams()).addRule(12);
+        ((RelativeLayout.LayoutParams) this.fYV.getLayoutParams()).addRule(11);
+        av.c(this.fYV, r.f.profit_lock);
+        this.eZt.setAlpha(0.3f);
     }
 
-    public void bB(int i, int i2) {
+    public void bD(int i, int i2) {
         getLayoutParams().height = i2;
         getLayoutParams().width = i;
     }
 
-    public void bC(int i, int i2) {
-        this.eWM.getLayoutParams().height = i2;
-        this.eWM.getLayoutParams().width = i;
+    public void bE(int i, int i2) {
+        this.eZt.getLayoutParams().height = i2;
+        this.eZt.getLayoutParams().width = i;
     }
 
-    public void bD(int i, int i2) {
-        this.fWR.getLayoutParams().height = i2;
-        this.fWR.getLayoutParams().width = i;
+    public void bF(int i, int i2) {
+        this.fYV.getLayoutParams().height = i2;
+        this.fYV.getLayoutParams().width = i;
     }
 
     public HeadImageView getIcon() {
-        return this.eWM;
+        return this.eZt;
     }
 
     public ImageView getLock() {
-        return this.fWR;
+        return this.fYV;
     }
 
     @Override // android.view.View.OnClickListener

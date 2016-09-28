@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements DialogInterface.OnDismissListener {
+public class ac implements View.OnClickListener {
     final /* synthetic */ UpdateDialog this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +11,14 @@ public class ac implements DialogInterface.OnDismissListener {
         this.this$0 = updateDialog;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.this$0.aMw.dismiss();
-        this.this$0.mHandler.postDelayed(new ad(this), 100L);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        z = this.this$0.aNa;
+        if (z) {
+            this.this$0.JZ();
+        }
+        this.this$0.aNG.dismiss();
+        this.this$0.finish();
     }
 }

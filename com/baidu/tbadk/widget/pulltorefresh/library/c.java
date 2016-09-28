@@ -4,10 +4,10 @@ import android.view.View;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
 /* loaded from: classes.dex */
 public final class c {
-    private static /* synthetic */ int[] aHm;
+    private static /* synthetic */ int[] aGL;
 
-    static /* synthetic */ int[] HO() {
-        int[] iArr = aHm;
+    static /* synthetic */ int[] HN() {
+        int[] iArr = aGL;
         if (iArr == null) {
             iArr = new int[PullToRefreshBase.Orientation.valuesCustom().length];
             try {
@@ -18,7 +18,7 @@ public final class c {
                 iArr[PullToRefreshBase.Orientation.VERTICAL.ordinal()] = 1;
             } catch (NoSuchFieldError e2) {
             }
-            aHm = iArr;
+            aGL = iArr;
         }
         return iArr;
     }
@@ -29,7 +29,7 @@ public final class c {
 
     public static void a(PullToRefreshBase<?> pullToRefreshBase, int i, int i2, int i3, int i4, int i5, int i6, float f, boolean z) {
         int scrollX;
-        switch (HO()[pullToRefreshBase.getPullToRefreshScrollDirection().ordinal()]) {
+        switch (HN()[pullToRefreshBase.getPullToRefreshScrollDirection().ordinal()]) {
             case 2:
                 scrollX = pullToRefreshBase.getScrollX();
                 break;

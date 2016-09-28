@@ -1,12 +1,12 @@
 package com.baidu.tbadk.editortools;
 
 import android.content.Context;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class z extends aa {
     public z(Context context) {
         super((String) null, 23, 0);
-        this.auX = t.f.selector_editor_btn_more;
-        this.avc = new int[]{32};
+        this.auA = r.f.selector_editor_btn_more;
+        this.auF = new int[]{32};
     }
 }

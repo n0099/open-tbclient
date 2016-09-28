@@ -5,16 +5,16 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.pb.data.PbEcommRecommendMessage;
 import com.baidu.tieba.pb.data.PbEcommRecommendResponsedHttpMessage;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class l extends HttpMessageListener {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(PbActivity pbActivity, int i) {
         super(i);
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,21 +28,21 @@ class l extends HttpMessageListener {
             PbEcommRecommendResponsedHttpMessage pbEcommRecommendResponsedHttpMessage = (PbEcommRecommendResponsedHttpMessage) httpResponsedMessage;
             if (httpResponsedMessage.hasError() || pbEcommRecommendResponsedHttpMessage.mData == null) {
                 if (!StringUtils.isNULL(httpResponsedMessage.getErrorString())) {
-                    this.eob.showToast(httpResponsedMessage.getErrorString());
+                    this.eqa.showToast(httpResponsedMessage.getErrorString());
                 } else {
-                    this.eob.showToast(t.j.neterror);
+                    this.eqa.showToast(r.j.neterror);
                 }
             } else if (pbEcommRecommendResponsedHttpMessage.mData != null && (httpResponsedMessage.getOrginalMessage() instanceof PbEcommRecommendMessage)) {
                 PbEcommRecommendMessage pbEcommRecommendMessage = (PbEcommRecommendMessage) httpResponsedMessage.getOrginalMessage();
                 long j = pbEcommRecommendResponsedHttpMessage.mData.recommendations;
-                dhVar = this.eob.emx;
-                dhVar.getPbData().aLQ().Uw.recommendations = j;
+                dhVar = this.eqa.eov;
+                dhVar.getPbData().aMs().UH.recommendations = j;
                 if (pbEcommRecommendMessage != null) {
-                    dhVar3 = this.eob.emx;
-                    dhVar3.getPbData().aLQ().sx().hasRecommend = pbEcommRecommendMessage.recommend;
+                    dhVar3 = this.eqa.eov;
+                    dhVar3.getPbData().aMs().sK().hasRecommend = pbEcommRecommendMessage.recommend;
                 }
-                exVar = this.eob.enh;
-                dhVar2 = this.eob.emx;
+                exVar = this.eqa.epe;
+                dhVar2 = this.eqa.eov;
                 exVar.j(dhVar2.getPbData());
             }
         }

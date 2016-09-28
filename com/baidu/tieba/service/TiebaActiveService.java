@@ -26,21 +26,21 @@ public class TiebaActiveService extends BdBaseService {
     private Runnable mRunnable = new f(this);
 
     private String getChannelByShare() {
-        return com.baidu.tbadk.core.sharedPref.b.tS().getString("channel_id", null);
+        return com.baidu.tbadk.core.sharedPref.b.uh().getString("channel_id", null);
     }
 
     private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.core.sharedPref.b.tS().putString("channel_id", str);
+            com.baidu.tbadk.core.sharedPref.b.uh().putString("channel_id", str);
         }
     }
 
     private String getChannelyFile() {
         String str = null;
         try {
-            File cU = m.cU(TbConfig.CHANNEL_FILE);
-            if (cU != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(cU));
+            File cW = m.cW(TbConfig.CHANNEL_FILE);
+            if (cW != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(cW));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -56,9 +56,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File cY = m.cY(TbConfig.CHANNEL_FILE);
-                if (cY != null) {
-                    FileWriter fileWriter = new FileWriter(cY);
+                File da = m.da(TbConfig.CHANNEL_FILE);
+                if (da != null) {
+                    FileWriter fileWriter = new FileWriter(da);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -101,7 +101,7 @@ public class TiebaActiveService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && com.baidu.tbadk.core.sharedPref.b.tS().getInt("active", 2) != 1) {
+        if (isActived() && com.baidu.tbadk.core.sharedPref.b.uh().getInt("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();
@@ -130,10 +130,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        ab fdt;
+        ab fgb;
 
         private a() {
-            this.fdt = null;
+            this.fgb = null;
         }
 
         /* synthetic */ a(TiebaActiveService tiebaActiveService, a aVar) {
@@ -145,22 +145,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String ue;
+            String uu;
             try {
-                this.fdt = new ab("http://114.113.149.3:8086/partnersService");
-                this.fdt.n("apk", TbadkCoreApplication.m9getInst().getApp().getPackageName());
-                this.fdt.n("imei", TbadkCoreApplication.m9getInst().getImei());
-                this.fdt.n("model", Build.MODEL);
-                this.fdt.n("edition", TbConfig.getVersion());
-                this.fdt.n("system", Build.VERSION.SDK);
-                this.fdt.uD().vz().vC().mIsBaiduServer = false;
-                ue = this.fdt.ue();
+                this.fgb = new ab("http://114.113.149.3:8086/partnersService");
+                this.fgb.n("apk", TbadkCoreApplication.m9getInst().getApp().getPackageName());
+                this.fgb.n("imei", TbadkCoreApplication.m9getInst().getImei());
+                this.fgb.n("model", Build.MODEL);
+                this.fgb.n("edition", TbConfig.getVersion());
+                this.fgb.n("system", Build.VERSION.SDK);
+                this.fgb.uS().vN().vQ().mIsBaiduServer = false;
+                uu = this.fgb.uu();
             } catch (Exception e) {
-                com.baidu.tbadk.core.sharedPref.b.tS().putInt("active", 1);
+                com.baidu.tbadk.core.sharedPref.b.uh().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.fdt.uG()) {
-                return ue;
+            if (this.fgb.uV()) {
+                return uu;
             }
             return null;
         }
@@ -168,8 +168,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.fdt != null) {
-                this.fdt.eg();
+            if (this.fgb != null) {
+                this.fgb.eg();
             }
             super.cancel(true);
         }
@@ -177,7 +177,7 @@ public class TiebaActiveService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: eu */
+        /* renamed from: ex */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
             TiebaActiveService.this.mActiveTask = null;
@@ -187,11 +187,11 @@ public class TiebaActiveService extends BdBaseService {
                     TiebaActiveService.this.mHandler.removeCallbacks(TiebaActiveService.this.mRunnable);
                     TiebaActiveService.this.mHandler.postDelayed(TiebaActiveService.this.mRunnable, TbConfig.USE_TIME_INTERVAL);
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.tS().putInt("active", 1);
+                    com.baidu.tbadk.core.sharedPref.b.uh().putInt("active", 1);
                     TiebaActiveService.this.stopSelf();
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.tS().putInt("active", 2);
+            com.baidu.tbadk.core.sharedPref.b.uh().putInt("active", 2);
             TiebaActiveService.this.stopSelf();
         }
     }

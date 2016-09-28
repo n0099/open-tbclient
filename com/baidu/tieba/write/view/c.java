@@ -1,18 +1,17 @@
 package com.baidu.tieba.write.view;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ a gcy;
+class c implements View.OnClickListener {
+    final /* synthetic */ a geI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.gcy = aVar;
+        this.geI = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.gcy.awC();
+        this.geI.axb();
     }
 }

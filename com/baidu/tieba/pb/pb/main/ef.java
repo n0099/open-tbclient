@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ef extends cs<ds, ed> {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -16,9 +16,9 @@ public class ef extends cs<ds, ed> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bj */
+    /* renamed from: bl */
     public ed a(ViewGroup viewGroup) {
-        return new ed(this.emy.getPageContext(), LayoutInflater.from(this.mContext).inflate(t.h.pb_page_news, viewGroup, false));
+        return new ed(this.eow.getPageContext(), LayoutInflater.from(this.mContext).inflate(r.h.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

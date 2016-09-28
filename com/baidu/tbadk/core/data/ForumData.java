@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.PbReaderServiceConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,19 +44,20 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
     private int levelup_score;
     private final ArrayList<f> mBadgeData;
     private final BannerListData mBannerListData;
-    private final t mFrsBannerData;
-    private s mMemberShowIconData;
+    private final u mFrsBannerData;
+    private t mMemberShowIconData;
+    private PostTopicData mPostTopicData;
     private final PostPrefixData mPrefixData;
-    private at mRealTimeData;
+    private av mRealTimeData;
     private ArrayList<RecommendForumData> mRecommendForumData;
-    private final av mRecommendLikeUser;
-    private bn news_info;
+    private final ax mRecommendLikeUser;
+    private bp news_info;
     private String slogan;
     private String tag_color;
     private String tag_id;
-    private bk top_code;
-    private bl top_notice_data;
-    private bp yuleData;
+    private bm top_code;
+    private bn top_notice_data;
+    private br yuleData;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -72,7 +72,7 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
     private int album_open_photo_frs = 0;
     private SignData mSignData = new SignData();
     private ArrayList<String> managers = new ArrayList<>();
-    private ArrayList<z> good_classify = new ArrayList<>();
+    private ArrayList<ab> good_classify = new ArrayList<>();
     private String tag_name = null;
 
     public ForumData() {
@@ -82,18 +82,19 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new bl();
+        this.top_notice_data = new bn();
         this.mBadgeData = new ArrayList<>();
-        this.mFrsBannerData = new t();
+        this.mFrsBannerData = new u();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
-        this.mRecommendLikeUser = new av();
-        this.top_code = new bk();
-        this.news_info = new bn();
+        this.mPostTopicData = new PostTopicData();
+        this.mRecommendLikeUser = new ax();
+        this.top_code = new bm();
+        this.news_info = new bp();
         this.canAddPhotoLivePost = false;
-        this.mMemberShowIconData = new s();
-        this.yuleData = new bp();
+        this.mMemberShowIconData = new t();
+        this.yuleData = new br();
     }
 
     public AnchorPower getAnchorPower() {
@@ -243,12 +244,12 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
         this.mSignData = signData;
     }
 
-    public bl getTop_notice_data() {
+    public bn getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(bl blVar) {
-        this.top_notice_data = blVar;
+    public void setTop_notice_data(bn bnVar) {
+        this.top_notice_data = bnVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -259,11 +260,11 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
         return this.managers;
     }
 
-    public void setGood_classify(ArrayList<z> arrayList) {
+    public void setGood_classify(ArrayList<ab> arrayList) {
         this.good_classify = arrayList;
     }
 
-    public ArrayList<z> getGood_classify() {
+    public ArrayList<ab> getGood_classify() {
         return this.good_classify;
     }
 
@@ -279,7 +280,7 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
         return this.mBadgeData;
     }
 
-    public t getFrsBannerData() {
+    public u getFrsBannerData() {
         return this.mFrsBannerData;
     }
 
@@ -287,7 +288,7 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
         return this.mBannerListData;
     }
 
-    public av getRecommendLikeUser() {
+    public ax getRecommendLikeUser() {
         return this.mRecommendLikeUser;
     }
 
@@ -299,16 +300,16 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
         return this.accelerate_cotent;
     }
 
-    public at getRealTimeData() {
+    public av getRealTimeData() {
         return this.mRealTimeData;
     }
 
-    public void setRealTimeData(at atVar) {
-        this.mRealTimeData = atVar;
+    public void setRealTimeData(av avVar) {
+        this.mRealTimeData = avVar;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0056: IGET  (r4v12 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.tag_id java.lang.Integer)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0067: IGET  (r0v86 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0067: IGET  (r0v87 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.FrsPage.ForumInfo) tbclient.FrsPage.ForumInfo.id java.lang.Long)] */
     public void parserProtobuf(ForumInfo forumInfo) {
         if (forumInfo != null) {
@@ -352,9 +353,9 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
                 List<Classify> list2 = forumInfo.good_classify;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
-                        z zVar = new z();
-                        zVar.a(list2.get(i2));
-                        this.good_classify.add(zVar);
+                        ab abVar = new ab();
+                        abVar.a(list2.get(i2));
+                        this.good_classify.add(abVar);
                     }
                 }
                 SignInfo signInfo = forumInfo.sign_in_info;
@@ -407,6 +408,7 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
                 this.mBannerListData.parserProtobuf(forumInfo.banner_list);
                 this.mRecommendLikeUser.a(forumInfo.recommend_user_info);
                 this.mPrefixData.parserProtobuf(forumInfo.post_prefix);
+                this.mPostTopicData.parserProtobuf(forumInfo.post_topic);
                 this.anchorPower = forumInfo.anchor_power;
                 if (this.anchorPower != null) {
                     this.canAddPhotoLivePost = this.anchorPower.can_add_live_post.intValue() == 1;
@@ -415,7 +417,7 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
                 this.news_info.a(forumInfo.news_info);
                 RealTime realTime = forumInfo.realtime_data;
                 if (realTime != null) {
-                    this.mRealTimeData = new at();
+                    this.mRealTimeData = new av();
                     this.mRealTimeData.a(realTime);
                 }
             } catch (Exception e) {
@@ -433,6 +435,8 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
                 this.image_url = simpleForum.avatar;
                 this.is_like = simpleForum.is_liked.intValue();
                 this.is_sign = simpleForum.is_signed.intValue() == 1;
+                this.first_class = simpleForum.first_class;
+                this.second_class = simpleForum.second_class;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -462,7 +466,7 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("tag_info");
                 if (optJSONObject2 != null) {
                     this.tag_name = optJSONObject2.optString("tag_name", null);
-                    this.tag_id = optJSONObject2.optString(PbReaderServiceConfig.TAG_ID, null);
+                    this.tag_id = optJSONObject2.optString("tag_id", null);
                     this.tag_color = optJSONObject2.optString("color", null);
                 }
                 this.image_url = jSONObject.optString("avatar", null);
@@ -489,9 +493,9 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        z zVar = new z();
-                        zVar.parserJson(optJSONArray2.optJSONObject(i2));
-                        this.good_classify.add(zVar);
+                        ab abVar = new ab();
+                        abVar.parserJson(optJSONArray2.optJSONObject(i2));
+                        this.good_classify.add(abVar);
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("sign_in_info");
@@ -644,32 +648,36 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
         return this.mPrefixData;
     }
 
-    public void setTopCode(bk bkVar) {
-        this.top_code = bkVar;
+    public PostTopicData getPostTopicData() {
+        return this.mPostTopicData;
     }
 
-    public void setNewsInfo(bn bnVar) {
-        this.news_info = bnVar;
+    public void setTopCode(bm bmVar) {
+        this.top_code = bmVar;
     }
 
-    public bk getTopCode() {
+    public void setNewsInfo(bp bpVar) {
+        this.news_info = bpVar;
+    }
+
+    public bm getTopCode() {
         return this.top_code;
     }
 
-    public bn getNewsInfo() {
+    public bp getNewsInfo() {
         return this.news_info;
     }
 
-    public s getMemberShowIconData() {
+    public t getMemberShowIconData() {
         return this.mMemberShowIconData;
     }
 
-    public bp getYuleData() {
+    public br getYuleData() {
         return this.yuleData;
     }
 
-    public void setYuleData(bp bpVar) {
-        this.yuleData = bpVar;
+    public void setYuleData(br brVar) {
+        this.yuleData = brVar;
     }
 
     @Override // com.baidu.tbadk.core.util.al
@@ -677,7 +685,7 @@ public class ForumData implements com.baidu.tbadk.core.util.al, Serializable {
         ArrayList<com.baidu.tbadk.core.util.ak> arrayList = new ArrayList<>();
         com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak();
         akVar.imgUrl = this.image_url;
-        akVar.aaR = 10;
+        akVar.abe = 10;
         arrayList.add(akVar);
         return arrayList;
     }

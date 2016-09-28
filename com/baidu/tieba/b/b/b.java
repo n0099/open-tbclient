@@ -3,37 +3,37 @@ package com.baidu.tieba.b.b;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b extends a {
-    private boolean aWj;
-    private float aWk;
-    public int ait;
+    private boolean aWN;
+    private float aWO;
+    public int ahV;
 
     public b(Context context) {
         super(context);
-        this.ait = 3;
-        this.aWj = false;
-        this.aWk = -8.0f;
-        Q(this.aWk);
+        this.ahV = 3;
+        this.aWN = false;
+        this.aWO = -8.0f;
+        Q(this.aWO);
     }
 
-    public void MC() {
-        vJ();
+    public void Nd() {
+        vX();
         a(new c(this));
     }
 
-    public void MD() {
-        vJ();
+    public void Ne() {
+        vX();
         a(new d(this));
         a(new e(this));
         a(new f(this));
     }
 
-    public void ME() {
-        this.aWj = true;
+    public void Nf() {
+        this.aWN = true;
     }
 
     @Override // com.baidu.tieba.b.b.a
-    public void vJ() {
-        super.vJ();
-        this.aWj = false;
+    public void vX() {
+        super.vX();
+        this.aWN = false;
     }
 }

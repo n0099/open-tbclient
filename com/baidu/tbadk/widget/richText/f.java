@@ -1,15 +1,15 @@
 package com.baidu.tbadk.widget.richText;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.lib.a.b.a.a.i {
-    static final int aIT = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), t.e.ds360);
-    static final int aIU = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), t.e.ds300);
+    static final int aIs = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds360);
+    static final int aIt = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds300);
     public long gid;
     public String url;
-    public int width = aIU;
+    public int width = aIt;
     public int height = this.width;
 
     public void a(PbContent pbContent) {
@@ -25,12 +25,12 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public void fv(int i) {
+    public void fu(int i) {
         if (i == 1) {
-            this.width = aIT;
+            this.width = aIs;
             this.height = this.width;
-        } else if (this.width != this.height || this.width <= 0 || this.width > aIU) {
-            this.width = aIU;
+        } else if (this.width != this.height || this.width <= 0 || this.width > aIt) {
+            this.width = aIt;
             this.height = this.width;
         }
     }

@@ -7,15 +7,15 @@ import com.baidu.tieba.write.view.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-class al implements a.InterfaceC0083a {
-    final /* synthetic */ ag gbq;
+class al implements a.InterfaceC0086a {
+    final /* synthetic */ ag gdz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ag agVar) {
-        this.gbq = agVar;
+        this.gdz = agVar;
     }
 
-    @Override // com.baidu.tieba.write.view.a.InterfaceC0083a
+    @Override // com.baidu.tieba.write.view.a.InterfaceC0086a
     public void a(int i, d dVar) {
         o oVar;
         o oVar2;
@@ -27,13 +27,13 @@ class al implements a.InterfaceC0083a {
         String albumId = dVar.getAlbumId();
         String name = dVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            oVar = this.gbq.fZQ;
-            if (!albumId.equals(oVar.brN())) {
-                oVar2 = this.gbq.fZQ;
-                List<ImageFileInfo> brP = oVar2.brP();
+            oVar = this.gdz.gbZ;
+            if (!albumId.equals(oVar.bst())) {
+                oVar2 = this.gdz.gbZ;
+                List<ImageFileInfo> bsv = oVar2.bsv();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : brP) {
+                    for (ImageFileInfo imageFileInfo : bsv) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -41,14 +41,14 @@ class al implements a.InterfaceC0083a {
                     z = false;
                 } else {
                     z = true;
-                    list = brP;
+                    list = bsv;
                 }
-                oVar3 = this.gbq.fZQ;
-                oVar3.du(list);
-                oVar4 = this.gbq.fZQ;
-                oVar4.sg(albumId);
-                this.gbq.setData(list, z);
-                textView = this.gbq.FX;
+                oVar3 = this.gdz.gbZ;
+                oVar3.dv(list);
+                oVar4 = this.gdz.gbZ;
+                oVar4.sv(albumId);
+                this.gdz.setData(list, z);
+                textView = this.gdz.FX;
                 textView.setText(name);
             }
         }

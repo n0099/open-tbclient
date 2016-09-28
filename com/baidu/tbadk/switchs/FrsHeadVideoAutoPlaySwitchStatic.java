@@ -3,15 +3,15 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class FrsHeadVideoAutoPlaySwitchStatic extends BaseNormalSwitchStatic {
-    private static final FrsHeadVideoAutoPlaySwitchStatic aEh;
+    private static final FrsHeadVideoAutoPlaySwitchStatic aDF;
 
     static {
         e.dN().n(GraffitiSwitchStatic.class);
-        aEh = new FrsHeadVideoAutoPlaySwitchStatic();
+        aDF = new FrsHeadVideoAutoPlaySwitchStatic();
     }
 
-    public static boolean GL() {
-        return aEh.eX();
+    public static boolean GK() {
+        return aDF.eX();
     }
 
     @Override // com.baidu.tbadk.switchs.BaseNormalSwitchStatic, com.baidu.adp.lib.c.a

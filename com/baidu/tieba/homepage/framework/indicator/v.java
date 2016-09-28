@@ -1,34 +1,26 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
 import android.view.ViewTreeObserver;
-import com.baidu.tieba.homepage.framework.indicator.SlidingTabLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ SlidingTabLayout.a cDe;
+public class v implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ SlidingTabLayout cDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(SlidingTabLayout.a aVar) {
-        this.cDe = aVar;
+    public v(SlidingTabLayout slidingTabLayout) {
+        this.cDI = slidingTabLayout;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
-        SlidingTabLayout slidingTabLayout;
         boolean z;
-        SlidingTabLayout slidingTabLayout2;
-        SlidingTabLayout slidingTabLayout3;
         z zVar;
-        SlidingTabLayout slidingTabLayout4;
         com.baidu.tieba.homepage.framework.w wVar;
-        slidingTabLayout = SlidingTabLayout.this;
-        z = slidingTabLayout.cCZ;
+        z = this.cDI.cDE;
         if (!z) {
-            slidingTabLayout2 = SlidingTabLayout.this;
-            slidingTabLayout2.cCZ = true;
-            slidingTabLayout3 = SlidingTabLayout.this;
-            zVar = slidingTabLayout3.cDb;
-            slidingTabLayout4 = SlidingTabLayout.this;
-            wVar = slidingTabLayout4.cDc;
+            this.cDI.cDE = true;
+            zVar = this.cDI.cDG;
+            wVar = this.cDI.cDH;
             zVar.a(wVar);
         }
     }

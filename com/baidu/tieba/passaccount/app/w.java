@@ -1,17 +1,19 @@
 package com.baidu.tieba.passaccount.app;
 
-import com.baidu.sapi2.SapiWebView;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class w implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ SapiFastRegActivity egZ;
+class w implements DialogInterface.OnCancelListener {
+    final /* synthetic */ v eiU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(SapiFastRegActivity sapiFastRegActivity) {
-        this.egZ = sapiFastRegActivity;
+    public w(v vVar) {
+        this.eiU = vVar;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-    public void onFinish() {
-        this.egZ.finish();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        QALoginActivity qALoginActivity;
+        qALoginActivity = this.eiU.eiT;
+        qALoginActivity.destroyWaitingDialog();
     }
 }

@@ -4,18 +4,18 @@ import com.baidu.tieba.imMessageCenter.im.floatwindow.a.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements e.a {
-    final /* synthetic */ a dpv;
+    final /* synthetic */ a dqS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.dpv = aVar;
+        this.dqS = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.e.a
-    public void fb(int i) {
+    public void fa(int i) {
         int i2;
-        a aVar = this.dpv;
-        i2 = this.dpv.doK;
-        aVar.aZ(i2 - i, -1);
+        a aVar = this.dqS;
+        i2 = this.dqS.dqi;
+        aVar.bb(i2 - i, -1);
     }
 }

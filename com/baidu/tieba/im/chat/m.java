@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 /* loaded from: classes.dex */
 class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ CommonGroupChatActiviy cSw;
+    final /* synthetic */ CommonGroupChatActiviy cTQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.cSw = commonGroupChatActiviy;
+        this.cTQ = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,13 +24,13 @@ class m extends com.baidu.adp.framework.listener.e {
                 case 103101:
                 case 103110:
                 case 103112:
-                    this.cSw.cUk.refresh();
+                    this.cTQ.cVE.refresh();
                     return;
                 case 103104:
                     if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
                         ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                        if (responseDismissGroupMessage.getError() == 0 && (this.cSw.cUl instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.cSw.cUl).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
-                            this.cSw.finish();
+                        if (responseDismissGroupMessage.getError() == 0 && (this.cTQ.cVF instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.cTQ.cVF).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                            this.cTQ.finish();
                             return;
                         }
                         return;

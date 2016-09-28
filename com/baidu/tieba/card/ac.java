@@ -1,26 +1,18 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.core.view.TextureVideoView;
+import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements Runnable {
-    final /* synthetic */ t aZF;
+public class ac implements QuickVideoView.b {
+    final /* synthetic */ r aZW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(t tVar) {
-        this.aZF = tVar;
+    public ac(r rVar) {
+        this.aZW = rVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TextureVideoView textureVideoView;
-        TextureVideoView textureVideoView2;
-        textureVideoView = this.aZF.aZl;
-        if (textureVideoView != null) {
-            textureVideoView2 = this.aZF.aZl;
-            if (!textureVideoView2.isPlaying()) {
-                this.aZF.d(true, 1);
-            }
-        }
+    @Override // com.baidu.tieba.play.QuickVideoView.b
+    public void onSurfaceDestroyed() {
+        this.aZW.stopPlay();
     }
 }

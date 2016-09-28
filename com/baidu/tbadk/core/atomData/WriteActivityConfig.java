@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.DealInfoData;
 import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.core.data.PostTopicData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
@@ -25,6 +26,7 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FORUM_NAME = "forum_name";
     public static final String FROM_ADD_PHOTO_LIVE_IN_MISSON = "from_add_photo_live_in_misson";
+    public static final String HOT_TOPIC = "hot_topic";
     public static final String IS_AD = "is_ad";
     public static final String IS_ADDITION = "is_addition";
     public static final String IS_LIVE_POST = "is_live_post";
@@ -82,6 +84,10 @@ public class WriteActivityConfig extends IntentConfig {
 
     public void addEcommInfo(DealInfoData dealInfoData) {
         getIntent().putExtra("deal_info", dealInfoData);
+    }
+
+    public void addHotTopicInfo(PostTopicData postTopicData) {
+        getIntent().putExtra("hot_topic", postTopicData);
     }
 
     public void setCategroyId(int i) {

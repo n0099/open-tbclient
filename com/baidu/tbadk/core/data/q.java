@@ -3,19 +3,19 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
 public class q {
-    private int Qa;
+    private int PY;
+    private String Qk;
+    private String Ql;
     private String Qm;
     private String Qn;
     private String Qo;
     private String Qp;
-    private String Qq;
-    private String Qr;
+    private long Qq;
+    private long Qr;
     private long Qs;
     private long Qt;
     private long Qu;
     private long Qv;
-    private long Qw;
-    private long Qx;
     private String author;
     private String bookId;
 
@@ -23,51 +23,51 @@ public class q {
         return this.bookId;
     }
 
-    public int px() {
-        return this.Qa;
-    }
-
-    public String py() {
-        return this.Qn;
+    public int py() {
+        return this.PY;
     }
 
     public String pz() {
+        return this.Ql;
+    }
+
+    public String pA() {
         return this.author;
     }
 
-    public long pA() {
-        return this.Qs;
-    }
-
-    public String pB() {
-        return this.Qr;
-    }
-
-    public String pC() {
+    public long pB() {
         return this.Qq;
     }
 
-    public String pD() {
+    public String pC() {
         return this.Qp;
+    }
+
+    public String pD() {
+        return this.Qo;
+    }
+
+    public String pE() {
+        return this.Qn;
     }
 
     public void a(ForumBookInfo forumBookInfo) {
         if (forumBookInfo != null) {
             this.bookId = forumBookInfo.book_id;
-            this.Qa = forumBookInfo.book_type.intValue();
-            this.Qm = forumBookInfo.book_title;
-            this.Qn = forumBookInfo.book_cover;
+            this.PY = forumBookInfo.book_type.intValue();
+            this.Qk = forumBookInfo.book_title;
+            this.Ql = forumBookInfo.book_cover;
             this.author = forumBookInfo.author;
-            this.Qo = forumBookInfo.forum_pic;
-            this.Qp = forumBookInfo.show_chapter_id;
-            this.Qq = forumBookInfo.show_chapter_no;
-            this.Qr = forumBookInfo.show_chapter_title;
-            this.Qs = forumBookInfo.history_page_idhistory_page_id.longValue();
-            this.Qt = forumBookInfo.history_paragraph_id.longValue();
-            this.Qu = forumBookInfo.history_word_id.longValue();
-            this.Qv = forumBookInfo.history_percent.longValue();
-            this.Qw = forumBookInfo.show_page_id.longValue();
-            this.Qx = forumBookInfo.show_paragraph_id.longValue();
+            this.Qm = forumBookInfo.forum_pic;
+            this.Qn = forumBookInfo.show_chapter_id;
+            this.Qo = forumBookInfo.show_chapter_no;
+            this.Qp = forumBookInfo.show_chapter_title;
+            this.Qq = forumBookInfo.history_page_id.longValue();
+            this.Qr = forumBookInfo.history_paragraph_id.longValue();
+            this.Qs = forumBookInfo.history_word_id.longValue();
+            this.Qt = forumBookInfo.history_percent.longValue();
+            this.Qu = forumBookInfo.show_page_id.longValue();
+            this.Qv = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

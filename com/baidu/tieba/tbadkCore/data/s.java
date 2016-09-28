@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class s extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ r fti;
-    private final /* synthetic */ com.baidu.adp.widget.e ftj;
+    final /* synthetic */ r fvO;
+    private final /* synthetic */ com.baidu.adp.widget.e fvP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar, com.baidu.adp.widget.e eVar) {
-        this.fti = rVar;
-        this.ftj = eVar;
+        this.fvO = rVar;
+        this.fvP = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,11 +23,11 @@ class s extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         com.baidu.tbadk.widget.richText.a aVar2;
         super.a((s) aVar, str, i);
         if (aVar != null && aVar.jW()) {
-            qVar = this.fti.ftf;
-            this.ftj.setDrawable(qVar.h(aVar));
-            qVar2 = this.fti.ftf;
-            aVar2 = qVar2.dwo;
-            aVar2.aIx = true;
+            qVar = this.fvO.fvL;
+            this.fvP.setDrawable(qVar.h(aVar));
+            qVar2 = this.fvO.fvL;
+            aVar2 = qVar2.dxO;
+            aVar2.aHW = true;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
         }
     }

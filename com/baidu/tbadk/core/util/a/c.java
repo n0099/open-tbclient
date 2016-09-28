@@ -4,19 +4,19 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    public int acs;
+    public int acD;
     public String mErrorString;
     public int oE;
-    public String act = null;
+    public String acE = null;
     public boolean kK = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean uG() {
+    public boolean uV() {
         return this.oE == 200;
     }
 
-    public boolean oE() {
-        return this.oE == 200 && this.acs == 0;
+    public boolean oF() {
+        return this.oE == 200 && this.acD == 0;
     }
 
     public boolean eh() {

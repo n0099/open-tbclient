@@ -1,51 +1,51 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.tieba.e.a;
+import com.baidu.tieba.d.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements a.InterfaceC0055a {
-    final /* synthetic */ ab eHQ;
+public class ae implements a.InterfaceC0058a {
+    final /* synthetic */ ab eJU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ab abVar) {
-        this.eHQ = abVar;
+        this.eJU = abVar;
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
-    public void N(int i, int i2) {
-        af afVar;
-        af afVar2;
-        af afVar3;
-        af afVar4;
-        if (af(i2)) {
-            afVar = this.eHQ.eHM;
-            if (afVar != null) {
-                afVar2 = this.eHQ.eHM;
-                if (afVar2.eHT != null) {
-                    afVar3 = this.eHQ.eHM;
-                    afVar3.eHT.dp(false);
-                    afVar4 = this.eHQ.eHM;
-                    afVar4.eHT.YO();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
     public void O(int i, int i2) {
         af afVar;
         af afVar2;
         af afVar3;
         af afVar4;
         if (af(i2)) {
-            afVar = this.eHQ.eHM;
+            afVar = this.eJU.eJQ;
             if (afVar != null) {
-                afVar2 = this.eHQ.eHM;
-                if (afVar2.eHT != null) {
-                    afVar3 = this.eHQ.eHM;
-                    afVar3.eHT.dp(true);
-                    afVar4 = this.eHQ.eHM;
-                    afVar4.eHT.YN();
+                afVar2 = this.eJU.eJQ;
+                if (afVar2.eJX != null) {
+                    afVar3 = this.eJU.eJQ;
+                    afVar3.eJX.dq(false);
+                    afVar4 = this.eJU.eJQ;
+                    afVar4.eJX.Zd();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    public void P(int i, int i2) {
+        af afVar;
+        af afVar2;
+        af afVar3;
+        af afVar4;
+        if (af(i2)) {
+            afVar = this.eJU.eJQ;
+            if (afVar != null) {
+                afVar2 = this.eJU.eJQ;
+                if (afVar2.eJX != null) {
+                    afVar3 = this.eJU.eJQ;
+                    afVar3.eJX.dq(true);
+                    afVar4 = this.eJU.eJQ;
+                    afVar4.eJX.Zc();
                 }
             }
         }

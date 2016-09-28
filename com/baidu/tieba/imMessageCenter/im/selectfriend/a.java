@@ -4,39 +4,39 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
-import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.v;
 import com.baidu.tieba.imMessageCenter.ResponseFriendListMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class a extends HttpMessageListener {
-    final /* synthetic */ SelectFriendActivity drx;
+    final /* synthetic */ SelectFriendActivity dsU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SelectFriendActivity selectFriendActivity, int i) {
         super(i);
-        this.drx = selectFriendActivity;
+        this.dsU = selectFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        q qVar;
-        q qVar2;
+        v vVar;
+        v vVar2;
         if (TbadkCoreApplication.m9getInst().getIntentClass(AddressListActivityConfig.class) == null && (httpResponsedMessage instanceof ResponseFriendListMessage)) {
             LinkedList<com.baidu.tbadk.coreExtra.relationship.a> friendList = ((ResponseFriendListMessage) httpResponsedMessage).getFriendList();
             if (friendList == null) {
                 friendList = new LinkedList<>();
             }
             if (friendList.size() > 0) {
-                qVar2 = this.drx.mNoDataView;
-                qVar2.setVisibility(8);
-                this.drx.dru.setContacts(friendList);
-                this.drx.dru.notifyDataSetChanged();
+                vVar2 = this.dsU.mNoDataView;
+                vVar2.setVisibility(8);
+                this.dsU.dsR.setContacts(friendList);
+                this.dsU.dsR.notifyDataSetChanged();
                 return;
             }
-            qVar = this.drx.mNoDataView;
-            qVar.setVisibility(0);
+            vVar = this.dsU.mNoDataView;
+            vVar.setVisibility(0);
         }
     }
 }

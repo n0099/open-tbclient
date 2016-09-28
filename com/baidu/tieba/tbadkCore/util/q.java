@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class q extends s {
-    private volatile HashMap<String, Long> fuW;
+    private volatile HashMap<String, Long> fxD;
 
     static {
         MessageManager.getInstance().registerListener(new r(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
@@ -16,28 +16,28 @@ public class q extends s {
 
     public q(int i) {
         super(i);
-        this.fuW = new HashMap<>();
+        this.fxD = new HashMap<>();
     }
 
-    public void bV(String str, String str2) {
+    public void bW(String str, String str2) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                if (this.fuW.size() >= this.fuY) {
-                    aWM();
+                if (this.fxD.size() >= this.fxF) {
+                    aXk();
                 }
-                this.fuW.put(str, valueOf);
+                this.fxD.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public long rd(String str) {
+    public long rs(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.fuW.get(str) != null ? this.fuW.get(str).longValue() : 0L;
+                longValue = this.fxD.get(str) != null ? this.fxD.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -46,16 +46,16 @@ public class q extends s {
         }
     }
 
-    public void bW(String str, String str2) {
+    public void bX(String str, String str2) {
         String key;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                Iterator<Map.Entry<String, Long>> it = this.fuW.entrySet().iterator();
+                Iterator<Map.Entry<String, Long>> it = this.fxD.entrySet().iterator();
                 if (it.hasNext() && (key = it.next().getKey()) != null && key.equals(str)) {
-                    this.fuW.remove(key);
+                    this.fxD.remove(key);
                 }
-                this.fuW.put(str, valueOf);
+                this.fxD.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -63,10 +63,10 @@ public class q extends s {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.s
-    public void bkb() {
+    public void bkN() {
         synchronized (this) {
-            this.fuZ.clear();
-            this.fuW.clear();
+            this.fxG.clear();
+            this.fxD.clear();
         }
     }
 }

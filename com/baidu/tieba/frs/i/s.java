@@ -6,11 +6,11 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ p cfw;
+    final /* synthetic */ p cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.cfw = pVar;
+        this.cft = pVar;
     }
 
     @Override // java.lang.Runnable
@@ -28,42 +28,42 @@ public class s implements Runnable {
         String str2;
         String str3;
         FrsActivity frsActivity4;
-        i = this.cfw.mScrollState;
+        i = this.cft.mScrollState;
         if (i == 0) {
-            bdTypeListView = this.cfw.bZE;
+            bdTypeListView = this.cft.bZB;
             if (bdTypeListView.kw()) {
-                frsActivity = this.cfw.bWH;
-                if (!frsActivity.aaH()) {
-                    frsActivity2 = this.cfw.bWH;
-                    if (frsActivity2.aaX() != null) {
-                        frsActivity4 = this.cfw.bWH;
-                        if (frsActivity4.aaX().isMenuShowing()) {
+                frsActivity = this.cft.bWH;
+                if (!frsActivity.aaV()) {
+                    frsActivity2 = this.cft.bWH;
+                    if (frsActivity2.abk() != null) {
+                        frsActivity4 = this.cft.bWH;
+                        if (frsActivity4.abk().isMenuShowing()) {
                             return;
                         }
                     }
-                    z = this.cfw.cfr;
+                    z = this.cft.cfo;
                     if (!z) {
-                        i2 = this.cfw.bGq;
+                        i2 = this.cft.bGB;
                         if (i2 == 1) {
-                            str = this.cfw.cfp;
+                            str = this.cft.cfm;
                             if (!"frs_page".equals(str)) {
-                                str2 = this.cfw.cfp;
+                                str2 = this.cft.cfm;
                                 if (!"normal_page".equals(str2)) {
-                                    str3 = this.cfw.cfp;
+                                    str3 = this.cft.cfm;
                                     if (!"book_page".equals(str3)) {
                                         return;
                                     }
                                 }
                             }
-                            cVar = this.cfw.cfm;
+                            cVar = this.cft.cfj;
                             if (cVar != null) {
-                                cVar2 = this.cfw.cfm;
-                                if (cVar2.afG()) {
-                                    TbadkSettings.getInst().saveBoolean(FrsActivity.bOT, true);
-                                    this.cfw.acS();
-                                    frsActivity3 = this.cfw.bWH;
-                                    frsActivity3.bPb = true;
-                                    this.cfw.cfr = true;
+                                cVar2 = this.cft.cfj;
+                                if (cVar2.afU()) {
+                                    TbadkSettings.getInst().saveBoolean(FrsActivity.bON, true);
+                                    this.cft.ade();
+                                    frsActivity3 = this.cft.bWH;
+                                    frsActivity3.bOV = true;
+                                    this.cft.cfo = true;
                                 }
                             }
                         }

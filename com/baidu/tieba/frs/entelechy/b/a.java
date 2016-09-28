@@ -6,15 +6,15 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.entelechy.a.af;
 /* loaded from: classes.dex */
 public interface a {
-    d K(FrsActivity frsActivity);
+    d M(FrsActivity frsActivity);
 
     af a(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z);
 
     com.baidu.tieba.frs.view.c a(String str, FrsActivity frsActivity, int i);
 
-    g acH();
+    g acT();
 
-    b acI();
+    b acU();
 
     c b(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout);
 

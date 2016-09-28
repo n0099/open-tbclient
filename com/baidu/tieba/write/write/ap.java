@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gfs;
+    final /* synthetic */ WriteActivity ghD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(WriteActivity writeActivity) {
-        this.gfs = writeActivity;
+        this.ghD = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,32 +20,32 @@ public class ap implements View.OnClickListener {
         WriteData writeData;
         WriteData writeData2;
         InputMethodManager inputMethodManager;
-        EditText btz;
+        EditText bug;
         InputMethodManager inputMethodManager2;
-        EditText bty;
+        EditText buf;
         com.baidu.tbadk.editortools.l lVar;
         boolean z;
-        writeData = this.gfs.fiE;
+        writeData = this.ghD.flk;
         if (writeData.getVideoInfo() != null) {
             TiebaStatic.log("c10063");
         }
         if (!com.baidu.tieba.write.d.a.isFastDoubleClick()) {
-            writeData2 = this.gfs.fiE;
+            writeData2 = this.ghD.flk;
             if (writeData2.getVideoInfo() != null) {
                 TiebaStatic.log("c10063");
             }
-            WriteActivity writeActivity = this.gfs;
-            inputMethodManager = this.gfs.mInputManager;
-            btz = this.gfs.btz();
-            writeActivity.HidenSoftKeyPad(inputMethodManager, btz);
-            WriteActivity writeActivity2 = this.gfs;
-            inputMethodManager2 = this.gfs.mInputManager;
-            bty = this.gfs.bty();
-            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bty);
-            lVar = this.gfs.auk;
-            lVar.AS();
-            this.gfs.bsH();
-            z = this.gfs.gem;
+            WriteActivity writeActivity = this.ghD;
+            inputMethodManager = this.ghD.mInputManager;
+            bug = this.ghD.bug();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, bug);
+            WriteActivity writeActivity2 = this.ghD;
+            inputMethodManager2 = this.ghD.mInputManager;
+            buf = this.ghD.buf();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, buf);
+            lVar = this.ghD.atO;
+            lVar.AV();
+            this.ghD.btn();
+            z = this.ghD.ggy;
             if (z) {
                 com.baidu.adp.lib.stats.a.eI().eR();
             }

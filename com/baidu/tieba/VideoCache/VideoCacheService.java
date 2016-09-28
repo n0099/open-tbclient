@@ -32,6 +32,6 @@ public class VideoCacheService extends Service {
         if (this.mHttpServer != null) {
             this.mHttpServer.destroy();
         }
-        p.JH().destroy();
+        p.Kt().destroy();
     }
 }

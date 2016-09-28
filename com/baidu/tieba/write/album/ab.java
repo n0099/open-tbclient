@@ -11,31 +11,31 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BaseAdapter {
-    private com.baidu.tbadk.img.b arb;
-    private boolean fKY;
-    private o gaZ;
-    private AlbumActivity gaf;
-    private boolean gba;
-    private z gbb;
-    private x gbc;
-    private aa gbd;
+    private com.baidu.tbadk.img.b aqL;
+    private boolean fNu;
+    private AlbumActivity gco;
+    private o gdi;
+    private boolean gdj;
+    private z gdk;
+    private x gdl;
+    private aa gdm;
     private List<ImageFileInfo> mList;
     private int mWidth;
 
     public ab(AlbumActivity albumActivity, o oVar) {
-        this.gaf = albumActivity;
-        this.arb = albumActivity.akr();
-        this.gaZ = oVar;
-        this.mWidth = (int) this.gaf.getResources().getDimension(t.e.ds220);
+        this.gco = albumActivity;
+        this.aqL = albumActivity.akF();
+        this.gdi = oVar;
+        this.mWidth = (int) this.gco.getResources().getDimension(r.e.ds220);
     }
 
     public void setData(List<ImageFileInfo> list, boolean z) {
         this.mList = list;
-        this.gba = z;
+        this.gdj = z;
         notifyDataSetChanged();
     }
 
@@ -66,7 +66,7 @@ public class ab extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sW */
+    /* renamed from: tk */
     public ImageFileInfo getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
@@ -81,7 +81,7 @@ public class ab extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.gba && i == 0) {
+        if (this.gdj && i == 0) {
             return 1;
         }
         if (i < this.mList.size()) {
@@ -102,100 +102,100 @@ public class ab extends BaseAdapter {
         if (view == null) {
             bVar = new b(this, null);
             if (itemViewType == 0) {
-                view = LayoutInflater.from(this.gaf.getPageContext().getPageActivity()).inflate(t.h.album_image_item_view, viewGroup, false);
-                bVar.gbk = (HeadImageView) view.findViewById(t.g.pic);
-                bVar.fxp = (ImageView) view.findViewById(t.g.select_icon);
-                bVar.fxq = (RelativeLayout) view.findViewById(t.g.lay_select);
+                view = LayoutInflater.from(this.gco.getPageContext().getPageActivity()).inflate(r.h.album_image_item_view, viewGroup, false);
+                bVar.gdt = (HeadImageView) view.findViewById(r.g.pic);
+                bVar.fzR = (ImageView) view.findViewById(r.g.select_icon);
+                bVar.fzS = (RelativeLayout) view.findViewById(r.g.lay_select);
                 view.setTag(bVar);
             } else if (itemViewType == 1) {
-                view = LayoutInflater.from(this.gaf.getPageContext().getPageActivity()).inflate(t.h.album_image_item_view_camera, viewGroup, false);
-                bVar.gbl = (ViewGroup) view.findViewById(t.g.item_camera);
+                view = LayoutInflater.from(this.gco.getPageContext().getPageActivity()).inflate(r.h.album_image_item_view_camera, viewGroup, false);
+                bVar.gdu = (ViewGroup) view.findViewById(r.g.item_camera);
                 view.setTag(bVar);
             } else if (itemViewType == 2) {
-                view = new View(this.gaf.getActivity());
-                view.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.k.e(this.gaf.getActivity(), t.e.ds220), com.baidu.adp.lib.util.k.e(this.gaf.getActivity(), t.e.ds180)));
+                view = new View(this.gco.getActivity());
+                view.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.k.e(this.gco.getActivity(), r.e.ds220), com.baidu.adp.lib.util.k.e(this.gco.getActivity(), r.e.ds180)));
             }
         } else {
             bVar = (b) view.getTag();
         }
         ImageFileInfo item = getItem(i);
         if (itemViewType == 0) {
-            bVar.gbk.setTag(null);
-            bVar.gbk.setRadius(1);
-            bVar.gbk.setDefaultResource(t.f.img_default_100);
-            bVar.gbk.c(null, 12, false);
+            bVar.gdt.setTag(null);
+            bVar.gdt.setRadius(1);
+            bVar.gdt.setDefaultResource(r.f.img_default_100);
+            bVar.gdt.c(null, 12, false);
             int i2 = i + 1;
-            if (this.gba) {
+            if (this.gdj) {
                 i2 = i;
             }
-            bVar.gbk.setContentDescription(String.valueOf(view.getResources().getString(t.j.log_msg_pic)) + i2 + " " + item.getModifyTime());
-            bVar.gbk.invalidate();
+            bVar.gdt.setContentDescription(String.valueOf(view.getResources().getString(r.j.log_msg_pic)) + i2 + " " + item.getModifyTime());
+            bVar.gdt.invalidate();
             a aVar = new a(this, null);
-            aVar.gbj = true;
+            aVar.gds = true;
             if (item != null) {
                 item.clearPageActions();
                 item.addPageAction(com.baidu.tbadk.img.effect.d.F(this.mWidth, this.mWidth));
-                bVar.gbk.setTag(item.toCachedKey(false));
-                if (this.arb.a(item, false) != null) {
-                    bVar.gbk.invalidate();
+                bVar.gdt.setTag(item.toCachedKey(false));
+                if (this.aqL.a(item, false) != null) {
+                    bVar.gdt.invalidate();
                 } else {
-                    this.arb.a(item, new ac(this, viewGroup, aVar), false, this.fKY);
+                    this.aqL.a(item, new ac(this, viewGroup, aVar), false, this.fNu);
                 }
             } else {
-                aVar.gbj = false;
+                aVar.gds = false;
             }
             int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            if (this.gaZ != null) {
-                if (this.gaZ.isAdded(item)) {
-                    bVar.fxp.setContentDescription(this.gaf.getResources().getString(t.j.check_box_checked));
-                    av.k(bVar.fxp, t.f.chx_camera_pic_s);
+            if (this.gdi != null) {
+                if (this.gdi.isAdded(item)) {
+                    bVar.fzR.setContentDescription(this.gco.getResources().getString(r.j.check_box_checked));
+                    av.k(bVar.fzR, r.f.chx_camera_pic_s);
                 } else {
-                    bVar.fxp.setContentDescription(this.gaf.getResources().getString(t.j.check_box_not_checked));
-                    av.k(bVar.fxp, t.f.chx_camera_pic_n);
+                    bVar.fzR.setContentDescription(this.gco.getResources().getString(r.j.check_box_not_checked));
+                    av.k(bVar.fzR, r.f.chx_camera_pic_n);
                 }
-                a(bVar, aVar, i, item, skinType, this.gaZ);
+                a(bVar, aVar, i, item, skinType, this.gdi);
             }
-            bVar.gbk.setOnClickListener(new ad(this, aVar, i, item));
+            bVar.gdt.setOnClickListener(new ad(this, aVar, i, item));
         } else if (itemViewType == 1) {
-            av.k(bVar.gbl, t.f.icon_camera_pic);
-            bVar.gbl.setOnClickListener(new ae(this, i, item));
+            av.k(bVar.gdu, r.f.icon_camera_pic);
+            bVar.gdu.setOnClickListener(new ae(this, i, item));
         }
         u(view);
         return view;
     }
 
     public boolean isScroll() {
-        return this.fKY;
+        return this.fNu;
     }
 
-    public void lm(boolean z) {
-        this.fKY = z;
+    public void lp(boolean z) {
+        this.fNu = z;
     }
 
     private void u(View view) {
-        this.gaf.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        this.gaf.getLayoutMode().x(view);
+        this.gco.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        this.gco.getLayoutMode().x(view);
     }
 
     public void a(z zVar) {
-        this.gbb = zVar;
+        this.gdk = zVar;
     }
 
     public void a(aa aaVar) {
-        this.gbd = aaVar;
+        this.gdm = aaVar;
     }
 
     public void a(x xVar) {
-        this.gbc = xVar;
+        this.gdl = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        ImageView fxp;
-        RelativeLayout fxq;
-        HeadImageView gbk;
-        ViewGroup gbl;
+        ImageView fzR;
+        RelativeLayout fzS;
+        HeadImageView gdt;
+        ViewGroup gdu;
 
         private b() {
         }
@@ -208,7 +208,7 @@ public class ab extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        boolean gbj;
+        boolean gds;
 
         private a() {
         }
@@ -219,6 +219,6 @@ public class ab extends BaseAdapter {
     }
 
     private void a(b bVar, a aVar, int i, ImageFileInfo imageFileInfo, int i2, o oVar) {
-        bVar.fxq.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
+        bVar.fzS.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
     }
 }

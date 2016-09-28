@@ -1,32 +1,75 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class cb implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext aDS;
-    final /* synthetic */ br bbb;
+public class cb {
+    private static cb bbD;
+    private List<com.baidu.tbadk.core.util.ax> bbC;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(br brVar, TbPageContext tbPageContext) {
-        this.bbb = brVar;
-        this.aDS = tbPageContext;
+    public static cb Oj() {
+        if (bbD == null) {
+            synchronized (cb.class) {
+                if (bbD == null) {
+                    bbD = new cb();
+                }
+            }
+        }
+        return bbD;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        CardPersonDynamicThreadData cardPersonDynamicThreadData;
-        CardPersonDynamicThreadData cardPersonDynamicThreadData2;
-        VideoListActivityConfig videoListActivityConfig = new VideoListActivityConfig(this.aDS.getPageActivity().getApplicationContext());
-        cardPersonDynamicThreadData = this.bbb.baN;
-        String valueOf = String.valueOf(cardPersonDynamicThreadData.forumId);
-        cardPersonDynamicThreadData2 = this.bbb.baN;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoListActivityConfig.createNormalCfg(valueOf, cardPersonDynamicThreadData2.threadId, "")));
+    public void a(com.baidu.tbadk.core.util.ax axVar) {
+        if (axVar != null) {
+            if (this.bbC == null) {
+                this.bbC = new ArrayList();
+            }
+            if (this.bbC != null) {
+                this.bbC.add(axVar);
+            }
+        }
+    }
+
+    public void hQ(String str) {
+        if (str != null) {
+            if (this.bbC == null) {
+                this.bbC = new ArrayList();
+            }
+            if (this.bbC != null) {
+                this.bbC.add(new com.baidu.tbadk.core.util.ax(str));
+            }
+        }
+    }
+
+    public void cr(boolean z) {
+        if (com.baidu.tbadk.core.util.y.s(this.bbC) != 0) {
+            for (com.baidu.tbadk.core.util.ax axVar : this.bbC) {
+                if (axVar != null) {
+                    int i = 0;
+                    if (z) {
+                        i = 1;
+                    }
+                    axVar.s("obj_param2", i);
+                    TiebaStatic.log(axVar);
+                }
+            }
+            this.bbC.clear();
+        }
+    }
+
+    public void cs(boolean z) {
+        if (com.baidu.tbadk.core.util.y.s(this.bbC) != 0) {
+            for (com.baidu.tbadk.core.util.ax axVar : this.bbC) {
+                if (axVar != null) {
+                    int i = 0;
+                    if (z) {
+                        i = 1;
+                    }
+                    axVar.s("obj_type", i);
+                    TiebaStatic.log(axVar);
+                }
+            }
+            this.bbC.clear();
+        }
     }
 }

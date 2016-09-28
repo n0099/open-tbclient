@@ -7,28 +7,28 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class b {
-    private static b axB = new b();
-    private GameInfoData axC;
-    private final com.baidu.adp.framework.listener.e axD = new c(this, 303009);
+    private static b axe = new b();
+    private GameInfoData axf;
+    private final com.baidu.adp.framework.listener.e axg = new c(this, 303009);
     private String mUrl;
 
     private b() {
-        MessageManager.getInstance().registerListener(this.axD);
+        MessageManager.getInstance().registerListener(this.axg);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new d(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static b DX() {
-        return axB;
+        return axe;
     }
 
     public void ao(String str, String str2) {
         this.mUrl = str2;
-        this.axC = null;
+        this.axf = null;
         if (!TextUtils.isEmpty(str)) {
             RequestGameDetailMessage requestGameDetailMessage = new RequestGameDetailMessage();
             requestGameDetailMessage.setGameId(str);
@@ -38,16 +38,16 @@ public class b {
 
     private GameInfoData DY() {
         GameInfoData gameInfoData = new GameInfoData();
-        gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(t.j.default_share_to_game_title));
+        gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(r.j.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
         gameInfoData.setGameId("default");
         gameInfoData.setIconUrl("default");
-        gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(t.j.default_share_to_game_content));
+        gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(r.j.default_share_to_game_content));
         return gameInfoData;
     }
 
     public GameInfoData getGameInfoData() {
-        return this.axC == null ? DY() : this.axC;
+        return this.axf == null ? DY() : this.axf;
     }
 
     public ShareFromGameCenterMsgData DZ() {

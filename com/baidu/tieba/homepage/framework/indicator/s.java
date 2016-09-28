@@ -10,22 +10,22 @@ import tbclient.Personalized.TagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements AdapterView.OnItemClickListener {
-    final /* synthetic */ r cCU;
+    final /* synthetic */ r cDz;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar, Context context) {
-        this.cCU = rVar;
+        this.cDz = rVar;
         this.val$context = context;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         q qVar;
-        qVar = this.cCU.cCT;
+        qVar = this.cDz.cDy;
         TagInfo item = qVar.getItem(i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RECOMMEMD_FRS_SWITCH_TAB_FROM_POP_WINDOW));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RECOMMEMD_FRS_SWITCH_TAB, item));
-        this.cCU.aK(this.val$context);
+        this.cDz.aI(this.val$context);
     }
 }

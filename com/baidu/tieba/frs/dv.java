@@ -2,14 +2,14 @@ package com.baidu.tieba.frs;
 
 import android.content.Context;
 import android.widget.TextView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class dv implements com.baidu.adp.lib.f.c<TextView> {
-    final /* synthetic */ TabMenuPopView bUj;
+    final /* synthetic */ TabMenuPopView bUc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dv(TabMenuPopView tabMenuPopView) {
-        this.bUj = tabMenuPopView;
+        this.bUc = tabMenuPopView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,14 +18,14 @@ class dv implements com.baidu.adp.lib.f.c<TextView> {
     public TextView ez() {
         Context context;
         Context context2;
-        context = this.bUj.mContext;
+        context = this.bUc.mContext;
         TextView textView = new TextView(context);
-        context2 = this.bUj.mContext;
-        textView.setTextSize(0, com.baidu.adp.lib.util.k.e(context2, t.e.fontsize28));
-        com.baidu.tbadk.core.util.av.k(textView, t.f.bg_tab_meun);
-        com.baidu.tbadk.core.util.av.c(textView, t.d.cp_cont_f, 1);
+        context2 = this.bUc.mContext;
+        textView.setTextSize(0, com.baidu.adp.lib.util.k.e(context2, r.e.fontsize28));
+        com.baidu.tbadk.core.util.av.k(textView, r.f.bg_tab_meun);
+        com.baidu.tbadk.core.util.av.c(textView, r.d.cp_cont_f, 1);
         textView.setGravity(17);
-        textView.setOnClickListener(this.bUj);
+        textView.setOnClickListener(this.bUc);
         return textView;
     }
 
@@ -45,8 +45,8 @@ class dv implements com.baidu.adp.lib.f.c<TextView> {
     /* renamed from: e */
     public TextView p(TextView textView) {
         if (textView != null) {
-            com.baidu.tbadk.core.util.av.k(textView, t.f.bg_tab_meun);
-            com.baidu.tbadk.core.util.av.c(textView, t.d.cp_cont_f, 1);
+            com.baidu.tbadk.core.util.av.k(textView, r.f.bg_tab_meun);
+            com.baidu.tbadk.core.util.av.c(textView, r.d.cp_cont_f, 1);
         }
         return textView;
     }

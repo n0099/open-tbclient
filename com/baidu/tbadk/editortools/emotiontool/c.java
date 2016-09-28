@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a avh;
-    private com.baidu.adp.widget.a.a avi;
-    private int avj;
+    private com.baidu.adp.widget.a.a auK;
+    private com.baidu.adp.widget.a.a auL;
+    private int auM;
     private int cols;
 
     public abstract boolean CZ();
 
     public abstract EmotionGroupType Da();
 
-    public abstract String eC(int i);
+    public abstract String eB(int i);
 
-    public abstract boolean fs(String str);
+    public abstract boolean fu(String str);
 
-    public abstract com.baidu.adp.widget.a.a ft(String str);
+    public abstract com.baidu.adp.widget.a.a fv(String str);
 
-    public abstract com.baidu.adp.widget.a.a fu(String str);
+    public abstract com.baidu.adp.widget.a.a fw(String str);
 
     public abstract int getEmotionsCount();
 
@@ -31,25 +31,25 @@ public abstract class c {
     public abstract int getWidth();
 
     public com.baidu.adp.widget.a.a Db() {
-        return this.avh;
+        return this.auK;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.jV();
         }
-        this.avh = aVar;
+        this.auK = aVar;
     }
 
     public com.baidu.adp.widget.a.a Dc() {
-        return this.avi;
+        return this.auL;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.jV();
         }
-        this.avi = aVar;
+        this.auL = aVar;
     }
 
     public int getCols() {
@@ -57,16 +57,16 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eD(int i) {
+    public void eC(int i) {
         this.cols = i;
     }
 
     public int Dd() {
-        return this.avj;
+        return this.auM;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eE(int i) {
-        this.avj = i;
+    public void eD(int i) {
+        this.auM = i;
     }
 }

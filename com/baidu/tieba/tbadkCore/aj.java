@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj extends HttpMessageListener {
-    final /* synthetic */ ai fru;
+    final /* synthetic */ ai fub;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aj(ai aiVar, int i) {
         super(i);
-        this.fru = aiVar;
+        this.fub = aiVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class aj extends HttpMessageListener {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
             int statusCode = httpResponsedMessage.getStatusCode();
             if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.fru.frt;
+                aVar = this.fub.fua;
                 if (aVar != null) {
-                    aVar2 = this.fru.frt;
+                    aVar2 = this.fub.fua;
                     aVar2.v(statusCode, null);
                     return;
                 }
@@ -36,13 +36,13 @@ public class aj extends HttpMessageListener {
             }
             PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
             if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.fru.frt;
-                aVar5.hu(praiseResponseMessage.getErrMsg());
+                aVar5 = this.fub.fua;
+                aVar5.hB(praiseResponseMessage.getErrMsg());
                 return;
             }
-            aVar3 = this.fru.frt;
+            aVar3 = this.fub.fua;
             if (aVar3 != null) {
-                aVar4 = this.fru.frt;
+                aVar4 = this.fub.fua;
                 aVar4.v(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
             }
         }

@@ -4,7 +4,7 @@ import android.webkit.WebView;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public interface f {
-    public static final AtomicReference<a> emA = new AtomicReference<>(null);
+    public static final AtomicReference<a> eoy = new AtomicReference<>(null);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -13,7 +13,7 @@ public interface f {
 
     void L(int i, String str);
 
-    WebView aMy();
+    WebView aNd();
 
-    void aMz();
+    void aNe();
 }

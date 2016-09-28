@@ -1,11 +1,12 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tieba.frs.ba;
 import com.baidu.tieba.tbadkCore.p;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes.dex */
 public interface af {
     void a(com.baidu.adp.widget.ListView.w wVar);
@@ -16,25 +17,27 @@ public interface af {
 
     void a(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, p pVar);
 
-    HashMap<Integer, bg> acX();
+    int acu();
 
-    void acY();
+    HashMap<Integer, bi> adl();
 
-    int acZ();
+    void adm();
 
-    int ach();
+    int adn();
 
-    int ada();
+    int ado();
 
-    int adb();
+    int adp();
 
-    int adc();
+    int adq();
 
-    int add();
+    int adr();
 
     void aw(String str, String str2);
 
-    void dT(boolean z);
+    void dU(boolean z);
+
+    List<com.baidu.adp.widget.ListView.v> getDatas();
 
     boolean k(BdUniqueId bdUniqueId);
 

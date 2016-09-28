@@ -4,11 +4,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class fq implements Runnable {
-    final /* synthetic */ fp euF;
+    final /* synthetic */ fp ewL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fq(fp fpVar) {
-        this.euF = fpVar;
+        this.ewL = fpVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,12 +19,12 @@ class fq implements Runnable {
         PbActivity pbActivity2;
         ex exVar3;
         RelativeLayout relativeLayout;
-        exVar = this.euF.euB;
-        pbActivity = exVar.emy;
-        exVar2 = this.euF.euB;
-        pbActivity2 = exVar2.emy;
-        exVar3 = this.euF.euB;
-        relativeLayout = exVar3.dXV;
+        exVar = this.ewL.ewH;
+        pbActivity = exVar.eow;
+        exVar2 = this.ewL.ewH;
+        pbActivity2 = exVar2.eow;
+        exVar3 = this.ewL.ewH;
+        relativeLayout = exVar3.dZP;
         pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ HorizontalTabView cdC;
+    final /* synthetic */ HorizontalTabView cdA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(HorizontalTabView horizontalTabView) {
-        this.cdC = horizontalTabView;
+        this.cdA = horizontalTabView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.cdC.scrollBy(this.cdC.getContext().getResources().getDimensionPixelSize(t.e.ds160), 0);
+        this.cdA.scrollBy(this.cdA.getContext().getResources().getDimensionPixelSize(r.e.ds160), 0);
     }
 }

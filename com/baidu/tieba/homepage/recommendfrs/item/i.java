@@ -6,25 +6,25 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.az;
 /* loaded from: classes.dex */
 class i implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tieba.homepage.recommendfrs.data.e cIj;
-    final /* synthetic */ g cIp;
+    private final /* synthetic */ com.baidu.tieba.homepage.recommendfrs.data.e cJb;
+    final /* synthetic */ g cJg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar, com.baidu.tieba.homepage.recommendfrs.data.e eVar) {
-        this.cIp = gVar;
-        this.cIj = eVar;
+        this.cJg = gVar;
+        this.cJb = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String forumName = this.cIj.getForumName();
-        if (ba.aN(forumName)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.cIp.getActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-            TiebaStatic.log(new ay("c10509").ab("obj_name", this.cIj.PE).ab("obj_source", this.cIj.cHV).ab("abtest", this.cIj.abtest));
+        String forumName = this.cJb.getForumName();
+        if (az.aN(forumName)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.cJg.getActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+            TiebaStatic.log(new ax("c10509").ab("obj_name", this.cJb.PC).ab("obj_source", this.cJb.cIN).ab("abtest", this.cJb.abtest));
         }
     }
 }

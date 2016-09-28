@@ -14,11 +14,11 @@ import tbclient.DealWindow;
 /* loaded from: classes.dex */
 public class e {
     public TbPageContext GM;
-    public ArrayList<v> WC;
-    public List<com.baidu.adp.widget.ListView.a> bOr;
-    public boolean cuz;
-    public CustomResponsedMessage<?> eCk;
-    public v eCl;
+    public ArrayList<v> WM;
+    public List<com.baidu.adp.widget.ListView.a> bOo;
+    public boolean cuW;
+    public CustomResponsedMessage<?> eEn;
+    public v eEo;
     public int id;
     public UserData mUserData;
     public DealWindow window;
@@ -27,11 +27,11 @@ public class e {
         this.id = i;
     }
 
-    public void aLC() {
+    public void aMe() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.ECOMM_PB_VIEW, this));
     }
 
-    public boolean aSk() {
-        return (this.window == null || !EcommSwitchStatic.GL() || y.t(this.window.list)) ? false : true;
+    public boolean aSI() {
+        return (this.window == null || !EcommSwitchStatic.GK() || y.t(this.window.list)) ? false : true;
     }
 }

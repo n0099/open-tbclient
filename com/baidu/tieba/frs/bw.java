@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bw implements c.b {
-    final /* synthetic */ bm bSc;
+    final /* synthetic */ bm bRV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(bm bmVar) {
-        this.bSc = bmVar;
+        this.bRV = bmVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -18,10 +18,10 @@ public class bw implements c.b {
         FrsActivity frsActivity2;
         cVar.dismiss();
         if (i == 0) {
-            frsActivity2 = this.bSc.bRp;
-            frsActivity2.abc();
+            frsActivity2 = this.bRV.bRi;
+            frsActivity2.abo();
         } else if (i == 1) {
-            frsActivity = this.bSc.bRp;
+            frsActivity = this.bRV.bRi;
             com.baidu.tbadk.core.util.au.p(frsActivity.getPageContext().getPageActivity());
         }
     }

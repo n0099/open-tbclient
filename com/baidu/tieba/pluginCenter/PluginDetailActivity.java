@@ -15,17 +15,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
-    private TextView bmr;
-    private boolean cMt;
-    private TextView cTS;
-    private HeadImageView eWM;
-    private TextView eWN;
-    private TextView eWO;
-    private TextView eWP;
-    private PluginNetConfigInfos.PluginConfig eWQ;
+    private TextView bmE;
+    private boolean cNk;
+    private TextView cVm;
+    private HeadImageView eZt;
+    private TextView eZu;
+    private TextView eZv;
+    private TextView eZw;
+    private PluginNetConfigInfos.PluginConfig eZx;
     private NavigationBar mNavigationBar;
     private String mPluginName;
     private int mStatus;
@@ -36,25 +36,25 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(t.h.plugin_detail_activity);
-        this.mNavigationBar = (NavigationBar) findViewById(t.g.navigation_bar);
-        this.mNavigationBar.setTitleText(t.j.plugin_center);
+        setContentView(r.h.plugin_detail_activity);
+        this.mNavigationBar = (NavigationBar) findViewById(r.g.navigation_bar);
+        this.mNavigationBar.setTitleText(r.j.plugin_center);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
-        this.eWM = (HeadImageView) findViewById(t.g.icon);
-        this.cTS = (TextView) findViewById(t.g.name);
-        this.bmr = (TextView) findViewById(t.g.status);
-        this.eWN = (TextView) findViewById(t.g.changelog);
-        this.eWO = (TextView) findViewById(t.g.size);
-        this.eWP = (TextView) findViewById(t.g.enable);
-        this.eWP.setOnClickListener(this);
+        this.eZt = (HeadImageView) findViewById(r.g.icon);
+        this.cVm = (TextView) findViewById(r.g.name);
+        this.bmE = (TextView) findViewById(r.g.status);
+        this.eZu = (TextView) findViewById(r.g.changelog);
+        this.eZv = (TextView) findViewById(r.g.size);
+        this.eZw = (TextView) findViewById(r.g.enable);
+        this.eZw.setOnClickListener(this);
         this.mPluginName = getIntent().getStringExtra("name");
         if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.iY().iZ() != null) {
-            this.eWQ = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.iY().iZ().getPluginConfig(this.mPluginName);
+            this.eZx = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.iY().iZ().getPluginConfig(this.mPluginName);
         }
         if (PluginPackageManager.iB().bt(this.mPluginName)) {
             PluginPackageManager.iB().a(this.xI);
-            av.c(this.eWP, t.d.cp_cont_d, 1);
-            this.eWP.setEnabled(false);
+            av.c(this.eZw, r.d.cp_cont_d, 1);
+            this.eZw.setEnabled(false);
         }
         registerListener(this.FQ);
     }
@@ -63,60 +63,60 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.eWQ != null) {
-            this.eWM.c(this.eWQ.icon, 10, false);
-            if (this.eWQ.display_name == null) {
-                this.eWQ.display_name = "";
+        if (this.eZx != null) {
+            this.eZt.c(this.eZx.icon, 10, false);
+            if (this.eZx.display_name == null) {
+                this.eZx.display_name = "";
             }
-            this.cTS.setText(this.eWQ.display_name);
-            aZZ();
-            if (this.eWQ.newest != null) {
-                if (TextUtils.isEmpty(this.eWQ.newest.change_log)) {
-                    this.eWN.setText("");
+            this.cVm.setText(this.eZx.display_name);
+            baG();
+            if (this.eZx.newest != null) {
+                if (TextUtils.isEmpty(this.eZx.newest.change_log)) {
+                    this.eZu.setText("");
                 } else {
-                    this.eWN.setText(this.eWQ.newest.change_log);
+                    this.eZu.setText(this.eZx.newest.change_log);
                 }
-                if (this.eWQ.newest.size <= 0) {
-                    this.eWO.setText("");
+                if (this.eZx.newest.size <= 0) {
+                    this.eZv.setText("");
                 } else {
-                    this.eWO.setText(String.valueOf(getPageContext().getString(t.j.plugin_size)) + String.valueOf(this.eWQ.newest.size / 1024) + "KB");
+                    this.eZv.setText(String.valueOf(getPageContext().getString(r.j.plugin_size)) + String.valueOf(this.eZx.newest.size / 1024) + "KB");
                 }
             }
-            this.eWP.setOnClickListener(this);
+            this.eZw.setOnClickListener(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZZ() {
+    public void baG() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_ENABLE_STATE_CHANGED));
         if (PluginPackageManager.iB().br(this.mPluginName) && PluginPackageManager.iB().bp(this.mPluginName)) {
-            this.bmr.setText(t.j.plugin_enabled);
-            this.eWP.setText(t.j.plugin_update);
-            this.eWP.setEnabled(true);
-            av.c(this.eWP, t.d.cp_cont_g, 1);
+            this.bmE.setText(r.j.plugin_enabled);
+            this.eZw.setText(r.j.plugin_update);
+            this.eZw.setEnabled(true);
+            av.c(this.eZw, r.d.cp_cont_g, 1);
             this.mStatus = 1;
         } else if (PluginPackageManager.iB().bp(this.mPluginName)) {
-            this.eWP.setEnabled(true);
-            av.c(this.eWP, t.d.cp_cont_g, 1);
+            this.eZw.setEnabled(true);
+            av.c(this.eZw, r.d.cp_cont_g, 1);
             if (PluginPackageManager.iB().bq(this.mPluginName)) {
-                this.bmr.setText(t.j.plugin_unenabled);
-                this.eWP.setText(t.j.plugin_enable);
+                this.bmE.setText(r.j.plugin_unenabled);
+                this.eZw.setText(r.j.plugin_enable);
                 this.mStatus = 2;
             } else {
-                this.bmr.setText(t.j.plugin_enabled);
-                this.eWP.setText(t.j.plugin_unenable);
+                this.bmE.setText(r.j.plugin_enabled);
+                this.eZw.setText(r.j.plugin_unenable);
                 this.mStatus = 3;
             }
         } else {
-            this.bmr.setText(t.j.plugin_disabled);
-            this.eWP.setText(t.j.plugin_enable);
-            this.eWP.setEnabled(true);
-            av.c(this.eWP, t.d.cp_cont_g, 1);
+            this.bmE.setText(r.j.plugin_disabled);
+            this.eZw.setText(r.j.plugin_enable);
+            this.eZw.setEnabled(true);
+            av.c(this.eZw, r.d.cp_cont_g, 1);
             this.mStatus = 0;
         }
         if (PluginPackageManager.iB().bt(this.mPluginName)) {
-            av.c(this.eWP, t.d.cp_cont_d, 1);
-            this.eWP.setEnabled(false);
+            av.c(this.eZw, r.d.cp_cont_d, 1);
+            this.eZw.setEnabled(false);
         }
     }
 
@@ -131,50 +131,50 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.eWP) {
+        if (view == this.eZw) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                baa();
+                baH();
             } else if (this.mStatus == 3) {
                 PluginPackageManager.iB().bn(this.mPluginName);
-                aZZ();
+                baG();
             } else if (this.mStatus == 2) {
                 PluginPackageManager.iB().bo(this.mPluginName);
-                aZZ();
+                baG();
             }
         }
     }
 
-    private void baa() {
+    private void baH() {
         if (!com.baidu.adp.lib.util.i.gm()) {
-            showToast(t.j.neterror);
+            showToast(r.j.neterror);
         } else if (com.baidu.adp.lib.util.i.go()) {
-            bab();
+            baI();
         } else {
-            av.c(this.eWP, t.d.cp_cont_d, 1);
-            this.eWP.setEnabled(false);
-            PluginPackageManager.iB().a(this.eWQ, this.xI);
+            av.c(this.eZw, r.d.cp_cont_d, 1);
+            this.eZw.setEnabled(false);
+            PluginPackageManager.iB().a(this.eZx, this.xI);
         }
     }
 
-    private void bab() {
+    private void baI() {
         String string;
         String string2;
-        if (this.eWQ != null && this.eWQ.newest != null) {
+        if (this.eZx != null && this.eZx.newest != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
             boolean z = this.mStatus == 1;
-            float f = this.eWQ.newest.size / 1048576.0f;
+            float f = this.eZx.newest.size / 1048576.0f;
             if (z) {
-                string = getResources().getString(t.j.plugin_update_size_prompt, Float.valueOf(f));
-                string2 = getResources().getString(t.j.download_update);
+                string = getResources().getString(r.j.plugin_update_size_prompt, Float.valueOf(f));
+                string2 = getResources().getString(r.j.download_update);
             } else {
-                string = getResources().getString(t.j.plugin_download_size_prompt, Float.valueOf(f));
-                string2 = getResources().getString(t.j.download);
+                string = getResources().getString(r.j.plugin_download_size_prompt, Float.valueOf(f));
+                string2 = getResources().getString(r.j.download);
             }
-            aVar.cB(string);
+            aVar.cD(string);
             aVar.a(string2, new h(this));
-            aVar.b(t.j.cancel, new i(this));
+            aVar.b(r.j.cancel, new i(this));
             aVar.b(getPageContext());
-            aVar.sX();
+            aVar.tm();
         }
     }
 

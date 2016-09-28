@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.coreExtra.data.WhiteListData;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -24,11 +24,11 @@ import java.net.URLEncoder;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static boolean MA = true;
+    public static boolean Mz = true;
 
     static {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new i(0));
-        bi.vx().a(new j());
+        bh.vL().a(new j());
         com.baidu.adp.lib.c.e.dN().a(new com.baidu.adp.lib.c.c("switch_mbaidu_startup", 1, null));
         nQ();
         nT();
@@ -36,7 +36,7 @@ public class Static {
     }
 
     private static void nQ() {
-        bi.vx().a(new k());
+        bh.vL().a(new k());
     }
 
     private static String bR(String str) {
@@ -104,7 +104,7 @@ public class Static {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String bR = bR(str);
-        if (!bU(bR) && nR() && bW("com.baidu.searchbox") && bV(bR) && MA) {
+        if (!bU(bR) && nR() && bW("com.baidu.searchbox") && bV(bR) && Mz) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -183,11 +183,11 @@ public class Static {
     }
 
     private static void nT() {
-        bi.vx().a(new o());
+        bh.vL().a(new o());
     }
 
     private static void nU() {
-        bi.vx().a(new p());
+        bh.vL().a(new p());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

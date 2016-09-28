@@ -7,13 +7,13 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends t<Boolean> {
-    final /* synthetic */ PersonalMsglistModel drm;
-    private final /* synthetic */ String dro;
+    final /* synthetic */ PersonalMsglistModel dsJ;
+    private final /* synthetic */ String dsL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PersonalMsglistModel personalMsglistModel, String str) {
-        this.drm = personalMsglistModel;
-        this.dro = str;
+        this.dsJ = personalMsglistModel;
+        this.dsL = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,14 +21,14 @@ public class h extends t<Boolean> {
     @Override // com.baidu.tbadk.util.t
     public Boolean doInBackground() {
         boolean z;
-        LinkedHashMap<String, String> a = l.asu().a(this.drm.getUser().getUserId(), 26, "", 0);
+        LinkedHashMap<String, String> a = l.asT().a(this.dsJ.getUser().getUserId(), 26, "", 0);
         if (a == null) {
             z = true;
         } else {
             z = true;
             for (String str : a.keySet()) {
                 DealInfoIMData parseData = DealInfoIMData.parseData(a.get(str));
-                if (parseData != null && parseData.orderId.equals(this.dro)) {
+                if (parseData != null && parseData.orderId.equals(this.dsL)) {
                     z = false;
                 }
             }

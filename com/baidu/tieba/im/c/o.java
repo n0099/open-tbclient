@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.c {
-    final /* synthetic */ a dkA;
+    final /* synthetic */ a dlX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.dkA = aVar;
+        this.dlX = aVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -32,7 +32,7 @@ public class o implements a.c {
         int i2 = 0;
         synchronized (this) {
             synchronized (a.class) {
-                hashMap = this.dkA.dkv;
+                hashMap = this.dlX.dlS;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
             if (aVar != null && (chatMessage = (ChatMessage) aVar.Em()) != null) {
@@ -60,17 +60,17 @@ public class o implements a.c {
                         str2 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.dkA.bg(str, str2);
+                        this.dlX.bi(str, str2);
                     } else {
                         i = 0;
                         str2 = null;
                     }
                     chatMessage.setContent(a.c(str3, str2, i2, i));
-                    a.awe().o(chatMessage);
-                    aeVar = this.dkA.mSendCallback;
+                    a.awD().o(chatMessage);
+                    aeVar = this.dlX.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.dkA.mSendCallback;
-                        aeVar2.lR(1);
+                        aeVar2 = this.dlX.mSendCallback;
+                        aeVar2.lZ(1);
                     }
                 }
             }

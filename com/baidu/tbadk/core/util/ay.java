@@ -1,50 +1,110 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
 /* loaded from: classes.dex */
 public class ay {
-    private String key;
-    private List<Object> params = new ArrayList();
+    private static ay abI;
 
-    public List<Object> getParams() {
-        return this.params;
+    public static synchronized ay vs() {
+        ay ayVar;
+        synchronized (ay.class) {
+            if (abI == null) {
+                abI = new ay();
+            }
+            ayVar = abI;
+        }
+        return ayVar;
     }
 
-    public String getKey() {
-        return this.key;
+    public String dz(String str) {
+        long j = 0;
+        for (byte b : str.getBytes()) {
+            j += b;
+        }
+        return "image/" + (j % 20);
     }
 
-    public ay() {
+    public Bitmap dA(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return m.X(dz(str), str);
     }
 
-    public ay(String str) {
-        this.key = str;
+    public boolean dB(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return m.W(dz(str), str);
     }
 
-    public ay ab(String str, String str2) {
-        this.params.add(str);
-        this.params.add(str2);
-        return this;
+    public int dC(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return -1;
+        }
+        return (int) m.V(dz(str), str);
     }
 
-    public ay s(String str, int i) {
-        this.params.add(str);
-        this.params.add(Integer.valueOf(i));
-        return this;
+    public boolean ac(String str, String str2) {
+        String str3 = m.rB + "/" + TbConfig.getTempDirName() + "/";
+        if (!m.cT(str3)) {
+            m.dg(str3);
+        }
+        String str4 = String.valueOf(str3) + dz(str2);
+        if (!m.cT(str4)) {
+            m.dg(str4);
+        }
+        String str5 = String.valueOf(str4) + "/" + str2;
+        if (str.equals(str5)) {
+            return false;
+        }
+        return m.b(str, str5, true);
     }
 
-    public ay g(String str, long j) {
-        this.params.add(str);
-        this.params.add(Long.valueOf(j));
-        return this;
+    public void h(String str, byte[] bArr) {
+        if (!TextUtils.isEmpty(str)) {
+            m.d(dz(str), str, bArr);
+        }
     }
 
-    public void dw(String str) {
-        int indexOf;
-        if (!ba.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
-            this.params.remove(indexOf);
-            this.params.remove(indexOf);
+    private void s(File file) {
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    s(file2);
+                    file2.delete();
+                } else {
+                    file2.delete();
+                }
+            }
+        }
+    }
+
+    public void vt() {
+        s(new File(m.rB + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        s(new File(m.rB + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    }
+
+    public void vu() {
+        t(new File(m.rB + "/" + TbConfig.getTempDirName() + "/" + m.cA(3)));
+    }
+
+    private void t(File file) {
+        long currentTimeMillis = System.currentTimeMillis();
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    s(file2);
+                    file2.delete();
+                } else if (currentTimeMillis - file2.lastModified() >= -1702967296) {
+                    file2.delete();
+                }
+            }
         }
     }
 }

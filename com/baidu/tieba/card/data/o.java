@@ -1,62 +1,62 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.util.ax;
 /* loaded from: classes.dex */
 public class o extends c {
-    public static final BdUniqueId bbZ = BdUniqueId.gen();
-    public static final BdUniqueId bca = BdUniqueId.gen();
-    public static String bcb = "";
-    public static String bcc = "";
-    public static String bcd = "";
-    public static String bce = "";
-    public static String bcf = "";
-    public bg bbC;
-    public boolean bbU = false;
-    public boolean bcg = true;
+    public static final BdUniqueId bcr = BdUniqueId.gen();
+    public static final BdUniqueId bcs = BdUniqueId.gen();
+    public static String bct = "";
+    public static String bcu = "";
+    public static String bcv = "";
+    public static String bcw = "";
+    public static String bcx = "";
+    public bi bbU;
+    public boolean bcm = false;
+    public boolean bcy = true;
 
-    public o(bg bgVar) {
-        this.bbC = bgVar;
+    public o(bi biVar) {
+        this.bbU = biVar;
     }
 
-    public static boolean c(bg bgVar) {
-        return (bgVar == null || bgVar.rR() == null) ? false : true;
+    public static boolean d(bi biVar) {
+        return (biVar == null || biVar.sd() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.bbC == null) {
-            return bbZ;
+        if (this.bbU == null) {
+            return bcr;
         }
-        if (this.bbC.rD() || this.bbC.rE()) {
-            return bca;
+        if (this.bbU.rP() || this.bbU.rQ()) {
+            return bcs;
         }
-        return bbZ;
+        return bcr;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bg Kw() {
-        return this.bbC;
+    public bi Jv() {
+        return this.bbU;
     }
 
-    public ay NY() {
-        return hM(bce);
+    public ax OA() {
+        return hT(bcw);
     }
 
-    public ay NZ() {
-        return hM(bcf);
+    public ax OB() {
+        return hT(bcx);
     }
 
-    public ay Oa() {
-        return hM(bcc);
+    public ax OC() {
+        return hT(bcu);
     }
 
-    public ay Ob() {
-        return hM(bcb);
+    public ax OD() {
+        return hT(bct);
     }
 
-    public ay Oj() {
-        return w(bcd, true);
+    public ax OL() {
+        return x(bcv, true);
     }
 }

@@ -6,8 +6,8 @@ import com.baidu.tieba.passaccount.app.SapiFastRegActivity;
 /* loaded from: classes.dex */
 public class SapiFastRegActivityStatic {
     static {
-        com.baidu.tbadk.coreExtra.a.b.checkPassV6Switch();
-        if (!com.baidu.tbadk.coreExtra.a.b.xp()) {
+        com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
+        if (!com.baidu.tbadk.coreExtra.a.a.xr()) {
             TbadkCoreApplication.m9getInst().RegisterOrUpdateIntent(RegisterActivityConfig.class, SapiFastRegActivity.class);
         }
     }

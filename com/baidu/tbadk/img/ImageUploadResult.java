@@ -2,7 +2,6 @@ package com.baidu.tbadk.img;
 
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -89,8 +88,8 @@ public class ImageUploadResult extends i implements Serializable {
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(GraffitiVcodeActivityConfig.WIDTH, this.width);
-                jSONObject.put(GraffitiVcodeActivityConfig.HEIGHT, this.height);
+                jSONObject.put("width", this.width);
+                jSONObject.put("height", this.height);
                 jSONObject.put("picUrl", this.picUrl);
             } catch (JSONException e) {
                 BdLog.e(e.getMessage());
@@ -100,8 +99,8 @@ public class ImageUploadResult extends i implements Serializable {
 
         public void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.width = jSONObject.optInt(GraffitiVcodeActivityConfig.WIDTH);
-                this.height = jSONObject.optInt(GraffitiVcodeActivityConfig.HEIGHT);
+                this.width = jSONObject.optInt("width");
+                this.height = jSONObject.optInt("height");
                 this.picUrl = jSONObject.optString("picUrl");
             }
         }

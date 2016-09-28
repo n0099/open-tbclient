@@ -14,15 +14,15 @@ public interface d {
 
     void a(dg dgVar);
 
-    TabData adh();
+    void ad(View view);
 
-    View adi();
+    TabData adv();
 
-    void ae(View view);
+    View adw();
 
     void b(BdListView bdListView, int i);
 
-    void dV(boolean z);
+    void dW(boolean z);
 
     void onChangeSkinType(int i);
 

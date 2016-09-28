@@ -6,11 +6,11 @@ import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ k dsr;
+    final /* synthetic */ k dtO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(k kVar) {
-        this.dsr = kVar;
+        this.dtO = kVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -23,23 +23,23 @@ public class s implements com.baidu.tieba.im.chat.notify.a {
         boolean z;
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterModel imMessageCenterModel4;
-        bdListView = this.dsr.dny;
+        bdListView = this.dtO.doW;
         if (bdListView != null) {
-            imMessageCenterModel = this.dsr.dnv;
+            imMessageCenterModel = this.dtO.doT;
             if (imMessageCenterModel != null) {
-                bdListView2 = this.dsr.dny;
+                bdListView2 = this.dtO.doW;
                 bdListView2.l(2000L);
-                imMessageCenterModel2 = this.dsr.dnv;
+                imMessageCenterModel2 = this.dtO.doT;
                 if (imMessageCenterModel2.getData() != null) {
-                    imMessageCenterListAdapter = this.dsr.dnz;
-                    imMessageCenterModel4 = this.dsr.dnv;
+                    imMessageCenterListAdapter = this.dtO.doX;
+                    imMessageCenterModel4 = this.dtO.doT;
                     imMessageCenterListAdapter.setData(imMessageCenterModel4.getData());
                 }
-                imMessageCenterModel3 = this.dsr.dnv;
+                imMessageCenterModel3 = this.dtO.doT;
                 if (com.baidu.tbadk.core.util.y.t(imMessageCenterModel3.getData())) {
-                    k kVar = this.dsr;
-                    z = this.dsr.dsp;
-                    kVar.r(z, true);
+                    k kVar = this.dtO;
+                    z = this.dtO.dtM;
+                    kVar.t(z, true);
                 }
             }
         }

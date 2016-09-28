@@ -1,32 +1,19 @@
 package com.baidu.tieba.passaccount.app;
 
-import com.baidu.sapi2.shell.listener.AuthorizationListener;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class x extends AuthorizationListener {
-    final /* synthetic */ SapiFastRegActivity egZ;
+class x implements Runnable {
+    private final /* synthetic */ AccountData eiQ;
+    final /* synthetic */ v eiU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(SapiFastRegActivity sapiFastRegActivity) {
-        this.egZ = sapiFastRegActivity;
+    public x(v vVar, AccountData accountData) {
+        this.eiU = vVar;
+        this.eiQ = accountData;
     }
 
-    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-    public void onSuccess() {
-        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_success", 0, "", new Object[0]);
-        this.egZ.aKT();
-    }
-
-    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-    public void onFailed(int i, String str) {
-        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_fail", i, str, new Object[0]);
-        if (str != null && !"".equals(str)) {
-            this.egZ.showToast(str);
-        } else {
-            this.egZ.showToast(t.j.data_load_error);
-        }
-        this.egZ.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.a.b.b(this.eiQ);
     }
 }

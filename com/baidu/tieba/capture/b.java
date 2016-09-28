@@ -12,18 +12,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class b extends BdAsyncTask<Void, Void, Void> {
-    private final PushNotifyMessage aXD;
-    private a aXE = null;
+    private final PushNotifyMessage aYh;
+    private a aYi = null;
 
     public b(PushNotifyMessage pushNotifyMessage) {
-        this.aXD = pushNotifyMessage;
+        this.aYh = pushNotifyMessage;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         try {
-            this.aXE = Nq();
+            this.aYi = NR();
         } catch (Throwable th) {
         }
         super.onPreExecute();
@@ -34,7 +34,7 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
         try {
-            a(this.aXE);
+            a(this.aYi);
             return null;
         } catch (Throwable th) {
             return null;
@@ -49,7 +49,7 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private a Nq() {
+    private a NR() {
         String str;
         String str2;
         String str3;
@@ -58,9 +58,9 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
         boolean z2 = true;
         String str4 = "";
         String str5 = "";
-        if (this.aXD != null) {
+        if (this.aYh != null) {
             try {
-                jSONObject = new JSONObject(this.aXD.getContent());
+                jSONObject = new JSONObject(this.aYh.getContent());
                 str4 = jSONObject.optString("server_host", "");
                 str5 = jSONObject.optString("chat_host", "");
                 z = TextUtils.isEmpty(str4) && TextUtils.isEmpty(str5);
@@ -98,12 +98,12 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
                 return new a(r1, str4, str3, null);
             }
         } else {
-            long j = com.baidu.tbadk.core.sharedPref.b.tS().getLong("tbpp_key_capture_initial_time", 1L);
+            long j = com.baidu.tbadk.core.sharedPref.b.uh().getLong("tbpp_key_capture_initial_time", 1L);
             if (j < 1) {
                 return null;
             }
-            str4 = com.baidu.tbadk.core.sharedPref.b.tS().getString("tbpp_key_capture_server_host", "");
-            str3 = com.baidu.tbadk.core.sharedPref.b.tS().getString("tbpp_key_capture_chat_host", "");
+            str4 = com.baidu.tbadk.core.sharedPref.b.uh().getString("tbpp_key_capture_server_host", "");
+            str3 = com.baidu.tbadk.core.sharedPref.b.uh().getString("tbpp_key_capture_chat_host", "");
             if (System.currentTimeMillis() - j <= TimeUnit.HOURS.toMillis(3L)) {
                 z2 = false;
             }
@@ -129,22 +129,22 @@ public final class b extends BdAsyncTask<Void, Void, Void> {
         if (aVar == null) {
             return;
         }
-        com.baidu.tbadk.core.sharedPref.b.tS().putLong("tbpp_key_capture_initial_time", aVar.time);
-        com.baidu.tbadk.core.sharedPref.b.tS().putString("tbpp_key_capture_server_host", aVar.aXF);
-        com.baidu.tbadk.core.sharedPref.b.tS().putString("tbpp_key_capture_chat_host", aVar.aXG);
+        com.baidu.tbadk.core.sharedPref.b.uh().putLong("tbpp_key_capture_initial_time", aVar.time);
+        com.baidu.tbadk.core.sharedPref.b.uh().putString("tbpp_key_capture_server_host", aVar.aYj);
+        com.baidu.tbadk.core.sharedPref.b.uh().putString("tbpp_key_capture_chat_host", aVar.aYk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private final String aXF;
-        private final String aXG;
+        private final String aYj;
+        private final String aYk;
         private final long time;
 
         private a(long j, String str, String str2) {
             this.time = j;
-            this.aXF = str;
-            this.aXG = str2;
+            this.aYj = str;
+            this.aYk = str2;
         }
 
         /* synthetic */ a(long j, String str, String str2, a aVar) {

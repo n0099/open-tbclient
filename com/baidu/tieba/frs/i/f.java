@@ -5,11 +5,11 @@ import com.baidu.tieba.frs.entelechy.view.at;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ d ceQ;
+    final /* synthetic */ d ceP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.ceQ = dVar;
+        this.ceP = dVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -24,9 +24,9 @@ public class f implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         at atVar;
         at atVar2;
-        atVar = this.ceQ.ceK;
+        atVar = this.ceP.ceJ;
         atVar.setVisibility(8);
-        atVar2 = this.ceQ.ceK;
+        atVar2 = this.ceP.ceJ;
         atVar2.clearAnimation();
     }
 }

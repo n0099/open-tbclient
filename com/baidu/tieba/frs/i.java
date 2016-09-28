@@ -4,17 +4,17 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class i implements View.OnTouchListener {
-    final /* synthetic */ FrsActivity bQp;
+    final /* synthetic */ FrsActivity bQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsActivity frsActivity) {
-        this.bQp = frsActivity;
+        this.bQi = frsActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tieba.e.c cVar;
-        cVar = this.bQp.bPI;
+        com.baidu.tieba.d.c cVar;
+        cVar = this.bQi.bPA;
         cVar.onTouchEvent(motionEvent);
         return false;
     }

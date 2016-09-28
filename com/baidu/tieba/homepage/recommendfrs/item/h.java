@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class h implements View.OnClickListener {
-    final /* synthetic */ g cIp;
+    final /* synthetic */ g cJg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.cIp = gVar;
+        this.cJg = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,13 +17,13 @@ class h implements View.OnClickListener {
         ViewEventCenter lF;
         com.baidu.tieba.homepage.recommendfrs.data.e eVar2;
         ViewEventCenter lF2;
-        eVar = this.cIp.cIc;
+        eVar = this.cJg.cIU;
         if (eVar != null) {
-            lF = this.cIp.lF();
+            lF = this.cJg.lF();
             if (lF != null) {
-                eVar2 = this.cIp.cIc;
+                eVar2 = this.cJg.cIU;
                 com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(1, eVar2, null, null);
-                lF2 = this.cIp.lF();
+                lF2 = this.cJg.lF();
                 lF2.dispatchMvcEvent(bVar);
             }
         }

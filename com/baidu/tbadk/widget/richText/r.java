@@ -5,28 +5,28 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
 class r implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aKi;
+    final /* synthetic */ TbRichTextView aJH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(TbRichTextView tbRichTextView) {
-        this.aKi = tbRichTextView;
+        this.aJH = tbRichTextView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TbRichTextView.e eVar;
+        TbRichTextView.f fVar;
         String str;
-        TbRichTextView.e eVar2;
-        eVar = this.aKi.aJJ;
-        if (eVar != null && (view instanceof TbImageView)) {
+        TbRichTextView.f fVar2;
+        fVar = this.aJH.aJi;
+        if (fVar != null && (view instanceof TbImageView)) {
             Object tag = view.getTag();
-            if (tag == null || !(tag instanceof TbRichTextView.b)) {
+            if (tag == null || !(tag instanceof TbRichTextView.c)) {
                 str = null;
             } else {
-                str = ((TbRichTextView.b) tag).url;
+                str = ((TbRichTextView.c) tag).url;
             }
-            eVar2 = this.aKi.aJJ;
-            eVar2.b(view, str);
+            fVar2 = this.aJH.aJi;
+            fVar2.b(view, str);
         }
     }
 }

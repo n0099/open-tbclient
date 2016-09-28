@@ -4,27 +4,27 @@ import com.baidu.tieba.b.d.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ b aXj;
-    private final /* synthetic */ f aXk;
-    private final /* synthetic */ int aXl;
+    final /* synthetic */ b aXN;
+    private final /* synthetic */ f aXO;
+    private final /* synthetic */ int aXP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar, int i, f fVar) {
-        this.aXj = bVar;
-        this.aXl = i;
-        this.aXk = fVar;
+        this.aXN = bVar;
+        this.aXP = i;
+        this.aXO = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         b.a aVar;
         b.a aVar2;
-        aVar = this.aXj.aXi;
-        if (aVar != null && this.aXl != 0) {
-            aVar2 = this.aXj.aXi;
-            aVar2.l(this.aXl, false);
+        aVar = this.aXN.aXM;
+        if (aVar != null && this.aXP != 0) {
+            aVar2 = this.aXN.aXM;
+            aVar2.l(this.aXP, false);
         }
-        this.aXj.a(this.aXk, true);
-        this.aXk.Nc();
+        this.aXN.a(this.aXO, true);
+        this.aXO.ND();
     }
 }

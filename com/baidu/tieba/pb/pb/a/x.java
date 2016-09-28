@@ -1,39 +1,42 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends CustomMessageListener {
-    final /* synthetic */ e elb;
+public class x implements View.OnClickListener {
+    final /* synthetic */ w enB;
+    private final /* synthetic */ String enc;
+    private final /* synthetic */ String ene;
+    private final /* synthetic */ String enf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(e eVar, int i) {
-        super(i);
-        this.elb = eVar;
+    public x(w wVar, String str, String str2, String str3) {
+        this.enB = wVar;
+        this.enc = str;
+        this.ene = str2;
+        this.enf = str3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        y yVar;
-        y yVar2;
-        y yVar3;
-        y yVar4;
-        yVar = this.elb.ekR;
-        if (yVar != null) {
-            yVar2 = this.elb.ekR;
-            if (yVar2.aPh != null) {
-                int[] iArr = new int[2];
-                yVar3 = this.elb.ekR;
-                yVar3.aPh.getLocationInWindow(iArr);
-                int i = iArr[1];
-                yVar4 = this.elb.ekR;
-                if (i + yVar4.aPh.getHeight() < 0) {
-                    this.elb.aoo();
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        PbActivity pbActivity;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.enc) && !StringUtils.isNull(this.ene)) {
+            if (!com.baidu.adp.lib.util.i.gm()) {
+                pbActivity = this.enB.eow;
+                pbActivity.showToast(r.j.neterror);
+                return;
             }
+            context = this.enB.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.enc) + "," + this.ene, this.enf, this.enf, context.getString(r.j.app_info_for_map));
+            context2 = this.enB.mContext;
+            com.baidu.tbadk.browser.f.u(context2, format);
         }
     }
 }

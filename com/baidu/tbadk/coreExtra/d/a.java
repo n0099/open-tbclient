@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0037a alD;
+    private C0037a alj;
     private g mLoadDataCallBack;
 
     public a(g gVar) {
@@ -22,24 +22,29 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2) {
-        a(z, str, str2, false, "0", null);
+        a(z, str, str2, false, "0", null, null);
     }
 
     public void a(boolean z, String str, String str2, boolean z2, BdUniqueId bdUniqueId) {
-        a(z, str, str2, z2, "0", bdUniqueId);
+        a(z, str, str2, z2, "0", bdUniqueId, null);
     }
 
-    public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId) {
-        if (this.alD == null) {
-            this.alD = new C0037a(this, null);
-            this.alD.setPriority(2);
-            this.alD.bf(z);
-            this.alD.setPortrait(str);
-            this.alD.setToUid(str2);
-            this.alD.setIsGod(z2);
-            this.alD.setFrom(str3);
-            this.alD.setPageId(bdUniqueId);
-            this.alD.execute(new Integer[0]);
+    public void a(boolean z, String str, String str2, boolean z2, BdUniqueId bdUniqueId, String str3) {
+        a(z, str, str2, z2, "0", bdUniqueId, str3);
+    }
+
+    public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4) {
+        if (this.alj == null) {
+            this.alj = new C0037a(this, null);
+            this.alj.setPriority(2);
+            this.alj.be(z);
+            this.alj.setPortrait(str);
+            this.alj.setToUid(str2);
+            this.alj.setIsGod(z2);
+            this.alj.setFrom(str3);
+            this.alj.setPageId(bdUniqueId);
+            this.alj.setForumId(str4);
+            this.alj.execute(new Integer[0]);
         }
     }
 
@@ -47,18 +52,22 @@ public class a {
     /* renamed from: com.baidu.tbadk.coreExtra.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0037a extends BdAsyncTask<Integer, Integer, String> {
-        private ab aiS;
-        private boolean akW;
-        private boolean akX;
-        private BdUniqueId alE;
+        private ab aiu;
+        private boolean akC;
+        private boolean akD;
+        private BdUniqueId alk;
+        private boolean alm;
+        private String forumId;
         private String from;
         private String portrait;
         private String toUid;
 
         private C0037a() {
-            this.aiS = null;
-            this.akX = false;
+            this.aiu = null;
+            this.akD = false;
             this.from = "0";
+            this.forumId = null;
+            this.alm = false;
         }
 
         /* synthetic */ C0037a(a aVar, C0037a c0037a) {
@@ -73,12 +82,12 @@ public class a {
             this.toUid = str;
         }
 
-        public void bf(boolean z) {
-            this.akW = z;
+        public void be(boolean z) {
+            this.akC = z;
         }
 
         public void setIsGod(boolean z) {
-            this.akX = z;
+            this.akD = z;
         }
 
         public void setFrom(String str) {
@@ -86,7 +95,14 @@ public class a {
         }
 
         public void setPageId(BdUniqueId bdUniqueId) {
-            this.alE = bdUniqueId;
+            this.alk = bdUniqueId;
+        }
+
+        public void setForumId(String str) {
+            this.forumId = str;
+            if (str != null) {
+                this.alm = true;
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,43 +112,45 @@ public class a {
         public String doInBackground(Integer... numArr) {
             try {
                 if (this.portrait != null) {
-                    this.aiS = new ab();
-                    if (this.akW) {
-                        this.aiS.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
+                    this.aiu = new ab();
+                    if (this.akC) {
+                        this.aiu.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                     } else {
-                        this.aiS.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
+                        this.aiu.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
                     }
-                    this.aiS.n(IntentConfig.PORTRAIT, this.portrait);
+                    this.aiu.n(IntentConfig.PORTRAIT, this.portrait);
                     if (!StringUtils.isNull(this.from)) {
-                        this.aiS.n(ForumDetailActivityConfig.FROM_TYPE, this.from);
+                        this.aiu.n(ForumDetailActivityConfig.FROM_TYPE, this.from);
                     }
-                    this.aiS.uD().vz().mIsNeedTbs = true;
-                    this.aiS.ue();
-                    return null;
+                    if (!StringUtils.isNull(this.forumId)) {
+                        this.aiu.n("forum_id", this.forumId);
+                    }
+                    this.aiu.uS().vN().mIsNeedTbs = true;
+                    return this.aiu.uu();
                 }
-                return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                return null;
             }
+            return null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: eu */
+        /* renamed from: ex */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            a.this.alD = null;
-            if (this.aiS != null) {
+            a.this.alj = null;
+            if (this.aiu != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.vS = this.aiS.uD().vA().oE();
-                aVar.errorString = this.aiS.getErrorString();
-                aVar.akW = this.akW;
+                aVar.vS = this.aiu.uS().vO().oF();
+                aVar.errorString = this.aiu.getErrorString();
+                aVar.akC = this.akC;
                 aVar.toUid = this.toUid;
-                aVar.akX = this.akX;
+                aVar.akD = this.akD;
+                aVar.n(str, this.alm);
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.alE));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.alk));
                 MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
             }
         }
@@ -140,11 +158,11 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.aiS != null) {
-                this.aiS.eg();
-                this.aiS = null;
+            if (this.aiu != null) {
+                this.aiu.eg();
+                this.aiu = null;
             }
-            a.this.alD = null;
+            a.this.alj = null;
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.g(false);
             }
@@ -152,8 +170,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.alD != null) {
-            this.alD.cancel();
+        if (this.alj != null) {
+            this.alj.cancel();
         }
     }
 }

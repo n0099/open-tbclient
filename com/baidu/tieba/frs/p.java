@@ -1,24 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.t;
+import com.baidu.tbadk.core.view.y;
 /* loaded from: classes.dex */
-class p implements t.b {
-    final /* synthetic */ FrsActivity bQp;
+class p implements y.b {
+    final /* synthetic */ FrsActivity bQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FrsActivity frsActivity) {
-        this.bQp = frsActivity;
+        this.bQi = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.t.b
+    @Override // com.baidu.tbadk.core.view.y.b
     public void aI(boolean z) {
         bm bmVar;
         bm bmVar2;
-        this.bQp.refresh();
-        bmVar = this.bQp.bPo;
+        this.bQi.refresh();
+        bmVar = this.bQi.bPi;
         if (bmVar != null) {
-            bmVar2 = this.bQp.bPo;
-            bmVar2.dH(true);
+            bmVar2 = this.bQi.bPi;
+            bmVar2.dI(true);
         }
     }
 }

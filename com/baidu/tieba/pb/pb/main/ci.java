@@ -6,19 +6,22 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
+import com.baidu.tbadk.core.atomData.MangaCoverActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.bh;
+import com.baidu.tieba.r;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-class ci implements bi.a {
-    Pattern eou = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+class ci implements bh.a {
+    Pattern eqs = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
 
-    @Override // com.baidu.tbadk.core.util.bi.a
+    @Override // com.baidu.tbadk.core.util.bh.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         String as;
         boolean z;
@@ -30,8 +33,26 @@ class ci implements bi.a {
             return 3;
         }
         String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.eou.matcher(lowerCase);
+        Matcher matcher = this.eqs.matcher(lowerCase);
         String str3 = "";
+        if (lowerCase.contains("bookcover:")) {
+            Map<String, String> dI = com.baidu.tbadk.core.util.bh.dI(lowerCase.substring("bookcover:".length()));
+            if (dI == null || dI.size() <= 0) {
+                return 0;
+            }
+            if (com.baidu.adp.lib.h.b.g(dI.get("book_type"), 1) == 3) {
+                if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
+                    return 3;
+                }
+                com.baidu.adp.lib.util.k.showToast(tbPageContext.getPageActivity(), r.j.manga_plugin_not_install_tip);
+                return 0;
+            } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+                return 3;
+            } else {
+                com.baidu.adp.lib.util.k.showToast(tbPageContext.getPageActivity(), r.j.book_plugin_not_install_tip);
+                return 0;
+            }
+        }
         if (matcher.find()) {
             String group = matcher.group(1);
             str = "allthread";
@@ -110,19 +131,19 @@ class ci implements bi.a {
                 z3 = true;
             }
             if (z3) {
-                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext.getPageActivity(), as).oW()));
-                return 1;
+                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext.getPageActivity(), as).oX()));
+            } else {
+                PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(as, null, str);
+                createNormalCfg.setVideo_source("push");
+                tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
             }
-            PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(as, null, str);
-            createNormalCfg.setVideo_source("push");
-            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
             return 1;
         } else if (z2 && !TextUtils.isEmpty(as)) {
             com.baidu.adp.lib.h.i.c(TbadkCoreApplication.m9getInst(), ew.L(TbadkCoreApplication.m9getInst(), as));
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10320").s("obj_locate", 3).s("obj_type", 2));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c10320").s("obj_locate", 3).s("obj_type", 2));
             return 1;
         } else if (z) {
-            tbPageContext.showToast(t.j.page_not_found);
+            tbPageContext.showToast(r.j.page_not_found);
             return 1;
         } else {
             return 3;

@@ -4,20 +4,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class ds extends com.baidu.tieba.tbadkCore.data.q {
-    public static final BdUniqueId eqy = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.am eqA;
-    public com.baidu.tbadk.core.data.am eqB;
-    public com.baidu.tbadk.core.data.am eqz;
+    public static final BdUniqueId esw = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.ao esx;
+    public com.baidu.tbadk.core.data.ao esy;
+    public com.baidu.tbadk.core.data.ao esz;
 
     @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eqy;
+        return esw;
     }
 
     public boolean hasData() {
-        if (this.eqz == null || StringUtils.isNull(this.eqz.summary)) {
-            if (this.eqA == null || StringUtils.isNull(this.eqA.summary)) {
-                return (this.eqB == null || StringUtils.isNull(this.eqB.summary)) ? false : true;
+        if (this.esx == null || StringUtils.isNull(this.esx.summary)) {
+            if (this.esy == null || StringUtils.isNull(this.esy.summary)) {
+                return (this.esz == null || StringUtils.isNull(this.esz.summary)) ? false : true;
             }
             return true;
         }

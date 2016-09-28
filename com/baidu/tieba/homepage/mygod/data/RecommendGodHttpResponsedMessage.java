@@ -24,7 +24,7 @@ public class RecommendGodHttpResponsedMessage extends MvcProtobufHttpResponsedMe
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof e) {
                 e eVar = (e) mvcNetMessage.getRequestData();
-                if (eVar.getPn() == 1 && (M = com.baidu.tbadk.core.b.a.sT().M("RecommendGodCache", TbadkCoreApplication.getCurrentAccount())) != null) {
+                if (eVar.getPn() == 1 && (M = com.baidu.tbadk.core.b.a.ti().M("RecommendGodCache", TbadkCoreApplication.getCurrentAccount())) != null) {
                     M.k(new StringBuilder(String.valueOf(eVar.getTagCode())).toString(), bArr);
                 }
             }

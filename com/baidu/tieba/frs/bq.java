@@ -4,16 +4,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.guide.b;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class bq implements b {
-    final /* synthetic */ bp bSd;
-    private final /* synthetic */ String bSe;
+    final /* synthetic */ bp bRW;
+    private final /* synthetic */ String bRX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bp bpVar, String str) {
-        this.bSd = bpVar;
-        this.bSe = str;
+        this.bRW = bpVar;
+        this.bRX = str;
     }
 
     @Override // com.baidu.adp.lib.guide.b
@@ -32,30 +32,30 @@ class bq implements b {
         FrsActivity frsActivity6;
         bm bmVar7;
         FrsActivity frsActivity7;
-        bmVar = this.bSd.bSc;
-        frsActivity = bmVar.bRp;
+        bmVar = this.bRW.bRV;
+        frsActivity = bmVar.bRi;
         TextView textView = new TextView(frsActivity.getPageContext().getPageActivity());
-        textView.setText(this.bSe);
+        textView.setText(this.bRX);
         textView.setGravity(17);
         textView.setSingleLine(true);
-        com.baidu.tbadk.core.util.av.j((View) textView, t.d.cp_cont_i);
-        bmVar2 = this.bSd.bSc;
-        frsActivity2 = bmVar2.bRp;
-        textView.setTextSize(0, frsActivity2.getResources().getDimensionPixelSize(t.e.fontsize28));
-        bmVar3 = this.bSd.bSc;
-        frsActivity3 = bmVar3.bRp;
-        textView.setWidth(frsActivity3.getResources().getDimensionPixelSize(t.e.ds618));
-        bmVar4 = this.bSd.bSc;
-        frsActivity4 = bmVar4.bRp;
-        bmVar5 = this.bSd.bSc;
-        frsActivity5 = bmVar5.bRp;
-        bmVar6 = this.bSd.bSc;
-        frsActivity6 = bmVar6.bRp;
-        textView.setPadding((int) frsActivity4.getResources().getDimension(t.e.ds4), (int) frsActivity5.getResources().getDimension(t.e.ds10), (int) frsActivity6.getResources().getDimension(t.e.ds4), 0);
-        bmVar7 = this.bSd.bSc;
-        frsActivity7 = bmVar7.bRp;
-        textView.setHeight(frsActivity7.getResources().getDimensionPixelSize(t.e.ds76));
-        com.baidu.tbadk.core.util.av.k(textView, t.f.pic_sign_tip);
+        com.baidu.tbadk.core.util.av.j((View) textView, r.d.cp_cont_i);
+        bmVar2 = this.bRW.bRV;
+        frsActivity2 = bmVar2.bRi;
+        textView.setTextSize(0, frsActivity2.getResources().getDimensionPixelSize(r.e.fontsize28));
+        bmVar3 = this.bRW.bRV;
+        frsActivity3 = bmVar3.bRi;
+        textView.setWidth(frsActivity3.getResources().getDimensionPixelSize(r.e.ds618));
+        bmVar4 = this.bRW.bRV;
+        frsActivity4 = bmVar4.bRi;
+        bmVar5 = this.bRW.bRV;
+        frsActivity5 = bmVar5.bRi;
+        bmVar6 = this.bRW.bRV;
+        frsActivity6 = bmVar6.bRi;
+        textView.setPadding((int) frsActivity4.getResources().getDimension(r.e.ds4), (int) frsActivity5.getResources().getDimension(r.e.ds10), (int) frsActivity6.getResources().getDimension(r.e.ds4), 0);
+        bmVar7 = this.bRW.bRV;
+        frsActivity7 = bmVar7.bRi;
+        textView.setHeight(frsActivity7.getResources().getDimensionPixelSize(r.e.ds76));
+        com.baidu.tbadk.core.util.av.k(textView, r.f.pic_sign_tip);
         return textView;
     }
 

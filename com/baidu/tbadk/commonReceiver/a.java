@@ -11,7 +11,7 @@ public class a extends Observable {
         notifyObservers();
     }
 
-    public long oi() {
+    public long oj() {
         return this.album_id;
     }
 }

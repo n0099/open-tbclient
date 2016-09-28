@@ -7,21 +7,21 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ak {
     public static final void Q(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.k.showToast(context, t.j.pb_app_error);
+            com.baidu.adp.lib.util.k.showToast(context, r.j.pb_app_error);
             return;
         }
-        File cU = com.baidu.tbadk.core.util.m.cU(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cU != null) {
+        File cW = com.baidu.tbadk.core.util.m.cW(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cW != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(cU), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(cW), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }

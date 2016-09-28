@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity aRI;
+    final /* synthetic */ AccountActivity aSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AccountActivity accountActivity) {
-        this.aRI = accountActivity;
+        this.aSN = accountActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.account.AccountActivity */
@@ -25,18 +25,18 @@ public class f implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         AccountData accountData;
-        if (this.aRI.aRA.getItemId(i) >= 0) {
-            if (!this.aRI.aRA.LA() && (accountData = (AccountData) this.aRI.aRA.getItem(i)) != null && accountData.getIsActive() != 1) {
+        if (this.aSN.aSF.getItemId(i) >= 0) {
+            if (!this.aSN.aSF.Mg() && (accountData = (AccountData) this.aSN.aSF.getItem(i)) != null && accountData.getIsActive() != 1) {
                 if (!TextUtils.isEmpty(accountData.getAccount())) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, TbadkCoreApplication.getCurrentAccount()));
-                    this.aRI.l(accountData);
+                    this.aSN.l(accountData);
                     return;
                 }
-                this.aRI.k(accountData);
+                this.aSN.k(accountData);
                 return;
             }
             return;
         }
-        TbadkCoreApplication.m9getInst().login(this.aRI.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.aRI.getPageContext().getPageActivity())));
+        TbadkCoreApplication.m9getInst().login(this.aSN.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.aSN.getPageContext().getPageActivity())));
     }
 }

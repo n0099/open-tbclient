@@ -1,28 +1,28 @@
 package com.baidu.tieba.homepage.framework.indicator;
 /* loaded from: classes.dex */
 public class y {
-    private int cDr = -1;
-    private boolean cDs = false;
-    private boolean cDt = false;
+    private int cDV = -1;
+    private boolean cDW = false;
+    private boolean cDX = false;
 
     public void a(com.baidu.tieba.homepage.framework.y yVar) {
-        this.cDs = true;
-        if (this.cDr != -1 && this.cDt) {
-            yVar.jP(this.cDr);
+        this.cDW = true;
+        if (this.cDV != -1 && this.cDX) {
+            yVar.jV(this.cDV);
         }
     }
 
     public void a(int i, com.baidu.tieba.homepage.framework.y yVar) {
-        this.cDr = i;
-        if (this.cDs && this.cDt) {
-            yVar.jP(this.cDr);
+        this.cDV = i;
+        if (this.cDW && this.cDX) {
+            yVar.jV(this.cDV);
         }
     }
 
     public void b(com.baidu.tieba.homepage.framework.y yVar) {
-        this.cDt = true;
-        if (this.cDr != -1 && this.cDs) {
-            yVar.jP(this.cDr);
+        this.cDX = true;
+        if (this.cDV != -1 && this.cDW) {
+            yVar.jV(this.cDV);
         }
     }
 }

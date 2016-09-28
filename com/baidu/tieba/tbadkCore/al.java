@@ -1,42 +1,42 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bp;
 /* loaded from: classes.dex */
-public class al extends bg {
-    public static final BdUniqueId frw = BdUniqueId.gen();
-    private bk frx;
-    private bn fry;
-    private boolean frz = false;
+public class al extends bi {
+    public static final BdUniqueId fud = BdUniqueId.gen();
+    private bm fue;
+    private bp fuf;
+    private boolean fug = false;
 
-    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tbadk.core.data.bi, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return frw;
+        return fud;
     }
 
-    public boolean bit() {
-        return this.frz;
+    public boolean bje() {
+        return this.fug;
     }
 
-    public void kJ(boolean z) {
-        this.frz = z;
+    public void kM(boolean z) {
+        this.fug = z;
     }
 
-    public bk biu() {
-        return this.frx;
+    public bm bjf() {
+        return this.fue;
     }
 
-    public void a(bk bkVar) {
-        this.frx = bkVar;
+    public void a(bm bmVar) {
+        this.fue = bmVar;
     }
 
-    public bn biv() {
-        return this.fry;
+    public bp bjg() {
+        return this.fuf;
     }
 
-    public void a(bn bnVar) {
-        this.fry = bnVar;
+    public void a(bp bpVar) {
+        this.fuf = bpVar;
     }
 }

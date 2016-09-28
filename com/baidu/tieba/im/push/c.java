@@ -7,16 +7,17 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tieba.im.util.MessageUtils;
 import java.util.Vector;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends Handler {
-    final /* synthetic */ a djz;
+    final /* synthetic */ a dkW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, Looper looper) {
         super(looper);
-        this.djz = aVar;
+        this.dkW = aVar;
     }
 
     @Override // android.os.Handler
@@ -24,17 +25,17 @@ public class c extends Handler {
         Vector vector;
         CustomMessageListener customMessageListener;
         switch (message.what) {
-            case 10001:
+            case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
                 MessageUtils.updateGroupNotExist(message.getData());
                 return;
-            case 10002:
+            case IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND /* 10002 */:
                 MessageManager messageManager = MessageManager.getInstance();
-                customMessageListener = this.djz.diG;
+                customMessageListener = this.dkW.dkd;
                 messageManager.registerListener(customMessageListener);
                 return;
-            case 10003:
+            case IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE /* 10003 */:
                 if (message.getData() != null && message.getData().containsKey("groupId")) {
-                    vector = this.djz.djy;
+                    vector = this.dkW.dkV;
                     vector.remove(Long.valueOf(message.getData().getLong("groupId")));
                     return;
                 }

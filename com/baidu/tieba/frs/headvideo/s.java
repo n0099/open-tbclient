@@ -1,37 +1,37 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.media.MediaPlayer;
 import com.baidu.tbadk.core.util.y;
+import com.baidu.tieba.play.e;
 import java.util.List;
 /* loaded from: classes.dex */
-class s implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ ForumHeadVideoView ccd;
+class s implements e.d {
+    final /* synthetic */ ForumHeadVideoView ccf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ForumHeadVideoView forumHeadVideoView) {
-        this.ccd = forumHeadVideoView;
+        this.ccf = forumHeadVideoView;
     }
 
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    public void onPrepared(MediaPlayer mediaPlayer) {
+    @Override // com.baidu.tieba.play.e.d
+    public void onPrepared(com.baidu.tieba.play.e eVar) {
         List list;
-        if (mediaPlayer != null) {
+        if (eVar != null) {
             try {
-                mediaPlayer.setVolume(0.0f, 0.0f);
+                eVar.setVolume(0.0f, 0.0f);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        list = this.ccd.aRP;
+        list = this.ccf.aSU;
         if (y.s(list) > 1) {
-            mediaPlayer.setLooping(false);
+            eVar.setLooping(false);
         } else {
-            mediaPlayer.setLooping(true);
+            eVar.setLooping(true);
         }
-        e currentVideoItemView = this.ccd.getCurrentVideoItemView();
+        e currentVideoItemView = this.ccf.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
             currentVideoItemView.setVideoPlayState(3);
-            this.ccd.p(currentVideoItemView.getThreadInfo());
+            this.ccf.q(currentVideoItemView.getThreadInfo());
         }
     }
 }

@@ -5,17 +5,17 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bUW;
+    final /* synthetic */ a bUP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bUW = aVar;
+        this.bUP = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,33 +27,33 @@ public class d implements View.OnClickListener {
         com.baidu.tbadk.core.data.q qVar3;
         FrsActivity frsActivity2;
         if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-            frsActivity2 = this.bUW.bRp;
-            com.baidu.adp.lib.util.k.showToast(frsActivity2.getPageContext().getPageActivity(), t.j.book_plugin_not_install_tip);
+            frsActivity2 = this.bUP.bRi;
+            com.baidu.adp.lib.util.k.showToast(frsActivity2.getPageContext().getPageActivity(), r.j.book_plugin_not_install_tip);
             return;
         }
-        qVar = this.bUW.bUQ;
-        int px = qVar.px();
-        if (px == 1 || px == 2) {
-            qVar2 = this.bUW.bUQ;
+        qVar = this.bUP.bUJ;
+        int py = qVar.py();
+        if (py == 1 || py == 2) {
+            qVar2 = this.bUP.bUJ;
             String bookId = qVar2.getBookId();
             int id = view.getId();
-            viewGroup = this.bUW.bUO;
+            viewGroup = this.bUP.bUH;
             if (id != viewGroup.getId()) {
-                frsActivity = this.bUW.bRp;
+                frsActivity = this.bUP.bRi;
                 if (!frsActivity.checkUpIsLogin()) {
                     return;
                 }
-                this.bUW.O(bookId, -1);
-                TiebaStatic.log(new ay("C11579").s("obj_param2", 2).ab("obj_param1", bookId));
+                this.bUP.O(bookId, -1);
+                TiebaStatic.log(new ax("C11579").s("obj_param2", 2).ab("obj_param1", bookId));
                 return;
             }
-            qVar3 = this.bUW.bUQ;
-            int g = com.baidu.adp.lib.h.b.g(qVar3.pD(), -1);
+            qVar3 = this.bUP.bUJ;
+            int g = com.baidu.adp.lib.h.b.g(qVar3.pE(), -1);
             if (g <= 0) {
                 return;
             }
-            this.bUW.O(bookId, g);
-            TiebaStatic.log(new ay("C11580").s("obj_param2", 2).ab("obj_param1", bookId));
+            this.bUP.O(bookId, g);
+            TiebaStatic.log(new ax("C11580").s("obj_param2", 2).ab("obj_param1", bookId));
         }
     }
 }

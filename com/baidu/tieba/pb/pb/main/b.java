@@ -11,27 +11,27 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private final CustomMessageListener aRn = new c(this, CmdConfigCustom.CMD_GRAFFITI_SEND_SUCCESS);
-    private final CustomMessageListener aRo = new d(this, CmdConfigCustom.CMD_DELETE_GRAFFITI_SUCCESS);
-    private final dh emx;
-    private final PbActivity emy;
+    private final CustomMessageListener aSv = new c(this, CmdConfigCustom.CMD_GRAFFITI_SEND_SUCCESS);
+    private final CustomMessageListener aSw = new d(this, CmdConfigCustom.CMD_DELETE_GRAFFITI_SUCCESS);
+    private final dh eov;
+    private final PbActivity eow;
 
     public b(dh dhVar, PbActivity pbActivity) {
-        this.emx = dhVar;
-        this.emy = pbActivity;
-        this.emy.registerListener(this.aRn);
-        this.emy.registerListener(this.aRo);
+        this.eov = dhVar;
+        this.eow = pbActivity;
+        this.eow.registerListener(this.aSv);
+        this.eow.registerListener(this.aSw);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int b(long j, List<com.baidu.tbadk.core.data.aa> list) {
+    public int b(long j, List<com.baidu.tbadk.core.data.ac> list) {
         if (com.baidu.tbadk.core.util.y.t(list)) {
             return -1;
         }
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            com.baidu.tbadk.core.data.aa aaVar = list.get(i);
-            if (aaVar != null && aaVar.getType() == 1 && aaVar.getGid() > 0 && aaVar.getGid() == j) {
+            com.baidu.tbadk.core.data.ac acVar = list.get(i);
+            if (acVar != null && acVar.getType() == 1 && acVar.getGid() > 0 && acVar.getGid() == j) {
                 return i;
             }
         }
@@ -39,14 +39,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int a(long j, List<com.baidu.tbadk.core.data.aa> list) {
+    public int a(long j, List<com.baidu.tbadk.core.data.ac> list) {
         if (com.baidu.tbadk.core.util.y.t(list)) {
             return -1;
         }
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            com.baidu.tbadk.core.data.aa aaVar = list.get(i);
-            if (aaVar != null && aaVar.getType() == 1 && aaVar.getGid() > 0 && aaVar.getUid() > 0 && aaVar.getUid() == j) {
+            com.baidu.tbadk.core.data.ac acVar = list.get(i);
+            if (acVar != null && acVar.getType() == 1 && acVar.getGid() > 0 && acVar.getUid() > 0 && acVar.getUid() == j) {
                 return i;
             }
         }
@@ -58,9 +58,9 @@ public class b {
             String stringExtra = intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME);
             int intExtra = intent.getIntExtra("from", -1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new com.baidu.tieba.graffiti.j(stringExtra, intExtra)));
-            if (!TextUtils.isEmpty(stringExtra) && this.emx != null && this.emx.getPbData() != null) {
+            if (!TextUtils.isEmpty(stringExtra) && this.eov != null && this.eov.getPbData() != null) {
                 if (intExtra == 3 || intExtra == 2) {
-                    new GraffitiTabActivityConfig(this.emy.getPageContext().getPageActivity(), this.emx.getPbData().getThreadId(), this.emx.getPbData().getForumId(), stringExtra).start();
+                    new GraffitiTabActivityConfig(this.eow.getPageContext().getPageActivity(), this.eov.getPbData().getThreadId(), this.eov.getPbData().getForumId(), stringExtra).start();
                 }
             }
         }

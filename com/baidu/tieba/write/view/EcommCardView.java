@@ -9,18 +9,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.DealInfoData;
 import com.baidu.tbadk.core.data.DealMediaData;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class EcommCardView extends RelativeLayout {
-    private TextView bdS;
-    private TextView cUB;
-    private TextView exT;
-    private TextView gcA;
-    private TbImageView gcz;
+    private TextView bel;
+    private TextView cVV;
+    private TextView eAa;
+    private TbImageView geJ;
+    private TextView geK;
 
     public EcommCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -38,12 +38,12 @@ public class EcommCardView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(t.h.ecomm_card_layout, (ViewGroup) this, true);
-        this.gcz = (TbImageView) inflate.findViewById(t.g.card_photo);
-        this.cUB = (TextView) inflate.findViewById(t.g.card_description);
-        this.bdS = (TextView) inflate.findViewById(t.g.card_price);
-        this.gcA = (TextView) inflate.findViewById(t.g.card_fare);
-        this.exT = (TextView) inflate.findViewById(t.g.card_address);
+        View inflate = LayoutInflater.from(context).inflate(r.h.ecomm_card_layout, (ViewGroup) this, true);
+        this.geJ = (TbImageView) inflate.findViewById(r.g.card_photo);
+        this.cVV = (TextView) inflate.findViewById(r.g.card_description);
+        this.bel = (TextView) inflate.findViewById(r.g.card_price);
+        this.geK = (TextView) inflate.findViewById(r.g.card_fare);
+        this.eAa = (TextView) inflate.findViewById(r.g.card_address);
     }
 
     public void setData(DealInfoData dealInfoData) {
@@ -55,25 +55,25 @@ public class EcommCardView extends RelativeLayout {
             if (arrayList != null && arrayList.size() > 0) {
                 str = arrayList.get(0).smallPic;
             }
-            this.gcz.c(str, 10, false);
-            this.cUB.setText(dealInfoData.title);
+            this.geJ.c(str, 10, false);
+            this.cVV.setText(dealInfoData.title);
             double d2 = dealInfoData.unitPrice;
             if ((d2 >= 0.0d ? d2 : 0.0d) > 9999999.0d) {
-                this.bdS.setText("¥" + ba.D((long) d));
+                this.bel.setText("¥" + az.E((long) d));
             } else {
-                this.bdS.setText("¥" + String.format(Locale.getDefault(), "%.2f", Double.valueOf(d)));
+                this.bel.setText("¥" + String.format(Locale.getDefault(), "%.2f", Double.valueOf(d)));
             }
             float f = dealInfoData.shipFee;
             if (f < 0.0f) {
                 f = 0.0f;
             }
             if (f > 9999999.0f) {
-                format = ba.D(f);
+                format = az.E(f);
             } else {
                 format = String.format(Locale.getDefault(), "%.2f", Float.valueOf(f));
             }
-            this.gcA.setText(getResources().getString(t.j.ecomm_shipfee, format));
-            this.exT.setText(dealInfoData.sellerAddress);
+            this.geK.setText(getResources().getString(r.j.ecomm_shipfee, format));
+            this.eAa.setText(dealInfoData.sellerAddress);
         }
     }
 }

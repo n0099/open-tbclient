@@ -26,48 +26,50 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.pb.data.PbEcommRecommendMessage;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class z implements View.OnClickListener {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v170, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Code restructure failed: missing block: B:140:0x06c8, code lost:
-        if (r21 == r1.erX.aQg().aOB()) goto L135;
+    /* JADX DEBUG: Multi-variable search result rejected for r3v13, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v17, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v178, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Code restructure failed: missing block: B:140:0x06c9, code lost:
+        if (r21 == r1.eug.aQP().aPj()) goto L135;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:419:0x1316  */
-    /* JADX WARN: Removed duplicated region for block: B:422:0x13be  */
-    /* JADX WARN: Removed duplicated region for block: B:425:0x13d6  */
-    /* JADX WARN: Removed duplicated region for block: B:427:0x13e0  */
-    /* JADX WARN: Removed duplicated region for block: B:435:0x14d8  */
-    /* JADX WARN: Removed duplicated region for block: B:442:0x15be  */
-    /* JADX WARN: Removed duplicated region for block: B:445:0x15d5  */
-    /* JADX WARN: Removed duplicated region for block: B:448:0x15eb  */
-    /* JADX WARN: Removed duplicated region for block: B:451:0x15fd  */
-    /* JADX WARN: Removed duplicated region for block: B:453:0x160b  */
-    /* JADX WARN: Removed duplicated region for block: B:464:0x168e  */
-    /* JADX WARN: Removed duplicated region for block: B:469:0x16ee  */
-    /* JADX WARN: Removed duplicated region for block: B:474:0x17be  */
-    /* JADX WARN: Removed duplicated region for block: B:477:0x17d6  */
-    /* JADX WARN: Removed duplicated region for block: B:480:0x1809  */
-    /* JADX WARN: Removed duplicated region for block: B:482:0x180c  */
-    /* JADX WARN: Removed duplicated region for block: B:483:0x182d  */
-    /* JADX WARN: Removed duplicated region for block: B:484:0x1840  */
-    /* JADX WARN: Removed duplicated region for block: B:485:0x1853  */
-    /* JADX WARN: Removed duplicated region for block: B:596:0x1df9  */
-    /* JADX WARN: Removed duplicated region for block: B:597:0x1dfc  */
-    /* JADX WARN: Removed duplicated region for block: B:598:0x1dff  */
-    /* JADX WARN: Removed duplicated region for block: B:599:0x1e02  */
-    /* JADX WARN: Removed duplicated region for block: B:600:0x1e05  */
-    /* JADX WARN: Removed duplicated region for block: B:601:0x1e08  */
-    /* JADX WARN: Removed duplicated region for block: B:602:0x1e0b  */
+    /* JADX WARN: Removed duplicated region for block: B:428:0x137d  */
+    /* JADX WARN: Removed duplicated region for block: B:431:0x1425  */
+    /* JADX WARN: Removed duplicated region for block: B:434:0x143d  */
+    /* JADX WARN: Removed duplicated region for block: B:436:0x1447  */
+    /* JADX WARN: Removed duplicated region for block: B:444:0x153f  */
+    /* JADX WARN: Removed duplicated region for block: B:451:0x1625  */
+    /* JADX WARN: Removed duplicated region for block: B:454:0x163c  */
+    /* JADX WARN: Removed duplicated region for block: B:457:0x1652  */
+    /* JADX WARN: Removed duplicated region for block: B:460:0x1664  */
+    /* JADX WARN: Removed duplicated region for block: B:462:0x1672  */
+    /* JADX WARN: Removed duplicated region for block: B:473:0x16f5  */
+    /* JADX WARN: Removed duplicated region for block: B:478:0x1755  */
+    /* JADX WARN: Removed duplicated region for block: B:483:0x1825  */
+    /* JADX WARN: Removed duplicated region for block: B:486:0x183d  */
+    /* JADX WARN: Removed duplicated region for block: B:489:0x1870  */
+    /* JADX WARN: Removed duplicated region for block: B:491:0x1873  */
+    /* JADX WARN: Removed duplicated region for block: B:492:0x1894  */
+    /* JADX WARN: Removed duplicated region for block: B:493:0x18a7  */
+    /* JADX WARN: Removed duplicated region for block: B:494:0x18ba  */
+    /* JADX WARN: Removed duplicated region for block: B:623:0x1f3f  */
+    /* JADX WARN: Removed duplicated region for block: B:624:0x1f42  */
+    /* JADX WARN: Removed duplicated region for block: B:625:0x1f45  */
+    /* JADX WARN: Removed duplicated region for block: B:626:0x1f48  */
+    /* JADX WARN: Removed duplicated region for block: B:627:0x1f4b  */
+    /* JADX WARN: Removed duplicated region for block: B:628:0x1f4e  */
+    /* JADX WARN: Removed duplicated region for block: B:629:0x1f51  */
     @Override // android.view.View.OnClickListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -105,7 +107,7 @@ class z implements View.OnClickListener {
         ex exVar24;
         ex exVar25;
         dh dhVar4;
-        String aMX;
+        String aND;
         ex exVar26;
         ex exVar27;
         ex exVar28;
@@ -131,15 +133,15 @@ class z implements View.OnClickListener {
         ex exVar41;
         dh dhVar6;
         dh dhVar7;
-        PbActivity.b oR;
+        PbActivity.b pg;
         dh dhVar8;
         dh dhVar9;
         dh dhVar10;
-        PbActivity.b oR2;
+        PbActivity.b pg2;
         dh dhVar11;
         dh dhVar12;
         dh dhVar13;
-        PbActivity.b oR3;
+        PbActivity.b pg3;
         dh dhVar14;
         dh dhVar15;
         dh dhVar16;
@@ -160,9 +162,6 @@ class z implements View.OnClickListener {
         dh dhVar30;
         dh dhVar31;
         dh dhVar32;
-        PbEcommRecommendMessage pbEcommRecommendMessage;
-        int aML;
-        int aML2;
         dh dhVar33;
         dh dhVar34;
         dh dhVar35;
@@ -171,8 +170,9 @@ class z implements View.OnClickListener {
         dh dhVar38;
         dh dhVar39;
         dh dhVar40;
-        int aML3;
-        int aML4;
+        PbEcommRecommendMessage pbEcommRecommendMessage;
+        int aNr;
+        int aNr2;
         dh dhVar41;
         dh dhVar42;
         dh dhVar43;
@@ -181,29 +181,39 @@ class z implements View.OnClickListener {
         dh dhVar46;
         dh dhVar47;
         dh dhVar48;
-        ex exVar43;
+        int aNr3;
+        int aNr4;
         dh dhVar49;
         dh dhVar50;
         dh dhVar51;
-        ex exVar44;
         dh dhVar52;
         dh dhVar53;
         dh dhVar54;
         dh dhVar55;
         dh dhVar56;
+        ex exVar43;
         dh dhVar57;
+        dh dhVar58;
+        dh dhVar59;
+        ex exVar44;
+        dh dhVar60;
+        dh dhVar61;
+        dh dhVar62;
+        dh dhVar63;
+        dh dhVar64;
+        dh dhVar65;
         ex exVar45;
         ex exVar46;
-        dh dhVar58;
+        dh dhVar66;
         Cdo cdo7;
         Cdo cdo8;
-        dh dhVar59;
+        dh dhVar67;
         boolean z2;
         Cdo cdo9;
         Cdo cdo10;
         Cdo cdo11;
         Cdo cdo12;
-        dh dhVar60;
+        dh dhVar68;
         Cdo cdo13;
         SparseArray sparseArray;
         Cdo cdo14;
@@ -220,7 +230,7 @@ class z implements View.OnClickListener {
         SparseArray sparseArray3;
         boolean z4;
         boolean z5;
-        boolean hW;
+        boolean hZ;
         boolean isLogin;
         Cdo cdo22;
         Cdo cdo23;
@@ -246,327 +256,332 @@ class z implements View.OnClickListener {
         Cdo cdo39;
         Cdo cdo40;
         Cdo cdo41;
-        dh dhVar61;
+        dh dhVar69;
         Cdo cdo42;
         Cdo cdo43;
         boolean z7;
-        com.baidu.tbadk.core.data.bn bnVar;
-        dh dhVar62;
-        dh dhVar63;
-        dh dhVar64;
+        com.baidu.tbadk.core.data.bp bpVar;
+        dh dhVar70;
+        dh dhVar71;
+        dh dhVar72;
         ex exVar47;
         ex exVar48;
-        dh dhVar65;
+        dh dhVar73;
         ex exVar49;
-        dh dhVar66;
-        dh dhVar67;
-        dh dhVar68;
-        dh dhVar69;
+        dh dhVar74;
+        dh dhVar75;
+        dh dhVar76;
+        dh dhVar77;
         ex exVar50;
         ex exVar51;
         Cdo cdo44;
         ex exVar52;
         ex exVar53;
-        dh dhVar70;
-        dh dhVar71;
+        dh dhVar78;
+        dh dhVar79;
         ex exVar54;
-        dh dhVar72;
+        dh dhVar80;
         Cdo cdo45;
-        dh dhVar73;
+        dh dhVar81;
         Cdo cdo46;
         ex exVar55;
-        dh dhVar74;
+        dh dhVar82;
         Cdo cdo47;
-        dh dhVar75;
+        dh dhVar83;
         ex exVar56;
-        dh dhVar76;
+        dh dhVar84;
         Cdo cdo48;
         Cdo cdo49;
         ex exVar57;
-        String aMK;
+        String aNq;
         ex exVar58;
         ex exVar59;
         ex exVar60;
         ex exVar61;
         ex exVar62;
-        dh dhVar77;
-        dh dhVar78;
+        dh dhVar85;
+        dh dhVar86;
         ex exVar63;
         ex exVar64;
-        dh dhVar79;
-        dh dhVar80;
-        dh dhVar81;
+        dh dhVar87;
+        dh dhVar88;
+        dh dhVar89;
         ex exVar65;
         ex exVar66;
-        dh dhVar82;
-        dh dhVar83;
-        dh dhVar84;
+        dh dhVar90;
+        dh dhVar91;
+        dh dhVar92;
         ex exVar67;
-        dh dhVar85;
+        dh dhVar93;
         ex exVar68;
         ex exVar69;
         ex exVar70;
-        dh dhVar86;
+        dh dhVar94;
         ex exVar71;
         ex exVar72;
-        dh dhVar87;
+        dh dhVar95;
         ex exVar73;
-        dh dhVar88;
+        dh dhVar96;
         ex exVar74;
+        dh dhVar97;
+        dh dhVar98;
+        dh dhVar99;
+        dh dhVar100;
+        dh dhVar101;
         ex exVar75;
         ex exVar76;
         ex exVar77;
         ex exVar78;
         ex exVar79;
-        boolean oc;
-        dh dhVar89;
-        ex exVar80;
-        dh dhVar90;
-        dh dhVar91;
-        dh dhVar92;
-        dh dhVar93;
-        dh dhVar94;
-        dh dhVar95;
-        dh dhVar96;
-        dh dhVar97;
-        dh dhVar98;
-        dh dhVar99;
-        ex exVar81;
-        ex exVar82;
-        dh dhVar100;
-        dh dhVar101;
-        String name;
+        boolean om;
         dh dhVar102;
+        ex exVar80;
         dh dhVar103;
         dh dhVar104;
         dh dhVar105;
         dh dhVar106;
         dh dhVar107;
-        ex exVar83;
         dh dhVar108;
-        ex exVar84;
-        ex exVar85;
-        ex exVar86;
         dh dhVar109;
-        ex exVar87;
         dh dhVar110;
         dh dhVar111;
         dh dhVar112;
+        ex exVar81;
+        ex exVar82;
+        dh dhVar113;
+        dh dhVar114;
+        String name;
+        dh dhVar115;
+        dh dhVar116;
+        dh dhVar117;
+        dh dhVar118;
+        dh dhVar119;
+        dh dhVar120;
+        ex exVar83;
+        dh dhVar121;
+        ex exVar84;
+        ex exVar85;
+        ex exVar86;
+        dh dhVar122;
+        ex exVar87;
+        dh dhVar123;
+        dh dhVar124;
+        dh dhVar125;
         ex exVar88;
-        exVar = this.eob.enh;
+        exVar = this.eqa.epe;
         if (view == exVar.getNextView()) {
-            dhVar112 = this.eob.emx;
-            if (dhVar112.ic(true)) {
-                exVar88 = this.eob.enh;
-                exVar88.aPq();
+            dhVar125 = this.eqa.eov;
+            if (dhVar125.m17if(true)) {
+                exVar88 = this.eqa.epe;
+                exVar88.aPZ();
                 return;
             }
             return;
         }
-        exVar2 = this.eob.enh;
-        if (view == exVar2.aPl()) {
-            exVar87 = this.eob.enh;
-            exVar87.aPf();
-            if (UtilHelper.isFloatWindowOpAllowed(this.eob.getPageContext().getPageActivity())) {
-                this.eob.enn = true;
-                PbActivity pbActivity = this.eob;
-                dhVar110 = this.eob.emx;
-                pbActivity.a(dhVar110.getPbData(), 0, 1, true, true);
-                com.baidu.tbadk.core.util.ay ayVar = new com.baidu.tbadk.core.util.ay("c10830");
-                dhVar111 = this.eob.emx;
-                TiebaStatic.log(ayVar.ab("tid", dhVar111.getThreadID()));
+        exVar2 = this.eqa.epe;
+        if (view == exVar2.aPU()) {
+            exVar87 = this.eqa.epe;
+            exVar87.aPO();
+            if (UtilHelper.isFloatWindowOpAllowed(this.eqa.getPageContext().getPageActivity())) {
+                this.eqa.epk = true;
+                PbActivity pbActivity = this.eqa;
+                dhVar123 = this.eqa.eov;
+                pbActivity.a(dhVar123.getPbData(), 0, 1, true, true);
+                com.baidu.tbadk.core.util.ax axVar = new com.baidu.tbadk.core.util.ax("c10830");
+                dhVar124 = this.eqa.eov;
+                TiebaStatic.log(axVar.ab("tid", dhVar124.getThreadID()));
                 return;
             }
-            this.eob.aMJ();
+            this.eqa.aNp();
             return;
         }
-        exVar3 = this.eob.enh;
-        if (view == exVar3.aPM()) {
-            exVar84 = this.eob.enh;
-            exVar84.aAE();
-            this.eob.aaO();
-            exVar85 = this.eob.enh;
-            exVar85.aPp();
-            exVar86 = this.eob.enh;
-            exVar86.ayk();
-            dhVar109 = this.eob.emx;
-            dhVar109.oi(1);
+        exVar3 = this.eqa.epe;
+        if (view == exVar3.aQv()) {
+            exVar84 = this.eqa.epe;
+            exVar84.aBc();
+            this.eqa.abb();
+            exVar85 = this.eqa.epe;
+            exVar85.aPY();
+            exVar86 = this.eqa.epe;
+            exVar86.ayI();
+            dhVar122 = this.eqa.eov;
+            dhVar122.os(1);
             return;
         }
-        exVar4 = this.eob.enh;
-        if (view == exVar4.erX.aEm) {
-            exVar83 = this.eob.enh;
-            dhVar108 = this.eob.emx;
-            if (!exVar83.iy(dhVar108.aNR())) {
-                this.eob.emQ = false;
-                this.eob.finish();
+        exVar4 = this.eqa.epe;
+        if (view == exVar4.eug.aDK) {
+            exVar83 = this.eqa.epe;
+            dhVar121 = this.eqa.eov;
+            if (!exVar83.iB(dhVar121.aOz())) {
+                this.eqa.eoO = false;
+                this.eqa.finish();
                 return;
             }
-            this.eob.aaO();
+            this.eqa.abb();
             return;
         }
-        exVar5 = this.eob.enh;
-        if (view != exVar5.aPD()) {
-            exVar14 = this.eob.enh;
-            if (view != exVar14.aPE()) {
-                exVar15 = this.eob.enh;
-                if (view != exVar15.aPF()) {
-                    exVar16 = this.eob.enh;
-                    if (view != exVar16.aPG()) {
-                        exVar17 = this.eob.enh;
-                        if (view != exVar17.aPn()) {
-                            exVar18 = this.eob.enh;
-                            if (view == exVar18.aPJ()) {
-                                dhVar106 = this.eob.emx;
-                                if (dhVar106 != null) {
-                                    dhVar107 = this.eob.emx;
-                                    com.baidu.tbadk.browser.f.u(this.eob.getPageContext().getPageActivity(), dhVar107.getPbData().aLQ().rB().getLink());
+        exVar5 = this.eqa.epe;
+        if (view != exVar5.aQm()) {
+            exVar14 = this.eqa.epe;
+            if (view != exVar14.aQn()) {
+                exVar15 = this.eqa.epe;
+                if (view != exVar15.aQo()) {
+                    exVar16 = this.eqa.epe;
+                    if (view != exVar16.aQp()) {
+                        exVar17 = this.eqa.epe;
+                        if (view != exVar17.aPW()) {
+                            exVar18 = this.eqa.epe;
+                            if (view == exVar18.aQs()) {
+                                dhVar119 = this.eqa.eov;
+                                if (dhVar119 != null) {
+                                    dhVar120 = this.eqa.eov;
+                                    com.baidu.tbadk.browser.f.u(this.eqa.getPageContext().getPageActivity(), dhVar120.getPbData().aMs().rN().getLink());
                                     return;
                                 }
                                 return;
                             }
-                            exVar19 = this.eob.enh;
-                            if (view != exVar19.erX.evc) {
-                                exVar20 = this.eob.enh;
-                                if (view == exVar20.erX.eve) {
-                                    dhVar96 = this.eob.emx;
-                                    if (dhVar96 != null) {
-                                        dhVar97 = this.eob.emx;
-                                        if (dhVar97.getPbData() != null) {
-                                            dhVar98 = this.eob.emx;
-                                            ArrayList<com.baidu.tieba.tbadkCore.data.q> aLR = dhVar98.getPbData().aLR();
-                                            if (aLR == null || aLR.size() <= 0) {
-                                                dhVar99 = this.eob.emx;
-                                                if (dhVar99.aNO()) {
-                                                    com.baidu.adp.lib.util.k.showToast(this.eob.getPageContext().getPageActivity(), this.eob.getPageContext().getString(t.j.pb_no_data_tips));
+                            exVar19 = this.eqa.epe;
+                            if (view != exVar19.eug.exi) {
+                                exVar20 = this.eqa.epe;
+                                if (view == exVar20.eug.exk) {
+                                    dhVar109 = this.eqa.eov;
+                                    if (dhVar109 != null) {
+                                        dhVar110 = this.eqa.eov;
+                                        if (dhVar110.getPbData() != null) {
+                                            dhVar111 = this.eqa.eov;
+                                            ArrayList<com.baidu.tieba.tbadkCore.data.q> aMt = dhVar111.getPbData().aMt();
+                                            if (aMt == null || aMt.size() <= 0) {
+                                                dhVar112 = this.eqa.eov;
+                                                if (dhVar112.aOw()) {
+                                                    com.baidu.adp.lib.util.k.showToast(this.eqa.getPageContext().getPageActivity(), this.eqa.getPageContext().getString(r.j.pb_no_data_tips));
                                                     return;
                                                 }
                                             }
-                                            exVar81 = this.eob.enh;
-                                            exVar81.aOX();
-                                            exVar82 = this.eob.enh;
-                                            exVar82.aPO();
-                                            this.eob.aMM();
+                                            exVar81 = this.eqa.epe;
+                                            exVar81.aPG();
+                                            exVar82 = this.eqa.epe;
+                                            exVar82.aQx();
+                                            this.eqa.aNs();
                                             return;
                                         }
                                     }
-                                    com.baidu.adp.lib.util.k.showToast(this.eob.getPageContext().getPageActivity(), this.eob.getPageContext().getString(t.j.pb_no_data_tips));
+                                    com.baidu.adp.lib.util.k.showToast(this.eqa.getPageContext().getPageActivity(), this.eqa.getPageContext().getString(r.j.pb_no_data_tips));
                                     return;
                                 }
-                                exVar21 = this.eob.enh;
-                                if (view != exVar21.erX.evd && view.getId() != t.g.pb_god_user_tip_content) {
-                                    exVar28 = this.eob.enh;
-                                    if (view == exVar28.erX.evf) {
-                                        dhVar90 = this.eob.emx;
-                                        AdditionData aMa = dhVar90.getPbData().aMa();
-                                        if (!TextUtils.isEmpty(aMa.getWarnMsg())) {
-                                            com.baidu.adp.lib.util.k.showToast(this.eob.getPageContext().getPageActivity(), aMa.getWarnMsg());
+                                exVar21 = this.eqa.epe;
+                                if (view != exVar21.eug.exj && view.getId() != r.g.pb_god_user_tip_content) {
+                                    exVar28 = this.eqa.epe;
+                                    if (view == exVar28.eug.exl) {
+                                        dhVar103 = this.eqa.eov;
+                                        AdditionData aMC = dhVar103.getPbData().aMC();
+                                        if (!TextUtils.isEmpty(aMC.getWarnMsg())) {
+                                            com.baidu.adp.lib.util.k.showToast(this.eqa.getPageContext().getPageActivity(), aMC.getWarnMsg());
                                             return;
-                                        } else if (aMa.getAlreadyCount() != aMa.getTotalCount()) {
-                                            dhVar91 = this.eob.emx;
-                                            ForumData aLP = dhVar91.getPbData().aLP();
-                                            dhVar92 = this.eob.emx;
-                                            com.baidu.tbadk.core.data.bg aLQ = dhVar92.getPbData().aLQ();
-                                            dhVar93 = this.eob.emx;
-                                            AntiData qf = dhVar93.getPbData().qf();
-                                            if (aLQ.getId() != null) {
-                                                if (qf != null && qf.getIfpost() == 0) {
-                                                    com.baidu.adp.lib.util.k.showToast(this.eob.getPageContext().getPageActivity(), qf.getForbid_info());
+                                        } else if (aMC.getAlreadyCount() != aMC.getTotalCount()) {
+                                            dhVar104 = this.eqa.eov;
+                                            ForumData aMr = dhVar104.getPbData().aMr();
+                                            dhVar105 = this.eqa.eov;
+                                            com.baidu.tbadk.core.data.bi aMs = dhVar105.getPbData().aMs();
+                                            dhVar106 = this.eqa.eov;
+                                            AntiData qq = dhVar106.getPbData().qq();
+                                            if (aMs.getId() != null) {
+                                                if (qq != null && qq.getIfpost() == 0) {
+                                                    com.baidu.adp.lib.util.k.showToast(this.eqa.getPageContext().getPageActivity(), qq.getForbid_info());
                                                     return;
                                                 }
                                                 int i2 = 0;
-                                                dhVar94 = this.eob.emx;
-                                                if (dhVar94.getPbData().getUserData() != null) {
-                                                    dhVar95 = this.eob.emx;
-                                                    i2 = dhVar95.getPbData().getUserData().getIsMem();
+                                                dhVar107 = this.eqa.eov;
+                                                if (dhVar107.getPbData().getUserData() != null) {
+                                                    dhVar108 = this.eqa.eov;
+                                                    i2 = dhVar108.getPbData().getUserData().getIsMem();
                                                 }
-                                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteActivityConfig(this.eob.getPageContext().getPageActivity(), 2, aLP.getId(), aLP.getName(), aLQ.getId(), aMa.getPostId(), 0, qf, 13008, false, false, null, false, false, null, aMa, null, i2)));
+                                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteActivityConfig(this.eqa.getPageContext().getPageActivity(), 2, aMr.getId(), aMr.getName(), aMs.getId(), aMC.getPostId(), 0, qq, 13008, false, false, null, false, false, null, aMC, null, i2)));
                                                 return;
                                             }
                                             return;
                                         } else {
-                                            com.baidu.adp.lib.util.k.showToast(this.eob.getPageContext().getPageActivity(), String.format(this.eob.getPageContext().getString(t.j.write_addition_limit), Integer.valueOf(aMa.getTotalCount())));
+                                            com.baidu.adp.lib.util.k.showToast(this.eqa.getPageContext().getPageActivity(), String.format(this.eqa.getPageContext().getString(r.j.write_addition_limit), Integer.valueOf(aMC.getTotalCount())));
                                             return;
                                         }
                                     }
-                                    exVar29 = this.eob.enh;
-                                    if (exVar29.erX.aQg() != null) {
-                                        exVar78 = this.eob.enh;
-                                        if (view == exVar78.erX.aQg().aOm()) {
-                                            exVar79 = this.eob.enh;
-                                            exVar79.aAE();
-                                            oc = this.eob.oc(11009);
-                                            if (oc) {
-                                                dhVar89 = this.eob.emx;
-                                                exVar80 = this.eob.enh;
-                                                if (dhVar89.oo(exVar80.aPw()) == null) {
+                                    exVar29 = this.eqa.epe;
+                                    if (exVar29.eug.aQP() != null) {
+                                        exVar78 = this.eqa.epe;
+                                        if (view == exVar78.eug.aQP().aOU()) {
+                                            exVar79 = this.eqa.epe;
+                                            exVar79.aBc();
+                                            om = this.eqa.om(11009);
+                                            if (om) {
+                                                dhVar102 = this.eqa.eov;
+                                                exVar80 = this.eqa.epe;
+                                                if (dhVar102.oy(exVar80.aQf()) == null) {
                                                     return;
                                                 }
-                                                this.eob.aMR();
+                                                this.eqa.aNx();
                                                 return;
                                             }
                                             return;
                                         }
                                     }
-                                    exVar30 = this.eob.enh;
-                                    if (exVar30.erX.aQg() != null) {
-                                        exVar75 = this.eob.enh;
-                                        if (view != exVar75.erX.aQg().aOA()) {
-                                            exVar77 = this.eob.enh;
+                                    exVar30 = this.eqa.epe;
+                                    if (exVar30.eug.aQP() != null) {
+                                        exVar75 = this.eqa.epe;
+                                        if (view != exVar75.eug.aQP().aPi()) {
+                                            exVar77 = this.eqa.epe;
                                         }
-                                        exVar76 = this.eob.enh;
-                                        exVar76.erX.oa();
+                                        exVar76 = this.eqa.epe;
+                                        exVar76.eug.ob();
                                         return;
                                     }
-                                    exVar31 = this.eob.enh;
-                                    if (view != exVar31.aPu()) {
-                                        exVar32 = this.eob.enh;
-                                        if (exVar32.erX.aQg() != null) {
-                                            exVar71 = this.eob.enh;
-                                            if (view == exVar71.erX.aQg().aOv()) {
-                                                exVar72 = this.eob.enh;
-                                                exVar72.aAE();
-                                                dhVar87 = this.eob.emx;
-                                                if (dhVar87.aoU() != null) {
-                                                    exVar73 = this.eob.enh;
-                                                    dhVar88 = this.eob.emx;
-                                                    exVar73.a(dhVar88.aoU(), this.eob.dXo);
+                                    exVar31 = this.eqa.epe;
+                                    if (view != exVar31.aQd()) {
+                                        exVar32 = this.eqa.epe;
+                                        if (exVar32.eug.aQP() != null) {
+                                            exVar71 = this.eqa.epe;
+                                            if (view == exVar71.eug.aQP().aPd()) {
+                                                exVar72 = this.eqa.epe;
+                                                exVar72.aBc();
+                                                dhVar95 = this.eqa.eov;
+                                                if (dhVar95.api() != null) {
+                                                    exVar73 = this.eqa.epe;
+                                                    dhVar96 = this.eqa.eov;
+                                                    exVar73.a(dhVar96.api(), this.eqa.dZi);
                                                 }
-                                                TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "pb_skip_page", "pbclick", 1, new Object[0]);
+                                                TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "pb_skip_page", "pbclick", 1, new Object[0]);
                                                 return;
                                             }
                                         }
-                                        exVar33 = this.eob.enh;
-                                        if (exVar33.erX.aQg() != null) {
-                                            exVar68 = this.eob.enh;
-                                            if (view == exVar68.erX.aQg().aOw()) {
-                                                exVar69 = this.eob.enh;
-                                                exVar69.aAE();
-                                                this.eob.od(2);
-                                                this.eob.aaO();
-                                                exVar70 = this.eob.enh;
-                                                exVar70.aPp();
-                                                dhVar86 = this.eob.emx;
-                                                dhVar86.aNX();
-                                                TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "pb_set_desc", "pbclick", 1, new Object[0]);
+                                        exVar33 = this.eqa.epe;
+                                        if (exVar33.eug.aQP() != null) {
+                                            exVar68 = this.eqa.epe;
+                                            if (view == exVar68.eug.aQP().aPe()) {
+                                                exVar69 = this.eqa.epe;
+                                                exVar69.aBc();
+                                                this.eqa.on(2);
+                                                this.eqa.abb();
+                                                exVar70 = this.eqa.epe;
+                                                exVar70.aPY();
+                                                dhVar94 = this.eqa.eov;
+                                                dhVar94.aOF();
+                                                TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "pb_set_desc", "pbclick", 1, new Object[0]);
                                                 return;
                                             }
                                         }
-                                        exVar34 = this.eob.enh;
-                                        if (exVar34.erX.aQg() != null) {
-                                            exVar66 = this.eob.enh;
-                                            if (view == exVar66.erX.aQg().aOx()) {
-                                                dhVar82 = this.eob.emx;
-                                                if (dhVar82 != null) {
-                                                    dhVar83 = this.eob.emx;
-                                                    if (dhVar83.getPbData() != null) {
-                                                        dhVar84 = this.eob.emx;
-                                                        if (dhVar84.getPbData().aLQ() != null) {
-                                                            exVar67 = this.eob.enh;
-                                                            exVar67.erX.oa();
-                                                            PbActivity pbActivity2 = this.eob;
-                                                            dhVar85 = this.eob.emx;
-                                                            pbActivity2.oO(dhVar85.getPbData().aLQ().rQ());
+                                        exVar34 = this.eqa.epe;
+                                        if (exVar34.eug.aQP() != null) {
+                                            exVar66 = this.eqa.epe;
+                                            if (view == exVar66.eug.aQP().aPf()) {
+                                                dhVar90 = this.eqa.eov;
+                                                if (dhVar90 != null) {
+                                                    dhVar91 = this.eqa.eov;
+                                                    if (dhVar91.getPbData() != null) {
+                                                        dhVar92 = this.eqa.eov;
+                                                        if (dhVar92.getPbData().aMs() != null) {
+                                                            exVar67 = this.eqa.epe;
+                                                            exVar67.eug.ob();
+                                                            PbActivity pbActivity2 = this.eqa;
+                                                            dhVar93 = this.eqa.eov;
+                                                            pbActivity2.pd(dhVar93.getPbData().aMs().sc());
                                                             return;
                                                         }
                                                         return;
@@ -576,19 +591,19 @@ class z implements View.OnClickListener {
                                                 return;
                                             }
                                         }
-                                        exVar35 = this.eob.enh;
-                                        if (exVar35.erX.aQg() != null) {
-                                            exVar64 = this.eob.enh;
-                                            if (view == exVar64.erX.aQg().eqo) {
-                                                dhVar79 = this.eob.emx;
-                                                if (dhVar79 != null) {
-                                                    dhVar80 = this.eob.emx;
-                                                    if (dhVar80.getPbData() != null) {
-                                                        dhVar81 = this.eob.emx;
-                                                        if (dhVar81.getPbData().aLQ() != null) {
-                                                            exVar65 = this.eob.enh;
-                                                            exVar65.erX.oa();
-                                                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteActivityConfig(this.eob.getPageContext().getPageActivity(), 0, TbConfig.ECOMM_FEED_BACK_ID, TbConfig.ECOMM_FEED_BACK_NAME, null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0)));
+                                        exVar35 = this.eqa.epe;
+                                        if (exVar35.eug.aQP() != null) {
+                                            exVar64 = this.eqa.epe;
+                                            if (view == exVar64.eug.aQP().esm) {
+                                                dhVar87 = this.eqa.eov;
+                                                if (dhVar87 != null) {
+                                                    dhVar88 = this.eqa.eov;
+                                                    if (dhVar88.getPbData() != null) {
+                                                        dhVar89 = this.eqa.eov;
+                                                        if (dhVar89.getPbData().aMs() != null) {
+                                                            exVar65 = this.eqa.epe;
+                                                            exVar65.eug.ob();
+                                                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteActivityConfig(this.eqa.getPageContext().getPageActivity(), 0, TbConfig.ECOMM_FEED_BACK_ID, TbConfig.ECOMM_FEED_BACK_NAME, null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0)));
                                                             return;
                                                         }
                                                         return;
@@ -598,93 +613,93 @@ class z implements View.OnClickListener {
                                                 return;
                                             }
                                         }
-                                        exVar36 = this.eob.enh;
-                                        if (exVar36.erX.aQg() != null) {
-                                            exVar60 = this.eob.enh;
-                                            if (view == exVar60.erX.aQg().aOy()) {
+                                        exVar36 = this.eqa.epe;
+                                        if (exVar36.eug.aQP() != null) {
+                                            exVar60 = this.eqa.epe;
+                                            if (view == exVar60.eug.aQP().aPg()) {
                                                 TiebaStatic.log("c10414");
-                                                exVar61 = this.eob.enh;
-                                                exVar61.aAE();
-                                                exVar62 = this.eob.enh;
-                                                if (exVar62.rr() != ex.etO) {
-                                                    dhVar77 = this.eob.emx;
-                                                    if (dhVar77.aOl() != null) {
-                                                        dhVar78 = this.eob.emx;
-                                                        dhVar78.aOl().og(dh.eph);
+                                                exVar61 = this.eqa.epe;
+                                                exVar61.aBc();
+                                                exVar62 = this.eqa.epe;
+                                                if (exVar62.rD() != ex.evW) {
+                                                    dhVar85 = this.eqa.eov;
+                                                    if (dhVar85.aOT() != null) {
+                                                        dhVar86 = this.eqa.eov;
+                                                        dhVar86.aOT().oq(dh.erf);
                                                         return;
                                                     }
                                                     return;
                                                 }
-                                                exVar63 = this.eob.enh;
-                                                exVar63.aPS();
+                                                exVar63 = this.eqa.epe;
+                                                exVar63.aQB();
                                                 return;
                                             }
                                         }
-                                        exVar37 = this.eob.enh;
-                                        if (exVar37.erX.aQg() != null) {
-                                            exVar57 = this.eob.enh;
-                                            if (view == exVar57.erX.aQg().aOz()) {
-                                                aMK = this.eob.aMK();
-                                                this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.eob.getPageContext().getPageActivity(), null, aMK, true)));
-                                                exVar58 = this.eob.enh;
-                                                exVar58.erX.oa();
-                                                exVar59 = this.eob.enh;
-                                                exVar59.erX.aQg().aOE();
+                                        exVar37 = this.eqa.epe;
+                                        if (exVar37.eug.aQP() != null) {
+                                            exVar57 = this.eqa.epe;
+                                            if (view == exVar57.eug.aQP().aPh()) {
+                                                aNq = this.eqa.aNq();
+                                                this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.eqa.getPageContext().getPageActivity(), null, aNq, true)));
+                                                exVar58 = this.eqa.epe;
+                                                exVar58.eug.ob();
+                                                exVar59 = this.eqa.epe;
+                                                exVar59.eug.aQP().aPm();
                                                 return;
                                             }
                                         }
-                                        cdo = this.eob.enm;
+                                        cdo = this.eqa.epj;
                                         if (cdo != null) {
-                                            cdo49 = this.eob.enm;
-                                            if (view == cdo49.aOo()) {
+                                            cdo49 = this.eqa.epj;
+                                            if (view == cdo49.aOW()) {
                                                 Object tag = view.getTag();
                                                 if (!(tag instanceof String)) {
                                                     if (tag instanceof SparseArray) {
                                                         SparseArray<Object> sparseArray5 = (SparseArray) tag;
-                                                        if ((sparseArray5.get(t.g.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray5.get(t.g.tag_user_mute_visible)).booleanValue()) {
-                                                            sparseArray5.put(t.g.tag_from, 0);
-                                                            sparseArray5.put(t.g.tag_check_mute_from, 2);
-                                                            this.eob.d(sparseArray5);
+                                                        if ((sparseArray5.get(r.g.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray5.get(r.g.tag_user_mute_visible)).booleanValue()) {
+                                                            sparseArray5.put(r.g.tag_from, 0);
+                                                            sparseArray5.put(r.g.tag_check_mute_from, 2);
+                                                            this.eqa.d(sparseArray5);
                                                             return;
                                                         }
                                                         return;
                                                     }
                                                     return;
                                                 }
-                                                this.eob.oO((String) tag);
+                                                this.eqa.pd((String) tag);
                                                 return;
                                             }
                                         }
-                                        cdo2 = this.eob.enm;
+                                        cdo2 = this.eqa.epj;
                                         if (cdo2 != null) {
-                                            cdo48 = this.eob.enm;
-                                            if (view == cdo48.aOm()) {
-                                                if (!this.eob.checkUpIsLogin()) {
+                                            cdo48 = this.eqa.epj;
+                                            if (view == cdo48.aOU()) {
+                                                if (!this.eqa.checkUpIsLogin()) {
                                                     return;
                                                 }
-                                                this.eob.aW(view);
+                                                this.eqa.aU(view);
                                                 return;
                                             }
                                         }
-                                        cdo3 = this.eob.enm;
+                                        cdo3 = this.eqa.epj;
                                         if (cdo3 != null) {
-                                            cdo47 = this.eob.enm;
-                                            if (view == cdo47.aOs()) {
-                                                if (view.getTag(t.g.tag_pb_floor_postion) instanceof Integer) {
-                                                    dhVar75 = this.eob.emx;
-                                                    if (dhVar75 != null) {
-                                                        exVar56 = this.eob.enh;
-                                                        exVar56.aPf();
-                                                        if (!UtilHelper.isFloatWindowOpAllowed(this.eob.getPageContext().getPageActivity())) {
-                                                            this.eob.aMJ();
+                                            cdo47 = this.eqa.epj;
+                                            if (view == cdo47.aPa()) {
+                                                if (view.getTag(r.g.tag_pb_floor_postion) instanceof Integer) {
+                                                    dhVar83 = this.eqa.eov;
+                                                    if (dhVar83 != null) {
+                                                        exVar56 = this.eqa.epe;
+                                                        exVar56.aPO();
+                                                        if (!UtilHelper.isFloatWindowOpAllowed(this.eqa.getPageContext().getPageActivity())) {
+                                                            this.eqa.aNp();
                                                             return;
                                                         }
-                                                        int intValue = ((Integer) view.getTag(t.g.tag_pb_floor_postion)).intValue();
-                                                        int intValue2 = ((Integer) view.getTag(t.g.tag_pb_floor_number)).intValue();
-                                                        this.eob.enn = true;
-                                                        PbActivity pbActivity3 = this.eob;
-                                                        dhVar76 = this.eob.emx;
-                                                        pbActivity3.a(dhVar76.getPbData(), intValue, intValue2, true, true);
+                                                        int intValue = ((Integer) view.getTag(r.g.tag_pb_floor_postion)).intValue();
+                                                        int intValue2 = ((Integer) view.getTag(r.g.tag_pb_floor_number)).intValue();
+                                                        this.eqa.epk = true;
+                                                        PbActivity pbActivity3 = this.eqa;
+                                                        dhVar84 = this.eqa.eov;
+                                                        pbActivity3.a(dhVar84.getPbData(), intValue, intValue2, true, true);
                                                         TiebaStatic.log("c10834");
                                                         return;
                                                     }
@@ -693,110 +708,110 @@ class z implements View.OnClickListener {
                                                 return;
                                             }
                                         }
-                                        cdo4 = this.eob.enm;
+                                        cdo4 = this.eqa.epj;
                                         if (cdo4 != null) {
-                                            cdo46 = this.eob.enm;
-                                            if (view == cdo46.aOp()) {
+                                            cdo46 = this.eqa.epj;
+                                            if (view == cdo46.aOX()) {
                                                 SparseArray sparseArray6 = (SparseArray) view.getTag();
-                                                if (sparseArray6 != null && (sparseArray6.get(t.g.tag_del_post_type) instanceof Integer) && (sparseArray6.get(t.g.tag_del_post_id) instanceof String) && (sparseArray6.get(t.g.tag_manage_user_identity) instanceof Integer) && (sparseArray6.get(t.g.tag_del_post_is_self) instanceof Boolean)) {
-                                                    boolean booleanValue2 = ((Boolean) sparseArray6.get(t.g.tag_del_post_is_self)).booleanValue();
-                                                    int intValue3 = ((Integer) sparseArray6.get(t.g.tag_manage_user_identity)).intValue();
-                                                    if (!booleanValue2 && intValue3 != 0 && com.baidu.tieba.c.a.Nn()) {
-                                                        Context baseContext = this.eob.getBaseContext();
-                                                        dhVar74 = this.eob.emx;
-                                                        if (com.baidu.tieba.c.a.f(baseContext, dhVar74.getThreadID(), (String) sparseArray6.get(t.g.tag_del_post_id))) {
+                                                if (sparseArray6 != null && (sparseArray6.get(r.g.tag_del_post_type) instanceof Integer) && (sparseArray6.get(r.g.tag_del_post_id) instanceof String) && (sparseArray6.get(r.g.tag_manage_user_identity) instanceof Integer) && (sparseArray6.get(r.g.tag_del_post_is_self) instanceof Boolean)) {
+                                                    boolean booleanValue2 = ((Boolean) sparseArray6.get(r.g.tag_del_post_is_self)).booleanValue();
+                                                    int intValue3 = ((Integer) sparseArray6.get(r.g.tag_manage_user_identity)).intValue();
+                                                    if (!booleanValue2 && intValue3 != 0 && com.baidu.tieba.c.a.NO()) {
+                                                        Context baseContext = this.eqa.getBaseContext();
+                                                        dhVar82 = this.eqa.eov;
+                                                        if (com.baidu.tieba.c.a.f(baseContext, dhVar82.getThreadID(), (String) sparseArray6.get(r.g.tag_del_post_id))) {
                                                             return;
                                                         }
                                                     }
-                                                    exVar55 = this.eob.enh;
-                                                    exVar55.a(((Integer) sparseArray6.get(t.g.tag_del_post_type)).intValue(), (String) sparseArray6.get(t.g.tag_del_post_id), intValue3, booleanValue2);
+                                                    exVar55 = this.eqa.epe;
+                                                    exVar55.a(((Integer) sparseArray6.get(r.g.tag_del_post_type)).intValue(), (String) sparseArray6.get(r.g.tag_del_post_id), intValue3, booleanValue2);
                                                     return;
                                                 }
                                                 return;
                                             }
                                         }
-                                        cdo5 = this.eob.enm;
+                                        cdo5 = this.eqa.epj;
                                         if (cdo5 != null) {
-                                            cdo45 = this.eob.enm;
-                                            if (view == cdo45.aOq()) {
+                                            cdo45 = this.eqa.epj;
+                                            if (view == cdo45.aOY()) {
                                                 long j = -1;
                                                 String str2 = "";
                                                 int i3 = 0;
-                                                if (view.getTag(t.g.tag_chudian_template_id) instanceof Long) {
-                                                    j = ((Long) view.getTag(t.g.tag_chudian_template_id)).longValue();
+                                                if (view.getTag(r.g.tag_chudian_template_id) instanceof Long) {
+                                                    j = ((Long) view.getTag(r.g.tag_chudian_template_id)).longValue();
                                                 }
-                                                if (view.getTag(t.g.tag_chudian_monitor_id) instanceof String) {
-                                                    str2 = (String) view.getTag(t.g.tag_chudian_monitor_id);
+                                                if (view.getTag(r.g.tag_chudian_monitor_id) instanceof String) {
+                                                    str2 = (String) view.getTag(r.g.tag_chudian_monitor_id);
                                                 }
-                                                if (view.getTag(t.g.tag_chudian_hide_day) instanceof Integer) {
-                                                    i3 = ((Integer) view.getTag(t.g.tag_chudian_hide_day)).intValue();
+                                                if (view.getTag(r.g.tag_chudian_hide_day) instanceof Integer) {
+                                                    i3 = ((Integer) view.getTag(r.g.tag_chudian_hide_day)).intValue();
                                                 }
-                                                dhVar73 = this.eob.emx;
-                                                com.baidu.tieba.pb.data.h pbData = dhVar73.getPbData();
+                                                dhVar81 = this.eqa.eov;
+                                                com.baidu.tieba.pb.data.h pbData = dhVar81.getPbData();
                                                 String str3 = null;
                                                 String str4 = null;
                                                 String str5 = null;
-                                                if (pbData != null && pbData.aLP() != null) {
-                                                    str3 = pbData.aLP().getId();
-                                                    str4 = pbData.aLP().getName();
+                                                if (pbData != null && pbData.aMr() != null) {
+                                                    str3 = pbData.aMr().getId();
+                                                    str4 = pbData.aMr().getName();
                                                     str5 = pbData.getThreadId();
                                                 }
                                                 com.baidu.tieba.pb.b.a(j, str2, null, "PB", "BTN_FB", "CLICK_FEEDBACK", "tpoint", null, null, str3, str4, str5);
-                                                this.eob.a(j, str2, str3, str4, str5, i3);
+                                                this.eqa.a(j, str2, str3, str4, str5, i3);
                                                 return;
                                             }
                                         }
-                                        exVar38 = this.eob.enh;
-                                        if (exVar38.aPT() == view) {
-                                            exVar54 = this.eob.enh;
-                                            if (exVar54.aPT().getIndicateStatus()) {
-                                                dhVar72 = this.eob.emx;
-                                                com.baidu.tieba.pb.data.h pbData2 = dhVar72.getPbData();
-                                                if (pbData2 != null && pbData2.aLQ() != null && pbData2.aLQ().rl() != null) {
-                                                    String ps = pbData2.aLQ().rl().ps();
-                                                    if (StringUtils.isNull(ps)) {
-                                                        ps = pbData2.aLQ().rl().getTaskId();
+                                        exVar38 = this.eqa.epe;
+                                        if (exVar38.aQC() == view) {
+                                            exVar54 = this.eqa.epe;
+                                            if (exVar54.aQC().getIndicateStatus()) {
+                                                dhVar80 = this.eqa.eov;
+                                                com.baidu.tieba.pb.data.h pbData2 = dhVar80.getPbData();
+                                                if (pbData2 != null && pbData2.aMs() != null && pbData2.aMs().rx() != null) {
+                                                    String pt = pbData2.aMs().rx().pt();
+                                                    if (StringUtils.isNull(pt)) {
+                                                        pt = pbData2.aMs().rx().getTaskId();
                                                     }
-                                                    TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c11107").ab("obj_id", ps));
+                                                    TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c11107").ab("obj_id", pt));
                                                 }
                                             } else {
-                                                com.baidu.tieba.tbadkCore.d.a.bR("c10725", null);
+                                                com.baidu.tieba.tbadkCore.d.a.bS("c10725", null);
                                             }
-                                            this.eob.aNe();
+                                            this.eqa.aNK();
                                             return;
                                         }
-                                        exVar39 = this.eob.enh;
-                                        if (exVar39.aPi() != view) {
-                                            cdo6 = this.eob.enm;
+                                        exVar39 = this.eqa.epe;
+                                        if (exVar39.aPR() != view) {
+                                            cdo6 = this.eqa.epj;
                                             if (cdo6 != null) {
-                                                cdo44 = this.eob.enm;
-                                                if (view == cdo44.aOn()) {
+                                                cdo44 = this.eqa.epj;
+                                                if (view == cdo44.aOV()) {
                                                     SparseArray<Object> sparseArray7 = (SparseArray) view.getTag();
                                                     if (sparseArray7 != null) {
-                                                        if (com.baidu.tieba.c.a.Nn() && sparseArray7.get(t.g.tag_del_post_id) != null) {
-                                                            Context baseContext2 = this.eob.getBaseContext();
-                                                            dhVar70 = this.eob.emx;
-                                                            if (com.baidu.tieba.c.a.f(baseContext2, dhVar70.getThreadID(), (String) sparseArray7.get(t.g.tag_del_post_id))) {
+                                                        if (com.baidu.tieba.c.a.NO() && sparseArray7.get(r.g.tag_del_post_id) != null) {
+                                                            Context baseContext2 = this.eqa.getBaseContext();
+                                                            dhVar78 = this.eqa.eov;
+                                                            if (com.baidu.tieba.c.a.f(baseContext2, dhVar78.getThreadID(), (String) sparseArray7.get(r.g.tag_del_post_id))) {
                                                                 return;
                                                             }
                                                         }
-                                                        boolean booleanValue3 = ((Boolean) sparseArray7.get(t.g.tag_should_manage_visible)).booleanValue();
-                                                        boolean booleanValue4 = ((Boolean) sparseArray7.get(t.g.tag_should_delete_visible)).booleanValue();
-                                                        boolean booleanValue5 = ((Boolean) sparseArray7.get(t.g.tag_user_mute_visible)).booleanValue();
+                                                        boolean booleanValue3 = ((Boolean) sparseArray7.get(r.g.tag_should_manage_visible)).booleanValue();
+                                                        boolean booleanValue4 = ((Boolean) sparseArray7.get(r.g.tag_should_delete_visible)).booleanValue();
+                                                        boolean booleanValue5 = ((Boolean) sparseArray7.get(r.g.tag_user_mute_visible)).booleanValue();
                                                         if (booleanValue3) {
                                                             if (booleanValue5) {
-                                                                sparseArray7.put(t.g.tag_from, 1);
-                                                                sparseArray7.put(t.g.tag_check_mute_from, 2);
-                                                                this.eob.d(sparseArray7);
+                                                                sparseArray7.put(r.g.tag_from, 1);
+                                                                sparseArray7.put(r.g.tag_check_mute_from, 2);
+                                                                this.eqa.d(sparseArray7);
                                                                 return;
                                                             }
-                                                            sparseArray7.put(t.g.tag_check_mute_from, 2);
-                                                            exVar53 = this.eob.enh;
-                                                            exVar53.aZ(view);
+                                                            sparseArray7.put(r.g.tag_check_mute_from, 2);
+                                                            exVar53 = this.eqa.epe;
+                                                            exVar53.aY(view);
                                                             return;
                                                         } else if (booleanValue4) {
-                                                            exVar52 = this.eob.enh;
-                                                            exVar52.a(((Integer) sparseArray7.get(t.g.tag_del_post_type)).intValue(), (String) sparseArray7.get(t.g.tag_del_post_id), ((Integer) sparseArray7.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray7.get(t.g.tag_del_post_is_self)).booleanValue());
+                                                            exVar52 = this.eqa.epe;
+                                                            exVar52.a(((Integer) sparseArray7.get(r.g.tag_del_post_type)).intValue(), (String) sparseArray7.get(r.g.tag_del_post_id), ((Integer) sparseArray7.get(r.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray7.get(r.g.tag_del_post_is_self)).booleanValue());
                                                             return;
                                                         } else {
                                                             return;
@@ -805,24 +820,24 @@ class z implements View.OnClickListener {
                                                     return;
                                                 }
                                             }
-                                            exVar40 = this.eob.enh;
-                                            if (view == exVar40.aNJ()) {
-                                                if (this.eob.checkUpIsLogin()) {
-                                                    exVar49 = this.eob.enh;
-                                                    if (!exVar49.aNG()) {
-                                                        dhVar66 = this.eob.emx;
-                                                        if (dhVar66 != null) {
-                                                            dhVar67 = this.eob.emx;
-                                                            if (dhVar67.aOj() != null) {
-                                                                dhVar68 = this.eob.emx;
-                                                                if (dhVar68.aOj().aNA() != null) {
-                                                                    dhVar69 = this.eob.emx;
-                                                                    if (com.baidu.tbadk.core.util.y.s(dhVar69.aOj().aNA().getItems()) != 0) {
-                                                                        exVar50 = this.eob.enh;
-                                                                        exVar50.aNH();
+                                            exVar40 = this.eqa.epe;
+                                            if (view == exVar40.aOr()) {
+                                                if (this.eqa.checkUpIsLogin()) {
+                                                    exVar49 = this.eqa.epe;
+                                                    if (!exVar49.aOo()) {
+                                                        dhVar74 = this.eqa.eov;
+                                                        if (dhVar74 != null) {
+                                                            dhVar75 = this.eqa.eov;
+                                                            if (dhVar75.aOR() != null) {
+                                                                dhVar76 = this.eqa.eov;
+                                                                if (dhVar76.aOR().aOi() != null) {
+                                                                    dhVar77 = this.eqa.eov;
+                                                                    if (com.baidu.tbadk.core.util.y.s(dhVar77.aOR().aOi().getItems()) != 0) {
+                                                                        exVar50 = this.eqa.epe;
+                                                                        exVar50.aOp();
                                                                         return;
                                                                     }
-                                                                    this.eob.showToast(t.j.graffiti_quick_vote_empty);
+                                                                    this.eqa.showToast(r.j.graffiti_quick_vote_empty);
                                                                     return;
                                                                 }
                                                                 return;
@@ -831,339 +846,339 @@ class z implements View.OnClickListener {
                                                         }
                                                         return;
                                                     }
-                                                    exVar51 = this.eob.enh;
-                                                    exVar51.aNI();
+                                                    exVar51 = this.eqa.epe;
+                                                    exVar51.aOq();
                                                     return;
                                                 }
                                                 return;
-                                            } else if (view.getId() == t.g.pb_head_function_manage_delormanage) {
+                                            } else if (view.getId() == r.g.pb_head_function_manage_delormanage) {
                                                 SparseArray sparseArray8 = (SparseArray) view.getTag();
-                                                if (!((Boolean) sparseArray8.get(t.g.tag_should_manage_visible)).booleanValue()) {
-                                                    exVar47 = this.eob.enh;
-                                                    exVar47.a(((Integer) sparseArray8.get(t.g.tag_del_post_type)).intValue(), (String) sparseArray8.get(t.g.tag_del_post_id), ((Integer) sparseArray8.get(t.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray8.get(t.g.tag_del_post_is_self)).booleanValue());
+                                                if (!((Boolean) sparseArray8.get(r.g.tag_should_manage_visible)).booleanValue()) {
+                                                    exVar47 = this.eqa.epe;
+                                                    exVar47.a(((Integer) sparseArray8.get(r.g.tag_del_post_type)).intValue(), (String) sparseArray8.get(r.g.tag_del_post_id), ((Integer) sparseArray8.get(r.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray8.get(r.g.tag_del_post_is_self)).booleanValue());
                                                     return;
                                                 }
-                                                if (com.baidu.tieba.c.a.Nn()) {
-                                                    Context baseContext3 = this.eob.getBaseContext();
-                                                    dhVar65 = this.eob.emx;
-                                                    if (com.baidu.tieba.c.a.f(baseContext3, dhVar65.getThreadID(), null)) {
+                                                if (com.baidu.tieba.c.a.NO()) {
+                                                    Context baseContext3 = this.eqa.getBaseContext();
+                                                    dhVar73 = this.eqa.eov;
+                                                    if (com.baidu.tieba.c.a.f(baseContext3, dhVar73.getThreadID(), null)) {
                                                         return;
                                                     }
                                                 }
-                                                exVar48 = this.eob.enh;
-                                                exVar48.aZ(view);
+                                                exVar48 = this.eqa.epe;
+                                                exVar48.aY(view);
                                                 return;
-                                            } else if (view.getId() != t.g.replybtn && view.getId() != t.g.sub_pb_more && view.getId() != t.g.sub_pb_item) {
-                                                exVar42 = this.eob.enh;
-                                                if (view == exVar42.aMA()) {
+                                            } else if (view.getId() != r.g.replybtn && view.getId() != r.g.sub_pb_more && view.getId() != r.g.sub_pb_item) {
+                                                exVar42 = this.eqa.epe;
+                                                if (view == exVar42.aNf()) {
                                                     if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
                                                         long c = com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccountInfo().getID(), 0L);
-                                                        dhVar62 = this.eob.emx;
-                                                        long c2 = com.baidu.adp.lib.h.b.c(dhVar62.getPbData().getForumId(), 0L);
-                                                        dhVar63 = this.eob.emx;
-                                                        long c3 = com.baidu.adp.lib.h.b.c(dhVar63.getThreadID(), 0L);
-                                                        dhVar64 = this.eob.emx;
-                                                        this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PushThreadActivityConfig(this.eob.getPageContext().getPageActivity(), 24008, c2, c3, c, dhVar64.getPbData().aLQ().rT())));
+                                                        dhVar70 = this.eqa.eov;
+                                                        long c2 = com.baidu.adp.lib.h.b.c(dhVar70.getPbData().getForumId(), 0L);
+                                                        dhVar71 = this.eqa.eov;
+                                                        long c3 = com.baidu.adp.lib.h.b.c(dhVar71.getThreadID(), 0L);
+                                                        dhVar72 = this.eqa.eov;
+                                                        this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PushThreadActivityConfig(this.eqa.getPageContext().getPageActivity(), 24008, c2, c3, c, dhVar72.getPbData().aMs().sf())));
                                                         return;
                                                     }
                                                     return;
                                                 }
                                                 int id = view.getId();
-                                                if (id == t.g.pb_u9_text_view) {
-                                                    if (this.eob.checkUpIsLogin() && (bnVar = (com.baidu.tbadk.core.data.bn) view.getTag()) != null && !StringUtils.isNull(bnVar.sM())) {
-                                                        TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "info_click", "click", 1, "page", "pb");
-                                                        com.baidu.tbadk.core.util.bi.vx().c(this.eob.getPageContext(), new String[]{bnVar.sM()});
+                                                if (id == r.g.pb_u9_text_view) {
+                                                    if (this.eqa.checkUpIsLogin() && (bpVar = (com.baidu.tbadk.core.data.bp) view.getTag()) != null && !StringUtils.isNull(bpVar.tb())) {
+                                                        TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "info_click", "click", 1, "page", "pb");
+                                                        com.baidu.tbadk.core.util.bh.vL().c(this.eqa.getPageContext(), new String[]{bpVar.tb()});
                                                         return;
                                                     }
                                                     return;
-                                                } else if (id == t.g.reply) {
-                                                    cdo7 = this.eob.enm;
+                                                } else if (id == r.g.reply) {
+                                                    cdo7 = this.eqa.epj;
                                                     if (cdo7 == null) {
-                                                        this.eob.enm = new Cdo(this.eob.getPageContext(), this.eob.bRE);
-                                                        cdo43 = this.eob.enm;
-                                                        z7 = this.eob.mIsLogin;
-                                                        cdo43.ig(z7);
+                                                        this.eqa.epj = new Cdo(this.eqa.getPageContext(), this.eqa.bRx);
+                                                        cdo43 = this.eqa.epj;
+                                                        z7 = this.eqa.mIsLogin;
+                                                        cdo43.ij(z7);
                                                     }
-                                                    cdo8 = this.eob.enm;
-                                                    cdo8.GN();
+                                                    cdo8 = this.eqa.epj;
+                                                    cdo8.GM();
                                                     com.baidu.tieba.tbadkCore.data.q qVar = null;
                                                     if (view != null && view.getTag() != null) {
-                                                        qVar = (com.baidu.tieba.tbadkCore.data.q) ((SparseArray) view.getTag()).get(t.g.tag_load_sub_data);
-                                                        if (!this.eob.aMY()) {
-                                                            dhVar61 = this.eob.emx;
-                                                            if (dhVar61.aNY() && TbadkCoreApplication.m9getInst().isTTSCanUse()) {
-                                                                cdo42 = this.eob.enm;
-                                                                cdo42.aOu();
+                                                        qVar = (com.baidu.tieba.tbadkCore.data.q) ((SparseArray) view.getTag()).get(r.g.tag_load_sub_data);
+                                                        if (!this.eqa.aNE()) {
+                                                            dhVar69 = this.eqa.eov;
+                                                            if (dhVar69.aOG() && TbadkCoreApplication.m9getInst().isTTSCanUse()) {
+                                                                cdo42 = this.eqa.epj;
+                                                                cdo42.aPc();
                                                                 sparseArray = (SparseArray) view.getTag();
-                                                                if (sparseArray.get(t.g.tag_pb_floor_postion) instanceof Integer) {
-                                                                    int intValue4 = ((Integer) sparseArray.get(t.g.tag_pb_floor_postion)).intValue();
-                                                                    int intValue5 = ((Integer) sparseArray.get(t.g.tag_pb_floor_number)).intValue();
-                                                                    cdo40 = this.eob.enm;
-                                                                    cdo40.aOs().setTag(t.g.tag_pb_floor_postion, Integer.valueOf(intValue4));
-                                                                    cdo41 = this.eob.enm;
-                                                                    cdo41.aOs().setTag(t.g.tag_pb_floor_number, Integer.valueOf(intValue5));
+                                                                if (sparseArray.get(r.g.tag_pb_floor_postion) instanceof Integer) {
+                                                                    int intValue4 = ((Integer) sparseArray.get(r.g.tag_pb_floor_postion)).intValue();
+                                                                    int intValue5 = ((Integer) sparseArray.get(r.g.tag_pb_floor_number)).intValue();
+                                                                    cdo40 = this.eqa.epj;
+                                                                    cdo40.aPa().setTag(r.g.tag_pb_floor_postion, Integer.valueOf(intValue4));
+                                                                    cdo41 = this.eqa.epj;
+                                                                    cdo41.aPa().setTag(r.g.tag_pb_floor_number, Integer.valueOf(intValue5));
                                                                 }
                                                                 SparseArray sparseArray9 = new SparseArray();
-                                                                sparseArray9.put(t.g.tag_clip_board, (com.baidu.tieba.tbadkCore.data.q) ((SparseArray) view.getTag()).get(t.g.tag_clip_board));
-                                                                sparseArray9.put(t.g.tag_is_subpb, false);
-                                                                cdo14 = this.eob.enm;
-                                                                cdo14.aOm().setTag(sparseArray9);
+                                                                sparseArray9.put(r.g.tag_clip_board, (com.baidu.tieba.tbadkCore.data.q) ((SparseArray) view.getTag()).get(r.g.tag_clip_board));
+                                                                sparseArray9.put(r.g.tag_is_subpb, false);
+                                                                cdo14 = this.eqa.epj;
+                                                                cdo14.aOU().setTag(sparseArray9);
                                                                 sparseArray2 = (SparseArray) view.getTag();
-                                                                booleanValue = ((Boolean) sparseArray2.get(t.g.tag_should_manage_visible)).booleanValue();
-                                                                boolean booleanValue6 = ((Boolean) sparseArray2.get(t.g.tag_user_mute_visible)).booleanValue();
-                                                                boolean booleanValue7 = ((Boolean) sparseArray2.get(t.g.tag_should_delete_visible)).booleanValue();
-                                                                if (sparseArray2.get(t.g.tag_del_post_is_self) instanceof Boolean) {
+                                                                booleanValue = ((Boolean) sparseArray2.get(r.g.tag_should_manage_visible)).booleanValue();
+                                                                boolean booleanValue6 = ((Boolean) sparseArray2.get(r.g.tag_user_mute_visible)).booleanValue();
+                                                                boolean booleanValue7 = ((Boolean) sparseArray2.get(r.g.tag_should_delete_visible)).booleanValue();
+                                                                if (sparseArray2.get(r.g.tag_del_post_is_self) instanceof Boolean) {
                                                                     z3 = false;
                                                                 } else {
-                                                                    z3 = ((Boolean) sparseArray2.get(t.g.tag_del_post_is_self)).booleanValue();
+                                                                    z3 = ((Boolean) sparseArray2.get(r.g.tag_del_post_is_self)).booleanValue();
                                                                 }
                                                                 String str6 = null;
-                                                                if (sparseArray2.get(t.g.tag_forbid_user_post_id) instanceof String) {
-                                                                    str6 = (String) sparseArray2.get(t.g.tag_forbid_user_post_id);
+                                                                if (sparseArray2.get(r.g.tag_forbid_user_post_id) instanceof String) {
+                                                                    str6 = (String) sparseArray2.get(r.g.tag_forbid_user_post_id);
                                                                 }
                                                                 if (!booleanValue) {
                                                                     SparseArray sparseArray10 = new SparseArray();
-                                                                    sparseArray10.put(t.g.tag_should_manage_visible, true);
-                                                                    sparseArray10.put(t.g.tag_manage_user_identity, sparseArray2.get(t.g.tag_manage_user_identity));
-                                                                    sparseArray10.put(t.g.tag_forbid_user_name, sparseArray2.get(t.g.tag_forbid_user_name));
-                                                                    sparseArray10.put(t.g.tag_forbid_user_post_id, str6);
+                                                                    sparseArray10.put(r.g.tag_should_manage_visible, true);
+                                                                    sparseArray10.put(r.g.tag_manage_user_identity, sparseArray2.get(r.g.tag_manage_user_identity));
+                                                                    sparseArray10.put(r.g.tag_forbid_user_name, sparseArray2.get(r.g.tag_forbid_user_name));
+                                                                    sparseArray10.put(r.g.tag_forbid_user_post_id, str6);
                                                                     if (booleanValue6) {
-                                                                        sparseArray10.put(t.g.tag_user_mute_visible, true);
-                                                                        sparseArray10.put(t.g.tag_is_mem, sparseArray2.get(t.g.tag_is_mem));
-                                                                        sparseArray10.put(t.g.tag_user_mute_mute_userid, sparseArray2.get(t.g.tag_user_mute_mute_userid));
-                                                                        sparseArray10.put(t.g.tag_user_mute_mute_username, sparseArray2.get(t.g.tag_user_mute_mute_username));
-                                                                        sparseArray10.put(t.g.tag_user_mute_post_id, sparseArray2.get(t.g.tag_user_mute_post_id));
-                                                                        sparseArray10.put(t.g.tag_user_mute_thread_id, sparseArray2.get(t.g.tag_user_mute_thread_id));
+                                                                        sparseArray10.put(r.g.tag_user_mute_visible, true);
+                                                                        sparseArray10.put(r.g.tag_is_mem, sparseArray2.get(r.g.tag_is_mem));
+                                                                        sparseArray10.put(r.g.tag_user_mute_mute_userid, sparseArray2.get(r.g.tag_user_mute_mute_userid));
+                                                                        sparseArray10.put(r.g.tag_user_mute_mute_username, sparseArray2.get(r.g.tag_user_mute_mute_username));
+                                                                        sparseArray10.put(r.g.tag_user_mute_post_id, sparseArray2.get(r.g.tag_user_mute_post_id));
+                                                                        sparseArray10.put(r.g.tag_user_mute_thread_id, sparseArray2.get(r.g.tag_user_mute_thread_id));
                                                                     } else {
-                                                                        sparseArray10.put(t.g.tag_user_mute_visible, false);
+                                                                        sparseArray10.put(r.g.tag_user_mute_visible, false);
                                                                     }
                                                                     if (booleanValue7) {
-                                                                        sparseArray10.put(t.g.tag_should_delete_visible, true);
-                                                                        sparseArray10.put(t.g.tag_del_post_is_self, Boolean.valueOf(z3));
-                                                                        sparseArray10.put(t.g.tag_del_post_id, sparseArray2.get(t.g.tag_del_post_id));
-                                                                        sparseArray10.put(t.g.tag_del_post_type, sparseArray2.get(t.g.tag_del_post_type));
-                                                                        cdo39 = this.eob.enm;
-                                                                        cdo39.aOp().setVisibility(0);
+                                                                        sparseArray10.put(r.g.tag_should_delete_visible, true);
+                                                                        sparseArray10.put(r.g.tag_del_post_is_self, Boolean.valueOf(z3));
+                                                                        sparseArray10.put(r.g.tag_del_post_id, sparseArray2.get(r.g.tag_del_post_id));
+                                                                        sparseArray10.put(r.g.tag_del_post_type, sparseArray2.get(r.g.tag_del_post_type));
+                                                                        cdo39 = this.eqa.epj;
+                                                                        cdo39.aOX().setVisibility(0);
                                                                     } else {
-                                                                        sparseArray10.put(t.g.tag_should_delete_visible, false);
-                                                                        cdo34 = this.eob.enm;
-                                                                        cdo34.aOp().setVisibility(8);
+                                                                        sparseArray10.put(r.g.tag_should_delete_visible, false);
+                                                                        cdo34 = this.eqa.epj;
+                                                                        cdo34.aOX().setVisibility(8);
                                                                     }
-                                                                    cdo35 = this.eob.enm;
-                                                                    cdo35.aOn().setTag(sparseArray10);
-                                                                    cdo36 = this.eob.enm;
-                                                                    cdo36.aOp().setTag(sparseArray10);
-                                                                    cdo37 = this.eob.enm;
-                                                                    cdo37.aOn().setText(t.j.bar_manager);
-                                                                    cdo38 = this.eob.enm;
-                                                                    cdo38.aOn().setVisibility(0);
+                                                                    cdo35 = this.eqa.epj;
+                                                                    cdo35.aOV().setTag(sparseArray10);
+                                                                    cdo36 = this.eqa.epj;
+                                                                    cdo36.aOX().setTag(sparseArray10);
+                                                                    cdo37 = this.eqa.epj;
+                                                                    cdo37.aOV().setText(r.j.bar_manager);
+                                                                    cdo38 = this.eqa.epj;
+                                                                    cdo38.aOV().setVisibility(0);
                                                                 } else if (!booleanValue7) {
-                                                                    cdo15 = this.eob.enm;
-                                                                    cdo15.aOn().setVisibility(8);
-                                                                    cdo16 = this.eob.enm;
-                                                                    cdo16.aOp().setVisibility(8);
+                                                                    cdo15 = this.eqa.epj;
+                                                                    cdo15.aOV().setVisibility(8);
+                                                                    cdo16 = this.eqa.epj;
+                                                                    cdo16.aOX().setVisibility(8);
                                                                 } else {
                                                                     SparseArray sparseArray11 = new SparseArray();
-                                                                    sparseArray11.put(t.g.tag_should_manage_visible, false);
-                                                                    sparseArray11.put(t.g.tag_user_mute_visible, false);
-                                                                    sparseArray11.put(t.g.tag_should_delete_visible, true);
-                                                                    sparseArray11.put(t.g.tag_manage_user_identity, sparseArray2.get(t.g.tag_manage_user_identity));
-                                                                    sparseArray11.put(t.g.tag_del_post_is_self, Boolean.valueOf(z3));
-                                                                    sparseArray11.put(t.g.tag_del_post_id, sparseArray2.get(t.g.tag_del_post_id));
-                                                                    sparseArray11.put(t.g.tag_del_post_type, sparseArray2.get(t.g.tag_del_post_type));
-                                                                    cdo17 = this.eob.enm;
-                                                                    cdo17.aOn().setTag(sparseArray11);
-                                                                    cdo18 = this.eob.enm;
-                                                                    cdo18.aOp().setTag(sparseArray11);
-                                                                    cdo19 = this.eob.enm;
-                                                                    cdo19.aOn().setText(t.j.delete);
-                                                                    cdo20 = this.eob.enm;
-                                                                    cdo20.aOp().setVisibility(0);
-                                                                    cdo21 = this.eob.enm;
-                                                                    cdo21.aOn().setVisibility(8);
+                                                                    sparseArray11.put(r.g.tag_should_manage_visible, false);
+                                                                    sparseArray11.put(r.g.tag_user_mute_visible, false);
+                                                                    sparseArray11.put(r.g.tag_should_delete_visible, true);
+                                                                    sparseArray11.put(r.g.tag_manage_user_identity, sparseArray2.get(r.g.tag_manage_user_identity));
+                                                                    sparseArray11.put(r.g.tag_del_post_is_self, Boolean.valueOf(z3));
+                                                                    sparseArray11.put(r.g.tag_del_post_id, sparseArray2.get(r.g.tag_del_post_id));
+                                                                    sparseArray11.put(r.g.tag_del_post_type, sparseArray2.get(r.g.tag_del_post_type));
+                                                                    cdo17 = this.eqa.epj;
+                                                                    cdo17.aOV().setTag(sparseArray11);
+                                                                    cdo18 = this.eqa.epj;
+                                                                    cdo18.aOX().setTag(sparseArray11);
+                                                                    cdo19 = this.eqa.epj;
+                                                                    cdo19.aOV().setText(r.j.delete);
+                                                                    cdo20 = this.eqa.epj;
+                                                                    cdo20.aOX().setVisibility(0);
+                                                                    cdo21 = this.eqa.epj;
+                                                                    cdo21.aOV().setVisibility(8);
                                                                 }
                                                                 sparseArray3 = (SparseArray) view.getTag();
-                                                                if (sparseArray3.get(t.g.tag_user_mute_visible) instanceof Boolean) {
+                                                                if (sparseArray3.get(r.g.tag_user_mute_visible) instanceof Boolean) {
                                                                     z4 = false;
                                                                 } else {
-                                                                    z4 = ((Boolean) sparseArray3.get(t.g.tag_user_mute_visible)).booleanValue();
+                                                                    z4 = ((Boolean) sparseArray3.get(r.g.tag_user_mute_visible)).booleanValue();
                                                                 }
-                                                                if (((Boolean) sparseArray3.get(t.g.tag_should_manage_visible)).booleanValue() && z4) {
+                                                                if (((Boolean) sparseArray3.get(r.g.tag_should_manage_visible)).booleanValue() && z4) {
                                                                     SparseArray sparseArray12 = new SparseArray();
-                                                                    sparseArray12.put(t.g.tag_user_mute_visible, true);
-                                                                    sparseArray12.put(t.g.tag_is_mem, sparseArray3.get(t.g.tag_is_mem));
-                                                                    sparseArray12.put(t.g.tag_user_mute_mute_userid, sparseArray3.get(t.g.tag_user_mute_mute_userid));
-                                                                    sparseArray12.put(t.g.tag_user_mute_mute_username, sparseArray3.get(t.g.tag_user_mute_mute_username));
-                                                                    sparseArray12.put(t.g.tag_user_mute_post_id, sparseArray3.get(t.g.tag_user_mute_post_id));
-                                                                    sparseArray12.put(t.g.tag_user_mute_thread_id, sparseArray3.get(t.g.tag_user_mute_thread_id));
-                                                                    sparseArray12.put(t.g.tag_del_post_is_self, sparseArray3.get(t.g.tag_del_post_is_self));
-                                                                    sparseArray12.put(t.g.tag_del_post_type, sparseArray3.get(t.g.tag_del_post_type));
-                                                                    sparseArray12.put(t.g.tag_del_post_id, sparseArray3.get(t.g.tag_del_post_id));
-                                                                    sparseArray12.put(t.g.tag_manage_user_identity, sparseArray3.get(t.g.tag_manage_user_identity));
-                                                                    cdo30 = this.eob.enm;
-                                                                    cdo30.aOo().setTag(sparseArray12);
-                                                                    cdo31 = this.eob.enm;
-                                                                    cdo31.aOo().setVisibility(0);
-                                                                    cdo32 = this.eob.enm;
-                                                                    cdo32.aOn().setVisibility(8);
-                                                                    cdo33 = this.eob.enm;
-                                                                    cdo33.aOo().setText(t.j.mute_option);
+                                                                    sparseArray12.put(r.g.tag_user_mute_visible, true);
+                                                                    sparseArray12.put(r.g.tag_is_mem, sparseArray3.get(r.g.tag_is_mem));
+                                                                    sparseArray12.put(r.g.tag_user_mute_mute_userid, sparseArray3.get(r.g.tag_user_mute_mute_userid));
+                                                                    sparseArray12.put(r.g.tag_user_mute_mute_username, sparseArray3.get(r.g.tag_user_mute_mute_username));
+                                                                    sparseArray12.put(r.g.tag_user_mute_post_id, sparseArray3.get(r.g.tag_user_mute_post_id));
+                                                                    sparseArray12.put(r.g.tag_user_mute_thread_id, sparseArray3.get(r.g.tag_user_mute_thread_id));
+                                                                    sparseArray12.put(r.g.tag_del_post_is_self, sparseArray3.get(r.g.tag_del_post_is_self));
+                                                                    sparseArray12.put(r.g.tag_del_post_type, sparseArray3.get(r.g.tag_del_post_type));
+                                                                    sparseArray12.put(r.g.tag_del_post_id, sparseArray3.get(r.g.tag_del_post_id));
+                                                                    sparseArray12.put(r.g.tag_manage_user_identity, sparseArray3.get(r.g.tag_manage_user_identity));
+                                                                    cdo30 = this.eqa.epj;
+                                                                    cdo30.aOW().setTag(sparseArray12);
+                                                                    cdo31 = this.eqa.epj;
+                                                                    cdo31.aOW().setVisibility(0);
+                                                                    cdo32 = this.eqa.epj;
+                                                                    cdo32.aOV().setVisibility(8);
+                                                                    cdo33 = this.eqa.epj;
+                                                                    cdo33.aOW().setText(r.j.mute_option);
                                                                 } else {
-                                                                    if (sparseArray3.get(t.g.tag_del_post_is_self) instanceof Boolean) {
+                                                                    if (sparseArray3.get(r.g.tag_del_post_is_self) instanceof Boolean) {
                                                                         z5 = false;
                                                                     } else {
-                                                                        z5 = ((Boolean) sparseArray3.get(t.g.tag_del_post_is_self)).booleanValue();
+                                                                        z5 = ((Boolean) sparseArray3.get(r.g.tag_del_post_is_self)).booleanValue();
                                                                     }
                                                                     String str7 = null;
-                                                                    if (sparseArray3.get(t.g.tag_forbid_user_post_id) instanceof String) {
-                                                                        str7 = (String) sparseArray3.get(t.g.tag_forbid_user_post_id);
+                                                                    if (sparseArray3.get(r.g.tag_forbid_user_post_id) instanceof String) {
+                                                                        str7 = (String) sparseArray3.get(r.g.tag_forbid_user_post_id);
                                                                     }
-                                                                    hW = this.eob.hW(z5);
-                                                                    isLogin = hW & this.eob.isLogin();
-                                                                    this.eob.enS = (com.baidu.tieba.tbadkCore.data.q) sparseArray3.get(t.g.tag_clip_board);
-                                                                    if (!(!ew.g(this.eob.enS) ? false : isLogin)) {
-                                                                        cdo23 = this.eob.enm;
-                                                                        cdo23.aOo().setVisibility(0);
-                                                                        cdo24 = this.eob.enm;
-                                                                        cdo24.aOo().setTag(str7);
+                                                                    hZ = this.eqa.hZ(z5);
+                                                                    isLogin = hZ & this.eqa.isLogin();
+                                                                    this.eqa.epR = (com.baidu.tieba.tbadkCore.data.q) sparseArray3.get(r.g.tag_clip_board);
+                                                                    if (!(!ew.g(this.eqa.epR) ? false : isLogin)) {
+                                                                        cdo23 = this.eqa.epj;
+                                                                        cdo23.aOW().setVisibility(0);
+                                                                        cdo24 = this.eqa.epj;
+                                                                        cdo24.aOW().setTag(str7);
                                                                     } else {
-                                                                        cdo22 = this.eob.enm;
-                                                                        cdo22.aOo().setVisibility(8);
+                                                                        cdo22 = this.eqa.epj;
+                                                                        cdo22.aOW().setVisibility(8);
                                                                     }
                                                                 }
                                                                 sparseArray4 = (SparseArray) view.getTag();
                                                                 long j2 = 0;
-                                                                if (sparseArray4.get(t.g.tag_should_hide_chudian_visible) instanceof Boolean) {
+                                                                if (sparseArray4.get(r.g.tag_should_hide_chudian_visible) instanceof Boolean) {
                                                                     z6 = false;
                                                                 } else {
-                                                                    z6 = ((Boolean) sparseArray4.get(t.g.tag_should_hide_chudian_visible)).booleanValue();
+                                                                    z6 = ((Boolean) sparseArray4.get(r.g.tag_should_hide_chudian_visible)).booleanValue();
                                                                 }
-                                                                if (sparseArray4.get(t.g.tag_chudian_template_id) instanceof Long) {
-                                                                    j2 = ((Long) sparseArray4.get(t.g.tag_chudian_template_id)).longValue();
+                                                                if (sparseArray4.get(r.g.tag_chudian_template_id) instanceof Long) {
+                                                                    j2 = ((Long) sparseArray4.get(r.g.tag_chudian_template_id)).longValue();
                                                                 }
-                                                                if (sparseArray4.get(t.g.tag_chudian_monitor_id) instanceof String) {
+                                                                if (sparseArray4.get(r.g.tag_chudian_monitor_id) instanceof String) {
                                                                     str = "";
                                                                 } else {
-                                                                    str = (String) sparseArray4.get(t.g.tag_chudian_monitor_id);
+                                                                    str = (String) sparseArray4.get(r.g.tag_chudian_monitor_id);
                                                                 }
-                                                                if (sparseArray4.get(t.g.tag_chudian_hide_day) instanceof Integer) {
+                                                                if (sparseArray4.get(r.g.tag_chudian_hide_day) instanceof Integer) {
                                                                     i = 0;
                                                                 } else {
-                                                                    i = ((Integer) sparseArray4.get(t.g.tag_chudian_hide_day)).intValue();
+                                                                    i = ((Integer) sparseArray4.get(r.g.tag_chudian_hide_day)).intValue();
                                                                 }
                                                                 if (!z6) {
-                                                                    cdo26 = this.eob.enm;
-                                                                    cdo26.aOq().setVisibility(0);
-                                                                    cdo27 = this.eob.enm;
-                                                                    cdo27.aOq().setTag(t.g.tag_chudian_template_id, Long.valueOf(j2));
-                                                                    cdo28 = this.eob.enm;
-                                                                    cdo28.aOq().setTag(t.g.tag_chudian_monitor_id, str);
-                                                                    cdo29 = this.eob.enm;
-                                                                    cdo29.aOq().setTag(t.g.tag_chudian_hide_day, Integer.valueOf(i));
+                                                                    cdo26 = this.eqa.epj;
+                                                                    cdo26.aOY().setVisibility(0);
+                                                                    cdo27 = this.eqa.epj;
+                                                                    cdo27.aOY().setTag(r.g.tag_chudian_template_id, Long.valueOf(j2));
+                                                                    cdo28 = this.eqa.epj;
+                                                                    cdo28.aOY().setTag(r.g.tag_chudian_monitor_id, str);
+                                                                    cdo29 = this.eqa.epj;
+                                                                    cdo29.aOY().setTag(r.g.tag_chudian_hide_day, Integer.valueOf(i));
                                                                 } else {
-                                                                    cdo25 = this.eob.enm;
-                                                                    cdo25.aOq().setVisibility(8);
+                                                                    cdo25 = this.eqa.epj;
+                                                                    cdo25.aOY().setVisibility(8);
                                                                 }
                                                             }
                                                         }
-                                                        cdo13 = this.eob.enm;
-                                                        cdo13.aOt();
+                                                        cdo13 = this.eqa.epj;
+                                                        cdo13.aPb();
                                                         sparseArray = (SparseArray) view.getTag();
-                                                        if (sparseArray.get(t.g.tag_pb_floor_postion) instanceof Integer) {
+                                                        if (sparseArray.get(r.g.tag_pb_floor_postion) instanceof Integer) {
                                                         }
                                                         SparseArray sparseArray92 = new SparseArray();
-                                                        sparseArray92.put(t.g.tag_clip_board, (com.baidu.tieba.tbadkCore.data.q) ((SparseArray) view.getTag()).get(t.g.tag_clip_board));
-                                                        sparseArray92.put(t.g.tag_is_subpb, false);
-                                                        cdo14 = this.eob.enm;
-                                                        cdo14.aOm().setTag(sparseArray92);
+                                                        sparseArray92.put(r.g.tag_clip_board, (com.baidu.tieba.tbadkCore.data.q) ((SparseArray) view.getTag()).get(r.g.tag_clip_board));
+                                                        sparseArray92.put(r.g.tag_is_subpb, false);
+                                                        cdo14 = this.eqa.epj;
+                                                        cdo14.aOU().setTag(sparseArray92);
                                                         sparseArray2 = (SparseArray) view.getTag();
-                                                        booleanValue = ((Boolean) sparseArray2.get(t.g.tag_should_manage_visible)).booleanValue();
-                                                        boolean booleanValue62 = ((Boolean) sparseArray2.get(t.g.tag_user_mute_visible)).booleanValue();
-                                                        boolean booleanValue72 = ((Boolean) sparseArray2.get(t.g.tag_should_delete_visible)).booleanValue();
-                                                        if (sparseArray2.get(t.g.tag_del_post_is_self) instanceof Boolean) {
+                                                        booleanValue = ((Boolean) sparseArray2.get(r.g.tag_should_manage_visible)).booleanValue();
+                                                        boolean booleanValue62 = ((Boolean) sparseArray2.get(r.g.tag_user_mute_visible)).booleanValue();
+                                                        boolean booleanValue72 = ((Boolean) sparseArray2.get(r.g.tag_should_delete_visible)).booleanValue();
+                                                        if (sparseArray2.get(r.g.tag_del_post_is_self) instanceof Boolean) {
                                                         }
                                                         String str62 = null;
-                                                        if (sparseArray2.get(t.g.tag_forbid_user_post_id) instanceof String) {
+                                                        if (sparseArray2.get(r.g.tag_forbid_user_post_id) instanceof String) {
                                                         }
                                                         if (!booleanValue) {
                                                         }
                                                         sparseArray3 = (SparseArray) view.getTag();
-                                                        if (sparseArray3.get(t.g.tag_user_mute_visible) instanceof Boolean) {
+                                                        if (sparseArray3.get(r.g.tag_user_mute_visible) instanceof Boolean) {
                                                         }
-                                                        if (((Boolean) sparseArray3.get(t.g.tag_should_manage_visible)).booleanValue()) {
+                                                        if (((Boolean) sparseArray3.get(r.g.tag_should_manage_visible)).booleanValue()) {
                                                         }
-                                                        if (sparseArray3.get(t.g.tag_del_post_is_self) instanceof Boolean) {
+                                                        if (sparseArray3.get(r.g.tag_del_post_is_self) instanceof Boolean) {
                                                         }
                                                         String str72 = null;
-                                                        if (sparseArray3.get(t.g.tag_forbid_user_post_id) instanceof String) {
+                                                        if (sparseArray3.get(r.g.tag_forbid_user_post_id) instanceof String) {
                                                         }
-                                                        hW = this.eob.hW(z5);
-                                                        isLogin = hW & this.eob.isLogin();
-                                                        this.eob.enS = (com.baidu.tieba.tbadkCore.data.q) sparseArray3.get(t.g.tag_clip_board);
-                                                        if (!(!ew.g(this.eob.enS) ? false : isLogin)) {
+                                                        hZ = this.eqa.hZ(z5);
+                                                        isLogin = hZ & this.eqa.isLogin();
+                                                        this.eqa.epR = (com.baidu.tieba.tbadkCore.data.q) sparseArray3.get(r.g.tag_clip_board);
+                                                        if (!(!ew.g(this.eqa.epR) ? false : isLogin)) {
                                                         }
                                                         sparseArray4 = (SparseArray) view.getTag();
                                                         long j22 = 0;
-                                                        if (sparseArray4.get(t.g.tag_should_hide_chudian_visible) instanceof Boolean) {
+                                                        if (sparseArray4.get(r.g.tag_should_hide_chudian_visible) instanceof Boolean) {
                                                         }
-                                                        if (sparseArray4.get(t.g.tag_chudian_template_id) instanceof Long) {
+                                                        if (sparseArray4.get(r.g.tag_chudian_template_id) instanceof Long) {
                                                         }
-                                                        if (sparseArray4.get(t.g.tag_chudian_monitor_id) instanceof String) {
+                                                        if (sparseArray4.get(r.g.tag_chudian_monitor_id) instanceof String) {
                                                         }
-                                                        if (sparseArray4.get(t.g.tag_chudian_hide_day) instanceof Integer) {
+                                                        if (sparseArray4.get(r.g.tag_chudian_hide_day) instanceof Integer) {
                                                         }
                                                         if (!z6) {
                                                         }
                                                     }
-                                                    dhVar59 = this.eob.emx;
-                                                    if (dhVar59.getPbData().nv()) {
-                                                        dhVar60 = this.eob.emx;
-                                                        String nu = dhVar60.getPbData().nu();
+                                                    dhVar67 = this.eqa.eov;
+                                                    if (dhVar67.getPbData().nv()) {
+                                                        dhVar68 = this.eqa.eov;
+                                                        String nu = dhVar68.getPbData().nu();
                                                         if (qVar != null && !com.baidu.adp.lib.util.j.isEmpty(nu) && nu.equals(qVar.getId())) {
                                                             z2 = true;
                                                             if (!z2) {
-                                                                cdo12 = this.eob.enm;
-                                                                cdo12.aOm().setText(t.j.remove_mark);
+                                                                cdo12 = this.eqa.epj;
+                                                                cdo12.aOU().setText(r.j.remove_mark);
                                                             } else {
-                                                                cdo9 = this.eob.enm;
-                                                                cdo9.aOm().setText(t.j.mark);
+                                                                cdo9 = this.eqa.epj;
+                                                                cdo9.aOU().setText(r.j.mark);
                                                             }
-                                                            cdo10 = this.eob.enm;
-                                                            cdo10.ih(true);
-                                                            cdo11 = this.eob.enm;
-                                                            cdo11.vR();
+                                                            cdo10 = this.eqa.epj;
+                                                            cdo10.ik(true);
+                                                            cdo11 = this.eqa.epj;
+                                                            cdo11.wf();
                                                             return;
                                                         }
                                                     }
                                                     z2 = false;
                                                     if (!z2) {
                                                     }
-                                                    cdo10 = this.eob.enm;
-                                                    cdo10.ih(true);
-                                                    cdo11 = this.eob.enm;
-                                                    cdo11.vR();
+                                                    cdo10 = this.eqa.epj;
+                                                    cdo10.ik(true);
+                                                    cdo11 = this.eqa.epj;
+                                                    cdo11.wf();
                                                     return;
-                                                } else if (id != t.g.pb_head_reverse_hint) {
-                                                    if (id == t.g.pb_act_btn) {
-                                                        dhVar52 = this.eob.emx;
-                                                        if (dhVar52.getPbData() != null) {
-                                                            dhVar53 = this.eob.emx;
-                                                            if (dhVar53.getPbData().aLQ() != null) {
-                                                                dhVar54 = this.eob.emx;
-                                                                if (dhVar54.getPbData().aLQ().sg() != null) {
-                                                                    Activity activity = this.eob.getActivity();
-                                                                    dhVar55 = this.eob.emx;
-                                                                    com.baidu.tbadk.browser.f.u(activity, dhVar55.getPbData().aLQ().sg());
-                                                                    dhVar56 = this.eob.emx;
-                                                                    if (dhVar56.getPbData().aLQ().se() != 1) {
-                                                                        dhVar57 = this.eob.emx;
-                                                                        if (dhVar57.getPbData().aLQ().se() == 2) {
-                                                                            TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "pb");
+                                                } else if (id != r.g.pb_head_reverse_hint) {
+                                                    if (id == r.g.pb_act_btn) {
+                                                        dhVar60 = this.eqa.eov;
+                                                        if (dhVar60.getPbData() != null) {
+                                                            dhVar61 = this.eqa.eov;
+                                                            if (dhVar61.getPbData().aMs() != null) {
+                                                                dhVar62 = this.eqa.eov;
+                                                                if (dhVar62.getPbData().aMs().ss() != null) {
+                                                                    Activity activity = this.eqa.getActivity();
+                                                                    dhVar63 = this.eqa.eov;
+                                                                    com.baidu.tbadk.browser.f.u(activity, dhVar63.getPbData().aMs().ss());
+                                                                    dhVar64 = this.eqa.eov;
+                                                                    if (dhVar64.getPbData().aMs().sq() != 1) {
+                                                                        dhVar65 = this.eqa.eov;
+                                                                        if (dhVar65.getPbData().aMs().sq() == 2) {
+                                                                            TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "pb");
                                                                             return;
                                                                         }
                                                                         return;
                                                                     }
-                                                                    TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "pb");
+                                                                    TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "pb");
                                                                     return;
                                                                 }
                                                                 return;
@@ -1171,69 +1186,69 @@ class z implements View.OnClickListener {
                                                             return;
                                                         }
                                                         return;
-                                                    } else if (id == t.g.lottery_tail) {
-                                                        if (view.getTag(t.g.tag_pb_lottery_tail_link) instanceof String) {
-                                                            String str8 = (String) view.getTag(t.g.tag_pb_lottery_tail_link);
-                                                            com.baidu.tbadk.core.util.ay ayVar2 = new com.baidu.tbadk.core.util.ay("c10912");
-                                                            dhVar49 = this.eob.emx;
-                                                            com.baidu.tbadk.core.util.ay ab = ayVar2.ab("fid", dhVar49.getPbData().getForumId());
-                                                            dhVar50 = this.eob.emx;
-                                                            TiebaStatic.log(ab.ab("tid", dhVar50.getPbData().getThreadId()).ab("lotterytail", StringUtils.string(str8, "_", TbadkCoreApplication.getCurrentAccount())));
-                                                            dhVar51 = this.eob.emx;
-                                                            if (dhVar51.getPbData().getThreadId().equals(str8)) {
-                                                                exVar44 = this.eob.enh;
+                                                    } else if (id == r.g.lottery_tail) {
+                                                        if (view.getTag(r.g.tag_pb_lottery_tail_link) instanceof String) {
+                                                            String str8 = (String) view.getTag(r.g.tag_pb_lottery_tail_link);
+                                                            com.baidu.tbadk.core.util.ax axVar2 = new com.baidu.tbadk.core.util.ax("c10912");
+                                                            dhVar57 = this.eqa.eov;
+                                                            com.baidu.tbadk.core.util.ax ab = axVar2.ab("fid", dhVar57.getPbData().getForumId());
+                                                            dhVar58 = this.eqa.eov;
+                                                            TiebaStatic.log(ab.ab("tid", dhVar58.getPbData().getThreadId()).ab("lotterytail", StringUtils.string(str8, "_", TbadkCoreApplication.getCurrentAccount())));
+                                                            dhVar59 = this.eqa.eov;
+                                                            if (dhVar59.getPbData().getThreadId().equals(str8)) {
+                                                                exVar44 = this.eqa.epe;
                                                                 exVar44.setSelection(0);
                                                                 return;
                                                             }
-                                                            this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.eob.getActivity()).createNormalCfg(str8, (String) null, (String) null, (String) null)));
+                                                            this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.eqa.getActivity()).createNormalCfg(str8, (String) null, (String) null, (String) null)));
                                                             return;
                                                         }
                                                         return;
-                                                    } else if (id == t.g.pb_item_tail_content) {
-                                                        if (com.baidu.tbadk.core.util.bn.al(this.eob.getPageContext().getPageActivity())) {
-                                                            String string = TbadkCoreApplication.m9getInst().getString(t.j.tail_web_view_title);
-                                                            String string2 = com.baidu.tbadk.core.sharedPref.b.tS().getString("tail_link", "");
+                                                    } else if (id == r.g.pb_item_tail_content) {
+                                                        if (com.baidu.tbadk.core.util.bm.ak(this.eqa.getPageContext().getPageActivity())) {
+                                                            String string = TbadkCoreApplication.m9getInst().getString(r.j.tail_web_view_title);
+                                                            String string2 = com.baidu.tbadk.core.sharedPref.b.uh().getString("tail_link", "");
                                                             if (!StringUtils.isNull(string2)) {
                                                                 TiebaStatic.log("c10056");
                                                                 com.baidu.tbadk.browser.f.a(view.getContext(), string, string2, true, true, true);
                                                             }
-                                                            exVar43 = this.eob.enh;
-                                                            exVar43.aOX();
+                                                            exVar43 = this.eqa.epe;
+                                                            exVar43.aPG();
                                                             return;
                                                         }
                                                         return;
-                                                    } else if (id == t.g.join_vote_tv) {
+                                                    } else if (id == r.g.join_vote_tv) {
                                                         if (view != null) {
-                                                            com.baidu.tbadk.browser.f.u(this.eob.getActivity(), (String) view.getTag());
+                                                            com.baidu.tbadk.browser.f.u(this.eqa.getActivity(), (String) view.getTag());
                                                             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                                                            aML3 = this.eob.aML();
-                                                            if (aML3 == 1) {
-                                                                dhVar45 = this.eob.emx;
-                                                                if (dhVar45 != null) {
-                                                                    dhVar46 = this.eob.emx;
-                                                                    if (dhVar46.getPbData() != null) {
-                                                                        com.baidu.tbadk.core.util.ay ayVar3 = new com.baidu.tbadk.core.util.ay("c10397");
-                                                                        dhVar47 = this.eob.emx;
-                                                                        com.baidu.tbadk.core.util.ay ab2 = ayVar3.ab("fid", dhVar47.getPbData().getForumId());
-                                                                        dhVar48 = this.eob.emx;
-                                                                        TiebaStatic.log(ab2.ab("tid", dhVar48.getPbData().getThreadId()).ab("uid", currentAccount));
+                                                            aNr3 = this.eqa.aNr();
+                                                            if (aNr3 == 1) {
+                                                                dhVar53 = this.eqa.eov;
+                                                                if (dhVar53 != null) {
+                                                                    dhVar54 = this.eqa.eov;
+                                                                    if (dhVar54.getPbData() != null) {
+                                                                        com.baidu.tbadk.core.util.ax axVar3 = new com.baidu.tbadk.core.util.ax("c10397");
+                                                                        dhVar55 = this.eqa.eov;
+                                                                        com.baidu.tbadk.core.util.ax ab2 = axVar3.ab("fid", dhVar55.getPbData().getForumId());
+                                                                        dhVar56 = this.eqa.eov;
+                                                                        TiebaStatic.log(ab2.ab("tid", dhVar56.getPbData().getThreadId()).ab("uid", currentAccount));
                                                                         return;
                                                                     }
                                                                     return;
                                                                 }
                                                                 return;
                                                             }
-                                                            aML4 = this.eob.aML();
-                                                            if (aML4 == 2) {
-                                                                dhVar41 = this.eob.emx;
-                                                                if (dhVar41 != null) {
-                                                                    dhVar42 = this.eob.emx;
-                                                                    if (dhVar42.getPbData() != null) {
-                                                                        com.baidu.tbadk.core.util.ay ayVar4 = new com.baidu.tbadk.core.util.ay("c10401");
-                                                                        dhVar43 = this.eob.emx;
-                                                                        com.baidu.tbadk.core.util.ay ab3 = ayVar4.ab("fid", dhVar43.getPbData().getForumId());
-                                                                        dhVar44 = this.eob.emx;
-                                                                        TiebaStatic.log(ab3.ab("tid", dhVar44.getPbData().getThreadId()).ab("uid", currentAccount));
+                                                            aNr4 = this.eqa.aNr();
+                                                            if (aNr4 == 2) {
+                                                                dhVar49 = this.eqa.eov;
+                                                                if (dhVar49 != null) {
+                                                                    dhVar50 = this.eqa.eov;
+                                                                    if (dhVar50.getPbData() != null) {
+                                                                        com.baidu.tbadk.core.util.ax axVar4 = new com.baidu.tbadk.core.util.ax("c10401");
+                                                                        dhVar51 = this.eqa.eov;
+                                                                        com.baidu.tbadk.core.util.ax ab3 = axVar4.ab("fid", dhVar51.getPbData().getForumId());
+                                                                        dhVar52 = this.eqa.eov;
+                                                                        TiebaStatic.log(ab3.ab("tid", dhVar52.getPbData().getThreadId()).ab("uid", currentAccount));
                                                                         return;
                                                                     }
                                                                     return;
@@ -1243,38 +1258,38 @@ class z implements View.OnClickListener {
                                                             return;
                                                         }
                                                         return;
-                                                    } else if (id == t.g.look_all_tv) {
+                                                    } else if (id == r.g.look_all_tv) {
                                                         if (view != null) {
                                                             String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-                                                            com.baidu.tbadk.browser.f.u(this.eob.getActivity(), (String) view.getTag());
-                                                            aML = this.eob.aML();
-                                                            if (aML == 1) {
-                                                                dhVar37 = this.eob.emx;
-                                                                if (dhVar37 != null) {
-                                                                    dhVar38 = this.eob.emx;
-                                                                    if (dhVar38.getPbData() != null) {
-                                                                        com.baidu.tbadk.core.util.ay ayVar5 = new com.baidu.tbadk.core.util.ay("c10507");
-                                                                        dhVar39 = this.eob.emx;
-                                                                        com.baidu.tbadk.core.util.ay ab4 = ayVar5.ab("fid", dhVar39.getPbData().getForumId());
-                                                                        dhVar40 = this.eob.emx;
-                                                                        TiebaStatic.log(ab4.ab("tid", dhVar40.getPbData().getThreadId()).ab("uid", currentAccount2));
+                                                            com.baidu.tbadk.browser.f.u(this.eqa.getActivity(), (String) view.getTag());
+                                                            aNr = this.eqa.aNr();
+                                                            if (aNr == 1) {
+                                                                dhVar45 = this.eqa.eov;
+                                                                if (dhVar45 != null) {
+                                                                    dhVar46 = this.eqa.eov;
+                                                                    if (dhVar46.getPbData() != null) {
+                                                                        com.baidu.tbadk.core.util.ax axVar5 = new com.baidu.tbadk.core.util.ax("c10507");
+                                                                        dhVar47 = this.eqa.eov;
+                                                                        com.baidu.tbadk.core.util.ax ab4 = axVar5.ab("fid", dhVar47.getPbData().getForumId());
+                                                                        dhVar48 = this.eqa.eov;
+                                                                        TiebaStatic.log(ab4.ab("tid", dhVar48.getPbData().getThreadId()).ab("uid", currentAccount2));
                                                                         return;
                                                                     }
                                                                     return;
                                                                 }
                                                                 return;
                                                             }
-                                                            aML2 = this.eob.aML();
-                                                            if (aML2 == 2) {
-                                                                dhVar33 = this.eob.emx;
-                                                                if (dhVar33 != null) {
-                                                                    dhVar34 = this.eob.emx;
-                                                                    if (dhVar34.getPbData() != null) {
-                                                                        com.baidu.tbadk.core.util.ay ayVar6 = new com.baidu.tbadk.core.util.ay("c10508");
-                                                                        dhVar35 = this.eob.emx;
-                                                                        com.baidu.tbadk.core.util.ay ab5 = ayVar6.ab("fid", dhVar35.getPbData().getForumId());
-                                                                        dhVar36 = this.eob.emx;
-                                                                        TiebaStatic.log(ab5.ab("tid", dhVar36.getPbData().getThreadId()).ab("uid", currentAccount2));
+                                                            aNr2 = this.eqa.aNr();
+                                                            if (aNr2 == 2) {
+                                                                dhVar41 = this.eqa.eov;
+                                                                if (dhVar41 != null) {
+                                                                    dhVar42 = this.eqa.eov;
+                                                                    if (dhVar42.getPbData() != null) {
+                                                                        com.baidu.tbadk.core.util.ax axVar6 = new com.baidu.tbadk.core.util.ax("c10508");
+                                                                        dhVar43 = this.eqa.eov;
+                                                                        com.baidu.tbadk.core.util.ax ab5 = axVar6.ab("fid", dhVar43.getPbData().getForumId());
+                                                                        dhVar44 = this.eqa.eov;
+                                                                        TiebaStatic.log(ab5.ab("tid", dhVar44.getPbData().getThreadId()).ab("uid", currentAccount2));
                                                                         return;
                                                                     }
                                                                     return;
@@ -1284,27 +1299,27 @@ class z implements View.OnClickListener {
                                                             return;
                                                         }
                                                         return;
-                                                    } else if (id != t.g.manga_prev_btn) {
-                                                        if (id != t.g.manga_next_btn) {
-                                                            if (id == t.g.pb_ecomm_like_button) {
-                                                                dhVar27 = this.eob.emx;
-                                                                if (dhVar27 != null) {
-                                                                    dhVar29 = this.eob.emx;
-                                                                    if (dhVar29.getPbData() != null) {
-                                                                        dhVar30 = this.eob.emx;
-                                                                        if (dhVar30.getPbData().aLQ() != null) {
-                                                                            dhVar31 = this.eob.emx;
-                                                                            if (dhVar31.getPbData().aLQ().Uw != null) {
-                                                                                if (com.baidu.tbadk.core.util.bn.al(this.eob.getPageContext().getPageActivity())) {
-                                                                                    dhVar32 = this.eob.emx;
-                                                                                    DealInfoData dealInfoData = dhVar32.getPbData().aLQ().Uw;
+                                                    } else if (id != r.g.manga_prev_btn) {
+                                                        if (id != r.g.manga_next_btn) {
+                                                            if (id == r.g.pb_ecomm_like_button) {
+                                                                dhVar35 = this.eqa.eov;
+                                                                if (dhVar35 != null) {
+                                                                    dhVar37 = this.eqa.eov;
+                                                                    if (dhVar37.getPbData() != null) {
+                                                                        dhVar38 = this.eqa.eov;
+                                                                        if (dhVar38.getPbData().aMs() != null) {
+                                                                            dhVar39 = this.eqa.eov;
+                                                                            if (dhVar39.getPbData().aMs().UH != null) {
+                                                                                if (com.baidu.tbadk.core.util.bm.ak(this.eqa.getPageContext().getPageActivity())) {
+                                                                                    dhVar40 = this.eqa.eov;
+                                                                                    DealInfoData dealInfoData = dhVar40.getPbData().aMs().UH;
                                                                                     long j3 = dealInfoData.productId;
                                                                                     if (dealInfoData.hasRecommend) {
                                                                                         pbEcommRecommendMessage = new PbEcommRecommendMessage(j3, false);
                                                                                     } else {
                                                                                         pbEcommRecommendMessage = new PbEcommRecommendMessage(j3, true);
                                                                                     }
-                                                                                    this.eob.sendMessage(pbEcommRecommendMessage);
+                                                                                    this.eqa.sendMessage(pbEcommRecommendMessage);
                                                                                 } else {
                                                                                     return;
                                                                                 }
@@ -1312,35 +1327,35 @@ class z implements View.OnClickListener {
                                                                         }
                                                                     }
                                                                 }
-                                                                com.baidu.tbadk.core.util.ay ayVar7 = new com.baidu.tbadk.core.util.ay("c11428");
-                                                                ayVar7.s("obj_param1", 1);
-                                                                dhVar28 = this.eob.emx;
-                                                                ayVar7.ab("obj_id", new StringBuilder(String.valueOf(dhVar28.getPbData().aLQ().Uw.productId)).toString());
-                                                                ayVar7.s("obj_locate", 3);
-                                                                if (ayVar7 != null) {
-                                                                    TiebaStatic.log(ayVar7);
+                                                                com.baidu.tbadk.core.util.ax axVar7 = new com.baidu.tbadk.core.util.ax("c11428");
+                                                                axVar7.s("obj_param1", 1);
+                                                                dhVar36 = this.eqa.eov;
+                                                                axVar7.ab("obj_id", new StringBuilder(String.valueOf(dhVar36.getPbData().aMs().UH.productId)).toString());
+                                                                axVar7.s("obj_locate", 3);
+                                                                if (axVar7 != null) {
+                                                                    TiebaStatic.log(axVar7);
                                                                     return;
                                                                 }
                                                                 return;
-                                                            } else if (id == t.g.pb_editor_tool_comment_ecomm_buy_layout) {
-                                                                dhVar19 = this.eob.emx;
-                                                                if (dhVar19 != null) {
-                                                                    dhVar21 = this.eob.emx;
-                                                                    if (dhVar21.getPbData() != null) {
-                                                                        dhVar22 = this.eob.emx;
-                                                                        if (dhVar22.getPbData().aLQ() != null) {
-                                                                            dhVar23 = this.eob.emx;
-                                                                            if (dhVar23.getPbData().aLQ().Uw != null) {
-                                                                                if (com.baidu.tbadk.core.util.bn.al(this.eob.getPageContext().getPageActivity())) {
-                                                                                    dhVar24 = this.eob.emx;
-                                                                                    long j4 = dhVar24.getPbData().aLQ().Uw.productId;
-                                                                                    dhVar25 = this.eob.emx;
-                                                                                    String threadID = dhVar25.getThreadID();
-                                                                                    dhVar26 = this.eob.emx;
-                                                                                    String name2 = dhVar26.getPbData().aLP().getName();
-                                                                                    EcommEnsureOrderActivityConfig ecommEnsureOrderActivityConfig = new EcommEnsureOrderActivityConfig(this.eob.getPageContext().getPageActivity(), j4, threadID);
+                                                            } else if (id == r.g.pb_editor_tool_comment_ecomm_buy_layout) {
+                                                                dhVar27 = this.eqa.eov;
+                                                                if (dhVar27 != null) {
+                                                                    dhVar29 = this.eqa.eov;
+                                                                    if (dhVar29.getPbData() != null) {
+                                                                        dhVar30 = this.eqa.eov;
+                                                                        if (dhVar30.getPbData().aMs() != null) {
+                                                                            dhVar31 = this.eqa.eov;
+                                                                            if (dhVar31.getPbData().aMs().UH != null) {
+                                                                                if (com.baidu.tbadk.core.util.bm.ak(this.eqa.getPageContext().getPageActivity())) {
+                                                                                    dhVar32 = this.eqa.eov;
+                                                                                    long j4 = dhVar32.getPbData().aMs().UH.productId;
+                                                                                    dhVar33 = this.eqa.eov;
+                                                                                    String threadID = dhVar33.getThreadID();
+                                                                                    dhVar34 = this.eqa.eov;
+                                                                                    String name2 = dhVar34.getPbData().aMr().getName();
+                                                                                    EcommEnsureOrderActivityConfig ecommEnsureOrderActivityConfig = new EcommEnsureOrderActivityConfig(this.eqa.getPageContext().getPageActivity(), j4, threadID);
                                                                                     ecommEnsureOrderActivityConfig.setForumName(name2);
-                                                                                    this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, ecommEnsureOrderActivityConfig));
+                                                                                    this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, ecommEnsureOrderActivityConfig));
                                                                                 } else {
                                                                                     return;
                                                                                 }
@@ -1348,13 +1363,49 @@ class z implements View.OnClickListener {
                                                                         }
                                                                     }
                                                                 }
-                                                                com.baidu.tbadk.core.util.ay ayVar8 = new com.baidu.tbadk.core.util.ay("c11428");
-                                                                ayVar8.s("obj_param1", 1);
-                                                                dhVar20 = this.eob.emx;
-                                                                ayVar8.ab("obj_id", new StringBuilder(String.valueOf(dhVar20.getPbData().aLQ().Uw.productId)).toString());
-                                                                ayVar8.s("obj_locate", 2);
-                                                                if (ayVar8 != null) {
-                                                                    TiebaStatic.log(ayVar8);
+                                                                com.baidu.tbadk.core.util.ax axVar8 = new com.baidu.tbadk.core.util.ax("c11428");
+                                                                axVar8.s("obj_param1", 1);
+                                                                dhVar28 = this.eqa.eov;
+                                                                axVar8.ab("obj_id", new StringBuilder(String.valueOf(dhVar28.getPbData().aMs().UH.productId)).toString());
+                                                                axVar8.s("obj_locate", 2);
+                                                                if (axVar8 != null) {
+                                                                    TiebaStatic.log(axVar8);
+                                                                    return;
+                                                                }
+                                                                return;
+                                                            } else if (id == r.g.yule_head_img_img) {
+                                                                dhVar23 = this.eqa.eov;
+                                                                if (dhVar23 != null) {
+                                                                    dhVar24 = this.eqa.eov;
+                                                                    if (dhVar24.getPbData() != null) {
+                                                                        dhVar25 = this.eqa.eov;
+                                                                        if (dhVar25.getPbData().aMG() != null) {
+                                                                            dhVar26 = this.eqa.eov;
+                                                                            com.baidu.tieba.pb.data.h pbData3 = dhVar26.getPbData();
+                                                                            TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c11679").ab("fid", pbData3.getForumId()));
+                                                                            com.baidu.tbadk.core.util.bh.vL().c(this.eqa.getPageContext(), new String[]{pbData3.aMG().aMJ()});
+                                                                            return;
+                                                                        }
+                                                                        return;
+                                                                    }
+                                                                    return;
+                                                                }
+                                                                return;
+                                                            } else if (id == r.g.yule_head_img_all_rank) {
+                                                                dhVar19 = this.eqa.eov;
+                                                                if (dhVar19 != null) {
+                                                                    dhVar20 = this.eqa.eov;
+                                                                    if (dhVar20.getPbData() != null) {
+                                                                        dhVar21 = this.eqa.eov;
+                                                                        if (dhVar21.getPbData().aMG() != null) {
+                                                                            dhVar22 = this.eqa.eov;
+                                                                            com.baidu.tieba.pb.data.h pbData4 = dhVar22.getPbData();
+                                                                            TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c11678").ab("fid", pbData4.getForumId()));
+                                                                            com.baidu.tbadk.core.util.bh.vL().c(this.eqa.getPageContext(), new String[]{pbData4.aMG().aMJ()});
+                                                                            return;
+                                                                        }
+                                                                        return;
+                                                                    }
                                                                     return;
                                                                 }
                                                                 return;
@@ -1362,63 +1413,63 @@ class z implements View.OnClickListener {
                                                                 return;
                                                             }
                                                         }
-                                                        this.eob.aNa();
+                                                        this.eqa.aNG();
                                                         return;
                                                     } else {
-                                                        this.eob.aMZ();
+                                                        this.eqa.aNF();
                                                         return;
                                                     }
                                                 } else {
-                                                    this.eob.aaO();
-                                                    exVar45 = this.eob.enh;
-                                                    exVar45.aAE();
-                                                    exVar46 = this.eob.enh;
-                                                    exVar46.aPp();
-                                                    dhVar58 = this.eob.emx;
-                                                    dhVar58.aNX();
-                                                    this.eob.od(2);
-                                                    this.eob.aNd();
+                                                    this.eqa.abb();
+                                                    exVar45 = this.eqa.epe;
+                                                    exVar45.aBc();
+                                                    exVar46 = this.eqa.epe;
+                                                    exVar46.aPY();
+                                                    dhVar66 = this.eqa.eov;
+                                                    dhVar66.aOF();
+                                                    this.eqa.on(2);
+                                                    this.eqa.aNJ();
                                                     return;
                                                 }
-                                            } else if (this.eob.checkUpIsLogin()) {
-                                                dhVar5 = this.eob.emx;
+                                            } else if (this.eqa.checkUpIsLogin()) {
+                                                dhVar5 = this.eqa.eov;
                                                 if (dhVar5.getPbData() != null) {
-                                                    exVar41 = this.eob.enh;
-                                                    exVar41.aAE();
+                                                    exVar41 = this.eqa.epe;
+                                                    exVar41.aBc();
                                                     SparseArray sparseArray13 = (SparseArray) view.getTag();
-                                                    com.baidu.tieba.tbadkCore.data.q qVar2 = (com.baidu.tieba.tbadkCore.data.q) sparseArray13.get(t.g.tag_load_sub_data);
-                                                    View view2 = (View) sparseArray13.get(t.g.tag_load_sub_view);
+                                                    com.baidu.tieba.tbadkCore.data.q qVar2 = (com.baidu.tieba.tbadkCore.data.q) sparseArray13.get(r.g.tag_load_sub_data);
+                                                    View view2 = (View) sparseArray13.get(r.g.tag_load_sub_view);
                                                     if (qVar2 != null && view2 != null) {
-                                                        dhVar6 = this.eob.emx;
+                                                        dhVar6 = this.eqa.eov;
                                                         String threadID2 = dhVar6.getThreadID();
                                                         String id2 = qVar2.getId();
                                                         int i4 = 0;
-                                                        dhVar7 = this.eob.emx;
+                                                        dhVar7 = this.eqa.eov;
                                                         if (dhVar7.getPbData() != null) {
-                                                            dhVar17 = this.eob.emx;
-                                                            i4 = dhVar17.getPbData().aLX();
+                                                            dhVar17 = this.eqa.eov;
+                                                            i4 = dhVar17.getPbData().aMz();
                                                         }
-                                                        this.eob.aaO();
-                                                        if (view.getId() != t.g.replybtn) {
-                                                            if (view.getId() == t.g.sub_pb_item) {
+                                                        this.eqa.abb();
+                                                        if (view.getId() != r.g.replybtn) {
+                                                            if (view.getId() == r.g.sub_pb_item) {
                                                                 SparseArray sparseArray14 = (SparseArray) view.getTag();
-                                                                String str9 = (String) sparseArray14.get(t.g.tag_photo_username);
-                                                                com.baidu.tieba.tbadkCore.data.q qVar3 = (com.baidu.tieba.tbadkCore.data.q) sparseArray14.get(t.g.tag_clip_board);
+                                                                String str9 = (String) sparseArray14.get(r.g.tag_photo_username);
+                                                                com.baidu.tieba.tbadkCore.data.q qVar3 = (com.baidu.tieba.tbadkCore.data.q) sparseArray14.get(r.g.tag_clip_board);
                                                                 String str10 = null;
                                                                 if (qVar3 != null) {
                                                                     str10 = qVar3.getId();
                                                                 }
                                                                 TiebaStatic.log("c10088");
-                                                                oR2 = this.eob.oR(id2);
+                                                                pg2 = this.eqa.pg(id2);
                                                                 if (qVar2 != null) {
-                                                                    dhVar11 = this.eob.emx;
+                                                                    dhVar11 = this.eqa.eov;
                                                                     if (dhVar11 != null) {
-                                                                        dhVar12 = this.eob.emx;
-                                                                        if (dhVar12.getPbData() != null && oR2 != null) {
-                                                                            SubPbActivityConfig subPbActivityConfig = new SubPbActivityConfig(this.eob.getPageContext().getPageActivity());
-                                                                            SmallTailInfo aQY = qVar2.aQY();
-                                                                            dhVar13 = this.eob.emx;
-                                                                            this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig.createSubPbActivityConfig(threadID2, id2, "pb", true, str9, true, str10, i4, aQY, dhVar13.getPbData().qf(), false, qVar2.getAuthor().getIconInfo()).addBigImageData(oR2.eoq, oR2.eor, oR2.eos, oR2.index)));
+                                                                        dhVar12 = this.eqa.eov;
+                                                                        if (dhVar12.getPbData() != null && pg2 != null) {
+                                                                            SubPbActivityConfig subPbActivityConfig = new SubPbActivityConfig(this.eqa.getPageContext().getPageActivity());
+                                                                            SmallTailInfo aRG = qVar2.aRG();
+                                                                            dhVar13 = this.eqa.eov;
+                                                                            this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig.createSubPbActivityConfig(threadID2, id2, "pb", true, str9, true, str10, i4, aRG, dhVar13.getPbData().qq(), false, qVar2.getAuthor().getIconInfo()).addBigImageData(pg2.eqo, pg2.eqp, pg2.eqq, pg2.index)));
                                                                             return;
                                                                         }
                                                                         return;
@@ -1428,16 +1479,16 @@ class z implements View.OnClickListener {
                                                                 return;
                                                             }
                                                             TiebaStatic.log("c10089");
-                                                            oR = this.eob.oR(id2);
+                                                            pg = this.eqa.pg(id2);
                                                             if (qVar2 != null) {
-                                                                dhVar8 = this.eob.emx;
+                                                                dhVar8 = this.eqa.eov;
                                                                 if (dhVar8 != null) {
-                                                                    dhVar9 = this.eob.emx;
-                                                                    if (dhVar9.getPbData() != null && oR != null) {
-                                                                        SubPbActivityConfig subPbActivityConfig2 = new SubPbActivityConfig(this.eob.getPageContext().getPageActivity());
-                                                                        SmallTailInfo aQY2 = qVar2.aQY();
-                                                                        dhVar10 = this.eob.emx;
-                                                                        this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig2.createSubPbActivityConfig(threadID2, id2, "pb", true, null, false, null, i4, aQY2, dhVar10.getPbData().qf(), false, qVar2.getAuthor().getIconInfo()).addBigImageData(oR.eoq, oR.eor, oR.eos, oR.index)));
+                                                                    dhVar9 = this.eqa.eov;
+                                                                    if (dhVar9.getPbData() != null && pg != null) {
+                                                                        SubPbActivityConfig subPbActivityConfig2 = new SubPbActivityConfig(this.eqa.getPageContext().getPageActivity());
+                                                                        SmallTailInfo aRG2 = qVar2.aRG();
+                                                                        dhVar10 = this.eqa.eov;
+                                                                        this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig2.createSubPbActivityConfig(threadID2, id2, "pb", true, null, false, null, i4, aRG2, dhVar10.getPbData().qq(), false, qVar2.getAuthor().getIconInfo()).addBigImageData(pg.eqo, pg.eqp, pg.eqq, pg.index)));
                                                                         return;
                                                                     }
                                                                     return;
@@ -1446,16 +1497,16 @@ class z implements View.OnClickListener {
                                                             }
                                                             return;
                                                         }
-                                                        oR3 = this.eob.oR(id2);
+                                                        pg3 = this.eqa.pg(id2);
                                                         if (qVar2 != null) {
-                                                            dhVar14 = this.eob.emx;
+                                                            dhVar14 = this.eqa.eov;
                                                             if (dhVar14 != null) {
-                                                                dhVar15 = this.eob.emx;
-                                                                if (dhVar15.getPbData() != null && oR3 != null) {
-                                                                    SubPbActivityConfig subPbActivityConfig3 = new SubPbActivityConfig(this.eob.getPageContext().getPageActivity());
-                                                                    SmallTailInfo aQY3 = qVar2.aQY();
-                                                                    dhVar16 = this.eob.emx;
-                                                                    this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig3.createSubPbActivityConfig(threadID2, id2, "pb", true, null, true, null, i4, aQY3, dhVar16.getPbData().qf(), false, qVar2.getAuthor().getIconInfo()).addBigImageData(oR3.eoq, oR3.eor, oR3.eos, oR3.index)));
+                                                                dhVar15 = this.eqa.eov;
+                                                                if (dhVar15.getPbData() != null && pg3 != null) {
+                                                                    SubPbActivityConfig subPbActivityConfig3 = new SubPbActivityConfig(this.eqa.getPageContext().getPageActivity());
+                                                                    SmallTailInfo aRG3 = qVar2.aRG();
+                                                                    dhVar16 = this.eqa.eov;
+                                                                    this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig3.createSubPbActivityConfig(threadID2, id2, "pb", true, null, true, null, i4, aRG3, dhVar16.getPbData().qq(), false, qVar2.getAuthor().getIconInfo()).addBigImageData(pg3.eqo, pg3.eqp, pg3.eqq, pg3.index)));
                                                                     return;
                                                                 }
                                                                 return;
@@ -1468,115 +1519,130 @@ class z implements View.OnClickListener {
                                                 }
                                                 return;
                                             } else {
-                                                com.baidu.tbadk.core.util.ay s = new com.baidu.tbadk.core.util.ay("c10517").s("obj_locate", 3);
-                                                dhVar18 = this.eob.emx;
+                                                com.baidu.tbadk.core.util.ax s = new com.baidu.tbadk.core.util.ax("c10517").s("obj_locate", 3);
+                                                dhVar18 = this.eqa.eov;
                                                 TiebaStatic.log(s.ab("fid", dhVar18.getPbData().getForumId()));
                                                 return;
                                             }
-                                        } else if (!this.eob.checkUpIsLogin()) {
-                                            com.baidu.tbadk.core.util.ay s2 = new com.baidu.tbadk.core.util.ay("c10517").s("obj_locate", 2);
-                                            dhVar71 = this.eob.emx;
-                                            TiebaStatic.log(s2.ab("fid", dhVar71.getPbData().getForumId()));
+                                        } else if (!this.eqa.checkUpIsLogin()) {
+                                            com.baidu.tbadk.core.util.ax s2 = new com.baidu.tbadk.core.util.ax("c10517").s("obj_locate", 2);
+                                            dhVar79 = this.eqa.eov;
+                                            TiebaStatic.log(s2.ab("fid", dhVar79.getPbData().getForumId()));
                                             return;
                                         } else {
-                                            this.eob.aMC();
+                                            this.eqa.aNh();
                                             return;
                                         }
-                                    } else if (this.eob.checkUpIsLogin()) {
-                                        exVar74 = this.eob.enh;
-                                        exVar74.aAE();
-                                        this.eob.aaO();
-                                        this.eob.od(2);
-                                        this.eob.agb();
+                                    } else if (this.eqa.checkUpIsLogin()) {
+                                        exVar74 = this.eqa.epe;
+                                        exVar74.aBc();
+                                        this.eqa.abb();
+                                        this.eqa.on(2);
+                                        dhVar97 = this.eqa.eov;
+                                        if (dhVar97 != null) {
+                                            dhVar98 = this.eqa.eov;
+                                            if (dhVar98.getPbData() != null) {
+                                                dhVar99 = this.eqa.eov;
+                                                if (dhVar99.getPbData().aMG() != null) {
+                                                    dhVar100 = this.eqa.eov;
+                                                    if (!StringUtils.isNull(dhVar100.getPbData().aMG().pO(), true)) {
+                                                        com.baidu.tbadk.core.util.ax axVar9 = new com.baidu.tbadk.core.util.ax("c11678");
+                                                        dhVar101 = this.eqa.eov;
+                                                        TiebaStatic.log(axVar9.ab("fid", dhVar101.getPbData().getForumId()));
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        this.eqa.agp();
                                         return;
                                     } else {
                                         return;
                                     }
                                 } else if (com.baidu.adp.lib.util.i.gm()) {
-                                    exVar22 = this.eob.enh;
-                                    exVar22.aOX();
-                                    z = this.eob.mIsLoading;
+                                    exVar22 = this.eqa.epe;
+                                    exVar22.aPG();
+                                    z = this.eqa.mIsLoading;
                                     if (!z) {
-                                        this.eob.mIsLoading = true;
-                                        exVar23 = this.eob.enh;
-                                        exVar23.erX.evd.setEnabled(false);
-                                        exVar24 = this.eob.enh;
-                                        exVar24.aud();
-                                        this.eob.aaO();
-                                        exVar25 = this.eob.enh;
-                                        exVar25.aPp();
-                                        dhVar4 = this.eob.emx;
-                                        aMX = this.eob.aMX();
-                                        dhVar4.oU(aMX);
-                                        TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
-                                        exVar26 = this.eob.enh;
-                                        exVar26.aPO();
-                                        exVar27 = this.eob.enh;
-                                        exVar27.aNI();
-                                        this.eob.od(2);
+                                        this.eqa.mIsLoading = true;
+                                        exVar23 = this.eqa.epe;
+                                        exVar23.eug.exj.setEnabled(false);
+                                        exVar24 = this.eqa.epe;
+                                        exVar24.auC();
+                                        this.eqa.abb();
+                                        exVar25 = this.eqa.epe;
+                                        exVar25.aPY();
+                                        dhVar4 = this.eqa.eov;
+                                        aND = this.eqa.aND();
+                                        dhVar4.pj(aND);
+                                        TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
+                                        exVar26 = this.eqa.epe;
+                                        exVar26.aQx();
+                                        exVar27 = this.eqa.epe;
+                                        exVar27.aOq();
+                                        this.eqa.on(2);
                                         return;
                                     }
                                     return;
                                 } else {
-                                    this.eob.showToast(t.j.network_not_available);
+                                    this.eqa.showToast(r.j.network_not_available);
                                     return;
                                 }
                             }
-                            TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "pb_header_forum_name", "pbclick", 1, new Object[0]);
-                            dhVar100 = this.eob.emx;
-                            if (dhVar100.getErrorNo() == 4) {
-                                dhVar103 = this.eob.emx;
-                                if (StringUtils.isNull(dhVar103.aNN())) {
-                                    dhVar104 = this.eob.emx;
-                                    if (dhVar104.getAppealInfo() != null) {
-                                        dhVar105 = this.eob.emx;
-                                        name = dhVar105.getAppealInfo().forumName;
+                            TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "pb_header_forum_name", "pbclick", 1, new Object[0]);
+                            dhVar113 = this.eqa.eov;
+                            if (dhVar113.getErrorNo() == 4) {
+                                dhVar116 = this.eqa.eov;
+                                if (StringUtils.isNull(dhVar116.aOv())) {
+                                    dhVar117 = this.eqa.eov;
+                                    if (dhVar117.getAppealInfo() != null) {
+                                        dhVar118 = this.eqa.eov;
+                                        name = dhVar118.getAppealInfo().forumName;
                                     }
                                 }
-                                this.eob.finish();
+                                this.eqa.finish();
                                 return;
                             }
-                            dhVar101 = this.eob.emx;
-                            name = dhVar101.getPbData().aLP().getName();
+                            dhVar114 = this.eqa.eov;
+                            name = dhVar114.getPbData().aMr().getName();
                             if (!StringUtils.isNull(name)) {
-                                dhVar102 = this.eob.emx;
-                                String aNN = dhVar102.aNN();
-                                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.eob.getPageContext().getPageActivity()).createNormalCfg(name, FrsActivityConfig.FRS_FROM_PB);
-                                if (StringUtils.isNull(aNN)) {
-                                    this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
+                                dhVar115 = this.eqa.eov;
+                                String aOv = dhVar115.aOv();
+                                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.eqa.getPageContext().getPageActivity()).createNormalCfg(name, FrsActivityConfig.FRS_FROM_PB);
+                                if (StringUtils.isNull(aOv)) {
+                                    this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
                                     return;
-                                } else if (aNN.equals(name)) {
-                                    this.eob.finish();
+                                } else if (aOv.equals(name)) {
+                                    this.eqa.finish();
                                     return;
                                 } else {
-                                    this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
+                                    this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
                                     return;
                                 }
                             }
-                            this.eob.finish();
+                            this.eqa.finish();
                             return;
                         }
                     }
                 }
             }
         }
-        exVar6 = this.eob.enh;
-        exVar6.aPI();
-        dhVar = this.eob.emx;
-        if (dhVar.getPbData().aLX() == 1) {
-            aVar = this.eob.eng;
-            if (!aVar.bjS()) {
+        exVar6 = this.eqa.epe;
+        exVar6.aQr();
+        dhVar = this.eqa.eov;
+        if (dhVar.getPbData().aMz() == 1) {
+            aVar = this.eqa.epd;
+            if (!aVar.bkE()) {
                 int i5 = 0;
-                exVar7 = this.eob.enh;
-                if (view != exVar7.aPD()) {
-                    exVar8 = this.eob.enh;
-                    if (view != exVar8.aPE()) {
-                        exVar9 = this.eob.enh;
-                        if (view != exVar9.aPF()) {
-                            exVar10 = this.eob.enh;
-                            if (view != exVar10.aPG()) {
-                                exVar11 = this.eob.enh;
-                                if (view == exVar11.aPn()) {
+                exVar7 = this.eqa.epe;
+                if (view != exVar7.aQm()) {
+                    exVar8 = this.eqa.epe;
+                    if (view != exVar8.aQn()) {
+                        exVar9 = this.eqa.epe;
+                        if (view != exVar9.aQo()) {
+                            exVar10 = this.eqa.epe;
+                            if (view != exVar10.aQp()) {
+                                exVar11 = this.eqa.epe;
+                                if (view == exVar11.aPW()) {
                                     i5 = 2;
                                 }
                             } else {
@@ -1591,18 +1657,18 @@ class z implements View.OnClickListener {
                 } else {
                     i5 = 6;
                 }
-                dhVar2 = this.eob.emx;
-                ForumData aLP2 = dhVar2.getPbData().aLP();
-                String name3 = aLP2.getName();
-                String id3 = aLP2.getId();
-                dhVar3 = this.eob.emx;
-                String id4 = dhVar3.getPbData().aLQ().getId();
-                if (!com.baidu.tieba.c.a.Nn() || !com.baidu.tieba.c.a.f(this.eob.getBaseContext(), id4, null)) {
-                    exVar12 = this.eob.enh;
-                    exVar12.aPm();
-                    aVar2 = this.eob.eng;
-                    exVar13 = this.eob.enh;
-                    aVar2.a(id3, name3, id4, i5, exVar13.aPo());
+                dhVar2 = this.eqa.eov;
+                ForumData aMr2 = dhVar2.getPbData().aMr();
+                String name3 = aMr2.getName();
+                String id3 = aMr2.getId();
+                dhVar3 = this.eqa.eov;
+                String id4 = dhVar3.getPbData().aMs().getId();
+                if (!com.baidu.tieba.c.a.NO() || !com.baidu.tieba.c.a.f(this.eqa.getBaseContext(), id4, null)) {
+                    exVar12 = this.eqa.epe;
+                    exVar12.aPV();
+                    aVar2 = this.eqa.epd;
+                    exVar13 = this.eqa.epe;
+                    aVar2.a(id3, name3, id4, i5, exVar13.aPX());
                 }
             }
         }

@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h eHw;
+    final /* synthetic */ h eJA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(h hVar, int i) {
         super(i);
-        this.eHw = hVar;
+        this.eJA = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,15 +28,15 @@ public class j extends com.baidu.adp.framework.listener.e {
             String errorString = responseDeleteFriendMessage.getErrorString();
             if (error != 0) {
                 if (StringUtils.isNull(responseDeleteFriendMessage.getErrorString())) {
-                    tbPageContext = this.eHw.GM;
-                    errorString = tbPageContext.getResources().getString(t.j.neterror);
+                    tbPageContext = this.eJA.GM;
+                    errorString = tbPageContext.getResources().getString(r.j.neterror);
                 } else {
                     errorString = responseDeleteFriendMessage.getErrorString();
                 }
             } else {
-                this.eHw.iO(false);
+                this.eJA.iR(false);
             }
-            tbPageContext2 = this.eHw.GM;
+            tbPageContext2 = this.eJA.GM;
             tbPageContext2.showToast(errorString);
         }
     }

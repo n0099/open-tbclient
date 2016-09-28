@@ -7,11 +7,11 @@ import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements Handler.Callback {
-    final /* synthetic */ n aNr;
+    final /* synthetic */ n aOA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aNr = nVar;
+        this.aOA = nVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -33,26 +33,26 @@ public class o implements Handler.Callback {
             }
         } else if (message.what == 2) {
             if (message.obj instanceof String) {
-                iVar = this.aNr.aNo;
+                iVar = this.aOA.aOy;
                 iVar.setVideoUrl((String) message.obj);
-                iVar2 = this.aNr.aNo;
+                iVar2 = this.aOA.aOy;
                 iVar2.run();
             }
         } else if (message.what == 3) {
-            cVar4 = this.aNr.aNp;
+            cVar4 = this.aOA.aOz;
             if (cVar4 != null) {
-                cVar5 = this.aNr.aNp;
-                cVar5.Ju();
+                cVar5 = this.aOA.aOz;
+                cVar5.Kg();
             }
         } else if (message.what == 4) {
             if (message.obj instanceof String) {
-                cVar3 = this.aNr.aNp;
-                cVar3.gJ((String) message.obj);
+                cVar3 = this.aOA.aOz;
+                cVar3.gQ((String) message.obj);
             }
         } else if (message.what == 5) {
-            cVar = this.aNr.aNp;
+            cVar = this.aOA.aOz;
             if (cVar != null) {
-                cVar2 = this.aNr.aNp;
+                cVar2 = this.aOA.aOz;
                 cVar2.clearCache();
             }
         }

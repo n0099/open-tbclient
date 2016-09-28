@@ -1,18 +1,18 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import com.baidu.tbadk.core.view.TextureVideoView;
+import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements TextureVideoView.b {
-    final /* synthetic */ a bXm;
+public class n implements QuickVideoView.b {
+    final /* synthetic */ a bXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(a aVar) {
-        this.bXm = aVar;
+        this.bXh = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.TextureVideoView.b
+    @Override // com.baidu.tieba.play.QuickVideoView.b
     public void onSurfaceDestroyed() {
-        this.bXm.stopPlay();
+        this.bXh.stopPlay();
     }
 }

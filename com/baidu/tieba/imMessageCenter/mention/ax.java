@@ -7,7 +7,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int dsY;
+    private int duv;
     private String ids;
     private int mPn = 1;
 
@@ -19,17 +19,17 @@ public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.dsY = 4;
+        this.duv = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.dsY = 1;
+        this.duv = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.dsY;
+        return this.duv;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -37,7 +37,7 @@ public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.dsY == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.duv == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;

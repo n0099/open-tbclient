@@ -18,7 +18,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.megapp.ma.MAFragment;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bf;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     private com.baidu.tbadk.core.util.f customToast;
     private boolean isPrimary;
     private long lastResumeTime;
-    private com.baidu.tbadk.g.f loadingView;
+    private com.baidu.tbadk.f.f loadingView;
     private String mTag;
     private com.baidu.tbadk.pageStayDuration.d pageStayDurationItem;
     private BdUniqueId mId = null;
@@ -47,7 +47,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         this.mId = BdUniqueId.gen();
-        this.customToast = com.baidu.tbadk.core.util.f.tY();
+        this.customToast = com.baidu.tbadk.core.util.f.uo();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -134,7 +134,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-            bg.dD(getClass().getName());
+            bf.dG(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -163,8 +163,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (isPrimary() && this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.R(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.FM().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            pageStayDurationItem.S(currentTimeMillis);
+            com.baidu.tbadk.pageStayDuration.e.FL().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
     }
 
@@ -192,7 +192,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.ti();
+            this.loadingView.tx();
         }
     }
 
@@ -250,11 +250,11 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     protected void showLoadingView(View view, boolean z, int i) {
         if (this.loadingView == null) {
             if (i < 0) {
-                this.loadingView = new com.baidu.tbadk.g.f(getActivity());
+                this.loadingView = new com.baidu.tbadk.f.f(getActivity());
             } else {
-                this.loadingView = new com.baidu.tbadk.g.f(getActivity(), i);
+                this.loadingView = new com.baidu.tbadk.f.f(getActivity(), i);
             }
-            this.loadingView.ti();
+            this.loadingView.tx();
         }
         this.loadingView.b(view, z);
     }
@@ -344,8 +344,8 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         } else if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
-            pageStayDurationItem.R(currentTimeMillis);
-            com.baidu.tbadk.pageStayDuration.e.FM().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+            pageStayDurationItem.S(currentTimeMillis);
+            com.baidu.tbadk.pageStayDuration.e.FL().a(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
         }
         refreshImage(getView());
         boolean isLogin = TbadkCoreApplication.isLogin();
@@ -411,7 +411,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             arrayList3.addAll(arrayList2);
             arrayList = arrayList3;
         }
-        if ((getPageStayFilter() == null || getPageStayFilter().FG()) && !StringUtils.isNull(currentPageKey)) {
+        if ((getPageStayFilter() == null || getPageStayFilter().FF()) && !StringUtils.isNull(currentPageKey)) {
             if (arrayList == null) {
                 arrayList = new ArrayList();
             }
@@ -428,7 +428,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     public com.baidu.tbadk.pageStayDuration.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.pageStayDuration.d();
-            this.pageStayDurationItem.gd(getCurrentPageKey());
+            this.pageStayDurationItem.gh(getCurrentPageKey());
         }
         this.pageStayDurationItem.D(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;

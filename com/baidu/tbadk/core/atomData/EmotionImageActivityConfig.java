@@ -17,7 +17,7 @@ public class EmotionImageActivityConfig extends IntentConfig {
         intent.putExtra("staticUrl", str4);
         intent.putExtra("sharpText", str6);
         intent.putExtra("from", i);
-        intent.putExtra(GraffitiVcodeActivityConfig.WIDTH, i2);
-        intent.putExtra(GraffitiVcodeActivityConfig.HEIGHT, i3);
+        intent.putExtra("width", i2);
+        intent.putExtra("height", i3);
     }
 }

@@ -10,6 +10,6 @@ import com.baidu.tieba.passaccount.a.g;
 class c implements CustomMessageTask.CustomRunnable<Activity> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<com.baidu.tbadk.coreExtra.a.c> run(CustomMessage<Activity> customMessage) {
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PASS_MANAGER, g.aKV());
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PASS_MANAGER, g.aLx());
     }
 }

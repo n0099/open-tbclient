@@ -4,11 +4,11 @@ import com.baidu.tieba.tbadkCore.f.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.g {
-    final /* synthetic */ NewSubPbActivity evy;
+    final /* synthetic */ NewSubPbActivity exF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(NewSubPbActivity newSubPbActivity) {
-        this.evy = newSubPbActivity;
+        this.exF = newSubPbActivity;
     }
 
     @Override // com.baidu.adp.base.g
@@ -19,28 +19,28 @@ public class f extends com.baidu.adp.base.g {
         ag agVar2;
         boolean z = false;
         if (obj != null) {
-            aVar2 = this.evy.evm;
+            aVar2 = this.exF.exs;
             switch (aVar2.getLoadDataMode()) {
                 case 0:
                     a.b bVar = (a.b) obj;
-                    if (bVar.cuz || bVar.ewn <= 0 || bVar.fuM == 1) {
+                    if (bVar.cuW || bVar.eyv <= 0 || bVar.fxt == 1) {
                         z = true;
                     } else {
-                        com.baidu.tieba.c.a.a(this.evy.getPageContext(), 3, 1);
+                        com.baidu.tieba.c.a.a(this.exF.getPageContext(), 3, 1);
                     }
-                    this.evy.a(bVar, z);
+                    this.exF.a(bVar, z);
                     return;
                 case 1:
                     a.d dVar = (a.d) obj;
-                    agVar2 = this.evy.evn;
-                    agVar2.a(1, dVar.ub, dVar.fuO, true);
+                    agVar2 = this.exF.exu;
+                    agVar2.a(1, dVar.ub, dVar.fxv, true);
                     return;
                 default:
                     return;
             }
         }
-        agVar = this.evy.evn;
-        aVar = this.evy.evm;
+        agVar = this.exF.exu;
+        aVar = this.exF.exs;
         agVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

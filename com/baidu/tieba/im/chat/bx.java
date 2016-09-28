@@ -4,18 +4,18 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bx implements a.b {
-    private final /* synthetic */ int XO;
-    final /* synthetic */ TalkableActivity cUy;
+    private final /* synthetic */ int Yb;
+    final /* synthetic */ TalkableActivity cVS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bx(TalkableActivity talkableActivity, int i) {
-        this.cUy = talkableActivity;
-        this.XO = i;
+        this.cVS = talkableActivity;
+        this.Yb = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.cUy.reSendMsg(this.XO);
+        this.cVS.reSendMsg(this.Yb);
     }
 }

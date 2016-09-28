@@ -3,34 +3,34 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class p {
-    private static final byte[] aET = new byte[1];
-    private static p aEU = null;
+    private static final byte[] aEr = new byte[1];
+    private static p aEs = null;
     private CustomMessageListener qQ;
 
-    public static p Ha() {
-        if (aEU == null) {
-            synchronized (aET) {
-                if (aEU == null) {
-                    aEU = new p();
+    public static p GZ() {
+        if (aEs == null) {
+            synchronized (aEr) {
+                if (aEs == null) {
+                    aEs = new p();
                 }
             }
         }
-        return aEU;
+        return aEs;
     }
 
     private p() {
         com.baidu.adp.lib.util.i.init();
     }
 
-    public void Hb() {
+    public void Ha() {
         try {
             if (this.qQ == null) {
-                this.qQ = Hc();
+                this.qQ = Hb();
                 MessageManager.getInstance().registerListener(this.qQ);
             }
         } catch (Exception e) {
@@ -39,19 +39,19 @@ public class p {
         }
     }
 
-    private CustomMessageListener Hc() {
+    private CustomMessageListener Hb() {
         return new q(this, 2000994);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hd() {
+    public void Hc() {
         try {
             boolean gm = com.baidu.adp.lib.util.i.gm();
             if (gm) {
                 if (com.baidu.adp.lib.util.i.gn()) {
-                    bb.vk().aC(true);
+                    ba.vy().aC(true);
                 } else if (com.baidu.adp.lib.util.i.go()) {
-                    bb.vk().aC(false);
+                    ba.vy().aC(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(gm);

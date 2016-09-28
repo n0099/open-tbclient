@@ -1,21 +1,22 @@
 package com.baidu.tieba.write.view;
 
 import android.widget.PopupWindow;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements PopupWindow.OnDismissListener {
-    final /* synthetic */ PostCategoryView gcL;
-    private final /* synthetic */ PostCategoryView gcM;
+public class g implements PopupWindow.OnDismissListener {
+    final /* synthetic */ PostCategoryView geV;
+    private final /* synthetic */ PostCategoryView geW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PostCategoryView postCategoryView, PostCategoryView postCategoryView2) {
-        this.gcL = postCategoryView;
-        this.gcM = postCategoryView2;
+        this.geV = postCategoryView;
+        this.geW = postCategoryView2;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        if (this.gcM != null) {
-            this.gcM.bsy();
+        if (this.geW != null) {
+            this.geW.bte();
         }
     }
 }

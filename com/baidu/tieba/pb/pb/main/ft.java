@@ -5,26 +5,26 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ft implements View.OnClickListener {
-    final /* synthetic */ ex euB;
+    final /* synthetic */ ex ewH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ft(ex exVar) {
-        this.euB = exVar;
+        this.ewH = exVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         boolean z;
-        pbActivity = this.euB.emy;
+        pbActivity = this.ewH.eow;
         if (pbActivity.checkUpIsLogin()) {
-            this.euB.ayk();
-            if (this.euB.enN != null) {
-                PbActivity.c cVar = this.euB.enN;
-                z = this.euB.elu;
-                cVar.ia(z);
+            this.ewH.ayI();
+            if (this.ewH.epM != null) {
+                PbActivity.c cVar = this.ewH.epM;
+                z = this.ewH.enr;
+                cVar.id(z);
             }
-            this.euB.aPA();
+            this.ewH.aQj();
         }
     }
 }

@@ -9,11 +9,11 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
-    final /* synthetic */ c bHy;
+    final /* synthetic */ c bHF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bHy = cVar;
+        this.bHF = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class d extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: e */
     public com.baidu.tieba.enterForum.b.b doInBackground(Void... voidArr) {
-        o<byte[]> M = com.baidu.tbadk.core.b.a.sT().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> M = com.baidu.tbadk.core.b.a.ti().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
         com.baidu.tieba.enterForum.b.b bVar = new com.baidu.tieba.enterForum.b.b();
         byte[] bArr = M.get("forumRecommend_cache_key");
         if (bArr != null) {
@@ -30,13 +30,13 @@ public class d extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null) {
                     bVar.a(forumRecommendResIdl.data);
-                    bVar.dh(true);
+                    bVar.di(true);
                 }
             } catch (Exception e) {
                 bVar.ax(false);
             }
-            if (bVar.isSuccess() && !bVar.Xf()) {
-                bVar.Xe().Xk();
+            if (bVar.isSuccess() && !bVar.Xy()) {
+                bVar.Xx().XD();
             }
         }
         return bVar;
@@ -45,20 +45,20 @@ public class d extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: f */
+    /* renamed from: e */
     public void onPostExecute(com.baidu.tieba.enterForum.b.b bVar) {
         c.b bVar2;
         super.onPostExecute(bVar);
         c.a aVar = new c.a();
         aVar.type = 0;
         if (bVar != null && bVar.isSuccess()) {
-            aVar.bHA = true;
-            aVar.bHB = bVar;
+            aVar.bHH = true;
+            aVar.bHI = bVar;
         } else {
-            aVar.bHA = false;
-            aVar.bHB = bVar;
+            aVar.bHH = false;
+            aVar.bHI = bVar;
         }
-        bVar2 = this.bHy.bHs;
+        bVar2 = this.bHF.bHz;
         bVar2.a(aVar);
     }
 }

@@ -12,6 +12,6 @@ class e implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         RequestStaticEmotionMessage requestStaticEmotionMessage = (RequestStaticEmotionMessage) customMessage;
-        return new CustomResponsedMessage<>(customMessage.getCmd(), x.WT().aF(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
+        return new CustomResponsedMessage<>(customMessage.getCmd(), x.Xm().aG(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
     }
 }

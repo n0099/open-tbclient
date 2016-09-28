@@ -7,35 +7,35 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i {
-    private static i arR = null;
-    private int arS;
+    private static i arC = null;
+    private int arD;
     private int currentIndex = 0;
-    private boolean arT = false;
-    private boolean arU = false;
-    private List<String> arj = null;
-    private boolean arV = false;
-    private final g.a arW = new j(this);
+    private boolean arE = false;
+    private boolean arF = false;
+    private List<String> aqU = null;
+    private boolean arG = false;
+    private final g.a arH = new j(this);
 
-    public static synchronized i BF() {
+    public static synchronized i BJ() {
         i iVar;
         synchronized (i.class) {
-            if (arR == null) {
+            if (arC == null) {
                 synchronized (i.class) {
-                    if (arR == null) {
-                        arR = new i();
+                    if (arC == null) {
+                        arC = new i();
                     }
                 }
             }
-            iVar = arR;
+            iVar = arC;
         }
         return iVar;
     }
 
     public void init() {
-        com.baidu.adp.lib.webSocket.h.ha().a(this.arW);
+        com.baidu.adp.lib.webSocket.h.ha().a(this.arH);
     }
 
-    public static String eY(String str) {
+    public static String fb(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -47,60 +47,60 @@ public class i {
         return null;
     }
 
-    private String BG() {
-        if (this.arj == null || this.currentIndex <= -1 || this.currentIndex >= this.arj.size()) {
+    private String BK() {
+        if (this.aqU == null || this.currentIndex <= -1 || this.currentIndex >= this.aqU.size()) {
             return null;
         }
-        return a.Bm().Bp().get(this.currentIndex);
+        return a.Bq().Bt().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eZ(String str) {
-        String BG = BG();
-        if (BG == null) {
-            if (!a.Bm().Br()) {
-                a.Bm().a(new k(this, str));
+    public void fc(String str) {
+        String BK = BK();
+        if (BK == null) {
+            if (!a.Bq().Bv()) {
+                a.Bq().a(new k(this, str));
             }
             com.baidu.adp.framework.client.socket.j.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            BH();
-        } else if (eY(BG) == null) {
-            BH();
+            BL();
+        } else if (fb(BK) == null) {
+            BL();
         } else {
-            this.arV = false;
+            this.arG = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.j.setUrl(BG);
+            com.baidu.adp.framework.client.socket.j.setUrl(BK);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.arT = true;
+            this.arE = true;
             this.currentIndex++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void BH() {
-        NoNetworkView.wc();
-        this.arU = false;
+    public void BL() {
+        NoNetworkView.ws();
+        this.arF = false;
         this.currentIndex = 0;
-        this.arV = false;
-        this.arT = false;
+        this.arG = false;
+        this.arE = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void BI() {
-        if (!this.arV) {
-            this.arV = true;
-            if (this.arT) {
-                this.arT = false;
-                c.Bu().eV(TiebaIMConfig.url);
+    public void BM() {
+        if (!this.arG) {
+            this.arG = true;
+            if (this.arE) {
+                this.arE = false;
+                c.By().eY(TiebaIMConfig.url);
             }
-            c.Bu().Bv();
-            if (!this.arU) {
+            c.By().Bz();
+            if (!this.arF) {
                 new e("www.baidu.com", new l(this));
-                this.arU = true;
+                this.arF = true;
                 return;
             }
-            eZ("change ip to reconnect with DNS' failed.");
+            fc("change ip to reconnect with DNS' failed.");
         }
     }
 }

@@ -6,24 +6,24 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class DynamicHeightListView extends ListView {
     private int maxHeight;
 
     public DynamicHeightListView(Context context) {
         super(context);
-        this.maxHeight = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), t.e.ds484);
+        this.maxHeight = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.maxHeight = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), t.e.ds484);
+        this.maxHeight = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.maxHeight = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), t.e.ds484);
+        this.maxHeight = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds484);
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View

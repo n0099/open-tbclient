@@ -3,20 +3,20 @@ package com.baidu.tieba.im.db;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* loaded from: classes.dex */
 public class k extends a {
-    public static String cYU = "tb_oficial_msg_";
-    private static a cZj;
+    private static a daI;
+    public static String dar = "tb_oficial_msg_";
 
     private k() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized k ast() {
+    public static synchronized k asS() {
         k kVar;
         synchronized (k.class) {
-            if (cZj == null) {
-                cZj = new k();
+            if (daI == null) {
+                daI = new k();
             }
-            kVar = (k) cZj;
+            kVar = (k) daI;
         }
         return kVar;
     }

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h LJ = null;
+    private static volatile h LI = null;
     public static String a = np().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
@@ -100,14 +100,14 @@ public final class h {
     }
 
     public static h np() {
-        if (LJ == null) {
+        if (LI == null) {
             synchronized (h.class) {
-                if (LJ == null) {
-                    LJ = new h(com.baidu.location.f.getServiceContext());
+                if (LI == null) {
+                    LI = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return LJ;
+        return LI;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:42:0x00ad  */

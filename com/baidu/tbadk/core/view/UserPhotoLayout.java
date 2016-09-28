@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
@@ -33,9 +33,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public interface d {
         ListView getListView();
 
-        int wI();
+        int wR();
 
-        com.baidu.adp.lib.f.b<HeadImageView> wJ();
+        com.baidu.adp.lib.f.b<HeadImageView> wS();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -72,16 +72,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mNormalShowCount = 6;
         this.mContext = context;
         this.mPadding = com.baidu.adp.lib.util.k.dip2px(this.mContext, this.mPadding);
-        this.mItemSize = (int) this.mContext.getResources().getDimension(t.e.ds60);
+        this.mItemSize = (int) this.mContext.getResources().getDimension(r.e.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.wJ();
+            this.mUserPhotoPool = dVar.wS();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.wI());
+                this.mTbRecyclerListener = new c(dVar.wR());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
-        setOnHierarchyChangeListener(new as(this));
+        setOnHierarchyChangeListener(new aq(this));
     }
 
     @Override // android.view.ViewGroup
@@ -207,7 +207,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     public static com.baidu.adp.lib.f.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new com.baidu.adp.lib.f.b<>(new at(context), i, 0);
+        return new com.baidu.adp.lib.f.b<>(new ar(context), i, 0);
     }
 
     private HeadImageView getImageView(Context context) {

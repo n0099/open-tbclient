@@ -3,16 +3,16 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class df implements com.baidu.adp.lib.guide.b {
-    private final /* synthetic */ String bSe;
-    final /* synthetic */ de epf;
+    private final /* synthetic */ String bRX;
+    final /* synthetic */ de erd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public df(de deVar, String str) {
-        this.epf = deVar;
-        this.bSe = str;
+        this.erd = deVar;
+        this.bRX = str;
     }
 
     @Override // com.baidu.adp.lib.guide.b
@@ -21,18 +21,18 @@ class df implements com.baidu.adp.lib.guide.b {
         dd ddVar2;
         dd ddVar3;
         dd ddVar4;
-        ddVar = this.epf.epe;
-        TextView textView = new TextView(ddVar.aPR.getPageContext().getPageActivity());
-        textView.setText(this.bSe);
+        ddVar = this.erd.erc;
+        TextView textView = new TextView(ddVar.aRd.getPageContext().getPageActivity());
+        textView.setText(this.bRX);
         textView.setGravity(17);
-        com.baidu.tbadk.core.util.av.j((View) textView, t.d.cp_cont_i);
-        ddVar2 = this.epf.epe;
-        textView.setTextSize(0, ddVar2.aPR.getResources().getDimensionPixelSize(t.e.fontsize28));
-        ddVar3 = this.epf.epe;
-        textView.setWidth(ddVar3.aPR.getResources().getDimensionPixelSize(t.e.ds266));
-        ddVar4 = this.epf.epe;
-        textView.setHeight(ddVar4.aPR.getResources().getDimensionPixelSize(t.e.ds76));
-        com.baidu.tbadk.core.util.av.k(textView, t.f.bg_tip_blue_left);
+        com.baidu.tbadk.core.util.av.j((View) textView, r.d.cp_cont_i);
+        ddVar2 = this.erd.erc;
+        textView.setTextSize(0, ddVar2.aRd.getResources().getDimensionPixelSize(r.e.fontsize28));
+        ddVar3 = this.erd.erc;
+        textView.setWidth(ddVar3.aRd.getResources().getDimensionPixelSize(r.e.ds266));
+        ddVar4 = this.erd.erc;
+        textView.setHeight(ddVar4.aRd.getResources().getDimensionPixelSize(r.e.ds76));
+        com.baidu.tbadk.core.util.av.k(textView, r.f.bg_tip_blue_left);
         return textView;
     }
 

@@ -1,14 +1,14 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class y implements a.b {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -19,30 +19,30 @@ class y implements a.b {
         ex exVar3;
         dh dhVar2;
         ex exVar4;
-        this.eob.aaQ();
-        dhVar = this.eob.emx;
-        com.baidu.tbadk.core.data.ak aoU = dhVar.aoU();
-        exVar = this.eob.enh;
+        this.eqa.abd();
+        dhVar = this.eqa.eov;
+        com.baidu.tbadk.core.data.am api = dhVar.api();
+        exVar = this.eqa.epe;
         int pageNum = exVar.getPageNum();
         if (pageNum <= 0) {
-            this.eob.showToast(t.j.pb_page_error);
-        } else if (aoU == null || pageNum <= aoU.ql()) {
-            exVar2 = this.eob.enh;
-            exVar2.aAE();
-            this.eob.od(2);
-            this.eob.aaO();
-            exVar3 = this.eob.enh;
-            exVar3.aPp();
+            this.eqa.showToast(r.j.pb_page_error);
+        } else if (api == null || pageNum <= api.qw()) {
+            exVar2 = this.eqa.epe;
+            exVar2.aBc();
+            this.eqa.on(2);
+            this.eqa.abb();
+            exVar3 = this.eqa.epe;
+            exVar3.aPY();
             if (com.baidu.adp.lib.util.i.gm()) {
-                dhVar2 = this.eob.emx;
-                exVar4 = this.eob.enh;
-                dhVar2.oi(exVar4.getPageNum());
+                dhVar2 = this.eqa.eov;
+                exVar4 = this.eqa.epe;
+                dhVar2.os(exVar4.getPageNum());
             } else {
-                this.eob.showToast(t.j.neterror);
+                this.eqa.showToast(r.j.neterror);
             }
             aVar.dismiss();
         } else {
-            this.eob.showToast(t.j.pb_page_error);
+            this.eqa.showToast(r.j.pb_page_error);
         }
     }
 }

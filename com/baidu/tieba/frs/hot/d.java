@@ -14,19 +14,19 @@ import com.baidu.tieba.frs.dq;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d implements dg {
-    private BdUniqueId aYu;
-    private dh cch;
-    private boolean bNs = true;
-    private boolean ccf = false;
-    private int ccg = 0;
-    private dq cci = new dq();
-    private final ArrayList<v> ccj = new ArrayList<>();
-    private com.baidu.adp.framework.listener.a bdG = new e(this, CmdConfigHttp.FRS_HOT_TAB_CMD, 301003);
-    private CustomMessageListener cck = new f(this, CmdConfigCustom.CMD_FRS_HOT_CACHE);
+    private BdUniqueId aYW;
+    private dh ccj;
+    private boolean bNp = true;
+    private boolean cch = false;
+    private int cci = 0;
+    private dq cck = new dq();
+    private final ArrayList<v> ccl = new ArrayList<>();
+    private com.baidu.adp.framework.listener.a bdZ = new e(this, CmdConfigHttp.FRS_HOT_TAB_CMD, 301003);
+    private CustomMessageListener ccm = new f(this, CmdConfigCustom.CMD_FRS_HOT_CACHE);
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.aYu = bdUniqueId;
+            this.aYW = bdUniqueId;
         }
     }
 
@@ -35,16 +35,16 @@ public class d implements dg {
         if (i == 2 && dnVar != null) {
             if (dnVar.pn == -1) {
                 dnVar.pn = 1;
-                this.ccf = true;
+                this.cch = true;
             } else {
-                this.ccf = false;
+                this.cch = false;
             }
-            if (this.bNs) {
-                this.cci.forumId = dnVar.forumId;
-                this.cci.pn = dnVar.pn;
-                jE(dnVar.forumId);
-            } else if (dnVar.pn == this.ccg && !this.ccf) {
-                aeC();
+            if (this.bNp) {
+                this.cck.forumId = dnVar.forumId;
+                this.cck.pn = dnVar.pn;
+                jL(dnVar.forumId);
+            } else if (dnVar.pn == this.cci && !this.cch) {
+                aeQ();
             } else {
                 b(com.baidu.adp.lib.h.b.c(dnVar.forumId, 0L), true);
             }
@@ -53,7 +53,7 @@ public class d implements dg {
 
     @Override // com.baidu.tieba.frs.dg
     public void a(dh dhVar) {
-        this.cch = dhVar;
+        this.ccj = dhVar;
     }
 
     @Override // com.baidu.tieba.frs.dg
@@ -63,56 +63,56 @@ public class d implements dg {
     }
 
     @Override // com.baidu.tieba.frs.dg
-    public void aaf() {
+    public void aat() {
         unRegisterListener();
     }
 
-    private void jE(String str) {
+    private void jL(String str) {
         FrsHotThreadRequestCacheMessage frsHotThreadRequestCacheMessage = new FrsHotThreadRequestCacheMessage(str);
-        if (this.aYu != null) {
-            frsHotThreadRequestCacheMessage.setTag(this.aYu);
+        if (this.aYW != null) {
+            frsHotThreadRequestCacheMessage.setTag(this.aYW);
         }
         MessageManager.getInstance().sendMessage(frsHotThreadRequestCacheMessage);
     }
 
-    private void aeC() {
-        if (this.cch != null) {
-            if (this.ccj == null || this.ccj.size() == 0) {
-                this.cci.bTI = false;
+    private void aeQ() {
+        if (this.ccj != null) {
+            if (this.ccl == null || this.ccl.size() == 0) {
+                this.cck.bTB = false;
             } else {
-                this.cci.bTI = true;
+                this.cck.bTB = true;
             }
-            this.cch.a(2, 0, this.cci, this.ccj);
+            this.ccj.a(2, 0, this.cck, this.ccl);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(long j, boolean z) {
-        RequestFrsHotThreadMessage requestFrsHotThreadMessage = new RequestFrsHotThreadMessage(j, this.cci.pn);
-        if (this.aYu != null) {
-            requestFrsHotThreadMessage.setTag(this.aYu);
+        RequestFrsHotThreadMessage requestFrsHotThreadMessage = new RequestFrsHotThreadMessage(j, this.cck.pn);
+        if (this.aYW != null) {
+            requestFrsHotThreadMessage.setTag(this.aYW);
         }
         MessageManager.getInstance().sendMessage(requestFrsHotThreadMessage);
     }
 
     private void registerListener() {
-        if (this.aYu != null) {
-            this.cck.setTag(this.aYu);
-            this.bdG.setTag(this.aYu);
-            if (this.bdG.ch() != null) {
-                this.bdG.ch().setSelfListener(true);
+        if (this.aYW != null) {
+            this.ccm.setTag(this.aYW);
+            this.bdZ.setTag(this.aYW);
+            if (this.bdZ.ch() != null) {
+                this.bdZ.ch().setSelfListener(true);
             }
-            if (this.bdG.ci() != null) {
-                this.bdG.ci().setSelfListener(true);
+            if (this.bdZ.ci() != null) {
+                this.bdZ.ci().setSelfListener(true);
             }
         }
-        MessageManager.getInstance().registerListener(this.bdG);
-        MessageManager.getInstance().registerListener(this.cck);
+        MessageManager.getInstance().registerListener(this.bdZ);
+        MessageManager.getInstance().registerListener(this.ccm);
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bdG);
-        MessageManager.getInstance().unRegisterListener(this.cck);
+        MessageManager.getInstance().unRegisterListener(this.bdZ);
+        MessageManager.getInstance().unRegisterListener(this.ccm);
     }
 
     private void Ed() {

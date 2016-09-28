@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 /* loaded from: classes.dex */
 class f implements a.b {
-    final /* synthetic */ a eHl;
-    private final /* synthetic */ UserMuteAddAndDelCustomMessage evz;
+    final /* synthetic */ a eJp;
+    private final /* synthetic */ UserMuteAddAndDelCustomMessage exG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-        this.eHl = aVar;
-        this.evz = userMuteAddAndDelCustomMessage;
+        this.eJp = aVar;
+        this.exG = userMuteAddAndDelCustomMessage;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.eHl.ayk();
-        MessageManager.getInstance().sendMessage(this.evz);
+        this.eJp.ayI();
+        MessageManager.getInstance().sendMessage(this.exG);
         aVar.dismiss();
     }
 }

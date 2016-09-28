@@ -5,11 +5,11 @@ import android.content.Context;
 public interface a {
     int CY();
 
-    int fp(String str);
+    int fr(String str);
 
-    int fq(String str);
+    int fs(String str);
 
-    String fr(String str);
+    String ft(String str);
 
     C0044a y(Context context, String str);
 

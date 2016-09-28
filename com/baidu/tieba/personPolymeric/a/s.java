@@ -8,65 +8,65 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private List<com.baidu.adp.widget.ListView.a> bOr = new ArrayList();
-    private com.baidu.tieba.personCenter.a.b eBK;
-    private r eGV;
-    private c eGW;
-    private k eGX;
-    private a eGY;
-    private e eGZ;
-    private j eHa;
-    private o eHb;
-    private g eHc;
-    private p eHd;
-    private f eHe;
-    private com.baidu.tieba.person.a.e eHf;
+    private List<com.baidu.adp.widget.ListView.a> bOo = new ArrayList();
+    private com.baidu.tieba.personCenter.a.b eDN;
+    private r eIZ;
+    private c eJa;
+    private k eJb;
+    private a eJc;
+    private e eJd;
+    private j eJe;
+    private o eJf;
+    private g eJg;
+    private p eJh;
+    private f eJi;
+    private com.baidu.tieba.person.a.e eJj;
 
     public s(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
         a(tbPageContext, bdPersonListView);
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.eGV = new r(tbPageContext);
-        this.eGW = new c(tbPageContext);
-        this.eGX = new k(tbPageContext);
-        this.eGY = new a(tbPageContext);
-        this.eGZ = new e(tbPageContext);
-        this.eHa = new j(tbPageContext);
-        this.eHb = new o(tbPageContext);
-        this.eHc = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.f.eIf);
-        this.eHd = new p(tbPageContext);
-        this.eHe = new f(tbPageContext);
-        this.eHf = new com.baidu.tieba.person.a.e(tbPageContext, com.baidu.tieba.person.a.g.eBL);
-        this.eBK = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eDy);
-        this.bOr.add(this.eGV);
-        this.bOr.add(this.eGW);
-        this.bOr.add(this.eGX);
-        this.bOr.add(this.eGY);
-        this.bOr.add(this.eGZ);
-        this.bOr.add(this.eHa);
-        this.bOr.add(this.eHb);
-        this.bOr.add(this.eHc);
-        this.bOr.add(this.eHd);
-        this.bOr.add(this.eHe);
-        this.bOr.add(this.eHf);
-        this.bOr.add(this.eBK);
-        x(tbPageContext);
-        bdPersonListView.g(this.bOr);
+        this.eIZ = new r(tbPageContext);
+        this.eJa = new c(tbPageContext);
+        this.eJb = new k(tbPageContext);
+        this.eJc = new a(tbPageContext);
+        this.eJd = new e(tbPageContext);
+        this.eJe = new j(tbPageContext);
+        this.eJf = new o(tbPageContext);
+        this.eJg = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.f.eKj);
+        this.eJh = new p(tbPageContext);
+        this.eJi = new f(tbPageContext);
+        this.eJj = new com.baidu.tieba.person.a.e(tbPageContext, com.baidu.tieba.person.a.g.eDO);
+        this.eDN = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eFB);
+        this.bOo.add(this.eIZ);
+        this.bOo.add(this.eJa);
+        this.bOo.add(this.eJb);
+        this.bOo.add(this.eJc);
+        this.bOo.add(this.eJd);
+        this.bOo.add(this.eJe);
+        this.bOo.add(this.eJf);
+        this.bOo.add(this.eJg);
+        this.bOo.add(this.eJh);
+        this.bOo.add(this.eJi);
+        this.bOo.add(this.eJj);
+        this.bOo.add(this.eDN);
+        A(tbPageContext);
+        bdPersonListView.g(this.bOo);
     }
 
-    public void x(TbPageContext tbPageContext) {
-        if (EcommSwitchStatic.GL()) {
+    public void A(TbPageContext tbPageContext) {
+        if (EcommSwitchStatic.GK()) {
             com.baidu.tieba.person.data.e eVar = new com.baidu.tieba.person.data.e(0);
             eVar.GM = tbPageContext;
-            eVar.bOr = this.bOr;
-            eVar.aLC();
+            eVar.bOo = this.bOo;
+            eVar.aMe();
         }
     }
 
-    public void M(View.OnClickListener onClickListener) {
-        if (this.eHf != null) {
-            this.eHf.J(onClickListener);
+    public void L(View.OnClickListener onClickListener) {
+        if (this.eJj != null) {
+            this.eJj.I(onClickListener);
         }
     }
 }

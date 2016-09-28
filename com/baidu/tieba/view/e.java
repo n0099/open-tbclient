@@ -6,11 +6,11 @@ import com.baidu.tieba.view.CommonTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Animation.AnimationListener {
-    final /* synthetic */ CommonTipView fVO;
+    final /* synthetic */ CommonTipView fXT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(CommonTipView commonTipView) {
-        this.fVO = commonTipView;
+        this.fXT = commonTipView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,15 +21,15 @@ public class e implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         CommonTipView.a aVar;
         CommonTipView.a aVar2;
-        this.fVO.onDestroy();
-        ViewGroup viewGroup = (ViewGroup) this.fVO.getParent();
+        this.fXT.onDestroy();
+        ViewGroup viewGroup = (ViewGroup) this.fXT.getParent();
         if (viewGroup != null) {
-            viewGroup.removeView(this.fVO);
+            viewGroup.removeView(this.fXT);
         }
-        aVar = this.fVO.fVN;
+        aVar = this.fXT.fXS;
         if (aVar != null) {
-            aVar2 = this.fVO.fVN;
-            aVar2.bqk();
+            aVar2 = this.fXT.fXS;
+            aVar2.bqO();
         }
     }
 

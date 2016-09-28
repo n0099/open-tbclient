@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.l;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class k extends MediaPlayer implements h {
-    private static Object ajs = new Object();
-    private static k ajt = null;
-    private boolean aju = false;
-    private boolean ajv = true;
+    private static Object aiU = new Object();
+    private static k aiV = null;
+    private boolean aiW = false;
+    private boolean aiX = true;
     private int errorNo = -1;
 
     private k() {
     }
 
-    public static k xn() {
-        if (ajt == null) {
-            synchronized (ajs) {
-                if (ajt == null) {
-                    ajt = new k();
+    public static k xp() {
+        if (aiV == null) {
+            synchronized (aiU) {
+                if (aiV == null) {
+                    aiV = new k();
                 }
             }
         }
-        return ajt;
+        return aiV;
     }
 
     public void setStreamType(int i) {
@@ -30,10 +30,10 @@ public class k extends MediaPlayer implements h {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public boolean ed(String str) {
+    public boolean eg(String str) {
         this.errorNo = -1;
-        if (!this.aju) {
-            this.ajv = true;
+        if (!this.aiW) {
+            this.aiX = true;
             reset();
             try {
                 setDataSource(str);
@@ -59,35 +59,35 @@ public class k extends MediaPlayer implements h {
                 return false;
             }
         }
-        this.aju = true;
+        this.aiW = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void xj() {
+    public void xl() {
         start();
-        this.ajv = false;
+        this.aiX = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void xe() {
-        if (!this.ajv) {
+    public void xg() {
+        if (!this.aiX) {
             stop();
-            this.ajv = true;
-            this.aju = false;
+            this.aiX = true;
+            this.aiW = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void xk() {
+    public void xm() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void xl() {
+    public void xn() {
         reset();
-        this.aju = false;
-        this.ajv = true;
+        this.aiW = false;
+        this.aiX = true;
         this.errorNo = -1;
     }
 
@@ -97,8 +97,8 @@ public class k extends MediaPlayer implements h {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public boolean xm() {
-        return this.aju;
+    public boolean xo() {
+        return this.aiW;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h

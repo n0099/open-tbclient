@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements Animation.AnimationListener {
-    final /* synthetic */ ForumHeadVideoView ccd;
+    final /* synthetic */ ForumHeadVideoView ccf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ForumHeadVideoView forumHeadVideoView) {
-        this.ccd = forumHeadVideoView;
+        this.ccf = forumHeadVideoView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,6 +21,6 @@ public class m implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        com.baidu.adp.lib.h.h.eG().post(this.ccd.mRunnable);
+        com.baidu.adp.lib.h.h.eG().post(this.ccf.mRunnable);
     }
 }

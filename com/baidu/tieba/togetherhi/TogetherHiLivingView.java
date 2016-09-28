@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.n;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TogetherHiLivingView extends FrameLayout implements View.OnClickListener {
@@ -47,36 +47,36 @@ public class TogetherHiLivingView extends FrameLayout implements View.OnClickLis
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(t.h.tb_richtext_togetherhi_living, this);
-        int width = ((WindowManager) inflate.getContext().getSystemService("window")).getDefaultDisplay().getWidth() - inflate.getResources().getDimensionPixelSize(t.e.ds64);
-        this.image1 = (TbImageView) inflate.findViewById(t.g.th_image1);
+        View inflate = LayoutInflater.from(context).inflate(r.h.tb_richtext_togetherhi_living, this);
+        int width = ((WindowManager) inflate.getContext().getSystemService("window")).getDefaultDisplay().getWidth() - inflate.getResources().getDimensionPixelSize(r.e.ds64);
+        this.image1 = (TbImageView) inflate.findViewById(r.g.th_image1);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.image1.getLayoutParams();
         layoutParams.height = width / 2;
         layoutParams.width = width / 2;
         this.image1.setLayoutParams(layoutParams);
-        this.image1.setDefaultErrorResource(t.f.th_photo_bg);
-        this.image2 = (TbImageView) inflate.findViewById(t.g.th_image2);
+        this.image1.setDefaultErrorResource(r.f.th_photo_bg);
+        this.image2 = (TbImageView) inflate.findViewById(r.g.th_image2);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.image2.getLayoutParams();
         layoutParams2.height = width / 2;
         layoutParams2.width = width / 2;
         this.image2.setLayoutParams(layoutParams2);
-        this.image2.setDefaultErrorResource(t.f.th_photo_bg);
-        this.image3 = (TbImageView) inflate.findViewById(t.g.th_image3);
+        this.image2.setDefaultErrorResource(r.f.th_photo_bg);
+        this.image3 = (TbImageView) inflate.findViewById(r.g.th_image3);
         LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.image3.getLayoutParams();
         layoutParams3.height = width / 2;
         layoutParams3.width = width / 2;
         this.image3.setLayoutParams(layoutParams3);
-        this.image3.setDefaultErrorResource(t.f.th_photo_bg);
-        this.image4 = (TbImageView) inflate.findViewById(t.g.th_image4);
+        this.image3.setDefaultErrorResource(r.f.th_photo_bg);
+        this.image4 = (TbImageView) inflate.findViewById(r.g.th_image4);
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.image4.getLayoutParams();
         layoutParams4.height = width / 2;
         layoutParams4.width = width / 2;
         this.image4.setLayoutParams(layoutParams2);
-        this.image4.setDefaultErrorResource(t.f.th_photo_bg);
-        this.livingTag = (TextView) inflate.findViewById(t.g.th_living);
-        this.title = (TextView) inflate.findViewById(t.g.th_title);
-        this.joinNum = (TextView) inflate.findViewById(t.g.th_join_num);
-        this.location = (TextView) inflate.findViewById(t.g.th_location);
+        this.image4.setDefaultErrorResource(r.f.th_photo_bg);
+        this.livingTag = (TextView) inflate.findViewById(r.g.th_living);
+        this.title = (TextView) inflate.findViewById(r.g.th_title);
+        this.joinNum = (TextView) inflate.findViewById(r.g.th_join_num);
+        this.location = (TextView) inflate.findViewById(r.g.th_location);
         inflate.setOnClickListener(this);
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
@@ -90,7 +90,7 @@ public class TogetherHiLivingView extends FrameLayout implements View.OnClickLis
         if (getVisibility() != 0) {
             setVisibility(0);
         }
-        if (nVar.UV == 2) {
+        if (nVar.Vf == 2) {
             this.livingTag.setVisibility(0);
         } else {
             this.livingTag.setVisibility(8);
@@ -110,15 +110,15 @@ public class TogetherHiLivingView extends FrameLayout implements View.OnClickLis
         if (list != null && size > 2) {
             this.image3.c(list.get(2), 13, false);
         } else {
-            this.image3.setDefaultResource(t.f.th_photo_bg);
+            this.image3.setDefaultResource(r.f.th_photo_bg);
         }
         if (list != null && size > 3) {
             this.image4.c(list.get(3), 13, false);
         } else {
-            this.image4.setDefaultResource(t.f.th_photo_bg);
+            this.image4.setDefaultResource(r.f.th_photo_bg);
         }
-        this.title.setText(nVar.UO);
-        this.joinNum.setText(Integer.toString(nVar.US));
+        this.title.setText(nVar.UZ);
+        this.joinNum.setText(Integer.toString(nVar.Vc));
         if (TextUtils.isEmpty(nVar.location)) {
             this.location.setVisibility(8);
         } else {
@@ -141,17 +141,17 @@ public class TogetherHiLivingView extends FrameLayout implements View.OnClickLis
     }
 
     public void onChangeSkinType(int i) {
-        av.c(this.livingTag, t.d.cp_cont_g, 1);
-        av.c(this.title, t.d.cp_cont_g, 1);
-        av.c(this.joinNum, t.d.cp_cont_g, 1);
-        av.c(this.location, t.d.cp_cont_g, 1);
+        av.c(this.livingTag, r.d.cp_cont_g, 1);
+        av.c(this.title, r.d.cp_cont_g, 1);
+        av.c(this.joinNum, r.d.cp_cont_g, 1);
+        av.c(this.location, r.d.cp_cont_g, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TiebaStatic.log("c11151");
         ThActivityDetailActivityConfig thActivityDetailActivityConfig = new ThActivityDetailActivityConfig(this.mContext);
-        thActivityDetailActivityConfig.createActivityDetailConfig(Long.toString(this.togetherHiInfo.UQ), this.togetherHiInfo.UO, this.togetherHiInfo.startTime, this.togetherHiInfo.UR, this.togetherHiInfo.location, this.togetherHiInfo.UT, ThActivityDetailActivityConfig.TH_FROM_PB);
+        thActivityDetailActivityConfig.createActivityDetailConfig(Long.toString(this.togetherHiInfo.Va), this.togetherHiInfo.UZ, this.togetherHiInfo.startTime, this.togetherHiInfo.Vb, this.togetherHiInfo.location, this.togetherHiInfo.Vd, ThActivityDetailActivityConfig.TH_FROM_PB);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, thActivityDetailActivityConfig));
     }
 

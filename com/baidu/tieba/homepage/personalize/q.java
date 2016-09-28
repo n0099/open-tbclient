@@ -1,22 +1,71 @@
 package com.baidu.tieba.homepage.personalize;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import tbclient.GodInfo;
+import tbclient.Personalized.DataRes;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements com.baidu.tbadk.util.g<String> {
-    private final /* synthetic */ a cFh;
-    final /* synthetic */ b this$0;
+public class q extends CustomMessageListener {
+    final /* synthetic */ m this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(b bVar, a aVar) {
-        this.this$0 = bVar;
-        this.cFh = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q(m mVar, int i) {
+        super(i);
+        this.this$0 = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.g
-    /* renamed from: kN */
-    public void onReturnDataInUI(String str) {
-        if (this.cFh != null) {
-            this.cFh.jO(com.baidu.adp.lib.h.b.g(str, 0));
+    /* JADX WARN: Incorrect condition in loop: B:15:0x0040 */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        DataRes.Builder builder;
+        DataRes.Builder builder2;
+        DataRes.Builder builder3;
+        DataRes.Builder builder4;
+        int intValue;
+        DataRes.Builder builder5;
+        if (customResponsedMessage instanceof UpdateAttentionMessage) {
+            builder = this.this$0.cFw;
+            if (builder != null) {
+                builder2 = this.this$0.cFw;
+                if (!com.baidu.tbadk.core.util.y.t(builder2.thread_list)) {
+                    UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+                    if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
+                        return;
+                    }
+                    for (int i = 0; i < builder3.thread_list.size(); i++) {
+                        builder4 = this.this$0.cFw;
+                        ThreadInfo threadInfo = builder4.thread_list.get(i);
+                        if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == com.baidu.adp.lib.h.b.c(updateAttentionMessage.getData().toUid, -1L)) {
+                            ThreadInfo.Builder builder6 = new ThreadInfo.Builder(threadInfo);
+                            User.Builder builder7 = new User.Builder(builder6.author);
+                            GodInfo.Builder builder8 = new GodInfo.Builder(builder7.god_data);
+                            if (updateAttentionMessage.getData().akC) {
+                                intValue = builder7.fans_num.intValue() + 1;
+                                builder8.followed = 1;
+                            } else {
+                                intValue = builder7.fans_num.intValue() - 1;
+                                builder8.followed = 0;
+                            }
+                            builder7.fans_num = Integer.valueOf(intValue);
+                            builder7.god_data = builder8.build(true);
+                            builder6.author = builder7.build(true);
+                            builder5 = this.this$0.cFw;
+                            builder5.thread_list.set(i, builder6.build(true));
+                            return;
+                        }
+                    }
+                }
+            }
         }
     }
 }

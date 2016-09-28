@@ -11,11 +11,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements a.InterfaceC0047a<com.baidu.tieba.homepage.recommendfrs.data.c> {
-    final /* synthetic */ q cCe;
+    final /* synthetic */ q cCJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar) {
-        this.cCe = qVar;
+        this.cCJ = qVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x00bc  */
@@ -33,29 +33,29 @@ public class s implements a.InterfaceC0047a<com.baidu.tieba.homepage.recommendfr
         if (readCacheMessage != null) {
             if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.homepage.recommendfrs.data.b) {
                 i = 2;
-                j = ((com.baidu.tieba.homepage.recommendfrs.data.b) readCacheMessage.getRequestData()).amf();
+                j = ((com.baidu.tieba.homepage.recommendfrs.data.b) readCacheMessage.getRequestData()).amt();
             } else if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.homepage.mygod.data.c) {
                 i = 3;
-                j = ((com.baidu.tieba.homepage.mygod.data.c) readCacheMessage.getRequestData()).amf();
+                j = ((com.baidu.tieba.homepage.mygod.data.c) readCacheMessage.getRequestData()).amt();
             }
             if (j < 0 && readCacheMessage != null && readCacheRespMsg != null) {
                 com.baidu.tbadk.core.log.b.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));
             }
             if (readCacheRespMsg != null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-                aVar = this.cCe.cBw;
+                aVar = this.cCJ.cCa;
                 if (aVar != null) {
-                    aVar2 = this.cCe.cBw;
+                    aVar2 = this.cCJ.cCa;
                     aVar2.a(false, null, false, j, "", false);
                 }
             } else {
                 com.baidu.tieba.homepage.recommendfrs.data.c cVar = readCacheRespMsg.getData().get(0);
-                aVar3 = this.cCe.cBw;
+                aVar3 = this.cCJ.cCa;
                 if (aVar3 != null) {
-                    aVar4 = this.cCe.cBw;
+                    aVar4 = this.cCJ.cCa;
                     aVar4.a(false, cVar, false, j, "", false);
                 }
             }
-            this.cCe.a(1, j, i, 0L, 0L, "", "");
+            this.cCJ.a(1, j, i, 0L, 0L, "", "");
         }
         i = 0;
         j = -1;
@@ -64,10 +64,10 @@ public class s implements a.InterfaceC0047a<com.baidu.tieba.homepage.recommendfr
         }
         if (readCacheRespMsg != null) {
         }
-        aVar = this.cCe.cBw;
+        aVar = this.cCJ.cCa;
         if (aVar != null) {
         }
-        this.cCe.a(1, j, i, 0L, 0L, "", "");
+        this.cCJ.a(1, j, i, 0L, 0L, "", "");
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0047a

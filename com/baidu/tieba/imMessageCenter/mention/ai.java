@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ai {
-    private static ai dsF = null;
-    private final HttpMessageListener dsG = new aj(this, CmdConfigHttp.MSG_REMINDER_CMD);
-    private long dsH = 0;
+    private static ai duc = null;
+    private final HttpMessageListener dud = new aj(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long due = 0;
     private final Handler mHandler = new ak(this);
 
     static {
@@ -21,23 +21,23 @@ public class ai {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized ai azd() {
+    public static synchronized ai azB() {
         ai aiVar;
         synchronized (ai.class) {
-            if (dsF == null) {
-                dsF = new ai();
+            if (duc == null) {
+                duc = new ai();
             }
-            aiVar = dsF;
+            aiVar = duc;
         }
         return aiVar;
     }
 
     public ai() {
-        MessageManager.getInstance().registerListener(this.dsG);
+        MessageManager.getInstance().registerListener(this.dud);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aze() {
+    public void azC() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
     }
 
@@ -46,21 +46,21 @@ public class ai {
         return com.baidu.adp.lib.util.i.gm();
     }
 
-    public void QW() {
-        this.dsH = 0L;
+    public void Ro() {
+        this.due = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.dsH;
+        long currentTimeMillis = System.currentTimeMillis() - this.due;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 600000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
         }
-        this.dsH = System.currentTimeMillis();
+        this.due = System.currentTimeMillis();
     }
 
     public void destroy() {

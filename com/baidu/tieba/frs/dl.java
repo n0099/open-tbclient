@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dl implements Animation.AnimationListener {
-    final /* synthetic */ dj bTE;
+    final /* synthetic */ dj bTx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dl(dj djVar) {
-        this.bTE = djVar;
+        this.bTx = djVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,13 +25,13 @@ public class dl implements Animation.AnimationListener {
         View view;
         View view2;
         View view3;
-        view = this.bTE.bTA;
+        view = this.bTx.bTt;
         if (view != null) {
-            view2 = this.bTE.bTA;
+            view2 = this.bTx.bTt;
             view2.clearAnimation();
-            view3 = this.bTE.bTA;
+            view3 = this.bTx.bTt;
             view3.setVisibility(8);
-            this.bTE.dq(true);
+            this.bTx.dr(true);
         }
     }
 }

@@ -26,9 +26,9 @@ public class aa {
     }
 
     public static void a(com.baidu.tbadk.data.k kVar, BdUniqueId bdUniqueId) {
-        if (kVar != null && !StringUtils.isNull(kVar.Ce()) && com.baidu.tbadk.core.util.y.t(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (kVar != null && !StringUtils.isNull(kVar.Ch()) && com.baidu.tbadk.core.util.y.t(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", kVar.Ce());
+            httpMessage.addParam("pic_url", kVar.Ch());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -36,13 +36,13 @@ public class aa {
 
     public static void a(com.baidu.tbadk.data.k kVar, List<com.baidu.adp.widget.ListView.v> list) {
         com.baidu.tbadk.data.k kVar2;
-        if (kVar != null && !com.baidu.tbadk.core.util.y.t(list) && !StringUtils.isNull(kVar.Ce())) {
+        if (kVar != null && !com.baidu.tbadk.core.util.y.t(list) && !StringUtils.isNull(kVar.Ch())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.v vVar = list.get(i);
-                if ((vVar instanceof com.baidu.tbadk.data.k) && (kVar2 = (com.baidu.tbadk.data.k) vVar) != kVar && !kVar2.Cf()) {
-                    jSONArray.put(kVar2.Ce());
+                if ((vVar instanceof com.baidu.tbadk.data.k) && (kVar2 = (com.baidu.tbadk.data.k) vVar) != kVar && !kVar2.Ci()) {
+                    jSONArray.put(kVar2.Ch());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -67,8 +67,8 @@ public class aa {
                 com.baidu.adp.widget.ListView.v vVar = list.get(i);
                 if (vVar instanceof com.baidu.tbadk.data.k) {
                     com.baidu.tbadk.data.k kVar = (com.baidu.tbadk.data.k) vVar;
-                    if (!kVar.Cf()) {
-                        jSONArray.put(kVar.Ce());
+                    if (!kVar.Ci()) {
+                        jSONArray.put(kVar.Ch());
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class aa {
         }
     }
 
-    public static void y(TbPageContext tbPageContext) {
+    public static void B(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditHeadActivityConfig(tbPageContext.getPageActivity(), 12001, 12010, null, TbadkCoreApplication.getCurrentAccountObj(), 1.0f)));
         }

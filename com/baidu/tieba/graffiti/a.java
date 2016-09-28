@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
-    private v cvX;
-    private String cvY;
-    private final HttpMessageListener cvZ;
+    private v cwC;
+    private String cwD;
+    private final HttpMessageListener cwE;
     private String forumId;
     private int height;
     private Context mContext;
@@ -21,19 +21,19 @@ public class a extends com.baidu.adp.base.e {
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.cvZ = new b(this, CmdConfigHttp.CMD_COMMIT_GRAFFITI);
+        this.cwE = new b(this, CmdConfigHttp.CMD_COMMIT_GRAFFITI);
         this.mContext = baseActivity.getActivity();
         registerListener();
     }
 
     private void registerListener() {
-        this.cvZ.setTag(getUniqueId());
-        this.cvZ.setSelfListener(true);
-        registerListener(this.cvZ);
+        this.cwE.setTag(getUniqueId());
+        this.cwE.setSelfListener(true);
+        registerListener(this.cwE);
     }
 
     public void a(v vVar) {
-        this.cvX = vVar;
+        this.cwC = vVar;
     }
 
     public void a(String str, String str2, String str3, int i, int i2, String str4, String str5, String str6) {
@@ -42,14 +42,14 @@ public class a extends com.baidu.adp.base.e {
         this.picId = str3;
         this.width = i;
         this.height = i2;
-        this.cvY = str4;
+        this.cwD = str4;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_COMMIT_GRAFFITI);
         httpMessage.addParam("tid", str);
         httpMessage.addParam("fid", str2);
         httpMessage.addParam(GraffitiVcodeActivityConfig.PIC_ID, str3);
         httpMessage.addParam("graffiti_check", str4);
-        httpMessage.addParam(GraffitiVcodeActivityConfig.WIDTH, i);
-        httpMessage.addParam(GraffitiVcodeActivityConfig.HEIGHT, i2);
+        httpMessage.addParam("width", i);
+        httpMessage.addParam("height", i2);
         if (!StringUtils.isNull(str5)) {
             httpMessage.addParam("vcode", str5);
         }

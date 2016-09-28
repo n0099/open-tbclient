@@ -2,8 +2,9 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g extends CustomMessageListener {
+public class g extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,8 +17,33 @@ class g extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.this$0.fww = true;
+        ab abVar;
+        ab abVar2;
+        ab abVar3;
+        ab abVar4;
+        ab abVar5;
+        ab abVar6;
+        ab abVar7;
+        if (customResponsedMessage.getData() instanceof Integer) {
+            Integer num = (Integer) customResponsedMessage.getData();
+            if (num.intValue() == 2) {
+                abVar6 = this.this$0.fyW;
+                abVar6.kT(true);
+                abVar7 = this.this$0.fyW;
+                abVar7.hr(true);
+            } else if (num.intValue() == 1) {
+                abVar3 = this.this$0.fyW;
+                abVar3.kT(true);
+                abVar4 = this.this$0.fyW;
+                abVar4.hr(false);
+            } else {
+                abVar = this.this$0.fyW;
+                abVar.kT(false);
+                abVar2 = this.this$0.fyW;
+                abVar2.hr(false);
+            }
+            abVar5 = this.this$0.fyW;
+            abVar5.blI();
         }
     }
 }

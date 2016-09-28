@@ -4,56 +4,56 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class AutoLinearLayout extends LinearLayout {
-    private int anG;
-    private int anH;
-    private int anI;
-    private int anJ;
-    private int anK;
-    private int anL;
-    private int anM;
+    private int ano;
+    private int anp;
+    private int anq;
+    private int anr;
+    private int ans;
+    private int ant;
+    private int anu;
     private Context mContext;
 
     public AutoLinearLayout(Context context) {
         super(context);
-        this.anG = 0;
-        this.anH = 0;
-        this.anI = 0;
-        this.anK = 0;
-        this.anL = 0;
-        this.anM = 0;
+        this.ano = 0;
+        this.anp = 0;
+        this.anq = 0;
+        this.ans = 0;
+        this.ant = 0;
+        this.anu = 0;
         this.mContext = context;
         setOrientation(0);
-        this.anH = com.baidu.adp.lib.util.k.e(context, t.e.ds24);
-        this.anI = com.baidu.adp.lib.util.k.e(context, t.e.ds20);
-        this.anL = com.baidu.adp.lib.util.k.e(context, t.e.ds32);
-        this.anJ = com.baidu.adp.lib.util.k.K(this.mContext) - (this.anL * 2);
-        this.anM = (int) this.mContext.getResources().getDimension(t.e.ds60);
+        this.anp = com.baidu.adp.lib.util.k.e(context, r.e.ds24);
+        this.anq = com.baidu.adp.lib.util.k.e(context, r.e.ds20);
+        this.ant = com.baidu.adp.lib.util.k.e(context, r.e.ds32);
+        this.anr = com.baidu.adp.lib.util.k.K(this.mContext) - (this.ant * 2);
+        this.anu = (int) this.mContext.getResources().getDimension(r.e.ds60);
     }
 
     public AutoLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.anG = 0;
-        this.anH = 0;
-        this.anI = 0;
-        this.anK = 0;
-        this.anL = 0;
-        this.anM = 0;
+        this.ano = 0;
+        this.anp = 0;
+        this.anq = 0;
+        this.ans = 0;
+        this.ant = 0;
+        this.anu = 0;
         this.mContext = context;
         setOrientation(0);
-        this.anH = com.baidu.adp.lib.util.k.e(context, t.e.ds24);
-        this.anI = com.baidu.adp.lib.util.k.e(context, t.e.ds20);
-        this.anL = com.baidu.adp.lib.util.k.e(context, t.e.ds32);
-        this.anJ = com.baidu.adp.lib.util.k.K(this.mContext) - (this.anL * 2);
-        this.anM = (int) this.mContext.getResources().getDimension(t.e.ds60);
+        this.anp = com.baidu.adp.lib.util.k.e(context, r.e.ds24);
+        this.anq = com.baidu.adp.lib.util.k.e(context, r.e.ds20);
+        this.ant = com.baidu.adp.lib.util.k.e(context, r.e.ds32);
+        this.anr = com.baidu.adp.lib.util.k.K(this.mContext) - (this.ant * 2);
+        this.anu = (int) this.mContext.getResources().getDimension(r.e.ds60);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int childCount = getChildCount();
-        int dimension = (int) this.mContext.getResources().getDimension(t.e.ds24);
+        int dimension = (int) this.mContext.getResources().getDimension(r.e.ds24);
         int i5 = 0;
         int i6 = 0;
         int i7 = 0;
@@ -63,12 +63,12 @@ public class AutoLinearLayout extends LinearLayout {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 if (i7 != 0 && i6 < measuredWidth) {
-                    dimension += this.anH + measuredHeight;
+                    dimension += this.anp + measuredHeight;
                     i7 = 0;
                 }
                 childAt.layout(i7, dimension, i7 + measuredWidth, measuredHeight + dimension);
-                i6 = (((i3 - i) - i7) - measuredWidth) - this.anI;
-                i7 += this.anI + measuredWidth;
+                i6 = (((i3 - i) - i7) - measuredWidth) - this.anq;
+                i7 += this.anq + measuredWidth;
             }
             i5++;
             i7 = i7;
@@ -79,20 +79,20 @@ public class AutoLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.anM, 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.anu, 1073741824);
         int childCount = getChildCount();
         int culumnsCount = getCulumnsCount();
-        if (this.anG != 0 && this.anK != 0) {
+        if (this.ano != 0 && this.ans != 0) {
             ee(childCount);
         }
-        if (this.anG != 0) {
-            for (int i3 = 0; i3 < this.anK; i3++) {
+        if (this.ano != 0) {
+            for (int i3 = 0; i3 < this.ans; i3++) {
                 View childAt = getChildAt(i3);
                 if (childAt != null) {
                     childAt.measure(makeMeasureSpec, makeMeasureSpec2);
                 }
             }
-            this.anK = 0;
+            this.ans = 0;
         } else {
             for (int i4 = 0; i4 < childCount; i4++) {
                 View childAt2 = getChildAt(i4);
@@ -101,16 +101,16 @@ public class AutoLinearLayout extends LinearLayout {
                 }
             }
         }
-        if (this.anG != 0) {
-            setMeasuredDimension(resolveSize(0, i), resolveSize((this.anM * this.anG) + this.anH, i2));
+        if (this.ano != 0) {
+            setMeasuredDimension(resolveSize(0, i), resolveSize((this.anu * this.ano) + this.anp, i2));
         } else {
-            setMeasuredDimension(resolveSize(0, i), resolveSize((this.anM * culumnsCount) + (this.anH * culumnsCount), i2));
+            setMeasuredDimension(resolveSize(0, i), resolveSize((this.anu * culumnsCount) + (this.anp * culumnsCount), i2));
         }
     }
 
     private void ee(int i) {
-        if (this.anK <= i) {
-            removeViews(this.anK, i - this.anK);
+        if (this.ans <= i) {
+            removeViews(this.ans, i - this.ans);
         }
     }
 
@@ -119,9 +119,9 @@ public class AutoLinearLayout extends LinearLayout {
         int i2;
         int i3;
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.anM, 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.anu, 1073741824);
         int childCount = getChildCount();
-        int i4 = this.anJ;
+        int i4 = this.anr;
         int i5 = 0;
         int i6 = 0;
         int i7 = 0;
@@ -137,15 +137,15 @@ public class AutoLinearLayout extends LinearLayout {
                 if (i4 < measuredWidth) {
                     i7++;
                     if (i7 == 1) {
-                        this.anK = i5;
+                        this.ans = i5;
                     }
-                    i = this.anI + measuredWidth + 0;
+                    i = this.anq + measuredWidth + 0;
                 } else {
-                    i = this.anI + measuredWidth + i6;
+                    i = this.anq + measuredWidth + i6;
                 }
                 i2 = i7;
                 i3 = i;
-                i4 = this.anJ - i;
+                i4 = this.anr - i;
             }
             i5++;
             int i9 = i3;
@@ -156,18 +156,18 @@ public class AutoLinearLayout extends LinearLayout {
     }
 
     public void setShowColumns(int i) {
-        this.anG = i;
+        this.ano = i;
     }
 
     public void setMarginRight(int i) {
-        this.anI = i;
+        this.anq = i;
     }
 
     public void setParentWidth(int i) {
-        this.anJ = i;
+        this.anr = i;
     }
 
     public void setCellHeight(int i) {
-        this.anM = i;
+        this.anu = i;
     }
 }

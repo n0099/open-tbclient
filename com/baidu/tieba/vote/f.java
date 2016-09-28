@@ -1,11 +1,11 @@
 package com.baidu.tieba.vote;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.widget.vote.a {
-    private String Zp;
-    private long asX;
+    private String ZC;
+    private long asI;
     private boolean isSelected = false;
     private int mId;
     private int mPercent;
@@ -13,9 +13,9 @@ public class f implements com.baidu.tbadk.widget.vote.a {
 
     public f(int i, String str, String str2, long j) {
         this.mId = i;
-        this.Zp = str;
+        this.ZC = str;
         this.mUrl = str2;
-        this.asX = j;
+        this.asI = j;
     }
 
     public void setSelected(boolean z) {
@@ -27,11 +27,11 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     public void setNum(long j) {
-        this.asX = j;
+        this.asI = j;
     }
 
     public long getNum() {
-        return this.asX;
+        return this.asI;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -40,8 +40,8 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cg() {
-        return this.Zp;
+    public String Cj() {
+        return this.ZC;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -50,27 +50,27 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Ch() {
-        return String.valueOf(this.asX) + TbadkCoreApplication.m9getInst().getString(t.j.vote_unit);
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Ci() {
-        return String.valueOf(this.mPercent) + TbadkCoreApplication.m9getInst().getString(t.j.vote_percent);
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int Cj() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int Ck() {
-        return this.mPercent;
+    public String Ck() {
+        return String.valueOf(this.asI) + TbadkCoreApplication.m9getInst().getString(r.j.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String Cl() {
+        return String.valueOf(this.mPercent) + TbadkCoreApplication.m9getInst().getString(r.j.vote_percent);
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Cm() {
+        return 0;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Cn() {
+        return this.mPercent;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Co() {
         return this.mUrl;
     }
 }

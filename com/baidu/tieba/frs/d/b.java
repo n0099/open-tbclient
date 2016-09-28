@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tieba.frs.cu;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.lib.f.c<cu> {
@@ -18,12 +18,12 @@ public class b implements com.baidu.adp.lib.f.c<cu> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aeE */
+    /* renamed from: aeS */
     public cu ez() {
         Context context;
         context = this.cct.mContext;
-        cu cuVar = new cu(LayoutInflater.from(context).inflate(t.h.frs_item_single_photolivecard, (ViewGroup) null));
-        ((LinearLayout.LayoutParams) cuVar.bTk.getLayoutParams()).topMargin = 0;
+        cu cuVar = new cu(LayoutInflater.from(context).inflate(r.h.frs_item_single_photolivecard, (ViewGroup) null));
+        ((LinearLayout.LayoutParams) cuVar.bTd.getLayoutParams()).topMargin = 0;
         return cuVar;
     }
 

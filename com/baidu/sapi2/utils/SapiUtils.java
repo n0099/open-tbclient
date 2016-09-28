@@ -18,7 +18,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.SystemClock;
-import android.support.v4.os.EnvironmentCompat;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -54,6 +53,7 @@ import java.util.regex.Pattern;
 import org.apache.http.NameValuePair;
 import org.apache.http.conn.util.InetAddressUtils;
 import org.apache.http.message.BasicNameValuePair;
+import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class SapiUtils {
     public static final String KEY_QR_LOGIN_LP = "lp";
@@ -135,7 +135,7 @@ public class SapiUtils {
     public static long getInternalMemorySize() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-            return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
+            return (statFs.getBlockCount() * statFs.getBlockSize()) / IjkMediaMeta.AV_CH_SIDE_RIGHT;
         } catch (Throwable th) {
             L.e(th);
             return 0L;
@@ -145,7 +145,7 @@ public class SapiUtils {
     public static long getInternalAvailableMemorySize() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-            return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
+            return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / IjkMediaMeta.AV_CH_SIDE_RIGHT;
         } catch (Throwable th) {
             L.e(th);
             return 0L;
@@ -183,7 +183,7 @@ public class SapiUtils {
     }
 
     public static boolean isEmulator(Context context) {
-        return "000000000000000".equals(getImei(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith(EnvironmentCompat.MEDIA_UNKNOWN) || Build.BRAND.startsWith("generic") || Build.BOARD.equals(EnvironmentCompat.MEDIA_UNKNOWN) || Build.SERIAL.equals(EnvironmentCompat.MEDIA_UNKNOWN);
+        return "000000000000000".equals(getImei(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || Build.SERIAL.equals("unknown");
     }
 
     public static String getImei(Context context) {

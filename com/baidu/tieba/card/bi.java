@@ -1,23 +1,21 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class bi implements View.OnClickListener {
-    final /* synthetic */ bg bak;
+class bi implements Runnable {
+    final /* synthetic */ be baC;
+    private final /* synthetic */ String baD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(bg bgVar) {
-        this.bak = bgVar;
+    public bi(be beVar, String str) {
+        this.baC = beVar;
+        this.baD = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.card.data.n nVar;
-        if (this.bak.getOnSubCardOnClickListenner() != null) {
-            cf<com.baidu.tieba.card.data.n> onSubCardOnClickListenner = this.bak.getOnSubCardOnClickListenner();
-            nVar = this.bak.bag;
-            onSubCardOnClickListenner.a(view, nVar);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CHANGE_CARD_TITILE_COLOR, this.baD));
     }
 }

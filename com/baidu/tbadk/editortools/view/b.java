@@ -9,17 +9,17 @@ import com.baidu.tbadk.editortools.view.c;
 /* loaded from: classes.dex */
 public abstract class b implements com.baidu.tbadk.editortools.b {
     protected l EJ;
-    private CommonTabContentView.c awX;
-    private C0042b axc;
-    private a axd;
-    private c.a axg;
+    private CommonTabContentView.c awA;
+    private C0042b awF;
+    private a awG;
+    private c.a awJ;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
     private int horizontalSpacing = 0;
-    private int axe = 0;
-    private int axf = 0;
-    private int axh = 0;
+    private int awH = 0;
+    private int awI = 0;
+    private int awK = 0;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,8 +29,8 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
     /* renamed from: com.baidu.tbadk.editortools.view.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0042b {
-        public int axi;
-        public int axj;
+        public int awL;
+        public int awM;
     }
 
     public abstract void CU();
@@ -40,7 +40,7 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
     public abstract void init(Context context);
 
     public void a(c.a aVar) {
-        this.axg = aVar;
+        this.awJ = aVar;
     }
 
     public void setEditorTools(l lVar) {
@@ -54,26 +54,26 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
     }
 
     public C0042b DP() {
-        return this.axc;
+        return this.awF;
     }
 
     public void a(C0042b c0042b) {
-        this.axc = c0042b;
+        this.awF = c0042b;
     }
 
     public a DQ() {
-        return this.axd;
+        return this.awG;
     }
 
     public void a(a aVar) {
-        this.axd = aVar;
+        this.awG = aVar;
     }
 
     public int DR() {
         return this.column;
     }
 
-    public void eL(int i) {
+    public void eK(int i) {
         this.column = i;
     }
 
@@ -81,7 +81,7 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
         return this.row;
     }
 
-    public void eM(int i) {
+    public void eL(int i) {
         this.row = i;
     }
 
@@ -102,30 +102,30 @@ public abstract class b implements com.baidu.tbadk.editortools.b {
     }
 
     public int getPaddingLeft() {
-        return this.axe;
+        return this.awH;
     }
 
     public int getPaddingRight() {
-        return this.axf;
+        return this.awI;
     }
 
     public int DS() {
-        return this.axh;
+        return this.awK;
     }
 
-    public void eN(int i) {
-        this.axh = i;
+    public void eM(int i) {
+        this.awK = i;
     }
 
     public c.a DT() {
-        return this.axg;
+        return this.awJ;
     }
 
     public void a(CommonTabContentView.c cVar) {
-        this.awX = cVar;
+        this.awA = cVar;
     }
 
     public CommonTabContentView.c DU() {
-        return this.awX;
+        return this.awA;
     }
 }

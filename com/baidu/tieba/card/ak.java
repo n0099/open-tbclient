@@ -1,23 +1,18 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
+import com.baidu.tbadk.core.view.UserLikeButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements View.OnClickListener {
-    final /* synthetic */ ah aZK;
+public class ak implements UserLikeButton.a {
+    final /* synthetic */ aj bad;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ah ahVar) {
-        this.aZK = ahVar;
+    public ak(aj ajVar) {
+        this.bad = ajVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.card.data.o oVar;
-        if (this.aZK.getOnSubCardOnClickListenner() != null) {
-            cf<com.baidu.tieba.card.data.o> onSubCardOnClickListenner = this.aZK.getOnSubCardOnClickListenner();
-            oVar = this.aZK.aZH;
-            onSubCardOnClickListenner.a(view, oVar);
-        }
+    @Override // com.baidu.tbadk.core.view.UserLikeButton.a
+    public void dm(int i) {
+        this.bad.gh(i);
     }
 }

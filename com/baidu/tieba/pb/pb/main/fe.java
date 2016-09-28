@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fe implements Animation.AnimationListener {
-    final /* synthetic */ ex euB;
+    final /* synthetic */ ex ewH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fe(ex exVar) {
-        this.euB = exVar;
+        this.ewH = exVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -23,23 +23,23 @@ public class fe implements Animation.AnimationListener {
         com.baidu.tbadk.editortools.l lVar2;
         View view;
         boolean z2;
-        z = this.euB.etA;
+        z = this.ewH.evI;
         if (!z) {
-            lVar = this.euB.EJ;
+            lVar = this.ewH.EJ;
             if (lVar != null) {
-                lVar2 = this.euB.EJ;
+                lVar2 = this.ewH.EJ;
                 lVar2.lw();
                 return;
             }
             return;
         }
-        view = this.euB.etv;
+        view = this.ewH.evD;
         if (view != null) {
-            z2 = this.euB.dxj;
-            if (z2 && !this.euB.aQa()) {
-                this.euB.gC(false);
+            z2 = this.ewH.dyE;
+            if (z2 && !this.ewH.aQJ()) {
+                this.ewH.gF(false);
             } else {
-                this.euB.gD(false);
+                this.ewH.gG(false);
             }
         }
     }

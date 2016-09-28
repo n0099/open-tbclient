@@ -2,39 +2,39 @@ package com.baidu.tieba.tbadkCore.imgView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ DragHorizonScrollView fuu;
+    final /* synthetic */ DragHorizonScrollView fxa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DragHorizonScrollView dragHorizonScrollView) {
-        this.fuu = dragHorizonScrollView;
+        this.fxa = dragHorizonScrollView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean canScroll;
-        int bjB;
-        int bjB2;
+        int bkn;
+        int bkn2;
         boolean z;
-        this.fuu.fup = false;
-        int childCount = this.fuu.getChildCount();
+        this.fxa.fwV = false;
+        int childCount = this.fxa.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            this.fuu.getChildAt(i).clearAnimation();
+            this.fxa.getChildAt(i).clearAnimation();
         }
-        canScroll = this.fuu.canScroll();
+        canScroll = this.fxa.canScroll();
         if (!canScroll) {
-            this.fuu.scrollTo(0, 0);
+            this.fxa.scrollTo(0, 0);
         } else {
-            int scrollX = this.fuu.getScrollX();
-            bjB = this.fuu.bjB();
-            if (scrollX > bjB) {
-                DragHorizonScrollView dragHorizonScrollView = this.fuu;
-                bjB2 = this.fuu.bjB();
-                dragHorizonScrollView.scrollTo(bjB2, 0);
+            int scrollX = this.fxa.getScrollX();
+            bkn = this.fxa.bkn();
+            if (scrollX > bkn) {
+                DragHorizonScrollView dragHorizonScrollView = this.fxa;
+                bkn2 = this.fxa.bkn();
+                dragHorizonScrollView.scrollTo(bkn2, 0);
             }
         }
-        z = this.fuu.fuq;
+        z = this.fxa.fwW;
         if (z) {
-            this.fuu.requestLayout();
+            this.fxa.requestLayout();
         }
     }
 }

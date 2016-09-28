@@ -18,42 +18,43 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import protobuf.NewpushGroupRepair;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes.dex */
 public class a {
-    private static a djt = null;
-    private final CustomMessageListener diG = new b(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private Handler dju;
-    private ConcurrentHashMap<Long, GroupMsgData> djv;
-    private ConcurrentHashMap<Long, NewpushGroupRepair> djw;
-    private ConcurrentHashMap<Long, Runnable> djx;
-    private Vector<Long> djy;
+    private static a dkQ = null;
+    private Handler dkR;
+    private ConcurrentHashMap<Long, GroupMsgData> dkS;
+    private ConcurrentHashMap<Long, NewpushGroupRepair> dkT;
+    private ConcurrentHashMap<Long, Runnable> dkU;
+    private Vector<Long> dkV;
+    private final CustomMessageListener dkd = new b(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
     private Handler mHandler;
 
-    public static a avJ() {
-        if (djt == null) {
+    public static a awi() {
+        if (dkQ == null) {
             synchronized (a.class) {
-                if (djt == null) {
-                    djt = new a();
+                if (dkQ == null) {
+                    dkQ = new a();
                 }
             }
         }
-        return djt;
+        return dkQ;
     }
 
     private a() {
         this.mHandler = null;
-        this.dju = null;
-        this.djv = null;
-        this.djw = null;
-        this.djx = null;
-        this.djy = null;
+        this.dkR = null;
+        this.dkS = null;
+        this.dkT = null;
+        this.dkU = null;
+        this.dkV = null;
         this.mHandler = new c(this, Looper.getMainLooper());
-        this.dju = new Handler(Looper.myLooper());
-        this.djv = new ConcurrentHashMap<>();
-        this.djw = new ConcurrentHashMap<>();
-        this.djx = new ConcurrentHashMap<>();
-        this.djy = new Vector<>();
-        this.mHandler.sendEmptyMessage(10002);
+        this.dkR = new Handler(Looper.myLooper());
+        this.dkS = new ConcurrentHashMap<>();
+        this.dkT = new ConcurrentHashMap<>();
+        this.dkU = new ConcurrentHashMap<>();
+        this.dkV = new Vector<>();
+        this.mHandler.sendEmptyMessage(IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:35:0x00cd  */
@@ -68,9 +69,9 @@ public class a {
         long j;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo ad = i.aso().ad(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            ImMessageCenterPojo ad = i.asN().ad(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
             if (!(ad != null)) {
-                if (!this.djy.contains(Long.valueOf(groupId))) {
+                if (!this.dkV.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
                     return;
                 }
@@ -78,10 +79,10 @@ public class a {
             }
             long sid = ad.getSid();
             long ce = com.baidu.tieba.im.util.g.ce(ad.getPulled_msgId());
-            GroupMsgData groupMsgData3 = this.djv.get(Long.valueOf(groupId));
+            GroupMsgData groupMsgData3 = this.dkS.get(Long.valueOf(groupId));
             if (groupMsgData3 == null) {
                 GroupMsgData groupMsgData4 = new GroupMsgData(groupMsgData.getCmd());
-                this.djv.put(Long.valueOf(groupId), groupMsgData4);
+                this.dkS.put(Long.valueOf(groupId), groupMsgData4);
                 groupMsgData2 = groupMsgData4;
             } else {
                 groupMsgData2 = groupMsgData3;
@@ -101,9 +102,9 @@ public class a {
                     j = listMessage.get(listMessage.size() - 1).getSid();
                     ce = listMessage.get(listMessage.size() - 1).getMsgId();
                     if (z) {
-                        this.djy.remove(Long.valueOf(groupId));
+                        this.dkV.remove(Long.valueOf(groupId));
                     }
-                    if (this.djy.contains(Long.valueOf(groupId))) {
+                    if (this.dkV.contains(Long.valueOf(groupId))) {
                         a(j, groupId, groupMsgData.getGroupInfo().getUserType(), ce);
                         return;
                     }
@@ -114,7 +115,7 @@ public class a {
             j = sid;
             if (z) {
             }
-            if (this.djy.contains(Long.valueOf(groupId))) {
+            if (this.dkV.contains(Long.valueOf(groupId))) {
             }
         }
     }
@@ -125,21 +126,21 @@ public class a {
             bundle.putLong("groupId", j);
             bundle.putLong("lastMid", linkedList.get(0).getMsgId());
             if (linkedList.get(0).getSid() > 0) {
-                this.djw.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+                this.dkT.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
             }
             bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
             Message message = new Message();
-            message.what = 10001;
+            message.what = IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND;
             message.setData(bundle);
             this.mHandler.sendMessage(message);
             linkedList.clear();
-            this.djy.add(Long.valueOf(j));
+            this.dkV.add(Long.valueOf(j));
             bX(j);
         }
     }
 
     private List<ChatMessage> bW(long j) {
-        GroupMsgData groupMsgData = this.djv.get(Long.valueOf(j));
+        GroupMsgData groupMsgData = this.dkS.get(Long.valueOf(j));
         if (groupMsgData == null) {
             return null;
         }
@@ -167,12 +168,12 @@ public class a {
     }
 
     private void a(long j, long j2, int i, long j3) {
-        GroupMsgData groupMsgData = this.djv.get(Long.valueOf(j2));
+        GroupMsgData groupMsgData = this.dkS.get(Long.valueOf(j2));
         if (groupMsgData != null) {
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
             if (listMessage == null || listMessage.size() == 0) {
                 bZ(j2);
-            } else if (!this.djx.containsKey(Long.valueOf(j2))) {
+            } else if (!this.dkU.containsKey(Long.valueOf(j2))) {
                 b(j, j2, i, j3);
             }
         }
@@ -180,14 +181,14 @@ public class a {
 
     private void b(long j, long j2, int i, long j3) {
         d dVar = new d(this, j2, j, i, j3);
-        this.dju.postDelayed(dVar, e.avK().co().cp());
-        this.djx.put(Long.valueOf(j2), dVar);
+        this.dkR.postDelayed(dVar, e.awj().co().cp());
+        this.dkU.put(Long.valueOf(j2), dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bX(long j) {
         Message message = new Message();
-        message.what = 10003;
+        message.what = IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE;
         Bundle bundle = new Bundle();
         bundle.putLong("groupId", j);
         message.setData(bundle);
@@ -195,17 +196,17 @@ public class a {
     }
 
     public NewpushGroupRepair bY(long j) {
-        if (this.djw.containsKey(Long.valueOf(j))) {
-            return this.djw.remove(Long.valueOf(j));
+        if (this.dkT.containsKey(Long.valueOf(j))) {
+            return this.dkT.remove(Long.valueOf(j));
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bZ(long j) {
-        Runnable remove = this.djx.remove(Long.valueOf(j));
+        Runnable remove = this.dkU.remove(Long.valueOf(j));
         if (remove != null) {
-            this.dju.removeCallbacks(remove);
+            this.dkR.removeCallbacks(remove);
         }
     }
 
@@ -239,20 +240,20 @@ public class a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.dju != null) {
-            this.dju.removeCallbacksAndMessages(null);
+        if (this.dkR != null) {
+            this.dkR.removeCallbacksAndMessages(null);
         }
-        if (this.djx != null) {
-            for (Map.Entry<Long, Runnable> entry : this.djx.entrySet()) {
+        if (this.dkU != null) {
+            for (Map.Entry<Long, Runnable> entry : this.dkU.entrySet()) {
                 bZ(entry.getKey().longValue());
             }
-            this.djx.clear();
+            this.dkU.clear();
         }
-        if (this.djv != null) {
-            this.djv.clear();
+        if (this.dkS != null) {
+            this.dkS.clear();
         }
-        if (this.djy != null) {
-            this.djy.clear();
+        if (this.dkV != null) {
+            this.dkV.clear();
         }
     }
 }

@@ -7,54 +7,54 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ ClickableHeaderImageView adU;
+    final /* synthetic */ ClickableHeaderImageView aef;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClickableHeaderImageView clickableHeaderImageView) {
-        this.adU = clickableHeaderImageView;
+        this.aef = clickableHeaderImageView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tbadk.c.a aVar;
-        bg bgVar;
-        bg bgVar2;
-        bg bgVar3;
-        bg bgVar4;
-        bg bgVar5;
+        bi biVar;
+        bi biVar2;
+        bi biVar3;
+        bi biVar4;
+        bi biVar5;
         Context context;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
         com.baidu.tbadk.c.a aVar2;
-        aVar = this.adU.adT;
+        aVar = this.aef.aee;
         if (aVar != null) {
-            aVar2 = this.adU.adT;
+            aVar2 = this.aef.aee;
             if (aVar2.w(view)) {
                 return;
             }
         }
-        bgVar = this.adU.adL;
-        if (bgVar != null) {
-            bgVar2 = this.adU.adL;
-            if (bgVar2.getAuthor() != null) {
-                bgVar3 = this.adU.adL;
-                if (!StringUtils.isNull(bgVar3.getAuthor().getName_show())) {
-                    bgVar4 = this.adU.adL;
-                    if (!StringUtils.isNull(bgVar4.getAuthor().getUserId())) {
-                        bgVar5 = this.adU.adL;
-                        long c = com.baidu.adp.lib.h.b.c(bgVar5.getAuthor().getUserId(), 0L);
+        biVar = this.aef.adW;
+        if (biVar != null) {
+            biVar2 = this.aef.adW;
+            if (biVar2.getAuthor() != null) {
+                biVar3 = this.aef.adW;
+                if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
+                    biVar4 = this.aef.adW;
+                    if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
+                        biVar5 = this.aef.adW;
+                        long c = com.baidu.adp.lib.h.b.c(biVar5.getAuthor().getUserId(), 0L);
                         boolean z = c == com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
                         MessageManager messageManager = MessageManager.getInstance();
-                        context = this.adU.mContext;
+                        context = this.aef.mContext;
                         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(context).createNormalConfig(c, z)));
-                        onClickListener = this.adU.adM;
+                        onClickListener = this.aef.adX;
                         if (onClickListener != null) {
-                            onClickListener2 = this.adU.adM;
+                            onClickListener2 = this.aef.adX;
                             onClickListener2.onClick(view);
                         }
                     }

@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class o {
-    private String Rm;
-    private int aJg;
-    private String aJh;
-    private int aJi;
-    private int aJj;
+    private String Rs;
+    private int aIF;
+    private String aIG;
+    private int aIH;
+    private int aII;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class o {
     public void a(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.Rm = pbContent.src;
+            this.Rs = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aJg = pbContent.e_type.intValue();
-            this.aJh = pbContent.text;
+            this.aIF = pbContent.e_type.intValue();
+            this.aIG = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aJi = pbContent.count.intValue();
-            this.aJj = pbContent.origin_size.intValue();
+            this.aIH = pbContent.count.intValue();
+            this.aII = pbContent.origin_size.intValue();
         }
     }
 
@@ -32,8 +32,8 @@ public class o {
         return this.videoUrl;
     }
 
-    public String pS() {
-        return this.Rm;
+    public String qd() {
+        return this.Rs;
     }
 
     public int getWidth() {
@@ -44,12 +44,12 @@ public class o {
         return this.height;
     }
 
-    public String IK() {
-        return this.aJh;
+    public String IJ() {
+        return this.aIG;
     }
 
-    public boolean IL() {
-        return this.aJg == 15;
+    public boolean IK() {
+        return this.aIF == 15;
     }
 
     public boolean isAvaliable() {
@@ -60,11 +60,15 @@ public class o {
         return this.duration;
     }
 
-    public int IM() {
-        return this.aJi;
+    public int IL() {
+        return this.aIH;
     }
 
-    public void fA(int i) {
-        this.aJi = i;
+    public void fz(int i) {
+        this.aIH = i;
+    }
+
+    public int IM() {
+        return this.aII;
     }
 }

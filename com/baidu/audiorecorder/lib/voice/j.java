@@ -22,7 +22,7 @@ public class j implements Runnable {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        String str = com.baidu.tbadk.core.voice.a.b.dZ(com.baidu.tbadk.core.voice.i.dY(this.ED)).md5;
+        String str = com.baidu.tbadk.core.voice.a.b.ec(com.baidu.tbadk.core.voice.i.eb(this.ED)).md5;
         handler = this.EB.mHandle;
         if (handler != null) {
             handler2 = this.EB.mHandle;

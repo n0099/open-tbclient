@@ -1,24 +1,22 @@
 package com.baidu.tieba.homepage.personalize;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ z cFs;
+public class ai extends CustomMessageListener {
+    final /* synthetic */ m this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(z zVar) {
-        this.cFs = zVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(m mVar, int i) {
+        super(i);
+        this.this$0 = mVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        b bVar;
-        b bVar2;
-        bVar = this.cFs.cFn;
-        if (bVar != null) {
-            bVar2 = this.cFs.cFn;
-            bVar2.update();
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.this$0.fb(false);
     }
 }

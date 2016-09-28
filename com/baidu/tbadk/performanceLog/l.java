@@ -2,11 +2,11 @@ package com.baidu.tbadk.performanceLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements c {
-    final /* synthetic */ j aBW;
+    final /* synthetic */ j aBz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.aBW = jVar;
+        this.aBz = jVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:4:0x0008 */
@@ -14,16 +14,16 @@ public class l implements c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void ge(String str) {
+    public void gi(String str) {
         String[] strArr;
         String[] strArr2;
         int i;
         for (int i2 = 0; i2 < strArr.length; i2++) {
-            strArr2 = this.aBW.aBR;
+            strArr2 = this.aBz.aBu;
             if (str.contains(strArr2[i2])) {
-                j jVar = this.aBW;
-                i = jVar.aBJ;
-                jVar.aBJ = i + 1;
+                j jVar = this.aBz;
+                i = jVar.aBm;
+                jVar.aBm = i + 1;
                 return;
             }
         }

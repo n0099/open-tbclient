@@ -14,48 +14,48 @@ import com.baidu.adp.lib.h.j;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f {
     private AdapterView.OnItemClickListener BG;
     private BdListView Cj;
     private TbPageContext<?> Gd;
-    private TextView VM;
-    private View VN;
-    private AlertDialog Vy;
-    private ViewGroup Vz;
-    private g Wd;
+    private AlertDialog VI;
+    private ViewGroup VJ;
+    private TextView VW;
+    private View VX;
+    private g Wn;
     private ArrayList<h> mItems;
     private String mTitle;
-    private int VP = -1;
-    private int Vn = -1;
-    private boolean VB = false;
+    private int VZ = -1;
+    private int Vx = -1;
+    private boolean VL = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int VX = t.k.dialog_ani_b2t;
-        public static final int VY = t.k.dialog_ani_t2b;
-        public static final int VZ = t.k.dialog_ani_l2r;
-        public static final int Wa = t.k.dialog_ani_r2l;
+        public static final int Wh = r.k.dialog_ani_b2t;
+        public static final int Wi = r.k.dialog_ani_t2b;
+        public static final int Wj = r.k.dialog_ani_l2r;
+        public static final int Wk = r.k.dialog_ani_r2l;
     }
 
     public f(TbPageContext<?> tbPageContext) {
         this.Gd = tbPageContext;
-        this.Vz = (ViewGroup) LayoutInflater.from(this.Gd.getPageActivity()).inflate(t.h.dialog_rich_layout, (ViewGroup) null);
-        this.VM = (TextView) this.Vz.findViewById(t.g.dialog_title_list);
-        this.Cj = (BdListView) this.Vz.findViewById(t.g.dialog_content_list);
-        this.VN = this.Vz.findViewById(t.g.line_bg);
-        this.Wd = new g(this.Gd);
+        this.VJ = (ViewGroup) LayoutInflater.from(this.Gd.getPageActivity()).inflate(r.h.dialog_rich_layout, (ViewGroup) null);
+        this.VW = (TextView) this.VJ.findViewById(r.g.dialog_title_list);
+        this.Cj = (BdListView) this.VJ.findViewById(r.g.dialog_content_list);
+        this.VX = this.VJ.findViewById(r.g.line_bg);
+        this.Wn = new g(this.Gd);
     }
 
-    public f cD(String str) {
+    public f cF(String str) {
         this.mTitle = str;
         return this;
     }
 
     public f ch(int i) {
-        return cD(this.Gd.getResources().getString(i));
+        return cF(this.Gd.getResources().getString(i));
     }
 
     public f a(ArrayList<h> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -69,19 +69,19 @@ public class f {
         return this;
     }
 
-    public f tb() {
-        if (!this.VB) {
-            this.VB = true;
+    public f tq() {
+        if (!this.VL) {
+            this.VL = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.VM.setText(this.mTitle);
-                this.VM.setVisibility(0);
-                this.VN.setVisibility(0);
+                this.VW.setText(this.mTitle);
+                this.VW.setVisibility(0);
+                this.VX.setVisibility(0);
             } else {
-                this.VM.setVisibility(8);
-                this.VN.setVisibility(8);
+                this.VW.setVisibility(8);
+                this.VX.setVisibility(8);
             }
-            this.Cj.setAdapter((ListAdapter) this.Wd);
-            this.Wd.setData(this.mItems);
+            this.Cj.setAdapter((ListAdapter) this.Wn);
+            this.Wn.setData(this.mItems);
             c(this.Gd);
         }
         return this;
@@ -95,32 +95,32 @@ public class f {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.Wd.setData(this.mItems);
+        this.Wn.setData(this.mItems);
     }
 
-    public f tc() {
-        if (!this.VB) {
+    public f tr() {
+        if (!this.VL) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.Vy != null) {
-            j.a(this.Vy, this.Gd);
+        if (this.VI != null) {
+            j.a(this.VI, this.Gd);
         } else {
-            this.Vy = new AlertDialog.Builder(this.Gd.getPageActivity()).create();
-            this.Vy.setCanceledOnTouchOutside(true);
-            if (j.a(this.Vy, this.Gd.getPageActivity())) {
-                Window window = this.Vy.getWindow();
-                if (this.VP == -1) {
-                    this.VP = a.VX;
+            this.VI = new AlertDialog.Builder(this.Gd.getPageActivity()).create();
+            this.VI.setCanceledOnTouchOutside(true);
+            if (j.a(this.VI, this.Gd.getPageActivity())) {
+                Window window = this.VI.getWindow();
+                if (this.VZ == -1) {
+                    this.VZ = a.Wh;
                 }
-                if (this.Vn == -1) {
-                    this.Vn = 17;
+                if (this.Vx == -1) {
+                    this.Vx = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.Vn);
-                window.setBackgroundDrawableResource(t.f.transparent_bg);
-                window.setContentView(this.Vz);
+                window.setGravity(this.Vx);
+                window.setBackgroundDrawableResource(r.f.transparent_bg);
+                window.setContentView(this.VJ);
             }
         }
         return this;
@@ -130,14 +130,14 @@ public class f {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
         if (hVar instanceof TbPageContext) {
             ((TbPageContext) hVar).getLayoutMode().ah(skinType == 1);
-            ((TbPageContext) hVar).getLayoutMode().x(this.Vz);
+            ((TbPageContext) hVar).getLayoutMode().x(this.VJ);
         }
-        this.Vz.setBackgroundResource(t.f.transparent_bg);
+        this.VJ.setBackgroundResource(r.f.transparent_bg);
     }
 
     public void dismiss() {
-        if (this.Vy != null) {
-            j.b(this.Vy, this.Gd.getPageActivity());
+        if (this.VI != null) {
+            j.b(this.VI, this.Gd.getPageActivity());
         }
     }
 }

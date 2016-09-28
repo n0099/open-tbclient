@@ -10,7 +10,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -24,33 +23,33 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class ax extends com.baidu.tbadk.editortools.d.a {
-    private static BdAsyncTaskParallel ewK = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+public class ax extends com.baidu.tbadk.editortools.e.a {
+    private static BdAsyncTaskParallel eyS = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
     private TbPageContext<?> Gd;
-    private boolean aAl;
-    private com.baidu.tieba.tbadkCore.d.b bHt;
-    private int bMj;
-    private AntiData ekE;
-    private boolean ekF;
-    private int eke;
-    private boolean ewB;
-    private String ewC;
-    private String ewD;
-    private boolean ewE;
-    private String ewF;
-    private a ewG;
-    private int ewH;
-    private ArrayList<IconData> ewI;
-    private boolean ewJ;
-    private ArrayList<com.baidu.tieba.pb.data.m> ewL;
-    private SmallTailInfo ewM;
-    private boolean ewN;
-    private ArrayList<String> ewO;
-    private ConcurrentHashMap<String, ImageUrlData> ewP;
-    private boolean ewQ;
-    private SubPbRequestMessage ewR;
-    private com.baidu.adp.framework.listener.a ewS;
-    private com.baidu.tieba.pb.data.m ewe;
+    private boolean azO;
+    private com.baidu.tieba.tbadkCore.d.b bHA;
+    private int bMk;
+    private AntiData emG;
+    private boolean emH;
+    private int emc;
+    private boolean eyJ;
+    private String eyK;
+    private String eyL;
+    private boolean eyM;
+    private String eyN;
+    private a eyO;
+    private int eyP;
+    private ArrayList<IconData> eyQ;
+    private boolean eyR;
+    private ArrayList<com.baidu.tieba.pb.data.n> eyT;
+    private SmallTailInfo eyU;
+    private boolean eyV;
+    private ArrayList<String> eyW;
+    private ConcurrentHashMap<String, ImageUrlData> eyX;
+    private boolean eyY;
+    private SubPbRequestMessage eyZ;
+    private com.baidu.tieba.pb.data.n eyl;
+    private com.baidu.adp.framework.listener.a eza;
     private int mOffset;
     private String postID;
     private String stType;
@@ -58,14 +57,14 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(boolean z, int i, String str, com.baidu.tieba.pb.data.m mVar);
+        void a(boolean z, int i, String str, com.baidu.tieba.pb.data.n nVar);
     }
 
     static {
         com.baidu.tbadk.task.b a2 = com.baidu.tieba.tbadkCore.a.a.a(302002, SubPbSocketResponseMessage.class, false, false);
         TbHttpMessageTask a3 = com.baidu.tieba.tbadkCore.a.a.a(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        a2.setParallel(ewK);
-        a3.setParallel(ewK);
+        a2.setParallel(eyS);
+        a3.setParallel(eyS);
     }
 
     public void initWithIntent(Intent intent) {
@@ -73,33 +72,33 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
             this.threadID = intent.getStringExtra("thread_id");
             this.postID = intent.getStringExtra("post_id");
             this.stType = intent.getStringExtra("st_type");
-            this.ewB = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
-            this.ewC = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_NAME);
-            this.ewE = intent.getBooleanExtra(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
-            this.ewD = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_POST_ID);
-            this.eke = intent.getIntExtra(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
-            this.ewM = (SmallTailInfo) intent.getSerializableExtra(SubPbActivityConfig.KEY_TAIL);
-            if (this.ewM != null) {
-                this.ewM.updateShowInfo();
+            this.eyJ = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
+            this.eyK = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_NAME);
+            this.eyM = intent.getBooleanExtra(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
+            this.eyL = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_POST_ID);
+            this.emc = intent.getIntExtra(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
+            this.eyU = (SmallTailInfo) intent.getSerializableExtra(SubPbActivityConfig.KEY_TAIL);
+            if (this.eyU != null) {
+                this.eyU.updateShowInfo();
             }
-            this.ekE = (AntiData) intent.getSerializableExtra("anti");
-            this.ewI = (ArrayList) intent.getSerializableExtra(SubPbActivityConfig.ICON_LIST);
-            this.ewJ = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
+            this.emG = (AntiData) intent.getSerializableExtra("anti");
+            this.eyQ = (ArrayList) intent.getSerializableExtra(SubPbActivityConfig.ICON_LIST);
+            this.eyR = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
             Bundle bundleExtra = intent.getBundleExtra(SubPbActivityConfig.KEY_IMG_URLS);
             if (bundleExtra != null) {
                 ArrayList<String> stringArrayList = bundleExtra.getStringArrayList(SubPbActivityConfig.SUB_KEY_IMG_URL);
-                this.ewP = new ConcurrentHashMap<>();
+                this.eyX = new ConcurrentHashMap<>();
                 if (stringArrayList != null) {
                     Iterator<String> it = stringArrayList.iterator();
                     while (it.hasNext()) {
                         String next = it.next();
                         if (!StringUtils.isNull(next)) {
-                            this.ewP.put(next, (ImageUrlData) bundleExtra.getSerializable(next));
+                            this.eyX.put(next, (ImageUrlData) bundleExtra.getSerializable(next));
                         }
                     }
                 }
-                this.ewO = bundleExtra.getStringArrayList(SubPbActivityConfig.SUB_KEY_IMG_SRC);
-                this.ewQ = bundleExtra.getBoolean(SubPbActivityConfig.SUB_KEY_IMG_CDN, true);
+                this.eyW = bundleExtra.getStringArrayList(SubPbActivityConfig.SUB_KEY_IMG_SRC);
+                this.eyY = bundleExtra.getBoolean(SubPbActivityConfig.SUB_KEY_IMG_CDN, true);
                 this.mOffset = bundleExtra.getInt(SubPbActivityConfig.SUB_KEY_IMG_OFFSET, 0);
             }
         }
@@ -110,18 +109,18 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
             this.threadID = bundle.getString("thread_id");
             this.postID = bundle.getString("post_id");
             this.stType = bundle.getString("st_type");
-            this.ewB = bundle.getBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
-            this.ewC = bundle.getString(SubPbActivityConfig.KEY_REPLAY_NAME);
-            this.ewE = bundle.getBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
-            this.ewD = bundle.getString(SubPbActivityConfig.KEY_REPLAY_POST_ID);
-            this.eke = bundle.getInt(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
-            this.ewM = (SmallTailInfo) bundle.getSerializable(SubPbActivityConfig.KEY_TAIL);
-            if (this.ewM != null) {
-                this.ewM.updateShowInfo();
+            this.eyJ = bundle.getBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
+            this.eyK = bundle.getString(SubPbActivityConfig.KEY_REPLAY_NAME);
+            this.eyM = bundle.getBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
+            this.eyL = bundle.getString(SubPbActivityConfig.KEY_REPLAY_POST_ID);
+            this.emc = bundle.getInt(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
+            this.eyU = (SmallTailInfo) bundle.getSerializable(SubPbActivityConfig.KEY_TAIL);
+            if (this.eyU != null) {
+                this.eyU.updateShowInfo();
             }
-            this.ekE = (AntiData) bundle.getSerializable("anti");
-            this.ewI = (ArrayList) bundle.getSerializable(SubPbActivityConfig.ICON_LIST);
-            this.ewJ = bundle.getBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
+            this.emG = (AntiData) bundle.getSerializable("anti");
+            this.eyQ = (ArrayList) bundle.getSerializable(SubPbActivityConfig.ICON_LIST);
+            this.eyR = bundle.getBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
         }
     }
 
@@ -130,55 +129,55 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
             bundle.putString("thread_id", this.threadID);
             bundle.putString("post_id", this.postID);
             bundle.putString("st_type", this.stType);
-            bundle.putBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, this.ewB);
-            bundle.putString(SubPbActivityConfig.KEY_REPLAY_NAME, this.ewC);
-            bundle.putString(SubPbActivityConfig.KEY_REPLAY_POST_ID, this.ewD);
-            bundle.putBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, this.ewE);
-            bundle.putInt(SubPbActivityConfig.KEY_USER_IDENTITY, this.eke);
-            bundle.putSerializable(SubPbActivityConfig.KEY_TAIL, this.ewM);
-            bundle.putSerializable("anti", this.ekE);
-            bundle.putSerializable(SubPbActivityConfig.ICON_LIST, this.ewI);
+            bundle.putBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, this.eyJ);
+            bundle.putString(SubPbActivityConfig.KEY_REPLAY_NAME, this.eyK);
+            bundle.putString(SubPbActivityConfig.KEY_REPLAY_POST_ID, this.eyL);
+            bundle.putBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, this.eyM);
+            bundle.putInt(SubPbActivityConfig.KEY_USER_IDENTITY, this.emc);
+            bundle.putSerializable(SubPbActivityConfig.KEY_TAIL, this.eyU);
+            bundle.putSerializable("anti", this.emG);
+            bundle.putSerializable(SubPbActivityConfig.ICON_LIST, this.eyQ);
             bundle.putBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
         }
     }
 
     public ax(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.bMj = 0;
+        this.bMk = 0;
         this.threadID = null;
         this.postID = null;
         this.stType = null;
-        this.ewB = false;
-        this.ewC = null;
-        this.ewD = null;
-        this.ewE = false;
-        this.ekF = false;
-        this.eke = 0;
-        this.ewF = null;
+        this.eyJ = false;
+        this.eyK = null;
+        this.eyL = null;
+        this.eyM = false;
+        this.emH = false;
+        this.emc = 0;
+        this.eyN = null;
         this.Gd = null;
-        this.ewe = null;
-        this.ewG = null;
-        this.ewH = 0;
-        this.ewJ = false;
-        this.ewL = null;
-        this.aAl = false;
-        this.bHt = null;
-        this.ewQ = true;
+        this.eyl = null;
+        this.eyO = null;
+        this.eyP = 0;
+        this.eyR = false;
+        this.eyT = null;
+        this.azO = false;
+        this.bHA = null;
+        this.eyY = true;
         this.mOffset = 0;
-        this.ewS = new ay(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
+        this.eza = new ay(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         this.Gd = tbPageContext;
-        this.ewL = new ArrayList<>();
-        this.ewe = new com.baidu.tieba.pb.data.m();
+        this.eyT = new ArrayList<>();
+        this.eyl = new com.baidu.tieba.pb.data.n();
         setUniqueId(BdUniqueId.gen());
-        MessageManager.getInstance().unRegisterListener(this.ewS);
-        registerListener(this.ewS);
+        MessageManager.getInstance().unRegisterListener(this.eza);
+        registerListener(this.eza);
     }
 
     public String getThreadID() {
         return this.threadID;
     }
 
-    @Override // com.baidu.tbadk.editortools.d.a
+    @Override // com.baidu.tbadk.editortools.e.a
     public String Dg() {
         return this.postID;
     }
@@ -187,20 +186,20 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
         return this.stType;
     }
 
-    public com.baidu.tieba.pb.data.m aQK() {
-        return this.ewe;
+    public com.baidu.tieba.pb.data.n aRs() {
+        return this.eyl;
     }
 
     public AntiData getAntiData() {
-        return this.ekE;
+        return this.emG;
     }
 
-    public boolean aQL() {
-        return (this.ewe == null || this.ewe.aMh() == null) ? false : true;
+    public boolean aRt() {
+        return (this.eyl == null || this.eyl.aMN() == null) ? false : true;
     }
 
     public void a(a aVar) {
-        this.ewG = aVar;
+        this.eyO = aVar;
     }
 
     public MarkData e(com.baidu.tieba.tbadkCore.data.q qVar) {
@@ -212,20 +211,20 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
         markData.setTime(date.getTime());
         markData.setHostMode(false);
         markData.setId(this.threadID);
-        markData.setFloor(qVar.bjc());
+        markData.setFloor(qVar.bjO());
         return markData;
     }
 
     public void destory() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.ewS);
-        XO();
+        MessageManager.getInstance().unRegisterListener(this.eza);
+        Yh();
     }
 
-    private void XO() {
-        if (this.bHt != null) {
-            this.bHt.destory();
-            this.bHt = null;
+    private void Yh() {
+        if (this.bHA != null) {
+            this.bHA.destory();
+            this.bHA = null;
         }
     }
 
@@ -235,7 +234,7 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
     }
 
     public int getLoadType() {
-        return this.bMj;
+        return this.bMk;
     }
 
     @Override // com.baidu.adp.base.e
@@ -244,43 +243,43 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
         return true;
     }
 
-    public void pk(String str) {
-        if (!TextUtils.isEmpty(str) && this.ewe != null && this.ewe.aMl() != null) {
-            ArrayList<com.baidu.tieba.tbadkCore.data.q> aMl = this.ewe.aMl();
-            int size = aMl.size();
+    public void pA(String str) {
+        if (!TextUtils.isEmpty(str) && this.eyl != null && this.eyl.aMR() != null) {
+            ArrayList<com.baidu.tieba.tbadkCore.data.q> aMR = this.eyl.aMR();
+            int size = aMR.size();
             for (int i = 0; i < size; i++) {
-                if (str.equals(aMl.get(i).getId())) {
-                    aMl.remove(i);
-                    this.ewH++;
-                    this.ewe.setTotalCount(this.ewe.getTotalCount() - 1);
+                if (str.equals(aMR.get(i).getId())) {
+                    aMR.remove(i);
+                    this.eyP++;
+                    this.eyl.setTotalCount(this.eyl.getTotalCount() - 1);
                     return;
                 }
             }
         }
     }
 
-    protected int aQM() {
-        int mf = this.ewe.mf();
+    protected int aRu() {
+        int mf = this.eyl.mf();
         if (mf == 0) {
             return mf + 1;
         }
-        if (this.bMj == 0) {
+        if (this.bMk == 0) {
             return mf + 1;
         }
-        if (this.bMj == 2 && this.ewe.aMl().size() != 0 && this.ewe.aMl().size() % this.ewe.aMm() == 0) {
+        if (this.bMk == 2 && this.eyl.aMR().size() != 0 && this.eyl.aMR().size() % this.eyl.aMS() == 0) {
             return mf + 1;
         }
-        if (this.bMj == 3 && this.ewN) {
-            return this.ewe.aMj() - 1;
+        if (this.bMk == 3 && this.eyV) {
+            return this.eyl.aMP() - 1;
         }
-        if (this.bMj == 3 && mf > 0) {
-            return this.ewe.aMi() - 1;
+        if (this.bMk == 3 && mf > 0) {
+            return this.eyl.aMO() - 1;
         }
         return mf;
     }
 
-    private SubPbRequestMessage aQN() {
-        this.aAl = true;
+    private SubPbRequestMessage aRv() {
+        this.azO = true;
         return f((Integer) null);
     }
 
@@ -292,18 +291,18 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
         int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m9getInst().getApp());
         long j = 0;
         long j2 = 0;
-        if (1 != this.bMj) {
+        if (1 != this.bMk) {
             j = com.baidu.adp.lib.h.b.c(this.postID, 0L);
         } else {
             j2 = com.baidu.adp.lib.h.b.c(this.postID, 0L);
         }
         if (num == null) {
-            intValue = aQM();
+            intValue = aRu();
         } else {
             intValue = num.intValue();
         }
         int i2 = 0;
-        if (this.ewN && this.bMj == 0) {
+        if (this.eyV && this.bMk == 0) {
             i2 = 1;
             i = 1;
         } else {
@@ -313,188 +312,188 @@ public class ax extends com.baidu.tbadk.editortools.d.a {
     }
 
     public boolean Fa() {
-        return ov(0);
+        return oF(0);
     }
 
-    public boolean aQO() {
-        return ov(2);
+    public boolean aRw() {
+        return oF(2);
     }
 
-    public void aQP() {
-        int aMm;
-        if (this.ewH > 0 && this.ewe != null && (aMm = this.ewe.aMm()) > 0) {
-            int mf = this.ewe.mf();
-            for (int i = (((this.ewH + aMm) - 1) / aMm) - 1; i >= 0; i--) {
-                this.ewR = f(Integer.valueOf(mf - i));
-                this.ewR.setTreatDelPage(true);
-                sendMessage(this.ewR);
+    public void aRx() {
+        int aMS;
+        if (this.eyP > 0 && this.eyl != null && (aMS = this.eyl.aMS()) > 0) {
+            int mf = this.eyl.mf();
+            for (int i = (((this.eyP + aMS) - 1) / aMS) - 1; i >= 0; i--) {
+                this.eyZ = f(Integer.valueOf(mf - i));
+                this.eyZ.setTreatDelPage(true);
+                sendMessage(this.eyZ);
             }
         }
-        this.ewH = 0;
+        this.eyP = 0;
     }
 
-    public boolean aQQ() {
-        return ov(1);
+    public boolean aRy() {
+        return oF(1);
     }
 
-    public boolean aQR() {
-        return ov(3);
+    public boolean aRz() {
+        return oF(3);
     }
 
-    public boolean ov(int i) {
-        if (this.aAl) {
+    public boolean oF(int i) {
+        if (this.azO) {
             return false;
         }
         cancelMessage();
         if (this.threadID == null || this.postID == null) {
-            this.aAl = false;
+            this.azO = false;
             return false;
         }
-        aQP();
-        this.bMj = i;
-        this.ewR = aQN();
-        sendMessage(this.ewR);
+        aRx();
+        this.bMk = i;
+        this.eyZ = aRv();
+        sendMessage(this.eyZ);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(com.baidu.tieba.pb.data.m mVar) {
-        ArrayList<com.baidu.tieba.tbadkCore.data.q> aMl = mVar.aMl();
-        if (aMl == null || aMl.size() == 0) {
-            mVar.aW(this.ewe.mf());
+    public void c(com.baidu.tieba.pb.data.n nVar) {
+        ArrayList<com.baidu.tieba.tbadkCore.data.q> aMR = nVar.aMR();
+        if (aMR == null || aMR.size() == 0) {
+            nVar.aW(this.eyl.mf());
         }
-        if (this.bMj == 1) {
-            this.ewe = mVar;
-        } else if (this.bMj == 2) {
-            this.ewe.b(mVar, true);
-        } else if (this.bMj == 3) {
-            this.ewe.a(mVar, false);
+        if (this.bMk == 1) {
+            this.eyl = nVar;
+        } else if (this.bMk == 2) {
+            this.eyl.b(nVar, true);
+        } else if (this.bMk == 3) {
+            this.eyl.a(nVar, false);
         } else {
-            this.ewe.b(mVar, false);
+            this.eyl.b(nVar, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(com.baidu.tieba.pb.data.m mVar) {
-        if (this.bMj == 1) {
-            this.ewe = mVar;
-            this.ewe.aMk();
-        } else if (this.bMj == 2) {
-            this.ewe.c(mVar, true);
-        } else if (this.bMj == 3) {
-            this.ewe.d(mVar, false);
+    public void d(com.baidu.tieba.pb.data.n nVar) {
+        if (this.bMk == 1) {
+            this.eyl = nVar;
+            this.eyl.aMQ();
+        } else if (this.bMk == 2) {
+            this.eyl.c(nVar, true);
+        } else if (this.bMk == 3) {
+            this.eyl.d(nVar, false);
         } else {
-            this.ewe.a(mVar);
+            this.eyl.a(nVar);
         }
     }
 
-    public void e(com.baidu.tieba.pb.data.m mVar) {
+    public void e(com.baidu.tieba.pb.data.n nVar) {
         String str;
-        if (mVar.Kw() == null || mVar.Kw().getAuthor() == null) {
+        if (nVar.Jv() == null || nVar.Jv().getAuthor() == null) {
             str = null;
         } else {
-            str = mVar.Kw().getAuthor().getUserId();
+            str = nVar.Jv().getAuthor().getUserId();
         }
-        if (!this.ewN) {
+        if (!this.eyV) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= mVar.aMl().size()) {
+                if (i2 >= nVar.aMR().size()) {
                     break;
                 }
-                mVar.aMl().get(i2).c(this.Gd, str.equals(mVar.aMl().get(i2).getAuthor().getUserId()));
+                nVar.aMR().get(i2).c(this.Gd, str.equals(nVar.aMR().get(i2).getAuthor().getUserId()));
                 i = i2 + 1;
             }
         }
-        this.ewL.add(mVar);
+        this.eyT.add(nVar);
     }
 
-    public boolean aQl() {
-        return this.ewB;
+    public boolean aQU() {
+        return this.eyJ;
     }
 
-    public String aQS() {
-        return this.ewC;
+    public String aRA() {
+        return this.eyK;
     }
 
     public boolean isMarked() {
-        return this.ekF;
+        return this.emH;
     }
 
-    public boolean aQT() {
-        return HotTopicActivityConfig.ST_TYPE.equals(getStType());
+    public boolean aRB() {
+        return "hot_topic".equals(getStType());
     }
 
-    public void in(boolean z) {
-        this.ekF = z;
+    public void iq(boolean z) {
+        this.emH = z;
     }
 
-    public int aLX() {
-        return this.eke;
+    public int aMz() {
+        return this.emc;
     }
 
-    public String aQU() {
-        return this.ewF;
+    public String aRC() {
+        return this.eyN;
     }
 
-    public void pl(String str) {
-        this.ewF = str;
+    public void pB(String str) {
+        this.eyN = str;
     }
 
-    public boolean aQV() {
-        return this.ewE;
+    public boolean aRD() {
+        return this.eyM;
     }
 
-    public String aQW() {
-        return this.ewD;
+    public String aRE() {
+        return this.eyL;
     }
 
-    @Override // com.baidu.tbadk.editortools.d.a
-    public WriteData fz(String str) {
-        if (this.ewe == null || this.ewe.aMn() == null || this.ewe.Kw() == null || this.ewe.aMh() == null) {
+    @Override // com.baidu.tbadk.editortools.e.a
+    public WriteData fC(String str) {
+        if (this.eyl == null || this.eyl.aMT() == null || this.eyl.Jv() == null || this.eyl.aMN() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        writeData.setForumName(this.ewe.aMn().getName());
-        writeData.setForumId(this.ewe.aMn().getId());
-        writeData.setFloor(this.ewe.aMh().getId());
+        writeData.setForumName(this.eyl.aMT().getName());
+        writeData.setForumId(this.eyl.aMT().getId());
+        writeData.setFloor(this.eyl.aMN().getId());
         writeData.setType(2);
-        writeData.setThreadId(this.ewe.Kw().getId());
+        writeData.setThreadId(this.eyl.Jv().getId());
         writeData.setFloorNum(0);
         return writeData;
     }
 
-    @Override // com.baidu.tbadk.editortools.d.a
+    @Override // com.baidu.tbadk.editortools.e.a
     public boolean Df() {
-        return aQO();
+        return aRw();
     }
 
-    public boolean aQX() {
-        return this.ewN;
+    public boolean aRF() {
+        return this.eyV;
     }
 
-    public void iH(boolean z) {
-        this.ewN = z;
+    public void iK(boolean z) {
+        this.eyV = z;
     }
 
-    public SmallTailInfo aQY() {
-        return this.ewM;
+    public SmallTailInfo aRG() {
+        return this.eyU;
     }
 
-    public boolean aQZ() {
-        return this.ewJ;
+    public boolean aRH() {
+        return this.eyR;
     }
 
-    public ConcurrentHashMap<String, ImageUrlData> aRa() {
-        return this.ewP;
+    public ConcurrentHashMap<String, ImageUrlData> aRI() {
+        return this.eyX;
     }
 
-    public ArrayList<String> aRb() {
-        return this.ewO;
+    public ArrayList<String> aRJ() {
+        return this.eyW;
     }
 
-    public boolean aRc() {
-        return this.ewQ;
+    public boolean aRK() {
+        return this.eyY;
     }
 
     public int getOffset() {

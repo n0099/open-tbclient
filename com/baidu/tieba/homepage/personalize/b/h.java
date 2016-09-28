@@ -1,64 +1,54 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.homepage.personalize.b.g;
-import com.baidu.tieba.homepage.personalize.data.RecPersonalizeHttpResponse;
-import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
-import com.baidu.tieba.homepage.personalize.data.RecPersonalizeSocketResponse;
-import tbclient.Personalized.DataRes;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ g cHg;
+public class h implements com.baidu.adp.lib.f.c<TbImageView> {
+    final /* synthetic */ e cGs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(g gVar, int i, int i2) {
-        super(i, i2);
-        this.cHg = gVar;
+    public h(e eVar) {
+        this.cGs = eVar;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        g.a aVar;
-        g.a aVar2;
-        g.a aVar3;
-        boolean z = false;
-        if (responsedMessage == null) {
-            return;
-        }
-        aVar = this.cHg.cGY;
-        if (aVar != null) {
-            long j = 0;
-            if (responsedMessage.getOrginalMessage() != null) {
-                Object extra = responsedMessage.getOrginalMessage().getExtra();
-                if (extra instanceof RecPersonalizeRequest) {
-                    RecPersonalizeRequest recPersonalizeRequest = (RecPersonalizeRequest) extra;
-                    j = recPersonalizeRequest.getRequestTagCode();
-                    z = recPersonalizeRequest.getLoadType() == 1;
-                }
-            }
-            if (responsedMessage.getError() == 0) {
-                DataRes dataRes = null;
-                if (responsedMessage instanceof RecPersonalizeSocketResponse) {
-                    dataRes = ((RecPersonalizeSocketResponse) responsedMessage).getResultData();
-                } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
-                    dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
-                }
-                aVar2 = this.cHg.cGY;
-                aVar2.b(j, dataRes, z);
-            } else {
-                aVar3 = this.cHg.cGY;
-                aVar3.a(j, responsedMessage.getError(), responsedMessage.getErrorString());
-            }
-            if (!(responsedMessage instanceof RecPersonalizeSocketResponse)) {
-                if (!(responsedMessage instanceof RecPersonalizeHttpResponse)) {
-                    return;
-                }
-                this.cHg.j(responsedMessage);
-                return;
-            }
-            this.cHg.i(responsedMessage);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: wM */
+    public TbImageView ez() {
+        TbPageContext tbPageContext;
+        tbPageContext = this.cGs.GM;
+        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
+        tbImageView.setDrawBorder(true);
+        tbImageView.setBorderColor(av.getColor(r.d.common_color_10043));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds1));
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void o(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public TbImageView p(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public TbImageView q(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+        return tbImageView;
     }
 }

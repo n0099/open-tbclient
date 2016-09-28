@@ -1,19 +1,63 @@
 package com.baidu.tieba.play;
 
 import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.net.Uri;
+import java.util.Map;
 /* loaded from: classes.dex */
 public interface e {
-    void G(Context context, String str);
 
-    void H(Context context, String str);
+    /* loaded from: classes.dex */
+    public interface a {
+        void onCompletion(e eVar);
+    }
 
-    void aw(Context context);
+    /* loaded from: classes.dex */
+    public interface b {
+        boolean onError(e eVar, int i, int i2);
+    }
 
-    void ax(Context context);
+    /* loaded from: classes.dex */
+    public interface c {
+        boolean a(e eVar, int i, int i2);
+    }
 
-    String gZ(String str);
+    /* loaded from: classes.dex */
+    public interface d {
+        void onPrepared(e eVar);
+    }
 
-    String ha(String str);
+    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture);
 
-    void hb(String str);
+    void a(c cVar);
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    int getVideoHeight();
+
+    int getVideoWidth();
+
+    boolean isLooping();
+
+    boolean isPlaying();
+
+    void pause();
+
+    void release();
+
+    void seekTo(int i);
+
+    void setLooping(boolean z);
+
+    void setOnCompletionListener(a aVar);
+
+    void setOnErrorListener(b bVar);
+
+    void setOnPreparedListener(d dVar);
+
+    void setVolume(float f, float f2);
+
+    void start();
 }

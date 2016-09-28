@@ -15,7 +15,7 @@ public class StokenEnableSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.c.a
     protected String getName() {
-        return "android_stoken";
+        return "android_stoken_new";
     }
 
     @Override // com.baidu.adp.lib.c.a
@@ -25,7 +25,7 @@ public class StokenEnableSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.c.a
     protected int getDefaultType() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.c.a

@@ -1,18 +1,18 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.ap;
+import com.baidu.tieba.card.an;
 /* loaded from: classes.dex */
 public class b extends c {
-    public static final BdUniqueId cGH = BdUniqueId.gen();
+    public static final BdUniqueId cHw = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.data.j, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return cGH;
+        return cHw;
     }
 
     public b() {
-        setStType(ap.ND());
+        setStType(an.Od());
         setYuelaouLocate("ptrcard#");
     }
 }

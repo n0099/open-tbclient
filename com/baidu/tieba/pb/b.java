@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ax;
 /* loaded from: classes.dex */
 public class b {
 
     /* loaded from: classes.dex */
     public interface a {
-        int aLr();
+        int aLT();
 
         void c(String str, String str2, String str3, String str4, String str5);
     }
@@ -25,7 +25,7 @@ public class b {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            ay ab = new ay("ad_tpoint").ab("obj_id", String.valueOf(j)).ab("obj_name", str);
+            ax ab = new ax("ad_tpoint").ab("obj_id", String.valueOf(j)).ab("obj_name", str);
             if (str3 != null) {
                 ab = ab.ab("page", str3);
             }
@@ -53,7 +53,7 @@ public class b {
             if (str11 != null) {
                 ab = ab.ab("tid", str11);
             }
-            ay ab2 = ab.ab("line", "PT").ab("locate", "c0114").s("obj_cpid", 0).s("obj_good_id", 0).ab("obj_throw_type", "BY_POST").ab(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").ab("user_timestamp", String.valueOf(System.currentTimeMillis())).ab("os", SocialConstants.ANDROID_CLIENT_TYPE).ab("os_version", Build.VERSION.RELEASE).ab("log_ver", "1.1");
+            ax ab2 = ab.ab("line", "PT").ab("locate", "c0114").s("obj_cpid", 0).s("obj_good_id", 0).ab("obj_throw_type", "BY_POST").ab(SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP").ab("user_timestamp", String.valueOf(System.currentTimeMillis())).ab("os", SocialConstants.ANDROID_CLIENT_TYPE).ab("os_version", Build.VERSION.RELEASE).ab("log_ver", "1.1");
             if (str2 != null) {
                 ab2 = ab2.ab("link", str2);
             }

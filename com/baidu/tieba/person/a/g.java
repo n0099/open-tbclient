@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.util.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g implements v {
-    public static final BdUniqueId eBL = BdUniqueId.gen();
+    public static final BdUniqueId eDO = BdUniqueId.gen();
     private boolean isSelf;
     private List<v> mPhotoAlbum;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eBL;
+        return eDO;
     }
 
     public List<v> getPhotoAlbum() {
@@ -33,15 +33,15 @@ public class g implements v {
                 this.isSelf = false;
             }
             setPhotoAlbum(userData.getPhotoAlbum());
-            if (this.isSelf && getPhotoAlbum() != null && !cx(getPhotoAlbum()) && getPhotoAlbum().size() < 9) {
+            if (this.isSelf && getPhotoAlbum() != null && !cy(getPhotoAlbum()) && getPhotoAlbum().size() < 9) {
                 com.baidu.tieba.person.data.a aVar = new com.baidu.tieba.person.data.a();
-                aVar.oI(9 - getPhotoAlbum().size());
+                aVar.oS(9 - getPhotoAlbum().size());
                 getPhotoAlbum().add(aVar);
             }
         }
     }
 
-    private boolean cx(List<v> list) {
+    private boolean cy(List<v> list) {
         int s = y.s(list);
         if (s == 0) {
             return false;

@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements TbRichTextView.d {
-    final /* synthetic */ NewSubPbActivity evy;
+public class m implements TbRichTextView.e {
+    final /* synthetic */ NewSubPbActivity exF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.evy = newSubPbActivity;
+        this.exF = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.d
+    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
     public void a(View view, String str, int i) {
         ax axVar;
-        com.baidu.tbadk.widget.richText.a az;
+        com.baidu.tbadk.widget.richText.a ay;
         int a;
         String str2;
         String str3;
@@ -49,67 +49,67 @@ public class m implements TbRichTextView.d {
         ax axVar10;
         int i3;
         try {
-            axVar = this.evy.evl;
-            com.baidu.tieba.pb.data.m aQK = axVar.aQK();
-            az = this.evy.az(str, i);
+            axVar = this.exF.exr;
+            com.baidu.tieba.pb.data.n aRs = axVar.aRs();
+            ay = this.exF.ay(str, i);
             com.baidu.tbadk.widget.richText.c cVar = null;
-            if (az != null && az.Ia() != null) {
-                ArrayList<com.baidu.tbadk.widget.richText.c> Ia = az.Ia();
-                i3 = this.evy.enQ;
-                cVar = Ia.get(i3);
+            if (ay != null && ay.HZ() != null) {
+                ArrayList<com.baidu.tbadk.widget.richText.c> HZ = ay.HZ();
+                i3 = this.exF.epP;
+                cVar = HZ.get(i3);
             }
             if (cVar != null) {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap3 = new ConcurrentHashMap<>();
-                if (cVar.If().Is()) {
-                    this.evy.enR = false;
+                if (cVar.Ie().Ir()) {
+                    this.exF.epQ = false;
                     String str5 = "";
-                    com.baidu.tieba.tbadkCore.data.q aMh = aQK.aMh();
-                    com.baidu.tbadk.widget.richText.a aAk = aMh.aAk();
+                    com.baidu.tieba.tbadkCore.data.q aMN = aRs.aMN();
+                    com.baidu.tbadk.widget.richText.a aAI = aMN.aAI();
                     int size = arrayList3.size();
-                    a = this.evy.a(aAk, az, i, i, arrayList3, concurrentHashMap3);
+                    a = this.exF.a(aAI, ay, i, i, arrayList3, concurrentHashMap3);
                     int size2 = arrayList3.size();
                     if (size != size2) {
                         str5 = arrayList3.get(size2 - 1);
                     }
-                    ArrayList<com.baidu.tieba.tbadkCore.data.q> bjb = aMh.bjb();
+                    ArrayList<com.baidu.tieba.tbadkCore.data.q> bjN = aMN.bjN();
                     int i4 = 0;
                     while (true) {
                         int i5 = i4;
-                        if (i5 >= bjb.size()) {
+                        if (i5 >= bjN.size()) {
                             break;
                         }
-                        a = this.evy.a(bjb.get(i5).aAk(), az, a, i, arrayList3, concurrentHashMap3);
+                        a = this.exF.a(bjN.get(i5).aAI(), ay, a, i, arrayList3, concurrentHashMap3);
                         i4 = i5 + 1;
                     }
                     String str6 = null;
                     String str7 = null;
                     String str8 = null;
-                    if (aQK == null) {
+                    if (aRs == null) {
                         str2 = null;
                         str3 = null;
                         z = false;
                     } else {
-                        if (aQK.aMn() != null) {
-                            str6 = aQK.aMn().getName();
-                            str7 = aQK.aMn().getId();
+                        if (aRs.aMT() != null) {
+                            str6 = aRs.aMT().getName();
+                            str7 = aRs.aMT().getId();
                         }
-                        if (aQK.Kw() != null) {
-                            str8 = aQK.Kw().getId();
+                        if (aRs.Jv() != null) {
+                            str8 = aRs.Jv().getId();
                         }
                         str2 = str8;
                         str3 = str6;
                         z = true;
                     }
-                    axVar2 = this.evy.evl;
-                    if (axVar2.aRa() != null) {
-                        axVar3 = this.evy.evl;
-                        concurrentHashMap = axVar3.aRa();
-                        axVar4 = this.evy.evl;
-                        z2 = axVar4.aRc();
-                        axVar5 = this.evy.evl;
-                        arrayList = axVar5.aRb();
-                        axVar6 = this.evy.evl;
+                    axVar2 = this.exF.exr;
+                    if (axVar2.aRI() != null) {
+                        axVar3 = this.exF.exr;
+                        concurrentHashMap = axVar3.aRI();
+                        axVar4 = this.exF.exr;
+                        z2 = axVar4.aRK();
+                        axVar5 = this.exF.exr;
+                        arrayList = axVar5.aRJ();
+                        axVar6 = this.exF.exr;
                         i2 = a + axVar6.getOffset();
                     } else {
                         concurrentHashMap = concurrentHashMap3;
@@ -117,47 +117,47 @@ public class m implements TbRichTextView.d {
                         i2 = a;
                         z2 = z;
                     }
-                    this.evy.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.evy.getPageContext().getPageActivity()).createConfig(arrayList, i2, str3, str7, str2, z2, str5, true, concurrentHashMap, true, false, false)));
+                    this.exF.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.exF.getPageContext().getPageActivity()).createConfig(arrayList, i2, str3, str7, str2, z2, str5, true, concurrentHashMap, true, false, false)));
                     return;
                 }
-                c = this.evy.c(cVar);
+                c = this.exF.c(cVar);
                 arrayList3.add(c);
                 ImageUrlData imageUrlData = new ImageUrlData();
                 imageUrlData.imageUrl = str;
-                z3 = this.evy.mIsFromCDN;
+                z3 = this.exF.mIsFromCDN;
                 imageUrlData.urlType = z3 ? 17 : 18;
                 concurrentHashMap3.put(c, imageUrlData);
                 String str9 = null;
                 String str10 = null;
                 String str11 = null;
-                if (aQK == null) {
+                if (aRs == null) {
                     str4 = null;
                     z4 = false;
                 } else {
-                    if (aQK.aMn() != null) {
-                        str9 = aQK.aMn().getName();
-                        str10 = aQK.aMn().getId();
+                    if (aRs.aMT() != null) {
+                        str9 = aRs.aMT().getName();
+                        str10 = aRs.aMT().getId();
                     }
-                    if (aQK.Kw() != null) {
-                        str11 = aQK.Kw().getId();
+                    if (aRs.Jv() != null) {
+                        str11 = aRs.Jv().getId();
                     }
                     str4 = str11;
                     z4 = true;
                 }
-                axVar7 = this.evy.evl;
-                if (axVar7.aRa() != null) {
-                    axVar8 = this.evy.evl;
-                    concurrentHashMap2 = axVar8.aRa();
-                    axVar9 = this.evy.evl;
-                    z5 = axVar9.aRc();
-                    axVar10 = this.evy.evl;
-                    arrayList2 = axVar10.aRb();
+                axVar7 = this.exF.exr;
+                if (axVar7.aRI() != null) {
+                    axVar8 = this.exF.exr;
+                    concurrentHashMap2 = axVar8.aRI();
+                    axVar9 = this.exF.exr;
+                    z5 = axVar9.aRK();
+                    axVar10 = this.exF.exr;
+                    arrayList2 = axVar10.aRJ();
                 } else {
                     concurrentHashMap2 = concurrentHashMap3;
                     arrayList2 = arrayList3;
                     z5 = z4;
                 }
-                this.evy.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.evy.getPageContext().getPageActivity()).createConfig(arrayList2, 0, str9, str10, str4, z5, arrayList2.get(0), true, concurrentHashMap2, true, false, false)));
+                this.exF.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.exF.getPageContext().getPageActivity()).createConfig(arrayList2, 0, str9, str10, str4, z5, arrayList2.get(0), true, concurrentHashMap2, true, false, false)));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

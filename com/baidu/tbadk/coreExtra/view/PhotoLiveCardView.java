@@ -19,80 +19,80 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PhotoLiveCardData;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.ap;
-import com.baidu.tieba.t;
+import com.baidu.tieba.card.an;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PhotoLiveCardView extends FrameLayout {
-    public int ait;
-    private boolean akX;
-    private boolean apA;
-    private boolean apB;
-    private boolean apC;
-    private boolean apD;
-    private boolean apE;
-    private boolean apF;
-    private boolean apG;
-    private boolean apH;
-    private LinearLayout apI;
-    private View apJ;
-    private HeadImageView apK;
-    private FrameLayout apL;
-    private LinearLayout apM;
+    public int ahV;
+    private boolean akD;
+    private TextView apA;
+    private LinearLayout apB;
+    private TextView apC;
+    private TextView apD;
+    private LinearLayout apE;
+    private TextView apF;
+    private RelativeLayout apG;
+    private TbImageView apH;
+    private TextView apI;
+    private TextView apJ;
+    private TextView apK;
+    private RelativeLayout apL;
+    private TextView apM;
     private TextView apN;
     private TextView apO;
     private TextView apP;
-    private TextView apQ;
-    private TextView apR;
-    private TextView apS;
-    private LinearLayout apT;
-    private TextView apU;
-    private TextView apV;
-    private LinearLayout apW;
-    private TextView apX;
-    private RelativeLayout apY;
-    private TbImageView apZ;
-    private a apu;
-    private b apv;
-    private boolean apw;
-    private boolean apx;
-    private boolean apy;
-    private boolean apz;
-    private int aqA;
-    private int aqB;
-    private int aqC;
-    private int aqD;
-    private int aqE;
-    private String aqF;
-    private TextView aqa;
-    private TextView aqb;
-    private TextView aqc;
-    private RelativeLayout aqd;
-    private TextView aqe;
-    private TextView aqf;
-    private TextView aqg;
-    private TextView aqh;
+    private int apQ;
+    private ArrayList<Integer> apR;
+    private int apS;
+    private int apT;
+    private boolean apU;
+    private boolean apV;
+    private boolean apW;
+    private boolean apX;
+    private int apY;
+    private int apZ;
+    private a apb;
+    private b apc;
+    private boolean apd;
+    private boolean ape;
+    private boolean apf;
+    private boolean apg;
+    private boolean aph;
+    private boolean api;
+    private boolean apj;
+    private boolean apk;
+    private boolean apl;
+    private boolean apm;
+    private boolean apn;
+    private boolean apo;
+    private LinearLayout apq;
+    private View apr;
+    private HeadImageView aps;
+    private FrameLayout apt;
+    private LinearLayout apu;
+    private TextView apv;
+    private TextView apw;
+    private TextView apx;
+    private TextView apy;
+    private TextView apz;
+    private int aqa;
+    private int aqb;
+    private int aqc;
+    private int aqd;
+    private int aqe;
+    private int aqf;
+    private int aqg;
+    private int aqh;
     private int aqi;
-    private ArrayList<Integer> aqj;
+    private int aqj;
     private int aqk;
     private int aql;
-    private boolean aqm;
-    private boolean aqn;
-    private boolean aqo;
-    private boolean aqp;
-    private int aqq;
-    private int aqr;
-    private int aqs;
-    private int aqt;
-    private int aqu;
-    private int aqv;
-    private int aqw;
-    private int aqx;
-    private int aqy;
-    private int aqz;
+    private int aqm;
+    private String aqn;
     private Context context;
     private int padding;
     private int paddingBottom;
@@ -112,54 +112,54 @@ public class PhotoLiveCardView extends FrameLayout {
 
     public PhotoLiveCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.apw = true;
-        this.apx = true;
-        this.apy = true;
-        this.apz = true;
-        this.apA = true;
-        this.apB = true;
-        this.apC = false;
-        this.apD = false;
-        this.apE = false;
-        this.apF = false;
-        this.apG = false;
-        this.apH = false;
-        this.aqi = 0;
-        this.aqj = new ArrayList<>();
+        this.apd = true;
+        this.ape = true;
+        this.apf = true;
+        this.apg = true;
+        this.aph = true;
+        this.api = true;
+        this.apj = false;
+        this.apk = false;
+        this.apl = false;
+        this.apm = false;
+        this.apn = false;
+        this.apo = false;
+        this.apQ = 0;
+        this.apR = new ArrayList<>();
         this.paddingBottom = 0;
         this.paddingTop = 0;
-        this.aqk = 0;
-        this.aql = 0;
-        this.aqm = false;
-        this.aqn = true;
-        this.aqo = false;
-        this.aqp = false;
-        this.akX = false;
-        this.ait = 3;
+        this.apS = 0;
+        this.apT = 0;
+        this.apU = false;
+        this.apV = true;
+        this.apW = false;
+        this.apX = false;
+        this.akD = false;
+        this.ahV = 3;
         this.padding = 0;
-        this.aqq = 0;
-        this.aqr = 0;
-        this.aqs = 0;
-        this.aqt = 0;
-        this.aqF = "";
+        this.apY = 0;
+        this.apZ = 0;
+        this.aqa = 0;
+        this.aqb = 0;
+        this.aqn = "";
         this.context = context;
-        this.padding = (int) context.getResources().getDimension(t.e.ds24);
-        this.aqr = (int) context.getResources().getDimension(t.e.ds100);
-        this.aqq = (int) context.getResources().getDimension(t.e.ds70);
-        this.aqs = (int) context.getResources().getDimension(t.e.ds18);
-        this.aqt = (int) context.getResources().getDimension(t.e.ds4);
-        this.aqu = (int) context.getResources().getDimension(t.e.ds80);
-        this.aqv = (int) context.getResources().getDimension(t.e.ds280);
-        this.aqw = (int) context.getResources().getDimension(t.e.ds170);
-        this.aqx = (int) context.getResources().getDimension(t.e.ds320);
-        this.aqy = (int) context.getResources().getDimension(t.e.ds200);
-        this.aqz = (int) context.getResources().getDimension(t.e.ds60);
-        this.aqA = (int) context.getResources().getDimension(t.e.ds120);
-        this.aqB = (int) context.getResources().getDimension(t.e.ds160);
-        this.aqC = (int) context.getResources().getDimension(t.e.ds220);
-        this.aqD = (int) context.getResources().getDimension(t.e.ds240);
-        this.aqE = (int) context.getResources().getDimension(t.e.ds180);
-        this.size = (int) context.getResources().getDimension(t.e.ds8);
+        this.padding = (int) context.getResources().getDimension(r.e.ds24);
+        this.apZ = (int) context.getResources().getDimension(r.e.ds100);
+        this.apY = (int) context.getResources().getDimension(r.e.ds70);
+        this.aqa = (int) context.getResources().getDimension(r.e.ds18);
+        this.aqb = (int) context.getResources().getDimension(r.e.ds4);
+        this.aqc = (int) context.getResources().getDimension(r.e.ds80);
+        this.aqd = (int) context.getResources().getDimension(r.e.ds280);
+        this.aqe = (int) context.getResources().getDimension(r.e.ds170);
+        this.aqf = (int) context.getResources().getDimension(r.e.ds320);
+        this.aqg = (int) context.getResources().getDimension(r.e.ds200);
+        this.aqh = (int) context.getResources().getDimension(r.e.ds60);
+        this.aqi = (int) context.getResources().getDimension(r.e.ds120);
+        this.aqj = (int) context.getResources().getDimension(r.e.ds160);
+        this.aqk = (int) context.getResources().getDimension(r.e.ds220);
+        this.aql = (int) context.getResources().getDimension(r.e.ds240);
+        this.aqm = (int) context.getResources().getDimension(r.e.ds180);
+        this.size = (int) context.getResources().getDimension(r.e.ds8);
         init(context);
     }
 
@@ -172,94 +172,94 @@ public class PhotoLiveCardView extends FrameLayout {
     }
 
     private void init(Context context) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(t.h.photo_live_card_view, this);
-        this.apI = (LinearLayout) inflate.findViewById(t.g.pl_card_root);
-        this.apJ = inflate.findViewById(t.g.author_info);
-        this.apT = (LinearLayout) inflate.findViewById(t.g.photo_live_card_title);
-        this.apW = (LinearLayout) inflate.findViewById(t.g.photo_live_card_content);
-        this.apY = (RelativeLayout) inflate.findViewById(t.g.photo_live_card_cover_and_expression);
-        this.aqd = (RelativeLayout) inflate.findViewById(t.g.photo_live_card_bottom);
-        AT();
-        AU();
-        AV();
-        AX();
+        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(r.h.photo_live_card_view, this);
+        this.apq = (LinearLayout) inflate.findViewById(r.g.pl_card_root);
+        this.apr = inflate.findViewById(r.g.author_info);
+        this.apB = (LinearLayout) inflate.findViewById(r.g.photo_live_card_title);
+        this.apE = (LinearLayout) inflate.findViewById(r.g.photo_live_card_content);
+        this.apG = (RelativeLayout) inflate.findViewById(r.g.photo_live_card_cover_and_expression);
+        this.apL = (RelativeLayout) inflate.findViewById(r.g.photo_live_card_bottom);
         AW();
+        AX();
+        AY();
+        Ba();
+        AZ();
     }
 
     public void setData(PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             setIsGod(photoLiveCardData);
-            c(this.apw, photoLiveCardData);
-            b(this.apx, this.apC, photoLiveCardData);
-            b(this.apy, photoLiveCardData);
-            a(this.apz, this.apA, photoLiveCardData);
-            a(this.apB, photoLiveCardData);
+            c(this.apd, photoLiveCardData);
+            b(this.ape, this.apj, photoLiveCardData);
+            b(this.apf, photoLiveCardData);
+            a(this.apg, this.aph, photoLiveCardData);
+            a(this.api, photoLiveCardData);
         }
     }
 
     private void setIsGod(PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null && photoLiveCardData.getGodInfo() != null) {
-            this.akX = true;
+            this.akD = true;
         } else {
-            this.akX = false;
+            this.akD = false;
         }
     }
 
-    public void wq() {
+    public void wH() {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-        if (skinType != this.ait) {
-            av.k(this.apI, t.f.frs_item_control_btn_bg);
-            if (this.apw) {
-                av.c(this.apN, t.d.cp_cont_f, 1);
-                av.c(this.apO, t.d.cp_cont_d, 1);
-                av.c(this.apP, t.d.cp_cont_d, 1);
-                av.c(this.apQ, t.d.cp_cont_d, 1);
-                av.c(this.apS, t.d.cp_cont_d, 1);
-                Drawable drawable = av.getDrawable(t.f.icon_fengsi_n);
+        if (skinType != this.ahV) {
+            av.k(this.apq, r.f.frs_item_control_btn_bg);
+            if (this.apd) {
+                av.c(this.apv, r.d.cp_cont_f, 1);
+                av.c(this.apw, r.d.cp_cont_d, 1);
+                av.c(this.apx, r.d.cp_cont_d, 1);
+                av.c(this.apy, r.d.cp_cont_d, 1);
+                av.c(this.apA, r.d.cp_cont_d, 1);
+                Drawable drawable = av.getDrawable(r.f.icon_fengsi_n);
                 if (drawable != null) {
                     drawable.setBounds(0, 0, this.size, this.size);
                 }
-                this.apO.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-                Drawable drawable2 = av.getDrawable(t.f.icon_comment_n);
+                this.apw.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+                Drawable drawable2 = av.getDrawable(r.f.icon_comment_n);
                 if (drawable2 != null) {
                     drawable2.setBounds(0, 0, this.size, this.size);
                 }
-                this.apQ.setCompoundDrawablesWithIntrinsicBounds(drawable2, (Drawable) null, (Drawable) null, (Drawable) null);
+                this.apy.setCompoundDrawablesWithIntrinsicBounds(drawable2, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            if (this.apx) {
-                av.c(this.title, t.d.cp_cont_b, 1);
-                av.c(this.apU, t.d.cp_cont_c, 1);
-                av.c(this.apV, t.d.cp_cont_i, 1);
-                av.k(this.apV, t.f.blacklist_remove_button_bg);
-                this.title.setText(e(this.aqF));
+            if (this.ape) {
+                av.c(this.title, r.d.cp_cont_b, 1);
+                av.c(this.apC, r.d.cp_cont_c, 1);
+                av.c(this.apD, r.d.cp_cont_i, 1);
+                av.k(this.apD, r.f.blacklist_remove_button_bg);
+                this.title.setText(e(this.aqn));
             }
-            if (this.apB) {
-                av.c(this.aqe, t.d.cp_cont_i, 1);
-                av.k(this.aqe, t.f.label_bg_tie);
-                av.c(this.aqf, t.d.cp_cont_d, 1);
-                av.c(this.aqg, t.d.cp_cont_d, 1);
-                av.c(this.aqe, t.d.cp_cont_i, 1);
+            if (this.api) {
+                av.c(this.apM, r.d.cp_cont_i, 1);
+                av.k(this.apM, r.f.label_bg_tie);
+                av.c(this.apN, r.d.cp_cont_d, 1);
+                av.c(this.apO, r.d.cp_cont_d, 1);
+                av.c(this.apM, r.d.cp_cont_i, 1);
             }
-            av.c(this.apX, t.d.cp_cont_b, 1);
-            AY();
-            this.ait = skinType;
+            av.c(this.apF, r.d.cp_cont_b, 1);
+            Bb();
+            this.ahV = skinType;
         }
     }
 
     private void a(boolean z, boolean z2, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
-            if (z && this.aqn) {
+            if (z && this.apV) {
                 if (this.paddingBottom != 0) {
-                    this.apY.setPadding(this.padding, 0, this.padding, (int) this.context.getResources().getDimension(this.paddingBottom));
+                    this.apG.setPadding(this.padding, 0, this.padding, (int) this.context.getResources().getDimension(this.paddingBottom));
                     this.paddingBottom = 0;
                 } else {
-                    this.apY.setPadding(this.padding, 0, this.padding, 0);
+                    this.apG.setPadding(this.padding, 0, this.padding, 0);
                 }
-                this.apY.setVisibility(0);
+                this.apG.setVisibility(0);
                 setCover(photoLiveCardData.getPhotoLiveCover());
                 setExpression(photoLiveCardData);
-            } else if (this.apY != null) {
-                this.apY.setVisibility(8);
+            } else if (this.apG != null) {
+                this.apG.setVisibility(8);
             }
         }
     }
@@ -267,69 +267,69 @@ public class PhotoLiveCardView extends FrameLayout {
     private void a(boolean z, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             if (z) {
-                this.aqd.setVisibility(0);
+                this.apL.setVisibility(0);
                 setBaName(photoLiveCardData.getForumName());
-                o(photoLiveCardData.buildRefreshTimeWithoutPostNum(), this.apD);
-                i(photoLiveCardData.getDiscussNum(), this.apG);
+                p(photoLiveCardData.buildRefreshTimeWithoutPostNum(), this.apk);
+                i(photoLiveCardData.getDiscussNum(), this.apn);
                 return;
             }
-            this.aqd.setVisibility(8);
+            this.apL.setVisibility(8);
         }
     }
 
     private void b(boolean z, boolean z2, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             if (z) {
-                this.apT.setVisibility(0);
-                if (this.aql != 0) {
-                    this.title.setMaxLines(this.aql);
+                this.apB.setVisibility(0);
+                if (this.apT != 0) {
+                    this.title.setMaxLines(this.apT);
                 } else {
                     this.title.setMaxLines(2);
                 }
                 setTitle(photoLiveCardData.getTitle());
-                n(photoLiveCardData.buildRefreshTimeWithPostNum(), z2);
+                o(photoLiveCardData.buildRefreshTimeWithPostNum(), z2);
                 setDeleteButtonVisibility(photoLiveCardData);
                 a(this.title, photoLiveCardData.getThreadId());
                 return;
             }
-            this.apT.setVisibility(8);
+            this.apB.setVisibility(8);
         }
     }
 
     private void setDeleteButtonVisibility(PhotoLiveCardData photoLiveCardData) {
-        if (this.apH) {
-            this.apV.setVisibility(0);
-            this.apV.setTag(photoLiveCardData);
+        if (this.apo) {
+            this.apD.setVisibility(0);
+            this.apD.setTag(photoLiveCardData);
             return;
         }
-        this.apV.setVisibility(8);
+        this.apD.setVisibility(8);
     }
 
     private void b(boolean z, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             if (z) {
-                this.apW.setVisibility(0);
+                this.apE.setVisibility(0);
                 if (this.paddingBottom != 0) {
-                    this.apW.setPadding(this.padding, 0, this.padding, (int) this.context.getResources().getDimension(this.paddingBottom));
+                    this.apE.setPadding(this.padding, 0, this.padding, (int) this.context.getResources().getDimension(this.paddingBottom));
                     this.paddingBottom = 0;
                 } else {
-                    this.apW.setPadding(this.padding, 0, this.padding, 0);
+                    this.apE.setPadding(this.padding, 0, this.padding, 0);
                 }
                 setContent(photoLiveCardData.getContent());
-                a(this.apX, photoLiveCardData.getThreadId());
+                a(this.apF, photoLiveCardData.getThreadId());
                 return;
             }
-            this.apW.setVisibility(8);
+            this.apE.setVisibility(8);
         }
     }
 
     private void a(TextView textView, long j) {
-        if (textView != null && this.aqo) {
+        if (textView != null && this.apW) {
             com.baidu.tieba.tbadkCore.util.s readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.rf(String.valueOf(j))) {
-                av.c(textView, t.d.cp_cont_c, 1);
+            if (readThreadHistory != null && readThreadHistory.ru(String.valueOf(j))) {
+                av.c(textView, r.d.cp_cont_c, 1);
             } else {
-                av.c(textView, t.d.cp_cont_b, 1);
+                av.c(textView, r.d.cp_cont_b, 1);
             }
         }
     }
@@ -337,43 +337,43 @@ public class PhotoLiveCardView extends FrameLayout {
     private void c(boolean z, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
             if (z) {
-                this.apJ.setVisibility(0);
+                this.apr.setVisibility(0);
                 if (this.paddingTop != 0) {
-                    this.apJ.setPadding(0, (int) this.context.getResources().getDimension(this.paddingTop), 0, 0);
+                    this.apr.setPadding(0, (int) this.context.getResources().getDimension(this.paddingTop), 0, 0);
                 } else {
-                    this.apJ.setPadding(0, 0, 0, 0);
+                    this.apr.setPadding(0, 0, 0, 0);
                 }
-                ViewGroup.LayoutParams layoutParams = this.apK.getLayoutParams();
-                if (this.akX) {
+                ViewGroup.LayoutParams layoutParams = this.aps.getLayoutParams();
+                if (this.akD) {
                     if (layoutParams != null) {
-                        layoutParams.height = this.aqr;
-                        layoutParams.width = this.aqr;
+                        layoutParams.height = this.apZ;
+                        layoutParams.width = this.apZ;
                     }
-                    if (this.aqh == null) {
-                        this.aqh = new TextView(this.context);
-                        this.aqh.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
-                        this.aqh.setEllipsize(TextUtils.TruncateAt.END);
-                        this.aqh.setTextSize(0, this.aqs);
-                        av.j((View) this.aqh, t.d.cp_cont_h);
-                        av.k(this.aqh, t.f.icon_shen);
-                        this.aqh.setSingleLine(true);
-                        this.apM.addView(this.aqh);
+                    if (this.apP == null) {
+                        this.apP = new TextView(this.context);
+                        this.apP.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
+                        this.apP.setEllipsize(TextUtils.TruncateAt.END);
+                        this.apP.setTextSize(0, this.aqa);
+                        av.j((View) this.apP, r.d.cp_cont_h);
+                        av.k(this.apP, r.f.icon_shen);
+                        this.apP.setSingleLine(true);
+                        this.apu.addView(this.apP);
                     }
                     if (photoLiveCardData.getGodInfo() == null || StringUtils.isNull(photoLiveCardData.getGodInfo().intro)) {
-                        this.aqh.setText(t.j.god_intro_default);
+                        this.apP.setText(r.j.god_intro_default);
                     } else {
-                        this.aqh.setText(photoLiveCardData.getGodInfo().intro);
+                        this.apP.setText(photoLiveCardData.getGodInfo().intro);
                     }
                 } else {
-                    this.apM.removeView(this.aqh);
-                    this.aqh = null;
+                    this.apu.removeView(this.apP);
+                    this.apP = null;
                     if (layoutParams != null) {
-                        layoutParams.height = this.aqq;
-                        layoutParams.width = this.aqq;
+                        layoutParams.height = this.apY;
+                        layoutParams.width = this.apY;
                     }
                 }
-                this.apK.setTag(photoLiveCardData);
-                eP(photoLiveCardData.getAuthorPortrait());
+                this.aps.setTag(photoLiveCardData);
+                eS(photoLiveCardData.getAuthorPortrait());
                 setUserName(photoLiveCardData.getAuthorName());
                 setNickName(photoLiveCardData.getNickName());
                 setFansNum(photoLiveCardData.getFansNum());
@@ -383,89 +383,89 @@ public class PhotoLiveCardView extends FrameLayout {
                 setPortraitBackground(photoLiveCardData.isHeadLive());
                 return;
             }
-            this.apM.removeView(this.aqh);
-            this.apJ.setVisibility(8);
+            this.apu.removeView(this.apP);
+            this.apr.setVisibility(8);
         }
     }
 
     public void setPortraitBackground(boolean z) {
         if (z) {
-            this.apK.setPadding(this.aqt, this.aqt, this.aqt, this.aqt);
-            if (this.akX) {
-                this.apL.setBackgroundDrawable(av.getDrawable(t.f.pic_bg_jinbian));
+            this.aps.setPadding(this.aqb, this.aqb, this.aqb, this.aqb);
+            if (this.akD) {
+                this.apt.setBackgroundDrawable(av.getDrawable(r.f.pic_bg_jinbian));
                 return;
             } else {
-                this.apL.setBackgroundDrawable(av.getDrawable(t.f.frs_touxiang_jinkuan));
+                this.apt.setBackgroundDrawable(av.getDrawable(r.f.frs_touxiang_jinkuan));
                 return;
             }
         }
-        this.apL.setBackgroundDrawable(null);
-        this.apK.setPadding(0, 0, 0, 0);
-    }
-
-    private void AT() {
-        if (this.apJ != null) {
-            this.apK = (HeadImageView) this.apJ.findViewById(t.g.author_portrait);
-            this.apL = (FrameLayout) this.apJ.findViewById(t.g.author_portrait_info);
-            this.apN = (TextView) this.apJ.findViewById(t.g.author_name);
-            this.apO = (TextView) this.apJ.findViewById(t.g.nick_name);
-            this.apP = (TextView) this.apJ.findViewById(t.g.fans_num);
-            this.apQ = (TextView) this.apJ.findViewById(t.g.reply_num);
-            this.apR = (TextView) this.apJ.findViewById(t.g.headlive_icon);
-            this.apS = (TextView) this.apJ.findViewById(t.g.refresh_time_in_head);
-            this.apM = (LinearLayout) this.apJ.findViewById(t.g.author_info_and_time);
-            this.apK.setOnClickListener(new s(this));
-        }
-    }
-
-    private void AU() {
-        if (this.apT != null) {
-            this.title = (TextView) this.apT.findViewById(t.g.title);
-            this.apU = (TextView) findViewById(t.g.refresh_time_in_title);
-            this.apV = (TextView) this.apT.findViewById(t.g.card_delete_in_title);
-            this.apV.setOnClickListener(new t(this));
-        }
-    }
-
-    private void AV() {
-        if (this.apW != null) {
-            this.apX = (TextView) this.apW.findViewById(t.g.content);
-        }
+        this.apt.setBackgroundDrawable(null);
+        this.aps.setPadding(0, 0, 0, 0);
     }
 
     private void AW() {
-        if (this.aqd != null) {
-            this.aqe = (TextView) this.aqd.findViewById(t.g.ba_name);
-            this.aqf = (TextView) this.aqd.findViewById(t.g.bottom_refresh_time);
-            this.aqg = (TextView) this.aqd.findViewById(t.g.bottom_reply_num);
+        if (this.apr != null) {
+            this.aps = (HeadImageView) this.apr.findViewById(r.g.author_portrait);
+            this.apt = (FrameLayout) this.apr.findViewById(r.g.author_portrait_info);
+            this.apv = (TextView) this.apr.findViewById(r.g.author_name);
+            this.apw = (TextView) this.apr.findViewById(r.g.nick_name);
+            this.apx = (TextView) this.apr.findViewById(r.g.fans_num);
+            this.apy = (TextView) this.apr.findViewById(r.g.reply_num);
+            this.apz = (TextView) this.apr.findViewById(r.g.headlive_icon);
+            this.apA = (TextView) this.apr.findViewById(r.g.refresh_time_in_head);
+            this.apu = (LinearLayout) this.apr.findViewById(r.g.author_info_and_time);
+            this.aps.setOnClickListener(new s(this));
         }
     }
 
     private void AX() {
-        if (this.apY != null) {
-            this.apZ = (TbImageView) this.apY.findViewById(t.g.live_cover);
-            this.apZ.setGifIconSupport(false);
-            AZ();
+        if (this.apB != null) {
+            this.title = (TextView) this.apB.findViewById(r.g.title);
+            this.apC = (TextView) findViewById(r.g.refresh_time_in_title);
+            this.apD = (TextView) this.apB.findViewById(r.g.card_delete_in_title);
+            this.apD.setOnClickListener(new t(this));
         }
     }
 
     private void AY() {
-        av.k(this.aqa, t.f.bg_tieziyingxiang);
-        av.k(this.aqb, t.f.bg_tieziyingxiang);
-        av.k(this.aqc, t.f.bg_tieziyingxiang);
+        if (this.apE != null) {
+            this.apF = (TextView) this.apE.findViewById(r.g.content);
+        }
     }
 
     private void AZ() {
-        if (this.apY != null) {
-            this.aqa = (TextView) this.apY.findViewById(t.g.first_style_first_expression);
-            this.aqb = (TextView) this.apY.findViewById(t.g.first_style_second_expression);
-            this.aqc = (TextView) this.apY.findViewById(t.g.first_style_third_expression);
+        if (this.apL != null) {
+            this.apM = (TextView) this.apL.findViewById(r.g.ba_name);
+            this.apN = (TextView) this.apL.findViewById(r.g.bottom_refresh_time);
+            this.apO = (TextView) this.apL.findViewById(r.g.bottom_reply_num);
+        }
+    }
+
+    private void Ba() {
+        if (this.apG != null) {
+            this.apH = (TbImageView) this.apG.findViewById(r.g.live_cover);
+            this.apH.setGifIconSupport(false);
+            Bc();
+        }
+    }
+
+    private void Bb() {
+        av.k(this.apI, r.f.bg_tieziyingxiang);
+        av.k(this.apJ, r.f.bg_tieziyingxiang);
+        av.k(this.apK, r.f.bg_tieziyingxiang);
+    }
+
+    private void Bc() {
+        if (this.apG != null) {
+            this.apI = (TextView) this.apG.findViewById(r.g.first_style_first_expression);
+            this.apJ = (TextView) this.apG.findViewById(r.g.first_style_second_expression);
+            this.apK = (TextView) this.apG.findViewById(r.g.first_style_third_expression);
         }
     }
 
     private void setExpression(PhotoLiveCardData photoLiveCardData) {
-        this.aqj.clear();
-        Bb();
+        this.apR.clear();
+        Be();
         if (photoLiveCardData != null && photoLiveCardData.getExpressionDatas() != null) {
             int size = photoLiveCardData.getExpressionDatas().size();
             for (int i = 0; i < size && i < 3; i++) {
@@ -474,41 +474,41 @@ public class PhotoLiveCardView extends FrameLayout {
                     a(intValue, photoLiveCardData.getExpressionDatas(), i);
                 }
             }
-            Ba();
+            Bd();
         }
     }
 
-    private void Ba() {
-        if (this.aqj.size() != 0) {
-            int size = this.aqj.size();
+    private void Bd() {
+        if (this.apR.size() != 0) {
+            int size = this.apR.size();
             for (int i = 0; i < size; i++) {
-                if (this.aqj.get(i).intValue() == this.aqa.getId()) {
-                    this.aqa.setVisibility(8);
-                } else if (this.aqj.get(i).intValue() == this.aqb.getId()) {
-                    this.aqb.setVisibility(8);
-                } else if (this.aqj.get(i).intValue() == this.aqc.getId()) {
-                    this.aqc.setVisibility(8);
+                if (this.apR.get(i).intValue() == this.apI.getId()) {
+                    this.apI.setVisibility(8);
+                } else if (this.apR.get(i).intValue() == this.apJ.getId()) {
+                    this.apJ.setVisibility(8);
+                } else if (this.apR.get(i).intValue() == this.apK.getId()) {
+                    this.apK.setVisibility(8);
                 }
             }
         }
     }
 
-    private void Bb() {
-        this.aqa.setText("");
-        this.aqb.setText("");
-        this.aqc.setText("");
-        if (this.aqa.getVisibility() == 8) {
-            this.aqa.setVisibility(0);
+    private void Be() {
+        this.apI.setText("");
+        this.apJ.setText("");
+        this.apK.setText("");
+        if (this.apI.getVisibility() == 8) {
+            this.apI.setVisibility(0);
         }
-        if (this.aqb.getVisibility() == 8) {
-            this.aqb.setVisibility(0);
+        if (this.apJ.getVisibility() == 8) {
+            this.apJ.setVisibility(0);
         }
-        if (this.aqc.getVisibility() == 8) {
-            this.aqc.setVisibility(0);
+        if (this.apK.getVisibility() == 8) {
+            this.apK.setVisibility(0);
         }
-        this.aqj.add(Integer.valueOf(this.aqa.getId()));
-        this.aqj.add(Integer.valueOf(this.aqb.getId()));
-        this.aqj.add(Integer.valueOf(this.aqc.getId()));
+        this.apR.add(Integer.valueOf(this.apI.getId()));
+        this.apR.add(Integer.valueOf(this.apJ.getId()));
+        this.apR.add(Integer.valueOf(this.apK.getId()));
     }
 
     private void a(n nVar, TextView textView) {
@@ -518,7 +518,7 @@ public class PhotoLiveCardView extends FrameLayout {
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(nVar.aj(nVar.getLabelName(), String.valueOf(nVar.AM())));
+            textView.setText(nVar.aj(nVar.getLabelName(), String.valueOf(nVar.AP())));
             eg(textView.getId());
         }
     }
@@ -533,39 +533,39 @@ public class PhotoLiveCardView extends FrameLayout {
 
     private void a(int i, ArrayList<n> arrayList, int i2) {
         if (i >= 0 && i < 3) {
-            switch (this.aqi) {
+            switch (this.apQ) {
                 case 0:
-                    a(this.aqu, this.aqv, this.aqa);
-                    a(this.aqw, this.aqx, this.aqb);
-                    a(this.aqy, this.aqz, this.aqc);
+                    a(this.aqc, this.aqd, this.apI);
+                    a(this.aqe, this.aqf, this.apJ);
+                    a(this.aqg, this.aqh, this.apK);
                     break;
                 case 1:
-                    a(this.aqz, this.aqA, this.aqa);
-                    a(this.aqB, this.aqz, this.aqb);
-                    a(this.aqC, this.aqx, this.aqc);
+                    a(this.aqh, this.aqi, this.apI);
+                    a(this.aqj, this.aqh, this.apJ);
+                    a(this.aqk, this.aqf, this.apK);
                     break;
                 case 2:
-                    a(this.aqz, this.aqD, this.aqa);
-                    a(this.aqE, this.aqz, this.aqb);
-                    a(this.aqC, this.aqx, this.aqc);
+                    a(this.aqh, this.aql, this.apI);
+                    a(this.aqm, this.aqh, this.apJ);
+                    a(this.aqk, this.aqf, this.apK);
                     break;
             }
             if (i == 0) {
-                a(arrayList.get(i2), this.aqa);
+                a(arrayList.get(i2), this.apI);
             } else if (i == 1) {
-                a(arrayList.get(i2), this.aqb);
+                a(arrayList.get(i2), this.apJ);
             } else if (i == 2) {
-                a(arrayList.get(i2), this.aqc);
+                a(arrayList.get(i2), this.apK);
             }
         }
     }
 
     private void eg(int i) {
-        if (this.aqj.size() != 0) {
-            int size = this.aqj.size();
+        if (this.apR.size() != 0) {
+            int size = this.apR.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.aqj.get(i2).intValue() == i) {
-                    this.aqj.remove(i2);
+                if (this.apR.get(i2).intValue() == i) {
+                    this.apR.remove(i2);
                     return;
                 }
             }
@@ -577,42 +577,42 @@ public class PhotoLiveCardView extends FrameLayout {
     }
 
     private void setCover(String str) {
-        this.apZ.setVisibility(0);
+        this.apH.setVisibility(0);
         if (!TextUtils.isEmpty(str)) {
-            this.apZ.c(str, 10, false);
+            this.apH.c(str, 10, false);
         } else {
-            this.apZ.c(null, 10, false);
+            this.apH.c(null, 10, false);
         }
     }
 
     private void setBaName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.aqe.setText("");
+            this.apM.setText("");
             return;
         }
         String trim = str.trim();
-        this.aqe.setVisibility(0);
-        if (com.baidu.tbadk.util.v.gz(trim) > 12) {
+        this.apM.setVisibility(0);
+        if (com.baidu.tbadk.util.v.gD(trim) > 12) {
             trim = String.valueOf(com.baidu.tbadk.util.v.d(trim, 0, 12)) + "...";
         }
-        this.aqe.setText(String.valueOf(trim) + TbadkCoreApplication.m9getInst().getResources().getString(t.j.bar));
+        this.apM.setText(String.valueOf(trim) + TbadkCoreApplication.m9getInst().getResources().getString(r.j.bar));
     }
 
     private void setContent(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.apX.setText("");
-            this.apX.setVisibility(8);
+            this.apF.setText("");
+            this.apF.setVisibility(8);
             return;
         }
-        this.apX.setVisibility(0);
-        this.apX.setText(str);
+        this.apF.setVisibility(0);
+        this.apF.setText(str);
     }
 
     private void setTitle(String str) {
-        this.aqF = str;
-        if (this.aqk != 0) {
-            this.title.setPadding(0, 0, (int) this.context.getResources().getDimension(this.aqk), 0);
-            this.aqk = 0;
+        this.aqn = str;
+        if (this.apS != 0) {
+            this.title.setPadding(0, 0, (int) this.context.getResources().getDimension(this.apS), 0);
+            this.apS = 0;
         } else {
             this.title.setPadding(0, 0, 0, 0);
         }
@@ -621,9 +621,9 @@ public class PhotoLiveCardView extends FrameLayout {
             return;
         }
         this.title.setVisibility(0);
-        if (this.aqm) {
-            if (this.aqp) {
-                this.title.setText(ap.c(this.context, str, t.j.kn_zhibo));
+        if (this.apU) {
+            if (this.apX) {
+                this.title.setText(an.c(this.context, str, r.j.kn_zhibo));
                 return;
             } else {
                 this.title.setText(e(str));
@@ -638,7 +638,7 @@ public class PhotoLiveCardView extends FrameLayout {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
-        Bitmap cN = av.cN(t.f.icon_zhibo);
+        Bitmap cN = av.cN(r.f.icon_zhibo);
         BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
         int height = cN.getHeight();
         bitmapDrawable.setBounds(0, 0, cN.getWidth(), height);
@@ -649,48 +649,48 @@ public class PhotoLiveCardView extends FrameLayout {
         return spannableStringBuilder;
     }
 
-    private void eP(String str) {
+    private void eS(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.apK.c(str, 12, false);
+            this.aps.c(str, 12, false);
         } else {
-            this.apK.c(null, 12, false);
+            this.aps.c(null, 12, false);
         }
     }
 
     private void setUserName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.apN.setText("");
+            this.apv.setText("");
             return;
         }
-        this.apN.setVisibility(0);
+        this.apv.setVisibility(0);
         String trim = str.trim();
-        if (com.baidu.tbadk.util.v.gz(trim) > 14) {
+        if (com.baidu.tbadk.util.v.gD(trim) > 14) {
             trim = String.valueOf(com.baidu.tbadk.util.v.d(trim, 0, 14)) + "...";
         }
-        this.apN.setText(trim);
+        this.apv.setText(trim);
     }
 
     private void setNickName(String str) {
         if (TextUtils.isEmpty(str)) {
-            d(this.apO, this.context.getResources().getString(t.j.fans_default_name));
+            d(this.apw, this.context.getResources().getString(r.j.fans_default_name));
         } else {
-            d(this.apO, str);
+            d(this.apw, str);
         }
     }
 
     private void d(TextView textView, String str) {
         textView.setText(str);
-        Drawable drawable = av.getDrawable(t.f.icon_fengsi_n);
+        Drawable drawable = av.getDrawable(r.f.icon_fengsi_n);
         drawable.setBounds(0, 0, this.size, this.size);
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
     private void setFansNum(int i) {
-        this.apP.setText(ba.y(i));
+        this.apx.setText(az.z(i));
     }
 
     private void setReplyNum(int i) {
-        b(this.apQ, i);
+        b(this.apy, i);
     }
 
     private void b(TextView textView, long j) {
@@ -699,124 +699,124 @@ public class PhotoLiveCardView extends FrameLayout {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             return;
         }
-        textView.setText(ba.y(j));
-        Drawable drawable = av.getDrawable(t.f.icon_comment_n);
+        textView.setText(az.z(j));
+        Drawable drawable = av.getDrawable(r.f.icon_comment_n);
         drawable.setBounds(0, 0, this.size, this.size);
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
     private void i(int i, boolean z) {
         if (z) {
-            this.aqg.setVisibility(0);
-            b(this.aqg, i);
+            this.apO.setVisibility(0);
+            b(this.apO, i);
             return;
         }
-        this.aqg.setVisibility(8);
+        this.apO.setVisibility(8);
     }
 
     private void setHeadLiveIconInHead(boolean z) {
-        if (z && this.apF) {
-            this.apR.setVisibility(0);
-            av.k(this.apR, t.f.label_onthelist);
+        if (z && this.apm) {
+            this.apz.setVisibility(0);
+            av.k(this.apz, r.f.label_onthelist);
             return;
         }
-        this.apR.setVisibility(8);
+        this.apz.setVisibility(8);
     }
 
     private void setRefreshTimeInHead(String str) {
-        if (this.apE) {
-            this.apS.setVisibility(0);
-            this.apS.setText(str);
+        if (this.apl) {
+            this.apA.setVisibility(0);
+            this.apA.setText(str);
             return;
         }
-        this.apS.setVisibility(8);
-        this.apS.setText("");
-    }
-
-    private void n(String str, boolean z) {
-        if (!z) {
-            this.apU.setVisibility(8);
-            return;
-        }
-        this.apU.setVisibility(0);
-        this.apU.setText(str);
+        this.apA.setVisibility(8);
+        this.apA.setText("");
     }
 
     private void o(String str, boolean z) {
         if (!z) {
-            this.aqf.setVisibility(8);
+            this.apC.setVisibility(8);
             return;
         }
-        this.aqf.setVisibility(0);
-        this.aqf.setText(str);
+        this.apC.setVisibility(0);
+        this.apC.setText(str);
+    }
+
+    private void p(String str, boolean z) {
+        if (!z) {
+            this.apN.setVisibility(8);
+            return;
+        }
+        this.apN.setVisibility(0);
+        this.apN.setText(str);
     }
 
     public void setShowHead(boolean z) {
-        this.apw = z;
+        this.apd = z;
     }
 
     public void setShowTitle(boolean z) {
-        this.apx = z;
+        this.ape = z;
     }
 
     public void setShowRefreshTimeInTitle(boolean z) {
-        this.apC = z;
+        this.apj = z;
     }
 
     public void setShowContent(boolean z) {
-        this.apy = z;
+        this.apf = z;
     }
 
     public void setShowCover(boolean z) {
-        this.apz = z;
+        this.apg = z;
     }
 
     public void setShowExpression(boolean z) {
-        this.apA = z;
+        this.aph = z;
     }
 
     public void setShowBottom(boolean z) {
-        this.apB = z;
+        this.api = z;
     }
 
     public void setShowRefreshTimeInHead(boolean z) {
-        this.apE = z;
+        this.apl = z;
     }
 
     public void setShowHeadLiveIcon(boolean z) {
-        this.apF = z;
+        this.apm = z;
     }
 
     public void setShowReplyNumInButtom(boolean z) {
-        this.apG = z;
+        this.apn = z;
     }
 
     public void setShowDeleteButtonInTitle(boolean z) {
-        this.apH = z;
+        this.apo = z;
     }
 
     public void setChooseStyle(int i) {
-        this.aqi = i;
+        this.apQ = i;
     }
 
     public int getShowStyle() {
-        return this.aqi;
+        return this.apQ;
     }
 
     public void setShowLiveIcon(boolean z) {
-        this.aqm = z;
+        this.apU = z;
     }
 
     public void setDeleteButtonClickListener(a aVar) {
-        this.apu = aVar;
+        this.apb = aVar;
     }
 
     public void setPortraitClicklistener(b bVar) {
-        this.apv = bVar;
+        this.apc = bVar;
     }
 
     public void setParentBackground(int i) {
-        av.k(this.apI, i);
+        av.k(this.apq, i);
     }
 
     public void setContentPaddingBottom(int i) {
@@ -828,26 +828,26 @@ public class PhotoLiveCardView extends FrameLayout {
     }
 
     public void setShowImage(boolean z) {
-        this.aqn = z;
+        this.apV = z;
     }
 
     public void setShowRefreshTimeInButtom(boolean z) {
-        this.apD = z;
+        this.apk = z;
     }
 
     public void setTitlePaddingRight(int i) {
-        this.aqk = i;
+        this.apS = i;
     }
 
     public void setTitleMaxLines(int i) {
-        this.aql = i;
+        this.apT = i;
     }
 
     public void setAllowGreyState(boolean z) {
-        this.aqo = z;
+        this.apW = z;
     }
 
-    public void bl(boolean z) {
-        this.aqp = z;
+    public void bk(boolean z) {
+        this.apX = z;
     }
 }

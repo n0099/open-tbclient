@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ ChangeSystemPhotoActivity aEy;
+    final /* synthetic */ ChangeSystemPhotoActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.aEy = changeSystemPhotoActivity;
+        this.aDW = changeSystemPhotoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,43 +24,43 @@ class a extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         ChangeSystemPhotoActivity.a aVar4;
         super.a((a) aVar, str, i);
         if (aVar != null) {
-            if (this.aEy.aEw == null) {
-                this.aEy.aEw = new com.baidu.tbadk.core.view.a(this.aEy.getPageContext());
-                this.aEy.aEw.c(null);
+            if (this.aDW.aDU == null) {
+                this.aDW.aDU = new com.baidu.tbadk.core.view.a(this.aDW.getPageContext());
+                this.aDW.aDU.c(null);
             }
-            this.aEy.aEw.aF(true);
-            z = this.aEy.aEv;
+            this.aDW.aDU.aF(true);
+            z = this.aDW.aDT;
             if (z) {
-                this.aEy.aEt = aVar;
-                aVar2 = this.aEy.aEs;
+                this.aDW.aDR = aVar;
+                aVar2 = this.aDW.aDQ;
                 if (aVar2 != null) {
-                    aVar4 = this.aEy.aEs;
+                    aVar4 = this.aDW.aDQ;
                     aVar4.cancel();
                 }
-                this.aEy.aEs = new ChangeSystemPhotoActivity.a(this.aEy, null);
-                aVar3 = this.aEy.aEs;
+                this.aDW.aDQ = new ChangeSystemPhotoActivity.a(this.aDW, null);
+                aVar3 = this.aDW.aDQ;
                 aVar3.execute(new String[0]);
                 return;
             }
             Bitmap jV = aVar.jV();
             if (jV != null) {
-                c = this.aEy.c(TbConfig.PERSON_USER_PIC_TEMP_FILE, jV);
+                c = this.aDW.c(TbConfig.PERSON_USER_PIC_TEMP_FILE, jV);
                 if (!c) {
-                    if (this.aEy.aEw != null) {
-                        this.aEy.aEw.aF(false);
+                    if (this.aDW.aDU != null) {
+                        this.aDW.aDU.aF(false);
                         return;
                     }
                     return;
                 }
-                if (this.aEy.aEw != null) {
-                    this.aEy.aEw.aF(false);
+                if (this.aDW.aDU != null) {
+                    this.aDW.aDU.aF(false);
                 }
                 Intent intent = new Intent();
                 intent.putExtra("upload_image_type", 2);
-                this.aEy.setResult(-1, intent);
-                this.aEy.finish();
-            } else if (this.aEy.aEw != null) {
-                this.aEy.aEw.aF(false);
+                this.aDW.setResult(-1, intent);
+                this.aDW.finish();
+            } else if (this.aDW.aDU != null) {
+                this.aDW.aDU.aF(false);
             }
         }
     }

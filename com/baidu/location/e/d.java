@@ -15,12 +15,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes.dex */
 public final class d {
-    private static volatile d Kc;
+    private static volatile d Kb;
     private static Context c;
-    private final k Kd;
-    private final e Ke;
-    private final m Kf;
-    private final h Kg;
+    private final k Kc;
+    private final e Kd;
+    private final m Ke;
+    private final h Kf;
     private final File e;
     static final String b = "com.baidu.lbs.offlinelocationprovider";
     static final String a = "http://loc.map.baidu.com/offline_loc";
@@ -60,10 +60,10 @@ public final class d {
             file = null;
         }
         this.e = file;
-        this.Ke = new e(this);
-        this.Kd = new k(this.Ke.a());
-        this.Kg = new h(this, this.Ke.a());
-        this.Kf = new m(this, this.Ke.a(), this.Kg.n());
+        this.Kd = new e(this);
+        this.Kc = new k(this.Kd.a());
+        this.Kf = new h(this, this.Kd.a());
+        this.Ke = new m(this, this.Kd.a(), this.Kf.n());
     }
 
     public static void a(Context context) {
@@ -79,18 +79,18 @@ public final class d {
     }
 
     public static d mK() {
-        if (Kc == null) {
+        if (Kb == null) {
             synchronized (d.class) {
-                if (Kc == null) {
+                if (Kb == null) {
                     if (c == null) {
                         a(com.baidu.location.f.getServiceContext());
                     }
-                    Kc = new d();
+                    Kb = new d();
                 }
             }
         }
-        Kc.q();
-        return Kc;
+        Kb.q();
+        return Kb;
     }
 
     private BDLocation o(String[] strArr) {
@@ -123,7 +123,7 @@ public final class d {
     }
 
     private void q() {
-        this.Kg.g();
+        this.Kf.g();
     }
 
     private boolean r() {
@@ -131,7 +131,7 @@ public final class d {
         String packageName = c.getPackageName();
         ProviderInfo resolveContentProvider = c.getPackageManager().resolveContentProvider(b, 0);
         if (resolveContentProvider == null) {
-            String[] mU = this.Kg.mU();
+            String[] mU = this.Kf.mU();
             providerInfo = resolveContentProvider;
             for (int i = 0; i < mU.length && (providerInfo = c.getPackageManager().resolveContentProvider(mU[i], 0)) == null; i++) {
             }
@@ -142,14 +142,14 @@ public final class d {
     }
 
     public long a(String str) {
-        return this.Kg.a(str);
+        return this.Kf.a(str);
     }
 
     public BDLocation a(com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, BDLocation bDLocation, b bVar, a aVar2) {
         String d;
         int i;
         if (bVar == b.IS_MIX_MODE) {
-            i = this.Kg.a();
+            i = this.Kf.a();
             d = com.baidu.location.h.c.nm().d() + "&mixMode=1";
         } else {
             d = com.baidu.location.h.c.nm().d();
@@ -167,32 +167,32 @@ public final class d {
     }
 
     public boolean d() {
-        return this.Kg.h();
+        return this.Kf.h();
     }
 
     public boolean e() {
-        return this.Kg.i();
+        return this.Kf.i();
     }
 
     public boolean f() {
-        return this.Kg.j();
+        return this.Kf.j();
     }
 
     public boolean g() {
-        return this.Kg.k();
+        return this.Kf.k();
     }
 
     public boolean h() {
-        return this.Kg.m();
+        return this.Kf.m();
     }
 
     public void i() {
-        this.Kd.a();
+        this.Kc.a();
     }
 
     public void m() {
         if (r()) {
-            this.Ke.b();
+            this.Kd.b();
         }
     }
 
@@ -203,17 +203,17 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k mM() {
-        return this.Kd;
+        return this.Kc;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m mN() {
-        return this.Kf;
+        return this.Ke;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h mO() {
-        return this.Kg;
+        return this.Kf;
     }
 
     public double mP() {
@@ -235,19 +235,19 @@ public final class d {
             }
         }
         if (cVar == c.NETWORK_UNKNOWN) {
-            return this.Kg.b();
+            return this.Kf.b();
         }
         if (cVar == c.NETWORK_WIFI) {
-            return this.Kg.c();
+            return this.Kf.c();
         }
         if (cVar == c.NETWORK_2G) {
-            return this.Kg.mR();
+            return this.Kf.mR();
         }
         if (cVar == c.NETWORK_3G) {
-            return this.Kg.mS();
+            return this.Kf.mS();
         }
         if (cVar == c.NETWORK_4G) {
-            return this.Kg.mT();
+            return this.Kf.mT();
         }
         return 0.0d;
     }

@@ -6,22 +6,22 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class p extends t {
     public long AA;
-    public int aBP;
-    public long aBX;
-    public long aBY;
-    public int aBZ;
-    private a aCa = null;
-    private final Handler aCb = new q(this, Looper.getMainLooper());
+    public long aBA;
+    public long aBB;
+    public int aBC;
+    private a aBD = null;
+    private final Handler aBE = new q(this, Looper.getMainLooper());
+    public int aBs;
     public long nU;
     public long yU;
 
-    public void Gg() {
-        this.aCb.sendEmptyMessage(0);
+    public void Gf() {
+        this.aBE.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Gh() {
-        w wVar = (w) aa.Gp().fg(this.aCh);
+    public void Gg() {
+        w wVar = (w) aa.Go().ff(this.aBK);
         if (wVar != null) {
             wVar.c(this);
         }
@@ -38,8 +38,8 @@ public class p extends t {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            p.this.aBP = aa.Gp().Gt();
-            p.this.Gh();
+            p.this.aBs = aa.Go().Gs();
+            p.this.Gg();
             return Boolean.TRUE;
         }
 

@@ -1,74 +1,52 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.account.ActivationActivity;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.a.a;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity aSr;
+class q implements a.InterfaceC0033a {
+    final /* synthetic */ NotLoginGuideActivity aTj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(ActivationActivity activationActivity) {
-        this.aSr = activationActivity;
+    public q(NotLoginGuideActivity notLoginGuideActivity) {
+        this.aTj = notLoginGuideActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        ImageView imageView;
-        ActivationActivity.b bVar;
-        ActivationActivity.a aVar;
-        ActivationActivity.b bVar2;
-        ActivationActivity.b bVar3;
-        ActivationActivity.a aVar2;
-        ActivationActivity.b bVar4;
-        ActivationActivity.a aVar3;
-        ActivationActivity.a aVar4;
-        view2 = this.aSr.ajw;
-        if (view != view2) {
-            if (view != this.aSr.aSd) {
-                if (view != this.aSr.aSe) {
-                    imageView = this.aSr.aRY;
-                    if (view == imageView) {
-                        this.aSr.aSc.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                } else if (this.aSr.aSh) {
-                    bVar = this.aSr.aSf;
-                    if (bVar == null) {
-                        aVar = this.aSr.aSg;
-                        if (aVar == null) {
-                            this.aSr.aSf = new ActivationActivity.b(this.aSr, null);
-                            bVar2 = this.aSr.aSf;
-                            bVar2.setPriority(3);
-                            bVar3 = this.aSr.aSf;
-                            bVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                } else {
-                    return;
-                }
-            }
-            aVar2 = this.aSr.aSg;
-            if (aVar2 == null) {
-                bVar4 = this.aSr.aSf;
-                if (bVar4 == null) {
-                    this.aSr.aSg = new ActivationActivity.a(this.aSr, null);
-                    aVar3 = this.aSr.aSg;
-                    aVar3.setPriority(3);
-                    aVar4 = this.aSr.aSg;
-                    aVar4.execute(new String[0]);
-                    return;
-                }
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
+    public void cf(String str) {
+        if (this.aTj.getLoadingDialog() == null || !this.aTj.getLoadingDialog().isShowing()) {
+            this.aTj.showLoadingDialog(this.aTj.getPageContext().getString(r.j.sapi_logining), new r(this));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
+    public void a(AccountData accountData) {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
+        this.aTj.closeLoadingDialog();
+        if (TextUtils.isEmpty(accountData.getAccount())) {
+            this.aTj.k(accountData);
+        } else {
+            this.aTj.p(accountData);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
+    public void b(String str, int i, String str2) {
+        int i2;
+        int i3;
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
+        this.aTj.closeLoadingDialog();
+        i2 = this.aTj.aTh;
+        if (i2 != 1) {
+            i3 = this.aTj.aTh;
+            if (i3 != 2) {
                 return;
             }
+            this.aTj.Ml();
             return;
         }
-        this.aSr.setResult(0);
-        this.aSr.finish();
+        this.aTj.Mk();
     }
 }

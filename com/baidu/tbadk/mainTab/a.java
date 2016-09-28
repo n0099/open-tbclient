@@ -1,9 +1,9 @@
 package com.baidu.tbadk.mainTab;
 /* loaded from: classes.dex */
 public class a {
-    public boolean azt;
+    public boolean ayW;
 
     public a(boolean z) {
-        this.azt = z;
+        this.ayW = z;
     }
 }

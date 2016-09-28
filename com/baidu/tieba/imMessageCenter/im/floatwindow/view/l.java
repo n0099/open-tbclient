@@ -4,79 +4,79 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class l {
-    private TextView aKZ;
-    private TextView aVp;
-    private TextView cUW;
-    private TextView dpQ;
+    private TextView aKy;
+    private TextView aVY;
+    private TextView cWq;
+    private TextView drn;
     private int status;
 
     public l(View view) {
-        this.aKZ = (TextView) view.findViewById(t.g.floating_chat_name);
-        this.dpQ = (TextView) view.findViewById(t.g.floating_chat_distance);
-        this.cUW = (TextView) view.findViewById(t.g.floating_chat_time);
-        this.aVp = (TextView) view.findViewById(t.g.floating_chat_add_friend);
+        this.aKy = (TextView) view.findViewById(r.g.floating_chat_name);
+        this.drn = (TextView) view.findViewById(r.g.floating_chat_distance);
+        this.cWq = (TextView) view.findViewById(r.g.floating_chat_time);
+        this.aVY = (TextView) view.findViewById(r.g.floating_chat_add_friend);
     }
 
-    public void mn(String str) {
-        this.aKZ.setText(str);
+    public void mA(String str) {
+        this.aKy.setText(str);
     }
 
-    public void md(int i) {
+    public void ml(int i) {
         this.status = i;
         switch (i) {
             case 0:
-                this.aVp.setClickable(true);
-                this.aVp.setVisibility(0);
-                this.aVp.setText(t.j.frs_recommend_friend_item_add);
+                this.aVY.setClickable(true);
+                this.aVY.setVisibility(0);
+                this.aVY.setText(r.j.frs_recommend_friend_item_add);
                 return;
             case 1:
             case 3:
-                this.aVp.setVisibility(8);
+                this.aVY.setVisibility(8);
                 return;
             case 2:
-                this.aVp.setVisibility(0);
-                this.aVp.setText(t.j.waiting);
-                this.aVp.setClickable(false);
-                this.aVp.setBackgroundResource(t.d.common_color_10022);
-                this.aVp.setText(t.j.waiting);
-                this.aVp.setTextColor(TbadkCoreApplication.m9getInst().getResources().getColor(t.d.cp_cont_d));
+                this.aVY.setVisibility(0);
+                this.aVY.setText(r.j.waiting);
+                this.aVY.setClickable(false);
+                this.aVY.setBackgroundResource(r.d.common_color_10022);
+                this.aVY.setText(r.j.waiting);
+                this.aVY.setTextColor(TbadkCoreApplication.m9getInst().getResources().getColor(r.d.cp_cont_d));
                 return;
             case 4:
-                this.aVp.setClickable(true);
-                this.aVp.setVisibility(0);
-                this.aVp.setText(t.j.add_friend_agree_button);
+                this.aVY.setClickable(true);
+                this.aVY.setVisibility(0);
+                this.aVY.setText(r.j.add_friend_agree_button);
                 return;
             default:
                 return;
         }
     }
 
-    public void p(View.OnClickListener onClickListener) {
-        this.aVp.setOnClickListener(onClickListener);
+    public void o(View.OnClickListener onClickListener) {
+        this.aVY.setOnClickListener(onClickListener);
     }
 
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
-        this.aKZ.setText(str);
+        this.aKy.setText(str);
         if (bVar != null) {
-            if (bVar.Ar() < 0 || bVar.Ar() > 1) {
-                this.dpQ.setVisibility(8);
-                this.cUW.setVisibility(8);
+            if (bVar.Au() < 0 || bVar.Au() > 1) {
+                this.drn.setVisibility(8);
+                this.cWq.setVisibility(8);
                 return;
             }
-            this.dpQ.setVisibility(0);
-            this.cUW.setVisibility(0);
-            this.dpQ.setText(TbadkCoreApplication.m9getInst().getResources().getString(t.j.contact_yinshen));
-            if (!StringUtils.isNull(bVar.Aq()) && bVar.getTime() > 0) {
-                this.dpQ.setVisibility(0);
-                this.dpQ.setText(bVar.Aq());
-                this.cUW.setText(ba.r(bVar.getTime()));
+            this.drn.setVisibility(0);
+            this.cWq.setVisibility(0);
+            this.drn.setText(TbadkCoreApplication.m9getInst().getResources().getString(r.j.contact_yinshen));
+            if (!StringUtils.isNull(bVar.At()) && bVar.getTime() > 0) {
+                this.drn.setVisibility(0);
+                this.drn.setText(bVar.At());
+                this.cWq.setText(az.r(bVar.getTime()));
                 return;
             }
-            this.dpQ.setVisibility(8);
+            this.drn.setVisibility(8);
         }
     }
 }

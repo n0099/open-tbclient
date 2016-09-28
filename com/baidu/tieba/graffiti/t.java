@@ -4,17 +4,17 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class t extends com.baidu.adp.lib.h.d {
-    private final /* synthetic */ ImageView cwp;
+    private final /* synthetic */ ImageView cwU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(ImageView imageView) {
-        this.cwp = imageView;
+        this.cwU = imageView;
     }
 
     @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.cwp.setImageResource(0);
-        this.cwp.setBackgroundResource(0);
-        this.cwp.setVisibility(8);
+        this.cwU.setImageResource(0);
+        this.cwU.setBackgroundResource(0);
+        this.cwU.setVisibility(8);
     }
 }

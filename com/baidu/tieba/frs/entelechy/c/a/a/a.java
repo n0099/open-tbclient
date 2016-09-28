@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.cy;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends c {
-    private c.b VL;
-    private FrsActivity bWX;
-    int bXg;
+    private c.b VV;
+    private FrsActivity bWR;
+    int bXa;
     private List<cy> mDatas;
 
     public a(FrsActivity frsActivity, c.b bVar) {
         super(frsActivity.getActivity());
-        this.bXg = 0;
+        this.bXa = 0;
         if (frsActivity != null && bVar != null) {
-            this.bWX = frsActivity;
-            this.VL = bVar;
+            this.bWR = frsActivity;
+            this.VV = bVar;
         }
     }
 
@@ -33,8 +33,8 @@ public class a extends c {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 cy cyVar = new cy();
-                cyVar.name = this.bWX.getResources().getString(t.j.attention_users_thread);
-                cyVar.bTp = 6;
+                cyVar.name = this.bWR.getResources().getString(r.j.attention_users_thread);
+                cyVar.bTi = 6;
                 this.mDatas.add(cyVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,20 +44,20 @@ public class a extends c {
                 }
             }
             reset();
-            a(arrayList, this.VL);
+            a(arrayList, this.VV);
         }
     }
 
-    public List<cy> adr() {
+    public List<cy> adF() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c
-    public c ta() {
+    public c tp() {
         View cg;
-        super.ta();
-        if (this.mDatas != null && (cg = cg(this.mDatas.size())) != null && (cg.findViewById(t.g.dialog_item_btn) instanceof TextView)) {
-            av.j((View) ((TextView) cg.findViewById(t.g.dialog_item_btn)), t.d.cp_link_tip_a);
+        super.tp();
+        if (this.mDatas != null && (cg = cg(this.mDatas.size())) != null && (cg.findViewById(r.g.dialog_item_btn) instanceof TextView)) {
+            av.j((View) ((TextView) cg.findViewById(r.g.dialog_item_btn)), r.d.cp_link_tip_a);
         }
         return this;
     }

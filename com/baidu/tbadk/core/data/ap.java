@@ -1,91 +1,44 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.List;
+import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
-public class ap {
-    public int Sj;
-    public boolean hasMore;
-    public int pageNum;
-    private ArrayList<UserData> Sf = new ArrayList<>();
-    private ArrayList<UserData> Sg = new ArrayList<>();
-    private ak mPage = new ak();
-    private int Sh = 0;
-    private int Si = 0;
+public class ap extends com.baidu.tieba.tbadkCore.data.q {
+    public static final BdUniqueId Se = BdUniqueId.gen();
+    public int PY;
+    public String Qk;
+    public String Ql;
+    public String Sf;
+    public String Sg;
+    public String Sh;
+    public List<String> Si;
+    public String Sj;
+    public String Sk;
+    public String bookId;
 
-    public ArrayList<UserData> qu() {
-        return this.Sf;
-    }
-
-    public ArrayList<UserData> qv() {
-        return this.Sg;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    public void a(RecommendBook recommendBook) {
+        if (recommendBook != null) {
+            this.Sf = recommendBook.recommend_text;
+            this.Sg = recommendBook.suggest_text;
+            this.Sh = recommendBook.suggest_url;
+            this.bookId = recommendBook.book_id;
+            this.PY = recommendBook.book_type.intValue();
+            this.Ql = recommendBook.book_cover;
+            this.Qk = recommendBook.book_title;
+            this.Si = recommendBook.book_tips;
+            this.Sj = recommendBook.botton_text;
+            this.Sk = recommendBook.subscript_icon;
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                if (jSONObject.optJSONObject("page") != null) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            UserData userData = new UserData();
-                            userData.parserJson(optJSONArray.getJSONObject(i));
-                            this.Sf.add(userData);
-                        }
-                    }
-                    if (optJSONArray2 != null) {
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            UserData userData2 = new UserData();
-                            userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                            userData2.mAttentionType = 1;
-                            this.Sg.add(userData2);
-                        }
-                    }
-                    this.mPage.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.mPage != null) {
-                        this.pageNum = this.mPage.qo();
-                        this.Sj = this.mPage.qm();
-                        this.hasMore = this.mPage.qq() == 1;
-                    }
-                    this.Sh = jSONObject.optInt("tafriendnum", 0);
-                    this.Si = jSONObject.optInt("commonfriendnum", 0);
-                    return;
-                }
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
-                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
-                if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        UserData userData3 = new UserData();
-                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.Sf.add(userData3);
-                    }
-                }
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        UserData userData4 = new UserData();
-                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        userData4.mAttentionType = 1;
-                        userData4.setHave_attention(1);
-                        this.Sg.add(userData4);
-                    }
-                }
-                this.pageNum = jSONObject.optInt("pn");
-                this.Sj = jSONObject.optInt("total_follow_num", 0);
-                this.hasMore = jSONObject.optInt("has_more", 0) == 1;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public boolean hasData() {
+        return (this == null || StringUtils.isNull(this.bookId)) ? false : true;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Se;
     }
 }

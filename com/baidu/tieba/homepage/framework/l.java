@@ -4,11 +4,11 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements b {
-    final /* synthetic */ RecommendFrsControlFragment cBR;
+    final /* synthetic */ RecommendFrsControlFragment cCw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cBR = recommendFrsControlFragment;
+        this.cCw = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tieba.homepage.framework.b
@@ -18,14 +18,14 @@ public class l implements b {
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
         ScrollFragmentTabHost scrollFragmentTabHost4;
-        scrollFragmentTabHost = this.cBR.cBE;
+        scrollFragmentTabHost = this.cCw.cCi;
         if (scrollFragmentTabHost != null) {
-            qVar = this.cBR.cBF;
-            scrollFragmentTabHost2 = this.cBR.cBE;
+            qVar = this.cCw.cCj;
+            scrollFragmentTabHost2 = this.cCw.cCi;
             int bD = scrollFragmentTabHost2.bD(j);
-            scrollFragmentTabHost3 = this.cBR.cBE;
+            scrollFragmentTabHost3 = this.cCw.cCi;
             long bE = scrollFragmentTabHost3.bE(j);
-            scrollFragmentTabHost4 = this.cBR.cBE;
+            scrollFragmentTabHost4 = this.cCw.cCi;
             qVar.a(i, j, bD, j2, bE, scrollFragmentTabHost4.bF(j), str);
         }
     }
@@ -37,14 +37,14 @@ public class l implements b {
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
         ScrollFragmentTabHost scrollFragmentTabHost4;
-        scrollFragmentTabHost = this.cBR.cBE;
+        scrollFragmentTabHost = this.cCw.cCi;
         if (scrollFragmentTabHost != null) {
-            qVar = this.cBR.cBF;
-            scrollFragmentTabHost2 = this.cBR.cBE;
+            qVar = this.cCw.cCj;
+            scrollFragmentTabHost2 = this.cCw.cCi;
             int bD = scrollFragmentTabHost2.bD(j);
-            scrollFragmentTabHost3 = this.cBR.cBE;
+            scrollFragmentTabHost3 = this.cCw.cCi;
             long bE = scrollFragmentTabHost3.bE(j);
-            scrollFragmentTabHost4 = this.cBR.cBE;
+            scrollFragmentTabHost4 = this.cCw.cCi;
             qVar.a(j, bD, bE, scrollFragmentTabHost4.bF(j));
         }
     }

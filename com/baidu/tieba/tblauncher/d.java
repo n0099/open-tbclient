@@ -2,8 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -18,27 +16,21 @@ class d extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> of;
-        ac acVar;
-        boolean z;
-        ac acVar2;
-        ac acVar3;
-        int i;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (of = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).of()) != null && of.size() != 0) {
-            acVar = this.this$0.fwr;
-            acVar.af(of);
-            z = this.this$0.fwm;
-            if (z) {
-                acVar3 = this.this$0.fwr;
-                FragmentTabHost bkZ = acVar3.bkZ();
-                i = this.this$0.fwl;
-                bkZ.setCurrentTabByType(i);
-            } else {
-                this.this$0.C(this.this$0.getIntent());
+        ab abVar;
+        ab abVar2;
+        ab abVar3;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
+            this.this$0.aIr();
+            abVar = this.this$0.fyW;
+            if (abVar != null) {
+                abVar2 = this.this$0.fyW;
+                if (abVar2.blH() != null) {
+                    MainTabActivity mainTabActivity = this.this$0;
+                    abVar3 = this.this$0.fyW;
+                    mainTabActivity.fyS = abVar3.blH().getCurrentTabType();
+                }
             }
-            this.this$0.fwm = false;
-            acVar2 = this.this$0.fwr;
-            acVar2.bkW();
+            this.this$0.fyT = true;
         }
     }
 }

@@ -25,8 +25,8 @@ public class GraffitiVcodeActivityConfig extends IntentConfig {
         getIntent().putExtra("forum_id", str3);
         getIntent().putExtra("thread_id", str4);
         getIntent().putExtra(PIC_ID, str5);
-        getIntent().putExtra(WIDTH, i2);
-        getIntent().putExtra(HEIGHT, i3);
+        getIntent().putExtra("width", i2);
+        getIntent().putExtra("height", i3);
         getIntent().putExtra(CHECK_STR, str6);
         if (FROM_GRAFFITI_TAB.equals(str7)) {
             getIntent().putExtra("from_page", FROM_GRAFFITI_TAB);

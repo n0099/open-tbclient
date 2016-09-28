@@ -1,47 +1,42 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.app.Activity;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ l bHc;
+public class ac extends com.baidu.adp.base.g {
+    final /* synthetic */ l bHk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(l lVar, int i, int i2) {
-        super(i, i2);
-        this.bHc = lVar;
+    public ac(l lVar) {
+        this.bHk = lVar;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
+    @Override // com.baidu.adp.base.g
+    public void g(Object obj) {
+        com.baidu.tieba.tbadkCore.x xVar;
+        com.baidu.tieba.tbadkCore.x xVar2;
+        com.baidu.tieba.tbadkCore.x xVar3;
         com.baidu.tieba.enterForum.c.c cVar;
-        com.baidu.tieba.enterForum.c.c cVar2;
-        com.baidu.tieba.enterForum.c.c cVar3;
-        String errorString;
-        if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            cVar = this.bHc.bGK;
-            if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                this.bHc.bGJ.Yi();
-                if (responsedMessage.hasError()) {
-                    if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = this.bHc.aTi.getResources().getString(t.j.neterror);
-                    } else {
-                        errorString = responsedMessage.getErrorString();
-                    }
-                    this.bHc.aTi.showToast(errorString);
-                    return;
-                }
-                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    cVar3 = this.bHc.bGK;
-                    cVar3.a((forumRecommendSocketResponseMessage) responsedMessage);
-                }
-                if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    cVar2 = this.bHc.bGK;
-                    cVar2.a((forumRecommendHttpResponseMessage) responsedMessage);
-                }
+        String str;
+        com.baidu.tieba.tbadkCore.x xVar4;
+        xVar = this.bHk.Ge;
+        if (AntiHelper.rU(xVar.getErrorCode())) {
+            Activity pageActivity = this.bHk.aTS.getPageContext().getPageActivity();
+            xVar4 = this.bHk.Ge;
+            AntiHelper.R(pageActivity, xVar4.getErrorString());
+        } else if (obj != null) {
+            cVar = this.bHk.bGT;
+            str = this.bHk.bGV;
+            cVar.dn(!StringUtils.isNull(str));
+        } else {
+            xVar2 = this.bHk.Ge;
+            if (!StringUtils.isNull(xVar2.getErrorString())) {
+                TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
+                xVar3 = this.bHk.Ge;
+                com.baidu.adp.lib.util.k.showToast(m9getInst, xVar3.getErrorString());
             }
         }
     }

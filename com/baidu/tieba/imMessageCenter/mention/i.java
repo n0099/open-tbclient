@@ -14,7 +14,7 @@ public class i extends al implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gb(String str) {
+    public boolean gf(String str) {
         try {
             i(new JSONObject(str));
             return true;

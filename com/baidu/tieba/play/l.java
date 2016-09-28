@@ -1,34 +1,20 @@
 package com.baidu.tieba.play;
+
+import android.view.View;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class l {
-    private int eWA = 0;
-    private int eWB = 0;
-    private boolean eWC = false;
-    private boolean eWD = true;
+class l implements AbsListView.RecyclerListener {
+    final /* synthetic */ k eYE;
 
-    public int aZS() {
-        return this.eWA;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(k kVar) {
+        this.eYE = kVar;
     }
 
-    public int aZT() {
-        return this.eWB;
-    }
-
-    public boolean aZU() {
-        return this.eWC;
-    }
-
-    public boolean aZV() {
-        return this.eWD;
-    }
-
-    public void g(int i, int i2, boolean z) {
-        this.eWA = i;
-        this.eWB = i2;
-        this.eWC = z;
-    }
-
-    public void jT(boolean z) {
-        this.eWD = z;
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        if (!this.eYE.bg(view) && (view.getTag() instanceof d)) {
+            ((d) view.getTag()).stopPlay();
+        }
     }
 }

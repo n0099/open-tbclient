@@ -11,11 +11,11 @@ import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ TbRichTextView aKi;
+    final /* synthetic */ TbRichTextView aJH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(TbRichTextView tbRichTextView) {
-        this.aKi = tbRichTextView;
+        this.aJH = tbRichTextView;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x003d  */
@@ -49,49 +49,49 @@ public class w implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.f.b bVar21;
         com.baidu.adp.lib.f.b bVar22;
         if (view2 instanceof GifView) {
-            bVar21 = this.aKi.aJr;
+            bVar21 = this.aJH.aIQ;
             if (bVar21 != null) {
-                bVar22 = this.aKi.aJr;
+                bVar22 = this.aJH.aIQ;
                 bVar22.n((GifView) view2);
-                bVar11 = this.aKi.aJs;
+                bVar11 = this.aJH.aIR;
                 if (bVar11 != null && view2.getClass().getSimpleName().startsWith("TogetherHi")) {
-                    bVar20 = this.aKi.aJs;
+                    bVar20 = this.aJH.aIR;
                     bVar20.n(view2);
                 }
                 if (!(view2 instanceof LinearLayout)) {
                     Object tag = view2.getTag();
                     if (tag == null || !(tag instanceof String) || !"VideoView".equals(tag)) {
-                        bVar12 = this.aKi.aJq;
+                        bVar12 = this.aJH.aIP;
                         if (bVar12 != null) {
                             int childCount = ((LinearLayout) view2).getChildCount();
                             for (int i = 0; i < childCount; i++) {
                                 View childAt = ((LinearLayout) view2).getChildAt(i);
                                 if (childAt != null) {
                                     if (childAt instanceof TextView) {
-                                        bVar18 = this.aKi.aJn;
+                                        bVar18 = this.aJH.aIM;
                                         if (bVar18 != null) {
-                                            bVar19 = this.aKi.aJn;
+                                            bVar19 = this.aJH.aIM;
                                             bVar19.n((TextView) childAt);
                                         }
                                     }
                                     if (childAt instanceof PlayVoiceBnt) {
-                                        bVar16 = this.aKi.aJp;
+                                        bVar16 = this.aJH.aIO;
                                         if (bVar16 != null) {
-                                            bVar17 = this.aKi.aJp;
+                                            bVar17 = this.aJH.aIO;
                                             bVar17.n(childAt);
                                         }
                                     }
                                     if (childAt instanceof PlayVoiceBntNew) {
-                                        bVar14 = this.aKi.aJp;
+                                        bVar14 = this.aJH.aIO;
                                         if (bVar14 != null) {
-                                            bVar15 = this.aKi.aJp;
+                                            bVar15 = this.aJH.aIO;
                                             bVar15.n(childAt);
                                         }
                                     }
                                 }
                             }
                             ((LinearLayout) view2).removeAllViews();
-                            bVar13 = this.aKi.aJq;
+                            bVar13 = this.aJH.aIP;
                             bVar13.n((LinearLayout) view2);
                             return;
                         }
@@ -104,13 +104,13 @@ public class w implements ViewGroup.OnHierarchyChangeListener {
             }
         }
         if (view2 instanceof ImageView) {
-            bVar9 = this.aKi.aJm;
+            bVar9 = this.aJH.aIL;
             if (bVar9 != null) {
-                bVar10 = this.aKi.aJm;
+                bVar10 = this.aJH.aIL;
                 bVar10.n((ImageView) view2);
-                bVar11 = this.aKi.aJs;
+                bVar11 = this.aJH.aIR;
                 if (bVar11 != null) {
-                    bVar20 = this.aKi.aJs;
+                    bVar20 = this.aJH.aIR;
                     bVar20.n(view2);
                 }
                 if (!(view2 instanceof LinearLayout)) {
@@ -118,11 +118,11 @@ public class w implements ViewGroup.OnHierarchyChangeListener {
             }
         }
         if (view2 instanceof TextView) {
-            bVar7 = this.aKi.aJn;
+            bVar7 = this.aJH.aIM;
             if (bVar7 != null) {
-                bVar8 = this.aKi.aJn;
+                bVar8 = this.aJH.aIM;
                 bVar8.n((TextView) view2);
-                bVar11 = this.aKi.aJs;
+                bVar11 = this.aJH.aIR;
                 if (bVar11 != null) {
                 }
                 if (!(view2 instanceof LinearLayout)) {
@@ -130,11 +130,11 @@ public class w implements ViewGroup.OnHierarchyChangeListener {
             }
         }
         if (view2 instanceof PlayVoiceBnt) {
-            bVar5 = this.aKi.aJp;
+            bVar5 = this.aJH.aIO;
             if (bVar5 != null) {
-                bVar6 = this.aKi.aJp;
+                bVar6 = this.aJH.aIO;
                 bVar6.n(view2);
-                bVar11 = this.aKi.aJs;
+                bVar11 = this.aJH.aIR;
                 if (bVar11 != null) {
                 }
                 if (!(view2 instanceof LinearLayout)) {
@@ -142,11 +142,11 @@ public class w implements ViewGroup.OnHierarchyChangeListener {
             }
         }
         if (view2 instanceof com.baidu.tieba.graffiti.e) {
-            bVar3 = this.aKi.aJo;
+            bVar3 = this.aJH.aIN;
             if (bVar3 != null) {
-                bVar4 = this.aKi.aJo;
+                bVar4 = this.aJH.aIN;
                 bVar4.n(view2);
-                bVar11 = this.aKi.aJs;
+                bVar11 = this.aJH.aIR;
                 if (bVar11 != null) {
                 }
                 if (!(view2 instanceof LinearLayout)) {
@@ -154,13 +154,13 @@ public class w implements ViewGroup.OnHierarchyChangeListener {
             }
         }
         if (view2 instanceof PlayVoiceBntNew) {
-            bVar = this.aKi.aJp;
+            bVar = this.aJH.aIO;
             if (bVar != null) {
-                bVar2 = this.aKi.aJp;
+                bVar2 = this.aJH.aIO;
                 bVar2.n(view2);
             }
         }
-        bVar11 = this.aKi.aJs;
+        bVar11 = this.aJH.aIR;
         if (bVar11 != null) {
         }
         if (!(view2 instanceof LinearLayout)) {

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.core.voice.service.MediaService;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BroadcastReceiver {
@@ -85,9 +85,9 @@ public class g extends BroadcastReceiver {
                     VoiceManager.b playView4 = this.this$0.getPlayView();
                     if (playView4 != null) {
                         if (intExtra2 == 2) {
-                            string = com.baidu.adp.lib.voice.l.getString(t.j.voice_err_io);
+                            string = com.baidu.adp.lib.voice.l.getString(r.j.voice_err_io);
                         } else {
-                            string = com.baidu.adp.lib.voice.l.getString(t.j.voice_err_play);
+                            string = com.baidu.adp.lib.voice.l.getString(r.j.voice_err_play);
                         }
                         playView4.onShowErr(5, string);
                     }

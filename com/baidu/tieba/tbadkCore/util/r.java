@@ -14,7 +14,7 @@ class r extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (TbadkCoreApplication.m9getInst().getPhotoLiveReadThreadHistory() != null) {
-            TbadkCoreApplication.m9getInst().getPhotoLiveReadThreadHistory().bkb();
+            TbadkCoreApplication.m9getInst().getPhotoLiveReadThreadHistory().bkN();
         }
     }
 }

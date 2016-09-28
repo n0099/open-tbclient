@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ImMessageCenterDelegateStatic dnu;
+    final /* synthetic */ ImMessageCenterDelegateStatic doS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i) {
         super(i);
-        this.dnu = imMessageCenterDelegateStatic;
+        this.doS = imMessageCenterDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ public class d extends com.baidu.adp.framework.listener.e {
         if ((socketResponsedMessage instanceof ResponseUpdateForumMask) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateForumMask)) {
             RequestUpdateForumMask requestUpdateForumMask = (RequestUpdateForumMask) socketResponsedMessage.getOrginalMessage();
             boolean flag = requestUpdateForumMask != null ? requestUpdateForumMask.getFlag() : false;
-            int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yA().getMsgChat();
-            int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.yA().getMsgReplyme();
-            int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.yA().getMsgAtme();
-            int yH = com.baidu.tbadk.coreExtra.messageCenter.a.yA().yH();
-            com.baidu.tbadk.coreExtra.d.e yV = com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV();
-            if (yV != null && flag) {
-                i = yV.Ag();
+            int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.yD().getMsgChat();
+            int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.yD().getMsgReplyme();
+            int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.yD().getMsgAtme();
+            int yK = com.baidu.tbadk.coreExtra.messageCenter.a.yD().yK();
+            com.baidu.tbadk.coreExtra.d.e yY = com.baidu.tbadk.coreExtra.messageCenter.a.yD().yY();
+            if (yY != null && flag) {
+                i = yY.Aj();
             }
-            textView = this.dnu.aqJ;
-            ImMessageCenterDelegateStatic.r(textView, (((msgChat - i) + msgReplyme) + msgAtme) - yH);
+            textView = this.doS.aqr;
+            ImMessageCenterDelegateStatic.r(textView, (((msgChat - i) + msgReplyme) + msgAtme) - yK);
         }
     }
 }

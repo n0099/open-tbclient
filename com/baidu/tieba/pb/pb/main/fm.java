@@ -5,24 +5,24 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fm implements View.OnClickListener {
-    final /* synthetic */ ex euB;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.q euE;
+    final /* synthetic */ ex ewH;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.q ewK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fm(ex exVar, com.baidu.tieba.tbadkCore.data.q qVar) {
-        this.euB = exVar;
-        this.euE = qVar;
+        this.ewH = exVar;
+        this.ewK = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10630").ab("obj_id", this.euE.getAuthor().getUserId()));
-        pbActivity = this.euB.emy;
-        if (pbActivity.eni.euQ != null) {
-            pbActivity2 = this.euB.emy;
-            pbActivity2.eni.euQ.onClick(view);
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c10630").ab("obj_id", this.ewK.getAuthor().getUserId()));
+        pbActivity = this.ewH.eow;
+        if (pbActivity.epf.ewW != null) {
+            pbActivity2 = this.ewH.eow;
+            pbActivity2.epf.ewW.onClick(view);
         }
     }
 }

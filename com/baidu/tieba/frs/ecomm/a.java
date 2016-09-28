@@ -10,21 +10,21 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 public class a extends e<FrsActivity> {
-    private FrsActivity bRp;
-    private InterfaceC0057a bUK;
-    private HttpMessageListener bwj = new b(this, CmdConfigHttp.ECOMM_CAN_SEND_THREAD, true);
+    private FrsActivity bRi;
+    private InterfaceC0061a bUD;
+    private HttpMessageListener bwv = new b(this, CmdConfigHttp.ECOMM_CAN_SEND_THREAD, true);
 
     /* renamed from: com.baidu.tieba.frs.ecomm.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0057a {
+    public interface InterfaceC0061a {
         void a(int i, String str, EcommCanSendThreadResponseMessage ecommCanSendThreadResponseMessage);
     }
 
     public a(FrsActivity frsActivity) {
-        this.bRp = frsActivity;
-        this.unique_id = this.bRp.getUniqueId();
+        this.bRi = frsActivity;
+        this.unique_id = this.bRi.getUniqueId();
         Ed();
-        registerListener(this.bwj);
+        registerListener(this.bwv);
     }
 
     private void Ed() {
@@ -43,13 +43,13 @@ public class a extends e<FrsActivity> {
         return false;
     }
 
-    public void jO(String str) {
+    public void jV(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.ECOMM_CAN_SEND_THREAD);
         httpMessage.addParam("forum_id", str);
         sendMessage(httpMessage);
     }
 
-    public void a(InterfaceC0057a interfaceC0057a) {
-        this.bUK = interfaceC0057a;
+    public void a(InterfaceC0061a interfaceC0061a) {
+        this.bUD = interfaceC0061a;
     }
 }

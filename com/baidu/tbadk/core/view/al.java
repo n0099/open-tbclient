@@ -1,32 +1,42 @@
 package com.baidu.tbadk.core.view;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class al implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserIconBox ahK;
+class al implements View.OnClickListener {
+    final /* synthetic */ UserIconLayout ahF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(UserIconBox userIconBox) {
-        this.ahK = userIconBox;
+    public al(UserIconLayout userIconLayout) {
+        this.ahF = userIconLayout;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.f.b bVar;
-        com.baidu.adp.lib.f.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.ahK.ahC;
-            if (bVar != null) {
-                bVar2 = this.ahK.ahC;
-                bVar2.n((TbImageView) view2);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bi biVar;
+        bi biVar2;
+        bi biVar3;
+        Context context;
+        int i;
+        biVar = this.ahF.adW;
+        if (biVar != null) {
+            biVar2 = this.ahF.adW;
+            if (biVar2.getAuthor() != null) {
+                biVar3 = this.ahF.adW;
+                String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + biVar3.getAuthor().getUserId();
+                String string = TbadkCoreApplication.m9getInst().getString(r.j.user_icon_web_view_title);
+                context = this.ahF.mContext;
+                com.baidu.tbadk.browser.f.a(context.getApplicationContext(), string, str, true, true, true);
+                i = this.ahF.ahB;
+                if (i == 1) {
+                    TiebaStatic.log(new ax("c10134").s("obj_type", 3));
+                }
             }
         }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
     }
 }

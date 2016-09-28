@@ -14,11 +14,11 @@ public class b {
         this.hide = i;
     }
 
-    public String Aq() {
+    public String At() {
         return this.distance;
     }
 
-    public void eI(String str) {
+    public void eL(String str) {
         this.distance = str;
     }
 
@@ -30,7 +30,7 @@ public class b {
         this.time = j;
     }
 
-    public int Ar() {
+    public int Au() {
         return this.hide;
     }
 

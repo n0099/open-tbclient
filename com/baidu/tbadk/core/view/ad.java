@@ -1,38 +1,22 @@
 package com.baidu.tbadk.core.view;
 
-import android.media.MediaPlayer;
-import android.widget.MediaController;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class ad implements MediaPlayer.OnErrorListener {
-    final /* synthetic */ TextureVideoView ahh;
+class ad extends CustomMessageListener {
+    final /* synthetic */ ab agU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(TextureVideoView textureVideoView) {
-        this.ahh = textureVideoView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(ab abVar, int i) {
+        super(i);
+        this.agU = abVar;
     }
 
-    @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        MediaController mediaController;
-        MediaPlayer.OnErrorListener onErrorListener;
-        MediaPlayer.OnErrorListener onErrorListener2;
-        MediaPlayer mediaPlayer2;
-        MediaController mediaController2;
-        this.ahh.agz = -1;
-        this.ahh.agA = -1;
-        mediaController = this.ahh.agE;
-        if (mediaController != null) {
-            mediaController2 = this.ahh.agE;
-            mediaController2.hide();
-        }
-        onErrorListener = this.ahh.agI;
-        if (onErrorListener != null) {
-            onErrorListener2 = this.ahh.agI;
-            mediaPlayer2 = this.ahh.agB;
-            if (onErrorListener2.onError(mediaPlayer2, i, i2)) {
-            }
-        }
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.agU.agB.setBackgroundColor(com.baidu.tbadk.core.util.am.vh().cI(TbadkCoreApplication.m9getInst().getSkinType()));
     }
 }

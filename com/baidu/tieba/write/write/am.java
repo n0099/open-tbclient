@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gfs;
+    final /* synthetic */ WriteActivity ghD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.gfs = writeActivity;
+        this.ghD = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,21 +24,21 @@ public class am implements View.OnClickListener {
         EditText editText;
         InputMethodManager inputMethodManager2;
         EditText editText2;
-        textView = this.gfs.fjd;
+        textView = this.ghD.flJ;
         textView.setVisibility(0);
-        view2 = this.gfs.fjg;
+        view2 = this.ghD.flM;
         view2.setSelected(true);
-        bVar = this.gfs.fje;
-        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.gfs.getPageContext().getPageActivity(), 1.0f));
-        lVar = this.gfs.auk;
-        lVar.AS();
-        WriteActivity writeActivity = this.gfs;
-        inputMethodManager = this.gfs.mInputManager;
-        editText = this.gfs.fiX;
+        bVar = this.ghD.flK;
+        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.ghD.getPageContext().getPageActivity(), 1.0f));
+        lVar = this.ghD.atO;
+        lVar.AV();
+        WriteActivity writeActivity = this.ghD;
+        inputMethodManager = this.ghD.mInputManager;
+        editText = this.ghD.flD;
         writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.gfs;
-        inputMethodManager2 = this.gfs.mInputManager;
-        editText2 = this.gfs.fjb;
+        WriteActivity writeActivity2 = this.ghD;
+        inputMethodManager2 = this.ghD.mInputManager;
+        editText2 = this.ghD.flH;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
     }
 }

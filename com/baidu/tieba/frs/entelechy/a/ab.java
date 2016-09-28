@@ -13,7 +13,7 @@ public class ab implements com.baidu.adp.lib.f.c<com.baidu.tbadk.widget.layout.c
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: acx */
+    /* renamed from: acJ */
     public com.baidu.tbadk.widget.layout.c ez() {
         TbPageContext tbPageContext;
         tbPageContext = this.bWC.GM;

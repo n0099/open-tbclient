@@ -3,14 +3,14 @@ package com.baidu.tieba.pb.pb.main;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.pb.pb.main.ct;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class at implements ct.a {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ct.a
@@ -18,16 +18,16 @@ class at implements ct.a {
         ex exVar;
         if (StringUtils.isNull(str)) {
             if (i == 0) {
-                this.eob.showToast(t.j.upgrage_toast_dialog);
+                this.eqa.showToast(r.j.upgrage_toast_dialog);
             } else {
-                this.eob.showToast(t.j.neterror);
+                this.eqa.showToast(r.j.neterror);
             }
         } else if (i != 0 && !TextUtils.isEmpty(str2)) {
-            this.eob.enV = str2;
-            exVar = this.eob.enh;
-            exVar.oZ(str);
+            this.eqa.epU = str2;
+            exVar = this.eqa.epe;
+            exVar.po(str);
         } else {
-            this.eob.showToast(str);
+            this.eqa.showToast(str);
         }
     }
 }

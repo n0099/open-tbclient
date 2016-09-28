@@ -4,11 +4,11 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements com.baidu.tieba.view.v {
-    final /* synthetic */ ab eHQ;
+    final /* synthetic */ ab eJU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ab abVar) {
-        this.eHQ = abVar;
+        this.eJU = abVar;
     }
 
     @Override // com.baidu.tieba.view.v
@@ -16,12 +16,12 @@ public class ac implements com.baidu.tieba.view.v {
         af afVar;
         af afVar2;
         af afVar3;
-        afVar = this.eHQ.eHM;
+        afVar = this.eJU.eJQ;
         if (afVar != null) {
-            afVar2 = this.eHQ.eHM;
-            if (afVar2.eHT != null) {
-                afVar3 = this.eHQ.eHM;
-                afVar3.eHT.onScrollStateChanged(absListView, i);
+            afVar2 = this.eJU.eJQ;
+            if (afVar2.eJX != null) {
+                afVar3 = this.eJU.eJQ;
+                afVar3.eJX.onScrollStateChanged(absListView, i);
             }
         }
     }
@@ -31,12 +31,12 @@ public class ac implements com.baidu.tieba.view.v {
         af afVar;
         af afVar2;
         af afVar3;
-        afVar = this.eHQ.eHM;
+        afVar = this.eJU.eJQ;
         if (afVar != null) {
-            afVar2 = this.eHQ.eHM;
-            if (afVar2.eHT != null) {
-                afVar3 = this.eHQ.eHM;
-                afVar3.eHT.onScroll(absListView, i, i2, i3);
+            afVar2 = this.eJU.eJQ;
+            if (afVar2.eJX != null) {
+                afVar3 = this.eJU.eJQ;
+                afVar3.eJX.onScroll(absListView, i, i2, i3);
             }
         }
     }

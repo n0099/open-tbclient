@@ -4,19 +4,19 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.lib.f.c<com.baidu.tieba.personPolymeric.d.q> {
-    final /* synthetic */ c eGT;
+    final /* synthetic */ c eIX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.eGT = cVar;
+        this.eIX = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aTm */
+    /* renamed from: aTJ */
     public com.baidu.tieba.personPolymeric.d.q ez() {
         Context context;
-        context = this.eGT.mContext;
+        context = this.eIX.mContext;
         return new com.baidu.tieba.personPolymeric.d.q(context);
     }
 

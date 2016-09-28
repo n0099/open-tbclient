@@ -1,42 +1,22 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
-    final /* synthetic */ e elb;
-    private final /* synthetic */ String elf;
-    private final /* synthetic */ String elg;
-    private final /* synthetic */ String elh;
+public class o extends CustomMessageListener {
+    final /* synthetic */ e emY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(e eVar, String str, String str2, String str3) {
-        this.elb = eVar;
-        this.elf = str;
-        this.elg = str2;
-        this.elh = str3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o(e eVar, int i) {
+        super(i);
+        this.emY = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        PbActivity pbActivity;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.elf) && !StringUtils.isNull(this.elg)) {
-            if (!com.baidu.adp.lib.util.i.gm()) {
-                pbActivity = this.elb.emy;
-                com.baidu.adp.lib.util.k.showToast(pbActivity.getPageContext().getPageActivity(), t.j.neterror);
-                return;
-            }
-            context = this.elb.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.elf) + "," + this.elg, this.elh, this.elh, context.getString(t.j.app_info_for_map));
-            context2 = this.elb.mContext;
-            com.baidu.tbadk.browser.f.u(context2, format);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.emY.aoC();
     }
 }

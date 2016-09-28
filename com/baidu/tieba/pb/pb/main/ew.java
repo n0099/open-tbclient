@@ -18,13 +18,13 @@ public class ew {
     }
 
     public static boolean g(com.baidu.tieba.tbadkCore.data.q qVar) {
-        if (qVar == null || qVar.bjm() == null) {
+        if (qVar == null || qVar.bjY() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.i bjm = qVar.bjm();
-        if (bjm.fsh) {
-            int biI = bjm.biI();
-            return biI == 2 || biI == 1 || biI == 3;
+        com.baidu.tieba.tbadkCore.data.i bjY = qVar.bjY();
+        if (bjY.fuN) {
+            int bjt = bjY.bjt();
+            return bjt == 2 || bjt == 1 || bjt == 3;
         }
         return false;
     }

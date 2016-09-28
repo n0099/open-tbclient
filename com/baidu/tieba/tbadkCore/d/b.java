@@ -3,60 +3,60 @@ package com.baidu.tieba.tbadkCore.d;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.d ftB;
-    private final int ftC = 10;
-    private final int ftD = 3000;
-    public String ftE = null;
-    public boolean acR = false;
+    private com.baidu.adp.lib.stats.d fwh;
+    private final int fwi = 10;
+    private final int fwj = 3000;
+    public String fwk = null;
+    public boolean adc = false;
 
     public b(String str) {
         S(str, false);
     }
 
     public void S(String str, boolean z) {
-        this.ftE = str;
-        this.acR = z;
-        this.ftB = new com.baidu.adp.lib.stats.d("dbg");
+        this.fwk = str;
+        this.adc = z;
+        this.fwh = new com.baidu.adp.lib.stats.d("dbg");
         c.i(str, getNetType(), z);
     }
 
     public void start() {
-        this.ftB.eY();
+        this.fwh.eY();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f bjy;
-        if (this.ftB != null && (bjy = bjy()) != null) {
+        f bkk;
+        if (this.fwh != null && (bkk = bkk()) != null) {
             if (z) {
-                if (bjy.ftJ != null) {
-                    bjy.ftJ.num++;
+                if (bkk.fwp != null) {
+                    bkk.fwp.num++;
                     if (z2) {
-                        bjy.ftJ.ftG += j2;
-                        bjy.ftJ.size += j;
+                        bkk.fwp.fwm += j2;
+                        bkk.fwp.size += j;
                     } else {
-                        bjy.ftJ.ftH++;
+                        bkk.fwp.fwn++;
                     }
                 } else {
                     return;
                 }
-            } else if (bjy.ftK != null) {
-                bjy.ftK.num++;
+            } else if (bkk.fwq != null) {
+                bkk.fwq.num++;
                 if (z2) {
-                    bjy.ftK.ftG += j3;
-                    bjy.ftK.size += j;
+                    bkk.fwq.fwm += j3;
+                    bkk.fwq.size += j;
                     j2 = j3;
                 } else {
-                    bjy.ftK.ftH++;
+                    bkk.fwq.fwn++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.ftB = null;
+            this.fwh = null;
             if (z2) {
-                c.a(bjy, 10);
+                c.a(bkk, 10);
             }
-            if (this.ftE == "frsStat") {
+            if (this.fwk == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
                     dVar.q("act", "frs");
@@ -73,20 +73,20 @@ public class b {
     }
 
     public void destory() {
-        f bjy;
-        if (this.ftB != null && (bjy = bjy()) != null && bjy.ftL != null) {
-            long eZ = this.ftB.eZ();
+        f bkk;
+        if (this.fwh != null && (bkk = bkk()) != null && bkk.fwr != null) {
+            long eZ = this.fwh.eZ();
             if (eZ > 3000) {
-                e eVar = bjy.ftL;
-                eVar.ftG = eZ + eVar.ftG;
-                bjy.ftL.num++;
-                c.a(bjy, 10);
+                e eVar = bkk.fwr;
+                eVar.fwm = eZ + eVar.fwm;
+                bkk.fwr.num++;
+                c.a(bkk, 10);
             }
         }
     }
 
-    private f bjy() {
-        return c.j(this.ftE, getNetType(), this.acR);
+    private f bkk() {
+        return c.j(this.fwk, getNetType(), this.adc);
     }
 
     private String getNetType() {

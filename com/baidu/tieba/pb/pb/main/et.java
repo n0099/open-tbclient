@@ -12,6 +12,6 @@ class et extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ep.aOQ().a(0, customResponsedMessage);
+        ep.aPz().a(0, customResponsedMessage);
     }
 }

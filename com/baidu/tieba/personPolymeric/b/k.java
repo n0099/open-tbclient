@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends CustomMessageListener {
-    final /* synthetic */ h eHw;
+    final /* synthetic */ h eJA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(h hVar, int i) {
         super(i);
-        this.eHw = hVar;
+        this.eJA = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,6 +21,6 @@ public class k extends CustomMessageListener {
         if (!(customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) || ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() != 0) {
             return;
         }
-        this.eHw.iO(true);
+        this.eJA.iR(true);
     }
 }

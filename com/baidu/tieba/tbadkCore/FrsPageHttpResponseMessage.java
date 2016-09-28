@@ -46,7 +46,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 this.needCache = mVar.isNeedCache();
                 this.mCategoryId = mVar.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = mVar.bhc();
+                this.mSortType = mVar.bhK();
                 this.mIsGood = mVar.getIsGood();
             }
         }
@@ -71,15 +71,15 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bhB() != null && !StringUtils.isNull(this.responseData.bhB().getBookId(), true) && !this.responseData.bhB().getBookId().equals("0") && this.responseData.bhB().px() == 3 && (g = com.baidu.adp.lib.h.b.g(this.responseData.bhB().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+        if (this.responseData.bik() != null && !StringUtils.isNull(this.responseData.bik().getBookId(), true) && !this.responseData.bik().getBookId().equals("0") && this.responseData.bik().py() == 3 && (g = com.baidu.adp.lib.h.b.g(this.responseData.bik().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
             this.responseData.h(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aLP() != null) {
-            d.bgZ().a(d.bgZ().e(this.responseData.aLP().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aMr() != null) {
+            d.bhH().a(d.bhH().e(this.responseData.aMr().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
         }
     }
 

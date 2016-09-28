@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bSV;
-    final /* synthetic */ PbActivity eob;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bSO;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
-        this.eob = pbActivity;
-        this.bSV = fVar;
+        this.eqa = pbActivity;
+        this.bSO = fVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.a.az(this.bSV.linkUrl);
-        com.baidu.adp.lib.util.k.showToast(this.eob.getPageContext().getPageActivity(), view.getResources().getString(t.j.copy_pb_url_success));
+        com.baidu.adp.lib.util.a.az(this.bSO.linkUrl);
+        com.baidu.adp.lib.util.k.showToast(this.eqa.getPageContext().getPageActivity(), view.getResources().getString(r.j.copy_pb_url_success));
     }
 }

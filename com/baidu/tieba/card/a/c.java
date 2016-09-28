@@ -5,34 +5,34 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View aXY;
-    private TextView aYh;
-    private View bcO;
+    private TextView aMI;
+    private View aYC;
+    private View bdi;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.aXY = getView().findViewById(t.g.card_divider_top_margin);
-        this.aYh = (TextView) getView().findViewById(t.g.card_divider_tv);
-        this.bcO = getView().findViewById(t.g.bottom_line);
+        this.aYC = getView().findViewById(r.g.card_divider_top_margin);
+        this.aMI = (TextView) getView().findViewById(r.g.card_divider_tv);
+        this.bdi = getView().findViewById(r.g.bottom_line);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            av.j((View) this.aYh, t.d.cp_cont_d);
-            av.l(this.bcO, t.d.cp_bg_line_b);
-            av.l(this.aXY, t.d.cp_bg_line_c);
+            av.j((View) this.aMI, r.d.cp_cont_d);
+            av.l(this.bdi, r.d.cp_bg_line_b);
+            av.l(this.aYC, r.d.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return t.h.card_divider_view;
+        return r.h.card_divider_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,12 +40,12 @@ public class c extends com.baidu.tieba.card.a<b> {
     /* renamed from: a */
     public void onBindDataToView(b bVar) {
         if (bVar != null) {
-            if (bVar.bbt) {
-                this.aXY.setVisibility(0);
+            if (bVar.bbL) {
+                this.aYC.setVisibility(0);
             } else {
-                this.aXY.setVisibility(8);
+                this.aYC.setVisibility(8);
             }
-            this.aYh.setText(bVar.title);
+            this.aMI.setText(bVar.title);
             onChangeSkinType(null, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }

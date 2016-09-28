@@ -4,20 +4,20 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be implements DialogInterface.OnDismissListener {
-    final /* synthetic */ WriteActivity gfs;
+    final /* synthetic */ WriteActivity ghD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity) {
-        this.gfs = writeActivity;
+        this.ghD = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         boolean z;
-        z = this.gfs.gfj;
+        z = this.ghD.ghs;
         if (z) {
-            com.baidu.adp.lib.util.k.b(this.gfs.getPageContext().getPageActivity(), this.gfs.getCurrentFocus());
-            this.gfs.gfk = System.currentTimeMillis();
+            com.baidu.adp.lib.util.k.b(this.ghD.getPageContext().getPageActivity(), this.ghD.getCurrentFocus());
+            this.ghD.ght = System.currentTimeMillis();
         }
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
@@ -50,7 +50,7 @@ public class a {
         } else {
             str2 = "content://com.android.launcher2.settings/favorites?notify=true";
         }
-        Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(t.j.bar)}, null);
+        Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(r.j.bar)}, null);
         boolean z = query != null && query.getCount() > 0;
         o.a(query);
         return z;

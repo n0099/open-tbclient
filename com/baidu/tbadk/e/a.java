@@ -1,23 +1,31 @@
 package com.baidu.tbadk.e;
 
-import android.content.Context;
-import java.util.ArrayList;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class a {
-    private ArrayList<c> No;
-    private Context asY;
+public class a implements b {
+    private b axW;
 
-    public ArrayList<c> Cm() {
-        return this.No;
-    }
-
-    public void a(c cVar) {
-        if (cVar != null) {
-            this.No.add(cVar);
+    public a(TbPageContext<?> tbPageContext) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOD_RECOMMEND_CONTROLLER, b.class, tbPageContext);
+        if (runTask != null && runTask.getData() != null) {
+            this.axW = (b) runTask.getData();
         }
     }
 
-    public Context getContext() {
-        return this.asY;
+    @Override // com.baidu.tbadk.e.b
+    public void ap(String str, String str2) {
+        if (this.axW != null) {
+            this.axW.ap(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tbadk.e.b
+    public void destory() {
+        if (this.axW != null) {
+            this.axW.destory();
+        }
     }
 }

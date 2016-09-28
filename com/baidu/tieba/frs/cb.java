@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.data.PhotoLiveCardData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
-import com.baidu.tbadk.j.a;
+import com.baidu.tbadk.i.a;
 import com.baidu.tieba.frs.g.b;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class cb extends bf<com.baidu.tbadk.core.data.ar, cc> implements View.OnClickListener, PhotoLiveCardView.b, com.baidu.tieba.frs.g.e {
+public class cb extends bf<com.baidu.tbadk.core.data.at, cc> implements View.OnClickListener, PhotoLiveCardView.b, com.baidu.tieba.frs.g.e {
     private TbPageContext<?> GM;
-    private com.baidu.tbadk.core.data.ar bSE;
+    private com.baidu.tbadk.core.data.at bSx;
 
     public cb(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
@@ -32,40 +32,43 @@ public class cb extends bf<com.baidu.tbadk.core.data.ar, cc> implements View.OnC
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: r */
     public cc a(ViewGroup viewGroup) {
-        return new cc(LayoutInflater.from(this.mContext).inflate(t.h.frs_photo_live_headlines_item, (ViewGroup) null));
+        return new cc(LayoutInflater.from(this.mContext).inflate(r.h.frs_photo_live_headlines_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.bf, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ar arVar, cc ccVar) {
-        super.a(i, view, viewGroup, (ViewGroup) arVar, (com.baidu.tbadk.core.data.ar) ccVar);
-        if (ccVar.ait != this.mSkinType) {
-            a.a(this.aPR.getPageContext(), view);
-            ccVar.ait = this.mSkinType;
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.at atVar, cc ccVar) {
+        super.a(i, view, viewGroup, (ViewGroup) atVar, (com.baidu.tbadk.core.data.at) ccVar);
+        if (ccVar.ahV != this.mSkinType) {
+            a.a(this.aRd.getPageContext(), view);
+            ccVar.ahV = this.mSkinType;
         }
-        this.bSE = arVar;
-        ccVar.bSF.setOnClickListener(this);
-        ccVar.bSF.setTag(arVar);
-        ccVar.bSG.setShowBottom(false);
-        ccVar.bSG.setShowContent(false);
-        ccVar.bSG.setShowRefreshTimeInHead(true);
-        ccVar.bSG.setShowLiveIcon(true);
-        ccVar.bSG.setHeadPaddingTop(0);
-        ccVar.bSG.setChooseStyle(arVar.qy().getShowStyle());
-        ccVar.bSG.setShowImage(com.baidu.tbadk.core.l.oG().oM());
-        ccVar.bSG.setData(arVar.qy());
-        ccVar.bSG.setPortraitClicklistener(this);
-        ccVar.bSH.setOnClickListener(this);
-        ccVar.bSH.setTag(arVar);
-        b.aeX().a(cdn, arVar);
+        this.bSx = atVar;
+        ccVar.bSy.setOnClickListener(this);
+        ccVar.bSy.setTag(atVar);
+        ccVar.bSz.setShowBottom(false);
+        ccVar.bSz.setShowContent(false);
+        ccVar.bSz.setShowRefreshTimeInHead(true);
+        ccVar.bSz.setShowLiveIcon(true);
+        ccVar.bSz.setHeadPaddingTop(0);
+        ccVar.bSz.setChooseStyle(atVar.qJ().getShowStyle());
+        ccVar.bSz.setShowImage(com.baidu.tbadk.core.l.oH().oN());
+        ccVar.bSz.setData(atVar.qJ());
+        ccVar.bSz.setPortraitClicklistener(this);
+        ccVar.bSA.setOnClickListener(this);
+        ccVar.bSA.setTag(atVar);
+        if (atVar != null) {
+            atVar.sL();
+        }
+        b.afl().a(cdl, atVar);
         return view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getTag() instanceof com.baidu.tbadk.core.data.ar) {
-            this.bQN.a(view.getId(), 0, view, null, (com.baidu.tbadk.core.data.ar) view.getTag());
+        if (view.getTag() instanceof com.baidu.tbadk.core.data.at) {
+            this.bQG.a(view.getId(), 0, view, null, (com.baidu.tbadk.core.data.at) view.getTag());
         }
     }
 
@@ -77,16 +80,16 @@ public class cb extends bf<com.baidu.tbadk.core.data.ar, cc> implements View.OnC
             if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.GM.getPageActivity(), photoLiveCardData.getAuthorId(), null)));
             }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10178").ab("fid", String.valueOf(photoLiveCardData.getForumId())));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c10178").ab("fid", String.valueOf(photoLiveCardData.getForumId())));
         }
-        b.aeX().a(cdn, this.bSE, 2);
+        b.afl().a(cdl, this.bSx, 2);
     }
 
-    public int acg() {
-        return t.g.more_live_list;
+    public int act() {
+        return r.g.more_live_list;
     }
 
-    public int ach() {
-        return t.g.make_headlines;
+    public int acu() {
+        return r.g.make_headlines;
     }
 }

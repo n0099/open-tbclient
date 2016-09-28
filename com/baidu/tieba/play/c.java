@@ -1,11 +1,11 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface c {
-    void JW();
+    void KI();
 
-    void JX();
+    void KJ();
 
-    void JY();
+    void KK();
 
-    void KB();
+    void Lk();
 }

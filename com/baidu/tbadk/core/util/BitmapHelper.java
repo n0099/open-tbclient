@@ -18,7 +18,7 @@ import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -503,19 +503,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream da = m.da(str);
-                BitmapFactory.decodeStream(da, null, options);
+                InputStream dc = m.dc(str);
+                BitmapFactory.decodeStream(dc, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.j(da);
+                com.baidu.adp.lib.util.o.j(dc);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream da2 = m.da(str);
-                        decodeStream = BitmapFactory.decodeStream(da2, null, options);
-                        com.baidu.adp.lib.util.o.j(da2);
+                        InputStream dc2 = m.dc(str);
+                        decodeStream = BitmapFactory.decodeStream(dc2, null, options);
+                        com.baidu.adp.lib.util.o.j(dc2);
                     }
                 }
             }
@@ -1021,41 +1021,41 @@ public class BitmapHelper {
     public static int getGradeResourceIdNew(int i) {
         switch (i) {
             case 1:
-                return t.f.icon_grade_lv1;
+                return r.f.icon_grade_lv1;
             case 2:
-                return t.f.icon_grade_lv2;
+                return r.f.icon_grade_lv2;
             case 3:
-                return t.f.icon_grade_lv3;
+                return r.f.icon_grade_lv3;
             case 4:
-                return t.f.icon_grade_lv4;
+                return r.f.icon_grade_lv4;
             case 5:
-                return t.f.icon_grade_lv5;
+                return r.f.icon_grade_lv5;
             case 6:
-                return t.f.icon_grade_lv6;
+                return r.f.icon_grade_lv6;
             case 7:
-                return t.f.icon_grade_lv7;
+                return r.f.icon_grade_lv7;
             case 8:
-                return t.f.icon_grade_lv8;
+                return r.f.icon_grade_lv8;
             case 9:
-                return t.f.icon_grade_lv9;
+                return r.f.icon_grade_lv9;
             case 10:
-                return t.f.icon_grade_lv10;
+                return r.f.icon_grade_lv10;
             case 11:
-                return t.f.icon_grade_lv11;
+                return r.f.icon_grade_lv11;
             case 12:
-                return t.f.icon_grade_lv12;
+                return r.f.icon_grade_lv12;
             case 13:
-                return t.f.icon_grade_lv13;
+                return r.f.icon_grade_lv13;
             case 14:
-                return t.f.icon_grade_lv14;
+                return r.f.icon_grade_lv14;
             case 15:
-                return t.f.icon_grade_lv15;
+                return r.f.icon_grade_lv15;
             case 16:
-                return t.f.icon_grade_lv16;
+                return r.f.icon_grade_lv16;
             case 17:
-                return t.f.icon_grade_lv17;
+                return r.f.icon_grade_lv17;
             case 18:
-                return t.f.icon_grade_lv18;
+                return r.f.icon_grade_lv18;
             default:
                 return 0;
         }
@@ -1064,41 +1064,41 @@ public class BitmapHelper {
     public static int getSmallGradeResourceIdNew(int i) {
         switch (i) {
             case 1:
-                return t.f.icon_small_grade_lv1;
+                return r.f.icon_small_grade_lv1;
             case 2:
-                return t.f.icon_small_grade_lv2;
+                return r.f.icon_small_grade_lv2;
             case 3:
-                return t.f.icon_small_grade_lv3;
+                return r.f.icon_small_grade_lv3;
             case 4:
-                return t.f.icon_small_grade_lv4;
+                return r.f.icon_small_grade_lv4;
             case 5:
-                return t.f.icon_small_grade_lv5;
+                return r.f.icon_small_grade_lv5;
             case 6:
-                return t.f.icon_small_grade_lv6;
+                return r.f.icon_small_grade_lv6;
             case 7:
-                return t.f.icon_small_grade_lv7;
+                return r.f.icon_small_grade_lv7;
             case 8:
-                return t.f.icon_small_grade_lv8;
+                return r.f.icon_small_grade_lv8;
             case 9:
-                return t.f.icon_small_grade_lv9;
+                return r.f.icon_small_grade_lv9;
             case 10:
-                return t.f.icon_small_grade_lv10;
+                return r.f.icon_small_grade_lv10;
             case 11:
-                return t.f.icon_small_grade_lv11;
+                return r.f.icon_small_grade_lv11;
             case 12:
-                return t.f.icon_small_grade_lv12;
+                return r.f.icon_small_grade_lv12;
             case 13:
-                return t.f.icon_small_grade_lv13;
+                return r.f.icon_small_grade_lv13;
             case 14:
-                return t.f.icon_small_grade_lv14;
+                return r.f.icon_small_grade_lv14;
             case 15:
-                return t.f.icon_small_grade_lv15;
+                return r.f.icon_small_grade_lv15;
             case 16:
-                return t.f.icon_small_grade_lv16;
+                return r.f.icon_small_grade_lv16;
             case 17:
-                return t.f.icon_small_grade_lv17;
+                return r.f.icon_small_grade_lv17;
             case 18:
-                return t.f.icon_small_grade_lv18;
+                return r.f.icon_small_grade_lv18;
             default:
                 return 0;
         }

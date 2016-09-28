@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class ag implements dh {
-    final /* synthetic */ FrsActivity bQp;
+    final /* synthetic */ FrsActivity bQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(FrsActivity frsActivity) {
-        this.bQp = frsActivity;
+        this.bQi = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.dh

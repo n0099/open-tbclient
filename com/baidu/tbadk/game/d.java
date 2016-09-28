@@ -6,11 +6,11 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class d implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ b axE;
+    final /* synthetic */ b axh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.axE = bVar;
+        this.axh = bVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -18,6 +18,6 @@ class d implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, this.axE.DZ());
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, this.axh.DZ());
     }
 }

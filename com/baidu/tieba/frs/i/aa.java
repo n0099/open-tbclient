@@ -13,22 +13,22 @@ import com.baidu.tieba.frs.ct;
 import com.baidu.tieba.frs.dr;
 /* loaded from: classes.dex */
 public class aa extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView.a {
-    private final View.OnClickListener bQe;
+    private final View.OnClickListener bPX;
     private FrsActivity bWH;
-    private dr cfA;
-    private final BdSwitchView.a cfB;
+    private dr cfx;
+    private final BdSwitchView.a cfy;
 
     public aa(FrsActivity frsActivity) {
         super(frsActivity.getPageContext());
-        this.cfA = null;
-        this.bQe = new ab(this);
-        this.cfB = new ac(this);
+        this.cfx = null;
+        this.bPX = new ab(this);
+        this.cfy = new ac(this);
         this.bWH = frsActivity;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (this.cfA != null) {
-            this.cfA.changeSkinType(i);
+        if (this.cfx != null) {
+            this.cfx.changeSkinType(i);
             return true;
         }
         return true;
@@ -36,50 +36,50 @@ public class aa extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchVie
 
     @Override // com.baidu.adp.base.f
     public void destroy() {
-        if (this.cfA != null) {
-            this.cfA.destroy();
+        if (this.cfx != null) {
+            this.cfx.destroy();
         }
     }
 
-    public dr afE() {
-        if (this.cfA == null) {
-            this.cfA = new dr(this.bWH.getPageContext());
-            this.cfA.setCommonClickListener(this.bQe);
-            this.cfA.init();
-            this.cfA.acr().setOnSwitchStateChangeListener(this);
-            this.cfA.acs().setOnSwitchStateChangeListener(this);
-            ei(false);
+    public dr afS() {
+        if (this.cfx == null) {
+            this.cfx = new dr(this.bWH.getPageContext());
+            this.cfx.setCommonClickListener(this.bPX);
+            this.cfx.init();
+            this.cfx.acD().setOnSwitchStateChangeListener(this);
+            this.cfx.acE().setOnSwitchStateChangeListener(this);
+            ej(false);
         }
-        return this.cfA;
-    }
-
-    public void eh(boolean z) {
-        afE().dP(z);
+        return this.cfx;
     }
 
     public void ei(boolean z) {
-        afE().acs().setOnSwitchStateChangeListener(null);
-        afE().dQ(z);
-        afE().acs().setOnSwitchStateChangeListener(this.cfB);
+        afS().dQ(z);
     }
 
     public void ej(boolean z) {
+        afS().acE().setOnSwitchStateChangeListener(null);
+        afS().dR(z);
+        afS().acE().setOnSwitchStateChangeListener(this.cfy);
+    }
+
+    public void ek(boolean z) {
         if (z) {
-            afE().acq().setVisibility(0);
+            afS().acC().setVisibility(0);
         } else {
-            afE().acq().setVisibility(8);
+            afS().acC().setVisibility(8);
         }
     }
 
     public void a(ct ctVar) {
-        if (this.cfA != null) {
-            afE().a(ctVar, FrsActivityStatic.bQC);
+        if (this.cfx != null) {
+            afS().a(ctVar, FrsActivityStatic.bQv);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == afE().acr()) {
+        if (view == afS().acD()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 if (TbadkCoreApplication.m9getInst().getSkinType() != 1) {
                     TiebaStatic.eventStat(getPageContext().getPageActivity(), "frs_night_mode", "frsclick", 1, new Object[0]);

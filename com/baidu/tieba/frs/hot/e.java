@@ -2,26 +2,26 @@ package com.baidu.tieba.frs.hot;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.ak;
+import com.baidu.tbadk.core.data.am;
 import com.baidu.tieba.frs.dh;
 import com.baidu.tieba.frs.dq;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d ccl;
+    final /* synthetic */ d ccn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.ccl = dVar;
+        this.ccn = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         int i;
-        ak akVar;
+        am amVar;
         ArrayList<v> arrayList;
         dh dhVar;
         ArrayList arrayList2;
@@ -46,71 +46,71 @@ public class e extends com.baidu.adp.framework.listener.a {
             if (responsedMessage instanceof ResponsedFrsHotHttpMessage) {
                 ResponsedFrsHotHttpMessage responsedFrsHotHttpMessage = (ResponsedFrsHotHttpMessage) responsedMessage;
                 arrayList = responsedFrsHotHttpMessage.getThreadList();
-                akVar = responsedFrsHotHttpMessage.getPage();
+                amVar = responsedFrsHotHttpMessage.getPage();
                 i = responsedFrsHotHttpMessage.getError();
                 str = responsedFrsHotHttpMessage.getErrorString();
             } else if (responsedMessage instanceof ResponsedFrsHotSocketMessage) {
                 ResponsedFrsHotSocketMessage responsedFrsHotSocketMessage = (ResponsedFrsHotSocketMessage) responsedMessage;
                 arrayList = responsedFrsHotSocketMessage.getThreadList();
-                akVar = responsedFrsHotSocketMessage.getPage();
+                amVar = responsedFrsHotSocketMessage.getPage();
                 i = responsedFrsHotSocketMessage.getError();
                 str = responsedFrsHotSocketMessage.getErrorString();
             } else {
                 i = 0;
-                akVar = null;
+                amVar = null;
                 arrayList = null;
             }
-            if (akVar != null) {
+            if (amVar != null) {
                 if (arrayList != null && arrayList.size() != 0) {
-                    int qo = akVar.qo();
-                    i2 = this.ccl.ccg;
-                    if (qo > i2) {
-                        i3 = this.ccl.ccg;
+                    int qz = amVar.qz();
+                    i2 = this.ccn.cci;
+                    if (qz > i2) {
+                        i3 = this.ccn.cci;
                         if (i3 > 0) {
-                            z = this.ccl.bNs;
+                            z = this.ccn.bNp;
                             if (!z) {
-                                arrayList7 = this.ccl.ccj;
+                                arrayList7 = this.ccn.ccl;
                                 arrayList7.addAll(arrayList);
                             }
                         }
                     }
-                    if (akVar.qo() > 0) {
-                        arrayList5 = this.ccl.ccj;
+                    if (amVar.qz() > 0) {
+                        arrayList5 = this.ccn.ccl;
                         arrayList5.clear();
-                        arrayList6 = this.ccl.ccj;
+                        arrayList6 = this.ccn.ccl;
                         arrayList6.addAll(arrayList);
                     }
                 }
-                dqVar4 = this.ccl.cci;
+                dqVar4 = this.ccn.cck;
                 dqVar4.errCode = i;
-                dqVar5 = this.ccl.cci;
+                dqVar5 = this.ccn.cck;
                 dqVar5.errMsg = str;
-                dqVar6 = this.ccl.cci;
-                dqVar6.pn = akVar.qo();
-                dqVar7 = this.ccl.cci;
-                dqVar7.hasMore = akVar.qq() == 1;
-                this.ccl.ccg = akVar.qo();
+                dqVar6 = this.ccn.cck;
+                dqVar6.pn = amVar.qz();
+                dqVar7 = this.ccn.cck;
+                dqVar7.hasMore = amVar.qB() == 1;
+                this.ccn.cci = amVar.qz();
             }
-            this.ccl.bNs = false;
-            dhVar = this.ccl.cch;
+            this.ccn.bNp = false;
+            dhVar = this.ccn.ccj;
             if (dhVar != null) {
-                arrayList2 = this.ccl.ccj;
+                arrayList2 = this.ccn.ccl;
                 if (arrayList2 != null) {
-                    arrayList4 = this.ccl.ccj;
+                    arrayList4 = this.ccn.ccl;
                     if (arrayList4.size() != 0) {
-                        dqVar3 = this.ccl.cci;
-                        dqVar3.bTI = true;
-                        dhVar2 = this.ccl.cch;
-                        dqVar2 = this.ccl.cci;
-                        arrayList3 = this.ccl.ccj;
+                        dqVar3 = this.ccn.cck;
+                        dqVar3.bTB = true;
+                        dhVar2 = this.ccn.ccj;
+                        dqVar2 = this.ccn.cck;
+                        arrayList3 = this.ccn.ccl;
                         dhVar2.a(2, 0, dqVar2, arrayList3);
                     }
                 }
-                dqVar = this.ccl.cci;
-                dqVar.bTI = false;
-                dhVar2 = this.ccl.cch;
-                dqVar2 = this.ccl.cci;
-                arrayList3 = this.ccl.ccj;
+                dqVar = this.ccn.cck;
+                dqVar.bTB = false;
+                dhVar2 = this.ccn.ccj;
+                dqVar2 = this.ccn.cck;
+                arrayList3 = this.ccn.ccl;
                 dhVar2.a(2, 0, dqVar2, arrayList3);
             }
         }

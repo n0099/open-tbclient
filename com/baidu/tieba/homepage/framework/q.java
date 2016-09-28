@@ -10,25 +10,25 @@ import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.performanceLog.aa;
-import com.baidu.tieba.homepage.personalize.b.g;
-import com.baidu.tieba.t;
+import com.baidu.tieba.homepage.personalize.c.g;
+import com.baidu.tieba.r;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes.dex */
 public class q {
-    private final TbPageContext<BaseFragmentActivity> cBS;
-    private com.baidu.tieba.homepage.recommendfrs.a.a cBT;
-    private com.baidu.tieba.homepage.mygod.a cBU;
-    private com.baidu.tieba.homepage.recommendfrs.a.b cBV;
-    private com.baidu.tieba.homepage.mygod.b cBW;
-    private com.baidu.tieba.homepage.personalize.b.g cBX;
-    private a cBw;
+    private com.baidu.tieba.homepage.recommendfrs.a.b cCA;
+    private com.baidu.tieba.homepage.mygod.b cCB;
+    private com.baidu.tieba.homepage.personalize.c.g cCC;
+    private a cCa;
+    private final TbPageContext<BaseFragmentActivity> cCx;
+    private com.baidu.tieba.homepage.recommendfrs.a.a cCy;
+    private com.baidu.tieba.homepage.mygod.a cCz;
     private final BdUniqueId uniqueId;
-    private com.baidu.tieba.lego.model.a cCa = null;
-    private g.a cCb = new r(this);
-    private SparseBooleanArray cCc = new SparseBooleanArray();
-    private SparseBooleanArray cCd = new SparseBooleanArray();
-    private com.baidu.tieba.homepage.recommendfrs.data.d cBY = new com.baidu.tieba.homepage.recommendfrs.data.d();
-    private com.baidu.tieba.homepage.mygod.data.e cBZ = new com.baidu.tieba.homepage.mygod.data.e();
+    private com.baidu.tieba.lego.model.a cCF = null;
+    private g.a cCG = new r(this);
+    private SparseBooleanArray cCH = new SparseBooleanArray();
+    private SparseBooleanArray cCI = new SparseBooleanArray();
+    private com.baidu.tieba.homepage.recommendfrs.data.d cCD = new com.baidu.tieba.homepage.recommendfrs.data.d();
+    private com.baidu.tieba.homepage.mygod.data.e cCE = new com.baidu.tieba.homepage.mygod.data.e();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -40,29 +40,29 @@ public class q {
     }
 
     public q(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        this.cBS = tbPageContext;
+        this.cCx = tbPageContext;
         this.uniqueId = bdUniqueId;
-        this.cBT = new com.baidu.tieba.homepage.recommendfrs.a.a(tbPageContext);
-        this.cBT.setUniqueId(bdUniqueId);
-        this.cBU = new com.baidu.tieba.homepage.mygod.a(tbPageContext);
-        this.cBU.setUniqueId(bdUniqueId);
-        this.cBV = new com.baidu.tieba.homepage.recommendfrs.a.b(tbPageContext, this.cBY);
-        this.cBV.setUniqueId(bdUniqueId);
-        this.cBW = new com.baidu.tieba.homepage.mygod.b(tbPageContext, this.cBZ);
-        this.cBW.setUniqueId(bdUniqueId);
-        this.cBX = new com.baidu.tieba.homepage.personalize.b.g(tbPageContext, bdUniqueId);
-        this.cBX.a(this.cCb);
+        this.cCy = new com.baidu.tieba.homepage.recommendfrs.a.a(tbPageContext);
+        this.cCy.setUniqueId(bdUniqueId);
+        this.cCz = new com.baidu.tieba.homepage.mygod.a(tbPageContext);
+        this.cCz.setUniqueId(bdUniqueId);
+        this.cCA = new com.baidu.tieba.homepage.recommendfrs.a.b(tbPageContext, this.cCD);
+        this.cCA.setUniqueId(bdUniqueId);
+        this.cCB = new com.baidu.tieba.homepage.mygod.b(tbPageContext, this.cCE);
+        this.cCB.setUniqueId(bdUniqueId);
+        this.cCC = new com.baidu.tieba.homepage.personalize.c.g(tbPageContext, bdUniqueId);
+        this.cCC.a(this.cCG);
         s sVar = new s(this);
-        this.cBT.a(sVar);
-        this.cBU.a(sVar);
+        this.cCy.a(sVar);
+        this.cCz.a(sVar);
         t tVar = new t(this);
-        this.cBV.a(tVar);
-        this.cBW.a(tVar);
+        this.cCA.a(tVar);
+        this.cCB.a(tVar);
     }
 
     public void a(int i, boolean z, int i2, int i3, int i4, int i5) {
-        if (this.cBX != null) {
-            this.cBX.a(i, z, i2, i3, i4, i5);
+        if (this.cCC != null) {
+            this.cCC.a(i, z, i2, i3, i4, i5);
         }
     }
 
@@ -94,52 +94,52 @@ public class q {
 
     public void a(long j, int i, long j2, String str) {
         if (i == 3) {
-            this.cBU.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.homepage.mygod.data.c(j));
+            this.cCz.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.homepage.mygod.data.c(j));
         } else if (i == 2) {
-            this.cBT.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.homepage.recommendfrs.data.b(j));
+            this.cCy.a((com.baidu.tbadk.mvc.b.e) new com.baidu.tieba.homepage.recommendfrs.data.b(j));
         } else if (i == 5) {
-            if (this.cCa != null) {
-                this.cCa.t(j2, com.baidu.tieba.tbadkCore.v.qN(str));
-            } else if (this.cBw != null) {
-                this.cBw.a(j, "", TbadkCoreApplication.m9getInst().getString(t.j.invite_friend_no_data_now), -53, false);
+            if (this.cCF != null) {
+                this.cCF.t(j2, com.baidu.tieba.tbadkCore.v.rb(str));
+            } else if (this.cCa != null) {
+                this.cCa.a(j, "", TbadkCoreApplication.m9getInst().getString(r.j.invite_friend_no_data_now), -53, false);
             }
-        } else if (this.cBw != null) {
-            this.cBw.a(j, "", TbadkCoreApplication.m9getInst().getString(t.j.invite_friend_no_data_now), -53, false);
+        } else if (this.cCa != null) {
+            this.cCa.a(j, "", TbadkCoreApplication.m9getInst().getString(r.j.invite_friend_no_data_now), -53, false);
         }
     }
 
     public void a(int i, long j, int i2, long j2, long j3, String str, String str2) {
         switch (i2) {
             case 3:
-                if (!this.cBW.Fd()) {
-                    this.cBZ.setPn(i);
-                    this.cBZ.setTagCode(j);
-                    this.cBZ.setRn(30);
+                if (!this.cCB.wG()) {
+                    this.cCE.setPn(i);
+                    this.cCE.setTagCode(j);
+                    this.cCE.setRn(30);
                     if (i == 1) {
-                        this.cBZ.bG(0L);
+                        this.cCE.bG(0L);
                     } else {
-                        this.cBZ.bG(j2);
+                        this.cCE.bG(j2);
                     }
-                    this.cBW.Fa();
+                    this.cCB.Fa();
                     return;
                 }
                 return;
             case 4:
             default:
-                if (!this.cBV.Fd()) {
-                    this.cBY.setPn(i);
-                    this.cBY.setTagCode(j);
-                    this.cBY.bK(j2);
-                    this.cBV.Fa();
+                if (!this.cCA.wG()) {
+                    this.cCD.setPn(i);
+                    this.cCD.setTagCode(j);
+                    this.cCD.bK(j2);
+                    this.cCA.Fa();
                     return;
                 }
                 return;
             case 5:
-                if (this.cCa != null) {
-                    this.cCa.a(com.baidu.tieba.tbadkCore.v.qP(str), j3, com.baidu.tieba.tbadkCore.v.qN(str), i, str2);
+                if (this.cCF != null) {
+                    this.cCF.a(com.baidu.tieba.tbadkCore.v.rd(str), j3, com.baidu.tieba.tbadkCore.v.rb(str), i, str2);
                     return;
-                } else if (this.cBw != null) {
-                    this.cBw.a(j, "", TbadkCoreApplication.m9getInst().getString(t.j.invite_friend_no_data_now), -53, false);
+                } else if (this.cCa != null) {
+                    this.cCa.a(j, "", TbadkCoreApplication.m9getInst().getString(r.j.invite_friend_no_data_now), -53, false);
                     return;
                 } else {
                     return;
@@ -151,27 +151,27 @@ public class q {
         return this.uniqueId;
     }
 
-    public TbPageContext<BaseFragmentActivity> alB() {
-        return this.cBS;
+    public TbPageContext<BaseFragmentActivity> alP() {
+        return this.cCx;
     }
 
     public void a(com.baidu.tieba.lego.model.a aVar) {
-        this.cCa = aVar;
+        this.cCF = aVar;
     }
 
-    public com.baidu.tieba.lego.model.a alC() {
-        return this.cCa;
+    public com.baidu.tieba.lego.model.a alQ() {
+        return this.cCF;
     }
 
     public void a(a aVar) {
-        this.cBw = aVar;
+        this.cCa = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.homepage.recommendfrs.data.c, ?> mvcSocketResponsedMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> mvcNetMessage) {
         int b = b(mvcNetMessage);
-        if (!this.cCd.get(b, false)) {
-            this.cCd.put(b, true);
+        if (!this.cCI.get(b, false)) {
+            this.cCI.put(b, true);
             a(b, false, (ResponsedMessage<?>) mvcSocketResponsedMessage);
         }
     }
@@ -179,26 +179,26 @@ public class q {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.homepage.recommendfrs.data.c> mvcHttpResponsedMessage, MvcNetMessage<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> mvcNetMessage) {
         int b = b(mvcNetMessage);
-        if (!this.cCd.get(b, false)) {
-            this.cCd.put(b, true);
+        if (!this.cCI.get(b, false)) {
+            this.cCI.put(b, true);
             a(b, true, (ResponsedMessage<?>) mvcHttpResponsedMessage);
         }
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (aa.Gp().Gq()) {
-            long jM = com.baidu.tieba.homepage.framework.a.alw().jM(i);
-            long jL = com.baidu.tieba.homepage.framework.a.alw().jL(i);
-            com.baidu.tieba.homepage.framework.a.alw().setCreateTime(0L);
-            com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n(1005, z, responsedMessage, 0L, 0L, jL, false, jM);
+        if (aa.Go().Gp()) {
+            long jS = com.baidu.tieba.homepage.framework.a.alK().jS(i);
+            long jR = com.baidu.tieba.homepage.framework.a.alK().jR(i);
+            com.baidu.tieba.homepage.framework.a.alK().setCreateTime(0L);
+            com.baidu.tbadk.performanceLog.n nVar = new com.baidu.tbadk.performanceLog.n(1005, z, responsedMessage, 0L, 0L, jR, false, jS);
             if (nVar != null) {
                 nVar.pageType = i;
-                nVar.Gk();
+                nVar.Gj();
             }
         }
     }
 
-    public a alD() {
-        return this.cBw;
+    public a alR() {
+        return this.cCa;
     }
 }

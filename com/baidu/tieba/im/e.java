@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class e implements com.baidu.tbadk.util.g<Integer> {
-    final /* synthetic */ c cRZ;
+    final /* synthetic */ c cTt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.cRZ = cVar;
+        this.cTt = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

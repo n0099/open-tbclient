@@ -25,7 +25,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     private String stType;
     private int updateType;
     private int withGroup;
-    private String aht = "";
+    private String ahc = "";
     private int mSortType = -1;
 
     public boolean isNeedCache() {
@@ -45,7 +45,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     public void setYuelaouLocate(String str) {
-        this.aht = str;
+        this.ahc = str;
     }
 
     public void setLastId(String str) {
@@ -72,7 +72,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         this.mSortType = i;
     }
 
-    public int bhc() {
+    public int bhK() {
         return this.mSortType;
     }
 
@@ -170,7 +170,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.aht;
+        builder.yuelaou_locate = this.ahc;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         com.baidu.tbadk.util.o.a(builder, true, false, true);

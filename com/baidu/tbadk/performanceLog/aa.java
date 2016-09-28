@@ -5,56 +5,57 @@ import android.os.Process;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class aa {
-    private static String aCQ = "tb_perfor_samllflow_time";
-    private static volatile aa aCT;
-    private long aCS;
-    private boolean aCO = false;
-    private long aCR = 86400;
-    private long aCP = com.baidu.tbadk.core.sharedPref.b.tS().getLong(aCQ, 0);
+    private static String aCt = "tb_perfor_samllflow_time";
+    private static volatile aa aCw;
+    private long aCv;
+    private boolean aCr = false;
+    private long aCu = 86400;
+    private long aCs = com.baidu.tbadk.core.sharedPref.b.uh().getLong(aCt, 0);
 
-    public static aa Gp() {
-        if (aCT == null) {
+    public static aa Go() {
+        if (aCw == null) {
             synchronized (aa.class) {
-                if (aCT == null) {
-                    aCT = new aa();
+                if (aCw == null) {
+                    aCw = new aa();
                 }
             }
         }
-        return aCT;
+        return aCw;
     }
 
     private aa() {
-        this.aCS = 0L;
-        this.aCS = this.aCR;
+        this.aCv = 0L;
+        this.aCv = this.aCu;
     }
 
-    public boolean Gq() {
-        if (!this.aCO || (System.currentTimeMillis() - this.aCP) / 1000 <= this.aCS) {
-            return this.aCO;
+    public boolean Gp() {
+        if (!this.aCr || (System.currentTimeMillis() - this.aCs) / 1000 <= this.aCv) {
+            return this.aCr;
         }
         return false;
     }
 
-    public void bU(boolean z) {
+    public void bT(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aCP || currentTimeMillis - this.aCP >= this.aCS) {
-                this.aCP = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.tS().putLong(aCQ, this.aCP);
+            if (0 == this.aCs || currentTimeMillis - this.aCs >= this.aCv) {
+                this.aCs = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.uh().putLong(aCt, this.aCs);
             }
         } else {
-            this.aCP = 0L;
-            com.baidu.tbadk.core.sharedPref.b.tS().putLong(aCQ, this.aCP);
+            this.aCs = 0L;
+            com.baidu.tbadk.core.sharedPref.b.uh().putLong(aCt, this.aCs);
         }
-        this.aCO = z;
+        this.aCr = z;
         if (com.baidu.adp.lib.stats.a.eI().eP()) {
-            ab.Gv().Gw();
+            ab.Gu().Gv();
         }
     }
 
-    public String Gr() {
+    public String Gq() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -68,10 +69,10 @@ public class aa {
         }
     }
 
-    public final String Gs() {
+    public final String Gr() {
         try {
-            String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
-            String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
+            String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
+            String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(valueOf);
             stringBuffer.append("/");
@@ -102,7 +103,7 @@ public class aa {
         return "2G";
     }
 
-    public static String ff(int i) {
+    public static String fe(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -115,8 +116,8 @@ public class aa {
         return "WIFI";
     }
 
-    public z fg(int i) {
-        if (Gq()) {
+    public z ff(int i) {
+        if (Gp()) {
             switch (i) {
                 case 1000:
                     ac acVar = new ac();
@@ -149,28 +150,28 @@ public class aa {
         return null;
     }
 
-    public void S(long j) {
+    public void T(long j) {
         if (j > 0) {
-            this.aCS = j;
+            this.aCv = j;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:81:0x001e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:82:0x001e */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0061, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:81:0x001f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:82:0x001f */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0062, code lost:
         r0 = r6[2].trim();
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0031  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a0 A[Catch: Exception -> 0x00a6, TRY_LEAVE, TryCatch #3 {Exception -> 0x00a6, blocks: (B:44:0x009b, B:46:0x00a0), top: B:63:0x009b }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x009b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a1 A[Catch: Exception -> 0x00a7, TRY_LEAVE, TryCatch #1 {Exception -> 0x00a7, blocks: (B:44:0x009c, B:46:0x00a1), top: B:63:0x009c }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x009c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v4 */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v7, types: [java.lang.String] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Gt() {
+    public int Gs() {
         BufferedReader bufferedReader;
         Process process;
         String str;

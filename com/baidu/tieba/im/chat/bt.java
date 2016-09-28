@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt extends com.baidu.adp.base.g {
-    final /* synthetic */ TalkableActivity cUy;
+    final /* synthetic */ TalkableActivity cVS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(TalkableActivity talkableActivity) {
-        this.cUy = talkableActivity;
+        this.cVS = talkableActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v12, resolved type: com.baidu.tieba.im.chat.TalkableActivity */
@@ -21,76 +21,76 @@ public class bt extends com.baidu.adp.base.g {
     public void g(Object obj) {
         long j;
         if (!com.baidu.adp.lib.util.i.gm()) {
-            if (this.cUy.cUk != null) {
-                this.cUy.cUk.displayNoNetwork();
+            if (this.cVS.cVE != null) {
+                this.cVS.cVE.displayNoNetwork();
             }
-        } else if (this.cUy.cUk != null) {
-            this.cUy.cUk.hideNoNetwork();
+        } else if (this.cVS.cVE != null) {
+            this.cVS.cVE.hideNoNetwork();
         }
-        switch (this.cUy.cUl.getLoadDataMode()) {
+        switch (this.cVS.cVF.getLoadDataMode()) {
             case 1:
-                j = this.cUy.cUs;
+                j = this.cVS.cVM;
                 if (j > -1) {
-                    this.cUy.cUs = -1L;
+                    this.cVS.cVM = -1L;
                 }
-                this.cUy.cUk.closeProgress();
-                this.cUy.cUk.refreshGo2New(this.cUy.cUl.getData());
+                this.cVS.cVE.closeProgress();
+                this.cVS.cVE.refreshGo2New(this.cVS.cVF.getData());
                 return;
             case 2:
-                this.cUy.cUk.refreshPrepage(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshPrepage(this.cVS.cVF.getData());
                 return;
             case 3:
-                this.cUy.cUk.refreshCheckNew(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshCheckNew(this.cVS.cVF.getData());
                 return;
             case 4:
-                this.cUy.cUk.refreshGo2New(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshGo2New(this.cVS.cVF.getData());
                 return;
             case 5:
-                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshNormal(this.cVS.cVF.getData());
                 return;
             case 6:
-                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshNormal(this.cVS.cVF.getData());
                 return;
             case 7:
-                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshNormal(this.cVS.cVF.getData());
                 return;
             case 8:
                 if (obj != null && (obj instanceof String)) {
                     String str = (String) obj;
-                    this.cUy.cUk.setDraft(str);
-                    this.cUy.cUl.setDraft(str);
+                    this.cVS.cVE.setDraft(str);
+                    this.cVS.cVF.setDraft(str);
                     return;
                 }
                 return;
             case 9:
-                this.cUy.cUu = false;
-                this.cUy.finish();
+                this.cVS.cVO = false;
+                this.cVS.finish();
                 return;
             case 10:
                 if (obj != null && (obj instanceof String)) {
-                    this.cUy.cUk.refreshHeaderFooter((String) obj, true);
+                    this.cVS.cVE.refreshHeaderFooter((String) obj, true);
                     return;
                 }
                 return;
             case 11:
-                TbadkCoreApplication.m9getInst().login(this.cUy.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.cUy.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
-                this.cUy.cUu = false;
-                this.cUy.finish();
+                TbadkCoreApplication.m9getInst().login(this.cVS.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.cVS.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
+                this.cVS.cVO = false;
+                this.cVS.finish();
                 return;
             case 12:
-                this.cUy.cUk.refreshGo2New(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshGo2New(this.cVS.cVF.getData());
                 return;
             case 13:
-                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshNormal(this.cVS.cVF.getData());
                 break;
             case 14:
                 break;
             case 15:
-                this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
+                this.cVS.cVE.refreshNormal(this.cVS.cVF.getData());
                 return;
             default:
                 return;
         }
-        this.cUy.cUk.refreshNormal(this.cUy.cUl.getData());
+        this.cVS.cVE.refreshNormal(this.cVS.cVF.getData());
     }
 }

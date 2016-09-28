@@ -5,7 +5,7 @@ import com.baidu.tieba.onlineDebugger.command.h;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class d implements b {
-    private String ego;
+    private String eii;
     private String fieldName;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
@@ -23,18 +23,18 @@ public class d implements b {
                     if (!b.isAccessible()) {
                         b.setAccessible(true);
                     }
-                    if (this.ego.contains(".") || (this.ego.contains("(") && this.ego.contains(")"))) {
-                        h oA = com.baidu.tieba.onlineDebugger.e.b.oA("get " + this.ego);
-                        if (oA != null) {
-                            Object aKH = oA.aKH();
-                            if (aKH != null) {
-                                str = aKH.toString();
+                    if (this.eii.contains(".") || (this.eii.contains("(") && this.eii.contains(")"))) {
+                        h oO = com.baidu.tieba.onlineDebugger.e.b.oO("get " + this.eii);
+                        if (oO != null) {
+                            Object aLi = oO.aLi();
+                            if (aLi != null) {
+                                str = aLi.toString();
                             }
                         } else {
-                            str = this.ego;
+                            str = this.eii;
                         }
                     } else {
-                        str = this.ego;
+                        str = this.eii;
                     }
                     BdLog.e(String.valueOf(obj.toString()) + " before setField " + this.fieldName + " value = " + (str == null ? "null" : str.toString()));
                     com.baidu.tieba.onlineDebugger.d.a(b, obj, str);
@@ -54,11 +54,11 @@ public class d implements b {
         return null;
     }
 
-    public void oj(String str) {
+    public void ox(String str) {
         this.fieldName = str;
     }
 
-    public void ol(String str) {
-        this.ego = str;
+    public void oz(String str) {
+        this.eii = str;
     }
 }

@@ -3,17 +3,17 @@ package com.baidu.tbadk.core.tabHost;
 import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 /* loaded from: classes.dex */
 class b implements FragmentTabWidget.c {
-    final /* synthetic */ FragmentTabHost YL;
+    final /* synthetic */ FragmentTabHost YY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(FragmentTabHost fragmentTabHost) {
-        this.YL = fragmentTabHost;
+        this.YY = fragmentTabHost;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.c
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         if (i4 != i2) {
-            this.YL.cx(i2);
+            this.YY.cx(i2);
         }
     }
 }

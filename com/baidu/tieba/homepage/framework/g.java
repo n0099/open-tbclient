@@ -1,27 +1,27 @@
 package com.baidu.tieba.homepage.framework;
 
 import android.view.View;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ RecommendFrsControlFragment cBR;
+    final /* synthetic */ RecommendFrsControlFragment cCw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cBR = recommendFrsControlFragment;
+        this.cCw = recommendFrsControlFragment;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         q qVar;
         q qVar2;
-        qVar = this.cBR.cBF;
+        qVar = this.cCw.cCj;
         if (qVar != null) {
-            qVar2 = this.cBR.cBF;
+            qVar2 = this.cCw.cCj;
             qVar2.a(1, true, 0, 0, 1, 0);
-            this.cBR.La();
-            this.cBR.h(false, this.cBR.getResources().getDimensionPixelSize(t.e.ds520));
+            this.cCw.JJ();
+            this.cCw.i(false, this.cCw.getResources().getDimensionPixelSize(r.e.ds520));
         }
     }
 }

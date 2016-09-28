@@ -7,13 +7,13 @@ import com.baidu.tieba.personCenter.g.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a eDm;
+    final /* synthetic */ a eFp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.eDm = aVar;
+        this.eFp = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class b extends CustomMessageListener {
         j jVar;
         g gVar;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof j) && (jVar = (j) customResponsedMessage.getData()) != null) {
-            gVar = this.eDm.eDd;
-            gVar.pw(jVar.rc());
+            gVar = this.eFp.eFg;
+            gVar.pI(jVar.pO());
         }
     }
 }

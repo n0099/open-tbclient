@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 class bw implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ String dhW;
-    final /* synthetic */ bv dhY;
+    private final /* synthetic */ String djt;
+    final /* synthetic */ bv djv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(bv bvVar, String str) {
-        this.dhY = bvVar;
-        this.dhW = str;
+        this.djv = bvVar;
+        this.djt = str;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage != null && (customMessage instanceof CustomMessage)) {
-            com.baidu.tieba.im.db.c.asf().ll(this.dhW);
+            com.baidu.tieba.im.db.c.asE().ly(this.djt);
         }
         return null;
     }

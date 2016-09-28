@@ -1,25 +1,25 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import com.baidu.tbadk.core.view.TextureVideoView;
+import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ a bXm;
+    final /* synthetic */ a bXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar) {
-        this.bXm = aVar;
+        this.bXh = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        TextureVideoView textureVideoView;
-        TextureVideoView textureVideoView2;
-        textureVideoView = this.bXm.aZl;
-        if (textureVideoView != null) {
-            textureVideoView2 = this.bXm.aZl;
-            if (!textureVideoView2.isPlaying()) {
-                this.bXm.d(true, 1);
+        QuickVideoView quickVideoView;
+        QuickVideoView quickVideoView2;
+        quickVideoView = this.bXh.aZG;
+        if (quickVideoView != null) {
+            quickVideoView2 = this.bXh.aZG;
+            if (!quickVideoView2.isPlaying()) {
+                this.bXh.e(true, 1);
             }
         }
     }

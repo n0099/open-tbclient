@@ -1,24 +1,22 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements TbImageView.a {
-    final /* synthetic */ e elb;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.o eld;
+public class p extends CustomMessageListener {
+    final /* synthetic */ e emY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(e eVar, com.baidu.tbadk.widget.richText.o oVar) {
-        this.elb = eVar;
-        this.eld = oVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(e eVar, int i) {
+        super(i);
+        this.emY = eVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void u(String str, boolean z) {
-        this.elb.ay(this.eld.getVideoUrl(), this.eld.getDuration());
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.emY.aMZ();
     }
 }

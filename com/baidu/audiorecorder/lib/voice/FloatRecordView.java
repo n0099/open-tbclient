@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tieba.im.chat.ak;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class FloatRecordView implements ak {
     private ImageView Eq = null;
@@ -23,10 +23,10 @@ public class FloatRecordView implements ak {
     }
 
     private void a(Context context, ViewGroup viewGroup) {
-        this.Er = (LinearLayout) LayoutInflater.from(context).inflate(t.h.float_chat_recording_view, (ViewGroup) null);
-        this.Eq = (ImageView) this.Er.findViewById(t.g.img_msgsend_recording);
-        this.Es = (LinearLayout) LayoutInflater.from(context).inflate(t.h.floating_chat_too_short_view, (ViewGroup) null);
-        this.Et = (LinearLayout) LayoutInflater.from(context).inflate(t.h.floating_chat_cancel_view, (ViewGroup) null);
+        this.Er = (LinearLayout) LayoutInflater.from(context).inflate(r.h.float_chat_recording_view, (ViewGroup) null);
+        this.Eq = (ImageView) this.Er.findViewById(r.g.img_msgsend_recording);
+        this.Es = (LinearLayout) LayoutInflater.from(context).inflate(r.h.floating_chat_too_short_view, (ViewGroup) null);
+        this.Et = (LinearLayout) LayoutInflater.from(context).inflate(r.h.floating_chat_cancel_view, (ViewGroup) null);
     }
 
     @Override // com.baidu.adp.lib.voice.j
@@ -77,19 +77,19 @@ public class FloatRecordView implements ak {
         if (this.Ew % 5 == 0) {
             this.Ew = 0;
             if (this.Eu < 2) {
-                this.Eq.setImageResource(t.f.icon_chat_talk_sound_up_zero);
+                this.Eq.setImageResource(r.f.icon_chat_talk_sound_up_zero);
             } else if (this.Eu < 10) {
-                this.Eq.setImageResource(t.f.icon_chat_talk_sound_up_one);
+                this.Eq.setImageResource(r.f.icon_chat_talk_sound_up_one);
             } else if (this.Eu < 20) {
-                this.Eq.setImageResource(t.f.icon_chat_talk_sound_up_two);
+                this.Eq.setImageResource(r.f.icon_chat_talk_sound_up_two);
             } else if (this.Eu < 30) {
-                this.Eq.setImageResource(t.f.icon_chat_talk_sound_up_three);
+                this.Eq.setImageResource(r.f.icon_chat_talk_sound_up_three);
             } else if (this.Eu < 40) {
-                this.Eq.setImageResource(t.f.icon_chat_talk_sound_up_four);
+                this.Eq.setImageResource(r.f.icon_chat_talk_sound_up_four);
             } else if (this.Eu < 50) {
-                this.Eq.setImageResource(t.f.icon_chat_talk_sound_up_five);
+                this.Eq.setImageResource(r.f.icon_chat_talk_sound_up_five);
             } else {
-                this.Eq.setImageResource(t.f.icon_chat_talk_sound_up_three);
+                this.Eq.setImageResource(r.f.icon_chat_talk_sound_up_three);
             }
         }
     }

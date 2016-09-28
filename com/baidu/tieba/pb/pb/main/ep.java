@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ep {
-    private boolean epk;
-    private boolean epm;
-    private com.baidu.tieba.pb.data.h epx;
-    private String erP;
-    private boolean erQ;
-    private boolean erR;
-    private Parcelable erS;
+    private boolean eri;
+    private boolean erk;
+    private com.baidu.tieba.pb.data.h erv;
+    private String etY;
+    private boolean etZ;
+    private boolean eua;
+    private Parcelable eub;
 
     static {
         MessageManager.getInstance().registerListener(new eq(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
@@ -27,130 +27,130 @@ public class ep {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static ep erT = new ep(null);
+        private static ep euc = new ep(null);
     }
 
-    public static ep aOQ() {
-        return a.erT;
+    public static ep aPz() {
+        return a.euc;
     }
 
     private ep() {
-        this.erP = null;
-        this.erQ = false;
-        this.epx = null;
-        this.erR = false;
-        this.erS = null;
-        this.epm = true;
-        this.epk = false;
+        this.etY = null;
+        this.etZ = false;
+        this.erv = null;
+        this.eua = false;
+        this.eub = null;
+        this.erk = true;
+        this.eri = false;
     }
 
     /* synthetic */ ep(ep epVar) {
         this();
     }
 
-    public void L(String str, boolean z) {
-        this.erQ = false;
+    public void M(String str, boolean z) {
+        this.etZ = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.erP = null;
-        } else if (!str.equals(this.erP)) {
+            this.etY = null;
+        } else if (!str.equals(this.etY)) {
             reset();
-            this.erP = str;
+            this.etY = str;
         } else {
-            this.erQ = true;
+            this.etZ = true;
         }
     }
 
     public com.baidu.tieba.pb.data.h getPbData() {
-        if (!this.erQ) {
-            this.erR = false;
+        if (!this.etZ) {
+            this.eua = false;
             return null;
-        } else if (this.epx != null && this.epx.aLR() != null && this.epx.aLR().size() > 0) {
-            this.erR = true;
-            com.baidu.tieba.pb.data.h hVar = this.epx;
-            this.epx = null;
+        } else if (this.erv != null && this.erv.aMt() != null && this.erv.aMt().size() > 0) {
+            this.eua = true;
+            com.baidu.tieba.pb.data.h hVar = this.erv;
+            this.erv = null;
             return hVar;
         } else {
-            this.erR = false;
-            this.epx = null;
+            this.eua = false;
+            this.erv = null;
             return null;
         }
     }
 
-    public Parcelable aOR() {
-        if (this.erR) {
-            this.erR = false;
-            Parcelable parcelable = this.erS;
-            this.erS = null;
+    public Parcelable aPA() {
+        if (this.eua) {
+            this.eua = false;
+            Parcelable parcelable = this.eub;
+            this.eub = null;
             return parcelable;
         }
-        this.erS = null;
+        this.eub = null;
         return null;
     }
 
-    public boolean aNO() {
-        return this.epm;
+    public boolean aOw() {
+        return this.erk;
     }
 
-    public boolean aOS() {
-        return this.epk;
+    public boolean aPB() {
+        return this.eri;
     }
 
     public boolean a(com.baidu.tieba.pb.data.h hVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.erQ = false;
-        if (this.erP == null) {
+        this.etZ = false;
+        if (this.etY == null) {
             reset();
             return false;
         } else if (hVar == null) {
             reset();
             return false;
-        } else if (hVar.aLR() == null) {
+        } else if (hVar.aMt() == null) {
             reset();
             return false;
-        } else if (hVar.aLR().size() < 1) {
+        } else if (hVar.aMt().size() < 1) {
             reset();
             return false;
         } else if (parcelable == null) {
             reset();
             return false;
         } else {
-            this.epx = hVar;
-            this.erR = false;
-            this.erS = parcelable;
-            this.epm = z;
-            this.epk = z2;
+            this.erv = hVar;
+            this.eua = false;
+            this.eub = parcelable;
+            this.erk = z;
+            this.eri = z2;
             return true;
         }
     }
 
     public void reset() {
-        this.erQ = false;
-        this.epx = null;
-        this.erR = false;
-        this.erS = null;
+        this.etZ = false;
+        this.erv = null;
+        this.eua = false;
+        this.eub = null;
     }
 
     public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.epx != null && this.epx.aLP() != null) {
+        if (customResponsedMessage != null && this.erv != null && this.erv.aMr() != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.h.b.c(this.epx.aLP().getId(), 0L)) {
-                this.epx.aLP().setLike(i);
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.h.b.c(this.erv.aMr().getId(), 0L)) {
+                this.erv.aMr().setLike(i);
             }
         }
     }
 
     public void a(com.baidu.tbadk.data.j jVar) {
-        if (jVar != null && this.epx != null && this.epx.aLR() != null && this.epx.aLR().size() > 0) {
+        if (jVar != null && this.erv != null && this.erv.aMt() != null && this.erv.aMt().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                int size = this.epx.aLR().size();
+                int size = this.erv.aMt().size();
                 for (int i = 0; i < size; i++) {
-                    if (this.epx.aLR().get(i) != null && this.epx.aLR().get(i).getAuthor() != null && currentAccount.equals(this.epx.aLR().get(i).getAuthor().getUserId()) && this.epx.aLR().get(i).getAuthor().getPendantData() != null) {
-                        this.epx.aLR().get(i).getAuthor().getPendantData().cq(jVar.rc());
-                        this.epx.aLR().get(i).getAuthor().getPendantData().P(jVar.Cd());
+                    if (this.erv.aMt().get(i) != null && this.erv.aMt().get(i).getAuthor() != null && currentAccount.equals(this.erv.aMt().get(i).getAuthor().getUserId()) && this.erv.aMt().get(i).getAuthor().getPendantData() != null) {
+                        this.erv.aMt().get(i).getAuthor().getPendantData().cq(jVar.pO());
+                        this.erv.aMt().get(i).getAuthor().getPendantData().Q(jVar.Cg());
                     }
                 }
             }

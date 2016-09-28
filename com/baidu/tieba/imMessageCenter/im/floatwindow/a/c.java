@@ -3,118 +3,118 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class c implements b {
-    private Point doU;
-    private Point doV;
-    private Point doW;
-    private final int doX;
-    private final int doY;
-    private a doZ;
-    private int dpa;
+    private Point dqs;
+    private Point dqt;
+    private Point dqu;
+    private final int dqv;
+    private final int dqw;
+    private a dqx;
+    private int dqy;
     private float k;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(Point point);
 
-        void axy();
+        void axX();
     }
 
-    private int lZ(int i) {
-        return (int) (((this.k * i) + this.doU.y) - (this.k * this.doU.x));
+    private int mh(int i) {
+        return (int) (((this.k * i) + this.dqs.y) - (this.k * this.dqs.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.doW.equals(this.doV)) {
-            switch (this.dpa) {
+        if (!this.dqu.equals(this.dqt)) {
+            switch (this.dqy) {
                 case 0:
-                    axF();
+                    aye();
                     break;
                 case 1:
-                    axH();
+                    ayg();
                     break;
                 case 2:
-                    axG();
+                    ayf();
                     break;
                 case 3:
-                    axI();
+                    ayh();
                     break;
                 case 4:
-                    axJ();
+                    ayi();
                     break;
                 case 5:
-                    axK();
+                    ayj();
                     break;
             }
             return false;
         }
-        if (this.doZ != null) {
-            this.doZ.axy();
+        if (this.dqx != null) {
+            this.dqx.axX();
         }
         return true;
     }
 
-    private void axF() {
-        this.doW.y += this.doY;
-        if (this.doW.y > this.doV.y) {
-            this.doW.y = this.doV.y;
+    private void aye() {
+        this.dqu.y += this.dqw;
+        if (this.dqu.y > this.dqt.y) {
+            this.dqu.y = this.dqt.y;
         }
-        if (this.doZ != null) {
-            this.doZ.a(this.doW);
-        }
-    }
-
-    private void axG() {
-        this.doW.x += this.doX;
-        if (this.doW.x > this.doV.x) {
-            this.doW.x = this.doV.x;
-        }
-        if (this.doZ != null) {
-            this.doZ.a(this.doW);
+        if (this.dqx != null) {
+            this.dqx.a(this.dqu);
         }
     }
 
-    private void axH() {
-        this.doW.y -= this.doY;
-        if (this.doW.y < this.doV.y) {
-            this.doW.y = this.doV.y;
+    private void ayf() {
+        this.dqu.x += this.dqv;
+        if (this.dqu.x > this.dqt.x) {
+            this.dqu.x = this.dqt.x;
         }
-        if (this.doZ != null) {
-            this.doZ.a(this.doW);
-        }
-    }
-
-    private void axI() {
-        this.doW.x -= this.doX;
-        if (this.doW.x < this.doV.x) {
-            this.doW.x = this.doV.x;
-        }
-        if (this.doZ != null) {
-            this.doZ.a(this.doW);
+        if (this.dqx != null) {
+            this.dqx.a(this.dqu);
         }
     }
 
-    private void axJ() {
-        this.doW.x -= this.doX;
-        this.doW.y = lZ(this.doW.x);
-        if (this.doW.x < this.doV.x && this.doW.y < this.doV.y) {
-            this.doW.x = this.doV.x;
-            this.doW.y = this.doV.y;
+    private void ayg() {
+        this.dqu.y -= this.dqw;
+        if (this.dqu.y < this.dqt.y) {
+            this.dqu.y = this.dqt.y;
         }
-        if (this.doZ != null) {
-            this.doZ.a(this.doW);
+        if (this.dqx != null) {
+            this.dqx.a(this.dqu);
         }
     }
 
-    private void axK() {
-        this.doW.x += this.doX;
-        this.doW.y = lZ(this.doW.x);
-        if (this.doW.x > this.doV.x && this.doW.y > this.doV.y) {
-            this.doW.x = this.doV.x;
-            this.doW.y = this.doV.y;
+    private void ayh() {
+        this.dqu.x -= this.dqv;
+        if (this.dqu.x < this.dqt.x) {
+            this.dqu.x = this.dqt.x;
         }
-        if (this.doZ != null) {
-            this.doZ.a(this.doW);
+        if (this.dqx != null) {
+            this.dqx.a(this.dqu);
+        }
+    }
+
+    private void ayi() {
+        this.dqu.x -= this.dqv;
+        this.dqu.y = mh(this.dqu.x);
+        if (this.dqu.x < this.dqt.x && this.dqu.y < this.dqt.y) {
+            this.dqu.x = this.dqt.x;
+            this.dqu.y = this.dqt.y;
+        }
+        if (this.dqx != null) {
+            this.dqx.a(this.dqu);
+        }
+    }
+
+    private void ayj() {
+        this.dqu.x += this.dqv;
+        this.dqu.y = mh(this.dqu.x);
+        if (this.dqu.x > this.dqt.x && this.dqu.y > this.dqt.y) {
+            this.dqu.x = this.dqt.x;
+            this.dqu.y = this.dqt.y;
+        }
+        if (this.dqx != null) {
+            this.dqx.a(this.dqu);
         }
     }
 }

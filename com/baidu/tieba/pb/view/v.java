@@ -15,16 +15,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.f;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class v extends FrameLayout implements View.OnClickListener {
-    private boolean aJT;
-    private TextView aYh;
-    private com.baidu.tieba.tbadkCore.data.a exW;
-    private TbImageView exX;
-    private LinearLayout exY;
-    private ImageView exZ;
-    private TextView eya;
+    private boolean aJs;
+    private TextView aMI;
+    private com.baidu.tieba.tbadkCore.data.a eAd;
+    private TbImageView eAe;
+    private LinearLayout eAf;
+    private ImageView eAg;
+    private TextView eAh;
     private Context mContext;
     private View mRootView;
 
@@ -34,60 +34,60 @@ public class v extends FrameLayout implements View.OnClickListener {
 
     public v(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aJT = false;
+        this.aJs = false;
         this.mContext = context;
         init();
     }
 
     public com.baidu.tieba.tbadkCore.data.a getData() {
-        return this.exW;
+        return this.eAd;
     }
 
     public void IO() {
-        this.aJT = true;
+        this.aJs = true;
     }
 
     private void init() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(t.h.pic_show_cardview_layout, (ViewGroup) this, true);
-        this.exX = (TbImageView) findViewById(t.g.pic_img);
-        this.exY = (LinearLayout) findViewById(t.g.bottom_ll);
-        this.aYh = (TextView) findViewById(t.g.title_ll);
-        this.eya = (TextView) findViewById(t.g.desc_ll);
-        this.exZ = (ImageView) findViewById(t.g.show_pic_icon);
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(r.h.pic_show_cardview_layout, (ViewGroup) this, true);
+        this.eAe = (TbImageView) findViewById(r.g.pic_img);
+        this.eAf = (LinearLayout) findViewById(r.g.bottom_ll);
+        this.aMI = (TextView) findViewById(r.g.title_ll);
+        this.eAh = (TextView) findViewById(r.g.desc_ll);
+        this.eAg = (ImageView) findViewById(r.g.show_pic_icon);
     }
 
     public void setIconResId(int i) {
-        av.c(this.exZ, i);
+        av.c(this.eAg, i);
     }
 
     public void setData(com.baidu.tieba.tbadkCore.data.a aVar) {
         int i;
-        if (aVar != null && this.exW != aVar) {
-            this.exW = aVar;
+        if (aVar != null && this.eAd != aVar) {
+            this.eAd = aVar;
             if (!StringUtils.isNULL(aVar.getTitle())) {
-                this.aYh.setVisibility(0);
-                this.aYh.setText(aVar.getTitle());
+                this.aMI.setVisibility(0);
+                this.aMI.setText(aVar.getTitle());
             } else {
-                this.aYh.setVisibility(8);
+                this.aMI.setVisibility(8);
             }
             if (!StringUtils.isNULL(aVar.getDescription())) {
-                this.eya.setVisibility(0);
-                this.eya.setText(aVar.getDescription());
+                this.eAh.setVisibility(0);
+                this.eAh.setText(aVar.getDescription());
             } else {
-                this.eya.setVisibility(8);
+                this.eAh.setVisibility(8);
             }
-            if (this.aJT) {
-                this.exX.setSupportNoImage(true);
+            if (this.aJs) {
+                this.eAe.setSupportNoImage(true);
             }
             int imageWidth = aVar.getImageWidth();
             int imageHeight = aVar.getImageHeight();
             if (imageWidth > 0 && imageHeight > 0) {
-                this.exX.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.exX.setOnClickListener(this);
-                this.exX.setInterceptOnClick(true);
-                this.exX.setDefaultResource(t.f.icon_click);
-                this.exX.c(aVar.bix(), 18, false);
-                int K = k.K(this.mContext) - (k.e(this.mContext, t.e.ds30) * 2);
+                this.eAe.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.eAe.setOnClickListener(this);
+                this.eAe.setInterceptOnClick(true);
+                this.eAe.setDefaultResource(r.f.icon_click);
+                this.eAe.c(aVar.bji(), 18, false);
+                int K = k.K(this.mContext) - (k.e(this.mContext, r.e.ds30) * 2);
                 float f = imageHeight / imageWidth;
                 if (f > 1.7777778f) {
                     i = (int) (K * 1.7777778f);
@@ -96,14 +96,14 @@ public class v extends FrameLayout implements View.OnClickListener {
                 } else {
                     i = (int) (f * K);
                 }
-                this.exX.setLayoutParams(new FrameLayout.LayoutParams(K, i));
-                removeView(this.exX);
-                addView(this.exX);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.exY.getLayoutParams();
+                this.eAe.setLayoutParams(new FrameLayout.LayoutParams(K, i));
+                removeView(this.eAe);
+                addView(this.eAe);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.eAf.getLayoutParams();
                 layoutParams.width = K;
-                layoutParams.height = k.e(this.mContext, t.e.ds110);
-                removeView(this.exY);
-                addView(this.exY, layoutParams);
+                layoutParams.height = k.e(this.mContext, r.e.ds110);
+                removeView(this.eAf);
+                addView(this.eAf, layoutParams);
             }
         }
     }
@@ -115,12 +115,12 @@ public class v extends FrameLayout implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.exW != null) {
-            f.u(this.mContext, this.exW.biy());
+        if (this.eAd != null) {
+            f.u(this.mContext, this.eAd.bjj());
         }
     }
 
     public ImageView getIcon() {
-        return this.exZ;
+        return this.eAg;
     }
 }

@@ -57,8 +57,8 @@ public class UploadedImageInfo implements Serializable {
         if (jSONObject != null) {
             try {
                 this.pic_id = jSONObject.optString(GraffitiVcodeActivityConfig.PIC_ID);
-                this.width = jSONObject.optInt(GraffitiVcodeActivityConfig.WIDTH, 0);
-                this.height = jSONObject.optInt(GraffitiVcodeActivityConfig.HEIGHT, 0);
+                this.width = jSONObject.optInt("width", 0);
+                this.height = jSONObject.optInt("height", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

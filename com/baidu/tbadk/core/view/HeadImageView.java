@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int adE;
-    private int adF;
+    private int adP;
+    private int adQ;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -25,8 +25,8 @@ public class HeadImageView extends TbClipImageView {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.adE = t.f.transparent_bg;
-        this.adF = t.d.cp_bg_line_e;
+        this.adP = r.f.transparent_bg;
+        this.adQ = r.d.cp_bg_line_e;
         init();
     }
 
@@ -34,9 +34,9 @@ public class HeadImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.adF);
-        setDefaultResource(this.adE);
-        setDefaultErrorResource(t.f.icon_default_avatar100);
+        setDefaultBgResource(this.adQ);
+        setDefaultResource(this.adP);
+        setDefaultErrorResource(r.f.icon_default_avatar100);
     }
 
     public void setUrl(String str) {
@@ -57,7 +57,7 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setUserName(String str) {
-        ae(str, String.valueOf(str) + getResources().getString(t.j.whose_head_image));
+        ae(str, String.valueOf(str) + getResources().getString(r.j.whose_head_image));
     }
 
     public void ae(String str, String str2) {
@@ -70,11 +70,11 @@ public class HeadImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void vU() {
-        if (!this.aGt) {
-            this.aGt = true;
-        } else if (this.aGw != null && this.aGw.aCi) {
-            this.aGw.Gi();
+    public void wi() {
+        if (!this.aFS) {
+            this.aFS = true;
+        } else if (this.aFV != null && this.aFV.aBL) {
+            this.aFV.Gh();
         }
     }
 }

@@ -11,100 +11,100 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.flow.CoverFlowView;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.bh;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.mygod.data.a> {
     private TbPageContext<?> Gd;
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.flow.a.a> WK;
-    private CoverFlowView<com.baidu.tbadk.core.flow.a.a> bzS;
-    private LinearLayout cEg;
-    private LinearLayout cEh;
-    private TextView cEi;
-    private TextView cEj;
-    private ImageView cEk;
-    private ImageView cEl;
-    private View cEm;
-    private View cEn;
-    private String cEo;
-    private String cEp;
-    private com.baidu.tieba.homepage.mygod.data.a cEq;
-    private final float cEr;
-    private final CustomMessageListener cEs;
-    private final CustomMessageListener cEt;
-    private View.OnClickListener cEu;
-    private View.OnClickListener cEv;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.flow.a.a> WX;
+    private CoverFlowView<com.baidu.tbadk.core.flow.a.a> bAe;
+    private LinearLayout cEK;
+    private LinearLayout cEL;
+    private TextView cEM;
+    private TextView cEN;
+    private ImageView cEO;
+    private ImageView cEP;
+    private View cEQ;
+    private View cER;
+    private String cES;
+    private String cET;
+    private com.baidu.tieba.homepage.mygod.data.a cEU;
+    private final float cEV;
+    private final CustomMessageListener cEW;
+    private final CustomMessageListener cEX;
+    private View.OnClickListener cEY;
+    private View.OnClickListener cEZ;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.Gd = null;
-        this.bzS = null;
-        this.cEg = null;
-        this.cEh = null;
-        this.cEi = null;
-        this.cEj = null;
-        this.cEk = null;
-        this.cEl = null;
-        this.cEm = null;
-        this.cEn = null;
-        this.cEo = null;
-        this.cEp = null;
-        this.cEq = null;
-        this.cEr = 3.5294118f;
-        this.cEs = new b(this, CmdConfigCustom.CMD_VIEW_PAGER_START_AUTO_SCROLL);
-        this.cEt = new c(this, CmdConfigCustom.CMD_VIEW_PAGER_END_AUTO_SCROLL);
-        this.WK = new d(this);
-        this.cEu = new e(this);
-        this.cEv = new f(this);
+        this.bAe = null;
+        this.cEK = null;
+        this.cEL = null;
+        this.cEM = null;
+        this.cEN = null;
+        this.cEO = null;
+        this.cEP = null;
+        this.cEQ = null;
+        this.cER = null;
+        this.cES = null;
+        this.cET = null;
+        this.cEU = null;
+        this.cEV = 3.5294118f;
+        this.cEW = new b(this, CmdConfigCustom.CMD_VIEW_PAGER_START_AUTO_SCROLL);
+        this.cEX = new c(this, CmdConfigCustom.CMD_VIEW_PAGER_END_AUTO_SCROLL);
+        this.WX = new d(this);
+        this.cEY = new e(this);
+        this.cEZ = new f(this);
         this.Gd = tbPageContext;
         initUI();
         registerListener();
     }
 
     private void registerListener() {
-        getTbPageContext().registerListener(this.cEs);
-        getTbPageContext().registerListener(this.cEt);
+        getTbPageContext().registerListener(this.cEW);
+        getTbPageContext().registerListener(this.cEX);
     }
 
     private void initUI() {
         View view;
         if (this.Gd != null && (view = getView()) != null) {
-            this.cEi = (TextView) view.findViewById(t.g.textview_rank);
-            this.cEj = (TextView) view.findViewById(t.g.textview_good);
-            this.cEk = (ImageView) view.findViewById(t.g.image_rank);
-            this.cEl = (ImageView) view.findViewById(t.g.image_good);
-            this.cEm = view.findViewById(t.g.god_banner_bottom_margin);
-            this.cEn = view.findViewById(t.g.middle_separate_line);
-            this.bzS = (CoverFlowView) view.findViewById(t.g.god_banner_coverflowview);
+            this.cEM = (TextView) view.findViewById(r.g.textview_rank);
+            this.cEN = (TextView) view.findViewById(r.g.textview_good);
+            this.cEO = (ImageView) view.findViewById(r.g.image_rank);
+            this.cEP = (ImageView) view.findViewById(r.g.image_good);
+            this.cEQ = view.findViewById(r.g.god_banner_bottom_margin);
+            this.cER = view.findViewById(r.g.middle_separate_line);
+            this.bAe = (CoverFlowView) view.findViewById(r.g.god_banner_coverflowview);
             g gVar = new g(this);
-            this.bzS.setDisableParentEvent(false);
-            this.bzS.setCoverFlowFactory(gVar);
-            this.bzS.setCallback(this.WK);
-            this.cEg = (LinearLayout) view.findViewById(t.g.layout_rank);
-            this.cEg.setOnClickListener(this.cEu);
-            this.cEh = (LinearLayout) view.findViewById(t.g.layout_good);
-            this.cEh.setOnClickListener(this.cEv);
+            this.bAe.setDisableParentEvent(false);
+            this.bAe.setCoverFlowFactory(gVar);
+            this.bAe.setCallback(this.WX);
+            this.cEK = (LinearLayout) view.findViewById(r.g.layout_rank);
+            this.cEK.setOnClickListener(this.cEY);
+            this.cEL = (LinearLayout) view.findViewById(r.g.layout_good);
+            this.cEL.setOnClickListener(this.cEZ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kO(String str) {
+    public void kV(String str) {
         if (TextUtils.isEmpty(str)) {
-            k.showToast(this.Gd.getPageActivity(), t.j.url_is_null);
+            k.showToast(this.Gd.getPageActivity(), r.j.url_is_null);
         } else {
-            bi.vx().a(this.Gd, "", new String[]{str}, false, null, true);
+            bh.vL().a(this.Gd, "", new String[]{str}, false, null, true);
         }
     }
 
-    public void wS() {
-        if (this.bzS != null) {
-            this.bzS.tn();
+    public void wU() {
+        if (this.bAe != null) {
+            this.bAe.tC();
         }
     }
 
-    public void wR() {
-        if (this.bzS != null) {
-            this.bzS.tm();
+    public void wT() {
+        if (this.bAe != null) {
+            this.bAe.tB();
         }
     }
 
@@ -114,30 +114,30 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.mygod.dat
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return t.h.god_banner;
+        return r.h.god_banner;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.homepage.mygod.data.a aVar) {
-        if (aVar != null && aVar != this.cEq) {
-            this.bzS.setData(aVar.ame());
-            this.cEo = aVar.amc();
-            this.cEp = aVar.amd();
-            this.cEq = aVar;
+        if (aVar != null && aVar != this.cEU) {
+            this.bAe.setData(aVar.ams());
+            this.cES = aVar.amq();
+            this.cET = aVar.amr();
+            this.cEU = aVar;
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            av.k(this.cEm, t.d.cp_bg_line_c);
-            av.k(this.cEn, t.d.cp_bg_line_a);
-            av.c(this.cEi, t.d.cp_cont_b, 1);
-            av.c(this.cEj, t.d.cp_cont_b, 1);
-            av.c(this.cEk, t.f.icon_god_rank);
-            av.c(this.cEl, t.f.icon_god_good);
+            av.k(this.cEQ, r.d.cp_bg_line_c);
+            av.k(this.cER, r.d.cp_bg_line_a);
+            av.c(this.cEM, r.d.cp_cont_b, 1);
+            av.c(this.cEN, r.d.cp_cont_b, 1);
+            av.c(this.cEO, r.f.icon_god_rank);
+            av.c(this.cEP, r.f.icon_god_good);
         }
         this.mSkinType = i;
     }

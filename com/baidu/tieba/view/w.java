@@ -10,7 +10,7 @@ public interface w {
 
     void b(float f, boolean z);
 
-    void bqm();
+    void bqQ();
 
     void onChangeSkinType(int i);
 

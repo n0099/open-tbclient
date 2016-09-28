@@ -8,14 +8,14 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class d extends FrameLayout {
     private final View BV;
-    private boolean aAl;
-    private boolean caY;
-    private final LinearLayout caZ;
+    private boolean azO;
     private boolean cba;
+    private final LinearLayout cbb;
+    private boolean cbc;
     private final BaseWebView.c mOnPageFinishedListener;
     private final BaseWebView.d mOnPageStartedListener;
     private final BaseWebView.e mOnReceivedErrorListener;
@@ -23,48 +23,48 @@ public class d extends FrameLayout {
 
     public d(Context context) {
         super(context);
-        this.caY = false;
-        this.aAl = false;
+        this.cba = false;
+        this.azO = false;
         this.mOnPageStartedListener = new e(this);
         this.mOnPageFinishedListener = new f(this);
         this.mOnReceivedErrorListener = new g(this);
-        this.cba = false;
-        setLayoutParams(new ViewGroup.LayoutParams(-1, (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.ds90)));
+        this.cbc = false;
+        setLayoutParams(new ViewGroup.LayoutParams(-1, (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds90)));
         this.mWebView = new BaseWebView(TbadkCoreApplication.m9getInst());
         this.mWebView.setOnPageStartedListener(this.mOnPageStartedListener);
         this.mWebView.setOnPageFinishedListener(this.mOnPageFinishedListener);
         this.mWebView.setOnReceivedErrorListener(this.mOnReceivedErrorListener);
         addView(this.mWebView);
-        this.BV = LayoutInflater.from(context).inflate(t.h.frs_no_list_item_view, (ViewGroup) this, false);
+        this.BV = LayoutInflater.from(context).inflate(r.h.frs_no_list_item_view, (ViewGroup) this, false);
         this.BV.setVisibility(8);
         addView(this.BV);
-        this.caZ = (LinearLayout) inflate(getContext(), t.h.custom_loading_toast, null);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(t.e.ds220), -2);
+        this.cbb = (LinearLayout) inflate(getContext(), r.h.custom_loading_toast, null);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(r.e.ds220), -2);
         layoutParams.gravity = 1;
-        layoutParams.topMargin = context.getResources().getDimensionPixelSize(t.e.ds140);
-        addView(this.caZ, layoutParams);
+        layoutParams.topMargin = context.getResources().getDimensionPixelSize(r.e.ds140);
+        addView(this.cbb, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wn() {
+    public void wD() {
         this.BV.setVisibility(8);
-        this.caZ.setVisibility(0);
+        this.cbb.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void UV() {
+    public void Vo() {
         this.mWebView.setVisibility(0);
-        this.caZ.setVisibility(8);
+        this.cbb.setVisibility(8);
         this.BV.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aea() {
+    public void aep() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.height = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(t.e.ds90);
+        layoutParams.height = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds90);
         setLayoutParams(layoutParams);
         this.mWebView.setVisibility(8);
-        this.caZ.setVisibility(8);
+        this.cbb.setVisibility(8);
         this.BV.setVisibility(0);
     }
 
@@ -72,11 +72,11 @@ public class d extends FrameLayout {
         return this.mWebView;
     }
 
-    public boolean aeb() {
-        return this.aAl;
+    public boolean aeq() {
+        return this.azO;
     }
 
     public void setWebViewLoading(boolean z) {
-        this.aAl = z;
+        this.azO = z;
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.graffiti;
 /* loaded from: classes.dex */
 public class j {
-    public String cwo;
+    public String cwT;
     public int from;
 
     public j(String str, int i) {
-        this.cwo = str;
+        this.cwT = str;
         this.from = i;
     }
 }

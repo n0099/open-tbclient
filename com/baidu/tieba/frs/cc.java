@@ -4,19 +4,19 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class cc extends y.a {
-    public int ait;
-    public TextView bSF;
-    public PhotoLiveCardView bSG;
-    public View bSH;
+    public int ahV;
+    public View bSA;
+    public TextView bSy;
+    public PhotoLiveCardView bSz;
 
     public cc(View view) {
         super(view);
-        this.ait = 3;
-        this.bSF = (TextView) view.findViewById(t.g.more_live_list);
-        this.bSG = (PhotoLiveCardView) view.findViewById(t.g.photo_live_card);
-        this.bSH = view.findViewById(t.g.make_headlines);
+        this.ahV = 3;
+        this.bSy = (TextView) view.findViewById(r.g.more_live_list);
+        this.bSz = (PhotoLiveCardView) view.findViewById(r.g.photo_live_card);
+        this.bSA = view.findViewById(r.g.make_headlines);
     }
 }

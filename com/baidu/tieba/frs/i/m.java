@@ -6,15 +6,15 @@ import com.baidu.tieba.frs.view.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements p.a {
-    final /* synthetic */ h cfl;
+    final /* synthetic */ h cfi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(h hVar) {
-        this.cfl = hVar;
+        this.cfi = hVar;
     }
 
     @Override // com.baidu.tieba.frs.view.p.a
-    public void iy(int i) {
+    public void iD(int i) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
         FrsActivity frsActivity3;
@@ -25,42 +25,34 @@ public class m implements p.a {
         FrsActivity frsActivity8;
         FrsActivity frsActivity9;
         FrsActivity frsActivity10;
-        FrsActivity frsActivity11;
-        FrsActivity frsActivity12;
         switch (i) {
             case 0:
-                frsActivity10 = this.cfl.bRp;
-                com.baidu.tieba.tbadkCore.p aaR = frsActivity10.aaR();
-                frsActivity11 = this.cfl.bRp;
-                TbPageContext pageContext = frsActivity11.getPageContext();
-                frsActivity12 = this.cfl.bRp;
-                com.baidu.tieba.frs.utils.b.b(aaR, pageContext, frsActivity12.aaV());
+                frsActivity8 = this.cfi.bRi;
+                com.baidu.tieba.tbadkCore.p abe = frsActivity8.abe();
+                frsActivity9 = this.cfi.bRi;
+                TbPageContext pageContext = frsActivity9.getPageContext();
+                frsActivity10 = this.cfi.bRi;
+                com.baidu.tieba.frs.utils.b.b(abe, pageContext, frsActivity10.abi());
                 return;
             case 1:
-                frsActivity7 = this.cfl.bRp;
-                com.baidu.tieba.tbadkCore.p aaR2 = frsActivity7.aaR();
-                frsActivity8 = this.cfl.bRp;
-                TbPageContext pageContext2 = frsActivity8.getPageContext();
-                frsActivity9 = this.cfl.bRp;
-                com.baidu.tieba.frs.utils.b.a(aaR2, pageContext2, frsActivity9.aaV());
+                frsActivity5 = this.cfi.bRi;
+                com.baidu.tieba.tbadkCore.p abe2 = frsActivity5.abe();
+                frsActivity6 = this.cfi.bRi;
+                TbPageContext pageContext2 = frsActivity6.getPageContext();
+                frsActivity7 = this.cfi.bRi;
+                com.baidu.tieba.frs.utils.b.a(abe2, pageContext2, frsActivity7.abi());
                 return;
             case 2:
-                frsActivity5 = this.cfl.bRp;
-                com.baidu.tieba.tbadkCore.p aaR3 = frsActivity5.aaR();
-                frsActivity6 = this.cfl.bRp;
-                com.baidu.tieba.frs.utils.b.a(aaR3, frsActivity6.getPageContext());
+                frsActivity3 = this.cfi.bRi;
+                com.baidu.tieba.tbadkCore.p abe3 = frsActivity3.abe();
+                frsActivity4 = this.cfi.bRi;
+                com.baidu.tieba.frs.utils.b.a(abe3, frsActivity4.getPageContext());
                 return;
             case 3:
-                frsActivity3 = this.cfl.bRp;
-                com.baidu.tieba.tbadkCore.p aaR4 = frsActivity3.aaR();
-                frsActivity4 = this.cfl.bRp;
-                com.baidu.tieba.frs.utils.b.a(aaR4, frsActivity4.getPageContext());
-                return;
-            case 4:
-                frsActivity = this.cfl.bRp;
-                com.baidu.tieba.tbadkCore.p aaR5 = frsActivity.aaR();
-                frsActivity2 = this.cfl.bRp;
-                com.baidu.tieba.frs.utils.b.a(aaR5, frsActivity2.getPageContext());
+                frsActivity = this.cfi.bRi;
+                com.baidu.tieba.tbadkCore.p abe4 = frsActivity.abe();
+                frsActivity2 = this.cfi.bRi;
+                com.baidu.tieba.frs.utils.b.a(abe4, frsActivity2.getPageContext());
                 return;
             default:
                 return;

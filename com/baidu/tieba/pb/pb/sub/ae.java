@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class ae extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity evy;
+    final /* synthetic */ NewSubPbActivity exF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.evy = newSubPbActivity;
+        this.exF = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,31 +35,31 @@ class ae extends CustomMessageListener {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
                 com.baidu.tbadk.data.j jVar = (com.baidu.tbadk.data.j) customResponsedMessage.getData();
-                axVar = this.evy.evl;
-                if (axVar.aQK() != null) {
-                    axVar2 = this.evy.evl;
-                    if (axVar2.aQK().aMh() != null) {
-                        axVar3 = this.evy.evl;
-                        if (axVar3.aQK().aMh().getAuthor() != null) {
-                            axVar4 = this.evy.evl;
-                            if (currentAccount.equals(axVar4.aQK().aMh().getAuthor().getUserId())) {
-                                axVar5 = this.evy.evl;
-                                if (axVar5.aQK().aMh().getAuthor().getPendantData() != null) {
-                                    axVar6 = this.evy.evl;
-                                    axVar6.aQK().aMh().getAuthor().getPendantData().cq(jVar.rc());
-                                    axVar7 = this.evy.evl;
-                                    axVar7.aQK().aMh().getAuthor().getPendantData().P(jVar.Cd());
-                                    agVar = this.evy.evn;
-                                    axVar8 = this.evy.evl;
-                                    com.baidu.tieba.tbadkCore.data.q aMh = axVar8.aQK().aMh();
-                                    axVar9 = this.evy.evl;
-                                    boolean avC = axVar9.aQK().avC();
-                                    axVar10 = this.evy.evl;
-                                    boolean nv = axVar10.aQK().nv();
-                                    axVar11 = this.evy.evl;
-                                    int aLX = axVar11.aLX();
-                                    axVar12 = this.evy.evl;
-                                    agVar.a(aMh, avC, nv, aLX, axVar12.aRa() != null);
+                axVar = this.exF.exr;
+                if (axVar.aRs() != null) {
+                    axVar2 = this.exF.exr;
+                    if (axVar2.aRs().aMN() != null) {
+                        axVar3 = this.exF.exr;
+                        if (axVar3.aRs().aMN().getAuthor() != null) {
+                            axVar4 = this.exF.exr;
+                            if (currentAccount.equals(axVar4.aRs().aMN().getAuthor().getUserId())) {
+                                axVar5 = this.exF.exr;
+                                if (axVar5.aRs().aMN().getAuthor().getPendantData() != null) {
+                                    axVar6 = this.exF.exr;
+                                    axVar6.aRs().aMN().getAuthor().getPendantData().cq(jVar.pO());
+                                    axVar7 = this.exF.exr;
+                                    axVar7.aRs().aMN().getAuthor().getPendantData().Q(jVar.Cg());
+                                    agVar = this.exF.exu;
+                                    axVar8 = this.exF.exr;
+                                    com.baidu.tieba.tbadkCore.data.q aMN = axVar8.aRs().aMN();
+                                    axVar9 = this.exF.exr;
+                                    boolean awb = axVar9.aRs().awb();
+                                    axVar10 = this.exF.exr;
+                                    boolean nv = axVar10.aRs().nv();
+                                    axVar11 = this.exF.exr;
+                                    int aMz = axVar11.aMz();
+                                    axVar12 = this.exF.exr;
+                                    agVar.a(aMN, awb, nv, aMz, axVar12.aRI() != null);
                                 }
                             }
                         }

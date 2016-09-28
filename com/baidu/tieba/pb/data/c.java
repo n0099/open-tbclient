@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.data.q;
 import tbclient.PbPage.GodCard;
 /* loaded from: classes.dex */
 public class c extends q {
-    public static final BdUniqueId ejP = BdUniqueId.gen();
-    private String HT;
-    private String Pz;
-    private String ejQ;
-    private int ejR;
+    public static final BdUniqueId elN = BdUniqueId.gen();
+    private String Py;
+    private String buttonText;
+    private String elO;
+    private int elP;
     private String picUrl;
     private String portrait;
     private String text;
@@ -19,12 +19,12 @@ public class c extends q {
         if (godCard != null) {
             this.userName = godCard.user_name;
             this.portrait = godCard.portrait;
-            this.ejQ = godCard.time_ex;
+            this.elO = godCard.time_ex;
             this.text = godCard.text;
             this.picUrl = godCard.pic_url;
-            this.HT = godCard.button_text;
-            this.Pz = godCard.button_url;
-            this.ejR = godCard.show_floor.intValue();
+            this.buttonText = godCard.button_text;
+            this.Py = godCard.button_url;
+            this.elP = godCard.show_floor.intValue();
         }
     }
 
@@ -37,8 +37,8 @@ public class c extends q {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.q
-    public String aLD() {
-        return this.ejQ;
+    public String aMf() {
+        return this.elO;
     }
 
     public String getText() {
@@ -49,20 +49,20 @@ public class c extends q {
         return this.picUrl;
     }
 
-    public String aLE() {
-        return this.HT;
+    public String aMg() {
+        return this.buttonText;
     }
 
-    public String aLF() {
-        return this.Pz;
+    public String aMh() {
+        return this.Py;
     }
 
-    public int aLG() {
-        return this.ejR;
+    public int aMi() {
+        return this.elP;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return ejP;
+        return elN;
     }
 }

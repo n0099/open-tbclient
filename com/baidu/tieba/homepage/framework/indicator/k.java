@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework.indicator;
 import com.baidu.tieba.homepage.framework.indicator.r;
 /* loaded from: classes.dex */
 class k implements r.a {
-    final /* synthetic */ ScrollFragmentTabHost cCF;
+    final /* synthetic */ ScrollFragmentTabHost cDk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cCF = scrollFragmentTabHost;
+        this.cDk = scrollFragmentTabHost;
     }
 
     @Override // com.baidu.tieba.homepage.framework.indicator.r.a
-    public void alT() {
+    public void amh() {
         o oVar;
         r rVar;
         r rVar2;
         o oVar2;
-        oVar = this.cCF.cCs;
+        oVar = this.cDk.cCX;
         if (oVar != null) {
-            oVar2 = this.cCF.cCs;
-            oVar2.alV();
+            oVar2 = this.cDk.cCX;
+            oVar2.amj();
         }
-        rVar = this.cCF.cCw;
+        rVar = this.cDk.cDb;
         if (rVar != null) {
-            rVar2 = this.cCF.cCw;
+            rVar2 = this.cDk.cDb;
             rVar2.a((r.a) null);
-            this.cCF.cCx = true;
-            this.cCF.cCw = null;
+            this.cDk.cDc = true;
+            this.cDk.cDb = null;
         }
     }
 }

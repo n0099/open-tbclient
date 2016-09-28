@@ -14,11 +14,11 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements b.d {
-    final /* synthetic */ a gbR;
+    final /* synthetic */ a gea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.gbR = aVar;
+        this.gea = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
@@ -33,34 +33,34 @@ public class b implements b.d {
         String str2;
         NewVcodeView newVcodeView5;
         String str3 = null;
-        newVcodeView = this.gbR.gbO;
+        newVcodeView = this.gea.gdX;
         if (newVcodeView != null) {
-            newVcodeView2 = this.gbR.gbO;
+            newVcodeView2 = this.gea.gdX;
             newVcodeView2.showPostThreadLoadingView(false);
             if (z) {
-                this.gbR.gbP = postWriteCallBackData;
-                if (sVar == null || sVar.xU() == null) {
+                this.gea.gdY = postWriteCallBackData;
+                if (sVar == null || sVar.xX() == null) {
                     str = null;
                     str2 = null;
                 } else {
-                    str2 = sVar.xU().endPoint;
-                    str = sVar.xU().successImg;
-                    str3 = sVar.xU().slideEndPoint;
+                    str2 = sVar.xX().endPoint;
+                    str = sVar.xX().successImg;
+                    str3 = sVar.xX().slideEndPoint;
                 }
-                newVcodeView5 = this.gbR.gbO;
+                newVcodeView5 = this.gea.gdX;
                 newVcodeView5.runJsMethod(ImagesInvalidReceiver.SUCCESS, String.valueOf(str) + "," + str2 + "," + str3);
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                newVcodeView3 = this.gbR.gbO;
+                newVcodeView3 = this.gea.gdX;
                 newVcodeView3.getContext().setVisible(false);
                 MessageManager messageManager = MessageManager.getInstance();
-                newVcodeView4 = this.gbR.gbO;
+                newVcodeView4 = this.gea.gdX;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(newVcodeView4.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
             } else {
-                dVar = this.gbR.gbQ;
+                dVar = this.gea.gdZ;
                 if (dVar == null) {
                     return;
                 }
-                dVar2 = this.gbR.gbQ;
+                dVar2 = this.gea.gdZ;
                 dVar2.callback(false, postWriteCallBackData, sVar, writeData, antiData);
             }
         }

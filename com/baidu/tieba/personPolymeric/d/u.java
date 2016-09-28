@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.view.UserIconBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    com.baidu.tieba.personPolymeric.event.a eJG = new com.baidu.tieba.personPolymeric.event.a();
-    final /* synthetic */ t eJH;
+    com.baidu.tieba.personPolymeric.event.a eLJ = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ t eLK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.eJH = tVar;
+        this.eLK = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,55 +32,55 @@ public class u implements View.OnClickListener {
         UserData userData4;
         com.baidu.tieba.view.m mVar2;
         UserData userData5;
-        mVar = this.eJH.eDi;
+        mVar = this.eLK.eFl;
         if (mVar != null) {
-            this.eJG.bJp = -1;
-            headPendantView = this.eJH.fWJ;
+            this.eLJ.bJq = -1;
+            headPendantView = this.eLK.fYO;
             if (headPendantView != view) {
-                userIconBox = this.eJH.fWL;
+                userIconBox = this.eLK.fYQ;
                 if (userIconBox != view) {
-                    userIconBox2 = this.eJH.fWM;
+                    userIconBox2 = this.eLK.fYR;
                     if (userIconBox2 != view) {
-                        bdExpandImageView = this.eJH.fWI;
+                        bdExpandImageView = this.eLK.fYN;
                         if (bdExpandImageView != view) {
-                            imageView = this.eJH.eJF;
+                            imageView = this.eLK.eLI;
                             if (imageView == view) {
-                                this.eJG.bJp = 12;
-                                this.eJG.bJq = new Bundle();
-                                Bundle bundle = this.eJG.bJq;
-                                userData = this.eJH.mUserData;
+                                this.eLJ.bJq = 12;
+                                this.eLJ.bJr = new Bundle();
+                                Bundle bundle = this.eLJ.bJr;
+                                userData = this.eLK.mUserData;
                                 bundle.putSerializable(UserData.TYPE_USER, userData);
                             }
                         } else {
-                            this.eJG.bJp = 10;
-                            this.eJG.bJq = new Bundle();
-                            Bundle bundle2 = this.eJG.bJq;
-                            userData2 = this.eJH.mUserData;
+                            this.eLJ.bJq = 10;
+                            this.eLJ.bJr = new Bundle();
+                            Bundle bundle2 = this.eLJ.bJr;
+                            userData2 = this.eLK.mUserData;
                             bundle2.putSerializable(UserData.TYPE_USER, userData2);
                         }
                     } else {
-                        this.eJG.bJp = 3;
-                        this.eJG.bJq = new Bundle();
-                        Bundle bundle3 = this.eJG.bJq;
-                        userData3 = this.eJH.mUserData;
+                        this.eLJ.bJq = 3;
+                        this.eLJ.bJr = new Bundle();
+                        Bundle bundle3 = this.eLJ.bJr;
+                        userData3 = this.eLK.mUserData;
                         bundle3.putSerializable(UserData.TYPE_USER, userData3);
                     }
                 } else {
-                    this.eJG.bJp = 2;
-                    this.eJG.bJq = new Bundle();
-                    Bundle bundle4 = this.eJG.bJq;
-                    userData4 = this.eJH.mUserData;
+                    this.eLJ.bJq = 2;
+                    this.eLJ.bJr = new Bundle();
+                    Bundle bundle4 = this.eLJ.bJr;
+                    userData4 = this.eLK.mUserData;
                     bundle4.putString("vip_user_jump", userData4.getTShowInfo().get(0).getUrl());
                 }
             } else {
-                this.eJG.bJp = 1;
-                this.eJG.bJq = new Bundle();
-                Bundle bundle5 = this.eJG.bJq;
-                userData5 = this.eJH.mUserData;
+                this.eLJ.bJq = 1;
+                this.eLJ.bJr = new Bundle();
+                Bundle bundle5 = this.eLJ.bJr;
+                userData5 = this.eLK.mUserData;
                 bundle5.putSerializable(UserData.TYPE_USER, userData5);
             }
-            mVar2 = this.eJH.eDi;
-            mVar2.a(view, this.eJG);
+            mVar2 = this.eLK.eFl;
+            mVar2.a(view, this.eLJ);
         }
     }
 }

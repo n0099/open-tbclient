@@ -6,13 +6,13 @@ import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b cdk;
+    final /* synthetic */ b cdi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.cdk = bVar;
+        this.cdi = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,11 +23,11 @@ public class c extends CustomMessageListener {
         if (customResponsedMessage == null) {
             return;
         }
-        hashSet = this.cdk.cdi;
+        hashSet = this.cdi.cdg;
         if (hashSet == null) {
             return;
         }
-        hashSet2 = this.cdk.cdi;
+        hashSet2 = this.cdi.cdg;
         hashSet2.clear();
     }
 }

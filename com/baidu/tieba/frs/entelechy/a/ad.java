@@ -6,21 +6,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.view.TextureVideoView;
-import com.baidu.tieba.card.cf;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tieba.card.cd;
 import com.baidu.tieba.frs.entelechy.view.az;
 /* loaded from: classes.dex */
-public class ad extends com.baidu.adp.widget.ListView.a<bg, a> implements az, com.baidu.tieba.frs.g.e {
+public class ad extends com.baidu.adp.widget.ListView.a<bi, a> implements az, com.baidu.tieba.frs.g.e {
     private TbPageContext<?> GM;
-    private cf<bg> bVU;
+    private cd<bi> bVT;
     private com.baidu.tieba.frs.entelechy.view.a bWE;
     private String mForumName;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ad(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bVU = new ae(this);
+        this.bVT = new ae(this);
         this.GM = tbPageContext;
     }
 
@@ -38,24 +37,27 @@ public class ad extends com.baidu.adp.widget.ListView.a<bg, a> implements az, co
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bg bgVar, a aVar) {
-        aVar.bWG.setVideoStatsData(h(bgVar));
-        aVar.bWG.onBindDataToView(bgVar);
+    public View a(int i, View view, ViewGroup viewGroup, bi biVar, a aVar) {
+        aVar.bWG.a(i(biVar));
+        aVar.bWG.onBindDataToView(biVar);
         aVar.bWG.setForumName(this.mForumName);
-        aVar.bWG.setOnSubCardOnClickListenner(this.bVU);
-        com.baidu.tieba.frs.g.b.aeX().a(cdn, bgVar);
+        aVar.bWG.setOnSubCardOnClickListenner(this.bVT);
+        com.baidu.tieba.frs.g.b.afl().a(cdl, biVar);
+        if (biVar != null) {
+            biVar.sL();
+        }
         return aVar.getView();
     }
 
-    private TextureVideoView.c h(bg bgVar) {
-        if (bgVar == null) {
+    private com.baidu.tieba.play.ad i(bi biVar) {
+        if (biVar == null) {
             return null;
         }
-        TextureVideoView.c cVar = new TextureVideoView.c();
-        cVar.mLocate = bgVar.su() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
-        cVar.ahj = cdn.cdf;
-        cVar.ahi = bgVar.getTid();
-        return cVar;
+        com.baidu.tieba.play.ad adVar = new com.baidu.tieba.play.ad();
+        adVar.mLocate = biVar.sG() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
+        adVar.aPG = cdl.cdd;
+        adVar.aPH = biVar.getTid();
+        return adVar;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.az
@@ -73,11 +75,11 @@ public class ad extends com.baidu.adp.widget.ListView.a<bg, a> implements az, co
         }
 
         @Override // com.baidu.tieba.play.d
-        public boolean KA() {
+        public boolean Jr() {
             if (this.bWG == null) {
                 return false;
             }
-            return this.bWG.KA();
+            return this.bWG.Jr();
         }
 
         @Override // com.baidu.tieba.play.d
@@ -89,9 +91,9 @@ public class ad extends com.baidu.adp.widget.ListView.a<bg, a> implements az, co
         }
 
         @Override // com.baidu.tieba.play.d
-        public void Kz() {
+        public void Js() {
             if (this.bWG != null) {
-                this.bWG.Kz();
+                this.bWG.Js();
             }
         }
 

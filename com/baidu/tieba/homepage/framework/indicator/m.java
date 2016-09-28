@@ -1,21 +1,21 @@
 package com.baidu.tieba.homepage.framework.indicator;
 
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class m implements com.baidu.tieba.homepage.framework.y {
-    final /* synthetic */ ScrollFragmentTabHost cCF;
+    final /* synthetic */ ScrollFragmentTabHost cDk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cCF = scrollFragmentTabHost;
+        this.cDk = scrollFragmentTabHost;
     }
 
     @Override // com.baidu.tieba.homepage.framework.y
-    public void jP(int i) {
+    public void jV(int i) {
         a aVar;
-        ((SlidingTabLayout) this.cCF.findViewById(t.g.tab_container).findViewById(t.g.tab_widget_sliding_tab)).at(i, 0);
-        this.cCF.setCurrentTab(i);
-        aVar = this.cCF.cCt;
-        aVar.jQ(i);
+        ((SlidingTabLayout) this.cDk.findViewById(r.g.tab_container).findViewById(r.g.tab_widget_sliding_tab)).au(i, 0);
+        this.cDk.setCurrentTab(i);
+        aVar = this.cDk.cCY;
+        aVar.jW(i);
     }
 }

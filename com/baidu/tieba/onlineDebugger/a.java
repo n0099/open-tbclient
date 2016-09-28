@@ -1,7 +1,7 @@
 package com.baidu.tieba.onlineDebugger;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Queue;
@@ -10,19 +10,19 @@ import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes.dex */
 public class a {
     private String code;
-    private Stack<Object> egk = new Stack<>();
+    private Stack<Object> eie = new Stack<>();
 
     public a(String str) {
         this.code = str.substring(str.indexOf(" ") + 1);
-        this.egk.add("#");
+        this.eie.add("#");
     }
 
     public Object get() {
         prepare();
-        if (this.egk.isEmpty()) {
+        if (this.eie.isEmpty()) {
             return null;
         }
-        return this.egk.pop();
+        return this.eie.pop();
     }
 
     private void prepare() {
@@ -38,9 +38,9 @@ public class a {
                     case '$':
                         int length = "$.getInstance().get( )".length() + i2;
                         try {
-                            Object aKH = com.baidu.tieba.onlineDebugger.e.b.oA("get " + this.code.substring(i2, length)).aKH();
-                            if (aKH != null) {
-                                this.egk.add(aKH);
+                            Object aLi = com.baidu.tieba.onlineDebugger.e.b.oO("get " + this.code.substring(i2, length)).aLi();
+                            if (aLi != null) {
+                                this.eie.add(aLi);
                             }
                         } catch (Exception e) {
                             BdLog.e(e);
@@ -49,32 +49,32 @@ public class a {
                         i = i2;
                         break;
                     case '%':
-                    case t.l.PullToRefresh_adapterViewBackground /* 38 */:
-                    case t.l.PullToRefresh_headerBackground /* 39 */:
+                    case r.l.PullToRefresh_adapterViewBackground /* 38 */:
+                    case r.l.PullToRefresh_headerBackground /* 39 */:
                     case '*':
                     case '+':
                     default:
                         i2 = i5;
                         i = i2;
                         break;
-                    case t.l.PullToRefresh_headerTextColor /* 40 */:
-                        this.egk.add(this.code.substring(i5 + 1, i2).trim());
-                        this.egk.add("(");
+                    case r.l.PullToRefresh_headerTextColor /* 40 */:
+                        this.eie.add(this.code.substring(i5 + 1, i2).trim());
+                        this.eie.add("(");
                         i = i2;
                         break;
-                    case t.l.PullToRefresh_mode /* 41 */:
+                    case r.l.PullToRefresh_mode /* 41 */:
                         String trim = this.code.substring(i5 + 1, i2).trim();
                         if (!trim.isEmpty()) {
-                            this.egk.add(trim);
+                            this.eie.add(trim);
                         }
-                        this.egk.add(")");
+                        this.eie.add(")");
                         Stack stack = new Stack();
                         LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
                         while (true) {
-                            if (!this.egk.isEmpty()) {
-                                if (this.egk.peek().equals("(")) {
-                                    stack.add(this.egk.pop());
-                                    stack.add(this.egk.pop());
+                            if (!this.eie.isEmpty()) {
+                                if (this.eie.peek().equals("(")) {
+                                    stack.add(this.eie.pop());
+                                    stack.add(this.eie.pop());
                                     String str = (String) stack.pop();
                                     while (!stack.isEmpty()) {
                                         Object pop = stack.pop();
@@ -84,10 +84,10 @@ public class a {
                                     }
                                     Object a = a(str, linkedBlockingQueue);
                                     if (a != null) {
-                                        this.egk.add(a);
+                                        this.eie.add(a);
                                     }
                                 } else {
-                                    stack.add(this.egk.pop());
+                                    stack.add(this.eie.pop());
                                 }
                             }
                         }
@@ -96,9 +96,9 @@ public class a {
                     case ',':
                         String substring = this.code.substring(i5 + 1, i2);
                         if (!substring.isEmpty()) {
-                            this.egk.add(substring.trim());
+                            this.eie.add(substring.trim());
                         }
-                        this.egk.add(",");
+                        this.eie.add(",");
                         i = i2;
                         break;
                 }
@@ -112,7 +112,7 @@ public class a {
     private Object a(String str, Queue<Object> queue) {
         Constructor<?>[] constructors;
         try {
-            Class<?> cls = Class.forName(oh(str));
+            Class<?> cls = Class.forName(ov(str));
             int size = queue.size();
             for (Constructor<?> constructor : cls.getConstructors()) {
                 if (constructor.getParameterTypes().length == size) {
@@ -130,7 +130,7 @@ public class a {
         return null;
     }
 
-    private String oh(String str) {
+    private String ov(String str) {
         if (str.startsWith("new")) {
             return str.substring(str.indexOf(" ") + 1);
         }
