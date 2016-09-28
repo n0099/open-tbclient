@@ -10,15 +10,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class g extends k implements s {
-    private CardGod cGK;
+    private CardGod cHz;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.cGK = cardGod;
-            this.bbo = this.cGK.card_title;
-            if (!y.t(this.cGK.gods)) {
+            this.cHz = cardGod;
+            this.bbF = this.cHz.card_title;
+            if (!y.t(this.cHz.gods)) {
                 int i = 0;
-                for (User user : this.cGK.gods) {
+                for (User user : this.cHz.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
@@ -36,25 +36,30 @@ public class g extends k implements s {
         }
     }
 
-    public boolean pg() {
-        return y.s(Fu()) > 2;
+    public boolean ph() {
+        return y.s(Ft()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.s
     public int getPosition() {
-        if (this.cGK == null || this.cGK.position == null) {
+        if (this.cHz == null || this.cHz.position == null) {
             return 0;
         }
-        return this.cGK.position.intValue();
+        return this.cHz.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.s
-    public boolean NO() {
+    public boolean Op() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.s
     public void ct(boolean z) {
-        this.bbs = z;
+        this.bbJ = z;
+    }
+
+    @Override // com.baidu.tieba.card.data.s
+    public void cu(boolean z) {
+        this.bbK = z;
     }
 }

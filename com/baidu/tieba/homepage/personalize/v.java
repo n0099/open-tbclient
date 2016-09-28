@@ -1,22 +1,31 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends CustomMessageListener {
-    final /* synthetic */ b this$0;
+public class v implements Animation.AnimationListener {
+    final /* synthetic */ m this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(b bVar, int i) {
-        super(i);
-        this.this$0 = bVar;
+    public v(m mVar) {
+        this.this$0 = mVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.amw();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        Runnable runnable;
+        int i;
+        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
+        runnable = this.this$0.cFO;
+        i = this.this$0.cFD;
+        eG.postDelayed(runnable, i);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

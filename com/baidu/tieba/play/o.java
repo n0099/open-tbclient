@@ -1,63 +1,47 @@
 package com.baidu.tieba.play;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
-import com.baidu.tieba.play.n;
+import com.baidu.tieba.play.QuickVideoView;
+import com.baidu.tieba.play.e;
 /* loaded from: classes.dex */
-class o extends Handler {
-    final /* synthetic */ n eWH;
+class o implements e.d {
+    final /* synthetic */ QuickVideoView eYQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(n nVar, Looper looper) {
-        super(looper);
-        this.eWH = nVar;
+    public o(QuickVideoView quickVideoView) {
+        this.eYQ = quickVideoView;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    @Override // com.baidu.tieba.play.e.d
+    public void onPrepared(e eVar) {
+        e.d dVar;
         boolean z;
-        boolean z2;
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        int aph;
-        n.b bVar;
+        w wVar;
+        QuickVideoView.a aVar;
+        QuickVideoView.a aVar2;
+        w wVar2;
         int i;
-        int i2;
-        n.b bVar2;
-        switch (message.what) {
-            case 1:
-                z = this.eWH.cRH;
-                if (!z) {
-                    z2 = this.eWH.cRI;
-                    if (z2) {
-                        mediaPlayerControl = this.eWH.aOb;
-                        if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.eWH.aOb;
-                            if (!mediaPlayerControl2.isPlaying()) {
-                                return;
-                            }
-                            aph = this.eWH.aph();
-                            bVar = this.eWH.aPJ;
-                            if (bVar != null) {
-                                bVar2 = this.eWH.aPJ;
-                                bVar2.fL(aph);
-                            }
-                            Message obtainMessage = obtainMessage(1);
-                            i = this.eWH.cRE;
-                            i2 = this.eWH.cRE;
-                            sendMessageDelayed(obtainMessage, i - (aph % i2));
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                return;
+        e.d dVar2;
+        dVar = this.eYQ.aLr;
+        if (dVar != null) {
+            dVar2 = this.eYQ.aLr;
+            dVar2.onPrepared(eVar);
+        }
+        z = this.eYQ.eYI;
+        if (z) {
+            this.eYQ.start();
+        }
+        wVar = this.eYQ.eYF;
+        if (wVar != null && eVar != null) {
+            wVar2 = this.eYQ.eYF;
+            int videoWidth = eVar.getVideoWidth();
+            int videoHeight = eVar.getVideoHeight();
+            i = this.eYQ.eYL;
+            wVar2.O(videoWidth, videoHeight, i);
+        }
+        aVar = this.eYQ.eYJ;
+        if (aVar != null) {
+            aVar2 = this.eYQ.eYJ;
+            aVar2.baq();
         }
     }
 }

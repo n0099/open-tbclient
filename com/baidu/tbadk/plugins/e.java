@@ -1,21 +1,67 @@
 package com.baidu.tbadk.plugins;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(int i) {
-        super(i);
+public class e {
+    public static boolean GB() {
+        return PluginPackageManager.iB().bk("com.baidu.tieba.pluginHotTopic") && TbadkCoreApplication.m9getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            PluginCenter.getInstance().startRetryLaunchPlugins();
+    public static boolean GC() {
+        return PluginPackageManager.iB().bq("com.baidu.tieba.pluginHotTopic");
+    }
+
+    public static boolean a(TbPageContext<?> tbPageContext, boolean z) {
+        if (PluginPackageManager.iB().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
+            String string = tbPageContext.getResources().getString(r.j.plugin_hottopic_not_install);
+            if (z) {
+                showGoPluginDetailDialog(tbPageContext, string, null);
+                return true;
+            }
+            return true;
+        } else if (!GB()) {
+            String string2 = tbPageContext.getResources().getString(r.j.plugin_hottopic_install_tips);
+            String string3 = tbPageContext.getResources().getString(r.j.plugin_go_install);
+            if (z) {
+                showGoPluginDetailDialog(tbPageContext, string2, string3);
+                return true;
+            }
+            return true;
+        } else if (GC()) {
+            String string4 = tbPageContext.getResources().getString(r.j.plugin_hottopic_not_active);
+            String string5 = tbPageContext.getResources().getString(r.j.setup);
+            if (z) {
+                showGoPluginDetailDialog(tbPageContext, string4, string5);
+                return true;
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean f(TbPageContext<?> tbPageContext) {
+        return a(tbPageContext, true);
+    }
+
+    public static void showGoPluginDetailDialog(TbPageContext<?> tbPageContext, String str, String str2) {
+        Activity pageActivity;
+        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
+            aVar.cD(str);
+            if (TextUtils.isEmpty(str2)) {
+                aVar.b(r.j.know, new f());
+            } else {
+                aVar.a(str2, new g(pageActivity, tbPageContext));
+                aVar.b(r.j.cancel, new h());
+            }
+            aVar.b(tbPageContext).tm();
         }
     }
 }

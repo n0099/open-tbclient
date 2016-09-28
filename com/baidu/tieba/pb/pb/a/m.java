@@ -1,18 +1,24 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.media.MediaPlayer;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements MediaPlayer.OnCompletionListener {
-    final /* synthetic */ e elb;
+public class m implements TbImageView.a {
+    final /* synthetic */ e emY;
+    private final /* synthetic */ com.baidu.tbadk.widget.richText.o ena;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(e eVar) {
-        this.elb = eVar;
+    public m(e eVar, com.baidu.tbadk.widget.richText.o oVar) {
+        this.emY = eVar;
+        this.ena = oVar;
     }
 
-    @Override // android.media.MediaPlayer.OnCompletionListener
-    public void onCompletion(MediaPlayer mediaPlayer) {
-        this.elb.aMv();
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void v(String str, boolean z) {
+        this.emY.pa(this.ena.getVideoUrl());
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

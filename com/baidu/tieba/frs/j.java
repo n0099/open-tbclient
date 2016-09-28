@@ -1,42 +1,19 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.e.a;
-import com.baidu.tieba.t;
+import com.baidu.tieba.d.a;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class j implements a.InterfaceC0055a {
-    final /* synthetic */ FrsActivity bQp;
-    final int bQq;
+class j implements a.InterfaceC0058a {
+    final /* synthetic */ FrsActivity bQi;
+    final int bQj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.bQp = frsActivity;
-        this.bQq = (int) frsActivity.getResources().getDimension(t.e.ds98);
+        this.bQi = frsActivity;
+        this.bQj = (int) frsActivity.getResources().getDimension(r.e.ds98);
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
-    public void N(int i, int i2) {
-        bm bmVar;
-        bm bmVar2;
-        dj djVar;
-        dj djVar2;
-        dj djVar3;
-        if (af(i2)) {
-            djVar = this.bQp.bPJ;
-            if (djVar != null) {
-                djVar2 = this.bQp.bPJ;
-                djVar2.dp(false);
-                djVar3 = this.bQp.bPJ;
-                djVar3.YO();
-            }
-        }
-        bmVar = this.bQp.bPo;
-        if (bmVar != null) {
-            bmVar2 = this.bQp.bPo;
-            bmVar2.dM(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
     public void O(int i, int i2) {
         bm bmVar;
         bm bmVar2;
@@ -44,20 +21,43 @@ class j implements a.InterfaceC0055a {
         dj djVar2;
         dj djVar3;
         if (af(i2)) {
-            djVar = this.bQp.bPJ;
+            djVar = this.bQi.bPB;
             if (djVar != null) {
-                djVar2 = this.bQp.bPJ;
-                djVar2.dp(true);
-                if (Math.abs(i2) > this.bQq) {
-                    djVar3 = this.bQp.bPJ;
-                    djVar3.YN();
+                djVar2 = this.bQi.bPB;
+                djVar2.dq(false);
+                djVar3 = this.bQi.bPB;
+                djVar3.Zd();
+            }
+        }
+        bmVar = this.bQi.bPi;
+        if (bmVar != null) {
+            bmVar2 = this.bQi.bPi;
+            bmVar2.dN(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    public void P(int i, int i2) {
+        bm bmVar;
+        bm bmVar2;
+        dj djVar;
+        dj djVar2;
+        dj djVar3;
+        if (af(i2)) {
+            djVar = this.bQi.bPB;
+            if (djVar != null) {
+                djVar2 = this.bQi.bPB;
+                djVar2.dq(true);
+                if (Math.abs(i2) > this.bQj) {
+                    djVar3 = this.bQi.bPB;
+                    djVar3.Zc();
                 }
             }
         }
-        bmVar = this.bQp.bPo;
+        bmVar = this.bQi.bPi;
         if (bmVar != null) {
-            bmVar2 = this.bQp.bPo;
-            bmVar2.dM(false);
+            bmVar2 = this.bQi.bPi;
+            bmVar2.dN(false);
         }
     }
 

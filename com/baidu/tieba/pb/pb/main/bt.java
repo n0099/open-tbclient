@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.widget.LinearLayout;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class bt implements com.baidu.adp.lib.f.c<LinearLayout> {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aNm */
+    /* renamed from: aNS */
     public LinearLayout ez() {
-        LinearLayout linearLayout = new LinearLayout(this.eob.getPageContext().getPageActivity());
-        linearLayout.setId(t.g.pb_text_voice_layout);
+        LinearLayout linearLayout = new LinearLayout(this.eqa.getPageContext().getPageActivity());
+        linearLayout.setId(r.g.pb_text_voice_layout);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         linearLayout.setLayoutParams(layoutParams);
         linearLayout.setGravity(16);

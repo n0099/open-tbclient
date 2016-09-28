@@ -9,14 +9,12 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
-    private String aJc;
-    private int aJd;
+    private String aIB;
+    private int aIC;
     private int color = -1;
     private int mType;
     private String mUrl;
@@ -41,16 +39,20 @@ public class h extends ClickableSpan {
         this.mType = i;
     }
 
-    public void fw(int i) {
-        this.aJd = i;
+    public void fv(int i) {
+        this.aIC = i;
     }
 
     public void setColor(int i) {
         this.color = i;
     }
 
-    public void gD(String str) {
-        this.aJc = str;
+    public void gH(String str) {
+        this.aIB = str;
+    }
+
+    public String getLink() {
+        return this.mUrl;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -59,20 +61,20 @@ public class h extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aJd == 1) {
+        } else if (this.aIC == 1) {
             if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
-                textPaint.bgColor = av.getColor(t.d.cp_bg_line_c);
+                textPaint.bgColor = av.getColor(r.d.cp_bg_line_c);
             } else {
-                textPaint.bgColor = av.getColor(t.d.cp_bg_line_z);
+                textPaint.bgColor = av.getColor(r.d.cp_bg_line_z);
             }
-        } else if (this.aJd == 2) {
-            textPaint.bgColor = av.getColor(t.d.transparent);
+        } else if (this.aIC == 2) {
+            textPaint.bgColor = av.getColor(r.d.transparent);
         }
     }
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aJc)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aIB)));
     }
 
     public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {
@@ -87,7 +89,6 @@ public class h extends ClickableSpan {
                     mVar.A(pageActivity, str);
                     return;
                 case 18:
-                    TiebaStatic.log(new ay("c11455").ab("obj_locate", "pb"));
                     mVar.B(pageActivity, str);
                     return;
                 case 32:

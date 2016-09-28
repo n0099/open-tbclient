@@ -6,77 +6,77 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VoteView extends LinearLayout {
-    private int aKx;
-    private int aKy;
-    private List<c> aKz;
-    private List<c> aLc;
-    private final int aLd;
-    private LinkedList<c> aLe;
-    private int aLf;
-    private boolean aLg;
-    private int aLh;
-    private int aLi;
+    private int aJW;
+    private int aJX;
+    private List<c> aJY;
+    private List<c> aKB;
+    private final int aKC;
+    private LinkedList<c> aKD;
+    private int aKE;
+    private boolean aKF;
+    private int aKG;
+    private int aKH;
     private int mSkinType;
 
     public VoteView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.aLd = 3;
-        this.aLg = false;
-        this.aKx = -1;
-        this.aLh = -1;
-        this.aKy = -1;
-        this.aLi = -1;
+        this.aKC = 3;
+        this.aKF = false;
+        this.aJW = -1;
+        this.aKG = -1;
+        this.aJX = -1;
+        this.aKH = -1;
         init();
     }
 
     public VoteView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.aLd = 3;
-        this.aLg = false;
-        this.aKx = -1;
-        this.aLh = -1;
-        this.aKy = -1;
-        this.aLi = -1;
+        this.aKC = 3;
+        this.aKF = false;
+        this.aJW = -1;
+        this.aKG = -1;
+        this.aJX = -1;
+        this.aKH = -1;
         init();
     }
 
     private void init() {
         setOrientation(1);
-        this.aKz = new ArrayList();
-        this.aLe = new LinkedList<>();
-        this.aLf = getResources().getDimensionPixelSize(t.e.ds456);
+        this.aJY = new ArrayList();
+        this.aKD = new LinkedList<>();
+        this.aKE = getResources().getDimensionPixelSize(r.e.ds456);
     }
 
     public void setProgressBarHeight(int i) {
-        this.aKx = i;
+        this.aJW = i;
     }
 
     public void setDescTextColorResId(int i) {
-        this.aKy = i;
+        this.aJX = i;
     }
 
     public void setProgressBarTopMargin(int i) {
-        this.aLh = i;
+        this.aKG = i;
     }
 
     public void setWidth(int i) {
         if (i >= 0) {
-            this.aLf = i;
+            this.aKE = i;
         }
     }
 
     public void a(List<com.baidu.tbadk.widget.vote.a> list, boolean z) {
         removeAllViews();
         if (list != null && list.size() > 0) {
-            fC(list.size());
+            fB(list.size());
             int i = 0;
             for (com.baidu.tbadk.widget.vote.a aVar : list) {
                 if (aVar != null) {
@@ -88,14 +88,14 @@ public class VoteView extends LinearLayout {
                     if (a2 <= i) {
                         a2 = i;
                     }
-                    this.aKz.add(voteItemView);
+                    this.aJY.add(voteItemView);
                     i = a2;
                 }
             }
-            int i2 = this.aLf - i;
-            for (c cVar : this.aKz) {
+            int i2 = this.aKE - i;
+            for (c cVar : this.aJY) {
                 if (cVar != null) {
-                    cVar.fB(i2);
+                    cVar.fA(i2);
                     addView(cVar.getView());
                 }
             }
@@ -111,15 +111,15 @@ public class VoteView extends LinearLayout {
 
     public void setBoallotsForListView(List<com.baidu.tbadk.widget.vote.a> list) {
         int a2;
-        if (!this.aLg) {
+        if (!this.aKF) {
             IU();
-            this.aLg = true;
+            this.aKF = true;
         }
-        if (this.aLc != null && list != null && this.aLc.size() == 3) {
+        if (this.aKB != null && list != null && this.aKB.size() == 3) {
             int i = 0;
             int i2 = 0;
             while (i < 3) {
-                c cVar = (c) y.c(this.aLc, i);
+                c cVar = (c) y.c(this.aKB, i);
                 if (cVar != null && cVar.getView() != null) {
                     com.baidu.tbadk.widget.vote.a aVar = (com.baidu.tbadk.widget.vote.a) y.c(list, i);
                     if (aVar == null) {
@@ -137,13 +137,13 @@ public class VoteView extends LinearLayout {
                 }
             }
             for (int i3 = 0; i3 < 3; i3++) {
-                c cVar2 = (c) y.c(this.aLc, i3);
+                c cVar2 = (c) y.c(this.aKB, i3);
                 if (cVar2 != null && cVar2.getView() != null) {
                     if (((com.baidu.tbadk.widget.vote.a) y.c(list, i3)) == null) {
                         cVar2.getView().setVisibility(8);
                     } else {
                         cVar2.getView().setVisibility(0);
-                        cVar2.fB(this.aLf - i2);
+                        cVar2.fA(this.aKE - i2);
                         cVar2.setProgress(1.0f);
                     }
                 } else {
@@ -154,53 +154,53 @@ public class VoteView extends LinearLayout {
     }
 
     private void IU() {
-        this.aLc = new ArrayList();
+        this.aKB = new ArrayList();
         for (int i = 0; i < 3; i++) {
             c IV = IV();
-            this.aLc.add(IV);
+            this.aKB.add(IV);
             addView(IV.getView());
         }
     }
 
-    private void fC(int i) {
+    private void fB(int i) {
         int size;
-        this.aLe.addAll(this.aKz);
-        this.aKz.clear();
-        if (i > 0 && (size = this.aLe.size()) < i) {
+        this.aKD.addAll(this.aJY);
+        this.aJY.clear();
+        if (i > 0 && (size = this.aKD.size()) < i) {
             int i2 = i - size;
             for (int i3 = 0; i3 < i2; i3++) {
-                this.aLe.add(IV());
+                this.aKD.add(IV());
             }
         }
     }
 
     private c IV() {
         c cVar;
-        if (this.aKy != -1) {
-            cVar = new c(getContext(), this.aKy);
+        if (this.aJX != -1) {
+            cVar = new c(getContext(), this.aJX);
         } else {
             cVar = new c(getContext());
         }
-        if (this.aLh != -1) {
-            cVar.setProgressBarTopMargin(this.aLh);
+        if (this.aKG != -1) {
+            cVar.setProgressBarTopMargin(this.aKG);
         }
-        if (this.aKx != -1) {
-            cVar.setProgressBarHeight(this.aKx);
+        if (this.aJW != -1) {
+            cVar.setProgressBarHeight(this.aJW);
         }
-        if (this.aLi != -1) {
-            cVar.setDescTopMargin(this.aLi);
+        if (this.aKH != -1) {
+            cVar.setDescTopMargin(this.aKH);
         }
         return cVar;
     }
 
     private c getVoteItemView() {
-        return this.aLe.poll();
+        return this.aKD.poll();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aKz != null) {
-            for (c cVar : this.aKz) {
+        if (f >= 0.0f && this.aJY != null) {
+            for (c cVar : this.aJY) {
                 if (cVar != null) {
                     cVar.setProgress(f);
                 }
@@ -209,7 +209,7 @@ public class VoteView extends LinearLayout {
     }
 
     public void setDescTopMargin(int i) {
-        this.aLi = i;
+        this.aKH = i;
     }
 
     /* loaded from: classes.dex */
@@ -229,15 +229,15 @@ public class VoteView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mSkinType != i && this.aKz != null) {
+        if (this.mSkinType != i && this.aJY != null) {
             this.mSkinType = i;
-            for (c cVar : this.aKz) {
+            for (c cVar : this.aJY) {
                 if (cVar != null) {
                     cVar.onChangeSkinType(i);
                 }
             }
-            if (this.aLc != null) {
-                for (c cVar2 : this.aLc) {
+            if (this.aKB != null) {
+                for (c cVar2 : this.aKB) {
                     if (cVar2 != null) {
                         cVar2.onChangeSkinType(i);
                     }

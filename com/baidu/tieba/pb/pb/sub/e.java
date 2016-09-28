@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity evy;
+    final /* synthetic */ NewSubPbActivity exF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NewSubPbActivity newSubPbActivity) {
-        this.evy = newSubPbActivity;
+        this.exF = newSubPbActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
@@ -33,27 +33,27 @@ public class e implements NewSubPbActivity.a {
         Object[] objArr = (Object[]) obj;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            aVar = this.evy.evm;
-            if (!aVar.bjS() && objArr != null && objArr.length >= 4) {
+            aVar = this.exF.exs;
+            if (!aVar.bkE() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
                 int g = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[1]), 0);
                 boolean d = com.baidu.adp.lib.h.b.d(String.valueOf(objArr[2]), false);
                 int g2 = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[3]), 0);
-                axVar = this.evy.evl;
+                axVar = this.exF.exr;
                 if (axVar != null) {
-                    axVar2 = this.evy.evl;
-                    if (axVar2.aQK() != null) {
-                        axVar3 = this.evy.evl;
-                        if (axVar3.aQK().aMn() != null) {
-                            axVar4 = this.evy.evl;
-                            if (axVar4.aQK().Kw() != null) {
-                                aVar2 = this.evy.evm;
-                                axVar5 = this.evy.evl;
-                                String id = axVar5.aQK().aMn().getId();
-                                axVar6 = this.evy.evl;
-                                String name = axVar6.aQK().aMn().getName();
-                                axVar7 = this.evy.evl;
-                                aVar2.a(id, name, axVar7.aQK().Kw().getId(), valueOf, g2, g, d);
+                    axVar2 = this.exF.exr;
+                    if (axVar2.aRs() != null) {
+                        axVar3 = this.exF.exr;
+                        if (axVar3.aRs().aMT() != null) {
+                            axVar4 = this.exF.exr;
+                            if (axVar4.aRs().Jv() != null) {
+                                aVar2 = this.exF.exs;
+                                axVar5 = this.exF.exr;
+                                String id = axVar5.aRs().aMT().getId();
+                                axVar6 = this.exF.exr;
+                                String name = axVar6.aRs().aMT().getName();
+                                axVar7 = this.exF.exr;
+                                aVar2.a(id, name, axVar7.aRs().Jv().getId(), valueOf, g2, g, d);
                                 return;
                             }
                             return;
@@ -66,6 +66,6 @@ public class e implements NewSubPbActivity.a {
             }
             return;
         }
-        TbadkCoreApplication.m9getInst().login(this.evy.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.evy.getPageContext().getPageActivity(), this.evy.getPageContext().getString(t.j.login_to_use), true, 11017)));
+        TbadkCoreApplication.m9getInst().login(this.exF.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.exF.getPageContext().getPageActivity(), this.exF.getPageContext().getString(r.j.login_to_use), true, 11017)));
     }
 }

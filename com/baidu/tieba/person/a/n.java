@@ -5,15 +5,15 @@ import android.widget.AdapterView;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.person.g;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l eBU;
+    final /* synthetic */ l eDX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.eBU = lVar;
+        this.eDX = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,16 +21,16 @@ public class n implements AdapterView.OnItemClickListener {
         h hVar;
         TbPageContext tbPageContext;
         if (!i.fZ()) {
-            tbPageContext = this.eBU.bKX;
-            tbPageContext.showToast(t.j.neterror);
+            tbPageContext = this.eDX.bKY;
+            tbPageContext.showToast(r.j.neterror);
             return;
         }
-        hVar = this.eBU.eBT;
+        hVar = this.eDX.eDW;
         g.a item = hVar.getItem(i);
         if (item == null) {
             return;
         }
-        this.eBU.pq(item.eBA);
-        this.eBU.a(item);
+        this.eDX.pC(item.eDD);
+        this.eDX.a(item);
     }
 }

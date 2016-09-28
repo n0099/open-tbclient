@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import java.util.List;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
@@ -112,7 +113,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 this.zG = 10000;
             } else if (f2 == 1.0f) {
                 this.zz = getMeasuredWidth() - this.zA;
-                this.zG = 10001;
+                this.zG = IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND;
             }
             invalidate();
         }
@@ -311,12 +312,12 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 this.zB = (int) (this.zz - getMeasuredWidth());
                 invalidate();
                 return;
-            case 10001:
+            case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
                 this.zB = (int) (getMeasuredWidth() - this.zA);
                 invalidate();
                 return;
-            case 10002:
-            case 10003:
+            case IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND /* 10002 */:
+            case IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE /* 10003 */:
             default:
                 return;
             case 10004:
@@ -560,7 +561,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     fVar.jO();
                 }
                 this.Ac = false;
-                this.zV.zG = 10001;
+                this.zV.zG = IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND;
                 this.zV.jD();
                 return;
             }

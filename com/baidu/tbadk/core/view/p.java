@@ -4,14 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ NavigationBar afd;
+    final /* synthetic */ o afB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(NavigationBar navigationBar) {
-        this.afd = navigationBar;
+    public p(o oVar) {
+        this.afB = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        this.afB.wq();
     }
 }

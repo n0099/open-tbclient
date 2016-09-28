@@ -5,13 +5,13 @@ import com.baidu.tbadk.BaseActivity;
 public interface b {
     void a(com.baidu.tbadk.core.data.b bVar, String str);
 
-    void aaK();
-
-    String aaL();
+    void aaY();
 
     void b(com.baidu.tbadk.core.data.b bVar, String str);
 
     BaseActivity<?> getContext();
+
+    String getFid();
 
     int getPageNum();
 }

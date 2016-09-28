@@ -9,16 +9,16 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity dmK;
+    final /* synthetic */ ChatMessageActivity doi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.dmK = chatMessageActivity;
+        this.doi = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,26 +31,26 @@ class a extends CustomMessageListener {
         Fragment fragment3;
         FragmentTransaction fragmentTransaction2;
         Object data;
-        fragment = this.dmK.dmJ;
+        fragment = this.doi.doh;
         if (fragment == null) {
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof Fragment)) {
-                this.dmK.dmJ = (Fragment) data;
+                this.doi.doh = (Fragment) data;
             }
-            fragment2 = this.dmK.dmJ;
+            fragment2 = this.doi.doh;
             if (fragment2 != null) {
-                this.dmK.mFragmentManager = this.dmK.getSupportFragmentManager();
-                ChatMessageActivity chatMessageActivity = this.dmK;
-                fragmentManager = this.dmK.mFragmentManager;
-                chatMessageActivity.dmI = fragmentManager.beginTransaction();
-                fragmentTransaction = this.dmK.dmI;
-                int i = t.g.content;
-                fragment3 = this.dmK.dmJ;
+                this.doi.mFragmentManager = this.doi.getSupportFragmentManager();
+                ChatMessageActivity chatMessageActivity = this.doi;
+                fragmentManager = this.doi.mFragmentManager;
+                chatMessageActivity.dog = fragmentManager.beginTransaction();
+                fragmentTransaction = this.doi.dog;
+                int i = r.g.content;
+                fragment3 = this.doi.doh;
                 fragmentTransaction.add(i, fragment3);
-                fragmentTransaction2 = this.dmK.dmI;
+                fragmentTransaction2 = this.doi.dog;
                 fragmentTransaction2.commitAllowingStateLoss();
             }
-            if (this.dmK.getIntent() != null) {
-                int intExtra = this.dmK.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
+            if (this.doi.getIntent() != null) {
+                int intExtra = this.doi.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
                 Intent intent = new Intent();
                 intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, intExtra);
                 intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);

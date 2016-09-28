@@ -4,16 +4,16 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements Animation.AnimationListener {
-    final /* synthetic */ ForumHeadVideoView ccd;
+    final /* synthetic */ ForumHeadVideoView ccf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(ForumHeadVideoView forumHeadVideoView) {
-        this.ccd = forumHeadVideoView;
+        this.ccf = forumHeadVideoView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.ccd.cbP = false;
+        this.ccf.cbR = false;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,10 +22,10 @@ public class v implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        e swapVideoItemView = this.ccd.getSwapVideoItemView();
+        e swapVideoItemView = this.ccf.getSwapVideoItemView();
         if (swapVideoItemView != null) {
             swapVideoItemView.clearAnimation();
-            this.ccd.g(swapVideoItemView);
+            this.ccf.h(swapVideoItemView);
         }
     }
 }

@@ -21,9 +21,10 @@ public interface b {
 
     void a(boolean z, d dVar, p pVar, bm bmVar, com.baidu.tieba.tbadkCore.p pVar2);
 
-    void ad(View view);
+    void ac(View view);
 
     void b(BdTypeListView bdTypeListView, BannerView bannerView);
 
-    boolean ib(int i);
+    /* renamed from: if  reason: not valid java name */
+    boolean mo14if(int i);
 }

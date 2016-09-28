@@ -10,16 +10,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private ArrayList<a> afH;
-    private TextView drY;
-    private ImageView drZ;
-    private TextView dsa;
-    private TextView dsb;
-    private boolean dsc;
+    private ArrayList<a> agh;
+    private TextView dtv;
+    private ImageView dtw;
+    private TextView dtx;
+    private TextView dty;
+    private boolean dtz;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -28,39 +28,39 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.afH = new ArrayList<>();
+        this.agh = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.afH = new ArrayList<>();
+        this.agh = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.afH = new ArrayList<>();
+        this.agh = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
-        addView(LayoutInflater.from(context).inflate(t.h.shut_down_validate_tip, (ViewGroup) null));
-        this.drZ = (ImageView) findViewById(t.g.no_network_icon);
-        this.dsa = (TextView) findViewById(t.g.no_network_guide1);
-        this.dsb = (TextView) findViewById(t.g.no_network_guide2);
-        this.drY = (TextView) findViewById(t.g.no_network_showmore);
+        addView(LayoutInflater.from(context).inflate(r.h.shut_down_validate_tip, (ViewGroup) null));
+        this.dtw = (ImageView) findViewById(r.g.no_network_icon);
+        this.dtx = (TextView) findViewById(r.g.no_network_guide1);
+        this.dty = (TextView) findViewById(r.g.no_network_guide2);
+        this.dtv = (TextView) findViewById(r.g.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.drY != null) {
-            this.drY.setOnClickListener(onClickListener);
+        if (this.dtv != null) {
+            this.dtv.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.dsc) {
-            this.dsc = z;
+        if (z != this.dtz) {
+            this.dtz = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -68,8 +68,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation.setAnimationListener(new com.baidu.tieba.imMessageCenter.im.view.a(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.afH.size(); i++) {
-                    this.afH.get(i).aH(false);
+                for (int i = 0; i < this.agh.size(); i++) {
+                    this.agh.get(i).aH(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -77,8 +77,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation2.setDuration(500L);
                 alphaAnimation2.setAnimationListener(new b(this));
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.afH.size(); i2++) {
-                    this.afH.get(i2).aH(true);
+                for (int i2 = 0; i2 < this.agh.size(); i2++) {
+                    this.agh.get(i2).aH(true);
                 }
             }
         }
@@ -92,20 +92,20 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.afH.clear();
+        this.agh.clear();
     }
 
     public void onChangeSkinType(int i) {
-        av.c(this.drZ, t.f.icon_error);
-        av.k(findViewById(t.g.no_network_parent), t.f.bg_no_network);
+        av.c(this.dtw, r.f.icon_error);
+        av.k(findViewById(r.g.no_network_parent), r.f.bg_no_network);
         if (i == 1) {
-            this.dsa.setTextColor(-10523526);
-            this.dsb.setTextColor(-8682095);
-            this.drY.setTextColor(-10523526);
+            this.dtx.setTextColor(-10523526);
+            this.dty.setTextColor(-8682095);
+            this.dtv.setTextColor(-10523526);
             return;
         }
-        this.dsa.setTextColor(-14277082);
-        this.dsb.setTextColor(-5065030);
-        this.drY.setTextColor(-14277082);
+        this.dtx.setTextColor(-14277082);
+        this.dty.setTextColor(-5065030);
+        this.dtv.setTextColor(-14277082);
     }
 }

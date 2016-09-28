@@ -5,18 +5,18 @@ import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class f implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ MultiImgToolView.b avF;
-    private final /* synthetic */ ViewGroup avG;
+    final /* synthetic */ MultiImgToolView.b avi;
+    private final /* synthetic */ ViewGroup avj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(MultiImgToolView.b bVar, ViewGroup viewGroup) {
-        this.avF = bVar;
-        this.avG = viewGroup;
+        this.avi = bVar;
+        this.avj = viewGroup;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        TbImageView tbImageView = (TbImageView) this.avG.findViewWithTag(str);
+        TbImageView tbImageView = (TbImageView) this.avj.findViewWithTag(str);
         if (tbImageView != null && aVar != null) {
             tbImageView.invalidate();
         }

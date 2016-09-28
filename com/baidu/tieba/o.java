@@ -1,21 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tieba.t;
-import java.io.File;
-import java.io.FileFilter;
+import android.widget.ImageView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class o implements FileFilter {
-    final /* synthetic */ LogoActivity aLA;
+class o implements GifView.a {
+    private final /* synthetic */ ImageView aLa;
+    private final /* synthetic */ GifView aLb;
+    private final /* synthetic */ long aLc;
+    private final /* synthetic */ n.a aLd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(LogoActivity logoActivity) {
-        this.aLA = logoActivity;
+    public o(ImageView imageView, GifView gifView, long j, n.a aVar) {
+        this.aLa = imageView;
+        this.aLb = gifView;
+        this.aLc = j;
+        this.aLd = aVar;
     }
 
-    @Override // java.io.FileFilter
-    public boolean accept(File file) {
-        String name = file.getName();
-        return !TextUtils.isEmpty(name) && name.contains(this.aLA.getPageContext().getString(t.j.app_name)) && name.endsWith(".apk");
+    @Override // com.baidu.tbadk.gif.GifView.a
+    public void onStop() {
+        this.aLa.setVisibility(8);
+        this.aLb.release();
+        if (System.currentTimeMillis() - this.aLc > 3000) {
+            com.baidu.tbadk.core.sharedPref.b.uh().putInt("logo_animation_overtime_count", com.baidu.tbadk.core.sharedPref.b.uh().getInt("logo_animation_overtime_count", 0) + 1);
+        }
+        if (this.aLd != null) {
+            this.aLd.onCompleted();
+        }
     }
 }

@@ -13,20 +13,20 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private static b axH;
+    private static b axk;
 
     private b() {
     }
 
     public static b Ec() {
-        if (axH == null) {
+        if (axk == null) {
             synchronized (b.class) {
-                if (axH == null) {
-                    axH = new b();
+                if (axk == null) {
+                    axk = new b();
                 }
             }
         }
-        return axH;
+        return axk;
     }
 
     public void Ed() {
@@ -71,8 +71,8 @@ public class b {
             }
             com.baidu.tbadk.data.c closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.BQ());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.BR());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.BU());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.BV());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());

@@ -24,7 +24,7 @@ import com.baidu.location.e.d;
 import com.baidu.location.f;
 import com.baidu.location.f.k;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends Service implements LLSInterface {
     static HandlerC0022a a = null;
@@ -60,7 +60,7 @@ public class a extends Service implements LLSInterface {
                     case 28:
                         e.mp().a(true);
                         break;
-                    case t.l.PullToRefresh_mode /* 41 */:
+                    case r.l.PullToRefresh_mode /* 41 */:
                         e.mp().h();
                         break;
                     case 401:

@@ -4,15 +4,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.tbadkCore.d.a;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class e implements c {
-    public static final AtomicReference<c> faq = new AtomicReference<>(null);
-    private static final c far = new e();
+    public static final AtomicReference<c> fcW = new AtomicReference<>(null);
+    private static final c fcX = new e();
 
-    public static c bbp() {
-        c cVar = faq.get();
-        return cVar == null ? far : cVar;
+    public static c bbV() {
+        c cVar = fcW.get();
+        return cVar == null ? fcX : cVar;
     }
 
     @Override // com.baidu.tieba.recapp.c
@@ -31,5 +33,15 @@ public class e implements c {
     public com.baidu.adp.widget.ListView.a<?, ?> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         BdLog.e("recapp plugin install failed!");
         return null;
+    }
+
+    @Override // com.baidu.tieba.recapp.c
+    public void sendFRS(String str, String str2, String str3, List<a.b> list, String str4) {
+        BdLog.e("recapp plugin install failed!");
+    }
+
+    @Override // com.baidu.tieba.recapp.c
+    public void a(String str, String str2, String str3, String str4, List<a.b> list, String str5) {
+        BdLog.e("recapp plugin install failed!");
     }
 }

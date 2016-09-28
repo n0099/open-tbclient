@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.support.v4.os.EnvironmentCompat;
 import android.telephony.TelephonyManager;
 /* loaded from: classes.dex */
 public class Util {
@@ -26,7 +25,7 @@ public class Util {
     }
 
     public static String getPlatformCode() {
-        return Build.MODEL != null ? Build.MODEL : EnvironmentCompat.MEDIA_UNKNOWN;
+        return Build.MODEL != null ? Build.MODEL : "unknown";
     }
 
     public static String getCurrentVersion(Context context) {

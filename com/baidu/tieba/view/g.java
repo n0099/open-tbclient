@@ -8,9 +8,9 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class g extends LinkMovementMethod {
-    private static g fVR;
-    private int fVP;
-    private int fVQ;
+    private static g fXW;
+    private int fXU;
+    private int fXV;
 
     @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
     public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
@@ -19,32 +19,32 @@ public class g extends LinkMovementMethod {
             return super.onTouchEvent(textView, spannable, motionEvent);
         }
         if (motionEvent.getAction() == 0) {
-            this.fVP = (int) motionEvent.getX();
-            this.fVQ = (int) motionEvent.getY();
+            this.fXU = (int) motionEvent.getX();
+            this.fXV = (int) motionEvent.getY();
             if (a != null) {
-                a.fw(1);
+                a.fv(1);
                 Selection.setSelection(spannable, spannable.getSpanStart(a), spannable.getSpanEnd(a));
             }
             textView.invalidate();
         } else if (motionEvent.getAction() == 2) {
-            if (a != null && (Math.abs(this.fVP - motionEvent.getX()) > 20.0f || Math.abs(this.fVQ - motionEvent.getY()) > 20.0f)) {
-                a.fw(2);
+            if (a != null && (Math.abs(this.fXU - motionEvent.getX()) > 20.0f || Math.abs(this.fXV - motionEvent.getY()) > 20.0f)) {
+                a.fv(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
         } else if ((motionEvent.getAction() == 1 || motionEvent.getAction() == 3) && a != null) {
-            a.fw(2);
+            a.fv(2);
             textView.invalidate();
             Selection.removeSelection(spannable);
         }
         return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public static g bql() {
-        if (fVR == null) {
-            fVR = new g();
+    public static g bqP() {
+        if (fXW == null) {
+            fXW = new g();
         }
-        return fVR;
+        return fXW;
     }
 
     private com.baidu.tbadk.widget.richText.h a(TextView textView, Spannable spannable, MotionEvent motionEvent) {

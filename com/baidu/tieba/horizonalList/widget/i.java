@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class i {
-    private static ArrayList<i> cLf = new ArrayList<>(5);
-    public int cLj;
-    public int cLk;
-    int cLl;
+    private static ArrayList<i> cLW = new ArrayList<>(5);
+    public int cMa;
+    public int cMb;
+    int cMc;
     public int type;
 
-    private void anW() {
-        this.cLj = 0;
-        this.cLk = 0;
-        this.cLl = 0;
+    private void aok() {
+        this.cMa = 0;
+        this.cMb = 0;
+        this.cMc = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long anZ() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.cLj, this.cLk) : ExpandableListView.getPackedPositionForGroup(this.cLj);
+    public long aon() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.cMa, this.cMb) : ExpandableListView.getPackedPositionForGroup(this.cMa);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i kA(int i) {
-        return l(2, i, 0, 0);
+    public static i kG(int i) {
+        return m(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i l(int i, int i2, int i3, int i4) {
-        i aoa = aoa();
-        aoa.type = i;
-        aoa.cLj = i2;
-        aoa.cLk = i3;
-        aoa.cLl = i4;
-        return aoa;
+    public static i m(int i, int i2, int i3, int i4) {
+        i aoo = aoo();
+        aoo.type = i;
+        aoo.cMa = i2;
+        aoo.cMb = i3;
+        aoo.cMc = i4;
+        return aoo;
     }
 
-    private static i aoa() {
+    private static i aoo() {
         i iVar;
-        synchronized (cLf) {
-            if (cLf.size() > 0) {
-                iVar = cLf.remove(0);
-                iVar.anW();
+        synchronized (cLW) {
+            if (cLW.size() > 0) {
+                iVar = cLW.remove(0);
+                iVar.aok();
             } else {
                 iVar = new i();
             }
@@ -54,9 +54,9 @@ class i {
     }
 
     public void recycle() {
-        synchronized (cLf) {
-            if (cLf.size() < 5) {
-                cLf.add(this);
+        synchronized (cLW) {
+            if (cLW.size() < 5) {
+                cLW.add(this);
             }
         }
     }

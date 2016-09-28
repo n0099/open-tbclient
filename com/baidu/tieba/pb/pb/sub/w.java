@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.r;
 import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 /* loaded from: classes.dex */
 class w extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity evy;
+    final /* synthetic */ NewSubPbActivity exF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.evy = newSubPbActivity;
+        this.exF = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,32 +30,32 @@ class w extends CustomMessageListener {
         com.baidu.adp.base.h hVar5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.evy.evw;
+            bdUniqueId = this.exF.exD;
             if (tag == bdUniqueId) {
-                agVar = this.evy.evn;
-                agVar.aKF();
+                agVar = this.exF.exu;
+                agVar.aLg();
                 UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                 if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                    hVar4 = this.evy.enw;
-                    hVar5 = this.evy.env;
-                    hVar4.c(hVar5.getResources().getString(t.j.mute_success));
+                    hVar4 = this.exF.ept;
+                    hVar5 = this.exF.eps;
+                    hVar4.c(hVar5.getResources().getString(r.j.mute_success));
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                     String errorString = userMuteAddResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        hVar3 = this.evy.env;
-                        errorString = hVar3.getResources().getString(t.j.mute_error_beyond_limit);
+                        hVar3 = this.exF.eps;
+                        errorString = hVar3.getResources().getString(r.j.mute_error_beyond_limit);
                     }
-                    this.evy.fI(errorString);
+                    this.exF.fM(errorString);
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() != 1990043) {
                     String errorString2 = userMuteAddResponseMessage.getErrorString();
-                    if (ba.isEmpty(errorString2)) {
-                        hVar2 = this.evy.env;
-                        errorString2 = hVar2.getResources().getString(t.j.mute_fail);
+                    if (az.isEmpty(errorString2)) {
+                        hVar2 = this.exF.eps;
+                        errorString2 = hVar2.getResources().getString(r.j.mute_fail);
                     }
-                    hVar = this.evy.enw;
+                    hVar = this.exF.ept;
                     hVar.d(errorString2);
                 } else {
-                    this.evy.aNj();
+                    this.exF.aNP();
                 }
             }
         }

@@ -5,16 +5,16 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements TextWatcher {
-    final /* synthetic */ m gcu;
+    final /* synthetic */ m geE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.gcu = mVar;
+        this.geE = mVar;
     }
 
     @Override // android.text.TextWatcher
@@ -28,22 +28,22 @@ public class n implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        long bso = m.gcm - this.gcu.bso();
-        if (bso >= 0) {
-            textView4 = this.gcu.gcr;
-            av.j((View) textView4, t.d.cp_cont_e);
+        long bsU = m.gew - this.geE.bsU();
+        if (bsU >= 0) {
+            textView4 = this.geE.geB;
+            av.j((View) textView4, r.d.cp_cont_e);
         } else {
-            textView = this.gcu.gcr;
-            av.j((View) textView, t.d.cp_cont_h);
+            textView = this.geE.geB;
+            av.j((View) textView, r.d.cp_cont_h);
         }
-        i4 = m.gcn;
-        if (bso <= i4) {
-            textView3 = this.gcu.gcr;
-            textView3.setText(ba.vj());
+        i4 = m.gex;
+        if (bsU <= i4) {
+            textView3 = this.geE.geB;
+            textView3.setText(az.vx());
             return;
         }
-        textView2 = this.gcu.gcr;
-        textView2.setText(String.valueOf(bso));
+        textView2 = this.geE.geB;
+        textView2.setText(String.valueOf(bsU));
     }
 
     @Override // android.text.TextWatcher

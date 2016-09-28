@@ -1,43 +1,43 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.view.View;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 /* loaded from: classes.dex */
 class r implements com.baidu.adp.lib.f.c<View> {
-    final /* synthetic */ NewSubPbActivity evy;
+    final /* synthetic */ NewSubPbActivity exF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(NewSubPbActivity newSubPbActivity) {
-        this.evy = newSubPbActivity;
+        this.exF = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ajJ */
+    /* renamed from: ajX */
     public View ez() {
-        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.evy.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
-        playVoiceBntNew.setPlayTimeTextView(t.e.fontsize28);
+        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.exF.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
+        playVoiceBntNew.setPlayTimeTextView(r.e.fontsize28);
         return playVoiceBntNew;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: am */
+    /* renamed from: al */
     public void o(View view) {
         ((PlayVoiceBntNew) view).reset();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: an */
+    /* renamed from: am */
     public View p(View view) {
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ao */
+    /* renamed from: an */
     public View q(View view) {
         ((PlayVoiceBntNew) view).reset();
         return view;

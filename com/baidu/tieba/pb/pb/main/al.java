@@ -12,48 +12,48 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-class al implements TbRichTextView.d {
-    final /* synthetic */ PbActivity eob;
+class al implements TbRichTextView.e {
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.d
+    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
     public void a(View view, String str, int i) {
         dh dhVar;
         dh dhVar2;
         dh dhVar3;
         dh dhVar4;
         try {
-            TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "pic_pb", "");
+            TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "pic_pb", "");
             PbActivity.b bVar = new PbActivity.b();
-            this.eob.a(str, i, bVar);
-            if (!bVar.eot) {
-                dhVar3 = this.eob.emx;
-                boolean aNY = dhVar3.aNY();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = bVar.eor;
-                dhVar4 = this.eob.emx;
-                ImageViewerConfig createConfig = new ImageViewerConfig(this.eob.getPageContext().getPageActivity()).createConfig(bVar.eoq, 0, bVar.forumName, bVar.forumId, bVar.threadId, bVar.eos, bVar.eoq.get(0), aNY, concurrentHashMap, true, false, dhVar4.getHostMode());
+            this.eqa.a(str, i, bVar);
+            if (!bVar.eqr) {
+                dhVar3 = this.eqa.eov;
+                boolean aOG = dhVar3.aOG();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = bVar.eqp;
+                dhVar4 = this.eqa.eov;
+                ImageViewerConfig createConfig = new ImageViewerConfig(this.eqa.getPageContext().getPageActivity()).createConfig(bVar.eqo, 0, bVar.forumName, bVar.forumId, bVar.threadId, bVar.eqq, bVar.eqo.get(0), aOG, concurrentHashMap, true, false, dhVar4.getHostMode());
                 createConfig.getIntent().putExtra("from", "pb");
-                this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
+                this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
             } else {
-                ImageViewerConfig imageViewerConfig = new ImageViewerConfig(this.eob.getPageContext().getPageActivity());
-                ArrayList<String> arrayList = bVar.eoq;
+                ImageViewerConfig imageViewerConfig = new ImageViewerConfig(this.eqa.getPageContext().getPageActivity());
+                ArrayList<String> arrayList = bVar.eqo;
                 int i2 = bVar.index;
                 String str2 = bVar.forumName;
                 String str3 = bVar.forumId;
                 String str4 = bVar.threadId;
-                boolean z = bVar.eos;
+                boolean z = bVar.eqq;
                 String str5 = bVar.lastId;
-                dhVar = this.eob.emx;
-                boolean aNY2 = dhVar.aNY();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = bVar.eor;
-                dhVar2 = this.eob.emx;
-                ImageViewerConfig createConfig2 = imageViewerConfig.createConfig(arrayList, i2, str2, str3, str4, z, str5, aNY2, concurrentHashMap2, true, false, dhVar2.getHostMode());
+                dhVar = this.eqa.eov;
+                boolean aOG2 = dhVar.aOG();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = bVar.eqp;
+                dhVar2 = this.eqa.eov;
+                ImageViewerConfig createConfig2 = imageViewerConfig.createConfig(arrayList, i2, str2, str3, str4, z, str5, aOG2, concurrentHashMap2, true, false, dhVar2.getHostMode());
                 createConfig2.getIntent().putExtra("from", "pb");
-                this.eob.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
+                this.eqa.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

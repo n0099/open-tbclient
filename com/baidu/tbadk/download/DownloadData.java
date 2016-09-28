@@ -1,5 +1,6 @@
 package com.baidu.tbadk.download;
 
+import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class DownloadData implements Serializable, Cloneable {
@@ -8,6 +9,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_EXIST = 3;
     public static final int FILE_DOWNLOAD_STATUS_FAILED = 2;
     public static final int FILE_DOWNLOAD_STATUS_INIT = 5;
+    public static final int FILE_DOWNLOAD_STATUS_INSTALLED = 8;
     public static final int FILE_DOWNLOAD_STATUS_PAUSE = 7;
     public static final int FILE_DOWNLOAD_STATUS_SUCEED = 0;
     public static final int FILE_DOWNLOAD_STATUS_UNDOWNLOAD = 6;
@@ -19,9 +21,11 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     private static final long serialVersionUID = 1402749061179345930L;
     private String action;
-    private transient d atA;
+    private String app_icon;
+    private transient d ate;
     private String check;
     private String description;
+    private DownloadStaticsData downloadStaticsData;
     private int errorCode;
     private int height;
     private String id;
@@ -39,7 +43,24 @@ public class DownloadData implements Serializable, Cloneable {
     private String[] tag;
     private int type;
     private String url;
+    private String user_name;
     private int width;
+
+    public DownloadStaticsData getDownloadStaticsData() {
+        return this.downloadStaticsData;
+    }
+
+    public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
+        this.downloadStaticsData = downloadStaticsData;
+    }
+
+    public String getApp_icon() {
+        return this.app_icon;
+    }
+
+    public void setApp_icon(String str) {
+        this.app_icon = str;
+    }
 
     public String getAction() {
         return this.action;
@@ -65,7 +86,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.atA = null;
+        this.ate = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -81,7 +102,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.atA = null;
+        this.ate = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -98,7 +119,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.atA = null;
+        this.ate = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -116,7 +137,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.atA = null;
+        this.ate = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -125,7 +146,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.atA = dVar;
+        this.ate = dVar;
         this.status = 5;
     }
 
@@ -226,11 +247,11 @@ public class DownloadData implements Serializable, Cloneable {
     }
 
     public d getCallback() {
-        return this.atA;
+        return this.ate;
     }
 
     public void setCallback(d dVar) {
-        this.atA = dVar;
+        this.ate = dVar;
     }
 
     public String getStatusMsg() {
@@ -294,6 +315,14 @@ public class DownloadData implements Serializable, Cloneable {
 
     public void setNeedNotify(boolean z) {
         this.isNeedNotify = z;
+    }
+
+    public String getUser_name() {
+        return this.user_name;
+    }
+
+    public void setUser_name(String str) {
+        this.user_name = str;
     }
 
     public Object clone() {

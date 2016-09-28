@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.util.y;
 /* loaded from: classes.dex */
-class p implements bi.a {
-    @Override // com.baidu.tbadk.core.util.bi.a
+class p implements bh.a {
+    @Override // com.baidu.tbadk.core.util.bh.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;

@@ -21,23 +21,23 @@ public interface m {
 
     void F(Context context, String str);
 
-    int ID();
+    int IC();
 
-    com.baidu.adp.lib.f.b<ImageView> IE();
+    com.baidu.adp.lib.f.b<ImageView> ID();
 
-    com.baidu.adp.lib.f.b<TextView> IF();
+    com.baidu.adp.lib.f.b<TextView> IE();
 
-    com.baidu.adp.lib.f.b<GifView> IG();
+    com.baidu.adp.lib.f.b<GifView> IF();
 
-    com.baidu.adp.lib.f.b<View> IH();
+    com.baidu.adp.lib.f.b<View> IG();
 
-    com.baidu.adp.lib.f.b<LinearLayout> II();
+    com.baidu.adp.lib.f.b<LinearLayout> IH();
 
-    com.baidu.adp.lib.f.b<View> IJ();
+    com.baidu.adp.lib.f.b<View> II();
 
     void d(Context context, String str, String str2);
 
-    com.baidu.adp.lib.f.b<View> fz(int i);
+    com.baidu.adp.lib.f.b<View> fy(int i);
 
     ListView getListView();
 }

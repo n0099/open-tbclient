@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fw implements Animation.AnimationListener {
-    final /* synthetic */ ex euB;
+    final /* synthetic */ ex ewH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fw(ex exVar) {
-        this.euB = exVar;
+        this.ewH = exVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -23,8 +23,8 @@ public class fw implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         TextView textView;
-        this.euB.eug = false;
-        textView = this.euB.eue;
+        this.ewH.ewm = false;
+        textView = this.ewH.ewk;
         textView.setVisibility(8);
     }
 }

@@ -11,40 +11,40 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.tieba.person.a.f;
 import com.baidu.tieba.person.a.g;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends y.a {
     public TbPageContext GM;
-    public TextView MO;
-    public View aAV;
-    public int ait;
-    public View bdU;
-    public HTypeListView eCL;
-    public f eCM;
+    public TextView MN;
+    public View aAy;
+    public int ahV;
+    public View ben;
+    public HTypeListView eEO;
+    public f eEP;
 
     public e(View view, TbPageContext tbPageContext) {
         super(view);
-        this.ait = 3;
-        this.aAV = view;
+        this.ahV = 3;
+        this.aAy = view;
         this.GM = tbPageContext;
-        this.bdU = view.findViewById(t.g.divider_view_under_photo_album);
-        this.MO = (TextView) view.findViewById(t.g.text_view_photo_album);
-        this.eCL = (HTypeListView) view.findViewById(t.g.listview_photo_album);
-        this.eCM = new f(this.GM, this.eCL);
+        this.ben = view.findViewById(r.g.divider_view_under_photo_album);
+        this.MN = (TextView) view.findViewById(r.g.text_view_photo_album);
+        this.eEO = (HTypeListView) view.findViewById(r.g.listview_photo_album);
+        this.eEP = new f(this.GM, this.eEO);
     }
 
     public void a(g gVar) {
         if (gVar != null) {
-            this.eCM.setDatas(cB(gVar.getPhotoAlbum()));
+            this.eEP.setDatas(cC(gVar.getPhotoAlbum()));
         }
     }
 
-    private List<v> cB(List<v> list) {
+    private List<v> cC(List<v> list) {
         if (com.baidu.tbadk.core.util.y.s(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            com.baidu.tieba.personCenter.c.b bVar = new com.baidu.tieba.personCenter.c.b(k.e(this.GM.getPageActivity(), t.e.ds32), k.e(this.GM.getPageActivity(), t.e.ds120));
+            com.baidu.tieba.personCenter.c.b bVar = new com.baidu.tieba.personCenter.c.b(k.e(this.GM.getPageActivity(), r.e.ds32), k.e(this.GM.getPageActivity(), r.e.ds120));
             com.baidu.tbadk.core.util.y.a(arrayList, 0, bVar);
             com.baidu.tbadk.core.util.y.b(arrayList, bVar);
             return arrayList;
@@ -52,13 +52,13 @@ public class e extends y.a {
         return list;
     }
 
-    public void aSo() {
-        if (this.ait != TbadkCoreApplication.m9getInst().getSkinType()) {
-            this.ait = TbadkCoreApplication.m9getInst().getSkinType();
-            av.l(this.aAV, t.d.cp_bg_line_d);
-            av.l(this.bdU, t.d.cp_bg_line_c);
-            av.c(this.MO, t.d.cp_cont_d, 1);
-            this.eCM.notifyDataSetChanged();
+    public void aSM() {
+        if (this.ahV != TbadkCoreApplication.m9getInst().getSkinType()) {
+            this.ahV = TbadkCoreApplication.m9getInst().getSkinType();
+            av.l(this.aAy, r.d.cp_bg_line_d);
+            av.l(this.ben, r.d.cp_bg_line_c);
+            av.c(this.MN, r.d.cp_cont_d, 1);
+            this.eEP.notifyDataSetChanged();
         }
     }
 }

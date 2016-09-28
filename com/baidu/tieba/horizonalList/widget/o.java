@@ -8,17 +8,17 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
 public class o {
-    private static float cMk = 8.0f;
-    private static float cMl;
-    private final a cMh;
-    private final a cMi;
-    private final boolean cMj;
+    private static float cNb = 8.0f;
+    private static float cNc;
+    private final a cMY;
+    private final a cMZ;
+    private final boolean cNa;
     private Interpolator mInterpolator;
     private int mMode;
 
     static {
-        cMl = 1.0f;
-        cMl = 1.0f / ak(1.0f);
+        cNc = 1.0f;
+        cNc = 1.0f / ak(1.0f);
     }
 
     public o(Context context) {
@@ -27,13 +27,13 @@ public class o {
 
     public static float ak(float f) {
         float exp;
-        float f2 = cMk * f;
+        float f2 = cNb * f;
         if (f2 < 1.0f) {
             exp = f2 - (1.0f - ((float) Math.exp(-f2)));
         } else {
             exp = ((1.0f - ((float) Math.exp(1.0f - f2))) * (1.0f - 0.36787945f)) + 0.36787945f;
         }
-        return exp * cMl;
+        return exp * cNc;
     }
 
     public o(Context context, Interpolator interpolator) {
@@ -42,9 +42,9 @@ public class o {
 
     public o(Context context, Interpolator interpolator, boolean z) {
         this.mInterpolator = interpolator;
-        this.cMj = z;
-        this.cMh = new a(context);
-        this.cMi = new a(context);
+        this.cNa = z;
+        this.cMY = new a(context);
+        this.cMZ = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,20 +53,20 @@ public class o {
     }
 
     public final void setFriction(float f) {
-        this.cMh.setFriction(f);
-        this.cMi.setFriction(f);
+        this.cMY.setFriction(f);
+        this.cMZ.setFriction(f);
     }
 
     public final boolean isFinished() {
-        return this.cMh.cMt && this.cMi.cMt;
+        return this.cMY.cNk && this.cMZ.cNk;
     }
 
     public final int getCurrX() {
-        return this.cMh.cMm;
+        return this.cMY.cNd;
     }
 
     public float getCurrVelocity() {
-        return FloatMath.sqrt((this.cMh.cMp * this.cMh.cMp) + (this.cMi.cMp * this.cMi.cMp));
+        return FloatMath.sqrt((this.cMY.cNg * this.cMY.cNg) + (this.cMZ.cNg * this.cMZ.cNg));
     }
 
     public boolean computeScrollOffset() {
@@ -76,8 +76,8 @@ public class o {
         }
         switch (this.mMode) {
             case 0:
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.cMh.mStartTime;
-                int i = this.cMh.Cs;
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.cMY.mStartTime;
+                int i = this.cMY.Cs;
                 if (currentAnimationTimeMillis < i) {
                     float f = ((float) currentAnimationTimeMillis) / i;
                     if (this.mInterpolator == null) {
@@ -85,19 +85,19 @@ public class o {
                     } else {
                         interpolation = this.mInterpolator.getInterpolation(f);
                     }
-                    this.cMh.al(interpolation);
-                    this.cMi.al(interpolation);
+                    this.cMY.al(interpolation);
+                    this.cMZ.al(interpolation);
                     break;
                 } else {
                     abortAnimation();
                     break;
                 }
             case 1:
-                if (!this.cMh.cMt && !this.cMh.aok() && !this.cMh.aoj()) {
-                    this.cMh.finish();
+                if (!this.cMY.cNk && !this.cMY.aoy() && !this.cMY.aox()) {
+                    this.cMY.finish();
                 }
-                if (!this.cMi.cMt && !this.cMi.aok() && !this.cMi.aoj()) {
-                    this.cMi.finish();
+                if (!this.cMZ.cNk && !this.cMZ.aoy() && !this.cMZ.aox()) {
+                    this.cMZ.finish();
                     break;
                 }
                 break;
@@ -107,13 +107,13 @@ public class o {
 
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
         this.mMode = 0;
-        this.cMh.z(i, i3, i5);
-        this.cMi.z(i2, i4, i5);
+        this.cMY.B(i, i3, i5);
+        this.cMZ.B(i2, i4, i5);
     }
 
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         this.mMode = 1;
-        return this.cMh.A(i, i3, i4) || this.cMi.A(i2, i5, i6);
+        return this.cMY.C(i, i3, i4) || this.cMZ.C(i2, i5, i6);
     }
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
@@ -122,57 +122,57 @@ public class o {
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         int i11;
-        if (this.cMj && !isFinished()) {
-            float f = this.cMh.cMp;
-            float f2 = this.cMi.cMp;
+        if (this.cNa && !isFinished()) {
+            float f = this.cMY.cNg;
+            float f2 = this.cMZ.cNg;
             if (Math.signum(i3) == Math.signum(f) && Math.signum(i4) == Math.signum(f2)) {
                 i4 = (int) (i4 + f2);
                 i11 = (int) (f + i3);
                 this.mMode = 1;
-                this.cMh.e(i, i11, i5, i6, i9);
-                this.cMi.e(i2, i4, i7, i8, i10);
+                this.cMY.e(i, i11, i5, i6, i9);
+                this.cMZ.e(i2, i4, i7, i8, i10);
             }
         }
         i11 = i3;
         this.mMode = 1;
-        this.cMh.e(i, i11, i5, i6, i9);
-        this.cMi.e(i2, i4, i7, i8, i10);
+        this.cMY.e(i, i11, i5, i6, i9);
+        this.cMZ.e(i2, i4, i7, i8, i10);
     }
 
     public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.cMh.E(i, i2, i3);
+        this.cMY.G(i, i2, i3);
     }
 
     public void abortAnimation() {
-        this.cMh.finish();
-        this.cMi.finish();
+        this.cMY.finish();
+        this.cMZ.finish();
     }
 
     public boolean j(float f, float f2) {
-        return !isFinished() && Math.signum(f) == Math.signum((float) (this.cMh.cMn - this.cMh.mStart)) && Math.signum(f2) == Math.signum((float) (this.cMi.cMn - this.cMi.mStart));
+        return !isFinished() && Math.signum(f) == Math.signum((float) (this.cMY.cNe - this.cMY.mStart)) && Math.signum(f2) == Math.signum((float) (this.cMZ.cNe - this.cMZ.mStart));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static float cMx = (float) (Math.log(0.78d) / Math.log(0.9d));
-        private static final float[] cMy = new float[101];
-        private static final float[] cMz = new float[101];
+        private static float cNo = (float) (Math.log(0.78d) / Math.log(0.9d));
+        private static final float[] cNp = new float[101];
+        private static final float[] cNq = new float[101];
         private int Cs;
-        private int cMm;
-        private int cMn;
-        private int cMo;
-        private float cMp;
-        private float cMq;
-        private int cMr;
-        private int cMs;
-        private int cMu;
-        private float cMw;
+        private int cNd;
+        private int cNe;
+        private int cNf;
+        private float cNg;
+        private float cNh;
+        private int cNi;
+        private int cNj;
+        private int cNl;
+        private float cNn;
         private int mStart;
         private long mStartTime;
-        private float cMv = ViewConfiguration.getScrollFriction();
+        private float cNm = ViewConfiguration.getScrollFriction();
         private int mState = 0;
-        private boolean cMt = true;
+        private boolean cNk = true;
 
         static {
             float f;
@@ -198,7 +198,7 @@ public class o {
                         f9 = f;
                     }
                 }
-                cMy[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
+                cNp[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
                 float f11 = 1.0f;
                 while (true) {
                     f3 = ((f11 - f5) / 2.0f) + f5;
@@ -212,195 +212,195 @@ public class o {
                         f5 = f3;
                     }
                 }
-                cMz[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
+                cNq[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
                 i++;
                 f6 = f9;
             }
-            float[] fArr = cMy;
-            cMz[100] = 1.0f;
+            float[] fArr = cNp;
+            cNq[100] = 1.0f;
             fArr[100] = 1.0f;
         }
 
         void setFriction(float f) {
-            this.cMv = f;
+            this.cNm = f;
         }
 
         a(Context context) {
-            this.cMw = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
+            this.cNn = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
         }
 
         void al(float f) {
-            this.cMm = this.mStart + Math.round((this.cMn - this.mStart) * f);
+            this.cNd = this.mStart + Math.round((this.cNe - this.mStart) * f);
         }
 
-        private static float kN(int i) {
+        private static float kT(int i) {
             return i > 0 ? -2000.0f : 2000.0f;
         }
 
-        private void y(int i, int i2, int i3) {
+        private void A(int i, int i2, int i3) {
             float abs = Math.abs((i3 - i) / (i2 - i));
             int i4 = (int) (100.0f * abs);
             if (i4 < 100) {
                 float f = i4 / 100.0f;
-                float f2 = cMz[i4];
-                this.Cs = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (cMz[i4 + 1] - f2)) + f2) * this.Cs);
+                float f2 = cNq[i4];
+                this.Cs = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (cNq[i4 + 1] - f2)) + f2) * this.Cs);
             }
         }
 
-        void z(int i, int i2, int i3) {
-            this.cMt = false;
+        void B(int i, int i2, int i3) {
+            this.cNk = false;
             this.mStart = i;
-            this.cMn = i + i2;
+            this.cNe = i + i2;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.Cs = i3;
-            this.cMq = 0.0f;
-            this.cMo = 0;
+            this.cNh = 0.0f;
+            this.cNf = 0;
         }
 
         void finish() {
-            this.cMm = this.cMn;
-            this.cMt = true;
+            this.cNd = this.cNe;
+            this.cNk = true;
         }
 
-        boolean A(int i, int i2, int i3) {
-            this.cMt = true;
-            this.cMn = i;
+        boolean C(int i, int i2, int i3) {
+            this.cNk = true;
+            this.cNe = i;
             this.mStart = i;
-            this.cMo = 0;
+            this.cNf = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.Cs = 0;
             if (i < i2) {
-                B(i, i2, 0);
+                D(i, i2, 0);
             } else if (i > i3) {
-                B(i, i3, 0);
+                D(i, i3, 0);
             }
-            return !this.cMt;
+            return !this.cNk;
         }
 
-        private void B(int i, int i2, int i3) {
-            this.cMt = false;
+        private void D(int i, int i2, int i3) {
+            this.cNk = false;
             this.mState = 1;
             this.mStart = i;
-            this.cMn = i2;
+            this.cNe = i2;
             int i4 = i - i2;
-            this.cMq = kN(i4);
-            this.cMo = -i4;
-            this.cMu = Math.abs(i4);
-            this.Cs = (int) (1000.0d * Math.sqrt(((-2.0d) * i4) / this.cMq));
+            this.cNh = kT(i4);
+            this.cNf = -i4;
+            this.cNl = Math.abs(i4);
+            this.Cs = (int) (1000.0d * Math.sqrt(((-2.0d) * i4) / this.cNh));
         }
 
         void e(int i, int i2, int i3, int i4, int i5) {
-            this.cMu = i5;
-            this.cMt = false;
-            this.cMo = i2;
-            this.cMp = i2;
-            this.cMr = 0;
+            this.cNl = i5;
+            this.cNk = false;
+            this.cNf = i2;
+            this.cNg = i2;
+            this.cNi = 0;
             this.Cs = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mStart = i;
-            this.cMm = i;
+            this.cNd = i;
             if (i > i4 || i < i3) {
-                m(i, i3, i4, i2);
+                n(i, i3, i4, i2);
                 return;
             }
             this.mState = 0;
             double d = 0.0d;
             if (i2 != 0) {
-                int kQ = kQ(i2);
-                this.cMr = kQ;
-                this.Cs = kQ;
-                d = kP(i2);
+                int kW = kW(i2);
+                this.cNi = kW;
+                this.Cs = kW;
+                d = kV(i2);
             }
-            this.cMs = (int) (d * Math.signum(i2));
-            this.cMn = this.cMs + i;
-            if (this.cMn < i3) {
-                y(this.mStart, this.cMn, i3);
-                this.cMn = i3;
+            this.cNj = (int) (d * Math.signum(i2));
+            this.cNe = this.cNj + i;
+            if (this.cNe < i3) {
+                A(this.mStart, this.cNe, i3);
+                this.cNe = i3;
             }
-            if (this.cMn > i4) {
-                y(this.mStart, this.cMn, i4);
-                this.cMn = i4;
+            if (this.cNe > i4) {
+                A(this.mStart, this.cNe, i4);
+                this.cNe = i4;
             }
         }
 
-        private double kO(int i) {
-            return Math.log((0.35f * Math.abs(i)) / (this.cMv * this.cMw));
+        private double kU(int i) {
+            return Math.log((0.35f * Math.abs(i)) / (this.cNm * this.cNn));
         }
 
-        private double kP(int i) {
-            return Math.exp(kO(i) * (cMx / (cMx - 1.0d))) * this.cMv * this.cMw;
+        private double kV(int i) {
+            return Math.exp(kU(i) * (cNo / (cNo - 1.0d))) * this.cNm * this.cNn;
         }
 
-        private int kQ(int i) {
-            return (int) (Math.exp(kO(i) / (cMx - 1.0d)) * 1000.0d);
+        private int kW(int i) {
+            return (int) (Math.exp(kU(i) / (cNo - 1.0d)) * 1000.0d);
         }
 
-        private void C(int i, int i2, int i3) {
-            float f = (-i3) / this.cMq;
-            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.cMq)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.cMq));
+        private void E(int i, int i2, int i3) {
+            float f = (-i3) / this.cNh;
+            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.cNh)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.cNh));
             this.mStartTime -= (int) ((sqrt - f) * 1000.0f);
             this.mStart = i2;
-            this.cMo = (int) ((-this.cMq) * sqrt);
+            this.cNf = (int) ((-this.cNh) * sqrt);
         }
 
-        private void D(int i, int i2, int i3) {
-            this.cMq = kN(i3 == 0 ? i - i2 : i3);
-            C(i, i2, i3);
-            aoi();
+        private void F(int i, int i2, int i3) {
+            this.cNh = kT(i3 == 0 ? i - i2 : i3);
+            E(i, i2, i3);
+            aow();
         }
 
-        private void m(int i, int i2, int i3, int i4) {
+        private void n(int i, int i2, int i3, int i4) {
             if (i > i2 && i < i3) {
                 Log.e("OverScroller", "startAfterEdge called from a valid position");
-                this.cMt = true;
+                this.cNk = true;
                 return;
             }
             boolean z = i > i3;
             int i5 = z ? i3 : i2;
             int i6 = i - i5;
             if (i6 * i4 >= 0) {
-                D(i, i5, i4);
-            } else if (kP(i4) > Math.abs(i6)) {
-                e(i, i4, z ? i2 : i, z ? i : i3, this.cMu);
+                F(i, i5, i4);
+            } else if (kV(i4) > Math.abs(i6)) {
+                e(i, i4, z ? i2 : i, z ? i : i3, this.cNl);
             } else {
-                B(i, i5, i4);
+                D(i, i5, i4);
             }
         }
 
-        void E(int i, int i2, int i3) {
+        void G(int i, int i2, int i3) {
             if (this.mState == 0) {
-                this.cMu = i3;
+                this.cNl = i3;
                 this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
-                m(i, i2, i2, (int) this.cMp);
+                n(i, i2, i2, (int) this.cNg);
             }
         }
 
-        private void aoi() {
-            float abs = (this.cMo * this.cMo) / (Math.abs(this.cMq) * 2.0f);
-            float signum = Math.signum(this.cMo);
-            if (abs > this.cMu) {
-                this.cMq = (((-signum) * this.cMo) * this.cMo) / (this.cMu * 2.0f);
-                abs = this.cMu;
+        private void aow() {
+            float abs = (this.cNf * this.cNf) / (Math.abs(this.cNh) * 2.0f);
+            float signum = Math.signum(this.cNf);
+            if (abs > this.cNl) {
+                this.cNh = (((-signum) * this.cNf) * this.cNf) / (this.cNl * 2.0f);
+                abs = this.cNl;
             }
-            this.cMu = (int) abs;
+            this.cNl = (int) abs;
             this.mState = 2;
             int i = this.mStart;
-            if (this.cMo <= 0) {
+            if (this.cNf <= 0) {
                 abs = -abs;
             }
-            this.cMn = ((int) abs) + i;
-            this.Cs = -((int) ((1000.0f * this.cMo) / this.cMq));
+            this.cNe = ((int) abs) + i;
+            this.Cs = -((int) ((1000.0f * this.cNf) / this.cNh));
         }
 
-        boolean aoj() {
+        boolean aox() {
             switch (this.mState) {
                 case 0:
-                    if (this.Cs < this.cMr) {
-                        this.mStart = this.cMn;
-                        this.cMo = (int) this.cMp;
-                        this.cMq = kN(this.cMo);
+                    if (this.Cs < this.cNi) {
+                        this.mStart = this.cNe;
+                        this.cNf = (int) this.cNg;
+                        this.cNh = kT(this.cNf);
                         this.mStartTime += this.Cs;
-                        aoi();
+                        aow();
                         break;
                     } else {
                         return false;
@@ -409,14 +409,14 @@ public class o {
                     return false;
                 case 2:
                     this.mStartTime += this.Cs;
-                    B(this.cMn, this.mStart, 0);
+                    D(this.cNe, this.mStart, 0);
                     break;
             }
-            aok();
+            aoy();
             return true;
         }
 
-        boolean aok() {
+        boolean aoy() {
             long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.mStartTime;
             if (currentAnimationTimeMillis > this.Cs) {
                 return false;
@@ -424,33 +424,33 @@ public class o {
             double d = 0.0d;
             switch (this.mState) {
                 case 0:
-                    float f = ((float) currentAnimationTimeMillis) / this.cMr;
+                    float f = ((float) currentAnimationTimeMillis) / this.cNi;
                     int i = (int) (100.0f * f);
                     float f2 = 1.0f;
                     float f3 = 0.0f;
                     if (i < 100) {
                         float f4 = i / 100.0f;
-                        float f5 = cMy[i];
-                        f3 = (cMy[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
+                        float f5 = cNp[i];
+                        f3 = (cNp[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
                         f2 = ((f - f4) * f3) + f5;
                     }
-                    this.cMp = ((f3 * this.cMs) / this.cMr) * 1000.0f;
-                    d = f2 * this.cMs;
+                    this.cNg = ((f3 * this.cNj) / this.cNi) * 1000.0f;
+                    d = f2 * this.cNj;
                     break;
                 case 1:
                     float f6 = ((float) currentAnimationTimeMillis) / this.Cs;
                     float f7 = f6 * f6;
-                    float signum = Math.signum(this.cMo);
-                    d = this.cMu * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
-                    this.cMp = ((-f6) + f7) * signum * this.cMu * 6.0f;
+                    float signum = Math.signum(this.cNf);
+                    d = this.cNl * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
+                    this.cNg = ((-f6) + f7) * signum * this.cNl * 6.0f;
                     break;
                 case 2:
                     float f8 = ((float) currentAnimationTimeMillis) / 1000.0f;
-                    this.cMp = this.cMo + (this.cMq * f8);
-                    d = ((f8 * (this.cMq * f8)) / 2.0f) + (this.cMo * f8);
+                    this.cNg = this.cNf + (this.cNh * f8);
+                    d = ((f8 * (this.cNh * f8)) / 2.0f) + (this.cNf * f8);
                     break;
             }
-            this.cMm = ((int) Math.round(d)) + this.mStart;
+            this.cNd = ((int) Math.round(d)) + this.mStart;
             return true;
         }
     }

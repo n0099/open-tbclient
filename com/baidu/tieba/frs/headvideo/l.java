@@ -1,33 +1,33 @@
 package com.baidu.tieba.frs.headvideo;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tieba.frs.headvideo.w;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class l extends w.a {
-    final /* synthetic */ ForumHeadVideoView ccd;
+    final /* synthetic */ ForumHeadVideoView ccf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(ForumHeadVideoView forumHeadVideoView) {
-        this.ccd = forumHeadVideoView;
+        this.ccf = forumHeadVideoView;
     }
 
     @Override // com.baidu.tieba.frs.headvideo.w.a
     public boolean af(View view) {
-        boolean n;
+        boolean o;
         if (!com.baidu.adp.lib.util.i.gm()) {
-            com.baidu.adp.lib.util.k.m(this.ccd.getContext(), this.ccd.getContext().getString(t.j.neterror));
+            com.baidu.adp.lib.util.k.m(this.ccf.getContext(), this.ccf.getContext().getString(r.j.neterror));
         } else {
-            e currentVideoItemView = this.ccd.getCurrentVideoItemView();
+            e currentVideoItemView = this.ccf.getCurrentVideoItemView();
             if (currentVideoItemView != null && currentVideoItemView.getThreadInfo() != null) {
-                bg threadInfo = currentVideoItemView.getThreadInfo();
-                n = this.ccd.n(threadInfo);
-                if (n) {
-                    com.baidu.adp.lib.util.k.showToast(this.ccd.getContext(), t.j.data_illegal);
+                bi threadInfo = currentVideoItemView.getThreadInfo();
+                o = this.ccf.o(threadInfo);
+                if (o) {
+                    com.baidu.adp.lib.util.k.showToast(this.ccf.getContext(), r.j.data_illegal);
                 } else {
                     currentVideoItemView.pausePlay();
-                    this.ccd.o(threadInfo);
+                    this.ccf.p(threadInfo);
                 }
             }
         }
@@ -36,8 +36,8 @@ class l extends w.a {
 
     @Override // com.baidu.tieba.frs.headvideo.w.a
     public boolean ag(View view) {
-        this.ccd.aeq();
-        this.ccd.aev();
+        this.ccf.aeF();
+        this.ccf.aeK();
         return super.ag(view);
     }
 }

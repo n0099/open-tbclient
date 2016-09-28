@@ -19,8 +19,8 @@ public final class j {
 
     /* loaded from: classes.dex */
     static final class a {
-        final BDLocation KN;
-        final LinkedHashMap<String, Integer> KO;
+        final BDLocation KM;
+        final LinkedHashMap<String, Integer> KN;
         final String a;
         final String b;
         final boolean c;
@@ -34,11 +34,11 @@ public final class j {
             if (strArr == null) {
                 this.a = null;
                 this.b = null;
-                this.KO = null;
+                this.KN = null;
                 this.c = false;
                 this.d = false;
                 this.e = false;
-                this.KN = null;
+                this.KM = null;
                 this.h = false;
                 this.f = 8;
                 return;
@@ -84,12 +84,12 @@ public final class j {
                                 z = false;
                                 this.a = str2;
                                 this.b = str;
-                                this.KO = linkedHashMap;
+                                this.KN = linkedHashMap;
                                 this.c = z;
                                 this.d = z4;
                                 this.e = z3;
                                 this.f = i;
-                                this.KN = bDLocation;
+                                this.KM = bDLocation;
                                 this.h = z2;
                             }
                         } else {
@@ -122,12 +122,12 @@ public final class j {
             z = true;
             this.a = str2;
             this.b = str;
-            this.KO = linkedHashMap;
+            this.KN = linkedHashMap;
             this.c = z;
             this.d = z4;
             this.e = z3;
             this.f = i;
-            this.KN = bDLocation;
+            this.KM = bDLocation;
             this.h = z2;
         }
     }

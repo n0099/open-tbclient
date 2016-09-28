@@ -5,20 +5,20 @@ import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ a bXm;
+    final /* synthetic */ a bXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(a aVar) {
-        this.bXm = aVar;
+        this.bXh = aVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
-        if (this.bXm.aZe != null && this.bXm.aZe.getLayoutParams() != null) {
-            this.bXm.aZe.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-            ViewGroup.LayoutParams layoutParams = this.bXm.aZe.getLayoutParams();
-            layoutParams.height = this.bXm.aZe.getWidth();
-            this.bXm.aZe.setLayoutParams(layoutParams);
+        if (this.bXh.aZy != null && this.bXh.aZy.getLayoutParams() != null) {
+            this.bXh.aZy.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            ViewGroup.LayoutParams layoutParams = this.bXh.aZy.getLayoutParams();
+            layoutParams.height = this.bXh.aZy.getWidth();
+            this.bXh.aZy.setLayoutParams(layoutParams);
         }
     }
 }

@@ -9,13 +9,13 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.TagStruct;
 /* loaded from: classes.dex */
 public class h implements v {
-    public static final BdUniqueId cGL = BdUniqueId.gen();
-    public List<i> cGM = new ArrayList();
-    public String cGN;
+    public static final BdUniqueId cHA = BdUniqueId.gen();
+    public List<i> cHB = new ArrayList();
+    public String cHC;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return cGL;
+        return cHA;
     }
 
     public static h a(DataRes.Builder builder) {
@@ -26,24 +26,24 @@ public class h implements v {
         h hVar = new h();
         for (TagStruct tagStruct : builder.interestion) {
             if (tagStruct != null && (a = i.a(tagStruct)) != null) {
-                hVar.cGM.add(a);
+                hVar.cHB.add(a);
             }
         }
         StringBuilder sb = new StringBuilder();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < hVar.cGM.size()) {
-                i iVar = hVar.cGM.get(i2);
-                if (iVar != null && !StringUtils.isNull(iVar.PE)) {
-                    sb.append(iVar.PE);
-                    if (i2 != hVar.cGM.size() - 1) {
+            if (i2 < hVar.cHB.size()) {
+                i iVar = hVar.cHB.get(i2);
+                if (iVar != null && !StringUtils.isNull(iVar.PC)) {
+                    sb.append(iVar.PC);
+                    if (i2 != hVar.cHB.size() - 1) {
                         sb.append("_");
                     }
                 }
                 i = i2 + 1;
             } else {
-                hVar.cGN = sb.toString();
+                hVar.cHC = sb.toString();
                 return hVar;
             }
         }

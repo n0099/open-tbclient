@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.pb.sub;
 /* loaded from: classes.dex */
-class a implements com.baidu.tbadk.editortools.d.c {
-    final /* synthetic */ NewSubPbActivity evy;
+class a implements com.baidu.tbadk.editortools.e.c {
+    final /* synthetic */ NewSubPbActivity exF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(NewSubPbActivity newSubPbActivity) {
-        this.evy = newSubPbActivity;
+        this.exF = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.editortools.d.c
+    @Override // com.baidu.tbadk.editortools.e.c
     public void Di() {
         ag agVar;
-        agVar = this.evy.evn;
-        agVar.aQs();
+        agVar = this.exF.exu;
+        agVar.aRa();
     }
 }

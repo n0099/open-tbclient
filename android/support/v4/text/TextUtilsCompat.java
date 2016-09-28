@@ -1,7 +1,7 @@
 package android.support.v4.text;
 
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class TextUtilsCompat {
@@ -17,10 +17,10 @@ public class TextUtilsCompat {
                 case '\"':
                     sb.append("&quot;");
                     break;
-                case t.l.PullToRefresh_adapterViewBackground /* 38 */:
+                case r.l.PullToRefresh_adapterViewBackground /* 38 */:
                     sb.append("&amp;");
                     break;
-                case t.l.PullToRefresh_headerBackground /* 39 */:
+                case r.l.PullToRefresh_headerBackground /* 39 */:
                     sb.append("&#39;");
                     break;
                 case '<':

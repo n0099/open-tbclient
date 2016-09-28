@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 class b implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ ConstrainImageGroup aGV;
+    final /* synthetic */ ConstrainImageGroup aGu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ConstrainImageGroup constrainImageGroup) {
-        this.aGV = constrainImageGroup;
+        this.aGu = constrainImageGroup;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -20,9 +20,9 @@ class b implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.f.b bVar;
         com.baidu.adp.lib.f.b bVar2;
         if (view2 instanceof c) {
-            bVar = this.aGV.aGN;
+            bVar = this.aGu.aGm;
             if (bVar != null) {
-                bVar2 = this.aGV.aGN;
+                bVar2 = this.aGu.aGm;
                 bVar2.n((c) view2);
             }
         }

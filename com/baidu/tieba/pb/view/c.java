@@ -6,11 +6,11 @@ import com.baidu.tieba.pb.b;
 public interface c {
     void a(com.baidu.tieba.tbadkCore.data.q qVar, b.a aVar);
 
-    void aQH();
+    void aRp();
 
-    void adk();
+    void ady();
 
-    void ayV();
+    void azt();
 
     View getView();
 

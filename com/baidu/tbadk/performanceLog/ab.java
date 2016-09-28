@@ -5,147 +5,147 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ab extends z {
-    private static ab aDu = null;
-    private boolean aCU = false;
-    private boolean aCV = false;
-    private boolean aCW = false;
-    private boolean aCX = false;
-    private long aCY = -1;
-    private long aCZ = -1;
-    private long aDa = -1;
-    private long aDb = -1;
-    private long aDc = -1;
-    private long aDd = -1;
-    private long aDe = -1;
-    private long aDf = -1;
-    private long aDg = -1;
-    private long aDh = -1;
-    private long aDi = -1;
-    private long aDj = -1;
-    private long aDk = -1;
-    private long aDl = -1;
-    private long aDm = -1;
-    private long aDn = -1;
-    private long aDo = -1;
-    private long aDp = -1;
-    private long aDq = -1;
-    private long aDr = -1;
-    private long aDs = -1;
-    private long aDt = -1;
+    private static ab aCX = null;
+    private boolean aCx = false;
+    private boolean aCy = false;
+    private boolean aCz = false;
+    private boolean aCA = false;
+    private long aCB = -1;
+    private long aCC = -1;
+    private long aCD = -1;
+    private long aCE = -1;
+    private long aCF = -1;
+    private long aCG = -1;
+    private long aCH = -1;
+    private long aCI = -1;
+    private long aCJ = -1;
+    private long aCK = -1;
+    private long aCL = -1;
+    private long aCM = -1;
+    private long aCN = -1;
+    private long aCO = -1;
+    private long aCP = -1;
+    private long aCQ = -1;
+    private long aCR = -1;
+    private long aCS = -1;
+    private long aCT = -1;
+    private long aCU = -1;
+    private long aCV = -1;
+    private long aCW = -1;
 
-    public boolean Gu() {
-        return this.aCV;
+    public boolean Gt() {
+        return this.aCy;
     }
 
-    public void bV(boolean z) {
-        this.aCU = z;
-    }
-
-    public void T(long j) {
-        this.aCY = j;
-    }
-
-    public void bW(boolean z) {
-        this.aCX = z;
+    public void bU(boolean z) {
+        this.aCx = z;
     }
 
     public void U(long j) {
-        this.aCZ = j;
+        this.aCB = j;
+    }
+
+    public void bV(boolean z) {
+        this.aCA = z;
     }
 
     public void V(long j) {
-        this.aDa = j;
+        this.aCC = j;
     }
 
     public void W(long j) {
-        this.aDb = j;
+        this.aCD = j;
     }
 
     public void X(long j) {
-        this.aDf = j;
+        this.aCE = j;
     }
 
     public void Y(long j) {
-        this.aDe = j;
+        this.aCI = j;
     }
 
     public void Z(long j) {
-        this.aDc = j;
+        this.aCH = j;
     }
 
     public void aa(long j) {
-        this.aDd = j;
+        this.aCF = j;
     }
 
     public void ab(long j) {
-        this.aDr = j;
+        this.aCG = j;
     }
 
     public void ac(long j) {
-        this.aDo = j;
+        this.aCU = j;
     }
 
     public void ad(long j) {
-        this.aDp = j;
+        this.aCR = j;
     }
 
     public void ae(long j) {
-        this.aDq = j;
+        this.aCS = j;
     }
 
     public void af(long j) {
-        this.aDs = j;
+        this.aCT = j;
     }
 
     public void ag(long j) {
-        this.aDt = j;
-        this.aCV = true;
+        this.aCV = j;
     }
 
     public void ah(long j) {
-        this.aDg = j;
+        this.aCW = j;
+        this.aCy = true;
     }
 
     public void ai(long j) {
-        this.aDh = j;
+        this.aCJ = j;
     }
 
     public void aj(long j) {
-        this.aDj = j;
+        this.aCK = j;
     }
 
     public void ak(long j) {
-        this.aDi = j;
+        this.aCM = j;
     }
 
     public void al(long j) {
-        this.aDk = j;
+        this.aCL = j;
     }
 
     public void am(long j) {
-        this.aDl = j;
+        this.aCN = j;
     }
 
     public void an(long j) {
-        this.aDm = j;
+        this.aCO = j;
     }
 
     public void ao(long j) {
-        this.aDn = j;
+        this.aCP = j;
     }
 
-    public static ab Gv() {
-        if (aDu == null) {
+    public void ap(long j) {
+        this.aCQ = j;
+    }
+
+    public static ab Gu() {
+        if (aCX == null) {
             synchronized (ab.class) {
-                if (aDu == null) {
-                    aDu = new ab();
+                if (aCX == null) {
+                    aCX = new ab();
                 }
             }
         }
-        return aDu;
+        return aCX;
     }
 
-    public void Gw() {
+    public void Gv() {
         long j;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_VR_GET_PAGE_TIME, (Class) null);
         if (runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) {
@@ -153,36 +153,36 @@ public class ab extends z {
         } else {
             j = ((Long) runTask.getData()).longValue();
         }
-        long j2 = (this.aDt - this.aCY) - j;
-        if (j2 > 0 && !this.aCW && aa.Gp().Gq()) {
-            this.aCW = true;
-            long j3 = this.aCZ - this.aCY;
-            long j4 = this.aDr - this.aCY;
+        long j2 = (this.aCW - this.aCB) - j;
+        if (j2 > 0 && !this.aCz && aa.Go().Gp()) {
+            this.aCz = true;
+            long j3 = this.aCC - this.aCB;
+            long j4 = this.aCU - this.aCB;
             long j5 = -1;
-            if (this.aDp > 0) {
-                j5 = this.aDq - this.aDp;
+            if (this.aCS > 0) {
+                j5 = this.aCT - this.aCS;
             }
-            long j6 = this.aDt - this.aDs;
+            long j6 = this.aCW - this.aCV;
             com.baidu.adp.lib.stats.d eB = eB();
             eB.q("procname", "main");
             eB.q("appc", String.valueOf(j3));
-            eB.q("loadclass", String.valueOf(this.aDa));
-            eB.q("sapiinit", String.valueOf(this.aDb));
-            eB.q("acctinit", String.valueOf(this.aDc));
-            eB.q("iminit", String.valueOf(this.aDd));
-            eB.q("plugininit", String.valueOf(this.aDe));
-            eB.q("patchloaded", String.valueOf(this.aDf));
-            eB.q("naslibinit", String.valueOf(this.aDg));
-            eB.q("websocketinit", String.valueOf(this.aDh));
-            eB.q("settinginit", String.valueOf(this.aDi));
-            eB.q("toastinit", String.valueOf(this.aDj));
-            eB.q("tiebastaticinit", String.valueOf(this.aDk));
-            eB.q("locationinit", String.valueOf(this.aDl));
-            eB.q("cdninit", String.valueOf(this.aDm));
-            eB.q("messagesetinit", String.valueOf(this.aDn));
+            eB.q("loadclass", String.valueOf(this.aCD));
+            eB.q("sapiinit", String.valueOf(this.aCE));
+            eB.q("acctinit", String.valueOf(this.aCF));
+            eB.q("iminit", String.valueOf(this.aCG));
+            eB.q("plugininit", String.valueOf(this.aCH));
+            eB.q("patchloaded", String.valueOf(this.aCI));
+            eB.q("naslibinit", String.valueOf(this.aCJ));
+            eB.q("websocketinit", String.valueOf(this.aCK));
+            eB.q("settinginit", String.valueOf(this.aCL));
+            eB.q("toastinit", String.valueOf(this.aCM));
+            eB.q("tiebastaticinit", String.valueOf(this.aCN));
+            eB.q("locationinit", String.valueOf(this.aCO));
+            eB.q("cdninit", String.valueOf(this.aCP));
+            eB.q("messagesetinit", String.valueOf(this.aCQ));
             eB.q("logores", String.valueOf(j4));
-            if (this.aDo > 0 && this.aDp > 0 && j5 > 0) {
-                eB.q("adc", String.valueOf(this.aDo));
+            if (this.aCR > 0 && this.aCS > 0 && j5 > 0) {
+                eB.q("adc", String.valueOf(this.aCR));
                 eB.q("adshow", String.valueOf(j5));
                 eB.q("hasad", "1");
             } else {
@@ -190,15 +190,15 @@ public class ab extends z {
             }
             eB.q("tabc", String.valueOf(j6));
             eB.q("costt", String.valueOf(j2));
-            eB.q("newinst", this.aCU ? "1" : "0");
-            eB.d("pluginloadsync", Boolean.valueOf(this.aCX));
+            eB.q("newinst", this.aCx ? "1" : "0");
+            eB.d("pluginloadsync", Boolean.valueOf(this.aCA));
             com.baidu.adp.lib.stats.a.eI().a("startt", eB);
             nM();
         }
     }
 
-    public void ap(long j) {
-        if (aa.Gp().Gq() && j > 0) {
+    public void aq(long j) {
+        if (aa.Go().Gp() && j > 0) {
             com.baidu.adp.lib.stats.d eB = eB();
             eB.q("procname", "remote");
             eB.q("costt", String.valueOf(j));
@@ -207,29 +207,29 @@ public class ab extends z {
     }
 
     private void nM() {
-        this.aCU = false;
-        this.aCV = false;
-        this.aCY = -1L;
-        this.aCZ = -1L;
-        this.aDa = -1L;
-        this.aDb = -1L;
-        this.aDc = -1L;
-        this.aDd = -1L;
-        this.aDe = -1L;
-        this.aDf = -1L;
-        this.aDr = -1L;
-        this.aDp = -1L;
-        this.aDq = -1L;
-        this.aDo = -1L;
-        this.aDs = -1L;
-        this.aDt = -1L;
-        this.aDg = -1L;
-        this.aDh = -1L;
-        this.aDi = -1L;
-        this.aDj = -1L;
-        this.aDk = -1L;
-        this.aDl = -1L;
-        this.aDm = -1L;
-        this.aDn = -1L;
+        this.aCx = false;
+        this.aCy = false;
+        this.aCB = -1L;
+        this.aCC = -1L;
+        this.aCD = -1L;
+        this.aCE = -1L;
+        this.aCF = -1L;
+        this.aCG = -1L;
+        this.aCH = -1L;
+        this.aCI = -1L;
+        this.aCU = -1L;
+        this.aCS = -1L;
+        this.aCT = -1L;
+        this.aCR = -1L;
+        this.aCV = -1L;
+        this.aCW = -1L;
+        this.aCJ = -1L;
+        this.aCK = -1L;
+        this.aCL = -1L;
+        this.aCM = -1L;
+        this.aCN = -1L;
+        this.aCO = -1L;
+        this.aCP = -1L;
+        this.aCQ = -1L;
     }
 }

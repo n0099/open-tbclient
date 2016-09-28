@@ -5,34 +5,34 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.card.cd;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.card.cb;
 import com.baidu.tieba.tbadkCore.p;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class b {
-    public static int cdg;
-    private static b cdj;
-    private a cdh;
-    private HashSet<String> cdi;
-    private CustomMessageListener Oh = new c(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    public static int cde;
+    private static b cdh;
+    private a cdf;
+    private HashSet<String> cdg;
+    private CustomMessageListener Oi = new c(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
     private Handler mHandler = new d(this, Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public long cdl;
-        public boolean cdm;
+        public long cdj;
+        public boolean cdk;
         public int count;
         public boolean iO;
 
         private a() {
             this.iO = false;
             this.count = 0;
-            this.cdm = false;
+            this.cdk = false;
         }
 
         /* synthetic */ a(b bVar, a aVar) {
@@ -41,44 +41,44 @@ public class b {
     }
 
     public b() {
-        cdg = com.baidu.tbadk.core.sharedPref.b.tS().getInt("card_show_statistic_max_count", 200);
-        MessageManager.getInstance().registerListener(this.Oh);
+        cde = com.baidu.tbadk.core.sharedPref.b.uh().getInt("card_show_statistic_max_count", 200);
+        MessageManager.getInstance().registerListener(this.Oi);
     }
 
-    public static b aeX() {
-        if (cdj == null) {
-            synchronized (cd.class) {
-                if (cdj == null) {
-                    cdj = new b();
+    public static b afl() {
+        if (cdh == null) {
+            synchronized (cb.class) {
+                if (cdh == null) {
+                    cdh = new b();
                 }
             }
         }
-        return cdj;
+        return cdh;
     }
 
-    private boolean aeY() {
-        if (this.cdh == null) {
-            this.cdh = new a(this, null);
+    private boolean afm() {
+        if (this.cdf == null) {
+            this.cdf = new a(this, null);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.cdh.cdm) {
+        if (this.cdf.cdk) {
             return true;
         }
-        if (this.cdh.iO) {
-            this.cdh.count++;
-            if (currentTimeMillis - this.cdh.cdl < 120000) {
-                if (this.cdh.count >= cdg) {
-                    this.cdh.cdm = true;
-                    a(this.cdh);
+        if (this.cdf.iO) {
+            this.cdf.count++;
+            if (currentTimeMillis - this.cdf.cdj < 120000) {
+                if (this.cdf.count >= cde) {
+                    this.cdf.cdk = true;
+                    a(this.cdf);
                     return true;
                 }
             } else {
-                this.cdh.iO = false;
-                this.cdh.count = 0;
+                this.cdf.iO = false;
+                this.cdf.count = 0;
             }
         } else {
-            this.cdh.iO = true;
-            this.cdh.cdl = currentTimeMillis;
+            this.cdf.iO = true;
+            this.cdf.cdj = currentTimeMillis;
         }
         return false;
     }
@@ -91,43 +91,43 @@ public class b {
         this.mHandler.sendMessageDelayed(obtainMessage, 300000L);
     }
 
-    public void a(com.baidu.tieba.frs.g.a aVar, bg bgVar) {
-        if (aVar != null && aVar.cdd && bgVar != null && bgVar.getTid() != null) {
-            if (this.cdi == null) {
-                this.cdi = new HashSet<>();
+    public void a(com.baidu.tieba.frs.g.a aVar, bi biVar) {
+        if (aVar != null && aVar.cdb && biVar != null && biVar.getTid() != null) {
+            if (this.cdg == null) {
+                this.cdg = new HashSet<>();
             }
-            if (!this.cdi.contains(bgVar.getTid()) && !aeY()) {
-                this.cdi.add(bgVar.getTid());
-                ay ayVar = new ay("c11439");
-                ayVar.ab("fid", aVar.cdf);
-                ayVar.ab("obj_source", bgVar.UD);
-                ayVar.ab("obj_param2", bgVar.UE);
-                ayVar.ab("obj_param1", bgVar.UF);
-                ayVar.s("obj_locate", aVar.cde);
-                ayVar.ab("tid", bgVar.getTid());
-                cd.NI().b(ayVar);
+            if (!this.cdg.contains(biVar.getTid()) && !afm()) {
+                this.cdg.add(biVar.getTid());
+                ax axVar = new ax("c11439");
+                axVar.ab("fid", aVar.cdd);
+                axVar.ab("obj_source", biVar.UO);
+                axVar.ab("obj_param2", biVar.UQ);
+                axVar.ab("obj_param1", biVar.UR);
+                axVar.s("obj_locate", aVar.cdc);
+                axVar.ab("tid", biVar.getTid());
+                cb.Oj().a(axVar);
             }
         }
     }
 
-    public void a(com.baidu.tieba.frs.g.a aVar, bg bgVar, int i) {
-        if (aVar != null && aVar.cdd && bgVar != null && bgVar.getTid() != null) {
-            cd.NI().cs(true);
-            ay ayVar = new ay("c11438");
-            ayVar.ab("fid", aVar.cdf);
-            ayVar.ab("obj_source", bgVar.UD);
-            ayVar.ab("obj_param2", bgVar.UE);
-            ayVar.ab("obj_param1", bgVar.UF);
-            ayVar.s("obj_locate", aVar.cde);
-            ayVar.ab("tid", bgVar.getTid());
-            ayVar.s("obj_type", i);
-            TiebaStatic.log(ayVar);
+    public void a(com.baidu.tieba.frs.g.a aVar, bi biVar, int i) {
+        if (aVar != null && aVar.cdb && biVar != null && biVar.getTid() != null) {
+            cb.Oj().cs(true);
+            ax axVar = new ax("c11438");
+            axVar.ab("fid", aVar.cdd);
+            axVar.ab("obj_source", biVar.UO);
+            axVar.ab("obj_param2", biVar.UQ);
+            axVar.ab("obj_param1", biVar.UR);
+            axVar.s("obj_locate", aVar.cdc);
+            axVar.ab("tid", biVar.getTid());
+            axVar.s("obj_type", i);
+            TiebaStatic.log(axVar);
         }
     }
 
     public static void a(p pVar, int i, int i2) {
-        if (pVar != null && pVar.aLP() != null && pVar.fpX == 1) {
-            TiebaStatic.log(new ay("c11440").ab("fid", pVar.aLP().getId()).s("obj_locate", i).s("obj_type", i2));
+        if (pVar != null && pVar.aMr() != null && pVar.fsD == 1) {
+            TiebaStatic.log(new ax("c11440").ab("fid", pVar.aMr().getId()).s("obj_locate", i).s("obj_type", i2));
         }
     }
 }

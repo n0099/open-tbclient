@@ -7,14 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0033a {
-    private final /* synthetic */ boolean azd;
+class e implements a.InterfaceC0033a {
+    private final /* synthetic */ boolean ayG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(boolean z) {
-        this.azd = z;
+        this.ayG = z;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
@@ -24,7 +23,7 @@ public class e implements a.InterfaceC0033a {
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void a(AccountData accountData) {
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            if (this.azd) {
+            if (this.ayG) {
                 if (l.C(com.baidu.adp.base.a.aS().aT()) != null) {
                     b.a((TbPageContext) l.C(com.baidu.adp.base.a.aS().aT()), accountData);
                     return;

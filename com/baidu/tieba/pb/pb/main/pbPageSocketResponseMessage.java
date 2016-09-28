@@ -71,7 +71,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.g();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.ejY = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.elW = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -91,10 +91,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                cp.aNu().a(this.cacheKey, this.isFromMark, bArr);
+                cp.aOc().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                cp.aNu().l(this.cacheKey, bArr);
+                cp.aOc().l(this.cacheKey, bArr);
                 return;
             default:
                 return;

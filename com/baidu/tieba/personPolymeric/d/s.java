@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
     private TbPageContext GM;
-    private TbImageView eJA;
-    private TextView eJB;
+    private TbImageView eLD;
+    private TextView eLE;
     private View mRootView;
 
     public s(TbPageContext tbPageContext) {
@@ -19,21 +19,21 @@ public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.GM = tbPageContext;
         this.mRootView.setTag(this);
-        this.eJA = (TbImageView) this.mRootView.findViewById(t.g.gift_pic);
-        this.eJB = (TextView) this.mRootView.findViewById(t.g.gift_num_text);
+        this.eLD = (TbImageView) this.mRootView.findViewById(r.g.gift_pic);
+        this.eLE = (TextView) this.mRootView.findViewById(r.g.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        av.l(this.mRootView, t.d.cp_bg_line_d);
-        av.k(this.eJA, t.f.item_gift_selector);
-        av.l(this.eJB, t.d.common_color_10294);
-        av.j((View) this.eJB, t.d.cp_link_tip_a);
+        av.l(this.mRootView, r.d.cp_bg_line_d);
+        av.k(this.eLD, r.f.item_gift_selector);
+        av.l(this.eLE, r.d.common_color_10294);
+        av.j((View) this.eLE, r.d.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return t.h.item_gift_view;
+        return r.h.item_gift_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,19 +45,19 @@ public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         onChangeSkinType(this.GM, TbadkCoreApplication.m9getInst().getSkinType());
-        this.eJA.c(mVar.picUrl, 10, false);
+        this.eLD.c(mVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
-        if (mVar.eIr > 0) {
-            this.eJB.setVisibility(0);
-            if (mVar.eIr > 99) {
-                this.eJB.setText("99");
+        if (mVar.eKv > 0) {
+            this.eLE.setVisibility(0);
+            if (mVar.eKv > 99) {
+                this.eLE.setText("99");
                 return;
             } else {
-                this.eJB.setText(String.valueOf(mVar.eIr));
+                this.eLE.setText(String.valueOf(mVar.eKv));
                 return;
             }
         }
-        this.eJB.setVisibility(8);
+        this.eLE.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

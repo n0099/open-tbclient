@@ -7,25 +7,25 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements TextWatcher {
-    private int eOz;
-    final /* synthetic */ WriteActivity gfs;
-    private EditText dlt = null;
-    private TextView Wb = null;
+    private int eQC;
+    final /* synthetic */ WriteActivity ghD;
+    private EditText dmQ = null;
+    private TextView Wl = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(WriteActivity writeActivity) {
-        this.gfs = writeActivity;
+        this.ghD = writeActivity;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         boolean z;
-        this.gfs.bfa();
-        z = this.gfs.geZ;
+        this.ghD.bfL();
+        z = this.ghD.ghi;
         if (z) {
-            this.eOz = this.dlt.getSelectionStart();
-            this.dlt.setSelection(this.eOz);
-            this.gfs.b(this.Wb, this.dlt);
+            this.eQC = this.dmQ.getSelectionStart();
+            this.dmQ.setSelection(this.eQC);
+            this.ghD.b(this.Wl, this.dmQ);
         }
     }
 
@@ -42,41 +42,41 @@ public class au implements TextWatcher {
         EditText editText4;
         TextView textView3;
         TextView textView4;
-        z = this.gfs.geZ;
+        z = this.ghD.ghi;
         if (z) {
-            z3 = this.gfs.gfa;
+            z3 = this.ghD.ghj;
             if (z3) {
-                EditText editText5 = this.dlt;
-                editText3 = this.gfs.geU;
+                EditText editText5 = this.dmQ;
+                editText3 = this.ghD.ghd;
                 if (editText5 == editText3) {
-                    TextView textView5 = this.Wb;
-                    textView4 = this.gfs.geV;
+                    TextView textView5 = this.Wl;
+                    textView4 = this.ghD.ghe;
                     if (textView5 == textView4) {
                         return;
                     }
                 }
-                editText4 = this.gfs.geU;
-                this.dlt = editText4;
-                textView3 = this.gfs.geV;
-                this.Wb = textView3;
+                editText4 = this.ghD.ghd;
+                this.dmQ = editText4;
+                textView3 = this.ghD.ghe;
+                this.Wl = textView3;
                 return;
             }
         }
-        z2 = this.gfs.geZ;
+        z2 = this.ghD.ghi;
         if (z2) {
-            EditText editText6 = this.dlt;
-            editText = this.gfs.geQ;
+            EditText editText6 = this.dmQ;
+            editText = this.ghD.ggZ;
             if (editText6 == editText) {
-                TextView textView6 = this.Wb;
-                textView2 = this.gfs.geW;
+                TextView textView6 = this.Wl;
+                textView2 = this.ghD.ghf;
                 if (textView6 == textView2) {
                     return;
                 }
             }
-            editText2 = this.gfs.geQ;
-            this.dlt = editText2;
-            textView = this.gfs.geW;
-            this.Wb = textView;
+            editText2 = this.ghD.ggZ;
+            this.dmQ = editText2;
+            textView = this.ghD.ghf;
+            this.Wl = textView;
         }
     }
 

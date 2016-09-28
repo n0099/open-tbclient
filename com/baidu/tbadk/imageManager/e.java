@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.lib.f.a<String, com.baidu.adp.widget.a.a> {
-    final /* synthetic */ c ayA;
+    final /* synthetic */ c ayd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, int i) {
         super(i);
-        this.ayA = cVar;
+        this.ayd = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

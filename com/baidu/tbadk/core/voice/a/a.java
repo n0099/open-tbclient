@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice.a;
 
 import com.baidu.adp.lib.voice.l;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a {
     public String md5 = null;
@@ -14,19 +14,19 @@ public class a {
             case 0:
                 return "";
             case 1:
-                return l.getString(t.j.voice_cache_error_internal);
+                return l.getString(r.j.voice_cache_error_internal);
             case 2:
-                return l.getString(t.j.voice_cache_error_no_space);
+                return l.getString(r.j.voice_cache_error_no_space);
             case 3:
-                return l.getString(t.j.neterror);
+                return l.getString(r.j.neterror);
             case 4:
-                return l.getString(t.j.voice_cache_error_no_file);
+                return l.getString(r.j.voice_cache_error_no_file);
             case 5:
-                return l.getString(t.j.voice_cache_error_md5);
+                return l.getString(r.j.voice_cache_error_md5);
             case 6:
-                return l.getString(t.j.voice_cache_error_no_input);
+                return l.getString(r.j.voice_cache_error_no_input);
             case 7:
-                return l.getString(t.j.voice_cache_error_no_dir);
+                return l.getString(r.j.voice_cache_error_no_dir);
             default:
                 return "";
         }

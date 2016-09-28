@@ -8,6 +8,10 @@ public class VideoListWeakLockSwitchStatic extends a {
         e.dN().n(VideoListWeakLockSwitchStatic.class);
     }
 
+    public static boolean eX() {
+        return e.dN().ac("video_list_weaklock_android") == 1;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.c.a
     public void changeSettingByType(int i) {

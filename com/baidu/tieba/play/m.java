@@ -1,73 +1,46 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m {
-    private static e eWE = aZW();
-    private static boolean eWF = true;
-    private static boolean eWG = true;
+public class m extends CustomMessageListener {
+    final /* synthetic */ k eYE;
 
-    private static e aZW() {
-        eWF = com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("prefs_save_paled_video", true);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, e.class);
-        if (runTask != null) {
-            return (e) runTask.getData();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(k kVar, int i) {
+        super(i);
+        this.eYE = kVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        boolean z2;
+        x xVar;
+        x xVar2;
+        x xVar3;
+        x xVar4;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
+            this.eYE.bap();
+            z = this.eYE.eYA;
+            if (z) {
+                z2 = this.eYE.eYA;
+                if (z2) {
+                    k kVar = this.eYE;
+                    xVar = this.eYE.eYz;
+                    int bax = xVar.bax();
+                    xVar2 = this.eYE.eYz;
+                    int bay = xVar2.bay();
+                    xVar3 = this.eYE.eYz;
+                    boolean baz = xVar3.baz();
+                    xVar4 = this.eYE.eYz;
+                    kVar.a(bax, bay, baz, xVar4.baA());
+                }
+            }
         }
-        return null;
-    }
-
-    public static String gZ(String str) {
-        if (eWG && eWF && eWE != null) {
-            return eWE.gZ(str);
-        }
-        return str;
-    }
-
-    public static String ha(String str) {
-        if (eWE != null) {
-            return eWE.ha(str);
-        }
-        return null;
-    }
-
-    public static void G(Context context, String str) {
-        if (eWE != null) {
-            eWE.G(context, str);
-        }
-    }
-
-    public static void H(Context context, String str) {
-        if (eWG && eWF && eWE != null) {
-            eWE.H(context, str);
-        }
-    }
-
-    public static void hb(String str) {
-        if (eWG && eWF && eWE != null) {
-            eWE.hb(str);
-        }
-    }
-
-    public static void ax(Context context) {
-        if (eWE != null) {
-            eWE.ax(context);
-        }
-    }
-
-    public static void aw(Context context) {
-        if (eWE != null) {
-            eWE.aw(context);
-        }
-    }
-
-    public static void jV(boolean z) {
-        eWF = z;
-    }
-
-    public static void aZX() {
-        eWG = com.baidu.adp.lib.c.e.dN().ac("android_video_cache_open") == 1;
     }
 }

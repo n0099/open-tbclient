@@ -1,22 +1,20 @@
 package com.baidu.tieba.tblauncher;
+
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements Runnable {
-    final /* synthetic */ ac fwR;
+public class am implements View.OnClickListener {
+    final /* synthetic */ ab fzu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(ac acVar) {
-        this.fwR = acVar;
+    public am(ab abVar) {
+        this.fzu = abVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.adp.lib.guide.d dVar;
-        com.baidu.adp.lib.guide.d dVar2;
-        dVar = this.fwR.Hs;
-        if (dVar != null) {
-            dVar2 = this.fwR.Hs;
-            dVar2.dismiss();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, (Class) null);
     }
 }

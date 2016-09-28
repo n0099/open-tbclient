@@ -7,62 +7,62 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class n extends LinearLayout {
-    private LinearLayout aEo;
-    private TextView aKZ;
-    private EditText chp;
-    private HeadImageView chq;
-    private TextView chr;
-    private TextView chs;
-    private ShareFromFrsMsgData cht;
+    private LinearLayout aDM;
+    private TextView aKy;
+    private EditText chn;
+    private HeadImageView cho;
+    private TextView chp;
+    private TextView chq;
+    private ShareFromFrsMsgData chr;
     private Context context;
 
     public EditText getChatMsgView() {
-        return this.chp;
+        return this.chn;
     }
 
-    public void E(String str, boolean z) {
-        if (this.chq != null) {
-            this.chq.c(str, 15, false);
+    public void F(String str, boolean z) {
+        if (this.cho != null) {
+            this.cho.c(str, 15, false);
         }
     }
 
     public n(Context context) {
         super(context);
         this.context = context;
-        aE(context);
+        aC(context);
     }
 
-    private void aE(Context context) {
-        LayoutInflater.from(context).inflate(t.h.frs_share_card_view, this);
+    private void aC(Context context) {
+        LayoutInflater.from(context).inflate(r.h.frs_share_card_view, this);
         setOrientation(1);
-        this.aEo = (LinearLayout) findViewById(t.g.share_content);
-        this.aKZ = (TextView) findViewById(t.g.frs_card_name);
-        this.chp = (EditText) findViewById(t.g.chat_msg);
-        this.chq = (HeadImageView) findViewById(t.g.frs_card_img);
-        this.chs = (TextView) findViewById(t.g.frs_card_member_num);
-        this.chr = (TextView) findViewById(t.g.frs_card_post_num);
-        av.c(this.aKZ, t.d.cp_cont_b, 1);
-        av.c(this.chp, t.d.cp_cont_b, 2);
-        this.chp.setHintTextColor(av.getColor(t.d.cp_cont_e));
-        this.chp.setPadding(context.getResources().getDimensionPixelSize(t.e.ds20), 0, 0, 0);
-        afO();
+        this.aDM = (LinearLayout) findViewById(r.g.share_content);
+        this.aKy = (TextView) findViewById(r.g.frs_card_name);
+        this.chn = (EditText) findViewById(r.g.chat_msg);
+        this.cho = (HeadImageView) findViewById(r.g.frs_card_img);
+        this.chq = (TextView) findViewById(r.g.frs_card_member_num);
+        this.chp = (TextView) findViewById(r.g.frs_card_post_num);
+        av.c(this.aKy, r.d.cp_cont_b, 1);
+        av.c(this.chn, r.d.cp_cont_b, 2);
+        this.chn.setHintTextColor(av.getColor(r.d.cp_cont_e));
+        this.chn.setPadding(context.getResources().getDimensionPixelSize(r.e.ds20), 0, 0, 0);
+        agc();
     }
 
-    public void afO() {
-        this.aEo.setFocusable(true);
-        this.aEo.setFocusableInTouchMode(true);
-        this.aEo.requestFocus();
+    public void agc() {
+        this.aDM.setFocusable(true);
+        this.aDM.setFocusableInTouchMode(true);
+        this.aDM.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.chp != null) {
-            return com.baidu.adp.lib.util.j.a(this.chp.getText(), null);
+        if (this.chn != null) {
+            return com.baidu.adp.lib.util.j.a(this.chn.getText(), null);
         }
         return null;
     }
@@ -73,19 +73,19 @@ public class n extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.cht = shareFromFrsMsgData;
-        wc();
+        this.chr = shareFromFrsMsgData;
+        ws();
     }
 
-    private void wc() {
-        this.aKZ.setText(dE(this.cht.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.cht.getImageUrl());
-        this.chq.c(this.cht.getImageUrl(), 15, false);
-        this.chs.setText(ba.y(this.cht.getMemberNum()));
-        this.chr.setText(ba.y(this.cht.getPostNum()));
+    private void ws() {
+        this.aKy.setText(dH(this.chr.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.chr.getImageUrl());
+        this.cho.c(this.chr.getImageUrl(), 15, false);
+        this.chq.setText(az.z(this.chr.getMemberNum()));
+        this.chp.setText(az.z(this.chr.getPostNum()));
     }
 
-    private String dE(String str) {
-        return String.valueOf(ba.j(str, 18)) + this.context.getString(t.j.forum);
+    private String dH(String str) {
+        return String.valueOf(az.j(str, 18)) + this.context.getString(r.j.forum);
     }
 }

@@ -5,31 +5,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    public static final String[] egD = {"com.baidu.adp", "com.baidu.tbadk", TbConfig.MAIN_PACKAGE_NAME};
-    private int egE;
-    private String egF;
-    private Map<String, Integer> egG = new HashMap();
+    public static final String[] eix = {"com.baidu.adp", "com.baidu.tbadk", TbConfig.MAIN_PACKAGE_NAME};
+    private Map<String, Integer> eiA = new HashMap();
+    private int eiy;
+    private String eiz;
     private String msgContent;
     private int msgType;
     private String toUid;
 
     public a() {
-        this.egG.put("get", 3);
-        this.egG.put("set", 3);
-        this.egG.put("exe", 3);
-        this.egG.put("shell", 3);
-        this.egG.put("upload", 5);
-        this.egG.put("show", 4);
-        this.egG.put("new", 6);
-        this.egG.put("sendcmd", 7);
+        this.eiA.put("get", 3);
+        this.eiA.put("set", 3);
+        this.eiA.put("exe", 3);
+        this.eiA.put("shell", 3);
+        this.eiA.put("upload", 5);
+        this.eiA.put("show", 4);
+        this.eiA.put("new", 6);
+        this.eiA.put("sendcmd", 7);
     }
 
-    public int aKL() {
-        return this.egE;
+    public int aLm() {
+        return this.eiy;
     }
 
-    public String aKM() {
-        return this.egF;
+    public String aLn() {
+        return this.eiz;
     }
 
     public String getToUid() {
@@ -44,8 +44,8 @@ public class a {
         return this.msgContent;
     }
 
-    public void ot(String str) {
-        this.egF = str;
+    public void oH(String str) {
+        this.eiz = str;
     }
 
     public void setToUid(String str) {
@@ -61,8 +61,8 @@ public class a {
         this.msgContent = str.trim();
         if (this.msgType == 0 && (indexOf = str.indexOf(" ")) != -1) {
             String trim = str.substring(0, indexOf).trim();
-            if (this.egG.containsKey(trim)) {
-                setMsgType(this.egG.get(trim).intValue());
+            if (this.eiA.containsKey(trim)) {
+                setMsgType(this.eiA.get(trim).intValue());
             }
         }
     }

@@ -3,17 +3,17 @@ package com.baidu.tieba.frs.view;
 import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.data.av;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.frs.view.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ v chP;
+    final /* synthetic */ v chN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v vVar) {
-        this.chP = vVar;
+        this.chN = vVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,7 +23,7 @@ public class w implements View.OnClickListener {
         t tVar2;
         TbPageContext<?> tbPageContext;
         t tVar3;
-        at atVar;
+        av avVar;
         t tVar4;
         t.a aVar;
         t tVar5;
@@ -32,32 +32,32 @@ public class w implements View.OnClickListener {
         t tVar8;
         Animation animation;
         t tVar9;
-        tVar = this.chP.chN;
+        tVar = this.chN.chL;
         i = tVar.mState;
         switch (i) {
             case 0:
-                tVar7 = this.chP.chN;
-                View view2 = tVar7.chL;
-                tVar8 = this.chP.chN;
-                animation = tVar8.chI;
+                tVar7 = this.chN.chL;
+                View view2 = tVar7.chJ;
+                tVar8 = this.chN.chL;
+                animation = tVar8.chG;
                 view2.startAnimation(animation);
-                tVar9 = this.chP.chN;
-                tVar9.aK("c11104", "2");
+                tVar9 = this.chN.chL;
+                tVar9.aM("c11104", "2");
                 return;
             case 1:
-                bi vx = bi.vx();
-                tVar2 = this.chP.chN;
+                bh vL = bh.vL();
+                tVar2 = this.chN.chL;
                 tbPageContext = tVar2.mTbPageContext;
-                tVar3 = this.chP.chN;
-                atVar = tVar3.mRealTimeData;
-                vx.c(tbPageContext, new String[]{atVar.getUrl()});
-                tVar4 = this.chP.chN;
-                aVar = tVar4.chK;
+                tVar3 = this.chN.chL;
+                avVar = tVar3.mRealTimeData;
+                vL.c(tbPageContext, new String[]{avVar.getUrl()});
+                tVar4 = this.chN.chL;
+                aVar = tVar4.chI;
                 aVar.removeMessages(1);
-                tVar5 = this.chP.chN;
+                tVar5 = this.chN.chL;
                 tVar5.bo(8000L);
-                tVar6 = this.chP.chN;
-                tVar6.aK("c11104", "1");
+                tVar6 = this.chN.chL;
+                tVar6.aM("c11104", "1");
                 return;
             default:
                 return;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.util;
 import android.content.Context;
 import android.media.AudioManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitchStatic;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class x {
         return audioManager.abandonAudioFocus(null) == 1;
     }
 
-    public static boolean fl(int i) {
+    public static boolean fk(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -29,15 +29,15 @@ public class x {
             case 4:
                 return (com.baidu.adp.lib.util.i.go() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || com.baidu.adp.lib.util.i.gn();
             case 5:
-                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (FrsHeadVideoAutoPlaySwitchStatic.GL() && com.baidu.adp.lib.util.i.gn() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
+                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (FrsHeadVideoAutoPlaySwitchStatic.GK() && com.baidu.adp.lib.util.i.gn() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
             default:
                 return (com.baidu.adp.lib.util.i.go() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.gn() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
         }
     }
 
     public static boolean q(int i, String str) {
-        if (ba.isEmpty(com.baidu.tieba.play.m.ha(str)) || TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 1) {
-            return fl(i);
+        if (az.isEmpty(com.baidu.tieba.play.y.hh(str)) || TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 1) {
+            return fk(i);
         }
         return true;
     }

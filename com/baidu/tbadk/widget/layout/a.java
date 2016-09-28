@@ -2,12 +2,12 @@ package com.baidu.tbadk.widget.layout;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements f {
     @Override // com.baidu.tbadk.widget.layout.f
-    public int fp(int i) {
+    public int fo(int i) {
         if (i < 4) {
             return 1;
         }
@@ -77,7 +77,7 @@ public class a implements f {
         if (i2 > 0) {
             int i3 = i + 3;
             List<String> a = y.a(list, i, i3);
-            cVar.setExtraCenterText(TbadkCoreApplication.m9getInst().getString(t.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
+            cVar.setExtraCenterText(TbadkCoreApplication.m9getInst().getString(r.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
             cVar.a(a, i, true);
             return i3;
         }

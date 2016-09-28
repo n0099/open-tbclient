@@ -3,19 +3,19 @@ package com.baidu.tieba.enterForum.b;
 import com.baidu.tieba.tbadkCore.w;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.mvc.b.a {
-    private w bFZ;
-    private w bGa;
+    private w bGk;
+    private w bGl;
 
     public a(w wVar, w wVar2) {
-        this.bFZ = wVar;
-        this.bGa = wVar2;
+        this.bGk = wVar;
+        this.bGl = wVar2;
     }
 
-    public w WY() {
-        return this.bFZ;
+    public w Xr() {
+        return this.bGk;
     }
 
-    public w WZ() {
-        return this.bGa;
+    public w Xs() {
+        return this.bGl;
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements PbActivity.a {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
@@ -22,7 +22,7 @@ public class ay implements PbActivity.a {
         dh dhVar3;
         dh dhVar4;
         Object[] objArr = (Object[]) obj;
-        dhVar = this.eob.emx;
+        dhVar = this.eqa.eov;
         String valueOf = String.valueOf(dhVar.getPbData().getUserData().getUserId());
         String str = "";
         if (objArr.length > 1) {
@@ -32,13 +32,13 @@ public class ay implements PbActivity.a {
         if (objArr.length > 2) {
             str2 = String.valueOf(objArr[2]);
         }
-        PbActivity pbActivity = this.eob;
-        Activity pageActivity = this.eob.getPageContext().getPageActivity();
-        dhVar2 = this.eob.emx;
-        String id = dhVar2.getPbData().aLP().getId();
-        dhVar3 = this.eob.emx;
-        String name = dhVar3.getPbData().aLP().getName();
-        dhVar4 = this.eob.emx;
-        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, dhVar4.getPbData().aLQ().getId(), valueOf, str, str2)));
+        PbActivity pbActivity = this.eqa;
+        Activity pageActivity = this.eqa.getPageContext().getPageActivity();
+        dhVar2 = this.eqa.eov;
+        String id = dhVar2.getPbData().aMr().getId();
+        dhVar3 = this.eqa.eov;
+        String name = dhVar3.getPbData().aMr().getName();
+        dhVar4 = this.eqa.eov;
+        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, dhVar4.getPbData().aMs().getId(), valueOf, str, str2)));
     }
 }

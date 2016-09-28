@@ -13,8 +13,8 @@ import com.baidu.tieba.personPolymeric.b.aa;
 import com.baidu.tieba.personPolymeric.b.ab;
 /* loaded from: classes.dex */
 public class PersonPolymericActivity extends BaseActivity<PersonPolymericActivity> implements VoiceManager.c {
-    private ab eGO;
-    private VoiceManager eGP;
+    private ab eIS;
+    private VoiceManager eIT;
     private boolean isSelf = true;
     private long userId;
 
@@ -26,46 +26,46 @@ public class PersonPolymericActivity extends BaseActivity<PersonPolymericActivit
         if (this.userId <= 0 && TbadkCoreApplication.getCurrentAccount() != null) {
             this.userId = b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
         }
-        this.eGP = VoiceManager.instance();
-        this.eGO = new ab(this, this.userId, this.isSelf);
-        this.eGO.Rt();
-        this.eGP.onCreate(getPageContext());
+        this.eIT = VoiceManager.instance();
+        this.eIS = new ab(this, this.userId, this.isSelf);
+        this.eIS.RL();
+        this.eIT.onCreate(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.eGP.onStart(getPageContext());
+        this.eIT.onStart(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.eGP.onResume(getPageContext());
+        this.eIT.onResume(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.eGP.onPause(getPageContext());
+        this.eIT.onPause(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.eGP.onStop(getPageContext());
+        this.eIT.onStop(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.eGP.onDestory(getPageContext());
-        this.eGO.onDestroy();
+        this.eIT.onDestory(getPageContext());
+        this.eIS.onDestroy();
     }
 
     @Override // android.app.Activity
@@ -92,16 +92,16 @@ public class PersonPolymericActivity extends BaseActivity<PersonPolymericActivit
         if (i2 == -1) {
             switch (i) {
                 case 101:
-                    this.eGO.resetData();
-                    this.eGO.Rt();
+                    this.eIS.resetData();
+                    this.eIS.RL();
                     return;
                 case 12002:
                     if (intent != null) {
                         if (intent.getBooleanExtra(AlbumActivityConfig.CAMERA_RESULT, false)) {
-                            aa.y(getPageContext());
+                            aa.B(getPageContext());
                             return;
-                        } else if (this.eGO.aTz() != null) {
-                            this.eGO.aTz().s(intent);
+                        } else if (this.eIS.aTW() != null) {
+                            this.eIS.aTW().r(intent);
                             return;
                         } else {
                             return;
@@ -113,14 +113,14 @@ public class PersonPolymericActivity extends BaseActivity<PersonPolymericActivit
                     if (intent != null) {
                         int intExtra = intent.getIntExtra("upload_image_type", 0);
                         if (intExtra == 1) {
-                            if (this.eGO.aTz() != null) {
-                                this.eGO.aTz().aTt();
-                                this.eGO.aTz().aTu();
+                            if (this.eIS.aTW() != null) {
+                                this.eIS.aTW().aTQ();
+                                this.eIS.aTW().aTR();
                                 return;
                             }
                             return;
-                        } else if (intExtra == 2 && this.eGO.aTz() != null) {
-                            this.eGO.aTz().aTv();
+                        } else if (intExtra == 2 && this.eIS.aTW() != null) {
+                            this.eIS.aTW().aTS();
                             return;
                         } else {
                             return;
@@ -131,14 +131,14 @@ public class PersonPolymericActivity extends BaseActivity<PersonPolymericActivit
                     if (intent != null) {
                         int intExtra2 = intent.getIntExtra("upload_image_type", 0);
                         if (intExtra2 == 1) {
-                            if (this.eGO.aTz() != null) {
-                                this.eGO.aTz().aTt();
-                                this.eGO.aTz().aTu();
+                            if (this.eIS.aTW() != null) {
+                                this.eIS.aTW().aTQ();
+                                this.eIS.aTW().aTR();
                                 return;
                             }
                             return;
-                        } else if (intExtra2 == 2 && this.eGO.aTz() != null) {
-                            this.eGO.aTz().aTv();
+                        } else if (intExtra2 == 2 && this.eIS.aTW() != null) {
+                            this.eIS.aTW().aTS();
                             return;
                         } else {
                             return;
@@ -147,8 +147,8 @@ public class PersonPolymericActivity extends BaseActivity<PersonPolymericActivit
                     return;
                 case 24001:
                     if (intent != null) {
-                        this.eGO.resetData();
-                        this.eGO.Rt();
+                        this.eIS.resetData();
+                        this.eIS.RL();
                         return;
                     }
                     return;
@@ -162,14 +162,14 @@ public class PersonPolymericActivity extends BaseActivity<PersonPolymericActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eGO != null) {
-            this.eGO.onChangeSkinType(i);
+        if (this.eIS != null) {
+            this.eIS.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.eGP;
+        return this.eIT;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c

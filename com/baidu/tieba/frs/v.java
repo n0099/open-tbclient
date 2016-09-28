@@ -2,11 +2,11 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tbadk.util.e<Boolean> {
-    final /* synthetic */ u bQs;
+    final /* synthetic */ u bQl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.bQs = uVar;
+        this.bQl = uVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,12 +18,12 @@ public class v implements com.baidu.tbadk.util.e<Boolean> {
         FrsActivity frsActivity2;
         bm bmVar2;
         if (bool != null) {
-            frsActivity = this.bQs.bQp;
-            bmVar = frsActivity.bPo;
+            frsActivity = this.bQl.bQi;
+            bmVar = frsActivity.bPi;
             if (bmVar != null) {
-                frsActivity2 = this.bQs.bQp;
-                bmVar2 = frsActivity2.bPo;
-                bmVar2.abV();
+                frsActivity2 = this.bQl.bQi;
+                bmVar2 = frsActivity2.bPi;
+                bmVar2.aci();
             }
         }
     }

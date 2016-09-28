@@ -1,38 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.p;
+import com.baidu.tieba.LogoActivity;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class j implements p.a {
-    final /* synthetic */ i aLE;
+class j implements n.a {
+    final /* synthetic */ i aKZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.aLE = iVar;
+        this.aKZ = iVar;
     }
 
-    @Override // com.baidu.tieba.p.a
+    @Override // com.baidu.tieba.n.a
     public void onCompleted() {
         LogoActivity logoActivity;
+        boolean Jc;
         LogoActivity logoActivity2;
+        LogoActivity.a aVar;
         LogoActivity logoActivity3;
-        LogoActivity logoActivity4;
-        LogoActivity logoActivity5;
-        if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) == null) {
-            logoActivity = this.aLE.aLA;
-            logoActivity2 = this.aLE.aLA;
-            logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(logoActivity2.getPageContext().getPageActivity()).createNormalCfg(1)));
-        } else {
-            boolean z = com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("has_shown_app_guide", false);
-            logoActivity4 = this.aLE.aLA;
-            logoActivity5 = this.aLE.aLA;
-            logoActivity4.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(logoActivity5.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, z ? 1 : 3)));
+        logoActivity = this.aKZ.aKV;
+        Jc = logoActivity.Jc();
+        if (Jc) {
+            logoActivity3 = this.aKZ.aKV;
+            logoActivity3.finish();
+            return;
         }
-        logoActivity3 = this.aLE.aLA;
-        logoActivity3.finish();
+        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
+        logoActivity2 = this.aKZ.aKV;
+        aVar = logoActivity2.aKP;
+        eG.post(aVar);
     }
 }

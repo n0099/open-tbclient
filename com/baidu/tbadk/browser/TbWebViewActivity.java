@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -76,7 +76,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (getWebView() != null) {
+        if (this.mWebView != null) {
+            try {
+                this.mWebView.onResume();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             callHiddenWebViewMethod("onResume");
         }
     }
@@ -85,7 +90,14 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        callHiddenWebViewMethod("onPause");
+        if (this.mWebView != null) {
+            try {
+                this.mWebView.onPause();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            callHiddenWebViewMethod("onPause");
+        }
     }
 
     public void addJsPromptInterface(com.baidu.tieba.tbadkCore.e.b bVar) {
@@ -239,7 +251,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bjI();
+            this.jsBridge.bku();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -296,7 +308,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = bi.vx().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
+            int b = bh.vL().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -386,7 +398,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            com.baidu.tbadk.core.c.h.tw().a(16, new w(this));
+            com.baidu.tbadk.core.c.h.tL().a(16, new w(this));
         }
     }
 }

@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.im.chat.notify.b;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b {
-    private com.baidu.tieba.imMessageCenter.mention.k dnL;
+    private com.baidu.tieba.imMessageCenter.mention.k dpk;
 
     public ImMessageCenterListAdapter(Context context) {
         super(context);
-        this.dnL = null;
+        this.dpk = null;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.b
@@ -30,9 +30,9 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
         super.setData(list);
         if (TbadkCoreApplication.isLogin()) {
             if (this.mList.size() <= 0) {
-                this.dnL.r(true, true);
+                this.dpk.t(true, true);
             } else {
-                this.dnL.r(true, false);
+                this.dpk.t(true, false);
             }
         }
         notifyDataSetChanged();
@@ -40,21 +40,21 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
 
     @Override // com.baidu.tieba.im.chat.notify.b, android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ImMessageCenterShowItemData lb = getItem(i);
-        if (lb != null && String.valueOf(String.valueOf(2)).equals(lb.getOwnerName())) {
-            if (lb.getUnReadCount() >= 30) {
-                if (this.dnL != null) {
-                    this.dnL.gj(true);
+        ImMessageCenterShowItemData lj = getItem(i);
+        if (lj != null && String.valueOf(String.valueOf(2)).equals(lj.getOwnerName())) {
+            if (lj.getUnReadCount() >= 30) {
+                if (this.dpk != null) {
+                    this.dpk.gm(true);
                 }
-            } else if (this.dnL != null) {
-                this.dnL.gj(false);
+            } else if (this.dpk != null) {
+                this.dpk.gm(false);
             }
         }
         return super.getView(i, view, viewGroup);
     }
 
     public void a(com.baidu.tieba.imMessageCenter.mention.k kVar) {
-        this.dnL = kVar;
+        this.dpk = kVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.b
@@ -69,15 +69,15 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             str = "";
             i = 0;
         } else if (String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zb()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().ze()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.l.awl().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.l.awK().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }
         } else if (String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zm()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zp()) {
                 str = "";
                 i = 0;
             } else {
@@ -88,7 +88,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
                 }
             }
         } else if (String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zf()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zi()) {
                 str = "";
                 i = 0;
             } else {
@@ -99,15 +99,15 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
                 }
             }
         } else if (String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zf() || !TbadkCoreApplication.m9getInst().isPromotedMessageOn()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zi() || !TbadkCoreApplication.m9getInst().isPromotedMessageOn()) {
                 str = "";
                 i = 0;
             }
         } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zs()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zv()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.g.awi().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.g.awH().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }
@@ -178,7 +178,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             String friendPortrait = imMessageCenterShowItemData.getFriendPortrait();
             aVar.GQ.setImageDrawable(null);
             if (TextUtils.isEmpty(friendPortrait)) {
-                aVar.GQ.c(String.valueOf(t.f.icon_default_avatar100), 24, false);
+                aVar.GQ.c(String.valueOf(r.f.icon_default_avatar100), 24, false);
             } else {
                 aVar.GQ.c(friendPortrait, 10, false);
             }
@@ -224,7 +224,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             aVar.GQ.setTag(imMessageCenterShowItemData.getOwnerName());
             aVar.GQ.setUserName(String.valueOf(7));
             aVar.GQ.setUserId(imMessageCenterShowItemData.getFriendId());
-            av.c(aVar.GQ, t.f.icon_new_stranger);
+            av.c(aVar.GQ, r.f.icon_new_stranger);
             aVar.GQ.setIsRound(false);
             aVar.GQ.invalidate();
         } else {
@@ -235,7 +235,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             if (!TextUtils.isEmpty(friendPortrait3)) {
                 aVar.GQ.c(friendPortrait3, 12, false);
             } else {
-                aVar.GQ.c(String.valueOf(t.f.person_photo), 24, false);
+                aVar.GQ.c(String.valueOf(r.f.person_photo), 24, false);
             }
             aVar.GQ.setTag(imMessageCenterShowItemData.getFriendPortrait());
             aVar.GQ.setUserId(imMessageCenterShowItemData.getFriendId());

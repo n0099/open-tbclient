@@ -1,47 +1,38 @@
 package com.baidu.tieba.tblauncher;
 
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.GameCenterActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a arh;
-    private final /* synthetic */ int cVm;
-    final /* synthetic */ ac fwR;
+public class aq implements View.OnClickListener {
+    final /* synthetic */ ab fzu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ac acVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.fwR = acVar;
-        this.arh = aVar;
-        this.cVm = i;
+    public aq(ab abVar) {
+        this.fzu = abVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ImageView imageView;
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
         MainTabActivity mainTabActivity3;
-        this.arh.dismiss();
-        String str = null;
-        if (this.cVm == 0) {
-            str = "4006001000";
-            mainTabActivity3 = this.fwR.fwG;
-            TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
-        } else if (this.cVm == 1) {
-            str = "4005001000";
-            mainTabActivity = this.fwR.fwG;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
-        }
-        mainTabActivity2 = this.fwR.fwG;
-        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(mainTabActivity2.getPageContext().getPageActivity(), 2);
-        if (!StringUtils.isNULL(str)) {
-            memberPayActivityConfig.setSceneId(str);
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
+        this.fzu.eY(false);
+        imageView = this.fzu.cEm;
+        imageView.setVisibility(8);
+        com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("game_is_show_tip", false);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP, false));
+        mainTabActivity = this.fzu.fzj;
+        mainTabActivity2 = this.fzu.fzj;
+        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameCenterActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
+        mainTabActivity3 = this.fzu.fzj;
+        TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "tb_gamecenter", "click", 1, "ref_type", "601");
     }
 }

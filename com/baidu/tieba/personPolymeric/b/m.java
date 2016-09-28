@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h eHw;
+    final /* synthetic */ h eJA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(h hVar, int i) {
         super(i);
-        this.eHw = hVar;
+        this.eJA = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,12 +25,12 @@ public class m extends com.baidu.adp.framework.listener.e {
         TbPageContext tbPageContext2;
         if ((socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
             if (StringUtils.isNull(socketResponsedMessage.getErrorString())) {
-                tbPageContext2 = this.eHw.GM;
-                errorString = tbPageContext2.getResources().getString(t.j.neterror);
+                tbPageContext2 = this.eJA.GM;
+                errorString = tbPageContext2.getResources().getString(r.j.neterror);
             } else {
                 errorString = socketResponsedMessage.getErrorString();
             }
-            tbPageContext = this.eHw.GM;
+            tbPageContext = this.eJA.GM;
             tbPageContext.showToast(errorString);
         }
     }

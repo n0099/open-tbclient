@@ -5,11 +5,11 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity gcb;
+    final /* synthetic */ VcodeActivity gek;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(VcodeActivity vcodeActivity) {
-        this.gcb = vcodeActivity;
+        this.gek = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,19 +19,19 @@ class b implements View.OnClickListener {
         VcodeActivity.b bVar2;
         VcodeActivity.b bVar3;
         VcodeActivity.b bVar4;
-        VcodeActivity vcodeActivity = this.gcb;
-        inputMethodManager = this.gcb.mInputManager;
-        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.gcb.eFX);
-        this.gcb.GN();
-        bVar = this.gcb.gbX;
+        VcodeActivity vcodeActivity = this.gek;
+        inputMethodManager = this.gek.mInputManager;
+        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.gek.eIb);
+        this.gek.GM();
+        bVar = this.gek.geg;
         if (bVar != null) {
-            bVar4 = this.gcb.gbX;
+            bVar4 = this.gek.geg;
             bVar4.cancel();
         }
-        this.gcb.gbX = new VcodeActivity.b(this.gcb.gbW);
-        bVar2 = this.gcb.gbX;
+        this.gek.geg = new VcodeActivity.b(this.gek.gef);
+        bVar2 = this.gek.geg;
         bVar2.setPriority(3);
-        bVar3 = this.gcb.gbX;
+        bVar3 = this.gek.geg;
         bVar3.execute(0);
     }
 }

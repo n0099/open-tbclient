@@ -19,7 +19,7 @@ class c extends CustomMessageListener {
             PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
             ((e) customResponsedMessage.getData()).a(personInfoDelegateStatic);
             if (((e) customResponsedMessage.getData()).getContext() != null && (EF = personInfoDelegateStatic.EF()) != null) {
-                EF.azI.setArguments(new Bundle());
+                EF.azl.setArguments(new Bundle());
             }
         }
     }

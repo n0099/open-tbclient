@@ -28,14 +28,14 @@ public class az extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MemoryUpdateHeadNameMessage.a)) {
             MemoryUpdateHeadNameMessage.a aVar = (MemoryUpdateHeadNameMessage.a) customResponsedMessage.getData();
             if (!TextUtils.isEmpty(aVar.id)) {
-                if ((!TextUtils.isEmpty(aVar.head) || !TextUtils.isEmpty(aVar.name)) && (ah = b.auN().ah(aVar.id, aVar.customGroupType)) != null) {
+                if ((!TextUtils.isEmpty(aVar.head) || !TextUtils.isEmpty(aVar.name)) && (ah = b.avm().ah(aVar.id, aVar.customGroupType)) != null) {
                     String str = aVar.name;
                     String str2 = aVar.head;
                     if (!TextUtils.isEmpty(str)) {
-                        b.auN().bf(aVar.id, str);
+                        b.avm().bh(aVar.id, str);
                     }
                     if (!TextUtils.isEmpty(aVar.head)) {
-                        b.auN().be(aVar.id, str2);
+                        b.avm().bg(aVar.id, str2);
                     }
                     CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ba(this, ah));
                     customMessageTask.setParallel(TiebaIMConfig.getParallel());

@@ -9,30 +9,30 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.pb.pb.main.eh;
 /* loaded from: classes.dex */
 class gk implements eh.a {
-    final /* synthetic */ ReaderPbService euI;
+    final /* synthetic */ ReaderPbService ewO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gk(ReaderPbService readerPbService) {
-        this.euI = readerPbService;
+        this.ewO = readerPbService;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.eh.a
-    public void aOL() {
+    public void aPu() {
         boolean z;
         ek ekVar;
         ek ekVar2;
         ek ekVar3;
         String str;
         BdUniqueId bdUniqueId;
-        z = this.euI.isAlive;
+        z = this.ewO.isAlive;
         if (!z) {
-            ekVar = this.euI.mReaderModel;
+            ekVar = this.ewO.mReaderModel;
             if (ekVar != null) {
-                ekVar2 = this.euI.mReaderModel;
+                ekVar2 = this.ewO.mReaderModel;
                 if (ekVar2 != null) {
-                    ekVar3 = this.euI.mReaderModel;
-                    str = this.euI.threadId;
-                    ekVar3.oW(str);
+                    ekVar3 = this.ewO.mReaderModel;
+                    str = this.ewO.threadId;
+                    ekVar3.pl(str);
                     return;
                 }
                 return;
@@ -40,37 +40,37 @@ class gk implements eh.a {
             return;
         }
         com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
-        bdUniqueId = this.euI.mTagId;
+        bdUniqueId = this.ewO.mTagId;
         aVar.tag = bdUniqueId;
-        aVar.ewU = 0;
+        aVar.ezc = 0;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
     }
 
     @Override // com.baidu.tieba.pb.pb.main.eh.a
-    public void aOM() {
+    public void aPv() {
         boolean z;
         ek ekVar;
         ek ekVar2;
         BdUniqueId bdUniqueId;
-        z = this.euI.isAlive;
+        z = this.ewO.isAlive;
         if (!z) {
-            ekVar = this.euI.mReaderModel;
+            ekVar = this.ewO.mReaderModel;
             if (ekVar != null) {
-                ekVar2 = this.euI.mReaderModel;
-                ekVar2.aON();
+                ekVar2 = this.ewO.mReaderModel;
+                ekVar2.aPw();
                 return;
             }
             return;
         }
         com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
-        bdUniqueId = this.euI.mTagId;
+        bdUniqueId = this.ewO.mTagId;
         aVar.tag = bdUniqueId;
-        aVar.ewU = 1;
+        aVar.ezc = 1;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
     }
 
     @Override // com.baidu.tieba.pb.pb.main.eh.a
-    public void bi(int i, int i2) {
+    public void bk(int i, int i2) {
         boolean z;
         eh ehVar;
         eh ehVar2;
@@ -83,40 +83,40 @@ class gk implements eh.a {
         eh ehVar7;
         eh ehVar8;
         eh ehVar9;
-        z = this.euI.isAlive;
+        z = this.ewO.isAlive;
         if (z) {
             com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
-            bdUniqueId = this.euI.mTagId;
+            bdUniqueId = this.ewO.mTagId;
             aVar.tag = bdUniqueId;
-            aVar.ewU = 2;
-            ehVar6 = this.euI.mReaderManager;
-            aVar.ewV = ehVar6.erp;
-            ehVar7 = this.euI.mReaderManager;
-            aVar.ewW = ehVar7.aOJ();
+            aVar.ezc = 2;
+            ehVar6 = this.ewO.mReaderManager;
+            aVar.ezd = ehVar6.ety;
+            ehVar7 = this.ewO.mReaderManager;
+            aVar.eze = ehVar7.aPs();
             String str2 = "";
-            ehVar8 = this.euI.mReaderManager;
-            if (ehVar8.aOK() != null) {
-                ehVar9 = this.euI.mReaderManager;
-                str2 = ehVar9.aOK().getId();
+            ehVar8 = this.ewO.mReaderManager;
+            if (ehVar8.aPt() != null) {
+                ehVar9 = this.ewO.mReaderManager;
+                str2 = ehVar9.aPt().getId();
             }
             aVar.postId = str2;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
             return;
         }
         String str3 = "";
-        ehVar = this.euI.mReaderManager;
-        if (ehVar.aOK() != null) {
-            ehVar5 = this.euI.mReaderManager;
-            str3 = ehVar5.aOK().getId();
+        ehVar = this.ewO.mReaderManager;
+        if (ehVar.aPt() != null) {
+            ehVar5 = this.ewO.mReaderManager;
+            str3 = ehVar5.aPt().getId();
         }
-        ehVar2 = this.euI.mReaderManager;
-        boolean z2 = ehVar2.eru;
-        ehVar3 = this.euI.mReaderManager;
+        ehVar2 = this.ewO.mReaderManager;
+        boolean z2 = ehVar2.etD;
+        ehVar3 = this.ewO.mReaderManager;
         boolean z3 = ehVar3.isSquence;
-        ehVar4 = this.euI.mReaderManager;
-        int i3 = ehVar4.erp;
-        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.euI);
-        str = this.euI.threadId;
+        ehVar4 = this.ewO.mReaderManager;
+        int i3 = ehVar4.ety;
+        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.ewO);
+        str = this.ewO.threadId;
         pbActivityConfig.createReaderServiceCfg(str, str3, i3, z2, z3, null);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
     }

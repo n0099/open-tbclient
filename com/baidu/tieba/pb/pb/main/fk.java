@@ -5,11 +5,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fk implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ ex euB;
+    final /* synthetic */ ex ewH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fk(ex exVar) {
-        this.euB = exVar;
+        this.ewH = exVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -19,16 +19,16 @@ public class fk implements CompoundButton.OnCheckedChangeListener {
         String str;
         String str2;
         if (z) {
-            this.euB.etp = (String) compoundButton.getTag();
-            list = this.euB.esb;
+            this.ewH.evx = (String) compoundButton.getTag();
+            list = this.ewH.euk;
             if (list != null) {
-                list2 = this.euB.esb;
+                list2 = this.ewH.euk;
                 for (com.baidu.tieba.pb.pb.main.b.a aVar : list2) {
                     String str3 = (String) aVar.getTag();
                     if (str3 != null) {
-                        str = this.euB.etp;
+                        str = this.ewH.evx;
                         if (str != null) {
-                            str2 = this.euB.etp;
+                            str2 = this.ewH.evx;
                             if (!str3.equals(str2)) {
                                 aVar.setChecked(false);
                             }

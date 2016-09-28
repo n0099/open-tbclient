@@ -12,14 +12,14 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends com.baidu.adp.base.e<ActivityType> {
-    private boolean aAa;
-    private boolean aAb;
-    private MessageListener<CustomResponsedMessage<?>> azU;
-    private MessageListener<CustomResponsedMessage<?>> azV;
-    private InterfaceC0047a<T> azW;
-    private boolean azX;
-    private boolean azY;
-    private boolean azZ;
+    private boolean azA;
+    private boolean azB;
+    private boolean azC;
+    private boolean azD;
+    private boolean azE;
+    private MessageListener<CustomResponsedMessage<?>> azx;
+    private MessageListener<CustomResponsedMessage<?>> azy;
+    private InterfaceC0047a<T> azz;
     private boolean yk;
 
     /* renamed from: com.baidu.tbadk.mvc.model.a$a  reason: collision with other inner class name */
@@ -40,12 +40,12 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
 
     public a(TbPageContext<ActivityType> tbPageContext) {
         super(tbPageContext);
-        this.azX = false;
-        this.azY = false;
-        this.azZ = false;
-        this.aAa = false;
+        this.azA = false;
+        this.azB = false;
+        this.azC = false;
+        this.azD = false;
         this.yk = false;
-        this.aAb = false;
+        this.azE = false;
     }
 
     protected boolean EP() {
@@ -80,7 +80,7 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
     }
 
     public final void clearCache() {
-        this.aAb = true;
+        this.azE = true;
         ET();
         ER();
     }
@@ -106,40 +106,40 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
     }
 
     private void ES() {
-        if (!this.azZ) {
-            if (this.azU == null) {
-                this.azU = new b(this, EX());
-                this.azU.setSelfListener(true);
-                this.azU.setTag(this.unique_id);
+        if (!this.azC) {
+            if (this.azx == null) {
+                this.azx = new b(this, EX());
+                this.azx.setSelfListener(true);
+                this.azx.setTag(this.unique_id);
             }
-            registerListener(this.azU);
-            this.azZ = true;
+            registerListener(this.azx);
+            this.azC = true;
         }
     }
 
     private void ET() {
-        if (!this.aAa) {
-            if (this.azV == null) {
-                this.azV = new c(this, EY());
-                this.azV.setSelfListener(true);
-                this.azV.setTag(this.unique_id);
+        if (!this.azD) {
+            if (this.azy == null) {
+                this.azy = new c(this, EY());
+                this.azy.setSelfListener(true);
+                this.azy.setTag(this.unique_id);
             }
-            registerListener(this.azV);
-            this.aAa = true;
+            registerListener(this.azy);
+            this.azD = true;
         }
     }
 
     private void EU() {
-        if (!this.azX && MessageManager.getInstance().findTask(EX()) == null) {
+        if (!this.azA && MessageManager.getInstance().findTask(EX()) == null) {
             MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(EX(), new com.baidu.tbadk.mvc.e.c(EX(), EI(), EW())));
-            this.azX = true;
+            this.azA = true;
         }
     }
 
     private void EV() {
-        if (!this.azY && MessageManager.getInstance().findTask(EY()) == null) {
+        if (!this.azB && MessageManager.getInstance().findTask(EY()) == null) {
             MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(EY(), new com.baidu.tbadk.mvc.e.d(EY(), EI(), EW())));
-            this.azY = true;
+            this.azB = true;
         }
     }
 
@@ -156,6 +156,6 @@ public abstract class a<T extends com.baidu.tbadk.mvc.b.d, ActivityType> extends
     }
 
     public void a(InterfaceC0047a<T> interfaceC0047a) {
-        this.azW = interfaceC0047a;
+        this.azz = interfaceC0047a;
     }
 }

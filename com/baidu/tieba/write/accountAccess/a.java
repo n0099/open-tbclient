@@ -2,77 +2,77 @@ package com.baidu.tieba.write.accountAccess;
 
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.bh;
+import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.writeModel.b;
 /* loaded from: classes.dex */
 public class a {
-    private final b.d aww = new b(this);
-    private final c fZG;
-    private final com.baidu.tieba.tbadkCore.writeModel.b fZK;
+    private final b.d avZ = new b(this);
+    private final c gbP;
+    private final com.baidu.tieba.tbadkCore.writeModel.b gbT;
 
     public a(c cVar, com.baidu.tieba.tbadkCore.writeModel.b bVar) {
-        this.fZG = cVar;
-        this.fZK = bVar;
-        bVar.b(this.aww);
+        this.gbP = cVar;
+        this.gbT = bVar;
+        bVar.b(this.avZ);
     }
 
-    public boolean sc(String str) {
-        if (this.fZG == null || str == null) {
+    public boolean sr(String str) {
+        if (this.gbP == null || str == null) {
             return false;
         }
         if (str.equals("http://tieba.baidu.com/account/access/cancel")) {
-            this.fZG.getContext().finish();
+            this.gbP.getContext().finish();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
-            this.fZG.v(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.fZG.brs() != this.fZG.ad()) {
-                this.fZG.setRatio(this.fZG.brs());
-                this.fZG.brt();
+            this.gbP.w(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            if (this.gbP.brY() != this.gbP.ad()) {
+                this.gbP.setRatio(this.gbP.brY());
+                this.gbP.brZ();
             }
-            this.fZG.getWebView().setVisibility(0);
+            this.gbP.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            brr();
+            brX();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback")) {
-            this.fZG.getContext().finish();
-            bi.vx().c(this.fZG.getContext().getPageContext(), new String[]{"feedback:"});
+            this.gbP.getContext().finish();
+            bh.vL().c(this.gbP.getContext().getPageContext(), new String[]{"feedback:"});
             return true;
         } else {
             return true;
         }
     }
 
-    public void brp() {
-        if (this.fZG != null) {
-            this.fZG.showWebViewDelay(500);
+    public void brV() {
+        if (this.gbP != null) {
+            this.gbP.showWebViewDelay(500);
         }
     }
 
     public void start(String str) {
-        if (this.fZG != null) {
-            this.fZG.lG(true);
-            this.fZG.showWebView(false);
-            this.fZG.getWebView().loadUrl(str);
+        if (this.gbP != null) {
+            this.gbP.lI(true);
+            this.gbP.showWebView(false);
+            this.gbP.getWebView().loadUrl(str);
         }
     }
 
-    public void brq() {
-        if (this.fZG != null) {
-            this.fZG.showPostThreadLoadingView(false);
+    public void brW() {
+        if (this.gbP != null) {
+            this.gbP.showPostThreadLoadingView(false);
         }
     }
 
-    private void brr() {
-        if (this.fZG != null && this.fZK != null) {
+    private void brX() {
+        if (this.gbP != null && this.gbT != null) {
             if (!k.gD()) {
-                this.fZG.getContext().showToast(t.j.neterror);
-                this.fZG.getContext().finish();
+                this.gbP.getContext().showToast(r.j.neterror);
+                this.gbP.getContext().finish();
                 return;
             }
-            this.fZG.showPostThreadLoadingView(true);
-            this.fZK.bkn();
+            this.gbP.showPostThreadLoadingView(true);
+            this.gbT.bkY();
         }
     }
 }

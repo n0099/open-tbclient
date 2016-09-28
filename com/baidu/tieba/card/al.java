@@ -1,99 +1,64 @@
 package com.baidu.tieba.card;
 
+import android.app.Activity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.UserLikeButton;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends aq {
-    private TbPageContext GM;
-    private UserLikeButton.a aOm;
-    public UserLikeButton aYi;
-    public TextView aZG;
-    private View.OnClickListener aZI;
-    private View.OnClickListener aZJ;
-    private com.baidu.tieba.card.data.m aZL;
-    private com.baidu.tbadk.core.data.bg adL;
-    private int mSkinType;
+public class al implements View.OnClickListener {
+    final /* synthetic */ aj bad;
 
-    public al(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.mSkinType = 3;
-        this.aOm = new am(this);
-        this.aZI = new an(this);
-        this.aZJ = new ao(this);
-        this.GM = tbPageContext;
-        this.aZR.setGodIconMargin(0);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aZT.getLayoutParams();
-        layoutParams.topMargin = com.baidu.adp.lib.util.k.e(this.GM.getPageActivity(), t.e.ds4);
-        layoutParams.bottomMargin = com.baidu.adp.lib.util.k.e(this.GM.getPageActivity(), t.e.ds6);
-        this.aZT.setLayoutParams(layoutParams);
-        this.aZG = new TextView(tbPageContext.getPageActivity());
-        this.aZG.setId(t.g.fans_num);
-        this.aZG.setIncludeFontPadding(false);
-        this.aZG.setTextSize(0, com.baidu.adp.lib.util.k.e(tbPageContext.getPageActivity(), t.e.ds24));
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams2.bottomMargin = com.baidu.adp.lib.util.k.e(tbPageContext.getPageActivity(), t.e.ds14);
-        this.aZG.setLayoutParams(layoutParams2);
-        this.aZG.setOnClickListener(this.aZI);
-        this.aZg.addView(this.aZG, 1);
-        this.aYi = new UserLikeButton(tbPageContext.getPageActivity());
-        this.aYi.setId(t.g.card_god_feed_like_btn);
-        this.aYi.setAfterClickListener(this.aZJ);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.k.e(this.GM.getPageActivity(), t.e.ds120), com.baidu.adp.lib.util.k.e(this.GM.getPageActivity(), t.e.ds56));
-        layoutParams3.addRule(11);
-        layoutParams3.rightMargin = com.baidu.adp.lib.util.k.e(this.GM.getPageActivity(), t.e.ds24);
-        layoutParams3.topMargin = com.baidu.adp.lib.util.k.e(this.GM.getPageActivity(), t.e.ds36);
-        this.aYi.setLayoutParams(layoutParams3);
-        ((ViewGroup) getView()).addView(this.aYi);
-        this.aYi.setFanNumCallBack(this.aOm);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(aj ajVar) {
+        this.bad = ajVar;
     }
 
-    @Override // com.baidu.tieba.card.aq
-    public void a(com.baidu.tieba.card.data.m mVar) {
-        super.onBindDataToView(mVar);
-        if (mVar != null && mVar.threadData != null) {
-            this.aZL = mVar;
-            this.adL = mVar.threadData;
-            if (mVar.threadData.getAuthor() != null) {
-                gc(mVar.threadData.getAuthor().getFansNum());
-                if (this.adL.getAuthor().getGodUserData().getFollowed() == 1) {
-                    this.aYi.setVisibility(8);
-                    return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.data.bi biVar;
+        com.baidu.tbadk.core.data.bi biVar2;
+        com.baidu.tbadk.core.data.bi biVar3;
+        com.baidu.tbadk.core.data.bi biVar4;
+        com.baidu.tbadk.core.data.bi biVar5;
+        TbPageContext tbPageContext;
+        com.baidu.tbadk.core.data.bi biVar6;
+        com.baidu.tbadk.core.data.bi biVar7;
+        com.baidu.tbadk.core.data.bi biVar8;
+        com.baidu.tieba.card.data.m mVar;
+        biVar = this.bad.adW;
+        if (biVar != null) {
+            biVar2 = this.bad.adW;
+            if (biVar2.getAuthor() != null) {
+                biVar3 = this.bad.adW;
+                if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
+                    biVar4 = this.bad.adW;
+                    if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
+                        biVar5 = this.bad.adW;
+                        if (biVar5.getForum_name() != null) {
+                            if (this.bad.getOnSubCardOnClickListenner() != null) {
+                                cd<com.baidu.tieba.card.data.m> onSubCardOnClickListenner = this.bad.getOnSubCardOnClickListenner();
+                                mVar = this.bad.bac;
+                                onSubCardOnClickListenner.a(view, mVar);
+                            }
+                            MessageManager messageManager = MessageManager.getInstance();
+                            tbPageContext = this.bad.GM;
+                            Activity pageActivity = tbPageContext.getPageActivity();
+                            biVar6 = this.bad.adW;
+                            String userId = biVar6.getAuthor().getUserId();
+                            biVar7 = this.bad.adW;
+                            String name_show = biVar7.getAuthor().getName_show();
+                            biVar8 = this.bad.adW;
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, biVar8.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        }
+                    }
                 }
-                this.aYi.setVisibility(0);
-                this.aYi.setData(this.adL);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.card.aq, com.baidu.tieba.card.a
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        super.onChangeSkinType(tbPageContext, i);
-        if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.av.j((View) this.aZG, t.d.cp_cont_d);
-            this.aYi.aK(true);
-        }
-        this.mSkinType = i;
-    }
-
-    @Override // com.baidu.tieba.card.aq
-    public void j(BdUniqueId bdUniqueId) {
-        super.j(bdUniqueId);
-        if (this.aYi != null) {
-            this.aYi.i(bdUniqueId);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void gc(int i) {
-        if (this.aZG != null) {
-            this.aZG.setText(String.format(this.GM.getResources().getString(t.j.fans_default_name_god_user), com.baidu.tbadk.core.util.ba.w(i)));
         }
     }
 }

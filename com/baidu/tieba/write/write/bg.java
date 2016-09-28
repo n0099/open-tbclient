@@ -4,27 +4,27 @@ import android.view.View;
 import android.widget.EditText;
 /* loaded from: classes.dex */
 class bg implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gfs;
+    final /* synthetic */ WriteActivity ghD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(WriteActivity writeActivity) {
-        this.gfs = writeActivity;
+        this.ghD = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tbadk.editortools.l lVar;
-        int bth;
+        int btN;
         EditText editText;
         EditText editText2;
-        lVar = this.gfs.auk;
+        lVar = this.ghD.atO;
         lVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-        bth = this.gfs.bth();
-        if (bth >= 0) {
-            editText = this.gfs.fjb;
-            if (bth < editText.getText().length()) {
-                editText2 = this.gfs.fjb;
-                editText2.setSelection(bth);
+        btN = this.ghD.btN();
+        if (btN >= 0) {
+            editText = this.ghD.flH;
+            if (btN < editText.getText().length()) {
+                editText2 = this.ghD.flH;
+                editText2.setSelection(btN);
             }
         }
     }

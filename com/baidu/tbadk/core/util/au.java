@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.io.File;
 /* loaded from: classes.dex */
 public class au {
@@ -16,21 +16,21 @@ public class au {
         try {
             if (!m.cA()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.tZ());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.up());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.tZ());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.up());
                 }
             } else {
-                File cY = m.cY("camera.jpg");
-                if (cY != null) {
-                    Uri fromFile = Uri.fromFile(cY);
+                File da = m.da("camera.jpg");
+                if (da != null) {
+                    Uri fromFile = Uri.fromFile(da);
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", fromFile);
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(t.j.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(r.j.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(t.j.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(r.j.error_sd_error));
                 }
             }
         } catch (Exception e) {
@@ -43,17 +43,17 @@ public class au {
         try {
             if (!m.cA()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.tZ());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.up());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.tZ());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.up());
                     return;
                 } else {
                     return;
                 }
             }
             boolean z = false;
-            if (m.cR(m.rB + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+            if (m.cT(m.rB + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
                 File file = new File(String.valueOf(str2) + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();
@@ -69,9 +69,9 @@ public class au {
             }
             if (!z) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(t.j.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(r.j.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(t.j.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(r.j.error_sd_error));
                 }
             }
         } catch (Exception e) {

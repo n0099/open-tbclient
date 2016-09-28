@@ -6,24 +6,24 @@ import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bn;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    com.baidu.tieba.f.b fWG = new com.baidu.tieba.f.b();
-    final /* synthetic */ PersonHeaderAttentionView fWH;
+    com.baidu.tieba.e.b fYL = new com.baidu.tieba.e.b();
+    final /* synthetic */ PersonHeaderAttentionView fYM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PersonHeaderAttentionView personHeaderAttentionView) {
-        this.fWH = personHeaderAttentionView;
+        this.fYM = personHeaderAttentionView;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ab, code lost:
-        if (r0.getPersonPrivate().Cc() == 2) goto L33;
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ac, code lost:
+        if (r0.getPersonPrivate().Cf() == 2) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00ea, code lost:
-        if (r0.getPersonPrivate().Ca() == 2) goto L44;
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00eb, code lost:
+        if (r0.getPersonPrivate().Cd() == 2) goto L44;
      */
     @Override // android.view.View.OnClickListener
     /*
@@ -43,56 +43,56 @@ public class s implements View.OnClickListener {
         UserData userData10;
         m mVar2;
         Context context;
-        userData = this.fWH.mUserData;
+        userData = this.fYM.mUserData;
         if (userData != null && view != null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                context = this.fWH.mContext;
-                bn.aj(context);
+                context = this.fYM.mContext;
+                bm.ai(context);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            userData2 = this.fWH.mUserData;
+            userData2 = this.fYM.mUserData;
             boolean equals = currentAccount.equals(userData2.getUserId());
-            userData3 = this.fWH.mUserData;
+            userData3 = this.fYM.mUserData;
             boolean z = userData3.getIsFriend() == 1;
             int id = view.getId();
-            if (t.g.person_header_attention_container == id) {
-                this.fWG.bJp = 4;
-            } else if (t.g.person_header_fans_container == id) {
-                this.fWG.bJp = 5;
-            } else if (t.g.person_header_post_container == id) {
-                userData7 = this.fWH.mUserData;
-                if (userData7.getPersonPrivate().Cc() != 1 && !equals) {
+            if (r.g.person_header_attention_container == id) {
+                this.fYL.bJq = 4;
+            } else if (r.g.person_header_fans_container == id) {
+                this.fYL.bJq = 5;
+            } else if (r.g.person_header_post_container == id) {
+                userData7 = this.fYM.mUserData;
+                if (userData7.getPersonPrivate().Cf() != 1 && !equals) {
                     if (z) {
-                        userData9 = this.fWH.mUserData;
+                        userData9 = this.fYM.mUserData;
                     }
-                    PersonHeaderAttentionView personHeaderAttentionView = this.fWH;
-                    userData8 = this.fWH.mUserData;
-                    personHeaderAttentionView.hx(userData8.getSex());
+                    PersonHeaderAttentionView personHeaderAttentionView = this.fYM;
+                    userData8 = this.fYM.mUserData;
+                    personHeaderAttentionView.hB(userData8.getSex());
                     return;
                 }
-                this.fWG.bJp = 6;
-            } else if (t.g.person_header_bar_container == id) {
-                userData4 = this.fWH.mUserData;
-                if (userData4.getPersonPrivate().Ca() != 1 && !equals) {
+                this.fYL.bJq = 6;
+            } else if (r.g.person_header_bar_container == id) {
+                userData4 = this.fYM.mUserData;
+                if (userData4.getPersonPrivate().Cd() != 1 && !equals) {
                     if (z) {
-                        userData6 = this.fWH.mUserData;
+                        userData6 = this.fYM.mUserData;
                     }
-                    PersonHeaderAttentionView personHeaderAttentionView2 = this.fWH;
-                    userData5 = this.fWH.mUserData;
-                    personHeaderAttentionView2.hx(userData5.getSex());
+                    PersonHeaderAttentionView personHeaderAttentionView2 = this.fYM;
+                    userData5 = this.fYM.mUserData;
+                    personHeaderAttentionView2.hB(userData5.getSex());
                     return;
                 }
-                this.fWG.bJp = 7;
+                this.fYL.bJq = 7;
             }
-            mVar = this.fWH.eDi;
+            mVar = this.fYM.eFl;
             if (mVar != null) {
-                this.fWG.bJq = new Bundle();
-                Bundle bundle = this.fWG.bJq;
-                userData10 = this.fWH.mUserData;
+                this.fYL.bJr = new Bundle();
+                Bundle bundle = this.fYL.bJr;
+                userData10 = this.fYM.mUserData;
                 bundle.putSerializable(UserData.TYPE_USER, userData10);
-                mVar2 = this.fWH.eDi;
-                mVar2.a(view, this.fWG);
+                mVar2 = this.fYM.eFl;
+                mVar2.a(view, this.fYL);
             }
         }
     }

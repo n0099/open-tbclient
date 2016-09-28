@@ -3,10 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a afY;
+    private a agy;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,7 +23,7 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        wq();
+        wH();
     }
 
     public TbCheckBox(Context context) {
@@ -36,30 +37,30 @@ public class TbCheckBox extends ImageView {
     }
 
     private void initialize() {
-        setOnClickListener(new s(this));
-        wq();
+        setOnClickListener(new x(this));
+        wH();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.afY = aVar;
+        this.agy = aVar;
     }
 
-    public void wq() {
-        if (wr()) {
-            com.baidu.tbadk.core.util.av.c(this, t.f.icon_set_list_ok_s);
-            setContentDescription(getResources().getString(t.j.check_box_checked));
+    public void wH() {
+        if (wI()) {
+            av.c(this, r.f.icon_set_list_ok_s);
+            setContentDescription(getResources().getString(r.j.check_box_checked));
             return;
         }
-        com.baidu.tbadk.core.util.av.c(this, t.f.icon_set_list_ok_n);
-        setContentDescription(getResources().getString(t.j.check_box_not_checked));
+        av.c(this, r.f.icon_set_list_ok_n);
+        setContentDescription(getResources().getString(r.j.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return wr();
+        return wI();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean wr() {
+    public boolean wI() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -72,9 +73,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        wq();
-        if (this.afY != null) {
-            this.afY.a(this, z, getTag());
+        wH();
+        if (this.agy != null) {
+            this.agy.a(this, z, getTag());
         }
     }
 }

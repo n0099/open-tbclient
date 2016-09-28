@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.data.b;
 import com.baidu.tieba.frs.i.a;
 /* loaded from: classes.dex */
 class u implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity bQp;
-    private int aQc = 0;
-    private int aQb = 0;
-    private com.baidu.tbadk.util.e<Boolean> bQr = new v(this);
+    final /* synthetic */ FrsActivity bQi;
+    private int aMt = 0;
+    private int aMs = 0;
+    private com.baidu.tbadk.util.e<Boolean> bQk = new v(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(FrsActivity frsActivity) {
-        this.bQp = frsActivity;
+        this.bQi = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -40,72 +40,72 @@ class u implements AbsListView.OnScrollListener {
         a aVar2;
         com.baidu.tieba.frs.entelechy.b.d dVar2;
         com.baidu.tieba.frs.i.p pVar2;
-        dVar = this.bQp.bPG;
+        dVar = this.bQi.bPy;
         if (dVar != null) {
-            dVar2 = this.bQp.bPG;
-            pVar2 = this.bQp.bPC;
-            dVar2.a(absListView, i, i2, i3, pVar2.afD());
+            dVar2 = this.bQi.bPy;
+            pVar2 = this.bQi.bPu;
+            dVar2.a(absListView, i, i2, i3, pVar2.afR());
         }
-        aVar = this.bQp.bPP;
+        aVar = this.bQi.bPI;
         if (aVar != null) {
-            aVar2 = this.bQp.bPP;
-            aVar2.afd();
+            aVar2 = this.bQi.bPI;
+            aVar2.afr();
         }
-        djVar = this.bQp.bPJ;
+        djVar = this.bQi.bPB;
         if (djVar != null) {
-            djVar2 = this.bQp.bPJ;
-            pVar = this.bQp.bPC;
-            djVar2.a(absListView, i, i2, i3, pVar.afD(), this.bQr);
+            djVar2 = this.bQi.bPB;
+            pVar = this.bQi.bPu;
+            djVar2.a(absListView, i, i2, i3, pVar.afR(), this.bQk);
         }
-        if (this.bQp.bPq != null) {
-            bmVar = this.bQp.bPo;
+        if (this.bQi.bPk != null) {
+            bmVar = this.bQi.bPi;
             if (bmVar != null) {
-                bmVar2 = this.bQp.bPo;
-                if (bmVar2.abJ() != null) {
-                    int bhP = this.bQp.bPq.bhP();
-                    bmVar3 = this.bQp.bPo;
-                    int headerViewsCount = ((i + i2) - bmVar3.getListView().getHeaderViewsCount()) - bhP;
-                    int i6 = (headerViewsCount - 1) + bhP;
-                    fVar = this.bQp.bPk;
+                bmVar2 = this.bQi.bPi;
+                if (bmVar2.abW() != null) {
+                    int biz = this.bQi.bPk.biz();
+                    bmVar3 = this.bQi.bPi;
+                    int headerViewsCount = ((i + i2) - bmVar3.abN().getHeaderViewsCount()) - biz;
+                    int i6 = (headerViewsCount - 1) + biz;
+                    fVar = this.bQi.bPe;
                     if (fVar != null) {
-                        fVar2 = this.bQp.bPk;
-                        int rv = fVar2.rv(headerViewsCount);
-                        if (rv >= 0 && i6 >= 0 && i6 < this.bQp.bPq.getThreadList().size()) {
-                            com.baidu.adp.widget.ListView.v vVar = this.bQp.bPq.getThreadList().get(i6);
+                        fVar2 = this.bQi.bPe;
+                        int rJ = fVar2.rJ(headerViewsCount);
+                        if (rJ >= 0 && i6 >= 0 && i6 < this.bQi.bPk.getThreadList().size()) {
+                            com.baidu.adp.widget.ListView.v vVar = this.bQi.bPk.getThreadList().get(i6);
                             if (vVar instanceof b) {
-                                fVar4 = this.bQp.bPk;
-                                fVar4.c(headerViewsCount, 1, this.bQp.forumId, rv);
-                                i5 = this.bQp.mPn;
+                                fVar4 = this.bQi.bPe;
+                                fVar4.c(headerViewsCount, 1, this.bQi.forumId, rJ);
+                                i5 = this.bQi.mPn;
                                 com.baidu.tieba.recapp.report.a a = com.baidu.tieba.recapp.report.e.a((b) vVar, "show", i5);
-                                z2 = this.bQp.bPj;
-                                a.bM("isCache", String.valueOf(z2));
-                                com.baidu.tieba.recapp.report.b.bbu().a(a);
+                                z2 = this.bQi.bPd;
+                                a.bN("isCache", String.valueOf(z2));
+                                com.baidu.tieba.recapp.report.b.bce().a(a);
                             } else {
-                                ForumData aLP = this.bQp.bPq.aLP();
+                                ForumData aMr = this.bQi.bPk.aMr();
                                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                                fVar3 = this.bQp.bPk;
-                                fVar3.c(headerViewsCount, 2, this.bQp.forumId, rv);
-                                i4 = this.bQp.mPn;
-                                com.baidu.tieba.recapp.report.a j = com.baidu.tieba.recapp.report.e.j("store", rv, i4);
-                                j.bM("page", "FRS");
-                                z = this.bQp.bPj;
-                                j.bM("isCache", String.valueOf(z));
-                                if (aLP != null) {
-                                    j.bM("fid", aLP.getId());
-                                    j.bM("fc1", aLP.getFirst_class());
-                                    j.bM("fc2", aLP.getSecond_class());
+                                fVar3 = this.bQi.bPe;
+                                fVar3.c(headerViewsCount, 2, this.bQi.forumId, rJ);
+                                i4 = this.bQi.mPn;
+                                com.baidu.tieba.recapp.report.a j = com.baidu.tieba.recapp.report.e.j("store", rJ, i4);
+                                j.bN("page", "FRS");
+                                z = this.bQi.bPd;
+                                j.bN("isCache", String.valueOf(z));
+                                if (aMr != null) {
+                                    j.bN("fid", aMr.getId());
+                                    j.bN("fc1", aMr.getFirst_class());
+                                    j.bN("fc2", aMr.getSecond_class());
                                 }
                                 if (currentAccountObj != null) {
-                                    j.bM("vc", String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                                    j.bN("vc", String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
                                 }
-                                com.baidu.tieba.recapp.report.b.bbu().a(j);
+                                com.baidu.tieba.recapp.report.b.bce().a(j);
                             }
                         }
                     }
-                    this.aQc = i;
-                    this.aQb = (i + i2) - 1;
-                    bmVar4 = this.bQp.bPo;
-                    bmVar4.ag(this.aQc, this.aQb);
+                    this.aMt = i;
+                    this.aMs = (i + i2) - 1;
+                    bmVar4 = this.bQi.bPi;
+                    bmVar4.ah(this.aMt, this.aMs);
                 }
             }
         }
@@ -123,40 +123,42 @@ class u implements AbsListView.OnScrollListener {
         bm bmVar4;
         dj djVar2;
         com.baidu.tieba.frs.i.p pVar2;
-        pVar = this.bQp.bPC;
+        pVar = this.bQi.bPu;
         if (pVar != null) {
-            pVar2 = this.bQp.bPC;
+            pVar2 = this.bQi.bPu;
             pVar2.setScrollState(i);
         }
-        djVar = this.bQp.bPJ;
+        djVar = this.bQi.bPB;
         if (djVar != null) {
-            djVar2 = this.bQp.bPJ;
+            djVar2 = this.bQi.bPB;
             djVar2.onScrollStateChanged(absListView, i);
         }
         if (i == 2 || i == 1) {
-            z = this.bQp.bPx;
+            z = this.bQi.bPp;
             if (!z) {
-                this.bQp.bPx = true;
-                bmVar = this.bQp.bPo;
-                bmVar.abL();
+                this.bQi.bPp = true;
+                bmVar = this.bQi.bPi;
+                bmVar.abY();
             }
         }
-        if (this.bQp.bPy == null) {
-            this.bQp.bPy = new com.baidu.tbadk.performanceLog.e();
-            this.bQp.bPy.fe(1000);
+        if (this.bQi.bPq == null) {
+            this.bQi.bPq = new com.baidu.tbadk.performanceLog.e();
+            this.bQi.bPq.fd(1000);
         }
-        com.baidu.tbadk.core.view.au.wK().aM(i == 0);
         if (i != 0) {
-            bmVar2 = this.bQp.bPo;
+            bmVar2 = this.bQi.bPi;
             bmVar2.a((com.baidu.adp.widget.ListView.x) null);
         } else {
-            com.baidu.tieba.card.cd.NI().cs(true);
-            bmVar3 = this.bQp.bPo;
-            xVar = this.bQp.bQl;
+            com.baidu.tieba.card.cb.Oj().cs(true);
+            bmVar3 = this.bQi.bPi;
+            xVar = this.bQi.bQe;
             bmVar3.a(xVar);
-            bmVar4 = this.bQp.bPo;
-            bmVar4.af(this.aQc, this.aQb);
+            bmVar4 = this.bQi.bPi;
+            bmVar4.ag(this.aMt, this.aMs);
         }
-        this.bQp.bPy.FW();
+        this.bQi.bPq.FV();
+        if (i == 0) {
+            this.bQi.aaQ();
+        }
     }
 }

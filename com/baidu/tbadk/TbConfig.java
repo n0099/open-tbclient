@@ -8,7 +8,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
@@ -23,7 +23,6 @@ public class TbConfig {
     public static final String ALL_THEME_LIST_PAGE = "c/e/theme/getSkinList";
     public static final String APPLY_GAME_CARD = "c/u/game/applygamecard";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
-    public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
     public static final int AUTO_PLAY_ALWAYS = 2;
     public static final int AUTO_PLAY_CLOSED = 1;
@@ -265,6 +264,7 @@ public class TbConfig {
     public static final int NAVI_STATE_EDIT = 2;
     public static final int NAVI_STATE_SEARCH = 0;
     public static final int NAVI_STATE_SIGN = 1;
+    public static final String NEG_FEED_BACK = "c/c/excellent/submitDislike";
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
     public static final int NOTIFY_AT_ME_ID = 25;
@@ -346,6 +346,7 @@ public class TbConfig {
     public static final String SEND_GIFT = "c/c/gift/send";
     public static final String SETTINGFILE = "settings";
     public static final String SET_COMMON_FORUM_STATE = "c/c/forum/setCommonForumState";
+    public static final String SET_HOTSELECT = "c/f/recommend/getSugTopic";
     public static final String SET_MEMBER_CLOSE_AD = "c/c/encourage/member/closeAd";
     public static final String SET_PENDANT = "c/c/encourage/theme/setPendant";
     public static final String SET_PERSONAL_CARD = "c/c/encourage/theme/setCard";
@@ -353,6 +354,7 @@ public class TbConfig {
     public static final String SET_USER_BOOK_HISTORY = "c/c/encourage/tbread/setUserBookHistory";
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String SKIN_DETAIL_PAGE = "c/e/theme/getSkin";
+    public static final String STAT_CLIENT_START = "c/c/forum/statClientStartTimes";
     public static final String ST_PARAM_PERSON_INFO_SEND_MESSAGE = "3";
     public static final String ST_PARAM_TAB_MSG_CREATE_CHAT = "2";
     public static final String ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK = "1";
@@ -447,6 +449,8 @@ public class TbConfig {
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
     public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
+    public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
+    public static long MILLS_7DAYS = APP_OVERDUR_DRAFT_BOX;
     public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
     public static String LOGIN_FULL_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/s/login";
@@ -456,7 +460,7 @@ public class TbConfig {
     public static boolean KUANG_TEST_MODE = false;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
     private static String POSITION_PAGER_ID = "2631903";
-    public static final String ECOMM_FEED_BACK_NAME = TbadkCoreApplication.m9getInst().getString(t.j.ecomm_feed_back_name);
+    public static final String ECOMM_FEED_BACK_NAME = TbadkCoreApplication.m9getInst().getString(r.j.ecomm_feed_back_name);
     private static String VERSION = "";
     private static String SUB_VERSION = "";
     private static String LEGO_LIB_VERSION = "1.0.0";

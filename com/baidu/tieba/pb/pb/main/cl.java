@@ -10,13 +10,13 @@ import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cl extends CustomMessageListener {
-    final /* synthetic */ cj eoI;
+    final /* synthetic */ cj eqG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cl(cj cjVar, int i) {
         super(i);
-        this.eoI = cjVar;
+        this.eqG = cjVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -32,9 +32,9 @@ public class cl extends CustomMessageListener {
         List<DownloadData> data;
         boolean z;
         if (customResponsedMessage != null) {
-            hVar = this.eoI.ekQ;
+            hVar = this.eqG.emS;
             if (hVar != null) {
-                pbActivity = this.eoI.emy;
+                pbActivity = this.eqG.eow;
                 if (!com.baidu.adp.base.l.A(pbActivity.getActivity()).isScroll() && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
                     Iterator<DownloadData> it = data.iterator();
                     while (true) {

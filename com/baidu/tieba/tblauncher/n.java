@@ -2,6 +2,7 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class n extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -16,7 +17,24 @@ class n extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() != 2001378) {
+        ab abVar;
+        ab abVar2;
+        ab abVar3;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            int oldSkinType = TbadkCoreApplication.m9getInst().getOldSkinType();
+            if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
+                if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
+                    abVar3 = this.this$0.fyW;
+                    abVar3.blH().cw(1);
+                } else if (TbadkCoreApplication.m9getInst().isThemeIconCover()) {
+                    abVar2 = this.this$0.fyW;
+                    abVar2.blH().cw(2);
+                } else {
+                    abVar = this.this$0.fyW;
+                    abVar.blH().cw(1);
+                }
+            }
         }
     }
 }

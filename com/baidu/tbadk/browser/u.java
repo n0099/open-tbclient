@@ -4,13 +4,13 @@ import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class u extends com.baidu.tbadk.core.c.p {
-    final /* synthetic */ TbWebViewActivity MI;
+    final /* synthetic */ TbWebViewActivity MH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.c.n nVar) {
         super(nVar);
-        this.MI = tbWebViewActivity;
+        this.MH = tbWebViewActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -19,18 +19,18 @@ class u extends com.baidu.tbadk.core.c.p {
         return "TBHY_COMMON_UISwitch";
     }
 
-    @com.baidu.tbadk.core.c.q(tG = false, value = "viewHideSwitch")
+    @com.baidu.tbadk.core.c.q(tV = false, value = "viewHideSwitch")
     private void viewHideSwitch(JSONObject jSONObject) {
         boolean z;
         if (jSONObject != null) {
             String optString = jSONObject.optJSONObject(TbConfig.TMP_SHARE_DIR_NAME).optString("value");
             if ("1".equals(optString)) {
-                this.MI.mShowShareItem = true;
+                this.MH.mShowShareItem = true;
             } else if ("0".equals(optString)) {
-                this.MI.mShowShareItem = false;
+                this.MH.mShowShareItem = false;
             }
-            x xVar = this.MI.mView;
-            z = this.MI.mShowShareItem;
+            x xVar = this.MH.mView;
+            z = this.MH.mShowShareItem;
             xVar.af(z);
         }
     }

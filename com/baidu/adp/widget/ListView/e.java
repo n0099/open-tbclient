@@ -325,10 +325,7 @@ public class e extends BaseAdapter {
         try {
             view2 = this.Bz.get(i2 - i3).view;
         } catch (Exception e3) {
-            if (e3 != null && e3.getMessage() != null) {
-                BdLog.detailException(e3);
-                Log.e("BdListAdapter", e3.getMessage());
-            }
+            BdLog.detailException(e3);
             view2 = null;
         }
         if (view2 == null) {

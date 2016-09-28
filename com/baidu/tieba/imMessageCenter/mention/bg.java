@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg extends CustomMessageListener {
-    final /* synthetic */ bf dts;
+    final /* synthetic */ bf duP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bg(bf bfVar, int i) {
         super(i);
-        this.dts = bfVar;
+        this.duP = bfVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,26 @@ public class bg extends CustomMessageListener {
         az azVar2;
         k kVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            kVar = this.dts.dtn;
+            kVar = this.duP.duK;
             if (kVar != null) {
-                kVar2 = this.dts.dtn;
-                kVar2.gv(true);
+                kVar2 = this.duP.duK;
+                kVar2.gy(true);
             }
-            azVar = this.dts.dtl;
+            azVar = this.duP.duI;
             if (azVar != null) {
-                azVar2 = this.dts.dtl;
-                azVar2.gv(true);
+                azVar2 = this.duP.duI;
+                azVar2.gy(true);
             }
-            jVar = this.dts.dtm;
+            jVar = this.duP.duJ;
             if (jVar != null) {
-                jVar2 = this.dts.dtm;
-                jVar2.gv(true);
+                jVar2 = this.duP.duJ;
+                jVar2.gy(true);
             }
             MentionActivityConfig.newJumpIn = true;
-            zVar = this.dts.dtk;
+            zVar = this.duP.duH;
             if (zVar != null) {
-                zVar2 = this.dts.dtk;
-                zVar2.ayV();
+                zVar2 = this.duP.duH;
+                zVar2.azt();
             }
         }
     }

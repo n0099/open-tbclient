@@ -1,26 +1,9 @@
 package com.baidu.tieba.homepage.personalize.c;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.card.cf;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.ListView.v;
+import java.util.List;
 /* loaded from: classes.dex */
-public class d extends cf<e> {
-    final /* synthetic */ c cHl;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
-        this.cHl = cVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cf
-    public void a(View view, e eVar) {
-        TiebaStatic.log(new ay("c11273"));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
-    }
+public class d {
+    public List<v> cHL;
+    public int cHM = 0;
 }

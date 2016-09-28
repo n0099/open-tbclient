@@ -2,15 +2,15 @@ package com.baidu.tieba.frs.entelechy;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements Runnable {
-    final /* synthetic */ j bVn;
+    final /* synthetic */ j bVg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.bVn = jVar;
+        this.bVg = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bVn.acR();
+        this.bVg.add();
     }
 }

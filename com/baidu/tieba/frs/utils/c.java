@@ -7,25 +7,25 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class c implements a.b {
-    private final /* synthetic */ TbPageContext MB;
-    private final /* synthetic */ String aPc;
+    private final /* synthetic */ TbPageContext MA;
+    private final /* synthetic */ String aQs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str, TbPageContext tbPageContext) {
-        this.aPc = str;
-        this.MB = tbPageContext;
+        this.aQs = str;
+        this.MA = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (StringUtils.isNull(this.aPc)) {
-            this.MB.showToast(t.j.error_tid);
+        if (StringUtils.isNull(this.aQs)) {
+            this.MA.showToast(r.j.error_tid);
             return;
         }
         aVar.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.MB.getPageActivity(), this.aPc).oW()));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.MA.getPageActivity(), this.aQs).oX()));
     }
 }

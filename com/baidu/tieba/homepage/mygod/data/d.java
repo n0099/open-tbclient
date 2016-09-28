@@ -7,9 +7,9 @@ import tbclient.BannerInfo;
 import tbclient.GodFeed.GodFeedResIdl;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
-    private long cEd;
-    private int cEe = -1;
-    private BannerInfo cEf = null;
+    private long cEH;
+    private int cEI = -1;
+    private BannerInfo cEJ = null;
 
     @Override // com.baidu.tieba.homepage.recommendfrs.data.c, com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
@@ -17,13 +17,13 @@ public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
         if ((message instanceof GodFeedResIdl) && (godFeedResIdl = (GodFeedResIdl) message) != null && godFeedResIdl.error != null && godFeedResIdl.error.errorno.intValue() == 0 && godFeedResIdl.data != null) {
             this.mHasMore = godFeedResIdl.data.has_more.intValue() == 1;
             this.pn = godFeedResIdl.data.pn.intValue();
-            this.cEd = godFeedResIdl.data.timeline.longValue();
+            this.cEH = godFeedResIdl.data.timeline.longValue();
             if (godFeedResIdl.data.thread_list != null) {
-                this.cHO = new ArrayList();
-                this.cHO.addAll(godFeedResIdl.data.thread_list);
+                this.cIG = new ArrayList();
+                this.cIG.addAll(godFeedResIdl.data.thread_list);
             }
-            this.cEe = godFeedResIdl.data.has_attention_god.intValue();
-            this.cEf = godFeedResIdl.data.banner_info;
+            this.cEI = godFeedResIdl.data.has_attention_god.intValue();
+            this.cEJ = godFeedResIdl.data.banner_info;
         }
     }
 
@@ -37,15 +37,15 @@ public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
         return false;
     }
 
-    public long amg() {
-        return this.cEd;
+    public long amu() {
+        return this.cEH;
     }
 
-    public int amh() {
-        return this.cEe;
+    public int amv() {
+        return this.cEI;
     }
 
-    public BannerInfo ami() {
-        return this.cEf;
+    public BannerInfo amw() {
+        return this.cEJ;
     }
 }

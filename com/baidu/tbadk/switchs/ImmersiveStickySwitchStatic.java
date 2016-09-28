@@ -38,9 +38,9 @@ public class ImmersiveStickySwitchStatic extends a {
     @Override // com.baidu.adp.lib.c.a
     public void changeSettingByType(int i) {
         if (i == 1) {
-            b.tS().putBoolean("switch_immersive_sticky_status", true);
+            b.uh().putBoolean("switch_immersive_sticky_status", true);
         } else {
-            b.tS().putBoolean("switch_immersive_sticky_status", false);
+            b.uh().putBoolean("switch_immersive_sticky_status", false);
         }
     }
 }

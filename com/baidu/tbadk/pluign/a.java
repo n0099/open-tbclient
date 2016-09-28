@@ -5,24 +5,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a aEd;
+    private static a aDB;
 
-    public static a GJ() {
-        if (aEd == null) {
+    public static a GI() {
+        if (aDB == null) {
             synchronized (a.class) {
-                if (aEd == null) {
-                    aEd = new a();
+                if (aDB == null) {
+                    aDB = new a();
                 }
             }
         }
-        return aEd;
+        return aDB;
     }
 
     private a() {
     }
 
-    public String[] GK() {
-        return com.baidu.tbadk.core.sharedPref.b.tS().getString("key_discover_show_plugin_list", "").split("#");
+    public String[] GJ() {
+        return com.baidu.tbadk.core.sharedPref.b.uh().getString("key_discover_show_plugin_list", "").split("#");
     }
 
     private void r(String[] strArr) {
@@ -34,34 +34,34 @@ public class a {
                 }
             }
         }
-        com.baidu.tbadk.core.sharedPref.b.tS().putString("key_discover_show_plugin_list", sb.toString());
+        com.baidu.tbadk.core.sharedPref.b.uh().putString("key_discover_show_plugin_list", sb.toString());
     }
 
-    public void gh(String str) {
-        String[] GK;
-        if (!StringUtils.isNull(str) && (GK = GK()) != null && GK.length != 0) {
-            for (int i = 0; i < GK.length; i++) {
-                if (str.equals(GK[i])) {
-                    GK[i] = "";
+    public void gl(String str) {
+        String[] GJ;
+        if (!StringUtils.isNull(str) && (GJ = GJ()) != null && GJ.length != 0) {
+            for (int i = 0; i < GJ.length; i++) {
+                if (str.equals(GJ[i])) {
+                    GJ[i] = "";
                 }
             }
-            r(GK);
+            r(GJ);
         }
     }
 
-    public void gi(String str) {
+    public void gm(String str) {
         String string;
         if (!StringUtils.isNull(str)) {
-            for (String str2 : com.baidu.tbadk.core.sharedPref.b.tS().getString("key_discover_show_plugin_list", "").split("#")) {
+            for (String str2 : com.baidu.tbadk.core.sharedPref.b.uh().getString("key_discover_show_plugin_list", "").split("#")) {
                 if (str.equals(str2)) {
                     return;
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.tS().putString("key_discover_show_plugin_list", String.valueOf(string) + "#" + str);
+            com.baidu.tbadk.core.sharedPref.b.uh().putString("key_discover_show_plugin_list", String.valueOf(string) + "#" + str);
         }
     }
 
-    private int gj(String str) {
+    private int gn(String str) {
         if (str == null) {
             return 0;
         }
@@ -73,7 +73,7 @@ public class a {
         }
     }
 
-    public boolean gk(String str) {
-        return gj(str) == 1;
+    public boolean go(String str) {
+        return gn(str) == 1;
     }
 }

@@ -6,26 +6,26 @@ import tbclient.GetClientConfig.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.clientConfig.c {
-    final /* synthetic */ b fwY;
+    final /* synthetic */ b fzB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.fwY = bVar;
+        this.fzB = bVar;
     }
 
     @Override // com.baidu.tbadk.clientConfig.c
     public void z(Object obj) {
-        this.fwY.fwW = false;
+        this.fzB.fzz = false;
         if (obj != null && (obj instanceof DataRes)) {
             DataRes dataRes = (DataRes) obj;
             if (dataRes.local_dialog != null) {
                 String c = a.c(dataRes);
                 if (!TextUtils.isEmpty(c)) {
-                    TbadkSettings.getInst().saveString(this.fwY.rm("remind_recommend_info"), c);
-                    TbadkSettings.getInst().saveInt(this.fwY.rm("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                    TbadkSettings.getInst().saveString(this.fwY.rm("remind_recommend_dialog_time"), dataRes.local_dialog.time);
-                    this.fwY.kR(true);
-                    TbadkSettings.getInst().saveLong(this.fwY.rm("remind_recommend_data_time"), System.currentTimeMillis());
+                    TbadkSettings.getInst().saveString(this.fzB.rB("remind_recommend_info"), c);
+                    TbadkSettings.getInst().saveInt(this.fzB.rB("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                    TbadkSettings.getInst().saveString(this.fzB.rB("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                    this.fzB.kU(true);
+                    TbadkSettings.getInst().saveLong(this.fzB.rB("remind_recommend_data_time"), System.currentTimeMillis());
                 }
             }
         }
@@ -33,6 +33,6 @@ public class c implements com.baidu.tbadk.clientConfig.c {
 
     @Override // com.baidu.tbadk.clientConfig.c
     public void onError(String str) {
-        this.fwY.fwW = false;
+        this.fzB.fzz = false;
     }
 }

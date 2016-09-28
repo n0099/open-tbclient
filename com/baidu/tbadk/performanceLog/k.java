@@ -6,11 +6,11 @@ import com.baidu.tbadk.performanceLog.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Handler {
-    final /* synthetic */ j aBW;
+    final /* synthetic */ j aBz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.aBW = jVar;
+        this.aBz = jVar;
     }
 
     @Override // android.os.Handler
@@ -18,11 +18,11 @@ public class k extends Handler {
         j.a aVar;
         j.a aVar2;
         int i;
-        aVar = this.aBW.aBU;
+        aVar = this.aBz.aBx;
         if (aVar != null) {
-            aVar2 = this.aBW.aBU;
-            i = this.aBW.aBJ;
-            aVar2.fb(i);
+            aVar2 = this.aBz.aBx;
+            i = this.aBz.aBm;
+            aVar2.fa(i);
         }
     }
 }

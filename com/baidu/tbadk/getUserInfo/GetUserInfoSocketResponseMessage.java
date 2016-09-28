@@ -10,8 +10,8 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     private a mData;
 
-    public GetUserInfoSocketResponseMessage(int i) {
-        super(i);
+    public GetUserInfoSocketResponseMessage() {
+        super(303024);
     }
 
     public a getData() {

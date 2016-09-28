@@ -11,18 +11,18 @@ import tbclient.Personalized.TopicInfo;
 public class d extends q {
     public void a(CardTopic cardTopic) {
         if (cardTopic != null && !StringUtils.isNull(cardTopic.card_title) && y.s(cardTopic.topic_list) >= 4) {
-            this.bcj = cardTopic.card_title;
+            this.bcD = cardTopic.card_title;
             this.position = cardTopic.position.intValue();
-            this.bck = new ArrayList();
+            this.bcE = new ArrayList();
             for (TopicInfo topicInfo : cardTopic.topic_list) {
                 if (!StringUtils.isNull(topicInfo.topic_name)) {
                     p pVar = new p();
-                    pVar.SL = topicInfo.topic_id.longValue();
-                    pVar.SM = topicInfo.topic_name;
+                    pVar.SS = topicInfo.topic_id.longValue();
+                    pVar.ST = topicInfo.topic_name;
                     pVar.desc = topicInfo.desc;
-                    pVar.bch = topicInfo.is_hot.intValue() == 1;
+                    pVar.bcz = topicInfo.is_hot.intValue() == 1;
                     pVar.tag = topicInfo.tag.intValue();
-                    this.bck.add(pVar);
+                    this.bcE.add(pVar);
                 }
             }
         }

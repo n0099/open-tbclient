@@ -9,20 +9,20 @@ import java.util.List;
 import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class e {
-    private ArrayList<w> bGo = new ArrayList<>();
-    private boolean bGp;
+    private boolean bGA;
+    private ArrayList<w> bGz = new ArrayList<>();
     private int level;
 
-    public ArrayList<w> Xj() {
-        return this.bGo;
+    public ArrayList<w> XC() {
+        return this.bGz;
     }
 
     public void setLevel(int i) {
         this.level = i;
     }
 
-    public void Xk() {
-        Iterator<w> it = this.bGo.iterator();
+    public void XD() {
+        Iterator<w> it = this.bGz.iterator();
         while (it.hasNext()) {
             it.next().eo(0);
         }
@@ -43,9 +43,9 @@ public class e {
                         w wVar = new w();
                         wVar.a((LikeForum) list.get(i));
                         if (wVar.getLevel() >= this.level) {
-                            this.bGp = true;
+                            this.bGA = true;
                         }
-                        this.bGo.add(wVar);
+                        this.bGz.add(wVar);
                     } else {
                         return;
                     }

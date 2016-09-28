@@ -3,20 +3,20 @@ package com.baidu.tieba.frs.hot;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.ak;
+import com.baidu.tbadk.core.data.am;
 import com.baidu.tieba.frs.dh;
 import com.baidu.tieba.frs.dq;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d ccl;
+    final /* synthetic */ d ccn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.ccl = dVar;
+        this.ccn = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,43 +45,43 @@ public class f extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof FrsHotThreadResponseCacheMessage)) {
             FrsHotThreadResponseCacheMessage frsHotThreadResponseCacheMessage = (FrsHotThreadResponseCacheMessage) customResponsedMessage;
             ArrayList<v> threadList = frsHotThreadResponseCacheMessage.getThreadList();
-            ak page = frsHotThreadResponseCacheMessage.getPage();
-            dqVar = this.ccl.cci;
+            am page = frsHotThreadResponseCacheMessage.getPage();
+            dqVar = this.ccn.cck;
             dqVar.errCode = frsHotThreadResponseCacheMessage.getError();
-            dqVar2 = this.ccl.cci;
+            dqVar2 = this.ccn.cck;
             dqVar2.errMsg = frsHotThreadResponseCacheMessage.getErrorString();
-            dqVar3 = this.ccl.cci;
-            dqVar3.pn = page.qo();
-            this.ccl.ccg = page.qo();
+            dqVar3 = this.ccn.cck;
+            dqVar3.pn = page.qz();
+            this.ccn.cci = page.qz();
             if (threadList == null || threadList.size() == 0) {
-                dqVar4 = this.ccl.cci;
-                dqVar4.bTI = false;
+                dqVar4 = this.ccn.cck;
+                dqVar4.bTB = false;
             } else {
-                dqVar6 = this.ccl.cci;
-                dqVar6.bTI = true;
+                dqVar6 = this.ccn.cck;
+                dqVar6.bTB = true;
             }
-            arrayList = this.ccl.ccj;
+            arrayList = this.ccn.ccl;
             if (arrayList.size() == 0 && threadList != null && threadList.size() != 0) {
-                arrayList3 = this.ccl.ccj;
+                arrayList3 = this.ccn.ccl;
                 arrayList3.addAll(threadList);
             }
-            dhVar = this.ccl.cch;
+            dhVar = this.ccn.ccj;
             if (dhVar != null) {
                 if (threadList == null || threadList.size() == 0) {
-                    z2 = this.ccl.bNs;
+                    z2 = this.ccn.bNp;
                 }
-                dhVar2 = this.ccl.cch;
-                dqVar5 = this.ccl.cci;
-                arrayList2 = this.ccl.ccj;
+                dhVar2 = this.ccn.ccj;
+                dqVar5 = this.ccn.cck;
+                arrayList2 = this.ccn.ccl;
                 dhVar2.a(2, 0, dqVar5, arrayList2);
             }
             FrsHotThreadRequestCacheMessage frsHotThreadRequestCacheMessage = (FrsHotThreadRequestCacheMessage) frsHotThreadResponseCacheMessage.getOrginalMessage();
-            z = this.ccl.bNs;
+            z = this.ccn.bNp;
             if (z) {
                 if (threadList == null || threadList.size() == 0) {
                     z3 = true;
                 }
-                this.ccl.b(com.baidu.adp.lib.h.b.c(frsHotThreadRequestCacheMessage.getData(), 0L), z3);
+                this.ccn.b(com.baidu.adp.lib.h.b.c(frsHotThreadRequestCacheMessage.getData(), 0L), z3);
             }
         }
     }

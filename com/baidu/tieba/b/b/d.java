@@ -4,22 +4,22 @@ import com.baidu.tieba.b.a.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends b.c {
-    final /* synthetic */ b aWl;
+    final /* synthetic */ b aWP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.aWl = bVar;
+        this.aWP = bVar;
     }
 
     @Override // com.baidu.tieba.b.a.b.c, com.baidu.tieba.b.a.a
     public boolean b(float f, float f2, float f3, int i) {
         boolean z;
-        z = this.aWl.aWj;
+        z = this.aWP.aWN;
         return z && f % 360.0f == 0.0f;
     }
 
     @Override // com.baidu.tieba.b.a.b.c, com.baidu.tieba.b.a.a
     public void d(float f, float f2, float f3, int i) {
-        this.aWl.MA();
+        this.aWP.Nb();
     }
 }

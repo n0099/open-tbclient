@@ -3,13 +3,13 @@ package com.baidu.tbadk.mainTab;
 import protobuf.GetOnlineInfo.Game;
 /* loaded from: classes.dex */
 public class d {
-    private static Game azL;
+    private static Game azo;
 
     public static Game getGame() {
-        return azL;
+        return azo;
     }
 
     public static void a(Game game) {
-        azL = game;
+        azo = game;
     }
 }

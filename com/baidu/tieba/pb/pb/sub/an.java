@@ -6,15 +6,15 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ ag ewi;
+    final /* synthetic */ ag eyq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(ag agVar) {
-        this.ewi = agVar;
+        this.eyq = agVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,18 +25,18 @@ public class an extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         NewSubPbActivity newSubPbActivity;
         NewSubPbActivity newSubPbActivity2;
         if (aVar != null && !TextUtils.isEmpty(str)) {
-            view = this.ewi.evB;
+            view = this.eyq.exI;
             TbRichTextView tbRichTextView = (TbRichTextView) view.findViewWithTag(str);
             if (tbRichTextView != null) {
-                newSubPbActivity = this.ewi.evD;
+                newSubPbActivity = this.eyq.exK;
                 NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(newSubPbActivity.getResources(), aVar.jV(), aVar.jV().getNinePatchChunk(), aVar.jZ(), null);
                 if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
                     ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ad.mAlpha);
                 }
                 if (tbRichTextView instanceof TbRichTextView) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
-                    newSubPbActivity2 = this.ewi.evD;
-                    layoutParams.bottomMargin = (int) newSubPbActivity2.getResources().getDimension(t.e.ds20);
+                    newSubPbActivity2 = this.eyq.exK;
+                    layoutParams.bottomMargin = (int) newSubPbActivity2.getResources().getDimension(r.e.ds20);
                     tbRichTextView.setLayoutParams(layoutParams);
                     tbRichTextView.setBackgroundDrawable(ninePatchDrawable);
                 }

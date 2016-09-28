@@ -8,11 +8,11 @@ import com.baidu.tieba.account.AccountActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements Runnable {
-    final /* synthetic */ AccountActivity.a aRN;
+    final /* synthetic */ AccountActivity.a aSS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(AccountActivity.a aVar) {
-        this.aRN = aVar;
+        this.aSS = aVar;
     }
 
     @Override // java.lang.Runnable

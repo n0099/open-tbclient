@@ -1,77 +1,39 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.LogoActivity;
-import com.baidu.tieba.t;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.GuildActivityConfig;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class e implements Runnable {
-    final /* synthetic */ LogoActivity aLA;
+class e implements n.a {
+    final /* synthetic */ d aKW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(LogoActivity logoActivity) {
-        this.aLA = logoActivity;
+    public e(d dVar) {
+        this.aKW = dVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
-        LogoActivity.a aVar;
-        LogoActivity.a aVar2;
-        RelativeLayout relativeLayout;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        RelativeLayout relativeLayout2;
-        View view2;
-        RelativeLayout relativeLayout3;
-        RelativeLayout relativeLayout4;
-        View view3;
-        view = this.aLA.aLk;
-        if (view != null) {
-            relativeLayout = this.aLA.mRootView;
-            if (relativeLayout != null) {
-                this.aLA.aLl = BitmapHelper.getLogoBitmap(this.aLA.getPageContext().getPageActivity(), t.f.logo_ad_bg);
-                bitmap = this.aLA.aLl;
-                if (bitmap == null) {
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inPreferredConfig = TbConfig.BitmapConfig;
-                    options.inSampleSize = 2;
-                    this.aLA.aLl = BitmapHelper.getResBitmap(this.aLA.getPageContext().getPageActivity(), t.f.logo_ad_bg, options);
-                }
-                bitmap2 = this.aLA.aLl;
-                if (bitmap2 != null) {
-                    try {
-                        bitmap3 = this.aLA.aLl;
-                        BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap3);
-                        relativeLayout2 = this.aLA.mRootView;
-                        relativeLayout2.setBackgroundDrawable(bitmapDrawable);
-                    } catch (Throwable th) {
-                        BdLog.e(th.getMessage());
-                    }
-                }
-                view2 = this.aLA.aLk;
-                if (view2.getParent() == null) {
-                    relativeLayout4 = this.aLA.mRootView;
-                    view3 = this.aLA.aLk;
-                    relativeLayout4.addView(view3);
-                }
-                relativeLayout3 = this.aLA.mRootView;
-                relativeLayout3.setFocusable(true);
-                com.baidu.tbadk.performanceLog.ab.Gv().ad(System.currentTimeMillis());
-            }
+    @Override // com.baidu.tieba.n.a
+    public void onCompleted() {
+        LogoActivity logoActivity;
+        LogoActivity logoActivity2;
+        LogoActivity logoActivity3;
+        LogoActivity logoActivity4;
+        LogoActivity logoActivity5;
+        if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) == null) {
+            logoActivity = this.aKW.aKV;
+            logoActivity2 = this.aKW.aKV;
+            logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(logoActivity2.getPageContext().getPageActivity()).createNormalCfg(1)));
+        } else {
+            boolean z = com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("has_shown_app_guide", false);
+            logoActivity4 = this.aKW.aKV;
+            logoActivity5 = this.aKW.aKV;
+            logoActivity4.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(logoActivity5.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, z ? 1 : 3)));
         }
-        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        aVar = this.aLA.aLt;
-        eG.removeCallbacks(aVar);
-        com.baidu.adp.lib.h.h eG2 = com.baidu.adp.lib.h.h.eG();
-        aVar2 = this.aLA.aLt;
-        eG2.postDelayed(aVar2, 3100L);
+        com.baidu.adp.lib.h.k.eH().f(new f(this));
+        logoActivity3 = this.aKW.aKV;
+        logoActivity3.finish();
     }
 }

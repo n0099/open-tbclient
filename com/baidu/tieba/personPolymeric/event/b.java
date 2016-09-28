@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.k;
 import com.baidu.tieba.personPolymeric.b.ab;
@@ -28,35 +28,35 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tieba.f.a {
-    private ab eGO;
+public class b extends com.baidu.tieba.e.a {
+    private ab eIS;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void c(ab abVar) {
-        this.eGO = abVar;
+        this.eIS = abVar;
     }
 
-    @Override // com.baidu.tieba.f.a, com.baidu.tieba.view.m
-    public void a(View view, com.baidu.tieba.f.b bVar) {
+    @Override // com.baidu.tieba.e.a, com.baidu.tieba.view.m
+    public void a(View view, com.baidu.tieba.e.b bVar) {
         int i;
         int i2;
         String str = null;
         super.a(view, bVar);
         if (bVar != null) {
-            UserData userData = bVar.bJq != null ? (UserData) bVar.bJq.getSerializable(UserData.TYPE_USER) : null;
-            switch (bVar.bJp) {
+            UserData userData = bVar.bJr != null ? (UserData) bVar.bJr.getSerializable(UserData.TYPE_USER) : null;
+            switch (bVar.bJq) {
                 case 1:
                     if (userData != null) {
                         k kVar = new k();
-                        kVar.fd(userData.getPortraitH());
-                        kVar.fe(userData.getPortrait());
-                        kVar.bs(true);
+                        kVar.fg(userData.getPortraitH());
+                        kVar.fh(userData.getPortrait());
+                        kVar.br(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(kVar);
-                        this.eGO.aTz().a((v) kVar, (List<v>) arrayList, 0);
+                        this.eIS.aTW().a((v) kVar, (List<v>) arrayList, 0);
                         return;
                     }
                     return;
@@ -72,8 +72,8 @@ public class b extends com.baidu.tieba.f.a {
                     this.GM.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.eGO != null && this.eGO.aTA() != null) {
-                        this.eGO.aTA().aTp();
+                    if (this.eIS != null && this.eIS.aTX() != null) {
+                        this.eIS.aTX().aTM();
                         return;
                     }
                     return;
@@ -83,7 +83,7 @@ public class b extends com.baidu.tieba.f.a {
                         String userId = userData.getUserId();
                         str = userData.getBg_pic();
                         try {
-                            i = com.baidu.adp.lib.h.b.g(pB(str).get("props_id"), -1);
+                            i = com.baidu.adp.lib.h.b.g(pN(str).get("props_id"), -1);
                             str2 = userId;
                         } catch (URISyntaxException e) {
                             i = -1;
@@ -124,7 +124,7 @@ public class b extends com.baidu.tieba.f.a {
                     return;
                 case 12:
                     TiebaStatic.log("igift_icon_ck");
-                    if (bn.al(this.GM.getPageActivity())) {
+                    if (bm.ak(this.GM.getPageActivity())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(this.GM.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001)));
                         return;
                     }
@@ -133,7 +133,7 @@ public class b extends com.baidu.tieba.f.a {
         }
     }
 
-    private Map<String, String> pB(final String str) throws URISyntaxException {
+    private Map<String, String> pN(final String str) throws URISyntaxException {
         return new HashMap<String, String>(str) { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController$1
             /* JADX INFO: Access modifiers changed from: package-private */
             {

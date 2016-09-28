@@ -1,23 +1,33 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.view.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements t.b {
-    final /* synthetic */ l bHc;
+public class n extends CustomMessageListener {
+    final /* synthetic */ l bHk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar) {
-        this.bHc = lVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(l lVar, int i) {
+        super(i);
+        this.bHk = lVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.t.b
-    public void aI(boolean z) {
-        com.baidu.tieba.enterForum.c.c cVar;
-        String str;
-        cVar = this.bHc.bGK;
-        str = this.bHc.bGM;
-        cVar.dm(!StringUtils.isNull(str));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean XP;
+        boolean z;
+        XP = this.bHk.XP();
+        if (!XP) {
+            this.bHk.XQ();
+        } else {
+            this.bHk.XS();
+        }
+        z = this.bHk.bGY;
+        if (z) {
+            this.bHk.bGS.kv();
+        }
     }
 }

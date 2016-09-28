@@ -2,6 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 class s extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -16,21 +18,27 @@ class s extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ac acVar;
+        ArrayList<com.baidu.tbadk.mainTab.b> og;
+        ab abVar;
         boolean z;
-        ac acVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            acVar = this.this$0.fwr;
-            if (booleanValue) {
-                acVar2 = this.this$0.fwr;
-                if (acVar2.amb()) {
-                    z = true;
-                    acVar.eV(z);
-                }
+        ab abVar2;
+        ab abVar3;
+        int i;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (og = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).og()) != null && og.size() != 0) {
+            abVar = this.this$0.fyW;
+            abVar.af(og);
+            z = this.this$0.fyT;
+            if (z) {
+                abVar3 = this.this$0.fyW;
+                FragmentTabHost blH = abVar3.blH();
+                i = this.this$0.fyS;
+                blH.setCurrentTabByType(i);
+            } else {
+                this.this$0.B(this.this$0.getIntent());
             }
-            z = false;
-            acVar.eV(z);
+            this.this$0.fyT = false;
+            abVar2 = this.this$0.fyW;
+            abVar2.blE();
         }
     }
 }

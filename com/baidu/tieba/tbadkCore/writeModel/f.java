@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class f {
     public static void S(Context context, String str) {
@@ -35,13 +35,13 @@ public class f {
     }
 
     public static void c(Context context, String str, String str2, String str3) {
-        View inflate = LayoutInflater.from(context).inflate(t.h.post_write_or_reply_lay, (ViewGroup) null);
-        View findViewById = inflate.findViewById(t.g.experience_score);
-        TextView textView = (TextView) inflate.findViewById(t.g.success_text);
-        TextView textView2 = (TextView) inflate.findViewById(t.g.pre_msg);
-        TextView textView3 = (TextView) inflate.findViewById(t.g.color_msg);
+        View inflate = LayoutInflater.from(context).inflate(r.h.post_write_or_reply_lay, (ViewGroup) null);
+        View findViewById = inflate.findViewById(r.g.experience_score);
+        TextView textView = (TextView) inflate.findViewById(r.g.success_text);
+        TextView textView2 = (TextView) inflate.findViewById(r.g.pre_msg);
+        TextView textView3 = (TextView) inflate.findViewById(r.g.color_msg);
         if (StringUtils.isNull(str)) {
-            str = context.getString(t.j.send_success);
+            str = context.getString(r.j.send_success);
         }
         textView.setText(str);
         if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
@@ -60,7 +60,7 @@ public class f {
                 abVar.n("lat", String.valueOf(B.getLatitude()));
                 abVar.n("lng", String.valueOf(B.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bjJ().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bkv().getLocationData();
             if (locationData != null) {
                 abVar.n("name", locationData.getFormatted_address());
                 abVar.n("sn", locationData.getSn());

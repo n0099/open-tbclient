@@ -5,22 +5,22 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.ac;
+import com.baidu.tbadk.core.data.ae;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> Mx = null;
-    protected static boolean Mz = false;
-    protected String Mu = "183322726";
-    protected boolean My = true;
-    protected transient List<String> Mv = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> Mw = null;
+    protected static boolean My = false;
+    protected String Mt = "183322726";
+    protected boolean Mx = true;
+    protected transient List<String> Mu = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(boolean z, int i, int i2, ac acVar);
+        void a(boolean z, int i, int i2, ae aeVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (Mx == null) {
-            Mx = new WeakReference<>(tbPageContext);
+        if (Mw == null) {
+            Mw = new WeakReference<>(tbPageContext);
             return;
         }
-        Mx.clear();
-        Mx = null;
-        Mx = new WeakReference<>(tbPageContext);
+        Mw.clear();
+        Mw = null;
+        Mw = new WeakReference<>(tbPageContext);
     }
 
     public boolean nH() {
-        return Mz;
+        return My;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ae(boolean z) {
-        this.My = z;
+        this.Mx = z;
     }
 
     public boolean nB() {
-        return this.My;
+        return this.Mx;
     }
 
     public void nD() {
-        if (Mx != null) {
-            Mx.get();
-            Mx.clear();
-            Mx = null;
+        if (Mw != null) {
+            Mw.get();
+            Mw.clear();
+            Mw = null;
         }
     }
 }

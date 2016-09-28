@@ -1,25 +1,25 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class f extends a {
-    private int aaR;
+    private int abe;
     private int height;
     private int width;
 
     public f(boolean z, int i) {
         this.width = 0;
         this.height = 0;
-        this.aaR = 0;
-        this.aaR = i;
+        this.abe = 0;
+        this.abe = i;
         if (z) {
-            this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(t.e.ds176);
+            this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(r.e.ds176);
             this.height = this.width;
             return;
         }
-        this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(t.e.ds184);
-        this.height = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(t.e.ds184);
+        this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(r.e.ds184);
+        this.height = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(r.e.ds184);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -52,17 +52,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vM() {
+    public boolean wa() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vN() {
+    public boolean wb() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int vO() {
-        return this.aaR;
+    public int wc() {
+        return this.abe;
     }
 }

@@ -1,45 +1,29 @@
 package com.baidu.tieba.f;
 
-import android.view.View;
-import android.view.animation.Animation;
-import com.baidu.tieba.f.c;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Animation.AnimationListener {
-    final /* synthetic */ c bJA;
+public class e extends CustomMessageListener {
+    final /* synthetic */ a feW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.bJA = cVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(a aVar, int i) {
+        super(i);
+        this.feW = aVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        View view2;
-        View view3;
-        c.a aVar;
-        c.a aVar2;
-        view = this.bJA.bJu;
-        if (view != null) {
-            view2 = this.bJA.bJu;
-            view2.clearAnimation();
-            view3 = this.bJA.bJu;
-            view3.setVisibility(8);
-            this.bJA.dq(true);
-            aVar = this.bJA.bJr;
-            if (aVar != null) {
-                aVar2 = this.bJA.bJr;
-                aVar2.dr(false);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            this.feW.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            a aVar = this.feW;
+            z = this.feW.mHasNewVersion;
+            aVar.feC = z ? true : this.feW.feC;
+            this.feW.bcp();
         }
     }
 }

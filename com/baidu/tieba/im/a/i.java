@@ -5,20 +5,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* loaded from: classes.dex */
 class i extends CustomMessageListener {
-    final /* synthetic */ c dgy;
+    final /* synthetic */ c dhV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(c cVar, int i) {
         super(i);
-        this.dgy = cVar;
+        this.dhV = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-            this.dgy.lK(this.dgy.auz());
+            this.dhV.lX(this.dhV.auY());
         }
     }
 }

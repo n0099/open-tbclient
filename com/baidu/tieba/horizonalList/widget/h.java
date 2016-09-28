@@ -14,7 +14,7 @@ class h implements Parcelable.Creator<ExpandableHListConnector.GroupMetadata> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: kz */
+    /* renamed from: kF */
     public ExpandableHListConnector.GroupMetadata[] newArray(int i) {
         return new ExpandableHListConnector.GroupMetadata[i];
     }

@@ -2,42 +2,51 @@ package com.baidu.tieba.frs.headvideo;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.view.TextureVideoView;
+import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ e cbB;
+    final /* synthetic */ e cbD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.cbB = eVar;
+        this.cbD = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ImageView imageView;
         int i;
-        TextureVideoView textureVideoView;
-        TextureVideoView textureVideoView2;
-        TextureVideoView textureVideoView3;
+        com.baidu.tieba.play.s sVar;
+        com.baidu.tieba.play.s sVar2;
+        QuickVideoView quickVideoView;
+        com.baidu.tieba.play.s sVar3;
+        com.baidu.tieba.play.s sVar4;
         int id = view.getId();
-        imageView = this.cbB.aPk;
+        imageView = this.cbD.aMJ;
         if (id == imageView.getId()) {
-            i = this.cbB.cbx;
+            i = this.cbD.cbz;
             if (i == 2) {
-                textureVideoView2 = this.cbB.aPh;
-                if (textureVideoView2.isPlaying()) {
-                    this.cbB.pausePlay();
+                quickVideoView = this.cbD.aMF;
+                if (quickVideoView.isPlaying()) {
+                    this.cbD.pausePlay();
                     return;
                 }
-                this.cbB.Kz();
-                textureVideoView3 = this.cbB.aPh;
-                textureVideoView3.setPlayMode("2");
+                this.cbD.Js();
+                sVar3 = this.cbD.aLZ;
+                if (sVar3 != null) {
+                    sVar4 = this.cbD.aLZ;
+                    sVar4.qv("2");
+                    return;
+                }
                 return;
             }
-            this.cbB.Kz();
-            textureVideoView = this.cbB.aPh;
-            textureVideoView.setPlayMode("2");
+            this.cbD.Js();
+            sVar = this.cbD.aLZ;
+            if (sVar != null) {
+                sVar2 = this.cbD.aLZ;
+                sVar2.qv("2");
+            }
         }
     }
 }

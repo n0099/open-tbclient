@@ -7,39 +7,39 @@ import com.baidu.tieba.passaccount.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements a.InterfaceC0033a {
-    final /* synthetic */ a ehe;
+    final /* synthetic */ a ejc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ehe = aVar;
+        this.ejc = aVar;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void cf(String str) {
-        a.InterfaceC0069a interfaceC0069a;
-        a.InterfaceC0069a interfaceC0069a2;
-        interfaceC0069a = this.ehe.ehb;
-        if (interfaceC0069a != null) {
-            interfaceC0069a2 = this.ehe.ehb;
-            interfaceC0069a2.cf(str);
+        a.InterfaceC0072a interfaceC0072a;
+        a.InterfaceC0072a interfaceC0072a2;
+        interfaceC0072a = this.ejc.eiZ;
+        if (interfaceC0072a != null) {
+            interfaceC0072a2 = this.ejc.eiZ;
+            interfaceC0072a2.cf(str);
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void a(AccountData accountData) {
-        a.InterfaceC0069a interfaceC0069a;
-        a.InterfaceC0069a interfaceC0069a2;
-        interfaceC0069a = this.ehe.ehb;
-        if (interfaceC0069a != null) {
-            interfaceC0069a2 = this.ehe.ehb;
-            interfaceC0069a2.onSuccess();
+        a.InterfaceC0072a interfaceC0072a;
+        a.InterfaceC0072a interfaceC0072a2;
+        interfaceC0072a = this.ejc.eiZ;
+        if (interfaceC0072a != null) {
+            interfaceC0072a2 = this.ejc.eiZ;
+            interfaceC0072a2.onSuccess();
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void b(String str, int i, String str2) {
         if (i == 1) {
-            ReloginManager.tN().f(null);
+            ReloginManager.uc().f(null);
         }
         c cVar = new c(this, str);
         cVar.setPriority(3);

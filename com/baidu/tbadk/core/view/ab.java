@@ -1,125 +1,96 @@
 package com.baidu.tbadk.core.view;
 
-import android.media.MediaPlayer;
-import android.widget.MediaController;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.view.TextureVideoView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.drawable.AnimationDrawable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class ab implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ TextureVideoView ahh;
+public class ab extends y {
+    protected boolean agR;
+    private CustomMessageListener agS;
+    private CustomMessageListener agT;
+    protected boolean isDone;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(TextureVideoView textureVideoView) {
-        this.ahh = textureVideoView;
+    public ab(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        this.isDone = true;
+        this.agS = new ac(this, CmdConfigCustom.CMD_PULL_IMAGE_CHANGE);
+        this.agT = new ad(this, CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE);
+        d(tbPageContext);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00d2  */
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        Runnable runnable;
-        Runnable runnable2;
-        MediaPlayer.OnPreparedListener onPreparedListener;
-        MediaController mediaController;
-        int i;
-        int i2;
-        int i3;
-        String str;
-        TextureVideoView.c cVar;
-        TextureVideoView.c cVar2;
-        int i4;
-        int i5;
-        MediaController mediaController2;
-        MediaController mediaController3;
-        MediaController mediaController4;
-        MediaController mediaController5;
-        MediaController mediaController6;
-        MediaPlayer.OnPreparedListener onPreparedListener2;
-        MediaPlayer mediaPlayer2;
-        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.ahh.ahg;
-        eG.removeCallbacks(runnable);
-        com.baidu.adp.lib.h.h eG2 = com.baidu.adp.lib.h.h.eG();
-        runnable2 = this.ahh.ahg;
-        eG2.postDelayed(runnable2, 200L);
-        if (mediaPlayer != null) {
-            try {
-                this.ahh.agC = mediaPlayer.getVideoWidth();
-                this.ahh.agD = mediaPlayer.getVideoHeight();
-                this.ahh.agz = 2;
-                TextureVideoView textureVideoView = this.ahh;
-                TextureVideoView textureVideoView2 = this.ahh;
-                this.ahh.agM = true;
-                textureVideoView2.agL = true;
-                textureVideoView.agK = true;
-                onPreparedListener = this.ahh.agG;
-                if (onPreparedListener != null) {
-                    onPreparedListener2 = this.ahh.agG;
-                    mediaPlayer2 = this.ahh.agB;
-                    onPreparedListener2.onPrepared(mediaPlayer2);
+    @Override // com.baidu.tbadk.core.view.y, com.baidu.adp.widget.ListView.d
+    public void S(boolean z) {
+        this.agC.setBackgroundDrawable(null);
+        super.S(z);
+        this.isDone = true;
+    }
+
+    @Override // com.baidu.tbadk.core.view.y, com.baidu.adp.widget.ListView.d
+    public void R(boolean z) {
+        super.R(z);
+        this.isDone = false;
+        if (!this.agR) {
+            dh(TbadkCoreApplication.m9getInst().getSkinType());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.y, com.baidu.adp.widget.ListView.d
+    public void km() {
+        super.km();
+        this.isDone = false;
+    }
+
+    @Override // com.baidu.tbadk.core.view.y
+    public void dh(int i) {
+        super.dh(i);
+        if (this.agB != null && this.agC != null) {
+            this.agR = false;
+            if (!vp()) {
+                this.agG = com.baidu.tbadk.core.util.am.vh().cG(i);
+                if (this.agG != null) {
+                    this.agR = true;
+                } else {
+                    this.agG = new AnimationDrawable();
                 }
-                mediaController = this.ahh.agE;
-                if (mediaController != null) {
-                    mediaController6 = this.ahh.agE;
-                    mediaController6.setEnabled(true);
+                this.agB.setBackgroundColor(com.baidu.tbadk.core.util.am.vh().cI(i));
+                if (!this.agR) {
+                    this.agG = com.baidu.tbadk.core.util.am.vh().cH(i);
                 }
-                i = this.ahh.agJ;
-                if (i != 0) {
-                    this.ahh.seekTo(i);
-                }
-                i2 = this.ahh.agC;
-                if (i2 != 0) {
-                    i4 = this.ahh.agD;
-                    if (i4 != 0) {
-                        this.ahh.requestLayout();
-                        i5 = this.ahh.agA;
-                        if (i5 == 3) {
-                            this.ahh.start();
-                            mediaController4 = this.ahh.agE;
-                            if (mediaController4 != null) {
-                                mediaController5 = this.ahh.agE;
-                                mediaController5.show();
-                            }
-                        } else if (!this.ahh.isPlaying() && (i != 0 || this.ahh.getCurrentPosition() > 0)) {
-                            mediaController2 = this.ahh.agE;
-                            if (mediaController2 != null) {
-                                mediaController3 = this.ahh.agE;
-                                mediaController3.show(0);
-                            }
-                        }
-                        ay ayVar = new ay("c11244");
-                        ayVar.ab("obj_duration", "0");
-                        str = this.ahh.agY;
-                        ayVar.ab("obj_type", str);
-                        cVar = this.ahh.agX;
-                        if (cVar != null) {
-                            cVar2 = this.ahh.agX;
-                            cVar2.a(ayVar);
-                        }
-                        TiebaStatic.log(ayVar);
-                        this.ahh.startTime = System.currentTimeMillis();
-                    }
-                }
-                i3 = this.ahh.agA;
-                if (i3 == 3) {
-                    this.ahh.start();
-                }
-                ay ayVar2 = new ay("c11244");
-                ayVar2.ab("obj_duration", "0");
-                str = this.ahh.agY;
-                ayVar2.ab("obj_type", str);
-                cVar = this.ahh.agX;
-                if (cVar != null) {
-                }
-                TiebaStatic.log(ayVar2);
-                this.ahh.startTime = System.currentTimeMillis();
-            } catch (IllegalStateException e) {
-                e.printStackTrace();
+                this.agG.setOneShot(false);
+                this.agC.setBackgroundDrawable(this.agG);
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.core.view.y, com.baidu.adp.widget.ListView.d
+    public void T(boolean z) {
+        super.T(z);
+        setPadding(0, -getContext().getResources().getDimensionPixelSize(r.e.ds46), 0, 0);
+    }
+
+    private void d(TbPageContext<?> tbPageContext) {
+        this.agS.setTag(tbPageContext.getUniqueId());
+        this.agT.setTag(tbPageContext.getUniqueId());
+        tbPageContext.registerListener(this.agS);
+        tbPageContext.registerListener(this.agT);
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        if (this.agS != null) {
+            this.agS.setTag(bdUniqueId);
+        }
+        if (this.agT != null) {
+            this.agT.setTag(bdUniqueId);
+        }
+    }
+
+    public void release() {
+        MessageManager.getInstance().unRegisterListener(this.agS);
+        MessageManager.getInstance().unRegisterListener(this.agT);
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ad;
-import com.baidu.tbadk.core.data.aq;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.af;
+import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.recapp.f;
+import com.baidu.tieba.recapp.g;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,22 +63,22 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         for (int i3 = 0; i3 < list2.size(); i3++) {
-                            bg bgVar = new bg();
-                            bgVar.setUserMap(this.userMap);
-                            bgVar.a(list2.get(i3));
-                            bgVar.si();
-                            if (bgVar.getThreadType() == 33) {
-                                aq aqVar = new aq();
-                                aqVar.a(bgVar, 0);
+                            bi biVar = new bi();
+                            biVar.setUserMap(this.userMap);
+                            biVar.a(list2.get(i3));
+                            biVar.su();
+                            if (biVar.getThreadType() == 33) {
+                                as asVar = new as();
+                                asVar.a(biVar, 0);
                                 if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                    this.threadList.add(aqVar);
+                                    this.threadList.add(asVar);
                                 }
-                            } else if (!TextUtils.isEmpty(bgVar.sv())) {
-                                ad adVar = new ad();
-                                adVar.cn(bgVar.sv());
-                                this.threadList.add(adVar);
+                            } else if (!TextUtils.isEmpty(biVar.sH())) {
+                                af afVar = new af();
+                                afVar.cn(biVar.sH());
+                                this.threadList.add(afVar);
                             } else {
-                                this.threadList.add(bgVar);
+                                this.threadList.add(biVar);
                             }
                         }
                     }
@@ -103,22 +103,22 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
                 for (int i = 0; i < size; i++) {
                     com.baidu.tbadk.core.data.b bVar = bannerListData.getAllAdvertList().get(i);
-                    if (bVar != null && bVar.pg() && com.baidu.adp.lib.h.b.g(bVar.Pf, 0) - 1 >= 0 && !hashSet.contains(Integer.valueOf(g)) && g < s) {
-                        if (bVar.ph()) {
-                            if (!f.isInstalledPackage(m9getInst, bVar.Pe) && !TextUtils.isEmpty(bVar.Pe) && !TextUtils.isEmpty(bVar.OZ)) {
-                                boolean fh = com.baidu.tieba.recapp.b.a.bbr().fh(bVar.Pe);
-                                boolean fj = com.baidu.tieba.recapp.b.a.bbr().fj(bVar.Pe);
-                                if (fh) {
-                                    bVar.OX = 1;
-                                } else if (fj) {
-                                    bVar.OX = 2;
+                    if (bVar != null && bVar.ph() && com.baidu.adp.lib.h.b.g(bVar.adPosition, 0) - 1 >= 0 && !hashSet.contains(Integer.valueOf(g)) && g < s) {
+                        if (bVar.pi()) {
+                            if (!g.isInstalledPackage(m9getInst, bVar.Pg) && !TextUtils.isEmpty(bVar.Pg) && !TextUtils.isEmpty(bVar.Pa)) {
+                                boolean fj = com.baidu.tieba.recapp.b.a.bbX().fj(bVar.Pg);
+                                boolean fl = com.baidu.tieba.recapp.b.a.bbX().fl(bVar.Pg);
+                                if (fj) {
+                                    bVar.OY = 1;
+                                } else if (fl) {
+                                    bVar.OY = 2;
                                 } else {
-                                    bVar.OX = 0;
+                                    bVar.OY = 0;
                                 }
                                 hashSet.add(Integer.valueOf(g));
                                 arrayList.add(g, bVar);
                             }
-                        } else if (bVar.pi()) {
+                        } else if (bVar.pj()) {
                             hashSet.add(Integer.valueOf(g));
                             arrayList.add(g, bVar);
                         }

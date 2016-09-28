@@ -6,14 +6,14 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class j extends t<Boolean> {
-    private final /* synthetic */ PersonalChatMessage dkG;
-    final /* synthetic */ i drq;
+    private final /* synthetic */ PersonalChatMessage dmd;
+    final /* synthetic */ i dsN;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
-        this.drq = iVar;
-        this.dkG = personalChatMessage;
+        this.dsN = iVar;
+        this.dmd = personalChatMessage;
         this.val$list = linkedList;
     }
 
@@ -21,6 +21,6 @@ class j extends t<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.t
     public Boolean doInBackground() {
-        return Boolean.valueOf(l.asu().a(com.baidu.tieba.im.util.h.p(this.dkG), this.val$list, false));
+        return Boolean.valueOf(l.asT().a(com.baidu.tieba.im.util.h.p(this.dmd), this.val$list, false));
     }
 }

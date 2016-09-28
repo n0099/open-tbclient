@@ -7,15 +7,15 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class dn {
-    private BaseActivity aPR;
-    private dh emx;
+    private BaseActivity aRd;
+    private dh eov;
 
     public dn(dh dhVar, BaseActivity baseActivity) {
-        this.emx = dhVar;
-        this.aPR = baseActivity;
+        this.eov = dhVar;
+        this.aRd = baseActivity;
     }
 
-    public String x(Intent intent) {
+    public String w(Intent intent) {
         int indexOf;
         int length;
         if (intent == null || intent.getData() == null) {
@@ -23,7 +23,7 @@ public class dn {
         }
         String dataString = intent.getDataString();
         if (!StringUtils.isNull(dataString) && dataString.startsWith("tbpb://")) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ay("c10320").s("obj_locate", 3).s("obj_type", 1));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c10320").s("obj_locate", 3).s("obj_type", 1));
         }
         String decode = Uri.decode(intent.getData().getEncodedPath());
         if (StringUtils.isNull(decode) || (indexOf = decode.indexOf("tid=")) < 0 || (length = indexOf + "tid=".length()) > decode.length()) {

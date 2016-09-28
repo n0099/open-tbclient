@@ -3,14 +3,14 @@ package com.baidu.tieba.pb.pb.main;
 import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class an implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -29,26 +29,26 @@ class an implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.eob.enS = (com.baidu.tieba.tbadkCore.data.q) sparseArray.get(t.g.tag_clip_board);
-            if (this.eob.enS != null) {
-                aVar = this.eob.dKY;
+            this.eqa.epR = (com.baidu.tieba.tbadkCore.data.q) sparseArray.get(r.g.tag_clip_board);
+            if (this.eqa.epR != null) {
+                aVar = this.eqa.dMU;
                 if (aVar != null) {
-                    aVar2 = this.eob.dKY;
-                    if (aVar2.nv() && this.eob.enS.getId() != null) {
-                        String id = this.eob.enS.getId();
-                        dhVar = this.eob.emx;
-                        if (id.equals(dhVar.rJ())) {
+                    aVar2 = this.eqa.dMU;
+                    if (aVar2.nv() && this.eqa.epR.getId() != null) {
+                        String id = this.eqa.epR.getId();
+                        dhVar = this.eqa.eov;
+                        if (id.equals(dhVar.rV())) {
                             z = true;
-                            boolean booleanValue = ((Boolean) sparseArray.get(t.g.tag_is_subpb)).booleanValue();
-                            exVar = this.eob.enh;
-                            bVar = this.eob.enT;
+                            boolean booleanValue = ((Boolean) sparseArray.get(r.g.tag_is_subpb)).booleanValue();
+                            exVar = this.eqa.epe;
+                            bVar = this.eqa.epS;
                             exVar.a(bVar, z, booleanValue);
                         }
                     }
                     z = false;
-                    boolean booleanValue2 = ((Boolean) sparseArray.get(t.g.tag_is_subpb)).booleanValue();
-                    exVar = this.eob.enh;
-                    bVar = this.eob.enT;
+                    boolean booleanValue2 = ((Boolean) sparseArray.get(r.g.tag_is_subpb)).booleanValue();
+                    exVar = this.eqa.epe;
+                    bVar = this.eqa.epS;
                     exVar.a(bVar, z, booleanValue2);
                 }
             }

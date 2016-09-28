@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class BarImageView extends TbClipImageView {
-    private int adE;
-    private int adF;
+    private int adP;
+    private int adQ;
 
     public BarImageView(Context context) {
         this(context, null, 0);
@@ -19,8 +19,8 @@ public class BarImageView extends TbClipImageView {
 
     public BarImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.adE = t.f.transparent_bg;
-        this.adF = t.d.cp_bg_line_e;
+        this.adP = r.f.transparent_bg;
+        this.adQ = r.d.cp_bg_line_e;
         init();
     }
 
@@ -28,8 +28,8 @@ public class BarImageView extends TbClipImageView {
         setDrawerType(0);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultResource(this.adE);
-        setDefaultErrorResource(t.f.icon_default_ba_120);
-        setDefaultBgResource(this.adF);
+        setDefaultResource(this.adP);
+        setDefaultErrorResource(r.f.icon_default_ba_120);
+        setDefaultBgResource(this.adQ);
     }
 }

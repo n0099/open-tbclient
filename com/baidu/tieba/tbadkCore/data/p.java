@@ -1,90 +1,101 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class p extends q {
-    public String bZP;
-    public String btl;
-    private e fsx;
-    public boolean fsy = false;
+    public String bZM;
+    public String btz;
+    private e fvd;
+    public boolean fve = false;
     public int pageNumber;
     public long threadId;
 
     public void c(App app) {
-        this.fsx = new e(app);
+        this.fvd = new e(app);
     }
 
-    public e biS() {
-        return this.fsx;
+    public e bjD() {
+        return this.fvd;
     }
 
-    public String biT() {
-        return this.fsx == null ? "" : this.fsx.id;
+    public ICardInfo bjE() {
+        if (this.fvd == null) {
+            return null;
+        }
+        return this.fvd.Pp;
+    }
+
+    public String bjF() {
+        return this.fvd == null ? "" : this.fvd.id;
     }
 
     public boolean isApp() {
-        if (this.fsx == null) {
+        if (this.fvd == null) {
             return false;
         }
-        return this.fsx.ph();
+        return this.fvd.pi();
     }
 
-    public int biU() {
-        if (this.fsx == null || this.fsx.frT == null) {
+    public int bjG() {
+        if (this.fvd == null || this.fvd.fuA == null) {
             return -1;
         }
-        return this.fsx.frT.frV;
+        return this.fvd.fuA.fuB;
     }
 
     public int getPosition() {
-        int g = this.fsx != null ? com.baidu.adp.lib.h.b.g(this.fsx.pos_name, 0) : 0;
+        int g = this.fvd != null ? com.baidu.adp.lib.h.b.g(this.fvd.pos_name, 0) : 0;
         if (g < 2 || g > 30) {
             return 7;
         }
         return g;
     }
 
-    public com.baidu.tbadk.core.data.b biV() {
+    public com.baidu.tbadk.core.data.b bjH() {
         com.baidu.tbadk.core.data.b bVar = new com.baidu.tbadk.core.data.b();
-        if (this.fsx != null) {
-            bVar.OY = this.fsx.id;
-            bVar.OZ = this.fsx.name;
-            bVar.Pa = this.fsx.frP;
-            bVar.adUrl = this.fsx.url;
-            bVar.Pd = this.fsx.Pd;
-            bVar.Pc = this.fsx.apk_url;
-            bVar.Pe = this.fsx.apk_name;
-            bVar.Pf = this.fsx.pos_name.trim();
-            bVar.Pg = this.fsx.first_name;
-            bVar.Ph = this.fsx.second_name;
-            bVar.Pi = this.fsx.Pi;
-            bVar.abtest = this.fsx.abtest;
-            bVar.Pj = this.fsx.frQ;
-            bVar.userId = this.fsx.user_id;
-            bVar.Pk = this.fsx.verify;
-            bVar.price = this.fsx.price;
-            bVar.Pl = this.fsx.ext_info;
-            bVar.Pm = this.fsx.frR * 1000;
-            if (this.fsx.frT != null) {
-                bVar.Pn.Pv = this.fsx.frT.pop_window_text;
-                bVar.Pn.Pq = this.fsx.frT.id;
-                bVar.Pn.Pu = this.fsx.frT.thread_pic;
-                bVar.Pn.Pw = this.fsx.frT.frV;
-                bVar.Pn.Ps = this.fsx.frT.thread_title;
-                bVar.Pn.userName = this.fsx.frT.user_name;
-                bVar.Pn.Pr = this.fsx.frT.user_portrait;
-                bVar.Pn.HT = this.fsx.frT.HT;
-                bVar.Pn.Pz = this.fsx.frT.Pz;
-                if (this.fsx.frT.frW != null) {
-                    bVar.Pn.PA = new ArrayList();
-                    bVar.Pn.PA.addAll(this.fsx.frT.frW);
+        if (this.fvd != null) {
+            bVar.OZ = this.fvd.id;
+            bVar.Pa = this.fvd.name;
+            bVar.Pc = this.fvd.fuw;
+            bVar.Pd = this.fvd.url;
+            bVar.Pf = this.fvd.Pf;
+            bVar.Pe = this.fvd.apk_url;
+            bVar.Pg = this.fvd.apk_name;
+            bVar.adPosition = this.fvd.pos_name.trim();
+            bVar.Ph = this.fvd.first_name;
+            bVar.Pi = this.fvd.second_name;
+            bVar.Pj = this.fvd.Pj;
+            bVar.abtest = this.fvd.abtest;
+            bVar.Pk = this.fvd.fux;
+            bVar.userId = this.fvd.user_id;
+            bVar.Pl = this.fvd.verify;
+            bVar.price = this.fvd.price;
+            bVar.extensionInfo = this.fvd.ext_info;
+            bVar.Pm = this.fvd.fuy * 1000;
+            bVar.Pp = this.fvd.Pp;
+            if (this.fvd.fuA != null) {
+                bVar.Pn.Pu = this.fvd.fuA.pop_window_text;
+                bVar.Pn.Pq = this.fvd.fuA.id;
+                bVar.Pn.Pt = this.fvd.fuA.thread_pic;
+                bVar.Pn.Pv = this.fvd.fuA.fuB;
+                bVar.Pn.Pr = this.fvd.fuA.thread_title;
+                bVar.Pn.Ps = this.fvd.fuA.threadContent;
+                bVar.Pn.userName = this.fvd.fuA.user_name;
+                bVar.Pn.userPortrait = this.fvd.fuA.user_portrait;
+                bVar.Pn.buttonText = this.fvd.fuA.buttonText;
+                bVar.Pn.Py = this.fvd.fuA.Py;
+                if (this.fvd.fuA.fuC != null) {
+                    bVar.Pn.Pz = new ArrayList();
+                    bVar.Pn.Pz.addAll(this.fvd.fuA.fuC);
                 }
-                bVar.Pn.PD = this.fsx.frT.frX;
-                bVar.Pn.PE = this.fsx.frT.PE;
-                bVar.Pn.PF = this.fsx.frT.PF;
-                bVar.Pn.PG = this.fsx.frT.PG;
+                bVar.Pn.PA = this.fvd.fuA.fuD;
+                bVar.Pn.PC = this.fvd.fuA.PC;
+                bVar.Pn.adSource = this.fvd.fuA.adSource;
+                bVar.Pn.PD = this.fvd.fuA.PD;
+                bVar.Pn.PE = this.fvd.fuA.PE;
             }
         }
         return bVar;
@@ -92,14 +103,17 @@ public class p extends q {
 
     @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (biU() == 2) {
-            return com.baidu.tbadk.core.data.b.OR;
+        if (bjE() != null) {
+            return com.baidu.tbadk.core.data.b.OX;
         }
-        if (biU() == 6) {
+        if (bjG() == 2) {
             return com.baidu.tbadk.core.data.b.OS;
         }
-        if (biU() == 7) {
+        if (bjG() == 6) {
             return com.baidu.tbadk.core.data.b.OT;
+        }
+        if (bjG() == 7) {
+            return com.baidu.tbadk.core.data.b.OU;
         }
         return null;
     }

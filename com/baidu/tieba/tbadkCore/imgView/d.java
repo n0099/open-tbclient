@@ -10,10 +10,10 @@ import android.util.DisplayMetrics;
 /* loaded from: classes.dex */
 public class d {
     private Rect Bc = new Rect();
-    public Bitmap aFY;
-    public Bundle fuw;
-    public boolean fux;
-    public boolean fuy;
+    public Bitmap aFx;
+    public Bundle fxc;
+    public boolean fxd;
+    public boolean fxe;
     private Context mContext;
     public Rect rect;
 
@@ -23,7 +23,7 @@ public class d {
 
     public void draw(Canvas canvas) {
         DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-        this.Bc.set(0, 0, this.aFY.getScaledWidth(displayMetrics), this.aFY.getScaledHeight(displayMetrics));
-        canvas.drawBitmap(this.aFY, this.Bc, this.rect, (Paint) null);
+        this.Bc.set(0, 0, this.aFx.getScaledWidth(displayMetrics), this.aFx.getScaledHeight(displayMetrics));
+        canvas.drawBitmap(this.aFx, this.Bc, this.rect, (Paint) null);
     }
 }

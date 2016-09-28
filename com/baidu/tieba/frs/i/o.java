@@ -6,11 +6,11 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements NoPressedRelativeLayout.a {
-    final /* synthetic */ h cfl;
+    final /* synthetic */ h cfi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(h hVar) {
-        this.cfl = hVar;
+        this.cfi = hVar;
     }
 
     @Override // com.baidu.tbadk.core.view.NoPressedRelativeLayout.a
@@ -21,33 +21,33 @@ public class o implements NoPressedRelativeLayout.a {
         NoPressedRelativeLayout noPressedRelativeLayout3;
         FrsActivity frsActivity2;
         FrsActivity frsActivity3;
-        if (motionEvent != null && this.cfl.ceR != null && !this.cfl.ceR.Nf()) {
+        if (motionEvent != null && this.cfi.ceQ != null && !this.cfi.ceQ.NG()) {
             if (motionEvent.getAction() == 0) {
-                frsActivity = this.cfl.bRp;
+                frsActivity = this.cfi.bRi;
                 if (frsActivity != null) {
-                    frsActivity2 = this.cfl.bRp;
-                    if (frsActivity2.aav() != null) {
-                        frsActivity3 = this.cfl.bRp;
-                        frsActivity3.aav().YN();
+                    frsActivity2 = this.cfi.bRi;
+                    if (frsActivity2.aaJ() != null) {
+                        frsActivity3 = this.cfi.bRi;
+                        frsActivity3.aaJ().Zc();
                     }
                 }
-                noPressedRelativeLayout3 = this.cfl.ceJ;
+                noPressedRelativeLayout3 = this.cfi.ceI;
                 noPressedRelativeLayout3.setNeedInterceptTouchEvent(false);
             } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                if (!this.cfl.ceR.ga(1)) {
-                    noPressedRelativeLayout2 = this.cfl.ceJ;
+                if (!this.cfi.ceQ.gf(1)) {
+                    noPressedRelativeLayout2 = this.cfi.ceI;
                     noPressedRelativeLayout2.setNeedInterceptTouchEvent(true);
-                    this.cfl.ceR.Nc();
+                    this.cfi.ceQ.ND();
                     return;
                 }
-                noPressedRelativeLayout = this.cfl.ceJ;
+                noPressedRelativeLayout = this.cfi.ceI;
                 noPressedRelativeLayout.setNeedInterceptTouchEvent(false);
-                this.cfl.ceU.setVisibility(8);
-                this.cfl.ceV.setVisibility(8);
-                this.cfl.ceW.setVisibility(8);
-                this.cfl.ceX.setVisibility(8);
-                this.cfl.ceZ.setVisibility(8);
-                this.cfl.ceR.Nd();
+                this.cfi.ceT.setVisibility(8);
+                this.cfi.ceU.setVisibility(8);
+                this.cfi.ceV.setVisibility(8);
+                this.cfi.ceW.setVisibility(8);
+                this.cfi.ceX.setVisibility(8);
+                this.cfi.ceQ.NE();
             }
         }
     }

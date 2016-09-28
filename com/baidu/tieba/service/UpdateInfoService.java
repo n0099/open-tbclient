@@ -20,7 +20,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new com.baidu.tieba.model.e(null);
-        this.mModel.aHG();
+        this.mModel.aIh();
         this.mModel.cr(540000L);
         this.mModel.a(new i(this));
     }
@@ -28,7 +28,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m9getInst().getLocationShared() && this.mModel.aHE()) {
+        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m9getInst().getLocationShared() && this.mModel.aIf()) {
             findLocationFromLocal();
         }
     }

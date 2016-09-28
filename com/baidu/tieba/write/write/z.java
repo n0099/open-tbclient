@@ -1,21 +1,19 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gfs;
+public class z implements a.b {
+    final /* synthetic */ WriteActivity ghD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(WriteActivity writeActivity) {
-        this.gfs = writeActivity;
+        this.ghD = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        WriteActivity writeActivity = this.gfs;
-        str = this.gfs.awm;
-        writeActivity.showToast(str);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.ghD.b(0, true, null);
+        aVar.dismiss();
     }
 }

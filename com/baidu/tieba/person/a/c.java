@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ b eBF;
+    final /* synthetic */ b eDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.eBF = bVar;
+        this.eDI = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,20 +30,20 @@ public class c implements View.OnClickListener {
         TbPageContext tbPageContext;
         com.baidu.tieba.person.data.b bVar3;
         TbPageContext tbPageContext2;
-        bVar = this.eBF.eBE;
+        bVar = this.eDI.eDH;
         if (bVar != null) {
-            bVar2 = this.eBF.eBE;
-            if (!StringUtils.isNull(bVar2.eCb)) {
+            bVar2 = this.eDI.eDH;
+            if (!StringUtils.isNull(bVar2.eEe)) {
                 if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(MyBookrackActivityConfig.class)) {
-                    tbPageContext2 = this.eBF.bKX;
-                    k.showToast(tbPageContext2.getPageActivity(), t.j.book_plugin_not_install_tip);
+                    tbPageContext2 = this.eDI.bKY;
+                    k.showToast(tbPageContext2.getPageActivity(), r.j.book_plugin_not_install_tip);
                     return;
                 }
-                tbPageContext = this.eBF.bKX;
+                tbPageContext = this.eDI.bKY;
                 Activity pageActivity = tbPageContext.getPageActivity();
-                bVar3 = this.eBF.eBE;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyBookrackActivityConfig(pageActivity, 0, bVar3.eCb)));
-                TiebaStatic.log(new ay("c11390").s("obj_type", 2));
+                bVar3 = this.eDI.eDH;
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyBookrackActivityConfig(pageActivity, 0, bVar3.eEe)));
+                TiebaStatic.log(new ax("c11390").s("obj_type", 2));
             }
         }
     }

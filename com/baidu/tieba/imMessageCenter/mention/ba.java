@@ -4,44 +4,44 @@ import com.baidu.tieba.imMessageCenter.mention.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements as.a {
-    final /* synthetic */ az dti;
+    final /* synthetic */ az duF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(az azVar) {
-        this.dti = azVar;
+        this.duF = azVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.as.a
     public void b(long j, long j2, long j3) {
-        com.baidu.tbadk.editortools.d.p pVar;
+        com.baidu.tbadk.editortools.e.p pVar;
         FeedData feedData;
-        com.baidu.tbadk.editortools.d.p pVar2;
+        com.baidu.tbadk.editortools.e.p pVar2;
         FeedData feedData2;
-        com.baidu.tbadk.editortools.d.p pVar3;
+        com.baidu.tbadk.editortools.e.p pVar3;
         FeedData feedData3;
-        this.dti.mForumId = String.valueOf(j);
-        this.dti.dte = j2;
-        this.dti.dtf = j3;
-        pVar = this.dti.dtc;
+        this.duF.mForumId = String.valueOf(j);
+        this.duF.duB = j2;
+        this.duF.duC = j3;
+        pVar = this.duF.duz;
         if (pVar != null) {
-            feedData = this.dti.dtd;
+            feedData = this.duF.duA;
             if (feedData.getIsFloor()) {
-                feedData2 = this.dti.dtd;
+                feedData2 = this.duF.duA;
                 if (feedData2.getReplyer() != null) {
-                    if (this.dti.dsf != null) {
-                        this.dti.dsf.azh();
+                    if (this.duF.dtC != null) {
+                        this.duF.dtC.azF();
                     }
-                    pVar3 = this.dti.dtc;
-                    feedData3 = this.dti.dtd;
-                    pVar3.fJ(feedData3.getReplyer().getUserName());
+                    pVar3 = this.duF.duz;
+                    feedData3 = this.duF.duA;
+                    pVar3.fN(feedData3.getReplyer().getUserName());
                     return;
                 }
             }
-            if (this.dti.dsf != null) {
-                this.dti.dsf.azh();
+            if (this.duF.dtC != null) {
+                this.duF.dtC.azF();
             }
-            pVar2 = this.dti.dtc;
-            pVar2.fJ(null);
+            pVar2 = this.duF.duz;
+            pVar2.fN(null);
         }
     }
 }

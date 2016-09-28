@@ -13,7 +13,7 @@ class eu extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
-            ep.aOQ().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
+            ep.aPz().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
         }
     }
 }

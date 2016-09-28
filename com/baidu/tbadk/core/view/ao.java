@@ -2,54 +2,81 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tbadk.core.util.bn;
-import com.baidu.tbadk.data.IconData;
-import java.util.ArrayList;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.data.GodUserData;
+import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements View.OnClickListener {
-    final /* synthetic */ UserIconLayout ahX;
+public class ao implements View.OnClickListener {
+    final /* synthetic */ UserLikeButton ahP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(UserIconLayout userIconLayout) {
-        this.ahX = userIconLayout;
+    public ao(UserLikeButton userLikeButton) {
+        this.ahP = userLikeButton;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        com.baidu.tbadk.c.a aVar;
+        View.OnClickListener onClickListener;
         Context context;
-        bg bgVar;
-        bg bgVar2;
-        bg bgVar3;
-        bg bgVar4;
-        bg bgVar5;
+        bi biVar;
+        bi biVar2;
+        int i;
+        boolean hadConcerned;
+        com.baidu.tbadk.coreExtra.d.a aVar2;
+        String str;
+        BdUniqueId bdUniqueId;
+        String str2;
+        View.OnClickListener onClickListener2;
         Context context2;
         Context context3;
-        context = this.ahX.mContext;
-        if (bn.al(context)) {
-            bgVar = this.ahX.adL;
-            if (bgVar != null) {
-                bgVar2 = this.ahX.adL;
-                if (bgVar2.getAuthor() != null) {
-                    bgVar3 = this.ahX.adL;
-                    if (bgVar3.getAuthor().getTShowInfoNew() != null) {
-                        bgVar4 = this.ahX.adL;
-                        ArrayList<IconData> tShowInfoNew = bgVar4.getAuthor().getTShowInfoNew();
-                        if (com.baidu.tbadk.core.util.y.s(tShowInfoNew) != 0 && com.baidu.tbadk.core.util.y.c(tShowInfoNew, 0) != null) {
-                            bgVar5 = this.ahX.adL;
-                            String url = bgVar5.getAuthor().getTShowInfoNew().get(0).getUrl();
-                            if (url != null) {
-                                context2 = this.ahX.mContext;
-                                if (com.baidu.adp.base.l.C(context2) instanceof TbPageContext) {
-                                    bi vx = bi.vx();
-                                    context3 = this.ahX.mContext;
-                                    vx.c((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{url});
-                                }
-                            }
-                        }
+        com.baidu.tbadk.c.a aVar3;
+        aVar = this.ahP.ahM;
+        if (aVar != null) {
+            aVar3 = this.ahP.ahM;
+            if (aVar3.w(view)) {
+                return;
+            }
+        }
+        if (!com.baidu.adp.lib.util.i.fZ()) {
+            context2 = this.ahP.mContext;
+            if (context2 != null) {
+                context3 = this.ahP.mContext;
+                com.baidu.adp.lib.util.k.showToast(context3, r.j.network_ungeilivable);
+            }
+        }
+        onClickListener = this.ahP.adX;
+        if (onClickListener != null) {
+            onClickListener2 = this.ahP.adX;
+            onClickListener2.onClick(this.ahP);
+        }
+        context = this.ahP.mContext;
+        if (bm.ak(context)) {
+            biVar = this.ahP.adW;
+            if (biVar != null) {
+                biVar2 = this.ahP.adW;
+                MetaData author = biVar2.getAuthor();
+                if (author != null && author.getGodUserData() != null) {
+                    GodUserData godUserData = author.getGodUserData();
+                    i = this.ahP.es;
+                    if (i == 1) {
+                        hadConcerned = godUserData.getFollowed() == 1;
+                    } else {
+                        hadConcerned = author.hadConcerned();
                     }
+                    boolean z = godUserData.getType() == 2;
+                    aVar2 = this.ahP.ahJ;
+                    boolean z2 = hadConcerned ? false : true;
+                    String portrait = author.getPortrait();
+                    String userId = author.getUserId();
+                    str = this.ahP.ahK;
+                    bdUniqueId = this.ahP.ahL;
+                    str2 = this.ahP.mForumId;
+                    aVar2.a(z2, portrait, userId, z, str, bdUniqueId, str2);
                 }
             }
         }

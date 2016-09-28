@@ -1,20 +1,22 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.core.util.bi;
+import android.app.Activity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements Runnable {
-    final /* synthetic */ bi abZ;
-    private final /* synthetic */ bi.a aca;
+public class bk implements a.b {
+    private final /* synthetic */ Activity Mh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bi biVar, bi.a aVar) {
-        this.abZ = biVar;
-        this.aca = aVar;
+    public bk(Activity activity) {
+        this.Mh = activity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.abZ.b(this.aca);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        TbadkCoreApplication.m9getInst().notifyAppEnterBackground();
+        this.Mh.finish();
     }
 }

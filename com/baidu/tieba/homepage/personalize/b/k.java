@@ -1,69 +1,91 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.ao;
+import com.baidu.tieba.card.cb;
+import com.baidu.tieba.card.cd;
 /* loaded from: classes.dex */
-public class k extends CustomMessageListener {
-    final /* synthetic */ g cHg;
+public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.m, a> {
+    private TbPageContext<?> GM;
+    public BdUniqueId aYW;
+    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> bUl;
+    private com.baidu.adp.lib.f.b<TbImageView> bUm;
+    private ao cGx;
+    private com.baidu.tieba.homepage.personalize.c.f cGy;
+    private cd cGz;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(g gVar, int i) {
-        super(i);
-        this.cHg = gVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.bUl = new com.baidu.adp.lib.f.b<>(new l(this), 6, 0);
+        this.bUm = new com.baidu.adp.lib.f.b<>(new m(this), 12, 0);
+        this.cGz = new n(this);
+        this.GM = tbPageContext;
+        amS();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        int i = 0;
-        if (customResponsedMessage != null) {
-            if (!(customResponsedMessage.getData() instanceof ArrayList)) {
-                this.cHg.cHc = 0;
-                this.cHg.cHb = null;
-                return;
-            }
-            ArrayList arrayList4 = (ArrayList) customResponsedMessage.getData();
-            arrayList = this.cHg.cHb;
-            if (arrayList == null) {
-                if (arrayList4.size() > 0) {
-                    this.cHg.cHc = 1;
-                } else {
-                    this.cHg.cHc = 2;
-                }
-            } else {
-                int size = arrayList4.size();
-                arrayList2 = this.cHg.cHb;
-                if (size != arrayList2.size()) {
-                    this.cHg.cHc = 1;
-                } else {
-                    while (true) {
-                        int i2 = i;
-                        if (i2 > arrayList4.size()) {
-                            break;
-                        }
-                        if (i2 == arrayList4.size()) {
-                            this.cHg.cHc = 2;
-                        } else if (StringUtils.isNull((String) arrayList4.get(i2))) {
-                            break;
-                        } else {
-                            arrayList3 = this.cHg.cHb;
-                            if (!((String) arrayList4.get(i2)).equals(arrayList3.get(i2))) {
-                                break;
-                            }
-                        }
-                        i = i2 + 1;
-                    }
-                    this.cHg.cHc = 1;
-                }
-            }
-            this.cHg.cHb = arrayList4;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: ai */
+    public a a(ViewGroup viewGroup) {
+        this.cGx = new ao(this.GM);
+        this.cGx.setConstrainLayoutPool(this.bUl);
+        this.cGx.setConstrainImagePool(this.bUm);
+        this.cGx.j(this.aYW);
+        return new a(this.cGx);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.m mVar, a aVar) {
+        if (mVar != null) {
+            mVar.gj(i + 1);
         }
+        cb.Oj().a(mVar.OA());
+        aVar.cGB.onBindDataToView(mVar);
+        aVar.cGB.setOnSubCardOnClickListenner(this.cGz);
+        return aVar.getView();
+    }
+
+    private void amS() {
+        com.baidu.tieba.card.data.m.bbZ = "c10705";
+        com.baidu.tieba.card.data.m.bca = "c10730";
+        com.baidu.tieba.card.data.m.bcb = "c10731";
+        com.baidu.tieba.card.data.m.bcc = "c10704";
+        com.baidu.tieba.card.data.m.bcd = "c10755";
+        com.baidu.tieba.card.data.m.bce = "c10710";
+        com.baidu.tieba.card.data.m.bcf = "c10736";
+        com.baidu.tieba.card.data.m.bcg = "c10737";
+        com.baidu.tieba.card.data.m.bch = "c10711";
+        com.baidu.tieba.card.data.m.bci = "c10758";
+        com.baidu.tieba.card.data.m.bcj = "c10757";
+    }
+
+    public void setFromCDN(boolean z) {
+        if (this.cGx != null) {
+            this.cGx.setFromCDN(z);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a extends y.a {
+        public ao cGB;
+
+        public a(ao aoVar) {
+            super(aoVar.getView());
+            this.cGB = aoVar;
+        }
+    }
+
+    public void a(com.baidu.tieba.homepage.personalize.c.f fVar) {
+        this.cGy = fVar;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.c.h;
+import com.baidu.tieba.lego.card.c.q;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
@@ -10,43 +10,43 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends d {
-    private final List<d> dAz;
+public class b extends e {
+    private final List<e> dBQ;
 
     /* synthetic */ b(b bVar) {
         this();
     }
 
     private b() {
-        this.dAz = new ArrayList(4);
+        this.dBQ = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b dAA = new b(null);
+        private static final b dBR = new b(null);
     }
 
-    public static b aBt() {
-        return a.dAA;
+    public static b aBR() {
+        return a.dBR;
     }
 
-    public synchronized void a(d dVar) {
-        this.dAz.add(dVar);
+    public synchronized void a(e eVar) {
+        this.dBQ.add(eVar);
     }
 
-    @Override // com.baidu.tieba.lego.card.d
-    protected void aBu() {
+    @Override // com.baidu.tieba.lego.card.e
+    protected void aBS() {
     }
 
-    @Override // com.baidu.tieba.lego.card.d
+    @Override // com.baidu.tieba.lego.card.e
     public ICardInfo a(JSONObject jSONObject, int i) throws CardParseException {
         return b(jSONObject, i);
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (d dVar : this.dAz) {
-            ICardInfo a2 = dVar.a(jSONObject, i);
+        for (e eVar : this.dBQ) {
+            ICardInfo a2 = eVar.a(jSONObject, i);
             if (a2 != null) {
                 return a2;
             }
@@ -55,18 +55,18 @@ public class b extends d {
         return null;
     }
 
-    @Override // com.baidu.tieba.lego.card.d
-    public <T> h a(TbPageContext<T> tbPageContext, int i, int i2) {
-        h b = b(tbPageContext, i, i2);
+    @Override // com.baidu.tieba.lego.card.e
+    public <T> q a(TbPageContext<T> tbPageContext, int i, int i2) {
+        q b = b(tbPageContext, i, i2);
         if (b != null) {
             b.setBusinessType(i2);
         }
         return b;
     }
 
-    private <T> h b(TbPageContext<T> tbPageContext, int i, int i2) {
-        for (d dVar : this.dAz) {
-            h a2 = dVar.a(tbPageContext, i, i2);
+    private <T> q b(TbPageContext<T> tbPageContext, int i, int i2) {
+        for (e eVar : this.dBQ) {
+            q a2 = eVar.a(tbPageContext, i, i2);
             if (a2 != null) {
                 return a2;
             }
@@ -75,9 +75,9 @@ public class b extends d {
         return null;
     }
 
-    public static ICardInfo mL(String str) {
+    public static ICardInfo mY(String str) {
         try {
-            return F(new JSONObject(str));
+            return H(new JSONObject(str));
         } catch (CardParseException e) {
             return null;
         } catch (JSONException e2) {
@@ -85,7 +85,7 @@ public class b extends d {
         }
     }
 
-    public static ICardInfo F(JSONObject jSONObject) throws CardParseException {
-        return aBt().a(jSONObject, jSONObject.optInt("card_type"));
+    public static ICardInfo H(JSONObject jSONObject) throws CardParseException {
+        return aBR().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

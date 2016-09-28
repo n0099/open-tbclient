@@ -31,81 +31,81 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter dtj;
-    private z dtk;
-    private az dtl;
-    private j dtm;
-    private k dtn;
-    private au dto;
-    private e dtp;
+    private ViewEventCenter duG;
+    private z duH;
+    private az duI;
+    private j duJ;
+    private k duK;
+    private au duL;
+    private e duM;
     private ProgressBar mProgressBar;
     private boolean mLayoutHasInit = false;
     private int mMaxHeight = 0;
     private int mPreHeight = 0;
     private int currentPageType = -1;
-    private CustomMessageListener dtq = new bg(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private CustomMessageListener dtr = new bh(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
+    private CustomMessageListener duN = new bg(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private CustomMessageListener duO = new bh(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.dto = new au(this);
-        this.dto.setUniqueId(getUniqueId());
-        this.dtp = new e(this);
-        this.dtp.setUniqueId(getUniqueId());
-        this.dtk = new z(this);
-        this.dtn = new k(this);
-        this.dtl = new az(this);
-        this.dtm = new j(this);
+        this.duL = new au(this);
+        this.duL.setUniqueId(getUniqueId());
+        this.duM = new e(this);
+        this.duM.setUniqueId(getUniqueId());
+        this.duH = new z(this);
+        this.duK = new k(this);
+        this.duI = new az(this);
+        this.duJ = new j(this);
         if (bundle != null) {
-            this.dto.d(bundle);
-            this.dtp.d(bundle);
-            this.dtk.f(bundle);
-            this.dtn.f(bundle);
-            this.dtl.f(bundle);
-            this.dtm.f(bundle);
+            this.duL.d(bundle);
+            this.duM.d(bundle);
+            this.duH.f(bundle);
+            this.duK.f(bundle);
+            this.duI.f(bundle);
+            this.duJ.f(bundle);
         } else {
-            this.dto.d(null);
-            this.dtp.d(null);
-            this.dtk.f(null);
-            this.dtn.f((Bundle) null);
-            this.dtl.f((Bundle) null);
-            this.dtm.f(null);
+            this.duL.d(null);
+            this.duM.d(null);
+            this.duH.f(null);
+            this.duK.f((Bundle) null);
+            this.duI.f((Bundle) null);
+            this.duJ.f(null);
         }
-        View mb = this.dtk.mb();
-        this.dtk.lQ();
-        this.dtk.a(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
-        this.dtk.ayW();
+        View mb = this.duH.mb();
+        this.duH.lQ();
+        this.duH.a(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
+        this.duH.azu();
         if (getActivity() != null) {
             UtilHelper.startHardAccelerated(getActivity().getWindow());
         }
         MentionActivityConfig.newJumpIn = true;
         lF().addEventDelegate(this);
-        registerListener(this.dtq);
-        registerListener(this.dtr);
-        alz();
+        registerListener(this.duN);
+        registerListener(this.duO);
+        alN();
         return mb;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void azh() {
+    public void azF() {
         View findViewById;
-        if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(t.g.tabcontainer_wrapper)) != null) {
+        if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(r.g.tabcontainer_wrapper)) != null) {
             View findViewById2 = getFragmentActivity().getWindow().getDecorView().findViewById(16908290);
             if (findViewById2 != null && findViewById2.getParent() != null) {
-                com.baidu.tbadk.core.util.av.l((View) findViewById2.getParent(), t.d.cp_bg_line_c);
+                com.baidu.tbadk.core.util.av.l((View) findViewById2.getParent(), r.d.cp_bg_line_c);
             }
             findViewById.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void azi() {
+    public void azG() {
         View findViewById;
-        if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(t.g.tabcontainer_wrapper)) != null) {
+        if (getView() != null && getView().getParent() != null && getView().getParent().getParent() != null && (findViewById = ((ViewGroup) getView().getParent().getParent()).findViewById(r.g.tabcontainer_wrapper)) != null) {
             findViewById.setVisibility(0);
         }
     }
@@ -113,44 +113,44 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // android.support.v4.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.dtl.onSaveInstanceState(bundle);
+        this.duI.onSaveInstanceState(bundle);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dtk != null) {
-            this.dtk.a(getPageContext(), i);
+        if (this.duH != null) {
+            this.duH.a(getPageContext(), i);
         }
-        if (this.dtn != null) {
-            this.dtn.a(getPageContext(), i);
+        if (this.duK != null) {
+            this.duK.a(getPageContext(), i);
         }
-        if (this.dtl != null) {
-            this.dtl.a(getPageContext(), i);
+        if (this.duI != null) {
+            this.duI.a(getPageContext(), i);
         }
-        if (this.dtm != null) {
-            this.dtm.a(getPageContext(), i);
+        if (this.duJ != null) {
+            this.duJ.a(getPageContext(), i);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        if (getActivity() != null && t(getActivity().getIntent())) {
-            this.dtk.onNewIntent(getActivity().getIntent());
+        if (getActivity() != null && s(getActivity().getIntent())) {
+            this.duH.onNewIntent(getActivity().getIntent());
         } else {
-            this.dtk.ayV();
+            this.duH.azt();
         }
         super.onViewCreated(view, bundle);
     }
 
-    private boolean t(Intent intent) {
+    private boolean s(Intent intent) {
         return (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (!this.dtl.onActivityResult(i, i2, intent) && i2 == -1) {
+        if (!this.duI.onActivityResult(i, i2, intent) && i2 == -1) {
             switch (i) {
                 case 12011:
                     Bundle extras = intent.getExtras();
@@ -185,26 +185,26 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        if (this.dtk.ayY() != null && this.dtk.Xs() != null) {
+        if (this.duH.azw() != null && this.duH.XM() != null) {
             if (z) {
-                this.dtk.ayY().setScrollable(true);
-                if (this.dtk.Xs().getChildCount() == 3) {
-                    this.dtk.Xs().getChildAt(1).setEnabled(true);
-                    this.dtk.Xs().getChildAt(2).setEnabled(true);
+                this.duH.azw().setScrollable(true);
+                if (this.duH.XM().getChildCount() == 3) {
+                    this.duH.XM().getChildAt(1).setEnabled(true);
+                    this.duH.XM().getChildAt(2).setEnabled(true);
                     return;
                 }
                 return;
             }
-            this.dtk.ayY().setScrollable(false);
-            if (this.dtk.Xs().getChildCount() == 3) {
-                this.dtk.Xs().getChildAt(1).setEnabled(false);
-                this.dtk.Xs().getChildAt(2).setEnabled(false);
+            this.duH.azw().setScrollable(false);
+            if (this.duH.XM().getChildCount() == 3) {
+                this.duH.XM().getChildAt(1).setEnabled(false);
+                this.duH.XM().getChildAt(2).setEnabled(false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean mp(int i) {
+    public boolean mx(int i) {
         return i == this.currentPageType;
     }
 
@@ -230,8 +230,8 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dtl != null) {
-            this.dtl.destroy();
+        if (this.duI != null) {
+            this.duI.destroy();
         }
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT);
     }
@@ -257,7 +257,7 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
                 return h((FeedData) EM3);
             }
         } else if (bVar.EL() == 9486) {
-            this.dtl.d(bVar);
+            this.duI.d(bVar);
             return true;
         } else if (bVar.EL() == 9487) {
             com.baidu.tbadk.mvc.b.a EM4 = bVar.EM();
@@ -277,10 +277,10 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
                 }
                 LikeData likeData = praiseList.get(0);
                 return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(getActivity(), likeData.getId(), likeData.getNameShow(), likeData.getPortrait(), feedData.getFname(), false, AddFriendActivityConfig.TYPE_REPLY_ME)));
-            } else if (this.dtk.getCurrentTabType() == 1) {
+            } else if (this.duH.getCurrentTabType() == 1) {
                 TiebaStatic.eventStat(getActivity(), "chat_2_aio", "click", 1, new Object[0]);
                 return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(getActivity(), com.baidu.adp.lib.h.b.c(feedData.getReplyer().getUserId(), 0L), feedData.getReplyer().getName_show(), feedData.getReplyer().getPortrait(), 0, feedData.getReplyer().getIsMyFriend(), feedData.toJson())));
-            } else if (this.dtk.getCurrentTabType() == 2) {
+            } else if (this.duH.getCurrentTabType() == 2) {
                 return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(getActivity(), feedData.getReplyer().getUserId(), feedData.getReplyer().getName_show(), feedData.getReplyer().getPortrait(), feedData.getFname(), false, AddFriendActivityConfig.TYPE_AT_ME)));
             } else {
                 return false;
@@ -294,8 +294,8 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
             return false;
         }
         TiebaStatic.log("c10967");
-        if (!azj()) {
-            UtilHelper.showToast(getActivity(), t.j.plugin_config_not_found);
+        if (!azH()) {
+            UtilHelper.showToast(getActivity(), r.j.plugin_config_not_found);
             return false;
         }
         PraiseListActivityConfig praiseListActivityConfig = new PraiseListActivityConfig(getPageContext().getPageActivity(), feedData.getThread_id(), feedData.getPost_id(), feedData.getTitle(), false);
@@ -304,16 +304,16 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, praiseListActivityConfig));
     }
 
-    private boolean azj() {
+    private boolean azH() {
         return TbadkCoreApplication.m9getInst().appResponseToIntentClass(PraiseListActivityConfig.class);
     }
 
     private boolean g(FeedData feedData) {
         if (feedData != null) {
             if (feedData.getIsFloor()) {
-                if (this.dtk.getCurrentTabType() == 2) {
+                if (this.duH.getCurrentTabType() == 2) {
                     TiebaStatic.log("new_at_me_visit_post");
-                } else if (this.dtk.getCurrentTabType() == 1) {
+                } else if (this.duH.getCurrentTabType() == 1) {
                     TiebaStatic.log("new_my_reply_visit_post");
                     if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
                         TiebaStatic.log("zan_mlist");
@@ -326,9 +326,9 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
                 }
                 return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(thread_id, post_id, "mention", false)));
             }
-            if (this.dtk.getCurrentTabType() == 2) {
+            if (this.duH.getCurrentTabType() == 2) {
                 TiebaStatic.log("new_at_me_visit_pb");
-            } else if (this.dtk.getCurrentTabType() == 1) {
+            } else if (this.duH.getCurrentTabType() == 1) {
                 TiebaStatic.log("new_my_reply_visit_pb");
                 if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
                     TiebaStatic.log("zan_mlist");
@@ -336,7 +336,7 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
             }
             if (feedData.getThread_Type() == 33) {
                 TiebaStatic.log("c10384");
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).ci(feedData.getPost_id()).cj("mention").oW()));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).ci(feedData.getPost_id()).cj("mention").oX()));
                 return false;
             }
             return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getActivity()).createNormalCfg(feedData.getThread_id(), feedData.getPost_id(), 1, "mention")));
@@ -367,34 +367,34 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     }
 
     public ViewEventCenter lF() {
-        if (this.dtj == null) {
-            this.dtj = new ViewEventCenter();
+        if (this.duG == null) {
+            this.duG = new ViewEventCenter();
         }
-        return this.dtj;
+        return this.duG;
     }
 
-    public az azk() {
-        return this.dtl;
+    public az azI() {
+        return this.duI;
     }
 
-    public j azl() {
-        return this.dtm;
+    public j azJ() {
+        return this.duJ;
     }
 
-    public au azm() {
-        return this.dto;
+    public au azK() {
+        return this.duL;
     }
 
-    public e azn() {
-        return this.dtp;
+    public e azL() {
+        return this.duM;
     }
 
-    public k azo() {
-        return this.dtn;
+    public k azM() {
+        return this.duK;
     }
 
-    public z azp() {
-        return this.dtk;
+    public z azN() {
+        return this.duH;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -421,7 +421,7 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         if (this.mProgressBar == null) {
             try {
                 this.mProgressBar = new ProgressBar(getPageContext().getPageActivity());
-                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m9getInst().getResources().getDrawable(t.f.progressbar));
+                this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.m9getInst().getResources().getDrawable(r.f.progressbar));
                 if (getView() instanceof ViewGroup) {
                     ((ViewGroup) getView()).addView(this.mProgressBar, new FrameLayout.LayoutParams(-2, -2, 17));
                 }
@@ -439,15 +439,15 @@ public class bf extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         }
     }
 
-    private void alz() {
+    private void alN() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, new bi(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public void mk(int i) {
-        this.dtn.mk(i);
-        this.dtl.mk(i);
-        this.dtm.mk(i);
+    public void ms(int i) {
+        this.duK.ms(i);
+        this.duI.ms(i);
+        this.duJ.ms(i);
     }
 }

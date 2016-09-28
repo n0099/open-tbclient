@@ -1,34 +1,30 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.media.MediaPlayer;
 import android.os.Handler;
-import com.baidu.tbadk.core.view.au;
+import com.baidu.tieba.play.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ a bXm;
+public class h implements e.d {
+    final /* synthetic */ a bXh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.bXm = aVar;
+        this.bXh = aVar;
     }
 
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    public void onPrepared(MediaPlayer mediaPlayer) {
+    @Override // com.baidu.tieba.play.e.d
+    public void onPrepared(com.baidu.tieba.play.e eVar) {
         Handler handler;
-        if (mediaPlayer != null) {
+        if (eVar != null) {
             try {
-                mediaPlayer.setVolume(0.0f, 0.0f);
-                mediaPlayer.setLooping(true);
-                mediaPlayer.start();
-                if (au.wK().wP()) {
-                    mediaPlayer.seekTo(0);
-                }
+                eVar.setVolume(0.0f, 0.0f);
+                eVar.setLooping(true);
+                eVar.start();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            handler = this.bXm.aZx;
-            handler.sendEmptyMessageDelayed(202, 300L);
+            handler = this.bXh.aZR;
+            handler.sendEmptyMessageDelayed(202, 0L);
         }
     }
 }

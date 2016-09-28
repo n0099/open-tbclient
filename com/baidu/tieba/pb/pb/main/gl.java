@@ -4,11 +4,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.pb.pb.main.dh;
 /* loaded from: classes.dex */
 class gl implements dh.a {
-    final /* synthetic */ ReaderPbService euI;
+    final /* synthetic */ ReaderPbService ewO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gl(ReaderPbService readerPbService) {
-        this.euI = readerPbService;
+        this.ewO = readerPbService;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.dh.a
@@ -28,19 +28,19 @@ class gl implements dh.a {
         ek ekVar2;
         ek ekVar3;
         ek ekVar4;
-        z2 = this.euI.isAlive;
+        z2 = this.ewO.isAlive;
         if (!z2) {
-            ehVar = this.euI.mReaderManager;
+            ehVar = this.ewO.mReaderManager;
             if (ehVar != null) {
-                ekVar = this.euI.mReaderModel;
+                ekVar = this.ewO.mReaderModel;
                 if (ekVar != null) {
-                    ehVar2 = this.euI.mReaderManager;
-                    ekVar2 = this.euI.mReaderModel;
+                    ehVar2 = this.ewO.mReaderManager;
+                    ekVar2 = this.ewO.mReaderModel;
                     com.baidu.tieba.pb.data.h pbData = ekVar2.getPbData();
-                    ekVar3 = this.euI.mReaderModel;
-                    boolean aOO = ekVar3.aOO();
-                    ekVar4 = this.euI.mReaderModel;
-                    ehVar2.b(pbData, aOO, i2, ekVar4.aOP());
+                    ekVar3 = this.ewO.mReaderModel;
+                    boolean aPx = ekVar3.aPx();
+                    ekVar4 = this.ewO.mReaderModel;
+                    ehVar2.b(pbData, aPx, i2, ekVar4.aPy());
                 }
             }
         }

@@ -12,6 +12,6 @@ class i implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.voice.i.delFile(com.baidu.tbadk.core.voice.i.dX(this.EC));
+        com.baidu.tbadk.core.voice.i.delFile(com.baidu.tbadk.core.voice.i.ea(this.EC));
     }
 }

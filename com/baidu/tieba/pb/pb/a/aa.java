@@ -1,42 +1,158 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.t;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadPendantView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.BaobaoTailView;
+import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tieba.r;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
-    final /* synthetic */ z elE;
-    private final /* synthetic */ String elf;
-    private final /* synthetic */ String elg;
-    private final /* synthetic */ String elh;
+public class aa extends y.a {
+    public TextView aVU;
+    UserIconBox ahw;
+    public UserIconBox cgq;
+    public View enE;
+    public View enF;
+    public View enG;
+    public View enH;
+    public View enI;
+    public HeadPendantView enJ;
+    public HeadImageView enK;
+    public ImageView enL;
+    public ImageView enM;
+    public ImageView enN;
+    public TextView enO;
+    public TextView enP;
+    public ImageView enQ;
+    public ImageView enR;
+    public TbRichTextView enS;
+    public FrsPraiseView enT;
+    public ImageView enU;
+    public PbGiftListView enV;
+    public RelativeLayout enW;
+    public LinearLayout enX;
+    public ImageView enY;
+    public SubPbLayout enZ;
+    public BaobaoTailView eoa;
+    public RelativeLayout eob;
+    public RelativeLayout eoc;
+    public LinearLayout eod;
+    public TextView eoe;
+    public LinearLayout eog;
+    public Button eoh;
+    public LinearLayout eoi;
+    public TextView eoj;
+    public View eok;
+    public View eol;
+    public LinearLayout eom;
+    public ImageView eon;
+    public TextView eoo;
+    public LinearLayout eop;
+    public ImageView eoq;
+    public TextView eor;
+    public TextView eos;
+    public int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar, String str, String str2, String str3) {
-        this.elE = zVar;
-        this.elf = str;
-        this.elg = str2;
-        this.elh = str3;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        PbActivity pbActivity;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.elf) && !StringUtils.isNull(this.elg)) {
-            if (!com.baidu.adp.lib.util.i.gm()) {
-                pbActivity = this.elE.emy;
-                pbActivity.showToast(t.j.neterror);
-                return;
-            }
-            context = this.elE.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.elf) + "," + this.elg, this.elh, this.elh, context.getString(t.j.app_info_for_map));
-            context2 = this.elE.mContext;
-            com.baidu.tbadk.browser.f.u(context2, format);
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=5] */
+    public aa(View view, boolean z, boolean z2, int i, boolean z3) {
+        super(view);
+        this.mSkinType = 3;
+        this.enI = view.findViewById(r.g.sub_pb_more);
+        this.eob = (RelativeLayout) view.findViewById(r.g.user_head_layout);
+        this.eoc = (RelativeLayout) view.findViewById(r.g.pb_item_floor_layout);
+        this.enK = (HeadImageView) view.findViewById(r.g.photo);
+        this.enJ = (HeadPendantView) view.findViewById(r.g.pendant_photo);
+        this.enJ.wk();
+        if (this.enJ.getHeadView() != null) {
+            this.enJ.getHeadView().setIsRound(true);
+            this.enJ.getHeadView().setDrawBorder(false);
         }
+        if (this.enJ.getPendantView() != null) {
+            this.enJ.getPendantView().setIsRound(true);
+            this.enJ.getPendantView().setDrawBorder(false);
+        }
+        this.aVU = (TextView) view.findViewById(r.g.user_name);
+        this.enL = (ImageView) view.findViewById(r.g.user_rank);
+        this.enM = (ImageView) view.findViewById(r.g.user_bawu);
+        this.enN = (ImageView) view.findViewById(r.g.user_gender);
+        this.enR = (ImageView) view.findViewById(r.g.reply);
+        this.enS = (TbRichTextView) view.findViewById(r.g.richText);
+        this.enT = (FrsPraiseView) view.findViewById(r.g.pb_item_praise_view);
+        this.enU = (ImageView) view.findViewById(r.g.pb_item_praise_bottomline);
+        this.enV = (PbGiftListView) view.findViewById(r.g.gift_list_view);
+        this.eom = (LinearLayout) view.findViewById(r.g.pb_item_location_container);
+        this.eoo = (TextView) view.findViewById(r.g.pb_item_location_address);
+        this.eon = (ImageView) view.findViewById(r.g.pb_item_location_img);
+        this.eop = (LinearLayout) view.findViewById(r.g.pb_reply_location_container);
+        this.eor = (TextView) view.findViewById(r.g.pb_reply_location_address);
+        this.eoq = (ImageView) view.findViewById(r.g.pb_reply_location_img);
+        this.enQ = (ImageView) view.findViewById(r.g.floor_owner);
+        this.enO = (TextView) view.findViewById(r.g.floor);
+        this.enP = (TextView) view.findViewById(r.g.time);
+        this.enW = (RelativeLayout) view.findViewById(r.g.pb_post_header_layout);
+        this.enZ = (SubPbLayout) view.findViewById(r.g.pb_post_footer_layout);
+        this.enX = (LinearLayout) view.findViewById(r.g.pb_subpb_layout_root);
+        this.enY = (ImageView) view.findViewById(r.g.pb_post_footer_layout_line_top);
+        this.enE = view;
+        this.enF = view.findViewById(r.g.new_pb_list_item_line_top);
+        this.enG = view.findViewById(r.g.new_pb_list_item_line_top_full);
+        this.enH = view.findViewById(r.g.new_pb_list_item_blank_top);
+        this.enS.IO();
+        this.enS.setImageViewStretch(true);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m9getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.enS.getPaddingLeft()) - this.enS.getPaddingRight()) - ((int) TbadkCoreApplication.m9getInst().getResources().getDimension(r.e.ds60)), i);
+        this.enS.setMaxImageWidth(min);
+        this.enS.setMaxImageHeight((int) (min * 1.618f));
+        this.enS.setTextSize(TbConfig.getContentSize());
+        if (z) {
+            ViewGroup.LayoutParams layoutParams = this.enK.getLayoutParams();
+            layoutParams.width = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(r.e.ds60);
+            this.enK.setLayoutParams(layoutParams);
+            this.enK.setVisibility(0);
+        } else {
+            ViewGroup.LayoutParams layoutParams2 = this.enK.getLayoutParams();
+            layoutParams2.width = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(r.e.ds30);
+            this.enK.setLayoutParams(layoutParams2);
+            this.enK.setVisibility(4);
+        }
+        this.enS.k(z2, false);
+        this.enS.setVoiceViewRes(r.h.voice_play_btn);
+        this.cgq = (UserIconBox) view.findViewById(r.g.user_icon_box);
+        this.ahw = (UserIconBox) view.findViewById(r.g.user_tshow_icon_box);
+        this.eod = (LinearLayout) view.findViewById(r.g.add_post_footer_layout);
+        if (z3) {
+            this.enW.setVisibility(8);
+            this.enR.setVisibility(8);
+            this.enS.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.enS.getLayoutParams();
+            layoutParams3.leftMargin = 0;
+            layoutParams3.rightMargin = 0;
+            layoutParams3.topMargin = 0;
+            layoutParams3.bottomMargin = 0;
+            this.enS.setLayoutParams(layoutParams3);
+            view.findViewById(r.g.pb_list_item_layout).setPadding(0, 0, 0, 0);
+            this.eog = (LinearLayout) view.findViewById(r.g.add_time_container);
+            this.eoe = (TextView) view.findViewById(r.g.add_time);
+            this.eoh = (Button) view.findViewById(r.g.manage_btn);
+            this.eog.setVisibility(0);
+        }
+        this.eoi = (LinearLayout) view.findViewById(r.g.addition_more_container);
+        this.eoj = (TextView) this.eoi.findViewById(r.g.addition_more);
+        this.eok = this.eoi.findViewById(r.g.addition_divider1);
+        this.eol = this.eoi.findViewById(r.g.addition_divider2);
+        this.eoa = (BaobaoTailView) view.findViewById(r.g.baobao_tail);
+        this.eos = (TextView) view.findViewById(r.g.pb_item_tail_content);
     }
 }

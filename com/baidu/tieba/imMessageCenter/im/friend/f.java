@@ -7,42 +7,42 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.im.data.a> Wt;
-    private View.OnClickListener aRb = new g(this);
-    private IMBlackListActivity dqs;
+    private ArrayList<com.baidu.tieba.im.data.a> WD;
+    private View.OnClickListener aSj = new g(this);
+    private IMBlackListActivity drP;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(IMBlackListActivity iMBlackListActivity) {
-        this.dqs = iMBlackListActivity;
+        this.drP = iMBlackListActivity;
     }
 
     public void setData(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.Wt = arrayList;
+        this.WD = arrayList;
     }
 
     public void b(com.baidu.tieba.im.data.a aVar) {
-        if (this.Wt != null) {
-            this.Wt.remove(aVar);
+        if (this.WD != null) {
+            this.WD.remove(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Wt != null) {
-            return this.Wt.size();
+        if (this.WD != null) {
+            return this.WD.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.Wt != null) {
-            return this.Wt.get(i);
+        if (this.WD != null) {
+            return this.WD.get(i);
         }
         return null;
     }
@@ -62,51 +62,51 @@ public class f extends BaseAdapter {
             aVar = null;
         }
         if (aVar != null) {
-            return aVar.aAV;
+            return aVar.aAy;
         }
         return null;
     }
 
-    private a ayl() {
+    private a ayJ() {
         a aVar = new a(this, null);
-        aVar.aAV = LayoutInflater.from(this.dqs.getPageContext().getContext()).inflate(t.h.im_black_list_item, (ViewGroup) null);
-        aVar.dqu = (HeadImageView) aVar.aAV.findViewById(t.g.header_view);
-        aVar.dqu.setIsRound(true);
-        aVar.aVl = (TextView) aVar.aAV.findViewById(t.g.user_name);
-        aVar.dqv = (Button) aVar.aAV.findViewById(t.g.remove_button);
-        aVar.aAV.setTag(aVar);
-        aVar.dqv.setOnClickListener(this.aRb);
+        aVar.aAy = LayoutInflater.from(this.drP.getPageContext().getContext()).inflate(r.h.im_black_list_item, (ViewGroup) null);
+        aVar.drR = (HeadImageView) aVar.aAy.findViewById(r.g.header_view);
+        aVar.drR.setIsRound(true);
+        aVar.aVU = (TextView) aVar.aAy.findViewById(r.g.user_name);
+        aVar.drS = (Button) aVar.aAy.findViewById(r.g.remove_button);
+        aVar.aAy.setTag(aVar);
+        aVar.drS.setOnClickListener(this.aSj);
         return aVar;
     }
 
     private a a(Object obj, com.baidu.tieba.im.data.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = ayl();
+            aVar2 = ayJ();
         } else {
             aVar2 = (a) obj;
         }
-        a(aVar2, aVar.arV());
-        aVar2.aVl.setText(aVar.getUserName());
-        aVar2.dqv.setTag(aVar);
-        this.dqs.getLayoutMode().x(aVar2.aAV);
+        a(aVar2, aVar.asu());
+        aVar2.aVU.setText(aVar.getUserName());
+        aVar2.drS.setTag(aVar);
+        this.drP.getLayoutMode().x(aVar2.aAy);
         return aVar2;
     }
 
     private void a(a aVar, String str) {
         if (str != null) {
-            aVar.dqu.setTag(str);
-            aVar.dqu.c(str, 12, false);
+            aVar.drR.setTag(str);
+            aVar.drR.c(str, 12, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public View aAV;
-        public TextView aVl;
-        public HeadImageView dqu;
-        public Button dqv;
+        public View aAy;
+        public TextView aVU;
+        public HeadImageView drR;
+        public Button drS;
 
         private a() {
         }

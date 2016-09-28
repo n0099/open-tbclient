@@ -14,13 +14,12 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tbadk.plugins.XiaoyingUtil;
-import com.baidu.tbadk.plugins.g;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.cz;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.p;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import org.json.JSONArray;
@@ -28,73 +27,73 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
     public static void a(p pVar, TbPageContext tbPageContext) {
-        if (bn.al(tbPageContext.getPageActivity()) && pVar != null && pVar.aLP() != null && tbPageContext != null) {
-            AntiData qf = pVar.qf();
-            if (qf != null) {
-                if (AntiHelper.e(qf) || AntiHelper.f(qf) || AntiHelper.g(qf)) {
-                    qf.setBlock_forum_name(pVar.aLP().getName());
-                    qf.setBlock_forum_id(pVar.aLP().getId());
-                    qf.setUser_name(pVar.getUserData().getUserName());
-                    qf.setUser_id(pVar.getUserData().getUserId());
-                    if (AntiHelper.a(tbPageContext.getPageActivity(), qf, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
+        if (bm.ak(tbPageContext.getPageActivity()) && pVar != null && pVar.aMr() != null && tbPageContext != null) {
+            AntiData qq = pVar.qq();
+            if (qq != null) {
+                if (AntiHelper.e(qq) || AntiHelper.f(qq) || AntiHelper.g(qq)) {
+                    qq.setBlock_forum_name(pVar.aMr().getName());
+                    qq.setBlock_forum_id(pVar.aMr().getId());
+                    qq.setUser_name(pVar.getUserData().getUserName());
+                    qq.setUser_id(pVar.getUserData().getUserId());
+                    if (AntiHelper.a(tbPageContext.getPageActivity(), qq, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
                         return;
                     }
                 }
-                if (!TextUtils.isEmpty(qf.getPollMessage())) {
-                    k.showToast(tbPageContext.getPageActivity(), qf.getPollMessage());
+                if (!TextUtils.isEmpty(qq.getPollMessage())) {
+                    k.showToast(tbPageContext.getPageActivity(), qq.getPollMessage());
                     return;
                 }
             }
             PostPrefixData postPrefixData = null;
-            if (pVar.aLP() != null) {
-                postPrefixData = pVar.aLP().getPrefixData();
+            if (pVar.aMr() != null) {
+                postPrefixData = pVar.aMr().getPrefixData();
             }
             int i = 0;
             if (pVar.getUserData() != null) {
                 i = pVar.getUserData().getIsMem();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteVoteActivityConfig(tbPageContext.getPageActivity(), pVar.aLP().getId(), pVar.aLP().getName(), qf, 13003, postPrefixData, i)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteVoteActivityConfig(tbPageContext.getPageActivity(), pVar.aMr().getId(), pVar.aMr().getName(), qq, 13003, postPrefixData, i)));
         }
     }
 
     public static void b(p pVar, TbPageContext tbPageContext) {
         TiebaStatic.log("c10798");
-        if (bn.al(tbPageContext.getPageActivity()) && pVar != null && tbPageContext != null) {
+        if (bm.ak(tbPageContext.getPageActivity()) && pVar != null && tbPageContext != null) {
             if (XiaoyingUtil.isXiaoyingInstalled()) {
                 if (XiaoyingUtil.isXiaoyingForbidden()) {
-                    XiaoyingUtil.showGoPluginDetailDialog(tbPageContext, tbPageContext.getPageActivity().getString(t.j.plugin_video_not_active), tbPageContext.getPageActivity().getString(t.j.setup));
+                    XiaoyingUtil.showGoPluginDetailDialog(tbPageContext, tbPageContext.getPageActivity().getString(r.j.plugin_video_not_active), tbPageContext.getPageActivity().getString(r.j.setup));
                     return;
                 }
-                AntiData qf = pVar.qf();
-                if (qf != null && !StringUtils.isNull(qf.getVideo_message())) {
-                    k.showToast(tbPageContext.getPageActivity(), qf.getVideo_message());
+                AntiData qq = pVar.qq();
+                if (qq != null && !StringUtils.isNull(qq.getVideo_message())) {
+                    k.showToast(tbPageContext.getPageActivity(), qq.getVideo_message());
                     return;
                 }
                 boolean z = false;
                 if (pVar != null && pVar.getUserData() != null && pVar.getUserData().getGodUserData() != null && (pVar.getUserData().getGodUserData().getType() == 2 || pVar.getUserData().getGodUserData().getType() == 1)) {
                     z = true;
                 }
-                if (pVar != null && pVar.aLP() != null) {
-                    XiaoyingUtil.startXiaoying(tbPageContext.getPageActivity(), z, pVar.aLP().getId(), pVar.aLP().getName());
+                if (pVar != null && pVar.aMr() != null) {
+                    XiaoyingUtil.startXiaoying(tbPageContext.getPageActivity(), z, pVar.aMr().getId(), pVar.aMr().getName());
                     return;
                 }
                 return;
             }
-            XiaoyingUtil.showGoPluginDetailDialog(tbPageContext, tbPageContext.getPageActivity().getString(t.j.plugin_video_install_tips), tbPageContext.getPageActivity().getString(t.j.plugin_go_install));
+            XiaoyingUtil.showGoPluginDetailDialog(tbPageContext, tbPageContext.getPageActivity().getString(r.j.plugin_video_install_tips), tbPageContext.getPageActivity().getString(r.j.plugin_go_install));
         }
     }
 
     public static void a(p pVar, TbPageContext tbPageContext, com.baidu.tieba.frs.e.a aVar) {
-        if (bn.al(tbPageContext.getPageActivity()) && pVar != null && tbPageContext != null) {
+        if (bm.ak(tbPageContext.getPageActivity()) && pVar != null && tbPageContext != null) {
             boolean z = false;
             String str = "";
-            if (pVar.aLP() != null && pVar.aLP().getAnchorPower() != null) {
-                z = pVar.aLP().getCanAddPhotoLivePost();
-                str = pVar.aLP().getAnchorPower().can_add_live_post_msg;
+            if (pVar.aMr() != null && pVar.aMr().getAnchorPower() != null) {
+                z = pVar.aMr().getCanAddPhotoLivePost();
+                str = pVar.aMr().getAnchorPower().can_add_live_post_msg;
             }
             if (z) {
                 a(pVar, tbPageContext, aVar, 4);
-                com.baidu.tbadk.core.sharedPref.b.tS().putBoolean("isAlreadyShowIcon" + TbadkCoreApplication.getCurrentAccount(), true);
+                com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("isAlreadyShowIcon" + TbadkCoreApplication.getCurrentAccount(), true);
                 return;
             }
             d(tbPageContext, str);
@@ -122,10 +121,10 @@ public class b {
                         optString = optString.replace("_", "");
                     }
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                    aVar.cB(optString);
-                    aVar.a(t.j.view, new c(optString2, tbPageContext));
-                    aVar.b(t.j.cancel, new d());
-                    aVar.b(tbPageContext).sX();
+                    aVar.cD(optString);
+                    aVar.a(r.j.view, new c(optString2, tbPageContext));
+                    aVar.b(r.j.cancel, new d());
+                    aVar.b(tbPageContext).tm();
                 }
             }
         }
@@ -134,53 +133,37 @@ public class b {
     public static void b(p pVar, TbPageContext tbPageContext, com.baidu.tieba.frs.e.a aVar) {
         if (tbPageContext != null) {
             if (!TbadkCoreApplication.isLogin()) {
-                if (pVar != null && pVar.qf() != null) {
-                    pVar.qf().setIfpost(1);
+                if (pVar != null && pVar.qq() != null) {
+                    pVar.qq().setIfpost(1);
                 }
-                bn.aj(tbPageContext.getPageActivity());
+                bm.ai(tbPageContext.getPageActivity());
             } else if (pVar != null) {
                 a(pVar, tbPageContext, aVar, 0);
             }
         }
     }
 
-    public static void M(FrsActivity frsActivity) {
+    public static void O(FrsActivity frsActivity) {
         if (!TbadkCoreApplication.isLogin()) {
-            bn.aj(frsActivity.getPageContext().getPageActivity());
+            bm.ai(frsActivity.getPageContext().getPageActivity());
             return;
         }
-        frsActivity.jL(frsActivity.getPageContext().getResources().getString(t.j.Waiting));
-        frsActivity.aaY().jO(frsActivity.aaR().aLP().getId());
+        frsActivity.jS(frsActivity.getPageContext().getResources().getString(r.j.Waiting));
+        frsActivity.abl().jV(frsActivity.abe().aMr().getId());
     }
 
     public static void a(p pVar, TbPageContext tbPageContext, com.baidu.tieba.frs.e.a aVar, int i) {
-        if (pVar != null && pVar.aLP() != null && tbPageContext != null && aVar != null) {
+        if (pVar != null && pVar.aMr() != null && tbPageContext != null && aVar != null) {
             int i2 = 0;
             if (pVar.getUserData() != null) {
                 i2 = pVar.getUserData().getIsMem();
             }
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(tbPageContext.getPageActivity(), i, pVar.aLP().getId(), pVar.aLP().getName(), null, null, 0, pVar.qf(), 13003, false, false, null, false, false, null, null, pVar.aLP().getPrefixData(), i2);
-            if (cz.acl().hV(1) != null) {
-                writeActivityConfig.setCategroyId(aVar.aeK());
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(tbPageContext.getPageActivity(), i, pVar.aMr().getId(), pVar.aMr().getName(), null, null, 0, pVar.qq(), 13003, false, false, null, false, false, null, null, pVar.aMr().getPrefixData(), i2);
+            if (cz.acy().hZ(1) != null) {
+                writeActivityConfig.setCategroyId(aVar.aeY());
             }
-            boolean GE = g.GE();
-            if (!pVar.getUserData().canPostHi()) {
-                GE = false;
-            }
-            writeActivityConfig.getIntent().putExtra(WriteActivityConfig.TOGETHERHI_SHOW, GE);
+            writeActivityConfig.addHotTopicInfo(pVar.aMr().getPostTopicData());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
-        }
-    }
-
-    public static void c(p pVar, TbPageContext tbPageContext, com.baidu.tieba.frs.e.a aVar) {
-        if (bn.al(tbPageContext.getPageActivity()) && g.f(tbPageContext) && pVar != null && pVar.aLP() != null) {
-            if (pVar.getUserData() != null) {
-                pVar.getUserData().getIsMem();
-            }
-            if (cz.acl().hV(1) != null) {
-                aVar.aeK();
-            }
-            g.i(tbPageContext.getPageActivity(), 12016);
         }
     }
 }

@@ -7,56 +7,56 @@ import android.content.Intent;
 import com.baidu.tbadk.coreExtra.service.LocationReportService;
 /* loaded from: classes.dex */
 public class a {
-    public static int Mo = 0;
-    public static int Mp = 1;
-    public static int Mq = 2;
-    private AlarmManager Ml;
-    private PendingIntent Mm;
-    private long Mn;
+    public static int Mn = 0;
+    public static int Mo = 1;
+    public static int Mp = 2;
+    private AlarmManager Mk;
+    private PendingIntent Ml;
+    private long Mm;
     private Context mContext;
 
     public a(Context context) {
         if (context != null) {
             this.mContext = context;
-            this.Mm = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
-            this.Ml = (AlarmManager) this.mContext.getSystemService("alarm");
+            this.Ml = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
+            this.Mk = (AlarmManager) this.mContext.getSystemService("alarm");
         }
     }
 
     public void a(int i, int i2, long j, long j2) {
-        if (this.Ml != null) {
-            this.Mn = j2;
-            if (i == Mo) {
-                this.Ml.set(i2, j, this.Mm);
+        if (this.Mk != null) {
+            this.Mm = j2;
+            if (i == Mn) {
+                this.Mk.set(i2, j, this.Ml);
+            } else if (i == Mo) {
+                this.Mk.setRepeating(i2, j, j2, this.Ml);
             } else if (i == Mp) {
-                this.Ml.setRepeating(i2, j, j2, this.Mm);
-            } else if (i == Mq) {
-                this.Ml.setInexactRepeating(i2, j, j2, this.Mm);
+                this.Mk.setInexactRepeating(i2, j, j2, this.Ml);
             } else {
-                this.Ml.set(i2, j, this.Mm);
+                this.Mk.set(i2, j, this.Ml);
             }
         }
     }
 
     public void cancel() {
-        if (this.Ml != null && this.Mm != null) {
-            this.Ml.cancel(this.Mm);
+        if (this.Mk != null && this.Ml != null) {
+            this.Mk.cancel(this.Ml);
         }
     }
 
     public void ns() {
-        if (this.Ml != null && this.Mm != null) {
-            if (this.Mn <= 0) {
-                this.Mn = 3600000L;
+        if (this.Mk != null && this.Ml != null) {
+            if (this.Mm <= 0) {
+                this.Mm = 3600000L;
             }
-            a(Mp, 1, System.currentTimeMillis() + this.Mn, this.Mn);
+            a(Mo, 1, System.currentTimeMillis() + this.Mm, this.Mm);
         }
     }
 
     public long nt() {
-        if (this.Mn <= 0) {
-            this.Mn = 3600000L;
+        if (this.Mm <= 0) {
+            this.Mm = 3600000L;
         }
-        return this.Mn;
+        return this.Mm;
     }
 }

@@ -1,16 +1,14 @@
 package com.baidu.tbadk.editortools.d;
-
-import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
-public abstract class a<T> extends com.baidu.adp.base.e<T> {
-    public abstract boolean Df();
+public class a {
+    public String addr;
+    public boolean avA;
+    public int state;
 
-    public abstract String Dg();
-
-    public abstract WriteData fz(String str);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public a(com.baidu.adp.base.h<T> hVar) {
-        super(hVar);
+    public a(int i, boolean z, String str) {
+        this.avA = true;
+        this.state = i;
+        this.avA = z;
+        this.addr = str;
     }
 }

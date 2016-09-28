@@ -17,38 +17,39 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.a;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
 /* loaded from: classes.dex */
 public class u extends RelativeLayout implements View.OnClickListener {
-    private static final String aqN = TbadkCoreApplication.m9getInst().getString(t.j.original_img_look);
-    private b aoB;
-    private boolean aoz;
-    private boolean aps;
-    protected com.baidu.tbadk.widget.a aqO;
-    protected TextView aqP;
-    protected TextView aqQ;
-    protected SubsamplingScaleImageView aqR;
-    private a aqS;
-    private boolean aqT;
-    private boolean aqU;
-    private boolean aqV;
-    private ImageUrlData aqW;
-    private boolean aqX;
-    private boolean aqY;
-    private boolean aqZ;
-    private TextView ara;
-    private com.baidu.tbadk.img.b arb;
-    private Runnable arc;
-    private SubsamplingScaleImageView.OnImageEventListener ard;
+    private static final String aqw = TbadkCoreApplication.m9getInst().getString(r.j.original_img_look);
+    private boolean aoZ;
+    private boolean aoh;
+    private b aoj;
+    protected TextView aqA;
+    protected SubsamplingScaleImageView aqB;
+    private a aqC;
+    private boolean aqD;
+    private boolean aqE;
+    private boolean aqF;
+    private ImageUrlData aqG;
+    private boolean aqH;
+    private boolean aqI;
+    private boolean aqJ;
+    private TextView aqK;
+    private com.baidu.tbadk.img.b aqL;
+    private Runnable aqM;
+    private SubsamplingScaleImageView.OnImageEventListener aqN;
+    protected com.baidu.tbadk.widget.a aqx;
+    protected TextView aqy;
+    protected TextView aqz;
     protected Context mContext;
     private int mMaxHeight;
     protected ProgressBar mProgressBar;
@@ -62,255 +63,283 @@ public class u extends RelativeLayout implements View.OnClickListener {
 
     /* loaded from: classes.dex */
     public interface b {
-        void Bl();
+        void Bp();
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.aqP != null) {
-                av.k(this.aqP, t.f.btn_percent_yuantu);
-                av.b(this.aqP, t.d.cp_cont_g, 1, 0);
+            if (this.aqy != null) {
+                av.k(this.aqy, r.f.btn_percent_yuantu);
+                av.b(this.aqy, r.d.cp_cont_g, 1, 0);
             }
-            if (this.aqQ != null) {
-                av.l(this.aqQ, t.d.common_color_10022);
-                av.b(this.aqQ, t.d.cp_cont_g, 1, 0);
+            if (this.aqz != null) {
+                av.l(this.aqz, r.d.common_color_10022);
+                av.b(this.aqz, r.d.cp_cont_g, 1, 0);
             }
             this.mSkinType = i;
         }
     }
 
     public void setHeadImage(boolean z) {
-        if (this.aqO != null) {
-            this.aqO.setIsHeadImage(z);
+        if (this.aqx != null) {
+            this.aqx.setIsHeadImage(z);
         }
     }
 
     public void setCallback(a aVar) {
-        this.aqS = aVar;
+        this.aqC = aVar;
     }
 
     public u(Context context) {
         super(context);
         this.mSkinType = 3;
         this.mProgressBar = null;
-        this.aqO = null;
+        this.aqx = null;
         this.mContext = null;
-        this.aqS = null;
-        this.aoz = false;
-        this.aqV = false;
-        this.aqX = false;
-        this.aqY = false;
-        this.aps = false;
-        this.aqZ = false;
-        this.ara = null;
-        this.arc = new v(this);
-        this.ard = new x(this);
+        this.aqC = null;
+        this.aoh = false;
+        this.aqF = false;
+        this.aqH = false;
+        this.aqI = false;
+        this.aoZ = false;
+        this.aqJ = false;
+        this.aqK = null;
+        this.aqM = new v(this);
+        this.aqN = new x(this);
         this.mContext = context;
-        this.arb = new com.baidu.tbadk.img.b();
+        this.aqL = new com.baidu.tbadk.img.b();
         init();
     }
 
     public com.baidu.tbadk.widget.a getImageView() {
-        return this.aqO;
+        return this.aqx;
     }
 
     public void setGifSetListener(a.d dVar) {
-        this.aqO.setGifSetListener(dVar);
+        this.aqx.setGifSetListener(dVar);
     }
 
     public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.aqO.setImageOnClickListener(onClickListener);
-        this.aqR.setOnClickListener(onClickListener);
+        this.aqx.setImageOnClickListener(onClickListener);
+        this.aqB.setOnClickListener(onClickListener);
     }
 
     public void setImageOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.aqO.setImageOnLongClickListener(onLongClickListener);
-        this.aqR.setOnLongClickListener(onLongClickListener);
+        this.aqx.setImageOnLongClickListener(onLongClickListener);
+        this.aqB.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnSizeChangedListener(a.e eVar) {
-        this.aqO.setOnSizeChangedListener(eVar);
+        this.aqx.setOnSizeChangedListener(new y(this, eVar));
     }
 
     protected void init() {
         this.vi = com.baidu.adp.lib.util.k.K(this.mContext);
-        this.mMaxHeight = com.baidu.adp.lib.util.k.L(this.mContext) - ((int) this.mContext.getResources().getDimension(t.e.ds166));
+        this.mMaxHeight = com.baidu.adp.lib.util.k.L(this.mContext) - ((int) this.mContext.getResources().getDimension(r.e.ds166));
         ViewGroup.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        this.aqO = new com.baidu.tbadk.widget.a(this.mContext);
-        this.aqO.setLayoutParams(layoutParams);
-        addView(this.aqO);
-        this.aqR = new SubsamplingScaleImageView(this.mContext);
-        this.aqR.setMaxScale(50.0f);
-        this.aqR.setOnImageEventListener(this.ard);
-        this.aqR.setVisibility(4);
-        addView(this.aqR, layoutParams);
+        this.aqx = new com.baidu.tbadk.widget.a(this.mContext);
+        this.aqx.setLayoutParams(layoutParams);
+        addView(this.aqx);
+        this.aqB = new SubsamplingScaleImageView(this.mContext);
+        this.aqB.setMaxScale(50.0f);
+        this.aqB.setOnImageEventListener(this.aqN);
+        this.aqB.setVisibility(4);
+        addView(this.aqB, layoutParams);
         this.mProgressBar = new ProgressBar(this.mContext, null, 16843399);
-        this.mProgressBar.setIndeterminateDrawable(this.mContext.getResources().getDrawable(t.f.progressbar));
+        this.mProgressBar.setIndeterminateDrawable(this.mContext.getResources().getDrawable(r.f.progressbar));
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.addRule(13);
         this.mProgressBar.setLayoutParams(layoutParams2);
         this.mProgressBar.setIndeterminate(true);
         addView(this.mProgressBar);
-        Be();
-        this.aqP = new TextView(this.mContext);
-        av.k(this.aqP, t.f.btn_percent_yuantu);
-        this.aqP.setText(t.j.original_img_look);
-        this.aqP.setTextSize(0, getResources().getDimensionPixelSize(t.e.fontsize28));
-        av.b(this.aqP, t.d.cp_cont_g, 1, 0);
-        this.aqP.setGravity(17);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(t.e.ds20);
-        this.aqP.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        this.aqP.setMinWidth(getResources().getDimensionPixelSize(t.e.ds220));
-        this.aqP.setMinHeight(getResources().getDimensionPixelSize(t.e.ds68));
+        Bh();
+        this.aqy = new TextView(this.mContext);
+        av.k(this.aqy, r.f.btn_percent_yuantu);
+        this.aqy.setText(r.j.original_img_look);
+        this.aqy.setTextSize(0, getResources().getDimensionPixelSize(r.e.fontsize28));
+        av.b(this.aqy, r.d.cp_cont_g, 1, 0);
+        this.aqy.setGravity(17);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(r.e.ds20);
+        this.aqy.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        this.aqy.setMinWidth(getResources().getDimensionPixelSize(r.e.ds220));
+        this.aqy.setMinHeight(getResources().getDimensionPixelSize(r.e.ds68));
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams3.bottomMargin = getResources().getDimensionPixelSize(t.e.fontsize40);
+        layoutParams3.bottomMargin = getResources().getDimensionPixelSize(r.e.fontsize40);
         layoutParams3.addRule(14);
         layoutParams3.addRule(12);
-        this.aqP.setOnClickListener(this);
-        this.aqP.setVisibility(8);
-        addView(this.aqP, layoutParams3);
-        Bf();
+        this.aqy.setOnClickListener(this);
+        this.aqy.setVisibility(8);
+        addView(this.aqy, layoutParams3);
+        Bi();
     }
 
-    private void Be() {
-        this.ara = new TextView(this.mContext);
-        this.ara.setBackgroundResource(t.f.bg_url_drag_imagview_fade_view);
+    private void Bh() {
+        this.aqK = new TextView(this.mContext);
+        this.aqK.setBackgroundResource(r.f.bg_url_drag_imagview_fade_view);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.height = getResources().getDimensionPixelSize(t.e.ds180);
+        layoutParams.height = getResources().getDimensionPixelSize(r.e.ds180);
         layoutParams.addRule(12);
-        addView(this.ara, layoutParams);
-        this.ara.setVisibility(8);
+        addView(this.aqK, layoutParams);
+        this.aqK.setVisibility(8);
     }
 
-    private void Bf() {
-        this.aqQ = new TextView(this.mContext);
-        av.l(this.aqQ, t.d.common_color_10022);
-        this.aqQ.setText(t.j.goto_pb_floor);
-        this.aqQ.setTextSize(0, getResources().getDimensionPixelSize(t.e.fontsize24));
-        av.b(this.aqQ, t.d.cp_cont_g, 1, 0);
-        this.aqQ.setCompoundDrawablePadding(com.baidu.adp.lib.util.k.dip2px(this.mContext, 4.0f));
-        this.aqQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, av.getDrawable(t.f.icon_see_arrow), (Drawable) null);
-        this.aqQ.setGravity(17);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(t.e.ds20);
-        this.aqQ.setPadding(dimensionPixelSize * 3, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+    private void Bi() {
+        this.aqz = new TextView(this.mContext);
+        av.l(this.aqz, r.d.common_color_10022);
+        this.aqz.setText(r.j.goto_pb_floor);
+        this.aqz.setTextSize(0, getResources().getDimensionPixelSize(r.e.fontsize24));
+        av.b(this.aqz, r.d.cp_cont_g, 1, 0);
+        this.aqz.setCompoundDrawablePadding(com.baidu.adp.lib.util.k.dip2px(this.mContext, 4.0f));
+        this.aqz.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, av.getDrawable(r.f.icon_see_arrow), (Drawable) null);
+        this.aqz.setGravity(17);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(r.e.ds20);
+        this.aqz.setPadding(dimensionPixelSize * 3, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.bottomMargin = getResources().getDimensionPixelSize(t.e.ds30);
-        layoutParams.rightMargin = getResources().getDimensionPixelSize(t.e.ds10);
-        layoutParams.leftMargin = getResources().getDimensionPixelSize(t.e.ds20);
-        layoutParams.addRule(1, this.aqP.getId());
+        layoutParams.bottomMargin = getResources().getDimensionPixelSize(r.e.ds30);
+        layoutParams.rightMargin = getResources().getDimensionPixelSize(r.e.ds10);
+        layoutParams.leftMargin = getResources().getDimensionPixelSize(r.e.ds20);
+        layoutParams.addRule(1, this.aqy.getId());
         layoutParams.addRule(12);
         layoutParams.addRule(11);
-        this.aqQ.setOnClickListener(this);
-        this.aqQ.setMinHeight(getResources().getDimensionPixelSize(t.e.ds100));
-        addView(this.aqQ, layoutParams);
-        this.aqQ.setVisibility(8);
+        this.aqz.setOnClickListener(this);
+        this.aqz.setMinHeight(getResources().getDimensionPixelSize(r.e.ds100));
+        addView(this.aqz, layoutParams);
+        this.aqz.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bg() {
-        if (this.aqQ != null) {
-            boolean z = this.aqT || this.aqU;
-            if (!this.aps && z && this.aqW != null && this.aqW.threadId > 0 && this.aqW.postId > 0 && this.aqW.mThreadType != 33) {
-                this.aqQ.setVisibility(0);
-                if (this.ara != null) {
-                    this.ara.setVisibility(0);
+    public void Bj() {
+        if (this.aqz != null) {
+            boolean z = this.aqD || this.aqE;
+            if (!this.aoZ && z && this.aqG != null && this.aqG.threadId > 0 && this.aqG.postId > 0 && this.aqG.mThreadType != 33) {
+                this.aqz.setVisibility(0);
+                if (this.aqK != null) {
+                    this.aqK.setVisibility(0);
                     return;
                 }
                 return;
             }
-            this.aqQ.setVisibility(8);
-            if (this.ara != null) {
-                this.ara.setVisibility(8);
+            this.aqz.setVisibility(8);
+            if (this.aqK != null) {
+                this.aqK.setVisibility(8);
             }
         }
     }
 
-    private void Bh() {
-        if (this.aqQ != null) {
-            this.aqQ.setVisibility(8);
-            if (this.ara != null) {
-                this.ara.setVisibility(8);
+    private void Bk() {
+        if (this.aqz != null) {
+            this.aqz.setVisibility(8);
+            if (this.aqK != null) {
+                this.aqK.setVisibility(8);
             }
         }
     }
 
-    public void bk(boolean z) {
-        this.aps = z;
-        if (this.aps) {
-            Bh();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Bl() {
+        if ((this.aqD || this.aqE) && this.aqG != null && this.aqG.mPicType == 1 && !TextUtils.isEmpty(this.aqG.mTagName)) {
+            if (this.aqA != null) {
+                this.aqA.setVisibility(8);
+                this.aqA = null;
+            }
+            this.aqA = new TextView(this.mContext);
+            this.aqA.setText(this.aqG.mTagName);
+            this.aqA.setTextSize(0, getResources().getDimensionPixelSize(r.e.fontsize26));
+            av.b(this.aqA, r.d.common_color_10013, 1, 0);
+            av.l(this.aqA, r.d.common_color_10215);
+            this.aqA.setAlpha(0.75f);
+            this.aqA.setIncludeFontPadding(false);
+            this.aqA.setGravity(17);
+            int e = com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds2);
+            this.aqA.setPadding(e, e, e, e);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.bottomMargin = this.aqx.getBottomOffset();
+            layoutParams.leftMargin = this.aqx.getLeftOffset();
+            layoutParams.addRule(12);
+            layoutParams.addRule(9);
+            addView(this.aqA, layoutParams);
+            this.aqA.setVisibility(0);
+        }
+    }
+
+    public void bj(boolean z) {
+        this.aoZ = z;
+        if (this.aoZ) {
+            Bk();
         } else {
-            Bg();
+            Bj();
         }
     }
 
-    public void p(String str, boolean z) {
-        this.aqO.setTag(str);
-        this.aqO.setLoadBigImage(false);
-        this.aqO.setImageDrawable(null);
-        this.aqT = false;
-        this.aqU = false;
-        boolean eQ = eQ(str);
-        this.aqX = bp(true);
-        if (!this.aqX) {
-            q(str, eQ);
+    public void q(String str, boolean z) {
+        this.aqx.setTag(str);
+        this.aqx.setLoadBigImage(false);
+        this.aqx.setImageDrawable(null);
+        this.aqD = false;
+        this.aqE = false;
+        boolean eT = eT(str);
+        this.aqH = bo(true);
+        if (!this.aqH) {
+            r(str, eT);
         }
-        if (eQ) {
-            r(str, z);
+        if (eT) {
+            s(str, z);
         }
     }
 
-    private boolean bm(boolean z) {
-        if (!this.aqY || z) {
-            this.aqY = true;
-            if (!this.aqX || this.aqW == null || StringUtils.isNull(this.aqW.originalUrl, true) || this.aqW.originalSize < 0 || this.aqR.isImageLoaded() || Build.VERSION.SDK_INT < 10) {
+    private boolean bl(boolean z) {
+        if (!this.aqI || z) {
+            this.aqI = true;
+            if (!this.aqH || this.aqG == null || StringUtils.isNull(this.aqG.originalUrl, true) || this.aqG.originalSize < 0 || this.aqB.isImageLoaded() || Build.VERSION.SDK_INT < 10) {
                 return false;
             }
-            String dC = bc.dC(this.aqW.originalUrl);
-            this.aqR.setImage(ImageSource.uri(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + az.vd().dx(dC) + "/" + dC));
-            this.aqR.setVisibility(0);
+            String dF = bb.dF(this.aqG.originalUrl);
+            this.aqB.setImage(ImageSource.uri(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ay.vs().dz(dF) + "/" + dF));
+            this.aqB.setVisibility(0);
             return true;
         }
         return false;
     }
 
-    public void Bi() {
-        bm(false);
+    public void Bm() {
+        bl(false);
     }
 
-    private boolean eQ(String str) {
-        return com.baidu.adp.lib.util.i.gm() || com.baidu.tbadk.core.util.resourceLoaderProc.c.dQ(str);
+    private boolean eT(String str) {
+        return com.baidu.adp.lib.util.i.gm() || com.baidu.tbadk.core.util.resourceLoaderProc.c.dT(str);
     }
 
-    private void q(String str, boolean z) {
-        if (this.aqW == null) {
-            bn(z);
-        } else if (com.baidu.tbadk.core.util.resourceLoaderProc.c.dQ(str)) {
-            bn(z);
-        } else if (!TextUtils.isEmpty(this.aqW.imageUrl)) {
-            com.baidu.adp.lib.g.c.eA().a(this.aqW.imageUrl, this.aqW.urlType, new y(this, z), 0, 0, true, null, new Object[0]);
+    private void r(String str, boolean z) {
+        if (this.aqG == null) {
+            bm(z);
+        } else if (com.baidu.tbadk.core.util.resourceLoaderProc.c.dT(str)) {
+            bm(z);
+        } else if (!TextUtils.isEmpty(this.aqG.imageUrl)) {
+            com.baidu.adp.lib.g.c.eA().a(this.aqG.imageUrl, this.aqG.urlType, new z(this, z), 0, 0, true, null, new Object[0]);
         } else {
-            bn(z);
+            bm(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bn(boolean z) {
+    public void bm(boolean z) {
         if (!z) {
             this.mProgressBar.setVisibility(8);
+            this.aqx.Hs();
         }
     }
 
-    private void r(String str, boolean z) {
+    private void s(String str, boolean z) {
         e(str, z, false);
     }
 
     private void e(String str, boolean z, boolean z2) {
-        if (eR(str)) {
-            if (z2 || (!this.aqV && !this.aqU)) {
-                if (!z2 || !bm(true)) {
+        if (eU(str)) {
+            if (z2 || (!this.aqF && !this.aqE)) {
+                if (!z2 || !bl(true)) {
                     this.mProgressBar.setVisibility(0);
-                    this.aqV = true;
-                    com.baidu.adp.lib.g.c.eA().a(str, 27, new z(this), 0, 0, false, null, Boolean.valueOf(z), this.aqO.getImageData(), Boolean.valueOf(this.aoz));
+                    this.aqF = true;
+                    com.baidu.adp.lib.g.c.eA().a(str, 27, new aa(this), 0, 0, false, null, Boolean.valueOf(z), this.aqx.getImageData(), Boolean.valueOf(this.aoh));
                     return;
                 }
                 return;
@@ -323,94 +352,95 @@ public class u extends RelativeLayout implements View.OnClickListener {
         imageFileInfo.setTempFile(true);
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.F(this.vi, this.mMaxHeight));
-        com.baidu.adp.widget.a.a a2 = this.arb.a(imageFileInfo, false);
+        com.baidu.adp.widget.a.a a2 = this.aqL.a(imageFileInfo, false);
         if (a2 != null) {
-            this.aqU = true;
+            this.aqE = true;
             this.mProgressBar.setVisibility(8);
             b(a2);
             return;
         }
-        this.arb.a(imageFileInfo, new aa(this), false);
+        this.aqL.a(imageFileInfo, new ab(this), false);
     }
 
-    private boolean eR(String str) {
+    private boolean eU(String str) {
         return !TextUtils.isEmpty(str) && (str.startsWith("http://") || str.startsWith("https://"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            if (this.aqS != null) {
-                this.aqS.i(aVar.getUrl(), aVar.ka());
+            if (this.aqC != null) {
+                this.aqC.i(aVar.getUrl(), aVar.ka());
             }
             Bitmap jV = aVar.jV();
             if (jV == null) {
-                if (!this.aqT) {
-                    this.aqO.Ht();
+                if (!this.aqD) {
+                    this.aqx.Hs();
                     return;
                 }
-                this.aqU = false;
-                q(null, false);
+                this.aqE = false;
+                r(null, false);
                 return;
             }
             if (aVar.cY()) {
-                this.aqO.a(aVar.ka(), jV);
-                this.aqZ = false;
-                this.aqP.setVisibility(8);
+                this.aqx.a(aVar.ka(), jV);
+                this.aqJ = false;
+                this.aqy.setVisibility(8);
             } else {
-                this.aqO.setImageBitmap(jV);
-                this.aqO.setImageData(aVar.ka());
-                if (this.aqZ) {
-                    this.aqP.setVisibility(0);
+                this.aqx.setImageBitmap(jV);
+                this.aqx.setImageData(aVar.ka());
+                if (this.aqJ) {
+                    this.aqy.setVisibility(0);
                 }
             }
-            Bg();
-            this.aqO.setLoadBigImage(true);
+            Bj();
+            Bl();
+            this.aqx.setLoadBigImage(true);
         }
     }
 
     public void setGifMaxUseableMem(int i) {
-        this.aqO.setGifMaxUseableMem(i);
+        this.aqx.setGifMaxUseableMem(i);
     }
 
     public void onDestroy() {
-        if (this.aqO != null) {
-            this.aqO.onDestroy();
+        if (this.aqx != null) {
+            this.aqx.onDestroy();
         }
-        if (this.aqR != null) {
-            this.aqR.recycle();
+        if (this.aqB != null) {
+            this.aqB.recycle();
         }
         this.mProgressBar.setVisibility(8);
     }
 
     public void release() {
-        if (this.aqO != null) {
-            this.aqO.release();
+        if (this.aqx != null) {
+            this.aqx.release();
         }
         this.mProgressBar.setVisibility(8);
     }
 
-    public void Bj() {
-        if (this.aqO != null && this.aqO.getImageType() == 1) {
-            this.aqO.stop();
+    public void Bn() {
+        if (this.aqx != null && this.aqx.getImageType() == 1) {
+            this.aqx.stop();
         }
     }
 
-    public void bo(boolean z) {
+    public void bn(boolean z) {
         h(z, false);
     }
 
     public void h(boolean z, boolean z2) {
         String str;
-        if (this.aqO != null && (str = (String) this.aqO.getTag()) != null) {
-            if ((!eR(str) || com.baidu.adp.lib.util.i.gm()) && this.aqO != null) {
-                if (this.aqO.getImageType() == 1) {
-                    if (this.aqO.getGifCache() == null || !this.aqO.HA()) {
+        if (this.aqx != null && (str = (String) this.aqx.getTag()) != null) {
+            if ((!eU(str) || com.baidu.adp.lib.util.i.gm()) && this.aqx != null) {
+                if (this.aqx.getImageType() == 1) {
+                    if (this.aqx.getGifCache() == null || !this.aqx.Hz()) {
                         e(str, z, z2);
                     }
-                } else if (this.aqO.getImageType() == 2) {
+                } else if (this.aqx.getImageType() == 2) {
                     e(str, z, z2);
-                } else if (this.aqO.getImageBitmap() == null || !this.aqO.HA()) {
+                } else if (this.aqx.getImageBitmap() == null || !this.aqx.Hz()) {
                     e(str, z, z2);
                 }
             }
@@ -418,104 +448,104 @@ public class u extends RelativeLayout implements View.OnClickListener {
     }
 
     public int getImageType() {
-        if (this.aqO != null) {
-            return this.aqO.getImageType();
+        if (this.aqx != null) {
+            return this.aqx.getImageType();
         }
         return 0;
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        this.aqW = imageUrlData;
+        this.aqG = imageUrlData;
     }
 
     public void setIsCdn(boolean z) {
-        this.aoz = z;
+        this.aoh = z;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aqP) {
-            String dC = bc.dC(this.aqW.originalUrl);
-            if (this.aqW.originalProcess >= 0) {
-                com.baidu.tbadk.download.e.Cy().z(dC, 13);
-                this.aqW.originalProcess = -1;
-                if (this.aqW.originalSize > 0) {
-                    this.aqP.setText(String.valueOf(aqN) + "(" + ba.H(this.aqW.originalSize) + ")");
+        if (view == this.aqy) {
+            String dF = bb.dF(this.aqG.originalUrl);
+            if (this.aqG.originalProcess >= 0) {
+                com.baidu.tbadk.download.e.Cy().y(dF, 13);
+                this.aqG.originalProcess = -1;
+                if (this.aqG.originalSize > 0) {
+                    this.aqy.setText(String.valueOf(aqw) + "(" + az.I(this.aqG.originalSize) + ")");
                 } else {
-                    this.aqP.setText(aqN);
+                    this.aqy.setText(aqw);
                 }
-                this.aqP.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                this.aqy.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 return;
             }
-            if (this.aoB != null) {
-                this.aoB.Bl();
+            if (this.aoj != null) {
+                this.aoj.Bp();
             }
             com.baidu.adp.base.h<?> C = com.baidu.adp.base.l.C(this.mContext);
             if (C == null) {
-                eS(dC);
-            } else if (!com.baidu.adp.lib.util.i.gm() || com.baidu.adp.lib.util.i.gn() || com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("original_img_down_tip", false)) {
-                eS(dC);
+                eV(dF);
+            } else if (!com.baidu.adp.lib.util.i.gm() || com.baidu.adp.lib.util.i.gn() || com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("original_img_down_tip", false)) {
+                eV(dF);
             } else {
-                com.baidu.tbadk.core.sharedPref.b.tS().putBoolean("original_img_down_tip", true);
+                com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("original_img_down_tip", true);
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(C.getPageActivity());
-                aVar.bZ(t.j.original_img_down_no_wifi_tip);
-                aVar.a(t.j.alert_yes_button, new ab(this, aVar, dC));
-                aVar.b(t.j.alert_no_button, new ac(this, aVar));
+                aVar.bZ(r.j.original_img_down_no_wifi_tip);
+                aVar.a(r.j.alert_yes_button, new ac(this, aVar, dF));
+                aVar.b(r.j.alert_no_button, new ad(this, aVar));
                 aVar.b(C);
-                aVar.sX();
+                aVar.tm();
             }
-        } else if (view == this.aqQ && this.aqW != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createHistoryCfg(String.valueOf(this.aqW.threadId), String.valueOf(this.aqW.postId), this.aqW.mIsSeeHost, this.aqW.mIsReserver, null)));
+        } else if (view == this.aqz && this.aqG != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createHistoryCfg(String.valueOf(this.aqG.threadId), String.valueOf(this.aqG.postId), this.aqG.mIsSeeHost, this.aqG.mIsReserver, null)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eS(String str) {
-        if (this.aqW != null) {
-            this.aqW.originalProcess = 0;
+    public void eV(String str) {
+        if (this.aqG != null) {
+            this.aqG.originalProcess = 0;
         }
-        this.aqP.setText("0%");
-        this.aqP.setCompoundDrawablesWithIntrinsicBounds(0, 0, t.f.icon_close_yuantu, 0);
+        this.aqy.setText("0%");
+        this.aqy.setCompoundDrawablesWithIntrinsicBounds(0, 0, r.f.icon_close_yuantu, 0);
         DownloadData downloadData = new DownloadData(str);
         downloadData.setStatus(1);
-        downloadData.setUrl(this.aqW.originalUrl);
+        downloadData.setUrl(this.aqG.originalUrl);
         downloadData.setType(13);
-        downloadData.setPath(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + az.vd().dx(str) + "/" + str);
-        downloadData.setCallback(new ad(this));
+        downloadData.setPath(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ay.vs().dz(str) + "/" + str);
+        downloadData.setCallback(new ae(this));
         com.baidu.tbadk.download.e.Cy().a(downloadData, 100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bp(boolean z) {
-        if (this.aqW != null && !StringUtils.isNull(this.aqW.originalUrl, true) && this.aqW.originalSize >= 0) {
-            String dC = bc.dC(this.aqW.originalUrl);
-            if (new File(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + az.vd().dx(dC) + "/" + dC).exists()) {
-                this.aqW.originalProcess = 100;
+    public boolean bo(boolean z) {
+        if (this.aqG != null && !StringUtils.isNull(this.aqG.originalUrl, true) && this.aqG.originalSize >= 0) {
+            String dF = bb.dF(this.aqG.originalUrl);
+            if (new File(String.valueOf(com.baidu.tbadk.core.util.m.getCacheDir()) + ay.vs().dz(dF) + "/" + dF).exists()) {
+                this.aqG.originalProcess = 100;
                 if (z) {
-                    this.aqP.setVisibility(8);
+                    this.aqy.setVisibility(8);
                     return true;
                 }
                 return true;
             }
-            if (this.aqW.originalProcess < 0) {
-                if (this.aqW.originalSize > 0) {
-                    this.aqP.setText(String.valueOf(aqN) + "(" + ba.H(this.aqW.originalSize) + ")");
+            if (this.aqG.originalProcess < 0) {
+                if (this.aqG.originalSize > 0) {
+                    this.aqy.setText(String.valueOf(aqw) + "(" + az.I(this.aqG.originalSize) + ")");
                 } else {
-                    this.aqP.setText(aqN);
+                    this.aqy.setText(aqw);
                 }
-                this.aqP.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                this.aqy.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             } else {
-                this.aqP.setText(String.valueOf(this.aqW.originalProcess) + "%");
-                this.aqP.setCompoundDrawablesWithIntrinsicBounds(0, 0, t.f.icon_close_yuantu, 0);
+                this.aqy.setText(String.valueOf(this.aqG.originalProcess) + "%");
+                this.aqy.setCompoundDrawablesWithIntrinsicBounds(0, 0, r.f.icon_close_yuantu, 0);
             }
-            this.aqZ = true;
+            this.aqJ = true;
         } else {
-            this.aqP.setVisibility(8);
+            this.aqy.setVisibility(8);
         }
         return false;
     }
 
     public void setOriImgSelectedCallback(b bVar) {
-        this.aoB = bVar;
+        this.aoj = bVar;
     }
 }

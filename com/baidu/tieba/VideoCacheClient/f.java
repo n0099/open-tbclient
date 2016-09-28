@@ -17,38 +17,40 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class f {
     private static final String TAG = f.class.getSimpleName();
-    private static f aNE;
+    private static f aON;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private Handler.Callback aNq = new g(this);
+    private Handler.Callback aLz = new g(this);
 
     private f(Context context) {
-        this.mContext = context;
+        if (context != null) {
+            this.mContext = context.getApplicationContext();
+        }
         HandlerThread handlerThread = new HandlerThread("video_cache_client_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aNq);
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aLz);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
-    public static f ay(Context context) {
-        if (aNE == null) {
+    public static f aw(Context context) {
+        if (aON == null) {
             synchronized (f.class) {
-                if (aNE == null) {
-                    aNE = new f(context);
+                if (aON == null) {
+                    aON = new f(context);
                 }
             }
         }
-        return aNE;
+        return aON;
     }
 
-    public void hc(String str) {
+    public void hj(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void hd(String str) {
+    public void hk(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
@@ -56,7 +58,7 @@ public class f {
 
     private void au(String str, String str2) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + c.JM().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(String.valueOf(str) + str2)).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + c.Ky().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(String.valueOf(str) + str2)).openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             inputStream.read();
             inputStream.close();
@@ -67,20 +69,21 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gJ(String str) {
+    public void gQ(String str) {
         au(str, "?file_access=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gP(String str) {
+    public void gW(String str) {
         au(str, "?stop_cache=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JP() {
+    public void KB() {
+        ActivityManager activityManager;
         boolean z;
-        if (this.mContext != null) {
-            Iterator<ActivityManager.RunningServiceInfo> it = ((ActivityManager) this.mContext.getSystemService("activity")).getRunningServices(Integer.MAX_VALUE).iterator();
+        if (this.mContext != null && (activityManager = (ActivityManager) this.mContext.getSystemService("activity")) != null) {
+            Iterator<ActivityManager.RunningServiceInfo> it = activityManager.getRunningServices(Integer.MAX_VALUE).iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -92,18 +95,18 @@ public class f {
                 }
             }
             if (!z) {
-                File file = new File(d.aNm);
+                File file = new File(d.aOw);
                 if (file.exists()) {
                     file.delete();
                 }
-                c.JM().JO();
+                c.Ky().KA();
                 this.mContext.startService(new Intent(this.mContext, VideoCacheService.class));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JQ() {
+    public void KC() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.mLastCheckTime >= 86400000) {
             au("", "delete_expired_files");
@@ -116,7 +119,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JR() {
+    public void KD() {
         au("", "clear_cache");
     }
 }

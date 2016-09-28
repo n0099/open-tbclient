@@ -8,11 +8,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements dh {
-    final /* synthetic */ a ccW;
+    final /* synthetic */ a ccV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ccW = aVar;
+        this.ccV = aVar;
     }
 
     @Override // com.baidu.tieba.frs.dh
@@ -23,28 +23,28 @@ public class b implements dh {
         p pVar2;
         p pVar3;
         dh dhVar2;
-        this.ccW.ccL = false;
-        i3 = this.ccW.ccH;
+        this.ccV.ccK = false;
+        i3 = this.ccV.ccG;
         if (i != i3) {
             return;
         }
-        dhVar = this.ccW.ccS;
+        dhVar = this.ccV.ccR;
         if (dhVar != null) {
-            this.ccW.ccK = dqVar;
-            this.ccW.b(i, i2, dqVar);
+            this.ccV.ccJ = dqVar;
+            this.ccV.b(i, i2, dqVar);
             ArrayList<v> arrayList2 = new ArrayList<>();
             if (arrayList != null) {
                 arrayList2.addAll(arrayList);
             }
-            pVar = this.ccW.bPq;
+            pVar = this.ccV.bPk;
             pVar.aA(arrayList2);
-            if ((i == 1 || i == 2 || i == 5) && !this.ccW.aeS()) {
-                pVar2 = this.ccW.bPq;
-                pVar2.bhT();
-                pVar3 = this.ccW.bPq;
-                pVar3.bhU();
+            if ((i == 1 || i == 2 || i == 5) && !this.ccV.afg()) {
+                pVar2 = this.ccV.bPk;
+                pVar2.biD();
+                pVar3 = this.ccV.bPk;
+                pVar3.biE();
             }
-            dhVar2 = this.ccW.ccS;
+            dhVar2 = this.ccV.ccR;
             dhVar2.a(i, i2, dqVar, arrayList);
         }
     }

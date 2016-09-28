@@ -4,16 +4,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.Personalized.TagStruct;
 /* loaded from: classes.dex */
 public class i {
-    public String PE;
-    public boolean cGO;
+    public String PC;
+    public boolean cHD;
 
     public static i a(TagStruct tagStruct) {
         if (tagStruct == null || StringUtils.isNull(tagStruct.tag_name)) {
             return null;
         }
         i iVar = new i();
-        iVar.PE = tagStruct.tag_name;
-        iVar.cGO = tagStruct.selected.intValue() == 1;
+        iVar.PC = tagStruct.tag_name;
+        iVar.cHD = tagStruct.selected.intValue() == 1;
         return iVar;
     }
 }

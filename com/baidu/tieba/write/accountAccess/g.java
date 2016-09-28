@@ -4,15 +4,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends WebViewClient {
-    final /* synthetic */ c fZP;
+    final /* synthetic */ c gbY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.fZP = cVar;
+        this.gbY = cVar;
     }
 
     @Override // android.webkit.WebViewClient
@@ -21,23 +21,23 @@ public class g extends WebViewClient {
         boolean z;
         a aVar2;
         a aVar3;
-        if (StringUtils.isNull(str)) {
-            return false;
+        if (!StringUtils.isNull(str)) {
+            aVar = this.gbY.gbQ;
+            if (aVar != null) {
+                z = this.gbY.czI;
+                if (z) {
+                    aVar2 = this.gbY.gbQ;
+                    return aVar2.sr(str);
+                }
+                this.gbY.czI = true;
+                this.gbY.lI(false);
+                this.gbY.brZ();
+                aVar3 = this.gbY.gbQ;
+                aVar3.brV();
+                return true;
+            }
         }
-        aVar = this.fZP.fZH;
-        if (aVar == null) {
-            return false;
-        }
-        z = this.fZP.cze;
-        if (!z) {
-            this.fZP.cze = true;
-            this.fZP.lG(false);
-            this.fZP.brt();
-            aVar3 = this.fZP.fZH;
-            aVar3.brp();
-        }
-        aVar2 = this.fZP.fZH;
-        return aVar2.sc(str);
+        return false;
     }
 
     @Override // android.webkit.WebViewClient
@@ -45,11 +45,11 @@ public class g extends WebViewClient {
         a aVar;
         a aVar2;
         super.onPageFinished(webView, str);
-        this.fZP.cze = true;
-        aVar = this.fZP.fZH;
+        this.gbY.czI = true;
+        aVar = this.gbY.gbQ;
         if (aVar != null) {
-            aVar2 = this.fZP.fZH;
-            aVar2.brp();
+            aVar2 = this.gbY.gbQ;
+            aVar2.brV();
         }
     }
 
@@ -58,10 +58,10 @@ public class g extends WebViewClient {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
         super.onReceivedError(webView, i, str, str2);
-        this.fZP.lG(false);
-        baseActivity = this.fZP.awl;
-        baseActivity.showToast(t.j.neterror);
-        baseActivity2 = this.fZP.awl;
+        this.gbY.lI(false);
+        baseActivity = this.gbY.avO;
+        baseActivity.showToast(r.j.neterror);
+        baseActivity2 = this.gbY.avO;
         baseActivity2.finish();
     }
 }

@@ -7,5 +7,5 @@ public interface r {
 
     void b(n nVar);
 
-    void hP(int i);
+    void hT(int i);
 }

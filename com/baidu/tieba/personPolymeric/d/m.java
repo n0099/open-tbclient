@@ -4,28 +4,28 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class m extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.j> {
-    private TextView MO;
+    private TextView MN;
 
     public m(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.MO = (TextView) getView();
+        this.MN = (TextView) getView();
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            av.c(this.MO, t.d.cp_cont_d, 1);
-            av.k(this.MO, t.d.cp_bg_line_d);
+            av.c(this.MN, r.d.cp_cont_d, 1);
+            av.k(this.MN, r.d.cp_bg_line_d);
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return t.h.card_person_title_layout;
+        return r.h.card_person_title_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,8 +33,8 @@ public class m extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.personPolymeric.c.j jVar) {
         if (jVar != null) {
-            this.MO.setPadding(jVar.paddingLeft, jVar.paddingTop, 0, jVar.paddingBottom);
-            this.MO.setText(this.mContext.getString(jVar.ata));
+            this.MN.setPadding(jVar.paddingLeft, jVar.paddingTop, 0, jVar.paddingBottom);
+            this.MN.setText(this.mContext.getString(jVar.eFF));
         }
     }
 

@@ -8,56 +8,56 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public final class gm extends LinearLayout {
-    private LinearLayout aEo;
-    private TextView aKu;
-    private TbImageView cRC;
-    private EditText chp;
-    private ShareFromPBMsgData dms;
+    private LinearLayout aDM;
+    private TextView aJT;
+    private TbImageView cSt;
+    private EditText chn;
+    private ShareFromPBMsgData dnP;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.chp;
+        return this.chn;
     }
 
-    public void E(String str, boolean z) {
-        if (this.cRC != null) {
-            this.cRC.c(str, z ? 17 : 18, false);
+    public void F(String str, boolean z) {
+        if (this.cSt != null) {
+            this.cSt.c(str, z ? 17 : 18, false);
         }
     }
 
     public gm(Context context) {
         super(context);
-        aE(context);
+        aC(context);
     }
 
-    private void aE(Context context) {
-        LayoutInflater.from(context).inflate(t.h.thread_to_group_share_view, this);
+    private void aC(Context context) {
+        LayoutInflater.from(context).inflate(r.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.aEo = (LinearLayout) findViewById(t.g.share_content);
-        this.title = (TextView) findViewById(t.g.share_title_view);
-        this.chp = (EditText) findViewById(t.g.chat_msg);
-        this.cRC = (TbImageView) findViewById(t.g.chat_group_img);
-        this.aKu = (TextView) findViewById(t.g.chat_group_desc);
-        com.baidu.tbadk.core.util.av.c(this.title, t.d.cp_cont_b, 1);
-        com.baidu.tbadk.core.util.av.c(this.chp, t.d.cp_cont_b, 2);
-        com.baidu.tbadk.core.util.av.c(this.aKu, t.d.cp_cont_f, 1);
-        this.chp.setHintTextColor(com.baidu.tbadk.core.util.av.getColor(t.d.cp_cont_e));
-        this.chp.setPadding(context.getResources().getDimensionPixelSize(t.e.ds20), 0, 0, 0);
-        afO();
+        this.aDM = (LinearLayout) findViewById(r.g.share_content);
+        this.title = (TextView) findViewById(r.g.share_title_view);
+        this.chn = (EditText) findViewById(r.g.chat_msg);
+        this.cSt = (TbImageView) findViewById(r.g.chat_group_img);
+        this.aJT = (TextView) findViewById(r.g.chat_group_desc);
+        com.baidu.tbadk.core.util.av.c(this.title, r.d.cp_cont_b, 1);
+        com.baidu.tbadk.core.util.av.c(this.chn, r.d.cp_cont_b, 2);
+        com.baidu.tbadk.core.util.av.c(this.aJT, r.d.cp_cont_f, 1);
+        this.chn.setHintTextColor(com.baidu.tbadk.core.util.av.getColor(r.d.cp_cont_e));
+        this.chn.setPadding(context.getResources().getDimensionPixelSize(r.e.ds20), 0, 0, 0);
+        agc();
     }
 
-    public void afO() {
-        this.aEo.setFocusable(true);
-        this.aEo.setFocusableInTouchMode(true);
-        this.aEo.requestFocus();
+    public void agc() {
+        this.aDM.setFocusable(true);
+        this.aDM.setFocusableInTouchMode(true);
+        this.aDM.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.chp != null) {
-            return com.baidu.adp.lib.util.j.a(this.chp.getText(), null);
+        if (this.chn != null) {
+            return com.baidu.adp.lib.util.j.a(this.chn.getText(), null);
         }
         return null;
     }
@@ -68,15 +68,15 @@ public final class gm extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.dms = shareFromPBMsgData;
-        wc();
+        this.dnP = shareFromPBMsgData;
+        ws();
     }
 
-    private void wc() {
-        this.title.setText(this.dms.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.dms.getImageUrl());
-        this.cRC.setTag(this.dms.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.dms.getContent());
-        this.aKu.setText(this.dms.getContent());
+    private void ws() {
+        this.title.setText(this.dnP.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.dnP.getImageUrl());
+        this.cSt.setTag(this.dnP.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.dnP.getContent());
+        this.aJT.setText(this.dnP.getContent());
     }
 }

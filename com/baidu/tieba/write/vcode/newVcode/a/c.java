@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.writeModel.b;
 public interface c {
     boolean b(WebView webView, String str);
 
-    void brq();
+    void brW();
 
     void c(b.d dVar);
 
-    void lL(boolean z);
+    void lN(boolean z);
 
     void o(boolean z, String str);
 

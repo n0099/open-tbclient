@@ -1,19 +1,26 @@
 package com.baidu.tieba.card;
 
-import android.media.MediaPlayer;
+import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements MediaPlayer.OnErrorListener {
-    final /* synthetic */ t aZF;
+public class aa implements Runnable {
+    final /* synthetic */ r aZW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(t tVar) {
-        this.aZF = tVar;
+    public aa(r rVar) {
+        this.aZW = rVar;
     }
 
-    @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        this.aZF.d(true, 4);
-        return true;
+    @Override // java.lang.Runnable
+    public void run() {
+        QuickVideoView quickVideoView;
+        QuickVideoView quickVideoView2;
+        quickVideoView = this.aZW.aZG;
+        if (quickVideoView != null) {
+            quickVideoView2 = this.aZW.aZG;
+            if (!quickVideoView2.isPlaying()) {
+                this.aZW.e(true, 1);
+            }
+        }
     }
 }

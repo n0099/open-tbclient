@@ -15,11 +15,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.b;
 /* loaded from: classes.dex */
 class g implements b.d {
-    final /* synthetic */ WriteVideoActivity gcl;
+    final /* synthetic */ WriteVideoActivity gev;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(WriteVideoActivity writeVideoActivity) {
-        this.gcl = writeVideoActivity;
+        this.gev = writeVideoActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
@@ -28,17 +28,17 @@ class g implements b.d {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        this.gcl.closeLoadingDialog();
+        this.gev.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.gcl.fiE;
+            writeData2 = this.gev.flk;
             if (writeData2 != null) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.tS().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
-                writeData3 = this.gcl.fiE;
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.uh().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
+                writeData3 = this.gev.flk;
                 if (writeData3 != null) {
-                    writeData4 = this.gcl.fiE;
+                    writeData4 = this.gev.flk;
                     if (writeData4.getVideoInfo() != null && writeData != null) {
                         if (!z2) {
-                            writeData5 = this.gcl.fiE;
+                            writeData5 = this.gev.flk;
                             if (writeData5.getVideoInfo().getVideoDuration() > 8) {
                                 writeData.setVideoReviewType(1);
                             }
@@ -51,27 +51,27 @@ class g implements b.d {
                         if (sVar != null && writeData != null && sVar.getVcode_pic_url() != null) {
                             writeData.setVcodeMD5(sVar.getVcode_md5());
                             writeData.setVcodeUrl(sVar.getVcode_pic_url());
-                            writeData.setVcodeExtra(sVar.xU());
-                            if (com.baidu.tbadk.k.a.gC(sVar.xT())) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.gcl.getPageContext().getPageActivity(), 12006, writeData, false, sVar.xT())));
+                            writeData.setVcodeExtra(sVar.xX());
+                            if (com.baidu.tbadk.j.a.gG(sVar.xW())) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.gev.getPageContext().getPageActivity(), 12006, writeData, false, sVar.xW())));
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.gcl.getPageContext().getPageActivity(), writeData, 12006)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.gev.getPageContext().getPageActivity(), writeData, 12006)));
                                 return;
                             }
                         } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(this.gcl.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(this.gev.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.gcl.a(false, postWriteCallBackData);
+                    this.gev.a(false, postWriteCallBackData);
                     return;
                 }
-                this.gcl.bsj();
-                this.gcl.a(true, postWriteCallBackData);
-                this.gcl.b(postWriteCallBackData);
+                this.gev.bsP();
+                this.gev.a(true, postWriteCallBackData);
+                this.gev.b(postWriteCallBackData);
             }
         }
     }

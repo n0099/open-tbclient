@@ -7,17 +7,17 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.editortools.ab;
 import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.io.File;
 /* loaded from: classes.dex */
 class g implements View.OnClickListener {
-    final /* synthetic */ MultiImgToolView.b avF;
-    private final /* synthetic */ ViewGroup avG;
+    final /* synthetic */ MultiImgToolView.b avi;
+    private final /* synthetic */ ViewGroup avj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(MultiImgToolView.b bVar, ViewGroup viewGroup) {
-        this.avF = bVar;
-        this.avG = viewGroup;
+        this.avi = bVar;
+        this.avj = viewGroup;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,22 +26,22 @@ class g implements View.OnClickListener {
         ab abVar;
         ab abVar2;
         Context context;
-        int indexOfChild = this.avG.indexOfChild(view);
+        int indexOfChild = this.avj.indexOfChild(view);
         if (indexOfChild >= 0) {
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.avF.getItem(indexOfChild);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.avi.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
                 z = new File(imageFileInfo.getFilePath()).exists();
             }
             if (!z) {
-                context = this.avF.mContext;
-                k.d(context, t.j.editor_mutiiamge_image_error);
+                context = this.avi.mContext;
+                k.d(context, r.j.editor_mutiiamge_image_error);
                 return;
             }
-            abVar = this.avF.avC;
+            abVar = this.avi.avf;
             if (abVar != null) {
-                abVar2 = this.avF.avC;
+                abVar2 = this.avi.avf;
                 abVar2.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
             }
         }

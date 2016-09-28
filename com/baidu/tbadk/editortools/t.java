@@ -3,30 +3,30 @@ package com.baidu.tbadk.editortools;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class t extends com.baidu.tbadk.editortools.view.c {
-    private SparseIntArray auN;
-    LinkedList<s> auf;
+    LinkedList<s> atJ;
+    private SparseIntArray auq;
 
     public t(Context context) {
         super(context);
-        this.auN = new SparseIntArray();
-        setBackgroundColorId(t.d.common_color_10255);
+        this.auq = new SparseIntArray();
+        setBackgroundColorId(r.d.common_color_10255);
         setToolId(2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h(LinkedList<s> linkedList) {
-        this.auf = linkedList;
+        this.atJ = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.ab
     public void init() {
         setShowDelete(false);
         u uVar = new u();
-        uVar.h(this.auf);
+        uVar.h(this.atJ);
         b(uVar);
     }
 
@@ -40,7 +40,7 @@ public class t extends com.baidu.tbadk.editortools.view.c {
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.auN.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.auq.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -52,13 +52,13 @@ public class t extends com.baidu.tbadk.editortools.view.c {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.h.b.g(str, 1);
             }
         }
-        this.auN.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.auq.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
     private void CT() {
         int i = 0;
-        for (int i2 = 0; i2 < this.auN.size(); i2++) {
-            i += this.auN.valueAt(i2);
+        for (int i2 = 0; i2 < this.auq.size(); i2++) {
+            i += this.auq.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));

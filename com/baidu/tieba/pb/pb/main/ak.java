@@ -4,11 +4,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class ak implements BdListView.e {
-    final /* synthetic */ PbActivity eob;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
@@ -25,39 +25,39 @@ class ak implements BdListView.e {
         ex exVar3;
         dh dhVar6;
         ex exVar4;
-        z = this.eob.enO;
-        if (z && this.eob.aMY()) {
-            this.eob.aNa();
+        z = this.eqa.epN;
+        if (z && this.eqa.aNE()) {
+            this.eqa.aNG();
         }
-        z2 = this.eob.mIsLogin;
+        z2 = this.eqa.mIsLogin;
         if (z2) {
-            dhVar = this.eob.emx;
-            if (dhVar.ic(false)) {
-                exVar4 = this.eob.enh;
-                exVar4.aPq();
-                TiebaStatic.eventStat(this.eob.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+            dhVar = this.eqa.eov;
+            if (dhVar.m17if(false)) {
+                exVar4 = this.eqa.epe;
+                exVar4.aPZ();
+                TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
             } else {
-                exVar = this.eob.enh;
-                dhVar2 = this.eob.emx;
-                exVar.m(dhVar2.getPbData());
-                dhVar3 = this.eob.emx;
+                exVar = this.eqa.epe;
+                dhVar2 = this.eqa.eov;
+                exVar.l(dhVar2.getPbData());
+                dhVar3 = this.eqa.eov;
                 if (dhVar3 != null) {
-                    exVar2 = this.eob.enh;
+                    exVar2 = this.eqa.epe;
                     if (exVar2 != null) {
-                        dhVar4 = this.eob.emx;
-                        if (dhVar4.aOj() != null) {
-                            dhVar5 = this.eob.emx;
-                            if (dhVar5.aOj().aNw()) {
-                                exVar3 = this.eob.enh;
-                                exVar3.aNH();
-                                dhVar6 = this.eob.emx;
-                                dhVar6.aOj().aNy();
+                        dhVar4 = this.eqa.eov;
+                        if (dhVar4.aOR() != null) {
+                            dhVar5 = this.eqa.eov;
+                            if (dhVar5.aOR().aOe()) {
+                                exVar3 = this.eqa.epe;
+                                exVar3.aOp();
+                                dhVar6 = this.eqa.eov;
+                                dhVar6.aOR().aOg();
                             }
                         }
                     }
                 }
             }
-            this.eob.enO = true;
+            this.eqa.epN = true;
         }
     }
 }

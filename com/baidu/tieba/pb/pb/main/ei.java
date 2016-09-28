@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.pb.pb.main.eh;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ei extends CustomMessageListener {
-    final /* synthetic */ eh erA;
+    final /* synthetic */ eh etJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ei(eh ehVar, int i) {
         super(i);
-        this.erA = ehVar;
+        this.etJ = ehVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,57 +32,57 @@ public class ei extends CustomMessageListener {
         eh.a aVar2;
         com.baidu.tieba.pb.data.h hVar5;
         if (customResponsedMessage != null) {
-            hVar = this.erA.pbData;
+            hVar = this.etJ.pbData;
             if (hVar != null) {
-                this.erA.erw = false;
-                hVar2 = this.erA.pbData;
-                if (hVar2.aLR() != null) {
-                    hVar5 = this.erA.pbData;
-                    i = hVar5.aLR().size();
+                this.etJ.etF = false;
+                hVar2 = this.etJ.pbData;
+                if (hVar2.aMt() != null) {
+                    hVar5 = this.etJ.pbData;
+                    i = hVar5.aMt().size();
                 } else {
                     i = 0;
                 }
-                if (this.erA.erp >= i - 3) {
-                    aVar = this.erA.erx;
+                if (this.etJ.ety >= i - 3) {
+                    aVar = this.etJ.etG;
                     if (aVar != null) {
-                        hVar4 = this.erA.pbData;
-                        if (hVar4.getPage().qq() != 0) {
-                            aVar2 = this.erA.erx;
-                            aVar2.aOL();
+                        hVar4 = this.etJ.pbData;
+                        if (hVar4.getPage().qB() != 0) {
+                            aVar2 = this.etJ.etG;
+                            aVar2.aPu();
                         }
                     }
                 }
-                if (this.erA.erp >= i - 1) {
-                    this.erA.erp = -1;
-                    this.erA.ert = 5;
-                    com.baidu.tbadk.core.data.bc bcVar = new com.baidu.tbadk.core.data.bc();
-                    bcVar.setData(TbadkCoreApplication.m9getInst().getResources().getString(t.j.read_thread_over));
-                    bcVar.bS(1);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bcVar));
+                if (this.etJ.ety >= i - 1) {
+                    this.etJ.ety = -1;
+                    this.etJ.etC = 5;
+                    com.baidu.tbadk.core.data.be beVar = new com.baidu.tbadk.core.data.be();
+                    beVar.setData(TbadkCoreApplication.m9getInst().getResources().getString(r.j.read_thread_over));
+                    beVar.bS(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar));
                     return;
-                } else if (this.erA.erp == -1) {
-                    this.erA.ert = 5;
-                    this.erA.erp = 0;
-                    com.baidu.tbadk.core.data.bc bcVar2 = new com.baidu.tbadk.core.data.bc();
-                    bcVar2.bS(15);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bcVar2));
+                } else if (this.etJ.ety == -1) {
+                    this.etJ.etC = 5;
+                    this.etJ.ety = 0;
+                    com.baidu.tbadk.core.data.be beVar2 = new com.baidu.tbadk.core.data.be();
+                    beVar2.bS(15);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar2));
                     return;
                 } else {
-                    this.erA.erp++;
-                    this.erA.ert = 1;
-                    eh ehVar = this.erA;
-                    int i2 = this.erA.erp;
-                    hVar3 = this.erA.pbData;
-                    e = ehVar.e(i2, hVar3.aLR());
-                    com.baidu.tbadk.core.data.bc bcVar3 = new com.baidu.tbadk.core.data.bc();
-                    bcVar3.bS(1);
-                    bcVar3.setData(e);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bcVar3));
+                    this.etJ.ety++;
+                    this.etJ.etC = 1;
+                    eh ehVar = this.etJ;
+                    int i2 = this.etJ.ety;
+                    hVar3 = this.etJ.pbData;
+                    e = ehVar.e(i2, hVar3.aMt());
+                    com.baidu.tbadk.core.data.be beVar3 = new com.baidu.tbadk.core.data.be();
+                    beVar3.bS(1);
+                    beVar3.setData(e);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar3));
                     return;
                 }
             }
-            this.erA.ert = 5;
-            this.erA.erp = 0;
+            this.etJ.etC = 5;
+            this.etJ.ety = 0;
         }
     }
 }

@@ -9,31 +9,31 @@ import com.baidu.tieba.frs.dq;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i implements dg {
-    private dh bNq;
+    private dh bNn;
 
     public void setTag(BdUniqueId bdUniqueId) {
     }
 
     @Override // com.baidu.tieba.frs.dg
     public void a(int i, int i2, dn dnVar) {
-        if (i > 100 && this.bNq != null && dnVar != null && dnVar.bTF != null && (dnVar.bTF instanceof String)) {
+        if (i > 100 && this.bNn != null && dnVar != null && dnVar.bTy != null && (dnVar.bTy instanceof String)) {
             ArrayList<v> arrayList = new ArrayList<>();
-            h hVar = new h((String) dnVar.bTF);
+            h hVar = new h((String) dnVar.bTy);
             hVar.stType = dnVar.stType;
             arrayList.add(hVar);
             dq dqVar = new dq();
             dqVar.hasMore = false;
-            dqVar.bTH = false;
-            dqVar.bTI = false;
+            dqVar.bTA = false;
+            dqVar.bTB = false;
             dqVar.pn = dnVar.pn;
-            dqVar.bTF = dnVar.bTF;
-            this.bNq.a(i, i2, dqVar, arrayList);
+            dqVar.bTy = dnVar.bTy;
+            this.bNn.a(i, i2, dqVar, arrayList);
         }
     }
 
     @Override // com.baidu.tieba.frs.dg
     public void a(dh dhVar) {
-        this.bNq = dhVar;
+        this.bNn = dhVar;
     }
 
     @Override // com.baidu.tieba.frs.dg
@@ -41,6 +41,6 @@ public class i implements dg {
     }
 
     @Override // com.baidu.tieba.frs.dg
-    public void aaf() {
+    public void aat() {
     }
 }

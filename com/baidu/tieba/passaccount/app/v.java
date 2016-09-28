@@ -1,46 +1,57 @@
 package com.baidu.tieba.passaccount.app;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements a.InterfaceC0033a {
-    final /* synthetic */ SapiFastRegActivity egZ;
+public class v implements a.InterfaceC0033a {
+    final /* synthetic */ QALoginActivity eiT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(SapiFastRegActivity sapiFastRegActivity) {
-        this.egZ = sapiFastRegActivity;
+    public v(QALoginActivity qALoginActivity) {
+        this.eiT = qALoginActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void cf(String str) {
+        if (this.eiT.getLoadingDialog() == null || !this.eiT.getLoadingDialog().isShowing()) {
+            this.eiT.showLoadingDialog(this.eiT.getPageContext().getString(r.j.sapi_logining), new w(this));
+        }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void a(AccountData accountData) {
-        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_cslogin_success", 0, "", new Object[0]);
-        if (!TextUtils.isEmpty(accountData.getAccount())) {
-            this.egZ.egX = RegisterActivityConfig.LOGIN_USER;
-            this.egZ.r(accountData);
+        int i;
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
+        this.eiT.closeLoadingDialog();
+        if (TextUtils.isEmpty(accountData.getAccount())) {
+            this.eiT.showToast("用户名为空");
             return;
         }
-        this.egZ.k(accountData);
+        q(accountData);
+        i = this.eiT.mFrom;
+        if (i == 4) {
+            this.eiT.Mh();
+        } else {
+            this.eiT.aLq();
+        }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.passaccount.app.SapiFastRegActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void b(String str, int i, String str2) {
-        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_cslogin_fail", i, str2, new Object[0]);
-        this.egZ.showToast(t.j.register_retry);
-        TbadkCoreApplication.m9getInst().login(this.egZ.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.egZ.getPageContext().getPageActivity(), (String) null, true, 11003)));
-        this.egZ.finish();
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
+        this.eiT.closeLoadingDialog();
+        this.eiT.showToast(str2);
+        this.eiT.finish();
+    }
+
+    private void q(AccountData accountData) {
+        com.baidu.adp.lib.h.k.eH().e(new x(this, accountData));
+        TbadkCoreApplication.setCurrentAccount(accountData, this.eiT.getPageContext().getPageActivity());
+        com.baidu.tbadk.browser.f.R(TbadkCoreApplication.m9getInst());
     }
 }

@@ -5,14 +5,14 @@ import com.baidu.tieba.tbadkCore.x;
 import com.baidu.tieba.tbadkCore.y;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.base.g {
-    private final /* synthetic */ int VV;
-    final /* synthetic */ TopRecActivity dyQ;
+    private final /* synthetic */ int Wf;
+    final /* synthetic */ TopRecActivity dAh;
     private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(TopRecActivity topRecActivity, int i, int i2) {
-        this.dyQ = topRecActivity;
-        this.VV = i;
+        this.dAh = topRecActivity;
+        this.Wf = i;
         this.val$id = i2;
     }
 
@@ -21,24 +21,24 @@ class c extends com.baidu.adp.base.g {
         x xVar;
         x xVar2;
         d dVar;
-        if (this.dyQ.dyK != null && this.dyQ.dyK.forum_list[this.VV] != null) {
-            xVar = this.dyQ.Ge;
+        if (this.dAh.dAb != null && this.dAh.dAb.forum_list[this.Wf] != null) {
+            xVar = this.dAh.Ge;
             if (xVar.getErrorCode() != 22) {
-                xVar2 = this.dyQ.Ge;
+                xVar2 = this.dAh.Ge;
                 if (xVar2.getErrorCode() != 0) {
-                    this.dyQ.bc(this.VV, this.val$id);
+                    this.dAh.be(this.Wf, this.val$id);
                     return;
                 } else if (((y) obj) == null) {
-                    this.dyQ.bc(this.VV, this.val$id);
+                    this.dAh.be(this.Wf, this.val$id);
                     return;
                 } else {
-                    this.dyQ.aBa();
-                    TbadkApplication.getInst().addLikeForum(this.dyQ.dyK.forum_list[this.VV].forum_name);
+                    this.dAh.aBy();
+                    TbadkApplication.getInst().addLikeForum(this.dAh.dAb.forum_list[this.Wf].forum_name);
                     return;
                 }
             }
-            this.dyQ.dyK.forum_list[this.VV].is_like = 1;
-            dVar = this.dyQ.dyH;
+            this.dAh.dAb.forum_list[this.Wf].is_like = 1;
+            dVar = this.dAh.dzY;
             dVar.notifyDataSetChanged();
         }
     }

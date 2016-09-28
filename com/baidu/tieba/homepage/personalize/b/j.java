@@ -1,59 +1,66 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.cb;
+import com.baidu.tieba.card.cd;
+import com.baidu.tieba.homepage.personalize.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends CustomMessageListener {
-    final /* synthetic */ g cHg;
+public class j extends cd {
+    final /* synthetic */ i cGv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(g gVar, int i) {
-        super(i);
-        this.cHg = gVar;
+    public j(i iVar) {
+        this.cGv = iVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        String str;
-        String str2;
-        String str3;
-        if (customResponsedMessage != null) {
-            if (!(customResponsedMessage.getData() instanceof com.baidu.tieba.homepage.personalize.data.i)) {
-                this.cHg.cHa = null;
-                this.cHg.cHc = 0;
-                return;
-            }
-            com.baidu.tieba.homepage.personalize.data.i iVar = (com.baidu.tieba.homepage.personalize.data.i) customResponsedMessage.getData();
-            if (iVar.cGO) {
-                str2 = this.cHg.cHa;
-                if (!StringUtils.isNull(str2)) {
-                    str3 = this.cHg.cHa;
-                    if (str3.equals(iVar.PE)) {
-                        this.cHg.cHc = 2;
-                        this.cHg.cHa = iVar.PE;
+    @Override // com.baidu.tieba.card.cd
+    public void a(View view, com.baidu.tieba.card.data.b bVar) {
+        com.baidu.tieba.card.af afVar;
+        com.baidu.tieba.homepage.personalize.c.f fVar;
+        com.baidu.tieba.card.af afVar2;
+        com.baidu.tieba.card.af afVar3;
+        com.baidu.tieba.homepage.personalize.c.f fVar2;
+        cb.Oj().cr(true);
+        afVar = this.cGv.cGu;
+        if (afVar != null && view != null && bVar != null && (bVar instanceof com.baidu.tieba.card.data.o)) {
+            fVar = this.cGv.cGr;
+            if (fVar != null) {
+                com.baidu.tieba.card.data.o oVar = (com.baidu.tieba.card.data.o) bVar;
+                if (oVar.bbU != null) {
+                    if ((view.getTag() instanceof String) && oVar.Jv() != null && oVar.Jv().getId() != null && !ak.bI(com.baidu.adp.lib.h.b.c(oVar.Jv().getTid(), 0L))) {
+                        ak.bH(com.baidu.adp.lib.h.b.c(oVar.Jv().getTid(), 0L));
+                        fVar2 = this.cGv.cGr;
+                        fVar2.a(com.baidu.adp.lib.h.b.c(oVar.Jv().getTid(), 0L), oVar.getWeight(), oVar.getSource(), oVar.Ok(), oVar.Om(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
+                    }
+                    if (view instanceof TbImageView) {
+                        TiebaStatic.log(new ax("c11004").ab("tid", oVar.bbU.getTid()));
                         return;
                     }
+                    int id = view.getId();
+                    afVar2 = this.cGv.cGu;
+                    if (id == afVar2.aYK.getId()) {
+                        if (oVar.bbU.getAuthor() != null && oVar.bbU.getAuthor().getGodUserData() != null && oVar.bbU.getAuthor().getGodUserData().getType() == 3) {
+                            TiebaStatic.log(new ax("c11274"));
+                            return;
+                        } else {
+                            TiebaStatic.log(new ax("c10803").s("obj_locate", 7).ab("tid", oVar.bbU.getTid()));
+                            return;
+                        }
+                    }
+                    int id2 = view.getId();
+                    afVar3 = this.cGv.cGu;
+                    if (id2 == afVar3.getView().getId()) {
+                        TiebaStatic.log(new ax("c11004").ab("tid", oVar.bbU.getTid()));
+                        TiebaStatic.log(new ax("c10806").s("obj_locate", 1).ab("tid", oVar.bbU.getId()));
+                        return;
+                    }
+                    TiebaStatic.log(new ax("c11004").ab("tid", oVar.bbU.getTid()));
                 }
-                this.cHg.cHc = 1;
-                this.cHg.cHa = iVar.PE;
-                return;
             }
-            str = this.cHg.cHa;
-            if (StringUtils.isNull(str)) {
-                this.cHg.cHc = 2;
-            } else {
-                this.cHg.cHc = 1;
-            }
-            this.cHg.cHa = null;
         }
     }
 }

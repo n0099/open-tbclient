@@ -4,17 +4,17 @@ import android.widget.TextView;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ a bUW;
+    final /* synthetic */ a bUP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(a aVar, int i) {
         super(i);
-        this.bUW = aVar;
+        this.bUP = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,19 +30,19 @@ public class e extends CustomMessageListener {
         TbPageContext tbPageContext2;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String[]) && (strArr = (String[]) customResponsedMessage.getData()) != null && strArr.length == 2 && strArr[0] != null && strArr[1] != null) {
             String str = strArr[0];
-            qVar = this.bUW.bUQ;
+            qVar = this.bUP.bUJ;
             if (str.equals(qVar.getBookId()) && (g = com.baidu.adp.lib.h.b.g(strArr[1], -1)) > 0) {
-                qVar2 = this.bUW.bUQ;
-                if (qVar2.px() != 3) {
-                    textView = this.bUW.bUN;
-                    tbPageContext = this.bUW.Gd;
-                    textView.setText(tbPageContext.getString(t.j.book_continue_read));
+                qVar2 = this.bUP.bUJ;
+                if (qVar2.py() != 3) {
+                    textView = this.bUP.bUG;
+                    tbPageContext = this.bUP.Gd;
+                    textView.setText(tbPageContext.getString(r.j.book_continue_read));
                     return;
                 }
-                this.bUW.bUR = g;
-                textView2 = this.bUW.bUN;
-                tbPageContext2 = this.bUW.Gd;
-                textView2.setText(tbPageContext2.getString(t.j.book_continue_read));
+                this.bUP.bUK = g;
+                textView2 = this.bUP.bUG;
+                tbPageContext2 = this.bUP.Gd;
+                textView2.setText(tbPageContext2.getString(r.j.book_continue_read));
             }
         }
     }

@@ -1,43 +1,25 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import android.view.View;
+import com.baidu.tbadk.core.util.bm;
 /* loaded from: classes.dex */
-public class ai extends ImageSpan {
-    private int offset;
-    private WeakReference<Drawable> zl;
+class ai implements bm.a {
+    final /* synthetic */ ah aht;
+    private final /* synthetic */ String ahu;
 
-    public ai(Drawable drawable) {
-        super(drawable);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(ah ahVar, String str) {
+        this.aht = ahVar;
+        this.ahu = str;
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable jy = jy();
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - jy.getBounds().height()) / 2) + this.offset);
-        jy.draw(canvas);
-        canvas.restore();
-    }
-
-    private Drawable jy() {
-        WeakReference<Drawable> weakReference = this.zl;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
+    @Override // com.baidu.tbadk.core.util.bm.a
+    public boolean A(View view) {
+        Object tag = view.getTag();
+        if (tag != null && this.ahu.equals(tag)) {
+            view.invalidate();
+            return false;
         }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.zl = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
+        return false;
     }
 }

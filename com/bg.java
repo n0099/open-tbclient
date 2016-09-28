@@ -11,18 +11,18 @@ import org.json.JSONObject;
 public class bg extends JsonHttpResponseHandler {
     final /* synthetic */ ShareContent a;
     final /* synthetic */ FacebookShareHandler cI;
-    final /* synthetic */ SessionManager.Session glY;
+    final /* synthetic */ SessionManager.Session gok;
 
     public bg(FacebookShareHandler facebookShareHandler, ShareContent shareContent, SessionManager.Session session) {
         this.cI = facebookShareHandler;
         this.a = shareContent;
-        this.glY = session;
+        this.gok = session;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
     public void onFailure(Throwable th, String str) {
-        this.cI.a(this.a, this.glY);
+        this.cI.a(this.a, this.gok);
     }
 
     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
@@ -34,6 +34,6 @@ public class bg extends JsonHttpResponseHandler {
             }
         } catch (JSONException e) {
         }
-        this.cI.a(this.a, this.glY);
+        this.cI.a(this.a, this.gok);
     }
 }

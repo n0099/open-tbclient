@@ -7,17 +7,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
 import com.baidu.tbadk.core.message.HistoryMessage;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ e aYx;
+    final /* synthetic */ e aYZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
         super(i);
-        this.aYx = eVar;
+        this.aYZ = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,31 +35,31 @@ public class g extends CustomMessageListener {
             com.baidu.tieba.myCollection.baseHistory.b bVar = new com.baidu.tieba.myCollection.baseHistory.b();
             bVar.setThreadId(historyMessage.threadId);
             bVar.setForumName(historyMessage.forumName);
-            bVar.nA(historyMessage.threadName);
-            bVar.nB(historyMessage.postID);
-            bVar.hv(historyMessage.isHostOnly);
-            bVar.hw(historyMessage.isSquence);
+            bVar.nO(historyMessage.threadName);
+            bVar.nP(historyMessage.postID);
+            bVar.hy(historyMessage.isHostOnly);
+            bVar.hz(historyMessage.isSquence);
             bVar.setThreadType(historyMessage.threadType);
             if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(PbHistoryActivityConfig.class)) {
-                aVar = this.aYx.aYq;
+                aVar = this.aYZ.aYS;
                 if (aVar == null) {
-                    this.aYx.aYq = new com.baidu.tieba.myCollection.baseHistory.a(historyMessage.Activity.getPageContext());
+                    this.aYZ.aYS = new com.baidu.tieba.myCollection.baseHistory.a(historyMessage.Activity.getPageContext());
                 }
-                aVar2 = this.aYx.aYq;
-                bdUniqueId = this.aYx.aYu;
+                aVar2 = this.aYZ.aYS;
+                bdUniqueId = this.aYZ.aYW;
                 aVar2.setUniqueId(bdUniqueId);
-                aVar3 = this.aYx.aYq;
+                aVar3 = this.aYZ.aYS;
                 aVar3.a((com.baidu.tieba.myCollection.baseHistory.a) bVar);
             }
-            oVar = this.aYx.aYr;
+            oVar = this.aYZ.aYT;
             oVar.a(historyMessage.threadId, bVar);
-            ap.hG(historyMessage.threadId);
-            e eVar = this.aYx;
-            textView = this.aYx.aYh;
-            eVar.m(textView, t.d.cp_cont_b);
-            e eVar2 = this.aYx;
-            textView2 = this.aYx.aYn;
-            eVar2.m(textView2, t.d.cp_cont_j);
+            an.hN(historyMessage.threadId);
+            e eVar = this.aYZ;
+            textView = this.aYZ.aMI;
+            eVar.m(textView, r.d.cp_cont_b);
+            e eVar2 = this.aYZ;
+            textView2 = this.aYZ.aYP;
+            eVar2.m(textView2, r.d.cp_cont_j);
         }
     }
 }

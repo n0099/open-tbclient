@@ -1,7 +1,86 @@
 package com.baidu.tieba.enterForum.d;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class c {
-    public int bHI;
-    public int bHJ;
-    public d bHK;
+public class c extends ListView implements AdapterView.OnItemLongClickListener {
+    private int bHN;
+    private int bHO;
+    private int bHP;
+    private com.baidu.tieba.enterForum.a.d bHQ;
+    private int bHR;
+    private Runnable bHS;
+    private int mOffset;
+
+    public c(Context context) {
+        this(context, null);
+    }
+
+    public c(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.bHS = new d(this);
+        setOnItemLongClickListener(this);
+    }
+
+    @Override // android.widget.ListView, android.widget.AbsListView
+    public void setAdapter(ListAdapter listAdapter) {
+        super.setAdapter(listAdapter);
+        if (listAdapter instanceof com.baidu.tieba.enterForum.a.d) {
+            this.bHQ = (com.baidu.tieba.enterForum.a.d) listAdapter;
+        } else {
+            BdLog.e("the adapter must be implements IDragAdapter");
+        }
+    }
+
+    private void ae(int i, int i2) {
+        int pointToPosition = pointToPosition(i, i2);
+        if (pointToPosition != this.bHN && pointToPosition != -1) {
+            this.bHQ.hn(pointToPosition);
+            this.bHQ.ab(this.bHN, pointToPosition);
+            this.bHN = pointToPosition;
+        }
+    }
+
+    @Override // android.widget.AbsListView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        this.bHO = (int) motionEvent.getRawX();
+        this.bHP = (int) motionEvent.getRawY();
+        if (com.baidu.tieba.enterForum.c.a.XX().XY()) {
+            switch (motionEvent.getAction()) {
+                case 1:
+                case 3:
+                    com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bHS);
+                    com.baidu.tieba.enterForum.c.a.XX().Yb();
+                    this.bHQ.hn(-1);
+                    this.bHQ.Xq();
+                    break;
+                case 2:
+                    this.mOffset = com.baidu.tieba.enterForum.c.b.a(motionEvent.getY(), this.bHR, getHeight());
+                    com.baidu.tieba.enterForum.c.a.XX().ac(this.bHO, this.bHP - this.mOffset);
+                    ae((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
+                    break;
+            }
+            return true;
+        }
+        return super.onTouchEvent(motionEvent);
+    }
+
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        TiebaStatic.eventStat(getContext(), "list_drag_order", null);
+        this.bHN = i;
+        com.baidu.tieba.enterForum.c.a.XX().a(getContext(), view, this.bHO, this.bHP);
+        this.bHQ.hn(i);
+        this.bHQ.Xq();
+        this.bHR = view.getHeight();
+        com.baidu.adp.lib.h.h.eG().postDelayed(this.bHS, 200L);
+        return true;
+    }
 }

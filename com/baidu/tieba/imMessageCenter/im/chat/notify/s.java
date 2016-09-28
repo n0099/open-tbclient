@@ -7,20 +7,20 @@ public class s {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean lX(int i) {
+    public static boolean mf(int i) {
         switch (i) {
             case 0:
-                return com.baidu.tbadk.coreExtra.messageCenter.c.yX().zf() || com.baidu.tbadk.coreExtra.messageCenter.c.yX().zm();
+                return com.baidu.tbadk.coreExtra.messageCenter.c.za().zi() || com.baidu.tbadk.coreExtra.messageCenter.c.za().zp();
             case 1:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().ze()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zh()) {
                     return false;
                 }
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zc()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zf()) {
                     return false;
                 }
                 return true;
             case 2:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.yX().zc()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zf()) {
                 }
                 return true;
             default:
@@ -34,13 +34,13 @@ public class s {
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (lX(0)) {
+        if (mf(0)) {
             i2 = newsNotifyMessage.getMsgChat();
             i = newsNotifyMessage.getMsgStrangerChat();
         } else {
             i = 0;
             i2 = 0;
         }
-        return ((lX(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (lX(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        return ((mf(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (mf(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
     }
 }

@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class cy extends cs<com.baidu.tieba.pb.data.c, cz> implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -17,9 +17,9 @@ public class cy extends cs<com.baidu.tieba.pb.data.c, cz> implements View.OnClic
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bg */
+    /* renamed from: bi */
     public cz a(ViewGroup viewGroup) {
-        cz czVar = new cz(LayoutInflater.from(this.mContext).inflate(t.h.god_card_list_item, (ViewGroup) null));
+        cz czVar = new cz(LayoutInflater.from(this.mContext).inflate(r.h.god_card_list_item, (ViewGroup) null));
         a(czVar);
         return czVar;
     }
@@ -28,7 +28,7 @@ public class cy extends cs<com.baidu.tieba.pb.data.c, cz> implements View.OnClic
         if (czVar != null) {
             int skinType = TbadkCoreApplication.m9getInst().getSkinType();
             if (czVar.mSkinType != skinType) {
-                com.baidu.tbadk.j.a.a(this.emy.getPageContext(), czVar.getView());
+                com.baidu.tbadk.i.a.a(this.eow.getPageContext(), czVar.getView());
             }
             czVar.mSkinType = skinType;
         }
@@ -40,17 +40,17 @@ public class cy extends cs<com.baidu.tieba.pb.data.c, cz> implements View.OnClic
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.c cVar, cz czVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tieba.pb.data.c) czVar);
         a(czVar);
-        czVar.eoW.setOnClickListener(this);
-        czVar.eoV.setOnClickListener(this);
-        czVar.eoW.setTag(cVar);
-        czVar.eoV.setTag(cVar);
+        czVar.eqU.setOnClickListener(this);
+        czVar.eqT.setOnClickListener(this);
+        czVar.eqU.setTag(cVar);
+        czVar.eqT.setTag(cVar);
         if (cVar != null) {
-            czVar.caC.c(cVar.getPortrait(), 28, false);
-            czVar.aVl.setText(cVar.getUserName());
-            czVar.cUW.setText(cVar.aLD());
-            czVar.csD.setText(cVar.getText());
-            czVar.eoV.c(cVar.getPicUrl(), 10, false);
-            czVar.eoW.setText(cVar.aLE());
+            czVar.caE.c(cVar.getPortrait(), 28, false);
+            czVar.aVU.setText(cVar.getUserName());
+            czVar.cWq.setText(cVar.aMf());
+            czVar.cta.setText(cVar.getText());
+            czVar.eqT.c(cVar.getPicUrl(), 10, false);
+            czVar.eqU.setText(cVar.aMg());
         }
         return view;
     }
@@ -59,10 +59,10 @@ public class cy extends cs<com.baidu.tieba.pb.data.c, cz> implements View.OnClic
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view.getTag() instanceof com.baidu.tieba.pb.data.c) && com.baidu.tbadk.core.util.bn.al(this.mContext)) {
-            String aLF = ((com.baidu.tieba.pb.data.c) view.getTag()).aLF();
-            if (!StringUtils.isNull(aLF)) {
-                com.baidu.tbadk.core.util.bi.vx().c(this.emy.getPageContext(), new String[]{aLF});
+        if ((view.getTag() instanceof com.baidu.tieba.pb.data.c) && com.baidu.tbadk.core.util.bm.ak(this.mContext)) {
+            String aMh = ((com.baidu.tieba.pb.data.c) view.getTag()).aMh();
+            if (!StringUtils.isNull(aMh)) {
+                com.baidu.tbadk.core.util.bh.vL().c(this.eow.getPageContext(), new String[]{aMh});
             }
         }
     }

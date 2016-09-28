@@ -1,31 +1,48 @@
 package com.baidu.tbadk.f;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class a implements b {
-    private b ayt;
+public class a {
+    protected View ayL;
+    private boolean ayM;
 
-    public a(TbPageContext<?> tbPageContext) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOD_RECOMMEND_CONTROLLER, b.class, tbPageContext);
-        if (runTask != null && runTask.getData() != null) {
-            this.ayt = (b) runTask.getData();
+    public a(View view) {
+        this.ayL = view;
+    }
+
+    public boolean Eu() {
+        return this.ayM;
+    }
+
+    public void b(View view, boolean z) {
+        if (view != null && this.ayL != null && this.ayL.getParent() == null) {
+            this.ayM = true;
+            d.N(view).a(view, this.ayL, z);
+            Ev();
         }
     }
 
-    @Override // com.baidu.tbadk.f.b
-    public void ap(String str, String str2) {
-        if (this.ayt != null) {
-            this.ayt.ap(str, str2);
+    public void L(View view) {
+        if (view != null && this.ayL != null && this.ayL.getParent() != null && (view instanceof ViewGroup)) {
+            try {
+                Ew();
+                ((ViewGroup) view).removeView(this.ayL);
+                this.ayM = false;
+            } catch (Exception e) {
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.f.b
-    public void destory() {
-        if (this.ayt != null) {
-            this.ayt.destory();
-        }
+    public void M(View view) {
+        b(view, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void Ev() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void Ew() {
     }
 }

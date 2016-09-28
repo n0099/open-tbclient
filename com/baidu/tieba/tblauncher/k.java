@@ -1,9 +1,6 @@
 package com.baidu.tieba.tblauncher;
-
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements a.b {
+class k extends com.baidu.tbadk.pageStayDuration.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +8,18 @@ public class k implements a.b {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        this.this$0.bkP();
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean FF() {
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public int FG() {
+        return com.baidu.tbadk.pageStayDuration.e.FL().FN();
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean a(com.baidu.tbadk.pageStayDuration.d dVar) {
+        return false;
     }
 }

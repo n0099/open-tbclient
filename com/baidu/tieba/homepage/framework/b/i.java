@@ -1,48 +1,48 @@
 package com.baidu.tieba.homepage.framework.b;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e.a;
-import com.baidu.tieba.t;
+import com.baidu.tieba.d.a;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements a.InterfaceC0055a {
-    final int bQq = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), t.e.ds98);
-    final /* synthetic */ e cDO;
+public class i implements a.InterfaceC0058a {
+    final int bQj = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds98);
+    final /* synthetic */ e cEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(e eVar) {
-        this.cDO = eVar;
+        this.cEs = eVar;
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
-    public void N(int i, int i2) {
-        a aVar;
-        a aVar2;
-        a aVar3;
-        if (af(i2)) {
-            aVar = this.cDO.cDK;
-            if (aVar != null) {
-                aVar2 = this.cDO.cDK;
-                aVar2.dp(false);
-                aVar3 = this.cDO.cDK;
-                aVar3.eU(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
     public void O(int i, int i2) {
         a aVar;
         a aVar2;
         a aVar3;
         if (af(i2)) {
-            aVar = this.cDO.cDK;
+            aVar = this.cEs.cEo;
             if (aVar != null) {
-                aVar2 = this.cDO.cDK;
-                aVar2.dp(true);
-                if (Math.abs(i2) > this.bQq) {
-                    aVar3 = this.cDO.cDK;
-                    aVar3.eT(false);
+                aVar2 = this.cEs.cEo;
+                aVar2.dq(false);
+                aVar3 = this.cEs.cEo;
+                aVar3.eV(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    public void P(int i, int i2) {
+        a aVar;
+        a aVar2;
+        a aVar3;
+        if (af(i2)) {
+            aVar = this.cEs.cEo;
+            if (aVar != null) {
+                aVar2 = this.cEs.cEo;
+                aVar2.dq(true);
+                if (Math.abs(i2) > this.bQj) {
+                    aVar3 = this.cEs.cEo;
+                    aVar3.eU(false);
                 }
             }
         }

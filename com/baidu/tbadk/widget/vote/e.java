@@ -12,19 +12,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class e extends FrameLayout {
-    private com.baidu.tbadk.widget.vote.a aKH;
-    private TbImageView aKI;
-    private TextView aKJ;
-    private TextView aKK;
-    private TextView aKL;
-    private ImageView aKM;
-    private View aKN;
-    private a aKO;
-    private View.OnClickListener aKP;
-    private ProgressBar aKt;
+    private ProgressBar aJS;
+    private com.baidu.tbadk.widget.vote.a aKg;
+    private TbImageView aKh;
+    private TextView aKi;
+    private TextView aKj;
+    private TextView aKk;
+    private ImageView aKl;
+    private View aKm;
+    private a aKn;
+    private View.OnClickListener aKo;
     private boolean isSelected;
     private int position;
 
@@ -41,135 +41,131 @@ public class e extends FrameLayout {
     public e(Context context) {
         super(context);
         this.isSelected = false;
-        this.aKP = new f(this);
+        this.aKo = new f(this);
         init(context);
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(t.h.vote_selected_pic_item, this);
-        this.aKI = (TbImageView) findViewById(t.g.vote_photo_image);
-        this.aKt = (ProgressBar) findViewById(t.g.vote_photo_progress);
-        this.aKJ = (TextView) findViewById(t.g.vote_photo_number);
-        this.aKK = (TextView) findViewById(t.g.vote_photo_percent);
-        this.aKL = (TextView) findViewById(t.g.vote_photo_name);
-        this.aKM = (ImageView) findViewById(t.g.vote_photo_check_image);
-        this.aKN = findViewById(t.g.vote_photo_frame);
-        this.aKI.setDrawBorder(true);
-        this.aKI.setBorderColor(av.getColor(t.d.common_color_10043));
-        this.aKI.setBorderWidth(getResources().getDimensionPixelSize(t.e.ds1));
-        setOnClickListener(this.aKP);
+        LayoutInflater.from(context).inflate(r.h.vote_selected_pic_item, this);
+        this.aKh = (TbImageView) findViewById(r.g.vote_photo_image);
+        this.aJS = (ProgressBar) findViewById(r.g.vote_photo_progress);
+        this.aKi = (TextView) findViewById(r.g.vote_photo_number);
+        this.aKj = (TextView) findViewById(r.g.vote_photo_percent);
+        this.aKk = (TextView) findViewById(r.g.vote_photo_name);
+        this.aKl = (ImageView) findViewById(r.g.vote_photo_check_image);
+        this.aKm = findViewById(r.g.vote_photo_frame);
+        this.aKh.setDrawBorder(true);
+        this.aKh.setBorderColor(av.getColor(r.d.common_color_10043));
+        this.aKh.setBorderWidth(getResources().getDimensionPixelSize(r.e.ds1));
+        setOnClickListener(this.aKo);
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     @Override // android.view.View
     public void setSelected(boolean z) {
         this.isSelected = z;
-        this.aKN.setVisibility(z ? 0 : 8);
+        this.aKm.setVisibility(z ? 0 : 8);
         if (z) {
-            av.c(this.aKM, t.f.btn_choose_photo_s);
+            av.c(this.aKl, r.f.btn_choose_photo_s);
         } else {
-            av.c(this.aKM, t.f.btn_choose_photo_n);
+            av.c(this.aKl, r.f.btn_choose_photo_n);
         }
     }
 
     public void setOnItemCheckChangeListener(a aVar) {
-        this.aKO = aVar;
+        this.aKn = aVar;
     }
 
-    public void a(com.baidu.tbadk.widget.vote.a aVar, int i, int i2, boolean z) {
+    public void a(com.baidu.tbadk.widget.vote.a aVar, int i, int i2, boolean z, boolean z2) {
         if (aVar != null) {
             this.isSelected = z;
-            this.aKH = aVar;
+            this.aKg = aVar;
             this.position = i;
-            if (StringUtils.isNull(aVar.Cg())) {
-                this.aKL.setVisibility(4);
-                this.aKL.setText((CharSequence) null);
+            if (StringUtils.isNull(aVar.Cj())) {
+                this.aKk.setVisibility(4);
+                this.aKk.setText((CharSequence) null);
             } else {
-                this.aKL.setVisibility(0);
-                this.aKL.setText(UtilHelper.getFixedText(aVar.Cg(), 10, false));
+                this.aKk.setVisibility(0);
+                this.aKk.setText(UtilHelper.getFixedText(aVar.Cj(), 10, false));
             }
             if (i2 == 2) {
                 setOnClickListener(null);
                 b(aVar);
             } else if (i2 == 1 || i2 == 3) {
-                setOnClickListener(this.aKP);
-                bZ(z);
+                setOnClickListener(this.aKo);
+                bY(z);
             }
-            this.aKN.setVisibility(z ? 0 : 8);
-            this.aKI.c(aVar.Cl(), 17, false);
+            this.aKm.setVisibility((z && z2) ? 0 : 8);
+            this.aKh.c(aVar.Co(), 17, false);
         }
     }
 
     public void setNameVisibility(int i) {
-        this.aKL.setVisibility(i);
+        this.aKk.setVisibility(i);
     }
 
-    private void bZ(boolean z) {
+    private void bY(boolean z) {
         setProgressGroupVisible(false);
-        this.aKM.setVisibility(0);
-        if (z) {
-            av.c(this.aKM, t.f.vote_text_check_box);
-        } else {
-            av.c(this.aKM, t.f.btn_choose_photo_n);
-        }
+        this.aKl.setVisibility(0);
+        av.c(this.aKl, r.f.btn_choose_photo_n);
     }
 
     private void b(com.baidu.tbadk.widget.vote.a aVar) {
         setProgressGroupVisible(true);
-        this.aKM.setVisibility(8);
+        this.aKl.setVisibility(8);
         if (aVar != null) {
-            if (StringUtils.isNull(aVar.Ch())) {
-                this.aKJ.setVisibility(8);
-                this.aKJ.setText((CharSequence) null);
+            if (StringUtils.isNull(aVar.Ck())) {
+                this.aKi.setVisibility(8);
+                this.aKi.setText((CharSequence) null);
             } else {
-                this.aKJ.setVisibility(0);
-                this.aKJ.setText(aVar.Ch());
+                this.aKi.setVisibility(0);
+                this.aKi.setText(aVar.Ck());
             }
-            if (StringUtils.isNull(aVar.Ci())) {
-                this.aKK.setVisibility(8);
-                this.aKK.setText((CharSequence) null);
+            if (StringUtils.isNull(aVar.Cl())) {
+                this.aKj.setVisibility(8);
+                this.aKj.setText((CharSequence) null);
                 return;
             }
-            this.aKK.setVisibility(0);
-            this.aKK.setText(aVar.Ci());
+            this.aKj.setVisibility(0);
+            this.aKj.setText(aVar.Cl());
         }
     }
 
     private void setProgressGroupVisible(boolean z) {
         if (z) {
-            this.aKJ.setVisibility(0);
-            this.aKK.setVisibility(0);
-            this.aKt.setVisibility(0);
+            this.aKi.setVisibility(0);
+            this.aKj.setVisibility(0);
+            this.aJS.setVisibility(0);
             return;
         }
-        this.aKJ.setVisibility(8);
-        this.aKK.setVisibility(8);
-        this.aKt.setVisibility(8);
+        this.aKi.setVisibility(8);
+        this.aKj.setVisibility(8);
+        this.aJS.setVisibility(8);
     }
 
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aKH != null) {
-            int Ck = (int) (this.aKH.Ck() * f);
+        if (f >= 0.0f && this.aKg != null) {
+            int Cn = (int) (this.aKg.Cn() * f);
             if (this.isSelected) {
-                this.aKt.setProgress(Ck);
-                this.aKt.setSecondaryProgress(0);
+                this.aJS.setProgress(Cn);
+                this.aJS.setSecondaryProgress(0);
                 return;
             }
-            this.aKt.setProgress(0);
-            this.aKt.setSecondaryProgress(Ck);
+            this.aJS.setProgress(0);
+            this.aJS.setSecondaryProgress(Cn);
         }
     }
 
     public void onChangeSkinType(int i) {
-        av.b(this.aKL, t.d.cp_cont_b, 1, i);
-        av.b(this.aKJ, t.d.cp_cont_g, 1, i);
-        av.b(this.aKK, t.d.cp_cont_g, 1, i);
-        this.aKt.setProgressDrawable(av.q(i, t.f.vote_photo_progress_drawable));
+        av.b(this.aKk, r.d.cp_cont_b, 1, i);
+        av.b(this.aKi, r.d.cp_cont_g, 1, i);
+        av.b(this.aKj, r.d.cp_cont_g, 1, i);
+        this.aJS.setProgressDrawable(av.q(i, r.f.vote_photo_progress_drawable));
         if (this.isSelected) {
-            av.c(this.aKM, t.f.btn_choose_photo_s);
+            av.c(this.aKl, r.f.btn_choose_photo_s);
         } else {
-            av.c(this.aKM, t.f.btn_choose_photo_n);
+            av.c(this.aKl, r.f.btn_choose_photo_n);
         }
-        av.d(this.aKN, t.f.vote_photo_frame, i);
+        av.d(this.aKm, r.f.vote_photo_frame, i);
     }
 }

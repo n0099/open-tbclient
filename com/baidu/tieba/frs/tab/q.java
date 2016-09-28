@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.frs.TabMenuPopView;
 import com.baidu.tieba.frs.dt;
 import com.baidu.tieba.frs.tab.j;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q implements f {
-    private View aYc;
-    private TabMenuPopView.a bUh = new r(this);
-    private j cdT;
-    private j.b cdW;
-    private List<dt> cdX;
-    private TabMenuPopView cdY;
+    private View aqu;
+    private TabMenuPopView.a bUa = new r(this);
+    private j cdS;
+    private j.b cdV;
+    private List<dt> cdW;
+    private TabMenuPopView cdX;
     private View mContentView;
     private Context mContext;
 
@@ -25,26 +25,26 @@ public class q implements f {
     public void a(Context context, j jVar) {
         if (context != null && jVar != null) {
             this.mContext = context;
-            this.cdT = jVar;
-            this.cdW = jVar.afc();
-            this.mContentView = LayoutInflater.from(this.mContext).inflate(t.h.tab_menu_multline_view, (ViewGroup) null);
-            this.aYc = this.mContentView.findViewById(t.g.top_line);
-            this.cdY = (TabMenuPopView) this.mContentView.findViewById(t.g.categorycontainer);
-            this.cdY.setOnItemClickCallBack(this.bUh);
+            this.cdS = jVar;
+            this.cdV = jVar.afq();
+            this.mContentView = LayoutInflater.from(this.mContext).inflate(r.h.tab_menu_multline_view, (ViewGroup) null);
+            this.aqu = this.mContentView.findViewById(r.g.top_line);
+            this.cdX = (TabMenuPopView) this.mContentView.findViewById(r.g.categorycontainer);
+            this.cdX.setOnItemClickCallBack(this.bUa);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.f
     public void setData(List<dt> list) {
         if (list != null) {
-            this.cdX = list;
+            this.cdW = list;
             dt dtVar = new dt();
-            dtVar.bTp = 0;
-            dtVar.name = this.mContext.getResources().getString(t.j.forum_list_menu_all);
+            dtVar.bTi = 0;
+            dtVar.name = this.mContext.getResources().getString(r.j.forum_list_menu_all);
             dtVar.isSelected = false;
-            av.l(this.mContentView, t.d.cp_bg_line_d);
-            av.l(this.aYc, t.d.cp_bg_line_b);
-            this.cdY.a(this.cdX, dtVar);
+            av.l(this.mContentView, r.d.cp_bg_line_d);
+            av.l(this.aqu, r.d.cp_bg_line_b);
+            this.cdX.a(this.cdW, dtVar);
         }
     }
 
@@ -54,18 +54,18 @@ public class q implements f {
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public void wq() {
+    public void wH() {
         if (this.mContentView != null) {
-            av.l(this.mContentView, t.d.cp_bg_line_d);
-            av.l(this.aYc, t.d.cp_bg_line_b);
+            av.l(this.mContentView, r.d.cp_bg_line_d);
+            av.l(this.aqu, r.d.cp_bg_line_b);
         }
-        if (this.cdY != null) {
-            this.cdY.wq();
+        if (this.cdX != null) {
+            this.cdX.wH();
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.f
-    public int aeZ() {
+    public int afn() {
         this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         return this.mContentView.getMeasuredHeight();
     }

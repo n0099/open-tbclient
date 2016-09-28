@@ -4,22 +4,22 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fu implements View.OnClickListener {
-    final /* synthetic */ ex euB;
+    final /* synthetic */ ex ewH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fu(ex exVar) {
-        this.euB = exVar;
+        this.ewH = exVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        this.euB.aPO();
-        pbActivity = this.euB.emy;
-        if (pbActivity.bRE != null) {
-            pbActivity2 = this.euB.emy;
-            pbActivity2.bRE.onClick(view);
+        this.ewH.aQx();
+        pbActivity = this.ewH.eow;
+        if (pbActivity.bRx != null) {
+            pbActivity2 = this.ewH.eow;
+            pbActivity2.bRx.onClick(view);
         }
     }
 }

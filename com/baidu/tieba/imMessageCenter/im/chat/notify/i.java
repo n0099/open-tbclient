@@ -26,11 +26,11 @@ import com.baidu.tieba.imMessageCenter.StrangerListActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements AdapterView.OnItemClickListener {
-    final /* synthetic */ f dnI;
+    final /* synthetic */ f dpg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(f fVar) {
-        this.dnI = fVar;
+        this.dpg = fVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -52,76 +52,76 @@ public class i implements AdapterView.OnItemClickListener {
         BdBaseFragmentActivity bdBaseFragmentActivity14;
         BdBaseFragmentActivity bdBaseFragmentActivity15;
         if (i >= 0) {
-            imMessageCenterListAdapter = this.dnI.dnz;
-            ImMessageCenterShowItemData lb = imMessageCenterListAdapter.getItem(i);
-            bdBaseFragmentActivity = this.dnI.dnw;
+            imMessageCenterListAdapter = this.dpg.doX;
+            ImMessageCenterShowItemData lj = imMessageCenterListAdapter.getItem(i);
+            bdBaseFragmentActivity = this.dpg.doU;
             TiebaStatic.eventStat(bdBaseFragmentActivity.getPageContext().getContext(), "list_to_chat", "chatlistclick", 1, new Object[0]);
-            if (lb != null) {
-                String ownerName = lb.getOwnerName();
+            if (lj != null) {
+                String ownerName = lj.getOwnerName();
                 if (TextUtils.isEmpty(ownerName)) {
-                    e(lb);
+                    e(lj);
                 } else if (ownerName.equals("1")) {
-                    bdBaseFragmentActivity13 = this.dnI.dnw;
+                    bdBaseFragmentActivity13 = this.dpg.doU;
                     if (a.a((BaseFragmentActivity) bdBaseFragmentActivity13.getPageContext().getOrignalPage(), GroupChatActivityConfig.class)) {
-                        bdBaseFragmentActivity14 = this.dnI.dnw;
+                        bdBaseFragmentActivity14 = this.dpg.doU;
                         TiebaStatic.eventStat(bdBaseFragmentActivity14.getPageContext().getContext(), "chat_list_to_group", "click", 1, new Object[0]);
-                        bdBaseFragmentActivity15 = this.dnI.dnw;
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(bdBaseFragmentActivity15.getPageContext().getPageActivity(), Integer.parseInt(lb.getFriendId()), lb.getFriendName(), 0L, "msg_lstb")));
+                        bdBaseFragmentActivity15 = this.dpg.doU;
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(bdBaseFragmentActivity15.getPageContext().getPageActivity(), Integer.parseInt(lj.getFriendId()), lj.getFriendName(), 0L, "msg_lstb")));
                     }
-                } else if (lb.getOwnerName().equals("2")) {
-                    bdBaseFragmentActivity11 = this.dnI.dnw;
+                } else if (lj.getOwnerName().equals("2")) {
+                    bdBaseFragmentActivity11 = this.dpg.doU;
                     if (a.a((BaseFragmentActivity) bdBaseFragmentActivity11.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_VALIDATE_ACTIVITY_START)) {
-                        d(lb);
-                        if (com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV() != null) {
-                            com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().dJ(0);
+                        d(lj);
+                        if (com.baidu.tbadk.coreExtra.messageCenter.a.yD().yY() != null) {
+                            com.baidu.tbadk.coreExtra.messageCenter.a.yD().yY().dJ(0);
                         }
-                        f fVar = this.dnI;
-                        bdBaseFragmentActivity12 = this.dnI.dnw;
+                        f fVar = this.dpg;
+                        bdBaseFragmentActivity12 = this.dpg.doU;
                         fVar.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_VALIDATE_ACTIVITY_START, new ValidateActivityConfig(bdBaseFragmentActivity12.getPageContext().getPageActivity())));
                     }
-                } else if (lb.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-                    bdBaseFragmentActivity9 = this.dnI.dnw;
+                } else if (lj.getOwnerName().equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
+                    bdBaseFragmentActivity9 = this.dpg.doU;
                     if (a.a((BaseFragmentActivity) bdBaseFragmentActivity9.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_UPDATES_ACTIVITY_START)) {
-                        d(lb);
-                        if (com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV() != null) {
-                            com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().dI(0);
+                        d(lj);
+                        if (com.baidu.tbadk.coreExtra.messageCenter.a.yD().yY() != null) {
+                            com.baidu.tbadk.coreExtra.messageCenter.a.yD().yY().dI(0);
                         }
-                        f fVar2 = this.dnI;
-                        bdBaseFragmentActivity10 = this.dnI.dnw;
+                        f fVar2 = this.dpg;
+                        bdBaseFragmentActivity10 = this.dpg.doU;
                         fVar2.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_UPDATES_ACTIVITY_START, new UpdatesActivityConfig(bdBaseFragmentActivity10.getPageContext().getPageActivity())));
                     }
-                } else if (lb.getOwnerName().equals("6")) {
-                    bdBaseFragmentActivity7 = this.dnI.dnw;
+                } else if (lj.getOwnerName().equals("6")) {
+                    bdBaseFragmentActivity7 = this.dpg.doU;
                     if (a.a((BaseFragmentActivity) bdBaseFragmentActivity7.getPageContext().getOrignalPage(), LiveNotifyActivityConfig.class)) {
-                        d(lb);
-                        if (com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV() != null) {
-                            com.baidu.tbadk.coreExtra.messageCenter.a.yA().yV().dS(0);
+                        d(lj);
+                        if (com.baidu.tbadk.coreExtra.messageCenter.a.yD().yY() != null) {
+                            com.baidu.tbadk.coreExtra.messageCenter.a.yD().yY().dS(0);
                         }
-                        f fVar3 = this.dnI;
-                        bdBaseFragmentActivity8 = this.dnI.dnw;
+                        f fVar3 = this.dpg;
+                        bdBaseFragmentActivity8 = this.dpg.doU;
                         fVar3.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LiveNotifyActivityConfig(bdBaseFragmentActivity8.getPageContext().getPageActivity())));
                     }
                 } else if (ownerName.equals("5")) {
-                    bdBaseFragmentActivity5 = this.dnI.dnw;
+                    bdBaseFragmentActivity5 = this.dpg.doU;
                     if (a.a((BaseFragmentActivity) bdBaseFragmentActivity5.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START)) {
-                        f fVar4 = this.dnI;
-                        bdBaseFragmentActivity6 = this.dnI.dnw;
+                        f fVar4 = this.dpg;
+                        bdBaseFragmentActivity6 = this.dpg.doU;
                         fVar4.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_OFFICIALBARTIP_ACTIVITY_START, new OfficialBarTipActivityConfig(bdBaseFragmentActivity6.getPageContext().getPageActivity())));
                     }
                 } else if (ownerName.equals("8")) {
-                    bdBaseFragmentActivity3 = this.dnI.dnw;
+                    bdBaseFragmentActivity3 = this.dpg.doU;
                     if (a.a((BaseFragmentActivity) bdBaseFragmentActivity3.getPageContext().getOrignalPage(), (int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT)) {
-                        long c = com.baidu.adp.lib.h.b.c(lb.getFriendId(), 0L);
-                        int userType = lb.getUserType();
-                        bdBaseFragmentActivity4 = this.dnI.dnw;
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(bdBaseFragmentActivity4.getPageContext().getPageActivity(), c, lb.getFriendName(), lb.getFriendPortrait(), 0, userType)));
+                        long c = com.baidu.adp.lib.h.b.c(lj.getFriendId(), 0L);
+                        int userType = lj.getUserType();
+                        bdBaseFragmentActivity4 = this.dpg.doU;
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(bdBaseFragmentActivity4.getPageContext().getPageActivity(), c, lj.getFriendName(), lj.getFriendPortrait(), 0, userType)));
                     }
                 } else if (ownerName.equals(WriteData.THREAD_TYPE_LBS)) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    bdBaseFragmentActivity2 = this.dnI.dnw;
+                    bdBaseFragmentActivity2 = this.dpg.doU;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new StrangerListActivityConfig(bdBaseFragmentActivity2.getPageContext().getPageActivity())));
                 } else {
-                    e(lb);
+                    e(lj);
                 }
             }
         }
@@ -138,14 +138,14 @@ public class i implements AdapterView.OnItemClickListener {
     private void e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         BdBaseFragmentActivity bdBaseFragmentActivity;
         if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.yA().setMsgChat(com.baidu.tbadk.coreExtra.messageCenter.a.yA().getMsgChat() - imMessageCenterShowItemData.getUnReadCount());
+            com.baidu.tbadk.coreExtra.messageCenter.a.yD().setMsgChat(com.baidu.tbadk.coreExtra.messageCenter.a.yD().getMsgChat() - imMessageCenterShowItemData.getUnReadCount());
             imMessageCenterShowItemData.setUnReadCount(0);
         }
         try {
             long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
             TiebaStatic.log("tab_msg_personal_chat_click");
             TiebaStatic.eventStat(TbadkCoreApplication.m9getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
-            bdBaseFragmentActivity = this.dnI.dnw;
+            bdBaseFragmentActivity = this.dpg.doU;
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(bdBaseFragmentActivity.getPageContext().getPageActivity(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
         } catch (Exception e) {
             e.printStackTrace();

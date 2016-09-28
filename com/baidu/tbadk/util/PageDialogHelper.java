@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class PageDialogHelper {
 
@@ -16,7 +16,7 @@ public class PageDialogHelper {
         DIALOG,
         NORMAL;
 
-        /* JADX DEBUG: Replace access to removed values field (aEW) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aEu) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PayForm[] valuesCustom() {
             PayForm[] valuesCustom = values();
@@ -52,7 +52,7 @@ public class PageDialogHelper {
             activity.setTheme(16973835);
             activity.requestWindowFeature(1);
         } else {
-            activity.setTheme(t.k.swipeback_activity_style);
+            activity.setTheme(r.k.swipeback_activity_style);
         }
         return z;
     }

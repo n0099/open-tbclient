@@ -1,53 +1,23 @@
 package com.baidu.tbadk.core.data;
+
+import tbclient.LotteryTheme;
 /* loaded from: classes.dex */
 public class ai {
-    private long RK;
-    private String RL;
-    private String content;
-    private String link;
-    private String stat;
-    private long taskId;
+    private String RP;
+    private String RQ;
 
-    public ai() {
-        this.RK = -1L;
-        this.link = null;
-        this.content = null;
-        this.RL = null;
-        this.stat = "";
-        this.taskId = -1L;
+    public String qt() {
+        return this.RP;
     }
 
-    public ai(long j, long j2, String str, String str2, String str3) {
-        this.RK = -1L;
-        this.link = null;
-        this.content = null;
-        this.RL = null;
-        this.stat = "";
-        this.taskId = -1L;
-        this.RK = j;
-        this.taskId = j2;
-        this.link = str;
-        this.content = str2;
-        this.stat = str3;
+    public String qu() {
+        return this.RQ;
     }
 
-    public String getStat() {
-        return this.stat;
-    }
-
-    public long qk() {
-        return this.RK;
-    }
-
-    public long getTaskId() {
-        return this.taskId;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public String getContent() {
-        return this.content;
+    public void a(LotteryTheme lotteryTheme) {
+        if (lotteryTheme != null) {
+            this.RP = lotteryTheme.bgcolor;
+            this.RQ = lotteryTheme.bgimage;
+        }
     }
 }

@@ -5,6 +5,6 @@ public class dq extends dn {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean bTH = true;
-    public boolean bTI = true;
+    public boolean bTA = true;
+    public boolean bTB = true;
 }

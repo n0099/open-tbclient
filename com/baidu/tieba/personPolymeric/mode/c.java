@@ -12,45 +12,45 @@ import com.baidu.tieba.personPolymeric.mode.message.PersonPolymericReqMsg;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.e<BaseActivity> {
-    private int eHi;
-    private String eHj;
-    private b eII;
-    private a eIJ;
-    private com.baidu.adp.framework.listener.a eIK;
-    private CustomMessageListener enF;
-    private CustomMessageListener enG;
-    private CustomMessageListener enH;
+    private int eJm;
+    private String eJn;
+    private b eKM;
+    private a eKN;
+    private com.baidu.adp.framework.listener.a eKO;
+    private CustomMessageListener epE;
+    private CustomMessageListener epF;
+    private CustomMessageListener epG;
     private n mPersonPolymericData;
     private int pageIndex;
 
     public c(BaseActivity baseActivity, boolean z) {
         super(baseActivity.getPageContext());
-        this.eHi = -1;
-        this.eHj = "";
+        this.eJm = -1;
+        this.eJn = "";
         this.pageIndex = 1;
-        this.eIK = new d(this, CmdConfigHttp.CMD_PERSON_POLYMERIC, 309408);
-        this.enH = new e(this, CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE);
-        this.enF = new f(this, CmdConfigCustom.CMD_USER_MUTE_ADD);
-        this.enG = new g(this, CmdConfigCustom.CMD_USER_MUTE_DEL);
+        this.eKO = new d(this, CmdConfigHttp.CMD_PERSON_POLYMERIC, 309408);
+        this.epG = new e(this, CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE);
+        this.epE = new f(this, CmdConfigCustom.CMD_USER_MUTE_ADD);
+        this.epF = new g(this, CmdConfigCustom.CMD_USER_MUTE_DEL);
         if (!z) {
-            registerListener(this.enH);
-            registerListener(this.enF);
-            registerListener(this.enG);
+            registerListener(this.epG);
+            registerListener(this.epE);
+            registerListener(this.epF);
         }
-        registerListener(this.eIK);
+        registerListener(this.eKO);
         this.mPersonPolymericData = new n(z);
     }
 
     public void a(b bVar) {
-        this.eII = bVar;
+        this.eKM = bVar;
     }
 
     public void a(a aVar) {
-        this.eIJ = aVar;
+        this.eKN = aVar;
     }
 
     public boolean hasData() {
-        return !y.t(this.mPersonPolymericData.aoT());
+        return !y.t(this.mPersonPolymericData.aph());
     }
 
     public void cI(long j) {
@@ -90,7 +90,7 @@ public class c extends com.baidu.adp.base.e<BaseActivity> {
 
     public void resetData() {
         this.pageIndex = 1;
-        this.mPersonPolymericData.aTE();
+        this.mPersonPolymericData.aUb();
     }
 
     public boolean hasMoreData() {

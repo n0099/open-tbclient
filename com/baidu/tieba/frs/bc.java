@@ -5,18 +5,18 @@ import android.view.View;
 import com.baidu.adp.lib.guide.b;
 /* loaded from: classes.dex */
 class bc implements b {
-    final /* synthetic */ bb bQG;
-    private final /* synthetic */ View bQH;
+    private final /* synthetic */ View bQA;
+    final /* synthetic */ bb bQz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(bb bbVar, View view) {
-        this.bQG = bbVar;
-        this.bQH = view;
+        this.bQz = bbVar;
+        this.bQA = view;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        return this.bQH;
+        return this.bQA;
     }
 
     @Override // com.baidu.adp.lib.guide.b

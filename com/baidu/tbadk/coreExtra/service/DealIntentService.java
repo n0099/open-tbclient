@@ -127,7 +127,7 @@ public class DealIntentService extends BdBaseService {
             for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                 if (runningTaskInfo.baseActivity.getPackageName().equals(DealIntentService.this.getPackageName())) {
                     if (5 == this.intent.getIntExtra("class", -1)) {
-                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.tM())) {
+                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.ub())) {
                             this.intent.putExtra("class", 11);
                         }
                         if (mentionActivityClassName != null && runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(mentionActivityClassName)) {
@@ -151,7 +151,7 @@ public class DealIntentService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: eu */
+        /* renamed from: ex */
         public void onPostExecute(String str) {
             if (str != null) {
                 if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {

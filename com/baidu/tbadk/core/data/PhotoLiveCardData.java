@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
@@ -31,6 +31,7 @@ public class PhotoLiveCardData implements Serializable {
     private long lastModifiedTime;
     private String liveCoverSrcBsize;
     private String nickName;
+    private com.baidu.tbadk.data.j pendantData;
     private int postNum;
     private int praiseNum;
     private String refreshTime;
@@ -131,15 +132,15 @@ public class PhotoLiveCardData implements Serializable {
 
     @Deprecated
     public String buildRefreshTime() {
-        return String.valueOf(com.baidu.tbadk.core.util.ba.t(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(t.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.ba.y(this.postNum)});
+        return String.valueOf(com.baidu.tbadk.core.util.az.t(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(r.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.az.z(this.postNum)});
     }
 
     public String buildRefreshTimeWithPostNum() {
-        return String.valueOf(com.baidu.tbadk.core.util.ba.t(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(t.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.ba.y(this.postNum)});
+        return String.valueOf(com.baidu.tbadk.core.util.az.t(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m9getInst().getString(r.j.update_floor_num, new Object[]{com.baidu.tbadk.core.util.az.z(this.postNum)});
     }
 
     public String buildRefreshTimeWithoutPostNum() {
-        return TbadkCoreApplication.m9getInst().getString(t.j.photo_live_thread_expression_time, new Object[]{com.baidu.tbadk.core.util.ba.t(this.lastModifiedTime * 1000)});
+        return TbadkCoreApplication.m9getInst().getString(r.j.photo_live_thread_expression_time, new Object[]{com.baidu.tbadk.core.util.az.t(this.lastModifiedTime * 1000)});
     }
 
     public void setPhotoLiveCover(String str) {
@@ -195,7 +196,7 @@ public class PhotoLiveCardData implements Serializable {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
-        Bitmap cN = com.baidu.tbadk.core.util.av.cN(t.f.icon_zhibo);
+        Bitmap cN = com.baidu.tbadk.core.util.av.cN(r.f.icon_zhibo);
         BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
         int height = cN.getHeight();
         bitmapDrawable.setBounds(0, 0, cN.getWidth(), height);
@@ -279,6 +280,9 @@ public class PhotoLiveCardData implements Serializable {
                 this.authorPortrait = zhiBoInfoTW.user.portrait;
                 this.nickName = zhiBoInfoTW.user.fans_nickname;
                 this.fansNum = zhiBoInfoTW.user.fans_num.intValue();
+                com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
+                jVar.a(zhiBoInfoTW.user.pendant);
+                this.pendantData = jVar;
             }
             if (zhiBoInfoTW.labelInfo != null) {
                 int size = zhiBoInfoTW.labelInfo.size();
@@ -367,5 +371,13 @@ public class PhotoLiveCardData implements Serializable {
 
     public boolean isShowDiffViewInSameAdapter() {
         return this.isShowDiffViewInSameAdapter;
+    }
+
+    public com.baidu.tbadk.data.j getPendantData() {
+        return this.pendantData;
+    }
+
+    public void setUserPendantData(com.baidu.tbadk.data.j jVar) {
+        this.pendantData = jVar;
     }
 }

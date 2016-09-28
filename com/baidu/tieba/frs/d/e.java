@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.frs.ca;
 import com.baidu.tieba.frs.cu;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class e extends y.a {
     public cu ccA;
@@ -18,9 +18,9 @@ public class e extends y.a {
 
     public e(View view) {
         super(view);
-        this.ccv = (TextView) view.findViewById(t.g.storecard_title);
-        this.ccw = (LinearLayout) view.findViewById(t.g.storecard_middle_layout);
-        this.ccx = (TextView) view.findViewById(t.g.storecard_all_list);
-        this.ccy = view.findViewById(t.g.storecard_close_click);
+        this.ccv = (TextView) view.findViewById(r.g.storecard_title);
+        this.ccw = (LinearLayout) view.findViewById(r.g.storecard_middle_layout);
+        this.ccx = (TextView) view.findViewById(r.g.storecard_all_list);
+        this.ccy = view.findViewById(r.g.storecard_close_click);
     }
 }

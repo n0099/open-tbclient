@@ -1,58 +1,58 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes.dex */
 public class j {
-    private String aNa;
-    private String aNb;
-    private boolean aNc;
-    private long aNd = -1;
-    private long aNe = -1;
-    private long aNf = 0;
+    private String aOk;
+    private String aOl;
+    private boolean aOm;
+    private long aOn = -1;
+    private long aOo = -1;
+    private long aOp = 0;
 
-    public String JB() {
-        return this.aNa;
+    public String Kn() {
+        return this.aOk;
     }
 
-    public void gS(String str) {
-        this.aNa = str;
+    public void gZ(String str) {
+        this.aOk = str;
     }
 
-    public String JC() {
-        return this.aNb;
+    public String Ko() {
+        return this.aOl;
     }
 
-    public void gT(String str) {
-        this.aNb = str;
+    public void ha(String str) {
+        this.aOl = str;
     }
 
-    public boolean JD() {
-        return this.aNc;
+    public boolean Kp() {
+        return this.aOm;
     }
 
     public void cd(boolean z) {
-        this.aNc = z;
+        this.aOm = z;
     }
 
-    public long JE() {
-        return this.aNd;
-    }
-
-    public void as(long j) {
-        this.aNd = j;
-    }
-
-    public long JF() {
-        return this.aNe;
+    public long Kq() {
+        return this.aOn;
     }
 
     public void at(long j) {
-        this.aNe = j;
+        this.aOn = j;
+    }
+
+    public long Kr() {
+        return this.aOo;
+    }
+
+    public void au(long j) {
+        this.aOo = j;
     }
 
     public long getTotalLength() {
-        return this.aNf;
+        return this.aOp;
     }
 
-    public void N(long j) {
-        this.aNf = j;
+    public void O(long j) {
+        this.aOp = j;
     }
 }

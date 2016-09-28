@@ -6,11 +6,11 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 /* loaded from: classes.dex */
 class g implements GLSurfaceView.EGLConfigChooser {
-    final /* synthetic */ f aXs;
+    final /* synthetic */ f aXW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.aXs = fVar;
+        this.aXW = fVar;
     }
 
     @Override // android.opengl.GLSurfaceView.EGLConfigChooser

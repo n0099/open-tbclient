@@ -6,11 +6,11 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d ceQ;
+    final /* synthetic */ d ceP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.ceQ = dVar;
+        this.ceP = dVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,16 +20,16 @@ public class e implements View.OnClickListener {
         FrsActivity frsActivity3;
         FrsActivity frsActivity4;
         FrsActivity frsActivity5;
-        frsActivity = this.ceQ.bRp;
+        frsActivity = this.ceP.bRi;
         if (frsActivity != null) {
-            frsActivity2 = this.ceQ.bRp;
+            frsActivity2 = this.ceP.bRi;
             TiebaStatic.eventStat(frsActivity2.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-            frsActivity3 = this.ceQ.bRp;
-            if (!frsActivity3.aaS()) {
-                frsActivity4 = this.ceQ.bRp;
-                if (frsActivity4.abg() != null) {
-                    frsActivity5 = this.ceQ.bRp;
-                    frsActivity5.abg().kv();
+            frsActivity3 = this.ceP.bRi;
+            if (!frsActivity3.abf()) {
+                frsActivity4 = this.ceP.bRi;
+                if (frsActivity4.abs() != null) {
+                    frsActivity5 = this.ceP.bRi;
+                    frsActivity5.abs().kv();
                 }
             }
         }

@@ -4,21 +4,21 @@ import com.baidu.tieba.homepage.framework.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements com.baidu.tbadk.util.g<String> {
-    private final /* synthetic */ x cCr;
-    final /* synthetic */ b cHG;
+    private final /* synthetic */ x cCW;
+    final /* synthetic */ b cIy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(b bVar, x xVar) {
-        this.cHG = bVar;
-        this.cCr = xVar;
+        this.cIy = bVar;
+        this.cCW = xVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.g
-    /* renamed from: kN */
+    /* renamed from: kU */
     public void onReturnDataInUI(String str) {
-        if (str != null && this.cCr != null) {
-            this.cCr.jO(com.baidu.adp.lib.h.b.g(str, 0));
+        if (str != null && this.cCW != null) {
+            this.cCW.jU(com.baidu.adp.lib.h.b.g(str, 0));
         }
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.bh;
 /* loaded from: classes.dex */
-class b implements bi.a {
-    @Override // com.baidu.tbadk.core.util.bi.a
+class b implements bh.a {
+    @Override // com.baidu.tbadk.core.util.bh.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;

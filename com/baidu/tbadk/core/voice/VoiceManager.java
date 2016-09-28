@@ -33,7 +33,7 @@ import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.core.voice.service.MediaService;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -89,7 +89,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         SPEAKER,
         HEADSET;
 
-        /* JADX DEBUG: Replace access to removed values field (aiE) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aig) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PlayMode[] valuesCustom() {
             PlayMode[] valuesCustom = values();
@@ -125,7 +125,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public static synchronized void initConfig() {
         synchronized (VoiceManager.class) {
             if (!bInitConfig) {
-                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.tS().getBoolean("voice_use_soft_decoder", l.gS());
+                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("voice_use_soft_decoder", l.gS());
             }
         }
     }
@@ -136,7 +136,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public static void setVoiceUseSoftDecoder(boolean z) {
         bVoiceUseSoftDecoder = true;
-        com.baidu.tbadk.core.sharedPref.b.tS().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+        com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
     }
 
     public static VoiceManager instance() {
@@ -227,26 +227,26 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.mResourceCall == null) {
                 this.mResourceCall = new h(this);
             }
-            Object dX = i.dX(voiceModel.getId());
-            if (dX == null) {
+            Object ea = i.ea(voiceModel.getId());
+            if (ea == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof k)) {
                     bdUniqueId = ((k) this.context.getOrignalPage()).getUniqueId();
                 }
-                dX = com.baidu.adp.lib.g.c.eA().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                ea = com.baidu.adp.lib.g.c.eA().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && dX == null) {
+            if (voiceModel.isLocal && ea == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d(this, null);
                 }
-                this.mPlayCall.f(5, l.getString(t.j.voice_err_no_file));
+                this.mPlayCall.f(5, l.getString(r.j.voice_err_no_file));
                 com.baidu.tbadk.core.util.l lVar = new com.baidu.tbadk.core.util.l();
                 if (voiceModel != null) {
                     lVar.n("id", voiceModel.getId());
                     lVar.n("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "VoiceManager.setDownloading() error : record file not exists", lVar.toString());
-            } else if (dX != null) {
-                setPlaying(voiceModel, (String) dX);
+            } else if (ea != null) {
+                setPlaying(voiceModel, (String) ea);
             } else {
                 voiceModel.voice_status = 2;
                 b playView = getPlayView();
@@ -418,7 +418,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 this.mPlayCall = new d(this, null);
             }
             if (!new File(str).exists()) {
-                this.mPlayCall.f(5, l.getString(t.j.voice_err_no_file));
+                this.mPlayCall.f(5, l.getString(r.j.voice_err_no_file));
                 return;
             }
             registSensor();
@@ -848,7 +848,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             this();
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1390=4, 1391=4] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1373=4, 1374=4] */
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Removed duplicated region for block: B:51:0x00a3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -966,23 +966,25 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     private void addBlackScreen() {
-        if (this.windowParams == null) {
-            this.windowParams = new WindowManager.LayoutParams();
-            this.windowParams.width = -1;
-            this.windowParams.height = -1;
-        }
-        if (this.screenView == null) {
-            this.screenView = new View(this.context.getPageActivity());
-            this.screenView.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        }
-        if (this.windowManager == null) {
-            this.windowManager = (WindowManager) this.context.getContext().getSystemService("window");
-        }
-        if (j.a(this.context)) {
-            if (!this.isAddScreenView) {
-                this.windowManager.addView(this.screenView, this.windowParams);
+        if (this.context != null) {
+            if (this.windowParams == null) {
+                this.windowParams = new WindowManager.LayoutParams();
+                this.windowParams.width = -1;
+                this.windowParams.height = -1;
             }
-            this.isAddScreenView = true;
+            if (this.screenView == null) {
+                this.screenView = new View(this.context.getPageActivity());
+                this.screenView.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            }
+            if (this.windowManager == null) {
+                this.windowManager = (WindowManager) this.context.getContext().getSystemService("window");
+            }
+            if (j.a(this.context)) {
+                if (!this.isAddScreenView) {
+                    this.windowManager.addView(this.screenView, this.windowParams);
+                }
+                this.isAddScreenView = true;
+            }
         }
     }
 

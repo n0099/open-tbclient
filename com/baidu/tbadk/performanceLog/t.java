@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class t {
     protected BdUniqueId mId = BdUniqueId.gen();
-    protected int aCh = 0;
+    protected int aBK = 0;
 
-    public void fe(int i) {
-        this.aCh = i;
+    public void fd(int i) {
+        this.aBK = i;
     }
 }

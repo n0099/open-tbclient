@@ -11,45 +11,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private List<com.baidu.adp.widget.ListView.a> bOr = new ArrayList();
-    private HTypeListView eBH;
-    private d eBI;
-    private a eBJ;
-    private com.baidu.tieba.personCenter.a.b eBK;
+    private List<com.baidu.adp.widget.ListView.a> bOo = new ArrayList();
+    private HTypeListView eDK;
+    private d eDL;
+    private a eDM;
+    private com.baidu.tieba.personCenter.a.b eDN;
     private BdUniqueId mId;
     private TbPageContext mTbPageContext;
 
     public f(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.eBH = hTypeListView;
+        this.eDK = hTypeListView;
         this.mId = tbPageContext.getUniqueId();
-        aqf();
+        aqE();
     }
 
-    private void aqf() {
-        this.eBI = new d(this.mTbPageContext, k.asV);
-        this.eBJ = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.eBW);
-        this.eBK = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eDy);
-        this.bOr.add(this.eBI);
-        this.bOr.add(this.eBJ);
-        this.bOr.add(this.eBK);
-        this.eBH.g(this.bOr);
+    private void aqE() {
+        this.eDL = new d(this.mTbPageContext, k.asG);
+        this.eDM = new a(this.mTbPageContext, com.baidu.tieba.person.data.a.eDZ);
+        this.eDN = new com.baidu.tieba.personCenter.a.b(this.mTbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eFB);
+        this.bOo.add(this.eDL);
+        this.bOo.add(this.eDM);
+        this.bOo.add(this.eDN);
+        this.eDK.g(this.bOo);
     }
 
     public void setDatas(List<v> list) {
-        if (this.eBH != null) {
-            this.eBH.setData(list);
+        if (this.eDK != null) {
+            this.eDK.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.eBH != null && (this.eBH.getAdapter() instanceof y)) {
-            ((y) this.eBH.getAdapter()).notifyDataSetChanged();
+        if (this.eDK != null && (this.eDK.getAdapter() instanceof y)) {
+            ((y) this.eDK.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.eBI.H(onClickListener);
-        this.eBJ.H(onClickListener);
+        this.eDL.G(onClickListener);
+        this.eDM.G(onClickListener);
     }
 }

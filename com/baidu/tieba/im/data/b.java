@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.data;
 /* loaded from: classes.dex */
 public class b {
-    private int cYP;
     private String content;
+    private int dam;
     private long id;
     private String name;
     private String portrait;
@@ -48,11 +48,11 @@ public class b {
         this.status = i;
     }
 
-    public int arW() {
-        return this.cYP;
+    public int asv() {
+        return this.dam;
     }
 
-    public void li(int i) {
-        this.cYP = i;
+    public void lq(int i) {
+        this.dam = i;
     }
 }

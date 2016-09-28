@@ -41,7 +41,7 @@ public class g implements d {
 
     @Override // com.baidu.tbadk.download.d
     public void a(DownloadData downloadData, int i, String str) {
-        h.CD().h(downloadData);
+        h.CD().o(downloadData);
         h.CD().f(downloadData);
     }
 }

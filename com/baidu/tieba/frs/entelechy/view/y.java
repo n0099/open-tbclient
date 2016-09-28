@@ -1,44 +1,56 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.card.cf;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.card.cd;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ x bXt;
+    final /* synthetic */ x bXo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.bXt = xVar;
+        this.bXo = xVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bg bgVar;
-        bg bgVar2;
-        bg bgVar3;
-        bg bgVar4;
-        bg bgVar5;
-        bgVar = this.bXt.adL;
-        if (bgVar != null) {
-            bgVar3 = this.bXt.adL;
-            if (bgVar3.getAuthor() != null) {
-                bgVar4 = this.bXt.adL;
-                if (bgVar4.getAuthor().getGodInfo() != null) {
-                    ay s = new ay("c10806").s("obj_locate", 3);
-                    bgVar5 = this.bXt.adL;
-                    TiebaStatic.log(s.ab("tid", bgVar5.getId()));
+        bi biVar;
+        bi biVar2;
+        bi biVar3;
+        bi biVar4;
+        bi biVar5;
+        bi biVar6;
+        bi biVar7;
+        bi biVar8;
+        biVar = this.bXo.adW;
+        if (biVar != null) {
+            biVar6 = this.bXo.adW;
+            if (biVar6.getAuthor() != null) {
+                biVar7 = this.bXo.adW;
+                if (biVar7.getAuthor().getGodInfo() != null) {
+                    ax s = new ax("c10806").s("obj_locate", 3);
+                    biVar8 = this.bXo.adW;
+                    TiebaStatic.log(s.ab("tid", biVar8.getId()));
                 }
             }
         }
-        if (this.bXt.getOnSubCardOnClickListenner() != null) {
-            cf<bg> onSubCardOnClickListenner = this.bXt.getOnSubCardOnClickListenner();
-            bgVar2 = this.bXt.adL;
-            onSubCardOnClickListenner.a(view, bgVar2);
+        biVar2 = this.bXo.adW;
+        if (biVar2 != null) {
+            biVar4 = this.bXo.adW;
+            if (biVar4.rw()) {
+                ax s2 = new ax("c11663").s("obj_param1", 1);
+                biVar5 = this.bXo.adW;
+                TiebaStatic.log(s2.ab("post_id", biVar5.getTid()));
+            }
         }
-        this.bXt.NF();
+        if (this.bXo.getOnSubCardOnClickListenner() != null) {
+            cd<bi> onSubCardOnClickListenner = this.bXo.getOnSubCardOnClickListenner();
+            biVar3 = this.bXo.adW;
+            onSubCardOnClickListenner.a(view, biVar3);
+        }
+        this.bXo.Of();
     }
 }

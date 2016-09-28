@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.b.b.a {
-    private int aWm;
-    private a aWn;
+    private int aWQ;
+    private a aWR;
     private Handler mHandler;
     private float mRadius;
 
@@ -17,8 +17,8 @@ public class g extends com.baidu.tieba.b.b.a {
     public g(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.aWm = 1;
-        this.aWn = null;
+        this.aWQ = 1;
+        this.aWR = null;
         dV();
     }
 
@@ -28,44 +28,44 @@ public class g extends com.baidu.tieba.b.b.a {
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
-        this.aWc = this.mRadius;
-        this.aWb = this.mRadius;
+        this.aWG = this.mRadius;
+        this.aWF = this.mRadius;
     }
 
-    public void MF() {
-        MA();
-        this.aWc = this.mRadius;
-        this.aWb = this.mRadius;
-        fZ(4);
+    public void Ng() {
+        Nb();
+        this.aWG = this.mRadius;
+        this.aWF = this.mRadius;
+        ge(4);
         a(new i(this));
         a(new j(this));
     }
 
-    public void MG() {
-        MA();
-        fZ(2);
+    public void Nh() {
+        Nb();
+        ge(2);
         a(new k(this));
         a(new l(this));
     }
 
     public int getViewStatus() {
-        return this.aWm;
+        return this.aWQ;
     }
 
-    public void fZ(int i) {
-        this.aWm = i;
+    public void ge(int i) {
+        this.aWQ = i;
     }
 
     @Override // com.baidu.tieba.b.b.a
-    public void vJ() {
-        super.vJ();
-        this.aWc = this.mRadius;
-        this.aWb = this.mRadius;
-        this.aWm = 1;
+    public void vX() {
+        super.vX();
+        this.aWG = this.mRadius;
+        this.aWF = this.mRadius;
+        this.aWQ = 1;
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.aWn = aVar;
+        this.aWR = aVar;
     }
 }

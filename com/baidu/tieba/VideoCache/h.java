@@ -18,8 +18,8 @@ import java.net.URLDecoder;
 /* loaded from: classes.dex */
 class h implements Runnable {
     private static final String TAG = h.class.getSimpleName();
-    private byte[] aMY = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
-    private j aMZ;
+    private byte[] aOi = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
+    private j aOj;
     private Context mContext;
     private Socket ti;
 
@@ -32,22 +32,22 @@ class h implements Runnable {
     }
 
     public void a(j jVar) {
-        this.aMZ = jVar;
+        this.aOj = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         m.log(TAG, "test run in " + this);
-        if (this.aMZ == null) {
+        if (this.aOj == null) {
             m.log(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.aMZ);
-            if (this.aMZ.JB().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.aMZ, this.ti, true);
+            b(this.aOj);
+            if (this.aOj.Kn().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.aOj, this.ti, true);
             } else {
-                a(this.aMZ, this.ti, false);
+                a(this.aOj, this.ti, false);
             }
             c(this.ti);
         } catch (Exception e) {
@@ -67,14 +67,14 @@ class h implements Runnable {
                 if (readLine != null && readLine.contains("GET") && readLine.contains("origin_url=")) {
                     String[] split = readLine.split(" ");
                     if (split != null && split.length > 1) {
-                        jVar.gS(split[1]);
+                        jVar.gZ(split[1]);
                     }
                     String substring = readLine.substring(readLine.indexOf("origin_url=") + 11);
                     String str = "";
                     if (substring != null && substring.contains(" ")) {
                         str = substring.substring(0, substring.indexOf(" "));
                     }
-                    jVar.gT(URLDecoder.decode(str));
+                    jVar.ha(URLDecoder.decode(str));
                 } else if (readLine != null && readLine.startsWith("Range") && readLine.contains(":")) {
                     jVar.cd(true);
                     String[] split2 = readLine.split(":");
@@ -89,11 +89,14 @@ class h implements Runnable {
                         }
                     }
                     if (strArr != null && strArr.length >= 1) {
-                        jVar.as(Long.parseLong(strArr[0]));
+                        jVar.at(Long.parseLong(strArr[0]));
                         if (strArr.length > 1) {
-                            jVar.at(Long.parseLong(strArr[1]));
+                            jVar.au(Long.parseLong(strArr[1]));
                         }
                     }
+                }
+                if (readLine == null) {
+                    break;
                 }
             } while (!readLine.equals(""));
         } catch (Exception e2) {
@@ -106,48 +109,53 @@ class h implements Runnable {
     }
 
     private boolean a(j jVar, PrintStream printStream) {
-        int gQ = gQ(jVar.JC());
-        if (gQ <= 0) {
+        int gX = gX(jVar.Ko());
+        if (gX <= 0) {
             return false;
         }
-        jVar.N(gQ);
-        if (jVar.JE() < 0) {
-            jVar.as(0L);
+        jVar.O(gX);
+        if (jVar.Kq() < 0) {
+            jVar.at(0L);
         }
-        if (jVar.JF() < 0) {
-            jVar.at(gQ - 1);
+        if (jVar.Kr() < 0) {
+            jVar.au(gX - 1);
         }
-        long JE = jVar.JE();
-        long JF = jVar.JF();
-        m.log(TAG, "range is: " + JE + "-" + JF + " " + this);
-        if (jVar.JD()) {
+        long Kq = jVar.Kq();
+        long Kr = jVar.Kr();
+        m.log(TAG, "range is: " + Kq + "-" + Kr + " " + this);
+        if (jVar.Kp()) {
             printStream.println("HTTP/1.1 206 Partial Content");
         } else {
             printStream.println("HTTP/1.1 200 OK");
         }
         printStream.println("Content-Type: video/mp4");
         printStream.println("Accept-Ranges: bytes");
-        printStream.println("Content-Length: " + ((JF - JE) + 1));
-        if (jVar.JD()) {
-            printStream.println("Content-Range: bytes " + JE + "-" + JF + "/" + gQ);
+        printStream.println("Content-Length: " + ((Kr - Kq) + 1));
+        if (jVar.Kp()) {
+            printStream.println("Content-Range: bytes " + Kq + "-" + Kr + "/" + gX);
         }
         printStream.println("Content-Transfer-Encoding: binary");
         printStream.println();
         return true;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [206=4, 207=4, 208=4, 211=4, 212=4, 213=4] */
-    private int gQ(String str) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [206=4, 207=4, 209=4, 210=4, 213=4, 214=4, 216=4, 217=4] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x00df A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x00da A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private int gX(String str) {
         FileInputStream fileInputStream;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        String gX = q.gX(str);
-        if (gX == null || gX.isEmpty()) {
+        String he = q.he(str);
+        if (he == null || he.isEmpty()) {
             return 0;
         }
-        File file = new File(String.valueOf(l.aNl) + gX);
+        File file = new File(String.valueOf(l.aOv) + he);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -158,82 +166,101 @@ class h implements Runnable {
                 fileInputStream = new FileInputStream(file2);
                 try {
                     dataInputStream = new DataInputStream(fileInputStream);
-                    try {
-                        int parseInt = Integer.parseInt(dataInputStream.readLine());
-                        if (parseInt > 0) {
+                } catch (Exception e) {
+                    e = e;
+                    dataInputStream = null;
+                    fileInputStream2 = fileInputStream;
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    int parseInt = Integer.parseInt(dataInputStream.readLine());
+                    if (parseInt > 0) {
+                        if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
                             }
+                        }
+                        if (dataInputStream != null) {
                             try {
                                 dataInputStream.close();
                                 return parseInt;
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                                 return parseInt;
                             }
                         }
+                        return parseInt;
+                    }
+                    if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                        try {
-                            dataInputStream.close();
                         } catch (IOException e4) {
                             e4.printStackTrace();
                         }
-                    } catch (Exception e5) {
-                        e = e5;
-                        fileInputStream2 = fileInputStream;
+                    }
+                    if (dataInputStream != null) {
                         try {
-                            e.printStackTrace();
+                            dataInputStream.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                } catch (Exception e6) {
+                    e = e6;
+                    fileInputStream2 = fileInputStream;
+                    try {
+                        e.printStackTrace();
+                        if (fileInputStream2 != null) {
                             try {
                                 fileInputStream2.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                            try {
-                                dataInputStream.close();
                             } catch (IOException e7) {
                                 e7.printStackTrace();
                             }
-                            int contentLength = ((HttpURLConnection) new URL(str).openConnection()).getContentLength();
-                            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file2));
-                            bufferedWriter.write(new StringBuilder(String.valueOf(contentLength)).toString());
-                            bufferedWriter.flush();
-                            bufferedWriter.close();
-                            return contentLength;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileInputStream = fileInputStream2;
-                            dataInputStream2 = dataInputStream;
+                        }
+                        if (dataInputStream != null) {
                             try {
-                                fileInputStream.close();
+                                dataInputStream.close();
                             } catch (IOException e8) {
                                 e8.printStackTrace();
                             }
+                        }
+                        int contentLength = ((HttpURLConnection) new URL(str).openConnection()).getContentLength();
+                        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file2));
+                        bufferedWriter.write(new StringBuilder(String.valueOf(contentLength)).toString());
+                        bufferedWriter.flush();
+                        bufferedWriter.close();
+                        return contentLength;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileInputStream = fileInputStream2;
+                        dataInputStream2 = dataInputStream;
+                        if (fileInputStream != null) {
                             try {
-                                dataInputStream2.close();
+                                fileInputStream.close();
                             } catch (IOException e9) {
                                 e9.printStackTrace();
                             }
-                            throw th;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        dataInputStream2 = dataInputStream;
-                        fileInputStream.close();
-                        dataInputStream2.close();
+                        if (dataInputStream2 != null) {
+                            try {
+                                dataInputStream2.close();
+                            } catch (IOException e10) {
+                                e10.printStackTrace();
+                            }
+                        }
                         throw th;
                     }
-                } catch (Exception e10) {
-                    e = e10;
-                    dataInputStream = null;
-                    fileInputStream2 = fileInputStream;
                 } catch (Throwable th3) {
                     th = th3;
+                    dataInputStream2 = dataInputStream;
+                    if (fileInputStream != null) {
+                    }
+                    if (dataInputStream2 != null) {
+                    }
+                    throw th;
                 }
             } catch (Exception e11) {
                 e = e11;
@@ -264,46 +291,46 @@ class h implements Runnable {
 
     private void a(j jVar, Socket socket, boolean z) {
         if (jVar != null && socket != null) {
-            File file = new File(l.aNi);
+            File file = new File(l.aOs);
             if (!file.exists()) {
                 file.mkdir();
             }
             try {
                 d dVar = new d(this.mContext);
-                dVar.setVideoUrl(jVar.JC());
+                dVar.setVideoUrl(jVar.Ko());
                 PrintStream printStream = new PrintStream(socket.getOutputStream(), true);
                 if (!a(jVar, printStream)) {
                     printStream.close();
                     dVar.close();
                     return;
                 }
-                dVar.N(jVar.getTotalLength());
+                dVar.O(jVar.getTotalLength());
                 if (z) {
-                    if (g.Jy().p(dVar)) {
+                    if (g.Kk().p(dVar)) {
                         printStream.close();
                         dVar.close();
-                        g.Jy().q(null);
+                        g.Kk().q(null);
                         return;
                     }
-                    d Jz = g.Jy().Jz();
-                    if (Jz != null) {
-                        Jz.close();
+                    d Kl = g.Kk().Kl();
+                    if (Kl != null) {
+                        Kl.close();
                     }
                     m.log(TAG, "server handle preload: " + dVar.getVideoUrl());
-                    g.Jy().q(dVar);
+                    g.Kk().q(dVar);
                 } else {
-                    d Jz2 = g.Jy().Jz();
-                    if (Jz2 != null && Jz2.getVideoUrl() != null && Jz2.getVideoUrl().equals(dVar.getVideoUrl())) {
-                        Jz2.close();
-                        g.Jy().q(null);
+                    d Kl2 = g.Kk().Kl();
+                    if (Kl2 != null && Kl2.getVideoUrl() != null && Kl2.getVideoUrl().equals(dVar.getVideoUrl())) {
+                        Kl2.close();
+                        g.Kk().q(null);
                     }
-                    g.Jy().n(dVar);
+                    g.Kk().n(dVar);
                 }
-                dVar.b(jVar.JE(), jVar.JF());
+                dVar.b(jVar.Kq(), jVar.Kr());
                 while (dVar.canRead()) {
-                    int e = dVar.e(this.aMY, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
+                    int e = dVar.e(this.aOi, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
                     if (e > 0) {
-                        printStream.write(this.aMY, 0, e);
+                        printStream.write(this.aOi, 0, e);
                     }
                 }
                 m.log(TAG, "finished! " + this);
@@ -311,9 +338,9 @@ class h implements Runnable {
                 printStream.close();
                 dVar.close();
                 if (z) {
-                    g.Jy().q(null);
+                    g.Kk().q(null);
                 } else {
-                    g.Jy().o(dVar);
+                    g.Kk().o(dVar);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

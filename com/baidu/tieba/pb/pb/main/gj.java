@@ -5,13 +5,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class gj extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService euI;
+    final /* synthetic */ ReaderPbService ewO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gj(ReaderPbService readerPbService, int i) {
         super(i);
-        this.euI = readerPbService;
+        this.ewO = readerPbService;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,36 +30,36 @@ class gj extends CustomMessageListener {
             eg egVar = (eg) customResponsedMessage.getData();
             BdUniqueId bdUniqueId3 = egVar.tag;
             if (bdUniqueId3 != null) {
-                bdUniqueId = this.euI.mTagId;
+                bdUniqueId = this.ewO.mTagId;
                 if (bdUniqueId.getId() != bdUniqueId3.getId()) {
-                    this.euI.mTagId = bdUniqueId3;
-                    ekVar = this.euI.mReaderModel;
-                    bdUniqueId2 = this.euI.mTagId;
+                    this.ewO.mTagId = bdUniqueId3;
+                    ekVar = this.ewO.mReaderModel;
+                    bdUniqueId2 = this.ewO.mTagId;
                     ekVar.p(bdUniqueId2);
                 }
             }
-            this.euI.threadId = egVar.threadId;
-            this.euI.postId = egVar.postId;
-            this.euI.isAlive = egVar.isAlive;
-            this.euI.setReadModel(egVar);
-            if (egVar.erp >= 0) {
-                ehVar2 = this.euI.mReaderManager;
-                ehVar2.a(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.ero, false);
-                ehVar3 = this.euI.mReaderManager;
-                int aOI = ehVar3.aOI();
-                if (aOI == 1 || aOI == 3) {
-                    ehVar4 = this.euI.mReaderManager;
-                    ehVar4.op(0);
+            this.ewO.threadId = egVar.threadId;
+            this.ewO.postId = egVar.postId;
+            this.ewO.isAlive = egVar.isAlive;
+            this.ewO.setReadModel(egVar);
+            if (egVar.ety >= 0) {
+                ehVar2 = this.ewO.mReaderManager;
+                ehVar2.a(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.etx, false);
+                ehVar3 = this.ewO.mReaderManager;
+                int aPr = ehVar3.aPr();
+                if (aPr == 1 || aPr == 3) {
+                    ehVar4 = this.ewO.mReaderManager;
+                    ehVar4.oz(0);
                 } else {
-                    ehVar6 = this.euI.mReaderManager;
-                    ehVar6.op(1);
+                    ehVar6 = this.ewO.mReaderManager;
+                    ehVar6.oz(1);
                 }
-                ehVar5 = this.euI.mReaderManager;
-                ehVar5.M(egVar.erp, egVar.err);
+                ehVar5 = this.ewO.mReaderManager;
+                ehVar5.M(egVar.ety, egVar.etA);
                 return;
             }
-            ehVar = this.euI.mReaderManager;
-            ehVar.a(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.ero, true);
+            ehVar = this.ewO.mReaderManager;
+            ehVar.a(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.etx, true);
         }
     }
 }

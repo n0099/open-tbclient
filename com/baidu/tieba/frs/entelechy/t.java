@@ -4,50 +4,50 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tieba.frs.bm;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import com.baidu.tieba.view.BdExpandListView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class t implements com.baidu.tieba.frs.entelechy.b.b {
-    private float anT = 0.16875f;
+    private float anB = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(com.baidu.tieba.frs.i.p pVar, com.baidu.tieba.tbadkCore.p pVar2) {
         if (pVar != null && pVar2 != null) {
             ArrayList<com.baidu.adp.widget.ListView.v> threadList = pVar2.getThreadList();
-            if (!y.t(threadList)) {
+            if (!com.baidu.tbadk.core.util.y.t(threadList)) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<com.baidu.adp.widget.ListView.v> it = threadList.iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.v next = it.next();
-                    if (next.getType() == bg.Tj) {
+                    if (next.getType() == bi.Tq) {
                         arrayList.add(next);
                         it.remove();
                     }
                 }
-                pVar2.de(arrayList);
+                pVar2.df(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean ib(int i) {
+    /* renamed from: if */
+    public boolean mo14if(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(boolean z, com.baidu.tieba.frs.entelechy.b.d dVar, com.baidu.tieba.frs.i.p pVar, bm bmVar, com.baidu.tieba.tbadkCore.p pVar2) {
-        if (pVar != null && bmVar != null && pVar2 != null && dVar != null && bmVar.getListView() != null) {
-            pVar.afq();
+        if (pVar != null && bmVar != null && pVar2 != null && dVar != null && bmVar.abN() != null) {
+            pVar.afE();
             if (z) {
-                dVar.b(bmVar.getListView(), bmVar.getListView().getHeaderViewsCount());
+                dVar.b(bmVar.abN(), bmVar.abN().getHeaderViewsCount());
             }
-            bmVar.a(pVar2.aLP(), pVar2.getUserData(), 1);
+            bmVar.a(pVar2.aMr(), pVar2.getUserData(), 1);
         }
     }
 
@@ -70,7 +70,7 @@ public class t implements com.baidu.tieba.frs.entelechy.b.b {
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(BdTypeListView bdTypeListView, com.baidu.tieba.frs.view.c cVar) {
         if ((bdTypeListView instanceof BdExpandListView) && cVar != null && cVar.getView() != null) {
-            ((BdExpandListView) bdTypeListView).e(cVar.getView(), com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), t.e.ds568));
+            ((BdExpandListView) bdTypeListView).e(cVar.getView(), com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds568));
         }
     }
 
@@ -120,7 +120,7 @@ public class t implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void ad(View view) {
+    public void ac(View view) {
         view.setVisibility(8);
     }
 

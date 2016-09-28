@@ -4,44 +4,44 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b {
-    private int egE;
-    private String egF;
-    private int egH;
-    private String egI;
-    private boolean egJ;
+    private int eiB;
+    private String eiC;
+    private boolean eiD;
+    private int eiy;
+    private String eiz;
     private String msgContent;
     private int msgType;
     private String toUid;
 
     public b(a aVar) {
         this();
-        this.egE = aVar.aKL();
-        this.toUid = aVar.aKM();
+        this.eiy = aVar.aLm();
+        this.toUid = aVar.aLn();
         this.msgType = aVar.getMsgType();
-        this.egF = aVar.getToUid();
+        this.eiz = aVar.getToUid();
     }
 
     public b() {
-        this.egJ = !TbadkCoreApplication.m9getInst().isDebugMode();
-        nS(2);
-        ou(TbConfig.getVersion());
-        this.egF = TbadkCoreApplication.getCurrentAccount();
+        this.eiD = !TbadkCoreApplication.m9getInst().isDebugMode();
+        oc(2);
+        oI(TbConfig.getVersion());
+        this.eiz = TbadkCoreApplication.getCurrentAccount();
     }
 
-    public String aKM() {
-        return this.egF;
+    public String aLn() {
+        return this.eiz;
     }
 
     public String getToUid() {
         return this.toUid;
     }
 
-    public void nS(int i) {
-        this.egH = i;
+    public void oc(int i) {
+        this.eiB = i;
     }
 
-    public void ou(String str) {
-        this.egI = str;
+    public void oI(String str) {
+        this.eiC = str;
     }
 
     public void setMsgType(int i) {

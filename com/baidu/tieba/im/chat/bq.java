@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bq extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ bp cUi;
+    final /* synthetic */ bp cVC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bp bpVar) {
-        this.cUi = bpVar;
+        this.cVC = bpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,11 +18,11 @@ public class bq extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         String k;
         super.a((bq) aVar, str, i);
         if (aVar != null) {
-            bp bpVar = this.cUi;
-            k = this.cUi.k(this.cUi.mUrl, aVar.jY());
+            bp bpVar = this.cVC;
+            k = this.cVC.k(this.cVC.mUrl, aVar.jY());
             bpVar.showToast(k);
             return;
         }
-        this.cUi.showToast(this.cUi.aPR.getPageContext().getString(t.j.save_error));
+        this.cVC.showToast(this.cVC.aRd.getPageContext().getString(r.j.save_error));
     }
 }

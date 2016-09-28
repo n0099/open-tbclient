@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.d;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a XR = null;
+    private static a Ye = null;
 
     public static void f(Context context, int i) {
-        if (XR != null) {
-            XR.f(context, i);
+        if (Ye != null) {
+            Ye.f(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (XR != null) {
-            XR.b(context, i, z);
+        if (Ye != null) {
+            Ye.b(context, i, z);
         }
     }
 
     public static void V(Context context) {
-        if (XR != null) {
-            XR.V(context);
+        if (Ye != null) {
+            Ye.V(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (XR != null) {
-            XR.c(context, i, z);
+        if (Ye != null) {
+            Ye.c(context, i, z);
         }
     }
 
-    public static Class<?> tL() {
-        if (XR == null) {
+    public static Class<?> ua() {
+        if (Ye == null) {
             return null;
         }
-        return XR.tL();
+        return Ye.ua();
     }
 
-    public static String tM() {
-        if (XR == null) {
+    public static String ub() {
+        if (Ye == null) {
             return null;
         }
-        return XR.tM();
+        return Ye.ub();
     }
 
     public static void a(a aVar) {
-        XR = aVar;
+        Ye = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (XR == null) {
+        if (Ye == null) {
             return -1;
         }
-        return XR.getCurrentTabType();
+        return Ye.getCurrentTabType();
     }
 }

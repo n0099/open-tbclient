@@ -12,8 +12,8 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public abstract class d {
     public static String c = null;
-    public com.baidu.location.f.i Ip = null;
-    public com.baidu.location.f.a Iq = null;
+    public com.baidu.location.f.i Io = null;
+    public com.baidu.location.f.a Ip = null;
     private boolean e = true;
     private boolean f = false;
     final Handler d = new a();
@@ -48,7 +48,7 @@ public abstract class d {
         String b = null;
 
         public b() {
-            this.LI = new HashMap();
+            this.LH = new HashMap();
         }
 
         @Override // com.baidu.location.h.f
@@ -66,16 +66,16 @@ public abstract class d {
             if (this.a == null) {
                 this.a = j.b();
             }
-            this.LI.put("bloc", encodeTp4);
+            this.LH.put("bloc", encodeTp4);
             if (this.a != null) {
-                this.LI.put("up", this.a);
+                this.LH.put("up", this.a);
             }
             StringBuffer stringBuffer = new StringBuffer(512);
             stringBuffer.append(String.format(Locale.CHINA, "&ki=%s&sn=%s", com.baidu.location.h.a.b(com.baidu.location.f.getServiceContext()), com.baidu.location.h.a.a(com.baidu.location.f.getServiceContext())));
             if (stringBuffer.length() > 0) {
-                this.LI.put("ext", Jni.encode(stringBuffer.toString()));
+                this.LH.put("ext", Jni.encode(stringBuffer.toString()));
             }
-            this.LI.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
+            this.LH.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
         public void a(String str) {
@@ -120,21 +120,21 @@ public abstract class d {
                     obtainMessage4.sendToTarget();
                 }
             }
-            if (this.LI != null) {
-                this.LI.clear();
+            if (this.LH != null) {
+                this.LH.clear();
             }
         }
     }
 
     public String a(String str) {
-        if (this.Iq == null || !this.Iq.a()) {
-            this.Iq = com.baidu.location.f.c.nc().mY();
+        if (this.Ip == null || !this.Ip.a()) {
+            this.Ip = com.baidu.location.f.c.nc().mY();
         }
-        if (this.Ip == null || !this.Ip.f()) {
-            this.Ip = com.baidu.location.f.k.nl().nj();
+        if (this.Io == null || !this.Io.f()) {
+            this.Io = com.baidu.location.f.k.nl().nj();
         }
         Location ne = com.baidu.location.f.f.nf().i() ? com.baidu.location.f.f.nf().ne() : null;
-        if ((this.Iq == null || this.Iq.c()) && ((this.Ip == null || this.Ip.a() == 0) && ne == null)) {
+        if ((this.Ip == null || this.Ip.c()) && ((this.Io == null || this.Io.a() == 0) && ne == null)) {
             return null;
         }
         String c2 = com.baidu.location.a.a.mn().c();
@@ -159,7 +159,7 @@ public abstract class d {
         if (str != null) {
             str2 = str + str2;
         }
-        return com.baidu.location.h.i.a(this.Iq, this.Ip, ne, str2, 0);
+        return com.baidu.location.h.i.a(this.Ip, this.Io, ne, str2, 0);
     }
 
     public abstract void a();

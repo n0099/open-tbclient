@@ -1,19 +1,18 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.media.MediaPlayer;
+import com.baidu.tieba.play.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements MediaPlayer.OnErrorListener {
-    final /* synthetic */ e elb;
+public class j implements e.a {
+    final /* synthetic */ e emY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(e eVar) {
-        this.elb = eVar;
+        this.emY = eVar;
     }
 
-    @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        this.elb.d(true, 4);
-        return true;
+    @Override // com.baidu.tieba.play.e.a
+    public void onCompletion(com.baidu.tieba.play.e eVar) {
+        this.emY.aNa();
     }
 }

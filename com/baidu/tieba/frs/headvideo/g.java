@@ -3,20 +3,20 @@ package com.baidu.tieba.frs.headvideo;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BannerThreadInfoData;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumHeadVideo.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.e {
-    private int Rp;
-    private boolean aAl;
-    private int cbC;
-    private a cbD;
-    private final com.baidu.adp.framework.listener.a cbE;
+    private int Rv;
+    private boolean azO;
+    private int cbE;
+    private a cbF;
+    private final com.baidu.adp.framework.listener.a cbG;
     private int curPage;
     private final List<ThreadInfo> mDatas;
 
@@ -24,38 +24,38 @@ public class g extends com.baidu.adp.base.e {
     public interface a {
         void c(int i, List<BannerThreadInfoData> list);
 
-        void fG(String str);
+        void fK(String str);
     }
 
     public boolean hasMore() {
-        return this.Rp == 1;
+        return this.Rv == 1;
     }
 
     public void setHasMore(int i) {
-        this.Rp = i;
+        this.Rv = i;
     }
 
     public void a(a aVar) {
-        this.cbD = aVar;
+        this.cbF = aVar;
     }
 
     public g(com.baidu.adp.base.h<?> hVar) {
         super(hVar);
         this.curPage = 0;
-        this.Rp = 1;
-        this.aAl = false;
-        this.cbC = 0;
-        this.cbE = new h(this, CmdConfigHttp.CMD_FRS_HEAD_VIDEO_LIST, 309387);
+        this.Rv = 1;
+        this.azO = false;
+        this.cbE = 0;
+        this.cbG = new h(this, CmdConfigHttp.CMD_FRS_HEAD_VIDEO_LIST, 309387);
         this.mDatas = new ArrayList();
-        this.cbE.ch().isSelfListener();
-        this.cbE.ci().isSelfListener();
-        registerListener(this.cbE);
+        this.cbG.ch().isSelfListener();
+        this.cbG.ci().isSelfListener();
+        registerListener(this.cbG);
     }
 
     @Override // com.baidu.adp.base.e
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.cbE.setTag(bdUniqueId);
+        this.cbG.setTag(bdUniqueId);
     }
 
     @Override // com.baidu.adp.base.e
@@ -65,66 +65,66 @@ public class g extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        this.aAl = false;
+        this.azO = false;
         return true;
     }
 
-    private ForumHeadVideoListRequestMessage aen() {
+    private ForumHeadVideoListRequestMessage aeC() {
         return new ForumHeadVideoListRequestMessage();
     }
 
-    public void i(long j, long j2) {
-        if (!this.aAl) {
-            this.aAl = true;
-            ForumHeadVideoListRequestMessage aen = aen();
-            aen.setFid(j);
-            aen.setActiveTid(j2);
+    public void j(long j, long j2) {
+        if (!this.azO) {
+            this.azO = true;
+            ForumHeadVideoListRequestMessage aeC = aeC();
+            aeC.setFid(j);
+            aeC.setActiveTid(j2);
             this.curPage++;
-            aen.setPn(this.curPage);
-            aen.setRn(5);
-            sendMessage(aen);
+            aeC.setPn(this.curPage);
+            aeC.setRn(5);
+            sendMessage(aeC);
         }
     }
 
     public void reset() {
-        this.curPage = this.cbC;
-        this.Rp = 1;
+        this.curPage = this.cbE;
+        this.Rv = 1;
         this.mDatas.clear();
-        this.aAl = false;
+        this.azO = false;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.cbD != null) {
-                this.cbD.fG(Lp());
+            if (this.cbF != null) {
+                this.cbF.fK(LW());
                 return;
             }
             return;
         }
-        if (this.curPage == this.cbC) {
+        if (this.curPage == this.cbE) {
             this.mDatas.clear();
         }
         this.mDatas.addAll(dataRes.thread_list);
         this.curPage = dataRes.pn.intValue();
-        this.Rp = dataRes.has_more.intValue();
-        if (this.cbD != null) {
+        this.Rv = dataRes.has_more.intValue();
+        if (this.cbF != null) {
             ArrayList arrayList = new ArrayList();
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 BannerThreadInfoData bannerThreadInfoData = new BannerThreadInfoData();
-                bg bgVar = new bg();
-                bgVar.a(threadInfo);
-                bannerThreadInfoData.threadData = bgVar;
+                bi biVar = new bi();
+                biVar.a(threadInfo);
+                bannerThreadInfoData.threadData = biVar;
                 arrayList.add(bannerThreadInfoData);
             }
-            this.cbD.c(this.curPage, arrayList);
+            this.cbF.c(this.curPage, arrayList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String Lp() {
+    public String LW() {
         if (com.baidu.adp.lib.util.k.gD()) {
-            return TbadkCoreApplication.m9getInst().getString(t.j.no_data_text);
+            return TbadkCoreApplication.m9getInst().getString(r.j.no_data_text);
         }
-        return TbadkCoreApplication.m9getInst().getString(t.j.neterror);
+        return TbadkCoreApplication.m9getInst().getString(r.j.neterror);
     }
 }

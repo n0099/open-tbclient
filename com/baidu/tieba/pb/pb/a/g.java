@@ -1,33 +1,19 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.os.Handler;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.play.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends CustomMessageListener {
-    final /* synthetic */ e elb;
+public class g implements e.b {
+    final /* synthetic */ e emY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(e eVar, int i) {
-        super(i);
-        this.elb = eVar;
+    public g(e eVar) {
+        this.emY = eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Runnable runnable;
-        Handler handler;
-        Handler handler2;
-        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.elb.ekZ;
-        eG.removeCallbacks(runnable);
-        handler = this.elb.mHandler;
-        if (handler != null) {
-            handler2 = this.elb.mHandler;
-            handler2.removeMessages(1);
-        }
+    @Override // com.baidu.tieba.play.e.b
+    public boolean onError(com.baidu.tieba.play.e eVar, int i, int i2) {
+        this.emY.e(true, 4);
+        return true;
     }
 }

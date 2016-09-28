@@ -6,28 +6,28 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.personCenter.b.c;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class b extends y.a {
-    public int ait;
-    public ImageView eDD;
-    public TextView eDE;
-    public ImageView eDF;
-    public LinearLayout eDG;
+    public int ahV;
+    public ImageView eFH;
+    public TextView eFI;
+    public ImageView eFJ;
+    public LinearLayout eFK;
 
     public b(View view) {
         super(view);
-        this.ait = -1;
-        aD(view);
+        this.ahV = -1;
+        aC(view);
     }
 
-    private void aD(View view) {
+    private void aC(View view) {
         if (view != null) {
-            this.eDD = (ImageView) view.findViewById(t.g.person_center_list_item_icon_img);
-            this.eDE = (TextView) view.findViewById(t.g.person_center_list_item_title_txt);
-            this.eDF = (ImageView) view.findViewById(t.g.person_center_list_item_arrow_img);
-            this.eDG = (LinearLayout) view.findViewById(t.g.person_center_list_item_extra_container);
-            this.eDG.setTag(new c());
+            this.eFH = (ImageView) view.findViewById(r.g.person_center_list_item_icon_img);
+            this.eFI = (TextView) view.findViewById(r.g.person_center_list_item_title_txt);
+            this.eFJ = (ImageView) view.findViewById(r.g.person_center_list_item_arrow_img);
+            this.eFK = (LinearLayout) view.findViewById(r.g.person_center_list_item_extra_container);
+            this.eFK.setTag(new c());
         }
     }
 }

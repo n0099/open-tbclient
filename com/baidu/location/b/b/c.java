@@ -42,15 +42,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b Ji;
-    private PublicKey Jh;
+    private static volatile b Jh;
+    private PublicKey Jg;
     private final Context a;
     private int b = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public ApplicationInfo Jj;
+        public ApplicationInfo Ji;
         public int b;
         public boolean c;
         public boolean d;
@@ -128,16 +128,16 @@ public final class c {
     }
 
     private static b Q(Context context) {
-        if (Ji == null) {
+        if (Jh == null) {
             synchronized (b.class) {
-                if (Ji == null) {
+                if (Jh == null) {
                     SystemClock.uptimeMillis();
-                    Ji = new c(context).my();
+                    Jh = new c(context).my();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return Ji;
+        return Jh;
     }
 
     public static String a(Context context) {
@@ -249,7 +249,7 @@ public final class c {
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 a aVar = new a(null);
                                 aVar.b = jSONObject.getInt("priority");
-                                aVar.Jj = resolveInfo.activityInfo.applicationInfo;
+                                aVar.Ji = resolveInfo.activityInfo.applicationInfo;
                                 if (this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     aVar.d = true;
                                 }
@@ -263,7 +263,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Jh);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Jg);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -293,7 +293,7 @@ public final class c {
             th = th;
         }
         try {
-            this.Jh = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.Jg = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -665,7 +665,7 @@ public final class c {
                 }
                 for (a aVar2 : a3) {
                     if (!aVar2.d) {
-                        File file2 = new File(new File(aVar2.Jj.dataDir, str2), "libcuid.so");
+                        File file2 = new File(new File(aVar2.Ji.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
                             bVar = b.bO(f(a(file2)));
                             if (bVar != null) {

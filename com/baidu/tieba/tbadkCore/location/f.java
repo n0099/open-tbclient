@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.InterfaceC0005a {
-    final /* synthetic */ d fuI;
+    final /* synthetic */ d fxp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.fuI = dVar;
+        this.fxp = dVar;
     }
 
     @Override // com.baidu.adp.lib.e.a.InterfaceC0005a
@@ -21,14 +21,14 @@ public class f implements a.InterfaceC0005a {
         d.a aVar2;
         if (i == 0 && address != null) {
             BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + address.getLatitude());
-            this.fuI.bT(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
+            this.fxp.bU(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
             return;
         }
         BdLog.i("mGetLonAndLatCallback error!");
-        aVar = this.fuI.fuB;
+        aVar = this.fxp.fxh;
         if (aVar != null) {
-            aVar2 = this.fuI.fuB;
-            aVar2.fG(str);
+            aVar2 = this.fxp.fxh;
+            aVar2.fK(str);
         }
     }
 }

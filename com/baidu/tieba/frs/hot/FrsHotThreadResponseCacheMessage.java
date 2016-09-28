@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.hot;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ak;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Object> {
-    private final ak mPage;
+    private final am mPage;
     private final ArrayList<v> mThreadList;
 
     public FrsHotThreadResponseCacheMessage() {
         super(CmdConfigCustom.CMD_FRS_HOT_CACHE);
         this.mThreadList = new ArrayList<>();
-        this.mPage = new ak();
+        this.mPage = new am();
     }
 
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -47,12 +47,12 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
                 List<ThreadInfo> list2 = getHotThreadResIdl.data.thread_list;
                 if (list2 != null) {
                     for (int i3 = 0; i3 < list2.size(); i3++) {
-                        bg bgVar = new bg();
-                        bgVar.setUserMap(hashMap);
-                        bgVar.a(list2.get(i3));
-                        bgVar.bV(0);
-                        bgVar.si();
-                        this.mThreadList.add(bgVar);
+                        bi biVar = new bi();
+                        biVar.setUserMap(hashMap);
+                        biVar.a(list2.get(i3));
+                        biVar.bV(0);
+                        biVar.su();
+                        this.mThreadList.add(biVar);
                     }
                 }
                 this.mPage.a(getHotThreadResIdl.data.page);
@@ -64,7 +64,7 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
         return this.mThreadList;
     }
 
-    public ak getPage() {
+    public am getPage() {
         return this.mPage;
     }
 }

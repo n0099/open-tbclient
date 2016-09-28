@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ o cCO;
+    final /* synthetic */ o cDt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.cCO = oVar;
+        this.cDt = oVar;
     }
 
     @Override // com.baidu.adp.lib.h.d
@@ -21,21 +21,21 @@ public class p extends com.baidu.adp.lib.h.d {
         TextView textView3;
         TextView textView4;
         TextView textView5;
-        textView = this.cCO.cCH;
+        textView = this.cDt.cDm;
         if (textView != null) {
-            animation2 = this.cCO.cCK;
+            animation2 = this.cDt.cDp;
             if (animation == animation2) {
-                textView4 = this.cCO.cCH;
+                textView4 = this.cDt.cDm;
                 textView4.setVisibility(0);
-                textView5 = this.cCO.cCH;
+                textView5 = this.cDt.cDm;
                 textView5.setClickable(true);
                 return;
             }
-            animation3 = this.cCO.cCL;
+            animation3 = this.cDt.cDq;
             if (animation == animation3) {
-                textView2 = this.cCO.cCH;
+                textView2 = this.cDt.cDm;
                 textView2.setVisibility(8);
-                textView3 = this.cCO.cCH;
+                textView3 = this.cDt.cDm;
                 textView3.setClickable(false);
             }
         }

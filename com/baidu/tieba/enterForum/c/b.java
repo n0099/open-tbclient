@@ -1,27 +1,10 @@
 package com.baidu.tieba.enterForum.c;
 
-import android.widget.AbsListView;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b bHq;
-
-    public static b XI() {
-        if (bHq == null) {
-            synchronized (b.class) {
-                if (bHq == null) {
-                    bHq = new b();
-                }
-            }
-        }
-        return bHq;
-    }
-
-    private b() {
-    }
-
-    public <T> void c(List<T> list, int i, int i2) {
+    public static <T> void c(List<T> list, int i, int i2) {
         if (list != null && i != i2 && i >= 0 && i < list.size() && i2 >= 0 && i2 < list.size()) {
             if (i < i2) {
                 while (i < i2) {
@@ -37,7 +20,7 @@ public class b {
         }
     }
 
-    public int a(float f, int i, int i2) {
+    public static int a(float f, int i, int i2) {
         int i3 = 0;
         if (f < i / 2) {
             i3 = ((int) f) - (i / 2);
@@ -46,15 +29,5 @@ public class b {
             return (((int) f) - i2) + (i / 2);
         }
         return i3;
-    }
-
-    public boolean a(AbsListView absListView, int i, int i2) {
-        try {
-            absListView.getClass().getMethod("smoothScrollBy", Integer.TYPE, Integer.TYPE).invoke(absListView, Integer.valueOf(i), Integer.valueOf(i2));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
     }
 }

@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements k.a {
@@ -29,7 +29,7 @@ public class u implements k.a {
         View view2;
         view = this.this$0.mCustomToastView;
         if (view == null) {
-            this.this$0.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.m9getInst()).inflate(t.h.custom_toast_textview, (ViewGroup) null);
+            this.this$0.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.m9getInst()).inflate(r.h.custom_toast_textview, (ViewGroup) null);
         }
         view2 = this.this$0.mCustomToastView;
         return view2;

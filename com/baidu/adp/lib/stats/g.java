@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.stats;
 
 import android.content.Context;
-import android.support.v4.os.EnvironmentCompat;
 /* loaded from: classes.dex */
 public class g {
     public static String F(Context context) {
@@ -44,6 +43,6 @@ public class g {
             }
             return sb.toString();
         }
-        return EnvironmentCompat.MEDIA_UNKNOWN;
+        return "unknown";
     }
 }

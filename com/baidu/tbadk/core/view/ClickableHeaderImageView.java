@@ -7,69 +7,70 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ClickableHeaderImageView extends HeadImageView {
-    private bg adL;
-    private View.OnClickListener adM;
-    private int adN;
-    private final int adO;
-    public boolean adP;
-    public boolean adQ;
-    private int adR;
-    private Drawable adS;
-    private com.baidu.tbadk.c.a adT;
+    private bi adW;
+    private View.OnClickListener adX;
+    private int adY;
+    private final int adZ;
+    public boolean aea;
+    public boolean aeb;
+    private int aec;
+    private Drawable aed;
+    private com.baidu.tbadk.c.a aee;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
     public void setOnInterceptClickEventListener(com.baidu.tbadk.c.a aVar) {
-        this.adT = aVar;
+        this.aee = aVar;
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.adM = onClickListener;
+        this.adX = onClickListener;
     }
 
     public ClickableHeaderImageView(Context context) {
         super(context);
-        this.adN = 0;
-        this.adP = false;
-        this.adQ = false;
-        this.adR = 0;
-        this.adS = null;
+        this.adY = 0;
+        this.aea = false;
+        this.aeb = false;
+        this.aec = 0;
+        this.aed = null;
         this.mOnClickListener = new b(this);
         this.mContext = context;
-        this.adO = com.baidu.adp.lib.util.k.e(context, t.e.ds6);
+        this.adZ = com.baidu.adp.lib.util.k.e(context, r.e.ds6);
         setOnClickListener(this.mOnClickListener);
     }
 
     public ClickableHeaderImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.adN = 0;
-        this.adP = false;
-        this.adQ = false;
-        this.adR = 0;
-        this.adS = null;
+        this.adY = 0;
+        this.aea = false;
+        this.aeb = false;
+        this.aec = 0;
+        this.aed = null;
         this.mOnClickListener = new b(this);
         this.mContext = context;
-        this.adO = com.baidu.adp.lib.util.k.e(context, t.e.ds6);
+        this.adZ = com.baidu.adp.lib.util.k.e(context, r.e.ds6);
         setOnClickListener(this.mOnClickListener);
     }
 
-    public void setData(bg bgVar) {
-        if (bgVar != null && bgVar.getAuthor() != null) {
-            this.adL = bgVar;
-            setContentDescription(String.valueOf(bgVar.getAuthor().getName_show()) + this.mContext.getString(t.j.somebodys_portrait));
-            c(bgVar.getAuthor().getPortrait(), 28, false);
+    public void setData(bi biVar) {
+        if (biVar != null && biVar.getAuthor() != null) {
+            this.adW = biVar;
+            setContentDescription(String.valueOf(biVar.getAuthor().getName_show()) + this.mContext.getString(r.j.somebodys_portrait));
+            c(biVar.getAuthor().getPortrait(), 28, false);
         }
     }
 
     public void setData(MetaData metaData) {
         if (metaData != null) {
-            bg bgVar = new bg();
-            bgVar.setAuthor(metaData);
-            setData(bgVar);
+            bi biVar = new bi();
+            biVar.setAuthor(metaData);
+            setData(biVar);
         }
     }
 
@@ -77,19 +78,19 @@ public class ClickableHeaderImageView extends HeadImageView {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.adR != 0) {
+            if (this.aec != 0) {
                 Paint paint = new Paint();
-                paint.setColor(this.adR);
+                paint.setColor(this.aec);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
-            if (this.adP && !this.adQ) {
-                Drawable drawable = this.adS == null ? com.baidu.tbadk.core.util.av.getDrawable(t.f.pic_home_shen_avatar) : this.adS;
+            if (this.aea && !this.aeb) {
+                Drawable drawable = this.aed == null ? av.getDrawable(r.f.pic_home_shen_avatar) : this.aed;
                 if (drawable != null) {
-                    int e = com.baidu.adp.lib.util.k.e(this.mContext, t.e.ds30);
+                    int e = com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds30);
                     int width = getWidth();
                     int height = getHeight();
-                    if (this.adP) {
-                        drawable.setBounds((width - e) - this.adN, (height - e) - this.adN, width - this.adN, height - this.adN);
+                    if (this.aea) {
+                        drawable.setBounds((width - e) - this.adY, (height - e) - this.adY, width - this.adY, height - this.adY);
                     }
                     drawable.draw(canvas);
                 }
@@ -98,16 +99,16 @@ public class ClickableHeaderImageView extends HeadImageView {
     }
 
     public void setGodIconMargin(int i) {
-        this.adP = true;
+        this.aea = true;
         setDefaultResource(17170445);
-        setDefaultErrorResource(t.f.icon_default_avatar100);
-        setDefaultBgResource(t.d.cp_bg_line_e);
+        setDefaultErrorResource(r.f.icon_default_avatar100);
+        setDefaultBgResource(r.d.cp_bg_line_e);
         setIsRound(true);
         if (i > 0) {
-            this.adN = com.baidu.adp.lib.util.k.e(this.mContext, i);
+            this.adY = com.baidu.adp.lib.util.k.e(this.mContext, i);
         }
         if (i < 0) {
-            this.adP = false;
+            this.aea = false;
         }
         invalidate();
     }
@@ -117,24 +118,24 @@ public class ClickableHeaderImageView extends HeadImageView {
             setGodIconMargin(0);
             return;
         }
-        this.adP = false;
+        this.aea = false;
         setDefaultResource(17170445);
-        setDefaultErrorResource(t.f.icon_default_avatar100);
-        setDefaultBgResource(t.d.cp_bg_line_e);
+        setDefaultErrorResource(r.f.icon_default_avatar100);
+        setDefaultBgResource(r.d.cp_bg_line_e);
         setIsRound(true);
-        this.adN = 0;
+        this.adY = 0;
         invalidate();
     }
 
     public void setMaskColor(int i) {
-        this.adR = i;
+        this.aec = i;
     }
 
     public void setCustomGodIcon(Drawable drawable) {
-        this.adS = drawable;
+        this.aed = drawable;
     }
 
     public void setIsBigV(boolean z) {
-        this.adQ = z;
+        this.aeb = z;
     }
 }

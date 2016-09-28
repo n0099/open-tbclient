@@ -9,11 +9,11 @@ public interface g {
 
     void a(f fVar);
 
-    void adn();
-
-    void dW(boolean z);
+    void adB();
 
     void dX(boolean z);
+
+    void dY(boolean z);
 
     boolean isMenuShowing();
 

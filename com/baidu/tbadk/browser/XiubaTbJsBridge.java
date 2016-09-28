@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -121,7 +121,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Cv().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m9getInst().getResources().getString(t.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.Cv().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m9getInst().getResources().getString(r.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

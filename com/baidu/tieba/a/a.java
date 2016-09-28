@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends y.a> extends com.baidu.adp.widget.ListView.a<T, V> {
     protected TbPageContext<?> GM;
-    public boolean aST;
+    public boolean aTD;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.aST = true;
+        this.aTD = true;
     }
 }

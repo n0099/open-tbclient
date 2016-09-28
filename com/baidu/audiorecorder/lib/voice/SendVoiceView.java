@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.ab;
 import com.baidu.tieba.im.chat.ISendVoiceView;
 import com.baidu.tieba.im.chat.ak;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class SendVoiceView extends LinearLayout implements ab, ISendVoiceView, ak {
     private TextView EH;
@@ -25,8 +25,8 @@ public class SendVoiceView extends LinearLayout implements ab, ISendVoiceView, a
         this.EH = null;
         this.EI = 0;
         if (context != null) {
-            LayoutInflater.from(context).inflate(t.h.send_voice_view, this);
-            this.EH = (TextView) findViewById(t.g.tex_send_voice);
+            LayoutInflater.from(context).inflate(r.h.send_voice_view, this);
+            this.EH = (TextView) findViewById(r.g.tex_send_voice);
             setFocusable(true);
             setFocusableInTouchMode(true);
             lx();
@@ -36,12 +36,12 @@ public class SendVoiceView extends LinearLayout implements ab, ISendVoiceView, a
     @Override // com.baidu.tieba.im.chat.ISendVoiceView
     public void refreshSendVoiceText(boolean z) {
         if (z) {
-            this.EH.setBackgroundResource(t.f.but_talk_s);
-            this.EH.setText(TbadkCoreApplication.m9getInst().getContext().getString(t.j.msglist_no_push));
+            this.EH.setBackgroundResource(r.f.but_talk_s);
+            this.EH.setText(TbadkCoreApplication.m9getInst().getContext().getString(r.j.msglist_no_push));
             return;
         }
-        this.EH.setBackgroundResource(t.f.but_talk_n);
-        this.EH.setText(TbadkCoreApplication.m9getInst().getContext().getString(t.j.msglist_push_talk));
+        this.EH.setBackgroundResource(r.f.but_talk_n);
+        this.EH.setText(TbadkCoreApplication.m9getInst().getContext().getString(r.j.msglist_push_talk));
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -98,8 +98,8 @@ public class SendVoiceView extends LinearLayout implements ab, ISendVoiceView, a
         this.EM.gravity = 17;
         this.EM.x = 0;
         this.EM.y = 0;
-        this.EM.width = getContext().getResources().getDimensionPixelSize(t.e.ds360);
-        this.EM.height = getContext().getResources().getDimensionPixelSize(t.e.ds360);
+        this.EM.width = getContext().getResources().getDimensionPixelSize(r.e.ds360);
+        this.EM.height = getContext().getResources().getDimensionPixelSize(r.e.ds360);
     }
 
     @Override // com.baidu.adp.lib.voice.j

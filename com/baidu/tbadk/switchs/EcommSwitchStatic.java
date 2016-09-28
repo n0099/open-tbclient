@@ -3,15 +3,15 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class EcommSwitchStatic extends BaseNormalSwitchStatic {
-    private static final EcommSwitchStatic aEg;
+    private static final EcommSwitchStatic aDE;
 
     static {
         e.dN().n(EcommSwitchStatic.class);
-        aEg = new EcommSwitchStatic();
+        aDE = new EcommSwitchStatic();
     }
 
-    public static boolean GL() {
-        return aEg.eX();
+    public static boolean GK() {
+        return aDE.eX();
     }
 
     @Override // com.baidu.tbadk.switchs.BaseNormalSwitchStatic, com.baidu.adp.lib.c.a

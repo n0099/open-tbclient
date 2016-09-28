@@ -4,22 +4,22 @@ import com.baidu.tbadk.util.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends t<Void> {
-    final /* synthetic */ c dkX;
-    private final /* synthetic */ GroupSettingItemData dkZ;
+    final /* synthetic */ c dmu;
+    private final /* synthetic */ GroupSettingItemData dmw;
     private final /* synthetic */ String mB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar, GroupSettingItemData groupSettingItemData, String str) {
-        this.dkX = cVar;
-        this.dkZ = groupSettingItemData;
+        this.dmu = cVar;
+        this.dmw = groupSettingItemData;
         this.mB = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.t
-    /* renamed from: LP */
+    /* renamed from: Mt */
     public Void doInBackground() {
-        this.dkX.awg().k(this.mB, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.dkZ));
+        this.dmu.awF().k(this.mB, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.dmw));
         return null;
     }
 }

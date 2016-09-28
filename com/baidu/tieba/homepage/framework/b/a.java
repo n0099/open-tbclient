@@ -8,164 +8,164 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a {
-    private View bJv;
-    private Animation bTy;
-    private Animation bTz;
-    private View cDF;
+    private View bJw;
+    private Animation bTr;
+    private Animation bTs;
+    private View cEj;
     private Context mContext;
-    private int aQi = 0;
-    private boolean bJx = false;
-    private final Handler.Callback bJz = new b(this);
-    private final Handler mHandler = new Handler(this.bJz);
-    private boolean bJw = UtilHelper.canUseStyleImmersiveSticky();
+    private int aRr = 0;
+    private boolean bJy = false;
+    private final Handler.Callback bJA = new b(this);
+    private final Handler mHandler = new Handler(this.bJA);
+    private boolean bJx = UtilHelper.canUseStyleImmersiveSticky();
 
-    public void dp(boolean z) {
-        this.bJx = z;
+    public void dq(boolean z) {
+        this.bJy = z;
     }
 
     public a(Context context, View view, View view2) {
         this.mContext = context;
-        this.cDF = view;
-        this.bJv = view2;
-        YP();
-        dq(false);
+        this.cEj = view;
+        this.bJw = view2;
+        Ze();
+        dr(false);
     }
 
-    private void YF() {
-        this.bTy = AnimationUtils.loadAnimation(this.mContext, t.a.bavigationbar_slide_out);
-        this.bTy.setAnimationListener(new c(this));
+    private void YT() {
+        this.bTr = AnimationUtils.loadAnimation(this.mContext, r.a.bavigationbar_slide_out);
+        this.bTr.setAnimationListener(new c(this));
     }
 
-    private void YG() {
-        this.bTz = AnimationUtils.loadAnimation(this.mContext, t.a.bavigationbar_slide_in);
-        this.bTz.setAnimationListener(new d(this));
+    private void YU() {
+        this.bTs = AnimationUtils.loadAnimation(this.mContext, r.a.bavigationbar_slide_in);
+        this.bTs.setAnimationListener(new d(this));
     }
 
-    public void YH() {
+    public void YV() {
         m(false, false);
     }
 
-    public void YI() {
+    public void YW() {
         m(false, true);
     }
 
     public void m(boolean z, boolean z2) {
-        if (this.cDF != null && this.cDF.getVisibility() == 0 && !YM()) {
+        if (this.cEj != null && this.cEj.getVisibility() == 0 && !Zb()) {
             if (z2) {
-                this.cDF.setVisibility(8);
+                this.cEj.setVisibility(8);
                 return;
             }
-            if (this.bTy == null) {
-                YF();
+            if (this.bTr == null) {
+                YT();
             }
-            this.cDF.startAnimation(this.bTy);
+            this.cEj.startAnimation(this.bTr);
         }
     }
 
-    public void YJ() {
-        if (this.cDF != null && this.cDF.getVisibility() != 0 && !YM()) {
-            this.cDF.setVisibility(0);
-            if (this.bTz == null) {
-                YG();
+    public void YX() {
+        if (this.cEj != null && this.cEj.getVisibility() != 0 && !Zb()) {
+            this.cEj.setVisibility(0);
+            if (this.bTs == null) {
+                YU();
             }
-            this.cDF.startAnimation(this.bTz);
+            this.cEj.startAnimation(this.bTs);
         }
     }
 
-    public void YK() {
+    public void YY() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void YL() {
+    public void YZ() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void aco() {
+    public void Za() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean YM() {
-        return ac(this.cDF);
+    public boolean Zb() {
+        return ab(this.cEj);
     }
 
-    private boolean ac(View view) {
+    private boolean ab(View view) {
         Animation animation;
         return (view == null || (animation = view.getAnimation()) == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
     }
 
-    public void eT(boolean z) {
-        if (this.cDF != null) {
-            if (z || this.cDF.getVisibility() != 8) {
-                YL();
+    public void eU(boolean z) {
+        if (this.cEj != null) {
+            if (z || this.cEj.getVisibility() != 8) {
+                YZ();
             }
         }
     }
 
-    public void eU(boolean z) {
-        if (this.cDF != null) {
-            if (z || this.cDF.getVisibility() != 0) {
-                YK();
+    public void eV(boolean z) {
+        if (this.cEj != null) {
+            if (z || this.cEj.getVisibility() != 0) {
+                YY();
             }
         }
     }
 
     public void a(AbsListView absListView, int i, int i2, int i3, int i4) {
-        if (this.cDF != null) {
-            if (i != 0 && i2 > i && this.cDF.getVisibility() != 8) {
-                eT(false);
-            } else if ((i == 0 || i2 < i) && this.cDF.getVisibility() != 0) {
+        if (this.cEj != null) {
+            if (i != 0 && i2 > i && this.cEj.getVisibility() != 8) {
                 eU(false);
+            } else if ((i == 0 || i2 < i) && this.cEj.getVisibility() != 0) {
+                eV(false);
             }
-            this.aQi = i;
+            this.aRr = i;
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (absListView != null && i == 0) {
             int firstVisiblePosition = absListView.getFirstVisiblePosition();
-            if (firstVisiblePosition > this.aQi) {
-                eT(true);
-            } else if (firstVisiblePosition < this.aQi) {
+            if (firstVisiblePosition > this.aRr) {
                 eU(true);
-            } else if (firstVisiblePosition == this.aQi) {
-                if (firstVisiblePosition == 0 || !this.bJx) {
-                    eU(true);
+            } else if (firstVisiblePosition < this.aRr) {
+                eV(true);
+            } else if (firstVisiblePosition == this.aRr) {
+                if (firstVisiblePosition == 0 || !this.bJy) {
+                    eV(true);
                 } else {
-                    eT(true);
+                    eU(true);
                 }
             }
         }
     }
 
-    private void YP() {
-        if (this.bJv != null) {
-            if (this.bJw && this.bJv.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.bJv.getLayoutParams();
+    private void Ze() {
+        if (this.bJw != null) {
+            if (this.bJx && this.bJw.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = this.bJw.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                this.bJv.setLayoutParams(layoutParams);
-                dq(true);
+                this.bJw.setLayoutParams(layoutParams);
+                dr(true);
                 return;
             }
-            dq(false);
+            dr(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dq(boolean z) {
-        if (this.bJv != null) {
-            if (this.bJw && z && this.bJv.getVisibility() != 0) {
-                this.bJv.setVisibility(0);
-            } else if (!z && this.bJv.getVisibility() != 8) {
-                this.bJv.setVisibility(8);
+    public void dr(boolean z) {
+        if (this.bJw != null) {
+            if (this.bJx && z && this.bJw.getVisibility() != 0) {
+                this.bJw.setVisibility(0);
+            } else if (!z && this.bJw.getVisibility() != 8) {
+                this.bJw.setVisibility(8);
             }
         }
     }

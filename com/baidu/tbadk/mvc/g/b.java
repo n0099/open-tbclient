@@ -9,15 +9,15 @@ import com.baidu.tbadk.mvc.g.a;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends c<D, S, H> {
-    private final Class<?>[] aAF;
-    private final int[] aAG;
+    private final Class<?>[] aAi;
+    private final int[] aAj;
 
-    public abstract int eW(int i);
+    public abstract int eV(int i);
 
     public b(TbPageContext<?> tbPageContext, Class<?>[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
         super(tbPageContext, viewEventCenter);
-        this.aAF = clsArr;
-        this.aAG = iArr;
+        this.aAi = clsArr;
+        this.aAj = iArr;
         if (clsArr == null || iArr == null || clsArr.length == 0 || iArr.length == 0 || clsArr.length != iArr.length) {
             throw new InvalidParameterException("BaseMulitiListAdapter new failed");
         }
@@ -25,26 +25,26 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.aAM && Fy()) {
+        if (this.aAp && Fx()) {
             return -1;
         }
-        return eW(i);
+        return eV(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public final int getViewTypeCount() {
-        return this.aAF.length + 1;
+        return this.aAi.length + 1;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (this.aAM && Fy()) {
-            return Fx();
+        if (this.aAp && Fx()) {
+            return Fw();
         }
-        Fw();
+        Fv();
         int itemViewType = getItemViewType(i);
-        Class<?> cls = this.aAF[itemViewType];
-        int i2 = this.aAG[itemViewType];
+        Class<?> cls = this.aAi[itemViewType];
+        int i2 = this.aAj[itemViewType];
         if (cls == null) {
             throw new InvalidParameterException("BaseMulitiListAdapter holder class error");
         }

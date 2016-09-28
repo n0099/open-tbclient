@@ -5,11 +5,11 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.homepage.framework.d {
-    final /* synthetic */ a cCq;
+    final /* synthetic */ a cCV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cCq = aVar;
+        this.cCV = aVar;
     }
 
     @Override // com.baidu.tieba.homepage.framework.d
@@ -18,16 +18,16 @@ public class b implements com.baidu.tieba.homepage.framework.d {
         ArrayList arrayList2;
         ArrayList arrayList3;
         if (i >= 0) {
-            arrayList = this.cCq.cCi;
+            arrayList = this.cCV.cCN;
             if (arrayList != null) {
-                arrayList2 = this.cCq.cCi;
+                arrayList2 = this.cCV.cCN;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.cCq.cCi;
+                    arrayList3 = this.cCV.cCN;
                     Iterator it = arrayList3.iterator();
                     while (it.hasNext()) {
                         com.baidu.tieba.homepage.recommendfrs.data.a aVar = (com.baidu.tieba.homepage.recommendfrs.data.a) it.next();
-                        if (aVar != null && aVar.amR() != null && j == aVar.amR().tag_code.longValue()) {
-                            aVar.ki(i);
+                        if (aVar != null && aVar.anf() != null && j == aVar.anf().tag_code.longValue()) {
+                            aVar.ko(i);
                             return;
                         }
                     }

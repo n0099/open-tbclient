@@ -7,17 +7,17 @@ import com.baidu.tieba.frs.entelechy.a.af;
 /* loaded from: classes.dex */
 public class i implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.g acH() {
+    public com.baidu.tieba.frs.entelechy.b.g acT() {
         return new com.baidu.tieba.frs.f.a();
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.d K(FrsActivity frsActivity) {
+    public com.baidu.tieba.frs.entelechy.b.d M(FrsActivity frsActivity) {
         return new com.baidu.tieba.frs.entelechy.c.a(frsActivity);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b acI() {
+    public com.baidu.tieba.frs.entelechy.b.b acU() {
         return new t();
     }
 
@@ -34,8 +34,8 @@ public class i implements com.baidu.tieba.frs.entelechy.b.a {
         } else {
             jVar = new j(frsActivity, null, null, i);
         }
-        jVar.b(frsActivity.abd());
-        jVar.b(frsActivity.abe());
+        jVar.b(frsActivity.abp());
+        jVar.b(frsActivity.abq());
         return jVar;
     }
 

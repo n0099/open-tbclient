@@ -9,7 +9,7 @@ public class c {
     private String game_icon;
     private String post_url;
 
-    public String pj() {
+    public String pk() {
         return this.game_icon;
     }
 

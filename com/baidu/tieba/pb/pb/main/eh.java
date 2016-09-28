@@ -6,44 +6,44 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.t;
+import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class eh {
-    public com.baidu.tieba.tbadkCore.data.q ers;
-    private a erx;
+    public com.baidu.tieba.tbadkCore.data.q etB;
+    private a etG;
     public int loadType;
     private com.baidu.tieba.pb.data.h pbData;
     private String threadTitle;
-    public int erp = 0;
-    public int erq = 0;
-    public int ert = 0;
+    public int ety = 0;
+    public int etz = 0;
+    public int etC = 0;
     public boolean isSquence = true;
-    public boolean eru = false;
-    private boolean erv = false;
-    private boolean erw = false;
-    private CustomMessageListener ery = new ei(this, CmdConfigCustom.CMD_TTS_READ_FINISHED);
-    private CustomMessageListener erz = new ej(this, CmdConfigCustom.CMD_TTS_AUDIO_VIEW_OPTION);
+    public boolean etD = false;
+    private boolean etE = false;
+    private boolean etF = false;
+    private CustomMessageListener etH = new ei(this, CmdConfigCustom.CMD_TTS_READ_FINISHED);
+    private CustomMessageListener etI = new ej(this, CmdConfigCustom.CMD_TTS_AUDIO_VIEW_OPTION);
 
     /* loaded from: classes.dex */
     public interface a {
-        void aOL();
+        void aPu();
 
-        void aOM();
+        void aPv();
 
-        void bi(int i, int i2);
+        void bk(int i, int i2);
     }
 
     public void M(int i, boolean z) {
         if (this.pbData != null) {
             if (z) {
-                com.baidu.tbadk.core.data.bc bcVar = new com.baidu.tbadk.core.data.bc();
-                bcVar.bS(4);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bcVar));
-                this.ert = 5;
+                com.baidu.tbadk.core.data.be beVar = new com.baidu.tbadk.core.data.be();
+                beVar.bS(4);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar));
+                this.etC = 5;
             }
-            this.erp = i;
-            aOH();
+            this.ety = i;
+            aPq();
         }
     }
 
@@ -55,46 +55,46 @@ public class eh {
         if (i < 0) {
             i = 0;
         }
-        if (this.erw) {
-            this.erp = g(i, arrayList);
-            this.erq = f(this.erp, arrayList);
+        if (this.etF) {
+            this.ety = g(i, arrayList);
+            this.etz = f(this.ety, arrayList);
         } else {
-            this.erp = i;
+            this.ety = i;
         }
         int size = arrayList.size();
         int i2 = 0;
         int i3 = i;
         while (i2 < size) {
             com.baidu.tieba.tbadkCore.data.q qVar = arrayList.get(i2);
-            int i4 = (qVar == null || qVar.bjc() != this.erq) ? i3 : i2;
+            int i4 = (qVar == null || qVar.bjO() != this.etz) ? i3 : i2;
             i2++;
             i3 = i4;
         }
         if (i3 >= arrayList.size()) {
-            this.erp = arrayList.size() - 1;
+            this.ety = arrayList.size() - 1;
             return null;
         }
-        this.erp = i3;
-        com.baidu.tbadk.core.data.bd bdVar = new com.baidu.tbadk.core.data.bd();
-        if (arrayList.get(this.erp) instanceof com.baidu.tieba.tbadkCore.data.q) {
-            com.baidu.tieba.tbadkCore.data.q qVar2 = arrayList.get(this.erp);
-            this.erq = f(this.erp + 1, arrayList);
-            if (qVar2.bjc() == 1) {
-                bdVar.threadTitle = this.threadTitle;
-                if (!this.erv) {
-                    bdVar.Tb = true;
+        this.ety = i3;
+        com.baidu.tbadk.core.data.bf bfVar = new com.baidu.tbadk.core.data.bf();
+        if (arrayList.get(this.ety) instanceof com.baidu.tieba.tbadkCore.data.q) {
+            com.baidu.tieba.tbadkCore.data.q qVar2 = arrayList.get(this.ety);
+            this.etz = f(this.ety + 1, arrayList);
+            if (qVar2.bjO() == 1) {
+                bfVar.threadTitle = this.threadTitle;
+                if (!this.etE) {
+                    bfVar.Ti = true;
                 } else {
-                    bdVar.Tb = false;
+                    bfVar.Ti = false;
                 }
             } else {
-                if (qVar2.bjc() != 0) {
-                    bdVar.Tc = String.format(TbadkCoreApplication.m9getInst().getContext().getString(t.j.is_floor), Integer.valueOf(qVar2.bjc()));
+                if (qVar2.bjO() != 0) {
+                    bfVar.Tj = String.format(TbadkCoreApplication.m9getInst().getContext().getString(r.j.is_floor), Integer.valueOf(qVar2.bjO()));
                 }
-                bdVar.threadTitle = this.threadTitle;
-                bdVar.Tb = false;
+                bfVar.threadTitle = this.threadTitle;
+                bfVar.Ti = false;
             }
-            bdVar.Te = qVar2.aAk();
-            return bdVar;
+            bfVar.Tl = qVar2.aAI();
+            return bfVar;
         }
         return null;
     }
@@ -103,18 +103,18 @@ public class eh {
         if (i < 0 || arrayList == null || arrayList.size() <= 0 || i >= arrayList.size() || arrayList.get(i) == null) {
             return -1;
         }
-        int bjc = arrayList.get(i).bjc();
-        if (i > 0 && bjc == 0) {
-            return this.erq + 1;
+        int bjO = arrayList.get(i).bjO();
+        if (i > 0 && bjO == 0) {
+            return this.etz + 1;
         }
-        return bjc;
+        return bjO;
     }
 
     private int g(int i, ArrayList<com.baidu.tieba.tbadkCore.data.q> arrayList) {
         if (i >= 0 && arrayList != null && arrayList.size() > 0 && i < arrayList.size()) {
             for (int i2 = i; i2 >= 0; i2--) {
                 com.baidu.tieba.tbadkCore.data.q qVar = arrayList.get(i2);
-                if (qVar != null && qVar.bjc() > 0) {
+                if (qVar != null && qVar.bjO() > 0) {
                     return i2;
                 }
             }
@@ -123,61 +123,61 @@ public class eh {
         return i;
     }
 
-    private void aOH() {
-        com.baidu.tbadk.core.data.bc bcVar = new com.baidu.tbadk.core.data.bc();
+    private void aPq() {
+        com.baidu.tbadk.core.data.be beVar = new com.baidu.tbadk.core.data.be();
         Object obj = null;
-        switch (this.ert) {
+        switch (this.etC) {
             case 0:
             case 5:
-                bcVar.bS(1);
-                obj = e(this.erp, this.pbData.aLR());
-                this.ert = 1;
+                beVar.bS(1);
+                obj = e(this.ety, this.pbData.aMt());
+                this.etC = 1;
                 break;
             case 1:
-                bcVar.bS(2);
-                this.ert = 2;
+                beVar.bS(2);
+                this.etC = 2;
                 break;
             case 2:
-                bcVar.bS(3);
-                this.ert = 3;
+                beVar.bS(3);
+                this.etC = 3;
                 break;
             case 3:
-                bcVar.bS(2);
-                this.ert = 2;
+                beVar.bS(2);
+                this.etC = 2;
                 break;
             case 4:
             default:
-                bcVar.bS(1);
-                this.ert = 1;
+                beVar.bS(1);
+                this.etC = 1;
                 break;
         }
-        bcVar.setData(obj);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bcVar));
+        beVar.setData(obj);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar));
     }
 
     private void a(com.baidu.tieba.pb.data.h hVar, boolean z, int i, boolean z2) {
         if (!z) {
-            com.baidu.tbadk.core.data.bc bcVar = new com.baidu.tbadk.core.data.bc();
-            bcVar.bS(15);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bcVar));
-            this.erp = 0;
-            this.ert = 5;
+            com.baidu.tbadk.core.data.be beVar = new com.baidu.tbadk.core.data.be();
+            beVar.bS(15);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar));
+            this.ety = 0;
+            this.etC = 5;
         } else if (i != 1 && i != 3 && i != 4) {
             if (i == 6) {
-                this.erp = 0;
+                this.ety = 0;
                 return;
             }
-            com.baidu.tbadk.core.data.bc bcVar2 = new com.baidu.tbadk.core.data.bc();
-            bcVar2.bS(4);
-            this.erp = 0;
-            this.ert = 5;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bcVar2));
+            com.baidu.tbadk.core.data.be beVar2 = new com.baidu.tbadk.core.data.be();
+            beVar2.bS(4);
+            this.ety = 0;
+            this.etC = 5;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar2));
         }
     }
 
     public eh() {
-        MessageManager.getInstance().registerListener(this.ery);
-        MessageManager.getInstance().registerListener(this.erz);
+        MessageManager.getInstance().registerListener(this.etH);
+        MessageManager.getInstance().registerListener(this.etI);
     }
 
     public void b(com.baidu.tieba.pb.data.h hVar, boolean z, int i, boolean z2) {
@@ -187,14 +187,14 @@ public class eh {
     public void a(com.baidu.tieba.pb.data.h hVar, boolean z, int i, boolean z2, boolean z3) {
         this.pbData = hVar;
         this.isSquence = z;
-        this.eru = z2;
+        this.etD = z2;
         this.loadType = i;
-        if (hVar != null && hVar.aLQ() != null) {
-            this.threadTitle = hVar.aLQ().getTitle();
+        if (hVar != null && hVar.aMs() != null) {
+            this.threadTitle = hVar.aMs().getTitle();
             if (StringUtils.isNull(this.threadTitle)) {
-                this.threadTitle = hVar.aLQ().rI();
+                this.threadTitle = hVar.aMs().rU();
             }
-            this.erv = hVar.aLQ().rP() == 1;
+            this.etE = hVar.aMs().sb() == 1;
         }
         if (z3) {
             a(hVar, z, i, z2);
@@ -203,48 +203,48 @@ public class eh {
 
     public void clearData() {
         this.pbData = null;
-        this.erp = 0;
-        this.ert = 0;
+        this.ety = 0;
+        this.etC = 0;
         this.isSquence = true;
     }
 
     public void a(a aVar) {
-        this.erx = aVar;
+        this.etG = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.ery);
-        MessageManager.getInstance().unRegisterListener(this.erz);
+        MessageManager.getInstance().unRegisterListener(this.etH);
+        MessageManager.getInstance().unRegisterListener(this.etI);
     }
 
-    public int aOI() {
-        return this.ert;
+    public int aPr() {
+        return this.etC;
     }
 
-    public void op(int i) {
-        this.ert = i;
+    public void oz(int i) {
+        this.etC = i;
     }
 
-    public int aOJ() {
-        if (this.pbData == null || this.pbData.aLR() == null) {
+    public int aPs() {
+        if (this.pbData == null || this.pbData.aMt() == null) {
             return -1;
         }
-        if (this.erp >= 0 && this.erp < this.pbData.aLR().size()) {
-            this.ers = this.pbData.aLR().get(this.erp);
+        if (this.ety >= 0 && this.ety < this.pbData.aMt().size()) {
+            this.etB = this.pbData.aMt().get(this.ety);
         }
-        if (this.ers != null) {
-            return this.ers.bjc();
+        if (this.etB != null) {
+            return this.etB.bjO();
         }
         return -1;
     }
 
-    public com.baidu.tieba.tbadkCore.data.q aOK() {
-        if (this.pbData == null || this.pbData.aLR() == null) {
+    public com.baidu.tieba.tbadkCore.data.q aPt() {
+        if (this.pbData == null || this.pbData.aMt() == null) {
             return null;
         }
-        if (this.erp >= 0 && this.erp < this.pbData.aLR().size()) {
-            this.ers = this.pbData.aLR().get(this.erp);
+        if (this.ety >= 0 && this.ety < this.pbData.aMt().size()) {
+            this.etB = this.pbData.aMt().get(this.ety);
         }
-        return this.ers;
+        return this.etB;
     }
 }

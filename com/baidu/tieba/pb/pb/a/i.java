@@ -1,52 +1,40 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tieba.play.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends CustomMessageListener {
-    final /* synthetic */ e elb;
+public class i implements e.d {
+    final /* synthetic */ e emY;
+    private final /* synthetic */ v emZ;
+    private final /* synthetic */ com.baidu.tbadk.widget.richText.o ena;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.q enb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(e eVar, int i) {
-        super(i);
-        this.elb = eVar;
+    public i(e eVar, v vVar, com.baidu.tbadk.widget.richText.o oVar, com.baidu.tieba.tbadkCore.data.q qVar) {
+        this.emY = eVar;
+        this.emZ = vVar;
+        this.ena = oVar;
+        this.enb = qVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        y yVar;
-        y yVar2;
-        boolean aMx;
-        boolean aMx2;
-        y yVar3;
-        y yVar4;
-        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-            yVar = this.elb.ekR;
-            if (yVar != null) {
-                yVar2 = this.elb.ekR;
-                if (yVar2.aPh == null) {
-                    return;
-                }
-                aMx = this.elb.aMx();
-                if (!aMx) {
-                    yVar4 = this.elb.ekR;
-                    if (yVar4.aPh.isPlaying()) {
-                        this.elb.aoo();
-                        return;
-                    }
-                }
-                aMx2 = this.elb.aMx();
-                if (aMx2) {
-                    yVar3 = this.elb.ekR;
-                    if (!yVar3.aPh.isPlaying()) {
-                        this.elb.aMu();
-                    }
-                }
+    @Override // com.baidu.tieba.play.e.d
+    public void onPrepared(com.baidu.tieba.play.e eVar) {
+        Handler handler;
+        Handler handler2;
+        if (this.emZ.aMF != null) {
+            if (eVar != null) {
+                eVar.setVolume(0.0f, 0.0f);
             }
+            this.emY.Jt();
+            this.emY.c(this.ena);
+            this.emY.a(this.emZ, this.ena);
+            handler = this.emY.mHandler;
+            Message obtainMessage = handler.obtainMessage(1);
+            obtainMessage.obj = this.enb;
+            handler2 = this.emY.mHandler;
+            handler2.sendMessage(obtainMessage);
         }
     }
 }

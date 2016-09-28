@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class aa implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity bQp;
+    final /* synthetic */ FrsActivity bQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FrsActivity frsActivity) {
-        this.bQp = frsActivity;
+        this.bQi = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
@@ -18,21 +18,21 @@ class aa implements NoNetworkView.a {
         bm bmVar3;
         bm bmVar4;
         if (z) {
-            bmVar = this.bQp.bPo;
-            if (!bmVar.aaS()) {
-                if (this.bQp.bPq == null || this.bQp.bPq.getThreadList().size() == 0) {
-                    FrsActivity frsActivity = this.bQp;
-                    bmVar2 = this.bQp.bPo;
+            bmVar = this.bQi.bPi;
+            if (!bmVar.abf()) {
+                if (this.bQi.bPk == null || this.bQi.bPk.getThreadList().size() == 0) {
+                    FrsActivity frsActivity = this.bQi;
+                    bmVar2 = this.bQi.bPi;
                     frsActivity.hideNetRefreshView(bmVar2.getRootView());
-                    z2 = this.bQp.bOZ;
+                    z2 = this.bQi.bOT;
                     if (!z2) {
-                        FrsActivity frsActivity2 = this.bQp;
-                        bmVar3 = this.bQp.bPo;
+                        FrsActivity frsActivity2 = this.bQi;
+                        bmVar3 = this.bQi.bPi;
                         frsActivity2.showLoadingView(bmVar3.getRootView(), true);
-                        bmVar4 = this.bQp.bPo;
-                        bmVar4.dJ(false);
+                        bmVar4 = this.bQi.bPi;
+                        bmVar4.dK(false);
                     }
-                    this.bQp.refresh();
+                    this.bQi.refresh();
                 }
             }
         }

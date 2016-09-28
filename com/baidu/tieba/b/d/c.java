@@ -5,15 +5,15 @@ import com.baidu.tieba.b.d.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements g.a {
-    final /* synthetic */ b aXj;
-    private final /* synthetic */ f aXk;
-    private final /* synthetic */ int aXl;
+    final /* synthetic */ b aXN;
+    private final /* synthetic */ f aXO;
+    private final /* synthetic */ int aXP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, f fVar, int i) {
-        this.aXj = bVar;
-        this.aXk = fVar;
-        this.aXl = i;
+        this.aXN = bVar;
+        this.aXO = fVar;
+        this.aXP = i;
     }
 
     @Override // com.baidu.tieba.b.b.g.a
@@ -21,16 +21,16 @@ public class c implements g.a {
         b.a aVar;
         b.a aVar2;
         if (z) {
-            this.aXk.setVisibility(8);
-            this.aXk.setClickable(false);
+            this.aXO.setVisibility(8);
+            this.aXO.setClickable(false);
             return;
         }
-        this.aXk.setVisibility(0);
-        this.aXk.setClickable(true);
-        aVar = this.aXj.aXi;
+        this.aXO.setVisibility(0);
+        this.aXO.setClickable(true);
+        aVar = this.aXN.aXM;
         if (aVar != null) {
-            aVar2 = this.aXj.aXi;
-            aVar2.l(this.aXl, true);
+            aVar2 = this.aXN.aXM;
+            aVar2.l(this.aXP, true);
         }
     }
 }

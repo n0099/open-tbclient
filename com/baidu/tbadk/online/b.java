@@ -25,12 +25,12 @@ public class b extends e {
             eG.removeCallbacks(runnable);
             return;
         }
-        long j = com.baidu.tbadk.core.sharedPref.b.tS().getLong("get_online_info_last_time", 0L);
+        long j = com.baidu.tbadk.core.sharedPref.b.uh().getLong("get_online_info_last_time", 0L);
         long currentTimeMillis = System.currentTimeMillis();
-        z = GetOnLineInfoStatic.aAZ;
+        z = GetOnLineInfoStatic.aAC;
         if (z || currentTimeMillis - j >= 3600000) {
-            GetOnLineInfoStatic.aAZ = false;
-            com.baidu.tbadk.core.sharedPref.b.tS().putLong("get_online_info_last_time", currentTimeMillis);
+            GetOnLineInfoStatic.aAC = false;
+            com.baidu.tbadk.core.sharedPref.b.uh().putLong("get_online_info_last_time", currentTimeMillis);
             h eG2 = h.eG();
             runnable2 = GetOnLineInfoStatic.mRunnable;
             eG2.postDelayed(runnable2, TbConfig.NOTIFY_SOUND_INTERVAL);

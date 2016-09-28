@@ -1,64 +1,143 @@
 package com.baidu.tieba.card;
 
-import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.r;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class an implements View.OnClickListener {
-    final /* synthetic */ al aZM;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(al alVar) {
-        this.aZM = alVar;
+public class an {
+    public static void hN(String str) {
+        com.baidu.tieba.tbadkCore.util.s readThreadHistory;
+        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) != null && !readThreadHistory.rv(str)) {
+            readThreadHistory.rt(str);
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.core.data.bg bgVar;
-        com.baidu.tbadk.core.data.bg bgVar2;
-        com.baidu.tbadk.core.data.bg bgVar3;
-        com.baidu.tbadk.core.data.bg bgVar4;
-        com.baidu.tbadk.core.data.bg bgVar5;
-        TbPageContext tbPageContext;
-        com.baidu.tbadk.core.data.bg bgVar6;
-        com.baidu.tbadk.core.data.bg bgVar7;
-        com.baidu.tbadk.core.data.bg bgVar8;
-        com.baidu.tieba.card.data.m mVar;
-        bgVar = this.aZM.adL;
-        if (bgVar != null) {
-            bgVar2 = this.aZM.adL;
-            if (bgVar2.getAuthor() != null) {
-                bgVar3 = this.aZM.adL;
-                if (!StringUtils.isNull(bgVar3.getAuthor().getName_show())) {
-                    bgVar4 = this.aZM.adL;
-                    if (!StringUtils.isNull(bgVar4.getAuthor().getUserId())) {
-                        bgVar5 = this.aZM.adL;
-                        if (bgVar5.getForum_name() != null) {
-                            if (this.aZM.getOnSubCardOnClickListenner() != null) {
-                                cf<com.baidu.tieba.card.data.m> onSubCardOnClickListenner = this.aZM.getOnSubCardOnClickListenner();
-                                mVar = this.aZM.aZL;
-                                onSubCardOnClickListenner.a(view, mVar);
-                            }
-                            MessageManager messageManager = MessageManager.getInstance();
-                            tbPageContext = this.aZM.GM;
-                            Activity pageActivity = tbPageContext.getPageActivity();
-                            bgVar6 = this.aZM.adL;
-                            String userId = bgVar6.getAuthor().getUserId();
-                            bgVar7 = this.aZM.adL;
-                            String name_show = bgVar7.getAuthor().getName_show();
-                            bgVar8 = this.aZM.adL;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, bgVar8.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
-                        }
+    public static boolean hO(String str) {
+        com.baidu.tieba.tbadkCore.util.s readThreadHistory;
+        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) == null || !readThreadHistory.ru(str)) ? false : true;
+    }
+
+    public static String Oc() {
+        return String.valueOf(System.currentTimeMillis() / 1000);
+    }
+
+    public static String Od() {
+        return "personalize_page";
+    }
+
+    public static void a(TextView textView, String str, int i, int i2) {
+        if (textView instanceof TextView) {
+            if (hO(str)) {
+                com.baidu.tbadk.core.util.av.j((View) textView, i2);
+            } else {
+                com.baidu.tbadk.core.util.av.j((View) textView, i);
+            }
+        }
+    }
+
+    public static SpannableStringBuilder a(Context context, CharSequence charSequence, int i, int i2, int i3) {
+        if (charSequence == null || charSequence.length() == 0) {
+            return null;
+        }
+        String string = context.getString(i);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(string) + " " + ((Object) charSequence));
+        spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.av.getColor(i2)), 0, string.length(), 17);
+        com.baidu.adp.widget.d dVar = new com.baidu.adp.widget.d(context, com.baidu.tbadk.core.util.av.cN(i3), 1);
+        dVar.setOffset(3);
+        spannableStringBuilder.setSpan(dVar, string.length(), string.length() + 1, 33);
+        return spannableStringBuilder;
+    }
+
+    public static SpannableStringBuilder c(Context context, CharSequence charSequence, int i) {
+        return a(context, charSequence, i, r.d.cp_link_tip_a, r.f.pic_dot_title);
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public int bae;
+        public String baf;
+        public int bag;
+        public int bah;
+
+        public a(int i, int i2, int i3) {
+            this.bae = -1;
+            this.baf = "";
+            this.bag = r.d.cp_link_tip_a;
+            this.bah = r.f.pic_dot_title;
+            this.bae = i;
+            this.bag = i2;
+            this.bah = i3;
+        }
+
+        public a(int i) {
+            this.bae = -1;
+            this.baf = "";
+            this.bag = r.d.cp_link_tip_a;
+            this.bah = r.f.pic_dot_title;
+            this.bae = i;
+        }
+
+        public a(String str) {
+            this.bae = -1;
+            this.baf = "";
+            this.bag = r.d.cp_link_tip_a;
+            this.bah = r.f.pic_dot_title;
+            this.baf = str;
+        }
+    }
+
+    public static SpannableStringBuilder a(Context context, String str, ArrayList<a> arrayList, boolean z) {
+        if (com.baidu.adp.lib.util.j.isEmpty(str) || context == null || arrayList == null) {
+            return null;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        for (int i = 0; i != arrayList.size(); i++) {
+            a aVar = arrayList.get(i);
+            if (aVar != null) {
+                if (aVar.bae > 0) {
+                    aVar.baf = context.getString(aVar.bae);
+                }
+                if (!com.baidu.adp.lib.util.j.isEmpty(aVar.baf)) {
+                    int length = spannableStringBuilder.length();
+                    spannableStringBuilder.append((CharSequence) aVar.baf);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.av.getColor(aVar.bag)), length, spannableStringBuilder.length(), 17);
+                    Bitmap cN = com.baidu.tbadk.core.util.av.cN(aVar.bah);
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(cN);
+                    if (cN != null) {
+                        bitmapDrawable.setBounds(0, 0, cN.getWidth(), cN.getHeight());
                     }
+                    com.baidu.tbadk.core.view.ag agVar = new com.baidu.tbadk.core.view.ag(bitmapDrawable);
+                    int length2 = spannableStringBuilder.length();
+                    spannableStringBuilder.append((CharSequence) " ");
+                    spannableStringBuilder.setSpan(agVar, length2, spannableStringBuilder.length(), 17);
                 }
             }
         }
+        if (z) {
+            spannableStringBuilder.append((CharSequence) str);
+        }
+        return spannableStringBuilder;
+    }
+
+    public static void a(com.baidu.tbadk.core.data.bi biVar, TextView textView) {
+        if ((StringUtils.isNull(biVar.getTitle()) && (biVar.rM() == null || biVar.rM().size() == 0)) || biVar.sb() == 1) {
+            textView.setVisibility(8);
+            return;
+        }
+        textView.setVisibility(0);
+        biVar.TA = 0;
+        biVar.su();
+        SpannableStringBuilder sm = biVar.sm();
+        textView.setOnTouchListener(new com.baidu.tieba.view.y(sm));
+        textView.setText(sm);
+        a(textView, biVar.getId(), r.d.cp_cont_b, r.d.cp_cont_c);
     }
 }

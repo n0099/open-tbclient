@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class s extends com.baidu.tbadk.core.c.p {
-    final /* synthetic */ TbWebViewActivity MI;
+    final /* synthetic */ TbWebViewActivity MH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.c.n nVar) {
         super(nVar);
-        this.MI = tbWebViewActivity;
+        this.MH = tbWebViewActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,7 +21,7 @@ class s extends com.baidu.tbadk.core.c.p {
         return "TBHY_COMMON_Share";
     }
 
-    @com.baidu.tbadk.core.c.q(tG = false, value = TbConfig.TMP_SHARE_DIR_NAME)
+    @com.baidu.tbadk.core.c.q(tV = false, value = TbConfig.TMP_SHARE_DIR_NAME)
     private void share(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString(VrPlayerActivityConfig.TITLE);
@@ -30,10 +30,10 @@ class s extends com.baidu.tbadk.core.c.p {
             String optString4 = jSONObject.optString("url");
             String optString5 = jSONObject.optString("bid");
             if (!StringUtils.isNULL(optString5)) {
-                this.MI.mShareResultToFe = true;
-                this.MI.mBid = optString5;
+                this.MH.mShareResultToFe = true;
+                this.MH.mBid = optString5;
             }
-            com.baidu.adp.lib.h.h.eG().post(new t(this, this.MI.createShareContent(optString, optString4, optString2, optString3)));
+            com.baidu.adp.lib.h.h.eG().post(new t(this, this.MH.createShareContent(optString, optString4, optString2, optString3)));
         }
     }
 }

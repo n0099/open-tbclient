@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ HorizontalTabView cdC;
+    final /* synthetic */ HorizontalTabView cdA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(HorizontalTabView horizontalTabView) {
-        this.cdC = horizontalTabView;
+        this.cdA = horizontalTabView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,22 +19,22 @@ public class c implements View.OnClickListener {
         TabItemView tabItemView2;
         g gVar3;
         if (view instanceof TabItemView) {
-            this.cdC.a((TabItemView) view, false);
+            this.cdA.a((TabItemView) view, false);
         }
-        gVar = this.cdC.cds;
+        gVar = this.cdA.cdq;
         if (gVar != null) {
-            if (!(view instanceof TabItemView) || !HorizontalTabView.iu(((TabItemView) view).getTabId())) {
-                tabItemView = this.cdC.cdr;
+            if (!(view instanceof TabItemView) || !HorizontalTabView.iz(((TabItemView) view).getTabId())) {
+                tabItemView = this.cdA.cdp;
                 if (tabItemView != null) {
-                    gVar2 = this.cdC.cds;
-                    tabItemView2 = this.cdC.cdr;
-                    gVar2.is(tabItemView2.getTabId());
+                    gVar2 = this.cdA.cdq;
+                    tabItemView2 = this.cdA.cdp;
+                    gVar2.ix(tabItemView2.getTabId());
                     return;
                 }
                 return;
             }
-            gVar3 = this.cdC.cds;
-            gVar3.is(((TabItemView) view).getTabId());
+            gVar3 = this.cdA.cdq;
+            gVar3.ix(((TabItemView) view).getTabId());
         }
     }
 }

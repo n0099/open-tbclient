@@ -1,43 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.e.a;
-import com.baidu.tieba.t;
+import com.baidu.tieba.d.a;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class ar implements a.InterfaceC0055a {
-    final int bQq;
-    final /* synthetic */ PbActivity eob;
+class ar implements a.InterfaceC0058a {
+    final int bQj;
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(PbActivity pbActivity) {
-        this.eob = pbActivity;
-        this.bQq = (int) pbActivity.getResources().getDimension(t.e.ds98);
+        this.eqa = pbActivity;
+        this.bQj = (int) pbActivity.getResources().getDimension(r.e.ds98);
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
-    public void N(int i, int i2) {
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    public void O(int i, int i2) {
         ex exVar;
         com.baidu.tieba.pb.pb.main.a.f fVar;
         ex exVar2;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
         com.baidu.tieba.pb.pb.main.a.f fVar3;
         if (af(i2)) {
-            exVar = this.eob.enh;
+            exVar = this.eqa.epe;
             if (exVar != null) {
-                fVar = this.eob.emP;
+                fVar = this.eqa.eoN;
                 if (fVar != null) {
-                    exVar2 = this.eob.enh;
-                    exVar2.aPQ();
-                    fVar2 = this.eob.emP;
-                    fVar2.dp(false);
-                    fVar3 = this.eob.emP;
-                    fVar3.YO();
+                    exVar2 = this.eqa.epe;
+                    exVar2.aQz();
+                    fVar2 = this.eqa.eoN;
+                    fVar2.dq(false);
+                    fVar3 = this.eqa.eoN;
+                    fVar3.Zd();
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.e.a.InterfaceC0055a
-    public void O(int i, int i2) {
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    public void P(int i, int i2) {
         ex exVar;
         com.baidu.tieba.pb.pb.main.a.f fVar;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
@@ -46,23 +46,23 @@ class ar implements a.InterfaceC0055a {
         ex exVar4;
         com.baidu.tieba.pb.pb.main.a.f fVar3;
         if (af(i2)) {
-            exVar = this.eob.enh;
+            exVar = this.eqa.epe;
             if (exVar != null) {
-                fVar = this.eob.emP;
+                fVar = this.eqa.eoN;
                 if (fVar != null) {
-                    fVar2 = this.eob.emP;
-                    fVar2.dp(true);
-                    if (Math.abs(i2) > this.bQq) {
-                        exVar4 = this.eob.enh;
-                        exVar4.aPP();
-                        fVar3 = this.eob.emP;
-                        fVar3.YN();
+                    fVar2 = this.eqa.eoN;
+                    fVar2.dq(true);
+                    if (Math.abs(i2) > this.bQj) {
+                        exVar4 = this.eqa.epe;
+                        exVar4.aQy();
+                        fVar3 = this.eqa.eoN;
+                        fVar3.Zc();
                     }
-                    if (this.eob.aMY()) {
-                        exVar2 = this.eob.enh;
-                        exVar2.aPd();
-                        exVar3 = this.eob.enh;
-                        exVar3.aPe();
+                    if (this.eqa.aNE()) {
+                        exVar2 = this.eqa.epe;
+                        exVar2.aPM();
+                        exVar3 = this.eqa.epe;
+                        exVar3.aPN();
                     }
                 }
             }

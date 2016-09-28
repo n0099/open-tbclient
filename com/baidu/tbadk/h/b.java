@@ -1,26 +1,21 @@
 package com.baidu.tbadk.h;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.a.e;
+import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
-public class b extends Handler {
-    final /* synthetic */ a aDI;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.aDI = aVar;
+public class b extends e {
+    public b(int i) {
+        super(i);
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        if (message.what == 900002 && message.arg2 > 0 && a.aDG != null) {
-            a.aDG.setLength(message.arg1);
-            a.aDG.setSize(message.arg2);
-            if (a.aDG.getCallback() != null) {
-                a.aDG.getCallback().e(a.aDG);
-            }
-        }
+    @Override // com.baidu.adp.framework.a.e
+    public void b(int i, BdUniqueId bdUniqueId) {
+        ReloginManager.uc().d(i, bdUniqueId);
+    }
+
+    @Override // com.baidu.adp.framework.a.e
+    public void b(BdUniqueId bdUniqueId) {
+        ReloginManager.uc().g(bdUniqueId);
     }
 }

@@ -5,21 +5,21 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ b fwY;
+    final /* synthetic */ b fzB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i) {
         super(i);
-        this.fwY = bVar;
+        this.fzB = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001363 && this.fwY.blf()) {
-            this.fwY.kR(true);
-            this.fwY.ble();
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001363 && this.fzB.blN()) {
+            this.fzB.kU(true);
+            this.fzB.blM();
         }
     }
 }

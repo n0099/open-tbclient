@@ -1,17 +1,15 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
-class ae implements com.baidu.tbadk.editortools.d.c {
-    final /* synthetic */ PbActivity eob;
+class ae implements com.baidu.tbadk.editortools.e.c {
+    final /* synthetic */ PbActivity eqa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(PbActivity pbActivity) {
-        this.eob = pbActivity;
+        this.eqa = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.editortools.d.c
+    @Override // com.baidu.tbadk.editortools.e.c
     public void Di() {
-        ex exVar;
-        exVar = this.eob.enh;
-        exVar.aAD();
+        this.eqa.showProgressBar();
     }
 }

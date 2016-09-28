@@ -12,6 +12,7 @@ import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
+import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class o extends Thread {
     private static long uq = 0;
@@ -142,7 +143,7 @@ public class o extends Thread {
                         throw new WebSocketException("invalid data frame length (> 2^63)");
                     } else {
                         j = ((this.uo.get(2) & 255) << 56) | ((this.uo.get(3) & 255) << 48) | ((this.uo.get(4) & 255) << 40) | ((this.uo.get(5) & 255) << 32) | ((this.uo.get(6) & 255) << 24) | ((this.uo.get(7) & 255) << 16) | ((this.uo.get(8) & 255) << 8) | (this.uo.get(9) & 255);
-                        if (j < 65536) {
+                        if (j < IjkMediaMeta.AV_CH_TOP_BACK_CENTER) {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                     }

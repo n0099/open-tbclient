@@ -4,20 +4,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class m implements a.b {
-    private final /* synthetic */ TbPageContext MB;
-    private final /* synthetic */ String MC;
-    private final /* synthetic */ String MH;
+    private final /* synthetic */ TbPageContext MA;
+    private final /* synthetic */ String MB;
+    private final /* synthetic */ String MG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(TbPageContext tbPageContext, String str, String str2) {
-        this.MB = tbPageContext;
-        this.MC = str;
-        this.MH = str2;
+        this.MA = tbPageContext;
+        this.MB = str;
+        this.MG = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        f.c(this.MB.getPageActivity(), this.MC, this.MH);
+        f.c(this.MA.getPageActivity(), this.MB, this.MG);
     }
 }

@@ -5,20 +5,20 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ ag ewi;
+    final /* synthetic */ ag eyq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(ag agVar) {
-        this.ewi = agVar;
+        this.eyq = agVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         View.OnLongClickListener onLongClickListener;
         View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.ewi.bIX;
+        onLongClickListener = this.eyq.bIY;
         if (onLongClickListener != null) {
-            onLongClickListener2 = this.ewi.bIX;
+            onLongClickListener2 = this.eyq.bIY;
             onLongClickListener2.onLongClick(view);
             return false;
         }

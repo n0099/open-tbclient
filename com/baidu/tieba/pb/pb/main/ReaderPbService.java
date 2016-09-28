@@ -32,12 +32,12 @@ public class ReaderPbService extends BdBaseService {
                 this.mReaderModel.b(this.mLoadDataCallback);
             }
             this.mReaderModel.setPbData(egVar.pbData);
-            this.mReaderModel.in(egVar.ekF);
-            this.mReaderModel.setHostMode(egVar.ero);
-            this.mReaderModel.im(egVar.isSquence);
+            this.mReaderModel.iq(egVar.emH);
+            this.mReaderModel.setHostMode(egVar.etx);
+            this.mReaderModel.ip(egVar.isSquence);
             this.mReaderModel.setThreadId(this.threadId);
             this.mReaderModel.setPostId(this.postId);
-            this.mReaderModel.io(this.isAlive);
+            this.mReaderModel.ir(this.isAlive);
         }
     }
 

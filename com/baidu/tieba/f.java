@@ -1,23 +1,19 @@
 package com.baidu.tieba;
-
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.TbPageContext;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements Runnable {
-    final /* synthetic */ LogoActivity aLA;
+class f implements Runnable {
+    final /* synthetic */ e aKX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(LogoActivity logoActivity) {
-        this.aLA = logoActivity;
+    public f(e eVar) {
+        this.aKX = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        RelativeLayout relativeLayout;
-        TbPageContext pageContext = this.aLA.getPageContext();
-        g gVar = new g(this);
-        relativeLayout = this.aLA.mRootView;
-        p.a(pageContext, gVar, relativeLayout);
+        d dVar;
+        LogoActivity logoActivity;
+        dVar = this.aKX.aKW;
+        logoActivity = dVar.aKV;
+        logoActivity.Jg();
     }
 }

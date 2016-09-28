@@ -3,16 +3,16 @@ package com.baidu.tbadk.coreExtra.data;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class e {
-    private final int ajO;
-    private final int ajP;
-    private final boolean ajQ;
+    private final int aju;
+    private final int ajv;
+    private final boolean ajw;
     private final Context mContext;
 
     public e(Context context, int i, int i2, boolean z) {
         this.mContext = context;
-        this.ajO = i;
-        this.ajP = i2;
-        this.ajQ = z;
+        this.aju = i;
+        this.ajv = i2;
+        this.ajw = z;
     }
 
     public e(Context context, int i, int i2) {
@@ -23,19 +23,15 @@ public class e {
         return this.mContext;
     }
 
-    public int xC() {
-        return this.ajO;
+    public int xG() {
+        return this.aju;
     }
 
-    public int xD() {
-        return this.ajP;
-    }
-
-    public boolean xE() {
-        return this.ajQ;
+    public int xH() {
+        return this.ajv;
     }
 
     public boolean isAvailable() {
-        return this.mContext != null && this.ajO > 0 && this.ajP > 0;
+        return this.mContext != null && this.aju > 0 && this.ajv > 0;
     }
 }

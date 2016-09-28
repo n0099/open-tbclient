@@ -1,28 +1,19 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.ImageView;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.coreExtra.view.j;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements View.OnFocusChangeListener {
-    final /* synthetic */ ActivationActivity aSr;
+public class s implements j.a {
+    final /* synthetic */ NotLoginGuideActivity aTj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(ActivationActivity activationActivity) {
-        this.aSr = activationActivity;
+    public s(NotLoginGuideActivity notLoginGuideActivity) {
+        this.aTj = notLoginGuideActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        ImageView imageView;
-        ImageView imageView2;
-        if (view == this.aSr.aSc) {
-            if (z) {
-                imageView2 = this.aSr.aRY;
-                imageView2.setVisibility(0);
-                return;
-            }
-            imageView = this.aSr.aRY;
-            imageView.setVisibility(8);
-        }
+    @Override // com.baidu.tbadk.coreExtra.view.j.a
+    public void j(AccountData accountData) {
+        this.aTj.p(accountData);
     }
 }

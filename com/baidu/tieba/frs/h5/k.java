@@ -16,7 +16,7 @@ class k extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof db)) {
             db dbVar = (db) customResponsedMessage.getData();
             i iVar = new i();
-            iVar.setTag(dbVar.aYu);
+            iVar.setTag(dbVar.aYW);
             dbVar.a(100, iVar);
         }
     }

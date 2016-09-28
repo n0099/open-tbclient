@@ -4,11 +4,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* loaded from: classes.dex */
 class n implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ f dnI;
+    final /* synthetic */ f dpg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(f fVar) {
-        this.dnI = fVar;
+        this.dpg = fVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -18,14 +18,14 @@ class n implements com.baidu.tieba.im.chat.notify.a {
         BdListView bdListView2;
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterModel imMessageCenterModel2;
-        bdListView = this.dnI.dny;
+        bdListView = this.dpg.doW;
         if (bdListView != null) {
-            imMessageCenterModel = this.dnI.dnv;
+            imMessageCenterModel = this.dpg.doT;
             if (imMessageCenterModel != null) {
-                bdListView2 = this.dnI.dny;
+                bdListView2 = this.dpg.doW;
                 bdListView2.l(2000L);
-                imMessageCenterListAdapter = this.dnI.dnz;
-                imMessageCenterModel2 = this.dnI.dnv;
+                imMessageCenterListAdapter = this.dpg.doX;
+                imMessageCenterModel2 = this.dpg.doT;
                 imMessageCenterListAdapter.setData(imMessageCenterModel2.getData());
             }
         }

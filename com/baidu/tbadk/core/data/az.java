@@ -1,67 +1,79 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import com.baidu.tbadk.data.IconData;
+import org.json.JSONObject;
+import tbclient.FrsPage.UserInfo;
 /* loaded from: classes.dex */
 public class az {
-    private ag SS;
-    private List<d> ST;
-    private String SU;
-    private List<e> SV;
-    private String SW;
-    private List<af> SX;
+    private String SX;
+    private IconData SY = new IconData();
+    private String introduction;
+    private boolean isAdded;
+    private String name;
+    private int sex;
+    private long userId;
 
-    public ag qT() {
-        return this.SS;
+    public void qX() {
+        this.isAdded = true;
     }
 
-    public List<d> qU() {
-        return this.ST;
+    public boolean qY() {
+        return this.isAdded;
     }
 
-    public String qV() {
-        return this.SU;
+    public void a(UserInfo userInfo) {
+        if (userInfo != null) {
+            this.isAdded = false;
+            this.userId = userInfo.user_id.longValue();
+            this.SX = userInfo.portrait;
+            this.name = userInfo.user_name;
+            this.sex = userInfo.gender.intValue();
+            this.introduction = userInfo.intro;
+            if (userInfo.tshow_icon != null) {
+                this.SY.setIcon(userInfo.tshow_icon.icon);
+                this.SY.setIconName(userInfo.tshow_icon.name);
+                this.SY.setUrl(userInfo.tshow_icon.url);
+            }
+        }
     }
 
-    public List<e> qW() {
-        return this.SV;
+    public long getUserId() {
+        return this.userId;
     }
 
-    public String qX() {
-        return this.SW;
-    }
-
-    public List<af> qY() {
+    public String qZ() {
         return this.SX;
     }
 
-    public void a(SeniorLottery seniorLottery) {
-        if (seniorLottery != null) {
-            this.SS = new ag();
-            this.SS.a(seniorLottery.theme);
-            this.ST = new ArrayList();
-            int size = seniorLottery.award_info.size();
-            for (int i = 0; i < size; i++) {
-                d dVar = new d();
-                dVar.a(seniorLottery.award_info.get(i));
-                this.ST.add(dVar);
-            }
-            this.SU = seniorLottery.myaward;
-            this.SV = new ArrayList();
-            int size2 = seniorLottery.luck_users.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                e eVar = new e();
-                eVar.a(seniorLottery.luck_users.get(i2));
-                this.SV.add(eVar);
-            }
-            this.SW = seniorLottery.act_desc;
-            this.SX = new ArrayList();
-            int size3 = seniorLottery.act_regular.size();
-            for (int i3 = 0; i3 < size3; i3++) {
-                af afVar = new af();
-                afVar.a(seniorLottery.act_regular.get(i3));
-                this.SX.add(afVar);
+    public String getName() {
+        return this.name;
+    }
+
+    public boolean ra() {
+        return 2 == this.sex;
+    }
+
+    public String rb() {
+        return this.introduction;
+    }
+
+    public IconData rc() {
+        return this.SY;
+    }
+
+    public void k(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.userId = jSONObject.optLong("user_id");
+            this.name = jSONObject.optString("user_name");
+            this.SX = jSONObject.optString("portait");
+            this.sex = jSONObject.optInt("gender");
+            this.isAdded = jSONObject.optBoolean("recommend_is_added");
+            this.introduction = jSONObject.optString("intro");
+            JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
+            if (optJSONObject != null) {
+                this.SY.setIcon(optJSONObject.optString("icon"));
+                this.SY.setIconName(optJSONObject.optString("user_name"));
+                this.SY.setUrl(optJSONObject.optString("url"));
             }
         }
     }
