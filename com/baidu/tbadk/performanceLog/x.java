@@ -3,42 +3,42 @@ package com.baidu.tbadk.performanceLog;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class x extends z {
-    public static void b(com.baidu.tbadk.core.util.u uVar, com.baidu.tbadk.core.util.u uVar2, com.baidu.tbadk.core.util.u uVar3, com.baidu.tbadk.core.util.u uVar4, com.baidu.tbadk.core.util.u uVar5, int i) {
-        if (aa.Go().Gp()) {
+    public static void b(com.baidu.tbadk.core.util.t tVar, com.baidu.tbadk.core.util.t tVar2, com.baidu.tbadk.core.util.t tVar3, com.baidu.tbadk.core.util.t tVar4, com.baidu.tbadk.core.util.t tVar5, int i) {
+        if (aa.Gu().Gv()) {
             com.baidu.adp.lib.stats.d eB = eB();
             eB.q("action", "dlStat");
-            eB.q("c_dnum", String.valueOf(uVar.num));
-            eB.q("c_dfnum", String.valueOf(uVar.ZI));
-            eB.q("c_spnum", String.valueOf(uVar.ZJ));
-            eB.q("c_costt", String.valueOf(uVar.time));
-            eB.q("c_dlsize", String.valueOf(uVar.od));
-            eB.q("p_dnum", String.valueOf(uVar2.num));
-            eB.q("p_dfnum", String.valueOf(uVar2.ZI));
-            eB.q("p_spnum", String.valueOf(uVar2.ZJ));
-            eB.q("p_costt", String.valueOf(uVar2.time));
-            eB.q("p_dlsize", String.valueOf(uVar2.od));
-            eB.q("t_dnum", String.valueOf(uVar3.num));
-            eB.q("t_dfnum", String.valueOf(uVar3.ZI));
-            eB.q("t_spnum", String.valueOf(uVar3.ZJ));
-            eB.q("t_costt", String.valueOf(uVar3.time));
-            eB.q("t_dlsize", String.valueOf(uVar3.od));
-            eB.q("d_dnum", String.valueOf(uVar4.num));
-            eB.q("d_dfnum", String.valueOf(uVar4.ZI));
-            eB.q("d_spnum", String.valueOf(uVar4.ZJ));
-            eB.q("d_costt", String.valueOf(uVar4.time));
-            eB.q("d_dlsize", String.valueOf(uVar4.od));
-            eB.q("op_dnum", String.valueOf(uVar5.num));
-            eB.q("op_dfnum", String.valueOf(uVar5.ZI));
-            eB.q("op_spnum", String.valueOf(uVar5.ZJ));
-            eB.q("op_costt", String.valueOf(uVar5.time));
-            eB.q("op_dlsize", String.valueOf(uVar5.od));
-            eB.q("nettype", aa.fe(i));
+            eB.q("c_dnum", String.valueOf(tVar.num));
+            eB.q("c_dfnum", String.valueOf(tVar.aag));
+            eB.q("c_spnum", String.valueOf(tVar.aah));
+            eB.q("c_costt", String.valueOf(tVar.time));
+            eB.q("c_dlsize", String.valueOf(tVar.oe));
+            eB.q("p_dnum", String.valueOf(tVar2.num));
+            eB.q("p_dfnum", String.valueOf(tVar2.aag));
+            eB.q("p_spnum", String.valueOf(tVar2.aah));
+            eB.q("p_costt", String.valueOf(tVar2.time));
+            eB.q("p_dlsize", String.valueOf(tVar2.oe));
+            eB.q("t_dnum", String.valueOf(tVar3.num));
+            eB.q("t_dfnum", String.valueOf(tVar3.aag));
+            eB.q("t_spnum", String.valueOf(tVar3.aah));
+            eB.q("t_costt", String.valueOf(tVar3.time));
+            eB.q("t_dlsize", String.valueOf(tVar3.oe));
+            eB.q("d_dnum", String.valueOf(tVar4.num));
+            eB.q("d_dfnum", String.valueOf(tVar4.aag));
+            eB.q("d_spnum", String.valueOf(tVar4.aah));
+            eB.q("d_costt", String.valueOf(tVar4.time));
+            eB.q("d_dlsize", String.valueOf(tVar4.oe));
+            eB.q("op_dnum", String.valueOf(tVar5.num));
+            eB.q("op_dfnum", String.valueOf(tVar5.aag));
+            eB.q("op_spnum", String.valueOf(tVar5.aah));
+            eB.q("op_costt", String.valueOf(tVar5.time));
+            eB.q("op_dlsize", String.valueOf(tVar5.oe));
+            eB.q("nettype", aa.fh(i));
             com.baidu.adp.lib.stats.a.eI().a(TbConfig.TMP_PIC_DIR_NAME, eB);
         }
     }
 
     public static void a(int i, int i2, long j) {
-        if (aa.Go().Gp()) {
+        if (aa.Gu().Gv()) {
             com.baidu.adp.lib.stats.d eB = eB();
             eB.q("action", "dcStat");
             eB.q("dcnum", String.valueOf(i));

@@ -1,33 +1,35 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.frs.TabMenuPopView;
-import com.baidu.tieba.frs.dt;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import com.baidu.tieba.write.view.PostCategoryView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements TabMenuPopView.a {
-    final /* synthetic */ WriteActivity ghD;
+public class aj implements View.OnClickListener {
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(WriteActivity writeActivity) {
-        this.ghD = writeActivity;
+        this.gpp = writeActivity;
     }
 
-    @Override // com.baidu.tieba.frs.TabMenuPopView.a
-    public void a(View view, dt dtVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         PostCategoryView postCategoryView;
-        WriteData writeData;
-        PostCategoryView postCategoryView2;
-        if (dtVar != null) {
-            postCategoryView = this.ghD.ggV;
-            postCategoryView.setText(dtVar.name);
-            writeData = this.ghD.flk;
-            writeData.setCategoryTo(dtVar.bTi);
-            this.ghD.ggU = dtVar.bTi;
-            postCategoryView2 = this.ghD.ggV;
-            postCategoryView2.btf();
-        }
+        InputMethodManager inputMethodManager;
+        EditText bwy;
+        InputMethodManager inputMethodManager2;
+        EditText bwx;
+        postCategoryView = this.gpp.goA;
+        postCategoryView.bvz();
+        WriteActivity writeActivity = this.gpp;
+        inputMethodManager = this.gpp.mInputManager;
+        bwy = this.gpp.bwy();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, bwy);
+        WriteActivity writeActivity2 = this.gpp;
+        inputMethodManager2 = this.gpp.mInputManager;
+        bwx = this.gpp.bwx();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bwx);
     }
 }

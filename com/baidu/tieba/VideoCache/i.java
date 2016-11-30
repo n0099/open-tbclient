@@ -12,15 +12,15 @@ import java.util.Collections;
 /* loaded from: classes.dex */
 public class i implements Runnable {
     private static final String TAG = i.class.getSimpleName();
-    private String aNM;
+    private String aPS;
 
-    public void setVideoUrl(String str) {
-        this.aNM = str;
+    public synchronized void setVideoUrl(String str) {
+        this.aPS = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Km();
+        KQ();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00ca, code lost:
@@ -53,9 +53,9 @@ public class i implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void Km() {
+    private synchronized void KQ() {
         File file;
-        long gY;
+        long gZ;
         File[] fileArr;
         long j;
         long fileSize;
@@ -63,15 +63,15 @@ public class i implements Runnable {
         int i = 0;
         synchronized (this) {
             m.log(TAG, "merge ...");
-            String he = q.he(this.aNM);
-            if (he != null && !he.isEmpty() && ((file = new File(String.valueOf(l.aOv) + he + "/completed")) == null || !file.exists())) {
-                File file2 = new File(String.valueOf(l.aOv) + he + "/completed.temp");
+            String hf = q.hf(this.aPS);
+            if (hf != null && !hf.isEmpty() && ((file = new File(String.valueOf(l.aQB) + hf + "/completed")) == null || !file.exists())) {
+                File file2 = new File(String.valueOf(l.aQB) + hf + "/completed.temp");
                 if (file2 != null && file2.exists()) {
                     file2.delete();
                 }
-                File file3 = new File(String.valueOf(l.aOv) + he + "/segments");
+                File file3 = new File(String.valueOf(l.aQB) + hf + "/segments");
                 if (file3 != null && file3.exists()) {
-                    gY = gY(he);
+                    gZ = gZ(hf);
                     File[] listFiles = file3.listFiles();
                     if (listFiles != null && listFiles.length != 0) {
                         ArrayList arrayList = new ArrayList();
@@ -118,7 +118,7 @@ public class i implements Runnable {
                 return;
             }
             i++;
-        } else if (q.getFileSize(fileArr[i]) + j != gY) {
+        } else if (q.getFileSize(fileArr[i]) + j != gZ) {
             return;
         } else {
             i++;
@@ -265,11 +265,11 @@ public class i implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long gY(String str) {
+    private long gZ(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream = null;
-        File file = new File(String.valueOf(l.aOv) + str + "/content_length");
+        File file = new File(String.valueOf(l.aQB) + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

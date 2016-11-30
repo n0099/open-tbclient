@@ -43,7 +43,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private static Handler hi = new Handler(Looper.getMainLooper());
+    private static Handler hj = new Handler(Looper.getMainLooper());
     private static volatile d wB = null;
     private Messenger messenger;
     private com.baidu.adp.plugin.install.a wA;
@@ -351,8 +351,8 @@ public class d {
             this.wF = cVar;
             if (a(BdBaseApplication.getInst().getApplicationContext(), cVar)) {
                 ib();
-                hi.removeCallbacks(this.wN);
-                hi.postDelayed(this.wN, this.wF.hV());
+                hj.removeCallbacks(this.wN);
+                hj.postDelayed(this.wN, this.wF.hV());
                 return true;
             }
             this.wF = null;
@@ -389,8 +389,8 @@ public class d {
             this.wH = cVar;
             cVar.wu = true;
             if (a(BdBaseApplication.getInst().getApplicationContext(), cVar)) {
-                hi.removeCallbacks(this.wO);
-                hi.postDelayed(this.wO, this.wH.hV());
+                hj.removeCallbacks(this.wO);
+                hj.postDelayed(this.wO, this.wH.hV());
                 return true;
             }
             return a((c) null);
@@ -399,15 +399,15 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hY() {
-        hi.removeCallbacks(this.wL);
-        hi.removeCallbacks(this.wN);
-        hi.removeCallbacks(this.wM);
+        hj.removeCallbacks(this.wL);
+        hj.removeCallbacks(this.wN);
+        hj.removeCallbacks(this.wM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hZ() {
         this.wH = null;
-        hi.removeCallbacks(this.wO);
+        hj.removeCallbacks(this.wO);
     }
 
     private void ia() {
@@ -419,8 +419,8 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ib() {
-        hi.removeCallbacks(this.wL);
-        hi.postDelayed(this.wL, 10000L);
+        hj.removeCallbacks(this.wL);
+        hj.postDelayed(this.wL, 10000L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -434,8 +434,8 @@ public class d {
             } catch (RemoteException e) {
                 BdLog.detailException(e);
             }
-            hi.removeCallbacks(this.wM);
-            hi.postDelayed(this.wM, 1000L);
+            hj.removeCallbacks(this.wM);
+            hj.postDelayed(this.wM, 1000L);
         }
     }
 

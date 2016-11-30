@@ -1,24 +1,24 @@
 package com.baidu.tieba.im.db;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.s;
 /* loaded from: classes.dex */
-class n extends t<Void> {
-    final /* synthetic */ m daJ;
-    private final /* synthetic */ CustomResponsedMessage daK;
+class n extends s<Void> {
+    final /* synthetic */ m dgv;
+    private final /* synthetic */ CustomResponsedMessage dgw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar, CustomResponsedMessage customResponsedMessage) {
-        this.daJ = mVar;
-        this.daK = customResponsedMessage;
+        this.dgv = mVar;
+        this.dgw = customResponsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.t
-    /* renamed from: Mt */
+    @Override // com.baidu.tbadk.util.s
+    /* renamed from: Nb */
     public Void doInBackground() {
-        if (this.daK.getData() instanceof String) {
-            f.lG((String) this.daK.getData());
+        if (this.dgw.getData() instanceof String) {
+            f.lT((String) this.dgw.getData());
             return null;
         }
         return null;

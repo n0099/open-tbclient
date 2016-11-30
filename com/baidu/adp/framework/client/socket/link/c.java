@@ -57,7 +57,7 @@ class c extends l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l, com.baidu.adp.lib.webSocket.g.a
-    public void e(int i, String str) {
+    public void d(int i, String str) {
         Handler handler;
         e eVar;
         h hVar;
@@ -72,7 +72,7 @@ class c extends l {
         eVar = BdSocketLinkService.connStateCallBack;
         if (eVar != null) {
             eVar2 = BdSocketLinkService.connStateCallBack;
-            z = eVar2.d(i, null);
+            z = eVar2.c(i, null);
         }
         if (!z && i != 1 && com.baidu.adp.lib.util.k.gD()) {
             hVar = BdSocketLinkService.reConnStra;

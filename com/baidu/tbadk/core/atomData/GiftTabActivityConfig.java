@@ -5,6 +5,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class GiftTabActivityConfig extends IntentConfig {
+    public static final String ACCOUNT_TYPE = "account_type";
     public static final String FROM = "from";
     public static final String FROM_LIVE_ROOM = "android_live_room";
     public static final String FROM_PB = "android_pb";

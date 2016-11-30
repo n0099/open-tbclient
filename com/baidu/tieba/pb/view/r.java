@@ -1,42 +1,44 @@
 package com.baidu.tieba.pb.view;
 
-import android.os.CountDownTimer;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.EcommProductDetailActivityConfig;
+import com.baidu.tbadk.core.data.DealInfoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends CountDownTimer {
-    final /* synthetic */ PbInterviewStatusView ezW;
-    private final /* synthetic */ PbActivity ezX;
-    private final /* synthetic */ TextView ezY;
+public class r implements View.OnClickListener {
+    final /* synthetic */ PbReplyEcommCard eGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(PbInterviewStatusView pbInterviewStatusView, long j, long j2, TextView textView, PbActivity pbActivity) {
-        super(j, j2);
-        this.ezW = pbInterviewStatusView;
-        this.ezY = textView;
-        this.ezX = pbActivity;
+    public r(PbReplyEcommCard pbReplyEcommCard) {
+        this.eGL = pbReplyEcommCard;
     }
 
-    @Override // android.os.CountDownTimer
-    public void onTick(long j) {
-        this.ezY.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
-    }
-
-    @Override // android.os.CountDownTimer
-    public void onFinish() {
-        com.baidu.tbadk.core.dialog.a aVar;
-        com.baidu.tbadk.core.dialog.a aVar2;
-        aVar = this.ezW.ezP;
-        if (aVar != null) {
-            aVar2 = this.ezW.ezP;
-            aVar2.dismiss();
-        }
-        if (this.ezX != null) {
-            this.ezX.aNK();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        DealInfoData dealInfoData;
+        DealInfoData dealInfoData2;
+        String str;
+        DealInfoData dealInfoData3;
+        if (bk.ak(this.eGL.getContext())) {
+            dealInfoData = this.eGL.eGK;
+            if (dealInfoData != null) {
+                MessageManager messageManager = MessageManager.getInstance();
+                Context context = this.eGL.getContext();
+                dealInfoData2 = this.eGL.eGK;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EcommProductDetailActivityConfig(context, dealInfoData2.productId, false)));
+                av avVar = new av("c11425");
+                str = this.eGL.TY;
+                av ab = avVar.ab("tid", str);
+                dealInfoData3 = this.eGL.eGK;
+                TiebaStatic.log(ab.g("obj_id", dealInfoData3.productId));
+            }
         }
     }
 }

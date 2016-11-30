@@ -1,40 +1,46 @@
 package com.baidu.tieba.tbadkCore.imgView;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.widget.Scroller;
 /* loaded from: classes.dex */
-public class c implements Runnable {
-    final /* synthetic */ DragHorizonScrollView fxa;
+class c implements Runnable {
+    final /* synthetic */ DragHorizonScrollView fEg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DragHorizonScrollView dragHorizonScrollView) {
-        this.fxa = dragHorizonScrollView;
+        this.fEg = dragHorizonScrollView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean canScroll;
-        int bkn;
-        int bkn2;
-        boolean z;
-        this.fxa.fwV = false;
-        int childCount = this.fxa.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            this.fxa.getChildAt(i).clearAnimation();
+        int i;
+        Scroller scroller;
+        int i2;
+        int max;
+        Scroller scroller2;
+        Scroller scroller3;
+        i = this.fEg.cQS;
+        if (i == 0) {
+            scroller3 = this.fEg.fDO;
+            scroller3.forceFinished(true);
+            return;
         }
-        canScroll = this.fxa.canScroll();
-        if (!canScroll) {
-            this.fxa.scrollTo(0, 0);
+        scroller = this.fEg.fDO;
+        boolean computeScrollOffset = scroller.computeScrollOffset();
+        int currX = scroller.getCurrX();
+        i2 = this.fEg.cPY;
+        int i3 = i2 - currX;
+        if (i3 > 0) {
+            max = Math.min(((this.fEg.getWidth() - this.fEg.getPaddingLeft()) - this.fEg.getPaddingRight()) - 1, i3);
         } else {
-            int scrollX = this.fxa.getScrollX();
-            bkn = this.fxa.bkn();
-            if (scrollX > bkn) {
-                DragHorizonScrollView dragHorizonScrollView = this.fxa;
-                bkn2 = this.fxa.bkn();
-                dragHorizonScrollView.scrollTo(bkn2, 0);
-            }
+            max = Math.max(-(((this.fEg.getWidth() - this.fEg.getPaddingLeft()) - this.fEg.getPaddingRight()) - 1), i3);
         }
-        z = this.fxa.fwW;
-        if (z) {
-            this.fxa.requestLayout();
+        this.fEg.sk(-max);
+        if (!computeScrollOffset) {
+            scroller2 = this.fEg.fDO;
+            scroller2.forceFinished(true);
+            return;
         }
+        this.fEg.cPY = currX;
+        this.fEg.post(this);
     }
 }

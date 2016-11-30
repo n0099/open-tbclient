@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.passaccount.a.f;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a eiY = null;
-    private InterfaceC0072a eiZ = null;
-    private final a.InterfaceC0033a eja = new b(this);
-    private final f.a ejb = new d(this);
+    private static a eoW = null;
+    private InterfaceC0071a eoX = null;
+    private final a.InterfaceC0033a eoY = new b(this);
+    private final f.a eoZ = new d(this);
 
     /* renamed from: com.baidu.tieba.passaccount.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0072a {
-        void cf(String str);
+    public interface InterfaceC0071a {
+        void cg(String str);
 
         void onSuccess();
     }
@@ -25,15 +25,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a aLw() {
-        if (eiY == null) {
-            eiY = new a();
+    public static a aNp() {
+        if (eoW == null) {
+            eoW = new a();
         }
-        return eiY;
+        return eoW;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b ce(String str) {
+    public a.b cf(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -42,9 +42,9 @@ public class a extends com.baidu.tbadk.core.a.a {
                 if (split != null && split.length >= 1) {
                     bVar = new a.b();
                     try {
-                        bVar.pX = split[0];
+                        bVar.pY = split[0];
                         if (split.length >= 2) {
-                            bVar.Ot = split[1];
+                            bVar.Ow = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -63,11 +63,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void oQ() {
+    public void oS() {
         AccountData currentAccountObj;
-        a.b ce;
-        if (i.gm() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ce = ce(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ce.pX, ce.Ot, currentAccountObj.getStoken(), this.eja);
+        a.b cf;
+        if (i.gm() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (cf = cf(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), cf.pY, cf.Ow, currentAccountObj.getStoken(), this.eoY);
         }
     }
 

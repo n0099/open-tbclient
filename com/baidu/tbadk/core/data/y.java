@@ -1,45 +1,37 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.ThreadInfo;
-import tbclient.ZhiBoInfoTW;
+import java.util.List;
+import tbclient.FrsPage.NtSpreadInfo;
 /* loaded from: classes.dex */
-public class y extends bi {
-    public static final BdUniqueId QY = BdUniqueId.gen();
-    private PhotoLiveCardData QZ = null;
+public class y extends bk {
+    public static final BdUniqueId Rn = BdUniqueId.gen();
+    public String Ro;
+    public String Rp;
+    public String linkUrl;
+    public List<String> pics;
+    public Integer position;
+    public String tips;
+    public String title;
+    public String type;
+    public String userName;
 
-    public PhotoLiveCardData pX() {
-        return this.QZ;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bi
-    public void a(ThreadInfo threadInfo) {
-        super.a(threadInfo);
-        if (threadInfo.twzhibo_info != null) {
-            a(threadInfo.twzhibo_info);
+    public void a(NtSpreadInfo ntSpreadInfo) {
+        if (ntSpreadInfo != null) {
+            this.userName = ntSpreadInfo.user_name;
+            this.Ro = ntSpreadInfo.user_avatar;
+            this.tips = ntSpreadInfo.tips;
+            this.type = ntSpreadInfo.type;
+            this.title = ntSpreadInfo.title;
+            this.pics = ntSpreadInfo.pics;
+            this.linkUrl = ntSpreadInfo.link_url;
+            this.position = ntSpreadInfo.position;
+            this.Rp = ntSpreadInfo.publish_date;
         }
     }
 
-    private void a(ZhiBoInfoTW zhiBoInfoTW) {
-        if (zhiBoInfoTW != null) {
-            if (this.QZ == null) {
-                this.QZ = new PhotoLiveCardData();
-            }
-            this.QZ.parserProtobuf(zhiBoInfoTW);
-            this.QZ.setShowExpressionViewIndexList(this.QZ.getExpressionDatas());
-            if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
-                setId(String.valueOf(this.QZ.getThreadId()));
-                cu(String.valueOf(this.QZ.getThreadId()));
-            }
-            if (StringUtils.isNull(getForum_name())) {
-                setForum_name(this.QZ.getForumName());
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.data.bi, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return QY;
+        return Rn;
     }
 }

@@ -2,34 +2,25 @@ package com.baidu.tieba.homepage.personalize;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.squareup.wire.Wire;
-import java.io.IOException;
 import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends com.baidu.tbadk.util.t<DataRes> {
-    final /* synthetic */ m this$0;
+public class w extends com.baidu.tbadk.util.s<Object> {
+    private final /* synthetic */ DataRes.Builder cLq;
+    final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(m mVar) {
-        this.this$0 = mVar;
+    public w(n nVar, DataRes.Builder builder) {
+        this.this$0 = nVar;
+        this.cLq = builder;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.t
-    /* renamed from: amR */
-    public DataRes doInBackground() {
-        com.baidu.adp.lib.cache.o<byte[]> M = com.baidu.tbadk.core.b.a.ti().M("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
-        if (M == null) {
-            return null;
-        }
-        byte[] bArr = M.get("0");
-        if (bArr == null || bArr.length == 0) {
-            return null;
-        }
+    @Override // com.baidu.tbadk.util.s
+    public Object doInBackground() {
         try {
-            return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-        } catch (IOException e) {
+            com.baidu.tbadk.core.b.a.tm().M("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).k("0", this.cLq.build(true).toByteArray());
+            return null;
+        } catch (Exception e) {
             BdLog.e(e);
             return null;
         }

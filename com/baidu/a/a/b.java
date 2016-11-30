@@ -6,28 +6,28 @@ import com.baidu.a.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    private final /* synthetic */ String[] Mg;
-    private final /* synthetic */ Activity Mh;
-    private final /* synthetic */ a.InterfaceC0000a Mi;
-    private final /* synthetic */ int Mj;
+    private final /* synthetic */ String[] Mj;
+    private final /* synthetic */ Activity Mk;
+    private final /* synthetic */ a.InterfaceC0000a Ml;
+    private final /* synthetic */ int Mm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(String[] strArr, Activity activity, a.InterfaceC0000a interfaceC0000a, int i) {
-        this.Mg = strArr;
-        this.Mh = activity;
-        this.Mi = interfaceC0000a;
-        this.Mj = i;
+        this.Mj = strArr;
+        this.Mk = activity;
+        this.Ml = interfaceC0000a;
+        this.Mm = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int[] iArr = new int[this.Mg.length];
-        PackageManager packageManager = this.Mh.getPackageManager();
-        String packageName = this.Mh.getPackageName();
-        int length = this.Mg.length;
+        int[] iArr = new int[this.Mj.length];
+        PackageManager packageManager = this.Mk.getPackageManager();
+        String packageName = this.Mk.getPackageName();
+        int length = this.Mj.length;
         for (int i = 0; i < length; i++) {
-            iArr[i] = packageManager.checkPermission(this.Mg[i], packageName);
+            iArr[i] = packageManager.checkPermission(this.Mj[i], packageName);
         }
-        this.Mi.onRequestPermissionsResult(this.Mj, this.Mg, iArr);
+        this.Ml.onRequestPermissionsResult(this.Mm, this.Mj, iArr);
     }
 }

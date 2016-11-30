@@ -2,12 +2,12 @@ package com.baidu.tieba.frs.h5;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.frs.dc;
+import com.baidu.tieba.frs.ca;
 /* loaded from: classes.dex */
 public class Static {
     static {
         MessageManager.getInstance().registerListener(new j(CmdConfigCustom.CMD_FRS_ADD_ADAPTER));
         MessageManager.getInstance().registerListener(new k(CmdConfigCustom.CMD_FRS_ADD_MODEL));
-        dc.acz().ib(100);
+        ca.adF().ia(100);
     }
 }

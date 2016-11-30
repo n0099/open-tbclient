@@ -14,7 +14,7 @@ class dt implements c<View> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ajX */
+    /* renamed from: alS */
     public View ez() {
         return new ds(this.val$context);
     }

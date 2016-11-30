@@ -1,23 +1,37 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.view.animation.Animation;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.play.t;
+import java.util.List;
 /* loaded from: classes.dex */
-class q implements Runnable {
-    final /* synthetic */ ForumHeadVideoView ccf;
+class q implements t.d {
+    final /* synthetic */ ForumHeadVideoView cfB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ForumHeadVideoView forumHeadVideoView) {
-        this.ccf = forumHeadVideoView;
+        this.cfB = forumHeadVideoView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Animation animation;
-        e currentVideoItemView = this.ccf.getCurrentVideoItemView();
+    @Override // com.baidu.tieba.play.t.d
+    public void onPrepared(com.baidu.tieba.play.t tVar) {
+        List list;
+        if (tVar != null) {
+            try {
+                tVar.setVolume(0.0f, 0.0f);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        c currentVideoItemView = this.cfB.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
-            currentVideoItemView.setVisibility(0);
-            animation = this.ccf.cbQ;
-            currentVideoItemView.startAnimation(animation);
+            list = this.cfB.aUV;
+            if (x.s(list) > 1) {
+                currentVideoItemView.setLooping(false);
+            } else {
+                currentVideoItemView.setLooping(true);
+            }
+            currentVideoItemView.setVideoPlayState(3);
+            this.cfB.r(currentVideoItemView.getThreadInfo());
         }
     }
 }

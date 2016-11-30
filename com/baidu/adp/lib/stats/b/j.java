@@ -19,35 +19,35 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class j {
-    private static volatile j rd;
-    private com.baidu.adp.lib.stats.e pI;
-    private p rg;
-    private a rh;
+    private static volatile j re;
+    private com.baidu.adp.lib.stats.e pJ;
+    private p rh;
+    private a ri;
     private String uid;
-    private final SimpleDateFormat re = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
-    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> rf = new ConcurrentHashMap<>();
+    private final SimpleDateFormat rf = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
+    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> rg = new ConcurrentHashMap<>();
     private Handler mHandler = new k(this, Looper.getMainLooper());
-    private q qz = new l(this);
+    private q qA = new l(this);
 
     public static j fL() {
-        if (rd == null) {
+        if (re == null) {
             synchronized (j.class) {
-                if (rd == null) {
-                    rd = new j();
+                if (re == null) {
+                    re = new j();
                 }
             }
         }
-        return rd;
+        return re;
     }
 
     public void init() {
-        if (this.rh == null) {
-            this.rh = new a(this, null);
+        if (this.ri == null) {
+            this.ri = new a(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-            BdBaseApplication.getInst().registerReceiver(this.rh, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.ri, intentFilter);
         }
-        this.pI = com.baidu.adp.lib.stats.a.eI().eJ();
+        this.pJ = com.baidu.adp.lib.stats.a.eI().eJ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,23 +73,23 @@ public class j {
         String at;
         com.baidu.adp.lib.stats.base.a aVar = null;
         synchronized (this) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.rf.get((at = com.baidu.adp.lib.stats.base.a.at(str)))) == null) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.rg.get((at = com.baidu.adp.lib.stats.base.a.at(str)))) == null) {
                 if ("alert".equals(at)) {
                     aVar = new com.baidu.adp.lib.stats.b.a(null);
                 } else if ("error".equals(at)) {
-                    aVar = new c(this.qz);
+                    aVar = new c(this.qA);
                 } else if ("dbg".equals(at)) {
-                    aVar = new b(this.qz);
+                    aVar = new b(this.qA);
                 } else if ("stat".equals(at)) {
-                    aVar = new i(this.qz);
+                    aVar = new i(this.qA);
                 } else if ("pfmonitor".equals(at)) {
-                    aVar = new h(this.qz);
+                    aVar = new h(this.qA);
                 } else {
-                    aVar = new c(this.qz);
+                    aVar = new c(this.qA);
                 }
                 if (aVar != null) {
                     aVar.as(at);
-                    this.rf.put(at, aVar);
+                    this.rg.put(at, aVar);
                 }
             }
         }
@@ -167,19 +167,19 @@ public class j {
     }
 
     public void fM() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rg.entrySet()) {
             e(entry.getValue());
         }
     }
 
     public void fN() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rg.entrySet()) {
             d(entry.getValue());
         }
     }
 
     public void fO() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rg.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             a(value, false, false);
             d(value);
@@ -193,7 +193,7 @@ public class j {
     }
 
     public void fP() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rg.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             e(value);
             f(value);
@@ -228,13 +228,13 @@ public class j {
     }
 
     public void fR() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rf.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.rg.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
-            if (this.pI != null) {
-                long aq = this.pI.aq(value.fu());
+            if (this.pJ != null) {
+                long aq = this.pJ.aq(value.fu());
                 if (aq <= 0) {
                     aq = System.currentTimeMillis();
-                    this.pI.d(value.fu(), aq);
+                    this.pJ.d(value.fu(), aq);
                 }
                 value.g(aq);
             }
@@ -285,9 +285,9 @@ public class j {
     }
 
     public void fS() {
-        if (this.rg == null) {
-            this.rg = new p();
+        if (this.rh == null) {
+            this.rh = new p();
         }
-        this.rg.fS();
+        this.rh.fS();
     }
 }

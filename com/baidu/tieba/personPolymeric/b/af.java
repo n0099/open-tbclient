@@ -13,60 +13,60 @@ import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.g {
-    private TbPageContext Gd;
-    private ViewGroup VJ;
-    private BaseActivity aRd;
-    private CustomMessageListener bnV = new ag(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-    private com.baidu.tbadk.coreExtra.d.a bwr;
-    private com.baidu.tieba.personPolymeric.d.ad eJV;
-    private boolean eJW;
-    public com.baidu.tieba.e.c eJX;
+    private TbPageContext Gf;
+    private ViewGroup Wh;
+    private BaseActivity aTb;
+    private CustomMessageListener bqQ = new ag(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private com.baidu.tbadk.coreExtra.d.a bzm;
+    private com.baidu.tieba.personPolymeric.d.ad eQu;
+    public com.baidu.tieba.e.c eQv;
+    private boolean mIsLiked;
     private View.OnClickListener mOnClickListener;
     private UserData mUserData;
 
     public af(BaseActivity baseActivity, ViewGroup viewGroup, UserData userData) {
-        this.aRd = baseActivity;
-        this.Gd = baseActivity.getPageContext();
-        this.VJ = viewGroup;
+        this.aTb = baseActivity;
+        this.Gf = baseActivity.getPageContext();
+        this.Wh = viewGroup;
         this.mUserData = userData;
-        this.eJW = userData.getHave_attention() == 1;
-        this.bwr = new com.baidu.tbadk.coreExtra.d.a(this);
-        ajF();
-        UT();
-        if (this.VJ != null && this.eJV != null) {
-            this.eJX = new com.baidu.tieba.e.c(this.Gd.getPageActivity(), this.eJV, null);
+        this.mIsLiked = userData.getHave_attention() == 1;
+        this.bzm = new com.baidu.tbadk.coreExtra.d.a(this);
+        alA();
+        VV();
+        if (this.Wh != null && this.eQu != null) {
+            this.eQv = new com.baidu.tieba.e.c(this.Gf.getPageActivity(), this.eQu, null);
         }
     }
 
-    private void ajF() {
+    private void alA() {
         this.mOnClickListener = new ah(this);
-        this.eJV = new com.baidu.tieba.personPolymeric.d.ad(this.Gd.getPageActivity(), this.eJW, this.mOnClickListener);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.e(this.Gd.getPageActivity(), r.e.ds110));
-        this.eJV.setLayoutParams(layoutParams);
+        this.eQu = new com.baidu.tieba.personPolymeric.d.ad(this.Gf.getPageActivity(), this.mIsLiked, this.mOnClickListener);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.e(this.Gf.getPageActivity(), r.e.ds110));
+        this.eQu.setLayoutParams(layoutParams);
         layoutParams.addRule(12);
-        this.eJV.setAlpha(0.9f);
-        this.eJV.setOrientation(0);
-        this.VJ.addView(this.eJV);
+        this.eQu.setAlpha(0.9f);
+        this.eQu.setOrientation(0);
+        this.Wh.addView(this.eQu);
     }
 
     public void onChangeSkinType(int i) {
-        this.eJV.onChangeSkinType(i);
+        this.eQu.onChangeSkinType(i);
     }
 
-    private void UT() {
-        this.Gd.registerListener(this.bnV);
+    private void VV() {
+        this.Gf.registerListener(this.bqQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIm() {
+    public void aKh() {
         if (this.mUserData != null && this.mUserData.getUserId() != null && this.mUserData.getUserName() != null && !this.mUserData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             try {
-                TiebaStatic.log(new ax("c11593"));
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.Gd.getPageActivity(), Long.parseLong(this.mUserData.getUserId()), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getIsFriend())));
+                TiebaStatic.log(new av("c11593"));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.Gf.getPageActivity(), Long.parseLong(this.mUserData.getUserId()), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getIsFriend())));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -84,13 +84,13 @@ public class af extends com.baidu.adp.base.g {
 
     public void setData(UserData userData) {
         this.mUserData = userData;
-        this.eJW = userData.getHave_attention() == 1;
-        this.eJV.setData(this.eJW);
+        this.mIsLiked = userData.getHave_attention() == 1;
+        this.eQu.setData(this.mIsLiked);
     }
 
     public void onDestroy() {
-        if (this.eJX != null) {
-            this.eJX.Za();
+        if (this.eQv != null) {
+            this.eQv.aac();
         }
     }
 }

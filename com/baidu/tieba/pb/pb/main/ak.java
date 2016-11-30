@@ -4,60 +4,62 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class ak implements BdListView.e {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PbActivity pbActivity) {
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void kx() {
         boolean z;
         boolean z2;
-        dh dhVar;
-        ex exVar;
-        dh dhVar2;
-        dh dhVar3;
-        ex exVar2;
-        dh dhVar4;
-        dh dhVar5;
-        ex exVar3;
-        dh dhVar6;
-        ex exVar4;
-        z = this.eqa.epN;
-        if (z && this.eqa.aNE()) {
-            this.eqa.aNG();
+        dj djVar;
+        dj djVar2;
+        dj djVar3;
+        ey eyVar;
+        dj djVar4;
+        dj djVar5;
+        ey eyVar2;
+        dj djVar6;
+        ey eyVar3;
+        ey eyVar4;
+        z = this.evL.evy;
+        if (z && this.evL.aPv()) {
+            this.evL.aPx();
         }
-        z2 = this.eqa.mIsLogin;
+        z2 = this.evL.mIsLogin;
         if (z2) {
-            dhVar = this.eqa.eov;
-            if (dhVar.m17if(false)) {
-                exVar4 = this.eqa.epe;
-                exVar4.aPZ();
-                TiebaStatic.eventStat(this.eqa.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
-            } else {
-                exVar = this.eqa.epe;
-                dhVar2 = this.eqa.eov;
-                exVar.l(dhVar2.getPbData());
-                dhVar3 = this.eqa.eov;
-                if (dhVar3 != null) {
-                    exVar2 = this.eqa.epe;
-                    if (exVar2 != null) {
-                        dhVar4 = this.eqa.eov;
-                        if (dhVar4.aOR() != null) {
-                            dhVar5 = this.eqa.eov;
-                            if (dhVar5.aOR().aOe()) {
-                                exVar3 = this.eqa.epe;
-                                exVar3.aOp();
-                                dhVar6 = this.eqa.eov;
-                                dhVar6.aOR().aOg();
+            djVar = this.evL.euf;
+            if (!djVar.ix(false)) {
+                djVar2 = this.evL.euf;
+                if (djVar2.getPbData() != null) {
+                    eyVar3 = this.evL.euP;
+                    eyVar3.aSo();
+                }
+                djVar3 = this.evL.euf;
+                if (djVar3 != null) {
+                    eyVar = this.evL.euP;
+                    if (eyVar != null) {
+                        djVar4 = this.evL.euf;
+                        if (djVar4.aQK() != null) {
+                            djVar5 = this.evL.euf;
+                            if (djVar5.aQK().aPX()) {
+                                eyVar2 = this.evL.euP;
+                                eyVar2.aQi();
+                                djVar6 = this.evL.euf;
+                                djVar6.aQK().aPZ();
                             }
                         }
                     }
                 }
+            } else {
+                eyVar4 = this.evL.euP;
+                eyVar4.aSb();
+                TiebaStatic.eventStat(this.evL.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
             }
-            this.eqa.epN = true;
+            this.evL.evy = true;
         }
     }
 }

@@ -5,20 +5,20 @@ import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class i {
-    public boolean adc;
+    public boolean adB;
     public boolean mIsBaiduServer = true;
-    public String ade = "UTF-8";
+    public String adC = "UTF-8";
     public String mUrl = null;
-    public ArrayList<BasicNameValuePair> acZ = null;
-    public boolean adb = true;
+    public ArrayList<BasicNameValuePair> ady = null;
+    public boolean adA = true;
     public boolean mIsBDImage = false;
-    public HashMap<String, byte[]> ada = null;
-    public String adf = null;
+    public HashMap<String, byte[]> adz = null;
+    public String adD = null;
     public String mNetType = null;
-    public String adg = null;
+    public String adE = null;
 
     public i() {
-        this.adc = true;
-        this.adc = true;
+        this.adB = true;
+        this.adB = true;
     }
 }

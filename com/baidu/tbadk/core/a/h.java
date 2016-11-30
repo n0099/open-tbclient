@@ -15,12 +15,12 @@ public class h {
         void onSuccess(String str);
     }
 
-    public static boolean oW() {
+    public static boolean oY() {
         return com.baidu.adp.lib.c.e.dN().ac("android_stoken_new") == 1;
     }
 
     public static String d(AccountData accountData) {
-        if (accountData != null && oW()) {
+        if (accountData != null && oY()) {
             return accountData.getStoken();
         }
         return null;

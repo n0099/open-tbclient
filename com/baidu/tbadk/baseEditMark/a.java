@@ -19,15 +19,15 @@ public abstract class a {
 
     public abstract void ad(boolean z);
 
-    public abstract String nu();
+    public abstract void nA();
 
-    public abstract boolean nv();
+    public abstract void nB();
 
-    public abstract void nw();
+    public abstract MarkData nC();
 
-    public abstract void nx();
+    public abstract String ny();
 
-    public abstract MarkData ny();
+    public abstract boolean nz();
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER, a.class, baseActivity);

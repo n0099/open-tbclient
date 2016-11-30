@@ -1,19 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.view.animation.Animation;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-class bd extends com.baidu.adp.lib.h.d {
-    private final /* synthetic */ com.baidu.adp.lib.guide.d bQB;
-    final /* synthetic */ bb bQz;
+public class bd implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId bUl = BdUniqueId.gen();
+    private int bUm;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(bb bbVar, com.baidu.adp.lib.guide.d dVar) {
-        this.bQz = bbVar;
-        this.bQB = dVar;
+    public int adx() {
+        return this.bUm;
     }
 
-    @Override // com.baidu.adp.lib.h.d
-    public void b(Animation animation) {
-        this.bQB.dismiss();
+    public void hX(int i) {
+        this.bUm = i;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return bUl;
     }
 }

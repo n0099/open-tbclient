@@ -1,46 +1,41 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.graphics.drawable.NinePatchDrawable;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.pb.pb.sub.b;
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ ag eyq;
+class an implements b.a {
+    final /* synthetic */ NewSubPbActivity eEs;
+    private boolean eEu = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(ag agVar) {
-        this.eyq = agVar;
+    public an(NewSubPbActivity newSubPbActivity) {
+        this.eEs = newSubPbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        View view;
-        NewSubPbActivity newSubPbActivity;
-        NewSubPbActivity newSubPbActivity2;
-        if (aVar != null && !TextUtils.isEmpty(str)) {
-            view = this.eyq.exI;
-            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewWithTag(str);
-            if (tbRichTextView != null) {
-                newSubPbActivity = this.eyq.exK;
-                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(newSubPbActivity.getResources(), aVar.jV(), aVar.jV().getNinePatchChunk(), aVar.jZ(), null);
-                if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
-                    ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ad.mAlpha);
-                }
-                if (tbRichTextView instanceof TbRichTextView) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
-                    newSubPbActivity2 = this.eyq.exK;
-                    layoutParams.bottomMargin = (int) newSubPbActivity2.getResources().getDimension(r.e.ds20);
-                    tbRichTextView.setLayoutParams(layoutParams);
-                    tbRichTextView.setBackgroundDrawable(ninePatchDrawable);
-                }
+    @Override // com.baidu.tieba.pb.pb.sub.b.a
+    public void aSY() {
+        ao aoVar;
+        aoVar = this.eEs.eEd;
+        aoVar.jf(false);
+        this.eEu = true;
+    }
+
+    @Override // com.baidu.tieba.pb.pb.sub.b.a
+    public void aSZ() {
+    }
+
+    @Override // com.baidu.tieba.pb.pb.sub.b.a
+    public boolean aTa() {
+        ao aoVar;
+        ao aoVar2;
+        if (!this.eEu) {
+            aoVar = this.eEs.eEd;
+            if (aoVar.aTf() != null) {
+                aoVar2 = this.eEs.eEd;
+                return aoVar2.aTf().getTop() == 0;
             }
+            return false;
         }
+        this.eEu = false;
+        return false;
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class CustomPlayerSwitchStatic extends com.baidu.adp.lib.c.a {
-    private static int eYm;
+    private static int feL;
 
     static {
         com.baidu.adp.lib.c.e.dN().n(CustomPlayerSwitchStatic.class);
-        eYm = 1;
+        feL = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -15,7 +15,7 @@ public class CustomPlayerSwitchStatic extends com.baidu.adp.lib.c.a {
 
     @Override // com.baidu.adp.lib.c.a
     protected String getName() {
-        return "android_custom_player_enabled";
+        return "android_custom_player_enabled_2";
     }
 
     @Override // com.baidu.adp.lib.c.a
@@ -38,11 +38,11 @@ public class CustomPlayerSwitchStatic extends com.baidu.adp.lib.c.a {
         return 10;
     }
 
-    public static void qu(int i) {
-        eYm = i;
+    public static void qH(int i) {
+        feL = i;
     }
 
-    public static int bah() {
-        return eYm;
+    public static int bcp() {
+        return feL;
     }
 }

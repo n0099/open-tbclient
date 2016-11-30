@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class al implements a.InterfaceC0086a {
-    final /* synthetic */ ag gdz;
+    final /* synthetic */ ag gle;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ag agVar) {
-        this.gdz = agVar;
+        this.gle = agVar;
     }
 
     @Override // com.baidu.tieba.write.view.a.InterfaceC0086a
@@ -27,13 +27,13 @@ class al implements a.InterfaceC0086a {
         String albumId = dVar.getAlbumId();
         String name = dVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            oVar = this.gdz.gbZ;
-            if (!albumId.equals(oVar.bst())) {
-                oVar2 = this.gdz.gbZ;
-                List<ImageFileInfo> bsv = oVar2.bsv();
+            oVar = this.gle.gjE;
+            if (!albumId.equals(oVar.buO())) {
+                oVar2 = this.gle.gjE;
+                List<ImageFileInfo> buQ = oVar2.buQ();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : bsv) {
+                    for (ImageFileInfo imageFileInfo : buQ) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -41,14 +41,14 @@ class al implements a.InterfaceC0086a {
                     z = false;
                 } else {
                     z = true;
-                    list = bsv;
+                    list = buQ;
                 }
-                oVar3 = this.gdz.gbZ;
-                oVar3.dv(list);
-                oVar4 = this.gdz.gbZ;
-                oVar4.sv(albumId);
-                this.gdz.setData(list, z);
-                textView = this.gdz.FX;
+                oVar3 = this.gle.gjE;
+                oVar3.dB(list);
+                oVar4 = this.gle.gjE;
+                oVar4.sR(albumId);
+                this.gle.setData(list, z);
+                textView = this.gle.FZ;
                 textView.setText(name);
             }
         }

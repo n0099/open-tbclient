@@ -1,26 +1,19 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
+import android.view.View;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements a.b {
-    final /* synthetic */ NewSubPbActivity exF;
-    private final /* synthetic */ UserMuteAddAndDelCustomMessage exG;
+public class u implements TbRichTextView.f {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(NewSubPbActivity newSubPbActivity, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-        this.exF = newSubPbActivity;
-        this.exG = userMuteAddAndDelCustomMessage;
+    public u(NewSubPbActivity newSubPbActivity) {
+        this.eEs = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        ag agVar;
-        agVar = this.exF.exu;
-        agVar.ayI();
-        MessageManager.getInstance().sendMessage(this.exG);
-        aVar.dismiss();
+    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.f
+    public void b(View view, String str) {
+        this.eEs.g(null, str, "LINK_IMAGE");
     }
 }

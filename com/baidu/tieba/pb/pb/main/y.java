@@ -4,45 +4,45 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class y implements a.b {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PbActivity pbActivity) {
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        dh dhVar;
-        ex exVar;
-        ex exVar2;
-        ex exVar3;
-        dh dhVar2;
-        ex exVar4;
-        this.eqa.abd();
-        dhVar = this.eqa.eov;
-        com.baidu.tbadk.core.data.am api = dhVar.api();
-        exVar = this.eqa.epe;
-        int pageNum = exVar.getPageNum();
+        dj djVar;
+        ey eyVar;
+        ey eyVar2;
+        ey eyVar3;
+        dj djVar2;
+        ey eyVar4;
+        this.evL.acq();
+        djVar = this.evL.euf;
+        com.baidu.tbadk.core.data.ao are = djVar.are();
+        eyVar = this.evL.euP;
+        int pageNum = eyVar.getPageNum();
         if (pageNum <= 0) {
-            this.eqa.showToast(r.j.pb_page_error);
-        } else if (api == null || pageNum <= api.qw()) {
-            exVar2 = this.eqa.epe;
-            exVar2.aBc();
-            this.eqa.on(2);
-            this.eqa.abb();
-            exVar3 = this.eqa.epe;
-            exVar3.aPY();
+            this.evL.showToast(r.j.pb_page_error);
+        } else if (are == null || pageNum <= are.qy()) {
+            eyVar2 = this.evL.euP;
+            eyVar2.aCY();
+            this.evL.ox(2);
+            this.evL.acp();
+            eyVar3 = this.evL.euP;
+            eyVar3.aSa();
             if (com.baidu.adp.lib.util.i.gm()) {
-                dhVar2 = this.eqa.eov;
-                exVar4 = this.eqa.epe;
-                dhVar2.os(exVar4.getPageNum());
+                djVar2 = this.evL.euf;
+                eyVar4 = this.evL.euP;
+                djVar2.oC(eyVar4.getPageNum());
             } else {
-                this.eqa.showToast(r.j.neterror);
+                this.evL.showToast(r.j.neterror);
             }
             aVar.dismiss();
         } else {
-            this.eqa.showToast(r.j.pb_page_error);
+            this.evL.showToast(r.j.pb_page_error);
         }
     }
 }

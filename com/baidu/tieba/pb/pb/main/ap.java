@@ -4,39 +4,39 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class ap extends CustomMessageListener {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ap(PbActivity pbActivity, int i) {
         super(i);
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        dh dhVar;
+        dj djVar;
         com.baidu.tbadk.editortools.e.e eVar;
-        ex exVar;
+        ey eyVar;
         com.baidu.tbadk.editortools.e.e eVar2;
-        ex exVar2;
-        ex exVar3;
+        ey eyVar2;
+        ey eyVar3;
         com.baidu.tbadk.editortools.e.e eVar3;
-        dhVar = this.eqa.eov;
-        if (dhVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            eVar = this.eqa.epp;
+        djVar = this.evL.euf;
+        if (djVar != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            eVar = this.evL.evb;
             if (eVar != null) {
-                exVar3 = this.eqa.epe;
-                eVar3 = this.eqa.epp;
-                exVar3.gD(eVar3.Dr());
+                eyVar3 = this.evL.euP;
+                eVar3 = this.evL.evb;
+                eyVar3.gX(eVar3.Dz());
             }
-            exVar = this.eqa.epe;
-            exVar.aPG();
-            eVar2 = this.eqa.epp;
-            eVar2.Du();
-            exVar2 = this.eqa.epe;
-            exVar2.aBc();
+            eyVar = this.evL.euP;
+            eyVar.aRJ();
+            eVar2 = this.evL.evb;
+            eVar2.DC();
+            eyVar2 = this.evL.euP;
+            eyVar2.aCY();
         }
     }
 }

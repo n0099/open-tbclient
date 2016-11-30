@@ -1,40 +1,29 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-class aa implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity bQi;
+class aa extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bTa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(FrsActivity frsActivity) {
-        this.bQi = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bTa = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aH(boolean z) {
-        bm bmVar;
-        bm bmVar2;
-        boolean z2;
-        bm bmVar3;
-        bm bmVar4;
-        if (z) {
-            bmVar = this.bQi.bPi;
-            if (!bmVar.abf()) {
-                if (this.bQi.bPk == null || this.bQi.bPk.getThreadList().size() == 0) {
-                    FrsActivity frsActivity = this.bQi;
-                    bmVar2 = this.bQi.bPi;
-                    frsActivity.hideNetRefreshView(bmVar2.getRootView());
-                    z2 = this.bQi.bOT;
-                    if (!z2) {
-                        FrsActivity frsActivity2 = this.bQi;
-                        bmVar3 = this.bQi.bPi;
-                        frsActivity2.showLoadingView(bmVar3.getRootView(), true);
-                        bmVar4 = this.bQi.bPi;
-                        bmVar4.dK(false);
-                    }
-                    this.bQi.refresh();
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
+                FrsActivityStatic.bTh = true;
+                FrsActivityStatic.bTg = true;
             }
+            this.bTa.aci();
         }
     }
 }

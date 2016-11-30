@@ -1,51 +1,69 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.lib.crash.BdNativeCrash;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.List;
+import com.baidu.tbadk.core.data.AccountData;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes.dex */
-class n implements BdNativeCrash.NativeCrashCallback {
-    @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
-    public void onNativeCrashed(int i, int i2, int i3, String str, String str2) {
-        w wVar = new w();
-        Thread thread = new Thread();
-        thread.setName("NativeCrashThread");
-        wVar.a(thread, (Throwable) new Exception(str), true);
-        l.gw(str2);
+public class n {
+    public static void a(Object obj, boolean z) {
+        a(obj, z, false);
     }
 
-    @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
-    public boolean onSoFound(String str) {
-        List list;
-        List list2;
-        boolean gx;
-        boolean gy;
-        boolean aq;
-        List list3;
-        try {
-            list2 = l.aEp;
-            if (list2.indexOf(str) >= 0) {
-                return false;
+    public static void a(Object obj, boolean z, boolean z2) {
+        a(obj, z, z2, false);
+    }
+
+    public static void a(Object obj, boolean z, boolean z2, boolean z3) {
+        AccountData currentAccountInfo;
+        if (obj != null) {
+            try {
+                Field field = obj.getClass().getField("common");
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
+                }
+                CommonReq.Builder builder = new CommonReq.Builder();
+                builder._client_type = 2;
+                builder._client_version = TbConfig.getVersion();
+                builder._client_id = TbadkCoreApplication.getClientId();
+                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                    builder.subapp_type = TbConfig.getSubappType();
+                }
+                if (!TbadkCoreApplication.m9getInst().isOfficial()) {
+                    builder.apid = TbConfig.SW_APID;
+                }
+                builder._phone_imei = TbadkCoreApplication.m9getInst().getImei();
+                builder.from = TbadkCoreApplication.getFrom();
+                builder.cuid = TbadkCoreApplication.m9getInst().getCuid();
+                builder._timestamp = Long.valueOf(System.currentTimeMillis());
+                builder.model = Build.MODEL;
+                if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
+                    builder.BDUSS = currentAccountInfo.getBDUSS();
+                    String d = com.baidu.tbadk.core.a.h.d(currentAccountInfo);
+                    if (!StringUtils.isNull(d)) {
+                        builder.stoken = d;
+                    }
+                }
+                if (z2) {
+                    builder.tbs = TbadkCoreApplication.m9getInst().getTbs();
+                }
+                if (z3) {
+                    builder.applist = TbadkCoreApplication.m9getInst().getInstalledAppIds();
+                }
+                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+                builder.lego_lib_version = TbConfig.getLegoLibVersion();
+                field.set(obj, builder.build(false));
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    th.printStackTrace();
+                }
             }
-            gx = l.gx(str);
-            if (gx) {
-                return true;
-            }
-            gy = l.gy(str);
-            if (gy) {
-                return true;
-            }
-            aq = l.aq(str, TbadkCoreApplication.m9getInst().getApp().getApplicationInfo().sourceDir);
-            if (aq) {
-                return true;
-            }
-            list3 = l.aEp;
-            list3.add(str);
-            return false;
-        } catch (Throwable th) {
-            list = l.aEp;
-            list.add(str);
-            return false;
         }
     }
 }

@@ -18,8 +18,8 @@ public class c implements a.InterfaceC0008a {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        this.this$0.pH = true;
-        if (this.this$0.pG) {
+        this.this$0.pI = true;
+        if (this.this$0.pH) {
             j.fL().fS();
         }
         handler = a.mHandler;

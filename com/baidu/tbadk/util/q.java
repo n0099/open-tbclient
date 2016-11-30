@@ -1,26 +1,32 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class q extends CustomMessageListener {
-    final /* synthetic */ p aEt;
+public class q extends Thread {
+    private int aFm;
+    private int aFn;
+    private String type = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(p pVar, int i) {
-        super(i);
-        this.aEt = pVar;
+    public q(int i, int i2) {
+        this.aFm = 0;
+        this.aFn = 0;
+        this.aFm = i;
+        this.aFn = i2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
-            return;
+    public void setType(String str) {
+        this.type = str;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
+        zVar.n("img_num", String.valueOf(this.aFm));
+        zVar.n("img_total", String.valueOf(this.aFn));
+        if (this.type != null) {
+            zVar.n("img_type", this.type);
         }
-        this.aEt.Hc();
+        zVar.uy();
     }
 }

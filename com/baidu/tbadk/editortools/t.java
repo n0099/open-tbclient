@@ -7,26 +7,26 @@ import com.baidu.tieba.r;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class t extends com.baidu.tbadk.editortools.view.c {
-    LinkedList<s> atJ;
-    private SparseIntArray auq;
+    LinkedList<s> auD;
+    private SparseIntArray avk;
 
     public t(Context context) {
         super(context);
-        this.auq = new SparseIntArray();
+        this.avk = new SparseIntArray();
         setBackgroundColorId(r.d.common_color_10255);
         setToolId(2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h(LinkedList<s> linkedList) {
-        this.atJ = linkedList;
+        this.auD = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.ab
     public void init() {
         setShowDelete(false);
         u uVar = new u();
-        uVar.h(this.atJ);
+        uVar.h(this.auD);
         b(uVar);
     }
 
@@ -35,12 +35,12 @@ public class t extends com.baidu.tbadk.editortools.view.c {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            CT();
+            Db();
         }
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.auq.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.avk.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -52,13 +52,13 @@ public class t extends com.baidu.tbadk.editortools.view.c {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.h.b.g(str, 1);
             }
         }
-        this.auq.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.avk.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void CT() {
+    private void Db() {
         int i = 0;
-        for (int i2 = 0; i2 < this.auq.size(); i2++) {
-            i += this.auq.valueAt(i2);
+        for (int i2 = 0; i2 < this.avk.size(); i2++) {
+            i += this.avk.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));
@@ -68,7 +68,7 @@ public class t extends com.baidu.tbadk.editortools.view.c {
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.ab
-    public void lw() {
-        super.lw();
+    public void lz() {
+        super.lz();
     }
 }

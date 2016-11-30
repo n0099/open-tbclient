@@ -8,133 +8,145 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.b.b.g;
 /* loaded from: classes.dex */
 public class f extends LinearLayout {
-    private GLSurfaceView aXR;
-    private com.baidu.tieba.b.b.g aXS;
-    private boolean aXT;
-    private boolean aXU;
-    private a aXV;
+    private GLSurfaceView bba;
+    private com.baidu.tieba.b.b.g bbb;
+    private boolean bbc;
+    private boolean bbd;
+    private a bbe;
 
     /* loaded from: classes.dex */
     public interface a {
-        void f(MotionEvent motionEvent);
+        void g(MotionEvent motionEvent);
     }
 
     public f(Context context) {
         super(context);
-        this.aXT = false;
-        this.aXU = false;
-        aA(context);
+        this.bbc = false;
+        this.bbd = false;
+        aM(context);
     }
 
-    private void aA(Context context) {
-        this.aXR = new GLSurfaceView(context);
-        this.aXS = new com.baidu.tieba.b.b.g(context);
-        this.aXR.setEGLConfigChooser(new g(this));
-        NI();
+    private void aM(Context context) {
+        this.bba = new GLSurfaceView(context);
+        this.bbb = new com.baidu.tieba.b.b.g(context);
+        this.bba.setEGLConfigChooser(new g(this));
+        OL();
     }
 
-    public void NC() {
-        NJ();
-        this.aXS.Ng();
+    public void OF() {
+        OM();
+        this.bbb.Oj();
     }
 
-    private void NI() {
-        if (!this.aXT) {
+    private void OL() {
+        if (!this.bbc) {
             setProjectionMode(1);
-            NK();
-            this.aXR.setRenderer(this.aXS);
-            addView(this.aXR);
-            this.aXT = true;
+            ON();
+            this.bba.setRenderer(this.bbb);
+            addView(this.bba);
+            this.bbc = true;
         }
     }
 
-    public void ND() {
-        NJ();
-        this.aXS.Nh();
+    public void onPause() {
+        if (this.bba != null) {
+            this.bba.onPause();
+        }
     }
 
-    public void NJ() {
-        this.aXR.setRenderMode(1);
+    public void onResume() {
+        if (this.bba != null) {
+            this.bba.onResume();
+        }
     }
 
-    public void NE() {
-        this.aXR.setRenderMode(0);
+    public void OG() {
+        OM();
+        this.bbb.Ok();
+    }
+
+    public void OM() {
+        this.bba.setRenderMode(1);
+    }
+
+    public void OH() {
+        this.bba.setRenderMode(0);
     }
 
     public void setProjectionMode(int i) {
-        this.aXS.setProjectionMode(i);
+        this.bbb.setProjectionMode(i);
     }
 
     public void b(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {
-        this.aXS.a(bitmap, bitmap2, bitmap3, bitmap4, bitmap5, bitmap6);
+        this.bbb.a(bitmap, bitmap2, bitmap3, bitmap4, bitmap5, bitmap6);
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        if (this.aXS != null) {
-            this.aXS.gd(i);
+        if (this.bbb != null) {
+            this.bbb.gd(i);
         }
     }
 
-    public void NK() {
-        if (this.aXR != null) {
-            this.aXR.setZOrderOnTop(true);
-            if (this.aXR.getHolder() != null) {
-                this.aXR.getHolder().setFormat(-3);
+    public void ON() {
+        if (this.bba != null) {
+            this.bba.setZOrderOnTop(true);
+            if (this.bba.getHolder() != null) {
+                this.bba.getHolder().setFormat(-3);
             }
-            this.aXR.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+            this.bba.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
         }
     }
 
     public void setRotateRadius(float f) {
-        this.aXS.setRotateRadius(f);
+        this.bbb.setRotateRadius(f);
     }
 
     public int getViewStatus() {
-        return this.aXS.getViewStatus();
+        return this.bbb.getViewStatus();
     }
 
     public boolean gf(int i) {
-        return this.aXS.getViewStatus() == i;
+        return this.bbb.getViewStatus() == i;
     }
 
-    public void vX() {
-        this.aXS.vX();
+    public void wb() {
+        this.bbb.wb();
     }
 
     public void setWriteEndCallBack(g.a aVar) {
-        this.aXS.setWriteEndCallBack(aVar);
+        this.bbb.setWriteEndCallBack(aVar);
     }
 
     public void setDispathEventAction(a aVar) {
-        this.aXV = aVar;
+        this.bbe = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.aXV != null) {
-            this.aXV.f(motionEvent);
+        if (this.bbe != null) {
+            this.bbe.g(motionEvent);
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.aXU) {
+        if (this.bbd) {
             return false;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     public void setForceInterrupt(boolean z) {
-        this.aXU = z;
+        this.bbd = z;
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        if (this.aXR != null) {
-            this.aXR.setVisibility(i);
+        if (this.bba != null) {
+            this.bba.setVisibility(i);
         }
     }
 }

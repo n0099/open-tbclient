@@ -311,6 +311,7 @@ public class e extends BaseAdapter {
                 } else {
                     BdLog.detailException(e);
                     Log.e("BdListAdapter", e.getMessage());
+                    e.printStackTrace();
                     view3 = null;
                 }
             } catch (OutOfMemoryError e2) {

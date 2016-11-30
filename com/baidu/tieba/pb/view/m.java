@@ -1,52 +1,63 @@
 package com.baidu.tieba.pb.view;
 
-import android.app.Activity;
-import android.content.Context;
+import android.os.CountDownTimer;
 import android.view.View;
-import com.baidu.adp.base.l;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.r;
+import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ PbGiftListView ezG;
+public class m extends CountDownTimer {
+    final /* synthetic */ PbInterviewStatusView eGF;
+    private final /* synthetic */ PbActivity eGG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(PbGiftListView pbGiftListView) {
-        this.ezG = pbGiftListView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(PbInterviewStatusView pbInterviewStatusView, long j, long j2, PbActivity pbActivity) {
+        super(j, j2);
+        this.eGF = pbInterviewStatusView;
+        this.eGG = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
+    @Override // android.os.CountDownTimer
+    public void onTick(long j) {
+        TextView textView;
+        textView = this.eGF.eGt;
+        textView.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j))));
+    }
+
+    @Override // android.os.CountDownTimer
+    public void onFinish() {
         String str;
-        long j;
-        String str2;
-        long j2;
-        long j3;
-        context = this.ezG.mContext;
-        TbPageContext tbPageContext = (TbPageContext) l.C(context);
-        if (tbPageContext != null) {
-            if (TbadkCoreApplication.isLogin()) {
-                str = this.ezG.toUserName;
-                if (!StringUtils.isNull(str)) {
-                    Activity pageActivity = tbPageContext.getPageActivity();
-                    j = this.ezG.toUserId;
-                    str2 = this.ezG.toUserName;
-                    j2 = this.ezG.threadId;
-                    j3 = this.ezG.postId;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
-                    return;
-                }
-                return;
-            }
-            bm.ak(tbPageContext.getPageActivity());
-        }
+        TextView textView;
+        TextView textView2;
+        ImageView imageView;
+        View view;
+        ImageView imageView2;
+        FrameLayout frameLayout;
+        av avVar = new av("c11106");
+        str = this.eGF.Rf;
+        TiebaStatic.log(avVar.ab("obj_id", str));
+        this.eGF.eGC = false;
+        textView = this.eGF.eGq;
+        textView.setText(this.eGG.getPageContext().getPageActivity().getString(r.j.interview_live_start));
+        textView2 = this.eGF.eGq;
+        textView2.setTextSize(0, com.baidu.adp.lib.util.k.e(this.eGG.getPageContext().getPageActivity(), r.e.fontsize24));
+        imageView = this.eGF.eGr;
+        imageView.setVisibility(0);
+        view = this.eGF.eGw;
+        view.setVisibility(8);
+        imageView2 = this.eGF.eGv;
+        imageView2.setVisibility(0);
+        frameLayout = this.eGF.eGs;
+        frameLayout.setVisibility(8);
+        this.eGF.setClickable(true);
+        this.eGF.eGD = true;
     }
 }

@@ -1,27 +1,18 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ ag eyq;
+public class ar implements a.b {
+    final /* synthetic */ ao eFb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ag agVar) {
-        this.eyq = agVar;
+    public ar(ao aoVar) {
+        this.eFb = aoVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        View.OnLongClickListener onLongClickListener;
-        View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.eyq.bIY;
-        if (onLongClickListener != null) {
-            onLongClickListener2 = this.eyq.bIY;
-            onLongClickListener2.onLongClick(view);
-            return false;
-        }
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

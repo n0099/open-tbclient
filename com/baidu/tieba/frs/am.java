@@ -1,37 +1,19 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.EcommSellerErrorActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.frs.ecomm.EcommCanSendThreadResponseMessage;
-import com.baidu.tieba.frs.ecomm.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class am implements a.InterfaceC0061a {
-    final /* synthetic */ FrsActivity bQi;
-
+class am extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(FrsActivity frsActivity) {
-        this.bQi = frsActivity;
+    public am(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tieba.frs.ecomm.a.InterfaceC0061a
-    public void a(int i, String str, EcommCanSendThreadResponseMessage ecommCanSendThreadResponseMessage) {
-        com.baidu.tbadk.core.view.a aVar;
-        com.baidu.tbadk.core.view.a aVar2;
-        aVar = this.bQi.bph;
-        if (aVar != null) {
-            aVar2 = this.bQi.bph;
-            aVar2.aF(false);
-        }
-        if (ecommCanSendThreadResponseMessage != null) {
-            if (ecommCanSendThreadResponseMessage.getError() == 0) {
-                this.bQi.bPf = ecommCanSendThreadResponseMessage.address;
-                this.bQi.aaR();
-                return;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EcommSellerErrorActivityConfig(this.bQi.getPageContext().getPageActivity(), ecommCanSendThreadResponseMessage.getError(), ecommCanSendThreadResponseMessage.getErrorString())));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            com.baidu.tieba.frs.g.f.agR().agT();
         }
     }
 }

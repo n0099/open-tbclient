@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card.model;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.b;
+import com.baidu.tbadk.core.data.c;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public interface ICardInfo extends v, Serializable {
@@ -12,7 +12,7 @@ public interface ICardInfo extends v, Serializable {
 
     int getAdapterType();
 
-    b getAdvertAppInfo();
+    c getAdvertAppInfo();
 
     int getCardType();
 
@@ -29,9 +29,11 @@ public interface ICardInfo extends v, Serializable {
 
     boolean isValid();
 
+    void refreshReservation(Object obj);
+
     boolean responseAttention(Object obj);
 
-    void setAdvertAppInfo(b bVar);
+    void setAdvertAppInfo(c cVar);
 
     void setBdUniqueId(BdUniqueId bdUniqueId);
 

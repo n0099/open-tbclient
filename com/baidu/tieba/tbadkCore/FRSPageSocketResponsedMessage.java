@@ -45,7 +45,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, 
                 this.needCache = mVar.isNeedCache();
                 this.mCategoryId = mVar.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = mVar.bhK();
+                this.mSortType = mVar.agy();
                 this.mIsGood = mVar.getIsGood();
             }
         }
@@ -66,15 +66,18 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<n, 
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bik() != null && !StringUtils.isNull(this.responseData.bik().getBookId(), true) && !this.responseData.bik().getBookId().equals("0") && this.responseData.bik().py() == 3 && (g = com.baidu.adp.lib.h.b.g(this.responseData.bik().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+        if (this.responseData.bkF() != null && !StringUtils.isNull(this.responseData.bkF().getBookId(), true) && !this.responseData.bkF().getBookId().equals("0") && this.responseData.bkF().pB() == 3 && (g = com.baidu.adp.lib.h.b.g(this.responseData.bkF().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
             this.responseData.h(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aMr() != null) {
-            d.bhH().a(d.bhH().e(this.responseData.aMr().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+        if (!hasError() && this.responseData != null) {
+            boolean z = com.baidu.tbadk.core.util.x.s(this.responseData.getThreadList()) >= 15;
+            if (this.needCache && this.responseData.aOk() != null && z) {
+                d.bkd().a(d.bkd().e(this.responseData.aOk().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            }
         }
     }
 

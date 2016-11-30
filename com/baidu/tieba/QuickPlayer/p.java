@@ -1,226 +1,221 @@
 package com.baidu.tieba.QuickPlayer;
 
 import android.content.Context;
-import android.media.MediaPlayer;
+import android.graphics.SurfaceTexture;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.Surface;
-import android.view.SurfaceHolder;
-import java.io.FileDescriptor;
-import java.io.IOException;
+import com.baidu.tieba.play.CustomPlayerSwitchStatic;
+import com.baidu.tieba.play.t;
 import java.util.Map;
-import tv.danmaku.ijk.media.player.AbstractMediaPlayer;
-import tv.danmaku.ijk.media.player.ITrackInfo;
-import tv.danmaku.ijk.media.player.MediaInfo;
 /* loaded from: classes.dex */
-public class p extends AbstractMediaPlayer {
-    private MediaPlayer.OnPreparedListener aLE = new q(this);
-    private MediaPlayer.OnCompletionListener aLF = new r(this);
-    private MediaPlayer.OnSeekCompleteListener aLG = new s(this);
-    private MediaPlayer.OnVideoSizeChangedListener aLH = new t(this);
-    private MediaPlayer.OnErrorListener aLI = new u(this);
-    private MediaPlayer.OnInfoListener aLJ = new v(this);
-    private MediaPlayer aLD = new MediaPlayer();
+public class p implements com.baidu.tieba.play.t {
+    private static final String TAG = p.class.getSimpleName();
+    private b aMm;
+    private t.a aMn;
+    private t.d aMo;
+    private t.b aMp;
+    private t.c aMq;
+    private e aMs;
+    private Context mContext;
+    private Handler.Callback aMt = new q(this);
+    private Handler.Callback aMu = new r(this);
+    private Handler mHandler = new Handler(f.Jn().getLooper(), this.aMt);
+    private Handler aMr = new Handler(Looper.getMainLooper(), this.aMu);
 
-    public p() {
-        this.aLD.setOnPreparedListener(this.aLE);
-        this.aLD.setOnCompletionListener(this.aLF);
-        this.aLD.setOnSeekCompleteListener(this.aLG);
-        this.aLD.setOnVideoSizeChangedListener(this.aLH);
-        this.aLD.setOnErrorListener(this.aLI);
-        this.aLD.setOnInfoListener(this.aLJ);
+    @Override // com.baidu.tieba.play.t
+    public void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture) {
+        this.mContext = context;
+        e eVar = new e();
+        eVar.setUri(uri);
+        eVar.setHeaders(map);
+        eVar.a(surfaceTexture);
+        Message obtainMessage = this.mHandler.obtainMessage(1);
+        obtainMessage.obj = eVar;
+        this.mHandler.sendMessage(obtainMessage);
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setDisplay(SurfaceHolder surfaceHolder) {
-        this.aLD.setDisplay(surfaceHolder);
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setDataSource(Context context, Uri uri) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
-        this.aLD.setDataSource(context, uri);
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
-        this.aLD.setDataSource(context, uri, map);
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setDataSource(FileDescriptor fileDescriptor) throws IOException, IllegalArgumentException, IllegalStateException {
-        this.aLD.setDataSource(fileDescriptor);
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setDataSource(String str) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
-        this.aLD.setDataSource(str);
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public String getDataSource() {
-        return null;
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void prepareAsync() throws IllegalStateException {
-        this.aLD.prepareAsync();
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void start() throws IllegalStateException {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(e eVar) {
+        this.aMs = eVar;
         try {
-            this.aLD.start();
+            this.aMm = m.Jq().Jm();
+            this.aMm.ce(CustomPlayerSwitchStatic.bcp() == 0);
+            this.aMm.a(new g(this.aMr));
+            this.aMm.a(this.aMs.getUri(), new Surface(this.aMs.getSurfaceTexture()));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void stop() throws IllegalStateException {
-        try {
-            this.aLD.stop();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void pause() throws IllegalStateException {
-        try {
-            this.aLD.pause();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setScreenOnWhilePlaying(boolean z) {
-        this.aLD.setScreenOnWhilePlaying(z);
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public int getVideoWidth() {
-        return this.aLD.getVideoWidth();
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public int getVideoHeight() {
-        return this.aLD.getVideoHeight();
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public boolean isPlaying() {
-        try {
-            return this.aLD.isPlaying();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void seekTo(long j) throws IllegalStateException {
-        try {
-            this.aLD.seekTo((int) j);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public long getCurrentPosition() {
-        try {
-            return this.aLD.getCurrentPosition();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0L;
-        }
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public long getDuration() {
-        try {
-            return this.aLD.getDuration();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0L;
-        }
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    @Override // com.baidu.tieba.play.t
     public void release() {
-        this.aLD.release();
+        this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void reset() {
-        this.aLD.reset();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(b bVar) {
+        if (bVar != null) {
+            try {
+                bVar.release();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setVolume(float f, float f2) {
-        this.aLD.setVolume(f, f2);
+    @Override // com.baidu.tieba.play.t
+    public void setOnPreparedListener(t.d dVar) {
+        this.aMo = dVar;
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public int getAudioSessionId() {
-        return this.aLD.getAudioSessionId();
+    @Override // com.baidu.tieba.play.t
+    public void setOnCompletionListener(t.a aVar) {
+        this.aMn = aVar;
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public MediaInfo getMediaInfo() {
-        return null;
+    @Override // com.baidu.tieba.play.t
+    public void setOnErrorListener(t.b bVar) {
+        this.aMp = bVar;
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setLogEnabled(boolean z) {
+    @Override // com.baidu.tieba.play.t
+    public void a(t.c cVar) {
+        this.aMq = cVar;
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public boolean isPlayable() {
+    @Override // com.baidu.tieba.play.t
+    public void start() {
+        this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(b bVar) {
+        if (bVar != null) {
+            try {
+                bVar.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.play.t
+    public void pause() {
+        this.mHandler.sendMessage(this.mHandler.obtainMessage(4));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(b bVar) {
+        if (bVar != null) {
+            try {
+                bVar.pause();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.play.t
+    public int getDuration() {
+        if (this.aMm != null) {
+            try {
+                return this.aMm.getDuration();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    @Override // com.baidu.tieba.play.t
+    public int getCurrentPosition() {
+        if (this.aMm != null) {
+            try {
+                return this.aMm.getCurrentPosition();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    @Override // com.baidu.tieba.play.t
+    public int getVideoWidth() {
+        if (this.aMm != null) {
+            try {
+                return this.aMm.getVideoWidth();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    @Override // com.baidu.tieba.play.t
+    public int getVideoHeight() {
+        if (this.aMm != null) {
+            try {
+                return this.aMm.getVideoHeight();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    @Override // com.baidu.tieba.play.t
+    public void seekTo(int i) {
+        Message obtainMessage = this.mHandler.obtainMessage(5);
+        obtainMessage.arg1 = i;
+        this.mHandler.sendMessage(obtainMessage);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void fH(int i) {
+        if (this.aMm != null) {
+            try {
+                this.aMm.seekTo(i);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.play.t
+    public boolean isPlaying() {
+        if (this.aMm != null) {
+            try {
+                return this.aMm.isPlaying();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return false;
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setAudioStreamType(int i) {
-        this.aLD.setAudioStreamType(i);
+    @Override // com.baidu.tieba.play.t
+    public void setVolume(float f, float f2) {
+        if (this.aMm != null) {
+            try {
+                this.aMm.setVolume(f, f2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setKeepInBackground(boolean z) {
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public int getVideoSarNum() {
-        return 0;
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public int getVideoSarDen() {
-        return 0;
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setWakeMode(Context context, int i) {
-        this.aLD.setWakeMode(context, i);
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setLooping(boolean z) {
-        this.aLD.setLooping(z);
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    @Override // com.baidu.tieba.play.t
     public boolean isLooping() {
-        return this.aLD.isLooping();
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public ITrackInfo[] getTrackInfo() {
-        return new ITrackInfo[0];
-    }
-
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
-    public void setSurface(Surface surface) {
-        this.aLD.setSurface(surface);
+        if (this.aMm != null) {
+            try {
+                return this.aMm.isLooping();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
     }
 }

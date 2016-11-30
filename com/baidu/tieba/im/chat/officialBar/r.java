@@ -13,24 +13,25 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String cWC;
-        public long cWK;
-        public String cWL;
-        public int cWM;
+        public String dcn;
+        public long dcw;
+        public String dcx;
+        public int dcy;
         public String fid;
         public long picId;
         public String src;
+        public long taskId;
         public String text;
         public String title;
         public String url;
         public int userType;
     }
 
-    public static List<a> bc(String str, String str2) {
-        return a(str, str2, null, 0L);
+    public static List<a> b(String str, String str2, long j) {
+        return a(str, str2, null, 0L, j);
     }
 
-    public static List<a> a(String str, String str2, UserData userData, long j) {
+    public static List<a> a(String str, String str2, UserData userData, long j, long j2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -57,14 +58,15 @@ public class r {
                 aVar.src = optString3;
                 aVar.fid = str2;
                 aVar.picId = optLong;
-                aVar.cWC = optString5;
+                aVar.taskId = j2;
+                aVar.dcn = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.cWK = j;
-                    aVar.cWL = userData.getUserId();
-                    aVar.cWM = userData.getUserType();
+                    aVar.dcw = j;
+                    aVar.dcx = userData.getUserId();
+                    aVar.dcy = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

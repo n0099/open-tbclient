@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class k extends c {
-    private a vK;
-    protected Path vI = new Path();
-    protected Paint vJ = null;
-    protected boolean vL = false;
+    private a vL;
+    protected Path vJ = new Path();
+    protected Paint vK = null;
+    protected boolean vM = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,15 +23,15 @@ public abstract class k extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.vK != null && (a2 = this.vK.a(hE())) != null) {
-            this.vI.set(a2);
-            if (this.vJ == null) {
-                this.vJ = new Paint();
-                this.vJ.setStyle(Paint.Style.STROKE);
-                this.vJ.setAntiAlias(true);
-                this.vJ.setColor(637534208);
-                this.vJ.setDither(true);
-                this.vJ.setStrokeWidth(2.0f);
+        if (this.vL != null && (a2 = this.vL.a(hE())) != null) {
+            this.vJ.set(a2);
+            if (this.vK == null) {
+                this.vK = new Paint();
+                this.vK.setStyle(Paint.Style.STROKE);
+                this.vK.setAntiAlias(true);
+                this.vK.setColor(637534208);
+                this.vK.setDither(true);
+                this.vK.setStrokeWidth(2.0f);
             }
             hM();
         }
@@ -40,10 +40,10 @@ public abstract class k extends c {
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.vL) {
-            canvas.drawPath(this.vI, this.vJ);
-            if (this.vK != null) {
-                this.vK.c(canvas);
+        if (this.vM) {
+            canvas.drawPath(this.vJ, this.vK);
+            if (this.vL != null) {
+                this.vL.c(canvas);
             }
         }
     }
@@ -55,10 +55,10 @@ public abstract class k extends c {
     }
 
     public void a(a aVar) {
-        this.vK = aVar;
+        this.vL = aVar;
     }
 
     public void J(boolean z) {
-        this.vL = z;
+        this.vM = z;
     }
 }

@@ -40,7 +40,7 @@ public class p {
                     if (!it.hasNext()) {
                         break;
                     }
-                    i2 = (int) (it.next().qA + i);
+                    i2 = (int) (it.next().qB + i);
                 }
                 int i3 = i - 31457280;
                 ArrayList arrayList = new ArrayList();
@@ -54,7 +54,7 @@ public class p {
                         }
                         com.baidu.adp.lib.stats.base.c next = it2.next();
                         arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.qA);
+                        i3 = (int) (i4 - next.qB);
                         if (i3 <= 0) {
                             break;
                         }
@@ -65,7 +65,7 @@ public class p {
                 while (it3.hasNext()) {
                     com.baidu.adp.lib.stats.base.c next2 = it3.next();
                     if (next2 != null) {
-                        long j = next2.qB;
+                        long j = next2.qC;
                         if (j != 0 && j + TbConfig.APP_OVERDUR_DRAFT_BOX < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }

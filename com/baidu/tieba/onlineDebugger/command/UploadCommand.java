@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.util.z;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,8 +17,8 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UploadCommand implements h {
     public static final String URL = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/debugupload";
-    private static /* synthetic */ int[] eiv;
-    private EnumUploadType eiu;
+    private static /* synthetic */ int[] eou;
+    private EnumUploadType eot;
     private String path;
 
     /* loaded from: classes.dex */
@@ -31,7 +31,7 @@ public class UploadCommand implements h {
         DataFile,
         DataList;
 
-        /* JADX DEBUG: Replace access to removed values field (eiw) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (eov) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static EnumUploadType[] valuesCustom() {
             EnumUploadType[] valuesCustom = values();
@@ -42,8 +42,8 @@ public class UploadCommand implements h {
         }
     }
 
-    static /* synthetic */ int[] aLl() {
-        int[] iArr = eiv;
+    static /* synthetic */ int[] aNe() {
+        int[] iArr = eou;
         if (iArr == null) {
             iArr = new int[EnumUploadType.valuesCustom().length];
             try {
@@ -74,51 +74,51 @@ public class UploadCommand implements h {
                 iArr[EnumUploadType.SharePerference.ordinal()] = 1;
             } catch (NoSuchFieldError e7) {
             }
-            eiv = iArr;
+            eou = iArr;
         }
         return iArr;
     }
 
     public UploadCommand(EnumUploadType enumUploadType, String str) {
-        this.eiu = enumUploadType;
+        this.eot = enumUploadType;
         this.path = str;
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public Object aLi() throws IOException {
+    public Object aNb() throws IOException {
         String str = null;
         try {
-            switch (aLl()[this.eiu.ordinal()]) {
+            switch (aNe()[this.eot.ordinal()]) {
                 case 1:
-                    str = c(oE(this.path), this.path);
+                    str = c(oR(this.path), this.path);
                     break;
                 case 2:
-                    str = c(oF(this.path), this.path);
+                    str = c(oS(this.path), this.path);
                     break;
                 case 3:
                     if (!this.path.contains("..")) {
-                        str = c(x(m.cW(this.path)), this.path);
+                        str = c(x(m.cY(this.path)), this.path);
                         break;
                     } else {
                         str = "illegal path ..";
                         break;
                     }
                 case 4:
-                    str = oC(this.path);
+                    str = oP(this.path);
                     break;
                 case 5:
                     str = c(x(new File("/data/anr/traces.txt")), "traces.txt");
                     break;
                 case 6:
                     if (!this.path.contains("..")) {
-                        str = c(oG(this.path), this.path);
+                        str = c(oT(this.path), this.path);
                         break;
                     } else {
                         str = "illegal path ..";
                         break;
                     }
                 case 7:
-                    str = oD(this.path);
+                    str = oQ(this.path);
                     break;
             }
         } catch (Exception e) {
@@ -135,27 +135,27 @@ public class UploadCommand implements h {
         return str;
     }
 
-    private String oC(String str) {
-        File cW = m.cW(str);
-        if (cW == null) {
+    private String oP(String str) {
+        File cY = m.cY(str);
+        if (cY == null) {
             return String.valueOf(str) + " not exist.";
         }
-        if (cW != null && cW.isDirectory()) {
-            String[] list = cW.list();
+        if (cY != null && cY.isDirectory()) {
+            String[] list = cY.list();
             if (list == null) {
                 return "";
             }
             for (int i = 0; i < list.length; i++) {
-                if (new File(cW.getAbsolutePath(), list[i]).isDirectory()) {
+                if (new File(cY.getAbsolutePath(), list[i]).isDirectory()) {
                     list[i] = String.valueOf(list[i]) + "(d)";
                 }
             }
-            return com.baidu.tieba.onlineDebugger.d.R(list);
+            return com.baidu.tieba.onlineDebugger.d.U(list);
         }
-        return cW.getName();
+        return cY.getName();
     }
 
-    private String oD(String str) {
+    private String oQ(String str) {
         File file = new File(Environment.getDataDirectory(), "//data//" + TbadkCoreApplication.m9getInst().getApplicationContext().getPackageName() + "//" + str);
         if (file == null) {
             return String.valueOf(str) + " not exist.";
@@ -170,12 +170,12 @@ public class UploadCommand implements h {
                     list[i] = String.valueOf(list[i]) + "(d)";
                 }
             }
-            return com.baidu.tieba.onlineDebugger.d.R(list);
+            return com.baidu.tieba.onlineDebugger.d.U(list);
         }
         return file.getName();
     }
 
-    private byte[] oE(String str) {
+    private byte[] oR(String str) {
         SharedPreferences sharedPreferences = TbadkCoreApplication.m9getInst().getSharedPreferences(str, 0);
         try {
             StringBuilder sb = new StringBuilder();
@@ -189,11 +189,11 @@ public class UploadCommand implements h {
         }
     }
 
-    private byte[] oF(String str) throws IOException {
-        return oG("databases//" + str);
+    private byte[] oS(String str) throws IOException {
+        return oT("databases//" + str);
     }
 
-    private byte[] oG(String str) throws IOException {
+    private byte[] oT(String str) throws IOException {
         return x(new File(Environment.getDataDirectory(), "//data//" + TbadkCoreApplication.m9getInst().getApplicationContext().getPackageName() + "//" + str));
     }
 
@@ -213,15 +213,15 @@ public class UploadCommand implements h {
     }
 
     private String c(byte[] bArr, String str) {
-        ab abVar = new ab(String.valueOf(URL) + "?fn=" + str.replace("/", "_"));
-        abVar.d("debugfile", bArr);
-        abVar.n("tbs", TbadkCoreApplication.m9getInst().getTbs());
-        abVar.n("type", SocialConstants.ANDROID_CLIENT_TYPE);
-        return abVar.ux();
+        z zVar = new z(String.valueOf(URL) + "?fn=" + str.replace("/", "_"));
+        zVar.d("debugfile", bArr);
+        zVar.n("tbs", TbadkCoreApplication.m9getInst().getTbs());
+        zVar.n("type", SocialConstants.ANDROID_CLIENT_TYPE);
+        return zVar.uB();
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public boolean aLj() {
+    public boolean aNc() {
         return !this.path.contains("..");
     }
 }

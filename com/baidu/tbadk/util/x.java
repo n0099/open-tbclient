@@ -1,44 +1,84 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.media.AudioManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitchStatic;
-import java.lang.ref.WeakReference;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class x {
-    public static boolean a(WeakReference<Context> weakReference, boolean z) {
-        if (weakReference == null || weakReference.get() == null) {
+    public static String at(String str, String str2) {
+        int indexOf = str.indexOf(str2);
+        if (indexOf != -1) {
+            int length = str2.length() + indexOf;
+            int i = length;
+            while (i < str.length() && str.charAt(i) != '&') {
+                i++;
+            }
+            return URLDecoder.decode(str.substring(length, i));
+        }
+        return "";
+    }
+
+    public static Bundle gE(String str) {
+        URL url;
+        String query;
+        String[] split;
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        Bundle bundle = new Bundle();
+        try {
+            url = new URL(str);
+            query = url.getQuery();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
+            return null;
+        }
+        bundle.putString("path", url.getPath());
+        for (String str2 : split) {
+            String[] split2 = str2.split("=");
+            if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
+                bundle.putString(split2[0], split2[1]);
+            }
+        }
+        return bundle;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public String BDUSS;
+        public String aFu;
+
+        public a(String str, String str2) {
+            this.BDUSS = "";
+            this.aFu = "";
+            this.BDUSS = str;
+            this.aFu = str2;
+        }
+
+        public int hashCode() {
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aFu != null ? this.aFu.hashCode() : 0);
+        }
+
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && getClass() == obj.getClass()) {
+                a aVar = (a) obj;
+                if (this.BDUSS == null) {
+                    if (aVar.BDUSS != null) {
+                        return false;
+                    }
+                } else if (!this.BDUSS.equals(aVar.BDUSS)) {
+                    return false;
+                }
+                return this.aFu == null ? aVar.aFu == null : this.aFu.equals(aVar.aFu);
+            }
             return false;
         }
-        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
-        if (z) {
-            return audioManager.requestAudioFocus(null, 3, 2) == 1;
-        }
-        return audioManager.abandonAudioFocus(null) == 1;
-    }
-
-    public static boolean fk(int i) {
-        switch (i) {
-            case 1:
-            case 2:
-                return (com.baidu.adp.lib.util.i.go() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.gn() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
-            case 3:
-                return (com.baidu.adp.lib.util.i.go() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || com.baidu.adp.lib.util.i.gn();
-            case 4:
-                return (com.baidu.adp.lib.util.i.go() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || com.baidu.adp.lib.util.i.gn();
-            case 5:
-                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (FrsHeadVideoAutoPlaySwitchStatic.GK() && com.baidu.adp.lib.util.i.gn() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
-            default:
-                return (com.baidu.adp.lib.util.i.go() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.gn() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
-        }
-    }
-
-    public static boolean q(int i, String str) {
-        if (az.isEmpty(com.baidu.tieba.play.y.hh(str)) || TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 1) {
-            return fk(i);
-        }
-        return true;
     }
 }

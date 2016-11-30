@@ -1,76 +1,43 @@
 package com.baidu.tieba.vote;
 
+import android.view.View;
+import com.baidu.adp.base.h;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.tbadk.widget.vote.a {
-    private String ZC;
-    private long asI;
-    private boolean isSelected = false;
-    private int mId;
-    private int mPercent;
-    private String mUrl;
+public class f implements View.OnClickListener {
+    private final /* synthetic */ String ets;
+    private final /* synthetic */ String ett;
+    private final /* synthetic */ String etu;
+    final /* synthetic */ b ggH;
 
-    public f(int i, String str, String str2, long j) {
-        this.mId = i;
-        this.ZC = str;
-        this.mUrl = str2;
-        this.asI = j;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(b bVar, String str, String str2, String str3) {
+        this.ggH = bVar;
+        this.ets = str;
+        this.ett = str2;
+        this.etu = str3;
     }
 
-    public void setSelected(boolean z) {
-        this.isSelected = z;
-    }
-
-    public void setPercent(int i) {
-        this.mPercent = i;
-    }
-
-    public void setNum(long j) {
-        this.asI = j;
-    }
-
-    public long getNum() {
-        return this.asI;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int getId() {
-        return this.mId;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Cj() {
-        return this.ZC;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public boolean isSelected() {
-        return this.isSelected;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Ck() {
-        return String.valueOf(this.asI) + TbadkCoreApplication.m9getInst().getString(r.j.vote_unit);
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Cl() {
-        return String.valueOf(this.mPercent) + TbadkCoreApplication.m9getInst().getString(r.j.vote_percent);
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int Cm() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int Cn() {
-        return this.mPercent;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Co() {
-        return this.mUrl;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        h hVar;
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ets) && !StringUtils.isNull(this.ett)) {
+            if (i.gm()) {
+                hVar = this.ggH.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ets) + "," + this.ett, this.etu, this.etu, hVar.getString(r.j.app_info_for_map));
+                pbActivity = this.ggH.eug;
+                com.baidu.tbadk.browser.f.u(pbActivity.getPageContext().getPageActivity(), format);
+                return;
+            }
+            pbActivity2 = this.ggH.eug;
+            pbActivity2.showToast(r.j.neterror);
+        }
     }
 }

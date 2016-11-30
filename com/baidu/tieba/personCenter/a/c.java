@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 import com.baidu.tieba.view.m;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.c, com.baidu.tieba.personCenter.e.b> {
-    private m eFl;
+    private m eLK;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
@@ -21,7 +21,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bB */
+    /* renamed from: bH */
     public com.baidu.tieba.personCenter.e.b a(ViewGroup viewGroup) {
         return new com.baidu.tieba.personCenter.e.b(LayoutInflater.from(this.mContext).inflate(r.h.item_person_center_list_normal_item, viewGroup, false));
     }
@@ -38,9 +38,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     }
 
     private void a(com.baidu.tieba.personCenter.e.b bVar, com.baidu.tieba.personCenter.c.c cVar) {
-        bVar.eFI.setText(this.mContext.getString(cVar.eFF));
-        ((com.baidu.tieba.personCenter.b.c) bVar.eFK.getTag()).a(this.mContext, bVar.eFK, cVar.bJr);
-        bVar.eFK.setVisibility(cVar.bJr == null ? 8 : 0);
+        bVar.eMh.setText(this.mContext.getString(cVar.eMe));
+        ((com.baidu.tieba.personCenter.b.c) bVar.eMj.getTag()).a(this.mContext, bVar.eMj, cVar.bMk);
+        bVar.eMj.setVisibility(cVar.bMk == null ? 8 : 0);
         a aVar = new a();
         aVar.a(cVar);
         bVar.getView().setOnClickListener(aVar);
@@ -48,38 +48,38 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
 
     private void b(com.baidu.tieba.personCenter.e.b bVar, com.baidu.tieba.personCenter.c.c cVar) {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-        av.c(bVar.eFH, cVar.iconId, skinType);
-        if (bVar.ahV != skinType) {
-            bVar.ahV = skinType;
-            av.k(bVar.getView(), r.f.item_person_header_attention_bg_selector);
-            av.c(bVar.eFI, r.d.cp_cont_b, 1);
-            av.c(bVar.eFJ, r.f.icon_arrow_tab, skinType);
-            if (cVar.bJr != null) {
-                ((com.baidu.tieba.personCenter.b.c) bVar.eFK.getTag()).onChangeSkinType(skinType);
+        at.c(bVar.eMg, cVar.iconId, skinType);
+        if (bVar.aiA != skinType) {
+            bVar.aiA = skinType;
+            at.k(bVar.getView(), r.f.item_person_header_attention_bg_selector);
+            at.c(bVar.eMh, r.d.cp_cont_b, 1);
+            at.c(bVar.eMi, r.f.icon_arrow_tab, skinType);
+            if (cVar.bMk != null) {
+                ((com.baidu.tieba.personCenter.b.c) bVar.eMj.getTag()).onChangeSkinType(skinType);
             }
         }
     }
 
     public void setOnViewResponseListener(m mVar) {
-        this.eFl = mVar;
+        this.eLK = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
-        private com.baidu.tieba.personCenter.c.c eFm;
+        private com.baidu.tieba.personCenter.c.c eLL;
 
         a() {
         }
 
         public void a(com.baidu.tieba.personCenter.c.c cVar) {
-            this.eFm = cVar;
+            this.eLL = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.eFl != null) {
-                c.this.eFl.a(view, this.eFm.eFE);
+            if (c.this.eLK != null) {
+                c.this.eLK.a(view, this.eLL.eMd);
             }
         }
     }

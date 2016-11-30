@@ -24,7 +24,7 @@ public class a {
             long j2 = 0;
             while (i < size) {
                 com.baidu.adp.lib.stats.base.c cVar = b.get(i);
-                long j3 = j2 + cVar.qA;
+                long j3 = j2 + cVar.qB;
                 arrayList2.add(cVar);
                 if (j3 >= 102400) {
                     bdUploadingLogInfo.add(arrayList2);
@@ -71,7 +71,7 @@ public class a {
             while (it.hasNext()) {
                 com.baidu.adp.lib.stats.base.c next = it.next();
                 if (next != null) {
-                    long j = next.qB;
+                    long j = next.qC;
                     if (j != 0 && j + TbConfig.APP_OVERDUR_DRAFT_BOX < currentTimeMillis) {
                         arrayList4.add(next.mFileName);
                     } else {

@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface f {
-    void adA();
+    void aeO();
 
-    void adz();
+    void aeP();
 
-    void onClosed();
+    void aeQ();
 
-    void onOpened();
+    void aeR();
 }

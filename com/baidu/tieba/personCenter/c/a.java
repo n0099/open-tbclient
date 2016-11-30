@@ -6,21 +6,21 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.person.g;
 import com.baidu.tieba.personInfo.PersonUserGodInfo;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    public c eFA;
-    private ArrayList<v> eFt = new ArrayList<>();
-    private PersonUserGodInfo eFu;
-    private g eFv;
-    private com.baidu.tieba.person.data.b eFw;
-    private com.baidu.tieba.person.data.c eFx;
-    public c eFy;
-    public c eFz;
+    private ArrayList<v> eLS = new ArrayList<>();
+    private PersonUserGodInfo eLT;
+    private g eLU;
+    private com.baidu.tieba.person.data.b eLV;
+    private com.baidu.tieba.person.data.c eLW;
+    public c eLX;
+    public c eLY;
+    public c eLZ;
     private UserData mUserData;
 
     public void a(com.baidu.tieba.person.c cVar) {
@@ -29,33 +29,33 @@ public class a {
                 this.mUserData = new UserData();
             }
             this.mUserData.parserProtobuf(cVar.GetUser());
-            if (this.eFu == null) {
-                this.eFu = new PersonUserGodInfo();
+            if (this.eLT == null) {
+                this.eLT = new PersonUserGodInfo();
             }
             if (cVar.getUserGodInfo() != null && cVar.getUserGodInfo().god_type.intValue() == 2) {
-                this.mUserData.isGodUser = true;
-                this.eFu.parserProtobuf(cVar.getUserGodInfo());
+                this.mUserData.setIsGod(true);
+                this.eLT.parserProtobuf(cVar.getUserGodInfo());
             }
             String userId = this.mUserData.getUserId();
             if (!StringUtils.isNull(userId)) {
                 TbadkCoreApplication.m9getInst();
                 if (!userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    com.baidu.tbadk.getUserInfo.b.Ec().a(this.mUserData);
+                    com.baidu.tbadk.getUserInfo.b.Eh().a(this.mUserData);
                 }
             }
-            this.eFv = cVar.getUcCardData();
+            this.eLU = cVar.getUcCardData();
             if (cVar.getBookrackData() != null) {
                 com.baidu.tieba.personInfo.a aVar = new com.baidu.tieba.personInfo.a();
                 aVar.a(cVar.getBookrackData());
-                this.eFw = new com.baidu.tieba.person.data.b(true, aVar);
+                this.eLV = new com.baidu.tieba.person.data.b(true, aVar);
             }
         }
     }
 
-    private void aSO() {
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
-        this.eFy = M(r.f.icon_mine_gift, r.j.gift_received_by_me, 10);
-        if (!y.t(this.mUserData.getGift())) {
+    private void aUV() {
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
+        this.eLX = M(r.f.icon_mine_gift, r.j.gift_received_by_me, 10);
+        if (!x.t(this.mUserData.getGift())) {
             ArrayList arrayList = new ArrayList();
             int i = 0;
             while (true) {
@@ -65,114 +65,114 @@ public class a {
                     i = i2 + 1;
                 }
             }
-            this.eFy.bJr = new Bundle();
-            this.eFy.bJr.putSerializable("person_center_item_pic", arrayList);
-            this.eFy.bJr.putBoolean("person_center_item_red_tip", true);
+            this.eLX.bMk = new Bundle();
+            this.eLX.bMk.putSerializable("person_center_item_pic", arrayList);
+            this.eLX.bMk.putBoolean("person_center_item_red_tip", true);
         }
-        this.eFy.eFE.bJr = new Bundle();
-        this.eFy.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.eFt.add(this.eFy);
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
+        this.eLX.eMd.bMk = new Bundle();
+        this.eLX.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eLS.add(this.eLX);
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
         c M = M(r.f.icon_mine_store_bluedrill, r.j.blue_drill_store, 11);
         if (this.mUserData != null && this.mUserData.membershipInfo != null && !StringUtils.isNull(this.mUserData.membershipInfo.mContent)) {
-            M.bJr = new Bundle();
-            M.bJr.putString("person_center_item_txt", this.mUserData.membershipInfo.mContent);
+            M.bMk = new Bundle();
+            M.bMk.putString("person_center_item_txt", this.mUserData.membershipInfo.mContent);
         }
-        M.eFE.bJr = new Bundle();
-        M.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.eFt.add(M);
-        if (this.eFx != null) {
-            c oT = this.eFx.oT(r.j.person_center_buy_record);
-            if (oT != null) {
-                this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
-                oT.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-                this.eFt.add(oT);
+        M.eMd.bMk = new Bundle();
+        M.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eLS.add(M);
+        if (this.eLW != null) {
+            c pg = this.eLW.pg(r.j.person_center_buy_record);
+            if (pg != null) {
+                this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
+                pg.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+                this.eLS.add(pg);
             }
             if (this.mUserData.isSeller()) {
-                c oT2 = this.eFx.oT(r.j.ecomm_my_shop);
-                if (oT2 != null) {
-                    this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
-                    oT2.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-                    this.eFt.add(oT2);
+                c pg2 = this.eLW.pg(r.j.ecomm_my_shop);
+                if (pg2 != null) {
+                    this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
+                    pg2.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+                    this.eLS.add(pg2);
                 }
             } else {
-                c oT3 = this.eFx.oT(r.j.person_center_my_order);
-                if (oT3 != null) {
-                    this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
-                    oT3.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-                    this.eFt.add(oT3);
+                c pg3 = this.eLW.pg(r.j.person_center_my_order);
+                if (pg3 != null) {
+                    this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
+                    pg3.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+                    this.eLS.add(pg3);
                 }
             }
         }
-        this.eFz = M(r.f.icon_mine_collect, r.j.person_center_collect, 15);
-        this.eFz.bJr = new Bundle();
-        this.eFz.bJr.putBoolean("person_center_item_red_tip", true);
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
-        this.eFz.eFE.bJr = new Bundle();
-        this.eFz.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.eFt.add(this.eFz);
+        this.eLY = M(r.f.icon_mine_collect, r.j.person_center_collect, 15);
+        this.eLY.bMk = new Bundle();
+        this.eLY.bMk.putBoolean("person_center_item_red_tip", true);
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
+        this.eLY.eMd.bMk = new Bundle();
+        this.eLY.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eLS.add(this.eLY);
         c M2 = M(r.f.icon_mine_history, r.j.person_center_history, 16);
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
-        M2.eFE.bJr = new Bundle();
-        M2.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.eFt.add(M2);
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
+        M2.eMd.bMk = new Bundle();
+        M2.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eLS.add(M2);
         c M3 = M(r.f.icon_mine_anchor, r.j.host_mission, 17);
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
-        M3.eFE.bJr = new Bundle();
-        M3.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.eFt.add(M3);
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
-        this.eFt.add(this.eFw);
-        this.eFA = M(r.f.icon_mine_friend, r.j.person_center_friend, 19);
-        this.eFA.bJr = new Bundle();
-        this.eFA.bJr.putBoolean("person_center_item_red_tip", true);
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
-        this.eFA.eFE.bJr = new Bundle();
-        this.eFA.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.eFt.add(this.eFA);
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
+        M3.eMd.bMk = new Bundle();
+        M3.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eLS.add(M3);
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
+        this.eLS.add(this.eLV);
+        this.eLZ = M(r.f.icon_mine_friend, r.j.person_center_friend, 19);
+        this.eLZ.bMk = new Bundle();
+        this.eLZ.bMk.putBoolean("person_center_item_red_tip", true);
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
+        this.eLZ.eMd.bMk = new Bundle();
+        this.eLZ.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eLS.add(this.eLZ);
         c M4 = M(r.f.icon_mine_group, r.j.person_center_group, 20);
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
-        M4.eFE.bJr = new Bundle();
-        M4.eFE.bJr.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.eFt.add(M4);
-        this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds220), r.d.cp_bg_line_c));
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds1), r.d.cp_bg_line_c));
+        M4.eMd.bMk = new Bundle();
+        M4.eMd.bMk.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eLS.add(M4);
+        this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds220), r.d.cp_bg_line_c));
     }
 
-    public void aSP() {
-        if (this.eFv != null && !y.t(this.eFv.eDE)) {
-            this.eFt.add(bl(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
-            this.eFx = new com.baidu.tieba.person.data.c();
-            this.eFx.setName(this.eFv.name);
-            this.eFx.pE(this.eFv.eDD);
-            this.eFx.setIcon(this.eFv.icon);
-            this.eFx.pD(this.eFv.eDC);
-            this.eFx.cz(this.eFv.eDE);
-            this.eFt.add(this.eFx);
+    public void aUW() {
+        if (this.eLU != null && !x.t(this.eLU.eKd)) {
+            this.eLS.add(bm(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.e.ds20), r.d.cp_bg_line_c));
+            this.eLW = new com.baidu.tieba.person.data.c();
+            this.eLW.setName(this.eLU.name);
+            this.eLW.pR(this.eLU.eKc);
+            this.eLW.setIcon(this.eLU.icon);
+            this.eLW.pQ(this.eLU.eKb);
+            this.eLW.cB(this.eLU.eKd);
+            this.eLS.add(this.eLW);
         }
-        aSO();
+        aUV();
     }
 
     private c M(int i, int i2, int i3) {
         c cVar = new c();
         cVar.iconId = i;
-        cVar.eFF = i2;
-        cVar.eFE = new com.baidu.tieba.personCenter.d.a();
-        cVar.eFE.bJq = i3;
+        cVar.eMe = i2;
+        cVar.eMd = new com.baidu.tieba.personCenter.d.a();
+        cVar.eMd.bMj = i3;
         return cVar;
     }
 
-    private b bl(int i, int i2) {
+    private b bm(int i, int i2) {
         b bVar = new b();
-        bVar.eAj = i;
-        bVar.eFC = i2;
+        bVar.eGS = i;
+        bVar.eMb = i2;
         return bVar;
     }
 
-    public ArrayList<v> aph() {
-        return this.eFt;
+    public ArrayList<v> ard() {
+        return this.eLS;
     }
 
-    public UserData aSQ() {
+    public UserData aUX() {
         return this.mUserData;
     }
 }

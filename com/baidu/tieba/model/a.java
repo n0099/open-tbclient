@@ -1,7 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public interface a {
-    void RL();
+    void SN();
 
     boolean hasMoreData();
 

@@ -17,7 +17,7 @@ class a extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001332 && customResponsedMessage.getData() != null) {
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 TbadkCoreApplication.m9getInst().setIsKuangLogin(true);
-                b.bJ(true);
+                b.bN(true);
                 return;
             }
             TbadkCoreApplication.m9getInst().setIsKuangLogin(false);

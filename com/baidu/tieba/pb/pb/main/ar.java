@@ -4,65 +4,65 @@ import com.baidu.tieba.d.a;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class ar implements a.InterfaceC0058a {
-    final int bQj;
-    final /* synthetic */ PbActivity eqa;
+    final int bVH;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(PbActivity pbActivity) {
-        this.eqa = pbActivity;
-        this.bQj = (int) pbActivity.getResources().getDimension(r.e.ds98);
+        this.evL = pbActivity;
+        this.bVH = (int) pbActivity.getResources().getDimension(r.e.ds98);
     }
 
     @Override // com.baidu.tieba.d.a.InterfaceC0058a
-    public void O(int i, int i2) {
-        ex exVar;
-        com.baidu.tieba.pb.pb.main.a.f fVar;
-        ex exVar2;
-        com.baidu.tieba.pb.pb.main.a.f fVar2;
-        com.baidu.tieba.pb.pb.main.a.f fVar3;
+    public void P(int i, int i2) {
+        ey eyVar;
+        com.baidu.tieba.pb.pb.main.a.j jVar;
+        ey eyVar2;
+        com.baidu.tieba.pb.pb.main.a.j jVar2;
+        com.baidu.tieba.pb.pb.main.a.j jVar3;
         if (af(i2)) {
-            exVar = this.eqa.epe;
-            if (exVar != null) {
-                fVar = this.eqa.eoN;
-                if (fVar != null) {
-                    exVar2 = this.eqa.epe;
-                    exVar2.aQz();
-                    fVar2 = this.eqa.eoN;
-                    fVar2.dq(false);
-                    fVar3 = this.eqa.eoN;
-                    fVar3.Zd();
+            eyVar = this.evL.euP;
+            if (eyVar != null) {
+                jVar = this.evL.eux;
+                if (jVar != null) {
+                    eyVar2 = this.evL.euP;
+                    eyVar2.aSu();
+                    jVar2 = this.evL.eux;
+                    jVar2.dv(false);
+                    jVar3 = this.evL.eux;
+                    jVar3.aaf();
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.d.a.InterfaceC0058a
-    public void P(int i, int i2) {
-        ex exVar;
-        com.baidu.tieba.pb.pb.main.a.f fVar;
-        com.baidu.tieba.pb.pb.main.a.f fVar2;
-        ex exVar2;
-        ex exVar3;
-        ex exVar4;
-        com.baidu.tieba.pb.pb.main.a.f fVar3;
+    public void Q(int i, int i2) {
+        ey eyVar;
+        com.baidu.tieba.pb.pb.main.a.j jVar;
+        com.baidu.tieba.pb.pb.main.a.j jVar2;
+        ey eyVar2;
+        ey eyVar3;
+        ey eyVar4;
+        com.baidu.tieba.pb.pb.main.a.j jVar3;
         if (af(i2)) {
-            exVar = this.eqa.epe;
-            if (exVar != null) {
-                fVar = this.eqa.eoN;
-                if (fVar != null) {
-                    fVar2 = this.eqa.eoN;
-                    fVar2.dq(true);
-                    if (Math.abs(i2) > this.bQj) {
-                        exVar4 = this.eqa.epe;
-                        exVar4.aQy();
-                        fVar3 = this.eqa.eoN;
-                        fVar3.Zc();
+            eyVar = this.evL.euP;
+            if (eyVar != null) {
+                jVar = this.evL.eux;
+                if (jVar != null) {
+                    jVar2 = this.evL.eux;
+                    jVar2.dv(true);
+                    if (Math.abs(i2) > this.bVH) {
+                        eyVar4 = this.evL.euP;
+                        eyVar4.aSt();
+                        jVar3 = this.evL.eux;
+                        jVar3.aae();
                     }
-                    if (this.eqa.aNE()) {
-                        exVar2 = this.eqa.epe;
-                        exVar2.aPM();
-                        exVar3 = this.eqa.epe;
-                        exVar3.aPN();
+                    if (this.evL.aPv()) {
+                        eyVar2 = this.evL.euP;
+                        eyVar2.aRR();
+                        eyVar3 = this.evL.euP;
+                        eyVar3.aRS();
                     }
                 }
             }

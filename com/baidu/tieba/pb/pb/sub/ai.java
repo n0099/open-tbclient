@@ -1,30 +1,51 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* loaded from: classes.dex */
-public class ai implements a.b {
-    final /* synthetic */ ag eyq;
-    private final /* synthetic */ SparseArray eyr;
+class ai extends CustomMessageListener {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ag agVar, SparseArray sparseArray) {
-        this.eyq = agVar;
-        this.eyr = sparseArray;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(NewSubPbActivity newSubPbActivity, int i) {
+        super(i);
+        this.eEs = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        NewSubPbActivity.a aVar2;
-        NewSubPbActivity.a aVar3;
-        aVar2 = this.eyq.eyh;
-        if (aVar2 != null) {
-            aVar3 = this.eyq.eyh;
-            aVar3.g(new Object[]{this.eyr.get(r.g.tag_del_post_id), this.eyr.get(r.g.tag_manage_user_identity), this.eyr.get(r.g.tag_del_post_is_self), this.eyr.get(r.g.tag_del_post_type)});
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        ao aoVar;
+        com.baidu.tbadk.core.view.h hVar;
+        com.baidu.adp.base.h hVar2;
+        com.baidu.tbadk.core.view.h hVar3;
+        com.baidu.adp.base.h hVar4;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.eEs.eEn;
+            if (tag == bdUniqueId) {
+                aoVar = this.eEs.eEd;
+                aoVar.aMZ();
+                UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
+                if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
+                    hVar3 = this.eEs.evf;
+                    hVar4 = this.eEs.eve;
+                    hVar3.c(hVar4.getResources().getString(r.j.un_mute_success));
+                    return;
+                }
+                String muteMessage = userMuteDelResponseMessage.getMuteMessage();
+                if (com.baidu.tbadk.core.util.ax.isEmpty(muteMessage)) {
+                    hVar2 = this.eEs.eve;
+                    muteMessage = hVar2.getResources().getString(r.j.un_mute_fail);
+                }
+                hVar = this.eEs.evf;
+                hVar.d(muteMessage);
+            }
         }
-        aVar.dismiss();
     }
 }

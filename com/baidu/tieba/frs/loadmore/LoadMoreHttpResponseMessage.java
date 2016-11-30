@@ -8,10 +8,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.af;
-import com.baidu.tbadk.core.data.as;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.au;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.c;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.recapp.g;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (y.s(threadListResIdl.data.user_list) > 0) {
+                if (x.s(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -58,27 +59,27 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         }
                     }
                 }
-                if (y.s(threadListResIdl.data.thread_list) > 0) {
+                if (x.s(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         for (int i3 = 0; i3 < list2.size(); i3++) {
-                            bi biVar = new bi();
-                            biVar.setUserMap(this.userMap);
-                            biVar.a(list2.get(i3));
-                            biVar.su();
-                            if (biVar.getThreadType() == 33) {
-                                as asVar = new as();
-                                asVar.a(biVar, 0);
+                            bk bkVar = new bk();
+                            bkVar.setUserMap(this.userMap);
+                            bkVar.a(list2.get(i3));
+                            bkVar.sw();
+                            if (bkVar.getThreadType() == 33) {
+                                au auVar = new au();
+                                auVar.a(bkVar, 0);
                                 if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                    this.threadList.add(asVar);
+                                    this.threadList.add(auVar);
                                 }
-                            } else if (!TextUtils.isEmpty(biVar.sH())) {
-                                af afVar = new af();
-                                afVar.cn(biVar.sH());
-                                this.threadList.add(afVar);
+                            } else if (!TextUtils.isEmpty(bkVar.sJ())) {
+                                ah ahVar = new ah();
+                                ahVar.cp(bkVar.sJ());
+                                this.threadList.add(ahVar);
                             } else {
-                                this.threadList.add(biVar);
+                                this.threadList.add(bkVar);
                             }
                         }
                     }
@@ -93,8 +94,8 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private void addRecAppList(ArrayList<v> arrayList, BannerList bannerList) {
         int g;
         if (TbadkCoreApplication.m9getInst().isRecAppExist() && bannerList != null) {
-            int s = y.s(arrayList);
-            int s2 = y.s(bannerList.app);
+            int s = x.s(arrayList);
+            int s2 = x.s(bannerList.app);
             if (s > 0 && s2 > 0) {
                 BannerListData bannerListData = new BannerListData();
                 bannerListData.parserProtobuf(bannerList);
@@ -102,25 +103,25 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 HashSet hashSet = new HashSet();
                 TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
                 for (int i = 0; i < size; i++) {
-                    com.baidu.tbadk.core.data.b bVar = bannerListData.getAllAdvertList().get(i);
-                    if (bVar != null && bVar.ph() && com.baidu.adp.lib.h.b.g(bVar.adPosition, 0) - 1 >= 0 && !hashSet.contains(Integer.valueOf(g)) && g < s) {
-                        if (bVar.pi()) {
-                            if (!g.isInstalledPackage(m9getInst, bVar.Pg) && !TextUtils.isEmpty(bVar.Pg) && !TextUtils.isEmpty(bVar.Pa)) {
-                                boolean fj = com.baidu.tieba.recapp.b.a.bbX().fj(bVar.Pg);
-                                boolean fl = com.baidu.tieba.recapp.b.a.bbX().fl(bVar.Pg);
-                                if (fj) {
-                                    bVar.OY = 1;
-                                } else if (fl) {
-                                    bVar.OY = 2;
+                    c cVar = bannerListData.getAllAdvertList().get(i);
+                    if (cVar != null && cVar.pj() && com.baidu.adp.lib.h.b.g(cVar.adPosition, 0) - 1 >= 0 && !hashSet.contains(Integer.valueOf(g)) && g < s) {
+                        if (cVar.pk()) {
+                            if (!g.isInstalledPackage(m9getInst, cVar.Ps) && !TextUtils.isEmpty(cVar.Ps) && !TextUtils.isEmpty(cVar.Pn)) {
+                                boolean fm = com.baidu.tieba.recapp.b.a.beu().fm(cVar.Ps);
+                                boolean fo = com.baidu.tieba.recapp.b.a.beu().fo(cVar.Ps);
+                                if (fm) {
+                                    cVar.Pl = 1;
+                                } else if (fo) {
+                                    cVar.Pl = 2;
                                 } else {
-                                    bVar.OY = 0;
+                                    cVar.Pl = 0;
                                 }
                                 hashSet.add(Integer.valueOf(g));
-                                arrayList.add(g, bVar);
+                                arrayList.add(g, cVar);
                             }
-                        } else if (bVar.pj()) {
+                        } else if (cVar.pl()) {
                             hashSet.add(Integer.valueOf(g));
-                            arrayList.add(g, bVar);
+                            arrayList.add(g, cVar);
                         }
                     }
                 }

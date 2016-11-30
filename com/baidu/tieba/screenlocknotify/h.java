@@ -1,24 +1,26 @@
 package com.baidu.tieba.screenlocknotify;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends CustomMessageListener {
-    final /* synthetic */ f ffC;
+public class h implements View.OnClickListener {
+    final /* synthetic */ ScreenLockActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(f fVar, int i) {
-        super(i);
-        this.ffC = fVar;
+    public h(ScreenLockActivity screenLockActivity) {
+        this.this$0 = screenLockActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016004) {
-            this.ffC.f(customResponsedMessage);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        TextView textView2;
+        textView = this.this$0.fmy;
+        textView.setText(this.this$0.getResources().getString(r.j.loading));
+        textView2 = this.this$0.fmy;
+        textView2.setEnabled(false);
+        this.this$0.JA();
     }
 }

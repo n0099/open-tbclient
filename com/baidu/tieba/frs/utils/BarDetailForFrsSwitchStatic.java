@@ -1,10 +1,8 @@
 package com.baidu.tieba.frs.utils;
-
-import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class BarDetailForFrsSwitchStatic extends com.baidu.adp.lib.c.a {
     static {
-        e.dN().n(BarDetailForFrsSwitchStatic.class);
+        com.baidu.adp.lib.c.e.dN().n(BarDetailForFrsSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

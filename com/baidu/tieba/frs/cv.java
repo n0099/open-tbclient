@@ -1,67 +1,38 @@
 package com.baidu.tieba.frs;
 
+import android.animation.Animator;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
-import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cv extends bf<cw, cx> {
-    private final LinkedList<com.baidu.tbadk.f.f> bTe;
-    private final LinkedList<RelativeLayout> bTf;
+public class cv implements Animator.AnimatorListener {
+    final /* synthetic */ cs bWl;
 
-    public cv(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.bTe = new LinkedList<>();
-        this.bTf = new LinkedList<>();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cv(cs csVar) {
+        this.bWl = csVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: u */
-    public cx a(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
-        relativeLayout.setLayoutParams(new AbsListView.LayoutParams(-1, (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds90)));
-        relativeLayout.setGravity(17);
-        com.baidu.tbadk.f.f fVar = new com.baidu.tbadk.f.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(r.e.ds140));
-        fVar.M(relativeLayout);
-        this.bTe.add(fVar);
-        this.bTf.add(relativeLayout);
-        cx cxVar = new cx(relativeLayout);
-        cxVar.bTh = fVar;
-        return cxVar;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bf, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, cw cwVar, cx cxVar) {
-        if (cxVar != null && cxVar.bTh != null) {
-            cxVar.bTh.tx();
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        View view;
+        View view2;
+        view = this.bWl.bWg;
+        if (view != null) {
+            this.bWl.adP();
+            view2 = this.bWl.bWg;
+            view2.setAlpha(1.0f);
         }
-        return view;
     }
 
-    @Override // com.baidu.tieba.frs.bf
-    public void release() {
-        super.release();
-        if (this.bTe.size() != 0 && this.bTf.size() == this.bTe.size()) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.bTe.size()) {
-                    break;
-                }
-                this.bTe.get(i2).L(this.bTf.get(i2));
-                i = i2 + 1;
-            }
-        }
-        this.bTe.clear();
-        this.bTf.clear();
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
     }
 }

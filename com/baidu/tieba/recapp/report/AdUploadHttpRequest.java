@@ -2,8 +2,9 @@ package com.baidu.tieba.recapp.report;
 
 import android.os.Build;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +14,9 @@ import org.json.JSONArray;
 public class AdUploadHttpRequest extends HttpMessage {
     private static final String KEY_AD = "ad";
     private static final String KEY_BRAND = "brand";
+    private static final String KEY_NET_TYPE = "net_type";
     private static final String KEY_OS_VERSION = "_os_version";
+    private static final String KEY_PRODUCT_ID = "productId";
     private ArrayList<a> dataArray;
 
     public AdUploadHttpRequest(ArrayList<a> arrayList) {
@@ -23,6 +26,8 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_AD, toJSONString(this.dataArray));
         addParam(KEY_BRAND, Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
+        addParam(KEY_PRODUCT_ID, 2);
+        addParam(KEY_NET_TYPE, i.gs());
     }
 
     public AdUploadHttpRequest(a aVar) {
@@ -39,7 +44,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     private String toJSONString(ArrayList<a> arrayList) {
-        if (y.s(arrayList) <= 0) {
+        if (x.s(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -47,7 +52,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null) {
-                jSONArray.put(next.bcd());
+                jSONArray.put(next.beE());
             }
         }
         return jSONArray.toString();

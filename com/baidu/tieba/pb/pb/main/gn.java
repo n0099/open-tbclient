@@ -1,155 +1,123 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
-import com.baidu.tieba.r;
-import java.util.Map;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.pb.pb.main.ei;
 /* loaded from: classes.dex */
-public class gn {
-    private static gn ewP = null;
-    private com.baidu.tbadk.core.dialog.a ewQ = null;
-    private String ewR = null;
-    private String bKR = null;
-    private String ewS = null;
-    private String ewT = null;
-    private String mPackageName = null;
+class gn implements ei.a {
+    final /* synthetic */ ReaderPbService eDb;
 
-    public static gn aQL() {
-        if (ewP == null) {
-            synchronized (gn.class) {
-                if (ewP == null) {
-                    ewP = new gn();
-                }
-            }
-        }
-        return ewP;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gn(ReaderPbService readerPbService) {
+        this.eDb = readerPbService;
     }
 
-    public void h(TbPageContext tbPageContext, String str) {
-        if (tbPageContext != null && !TextUtils.isEmpty(str)) {
-            boolean z = str.contains("is_native_app=1");
-            if (pu(str) || z) {
-                boolean n = com.baidu.adp.lib.util.k.n(tbPageContext.getPageActivity(), "com.qiyi.video");
-                pr(str);
-                if (n) {
-                    x(tbPageContext);
-                } else {
-                    y(tbPageContext);
-                }
-            } else if (ps(str)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (pt(str)) {
-                com.baidu.tbadk.core.util.bh.vL().a(tbPageContext, new String[]{str}, true);
-            } else {
-                com.baidu.tbadk.core.util.bh.vL().c(tbPageContext, new String[]{str});
-            }
-        }
-    }
-
-    public static boolean pq(String str) {
-        return str != null && str.contains("bookcover:");
-    }
-
-    private void x(TbPageContext tbPageContext) {
-        if (tbPageContext != null) {
-            if (TextUtils.isEmpty(this.ewS) || TextUtils.isEmpty(this.ewT) || TextUtils.isEmpty(this.mPackageName)) {
-                if (!TextUtils.isEmpty(this.ewR)) {
-                    com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), false, this.ewR);
+    @Override // com.baidu.tieba.pb.pb.main.ei.a
+    public void aRv() {
+        boolean z;
+        el elVar;
+        el elVar2;
+        el elVar3;
+        String str;
+        BdUniqueId bdUniqueId;
+        z = this.eDb.isAlive;
+        if (!z) {
+            elVar = this.eDb.mReaderModel;
+            if (elVar != null) {
+                elVar2 = this.eDb.mReaderModel;
+                if (elVar2 != null) {
+                    elVar3 = this.eDb.mReaderModel;
+                    str = this.eDb.threadId;
+                    elVar3.py(str);
                     return;
                 }
                 return;
             }
-            Intent intent = new Intent();
-            intent.setData(Uri.parse(this.ewS));
-            intent.setAction(this.ewT);
-            intent.setPackage(this.mPackageName);
-            if (intent.resolveActivity(tbPageContext.getPageActivity().getPackageManager()) != null) {
-                if (!com.baidu.adp.lib.h.i.b(tbPageContext.getPageActivity(), intent) && !TextUtils.isEmpty(this.ewR)) {
-                    com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), false, this.ewR);
-                }
-            } else if (!TextUtils.isEmpty(this.ewR)) {
-                com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), false, this.ewR);
-            }
+            return;
         }
+        com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
+        bdUniqueId = this.eDb.mTagId;
+        aVar.tag = bdUniqueId;
+        aVar.eFN = 0;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
     }
 
-    private void pr(String str) {
-        String[] split;
-        int indexOf;
-        if (!TextUtils.isEmpty(str) && (split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null && split.length != 0) {
-            for (int i = 0; i < split.length; i++) {
-                if (!TextUtils.isEmpty(split[i])) {
-                    if (split[i].contains("qiyimobile:")) {
-                        int lastIndexOf = split[i].lastIndexOf("&");
-                        if (lastIndexOf >= 0 && lastIndexOf < split[i].length()) {
-                            this.ewS = split[i].substring(0, lastIndexOf);
-                        }
-                    } else if (split[i].contains("action=")) {
-                        int indexOf2 = split[i].indexOf("=");
-                        if (indexOf2 >= 0 && indexOf2 < split[i].length()) {
-                            this.ewT = split[i].substring(indexOf2 + 1, split[i].length());
-                        }
-                    } else if (split[i].contains("package=")) {
-                        int indexOf3 = split[i].indexOf("=");
-                        if (indexOf3 >= 0 && indexOf3 < split[i].length()) {
-                            this.mPackageName = split[i].substring(indexOf3 + 1, split[i].length());
-                        }
-                    } else if (split[i].contains("download_url:")) {
-                        int indexOf4 = split[i].indexOf("http:");
-                        if (indexOf4 >= 0 && indexOf4 < split[i].length()) {
-                            this.bKR = split[i].substring(indexOf4, split[i].length());
-                        }
-                    } else if (split[i].contains("web_play_url:") && (indexOf = split[i].indexOf("http:")) >= 0 && indexOf < split[i].length()) {
-                        this.ewR = split[i].substring(indexOf, split[i].length());
-                    }
-                }
-            }
-        }
-    }
-
-    private void y(TbPageContext tbPageContext) {
-        if (tbPageContext != null) {
-            if (!com.baidu.adp.lib.util.i.gn()) {
-                if (!TextUtils.isEmpty(this.ewR)) {
-                    com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), false, this.ewR);
-                    return;
-                }
+    @Override // com.baidu.tieba.pb.pb.main.ei.a
+    public void aRw() {
+        boolean z;
+        el elVar;
+        el elVar2;
+        BdUniqueId bdUniqueId;
+        z = this.eDb.isAlive;
+        if (!z) {
+            elVar = this.eDb.mReaderModel;
+            if (elVar != null) {
+                elVar2 = this.eDb.mReaderModel;
+                elVar2.aRx();
                 return;
             }
-            if (this.ewQ == null) {
-                this.ewQ = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                this.ewQ.bZ(r.j.download_iqiyi_app_dialog);
-                this.ewQ.a(r.j.install_app, new go(this, tbPageContext));
-                this.ewQ.b(r.j.webpage_play, new gp(this, tbPageContext));
-                this.ewQ.ar(false);
-            }
-            this.ewQ.b(tbPageContext).tm();
+            return;
         }
+        com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
+        bdUniqueId = this.eDb.mTagId;
+        aVar.tag = bdUniqueId;
+        aVar.eFN = 1;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
     }
 
-    private boolean ps(String str) {
-        Map<String, String> dI;
-        if (!TextUtils.isEmpty(str) && (dI = com.baidu.tbadk.core.util.bh.dI(com.baidu.tbadk.core.util.bh.dJ(str))) != null) {
-            String str2 = dI.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return ps(com.baidu.adp.lib.util.j.aQ(str2));
+    @Override // com.baidu.tieba.pb.pb.main.ei.a
+    public void bl(int i, int i2) {
+        boolean z;
+        ei eiVar;
+        ei eiVar2;
+        ei eiVar3;
+        ei eiVar4;
+        String str;
+        ei eiVar5;
+        BdUniqueId bdUniqueId;
+        ei eiVar6;
+        ei eiVar7;
+        ei eiVar8;
+        ei eiVar9;
+        z = this.eDb.isAlive;
+        if (z) {
+            com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
+            bdUniqueId = this.eDb.mTagId;
+            aVar.tag = bdUniqueId;
+            aVar.eFN = 2;
+            eiVar6 = this.eDb.mReaderManager;
+            aVar.eFO = eiVar6.ezP;
+            eiVar7 = this.eDb.mReaderManager;
+            aVar.eFP = eiVar7.aRt();
+            String str2 = "";
+            eiVar8 = this.eDb.mReaderManager;
+            if (eiVar8.aRu() != null) {
+                eiVar9 = this.eDb.mReaderManager;
+                str2 = eiVar9.aRu().getId();
             }
-            String str3 = dI.get("tbgametype");
-            return !TextUtils.isEmpty(str3) && str3.equals("1");
+            aVar.postId = str2;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
+            return;
         }
-        return false;
-    }
-
-    private boolean pt(String str) {
-        return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
-    }
-
-    private boolean pu(String str) {
-        return !TextUtils.isEmpty(str) && str.contains("com.qiyi.video");
+        String str3 = "";
+        eiVar = this.eDb.mReaderManager;
+        if (eiVar.aRu() != null) {
+            eiVar5 = this.eDb.mReaderManager;
+            str3 = eiVar5.aRu().getId();
+        }
+        eiVar2 = this.eDb.mReaderManager;
+        boolean z2 = eiVar2.ezU;
+        eiVar3 = this.eDb.mReaderManager;
+        boolean z3 = eiVar3.isSquence;
+        eiVar4 = this.eDb.mReaderManager;
+        int i3 = eiVar4.ezP;
+        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.eDb);
+        str = this.eDb.threadId;
+        pbActivityConfig.createReaderServiceCfg(str, str3, i3, z2, z3, null);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
     }
 }

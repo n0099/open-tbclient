@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -240,15 +240,15 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bi biVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (biVar != null) {
+    public PbActivityConfig createFromThreadCfg(bk bkVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bkVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", biVar.getId());
-            intent.putExtra("is_good", biVar.rK());
-            intent.putExtra("is_top", biVar.rJ());
-            intent.putExtra(KEY_THREAD_TIME, biVar.rI());
+            intent.putExtra("thread_id", bkVar.getId());
+            intent.putExtra("is_good", bkVar.rM());
+            intent.putExtra("is_top", bkVar.rL());
+            intent.putExtra(KEY_THREAD_TIME, bkVar.rK());
             intent.putExtra("st_type", str2);
-            intent.putExtra("from_frs", biVar.rJ() != 2);
+            intent.putExtra("from_frs", bkVar.rL() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
@@ -257,10 +257,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (biVar.rF() == null ? 0L : biVar.rF().getNum()));
-            if (biVar.getAuthor() != null && biVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, biVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, biVar.getAuthor().getGodUserData().getFollowed());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bkVar.rH() == null ? 0L : bkVar.rH().getNum()));
+            if (bkVar.getAuthor() != null && bkVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bkVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bkVar.getAuthor().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }

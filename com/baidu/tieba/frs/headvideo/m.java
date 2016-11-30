@@ -1,26 +1,20 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class m implements Animation.AnimationListener {
-    final /* synthetic */ ForumHeadVideoView ccf;
+class m implements com.baidu.tbadk.widget.layout.i {
+    final /* synthetic */ ForumHeadVideoView cfB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ForumHeadVideoView forumHeadVideoView) {
-        this.ccf = forumHeadVideoView;
+        this.cfB = forumHeadVideoView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        com.baidu.adp.lib.h.h.eG().post(this.ccf.mRunnable);
+    @Override // com.baidu.tbadk.widget.layout.i
+    public void a(View view, int i, int i2, int i3, int i4) {
+        int afL = a.afL();
+        if (i > 0 && i2 > 0 && afL == 0) {
+            this.cfB.aga();
+        }
     }
 }

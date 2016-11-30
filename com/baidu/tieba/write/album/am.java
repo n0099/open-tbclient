@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements ap {
-    private final /* synthetic */ String gdA;
-    final /* synthetic */ ag gdz;
+    final /* synthetic */ ag gle;
+    private final /* synthetic */ String glf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ag agVar, String str) {
-        this.gdz = agVar;
-        this.gdA = str;
+        this.gle = agVar;
+        this.glf = str;
     }
 
     @Override // com.baidu.tieba.write.album.ap
@@ -30,23 +30,25 @@ public class am implements ap {
         o oVar;
         o oVar2;
         ArrayList arrayList = new ArrayList();
-        if (!com.baidu.tbadk.core.util.y.t(list2)) {
+        if (!com.baidu.tbadk.core.util.x.t(list2)) {
             arrayList.addAll(list2);
         }
-        if (!this.gdA.equals("-1")) {
-            textView = this.gdz.FX;
+        if (!this.glf.equals("-1")) {
+            textView = this.gle.FZ;
             textView.setText(str);
-            this.gdz.bsF();
+            this.gle.bva();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.addAll(list);
+            if (!com.baidu.tbadk.core.util.x.t(list)) {
+                arrayList2.addAll(list);
+            }
             d dVar = new d();
             dVar.setAlbumId("-1");
-            albumActivity = this.gdz.gco;
+            albumActivity = this.gle.gjT;
             String string = albumActivity.getPageContext().getString(r.j.write_album_all);
             dVar.setName(string);
-            dVar.su(String.valueOf(arrayList.size()));
+            dVar.sQ(String.valueOf(arrayList.size()));
             if (arrayList.size() > 0) {
                 dVar.g((ImageFileInfo) arrayList.get(0));
             }
@@ -54,14 +56,14 @@ public class am implements ap {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             arrayList.add(0, imageFileInfo);
-            textView2 = this.gdz.FX;
+            textView2 = this.gle.FZ;
             textView2.setText(string);
-            oVar = this.gdz.gbZ;
-            oVar.dw(arrayList2);
-            oVar2 = this.gdz.gbZ;
-            oVar2.dx(arrayList);
+            oVar = this.gle.gjE;
+            oVar.dC(arrayList2);
+            oVar2 = this.gle.gjE;
+            oVar2.dD(arrayList);
             z = true;
         }
-        this.gdz.setData(arrayList, z);
+        this.gle.setData(arrayList, z);
     }
 }

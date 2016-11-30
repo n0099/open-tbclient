@@ -1,36 +1,45 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
-public class br {
-    private int Vq = 0;
-    private bq Vr = new bq();
+public class br extends com.baidu.tieba.tbadkCore.data.q {
+    public static final BdUniqueId VM = BdUniqueId.gen();
+    private String Sw;
+    private int position = 0;
+    private String summary;
 
-    public boolean te() {
-        return this.Vq != 0;
+    public String tf() {
+        return this.Sw;
     }
 
-    public bq tf() {
-        return this.Vr;
+    public String getSummary() {
+        return this.summary;
     }
 
-    public void a(Yule yule) {
-        if (yule != null) {
-            this.Vq = yule.activity_show.intValue();
-            this.Vr.a(yule.yule_activity);
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.Sw = topNews.news_link;
+            this.summary = topNews.summary;
         }
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Vq = jSONObject.optInt("activity_show");
-                this.Vr.parserJson(jSONObject.optJSONObject("yule_activity"));
+                this.Sw = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return VM;
     }
 }

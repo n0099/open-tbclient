@@ -14,22 +14,22 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.card.cb;
+import com.baidu.tieba.card.bx;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.h, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public u(Context context) {
-        super(context, com.baidu.tieba.homepage.personalize.data.h.cHA);
+        super(context, com.baidu.tieba.homepage.personalize.data.h.cMN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: am */
+    /* renamed from: at */
     public a a(ViewGroup viewGroup) {
         View inflate = View.inflate(viewGroup.getContext(), r.h.interest_guide, null);
         a aVar = new a(inflate);
@@ -43,19 +43,19 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.h hVar, a aVar) {
         aVar.c(hVar);
         aVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        if (hVar != null && hVar.cHC != null) {
-            cb.Oj().a(new ax("c10985").ab("obj_name", hVar.cHC));
+        if (hVar != null && hVar.cMP != null) {
+            bx.Pl().a(new av("c10985").ab("obj_name", hVar.cMP));
         }
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.homepage.personalize.data.h hVar) {
-        if (hVar != null && hVar.cHB != null && hVar.cHB.size() != 0) {
+        if (hVar != null && hVar.cMO != null && hVar.cMO.size() != 0) {
             ArrayList arrayList = new ArrayList();
-            for (com.baidu.tieba.homepage.personalize.data.i iVar : hVar.cHB) {
-                if (iVar != null && iVar.cHD && !StringUtils.isNull(iVar.PC)) {
-                    arrayList.add(iVar.PC);
+            for (com.baidu.tieba.homepage.personalize.data.i iVar : hVar.cMO) {
+                if (iVar != null && iVar.cMQ && !StringUtils.isNull(iVar.PW)) {
+                    arrayList.add(iVar.PW);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GUIDE_SET_CACHE));
@@ -66,36 +66,36 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        private int ahV;
-        private TextView cGL;
-        private View cGM;
-        private GridView cGN;
-        private t cGO;
-        private AdapterView.OnItemClickListener cGP;
+        private int aiA;
+        private TextView cLW;
+        private View cLX;
+        private GridView cLY;
+        private t cLZ;
+        private AdapterView.OnItemClickListener cMa;
 
         public a(View view) {
             super(view);
-            this.ahV = 3;
-            this.cGO = new t();
-            this.cGP = new v(this);
-            this.cGL = (TextView) view.findViewById(r.g.interest_guide_tip);
-            this.cGM = view.findViewById(r.g.interest_guide_close);
-            this.cGN = (GridView) view.findViewById(r.g.interest_guide_tags_layout);
-            this.cGN.setAdapter((ListAdapter) this.cGO);
-            this.cGN.setOnItemClickListener(this.cGP);
-            this.cGM.setOnClickListener(new w(this));
+            this.aiA = 3;
+            this.cLZ = new t();
+            this.cMa = new v(this);
+            this.cLW = (TextView) view.findViewById(r.g.interest_guide_tip);
+            this.cLX = view.findViewById(r.g.interest_guide_close);
+            this.cLY = (GridView) view.findViewById(r.g.interest_guide_tags_layout);
+            this.cLY.setAdapter((ListAdapter) this.cLZ);
+            this.cLY.setOnItemClickListener(this.cMa);
+            this.cLX.setOnClickListener(new w(this));
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.ahV != i) {
-                av.l(getView(), r.d.cp_bg_line_d);
-                av.j((View) this.cGL, r.d.cp_cont_d);
-                av.k(this.cGM, r.f.icon_x_normal);
+            if (this.aiA != i) {
+                at.l(getView(), r.d.cp_bg_line_d);
+                at.j((View) this.cLW, r.d.cp_cont_d);
+                at.k(this.cLX, r.f.icon_x_normal);
             }
         }
 
         protected void c(com.baidu.tieba.homepage.personalize.data.h hVar) {
-            this.cGO.a(hVar);
+            this.cLZ.a(hVar);
         }
     }
 }

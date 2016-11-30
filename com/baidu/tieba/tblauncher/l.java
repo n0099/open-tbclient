@@ -1,37 +1,25 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import android.content.Intent;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends CustomMessageListener {
+public class l implements a.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(MainTabActivity mainTabActivity, int i) {
-        super(i);
+    public l(MainTabActivity mainTabActivity) {
         this.this$0 = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ab abVar;
-        ab abVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
-            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
-            int a = MainTabActivity.a(newsNotifyMessage);
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zv()) {
-                a -= newsNotifyMessage.getMsgOfficialMerge();
-            }
-            if (a == 0) {
-                abVar2 = this.this$0.fyW;
-                abVar2.a(true, false, 0);
-                return;
-            }
-            abVar = this.this$0.fyW;
-            abVar.a(true, true, a);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        try {
+            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
+            aVar.dismiss();
+        } catch (Exception e) {
+            this.this$0.showToast(r.j.goto_developActivity_error_toast);
         }
     }
 }

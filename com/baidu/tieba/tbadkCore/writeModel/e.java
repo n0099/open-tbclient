@@ -22,11 +22,11 @@ public class e {
         return this.errorCode != 0;
     }
 
-    public boolean blc() {
+    public boolean bns() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bld() {
+    public boolean bnt() {
         return this.errorCode == 227001;
     }
 

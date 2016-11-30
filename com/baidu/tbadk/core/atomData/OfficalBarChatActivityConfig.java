@@ -18,7 +18,7 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         intent.putExtra("user", userData);
-        intent.putExtra(USER_TYPE, 1);
+        intent.putExtra("user_type", 1);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
@@ -30,7 +30,7 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         intent.putExtra("user", userData);
-        intent.putExtra(USER_TYPE, i2);
+        intent.putExtra("user_type", i2);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 

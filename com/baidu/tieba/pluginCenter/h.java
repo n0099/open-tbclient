@@ -4,16 +4,16 @@ import android.widget.TextView;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements a.b {
-    final /* synthetic */ PluginDetailActivity eZy;
+    final /* synthetic */ PluginDetailActivity fgT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PluginDetailActivity pluginDetailActivity) {
-        this.eZy = pluginDetailActivity;
+        this.fgT = pluginDetailActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -22,13 +22,13 @@ public class h implements a.b {
         TextView textView2;
         PluginNetConfigInfos.PluginConfig pluginConfig;
         com.baidu.adp.plugin.packageManager.e eVar;
-        textView = this.eZy.eZw;
-        av.c(textView, r.d.cp_cont_d, 1);
-        textView2 = this.eZy.eZw;
+        textView = this.fgT.fgR;
+        at.c(textView, r.d.cp_cont_d, 1);
+        textView2 = this.fgT.fgR;
         textView2.setEnabled(false);
         PluginPackageManager iB = PluginPackageManager.iB();
-        pluginConfig = this.eZy.eZx;
-        eVar = this.eZy.xI;
+        pluginConfig = this.fgT.fgS;
+        eVar = this.fgT.xI;
         iB.a(pluginConfig, eVar);
         aVar.dismiss();
     }

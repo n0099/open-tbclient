@@ -2,28 +2,28 @@ package com.baidu.tieba.personPolymeric.a;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.lib.f.c<TbImageView> {
-    final /* synthetic */ k eIY;
+    final /* synthetic */ k ePx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.eIY = kVar;
+        this.ePx = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: wM */
+    /* renamed from: wR */
     public TbImageView ez() {
         TbPageContext tbPageContext;
-        tbPageContext = this.eIY.GM;
+        tbPageContext = this.ePx.GO;
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
         tbImageView.setDrawBorder(true);
-        tbImageView.setBorderColor(av.getColor(r.d.common_color_10043));
+        tbImageView.setBorderColor(at.getColor(r.d.common_color_10043));
         tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds1));
         return tbImageView;
     }

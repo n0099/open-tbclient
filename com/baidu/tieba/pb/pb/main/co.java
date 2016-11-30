@@ -1,19 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import java.util.Comparator;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class co implements Comparator<Integer> {
-    final /* synthetic */ cj eqG;
+public class co extends CustomMessageListener {
+    final /* synthetic */ ck ewv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(cj cjVar) {
-        this.eqG = cjVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public co(ck ckVar, int i) {
+        super(i);
+        this.ewv = ckVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(Integer num, Integer num2) {
-        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        com.baidu.tieba.pb.data.h hVar;
+        if (customResponsedMessage == null) {
+            return;
+        }
+        list = this.ewv.bYT;
+        if (!com.baidu.tbadk.core.util.x.t(list)) {
+            return;
+        }
+        this.ewv.aex();
+        ck ckVar = this.ewv;
+        hVar = this.ewv.esP;
+        ckVar.b(hVar);
     }
 }

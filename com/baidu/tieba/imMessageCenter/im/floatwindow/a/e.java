@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 /* loaded from: classes.dex */
 public class e implements b {
-    private int dqC;
-    private a dqD;
+    private int dwj;
+    private a dwk;
     private int end;
     private final int speed;
     private int start;
 
     /* loaded from: classes.dex */
     public interface a {
-        void fa(int i);
+        void fd(int i);
     }
 
     public e(int i) {
@@ -18,33 +18,33 @@ public class e implements b {
 
     public void setStart(int i) {
         this.start = i;
-        this.dqC = i;
+        this.dwj = i;
     }
 
-    public void mi(int i) {
+    public void mq(int i) {
         this.end = i;
     }
 
     public void a(a aVar) {
-        this.dqD = aVar;
+        this.dwk = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (this.dqC != this.end) {
+        if (this.dwj != this.end) {
             if (this.end > this.start) {
-                this.dqC += this.speed;
-                if (this.dqC > this.end) {
-                    this.dqC = this.end;
+                this.dwj += this.speed;
+                if (this.dwj > this.end) {
+                    this.dwj = this.end;
                 }
             } else {
-                this.dqC -= this.speed;
-                if (this.dqC < this.end) {
-                    this.dqC = this.end;
+                this.dwj -= this.speed;
+                if (this.dwj < this.end) {
+                    this.dwj = this.end;
                 }
             }
-            if (this.dqD != null) {
-                this.dqD.fa(this.dqC);
+            if (this.dwk != null) {
+                this.dwk.fd(this.dwj);
             }
             return false;
         }

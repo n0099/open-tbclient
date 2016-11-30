@@ -11,11 +11,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ AbsMsgImageActivity cTL;
+    final /* synthetic */ AbsMsgImageActivity cZt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AbsMsgImageActivity absMsgImageActivity) {
-        this.cTL = absMsgImageActivity;
+        this.cZt = absMsgImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,23 +37,23 @@ public class a implements View.OnClickListener {
         AbsMsgImageActivity.a aVar;
         NavigationBar navigationBar5;
         int i;
-        view2 = this.cTL.aiY;
+        view2 = this.cZt.ajQ;
         if (view != view2) {
-            if (view == this.cTL.cTx) {
-                navigationBar4 = this.cTL.cTy;
+            if (view == this.cZt.cZf) {
+                navigationBar4 = this.cZt.cZg;
                 if (navigationBar4.getVisibility() != 8) {
                     try {
-                        multiImageView3 = this.cTL.cTz;
+                        multiImageView3 = this.cZt.cZh;
                         byte[] currentImageData = multiImageView3.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView4 = this.cTL.cTz;
+                            multiImageView4 = this.cZt.cZh;
                             String currentImageUrl = multiImageView4.getCurrentImageUrl();
-                            this.cTL.cTw = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.cTL.cTw;
+                            this.cZt.cZe = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.cZt.cZe;
                             aVar.execute(new String[0]);
-                            this.cTL.cTx.setClickable(false);
+                            this.cZt.cZf.setClickable(false);
                         } else {
-                            this.cTL.showToast(this.cTL.getPageContext().getString(r.j.no_data));
+                            this.cZt.showToast(this.cZt.getPageContext().getString(r.j.no_data));
                         }
                         return;
                     } catch (Exception e) {
@@ -62,42 +62,42 @@ public class a implements View.OnClickListener {
                 }
                 return;
             }
-            z = this.cTL.cTC;
+            z = this.cZt.cZk;
             if (z) {
-                navigationBar = this.cTL.cTy;
+                navigationBar = this.cZt.cZg;
                 if (navigationBar.getVisibility() != 0) {
-                    navigationBar3 = this.cTL.cTy;
+                    navigationBar3 = this.cZt.cZg;
                     navigationBar3.setVisibility(0);
-                    multiImageView2 = this.cTL.cTz;
-                    multiImageView2.AU();
-                    this.cTL.cTB = new AlphaAnimation(0.0f, 1.0f);
+                    multiImageView2 = this.cZt.cZh;
+                    multiImageView2.Bb();
+                    this.cZt.cZj = new AlphaAnimation(0.0f, 1.0f);
                 } else {
-                    this.cTL.cTB = new AlphaAnimation(1.0f, 0.0f);
-                    this.cTL.cTD = true;
-                    multiImageView = this.cTL.cTz;
-                    multiImageView.AV();
+                    this.cZt.cZj = new AlphaAnimation(1.0f, 0.0f);
+                    this.cZt.cZl = true;
+                    multiImageView = this.cZt.cZh;
+                    multiImageView.Bc();
                 }
-                alphaAnimation = this.cTL.cTB;
+                alphaAnimation = this.cZt.cZj;
                 alphaAnimation.setDuration(300L);
-                alphaAnimation2 = this.cTL.cTB;
+                alphaAnimation2 = this.cZt.cZj;
                 alphaAnimation2.setFillAfter(true);
-                alphaAnimation3 = this.cTL.cTB;
+                alphaAnimation3 = this.cZt.cZj;
                 alphaAnimation3.setAnimationListener(new b(this));
-                this.cTL.cTC = false;
-                navigationBar2 = this.cTL.cTy;
-                alphaAnimation4 = this.cTL.cTB;
+                this.cZt.cZk = false;
+                navigationBar2 = this.cZt.cZg;
+                alphaAnimation4 = this.cZt.cZj;
                 navigationBar2.startAnimation(alphaAnimation4);
                 return;
             }
             return;
         }
-        navigationBar5 = this.cTL.cTy;
+        navigationBar5 = this.cZt.cZg;
         if (navigationBar5.getVisibility() != 8) {
             Intent intent = new Intent();
-            i = this.cTL.mIndex;
+            i = this.cZt.mIndex;
             intent.putExtra(ImageViewerConfig.INDEX, i);
-            this.cTL.setResult(-1, intent);
-            this.cTL.finish();
+            this.cZt.setResult(-1, intent);
+            this.cZt.finish();
         }
     }
 }

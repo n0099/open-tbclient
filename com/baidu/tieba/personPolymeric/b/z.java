@@ -5,11 +5,11 @@ import com.baidu.tieba.person.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements a.b {
-    final /* synthetic */ q eJJ;
+    final /* synthetic */ q eQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(q qVar) {
-        this.eJJ = qVar;
+        this.eQi = qVar;
     }
 
     @Override // com.baidu.tieba.person.a.b
@@ -19,8 +19,8 @@ public class z implements a.b {
             if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
                 str2 = imageUploadResult.picInfo.bigPic.picUrl;
             }
-            aa.h(str2, this.eJJ.aTO());
-            this.eJJ.iS(true);
+            aa.h(str2, this.eQi.aVV());
+            this.eQi.js(true);
         }
     }
 }

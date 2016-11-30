@@ -3,33 +3,33 @@ package com.baidu.tieba.homepage.personalize;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 /* loaded from: classes.dex */
 class s implements Runnable {
-    private final /* synthetic */ int Wf;
-    final /* synthetic */ r cGe;
+    private final /* synthetic */ int WD;
+    final /* synthetic */ r cLp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar, int i) {
-        this.cGe = rVar;
-        this.Wf = i;
+        this.cLp = rVar;
+        this.WD = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        m mVar;
+        n nVar;
         BdTypeListView bdTypeListView;
-        m mVar2;
+        n nVar2;
         BdTypeListView bdTypeListView2;
-        m mVar3;
+        n nVar3;
         BdTypeListView bdTypeListView3;
-        mVar = this.cGe.this$0;
-        bdTypeListView = mVar.bCe;
+        nVar = this.cLp.this$0;
+        bdTypeListView = nVar.aML;
         bdTypeListView.requestFocusFromTouch();
-        int i = this.Wf;
-        mVar2 = this.cGe.this$0;
-        bdTypeListView2 = mVar2.bCe;
+        int i = this.WD;
+        nVar2 = this.cLp.this$0;
+        bdTypeListView2 = nVar2.aML;
         if (i <= bdTypeListView2.getCount() - 1) {
-            mVar3 = this.cGe.this$0;
-            bdTypeListView3 = mVar3.bCe;
-            bdTypeListView3.setSelection(this.Wf);
+            nVar3 = this.cLp.this$0;
+            bdTypeListView3 = nVar3.aML;
+            bdTypeListView3.setSelection(this.WD);
         }
     }
 }

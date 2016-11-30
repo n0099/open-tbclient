@@ -1,49 +1,31 @@
 package com.baidu.tieba.play;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.widget.MediaController;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.play.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
-    private a aMa;
-    private MediaController.MediaPlayerControl aPl;
-    private b eYp;
-    private int eYo = 0;
-    private Handler mHandler = new i(this, Looper.getMainLooper());
+public class h implements a.b {
+    final /* synthetic */ c ffA;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void Ju();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(c cVar) {
+        this.ffA = cVar;
     }
 
-    /* loaded from: classes.dex */
-    public interface b {
-        void baj();
-    }
-
-    public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.aPl = mediaPlayerControl;
-    }
-
-    public void start() {
-        this.eYo = 0;
-        bai();
-    }
-
-    public void stop() {
-        this.mHandler.removeMessages(1);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bai() {
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 2000L);
-    }
-
-    public void a(a aVar) {
-        this.aMa = aVar;
-    }
-
-    public void a(b bVar) {
-        this.eYp = bVar;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        String str;
+        c.d dVar;
+        c.d dVar2;
+        com.baidu.tbadk.core.sharedPref.b.um().putBoolean("video_list_confirm_play_in_mobile", true);
+        c cVar = this.ffA;
+        str = this.ffA.aPS;
+        cVar.lm(str);
+        dVar = this.ffA.aSS;
+        if (dVar != null) {
+            dVar2 = this.ffA.aSS;
+            dVar2.LZ();
+        }
+        aVar.dismiss();
     }
 }

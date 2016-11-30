@@ -4,27 +4,28 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tieba.frs.bm;
-import com.baidu.tieba.frs.i.p;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.au;
+import com.baidu.tieba.frs.j.n;
 import com.baidu.tieba.tbadkCore.m;
+import com.baidu.tieba.tbadkCore.p;
 /* loaded from: classes.dex */
 public interface b {
     int a(int i, m mVar);
 
     View a(Context context, BdTypeListView bdTypeListView);
 
-    void a(BdTypeListView bdTypeListView, BannerView bannerView);
-
     void a(BdTypeListView bdTypeListView, com.baidu.tieba.frs.view.c cVar);
 
-    void a(p pVar, com.baidu.tieba.tbadkCore.p pVar2);
+    void a(FrsActivity frsActivity, BdTypeListView bdTypeListView, BannerView bannerView);
 
-    void a(boolean z, d dVar, p pVar, bm bmVar, com.baidu.tieba.tbadkCore.p pVar2);
+    void a(n nVar, p pVar);
 
-    void ac(View view);
+    void a(boolean z, d dVar, n nVar, au auVar, p pVar);
 
-    void b(BdTypeListView bdTypeListView, BannerView bannerView);
+    void ad(View view);
 
-    /* renamed from: if  reason: not valid java name */
-    boolean mo14if(int i);
+    void b(FrsActivity frsActivity, BdTypeListView bdTypeListView, BannerView bannerView);
+
+    boolean ie(int i);
 }

@@ -9,11 +9,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l eDX;
+    final /* synthetic */ l eKw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.eDX = lVar;
+        this.eKw = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,16 +21,16 @@ public class n implements AdapterView.OnItemClickListener {
         h hVar;
         TbPageContext tbPageContext;
         if (!i.fZ()) {
-            tbPageContext = this.eDX.bKY;
+            tbPageContext = this.eKw.bNR;
             tbPageContext.showToast(r.j.neterror);
             return;
         }
-        hVar = this.eDX.eDW;
+        hVar = this.eKw.eKv;
         g.a item = hVar.getItem(i);
         if (item == null) {
             return;
         }
-        this.eDX.pC(item.eDD);
-        this.eDX.a(item);
+        this.eKw.pP(item.eKc);
+        this.eKw.a(item);
     }
 }

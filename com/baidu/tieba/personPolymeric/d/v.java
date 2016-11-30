@@ -9,12 +9,12 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends com.baidu.tieba.view.q {
-    com.baidu.tieba.personPolymeric.event.a eLJ = new com.baidu.tieba.personPolymeric.event.a();
-    final /* synthetic */ t eLK;
+    com.baidu.tieba.personPolymeric.event.a eSh = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ t eSi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.eLK = tVar;
+        this.eSi = tVar;
     }
 
     @Override // android.text.style.ClickableSpan
@@ -22,15 +22,15 @@ public class v extends com.baidu.tieba.view.q {
         com.baidu.tieba.view.m mVar;
         UserData userData;
         com.baidu.tieba.view.m mVar2;
-        mVar = this.eLK.eFl;
+        mVar = this.eSi.eLK;
         if (mVar != null) {
-            this.eLJ.bJq = 11;
-            this.eLJ.bJr = new Bundle();
-            Bundle bundle = this.eLJ.bJr;
-            userData = this.eLK.mUserData;
+            this.eSh.bMj = 11;
+            this.eSh.bMk = new Bundle();
+            Bundle bundle = this.eSh.bMk;
+            userData = this.eSi.mUserData;
             bundle.putSerializable(UserData.TYPE_USER, userData);
-            mVar2 = this.eLK.eFl;
-            mVar2.a(view, this.eLJ);
+            mVar2 = this.eSi.eLK;
+            mVar2.a(view, this.eSh);
         }
     }
 
@@ -40,10 +40,10 @@ public class v extends com.baidu.tieba.view.q {
         int color;
         Context context2;
         if (z) {
-            context2 = this.eLK.mContext;
+            context2 = this.eSi.mContext;
             color = context2.getResources().getColor(r.d.cp_cont_i);
         } else {
-            context = this.eLK.mContext;
+            context = this.eSi.mContext;
             color = context.getResources().getColor(r.d.cp_bg_line_d_alpha70);
         }
         textPaint.setColor(color);

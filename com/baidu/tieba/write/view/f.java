@@ -5,24 +5,24 @@ import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements j.a {
-    final /* synthetic */ PostCategoryView geV;
+    final /* synthetic */ PostCategoryView gmz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PostCategoryView postCategoryView) {
-        this.geV = postCategoryView;
+        this.gmz = postCategoryView;
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void od() {
+    public void og() {
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void oe() {
+    public void oh() {
         MorePopupWindow morePopupWindow;
         MorePopupWindow morePopupWindow2;
-        morePopupWindow = this.geV.MU;
+        morePopupWindow = this.gmz.MV;
         if (morePopupWindow != null) {
-            morePopupWindow2 = this.geV.MU;
+            morePopupWindow2 = this.gmz.MV;
             morePopupWindow2.dismiss();
         }
     }

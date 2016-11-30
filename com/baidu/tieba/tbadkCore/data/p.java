@@ -6,114 +6,121 @@ import java.util.ArrayList;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class p extends q {
-    public String bZM;
-    public String btz;
-    private e fvd;
-    public boolean fve = false;
+    public String PE;
+    public String PF;
+    public String cdj;
+    private e fCp;
+    public boolean fCq = false;
+    public String forumId;
     public int pageNumber;
     public long threadId;
 
     public void c(App app) {
-        this.fvd = new e(app);
+        this.fCp = new e(app);
     }
 
-    public e bjD() {
-        return this.fvd;
+    public e blZ() {
+        return this.fCp;
     }
 
-    public ICardInfo bjE() {
-        if (this.fvd == null) {
+    public ICardInfo bma() {
+        if (this.fCp == null) {
             return null;
         }
-        return this.fvd.Pp;
+        return this.fCp.PC;
     }
 
-    public String bjF() {
-        return this.fvd == null ? "" : this.fvd.id;
+    public String bmb() {
+        return this.fCp == null ? "" : this.fCp.id;
     }
 
     public boolean isApp() {
-        if (this.fvd == null) {
+        if (this.fCp == null) {
             return false;
         }
-        return this.fvd.pi();
+        return this.fCp.pk();
     }
 
-    public int bjG() {
-        if (this.fvd == null || this.fvd.fuA == null) {
+    public int bmc() {
+        if (this.fCp == null || this.fCp.fBN == null) {
             return -1;
         }
-        return this.fvd.fuA.fuB;
+        return this.fCp.fBN.fBO;
     }
 
     public int getPosition() {
-        int g = this.fvd != null ? com.baidu.adp.lib.h.b.g(this.fvd.pos_name, 0) : 0;
+        int g = this.fCp != null ? com.baidu.adp.lib.h.b.g(this.fCp.pos_name, 0) : 0;
         if (g < 2 || g > 30) {
             return 7;
         }
         return g;
     }
 
-    public com.baidu.tbadk.core.data.b bjH() {
-        com.baidu.tbadk.core.data.b bVar = new com.baidu.tbadk.core.data.b();
-        if (this.fvd != null) {
-            bVar.OZ = this.fvd.id;
-            bVar.Pa = this.fvd.name;
-            bVar.Pc = this.fvd.fuw;
-            bVar.Pd = this.fvd.url;
-            bVar.Pf = this.fvd.Pf;
-            bVar.Pe = this.fvd.apk_url;
-            bVar.Pg = this.fvd.apk_name;
-            bVar.adPosition = this.fvd.pos_name.trim();
-            bVar.Ph = this.fvd.first_name;
-            bVar.Pi = this.fvd.second_name;
-            bVar.Pj = this.fvd.Pj;
-            bVar.abtest = this.fvd.abtest;
-            bVar.Pk = this.fvd.fux;
-            bVar.userId = this.fvd.user_id;
-            bVar.Pl = this.fvd.verify;
-            bVar.price = this.fvd.price;
-            bVar.extensionInfo = this.fvd.ext_info;
-            bVar.Pm = this.fvd.fuy * 1000;
-            bVar.Pp = this.fvd.Pp;
-            if (this.fvd.fuA != null) {
-                bVar.Pn.Pu = this.fvd.fuA.pop_window_text;
-                bVar.Pn.Pq = this.fvd.fuA.id;
-                bVar.Pn.Pt = this.fvd.fuA.thread_pic;
-                bVar.Pn.Pv = this.fvd.fuA.fuB;
-                bVar.Pn.Pr = this.fvd.fuA.thread_title;
-                bVar.Pn.Ps = this.fvd.fuA.threadContent;
-                bVar.Pn.userName = this.fvd.fuA.user_name;
-                bVar.Pn.userPortrait = this.fvd.fuA.user_portrait;
-                bVar.Pn.buttonText = this.fvd.fuA.buttonText;
-                bVar.Pn.Py = this.fvd.fuA.Py;
-                if (this.fvd.fuA.fuC != null) {
-                    bVar.Pn.Pz = new ArrayList();
-                    bVar.Pn.Pz.addAll(this.fvd.fuA.fuC);
+    public com.baidu.tbadk.core.data.c bmd() {
+        com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
+        if (this.fCp != null) {
+            cVar.PI = this.fCp;
+            cVar.Pm = this.fCp.id;
+            cVar.Pn = this.fCp.name;
+            cVar.Po = this.fCp.fBJ;
+            cVar.Pp = this.fCp.url;
+            cVar.Pr = this.fCp.Pr;
+            cVar.Pq = this.fCp.apk_url;
+            cVar.Ps = this.fCp.apk_name;
+            cVar.adPosition = this.fCp.pos_name.trim();
+            cVar.Pt = this.fCp.first_name;
+            cVar.Pu = this.fCp.second_name;
+            cVar.Pv = this.fCp.Pv;
+            cVar.abtest = this.fCp.abtest;
+            cVar.Pw = this.fCp.fBK;
+            cVar.userId = this.fCp.user_id;
+            cVar.Px = this.fCp.verify;
+            cVar.price = this.fCp.price;
+            cVar.extensionInfo = this.fCp.ext_info;
+            cVar.Py = this.fCp.fBL * 1000;
+            cVar.PC = this.fCp.PC;
+            if (this.fCp.fBN != null) {
+                cVar.Pz.PO = this.fCp.fBN.pop_window_text;
+                cVar.Pz.PJ = this.fCp.fBN.id;
+                cVar.Pz.PN = this.fCp.fBN.thread_pic;
+                cVar.Pz.PP = this.fCp.fBN.fBO;
+                cVar.Pz.PK = this.fCp.fBN.thread_title;
+                cVar.Pz.PM = this.fCp.fBN.thread_content;
+                cVar.Pz.userName = this.fCp.fBN.user_name;
+                cVar.Pz.userPortrait = this.fCp.fBN.user_portrait;
+                cVar.Pz.buttonText = this.fCp.fBN.button_text;
+                cVar.Pz.PT = this.fCp.fBN.button_url;
+                if (this.fCp.fBN.fBP != null) {
+                    cVar.Pz.PU = new ArrayList();
+                    cVar.Pz.PU.addAll(this.fCp.fBN.fBP);
                 }
-                bVar.Pn.PA = this.fvd.fuA.fuD;
-                bVar.Pn.PC = this.fvd.fuA.PC;
-                bVar.Pn.adSource = this.fvd.fuA.adSource;
-                bVar.Pn.PD = this.fvd.fuA.PD;
-                bVar.Pn.PE = this.fvd.fuA.PE;
+                cVar.Pz.PV = this.fCp.fBN.video_info;
+                cVar.Pz.PW = this.fCp.fBN.tag_name;
+                cVar.Pz.adSource = this.fCp.fBN.ad_source;
+                cVar.Pz.PX = this.fCp.fBN.tag_name_url;
+                cVar.Pz.PY = this.fCp.fBN.PY;
             }
+            cVar.OS = "PB";
         }
-        return bVar;
+        return cVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (bjE() != null) {
-            return com.baidu.tbadk.core.data.b.OX;
+        if (bma() != null) {
+            return com.baidu.tbadk.core.data.c.Pk;
         }
-        if (bjG() == 2) {
-            return com.baidu.tbadk.core.data.b.OS;
+        if (bmc() == 1001) {
+            return com.baidu.tbadk.core.data.c.Pd;
         }
-        if (bjG() == 6) {
-            return com.baidu.tbadk.core.data.b.OT;
+        if (bmc() == 2) {
+            return com.baidu.tbadk.core.data.c.Pe;
         }
-        if (bjG() == 7) {
-            return com.baidu.tbadk.core.data.b.OU;
+        if (bmc() == 6) {
+            return com.baidu.tbadk.core.data.c.Pf;
+        }
+        if (bmc() == 7) {
+            return com.baidu.tbadk.core.data.c.Pg;
         }
         return null;
     }

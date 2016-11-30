@@ -1,37 +1,54 @@
 package com.baidu.tieba.frs.j;
 
+import android.app.Activity;
+import android.os.Handler;
 import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.w;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.bh;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ a chW;
-    private final /* synthetic */ w chX;
+public class b implements Runnable {
+    final /* synthetic */ a cjf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, w wVar) {
-        this.chW = aVar;
-        this.chX = wVar;
+    public b(a aVar) {
+        this.cjf = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseActivity baseActivity;
-        BaseActivity baseActivity2;
-        String str = this.chX.linkUrl;
-        String[] strArr = {str};
-        bh vL = bh.vL();
-        baseActivity = this.chW.aRd;
-        if (!vL.a(baseActivity.getPageContext(), "", strArr, false, null, true) && !bh.vL().dN(str)) {
-            baseActivity2 = this.chW.aRd;
-            baseActivity2.showToast(r.j.pluginstatus_tip_unknown);
+    @Override // java.lang.Runnable
+    public void run() {
+        TbPageContext tbPageContext;
+        View view;
+        TbPageContext tbPageContext2;
+        int i;
+        View e;
+        View view2;
+        PopupWindow popupWindow;
+        View view3;
+        Handler handler;
+        tbPageContext = this.cjf.GO;
+        if (tbPageContext != null) {
+            view = this.cjf.cjc;
+            if (view != null) {
+                tbPageContext2 = this.cjf.GO;
+                Activity pageActivity = tbPageContext2.getPageActivity();
+                int e2 = com.baidu.adp.lib.util.k.e(pageActivity, r.e.ds64);
+                a aVar = this.cjf;
+                i = this.cjf.ciZ;
+                e = aVar.e(pageActivity, i);
+                int[] iArr = new int[2];
+                view2 = this.cjf.cjc;
+                view2.getLocationInWindow(iArr);
+                int e3 = com.baidu.adp.lib.util.k.e(pageActivity, r.e.ds32);
+                int e4 = com.baidu.adp.lib.util.k.e(pageActivity, r.e.ds16) + (iArr[1] - e2);
+                this.cjf.cjd = new PopupWindow(e, -2, e2);
+                popupWindow = this.cjf.cjd;
+                view3 = this.cjf.cjc;
+                popupWindow.showAtLocation(view3, 53, e3, e4);
+                handler = this.cjf.mHandler;
+                handler.postDelayed(new c(this), 3000L);
+            }
         }
-        TiebaStatic.log(new ax("c11683").ab("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ a feW;
+    final /* synthetic */ a fmo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(a aVar, int i) {
         super(i);
-        this.feW = aVar;
+        this.fmo = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,11 +19,11 @@ public class e extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            this.feW.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            a aVar = this.feW;
-            z = this.feW.mHasNewVersion;
-            aVar.feC = z ? true : this.feW.feC;
-            this.feW.bcp();
+            this.fmo.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            a aVar = this.fmo;
+            z = this.fmo.mHasNewVersion;
+            aVar.flU = z ? true : this.fmo.flU;
+            this.fmo.beQ();
         }
     }
 }

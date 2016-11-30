@@ -13,22 +13,22 @@ import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.card.cb;
+import com.baidu.tieba.card.bx;
 import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.j, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public x(Context context) {
-        super(context, com.baidu.tieba.homepage.personalize.data.j.cHE);
+        super(context, com.baidu.tieba.homepage.personalize.data.j.cMR);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: an */
+    /* renamed from: au */
     public a a(ViewGroup viewGroup) {
         return new a(View.inflate(this.mContext, r.h.new_user_guide, null));
     }
@@ -39,13 +39,13 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.j jVar, a aVar) {
         aVar.a(jVar);
         aVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        cb.Oj().hQ("c10988");
+        bx.Pl().hU("c10988");
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.homepage.personalize.data.i iVar, int i) {
-        if (iVar != null && !StringUtils.isNull(iVar.PC)) {
+        if (iVar != null && !StringUtils.isNull(iVar.PW)) {
             if (i == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GUIDE_SET_CACHE));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SET_NU_SEX_GUIDE, iVar));
@@ -60,79 +60,79 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        private int ahV;
-        private TextView cGL;
-        private View cGM;
-        private TextView cGS;
-        private TextView cGT;
-        private LinearLayout cGU;
-        private LinearLayout cGV;
-        private com.baidu.tieba.homepage.personalize.data.j cGW;
-        private View.OnClickListener cGX;
-        private View.OnClickListener cGY;
-        private View.OnClickListener cGZ;
+        private int aiA;
+        private TextView cLW;
+        private View cLX;
+        private TextView cMd;
+        private TextView cMe;
+        private LinearLayout cMf;
+        private LinearLayout cMg;
+        private com.baidu.tieba.homepage.personalize.data.j cMh;
+        private View.OnClickListener cMi;
+        private View.OnClickListener cMj;
+        private View.OnClickListener cMk;
 
         public a(View view) {
             super(view);
-            this.ahV = 3;
-            this.cGX = new y(this);
-            this.cGY = new z(this);
-            this.cGZ = new aa(this);
-            this.cGL = (TextView) view.findViewById(r.g.new_user_guide_tip);
-            this.cGM = view.findViewById(r.g.new_user_guide_close);
-            this.cGS = (TextView) view.findViewById(r.g.new_user_guide_man);
-            this.cGT = (TextView) view.findViewById(r.g.new_user_guide_woman);
-            this.cGU = (LinearLayout) view.findViewById(r.g.new_user_guide_sex_layout);
-            this.cGV = (LinearLayout) view.findViewById(r.g.new_user_guide_age_layout);
-            this.cGS.setOnClickListener(this.cGY);
-            this.cGT.setOnClickListener(this.cGY);
-            this.cGM.setOnClickListener(this.cGX);
+            this.aiA = 3;
+            this.cMi = new y(this);
+            this.cMj = new z(this);
+            this.cMk = new aa(this);
+            this.cLW = (TextView) view.findViewById(r.g.new_user_guide_tip);
+            this.cLX = view.findViewById(r.g.new_user_guide_close);
+            this.cMd = (TextView) view.findViewById(r.g.new_user_guide_man);
+            this.cMe = (TextView) view.findViewById(r.g.new_user_guide_woman);
+            this.cMf = (LinearLayout) view.findViewById(r.g.new_user_guide_sex_layout);
+            this.cMg = (LinearLayout) view.findViewById(r.g.new_user_guide_age_layout);
+            this.cMd.setOnClickListener(this.cMj);
+            this.cMe.setOnClickListener(this.cMj);
+            this.cLX.setOnClickListener(this.cMi);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.ahV != i) {
-                av.l(getView(), r.d.cp_bg_line_d);
-                av.j((View) this.cGL, r.d.cp_cont_d);
-                av.k(this.cGM, r.f.icon_x_normal);
-                this.ahV = i;
+            if (this.aiA != i) {
+                at.l(getView(), r.d.cp_bg_line_d);
+                at.j((View) this.cLW, r.d.cp_cont_d);
+                at.k(this.cLX, r.f.icon_x_normal);
+                this.aiA = i;
             }
-            if (this.cGW != null && this.cGW.cHF.size() == 2) {
-                if (this.cGW.cHF.get(0).cHD) {
-                    av.j((View) this.cGS, r.d.cp_cont_g);
-                    av.k(this.cGS, r.f.shape_semi_circle_left_selected);
+            if (this.cMh != null && this.cMh.cMS.size() == 2) {
+                if (this.cMh.cMS.get(0).cMQ) {
+                    at.j((View) this.cMd, r.d.cp_cont_g);
+                    at.k(this.cMd, r.f.shape_semi_circle_left_selected);
                 } else {
-                    av.j((View) this.cGS, r.d.cp_cont_f);
-                    av.k(this.cGS, r.f.shape_semi_circle_left_line);
+                    at.j((View) this.cMd, r.d.cp_cont_f);
+                    at.k(this.cMd, r.f.shape_semi_circle_left_line);
                 }
-                if (this.cGW.cHF.get(1).cHD) {
-                    av.j((View) this.cGT, r.d.cp_cont_g);
-                    av.k(this.cGT, r.f.shape_semi_circle_right_selected);
+                if (this.cMh.cMS.get(1).cMQ) {
+                    at.j((View) this.cMe, r.d.cp_cont_g);
+                    at.k(this.cMe, r.f.shape_semi_circle_right_selected);
                 } else {
-                    av.j((View) this.cGT, r.d.cp_cont_f);
-                    av.k(this.cGT, r.f.shape_semi_circle_right_line);
+                    at.j((View) this.cMe, r.d.cp_cont_f);
+                    at.k(this.cMe, r.f.shape_semi_circle_right_line);
                 }
             }
-            for (int i2 = 0; i2 < this.cGV.getChildCount(); i2++) {
-                View childAt = this.cGV.getChildAt(i2);
+            for (int i2 = 0; i2 < this.cMg.getChildCount(); i2++) {
+                View childAt = this.cMg.getChildAt(i2);
                 if (childAt instanceof TextView) {
-                    com.baidu.tieba.homepage.personalize.data.i kW = kW(((TextView) childAt).getText().toString());
-                    if (kW != null && kW.cHD) {
-                        av.j(childAt, r.d.cp_cont_g);
-                        av.k(childAt, r.f.shape_semi_circle_all_selected);
+                    com.baidu.tieba.homepage.personalize.data.i lh = lh(((TextView) childAt).getText().toString());
+                    if (lh != null && lh.cMQ) {
+                        at.j(childAt, r.d.cp_cont_g);
+                        at.k(childAt, r.f.shape_semi_circle_all_selected);
                     } else {
-                        av.j(childAt, r.d.cp_cont_f);
-                        av.k(childAt, r.f.shape_semi_circle_all_line);
+                        at.j(childAt, r.d.cp_cont_f);
+                        at.k(childAt, r.f.shape_semi_circle_all_line);
                     }
                 }
             }
         }
 
-        private com.baidu.tieba.homepage.personalize.data.i kW(String str) {
-            if (StringUtils.isNull(str) || this.cGW == null || this.cGW.cHG == null) {
+        private com.baidu.tieba.homepage.personalize.data.i lh(String str) {
+            if (StringUtils.isNull(str) || this.cMh == null || this.cMh.cMT == null) {
                 return null;
             }
-            for (com.baidu.tieba.homepage.personalize.data.i iVar : this.cGW.cHG) {
-                if (iVar != null && str.equals(iVar.PC)) {
+            for (com.baidu.tieba.homepage.personalize.data.i iVar : this.cMh.cMT) {
+                if (iVar != null && str.equals(iVar.PW)) {
                     return iVar;
                 }
             }
@@ -141,21 +141,21 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
         protected void a(com.baidu.tieba.homepage.personalize.data.j jVar) {
             if (jVar != null) {
-                this.cGW = jVar;
-                if (jVar.cHF.size() == 2) {
-                    this.cGS.setText(jVar.cHF.get(0).PC);
-                    this.cGT.setText(jVar.cHF.get(1).PC);
+                this.cMh = jVar;
+                if (jVar.cMS.size() == 2) {
+                    this.cMd.setText(jVar.cMS.get(0).PW);
+                    this.cMe.setText(jVar.cMS.get(1).PW);
                 } else {
-                    this.cGU.setVisibility(8);
+                    this.cMf.setVisibility(8);
                 }
-                this.cGV.removeAllViews();
-                if (jVar.cHG.size() > 0) {
-                    for (int i = 0; i < jVar.cHG.size(); i++) {
-                        View kX = kX(jVar.cHG.get(i).PC);
-                        if (kX != null) {
-                            this.cGV.addView(kX);
-                            if (i != jVar.cHG.size() - 1) {
-                                this.cGV.addView(amU());
+                this.cMg.removeAllViews();
+                if (jVar.cMT.size() > 0) {
+                    for (int i = 0; i < jVar.cMT.size(); i++) {
+                        View li = li(jVar.cMT.get(i).PW);
+                        if (li != null) {
+                            this.cMg.addView(li);
+                            if (i != jVar.cMT.size() - 1) {
+                                this.cMg.addView(aoO());
                             }
                         }
                     }
@@ -173,22 +173,22 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                     if (!StringUtils.isNull(charSequence)) {
                         com.baidu.tieba.homepage.personalize.data.i iVar = null;
                         for (com.baidu.tieba.homepage.personalize.data.i iVar2 : list) {
-                            if (charSequence.equals(iVar2.PC)) {
-                                iVar2.cHD = !iVar2.cHD;
+                            if (charSequence.equals(iVar2.PW)) {
+                                iVar2.cMQ = !iVar2.cMQ;
                                 iVar = iVar2;
                             } else {
-                                iVar2.cHD = false;
+                                iVar2.cMQ = false;
                             }
                         }
                         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
                         x.this.a(iVar, i);
-                        TiebaStatic.log(new ax("c10982").ab("obj_name", charSequence));
+                        TiebaStatic.log(new av("c10982").ab("obj_name", charSequence));
                     }
                 }
             }
         }
 
-        private View kX(String str) {
+        private View li(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -201,11 +201,11 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             textView.setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.fontsize24));
             textView.setText(str);
             textView.setLayoutParams(new LinearLayout.LayoutParams(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds110), TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds60)));
-            textView.setOnClickListener(this.cGZ);
+            textView.setOnClickListener(this.cMk);
             return textView;
         }
 
-        private View amU() {
+        private View aoO() {
             View view = new View(getView().getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;

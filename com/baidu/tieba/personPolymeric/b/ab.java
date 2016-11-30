@@ -11,126 +11,126 @@ import com.baidu.tieba.im.model.BlackListModel;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ab implements com.baidu.tieba.model.a, com.baidu.tieba.personPolymeric.mode.b {
-    private TbPageContext Gd;
-    private BaseActivity aRd;
-    private com.baidu.tieba.d.c bPA;
-    private boolean cuB;
-    private com.baidu.tieba.personPolymeric.mode.c eJM;
-    private BlackListModel eJN;
-    private com.baidu.tieba.personPolymeric.d.x eJO;
-    private com.baidu.tieba.personPolymeric.event.b eJP;
-    private af eJQ;
-    private q eJR;
-    private h eJS;
-    private a eJr;
+    private TbPageContext Gf;
+    private BaseActivity aTb;
+    private com.baidu.tieba.d.c bVF;
+    private boolean czI;
+    private a ePQ;
+    private com.baidu.tieba.personPolymeric.mode.c eQl;
+    private BlackListModel eQm;
+    private com.baidu.tieba.personPolymeric.d.x eQn;
+    private com.baidu.tieba.personPolymeric.event.b eQo;
+    private af eQp;
+    private q eQq;
+    private h eQr;
     private long mUserId;
-    private boolean bNp = true;
-    private final com.baidu.tieba.view.v eJT = new ac(this);
-    public View.OnTouchListener aJD = new ad(this);
-    private a.InterfaceC0058a aMy = new ae(this);
+    private boolean bQi = true;
+    private final com.baidu.tieba.view.v eQs = new ac(this);
+    public View.OnTouchListener aKw = new ad(this);
+    private a.InterfaceC0058a aMT = new ae(this);
 
     public ab(BaseActivity baseActivity, long j, boolean z) {
-        this.aRd = baseActivity;
-        this.Gd = baseActivity.getPageContext();
+        this.aTb = baseActivity;
+        this.Gf = baseActivity.getPageContext();
         this.mUserId = j;
-        this.cuB = z;
-        this.eJM = new com.baidu.tieba.personPolymeric.mode.c(baseActivity, z);
-        this.eJM.a(this);
-        this.eJr = new a(baseActivity.getPageContext());
-        this.eJM.a(this.eJr);
-        this.eJN = new BlackListModel(baseActivity.getPageContext());
-        this.eJO = new com.baidu.tieba.personPolymeric.d.x(baseActivity.getPageContext(), z);
-        baseActivity.setContentView(this.eJO.onCreateView(LayoutInflater.from(baseActivity.getActivity()), null, null));
-        this.eJO.initUI();
-        this.eJP = new com.baidu.tieba.personPolymeric.event.b(baseActivity.getPageContext());
-        this.eJP.c(this);
-        this.eJO.setOnViewResponseListener(this.eJP);
-        this.eJO.a(this);
-        this.bPA = new com.baidu.tieba.d.c(baseActivity.getActivity());
-        this.bPA.a(this.aMy);
-        this.eJO.a(this.eJT);
-        this.eJO.setOnTouchListener(this.aJD);
-        this.eJR = new q(baseActivity.getPageContext());
-        this.eJO.L(this.eJR);
-        this.eJR.a(this.eJM);
-        this.eJS = new h(baseActivity.getPageContext(), this.eJr, this.eJN, this.eJO.bqU());
+        this.czI = z;
+        this.eQl = new com.baidu.tieba.personPolymeric.mode.c(baseActivity, z);
+        this.eQl.a(this);
+        this.ePQ = new a(baseActivity.getPageContext());
+        this.eQl.a(this.ePQ);
+        this.eQm = new BlackListModel(baseActivity.getPageContext());
+        this.eQn = new com.baidu.tieba.personPolymeric.d.x(baseActivity.getPageContext(), z);
+        baseActivity.setContentView(this.eQn.onCreateView(LayoutInflater.from(baseActivity.getActivity()), null, null));
+        this.eQn.initUI();
+        this.eQo = new com.baidu.tieba.personPolymeric.event.b(baseActivity.getPageContext());
+        this.eQo.c(this);
+        this.eQn.setOnViewResponseListener(this.eQo);
+        this.eQn.a(this);
+        this.bVF = new com.baidu.tieba.d.c(baseActivity.getActivity());
+        this.bVF.a(this.aMT);
+        this.eQn.a(this.eQs);
+        this.eQn.setOnTouchListener(this.aKw);
+        this.eQq = new q(baseActivity.getPageContext());
+        this.eQn.N(this.eQq);
+        this.eQq.a(this.eQl);
+        this.eQr = new h(baseActivity.getPageContext(), this.ePQ, this.eQm, this.eQn.btn());
     }
 
     @Override // com.baidu.tieba.model.a
-    public void RL() {
+    public void SN() {
         if (com.baidu.adp.lib.util.i.fZ()) {
-            if (this.bNp) {
-                this.eJO.j(true, this.Gd.getResources().getDimensionPixelSize(r.e.ds480));
-                this.eJM.cJ(this.mUserId);
+            if (this.bQi) {
+                this.eQn.j(true, this.Gf.getResources().getDimensionPixelSize(r.e.ds480));
+                this.eQl.cK(this.mUserId);
             }
-            this.eJM.cI(this.mUserId);
-        } else if (!this.eJM.hasData()) {
-            this.eJO.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
+            this.eQl.cJ(this.mUserId);
+        } else if (!this.eQl.hasData()) {
+            this.eQn.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
         }
     }
 
     @Override // com.baidu.tieba.model.a
     public void resetData() {
-        this.eJM.resetData();
+        this.eQl.resetData();
     }
 
     @Override // com.baidu.tieba.model.a
     public boolean hasMoreData() {
-        return this.eJM.hasMoreData();
+        return this.eQl.hasMoreData();
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.b
     public void a(com.baidu.tieba.personPolymeric.c.n nVar, boolean z) {
-        this.eJO.afo();
-        this.eJO.JE();
+        this.eQn.agY();
+        this.eQn.JO();
         if (!z) {
-            this.eJO.iV(!com.baidu.tbadk.core.util.y.t(nVar.aUc()));
+            this.eQn.jv(!com.baidu.tbadk.core.util.x.t(nVar.aWj()));
         }
-        if (nVar == null || com.baidu.tbadk.core.util.y.t(nVar.aph())) {
-            this.eJO.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
+        if (nVar == null || com.baidu.tbadk.core.util.x.t(nVar.ard())) {
+            this.eQn.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
             return;
         }
-        this.bNp = false;
-        if (this.cuB) {
-            com.baidu.tbadk.getUserInfo.b.Ec().a(nVar.getUserData());
+        this.bQi = false;
+        if (this.czI) {
+            com.baidu.tbadk.getUserInfo.b.Eh().a(nVar.getUserData());
         }
-        if (this.eJR != null) {
-            this.eJR.b(nVar);
+        if (this.eQq != null) {
+            this.eQq.b(nVar);
         }
-        if (this.eJS != null) {
-            this.eJS.a(nVar);
+        if (this.eQr != null) {
+            this.eQr.a(nVar);
         }
-        this.eJO.c(nVar);
-        if ((this.eJO.mRootView instanceof RelativeLayout) && !this.cuB) {
-            if (this.eJQ == null) {
-                this.eJQ = new af(this.aRd, (RelativeLayout) this.eJO.mRootView, nVar.getUserData());
+        this.eQn.c(nVar);
+        if ((this.eQn.mRootView instanceof RelativeLayout) && !this.czI) {
+            if (this.eQp == null) {
+                this.eQp = new af(this.aTb, (RelativeLayout) this.eQn.mRootView, nVar.getUserData());
             } else {
-                this.eJQ.setData(nVar.getUserData());
+                this.eQp.setData(nVar.getUserData());
             }
         }
     }
 
-    public q aTW() {
-        return this.eJR;
+    public q aWd() {
+        return this.eQq;
     }
 
-    public h aTX() {
-        return this.eJS;
+    public h aWe() {
+        return this.eQr;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eJO != null) {
-            this.eJO.onChangeSkinType(i);
+        if (this.eQn != null) {
+            this.eQn.onChangeSkinType(i);
         }
-        if (this.eJQ != null) {
-            this.eJQ.onChangeSkinType(i);
+        if (this.eQp != null) {
+            this.eQp.onChangeSkinType(i);
         }
     }
 
     public void onDestroy() {
-        this.eJR.onDestroy();
-        if (this.eJQ != null) {
-            this.eJQ.onDestroy();
+        this.eQq.onDestroy();
+        if (this.eQp != null) {
+            this.eQp.onDestroy();
         }
     }
 }

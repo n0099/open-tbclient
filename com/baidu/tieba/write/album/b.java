@@ -7,11 +7,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements y {
-    final /* synthetic */ AlbumActivity gcj;
+    final /* synthetic */ AlbumActivity gjO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AlbumActivity albumActivity) {
-        this.gcj = albumActivity;
+        this.gjO = albumActivity;
     }
 
     @Override // com.baidu.tieba.write.album.y
@@ -28,7 +28,7 @@ public class b implements y {
                 }
             }
         }
-        this.gcj.showToastWithIcon(this.gcj.getPageContext().getPageActivity().getString(r.j.uploade_attation), r.f.icon_toast_game_error);
+        this.gjO.showToastWithIcon(this.gjO.getPageContext().getPageActivity().getString(r.j.uploade_attation), r.f.icon_toast_game_error);
         return false;
     }
 }

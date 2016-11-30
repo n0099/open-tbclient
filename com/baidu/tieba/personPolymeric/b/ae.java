@@ -4,31 +4,11 @@ import com.baidu.tieba.d.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements a.InterfaceC0058a {
-    final /* synthetic */ ab eJU;
+    final /* synthetic */ ab eQt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ab abVar) {
-        this.eJU = abVar;
-    }
-
-    @Override // com.baidu.tieba.d.a.InterfaceC0058a
-    public void O(int i, int i2) {
-        af afVar;
-        af afVar2;
-        af afVar3;
-        af afVar4;
-        if (af(i2)) {
-            afVar = this.eJU.eJQ;
-            if (afVar != null) {
-                afVar2 = this.eJU.eJQ;
-                if (afVar2.eJX != null) {
-                    afVar3 = this.eJU.eJQ;
-                    afVar3.eJX.dq(false);
-                    afVar4 = this.eJU.eJQ;
-                    afVar4.eJX.Zd();
-                }
-            }
-        }
+        this.eQt = abVar;
     }
 
     @Override // com.baidu.tieba.d.a.InterfaceC0058a
@@ -38,14 +18,34 @@ public class ae implements a.InterfaceC0058a {
         af afVar3;
         af afVar4;
         if (af(i2)) {
-            afVar = this.eJU.eJQ;
+            afVar = this.eQt.eQp;
             if (afVar != null) {
-                afVar2 = this.eJU.eJQ;
-                if (afVar2.eJX != null) {
-                    afVar3 = this.eJU.eJQ;
-                    afVar3.eJX.dq(true);
-                    afVar4 = this.eJU.eJQ;
-                    afVar4.eJX.Zc();
+                afVar2 = this.eQt.eQp;
+                if (afVar2.eQv != null) {
+                    afVar3 = this.eQt.eQp;
+                    afVar3.eQv.dv(false);
+                    afVar4 = this.eQt.eQp;
+                    afVar4.eQv.aaf();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    public void Q(int i, int i2) {
+        af afVar;
+        af afVar2;
+        af afVar3;
+        af afVar4;
+        if (af(i2)) {
+            afVar = this.eQt.eQp;
+            if (afVar != null) {
+                afVar2 = this.eQt.eQp;
+                if (afVar2.eQv != null) {
+                    afVar3 = this.eQt.eQp;
+                    afVar3.eQv.dv(true);
+                    afVar4 = this.eQt.eQp;
+                    afVar4.eQv.aae();
                 }
             }
         }

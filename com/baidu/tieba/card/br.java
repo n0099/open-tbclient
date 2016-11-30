@@ -1,27 +1,25 @@
 package com.baidu.tieba.card;
 
 import android.view.View;
-import java.util.LinkedList;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements com.baidu.tbadk.widget.layout.h {
-    private final /* synthetic */ LinkedList bas;
-    private final /* synthetic */ com.baidu.tbadk.core.data.bi bat;
-    final /* synthetic */ bp bbs;
+public class br implements View.OnClickListener {
+    final /* synthetic */ bl bey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bp bpVar, LinkedList linkedList, com.baidu.tbadk.core.data.bi biVar) {
-        this.bbs = bpVar;
-        this.bas = linkedList;
-        this.bat = biVar;
+    public br(bl blVar) {
+        this.bey = blVar;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.h
-    public void c(View view, int i, boolean z) {
-        if (z) {
-            this.bbs.Of();
-        } else {
-            this.bbs.a(this.bas, i, this.bat);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        CardPersonDynamicThreadData cardPersonDynamicThreadData;
+        bz<CardPersonDynamicThreadData> onSubCardOnClickListenner = this.bey.getOnSubCardOnClickListenner();
+        if (onSubCardOnClickListenner != null) {
+            view.setTag("1");
+            cardPersonDynamicThreadData = this.bey.bej;
+            onSubCardOnClickListenner.a(view, cardPersonDynamicThreadData);
         }
     }
 }

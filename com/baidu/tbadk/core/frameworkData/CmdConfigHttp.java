@@ -8,6 +8,8 @@ public class CmdConfigHttp {
     public static final int CAD_AD_STATISTIC_UPLOAD = 1003183;
     public static final int CDN_IPLIST_CMD = 1002600;
     public static final int CLEAR_LOCATION_INFO = 1001508;
+    public static final int CMD_ACROSS_AWARD = 1003190;
+    public static final int CMD_ACROSS_FORUM = 1003189;
     public static final int CMD_ADD_MSG_RECORD = 1003071;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_ADD_USER_BOOKMARK = 1003166;
@@ -50,6 +52,7 @@ public class CmdConfigHttp {
     public static final int CMD_ECOMM_PRODUCT_ON_SHELF = 1003113;
     public static final int CMD_ECOMM_PROVINCE_LIST = 1003108;
     public static final int CMD_ENTERTAINMENT = 1003079;
+    public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FORUM_CLASS_LIST = 1003061;
     public static final int CMD_FOUND_NEW = 1003003;
     public static final int CMD_FRS_HEAD_VIDEO_LIST = 1003106;
@@ -83,6 +86,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_ORDER = 1003029;
     public static final int CMD_GET_PERSONAL_GIFT_LIST = 1003051;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
+    public static final int CMD_GET_SPLASH_INFO = 1003192;
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
     public static final int CMD_GET_TASK_SCORES = 1003101;
@@ -111,6 +115,7 @@ public class CmdConfigHttp {
     public static final int CMD_MANGA_REPORT_TYPE = 1003088;
     public static final int CMD_MEMBERCENTER_INDEX = 1003048;
     public static final int CMD_MEMBER_CLOSE_AD = 1003090;
+    public static final int CMD_MEMBER_TASK = 1003187;
     public static final int CMD_NEG_FEED_BACK = 1003184;
     public static final int CMD_OP_BOOKRACK = 1003163;
     public static final int CMD_PAYMENT_CONFIRM_INFO = 1001536;
@@ -128,6 +133,7 @@ public class CmdConfigHttp {
     public static final int CMD_RECOMMEND_VIDEO = 1003185;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
     public static final int CMD_SAVE_GAME_STATUS = 1003059;
+    public static final int CMD_SCREEN_LOCK_MESSAGE_MORE = 1003194;
     public static final int CMD_SELLER_CONFIRM_DELIVERY = 1003172;
     public static final int CMD_SELLER_REFUSE_REFUND_REASON = 1003171;
     public static final int CMD_SEND_BLESS = 1003080;
@@ -141,6 +147,7 @@ public class CmdConfigHttp {
     public static final int CMD_SET_USER_PICS = 1003064;
     public static final int CMD_SKIN_DETAIL = 1003037;
     public static final int CMD_SQUARE_FORUM_LIST = 1003060;
+    public static final int CMD_STATIC_SPLASH = 1003193;
     public static final int CMD_SUBMIT_CLOSE_ADKILLER = 1003076;
     public static final int CMD_TAIL_ADD = 1003019;
     public static final int CMD_TAIL_DELETE = 1003020;
@@ -157,11 +164,11 @@ public class CmdConfigHttp {
     public static final int CMD_USER_MUTE_CHECK = 1003025;
     public static final int CMD_USER_MUTE_DEL = 1003028;
     public static final int CMD_USER_MUTE_QUERY = 1003026;
+    public static final int CMD_VIDEO_ACTIVE_INFO = 1003191;
     public static final int CMD_VOTE_GRAFFITI = 1003083;
     public static final int CMD_VR_LOGO = 1003182;
     public static final int CMG_SET_FANS_NICKNAME = 1003040;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
-    public static final int DISCOVER_TAB_HTTP_CMD = 1001300;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;
     public static final int ECOMM_APPLY_FOR_REFUND = 1003145;
     public static final int ECOMM_CAN_SEND_THREAD = 1003128;

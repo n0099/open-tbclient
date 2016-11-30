@@ -1,26 +1,27 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.r;
+import android.view.View;
+import android.widget.AdapterView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends PbListView {
-    TbPageContext<?> context;
+public class aw implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ ao eFb;
 
-    public aw(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
-        this.context = tbPageContext;
-        getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(r.e.ds16), 0, 0);
-        wu();
-        ww();
-        wx();
-        setTextSize(r.e.ds32);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aw(ao aoVar) {
+        this.eFb = aoVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.PbListView
-    public void wC() {
-        super.wC();
-        setText(this.context.getResources().getString(r.j.list_no_more));
-        getView().setVisibility(0);
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        View.OnLongClickListener onLongClickListener;
+        View.OnLongClickListener onLongClickListener2;
+        onLongClickListener = this.eFb.bLR;
+        if (onLongClickListener != null) {
+            onLongClickListener2 = this.eFb.bLR;
+            onLongClickListener2.onLongClick(view);
+            return false;
+        }
+        return false;
     }
 }

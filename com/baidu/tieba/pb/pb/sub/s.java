@@ -1,48 +1,44 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.widget.LinearLayout;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.writeModel.b;
 /* loaded from: classes.dex */
-class s implements com.baidu.adp.lib.f.c<LinearLayout> {
-    final /* synthetic */ NewSubPbActivity exF;
+class s implements b.d {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NewSubPbActivity newSubPbActivity) {
-        this.exF = newSubPbActivity;
+        this.eEs = newSubPbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aNS */
-    public LinearLayout ez() {
-        LinearLayout linearLayout = new LinearLayout(this.exF.getPageContext().getPageActivity());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(1);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public void o(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: d */
-    public LinearLayout p(LinearLayout linearLayout) {
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: e */
-    public LinearLayout q(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.s sVar, WriteData writeData, AntiData antiData) {
+        ao aoVar;
+        com.baidu.tbadk.editortools.e.p pVar;
+        com.baidu.tbadk.editortools.e.p pVar2;
+        com.baidu.tbadk.editortools.e.p pVar3;
+        bc bcVar;
+        bc bcVar2;
+        if (z) {
+            pVar = this.eEs.dAe;
+            if (pVar != null) {
+                pVar2 = this.eEs.dAe;
+                if (pVar2.CO() != null) {
+                    pVar3 = this.eEs.dAe;
+                    pVar3.CO().hide();
+                    bcVar = this.eEs.eEb;
+                    if (bcVar.aTH()) {
+                        com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10367");
+                        bcVar2 = this.eEs.eEb;
+                        TiebaStatic.log(avVar.ab("post_id", bcVar2.Do()));
+                    }
+                }
+            }
+        }
+        aoVar = this.eEs.eEd;
+        aoVar.aTo();
     }
 }

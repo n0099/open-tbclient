@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PluginCenterActivityConfig extends IntentConfig {
-    public static final int FROM_DISCOVER = 1;
     public static final int FROM_SETTING = 0;
     public static final String KEY_FROM_TYPE = "key_from_type";
 

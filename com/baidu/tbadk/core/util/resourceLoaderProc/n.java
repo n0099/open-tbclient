@@ -5,23 +5,23 @@ import android.graphics.Rect;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.u;
 /* loaded from: classes.dex */
 public class n extends a {
-    private int abe;
-    private boolean adw;
+    private int abD;
+    private boolean adU;
 
     public n(boolean z, int i) {
-        this.adw = true;
-        this.abe = 0;
-        this.adw = z;
-        this.abe = i;
+        this.adU = true;
+        this.abD = 0;
+        this.adU = z;
+        this.abD = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int wc() {
-        return this.abe;
+    public int wg() {
+        return this.abD;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -36,41 +36,41 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.adw;
+        return this.adU;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean wa() {
+    public boolean we() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean wb() {
+    public boolean wf() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a b(String str, String str2, com.baidu.adp.lib.g.a aVar, Object... objArr) {
-        com.baidu.adp.lib.stats.d eB = v.eB();
+        com.baidu.adp.lib.stats.d eB = u.eB();
         eB.eY();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c dS = dS(bb.dF(str2));
-        if (dS == null) {
+        com.baidu.adp.lib.Disk.ops.c dU = dU(az.dH(str2));
+        if (dU == null) {
             return null;
         }
-        dS.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        dS.r(true);
-        dS.s(false);
-        dS.k((Object) bArr);
-        dS.t(false);
+        dU.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        dU.r(true);
+        dU.s(false);
+        dU.k((Object) bArr);
+        dU.t(false);
         if (aVar != null) {
             d dVar = new d();
-            dVar.f(dS);
-            aVar.oU = dVar;
+            dVar.f(dU);
+            aVar.oV = dVar;
         }
         boolean gn = com.baidu.adp.lib.util.i.gn();
-        if (!com.baidu.adp.lib.Disk.d.cB().c(dS)) {
-            v.a(eB, str2, false, eB.eZ(), gn);
+        if (!com.baidu.adp.lib.Disk.d.cB().c(dU)) {
+            u.a(eB, str2, false, eB.eZ(), gn);
             return null;
         }
         int i = 2000;
@@ -83,11 +83,11 @@ public class n extends a {
             } catch (InterruptedException e) {
             }
         }
-        com.baidu.adp.widget.a.a a = dS.isSuccess() ? a(dS, str2) : null;
+        com.baidu.adp.widget.a.a a = dU.isSuccess() ? a(dU, str2) : null;
         if (a != null) {
-            v.a(eB, str2, true, eB.eZ(), gn);
+            u.a(eB, str2, true, eB.eZ(), gn);
         } else {
-            v.a(eB, str2, false, eB.eZ(), gn);
+            u.a(eB, str2, false, eB.eZ(), gn);
         }
         return a;
     }
@@ -96,7 +96,7 @@ public class n extends a {
     protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.g.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.k kVar, byte[] bArr, Rect rect) {
         if (h(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bb.dF(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, az.dH(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.r(true);
             cVar.setData(bArr);
@@ -106,7 +106,7 @@ public class n extends a {
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.oU = dVar;
+                aVar.oV = dVar;
             }
         }
         return aVar2;

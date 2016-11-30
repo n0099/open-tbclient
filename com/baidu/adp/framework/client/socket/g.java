@@ -5,29 +5,29 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class g {
-    private static g hu = null;
-    private int hd = 0;
+    private static g hv = null;
+    private int hf = 0;
 
     public static g bH() {
-        if (hu == null) {
+        if (hv == null) {
             synchronized (g.class) {
-                if (hu == null) {
-                    hu = new g();
+                if (hv == null) {
+                    hv = new g();
                 }
             }
         }
-        return hu;
+        return hv;
     }
 
     public synchronized void c(Map<String, String> map) {
         if (map != null) {
             try {
-                this.hd = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.hf = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                k.a("SequenceManager", 0, 0, "setSequenceId", j.ii, "parser Seq-Id error");
-                if (this.hd == 0) {
-                    this.hd = new Random().nextInt();
+                k.a("SequenceManager", 0, 0, "setSequenceId", j.ij, "parser Seq-Id error");
+                if (this.hf == 0) {
+                    this.hf = new Random().nextInt();
                 }
             }
         }
@@ -35,11 +35,11 @@ public class g {
 
     public synchronized int bC() {
         int i;
-        if (this.hd == 0) {
-            this.hd++;
+        if (this.hf == 0) {
+            this.hf++;
         }
-        i = this.hd;
-        this.hd = i + 1;
+        i = this.hf;
+        this.hf = i + 1;
         return i;
     }
 }

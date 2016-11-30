@@ -1,44 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.List;
-import tbclient.PbPage.RecommendBook;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
-public class ap extends com.baidu.tieba.tbadkCore.data.q {
-    public static final BdUniqueId Se = BdUniqueId.gen();
-    public int PY;
-    public String Qk;
-    public String Ql;
-    public String Sf;
-    public String Sg;
-    public String Sh;
-    public List<String> Si;
-    public String Sj;
-    public String Sk;
-    public String bookId;
+public class ap {
+    private int Su;
+    private ArrayList<a> Sv;
 
-    public void a(RecommendBook recommendBook) {
-        if (recommendBook != null) {
-            this.Sf = recommendBook.recommend_text;
-            this.Sg = recommendBook.suggest_text;
-            this.Sh = recommendBook.suggest_url;
-            this.bookId = recommendBook.book_id;
-            this.PY = recommendBook.book_type.intValue();
-            this.Ql = recommendBook.book_cover;
-            this.Qk = recommendBook.book_title;
-            this.Si = recommendBook.book_tips;
-            this.Sj = recommendBook.botton_text;
-            this.Sk = recommendBook.subscript_icon;
+    /* loaded from: classes.dex */
+    public static class a {
+        public String HR;
+        public String Rw;
+        public int giftId;
+        public int num;
+    }
+
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.Su = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.Sv = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.HR = pbPresentList.gift_name;
+                        aVar.Rw = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.Sv.add(aVar);
+                    }
+                }
+            }
         }
     }
 
-    public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.bookId)) ? false : true;
+    public int qF() {
+        return this.Su;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Se;
+    public void bR(int i) {
+        this.Su = i;
+    }
+
+    public ArrayList<a> qG() {
+        return this.Sv;
+    }
+
+    public void h(ArrayList<a> arrayList) {
+        this.Sv = arrayList;
     }
 }

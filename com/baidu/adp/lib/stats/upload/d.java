@@ -20,19 +20,19 @@ class d {
         HashMap<String, Object> hashMap = new HashMap<>();
         a(hashMap, "_client_type", "2");
         a(hashMap, "_client_version", fVar.mAppVersion);
-        a(hashMap, "_phone_imei", fVar.pT);
+        a(hashMap, "_phone_imei", fVar.pU);
         a(hashMap, "_client_id", fVar.mClientId);
-        a(hashMap, "subapp_type", fVar.pU);
-        a(hashMap, "from", fVar.pR);
-        a(hashMap, "net_type", fVar.pY);
+        a(hashMap, "subapp_type", fVar.pV);
+        a(hashMap, "from", fVar.pS);
+        a(hashMap, "net_type", fVar.pZ);
         a(hashMap, SocialConstants.PARAM_CUID, fVar.mCuid);
-        a(hashMap, "model", fVar.pV);
+        a(hashMap, "model", fVar.pW);
         if (TextUtils.isEmpty(fVar.mUid)) {
             fVar.mUid = "0";
         }
         a(hashMap, "uid", fVar.mUid);
-        a(hashMap, "un", fVar.pW);
-        a(hashMap, "BDUSS", fVar.pX);
+        a(hashMap, "un", fVar.pX);
+        a(hashMap, "BDUSS", fVar.pY);
         if (z) {
             a(hashMap, "find_bug", "2");
         } else {
@@ -55,11 +55,11 @@ class d {
         try {
             sb.append("product");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.pP, "utf-8"));
+            sb.append(URLEncoder.encode(fVar.pQ, "utf-8"));
             sb.append("&");
             sb.append("sub_sys");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.pQ, "utf-8"));
+            sb.append(URLEncoder.encode(fVar.pR, "utf-8"));
             sb.append("&");
             sb.append("version");
             sb.append("=");
@@ -71,23 +71,23 @@ class d {
             sb.append("&");
             sb.append("os_version");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.pZ, "utf-8"));
-            if (!TextUtils.isEmpty(fVar.pR)) {
+            sb.append(URLEncoder.encode(fVar.qa, "utf-8"));
+            if (!TextUtils.isEmpty(fVar.pS)) {
                 sb.append("&");
                 sb.append("from");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.pR, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.pS, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.pS)) {
+            if (!TextUtils.isEmpty(fVar.pT)) {
                 sb.append("&");
                 sb.append("cfrom");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.pS, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.pT, "utf-8"));
             }
             sb.append("&");
             sb.append("phone");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.pV, "utf-8"));
+            sb.append(URLEncoder.encode(fVar.pW, "utf-8"));
             if (!TextUtils.isEmpty(fVar.mUid)) {
                 sb.append("&");
                 sb.append("uid");
@@ -100,17 +100,17 @@ class d {
                 sb.append("=");
                 sb.append(URLEncoder.encode(fVar.mClientId, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.pT)) {
+            if (!TextUtils.isEmpty(fVar.pU)) {
                 sb.append("&");
                 sb.append("imei");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.pT, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.pU, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.pW)) {
+            if (!TextUtils.isEmpty(fVar.pX)) {
                 sb.append("&");
                 sb.append("uname");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.pW, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.pX, "utf-8"));
             }
             if (!TextUtils.isEmpty(fVar.mCuid)) {
                 sb.append("&");
@@ -144,7 +144,7 @@ class d {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x00b4  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x00d6  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x00d4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -170,40 +170,40 @@ class d {
                     BdLog.e(e);
                 }
                 a(sb, "_client_version", str, z);
-                a(sb, "_phone_imei", fVar.pT, z);
+                a(sb, "_phone_imei", fVar.pU, z);
                 a(sb, "_client_id", fVar.mClientId, z);
-                a(sb, "subapp_type", fVar.pU, z);
-                a(sb, "os_version", fVar.pZ, z);
-                a(sb, "from", fVar.pR, z);
-                a(sb, "cfrom", fVar.pS, z);
-                a(sb, "net_type", fVar.pY, z);
+                a(sb, "subapp_type", fVar.pV, z);
+                a(sb, "os_version", fVar.qa, z);
+                a(sb, "from", fVar.pS, z);
+                a(sb, "cfrom", fVar.pT, z);
+                a(sb, "net_type", fVar.pZ, z);
                 a(sb, SocialConstants.PARAM_CUID, fVar.mCuid, z);
-                a(sb, "model", fVar.pV, z);
+                a(sb, "model", fVar.pW, z);
                 if (!TextUtils.isEmpty(fVar.mUid)) {
                     a(sb, "uid", "0", z);
                 } else {
                     a(sb, "uid", fVar.mUid, z);
                 }
-                a(sb, "un", fVar.pW, z);
-                a(sb, "BDUSS", fVar.pX, z);
+                a(sb, "un", fVar.pX, z);
+                a(sb, "BDUSS", fVar.pY, z);
                 return sb.toString();
             }
         }
         str = str2;
         a(sb, "_client_version", str, z);
-        a(sb, "_phone_imei", fVar.pT, z);
+        a(sb, "_phone_imei", fVar.pU, z);
         a(sb, "_client_id", fVar.mClientId, z);
-        a(sb, "subapp_type", fVar.pU, z);
-        a(sb, "os_version", fVar.pZ, z);
-        a(sb, "from", fVar.pR, z);
-        a(sb, "cfrom", fVar.pS, z);
-        a(sb, "net_type", fVar.pY, z);
+        a(sb, "subapp_type", fVar.pV, z);
+        a(sb, "os_version", fVar.qa, z);
+        a(sb, "from", fVar.pS, z);
+        a(sb, "cfrom", fVar.pT, z);
+        a(sb, "net_type", fVar.pZ, z);
         a(sb, SocialConstants.PARAM_CUID, fVar.mCuid, z);
-        a(sb, "model", fVar.pV, z);
+        a(sb, "model", fVar.pW, z);
         if (!TextUtils.isEmpty(fVar.mUid)) {
         }
-        a(sb, "un", fVar.pW, z);
-        a(sb, "BDUSS", fVar.pX, z);
+        a(sb, "un", fVar.pX, z);
+        a(sb, "BDUSS", fVar.pY, z);
         return sb.toString();
     }
 }

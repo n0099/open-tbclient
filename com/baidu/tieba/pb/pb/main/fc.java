@@ -1,37 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fc implements Animation.AnimationListener {
-    final /* synthetic */ ex ewH;
+    final /* synthetic */ ey eCT;
+    private final /* synthetic */ View eCV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fc(ex exVar) {
-        this.ewH = exVar;
+    public fc(ey eyVar, View view) {
+        this.eCT = eyVar;
+        this.eCV = view;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.ewH.eug.setTitleVisibility(false);
+        this.eCT.eAx.setTitleVisibility(false);
+        this.eCV.setVisibility(0);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         ObservedChangeLinearLayout observedChangeLinearLayout;
-        boolean z;
         PbActivity pbActivity;
-        observedChangeLinearLayout = this.ewH.euW;
-        observedChangeLinearLayout.setVisibility(0);
-        this.ewH.eug.setTitleVisibility(true);
-        this.ewH.iv(false);
-        z = this.ewH.ewi;
-        if (z) {
-            this.ewH.aQz();
-        }
-        pbActivity = this.ewH.eow;
-        pbActivity.ic(true);
+        observedChangeLinearLayout = this.eCT.eBi;
+        observedChangeLinearLayout.setVisibility(8);
+        this.eCT.eAx.setTitleVisibility(true);
+        this.eCV.setVisibility(8);
+        this.eCT.iT(true);
+        this.eCT.aSt();
+        pbActivity = this.eCT.eug;
+        pbActivity.iv(false);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

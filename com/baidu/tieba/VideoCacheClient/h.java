@@ -1,14 +1,39 @@
 package com.baidu.tieba.VideoCacheClient;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements CustomMessageTask.CustomRunnable<com.baidu.tieba.play.g> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tieba.play.g> run(CustomMessage<com.baidu.tieba.play.g> customMessage) {
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, c.Ky());
+public class h implements ServiceConnection {
+    final /* synthetic */ f aQU;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(f fVar) {
+        this.aQU = fVar;
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Runnable runnable;
+        this.aQU.aMh = true;
+        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
+        runnable = this.aQU.aMj;
+        eG.removeCallbacks(runnable);
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        Runnable runnable;
+        File file = new File(d.aQC);
+        if (file.exists()) {
+            file.delete();
+        }
+        c.Lc().Le();
+        this.aQU.aMh = false;
+        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
+        runnable = this.aQU.aMj;
+        eG.postDelayed(runnable, 1000L);
     }
 }

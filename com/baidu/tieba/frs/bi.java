@@ -1,22 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
-class bi implements View.OnClickListener {
-    private final /* synthetic */ MetaData bQV;
-    private final /* synthetic */ View.OnClickListener bQW;
+public class bi extends b {
+    public static final BdUniqueId bUO = BdUniqueId.gen();
+    private long bUP;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(MetaData metaData, View.OnClickListener onClickListener) {
-        this.bQV = metaData;
-        this.bQW = onClickListener;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return bUO;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c10632").ab("obj_id", this.bQV.getUserId()));
-        this.bQW.onClick(view);
+    public long adA() {
+        return this.bUP;
+    }
+
+    public void bg(long j) {
+        this.bUP = j;
     }
 }

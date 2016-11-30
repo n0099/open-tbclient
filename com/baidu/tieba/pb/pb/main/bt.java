@@ -1,50 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.LinearLayout;
+import android.view.View;
 import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bt implements com.baidu.adp.lib.f.c<LinearLayout> {
-    final /* synthetic */ PbActivity eqa;
+public class bt implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bXf;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(PbActivity pbActivity) {
-        this.eqa = pbActivity;
+    public bt(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.evL = pbActivity;
+        this.bXf = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aNS */
-    public LinearLayout ez() {
-        LinearLayout linearLayout = new LinearLayout(this.eqa.getPageContext().getPageActivity());
-        linearLayout.setId(r.g.pb_text_voice_layout);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(1);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public void o(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: d */
-    public LinearLayout p(LinearLayout linearLayout) {
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: e */
-    public LinearLayout q(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.a.az(this.bXf.linkUrl);
+        com.baidu.adp.lib.util.k.showToast(this.evL.getPageContext().getPageActivity(), view.getResources().getString(r.j.copy_pb_url_success));
     }
 }

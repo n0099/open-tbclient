@@ -4,11 +4,11 @@ import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public interface c {
-    void alL();
+    void anG();
 
-    void bo(List<TagInfo> list);
+    void bq(List<TagInfo> list);
 
-    void k(int i, int i2, int i3, int i4);
+    void j(int i, int i2, int i3, int i4);
 
-    void u(int i, int i2, int i3);
+    void t(int i, int i2, int i3);
 }

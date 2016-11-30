@@ -4,128 +4,95 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tieba.card.cd;
-import com.baidu.tieba.frs.entelechy.view.az;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.bz;
+import com.baidu.tieba.frs.entelechy.view.ba;
+import com.baidu.tieba.frs.entelechy.view.w;
+import com.baidu.tieba.r;
+import java.util.HashSet;
 /* loaded from: classes.dex */
-public class ad extends com.baidu.adp.widget.ListView.a<bi, a> implements az, com.baidu.tieba.frs.g.e {
-    private TbPageContext<?> GM;
-    private cd<bi> bVT;
-    private com.baidu.tieba.frs.entelechy.view.a bWE;
+public class ad extends com.baidu.adp.widget.ListView.a<bk, a> implements ba, com.baidu.tieba.frs.h.e {
+    private TbPageContext<?> GO;
+    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> bXs;
+    private com.baidu.adp.lib.f.b<TbImageView> bXt;
+    private bz<bk> bZL;
+    private w bZR;
+    private HashSet<String> bZS;
+    private int bZh;
     private String mForumName;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public ad(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bVT = new ae(this);
-        this.GM = tbPageContext;
+        this.bZh = 0;
+        this.bZL = new ae(this);
+        this.bXs = new com.baidu.adp.lib.f.b<>(new af(this), 6, 0);
+        this.bXt = new com.baidu.adp.lib.f.b<>(new ag(this), 12, 0);
+        this.GO = tbPageContext;
+        this.bZh = com.baidu.adp.lib.util.k.e(this.GO.getPageActivity(), r.e.ds14);
+    }
+
+    private void i(bk bkVar) {
+        if (this.bZS == null) {
+            this.bZS = new HashSet<>();
+        }
+        if (bkVar.getTid() != null && !this.bZS.contains(bkVar.getTid())) {
+            this.bZS.add(bkVar.getTid());
+            TiebaStatic.log(new av("c11662").s("obj_param1", 1).ab("post_id", bkVar.getTid()));
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: F */
+    /* renamed from: L */
     public a a(ViewGroup viewGroup) {
-        this.bWE = new com.baidu.tieba.frs.entelechy.view.a(this.GM);
-        this.bWE.j(this.GM.getUniqueId());
-        this.bWE.setForumName(this.mForumName);
-        return new a(this.bWE);
+        this.bZR = new w(this.GO);
+        this.bZR.setConstrainLayoutPool(this.bXs);
+        this.bZR.setConstrainImagePool(this.bXt);
+        this.bZR.j(this.GO.getUniqueId());
+        return new a(this.bZR);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bi biVar, a aVar) {
-        aVar.bWG.a(i(biVar));
-        aVar.bWG.onBindDataToView(biVar);
-        aVar.bWG.setForumName(this.mForumName);
-        aVar.bWG.setOnSubCardOnClickListenner(this.bVT);
-        com.baidu.tieba.frs.g.b.afl().a(cdl, biVar);
-        if (biVar != null) {
-            biVar.sL();
+    public View a(int i, View view, ViewGroup viewGroup, bk bkVar, a aVar) {
+        if (bkVar != null && bkVar.ry()) {
+            i(bkVar);
+        }
+        aVar.bZU.onBindDataToView(bkVar);
+        aVar.bZU.setForumName(this.mForumName);
+        aVar.bZU.setOnSubCardOnClickListenner(this.bZL);
+        com.baidu.tieba.frs.h.b.agV().a(chm, bkVar);
+        if (bkVar != null) {
+            bkVar.sN();
         }
         return aVar.getView();
     }
 
-    private com.baidu.tieba.play.ad i(bi biVar) {
-        if (biVar == null) {
-            return null;
+    public void setFromCDN(boolean z) {
+        if (this.bZR != null) {
+            this.bZR.setFromCDN(z);
         }
-        com.baidu.tieba.play.ad adVar = new com.baidu.tieba.play.ad();
-        adVar.mLocate = biVar.sG() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
-        adVar.aPG = cdl.cdd;
-        adVar.aPH = biVar.getTid();
-        return adVar;
     }
 
-    @Override // com.baidu.tieba.frs.entelechy.view.az
+    @Override // com.baidu.tieba.frs.entelechy.view.ba
     public void setForumName(String str) {
         this.mForumName = str;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class a extends y.a implements com.baidu.tieba.play.d {
-        public com.baidu.tieba.frs.entelechy.view.a bWG;
+    public class a extends y.a {
+        public w bZU;
 
-        public a(com.baidu.tieba.frs.entelechy.view.a aVar) {
-            super(aVar.getView());
-            this.bWG = aVar;
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public boolean Jr() {
-            if (this.bWG == null) {
-                return false;
-            }
-            return this.bWG.Jr();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public boolean isPlaying() {
-            if (this.bWG == null) {
-                return false;
-            }
-            return this.bWG.isPlaying();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public void Js() {
-            if (this.bWG != null) {
-                this.bWG.Js();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public void stopPlay() {
-            if (this.bWG != null) {
-                this.bWG.stopPlay();
-            }
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public View getVideoContainer() {
-            if (this.bWG == null) {
-                return null;
-            }
-            return this.bWG.getVideoContainer();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public String getPlayUrl() {
-            if (this.bWG == null) {
-                return null;
-            }
-            return this.bWG.getPlayUrl();
-        }
-
-        @Override // com.baidu.tieba.play.d
-        public int getCurrentPosition() {
-            if (this.bWG == null) {
-                return 0;
-            }
-            return this.bWG.getCurrentPosition();
+        public a(w wVar) {
+            super(wVar.getView());
+            this.bZU = wVar;
         }
     }
 }

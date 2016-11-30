@@ -7,19 +7,19 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class AppealActivity extends BaseActivity<AppealActivity> {
-    private TextView aTl;
-    private TextView aTm;
-    private TextView aTn;
-    private TextView aTo;
-    private String aTp;
-    private String aTq;
-    private final TextWatcher aTr = new a(this);
-    private final View.OnClickListener aTs = new b(this);
+    private TextView aVm;
+    private TextView aVn;
+    private TextView aVo;
+    private TextView aVp;
+    private String aVq;
+    private String aVr;
+    private final TextWatcher aVs = new a(this);
+    private final View.OnClickListener aVt = new b(this);
     private NavigationBar mNavigationBar;
     private String mUserName;
 
@@ -31,44 +31,44 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(r.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(r.j.appeal_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(r.j.appeal_submit_btn), this.aTs);
-        this.aTl = (TextView) findViewById(r.g.forbid_id);
-        this.aTm = (TextView) findViewById(r.g.forbid_reason);
-        this.aTn = (TextView) findViewById(r.g.appeal_reason);
-        this.aTo = (TextView) findViewById(r.g.remain_text_count);
-        this.aTo.setText(String.valueOf(150));
-        this.aTn.setFocusable(true);
-        this.aTn.setFocusableInTouchMode(true);
-        this.aTn.requestFocus();
-        k.c(getPageContext().getPageActivity(), this.aTn);
-        this.aTn.addTextChangedListener(this.aTr);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(r.j.appeal_submit_btn), this.aVt);
+        this.aVm = (TextView) findViewById(r.g.forbid_id);
+        this.aVn = (TextView) findViewById(r.g.forbid_reason);
+        this.aVo = (TextView) findViewById(r.g.appeal_reason);
+        this.aVp = (TextView) findViewById(r.g.remain_text_count);
+        this.aVp.setText(String.valueOf(150));
+        this.aVo.setFocusable(true);
+        this.aVo.setFocusableInTouchMode(true);
+        this.aVo.requestFocus();
+        k.c(getPageContext().getPageActivity(), this.aVo);
+        this.aVo.addTextChangedListener(this.aVs);
         initData();
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.aTp = intent.getStringExtra("forum_id");
-        this.aTq = intent.getStringExtra("user_id");
+        this.aVq = intent.getStringExtra("forum_id");
+        this.aVr = intent.getStringExtra("user_id");
         this.mUserName = intent.getStringExtra("user_name");
-        g.a(this.aTp, this.aTq, new d(this));
+        g.a(this.aVq, this.aVr, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void w(String str, boolean z) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.cD(str);
+        aVar.cF(str);
         aVar.a(getPageContext().getString(r.j.anti_no_chance_pos), new e(this, z));
         aVar.b(getPageContext());
-        aVar.tm();
+        aVar.tq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().ah(i == 1);
+        getLayoutMode().ai(i == 1);
         getLayoutMode().x(findViewById(r.g.root));
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.aTn.setHintTextColor(av.getColor(r.d.common_color_10005));
+        this.aVo.setHintTextColor(at.getColor(r.d.common_color_10005));
     }
 }

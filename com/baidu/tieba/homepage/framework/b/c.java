@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Animation.AnimationListener {
-    final /* synthetic */ a cEk;
+    final /* synthetic */ a cJy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.cEk = aVar;
+        this.cJy = aVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,13 +25,13 @@ public class c implements Animation.AnimationListener {
         View view;
         View view2;
         View view3;
-        view = this.cEk.cEj;
+        view = this.cJy.cJx;
         if (view != null) {
-            view2 = this.cEk.cEj;
+            view2 = this.cJy.cJx;
             view2.clearAnimation();
-            view3 = this.cEk.cEj;
+            view3 = this.cJy.cJx;
             view3.setVisibility(8);
-            this.cEk.dr(true);
+            this.cJy.dw(true);
         }
     }
 }

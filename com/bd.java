@@ -8,19 +8,19 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 public class bd extends DefaultBaiduListener {
     final /* synthetic */ ShareContent a;
     final /* synthetic */ boolean b;
-    final /* synthetic */ bb goj;
+    final /* synthetic */ bb gvU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bd(bb bbVar, IBaiduListener iBaiduListener, ShareContent shareContent, boolean z) {
         super(iBaiduListener);
-        this.goj = bbVar;
+        this.gvU = bbVar;
         this.a = shareContent;
         this.b = z;
     }
 
     @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
     public void onComplete() {
-        this.goj.share(this.a, this.mListener, this.b);
+        this.gvU.share(this.a, this.mListener, this.b);
     }
 }

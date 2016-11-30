@@ -1,20 +1,11 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements Runnable {
-    final /* synthetic */ bh acm;
-    private final /* synthetic */ bh.a acn;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(bh bhVar, bh.a aVar) {
-        this.acm = bhVar;
-        this.acn = aVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.acm.b(this.acn);
+public class bj implements a.b {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

@@ -15,42 +15,42 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private List<g.a> eDP = new ArrayList();
+    private List<g.a> eKo = new ArrayList();
     private TbPageContext mTbPageContext;
 
     /* loaded from: classes.dex */
     public static class a {
-        public TbImageView eDQ;
-        public TextView eDR;
-        public TextView eDS;
-        public ImageView eDT;
+        public TbImageView eKp;
+        public TextView eKq;
+        public TextView eKr;
+        public ImageView eKs;
     }
 
     public h(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    public void L(List<g.a> list) {
-        this.eDP.clear();
-        this.eDP.addAll(list);
+    public void M(List<g.a> list) {
+        this.eKo.clear();
+        this.eKo.addAll(list);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eDP != null) {
-            return this.eDP.size();
+        if (this.eKo != null) {
+            return this.eKo.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oR */
+    /* renamed from: pe */
     public g.a getItem(int i) {
-        if (this.eDP == null || this.eDP.size() <= 0 || i < 0 || i >= this.eDP.size()) {
+        if (this.eKo == null || this.eKo.size() <= 0 || i < 0 || i >= this.eKo.size()) {
             return null;
         }
-        return this.eDP.get(i);
+        return this.eKo.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -64,10 +64,10 @@ public class h extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(r.h.wallet_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.eDQ = (TbImageView) view.findViewById(r.g.item_icon);
-            aVar2.eDR = (TextView) view.findViewById(r.g.item_text);
-            aVar2.eDS = (TextView) view.findViewById(r.g.item_tip);
-            aVar2.eDT = (ImageView) view.findViewById(r.g.item_new);
+            aVar2.eKp = (TbImageView) view.findViewById(r.g.item_icon);
+            aVar2.eKq = (TextView) view.findViewById(r.g.item_text);
+            aVar2.eKr = (TextView) view.findViewById(r.g.item_tip);
+            aVar2.eKs = (ImageView) view.findViewById(r.g.item_new);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -75,15 +75,15 @@ public class h extends BaseAdapter {
         }
         g.a item = getItem(i);
         if (item != null) {
-            aVar.eDQ.c(TextUtils.isEmpty(item.pic) ? null : item.pic, 10, false);
-            aVar.eDR.setText(item.title);
+            aVar.eKp.c(TextUtils.isEmpty(item.pic) ? null : item.pic, 10, false);
+            aVar.eKq.setText(item.title);
             if (TextUtils.isEmpty(item.tip)) {
-                aVar.eDS.setVisibility(8);
+                aVar.eKr.setVisibility(8);
             } else {
-                aVar.eDS.setVisibility(0);
-                aVar.eDS.setText(item.tip);
+                aVar.eKr.setVisibility(0);
+                aVar.eKr.setText(item.tip);
             }
-            aVar.eDT.setVisibility(item.eDF ? 0 : 8);
+            aVar.eKs.setVisibility(item.eKe ? 0 : 8);
         }
         com.baidu.tbadk.i.a.a(this.mTbPageContext, view);
         return view;

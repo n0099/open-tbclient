@@ -428,7 +428,11 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void stop() throws IllegalStateException {
         stayAwake(false);
-        _stop();
+        try {
+            _stop();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
@@ -556,13 +560,22 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         stayAwake(false);
         updateSurfaceScreenOn();
         resetListeners();
-        _release();
+        try {
+            _release();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        native_finalize();
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void reset() {
         stayAwake(false);
-        _reset();
+        try {
+            _reset();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.mEventHandler.removeCallbacksAndMessages(null);
         this.mVideoWidth = 0;
         this.mVideoHeight = 0;
@@ -691,15 +704,6 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public void setKeepInBackground(boolean z) {
     }
 
-    protected void finalize() throws Throwable {
-        super.finalize();
-        try {
-            native_finalize();
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class EventHandler extends Handler {
@@ -756,8 +760,13 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                     return;
                 case 200:
                     int i = message.arg1;
-                    ijkMediaPlayer.notifyOnInfo(message.arg1, message.arg2);
-                    return;
+                    try {
+                        ijkMediaPlayer.notifyOnInfo(message.arg1, message.arg2);
+                        return;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return;
+                    }
                 case IjkMediaPlayer.PROP_FLOAT_VIDEO_DECODE_FRAMES_PER_SECOND /* 10001 */:
                     ijkMediaPlayer.mVideoSarNum = message.arg1;
                     ijkMediaPlayer.mVideoSarDen = message.arg2;

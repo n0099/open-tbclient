@@ -123,7 +123,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.b.a.ti().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).l("forumRecommend_cache_key", bArr);
+            com.baidu.tbadk.core.b.a.tm().M("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).l("forumRecommend_cache_key", bArr);
         }
     }
 }

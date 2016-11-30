@@ -11,11 +11,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ m aZq;
+    final /* synthetic */ m bcz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.aZq = mVar;
+        this.bcz = mVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,12 +23,12 @@ public class o implements View.OnClickListener {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
         if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
-            tbPageContext2 = this.aZq.Gd;
+            tbPageContext2 = this.bcz.Gf;
             tbPageContext2.showToast(r.j.pluginstatus_tip_timeout_last);
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.aZq.Gd;
+        tbPageContext = this.bcz.Gf;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GodSquareActivityConfig(tbPageContext.getPageActivity())));
     }
 }

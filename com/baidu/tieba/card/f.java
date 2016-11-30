@@ -1,18 +1,18 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.core.view.UserLikeButton;
+import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements UserLikeButton.a {
-    final /* synthetic */ e aYZ;
+public class f implements CommonUserLikeButton.a {
+    final /* synthetic */ e bci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.aYZ = eVar;
+        this.bci = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.UserLikeButton.a
-    public void dm(int i) {
-        this.aYZ.gh(i);
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
+    public void dp(int i) {
+        this.bci.gh(i);
     }
 }

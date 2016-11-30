@@ -3,12 +3,12 @@ package com.baidu.tieba.im.data;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends com.baidu.tbadk.core.util.a implements v, al, Serializable {
+public class GroupInfoData extends com.baidu.tbadk.core.util.a implements v, aj, Serializable {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5616188082014345808L;
     private long authorId;
@@ -159,13 +159,13 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements v, al,
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.al
-    public ArrayList<ak> getImages() {
-        ArrayList<ak> arrayList = new ArrayList<>();
-        ak akVar = new ak();
-        akVar.imgUrl = this.portrait;
-        akVar.abe = 10;
-        arrayList.add(akVar);
+    @Override // com.baidu.tbadk.core.util.aj
+    public ArrayList<ai> getImages() {
+        ArrayList<ai> arrayList = new ArrayList<>();
+        ai aiVar = new ai();
+        aiVar.imgUrl = this.portrait;
+        aiVar.abD = 10;
+        arrayList.add(aiVar);
         return arrayList;
     }
 

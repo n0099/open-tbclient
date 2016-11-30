@@ -3,11 +3,9 @@ package com.baidu.tieba.recapp;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public interface b {
-    void a(com.baidu.tbadk.core.data.b bVar, String str);
+    void a(com.baidu.tbadk.core.data.c cVar, String str);
 
-    void aaY();
-
-    void b(com.baidu.tbadk.core.data.b bVar, String str);
+    void aco();
 
     BaseActivity<?> getContext();
 

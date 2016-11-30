@@ -9,5 +9,5 @@ public interface d {
 
     d bt(String str, String str2);
 
-    d o(String str, long j);
+    d p(String str, long j);
 }

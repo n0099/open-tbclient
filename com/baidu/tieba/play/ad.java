@@ -1,41 +1,47 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.play.QuickVideoView;
+import com.baidu.tieba.play.t;
 /* loaded from: classes.dex */
-public class ad {
-    public String aPG;
-    public String aPH;
-    public String eZn;
-    public String eZo;
-    public String mLocate;
-    public String mSource;
-    public String mUid;
+class ad implements t.d {
+    final /* synthetic */ QuickVideoView fgc;
 
-    public ax f(ax axVar) {
-        if (axVar != null) {
-            if (!StringUtils.isNull(this.mLocate)) {
-                axVar.ab("obj_locate", this.mLocate);
-            }
-            if (!StringUtils.isNull(this.aPH)) {
-                axVar.ab("tid", this.aPH);
-            }
-            if (!StringUtils.isNull(this.aPG)) {
-                axVar.ab("fid", this.aPG);
-            }
-            if (!StringUtils.isNull(this.mUid)) {
-                axVar.ab("uid", this.mUid);
-            }
-            if (!StringUtils.isNull(this.mSource)) {
-                axVar.ab("obj_source", this.mSource);
-            }
-            if (!StringUtils.isNull(this.eZn)) {
-                axVar.ab("obj_param1", this.eZn);
-            }
-            if (!StringUtils.isNull(this.eZo)) {
-                axVar.ab("obj_param2", this.eZo);
-            }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(QuickVideoView quickVideoView) {
+        this.fgc = quickVideoView;
+    }
+
+    @Override // com.baidu.tieba.play.t.d
+    public void onPrepared(t tVar) {
+        t.d dVar;
+        boolean z;
+        al alVar;
+        QuickVideoView.a aVar;
+        QuickVideoView.a aVar2;
+        al alVar2;
+        int i;
+        t.d dVar2;
+        dVar = this.fgc.aMo;
+        if (dVar != null) {
+            dVar2 = this.fgc.aMo;
+            dVar2.onPrepared(tVar);
         }
-        return axVar;
+        z = this.fgc.ffT;
+        if (z) {
+            this.fgc.start();
+        }
+        alVar = this.fgc.ffQ;
+        if (alVar != null && tVar != null) {
+            alVar2 = this.fgc.ffQ;
+            int videoWidth = tVar.getVideoWidth();
+            int videoHeight = tVar.getVideoHeight();
+            i = this.fgc.ffW;
+            alVar2.O(videoWidth, videoHeight, i);
+        }
+        aVar = this.fgc.ffU;
+        if (aVar != null) {
+            aVar2 = this.fgc.ffU;
+            aVar2.Jk();
+        }
     }
 }

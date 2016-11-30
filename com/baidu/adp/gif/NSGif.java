@@ -6,9 +6,9 @@ import com.baidu.adp.lib.h.k;
 import com.baidu.adp.lib.util.g;
 /* loaded from: classes.dex */
 public class NSGif implements b {
-    public static boolean jS = g.fX().a("nsgif_jni", 2, new c());
-    private int jT;
-    private final int jU;
+    public static boolean jT = g.fX().a("nsgif_jni", 2, new c());
+    private int jU;
+    private final int jV;
     private final int mHeight;
     private final int mWidth;
 
@@ -30,10 +30,10 @@ public class NSGif implements b {
     private static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
     private NSGif(int i) {
-        this.jT = i;
+        this.jU = i;
         this.mWidth = nativeGetWidth(i);
         this.mHeight = nativeGetHeight(i);
-        this.jU = nativeGetFrameCount(i);
+        this.jV = nativeGetFrameCount(i);
     }
 
     public static NSGif f(byte[] bArr, int i, int i2) {
@@ -46,9 +46,9 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public void close() {
-        if (this.jT != 0) {
-            int i = this.jT;
-            this.jT = 0;
+        if (this.jU != 0) {
+            int i = this.jU;
+            this.jU = 0;
             k.eH().e(new d(this, i));
         }
     }
@@ -73,12 +73,12 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public int cx() {
-        return this.jU;
+        return this.jV;
     }
 
     @Override // com.baidu.adp.gif.b
     public int V(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.jT, i);
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.jU, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
@@ -87,7 +87,7 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public boolean U(int i) {
-        return nativeDecodeFrame(this.jT, i);
+        return nativeDecodeFrame(this.jU, i);
     }
 
     @Override // com.baidu.adp.gif.b
@@ -95,6 +95,6 @@ public class NSGif implements b {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.jT, bitmap);
+        return nativeWriteTo(this.jU, bitmap);
     }
 }

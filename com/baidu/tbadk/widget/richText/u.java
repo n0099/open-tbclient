@@ -5,24 +5,24 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 class u extends CustomMessageListener {
-    final /* synthetic */ TbRichTextView aJH;
+    final /* synthetic */ TbRichTextView aKA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(TbRichTextView tbRichTextView, int i) {
         super(i);
-        this.aJH = tbRichTextView;
+        this.aKA = tbRichTextView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        z = this.aJH.aJA;
+        z = this.aKA.aKt;
         if (z) {
-            this.aJH.setTextSize(TbConfig.getContentSizeOfLzl(this.aJH.getContext()));
+            this.aKA.setTextSize(TbConfig.getContentSizeOfLzl(this.aKA.getContext()));
         } else {
-            this.aJH.setTextSize(TbConfig.getContentSize());
+            this.aKA.setTextSize(TbConfig.getContentSize());
         }
     }
 }

@@ -6,19 +6,19 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.switchs.EcommSwitchStatic;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.DealWindow;
 /* loaded from: classes.dex */
 public class e {
-    public TbPageContext GM;
-    public ArrayList<v> WM;
-    public List<com.baidu.adp.widget.ListView.a> bOo;
-    public boolean cuW;
-    public CustomResponsedMessage<?> eEn;
-    public v eEo;
+    public TbPageContext GO;
+    public ArrayList<v> Xk;
+    public List<com.baidu.adp.widget.ListView.a> bRh;
+    public boolean cAf;
+    public CustomResponsedMessage<?> eKM;
+    public v eKN;
     public int id;
     public UserData mUserData;
     public DealWindow window;
@@ -27,11 +27,11 @@ public class e {
         this.id = i;
     }
 
-    public void aMe() {
+    public void aNX() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.ECOMM_PB_VIEW, this));
     }
 
-    public boolean aSI() {
-        return (this.window == null || !EcommSwitchStatic.GK() || y.t(this.window.list)) ? false : true;
+    public boolean aUP() {
+        return (this.window == null || !EcommSwitchStatic.GN() || x.t(this.window.list)) ? false : true;
     }
 }

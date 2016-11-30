@@ -8,17 +8,17 @@ import java.util.TimerTask;
 public class c extends TimerTask {
     final /* synthetic */ b CE;
     private final /* synthetic */ Timer CF;
-    private final /* synthetic */ View so;
+    private final /* synthetic */ View sq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, View view, Timer timer) {
         this.CE = bVar;
-        this.so = view;
+        this.sq = view;
         this.CF = timer;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        this.so.post(new d(this, this.so, this.CF));
+        this.sq.post(new d(this, this.sq, this.CF));
     }
 }

@@ -7,299 +7,296 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.pb.pb.main.dh;
+import com.baidu.tieba.pb.pb.main.dj;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class ab implements dh.a {
-    final /* synthetic */ PbActivity eqa;
+class ab implements dj.a {
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(PbActivity pbActivity) {
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.dh.a
+    @Override // com.baidu.tieba.pb.pb.main.dj.a
     public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.h hVar, String str, int i4) {
-        ex exVar;
-        ex exVar2;
-        ex exVar3;
-        ex exVar4;
+        ey eyVar;
+        ey eyVar2;
+        ey eyVar3;
+        ey eyVar4;
         boolean z2;
         boolean z3;
-        ex exVar5;
-        ex exVar6;
-        ex exVar7;
-        ex exVar8;
-        dh dhVar;
-        ex exVar9;
-        dh dhVar2;
-        dh dhVar3;
-        ex exVar10;
-        dh dhVar4;
-        dh dhVar5;
-        ex exVar11;
-        dh dhVar6;
-        dh dhVar7;
-        ex exVar12;
-        dh dhVar8;
-        ex exVar13;
-        ex exVar14;
+        ey eyVar5;
+        ey eyVar6;
+        ey eyVar7;
+        ey eyVar8;
+        dj djVar;
+        ey eyVar9;
+        dj djVar2;
+        dj djVar3;
+        ey eyVar10;
+        dj djVar4;
+        dj djVar5;
+        ey eyVar11;
+        dj djVar6;
+        dj djVar7;
+        ey eyVar12;
+        dj djVar8;
+        ey eyVar13;
+        ey eyVar14;
         com.baidu.tbadk.editortools.e.e eVar;
+        dj djVar9;
         com.baidu.tbadk.editortools.e.e eVar2;
         com.baidu.tbadk.baseEditMark.a aVar;
-        ex exVar15;
+        ey eyVar15;
         boolean z4;
-        ex exVar16;
-        dh dhVar9;
         boolean z5;
         boolean z6;
         boolean z7;
-        dh dhVar10;
-        ex exVar17;
-        dh dhVar11;
-        dh dhVar12;
-        ex exVar18;
-        dh dhVar13;
-        ex exVar19;
-        dh dhVar14;
-        dh dhVar15;
-        dh dhVar16;
-        dh dhVar17;
-        ex exVar20;
-        ex exVar21;
+        dj djVar10;
+        ey eyVar16;
+        dj djVar11;
+        dj djVar12;
+        ey eyVar17;
+        dj djVar13;
+        ey eyVar18;
+        dj djVar14;
+        dj djVar15;
+        dj djVar16;
+        dj djVar17;
+        ey eyVar19;
+        ey eyVar20;
         String str2;
         com.baidu.tbadk.editortools.e.e eVar3;
         com.baidu.tbadk.editortools.e.e eVar4;
         com.baidu.tbadk.editortools.e.e eVar5;
         String str3;
         View.OnClickListener onClickListener;
-        ex exVar22;
-        dh dhVar18;
-        ex exVar23;
-        dh dhVar19;
-        dh dhVar20;
+        ey eyVar21;
+        dj djVar18;
+        ey eyVar22;
+        dj djVar19;
+        dj djVar20;
         com.baidu.tbadk.baseEditMark.a aVar2;
         com.baidu.tbadk.editortools.e.e eVar6;
         com.baidu.tbadk.editortools.e.e eVar7;
         com.baidu.tbadk.editortools.e.e eVar8;
-        dh dhVar21;
-        dh dhVar22;
-        dh dhVar23;
-        dh dhVar24;
-        ex exVar24;
+        dj djVar21;
+        dj djVar22;
+        dj djVar23;
+        dj djVar24;
+        ey eyVar23;
         com.baidu.tbadk.editortools.e.e eVar9;
-        ex exVar25;
-        ex exVar26;
-        dh dhVar25;
-        if (!z || hVar == null || hVar.aMt() == null || hVar.aMt().size() >= 1) {
-            this.eqa.dQG = true;
+        ey eyVar24;
+        ey eyVar25;
+        dj djVar25;
+        if (!z || hVar == null || hVar.aOs() != null || com.baidu.tbadk.core.util.x.s(hVar.aOm()) >= 1) {
+            this.evL.dWi = true;
             long currentTimeMillis = System.currentTimeMillis();
-            exVar = this.eqa.epe;
-            exVar.aQb();
-            if (hVar != null && hVar.aMy()) {
-                exVar26 = this.eqa.epe;
-                if (exVar26.aPD() == null) {
-                    this.eqa.epr = true;
+            eyVar = this.evL.euP;
+            eyVar.aSc();
+            if (hVar != null && hVar.aOr()) {
+                eyVar25 = this.evL.euP;
+                if (eyVar25.aRE() == null) {
+                    this.evL.evd = true;
                 }
             } else {
-                PbActivity pbActivity = this.eqa;
-                exVar2 = this.eqa.epe;
-                pbActivity.hideLoadingView(exVar2.getView());
+                PbActivity pbActivity = this.evL;
+                eyVar2 = this.evL.euP;
+                pbActivity.hideLoadingView(eyVar2.getView());
             }
-            exVar3 = this.eqa.epe;
-            exVar3.auB();
-            exVar4 = this.eqa.epe;
-            exVar4.gE(false);
-            z2 = this.eqa.mIsLoading;
+            eyVar3 = this.evL.euP;
+            eyVar3.awy();
+            eyVar4 = this.evL.euP;
+            eyVar4.gY(false);
+            z2 = this.evL.mIsLoading;
             if (z2) {
-                this.eqa.mIsLoading = false;
-                exVar25 = this.eqa.epe;
-                exVar25.eug.exj.setEnabled(true);
+                this.evL.mIsLoading = false;
+                eyVar24 = this.evL.euP;
+                eyVar24.eAx.eDI.setEnabled(true);
             }
             if (i4 == 0 && hVar != null) {
-                this.eqa.bOT = true;
+                this.evL.euY = true;
             }
             if (z && hVar != null) {
-                this.eqa.mForumId = hVar.getForumId();
-                this.eqa.mThreadId = hVar.getThreadId();
-                exVar13 = this.eqa.epe;
-                exVar13.JK();
-                exVar14 = this.eqa.epe;
-                exVar14.iD(hVar.aMy());
-                if (hVar.aMs() != null && hVar.aMs().sI() != null) {
-                    this.eqa.a(hVar.aMs().sI());
+                eyVar13 = this.evL.euP;
+                eyVar13.Km();
+                eyVar14 = this.evL.euP;
+                eyVar14.ja(hVar.aOr());
+                if (hVar.aOl() != null && hVar.aOl().sK() != null) {
+                    this.evL.a(hVar.aOl().sK());
                 }
-                eVar = this.eqa.epp;
+                eVar = this.evL.evb;
                 if (eVar != null) {
-                    exVar24 = this.eqa.epe;
-                    eVar9 = this.eqa.epp;
-                    exVar24.gD(eVar9.Dr());
+                    eyVar23 = this.evL.euP;
+                    eVar9 = this.evL.evb;
+                    eyVar23.gX(eVar9.Dz());
                 }
                 TbadkCoreApplication.m9getInst().setDefaultBubble(hVar.getUserData().getBimg_url());
                 TbadkCoreApplication.m9getInst().setDefaultBubbleEndTime(hVar.getUserData().getBimg_end_time());
-                if (hVar.aMt() != null && hVar.aMt().size() >= 1 && hVar.aMt().get(0) != null) {
-                    String id = hVar.aMt().get(0).getId();
-                    dhVar24 = this.eqa.eov;
-                    dhVar24.ph(id);
+                if (hVar.aOm() != null && hVar.aOm().size() >= 1 && hVar.aOm().get(0) != null) {
+                    String id = hVar.aOm().get(0).getId();
+                    djVar24 = this.evL.euf;
+                    djVar24.pu(id);
+                } else if (hVar.aOs() != null) {
+                    String id2 = hVar.aOs().getId();
+                    djVar9 = this.evL.euf;
+                    djVar9.pu(id2);
                 }
-                eVar2 = this.eqa.epp;
+                eVar2 = this.evL.evb;
                 if (eVar2 != null) {
-                    eVar6 = this.eqa.epp;
-                    eVar6.a(hVar.qq());
-                    eVar7 = this.eqa.epp;
-                    eVar7.a(hVar.aMr(), hVar.getUserData());
-                    eVar8 = this.eqa.epp;
-                    dhVar21 = this.eqa.eov;
-                    MetaData aOC = dhVar21.aOC();
-                    dhVar22 = this.eqa.eov;
-                    String threadID = dhVar22.getThreadID();
-                    dhVar23 = this.eqa.eov;
-                    eVar8.a(aOC, threadID, dhVar23.aOs());
+                    eVar6 = this.evL.evb;
+                    eVar6.a(hVar.qs());
+                    eVar7 = this.evL.evb;
+                    eVar7.a(hVar.aOk(), hVar.getUserData());
+                    eVar8 = this.evL.evb;
+                    djVar21 = this.evL.euf;
+                    MetaData aQv = djVar21.aQv();
+                    djVar22 = this.evL.euf;
+                    String threadID = djVar22.getThreadID();
+                    djVar23 = this.evL.euf;
+                    eVar8.a(aQv, threadID, djVar23.aQl());
                 }
-                aVar = this.eqa.dMU;
+                aVar = this.evL.dSz;
                 if (aVar != null) {
-                    aVar2 = this.eqa.dMU;
-                    aVar2.ad(hVar.nv());
+                    aVar2 = this.evL.dSz;
+                    aVar2.ad(hVar.nz());
                 }
-                if (hVar == null || hVar.aMA() != 1) {
-                    this.eqa.mIsFromCDN = false;
+                if (hVar == null || hVar.aOu() != 1) {
+                    this.evL.mIsFromCDN = false;
                 } else {
-                    this.eqa.mIsFromCDN = true;
+                    this.evL.mIsFromCDN = true;
                 }
-                exVar15 = this.eqa.epe;
-                z4 = this.eqa.mIsFromCDN;
-                exVar15.iC(z4);
-                exVar16 = this.eqa.epe;
-                dhVar9 = this.eqa.eov;
-                exVar16.iw(dhVar9.aOw());
-                z5 = this.eqa.epk;
+                eyVar15 = this.evL.euP;
+                z4 = this.evL.mIsFromCDN;
+                eyVar15.iZ(z4);
+                z5 = this.evL.euV;
                 if (!z5) {
-                    z6 = this.eqa.epl;
+                    z6 = this.evL.euW;
                     if (z6) {
-                        z7 = this.eqa.epm;
+                        z7 = this.evL.euX;
                         if (!z7) {
-                            PbActivity pbActivity2 = this.eqa;
-                            dhVar10 = this.eqa.eov;
-                            pbActivity2.a(dhVar10.getPbData(), -1, false, true);
-                            this.eqa.epm = true;
-                            this.eqa.epk = true;
+                            PbActivity pbActivity2 = this.evL;
+                            djVar10 = this.evL.euf;
+                            pbActivity2.a(djVar10.getPbData(), -1, false, true);
+                            this.evL.euX = true;
+                            this.evL.euV = true;
                         }
                     }
                 } else {
-                    PbActivity pbActivity3 = this.eqa;
-                    dhVar20 = this.eqa.eov;
-                    pbActivity3.a(dhVar20.getPbData(), -1, 0, false, true);
+                    PbActivity pbActivity3 = this.evL;
+                    djVar20 = this.evL.euf;
+                    pbActivity3.a(djVar20.getPbData(), -1, 0, false, true);
                 }
-                exVar17 = this.eqa.epe;
-                dhVar11 = this.eqa.eov;
-                boolean aOw = dhVar11.aOw();
-                dhVar12 = this.eqa.eov;
-                exVar17.a(hVar, i2, i3, aOw, i4, dhVar12.getIsFromMark());
-                exVar18 = this.eqa.epe;
-                dhVar13 = this.eqa.eov;
-                exVar18.a(hVar, dhVar13.aOw(), false, i2);
-                exVar19 = this.eqa.epe;
-                dhVar14 = this.eqa.eov;
-                exVar19.iA(dhVar14.getHostMode());
-                dhVar15 = this.eqa.eov;
-                if (dhVar15.aOR() != null) {
-                    exVar22 = this.eqa.epe;
-                    dhVar18 = this.eqa.eov;
-                    exVar22.c(dhVar18.aOR().aOi());
-                    if (hVar.aMs() != null && hVar.aMs().UH == null) {
-                        exVar23 = this.eqa.epe;
-                        dhVar19 = this.eqa.eov;
-                        exVar23.iy(dhVar19.aOR().aOj());
+                eyVar16 = this.evL.euP;
+                djVar11 = this.evL.euf;
+                boolean aQp = djVar11.aQp();
+                djVar12 = this.evL.euf;
+                eyVar16.a(hVar, i2, i3, aQp, i4, djVar12.getIsFromMark());
+                eyVar17 = this.evL.euP;
+                djVar13 = this.evL.euf;
+                eyVar17.a(hVar, djVar13.aQp(), false, i2);
+                eyVar18 = this.evL.euP;
+                djVar14 = this.evL.euf;
+                eyVar18.iX(djVar14.getHostMode());
+                djVar15 = this.evL.euf;
+                if (djVar15.aQK() != null) {
+                    eyVar21 = this.evL.euP;
+                    djVar18 = this.evL.euf;
+                    eyVar21.c(djVar18.aQK().aQb());
+                    if (hVar.aOl() != null && hVar.aOl().Ve == null) {
+                        eyVar22 = this.evL.euP;
+                        djVar19 = this.evL.euf;
+                        eyVar22.iV(djVar19.aQK().aQc());
                     }
                 }
-                this.eqa.aNC();
-                AntiData qq = hVar.qq();
-                if (qq != null) {
-                    this.eqa.avP = qq.getVoice_message();
-                    str2 = this.eqa.avP;
+                AntiData qs = hVar.qs();
+                if (qs != null) {
+                    this.evL.awI = qs.getVoice_message();
+                    str2 = this.evL.awI;
                     if (!StringUtils.isNull(str2)) {
-                        eVar3 = this.eqa.epp;
+                        eVar3 = this.evL.evb;
                         if (eVar3 != null) {
-                            eVar4 = this.eqa.epp;
-                            if (eVar4.CG() != null) {
-                                eVar5 = this.eqa.epp;
-                                com.baidu.tbadk.editortools.s ew = eVar5.CG().ew(6);
-                                if (ew != null) {
-                                    str3 = this.eqa.avP;
+                            eVar4 = this.evL.evb;
+                            if (eVar4.CO() != null) {
+                                eVar5 = this.evL.evb;
+                                com.baidu.tbadk.editortools.s ez = eVar5.CO().ez(6);
+                                if (ez != null) {
+                                    str3 = this.evL.awI;
                                     if (!TextUtils.isEmpty(str3)) {
-                                        onClickListener = this.eqa.dxY;
-                                        ((View) ew).setOnClickListener(onClickListener);
+                                        onClickListener = this.evL.dDC;
+                                        ((View) ez).setOnClickListener(onClickListener);
                                     }
                                 }
                             }
                         }
                     }
                 }
-                dhVar16 = this.eqa.eov;
-                if (dhVar16.aOR() != null) {
-                    dhVar17 = this.eqa.eov;
-                    if (dhVar17.aOR().aOl()) {
-                        exVar20 = this.eqa.epe;
-                        if (!exVar20.aQJ()) {
-                            exVar21 = this.eqa.epe;
-                            exVar21.aOn();
+                djVar16 = this.evL.euf;
+                if (djVar16.aQK() != null) {
+                    djVar17 = this.evL.euf;
+                    if (djVar17.aQK().aQe()) {
+                        eyVar19 = this.evL.euP;
+                        if (!eyVar19.aSF()) {
+                            eyVar20 = this.evL.euP;
+                            eyVar20.aQg();
                         }
                     }
                 }
             } else if (str != null) {
-                z3 = this.eqa.bOT;
+                z3 = this.evL.euY;
                 if (!z3 && i4 == 1) {
                     if (i2 == 3 || i2 == 4 || i2 == 6) {
                         if (i == 4) {
-                            dhVar = this.eqa.eov;
-                            if (dhVar != null) {
-                                dhVar2 = this.eqa.eov;
-                                if (dhVar2.getAppealInfo() != null) {
-                                    dhVar3 = this.eqa.eov;
-                                    if (!StringUtils.isNull(dhVar3.getAppealInfo().elW)) {
-                                        exVar10 = this.eqa.epe;
-                                        dhVar4 = this.eqa.eov;
-                                        exVar10.a(dhVar4.getAppealInfo());
+                            djVar = this.evL.euf;
+                            if (djVar != null) {
+                                djVar2 = this.evL.euf;
+                                if (djVar2.getAppealInfo() != null) {
+                                    djVar3 = this.evL.euf;
+                                    if (!StringUtils.isNull(djVar3.getAppealInfo().erT)) {
+                                        eyVar10 = this.evL.euP;
+                                        djVar4 = this.evL.euf;
+                                        eyVar10.a(djVar4.getAppealInfo());
                                     }
                                 }
                             }
-                            PbActivity pbActivity4 = this.eqa;
-                            exVar9 = this.eqa.epe;
-                            pbActivity4.showNetRefreshView(exVar9.getView(), this.eqa.getPageContext().getResources().getString(r.j.net_error_text, str, Integer.valueOf(i)), true);
-                            this.eqa.setNetRefreshViewEmotionDefMarginTop();
+                            PbActivity pbActivity4 = this.evL;
+                            eyVar9 = this.evL.euP;
+                            pbActivity4.showNetRefreshView(eyVar9.getView(), this.evL.getPageContext().getResources().getString(r.j.net_error_text, str, Integer.valueOf(i)), true);
+                            this.evL.setNetRefreshViewEmotionDefMarginTop();
                         } else {
-                            PbActivity pbActivity5 = this.eqa;
-                            exVar7 = this.eqa.epe;
-                            pbActivity5.showNetRefreshView(exVar7.getView(), this.eqa.getPageContext().getResources().getString(r.j.net_error_text, str, Integer.valueOf(i)), true);
-                            this.eqa.setNetRefreshViewEmotionDefMarginTop();
+                            PbActivity pbActivity5 = this.evL;
+                            eyVar7 = this.evL.euP;
+                            pbActivity5.showNetRefreshView(eyVar7.getView(), this.evL.getPageContext().getResources().getString(r.j.net_error_text, str, Integer.valueOf(i)), true);
+                            this.evL.setNetRefreshViewEmotionDefMarginTop();
                         }
-                        exVar8 = this.eqa.epe;
-                        exVar8.aQu();
+                        eyVar8 = this.evL.euP;
+                        eyVar8.aSq();
                     }
                 } else {
-                    this.eqa.showToast(str);
+                    this.evL.showToast(str);
                 }
-                exVar5 = this.eqa.epe;
-                exVar5.pn(this.eqa.getResources().getString(r.j.list_no_more));
-                exVar6 = this.eqa.epe;
-                exVar6.wC();
+                eyVar5 = this.evL.euP;
+                eyVar5.pA(this.evL.getResources().getString(r.j.list_no_more));
+                eyVar6 = this.evL.euP;
+                eyVar6.wG();
             }
-            this.eqa.aBU = System.currentTimeMillis() - currentTimeMillis;
-            if (!this.eqa.aNl().aOw() || this.eqa.aNl().getPbData().getPage().qC() != 0 || this.eqa.aNl().aOP()) {
-                this.eqa.epq = true;
+            this.evL.aCL = System.currentTimeMillis() - currentTimeMillis;
+            if (!this.evL.aPd().aQp() || this.evL.aPd().getPbData().getPage().qE() != 0 || this.evL.aPd().aQI()) {
+                this.evL.evc = true;
             }
-            dhVar5 = this.eqa.eov;
-            if (dhVar5 != null) {
-                exVar11 = this.eqa.epe;
-                if (exVar11 != null) {
-                    dhVar6 = this.eqa.eov;
-                    if (dhVar6.aOR() != null) {
-                        dhVar7 = this.eqa.eov;
-                        if (dhVar7.aOR().aOf()) {
-                            exVar12 = this.eqa.epe;
-                            exVar12.aOp();
-                            dhVar8 = this.eqa.eov;
-                            dhVar8.aOR().aOh();
+            djVar5 = this.evL.euf;
+            if (djVar5 != null) {
+                eyVar11 = this.evL.euP;
+                if (eyVar11 != null) {
+                    djVar6 = this.evL.euf;
+                    if (djVar6.aQK() != null) {
+                        djVar7 = this.evL.euf;
+                        if (djVar7.aQK().aPY()) {
+                            eyVar12 = this.evL.euP;
+                            eyVar12.aQi();
+                            djVar8 = this.evL.euf;
+                            djVar8.aQK().aQa();
                             return;
                         }
                         return;
@@ -310,40 +307,40 @@ class ab implements dh.a {
             }
             return;
         }
-        dhVar25 = this.eqa.eov;
-        dhVar25.os(1);
+        djVar25 = this.evL.euf;
+        djVar25.oC(1);
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.dh.a
+    @Override // com.baidu.tieba.pb.pb.main.dj.a
     public void c(com.baidu.tieba.pb.data.h hVar) {
-        ex exVar;
-        exVar = this.eqa.epe;
-        exVar.j(hVar);
+        ey eyVar;
+        eyVar = this.evL.euP;
+        eyVar.j(hVar);
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.dh.a
+    @Override // com.baidu.tieba.pb.pb.main.dj.a
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
         long j2;
         long j3;
         long j4;
         long j5;
         long j6;
-        if (com.baidu.tbadk.performanceLog.aa.Go().Gp()) {
+        if (com.baidu.tbadk.performanceLog.aa.Gu().Gv()) {
             if (z2) {
                 j2 = j;
             } else {
                 long currentTimeMillis = System.currentTimeMillis();
-                j6 = this.eqa.bGX;
+                j6 = this.evL.bJR;
                 j2 = currentTimeMillis - j6;
             }
-            j3 = this.eqa.aBM;
-            j4 = this.eqa.createTime;
-            j5 = this.eqa.aBU;
+            j3 = this.evL.aCD;
+            j4 = this.evL.createTime;
+            j5 = this.evL.aCL;
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v(i, z, responsedMessage, j3, j4, j5, z2, j2);
-            this.eqa.createTime = 0L;
-            this.eqa.aBM = 0L;
+            this.evL.createTime = 0L;
+            this.evL.aCD = 0L;
             if (vVar != null) {
-                vVar.Gj();
+                vVar.Gp();
             }
         }
     }

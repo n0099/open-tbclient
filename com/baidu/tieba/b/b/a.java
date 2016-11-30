@@ -14,45 +14,45 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
 public class a implements GLSurfaceView.Renderer {
-    protected Bitmap aWA;
-    protected Bitmap aWB;
-    protected Bitmap aWC;
-    protected Bitmap aWD;
-    protected float aWE;
-    protected float aWF;
-    int aWH;
-    private IntBuffer aWt;
-    private IntBuffer aWu;
-    protected float aWv;
-    protected float aWw;
-    protected float aWx;
-    protected Bitmap aWy;
-    protected Bitmap aWz;
+    private IntBuffer aZB;
+    private IntBuffer aZC;
+    protected float aZD;
+    protected float aZE;
+    protected float aZF;
+    protected Bitmap aZG;
+    protected Bitmap aZH;
+    protected Bitmap aZI;
+    protected Bitmap aZJ;
+    protected Bitmap aZK;
+    protected Bitmap aZL;
+    protected float aZM;
+    protected float aZN;
+    int aZP;
     private int bgColor;
     public Context context;
-    protected float aWG = 0.0f;
+    protected float aZO = 0.0f;
     private int one = 65536;
-    private Queue<com.baidu.tieba.b.a.b> aWI = new ConcurrentLinkedQueue();
-    private Queue<com.baidu.tieba.b.a.c> aWJ = new ConcurrentLinkedQueue();
-    private int aWK = 0;
-    private int[] aWL = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
-    private int[] aWM = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
-    private int[] aWs = new int[1];
+    private Queue<com.baidu.tieba.b.a.b> aZQ = new ConcurrentLinkedQueue();
+    private Queue<com.baidu.tieba.b.a.c> aZR = new ConcurrentLinkedQueue();
+    private int aZS = 0;
+    private int[] aZT = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
+    private int[] aZU = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
+    private int[] aZA = new int[1];
 
     public a(Context context) {
         this.context = context;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.aWL.length * 4);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.aZT.length * 4);
         allocateDirect.order(ByteOrder.nativeOrder());
-        this.aWt = allocateDirect.asIntBuffer();
-        this.aWt.put(this.aWL);
-        this.aWt.position(0);
-        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.aWM.length * 4 * 6);
+        this.aZB = allocateDirect.asIntBuffer();
+        this.aZB.put(this.aZT);
+        this.aZB.position(0);
+        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.aZU.length * 4 * 6);
         allocateDirect2.order(ByteOrder.nativeOrder());
-        this.aWu = allocateDirect2.asIntBuffer();
+        this.aZC = allocateDirect2.asIntBuffer();
         for (int i = 0; i < 6; i++) {
-            this.aWu.put(this.aWM);
+            this.aZC.put(this.aZU);
         }
-        this.aWu.position(0);
+        this.aZC.position(0);
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -71,64 +71,64 @@ public class a implements GLSurfaceView.Renderer {
         gl10.glHint(3152, 4354);
         gl10.glEnableClientState(32884);
         gl10.glEnableClientState(32888);
-        gl10.glVertexPointer(3, 5132, 0, this.aWt);
-        gl10.glTexCoordPointer(2, 5132, 0, this.aWu);
-        gl10.glTranslatef(this.aWE, this.aWF, this.aWG);
-        if (this.aWJ != null && this.aWJ.size() != 0 && (peek = this.aWJ.peek()) != null) {
-            if (peek.MZ() == 2) {
-                peek.d(this.aWE, this.aWF, this.aWG, this.aWH);
-                this.aWJ.poll();
-            } else if (peek.MZ() == -1) {
-                if (!peek.MY()) {
+        gl10.glVertexPointer(3, 5132, 0, this.aZB);
+        gl10.glTexCoordPointer(2, 5132, 0, this.aZC);
+        gl10.glTranslatef(this.aZM, this.aZN, this.aZO);
+        if (this.aZR != null && this.aZR.size() != 0 && (peek = this.aZR.peek()) != null) {
+            if (peek.Oc() == 2) {
+                peek.d(this.aZM, this.aZN, this.aZO, this.aZP);
+                this.aZR.poll();
+            } else if (peek.Oc() == -1) {
+                if (!peek.Ob()) {
                     peek.gc(2);
                 } else {
                     peek.gc(0);
                 }
-            } else if (peek.MZ() == 0) {
-                peek.a(this.aWE, this.aWF, this.aWG, this.aWH);
-                float f = peek.f(this.aWE, this.aWF, this.aWG, this.aWH);
-                float g = peek.g(this.aWE, this.aWF, this.aWG, this.aWH);
-                float h = peek.h(this.aWE, this.aWF, this.aWG, this.aWH);
-                this.aWE = f;
-                this.aWF = g;
-                this.aWG = h;
+            } else if (peek.Oc() == 0) {
+                peek.a(this.aZM, this.aZN, this.aZO, this.aZP);
+                float f = peek.f(this.aZM, this.aZN, this.aZO, this.aZP);
+                float g = peek.g(this.aZM, this.aZN, this.aZO, this.aZP);
+                float h = peek.h(this.aZM, this.aZN, this.aZO, this.aZP);
+                this.aZM = f;
+                this.aZN = g;
+                this.aZO = h;
                 peek.gc(1);
-            } else if (peek.MZ() == 1) {
-                if (peek.b(this.aWE, this.aWF, this.aWG, this.aWH)) {
+            } else if (peek.Oc() == 1) {
+                if (peek.b(this.aZM, this.aZN, this.aZO, this.aZP)) {
                     peek.gc(2);
                 } else {
-                    peek.c(this.aWE, this.aWF, this.aWG, this.aWH);
-                    float f2 = peek.f(this.aWE, this.aWF, this.aWG, this.aWH);
-                    float g2 = peek.g(this.aWE, this.aWF, this.aWG, this.aWH);
-                    float h2 = peek.h(this.aWE, this.aWF, this.aWG, this.aWH);
-                    this.aWE = f2;
-                    this.aWF = g2;
-                    this.aWG = h2;
+                    peek.c(this.aZM, this.aZN, this.aZO, this.aZP);
+                    float f2 = peek.f(this.aZM, this.aZN, this.aZO, this.aZP);
+                    float g2 = peek.g(this.aZM, this.aZN, this.aZO, this.aZP);
+                    float h2 = peek.h(this.aZM, this.aZN, this.aZO, this.aZP);
+                    this.aZM = f2;
+                    this.aZN = g2;
+                    this.aZO = h2;
                 }
             }
         }
-        gl10.glRotatef(this.aWv, 1.0f, 0.0f, 0.0f);
-        gl10.glRotatef(this.aWw, 0.0f, 1.0f, 0.0f);
-        gl10.glRotatef(this.aWx, 0.0f, 0.0f, 1.0f);
+        gl10.glRotatef(this.aZD, 1.0f, 0.0f, 0.0f);
+        gl10.glRotatef(this.aZE, 0.0f, 1.0f, 0.0f);
+        gl10.glRotatef(this.aZF, 0.0f, 0.0f, 1.0f);
         for (int i = 0; i < 6; i++) {
             switch (i) {
                 case 0:
-                    GLUtils.texImage2D(3553, 0, this.aWy, 0);
+                    GLUtils.texImage2D(3553, 0, this.aZG, 0);
                     break;
                 case 1:
-                    GLUtils.texImage2D(3553, 0, this.aWz, 0);
+                    GLUtils.texImage2D(3553, 0, this.aZH, 0);
                     break;
                 case 2:
-                    GLUtils.texImage2D(3553, 0, this.aWA, 0);
+                    GLUtils.texImage2D(3553, 0, this.aZI, 0);
                     break;
                 case 3:
-                    GLUtils.texImage2D(3553, 0, this.aWB, 0);
+                    GLUtils.texImage2D(3553, 0, this.aZJ, 0);
                     break;
                 case 4:
-                    GLUtils.texImage2D(3553, 0, this.aWC, 0);
+                    GLUtils.texImage2D(3553, 0, this.aZK, 0);
                     break;
                 case 5:
-                    GLUtils.texImage2D(3553, 0, this.aWD, 0);
+                    GLUtils.texImage2D(3553, 0, this.aZL, 0);
                     break;
             }
             gl10.glDrawArrays(5, i * 4, 4);
@@ -136,15 +136,15 @@ public class a implements GLSurfaceView.Renderer {
         gl10.glDisableClientState(32888);
         gl10.glDisableClientState(32884);
         double d2 = 0.0d;
-        if (this.aWI != null && this.aWI.size() != 0) {
-            com.baidu.tieba.b.a.b peek2 = this.aWI.peek();
+        if (this.aZQ != null && this.aZQ.size() != 0) {
+            com.baidu.tieba.b.a.b peek2 = this.aZQ.peek();
             if (peek2 != null) {
-                if (peek2.MZ() == 2) {
-                    peek2.d(this.aWv, this.aWw, this.aWx, this.aWH);
-                    this.aWI.poll();
+                if (peek2.Oc() == 2) {
+                    peek2.d(this.aZD, this.aZE, this.aZF, this.aZP);
+                    this.aZQ.poll();
                     return;
-                } else if (peek2.MZ() == -1) {
-                    if (!peek2.MY()) {
+                } else if (peek2.Oc() == -1) {
+                    if (!peek2.Ob()) {
                         peek2.gc(2);
                         return;
                     } else {
@@ -152,29 +152,29 @@ public class a implements GLSurfaceView.Renderer {
                         return;
                     }
                 } else {
-                    if (peek2.MZ() == 0) {
-                        peek2.a(this.aWv, this.aWw, this.aWx, this.aWH);
-                        double e = peek2.e(this.aWv, this.aWw, this.aWx, this.aWH);
+                    if (peek2.Oc() == 0) {
+                        peek2.a(this.aZD, this.aZE, this.aZF, this.aZP);
+                        double e = peek2.e(this.aZD, this.aZE, this.aZF, this.aZP);
                         peek2.gc(1);
                         d = e;
-                    } else if (peek2.MZ() == 1) {
-                        if (peek2.b(this.aWv, this.aWw, this.aWx, this.aWH)) {
+                    } else if (peek2.Oc() == 1) {
+                        if (peek2.b(this.aZD, this.aZE, this.aZF, this.aZP)) {
                             peek2.gc(2);
                             return;
                         } else {
-                            peek2.c(this.aWv, this.aWw, this.aWx, this.aWH);
-                            d = peek2.e(this.aWv, this.aWw, this.aWx, this.aWH);
+                            peek2.c(this.aZD, this.aZE, this.aZF, this.aZP);
+                            d = peek2.e(this.aZD, this.aZE, this.aZF, this.aZP);
                         }
                     }
-                    Na();
+                    Od();
                     d2 = d;
                 }
             }
             d = 0.0d;
-            Na();
+            Od();
             d2 = d;
         }
-        this.aWv = (float) (this.aWv + d2);
+        this.aZD = (float) (this.aZD + d2);
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -183,7 +183,7 @@ public class a implements GLSurfaceView.Renderer {
         gl10.glViewport(0, 0, i, i2);
         gl10.glMatrixMode(5889);
         gl10.glLoadIdentity();
-        switch (this.aWK) {
+        switch (this.aZS) {
             case 0:
                 a(gl10, f);
                 break;
@@ -224,57 +224,57 @@ public class a implements GLSurfaceView.Renderer {
         gl10.glEnable(2929);
         gl10.glDepthFunc(515);
         gl10.glEnable(3553);
-        gl10.glGenTextures(1, this.aWs, 0);
-        gl10.glBindTexture(3553, this.aWs[0]);
+        gl10.glGenTextures(1, this.aZA, 0);
+        gl10.glBindTexture(3553, this.aZA[0]);
         gl10.glEnable(32925);
         gl10.glTexParameterf(3553, 10241, 9729.0f);
         gl10.glTexParameterf(3553, 10240, 9729.0f);
     }
 
-    public void Na() {
-        this.aWH++;
+    public void Od() {
+        this.aZP++;
     }
 
-    public boolean Nb() {
-        this.aWH = 0;
+    public boolean Oe() {
+        this.aZP = 0;
         return true;
     }
 
-    public void Nc() {
-        this.aWv = 0.0f;
-        this.aWw = 0.0f;
-        this.aWx = 0.0f;
+    public void Of() {
+        this.aZD = 0.0f;
+        this.aZE = 0.0f;
+        this.aZF = 0.0f;
     }
 
-    public void vX() {
-        this.aWJ.clear();
-        this.aWI.clear();
-        Nb();
-        Nc();
+    public void wb() {
+        this.aZR.clear();
+        this.aZQ.clear();
+        Oe();
+        Of();
     }
 
     public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {
-        this.aWy = bitmap;
-        this.aWz = bitmap2;
-        this.aWA = bitmap3;
-        this.aWB = bitmap4;
-        this.aWC = bitmap5;
-        this.aWD = bitmap6;
+        this.aZG = bitmap;
+        this.aZH = bitmap2;
+        this.aZI = bitmap3;
+        this.aZJ = bitmap4;
+        this.aZK = bitmap5;
+        this.aZL = bitmap6;
     }
 
     public void setProjectionMode(int i) {
-        this.aWK = i;
+        this.aZS = i;
     }
 
     public void a(com.baidu.tieba.b.a.b bVar) {
         if (bVar != null) {
-            this.aWI.add(bVar);
+            this.aZQ.add(bVar);
         }
     }
 
     public void a(com.baidu.tieba.b.a.c cVar) {
         if (cVar != null) {
-            this.aWJ.add(cVar);
+            this.aZR.add(cVar);
         }
     }
 
@@ -289,6 +289,6 @@ public class a implements GLSurfaceView.Renderer {
     }
 
     public void Q(float f) {
-        this.aWG = f;
+        this.aZO = f;
     }
 }

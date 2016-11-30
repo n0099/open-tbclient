@@ -3,31 +3,26 @@ package com.baidu.tieba.QuickPlayer;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements IMediaPlayer.OnInfoListener {
-    final /* synthetic */ e aLo;
+public class i implements IMediaPlayer.OnPreparedListener {
+    final /* synthetic */ h aMf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(e eVar) {
-        this.aLo = eVar;
+    public i(h hVar) {
+        this.aMf = hVar;
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnInfoListener
-    public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2) {
-        b bVar;
-        b bVar2;
-        int i3;
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener
+    public void onPrepared(IMediaPlayer iMediaPlayer) {
+        c cVar;
+        c cVar2;
         try {
-            bVar = this.aLo.aLk;
-            if (bVar != null) {
-                bVar2 = this.aLo.aLk;
-                i3 = this.aLo.aLl;
-                bVar2.r(i3, i, i2);
-                return true;
+            cVar = this.aMf.aMc;
+            if (cVar != null) {
+                cVar2 = this.aMf.aMc;
+                cVar2.Jk();
             }
-            return true;
         } catch (Exception e) {
             e.printStackTrace();
-            return true;
         }
     }
 }

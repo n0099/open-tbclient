@@ -4,13 +4,13 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements AbsListView.OnScrollListener {
-    final /* synthetic */ AbsMsglistView cTO;
-    private final /* synthetic */ MsglistActivity cTP;
+    final /* synthetic */ AbsMsglistView cZw;
+    private final /* synthetic */ MsglistActivity cZx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(AbsMsglistView absMsglistView, MsglistActivity msglistActivity) {
-        this.cTO = absMsglistView;
-        this.cTP = msglistActivity;
+        this.cZw = absMsglistView;
+        this.cZx = msglistActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -19,9 +19,9 @@ public class j implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        com.baidu.adp.lib.util.k.b(this.cTP.getActivity(), this.cTP.getActivity().getCurrentFocus());
-        if (this.cTO.mTool != null) {
-            this.cTO.mTool.AV();
+        com.baidu.adp.lib.util.k.b(this.cZx.getActivity(), this.cZx.getActivity().getCurrentFocus());
+        if (this.cZw.mTool != null) {
+            this.cZw.mTool.Bc();
         }
     }
 }

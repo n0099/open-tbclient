@@ -1,44 +1,83 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.writeModel.b;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.baseEditMark.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.r;
+import java.text.MessageFormat;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements b.d {
-    final /* synthetic */ NewSubPbActivity exF;
+public class l implements a.InterfaceC0032a {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(NewSubPbActivity newSubPbActivity) {
-        this.exF = newSubPbActivity;
+        this.eEs = newSubPbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.s sVar, WriteData writeData, AntiData antiData) {
-        ag agVar;
-        com.baidu.tbadk.editortools.e.p pVar;
-        com.baidu.tbadk.editortools.e.p pVar2;
-        com.baidu.tbadk.editortools.e.p pVar3;
-        ax axVar;
-        ax axVar2;
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0032a
+    public void a(boolean z, boolean z2, String str) {
+        com.baidu.tbadk.baseEditMark.a aVar;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        bc bcVar;
+        bc bcVar2;
+        ao aoVar;
+        ao aoVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        ao aoVar3;
+        ao aoVar4;
+        bc bcVar3;
+        bc bcVar4;
+        bc bcVar5;
+        com.baidu.tbadk.baseEditMark.a aVar4;
         if (z) {
-            pVar = this.exF.duz;
-            if (pVar != null) {
-                pVar2 = this.exF.duz;
-                if (pVar2.CG() != null) {
-                    pVar3 = this.exF.duz;
-                    pVar3.CG().hide();
-                    axVar = this.exF.exr;
-                    if (axVar.aRB()) {
-                        com.baidu.tbadk.core.util.ax axVar3 = new com.baidu.tbadk.core.util.ax("c10367");
-                        axVar2 = this.exF.exr;
-                        TiebaStatic.log(axVar3.ab("post_id", axVar2.Dg()));
+            aVar = this.eEs.dSz;
+            if (aVar != null) {
+                aVar4 = this.eEs.dSz;
+                aVar4.ad(z2);
+            }
+            aVar2 = this.eEs.dSz;
+            MarkData nC = aVar2.nC();
+            com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
+            eVar.setType(2);
+            if (z2) {
+                eVar.setData(nC);
+                aVar3 = this.eEs.dSz;
+                if (aVar3 != null) {
+                    if (nC != null) {
+                        bcVar3 = this.eEs.eEb;
+                        bcVar3.iO(true);
+                        bcVar4 = this.eEs.eEb;
+                        bcVar5 = this.eEs.eEb;
+                        bcVar4.pO(bcVar5.Do());
+                        this.eEs.showToast(MessageFormat.format(this.eEs.getPageContext().getString(r.j.add_mark_on_pb), Integer.valueOf(nC.getFloor())));
+                    } else {
+                        this.eEs.showToast(this.eEs.getPageContext().getString(r.j.add_mark));
+                    }
+                    aoVar3 = this.eEs.eEd;
+                    if (aoVar3 != null) {
+                        aoVar4 = this.eEs.eEd;
+                        aoVar4.jg(true);
                     }
                 }
+            } else {
+                eVar.setData(null);
+                bcVar = this.eEs.eEb;
+                bcVar.iO(false);
+                bcVar2 = this.eEs.eEb;
+                bcVar2.pO(null);
+                this.eEs.showToast(this.eEs.getPageContext().getString(r.j.remove_mark));
+                aoVar = this.eEs.eEd;
+                if (aoVar != null) {
+                    aoVar2 = this.eEs.eEd;
+                    aoVar2.jg(false);
+                }
             }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, eVar));
+            return;
         }
-        agVar = this.exF.exu;
-        agVar.aRb();
+        this.eEs.showToast(this.eEs.getPageContext().getString(r.j.update_mark_failed));
     }
 }

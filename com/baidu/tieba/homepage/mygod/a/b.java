@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.mygod.data.b, a> {
@@ -19,7 +19,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
+    /* renamed from: ah */
     public a a(ViewGroup viewGroup) {
         TextView textView = new TextView(this.mContext);
         textView.setText(r.j.god_acction_notice);
@@ -33,21 +33,21 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.mygod.data.b bVar, a aVar) {
-        if (aVar.ahV != TbadkCoreApplication.m9getInst().getSkinType()) {
-            av.l(aVar.getView(), r.d.cp_bg_line_e);
-            av.j(aVar.getView(), r.d.cp_cont_d);
-            aVar.ahV = TbadkCoreApplication.m9getInst().getSkinType();
+        if (aVar.aiA != TbadkCoreApplication.m9getInst().getSkinType()) {
+            at.l(aVar.getView(), r.d.cp_bg_line_e);
+            at.j(aVar.getView(), r.d.cp_cont_d);
+            aVar.aiA = TbadkCoreApplication.m9getInst().getSkinType();
         }
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public static class a extends y.a {
-        public int ahV;
+        public int aiA;
 
         public a(View view) {
             super(view);
-            this.ahV = 3;
+            this.aiA = 3;
         }
     }
 }

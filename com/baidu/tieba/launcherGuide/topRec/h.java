@@ -5,12 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.z;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.e<TopRecActivity> {
-    private boolean bHH;
-    a dAD;
-    b dAE;
+    private boolean bKB;
+    a dGh;
+    b dGi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -21,39 +21,39 @@ public class h extends com.baidu.adp.base.e<TopRecActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TopRecActivity topRecActivity) {
         super(topRecActivity.getPageContext());
-        this.bHH = false;
+        this.bKB = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
-        this.dAD = new a(this, null);
-        this.dAD.execute(new Object[0]);
+        this.dGh = new a(this, null);
+        this.dGh.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.dAD != null) {
-            this.dAD.cancel();
+        if (this.dGh != null) {
+            this.dGh.cancel();
             return false;
         }
         return false;
     }
 
     public void a(b bVar) {
-        this.dAE = bVar;
+        this.dGi = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, TRForumListData> {
-        private ab aiu;
-        TRForumListData dAb;
+        private z ajm;
+        TRForumListData dFF;
 
         private a() {
-            this.aiu = null;
-            this.dAb = new TRForumListData();
+            this.ajm = null;
+            this.dFF = new TRForumListData();
         }
 
         /* synthetic */ a(h hVar, a aVar) {
@@ -63,26 +63,26 @@ public class h extends com.baidu.adp.base.e<TopRecActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: z */
+        /* renamed from: A */
         public TRForumListData doInBackground(Object... objArr) {
-            String uu;
+            String uy;
             try {
-                this.aiu = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/random_recommend_forum");
-                this.aiu.n(LegoListActivityConfig.RN, "100");
-                uu = this.aiu.uu();
+                this.ajm = new z(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/random_recommend_forum");
+                this.ajm.n(LegoListActivityConfig.RN, "100");
+                uy = this.ajm.uy();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            if (uu == null) {
+            if (uy == null) {
                 return null;
             }
-            if (!this.aiu.uS().vO().oF()) {
-                h.this.bHH = false;
+            if (!this.ajm.uW().vS().oH()) {
+                h.this.bKB = false;
             } else {
-                this.dAb = (TRForumListData) i.objectWithJsonStr(uu, TRForumListData.class);
-                h.this.bHH = true;
+                this.dFF = (TRForumListData) i.objectWithJsonStr(uy, TRForumListData.class);
+                h.this.bKB = true;
             }
-            return this.dAb;
+            return this.dFF;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,9 +93,9 @@ public class h extends com.baidu.adp.base.e<TopRecActivity> {
             super.onPostExecute(tRForumListData);
             if (tRForumListData != null) {
                 if (tRForumListData.error_code == 0 && tRForumListData.error != null) {
-                    h.this.dAE.a(Boolean.valueOf(h.this.bHH), tRForumListData, tRForumListData.error.errno, tRForumListData.error.usermsg);
+                    h.this.dGi.a(Boolean.valueOf(h.this.bKB), tRForumListData, tRForumListData.error.errno, tRForumListData.error.usermsg);
                 } else {
-                    h.this.dAE.a(Boolean.valueOf(h.this.bHH), tRForumListData, tRForumListData.error_code, tRForumListData.error_msg);
+                    h.this.dGi.a(Boolean.valueOf(h.this.bKB), tRForumListData, tRForumListData.error_code, tRForumListData.error_msg);
                 }
             }
         }

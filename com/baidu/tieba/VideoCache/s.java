@@ -6,11 +6,11 @@ import java.net.Socket;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ r aOE;
+    final /* synthetic */ r aQK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar) {
-        this.aOE = rVar;
+        this.aQK = rVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:4:0x0016 */
@@ -32,25 +32,25 @@ public class s implements Runnable {
         Context context;
         str = r.TAG;
         m.log(str, "run ...");
-        this.aOE.Kv();
+        this.aQK.KZ();
         int i = 9000;
         while (serverSocket == null && i < 10000) {
             try {
-                this.aOE.aOD = new ServerSocket(i);
+                this.aQK.aQJ = new ServerSocket(i);
             } catch (Exception e) {
                 e.printStackTrace();
-                this.aOE.aOD = null;
+                this.aQK.aQJ = null;
                 i++;
             }
         }
         str2 = r.TAG;
         m.log(str2, "service port " + i);
-        this.aOE.fL(i);
-        g.Kk();
-        n.Ks();
+        this.aQK.fL(i);
+        g.KO();
+        n.KW();
         while (true) {
             try {
-                serverSocket2 = this.aOE.aOD;
+                serverSocket2 = this.aQK.aQJ;
                 if (serverSocket2.isClosed()) {
                     str4 = r.TAG;
                     m.log(str4, "视频服务已退出");
@@ -58,7 +58,7 @@ public class s implements Runnable {
                 }
                 str5 = r.TAG;
                 m.log(str5, "accept start");
-                serverSocket3 = this.aOE.aOD;
+                serverSocket3 = this.aQK.aQJ;
                 Socket accept = serverSocket3.accept();
                 str6 = r.TAG;
                 m.log(str6, "accept end");
@@ -66,27 +66,27 @@ public class s implements Runnable {
                     str7 = r.TAG;
                     m.log(str7, "连接视频服务的client:" + accept);
                     j b = h.b(accept);
-                    String Ko = b.Ko();
-                    if (Ko == null || !Ko.contains("?file_access=1")) {
-                        if (Ko == null || !Ko.contains("?stop_cache=1")) {
-                            if (Ko == null || !Ko.contains("delete_expired_files")) {
-                                if (Ko == null || !Ko.contains("clear_cache")) {
-                                    context = this.aOE.mContext;
+                    String KS = b.KS();
+                    if (KS == null || !KS.contains("?file_access=1")) {
+                        if (KS == null || !KS.contains("?stop_cache=1")) {
+                            if (KS == null || !KS.contains("delete_expired_files")) {
+                                if (KS == null || !KS.contains("clear_cache")) {
+                                    context = this.aQK.mContext;
                                     h hVar = new h(context);
                                     hVar.a(accept);
                                     hVar.a(b);
-                                    p.Kt().g(hVar);
+                                    p.KX().g(hVar);
                                 } else {
-                                    this.aOE.d(b, accept);
+                                    this.aQK.d(b, accept);
                                 }
                             } else {
-                                this.aOE.c(b, accept);
+                                this.aQK.c(b, accept);
                             }
                         } else {
-                            this.aOE.a(b, accept);
+                            this.aQK.a(b, accept);
                         }
                     } else {
-                        this.aOE.b(b, accept);
+                        this.aQK.b(b, accept);
                     }
                 }
             } catch (Exception e2) {

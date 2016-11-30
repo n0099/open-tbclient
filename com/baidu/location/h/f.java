@@ -14,12 +14,12 @@ public abstract class f {
     public String h = null;
     public int i = 3;
     public String j = null;
-    public Map<String, Object> LH = null;
+    public Map<String, Object> LK = null;
     public String l = null;
     public byte[] m = null;
     public String n = null;
 
-    private static int b(Context context, NetworkInfo networkInfo) {
+    private static int a(Context context, NetworkInfo networkInfo) {
         String lowerCase;
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
@@ -67,7 +67,7 @@ public abstract class f {
                     String defaultHost = Proxy.getDefaultHost();
                     i = (defaultHost == null || defaultHost.length() <= 0) ? b.f : b.h;
                 } else {
-                    i = b(serviceContext, activeNetworkInfo);
+                    i = a(serviceContext, activeNetworkInfo);
                 }
             }
             return i;

@@ -25,13 +25,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static float sh;
-    static int si;
+    private static float si;
     static int sj;
-    private static String sm;
-    static boolean sg = false;
-    private static Toast sk = null;
-    private static a sl = null;
+    static int sk;
+    private static String so;
+    static boolean sh = false;
+    private static Toast sl = null;
+    private static a sm = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new l();
 
@@ -48,67 +48,67 @@ public class k {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            si = displayMetrics.heightPixels;
-            sj = displayMetrics.widthPixels;
-        } else {
-            si = displayMetrics.widthPixels;
             sj = displayMetrics.heightPixels;
+            sk = displayMetrics.widthPixels;
+        } else {
+            sj = displayMetrics.widthPixels;
+            sk = displayMetrics.heightPixels;
         }
-        sh = displayMetrics.density;
-        sg = true;
+        si = displayMetrics.density;
+        sh = true;
     }
 
     public static int K(Context context) {
-        if (!sg) {
-            J(context);
-        }
-        return si;
-    }
-
-    public static int L(Context context) {
-        if (!sg) {
+        if (!sh) {
             J(context);
         }
         return sj;
     }
 
-    public static int dip2px(Context context, float f) {
-        if (!sg) {
+    public static int L(Context context) {
+        if (!sh) {
             J(context);
         }
-        return (int) ((sh * f) + 0.5f);
+        return sk;
+    }
+
+    public static int dip2px(Context context, float f) {
+        if (!sh) {
+            J(context);
+        }
+        return (int) ((si * f) + 0.5f);
     }
 
     public static float M(Context context) {
-        if (!sg) {
+        if (!sh) {
             J(context);
         }
-        return sh;
+        return si;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (sk == null) {
-                if (sl == null || sl.gJ() == null) {
-                    sk = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (sl == null) {
+                if (sm == null || sm.gJ() == null) {
+                    sl = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    sk = new Toast(BdBaseApplication.getInst().getApp());
-                    sk.setDuration(0);
-                    sl.aT(str);
-                    sk.setView(sl.gJ());
+                    sl = new Toast(BdBaseApplication.getInst().getApp());
+                    sl.setDuration(0);
+                    sm.aT(str);
+                    sl.setView(sm.gJ());
                 }
-                sk.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-            } else if (!str.equals(sm)) {
-                if (sl == null || sl.gJ() == null) {
-                    sk.setText(str);
+                sl.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else if (!str.equals(so)) {
+                if (sm == null || sm.gJ() == null) {
+                    sl.setText(str);
                 } else {
-                    sl.aT(str);
+                    sm.aT(str);
                 }
             }
-            sm = str;
+            so = str;
             mHandler.postDelayed(mRunnable, i);
-            sk.show();
+            sl.show();
         }
     }
 
@@ -431,10 +431,10 @@ public class k {
     }
 
     public static a gH() {
-        return sl;
+        return sm;
     }
 
     public static void a(a aVar) {
-        sl = aVar;
+        sm = aVar;
     }
 }

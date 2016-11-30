@@ -15,128 +15,128 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.ab;
-import com.baidu.tbadk.core.view.y;
+import com.baidu.tbadk.core.view.ac;
+import com.baidu.tbadk.core.view.z;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class e {
-    private Animation dAA;
-    private Animation dAB;
-    private TopRecActivity dAk;
-    private BdListView dAs;
-    private Button dAt;
-    private final View dAu;
-    private LinearLayout dAv;
-    private TextView dAw;
-    private ImageView dAx;
-    private TextView dAz;
+    private TopRecActivity dFO;
+    private BdListView dFW;
+    private Button dFX;
+    private final View dFY;
+    private LinearLayout dFZ;
+    private TextView dGa;
+    private ImageView dGb;
+    private TextView dGd;
+    private Animation dGe;
+    private Animation dGf;
     Handler mHandler;
     NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
-    private ab mPullView;
-    private int dAy = 0;
-    private boolean dAj = false;
+    private ac mPullView;
+    private int dGc = 0;
+    private boolean dFN = false;
 
     public e(TopRecActivity topRecActivity) {
         this.mHandler = null;
-        this.dAk = topRecActivity;
+        this.dFO = topRecActivity;
         this.mHandler = new Handler();
-        this.dAk.setContentView(r.h.top_recommended_activity);
-        this.dAs = (BdListView) this.dAk.findViewById(r.g.top_list);
+        this.dFO.setContentView(r.h.top_recommended_activity);
+        this.dFW = (BdListView) this.dFO.findViewById(r.g.top_list);
         this.mNavigationBar = (NavigationBar) topRecActivity.findViewById(r.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(topRecActivity.getPageContext().getString(r.j.top_recommended));
         View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.h.nb_item_top_rec, (View.OnClickListener) null);
-        this.dAt = (Button) addCustomView.findViewById(r.g.title_finish);
-        this.dAt.setOnClickListener(this.dAk);
-        this.dAz = (TextView) addCustomView.findViewById(r.g.title_finish_cover);
-        this.mPullView = new ab(this.dAk.getPageContext());
-        this.dAv = (LinearLayout) LayoutInflater.from(topRecActivity.getPageContext().getPageActivity()).inflate(r.h.forum_list_forum_footer, (ViewGroup) null);
-        this.dAu = this.dAv.findViewById(r.g.footer_background);
-        this.dAw = (TextView) this.dAv.findViewById(r.g.footer_text);
-        this.dAx = (ImageView) this.dAv.findViewById(r.g.footer_icon);
-        aBF();
-        this.dAA = AnimationUtils.loadAnimation(this.dAk.getPageContext().getPageActivity(), r.a.top_recommended_finish_a);
-        this.dAB = AnimationUtils.loadAnimation(this.dAk.getPageContext().getPageActivity(), r.a.top_recommended_finish_b);
-        this.dAA.setAnimationListener(new f(this));
-        this.dAB.setAnimationListener(new g(this));
-        this.dAt.setText(String.valueOf(this.dAk.getPageContext().getString(r.j.done)) + "(" + this.dAy + ")");
-        this.dAs.setPullRefresh(this.mPullView);
-        this.mProgressBar = (ProgressBar) this.dAk.findViewById(r.g.loading);
+        this.dFX = (Button) addCustomView.findViewById(r.g.title_finish);
+        this.dFX.setOnClickListener(this.dFO);
+        this.dGd = (TextView) addCustomView.findViewById(r.g.title_finish_cover);
+        this.mPullView = new ac(this.dFO.getPageContext());
+        this.dFZ = (LinearLayout) LayoutInflater.from(topRecActivity.getPageContext().getPageActivity()).inflate(r.h.forum_list_forum_footer, (ViewGroup) null);
+        this.dFY = this.dFZ.findViewById(r.g.footer_background);
+        this.dGa = (TextView) this.dFZ.findViewById(r.g.footer_text);
+        this.dGb = (ImageView) this.dFZ.findViewById(r.g.footer_icon);
+        aDB();
+        this.dGe = AnimationUtils.loadAnimation(this.dFO.getPageContext().getPageActivity(), r.a.top_recommended_finish_a);
+        this.dGf = AnimationUtils.loadAnimation(this.dFO.getPageContext().getPageActivity(), r.a.top_recommended_finish_b);
+        this.dGe.setAnimationListener(new f(this));
+        this.dGf.setAnimationListener(new g(this));
+        this.dFX.setText(String.valueOf(this.dFO.getPageContext().getString(r.j.done)) + "(" + this.dGc + ")");
+        this.dFW.setPullRefresh(this.mPullView);
+        this.mProgressBar = (ProgressBar) this.dFO.findViewById(r.g.loading);
     }
 
-    public LinearLayout aBD() {
-        return this.dAv;
+    public LinearLayout aDz() {
+        return this.dFZ;
     }
 
-    public Button aBE() {
-        return this.dAt;
+    public Button aDA() {
+        return this.dFX;
     }
 
     public void a(d dVar) {
-        this.dAs.setAdapter((ListAdapter) dVar);
+        this.dFW.setAdapter((ListAdapter) dVar);
     }
 
-    public void b(y.b bVar) {
+    public void b(z.b bVar) {
         this.mPullView.a(bVar);
     }
 
     public void ku() {
-        this.dAs.removeFooterView(this.dAv);
-        this.dAs.addFooterView(this.dAv);
-        this.dAs.l(2000L);
+        this.dFW.removeFooterView(this.dFZ);
+        this.dFW.addFooterView(this.dFZ);
+        this.dFW.l(2000L);
     }
 
-    public void mF(int i) {
-        this.dAt.invalidate();
-        if (this.dAy < 100) {
-            this.dAz.setText(String.valueOf(this.dAk.getPageContext().getString(r.j.done)) + "(" + this.dAy + ")");
+    public void mN(int i) {
+        this.dFX.invalidate();
+        if (this.dGc < 100) {
+            this.dGd.setText(String.valueOf(this.dFO.getPageContext().getString(r.j.done)) + "(" + this.dGc + ")");
         } else {
-            this.dAz.setText(String.valueOf(this.dAk.getPageContext().getString(r.j.done)) + "(99+)");
+            this.dGd.setText(String.valueOf(this.dFO.getPageContext().getString(r.j.done)) + "(99+)");
         }
-        this.dAt.setText(" ");
-        this.dAz.setVisibility(0);
-        this.dAz.setAnimation(this.dAA);
-        this.dAA.start();
-        this.dAy = i;
+        this.dFX.setText(" ");
+        this.dGd.setVisibility(0);
+        this.dGd.setAnimation(this.dGe);
+        this.dGe.start();
+        this.dGc = i;
     }
 
-    public void aBF() {
-        this.dAw.setText(this.dAk.getPageContext().getString(r.j.flist_expand_list));
-        av.k(this.dAx, r.f.ico_downward);
-        this.dAv.setOnClickListener(this.dAk);
+    public void aDB() {
+        this.dGa.setText(this.dFO.getPageContext().getString(r.j.flist_expand_list));
+        at.k(this.dGb, r.f.ico_downward);
+        this.dFZ.setOnClickListener(this.dFO);
     }
 
-    public void aBG() {
-        this.dAw.setText(this.dAk.getPageContext().getString(r.j.to_the_end));
-        this.dAx.setVisibility(8);
-        this.dAv.setClickable(false);
-        this.dAv.setOnClickListener(null);
+    public void aDC() {
+        this.dGa.setText(this.dFO.getPageContext().getString(r.j.to_the_end));
+        this.dGb.setVisibility(8);
+        this.dFZ.setClickable(false);
+        this.dFZ.setOnClickListener(null);
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.dAk.getPageContext(), i);
-        av.h(this.dAk.findViewById(r.g.container), i);
-        av.f(this.dAt, i);
-        av.e(this.dAt, i);
-        av.e(this.dAz, i);
+        this.mNavigationBar.onChangeSkinType(this.dFO.getPageContext(), i);
+        at.h(this.dFO.findViewById(r.g.container), i);
+        at.f(this.dFX, i);
+        at.e(this.dFX, i);
+        at.e(this.dGd, i);
         if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
-            this.dAs.setDivider(new ColorDrawable(-13881543));
+            this.dFW.setDivider(new ColorDrawable(-13881543));
         } else {
-            this.dAs.setDivider(new ColorDrawable(-1775893));
+            this.dFW.setDivider(new ColorDrawable(-1775893));
         }
-        this.dAs.setDividerHeight(2);
-        av.k(this.dAu, r.f.bg_black_banner_down);
-        av.c(this.dAw, r.d.common_color_10243, 1);
-        if (this.dAj) {
-            this.dAx.setVisibility(8);
+        this.dFW.setDividerHeight(2);
+        at.k(this.dFY, r.f.bg_black_banner_down);
+        at.c(this.dGa, r.d.common_color_10243, 1);
+        if (this.dFN) {
+            this.dGb.setVisibility(8);
         } else {
-            av.c(this.dAx, r.f.ico_downward);
+            at.c(this.dGb, r.f.ico_downward);
         }
     }
 
-    public void fQ(boolean z) {
+    public void gk(boolean z) {
         if (z) {
             this.mProgressBar.setVisibility(0);
         } else {

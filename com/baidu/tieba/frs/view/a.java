@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.Adapter;
 /* loaded from: classes.dex */
 class a extends DataSetObserver {
-    final /* synthetic */ AdapterLinearLayout cfB;
+    final /* synthetic */ AdapterLinearLayout ckE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AdapterLinearLayout adapterLinearLayout) {
-        this.cfB = adapterLinearLayout;
+        this.ckE = adapterLinearLayout;
     }
 
     @Override // android.database.DataSetObserver
@@ -17,21 +17,21 @@ class a extends DataSetObserver {
         Adapter adapter;
         Adapter adapter2;
         Adapter adapter3;
-        adapter = this.cfB.cfA;
+        adapter = this.ckE.ckD;
         if (adapter != null) {
-            adapter2 = this.cfB.cfA;
+            adapter2 = this.ckE.ckD;
             int count = adapter2.getCount();
-            int childCount = this.cfB.getChildCount() - count;
+            int childCount = this.ckE.getChildCount() - count;
             for (int i = 0; i < count; i++) {
-                View childAt = this.cfB.getChildAt(i);
-                adapter3 = this.cfB.cfA;
-                View view = adapter3.getView(i, childAt, this.cfB);
+                View childAt = this.ckE.getChildAt(i);
+                adapter3 = this.ckE.ckD;
+                View view = adapter3.getView(i, childAt, this.ckE);
                 if (childAt == null && view != null) {
-                    this.cfB.addView(view);
+                    this.ckE.addView(view);
                 }
             }
             if (childCount > 0) {
-                this.cfB.removeViews(count, childCount);
+                this.ckE.removeViews(count, childCount);
             }
         }
     }

@@ -11,23 +11,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements j {
-    private final n Xo;
-    private final HashMap<String, Method> Xp = new HashMap<>();
+    private final n XM;
+    private final HashMap<String, Method> XN = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.c.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(n nVar) {
-        this.Xo = nVar;
+        this.XM = nVar;
         q(getClass());
-        if (this.Xp.isEmpty()) {
+        if (this.XN.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.Xo.getContext();
+        return this.XM.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,7 +37,7 @@ public abstract class d implements j {
 
     protected void c(String str, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str)) {
-            e.cG("sendResponseToJS got empty callbackId.");
+            e.cI("sendResponseToJS got empty callbackId.");
             return;
         }
         HashMap hashMap = new HashMap(4);
@@ -46,25 +46,25 @@ public abstract class d implements j {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.Xo.a(o.c(str, hashMap));
+        this.XM.a(o.c(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.c.j
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.Xp.get(str);
+        Method method = this.XN.get(str);
         if (method != null) {
             q qVar = (q) method.getAnnotation(q.class);
             String optString = jSONObject2.optString("callbackId");
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!qVar.tV()) {
+                if (!qVar.tZ()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
                         invoke = method.invoke(this, jSONObject);
                     } else if (parameterTypes.length == 0) {
-                        e.cG("native method " + getClass().getSimpleName() + ":" + qVar.value() + " ignored all parameters.");
+                        e.cI("native method " + getClass().getSimpleName() + ":" + qVar.value() + " ignored all parameters.");
                         invoke = method.invoke(this, new Object[0]);
                     } else {
                         a(str, jSONObject2, "500", "parameters too much!");
@@ -84,7 +84,7 @@ public abstract class d implements j {
                         }
                         return;
                     } else if (parameterTypes.length == 0) {
-                        e.cG("native method " + getClass().getSimpleName() + ":" + qVar.value() + " ignored all parameters.");
+                        e.cI("native method " + getClass().getSimpleName() + ":" + qVar.value() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
                             c(optString, null);
@@ -100,15 +100,15 @@ public abstract class d implements j {
                     return;
                 }
             } catch (IllegalAccessException e) {
-                e.cG("native method call error:" + e.getMessage());
+                e.cI("native method call error:" + e.getMessage());
                 a(str, jSONObject2, "501", "IllegalAccessException:" + e.getMessage());
                 return;
             } catch (InvocationTargetException e2) {
-                e.cG("native method call error:" + e2.getMessage());
+                e.cI("native method call error:" + e2.getMessage());
                 a(str, jSONObject2, "502", "InvocationTargetException:" + e2.getMessage());
                 return;
             } catch (Exception e3) {
-                e.cG("native method call error:" + e3.getMessage());
+                e.cI("native method call error:" + e3.getMessage());
                 a(str, jSONObject2, "503", "Native call exception:" + e3.getMessage());
                 return;
             }
@@ -119,13 +119,13 @@ public abstract class d implements j {
     private void a(String str, JSONObject jSONObject, String str2, String str3) {
         String optString = jSONObject.optString("callbackId");
         if (TextUtils.isEmpty(optString)) {
-            e.cG("method " + str + " not found!");
+            e.cI("method " + str + " not found!");
             return;
         }
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.Xo.a(o.c(optString, hashMap));
+        this.XM.a(o.c(optString, hashMap));
     }
 
     private void q(Class<? extends d> cls) {
@@ -137,14 +137,14 @@ public abstract class d implements j {
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (qVar.tV() && !Void.TYPE.equals(method.getReturnType())) {
+                if (qVar.tZ() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.Xp.put(value, method);
+                this.XN.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

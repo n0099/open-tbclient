@@ -1,47 +1,59 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ ab fzu;
+public class ad implements com.baidu.tbadk.core.d.a {
+    private b fGK;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ab abVar) {
-        this.fzu = abVar;
+    @Override // com.baidu.tbadk.core.d.a
+    public void b(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i, z)));
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        FragmentTabHost fragmentTabHost;
-        FragmentTabHost fragmentTabHost2;
-        FragmentTabHost fragmentTabHost3;
-        int i = 2;
-        mainTabActivity = this.fzu.fzj;
-        mainTabActivity2 = this.fzu.fzj;
-        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        fragmentTabHost = this.fzu.bdU;
-        if (fragmentTabHost.getCurrentTabType() != 6) {
-            fragmentTabHost2 = this.fzu.bdU;
-            if (fragmentTabHost2.getCurrentTabType() == 3) {
-                i = 3;
-            } else {
-                fragmentTabHost3 = this.fzu.bdU;
-                if (fragmentTabHost3.getCurrentTabType() != 2) {
-                    i = 0;
-                } else {
-                    i = 1;
-                }
-            }
+    @Override // com.baidu.tbadk.core.d.a
+    public void f(Context context, int i) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public void V(Context context) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            f(context, 1);
+        } else {
+            f(context, 0);
         }
-        TiebaStatic.log(new ax("c10378").s("obj_type", i));
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public void c(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public Class<?> ue() {
+        return MainTabActivity.class;
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public String uf() {
+        return MainTabActivity.class.getName();
+    }
+
+    @Override // com.baidu.tbadk.core.d.a
+    public int getCurrentTabType() {
+        if (this.fGK != null) {
+            return this.fGK.getCurrentTabType();
+        }
+        return -1;
+    }
+
+    public void a(b bVar) {
+        this.fGK = bVar;
     }
 }

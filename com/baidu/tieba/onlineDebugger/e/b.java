@@ -12,28 +12,28 @@ import com.baidu.tieba.onlineDebugger.command.k;
 import java.util.StringTokenizer;
 /* loaded from: classes.dex */
 public class b {
-    public static final h oO(String str) {
+    public static final h pb(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (str.startsWith("get ")) {
-            new com.baidu.tieba.onlineDebugger.b.a().oA(str);
+            new com.baidu.tieba.onlineDebugger.b.a().oN(str);
             String trim = str.substring("get ".length()).trim();
             a aVar = new a();
-            aVar.oJ(trim);
-            return new f(aVar.aLo(), aVar.aLp());
+            aVar.oW(trim);
+            return new f(aVar.aNh(), aVar.aNi());
         } else if (str.startsWith("set ")) {
-            new com.baidu.tieba.onlineDebugger.b.a().oA(str);
+            new com.baidu.tieba.onlineDebugger.b.a().oN(str);
             String trim2 = str.substring("set ".length()).trim();
             a aVar2 = new a();
-            aVar2.oJ(trim2);
-            return new f(aVar2.aLo(), aVar2.aLp());
+            aVar2.oW(trim2);
+            return new f(aVar2.aNh(), aVar2.aNi());
         } else if (str.startsWith("exe ")) {
-            new com.baidu.tieba.onlineDebugger.b.a().oA(str);
+            new com.baidu.tieba.onlineDebugger.b.a().oN(str);
             String trim3 = str.substring("exe ".length()).trim();
             a aVar3 = new a();
-            aVar3.oJ(trim3);
-            return new f(aVar3.aLo(), aVar3.aLp());
+            aVar3.oW(trim3);
+            return new f(aVar3.aNh(), aVar3.aNi());
         } else if (str.startsWith("shell ")) {
             String substring = str.substring("shell ".length());
             if (substring.contains("su ")) {
@@ -43,7 +43,7 @@ public class b {
                 throw new RuntimeException("shell not support chmod cmd " + substring);
             }
             j jVar = new j();
-            jVar.oB(substring);
+            jVar.oO(substring);
             return jVar;
         } else {
             throw new RuntimeException("command has unknown start:" + str);
@@ -99,7 +99,7 @@ public class b {
             case 2:
                 return new g();
             case 3:
-                return oO(aVar.getMsgContent());
+                return pb(aVar.getMsgContent());
             case 4:
                 return new k(aVar.getMsgContent());
             case 5:

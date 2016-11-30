@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.util.n;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
 /* loaded from: classes.dex */
@@ -71,10 +71,11 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(L);
         builder.scr_w = Integer.valueOf(K);
-        builder.q_type = Integer.valueOf(ba.vy().vA() ? 2 : 1);
+        builder.q_type = Integer.valueOf(ay.vC().vE() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        o.a(builder, true, false, true);
+        n.a(builder, true, false, true);
+        builder.app_pos = com.baidu.tieba.recapp.c.a.beA().beD();
         ThreadListReqIdl.Builder builder2 = new ThreadListReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

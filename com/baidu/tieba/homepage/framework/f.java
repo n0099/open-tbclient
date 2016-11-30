@@ -7,11 +7,11 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements q.a {
-    final /* synthetic */ RecommendFrsControlFragment cCw;
+    final /* synthetic */ RecommendFrsControlFragment cHJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cCw = recommendFrsControlFragment;
+        this.cHJ = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tieba.homepage.framework.q.a
@@ -21,25 +21,25 @@ public class f implements q.a {
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
         if (z) {
-            this.cCw.alO();
+            this.cHJ.anJ();
         }
         if (z) {
-            scrollFragmentTabHost3 = this.cCw.cCi;
-            if (!scrollFragmentTabHost3.amd() && cVar != null && cVar.isEmpty()) {
-                if (this.cCw.getPageContext() == null || this.cCw.getPageContext().getResources() == null) {
+            scrollFragmentTabHost3 = this.cHJ.cHv;
+            if (!scrollFragmentTabHost3.anY() && cVar != null && cVar.isEmpty()) {
+                if (this.cHJ.getPageContext() == null || this.cHJ.getPageContext().getResources() == null) {
                     return;
                 }
-                this.cCw.G(this.cCw.getPageContext().getResources().getString(r.j.neterror), false);
+                this.cHJ.G(this.cHJ.getPageContext().getResources().getString(r.j.neterror), false);
                 return;
             }
         }
         if (z3) {
-            scrollFragmentTabHost2 = this.cCw.cCi;
+            scrollFragmentTabHost2 = this.cHJ.cHv;
             j2 = scrollFragmentTabHost2.i(j, str);
         } else {
             j2 = j;
         }
-        scrollFragmentTabHost = this.cCw.cCi;
+        scrollFragmentTabHost = this.cHJ.cHv;
         scrollFragmentTabHost.b(z, j2, cVar, z2);
     }
 
@@ -48,29 +48,29 @@ public class f implements q.a {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
-        this.cCw.alO();
-        scrollFragmentTabHost = this.cCw.cCi;
-        if (!scrollFragmentTabHost.amd()) {
-            if (this.cCw.getPageContext() == null || this.cCw.getPageContext().getResources() == null) {
+        this.cHJ.anJ();
+        scrollFragmentTabHost = this.cHJ.cHv;
+        if (!scrollFragmentTabHost.anY()) {
+            if (this.cHJ.getPageContext() == null || this.cHJ.getPageContext().getResources() == null) {
                 return;
             }
-            this.cCw.G(this.cCw.getPageContext().getResources().getString(r.j.net_error_text, str2, Integer.valueOf(i)), false);
+            this.cHJ.G(this.cHJ.getPageContext().getResources().getString(r.j.net_error_text, str2, Integer.valueOf(i)), false);
             return;
         }
         if (z) {
-            scrollFragmentTabHost3 = this.cCw.cCi;
+            scrollFragmentTabHost3 = this.cHJ.cHv;
             j = scrollFragmentTabHost3.i(j, str);
         }
-        scrollFragmentTabHost2 = this.cCw.cCi;
+        scrollFragmentTabHost2 = this.cHJ.cHv;
         scrollFragmentTabHost2.a(j, str2, i);
     }
 
     @Override // com.baidu.tieba.homepage.framework.q.a
     public void a(long j, DataRes dataRes, boolean z) {
         ScrollFragmentTabHost scrollFragmentTabHost;
-        this.cCw.alO();
-        this.cCw.JJ();
-        scrollFragmentTabHost = this.cCw.cCi;
+        this.cHJ.anJ();
+        this.cHJ.JP();
+        scrollFragmentTabHost = this.cHJ.cHv;
         scrollFragmentTabHost.c(j, dataRes, z);
     }
 }

@@ -1,14 +1,16 @@
 package com.baidu.tieba.service;
 
 import android.location.Address;
+import android.text.TextUtils;
 import com.baidu.adp.lib.e.a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class h implements a.InterfaceC0005a {
-    final /* synthetic */ UpdateInfoService fge;
+    final /* synthetic */ UpdateInfoService fnx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(UpdateInfoService updateInfoService) {
-        this.fge = updateInfoService;
+        this.fnx = updateInfoService;
     }
 
     @Override // com.baidu.adp.lib.e.a.InterfaceC0005a
@@ -21,12 +23,15 @@ class h implements a.InterfaceC0005a {
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    eVar = this.fge.mModel;
-                    if (eVar.aIf()) {
-                        eVar2 = this.fge.mModel;
+                    com.baidu.tieba.recapp.c.a.beA().setLongitude(String.valueOf(longitude));
+                    com.baidu.tieba.recapp.c.a.beA().setLatitude(String.valueOf(latitude));
+                    com.baidu.tieba.recapp.c.a.beA().cT(System.currentTimeMillis());
+                    eVar = this.fnx.mModel;
+                    if (eVar.aKa() && TbadkCoreApplication.m9getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        eVar2 = this.fnx.mModel;
                         eVar2.b(1, longitude, latitude);
-                        eVar3 = this.fge.mModel;
-                        eVar3.aIg();
+                        eVar3 = this.fnx.mModel;
+                        eVar3.aKb();
                         return;
                     }
                     return;

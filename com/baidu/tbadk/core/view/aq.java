@@ -1,31 +1,47 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public class aq implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserPhotoLayout ahQ;
+class aq implements com.baidu.adp.lib.f.c<HeadImageView> {
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(UserPhotoLayout userPhotoLayout) {
-        this.ahQ = userPhotoLayout;
+    public aq(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.f.b bVar;
-        com.baidu.adp.lib.f.b bVar2;
-        if (view2 instanceof HeadImageView) {
-            bVar = this.ahQ.mUserPhotoPool;
-            if (bVar != null) {
-                bVar2 = this.ahQ.mUserPhotoPool;
-                bVar2.n((HeadImageView) view2);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: wU */
+    public HeadImageView ez() {
+        return new HeadImageView(this.val$context);
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void o(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public HeadImageView p(HeadImageView headImageView) {
+        return headImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public HeadImageView q(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+        return headImageView;
     }
 }

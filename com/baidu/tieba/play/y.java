@@ -1,69 +1,43 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.os.Handler;
+import android.os.Message;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class y {
-    private static g eZg = null;
-    private static boolean eZh = true;
-    private static boolean eZi = true;
+public class y implements SensorEventListener {
+    private WeakReference<Handler> aMa;
 
-    private static g baB() {
-        if (eZg == null) {
-            eZh = com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("prefs_save_paled_video", true);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, g.class);
-            if (runTask != null) {
-                eZg = (g) runTask.getData();
+    public y(Handler handler) {
+        this.aMa = new WeakReference<>(handler);
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Handler handler;
+        Message obtainMessage;
+        if (sensorEvent != null && sensorEvent.values != null && sensorEvent.values.length >= 3) {
+            float[] fArr = sensorEvent.values;
+            float f = -fArr[0];
+            float f2 = -fArr[1];
+            float f3 = -fArr[2];
+            if ((f * f) + (f2 * f2) >= f3 * f3) {
+                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
+                if (round >= 360) {
+                    round -= 360;
+                }
+                int i = round < 0 ? round + 360 : round;
+                if (this.aMa != null && this.aMa.get() != null && (obtainMessage = (handler = this.aMa.get()).obtainMessage(1)) != null) {
+                    obtainMessage.arg1 = i;
+                    handler.sendMessage(obtainMessage);
+                }
             }
         }
-        return eZg;
-    }
-
-    public static String hg(String str) {
-        if (eZi && eZh && baB() != null) {
-            return baB().hg(str);
-        }
-        return str;
-    }
-
-    public static String hh(String str) {
-        if (baB() != null) {
-            return baB().hh(str);
-        }
-        return null;
-    }
-
-    public static void G(Context context, String str) {
-        if (baB() != null) {
-            baB().G(context, str);
-        }
-    }
-
-    public static void H(Context context, String str) {
-        if (eZi && eZh && baB() != null) {
-            baB().H(context, str);
-        }
-    }
-
-    public static void hi(String str) {
-        if (eZi && eZh && baB() != null) {
-            baB().hi(str);
-        }
-    }
-
-    public static void av(Context context) {
-        if (baB() != null) {
-            baB().av(context);
-        }
-    }
-
-    public static void jY(boolean z) {
-        eZh = z;
-    }
-
-    public static void baC() {
-        eZi = com.baidu.adp.lib.c.e.dN().ac("android_video_cache_open") == 1;
     }
 }

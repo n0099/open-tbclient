@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ WriteLocationView gen;
+    final /* synthetic */ WriteLocationView glR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(WriteLocationView writeLocationView, int i) {
         super(i);
-        this.gen = writeLocationView;
+        this.glR = writeLocationView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ public class b extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.gen.avI;
-                dVar2.kO(false);
-                dVar3 = this.gen.avI;
-                dVar3.bV(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.gen.c(2, true, responsedSelectLocation.getName());
+                dVar2 = this.glR.awB;
+                dVar2.ln(false);
+                dVar3 = this.glR.awB;
+                dVar3.bX(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.glR.c(2, true, responsedSelectLocation.getName());
                 return;
             }
-            dVar = this.gen.avI;
-            dVar.kO(true);
-            this.gen.c(0, true, null);
+            dVar = this.glR.awB;
+            dVar.ln(true);
+            this.glR.c(0, true, null);
         }
     }
 }

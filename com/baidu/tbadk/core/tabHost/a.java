@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 import com.baidu.adp.lib.h.d;
 /* loaded from: classes.dex */
 class a extends d {
-    final /* synthetic */ FragmentTabHost YY;
+    final /* synthetic */ FragmentTabHost Zw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FragmentTabHost fragmentTabHost) {
-        this.YY = fragmentTabHost;
+        this.Zw = fragmentTabHost;
     }
 
     @Override // com.baidu.adp.lib.h.d
@@ -20,19 +20,19 @@ class a extends d {
         View view2;
         View view3;
         View view4;
-        layerInAnimation = this.YY.getLayerInAnimation();
+        layerInAnimation = this.Zw.getLayerInAnimation();
         if (animation == layerInAnimation) {
-            view3 = this.YY.YO;
+            view3 = this.Zw.Zm;
             view3.setVisibility(0);
-            view4 = this.YY.YO;
+            view4 = this.Zw.Zm;
             view4.setClickable(true);
             return;
         }
-        layerOutAnimation = this.YY.getLayerOutAnimation();
+        layerOutAnimation = this.Zw.getLayerOutAnimation();
         if (animation == layerOutAnimation) {
-            view = this.YY.YO;
+            view = this.Zw.Zm;
             view.setVisibility(8);
-            view2 = this.YY.YO;
+            view2 = this.Zw.Zm;
             view2.setClickable(false);
         }
     }

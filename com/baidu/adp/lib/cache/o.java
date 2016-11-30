@@ -15,9 +15,9 @@ public interface o<T> {
     /* loaded from: classes.dex */
     public static class c<T> {
         public String key;
-        public T lo;
-        public long mh;
-        public long mx;
+        public T lp;
+        public long mi;
+        public long my;
     }
 
     /* loaded from: classes.dex */

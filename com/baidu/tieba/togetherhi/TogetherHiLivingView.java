@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.n;
 import com.baidu.tieba.r;
@@ -90,7 +90,7 @@ public class TogetherHiLivingView extends FrameLayout implements View.OnClickLis
         if (getVisibility() != 0) {
             setVisibility(0);
         }
-        if (nVar.Vf == 2) {
+        if (nVar.VD == 2) {
             this.livingTag.setVisibility(0);
         } else {
             this.livingTag.setVisibility(8);
@@ -117,8 +117,8 @@ public class TogetherHiLivingView extends FrameLayout implements View.OnClickLis
         } else {
             this.image4.setDefaultResource(r.f.th_photo_bg);
         }
-        this.title.setText(nVar.UZ);
-        this.joinNum.setText(Integer.toString(nVar.Vc));
+        this.title.setText(nVar.Vx);
+        this.joinNum.setText(Integer.toString(nVar.VA));
         if (TextUtils.isEmpty(nVar.location)) {
             this.location.setVisibility(8);
         } else {
@@ -141,17 +141,17 @@ public class TogetherHiLivingView extends FrameLayout implements View.OnClickLis
     }
 
     public void onChangeSkinType(int i) {
-        av.c(this.livingTag, r.d.cp_cont_g, 1);
-        av.c(this.title, r.d.cp_cont_g, 1);
-        av.c(this.joinNum, r.d.cp_cont_g, 1);
-        av.c(this.location, r.d.cp_cont_g, 1);
+        at.c(this.livingTag, r.d.cp_cont_g, 1);
+        at.c(this.title, r.d.cp_cont_g, 1);
+        at.c(this.joinNum, r.d.cp_cont_g, 1);
+        at.c(this.location, r.d.cp_cont_g, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TiebaStatic.log("c11151");
         ThActivityDetailActivityConfig thActivityDetailActivityConfig = new ThActivityDetailActivityConfig(this.mContext);
-        thActivityDetailActivityConfig.createActivityDetailConfig(Long.toString(this.togetherHiInfo.Va), this.togetherHiInfo.UZ, this.togetherHiInfo.startTime, this.togetherHiInfo.Vb, this.togetherHiInfo.location, this.togetherHiInfo.Vd, ThActivityDetailActivityConfig.TH_FROM_PB);
+        thActivityDetailActivityConfig.createActivityDetailConfig(Long.toString(this.togetherHiInfo.Vy), this.togetherHiInfo.Vx, this.togetherHiInfo.startTime, this.togetherHiInfo.Vz, this.togetherHiInfo.location, this.togetherHiInfo.VB, ThActivityDetailActivityConfig.TH_FROM_PB);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, thActivityDetailActivityConfig));
     }
 

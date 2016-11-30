@@ -7,19 +7,19 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class be implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ bd djr;
-    private final /* synthetic */ List djs;
+    final /* synthetic */ bd dpa;
+    private final /* synthetic */ List dpb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(bd bdVar, List list) {
-        this.djr = bdVar;
-        this.djs = list;
+        this.dpa = bdVar;
+        this.dpb = list;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        for (ImMessageCenterPojo imMessageCenterPojo : this.djs) {
-            com.baidu.tieba.im.db.i.asN().c(imMessageCenterPojo);
+        for (ImMessageCenterPojo imMessageCenterPojo : this.dpb) {
+            com.baidu.tieba.im.db.i.auK().c(imMessageCenterPojo);
         }
         return null;
     }

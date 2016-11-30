@@ -15,13 +15,14 @@ import tbclient.Icon;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.view.userLike.a, Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
     private String fansNickName;
     private int gender;
-    public boolean isGodUser;
+    private boolean isGod;
     private int is_myfriend;
-    private j pendantData;
+    private k pendantData;
+    private boolean isLikeStatusFromNet = false;
     private int is_like = 0;
     private GodUserData godUserData = new GodUserData();
     private UserTbVipInfoData bigVData = new UserTbVipInfoData();
@@ -45,25 +46,53 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
     private int giftNum = 0;
     private int isMem = 0;
     private ThemeCardInUserData themeCard = new ThemeCardInUserData();
+    private String sealPrefix = null;
 
     public void setUserId(String str) {
         this.userId = str;
     }
 
+    @Override // com.baidu.tbadk.core.view.userLike.a
     public String getUserId() {
         return this.userId;
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public void setIsFromNetWork(boolean z) {
+        this.isLikeStatusFromNet = z;
+        if (this.godUserData != null) {
+            this.godUserData.setIsFromNetWork(z);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public boolean isGod() {
+        return this.isGod;
+    }
+
+    public void setIsGod(boolean z) {
+        this.isGod = z;
     }
 
     public void setUserIdLong(long j) {
         this.userId = String.valueOf(j);
     }
 
-    public int getIsLike() {
-        return this.is_like;
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public boolean getIsLike() {
+        if (isGod()) {
+            return this.godUserData.getIsLike();
+        }
+        return this.is_like == 1;
     }
 
-    public void setIsLike(int i) {
-        this.is_like = i;
+    @Override // com.baidu.tbadk.core.view.userLike.a
+    public void setIsLike(boolean z) {
+        this.is_like = z ? 1 : 0;
+        this.mHadConcerned = z;
+        if (isGod()) {
+            this.godUserData.setIsLike(z);
+        }
     }
 
     public long getUserIdLong() {
@@ -114,6 +143,7 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
         this.portrait = str;
     }
 
+    @Override // com.baidu.tbadk.core.view.userLike.a
     public String getPortrait() {
         return this.portrait;
     }
@@ -194,10 +224,12 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
         this.fansNickName = str;
     }
 
+    @Override // com.baidu.tbadk.core.view.userLike.a
     public void setFansNum(int i) {
         this.fansNum = i;
     }
 
+    @Override // com.baidu.tbadk.core.view.userLike.a
     public int getFansNum() {
         return this.fansNum;
     }
@@ -244,7 +276,15 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
         this.giftNum = i;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r8v0 tbclient.User) tbclient.User.id java.lang.Long)] */
+    public void setSealPrefix(String str) {
+        this.sealPrefix = str;
+    }
+
+    public String getSealPrefix() {
+        return this.sealPrefix;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r9v0 tbclient.User) tbclient.User.id java.lang.Long)] */
     public void parserProtobuf(User user) {
         if (user != null) {
             this.userId = new StringBuilder().append(user.id).toString();
@@ -296,6 +336,7 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
             }
             if (user.god_data != null) {
                 this.godUserData.parserProtobuf(user.god_data);
+                this.isGod = this.godUserData.isGod();
             }
             if (user.tb_vip != null) {
                 this.bigVData.parserProtobuf(user.tb_vip);
@@ -304,9 +345,11 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new j();
+                this.pendantData = new k();
                 this.pendantData.a(user.pendant);
             }
+            this.isLikeStatusFromNet = true;
+            this.sealPrefix = user.seal_prefix;
         }
     }
 
@@ -366,6 +409,7 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
                 }
                 if (optJSONObject != null) {
                     this.godUserData.parseJson(optJSONObject);
+                    this.isGod = this.godUserData.isGod();
                 }
                 if (optJSONObject2 != null) {
                     this.bigVData.parseJson(optJSONObject2);
@@ -374,6 +418,7 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
                 if (optJSONObject3 != null) {
                     this.themeCard.parser(optJSONObject3);
                 }
+                this.isLikeStatusFromNet = true;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -384,11 +429,11 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializabl
         return this.themeCard;
     }
 
-    public j getPendantData() {
+    public k getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(j jVar) {
-        this.pendantData = jVar;
+    public void setPendantData(k kVar) {
+        this.pendantData = kVar;
     }
 }

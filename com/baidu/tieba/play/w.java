@@ -1,50 +1,49 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-import android.view.TextureView;
-import android.view.View;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.MediaController;
 /* loaded from: classes.dex */
-public class w extends TextureView {
-    private int eYL;
-    private int mVideoHeight;
-    private int mVideoWidth;
+public class w {
+    private a aNV;
+    private MediaController.MediaPlayerControl aRr;
+    private b ffC;
+    private int ffB = 0;
+    private Handler mHandler = new x(this, Looper.getMainLooper());
 
-    public w(Context context) {
-        super(context);
-        this.mVideoWidth = 0;
-        this.mVideoHeight = 0;
-        this.eYL = 0;
+    /* loaded from: classes.dex */
+    public interface a {
+        void JW();
     }
 
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        if (this.eYL == 90 || this.eYL == 270) {
-            i = i2;
-            i2 = i;
-        }
-        int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
-        int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
-        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
-            defaultSize = View.MeasureSpec.getSize(i);
-            defaultSize2 = View.MeasureSpec.getSize(i2);
-            float f = defaultSize / defaultSize2;
-            float f2 = this.mVideoWidth / this.mVideoHeight;
-            if (f2 > f) {
-                defaultSize2 = (int) (defaultSize / f2);
-            } else {
-                defaultSize = (int) (defaultSize2 * f2);
-            }
-        }
-        setMeasuredDimension(defaultSize, defaultSize2);
+    /* loaded from: classes.dex */
+    public interface b {
+        void bcI();
     }
 
-    public void O(int i, int i2, int i3) {
-        setRotation(i3);
-        this.mVideoWidth = i;
-        this.mVideoHeight = i2;
-        this.eYL = i3;
-        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
-            requestLayout();
-        }
+    public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
+        this.aRr = mediaPlayerControl;
+    }
+
+    public void start() {
+        this.ffB = 0;
+        bcH();
+    }
+
+    public void stop() {
+        this.mHandler.removeMessages(1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bcH() {
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 3000L);
+    }
+
+    public void a(a aVar) {
+        this.aNV = aVar;
+    }
+
+    public void a(b bVar) {
+        this.ffC = bVar;
     }
 }

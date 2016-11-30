@@ -6,13 +6,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a.b {
-    final /* synthetic */ PluginCenterActivity eZr;
-    private final /* synthetic */ PluginConfigWrapper eZs;
+    final /* synthetic */ PluginCenterActivity fgN;
+    private final /* synthetic */ PluginConfigWrapper fgO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PluginCenterActivity pluginCenterActivity, PluginConfigWrapper pluginConfigWrapper) {
-        this.eZr = pluginCenterActivity;
-        this.eZs = pluginConfigWrapper;
+        this.fgN = pluginCenterActivity;
+        this.fgO = pluginConfigWrapper;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -21,15 +21,15 @@ public class c implements a.b {
         com.baidu.tbadk.mvc.g.b bVar;
         if (com.baidu.adp.lib.util.k.gD()) {
             PluginPackageManager iB = PluginPackageManager.iB();
-            PluginConfigWrapper pluginConfigWrapper = this.eZs;
-            eVar = this.eZr.xI;
+            PluginConfigWrapper pluginConfigWrapper = this.fgO;
+            eVar = this.fgN.xI;
             iB.a(pluginConfigWrapper, eVar);
-            this.eZs.setDownLoadPercent(0.0f);
-            this.eZs.setDownLoadStatus(3);
-            bVar = this.eZr.eZp;
-            bVar.D(this.eZs);
+            this.fgO.setDownLoadPercent(0.0f);
+            this.fgO.setDownLoadStatus(3);
+            bVar = this.fgN.fgL;
+            bVar.D(this.fgO);
         } else {
-            this.eZr.showToast(r.j.neterror);
+            this.fgN.showToast(r.j.neterror);
         }
         aVar.dismiss();
     }

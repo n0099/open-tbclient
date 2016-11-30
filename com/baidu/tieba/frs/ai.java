@@ -1,33 +1,16 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* loaded from: classes.dex */
-public class ai implements Runnable {
-    final /* synthetic */ FrsActivity bQi;
-    private final /* synthetic */ long bQo;
-    private final /* synthetic */ long bQp;
-    private final /* synthetic */ long bQq;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(FrsActivity frsActivity, long j, long j2, long j3) {
-        this.bQi = frsActivity;
-        this.bQo = j;
-        this.bQp = j2;
-        this.bQq = j3;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        int K = com.baidu.adp.lib.util.k.K(this.bQi.getPageContext().getPageActivity());
-        int L = com.baidu.adp.lib.util.k.L(this.bQi.getPageContext().getPageActivity());
-        float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
-        int i = 1;
-        if (com.baidu.tbadk.core.util.ba.vy().vA()) {
-            i = 2;
+class ai implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().startActivity(FrsActivity.class);
         }
-        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-        requestGetMyPostNetMessage.setParams(this.bQo, this.bQp, this.bQq, K, L, f, i);
-        this.bQi.sendMessage(requestGetMyPostNetMessage);
+        return null;
     }
 }

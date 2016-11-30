@@ -9,17 +9,17 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.DressupCenterActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class j implements w {
-    private RelativeLayout fYi;
-    private ImageView fYj;
-    public ImageView fYk;
-    private RelativeLayout fYl;
-    private ImageView fYm;
-    public ImageView fYn;
+    private RelativeLayout gfD;
+    private ImageView gfE;
+    public ImageView gfF;
+    private RelativeLayout gfG;
+    private ImageView gfH;
+    public ImageView gfI;
     private Context mContext;
     private NavigationBar mNavigationBar;
 
@@ -28,93 +28,93 @@ public class j implements w {
         this.mContext = context;
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
             this.mNavigationBar = navigationBar;
-            this.fYi = (RelativeLayout) LayoutInflater.from(context).inflate(r.h.item_person_host_navigation_dressup, (ViewGroup) null);
-            this.fYj = (ImageView) this.fYi.findViewById(r.g.person_navigation_dressup_img);
-            this.fYk = (ImageView) this.fYi.findViewById(r.g.person_navigation_dressup_red_tip);
+            this.gfD = (RelativeLayout) LayoutInflater.from(context).inflate(r.h.item_person_host_navigation_dressup, (ViewGroup) null);
+            this.gfE = (ImageView) this.gfD.findViewById(r.g.person_navigation_dressup_img);
+            this.gfF = (ImageView) this.gfD.findViewById(r.g.person_navigation_dressup_red_tip);
         }
         if (TbadkCoreApplication.m9getInst().appResponseToCmd(CmdConfigCustom.START_MORE)) {
             if (this.mNavigationBar == null) {
                 this.mNavigationBar = navigationBar;
             }
-            this.fYl = (RelativeLayout) LayoutInflater.from(context).inflate(r.h.item_person_host_navigation_setting, (ViewGroup) null);
-            this.fYm = (ImageView) this.fYl.findViewById(r.g.person_navigation_setting_img);
-            this.fYn = (ImageView) this.fYl.findViewById(r.g.person_navigation_setting_red_tip);
+            this.gfG = (RelativeLayout) LayoutInflater.from(context).inflate(r.h.item_person_host_navigation_setting, (ViewGroup) null);
+            this.gfH = (ImageView) this.gfG.findViewById(r.g.person_navigation_setting_img);
+            this.gfI = (ImageView) this.gfG.findViewById(r.g.person_navigation_setting_red_tip);
         }
     }
 
     @Override // com.baidu.tieba.view.w
-    public void bqQ() {
-        if (this.fYi != null && this.fYi.getParent() == null) {
-            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.fYi, (View.OnClickListener) null);
+    public void btj() {
+        if (this.gfD != null && this.gfD.getParent() == null) {
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.gfD, (View.OnClickListener) null);
         }
-        if (this.fYl != null && this.fYl.getParent() == null) {
-            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.fYl, (View.OnClickListener) null);
+        if (this.gfG != null && this.gfG.getParent() == null) {
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.gfG, (View.OnClickListener) null);
         }
     }
 
     @Override // com.baidu.tieba.view.w
     public void setOnViewResponseListener(m mVar) {
-        if (this.fYi != null) {
-            this.fYi.setOnClickListener(new k(this));
+        if (this.gfD != null) {
+            this.gfD.setOnClickListener(new k(this));
         }
-        if (this.fYl != null) {
-            this.fYl.setOnClickListener(new l(this));
+        if (this.gfG != null) {
+            this.gfG.setOnClickListener(new l(this));
         }
     }
 
     @Override // com.baidu.tieba.view.w
-    public void T(int i, boolean z) {
-        if (i == 5 && this.fYn != null) {
-            this.fYn.setVisibility(z ? 0 : 8);
-        } else if (i == 6 && this.fYk != null) {
-            this.fYk.setVisibility(z ? 0 : 8);
+    public void W(int i, boolean z) {
+        if (i == 5 && this.gfI != null) {
+            this.gfI.setVisibility(z ? 0 : 8);
+        } else if (i == 6 && this.gfF != null) {
+            this.gfF.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.baidu.tieba.view.w
     public void onChangeSkinType(int i) {
-        if (this.fYj != null) {
+        if (this.gfE != null) {
             if (2 == i) {
-                av.b(this.fYj, r.f.icon_person_dressup_s, r.f.icon_person_dressup);
+                at.b(this.gfE, r.f.icon_person_dressup_s, r.f.icon_person_dressup);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                av.b(this.fYj, r.f.icon_person_dressup_w, r.f.icon_person_dressup_w);
+                at.b(this.gfE, r.f.icon_person_dressup, r.f.icon_person_dressup);
             } else {
-                av.b(this.fYj, r.f.icon_person_dressup_s, r.f.icon_person_dressup_s);
+                at.b(this.gfE, r.f.icon_person_dressup_s, r.f.icon_person_dressup_s);
             }
-            if (this.fYk != null) {
-                av.c(this.fYk, r.f.icon_news_down_bar_one);
+            if (this.gfF != null) {
+                at.c(this.gfF, r.f.icon_news_down_bar_one);
             }
         }
-        if (this.fYm != null) {
+        if (this.gfH != null) {
             if (2 == i) {
-                av.b(this.fYm, r.f.icon_home_setting_s, r.f.icon_home_setting);
+                at.b(this.gfH, r.f.icon_home_setting_s, r.f.icon_home_setting);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                av.b(this.fYm, r.f.icon_home_setting_w, r.f.icon_home_setting_w);
+                at.b(this.gfH, r.f.icon_home_setting_w, r.f.icon_home_setting_w);
             } else {
-                av.b(this.fYm, r.f.icon_home_setting_s, r.f.icon_home_setting_s);
+                at.b(this.gfH, r.f.icon_home_setting_s, r.f.icon_home_setting_s);
             }
-            if (this.fYn != null) {
-                av.c(this.fYn, r.f.icon_news_down_bar_one);
+            if (this.gfI != null) {
+                at.c(this.gfI, r.f.icon_news_down_bar_one);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.w
-    public void b(float f, boolean z) {
+    public void c(float f, boolean z) {
         float f2;
         if (z) {
-            if (this.fYj != null) {
-                av.b(this.fYj, r.f.icon_person_dressup_s, r.f.icon_person_dressup_s);
+            if (this.gfE != null) {
+                at.b(this.gfE, r.f.icon_person_dressup_s, r.f.icon_person_dressup_s);
             }
-            if (this.fYm != null) {
-                av.b(this.fYm, r.f.icon_home_setting_s, r.f.icon_home_setting_s);
+            if (this.gfH != null) {
+                at.b(this.gfH, r.f.icon_home_setting_s, r.f.icon_home_setting_s);
             }
         } else {
-            if (this.fYj != null) {
-                av.b(this.fYj, r.f.icon_person_dressup_w, r.f.icon_person_dressup_w);
+            if (this.gfE != null) {
+                at.b(this.gfE, r.f.icon_person_dressup, r.f.icon_person_dressup);
             }
-            if (this.fYm != null) {
-                av.b(this.fYm, r.f.icon_home_setting_w, r.f.icon_home_setting_w);
+            if (this.gfH != null) {
+                at.b(this.gfH, r.f.icon_home_setting_w, r.f.icon_home_setting_w);
             }
         }
         if (f < 0.5f) {
@@ -123,11 +123,11 @@ public class j implements w {
             f2 = (f * 2.0f) - 1.0f;
         }
         if (f2 >= 0.0f && f2 <= 1.0f) {
-            if (this.fYj != null) {
-                this.fYj.setAlpha(f2);
+            if (this.gfE != null) {
+                this.gfE.setAlpha(f2);
             }
-            if (this.fYm != null) {
-                this.fYm.setAlpha(f2);
+            if (this.gfH != null) {
+                this.gfH.setAlpha(f2);
             }
         }
     }

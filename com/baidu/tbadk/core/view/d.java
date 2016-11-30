@@ -7,48 +7,48 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    final /* synthetic */ HeadPendantClickableView aer;
+    final /* synthetic */ HeadPendantClickableView aeP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(HeadPendantClickableView headPendantClickableView) {
-        this.aer = headPendantClickableView;
+        this.aeP = headPendantClickableView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bi biVar;
-        bi biVar2;
-        bi biVar3;
-        bi biVar4;
+        bk bkVar;
+        bk bkVar2;
+        bk bkVar3;
+        bk bkVar4;
         Context context;
-        bi biVar5;
-        bi biVar6;
-        bi biVar7;
+        bk bkVar5;
+        bk bkVar6;
+        bk bkVar7;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
-        biVar = this.aer.adW;
-        if (biVar != null) {
-            biVar2 = this.aer.adW;
-            if (biVar2.getAuthor() != null) {
-                biVar3 = this.aer.adW;
-                if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.aer.adW;
-                    if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
+        bkVar = this.aeP.aeu;
+        if (bkVar != null) {
+            bkVar2 = this.aeP.aeu;
+            if (bkVar2.getAuthor() != null) {
+                bkVar3 = this.aeP.aeu;
+                if (!StringUtils.isNull(bkVar3.getAuthor().getName_show())) {
+                    bkVar4 = this.aeP.aeu;
+                    if (!StringUtils.isNull(bkVar4.getAuthor().getUserId())) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        context = this.aer.mContext;
-                        biVar5 = this.aer.adW;
-                        String userId = biVar5.getAuthor().getUserId();
-                        biVar6 = this.aer.adW;
-                        String name_show = biVar6.getAuthor().getName_show();
-                        biVar7 = this.aer.adW;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, biVar7.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
-                        onClickListener = this.aer.adX;
+                        context = this.aeP.mContext;
+                        bkVar5 = this.aeP.aeu;
+                        String userId = bkVar5.getAuthor().getUserId();
+                        bkVar6 = this.aeP.aeu;
+                        String name_show = bkVar6.getAuthor().getName_show();
+                        bkVar7 = this.aeP.aeu;
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, bkVar7.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        onClickListener = this.aeP.aev;
                         if (onClickListener != null) {
-                            onClickListener2 = this.aer.adX;
+                            onClickListener2 = this.aeP.aev;
                             onClickListener2.onClick(view);
                         }
                     }

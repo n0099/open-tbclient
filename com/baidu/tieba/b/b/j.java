@@ -5,11 +5,11 @@ import com.baidu.tieba.b.a.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends b.a {
-    final /* synthetic */ g aWS;
+    final /* synthetic */ g baa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.aWS = gVar;
+        this.baa = gVar;
     }
 
     @Override // com.baidu.tieba.b.a.b.a, com.baidu.tieba.b.a.b
@@ -25,9 +25,9 @@ public class j extends b.a {
     @Override // com.baidu.tieba.b.a.b.a, com.baidu.tieba.b.a.a
     public void d(float f, float f2, float f3, int i) {
         Handler handler;
-        this.aWS.Nb();
-        this.aWS.ge(3);
-        handler = this.aWS.mHandler;
+        this.baa.Oe();
+        this.baa.ge(3);
+        handler = this.baa.mHandler;
         handler.sendEmptyMessage(2);
     }
 }

@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements View.OnClickListener {
-    final /* synthetic */ ap bXH;
+    final /* synthetic */ ao caW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ap apVar) {
-        this.bXH = apVar;
+    public ar(ao aoVar) {
+        this.caW = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bXH.getOnSubCardOnClickListenner() != null) {
-            this.bXH.getOnSubCardOnClickListenner().a(view, this.bXH.adW);
+        if (this.caW.getOnSubCardOnClickListenner() != null) {
+            this.caW.getOnSubCardOnClickListenner().a(view, this.caW.aeu);
         }
     }
 }

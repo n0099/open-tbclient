@@ -5,7 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class q {
-    public static String dm(String str) {
+    /* renamed from: do  reason: not valid java name */
+    public static String m11do(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }

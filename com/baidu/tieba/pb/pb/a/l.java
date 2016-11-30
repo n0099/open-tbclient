@@ -1,42 +1,60 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.r;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ e emY;
-    private final /* synthetic */ String enc;
-    private final /* synthetic */ String ene;
-    private final /* synthetic */ String enf;
+public class l extends Handler {
+    final /* synthetic */ e esY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(e eVar, String str, String str2, String str3) {
-        this.emY = eVar;
-        this.enc = str;
-        this.ene = str2;
-        this.enf = str3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(e eVar, Looper looper) {
+        super(looper);
+        this.esY = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        PbActivity pbActivity;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.enc) && !StringUtils.isNull(this.ene)) {
-            if (!com.baidu.adp.lib.util.i.gm()) {
-                pbActivity = this.emY.eow;
-                com.baidu.adp.lib.util.k.showToast(pbActivity.getPageContext().getPageActivity(), r.j.neterror);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        t tVar;
+        t tVar2;
+        t tVar3;
+        t tVar4;
+        t tVar5;
+        Handler handler;
+        Handler handler2;
+        switch (message.what) {
+            case 1:
+                tVar = this.esY.esQ;
+                if (tVar != null) {
+                    tVar2 = this.esY.esQ;
+                    if (tVar2.aOE != null) {
+                        tVar3 = this.esY.esQ;
+                        if (tVar3.cWB != null) {
+                            tVar4 = this.esY.esQ;
+                            if (tVar4.cWF != null) {
+                                tVar5 = this.esY.esQ;
+                                if (tVar5.aOE.getCurrentPosition() <= 0) {
+                                    handler = this.esY.mHandler;
+                                    Message obtainMessage = handler.obtainMessage(1);
+                                    obtainMessage.obj = message.obj;
+                                    handler2 = this.esY.mHandler;
+                                    handler2.sendMessageDelayed(obtainMessage, 50L);
+                                    return;
+                                }
+                                this.esY.e(false, 1);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
                 return;
-            }
-            context = this.emY.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.enc) + "," + this.ene, this.enf, this.enf, context.getString(r.j.app_info_for_map));
-            context2 = this.emY.mContext;
-            com.baidu.tbadk.browser.f.u(context2, format);
+            default:
+                return;
         }
     }
 }

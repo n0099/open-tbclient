@@ -9,25 +9,25 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class MyAudioRecorder implements i {
-    private Thread aiF;
-    private boolean aiG;
-    private int aiJ;
-    private State aiK;
-    private short aiL;
-    private int aiM;
-    private short aiN;
-    private int aiO;
-    private int aiP;
-    private int aiQ;
-    private int aiR;
-    private int ail;
-    private RandomAccessFile aio;
+    private int ajB;
+    private State ajC;
+    private short ajD;
+    private int ajE;
+    private short ajF;
+    private int ajG;
+    private int ajH;
+    private int ajI;
+    private int ajJ;
+    private int ajd;
+    private RandomAccessFile ajg;
+    private Thread ajx;
+    private boolean ajy;
     private byte[] buffer;
     private String filePath;
-    private static final int[] aiE = {44100, 22050, 11025, 8000};
+    private static final int[] ajw = {44100, 22050, 11025, 8000};
     private static Object mLock = new Object();
-    private static AudioRecord aiH = null;
-    private static MediaRecorder aiI = null;
+    private static AudioRecord ajz = null;
+    private static MediaRecorder ajA = null;
 
     /* loaded from: classes.dex */
     public enum State {
@@ -37,7 +37,7 @@ public class MyAudioRecorder implements i {
         ERROR,
         STOPPED;
 
-        /* JADX DEBUG: Replace access to removed values field (aiT) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ajL) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static State[] valuesCustom() {
             State[] valuesCustom = values();
@@ -51,87 +51,87 @@ public class MyAudioRecorder implements i {
     public static MyAudioRecorder d(Boolean bool) {
         MyAudioRecorder myAudioRecorder;
         synchronized (mLock) {
-            aiH = null;
-            aiI = null;
+            ajz = null;
+            ajA = null;
             if (!bool.booleanValue()) {
                 int i = 3;
                 while (true) {
-                    myAudioRecorder = new MyAudioRecorder(true, 1, aiE[i], 2, 2);
+                    myAudioRecorder = new MyAudioRecorder(true, 1, ajw[i], 2, 2);
                     int i2 = i - 1;
-                    if (!(myAudioRecorder.xk() != State.INITIALIZING) || !(i2 >= 0)) {
+                    if (!(myAudioRecorder.xp() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
                     }
                     i = i2;
                 }
             } else {
-                myAudioRecorder = new MyAudioRecorder(false, 1, aiE[3], 2, 2);
+                myAudioRecorder = new MyAudioRecorder(false, 1, ajw[3], 2, 2);
             }
         }
         return myAudioRecorder;
     }
 
-    public State xk() {
-        return this.aiK;
+    public State xp() {
+        return this.ajC;
     }
 
     public MyAudioRecorder(boolean z, int i, int i2, int i3, int i4) {
-        this.aiJ = 0;
+        this.ajB = 0;
         this.filePath = null;
         try {
-            this.aiG = z;
-            if (this.aiG) {
+            this.ajy = z;
+            if (this.ajy) {
                 if (i4 == 2) {
-                    this.aiN = (short) 16;
+                    this.ajF = (short) 16;
                 } else {
-                    this.aiN = (short) 8;
+                    this.ajF = (short) 8;
                 }
                 if (i3 == 2) {
-                    this.aiL = (short) 1;
+                    this.ajD = (short) 1;
                 } else {
-                    this.aiL = (short) 2;
+                    this.ajD = (short) 2;
                 }
-                this.aiO = i;
-                this.aiM = i2;
-                this.aiP = i4;
-                this.aiQ = (i2 * SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE) / 1000;
-                this.ail = (((this.aiQ * 2) * this.aiN) * this.aiL) / 8;
-                if (this.ail < AudioRecord.getMinBufferSize(i2, i3, i4)) {
-                    this.ail = AudioRecord.getMinBufferSize(i2, i3, i4);
-                    this.aiQ = this.ail / (((this.aiN * 2) * this.aiL) / 8);
-                    BdLog.w(String.valueOf(MyAudioRecorder.class.getName()) + "Increasing buffer size to " + Integer.toString(this.ail));
+                this.ajG = i;
+                this.ajE = i2;
+                this.ajH = i4;
+                this.ajI = (i2 * SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE) / 1000;
+                this.ajd = (((this.ajI * 2) * this.ajF) * this.ajD) / 8;
+                if (this.ajd < AudioRecord.getMinBufferSize(i2, i3, i4)) {
+                    this.ajd = AudioRecord.getMinBufferSize(i2, i3, i4);
+                    this.ajI = this.ajd / (((this.ajF * 2) * this.ajD) / 8);
+                    BdLog.w(String.valueOf(MyAudioRecorder.class.getName()) + "Increasing buffer size to " + Integer.toString(this.ajd));
                 }
-                aiH = new AudioRecord(i, i2, i3, i4, this.ail);
-                if (aiH.getRecordingState() == 3) {
-                    aiH.stop();
+                ajz = new AudioRecord(i, i2, i3, i4, this.ajd);
+                if (ajz.getRecordingState() == 3) {
+                    ajz.stop();
                 }
-                if (aiH.getState() != 1) {
+                if (ajz.getState() != 1) {
                     throw new Exception("AudioRecord initialization failed");
                 }
             } else {
-                aiI = new MediaRecorder();
-                aiI.setAudioSource(1);
-                aiI.setOutputFormat(1);
-                aiI.setAudioEncoder(1);
+                ajA = new MediaRecorder();
+                ajA.setAudioSource(1);
+                ajA.setOutputFormat(1);
+                ajA.setAudioEncoder(1);
             }
-            this.aiJ = 0;
+            this.ajB = 0;
             this.filePath = null;
-            this.aiK = State.INITIALIZING;
+            this.ajC = State.INITIALIZING;
         } catch (Exception e) {
             if (e.getMessage() != null) {
                 BdLog.e(e);
             } else {
                 BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "Unknown error occured while initializing recording");
             }
-            this.aiK = State.ERROR;
+            this.ajC = State.ERROR;
         }
     }
 
-    public boolean ef(String str) {
+    public boolean eh(String str) {
         try {
-            if (this.aiK == State.INITIALIZING) {
+            if (this.ajC == State.INITIALIZING) {
                 this.filePath = str;
-                if (!this.aiG) {
-                    aiI.setOutputFile(this.filePath);
+                if (!this.ajy) {
+                    ajA.setOutputFile(this.filePath);
                 }
             }
             return true;
@@ -141,51 +141,51 @@ public class MyAudioRecorder implements i {
             } else {
                 BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "Unknown error occured while setting output path");
             }
-            this.aiK = State.ERROR;
+            this.ajC = State.ERROR;
             return false;
         }
     }
 
     public boolean prepare() {
         try {
-            if (this.aiK == State.INITIALIZING) {
-                if (this.aiG) {
-                    if ((this.filePath != null) & (aiH.getState() == 1)) {
-                        if (this.aio != null) {
-                            this.aio.close();
-                            this.aio = null;
+            if (this.ajC == State.INITIALIZING) {
+                if (this.ajy) {
+                    if ((this.filePath != null) & (ajz.getState() == 1)) {
+                        if (this.ajg != null) {
+                            this.ajg.close();
+                            this.ajg = null;
                         }
-                        this.aio = new RandomAccessFile(this.filePath, "rw");
-                        this.aio.setLength(0L);
-                        this.aio.writeBytes("RIFF");
-                        this.aio.writeInt(0);
-                        this.aio.writeBytes("WAVE");
-                        this.aio.writeBytes("fmt ");
-                        this.aio.writeInt(Integer.reverseBytes(16));
-                        this.aio.writeShort(Short.reverseBytes((short) 1));
-                        this.aio.writeShort(Short.reverseBytes(this.aiL));
-                        this.aio.writeInt(Integer.reverseBytes(this.aiM));
-                        this.aio.writeInt(Integer.reverseBytes(((this.aiM * this.aiN) * this.aiL) / 8));
-                        this.aio.writeShort(Short.reverseBytes((short) ((this.aiL * this.aiN) / 8)));
-                        this.aio.writeShort(Short.reverseBytes(this.aiN));
-                        this.aio.writeBytes("data");
-                        this.aio.writeInt(0);
-                        this.buffer = new byte[((this.aiQ * this.aiN) / 8) * this.aiL];
-                        this.aiK = State.READY;
+                        this.ajg = new RandomAccessFile(this.filePath, "rw");
+                        this.ajg.setLength(0L);
+                        this.ajg.writeBytes("RIFF");
+                        this.ajg.writeInt(0);
+                        this.ajg.writeBytes("WAVE");
+                        this.ajg.writeBytes("fmt ");
+                        this.ajg.writeInt(Integer.reverseBytes(16));
+                        this.ajg.writeShort(Short.reverseBytes((short) 1));
+                        this.ajg.writeShort(Short.reverseBytes(this.ajD));
+                        this.ajg.writeInt(Integer.reverseBytes(this.ajE));
+                        this.ajg.writeInt(Integer.reverseBytes(((this.ajE * this.ajF) * this.ajD) / 8));
+                        this.ajg.writeShort(Short.reverseBytes((short) ((this.ajD * this.ajF) / 8)));
+                        this.ajg.writeShort(Short.reverseBytes(this.ajF));
+                        this.ajg.writeBytes("data");
+                        this.ajg.writeInt(0);
+                        this.buffer = new byte[((this.ajI * this.ajF) / 8) * this.ajD];
+                        this.ajC = State.READY;
                     } else {
                         BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "prepare() method called on uninitialized recorder");
-                        this.aiK = State.ERROR;
+                        this.ajC = State.ERROR;
                         return false;
                     }
                 } else {
-                    aiI.prepare();
-                    this.aiK = State.READY;
+                    ajA.prepare();
+                    this.ajC = State.READY;
                 }
                 return true;
             }
             BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "prepare() method called on illegal state");
             release();
-            this.aiK = State.ERROR;
+            this.ajC = State.ERROR;
             return false;
         } catch (Exception e) {
             if (e.getMessage() != null) {
@@ -193,64 +193,64 @@ public class MyAudioRecorder implements i {
             } else {
                 BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "Unknown error occured in prepare()");
             }
-            this.aiK = State.ERROR;
+            this.ajC = State.ERROR;
             return false;
         }
     }
 
     public void release() {
-        if (this.aiK == State.RECORDING) {
+        if (this.ajC == State.RECORDING) {
             stop();
         } else {
-            if ((this.aiK == State.READY) & this.aiG) {
+            if ((this.ajC == State.READY) & this.ajy) {
                 try {
-                    this.aio.close();
+                    this.ajg.close();
                 } catch (IOException e) {
                     BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "I/O exception occured while closing output file");
                 }
                 new File(this.filePath).delete();
             }
         }
-        if (this.aiG) {
-            if (aiH != null) {
-                aiH.release();
+        if (this.ajy) {
+            if (ajz != null) {
+                ajz.release();
             }
-        } else if (aiI != null) {
-            aiI.release();
+        } else if (ajA != null) {
+            ajA.release();
         }
     }
 
     public void start() {
-        if (this.aiK == State.READY) {
-            if (this.aiG) {
-                this.aiR = 0;
-                aiH.startRecording();
-                aiH.read(this.buffer, 0, this.buffer.length);
+        if (this.ajC == State.READY) {
+            if (this.ajy) {
+                this.ajJ = 0;
+                ajz.startRecording();
+                ajz.read(this.buffer, 0, this.buffer.length);
             } else {
-                aiI.start();
+                ajA.start();
             }
-            this.aiK = State.RECORDING;
+            this.ajC = State.RECORDING;
             return;
         }
         BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "start() called on illegal state");
-        this.aiK = State.ERROR;
+        this.ajC = State.ERROR;
     }
 
     public void stop() {
         BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "audioRecorder.stop()");
-        aiH.stop();
+        ajz.stop();
         try {
-            this.aio.seek(4L);
-            this.aio.writeInt(Integer.reverseBytes(this.aiR + 36));
-            this.aio.seek(40L);
-            this.aio.writeInt(Integer.reverseBytes(this.aiR));
-            this.aio.close();
+            this.ajg.seek(4L);
+            this.ajg.writeInt(Integer.reverseBytes(this.ajJ + 36));
+            this.ajg.seek(40L);
+            this.ajg.writeInt(Integer.reverseBytes(this.ajJ));
+            this.ajg.close();
             BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "randomAccessWriter.close()");
         } catch (IOException e) {
             BdLog.e(String.valueOf(MyAudioRecorder.class.getName()) + "I/O exception occured while closing output file");
-            this.aiK = State.ERROR;
+            this.ajC = State.ERROR;
         }
-        this.aiK = State.STOPPED;
+        this.ajC = State.STOPPED;
     }
 
     private short a(byte b, byte b2) {
@@ -258,56 +258,56 @@ public class MyAudioRecorder implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean ed(String str) {
-        if (ef(str)) {
+    public boolean ef(String str) {
+        if (eh(str)) {
             return prepare();
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean xf() {
+    public boolean xk() {
         synchronized (mLock) {
-            if (this.aiF == null || !this.aiF.isAlive()) {
-                this.aiF = new Thread(new g(this));
-                this.aiF.start();
+            if (this.ajx == null || !this.ajx.isAlive()) {
+                this.ajx = new Thread(new g(this));
+                this.ajx.start();
             }
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void xg() {
-        this.aiK = State.STOPPED;
+    public void xl() {
+        this.ajC = State.STOPPED;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean xh() {
-        return this.aiK == State.RECORDING;
+    public boolean xm() {
+        return this.ajC == State.RECORDING;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xe() {
-        if (aiH != null) {
+    public void xj() {
+        if (ajz != null) {
             try {
                 start();
-                while (xh()) {
-                    aiH.read(this.buffer, 0, this.buffer.length);
+                while (xm()) {
+                    ajz.read(this.buffer, 0, this.buffer.length);
                     try {
                         System.out.println(this.buffer);
-                        this.aio.write(this.buffer);
-                        this.aiR += this.buffer.length;
-                        if (this.aiN == 16) {
+                        this.ajg.write(this.buffer);
+                        this.ajJ += this.buffer.length;
+                        if (this.ajF == 16) {
                             for (int i = 0; i < this.buffer.length / 2; i++) {
                                 short a = a(this.buffer[i * 2], this.buffer[(i * 2) + 1]);
-                                if (a > this.aiJ) {
-                                    this.aiJ = a;
+                                if (a > this.ajB) {
+                                    this.ajB = a;
                                 }
                             }
                         } else {
                             for (int i2 = 0; i2 < this.buffer.length; i2++) {
-                                if (this.buffer[i2] > this.aiJ) {
-                                    this.aiJ = this.buffer[i2];
+                                if (this.buffer[i2] > this.ajB) {
+                                    this.ajB = this.buffer[i2];
                                 }
                             }
                         }

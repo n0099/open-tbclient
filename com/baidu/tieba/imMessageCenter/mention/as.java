@@ -3,9 +3,9 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class as extends com.baidu.adp.base.e<bf> {
-    private bf dtL;
-    private BdUniqueId duo;
-    private a dup;
+    private BdUniqueId dzT;
+    private a dzU;
+    private bf dzq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -19,9 +19,9 @@ public class as extends com.baidu.adp.base.e<bf> {
 
     public as(bf bfVar) {
         super(com.baidu.adp.base.l.C(bfVar.getPageContext().getPageActivity()));
-        this.duo = BdUniqueId.gen();
-        this.dtL = bfVar;
-        azE();
+        this.dzT = BdUniqueId.gen();
+        this.dzq = bfVar;
+        aBA();
     }
 
     public void b(long j, int i, String str) {
@@ -29,15 +29,15 @@ public class as extends com.baidu.adp.base.e<bf> {
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTag(this.dtL.getUniqueId());
+        checkPostRequestMessage.setTag(this.dzq.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void azE() {
+    public void aBA() {
         at atVar = new at(this, 303010);
-        atVar.setTag(this.dtL.getUniqueId());
+        atVar.setTag(this.dzq.getUniqueId());
         atVar.setSelfListener(true);
-        this.dtL.registerListener(atVar);
+        this.dzq.registerListener(atVar);
     }
 
     @Override // com.baidu.adp.base.e
@@ -51,6 +51,6 @@ public class as extends com.baidu.adp.base.e<bf> {
     }
 
     public void a(a aVar) {
-        this.dup = aVar;
+        this.dzU = aVar;
     }
 }

@@ -5,28 +5,28 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnTouchListener {
-    final /* synthetic */ g dql;
+    final /* synthetic */ g dvS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.dql = gVar;
+        this.dvS = gVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         boolean z;
-        z = this.dql.dqk;
+        z = this.dvS.dvR;
         if (z) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.dql.aY((int) motionEvent.getX(), (int) motionEvent.getY());
+                    this.dvS.aZ((int) motionEvent.getX(), (int) motionEvent.getY());
                     break;
                 case 1:
-                    this.dql.axV();
+                    this.dvS.azS();
                     break;
                 case 2:
                     if (motionEvent.findPointerIndex(0) != -1) {
-                        this.dql.aX((int) motionEvent.getRawX(), (int) motionEvent.getRawY());
+                        this.dvS.aY((int) motionEvent.getRawX(), (int) motionEvent.getRawY());
                         break;
                     }
                     break;

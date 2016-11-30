@@ -1,25 +1,30 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class u implements bh.a {
-    @Override // com.baidu.tbadk.core.util.bh.a
-    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        if (tbPageContext == null || strArr == null || strArr.length == 0) {
-            return 3;
-        }
-        String str = strArr[0];
-        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
-            if (str.contains("jump_enter_forum=1")) {
-                com.baidu.tbadk.core.d.b.b(tbPageContext.getPageActivity(), 1, true);
-                return 1;
-            } else if (str.contains("jump_chosen_post=1")) {
-                com.baidu.tbadk.core.d.b.b(tbPageContext.getPageActivity(), 2, true);
-                return 1;
+class u extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ACROSS_FORUM_THEME_SHOW, this.this$0.getPageContext()));
+            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.h) {
+                this.this$0.a((com.baidu.tbadk.data.h) customResponsedMessage.getData());
+                TbadkCoreApplication.m9getInst().setPaymemberInfo((com.baidu.tbadk.data.h) customResponsedMessage.getData());
             }
         }
-        return 3;
     }
 }

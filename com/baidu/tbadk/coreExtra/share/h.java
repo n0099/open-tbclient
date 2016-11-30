@@ -5,29 +5,29 @@ import android.net.Uri;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class h {
-    private static c ana = null;
-    private static boolean anb = false;
-    private a anc;
-    private b and;
-    private String ane = TbadkCoreApplication.m9getInst().getContext().getString(r.j.share_tail);
-    private String anf = String.valueOf(TbadkCoreApplication.m9getInst().getContext().getString(r.j.weibo_share_tail)) + this.ane;
+    private static c anT = null;
+    private static boolean anU = false;
+    private a anV;
+    private b anW;
+    private String anX = TbadkCoreApplication.m9getInst().getContext().getString(r.j.share_tail);
+    private String anY = String.valueOf(TbadkCoreApplication.m9getInst().getContext().getString(r.j.weibo_share_tail)) + this.anX;
     private final Context mContext;
 
     public h(Context context, a aVar) {
-        this.anc = null;
-        this.and = null;
+        this.anV = null;
+        this.anW = null;
         this.mContext = context;
         if (aVar != null) {
-            this.anc = aVar;
+            this.anV = aVar;
         }
         am(this.mContext);
-        if (ana != null) {
-            this.and = ana.createWorker(this.mContext, this.anc);
+        if (anT != null) {
+            this.anW = anT.createWorker(this.mContext, this.anV);
         }
     }
 
@@ -35,64 +35,71 @@ public class h {
         if (context == null) {
             return false;
         }
-        if (!anb) {
+        if (!anU) {
             try {
-                ana = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
+                anT = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            anb = true;
+            anU = true;
         }
-        return ana != null;
+        return anT != null;
     }
 
     public void c(f fVar) {
-        if (this.and != null && fVar != null) {
-            if (!StringUtils.isNull(fVar.amW)) {
-                fVar.content = fVar.amW;
+        if (this.anW != null && fVar != null) {
+            if (!StringUtils.isNull(fVar.shareAbstract)) {
+                fVar.content = fVar.shareAbstract;
             }
-            fVar.content = b(fVar.content, 80, 20, this.ane);
-            this.and.a(a(fVar, "weixin"), 3, false);
+            fVar.content = b(fVar.content, 80, 20, this.anX);
+            this.anW.a(a(fVar, "weixin"), 3, false);
         }
     }
 
     public void d(f fVar) {
-        if (this.and != null && fVar != null) {
-            fVar.content = b(fVar.content, 80, 20, this.ane);
-            if (StringUtils.isNull(fVar.amX)) {
+        if (this.anW != null && fVar != null) {
+            fVar.content = b(fVar.content, 80, 20, this.anX);
+            if (StringUtils.isNull(fVar.anQ)) {
                 fVar.title = fVar.content;
             } else {
-                fVar.title = fVar.amX;
+                fVar.title = fVar.anQ;
             }
-            this.and.a(a(fVar, "weixin_timeline"), 2, false);
+            this.anW.a(a(fVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void e(f fVar) {
-        if (this.and != null) {
-            fVar.content = b(fVar.content, 80, 32, this.ane);
-            this.and.a(a(fVar, "qzone"), 4, true);
+        if (this.anW != null && fVar != null) {
+            fVar.content = b(fVar.content, 80, 32, this.anX);
+            this.anW.a(a(fVar, "qqfriend"), 8, true);
         }
     }
 
     public void f(f fVar) {
-        if (this.and != null) {
-            fVar.content = b(fVar.content, 140, 20, this.ane);
-            this.and.a(a(fVar, "tencent_weibo"), 5, true);
+        if (this.anW != null) {
+            fVar.content = b(fVar.content, 80, 32, this.anX);
+            this.anW.a(a(fVar, "qzone"), 4, true);
         }
     }
 
     public void g(f fVar) {
-        if (this.and != null) {
-            fVar.content = b(fVar.content, 140, 20, this.anf);
-            this.and.a(a(fVar, "sina_weibo"), 6, true);
+        if (this.anW != null) {
+            fVar.content = b(fVar.content, 140, 20, this.anX);
+            this.anW.a(a(fVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void h(f fVar) {
-        if (this.and != null) {
-            fVar.content = b(fVar.content, 140, 20, this.ane);
-            this.and.a(a(fVar, "renren"), 7, true);
+        if (this.anW != null) {
+            fVar.content = b(fVar.content, 140, 20, this.anY);
+            this.anW.a(a(fVar, "sina_weibo"), 6, true);
+        }
+    }
+
+    public void i(f fVar) {
+        if (this.anW != null) {
+            fVar.content = b(fVar.content, 140, 20, this.anX);
+            this.anW.a(a(fVar, "renren"), 7, true);
         }
     }
 
@@ -117,27 +124,27 @@ public class h {
         }
         if (fVar.imageUri != null && !fVar.imageUri.equals("")) {
             String uri = fVar.imageUri.toString();
-            if (!eN(uri)) {
+            if (!eP(uri)) {
                 fVar.imageUri = Uri.parse("http://tb1.bdstatic.com/tb/r/image/2013-10-16/2392e7325ec8c6d2f02c9a39509e4438.png");
             } else {
                 fVar.imageUri = Uri.parse(uri);
-                ai(uri, "sfc=" + str);
+                aj(uri, "sfc=" + str);
             }
         }
-        fVar.linkUrl = ai(az.isEmpty(fVar.linkUrl) ? "http://tieba.baidu.com" : fVar.linkUrl, "sfc=" + str);
+        fVar.linkUrl = aj(ax.isEmpty(fVar.linkUrl) ? "http://tieba.baidu.com" : fVar.linkUrl, "sfc=" + str);
         return fVar;
     }
 
-    private String ai(String str, String str2) {
-        if (az.isEmpty(Uri.parse(str).getQuery())) {
+    private String aj(String str, String str2) {
+        if (ax.isEmpty(Uri.parse(str).getQuery())) {
             str = String.valueOf(str) + "?";
         }
         return String.valueOf(str) + "&" + str2;
     }
 
-    private boolean eN(String str) {
+    private boolean eP(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(",");
-        if (bh.vL().dN(str)) {
+        if (bf.vP().dP(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

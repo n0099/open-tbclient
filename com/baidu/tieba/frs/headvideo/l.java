@@ -1,43 +1,44 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tieba.frs.headvideo.w;
-import com.baidu.tieba.r;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends w.a {
-    final /* synthetic */ ForumHeadVideoView ccf;
+public class l implements Animation.AnimationListener {
+    final /* synthetic */ ForumHeadVideoView cfB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(ForumHeadVideoView forumHeadVideoView) {
-        this.ccf = forumHeadVideoView;
+        this.cfB = forumHeadVideoView;
     }
 
-    @Override // com.baidu.tieba.frs.headvideo.w.a
-    public boolean af(View view) {
-        boolean o;
-        if (!com.baidu.adp.lib.util.i.gm()) {
-            com.baidu.adp.lib.util.k.m(this.ccf.getContext(), this.ccf.getContext().getString(r.j.neterror));
-        } else {
-            e currentVideoItemView = this.ccf.getCurrentVideoItemView();
-            if (currentVideoItemView != null && currentVideoItemView.getThreadInfo() != null) {
-                bi threadInfo = currentVideoItemView.getThreadInfo();
-                o = this.ccf.o(threadInfo);
-                if (o) {
-                    com.baidu.adp.lib.util.k.showToast(this.ccf.getContext(), r.j.data_illegal);
-                } else {
-                    currentVideoItemView.pausePlay();
-                    this.ccf.p(threadInfo);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.cfB.cfn = false;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        b bVar;
+        b bVar2;
+        b bVar3;
+        c currentVideoItemView = this.cfB.getCurrentVideoItemView();
+        if (currentVideoItemView != null) {
+            currentVideoItemView.clearAnimation();
+            this.cfB.e(currentVideoItemView);
+            bVar = this.cfB.bSr;
+            if (bVar != null) {
+                bVar2 = this.cfB.bSr;
+                if (!bVar2.afO()) {
+                    bVar3 = this.cfB.bSr;
+                    bVar3.eq(true);
+                    a.afM();
                 }
             }
         }
-        return super.af(view);
-    }
-
-    @Override // com.baidu.tieba.frs.headvideo.w.a
-    public boolean ag(View view) {
-        this.ccf.aeF();
-        this.ccf.aeK();
-        return super.ag(view);
+        this.cfB.cfn = true;
     }
 }

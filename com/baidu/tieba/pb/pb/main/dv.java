@@ -1,39 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dv implements View.OnClickListener {
-    private final /* synthetic */ String enc;
-    private final /* synthetic */ String ene;
-    private final /* synthetic */ String enf;
-    final /* synthetic */ du esD;
+public class dv extends com.baidu.tieba.tbadkCore.data.q {
+    public static final BdUniqueId eyO = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.aq eyP;
+    public com.baidu.tbadk.core.data.aq eyQ;
+    public com.baidu.tbadk.core.data.aq eyR;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dv(du duVar, String str, String str2, String str3) {
-        this.esD = duVar;
-        this.enc = str;
-        this.ene = str2;
-        this.enf = str3;
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return eyO;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.enc) && !StringUtils.isNull(this.ene)) {
-            if (com.baidu.adp.lib.util.i.gm()) {
-                context = this.esD.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.enc) + "," + this.ene, this.enf, this.enf, context.getString(r.j.app_info_for_map));
-                context2 = this.esD.mContext;
-                com.baidu.tbadk.browser.f.u(context2, format);
-                return;
+    public boolean hasData() {
+        if (this.eyP == null || StringUtils.isNull(this.eyP.summary)) {
+            if (this.eyQ == null || StringUtils.isNull(this.eyQ.summary)) {
+                return (this.eyR == null || StringUtils.isNull(this.eyR.summary)) ? false : true;
             }
-            this.esD.eow.showToast(r.j.neterror);
+            return true;
         }
+        return true;
     }
 }

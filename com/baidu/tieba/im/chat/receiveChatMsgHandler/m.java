@@ -5,11 +5,11 @@ import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
 /* loaded from: classes.dex */
 class m implements a.c {
-    boolean cYj = ChatStatusManager.getInst().getIsOpen(3);
-    String aEj = ChatStatusManager.getInst().getCurId(3);
+    boolean ddW = ChatStatusManager.getInst().getIsOpen(3);
+    String aEZ = ChatStatusManager.getInst().getCurId(3);
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-    public boolean ll(String str) {
-        return !TextUtils.isEmpty(str) && this.cYj && str.equals(this.aEj);
+    public boolean ly(String str) {
+        return !TextUtils.isEmpty(str) && this.ddW && str.equals(this.aEZ);
     }
 }

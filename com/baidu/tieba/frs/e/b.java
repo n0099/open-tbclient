@@ -1,51 +1,69 @@
 package com.baidu.tieba.frs.e;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tieba.frs.dh;
-import com.baidu.tieba.frs.dq;
-import com.baidu.tieba.tbadkCore.p;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.frs.FrsActivity;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class b implements dh {
-    final /* synthetic */ a ccV;
+public class b extends s {
+    private final CustomMessageListener bqQ;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.ccV = aVar;
+    public b(FrsActivity frsActivity) {
+        super(frsActivity);
+        this.bqQ = new c(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+        this.bZY.registerListener(this.bqQ);
     }
 
-    @Override // com.baidu.tieba.frs.dh
-    public void a(int i, int i2, dq dqVar, ArrayList<v> arrayList) {
-        int i3;
-        dh dhVar;
-        p pVar;
-        p pVar2;
-        p pVar3;
-        dh dhVar2;
-        this.ccV.ccK = false;
-        i3 = this.ccV.ccG;
-        if (i != i3) {
-            return;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(UpdateAttentionMessage updateAttentionMessage) {
+        Message<?> message;
+        if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().aly && !StringUtils.isNull(updateAttentionMessage.getData().showMsg, true) && updateAttentionMessage.getData().alx && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.bZY.getUniqueId())) {
+            this.bZY.showToast(updateAttentionMessage.getData().showMsg);
         }
-        dhVar = this.ccV.ccR;
-        if (dhVar != null) {
-            this.ccV.ccJ = dqVar;
-            this.ccV.b(i, i2, dqVar);
-            ArrayList<v> arrayList2 = new ArrayList<>();
-            if (arrayList != null) {
-                arrayList2.addAll(arrayList);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(UpdateAttentionMessage updateAttentionMessage) {
+        ArrayList<v> threadList;
+        com.baidu.tieba.tbadkCore.p acr = this.bZY.acr();
+        if (acr != null && (threadList = acr.getThreadList()) != null && updateAttentionMessage != null && updateAttentionMessage.getData() != null) {
+            MetaData metaData = new MetaData();
+            Iterator<v> it = threadList.iterator();
+            MetaData metaData2 = metaData;
+            while (it.hasNext()) {
+                v next = it.next();
+                if (next instanceof bk) {
+                    bk bkVar = (bk) next;
+                    if (bkVar.getAuthor() != null && bkVar.getAuthor().getUserId() != null && bkVar.getAuthor().getUserId().equals(updateAttentionMessage.getData().toUid) && !bkVar.getAuthor().equals(metaData2)) {
+                        a(bkVar, updateAttentionMessage);
+                        metaData2 = bkVar.getAuthor();
+                    }
+                }
             }
-            pVar = this.ccV.bPk;
-            pVar.aA(arrayList2);
-            if ((i == 1 || i == 2 || i == 5) && !this.ccV.afg()) {
-                pVar2 = this.ccV.bPk;
-                pVar2.biD();
-                pVar3 = this.ccV.bPk;
-                pVar3.biE();
+        }
+    }
+
+    private void a(bk bkVar, UpdateAttentionMessage updateAttentionMessage) {
+        int i;
+        if (bkVar != null && bkVar.getAuthor() != null && bkVar.getAuthor().getUserId() != null && bkVar.getAuthor().getUserId().equals(updateAttentionMessage.getData().toUid)) {
+            int fansNum = bkVar.getAuthor().getFansNum();
+            if (updateAttentionMessage.isAttention()) {
+                i = fansNum + 1;
+            } else {
+                i = fansNum - 1;
             }
-            dhVar2 = this.ccV.ccR;
-            dhVar2.a(i, i2, dqVar, arrayList);
+            bkVar.getAuthor().setFansNum(i);
+            if (bkVar.getAuthor().getGodUserData() != null) {
+                bkVar.getAuthor().getGodUserData().setIsLike(updateAttentionMessage.isAttention());
+                bkVar.getAuthor().getGodUserData().setIsFromNetWork(false);
+            }
         }
     }
 }

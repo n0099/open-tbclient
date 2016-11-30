@@ -1,20 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.app.Activity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class w implements CustomMessageTask.CustomRunnable<Void> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-        if (customMessage == null) {
-            return null;
+class w extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Object data = customResponsedMessage.getData();
+        if (data instanceof Activity) {
+            com.baidu.tbadk.core.d.b.V((Activity) data);
         }
-        TbadkCoreApplication.m9getInst().setFriendFeedNew(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.DISCOVER_FRIEND_FEED_NEW));
-        return new CustomResponsedMessage<>(CmdConfigCustom.FRIEND_FEED_NEW);
     }
 }

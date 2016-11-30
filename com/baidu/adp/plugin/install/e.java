@@ -28,7 +28,7 @@ public class e extends Handler {
                 String str = ((c) com.baidu.adp.lib.a.b.a.a.i.objectWithBundle(message.getData(), c.class)).vT;
                 cVar2 = this.this$0.wF;
                 if (TextUtils.equals(str, cVar2.vT)) {
-                    handler = d.hi;
+                    handler = d.hj;
                     runnable = this.this$0.wM;
                     handler.removeCallbacks(runnable);
                 }

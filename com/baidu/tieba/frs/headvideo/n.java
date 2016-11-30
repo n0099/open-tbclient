@@ -1,44 +1,29 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.BannerThreadInfoData;
+import com.baidu.tieba.frs.headvideo.e;
+import java.util.List;
 /* loaded from: classes.dex */
-public class n implements Animation.AnimationListener {
-    final /* synthetic */ ForumHeadVideoView ccf;
+class n implements e.a {
+    final /* synthetic */ ForumHeadVideoView cfB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ForumHeadVideoView forumHeadVideoView) {
-        this.ccf = forumHeadVideoView;
+        this.cfB = forumHeadVideoView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.ccf.cbR = false;
+    @Override // com.baidu.tieba.frs.headvideo.e.a
+    public void fN(String str) {
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        c cVar;
-        c cVar2;
-        c cVar3;
-        e currentVideoItemView = this.ccf.getCurrentVideoItemView();
-        if (currentVideoItemView != null) {
-            currentVideoItemView.clearAnimation();
-            this.ccf.e(currentVideoItemView);
-            cVar = this.ccf.bPz;
-            if (cVar != null) {
-                cVar2 = this.ccf.bPz;
-                if (!cVar2.aeu()) {
-                    cVar3 = this.ccf.bPz;
-                    cVar3.ee(true);
-                    a.aes();
-                }
-            }
+    @Override // com.baidu.tieba.frs.headvideo.e.a
+    public void c(int i, List<BannerThreadInfoData> list) {
+        List list2;
+        List list3;
+        list2 = this.cfB.aUV;
+        if (list2 != null && list != null) {
+            list3 = this.cfB.aUV;
+            list3.addAll(list);
         }
-        this.ccf.cbR = true;
     }
 }

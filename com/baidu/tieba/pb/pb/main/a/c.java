@@ -3,17 +3,17 @@ package com.baidu.tieba.pb.pb.main.a;
 import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a ewZ;
+    final /* synthetic */ a eDm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.ewZ = aVar;
+        this.eDm = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,11 +21,11 @@ public class c implements View.OnClickListener {
         String str;
         PbActivity pbActivity;
         if (view.getTag(r.g.tag_user_id) instanceof String) {
-            str = a.ewV;
+            str = a.eDi;
             String string = TbadkCoreApplication.m9getInst().getString(r.j.user_icon_web_view_title);
-            pbActivity = this.ewZ.eow;
+            pbActivity = this.eDm.eug;
             com.baidu.tbadk.browser.f.a(pbActivity.getApplicationContext(), string, String.valueOf(str) + "?user_id=" + ((String) view.getTag(r.g.tag_user_id)), true, true, true);
-            TiebaStatic.log(new ax("c10134").s("obj_type", 2));
+            TiebaStatic.log(new av("c10134").s("obj_type", 2));
         }
     }
 }

@@ -41,7 +41,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.ExitAppMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.data.NewsNotifyMessage;
@@ -55,99 +55,100 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MainTabActivity extends BaseFragmentActivity implements UserIconBox.b, VoiceManager.c, FrsCommonImageLayout.c, b {
-    private com.baidu.adp.lib.f.b<TbImageView> ahk;
-    VoiceManager bQb;
-    private ab fyW;
-    private a fyX;
-    private com.baidu.adp.lib.f.b<TbImageView> fyZ;
-    private com.baidu.tieba.a fzb;
-    private boolean fzg;
+    private com.baidu.adp.lib.f.b<TbImageView> ahK;
+    VoiceManager bRV;
+    private com.baidu.tieba.a fGB;
+    private boolean fGG;
+    private ae fGw;
+    private a fGx;
+    private com.baidu.adp.lib.f.b<TbImageView> fGz;
     private boolean isFirstGoMaintab;
-    private boolean fyR = false;
-    private int fyS = -1;
-    private boolean fyT = false;
-    private long fyU = 0;
-    private long fyV = 0;
-    private long fyY = -1;
-    private boolean fza = false;
-    private final CustomMessageListener fzc = new c(this, CmdConfigCustom.CMD_CLOSE_MATINTAB);
-    private CustomMessageListener doQ = new l(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
-    private final CustomMessageListener fzd = new m(this, CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE);
-    private final CustomMessageListener skinTypeChangeListener = new n(this, CmdConfigCustom.CMD_SKIN_TYPE_CHANGE);
-    private final com.baidu.adp.framework.listener.e diB = new o(this, 1001);
-    private final CustomMessageListener cEq = new p(this, CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP);
-    private final CustomMessageListener cEr = new q(this, CmdConfigCustom.CMD_SHOW_GAME_ICON);
-    private final CustomMessageListener fze = new r(this, CmdConfigCustom.CMD_PERSON_INFO_CHANGED);
-    final CustomMessageListener eRD = new s(this, CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-    final CustomMessageListener fzf = new d(this, CmdConfigCustom.MAINTAB_TAB_REFRESH_TABS);
-    private final CustomMessageListener fzh = new e(this, CmdConfigCustom.MAINTAB_SET_INST);
-    private CustomMessageListener duN = new f(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private boolean fGr = false;
+    private int fGs = -1;
+    private boolean fGt = false;
+    private long fGu = 0;
+    private long fGv = 0;
+    private long fGy = -1;
+    private boolean fGA = false;
+    private final CustomMessageListener fGC = new c(this, CmdConfigCustom.CMD_CLOSE_MATINTAB);
+    private CustomMessageListener duy = new o(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
+    private final CustomMessageListener fGD = new p(this, CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE);
+    private final CustomMessageListener skinTypeChangeListener = new q(this, CmdConfigCustom.CMD_SKIN_TYPE_CHANGE);
+    private final com.baidu.adp.framework.listener.e dok = new r(this, 1001);
+    private final CustomMessageListener cJD = new s(this, CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP);
+    private final CustomMessageListener cJE = new t(this, CmdConfigCustom.CMD_SHOW_GAME_ICON);
+    private final CustomMessageListener fGE = new u(this, CmdConfigCustom.CMD_PERSON_INFO_CHANGED);
+    final CustomMessageListener eYa = new v(this, CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
+    final CustomMessageListener fGF = new d(this, CmdConfigCustom.MAINTAB_TAB_REFRESH_TABS);
+    private final CustomMessageListener fGH = new e(this, CmdConfigCustom.MAINTAB_SET_INST);
+    private CustomMessageListener dAs = new f(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private CustomMessageListener fGI = new g(this, CmdConfigCustom.CMD_ACROSS_FORUM_THEME_SHOW);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rz(String str) {
-        if (str != null && TbadkCoreApplication.m9getInst().getConfigVersion() != null && blu()) {
-            this.fyY = System.currentTimeMillis();
+    public void rV(String str) {
+        if (str != null && TbadkCoreApplication.m9getInst().getConfigVersion() != null && bnK()) {
+            this.fGy = System.currentTimeMillis();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_START_SYNC, null));
         }
     }
 
-    private boolean blu() {
-        if (-1 == this.fyY) {
+    private boolean bnK() {
+        if (-1 == this.fGy) {
             return true;
         }
-        long currentTimeMillis = System.currentTimeMillis() - this.fyY;
+        long currentTimeMillis = System.currentTimeMillis() - this.fGy;
         return currentTimeMillis <= 0 || currentTimeMillis >= 300000;
     }
 
-    private void aIL() {
-        registerListener(new g(this, CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT));
+    private void aKF() {
+        registerListener(new j(this, CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void amo() {
+    public void aoj() {
         boolean z = true;
         if (com.baidu.tbadk.mainTab.d.getGame() != null) {
             boolean appResponseToIntentClass = TbadkCoreApplication.m9getInst().appResponseToIntentClass(GameCenterActivityConfig.class);
             if (com.baidu.tbadk.mainTab.d.getGame().hasGameCenter != null && com.baidu.tbadk.mainTab.d.getGame().hasGameCenter.intValue() == 1 && appResponseToIntentClass) {
-                this.fyW.eX(true);
-                long j = com.baidu.tbadk.core.sharedPref.b.uh().getLong("game_last_time", 0L);
+                this.fGw.fm(true);
+                long j = com.baidu.tbadk.core.sharedPref.b.um().getLong("game_last_time", 0L);
                 if (com.baidu.tbadk.mainTab.d.getGame().gameLastLaunchtime.longValue() > j) {
-                    com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("game_is_show_tip", true);
-                    com.baidu.tbadk.core.sharedPref.b.uh().putLong("game_last_time", com.baidu.tbadk.mainTab.d.getGame().gameLastLaunchtime.longValue());
+                    com.baidu.tbadk.core.sharedPref.b.um().putBoolean("game_is_show_tip", true);
+                    com.baidu.tbadk.core.sharedPref.b.um().putLong("game_last_time", com.baidu.tbadk.mainTab.d.getGame().gameLastLaunchtime.longValue());
                 } else if (com.baidu.tbadk.mainTab.d.getGame().gameLastLaunchtime.longValue() == j) {
-                    z = com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("game_is_show_tip", true);
+                    z = com.baidu.tbadk.core.sharedPref.b.um().getBoolean("game_is_show_tip", true);
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("game_is_show_tip", false);
+                    com.baidu.tbadk.core.sharedPref.b.um().putBoolean("game_is_show_tip", false);
                     z = false;
                 }
-                this.fyW.eW(z);
+                this.fGw.fl(z);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP, Boolean.valueOf(z)));
                 return;
             }
-            this.fyW.eX(false);
-            this.fyW.eW(false);
-            com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("game_is_show_tip", false);
+            this.fGw.fm(false);
+            this.fGw.fl(false);
+            com.baidu.tbadk.core.sharedPref.b.um().putBoolean("game_is_show_tip", false);
         }
     }
 
     public void a(com.baidu.tbadk.data.h hVar) {
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && hVar != null) {
-            if ((hVar.Cb() == 1 || hVar.Cb() == 2) && com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("show_member_deid_line", true)) {
-                long pa = hVar.pa() * 1000;
-                if (pa < System.currentTimeMillis()) {
-                    if (StringUtils.isNull(hVar.Cc())) {
-                        hVar.ff(getPageContext().getString(r.j.member));
+            if ((hVar.Ch() == 1 || hVar.Ch() == 2) && com.baidu.tbadk.core.sharedPref.b.um().getBoolean("show_member_deid_line", true)) {
+                long pc = hVar.pc() * 1000;
+                if (pc < System.currentTimeMillis()) {
+                    if (StringUtils.isNull(hVar.Ci())) {
+                        hVar.fh(getPageContext().getString(r.j.member));
                     } else {
-                        hVar.ff(String.valueOf(hVar.Cc()) + getPageContext().getString(r.j.member_already_Expire));
+                        hVar.fh(String.valueOf(hVar.Ci()) + getPageContext().getString(r.j.member_already_Expire));
                     }
-                    this.fyW.a(hVar, 0);
-                } else if (pa - System.currentTimeMillis() < 259200000) {
-                    if (StringUtils.isNull(hVar.Cc())) {
-                        hVar.ff(getPageContext().getString(r.j.member));
+                    this.fGw.a(hVar, 0);
+                } else if (pc - System.currentTimeMillis() < 259200000) {
+                    if (StringUtils.isNull(hVar.Ci())) {
+                        hVar.fh(getPageContext().getString(r.j.member));
                     } else {
-                        hVar.ff(String.valueOf(hVar.Cc()) + getPageContext().getString(r.j.member_will_Expire));
+                        hVar.fh(String.valueOf(hVar.Ci()) + getPageContext().getString(r.j.member_will_Expire));
                     }
-                    this.fyW.a(hVar, 1);
+                    this.fGw.a(hVar, 1);
                 }
             }
         }
@@ -155,33 +156,33 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (!this.fzg) {
+        if (!this.fGG) {
             return false;
         }
-        if (this.fyW.blH() == null || this.fyW.blH().getCurrentTabType() != 1 || motionEvent.getPointerCount() <= 1 || !this.fyW.aIv()) {
+        if (this.fGw.bnZ() == null || this.fGw.bnZ().getCurrentTabType() != 1 || motionEvent.getPointerCount() <= 1 || !this.fGw.aKq()) {
             return super.dispatchTouchEvent(motionEvent);
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aIr() {
+    public void aKm() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_ADD_FRAGMENT, new com.baidu.tbadk.mainTab.e(getPageContext().getPageActivity())));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        com.baidu.tbadk.performanceLog.ab.Gu().ag(System.currentTimeMillis());
+        com.baidu.tbadk.performanceLog.ab.GA().ae(System.currentTimeMillis());
         setIsAddSwipeBackLayout(false);
         Window window = getWindow();
         window.setBackgroundDrawable(new ColorDrawable(0));
         window.getDecorView();
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        aIL();
+        aKF();
         int i = -1;
         if (getIntent() != null) {
-            A(getIntent());
+            y(getIntent());
             i = getIntent().getIntExtra("locate_type", 0);
             if (i == 200) {
                 finish();
@@ -190,21 +191,21 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
         }
         int i2 = i;
         this.isFirstGoMaintab = TbadkCoreApplication.m9getInst().isFirstGoMaintab();
-        aa aaVar = new aa();
-        com.baidu.tbadk.core.d.b.a(aaVar);
-        aaVar.a(this);
-        if (blv()) {
+        ad adVar = new ad();
+        com.baidu.tbadk.core.d.b.a(adVar);
+        adVar.a(this);
+        if (bnL()) {
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         setContentView(r.h.maintabs_activity);
-        com.baidu.tbadk.core.a.a.oP().oQ();
-        this.fyW = new ab(this);
-        this.fyW.kS(this.mIsLogin);
-        amo();
-        apW();
-        com.baidu.tieba.tblauncher.alarmRemind.b.blL().h(this);
-        this.fzb = new com.baidu.tieba.a();
-        aIr();
+        com.baidu.tbadk.core.a.a.oR().oS();
+        this.fGw = new ae(this);
+        this.fGw.lr(this.mIsLogin);
+        aoj();
+        arT();
+        com.baidu.tieba.tblauncher.alarmRemind.b.bod().h(this);
+        this.fGB = new com.baidu.tieba.a();
+        aKm();
         Intent intent = new Intent();
         intent.putExtras(getIntent());
         if (bundle != null) {
@@ -227,48 +228,49 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
         if (this.isFirstGoMaintab) {
             TbadkCoreApplication.m9getInst().setFirstGoMaintab(false);
         }
-        this.mHandler.post(new h(this));
-        registerListener(this.diB);
+        this.mHandler.post(new k(this));
+        registerListener(this.dok);
         if (i2 == 1) {
-            this.fyW.kT(true);
+            this.fGw.ls(true);
         } else {
-            this.fyW.kT(false);
+            this.fGw.ls(false);
         }
-        this.fyW.blI();
-        this.bQb = getVoiceManager();
-        if (this.bQb != null) {
-            this.bQb.onCreate(getPageContext());
+        this.fGw.boa();
+        this.bRV = getVoiceManager();
+        if (this.bRV != null) {
+            this.bRV.onCreate(getPageContext());
         }
-        registerListener(this.duN);
+        registerListener(this.dAs);
         adjustResizeForSoftInput();
-        com.baidu.tbadk.performanceLog.ab.Gu().ah(System.currentTimeMillis());
+        com.baidu.tbadk.performanceLog.ab.GA().af(System.currentTimeMillis());
         if (TbadkCoreApplication.isLogin()) {
-            com.baidu.tbadk.performanceLog.ab.Gu().Gv();
+            com.baidu.tbadk.performanceLog.ab.GA().GB();
         }
         if (TbadkCoreApplication.isLogin()) {
-            com.baidu.tbadk.getUserInfo.b.Ec().Ee();
+            com.baidu.tbadk.getUserInfo.b.Eh().Ej();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VR_LOGO_DOWNLAOD));
+        registerListener(this.fGI);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean mf(int i) {
+    public static boolean mn(int i) {
         switch (i) {
             case 0:
-                return com.baidu.tbadk.coreExtra.messageCenter.c.za().zi() || com.baidu.tbadk.coreExtra.messageCenter.c.za().zp();
+                return com.baidu.tbadk.coreExtra.messageCenter.c.zh().zp() || com.baidu.tbadk.coreExtra.messageCenter.c.zh().zw();
             case 1:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zh()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zh().zo()) {
                     return false;
                 }
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zf()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zh().zm()) {
                     return false;
                 }
                 return true;
             case 2:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.za().zf()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zh().zm()) {
                 }
                 return true;
             default:
@@ -282,21 +284,21 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (mf(0)) {
+        if (mn(0)) {
             i2 = newsNotifyMessage.getMsgChat();
             i = newsNotifyMessage.getMsgStrangerChat();
         } else {
             i = 0;
             i2 = 0;
         }
-        return ((mf(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (mf(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        return ((mn(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (mn(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
     }
 
-    private void A(Intent intent) {
+    private void y(Intent intent) {
         if (intent != null) {
             String dataString = intent.getDataString();
             if (!StringUtils.isNull(dataString) && dataString.startsWith("tbmaintab://")) {
-                TiebaStatic.log(new ax("c10320").s("obj_locate", 1).s("obj_type", 1));
+                TiebaStatic.log(new av("c10320").s("obj_locate", 1).s("obj_type", 1));
             }
         }
     }
@@ -315,13 +317,13 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.bQb = getVoiceManager();
-        if (this.bQb != null) {
-            this.bQb.onStart(getPageContext());
+        this.bRV = getVoiceManager();
+        if (this.bRV != null) {
+            this.bRV.onStart(getPageContext());
         }
     }
 
-    public boolean blv() {
+    public boolean bnL() {
         return TbadkCoreApplication.m9getInst().isGpuOpen();
     }
 
@@ -331,10 +333,10 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
         MessageManager.getInstance().dispatchResponsedMessage(new ExitAppMessage());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_STOP_SYNC, null));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_STOP_ACTIVE, null));
-        apX();
-        com.baidu.tbadk.coreExtra.messageCenter.a.yD().yQ();
-        com.baidu.tbadk.coreExtra.messageCenter.a.yD().yJ();
-        com.baidu.tbadk.coreExtra.messageCenter.a.yD().aO(false);
+        arU();
+        com.baidu.tbadk.coreExtra.messageCenter.a.yK().yX();
+        com.baidu.tbadk.coreExtra.messageCenter.a.yK().yQ();
+        com.baidu.tbadk.coreExtra.messageCenter.a.yK().aS(false);
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
         if (inputMethodManager != null && getCurrentFocus() != null) {
             inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 2);
@@ -343,11 +345,11 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
             com.baidu.adp.lib.h.j.b(this.mWaitingDialog, getPageContext());
             this.mWaitingDialog = null;
         }
-        blw();
-        if (this.fyW != null) {
-            this.fyW.acn();
-            if (this.fyW.blH() != null) {
-                this.fyW.blH().reset();
+        bnM();
+        if (this.fGw != null) {
+            this.fGw.bnU();
+            if (this.fGw.bnZ() != null) {
+                this.fGw.bnZ().reset();
             }
         }
         try {
@@ -355,14 +357,14 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
         } catch (Exception e) {
         }
         com.baidu.tbadk.core.d.b.a(null);
-        this.bQb = getVoiceManager();
-        if (this.bQb != null) {
-            this.bQb.onDestory(getPageContext());
+        this.bRV = getVoiceManager();
+        if (this.bRV != null) {
+            this.bRV.onDestory(getPageContext());
         }
         System.gc();
     }
 
-    private void blw() {
+    private void bnM() {
         InputMethodManager inputMethodManager;
         View currentFocus = getCurrentFocus();
         if (currentFocus != null && currentFocus.getWindowToken() != null && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
@@ -399,27 +401,27 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
         TbadkCoreApplication.setIntent(null);
     }
 
-    private void apW() {
-        registerListener(this.fzc);
-        this.eRD.setPriority(100);
-        registerListener(this.eRD);
-        registerListener(this.fzf);
-        registerListener(this.fzh);
-        registerListener(this.cEq);
-        registerListener(this.cEr);
-        registerListener(this.fze);
-        registerListener(this.fzd);
+    private void arT() {
+        registerListener(this.fGC);
+        this.eYa.setPriority(100);
+        registerListener(this.eYa);
+        registerListener(this.fGF);
+        registerListener(this.fGH);
+        registerListener(this.cJD);
+        registerListener(this.cJE);
+        registerListener(this.fGE);
+        registerListener(this.fGD);
         registerListener(this.skinTypeChangeListener);
-        registerListener(this.doQ);
-        this.fyX = new a(this, null);
+        registerListener(this.duy);
+        this.fGx = new a(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.fyX, intentFilter);
+        registerReceiver(this.fGx, intentFilter);
     }
 
-    private void apX() {
-        if (this.fyX != null) {
-            unregisterReceiver(this.fyX);
+    private void arU() {
+        if (this.fGx != null) {
+            unregisterReceiver(this.fGx);
         }
     }
 
@@ -448,17 +450,17 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
         if (this.isFirstGoMaintab) {
             this.isFirstGoMaintab = false;
         }
-        this.fyS = this.fyW.blH().getCurrentTabType();
+        this.fGs = this.fGw.bnZ().getCurrentTabType();
         changeSkinType(this.mSkinType);
-        if (TbadkCoreApplication.isLogin() && com.baidu.tbadk.performanceLog.ab.Gu().Gt()) {
-            com.baidu.tbadk.performanceLog.ab.Gu().Gv();
+        if (TbadkCoreApplication.isLogin() && com.baidu.tbadk.performanceLog.ab.GA().Gz()) {
+            com.baidu.tbadk.performanceLog.ab.GA().GB();
         }
-        this.bQb = getVoiceManager();
-        if (this.bQb != null) {
-            this.bQb.onResume(getPageContext());
+        this.bRV = getVoiceManager();
+        if (this.bRV != null) {
+            this.bRV.onResume(getPageContext());
         }
-        if (this.fyW != null) {
-            this.fyW.blI();
+        if (this.fGw != null) {
+            this.fGw.boa();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_ON_RESUME, true));
     }
@@ -467,13 +469,13 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        this.fza = true;
+        this.fGA = true;
         if (z) {
-            com.baidu.tbadk.getUserInfo.b.Ec().Ee();
+            com.baidu.tbadk.getUserInfo.b.Eh().Ej();
         }
-        this.fyW.switchNaviBarStatus(z);
-        this.fyW.blH().setWidgetLayerVisibleNoAnimation(false);
-        aIr();
+        this.fGw.switchNaviBarStatus(z);
+        this.fGw.bnZ().setWidgetLayerVisibleNoAnimation(false);
+        aKm();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -481,13 +483,13 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     public void onPause() {
         super.onPause();
         LogoActivityConfig.isFirst = false;
-        if (this.fyR) {
-            this.fyR = false;
+        if (this.fGr) {
+            this.fGr = false;
             CompatibleUtile.setAnim(getPageContext().getPageActivity(), r.a.down, r.a.hold);
         }
-        this.bQb = getVoiceManager();
-        if (this.bQb != null) {
-            this.bQb.onPause(getPageContext());
+        this.bRV = getVoiceManager();
+        if (this.bRV != null) {
+            this.bRV.onPause(getPageContext());
         }
     }
 
@@ -498,22 +500,21 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
             super.onSaveInstanceState(bundle);
         } catch (Exception e) {
         }
-        bundle.putInt("locate_type", this.fyW.blH().getCurrentTabType());
+        bundle.putInt("locate_type", this.fGw.bnZ().getCurrentTabType());
         bundle.putParcelable("android:fragments", null);
         bundle.putParcelable("android:support:fragments", null);
-        this.bQb = getVoiceManager();
-        if (this.bQb != null) {
-            this.bQb.onSaveInstanceState(getPageContext().getPageActivity());
+        this.bRV = getVoiceManager();
+        if (this.bRV != null) {
+            this.bRV.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onStop() {
+    protected void onStop() {
         super.onStop();
-        this.bQb = getVoiceManager();
-        if (this.bQb != null) {
-            this.bQb.onStop(getPageContext());
+        this.bRV = getVoiceManager();
+        if (this.bRV != null) {
+            this.bRV.onStop(getPageContext());
         }
     }
 
@@ -521,13 +522,13 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        A(intent);
+        y(intent);
         setIntent(intent);
-        com.baidu.tbadk.getUserInfo.b.Ec().Ee();
+        com.baidu.tbadk.getUserInfo.b.Eh().Ej();
         if (intent.getBooleanExtra(FrsActivityConfig.KEY_REFRESH, false)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_RESET_TABS));
-            this.fyW.blH().setWidgetLayerVisibleNoAnimation(false);
-            aIr();
+            this.fGw.bnZ().setWidgetLayerVisibleNoAnimation(false);
+            aKm();
         }
         int intExtra = intent.getIntExtra("locate_type", 1);
         if (intExtra == 200) {
@@ -540,31 +541,31 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
             finish();
         } else if (intExtra == 1 || intExtra == 3 || intExtra == 2 || intExtra == 4 || intExtra == 8) {
             if (intExtra != 8) {
-                intExtra = this.fzb.IW();
+                intExtra = this.fGB.IZ();
             }
-            this.fyW.blH().setCurrentTabByType(intExtra);
+            this.fGw.bnZ().setCurrentTabByType(intExtra);
         }
         f(getPageContext().getPageActivity(), TbadkCoreApplication.getIntent());
-        if (this.fyW != null) {
-            this.fyW.blI();
+        if (this.fGw != null) {
+            this.fGw.boa();
         }
     }
 
     protected void x(Activity activity) {
-        new com.baidu.tbadk.core.dialog.a(activity).bY(r.j.confirm_title).aq(false).bZ(r.j.background_process_permission).a(r.j.now_goto_setting, new i(this)).b(r.j.next_time, new j(this)).b(com.baidu.adp.base.l.C(activity)).tm();
+        new com.baidu.tbadk.core.dialog.a(activity).bZ(r.j.confirm_title).at(false).ca(r.j.background_process_permission).a(r.j.now_goto_setting, new l(this)).b(r.j.next_time, new m(this)).b(com.baidu.adp.base.l.C(activity)).tq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void blx() {
+    public void bnN() {
         com.baidu.adp.lib.g.c.eA().d(getUniqueId());
-        blz();
+        bnP();
         moveTaskToBack(true);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, com.baidu.adp.base.k
     public void onPreLoad(BdListView bdListView) {
         super.onPreLoad(bdListView);
-        com.baidu.tbadk.core.util.aj.a(bdListView, getUniqueId());
+        com.baidu.tbadk.core.util.ah.a(bdListView, getUniqueId());
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -574,18 +575,18 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
             if (runTask == null || !((Boolean) runTask.getData()).booleanValue()) {
                 CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, (Class) null);
                 if (runTask2 == null || !((Boolean) runTask2.getData()).booleanValue()) {
-                    if (this.fyW.aIv()) {
+                    if (this.fGw.aKq()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL));
                         return true;
                     }
-                    if (System.currentTimeMillis() - this.fyU > 2000) {
+                    if (System.currentTimeMillis() - this.fGu > 2000) {
                         showToast(r.j.double_back_quit);
-                        this.fyU = System.currentTimeMillis();
+                        this.fGu = System.currentTimeMillis();
                     } else if (UtilHelper.isBackgroundProcessLimitNone() && Build.VERSION.SDK_INT >= 14) {
                         x(getPageContext().getPageActivity());
                         return true;
                     } else {
-                        blx();
+                        bnN();
                     }
                     return false;
                 }
@@ -597,9 +598,9 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void B(Intent intent) {
+    public void z(Intent intent) {
         try {
-            this.fyW.blH().setCurrentTabByType(this.fzb.IW());
+            this.fGw.bnZ().setCurrentTabByType(this.fGB.IZ());
         } catch (Throwable th) {
             finish();
         }
@@ -629,7 +630,7 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
         }
     }
 
-    protected void bly() {
+    protected void bnO() {
         AntiData antiData = new AntiData();
         antiData.setIfpost(1);
         if (antiData.getIfpost() == 0) {
@@ -647,25 +648,25 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
             if (i == 12007) {
                 TbadkCoreApplication.m9getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), 1, getPageContext().getString(r.j.login_home_tab), 11003)));
             }
-            if (this.fyW.blH().getCurrentFragment() != null) {
-                this.fyW.blH().getCurrentFragment().onActivityResult(i, i2, intent);
+            if (this.fGw.bnZ().getCurrentFragment() != null) {
+                this.fGw.bnZ().getCurrentFragment().onActivityResult(i, i2, intent);
             }
         } else if (i == 11001) {
-            bly();
-        } else if (this.fyW.blH().getCurrentFragment() != null) {
-            this.fyW.blH().getCurrentFragment().onActivityResult(i, i2, intent);
+            bnO();
+        } else if (this.fGw.bnZ().getCurrentFragment() != null) {
+            this.fGw.bnZ().getCurrentFragment().onActivityResult(i, i2, intent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        this.fyW.onChangeSkinType(i);
+        this.fGw.onChangeSkinType(i);
         by(i);
     }
 
-    private void blz() {
-        if (System.currentTimeMillis() - this.fyV >= 7200000) {
+    private void bnP() {
+        if (System.currentTimeMillis() - this.fGv >= 7200000) {
             HashMap hashMap = new HashMap();
             hashMap.put("type", IntentConfig.START);
             hashMap.put("uname", TbadkCoreApplication.getCurrentAccountName());
@@ -673,14 +674,14 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.TIEBA_FATAL_ERROR, hashMap));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_START_CLEARTEMP, null));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_START_SYNC, null));
-            this.fyV = System.currentTimeMillis();
+            this.fGv = System.currentTimeMillis();
         }
     }
 
     @Override // com.baidu.tieba.tblauncher.b
     public int getCurrentTabType() {
-        if (this.fyW.blH() != null) {
-            return this.fyW.blH().getCurrentTabType();
+        if (this.fGw.bnZ() != null) {
+            return this.fGw.bnZ().getCurrentTabType();
         }
         return -1;
     }
@@ -692,10 +693,10 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.bQb == null) {
-            this.bQb = VoiceManager.instance();
+        if (this.bRV == null) {
+            this.bRV = VoiceManager.instance();
         }
-        return this.bQb;
+        return this.bRV;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
@@ -704,37 +705,32 @@ public class MainTabActivity extends BaseFragmentActivity implements UserIconBox
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public int wN() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public com.baidu.adp.lib.f.b<TbImageView> wO() {
-        if (this.ahk == null) {
-            this.ahk = UserIconBox.g(getPageContext().getPageActivity(), 8);
+    public com.baidu.adp.lib.f.b<TbImageView> wS() {
+        if (this.ahK == null) {
+            this.ahK = UserIconBox.g(getPageContext().getPageActivity(), 8);
         }
-        return this.ahk;
+        return this.ahK;
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.f.b<TbImageView> aea() {
-        if (this.fyZ == null) {
-            this.fyZ = FrsCommonImageLayout.o(getPageContext().getPageActivity(), 12);
+    public com.baidu.adp.lib.f.b<TbImageView> aft() {
+        if (this.fGz == null) {
+            this.fGz = FrsCommonImageLayout.o(getPageContext().getPageActivity(), 12);
         }
-        return this.fyZ;
+        return this.fGz;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public com.baidu.tbadk.pageStayDuration.b getPageStayFilter() {
-        return new k(this);
+        return new n(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.a
     public List<String> getCurrentPageSourceKeyList() {
         List<String> currentPageSourceKeyList = super.getCurrentPageSourceKeyList();
-        if (this.fza && currentPageSourceKeyList != null) {
+        if (this.fGA && currentPageSourceKeyList != null) {
             currentPageSourceKeyList.clear();
-            this.fza = false;
+            this.fGA = false;
             return null;
         }
         return currentPageSourceKeyList;

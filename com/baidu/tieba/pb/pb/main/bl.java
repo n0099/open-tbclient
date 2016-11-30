@@ -4,32 +4,32 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class bl extends CustomMessageListener {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bl(PbActivity pbActivity, int i) {
         super(i);
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ex exVar;
-        ex exVar2;
-        ex exVar3;
+        ey eyVar;
+        ey eyVar2;
+        ey eyVar3;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            exVar = this.eqa.epe;
-            if (exVar != null) {
+            eyVar = this.evL.euP;
+            if (eyVar != null) {
                 if (booleanValue) {
-                    exVar3 = this.eqa.epe;
-                    exVar3.auC();
+                    eyVar3 = this.evL.euP;
+                    eyVar3.awz();
                     return;
                 }
-                exVar2 = this.eqa.epe;
-                exVar2.auB();
+                eyVar2 = this.evL.euP;
+                eyVar2.awy();
             }
         }
     }

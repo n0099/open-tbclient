@@ -8,12 +8,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.ak;
+import com.baidu.tieba.tbadkCore.aj;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class af {
@@ -21,14 +21,14 @@ public class af {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.m9getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.uh().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.um().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.uh().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.um().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.uh().putString("version_name", versionName);
-                    String d = bb.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.uh().putString("apk_md5", d);
+                    com.baidu.tbadk.core.sharedPref.b.um().putString("version_name", versionName);
+                    String d = az.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.um().putString("apk_md5", d);
                     str = d;
                 }
             }
@@ -51,13 +51,13 @@ public class af {
     }
 
     public static boolean a(Context context, CombineDownload combineDownload) {
-        return (combineDownload == null || ak.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+        return (combineDownload == null || aj.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
     }
 
     public static void a(Context context, VersionData versionData) {
         String str = "-1";
         try {
-            str = bb.b(TbadkCoreApplication.m9getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 64));
+            str = az.b(TbadkCoreApplication.m9getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m9getInst().getContext().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
             BdLog.detailException(e);
         } catch (NumberFormatException e2) {
@@ -77,7 +77,7 @@ public class af {
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle.putString("updatetime", az.d(new Date(System.currentTimeMillis())));
+        bundle.putString("updatetime", ax.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
         bundle.putString("tj", String.valueOf(str) + context.getString(r.j.app_name));

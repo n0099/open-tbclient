@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -42,9 +42,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     private static boolean sFrameLostTracked = false;
     private static HashMap<String, String> mShareToTypes = new HashMap<>();
     protected com.baidu.tbadk.core.c.f mWebView = null;
-    private com.baidu.tieba.tbadkCore.e.c jsCallback = new q(this);
-    private boolean mShareResultToFe = false;
+    private com.baidu.tieba.tbadkCore.e.c jsCallback = new p(this);
     private boolean mShowShareItem = true;
+    private boolean isShowFullScreen = false;
 
     static {
         mShareToTypes.put("weixin_timeline", "weixin_timeline");
@@ -143,11 +143,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             com.baidu.tbadk.core.c.n a2 = com.baidu.tbadk.core.c.s.a(isHybridBridgeEnabled, this.mWebView, (com.baidu.tbadk.core.c.b) null);
             this.mHybridBridge = a2;
             if (isHybridBridgeEnabled) {
-                a2.a(new r(this, a2));
+                a2.a(new q(this, a2));
                 a2.a(new com.baidu.tbadk.core.c.a.a(a2));
+                a2.a(new com.baidu.tbadk.core.c.a.c(a2));
                 a2.a(new com.baidu.tbadk.core.c.a.b(a2));
-                a2.a(new s(this, a2));
-                a2.a(new u(this, a2));
+                a2.a(new r(this, a2));
+                a2.a(new t(this, a2));
                 a2.a(new h(a2));
             }
         }
@@ -243,6 +244,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void loadUrl(String str) {
+        if (this.isShowFullScreen && this.mView != null) {
+            this.mView.setFullScreen();
+        }
         if (this.mWebView != null) {
             CompatibleUtile.getInstance().loadUrl(this.mWebView, str);
         }
@@ -251,12 +255,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bku();
+            this.jsBridge.bmK();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            com.baidu.adp.lib.h.h.eG().postDelayed(new v(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+            com.baidu.adp.lib.h.h.eG().postDelayed(new u(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
@@ -270,10 +274,14 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             super.onPageFinished(webView, str);
             if (TbWebViewActivity.this.mWebView != null) {
                 TbWebViewActivity.this.mUrl = str;
-                if (StringUtils.isNull(TbWebViewActivity.this.mUrlTitle)) {
-                    TbWebViewActivity.this.mUrlTitle = TbWebViewActivity.this.mWebView.getTitle();
+                TbWebViewActivity.this.mWebView.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
+                String title = TbWebViewActivity.this.mWebView.getTitle();
+                if (!StringUtils.isNull(title)) {
+                    TbWebViewActivity.this.mUrlTitle = title;
                 }
-                TbWebViewActivity.this.mView.bY(TbWebViewActivity.this.mUrlTitle);
+                if (!TbWebViewActivity.this.isShowFullScreen) {
+                    TbWebViewActivity.this.mView.bZ(TbWebViewActivity.this.mUrlTitle);
+                }
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
                 TbWebViewActivity.this.mView.af(TbWebViewActivity.this.isNeedShowShareItem());
                 TbWebViewActivity.this.hideProgressBar();
@@ -308,7 +316,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = bh.vL().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
+            int b = bf.vP().b(TbWebViewActivity.this.getPageContext(), new String[]{str});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -316,6 +324,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 return true;
             } else {
                 TbWebViewActivity.this.mUrl = str;
+                if (TbWebViewActivity.this.isShowFullScreen) {
+                    TbWebViewActivity.this.isShowFullScreen = false;
+                    TbWebViewActivity.this.runOnUiThread(new x(this));
+                }
                 TbWebViewActivity.this.refresh();
                 return true;
             }
@@ -398,7 +410,15 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void trackFPS() {
         if (!sFrameLostTracked) {
             sFrameLostTracked = true;
-            com.baidu.tbadk.core.c.h.tL().a(16, new w(this));
+            com.baidu.tbadk.core.c.h.tP().a(16, new v(this));
+        }
+    }
+
+    @Override // com.baidu.tbadk.browser.BaseWebViewActivity
+    protected void setFullScreen() {
+        this.isShowFullScreen = true;
+        if (this.isShowFullScreen && this.mView != null) {
+            runOnUiThread(new w(this));
         }
     }
 }

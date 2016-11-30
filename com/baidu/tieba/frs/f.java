@@ -1,28 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class f extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bQi;
+class f implements com.baidu.tieba.frs.e.t {
+    final /* synthetic */ FrsActivity bTa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bQi = frsActivity;
+    public f(FrsActivity frsActivity) {
+        this.bTa = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bm bmVar;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j) && !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            this.bQi.bPk.a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
-            bmVar = this.bQi.bPi;
-            bmVar.abW().notifyDataSetChanged();
+    @Override // com.baidu.tieba.frs.e.t
+    public void a(int i, boolean z, int i2, boolean z2, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
+        com.baidu.tieba.frs.g.d dVar;
+        com.baidu.tieba.frs.g.d dVar2;
+        dVar = this.bTa.bSp;
+        if (dVar != null && this.bTa.bSh != null && this.bTa.bSh.agD() && z && this.bTa.ach() && !z2) {
+            dVar2 = this.bTa.bSp;
+            dVar2.ix(i2);
         }
     }
 }

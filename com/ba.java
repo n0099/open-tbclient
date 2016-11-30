@@ -10,29 +10,29 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class ba implements CompressBitmapTask.ICompressBitmapListener {
-    final /* synthetic */ IBaiduListener gob;
-    final /* synthetic */ MultipartRequestParams gof;
-    final /* synthetic */ MediaType gog;
-    final /* synthetic */ CloudBatchShareHandler goh;
+    final /* synthetic */ IBaiduListener gvN;
+    final /* synthetic */ MultipartRequestParams gvQ;
+    final /* synthetic */ MediaType gvR;
+    final /* synthetic */ CloudBatchShareHandler gvS;
 
     public ba(CloudBatchShareHandler cloudBatchShareHandler, MultipartRequestParams multipartRequestParams, MediaType mediaType, IBaiduListener iBaiduListener) {
-        this.goh = cloudBatchShareHandler;
-        this.gof = multipartRequestParams;
-        this.gog = mediaType;
-        this.gob = iBaiduListener;
+        this.gvS = cloudBatchShareHandler;
+        this.gvQ = multipartRequestParams;
+        this.gvR = mediaType;
+        this.gvN = iBaiduListener;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.CompressBitmapTask.ICompressBitmapListener
     public void onComplete(ByteArrayOutputStream byteArrayOutputStream) {
-        String shareUrl = this.goh.getShareUrl();
+        String shareUrl = this.gvS.getShareUrl();
         if (byteArrayOutputStream != null && byteArrayOutputStream.size() != 0) {
-            this.gof.put("pic", new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
-            shareUrl = this.goh.getShareUploadUrl();
+            this.gvQ.put("pic", new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+            shareUrl = this.gvS.getShareUploadUrl();
             try {
                 byteArrayOutputStream.close();
             } catch (IOException e) {
             }
         }
-        this.goh.a(shareUrl, this.gog, this.gof, this.gob);
+        this.gvS.a(shareUrl, this.gvR, this.gvQ, this.gvN);
     }
 }

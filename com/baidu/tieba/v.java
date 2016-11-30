@@ -5,11 +5,11 @@ import android.widget.TextView;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class v implements View.OnClickListener {
-    final /* synthetic */ t aNz;
+    final /* synthetic */ t aPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.aNz = tVar;
+        this.aPF = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,16 +18,16 @@ class v implements View.OnClickListener {
         TextView textView;
         t.a aVar;
         boolean z2;
-        z = this.aNz.aNy;
+        z = this.aPF.aPE;
         if (z) {
             com.baidu.tbadk.core.util.TiebaStatic.log("c10001");
         } else {
             com.baidu.tbadk.core.util.TiebaStatic.log("c10009");
         }
-        textView = this.aNz.aNl;
+        textView = this.aPF.aPr;
         textView.setEnabled(false);
-        aVar = this.aNz.aNu;
-        z2 = this.aNz.aMZ;
-        aVar.cc(z2);
+        aVar = this.aPF.aPA;
+        z2 = this.aPF.aPf;
+        aVar.ch(z2);
     }
 }

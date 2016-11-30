@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class q implements a.InterfaceC0033a {
-    final /* synthetic */ NotLoginGuideActivity aTj;
+    final /* synthetic */ NotLoginGuideActivity aVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(NotLoginGuideActivity notLoginGuideActivity) {
-        this.aTj = notLoginGuideActivity;
+        this.aVk = notLoginGuideActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
-    public void cf(String str) {
-        if (this.aTj.getLoadingDialog() == null || !this.aTj.getLoadingDialog().isShowing()) {
-            this.aTj.showLoadingDialog(this.aTj.getPageContext().getString(r.j.sapi_logining), new r(this));
+    public void cg(String str) {
+        if (this.aVk.getLoadingDialog() == null || !this.aVk.getLoadingDialog().isShowing()) {
+            this.aVk.showLoadingDialog(this.aVk.getPageContext().getString(r.j.sapi_logining), new r(this));
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
-        this.aTj.closeLoadingDialog();
+        this.aVk.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.aTj.k(accountData);
+            this.aVk.k(accountData);
         } else {
-            this.aTj.p(accountData);
+            this.aVk.p(accountData);
         }
     }
 
@@ -37,16 +37,16 @@ class q implements a.InterfaceC0033a {
         int i2;
         int i3;
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
-        this.aTj.closeLoadingDialog();
-        i2 = this.aTj.aTh;
+        this.aVk.closeLoadingDialog();
+        i2 = this.aVk.aVi;
         if (i2 != 1) {
-            i3 = this.aTj.aTh;
+            i3 = this.aVk.aVi;
             if (i3 != 2) {
                 return;
             }
-            this.aTj.Ml();
+            this.aVk.MR();
             return;
         }
-        this.aTj.Mk();
+        this.aVk.MQ();
     }
 }

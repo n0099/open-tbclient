@@ -1,83 +1,68 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class da {
-    private BaseActivity aRd;
-    private dh eov;
-    private boolean eqV = false;
-    private final CustomMessageListener eqW = new db(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
-    private final CustomMessageListener eqX = new dc(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
-
-    public da(dh dhVar, BaseActivity baseActivity) {
-        this.eov = dhVar;
-        this.aRd = baseActivity;
-        this.aRd.registerListener(this.eqW);
-        this.aRd.registerListener(this.eqX);
+public class da extends ct<com.baidu.tieba.pb.data.c, db> implements View.OnClickListener {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public da(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    public boolean aOe() {
-        return (this.eov == null || this.eov.getPbData() == null || this.eov.getPbData().aMp() == null || this.eov.getPbData().getPage() == null || !this.eov.aOw() || this.eov.getPbData().aMp().qj() || !aOj() || com.baidu.tbadk.core.util.y.s(this.eov.getPbData().aMp().getItems()) == 0 || this.eov.getPbData().getPage().qB() != 0 || this.eov.getPbData().getPage().qw() < 4 || this.eov.getPbData().aMp().ql()) ? false : true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: bp */
+    public db a(ViewGroup viewGroup) {
+        db dbVar = new db(LayoutInflater.from(this.mContext).inflate(r.h.god_card_list_item, (ViewGroup) null));
+        a(dbVar);
+        return dbVar;
     }
 
-    public boolean aOf() {
-        return (this.eov == null || this.eov.getPbData() == null || this.eov.getPbData().aMp() == null || this.eov.getPbData().getPage() == null || !this.eov.aOw() || this.eov.getPbData().aMp().qj() || !aOj() || com.baidu.tbadk.core.util.y.s(this.eov.getPbData().aMp().getItems()) == 0 || this.eov.getPbData().getPage().qz() != 2 || this.eov.getPbData().aMp().qk()) ? false : true;
-    }
-
-    public void aOg() {
-        if (this.eov != null && this.eov.getPbData() != null && this.eov.getPbData().aMp() != null) {
-            this.eov.getPbData().aMp().ao(true);
-        }
-    }
-
-    public void aOh() {
-        if (this.eov != null && this.eov.getPbData() != null && this.eov.getPbData().aMp() != null) {
-            this.eov.getPbData().aMp().an(true);
-        }
-    }
-
-    public com.baidu.tbadk.core.data.ad aOi() {
-        if (!aOj() || this.eov == null || this.eov.getPbData() == null) {
-            return null;
-        }
-        return this.eov.getPbData().aMp();
-    }
-
-    public boolean aOj() {
-        return com.baidu.tieba.graffiti.d.ajV() && aOk();
-    }
-
-    private boolean aOk() {
-        if (this.eov == null || this.eov.getPbData() == null) {
-            return false;
-        }
-        com.baidu.tieba.tbadkCore.data.q qVar = (com.baidu.tieba.tbadkCore.data.q) com.baidu.tbadk.core.util.y.c(this.eov.getPbData().aMt(), 0);
-        return qVar != null && (qVar.getType() == com.baidu.tieba.tbadkCore.data.q.fvf || qVar.getType() == com.baidu.tieba.tbadkCore.data.q.Tt || qVar.getType() == com.baidu.tieba.tbadkCore.data.q.fvi);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean aOl() {
-        if (com.baidu.tieba.graffiti.d.ajV() && !this.eqV) {
-            this.eqV = true;
-            int i = com.baidu.tbadk.core.sharedPref.b.uh().getInt("graffiti_tips_show_config", 0);
-            if (i < 3) {
-                com.baidu.tbadk.core.sharedPref.b.uh().putInt("graffiti_tips_show_config", i + 1);
-                return true;
+    private void a(db dbVar) {
+        if (dbVar != null) {
+            int skinType = TbadkCoreApplication.m9getInst().getSkinType();
+            if (dbVar.mSkinType != skinType) {
+                com.baidu.tbadk.i.a.a(this.eug.getPageContext(), dbVar.getView());
             }
-            return false;
+            dbVar.mSkinType = skinType;
         }
-        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            String str = (String) customResponsedMessage.getData();
-            if (this.eov != null && this.eov.getPbData() != null && this.eov.getPbData().aMp() != null && str.equals(this.eov.getThreadID())) {
-                this.eov.getPbData().aMp().am(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.ct, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.c cVar, db dbVar) {
+        super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tieba.pb.data.c) dbVar);
+        a(dbVar);
+        dbVar.ewL.setOnClickListener(this);
+        dbVar.ewK.setOnClickListener(this);
+        dbVar.ewL.setTag(cVar);
+        dbVar.ewK.setTag(cVar);
+        if (cVar != null) {
+            dbVar.ceb.c(cVar.getPortrait(), 28, false);
+            dbVar.aYg.setText(cVar.getUserName());
+            dbVar.dcb.setText(cVar.aNY());
+            dbVar.cyf.setText(cVar.getText());
+            dbVar.ewK.c(cVar.getPicUrl(), 10, false);
+            dbVar.ewL.setText(cVar.aNZ());
+        }
+        return view;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if ((view.getTag() instanceof com.baidu.tieba.pb.data.c) && com.baidu.tbadk.core.util.bk.ak(this.mContext)) {
+            String aOa = ((com.baidu.tieba.pb.data.c) view.getTag()).aOa();
+            if (!StringUtils.isNull(aOa)) {
+                com.baidu.tbadk.core.util.bf.vP().c(this.eug.getPageContext(), new String[]{aOa});
             }
         }
     }

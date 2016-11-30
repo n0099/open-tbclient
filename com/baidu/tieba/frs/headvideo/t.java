@@ -1,34 +1,31 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.play.e;
-import java.util.List;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements e.a {
-    final /* synthetic */ ForumHeadVideoView ccf;
-    private long ccg;
+public class t implements Animation.AnimationListener {
+    final /* synthetic */ ForumHeadVideoView cfB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(ForumHeadVideoView forumHeadVideoView) {
-        this.ccf = forumHeadVideoView;
+        this.cfB = forumHeadVideoView;
     }
 
-    @Override // com.baidu.tieba.play.e.a
-    public void onCompletion(com.baidu.tieba.play.e eVar) {
-        List list;
-        e currentVideoItemView = this.ccf.getCurrentVideoItemView();
-        if (currentVideoItemView != null) {
-            list = this.ccf.aSU;
-            if (y.s(list) == 1 && eVar != null && eVar.isLooping()) {
-                if (System.currentTimeMillis() - this.ccg > 100) {
-                    currentVideoItemView.aeB();
-                    this.ccg = System.currentTimeMillis();
-                    return;
-                }
-                return;
-            }
-            currentVideoItemView.setVideoPlayState(1);
-            this.ccf.aeK();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.cfB.cfn = false;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        c swapVideoItemView = this.cfB.getSwapVideoItemView();
+        if (swapVideoItemView != null) {
+            swapVideoItemView.clearAnimation();
+            this.cfB.h(swapVideoItemView);
         }
     }
 }

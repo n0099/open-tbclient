@@ -1,11 +1,14 @@
 package com.baidu.tieba.im.message.chat;
 
+import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.lib.h.b;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
@@ -43,6 +46,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
     private long sid;
     private String st_type;
     private String stat;
+    private long statisticsTaskId;
     private long taskId;
     private long time;
     private UserData toUserInfo;
@@ -64,6 +68,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
     public ChatMessage(int i) {
         super(i);
         this.progressValue = 0;
+        this.statisticsTaskId = -1L;
         this.mIsPushForOperateAccount = false;
         this.isGifLoadSuccess = true;
         this.isUploading = false;
@@ -133,13 +138,13 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.axn = false;
-                aVar.axo = optString;
-                aVar.axp = optString2;
-                aVar.axq = optString3;
+                aVar.aye = false;
+                aVar.ayf = optString;
+                aVar.ayg = optString2;
+                aVar.ayh = optString3;
                 aVar.mGid = optString4;
-                aVar.axr = optInt;
-                aVar.axs = optInt2;
+                aVar.ayi = optInt;
+                aVar.ayj = optInt2;
                 aVar.mPackageName = optString5;
                 aVar.mIcon = optString6;
                 this.gifInfo = aVar;
@@ -406,5 +411,24 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
             return TYPE_MSG_LEFT;
         }
         return TYPE_MSG_LEFT;
+    }
+
+    public long getStatTaskId() {
+        if (this.statisticsTaskId != -1) {
+            return this.statisticsTaskId;
+        }
+        if (!TextUtils.isEmpty(this.content)) {
+            try {
+                JSONArray jSONArray = new JSONArray(this.content);
+                if (jSONArray.length() > 0) {
+                    this.statisticsTaskId = b.c(jSONArray.optJSONObject(0).optString(InterviewLiveActivityConfig.KEY_TASK_ID), 0L);
+                }
+            } catch (Exception e) {
+            }
+        }
+        if (this.statisticsTaskId <= 0) {
+            this.statisticsTaskId = this.taskId >= 0 ? this.taskId : 0L;
+        }
+        return this.statisticsTaskId;
     }
 }

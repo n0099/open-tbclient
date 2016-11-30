@@ -1,39 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dz implements View.OnClickListener {
-    private final /* synthetic */ String enc;
-    private final /* synthetic */ String ene;
-    private final /* synthetic */ String enf;
-    final /* synthetic */ du esD;
+    final /* synthetic */ dx eyV;
+    private final /* synthetic */ String eyW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dz(du duVar, String str, String str2, String str3) {
-        this.esD = duVar;
-        this.enc = str;
-        this.ene = str2;
-        this.enf = str3;
+    public dz(dx dxVar, String str) {
+        this.eyV = dxVar;
+        this.eyW = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.enc) && !StringUtils.isNull(this.ene)) {
-            if (com.baidu.adp.lib.util.i.gm()) {
-                context = this.esD.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.enc) + "," + this.ene, this.enf, this.enf, context.getString(r.j.app_info_for_map));
-                context2 = this.esD.mContext;
-                com.baidu.tbadk.browser.f.u(context2, format);
-                return;
-            }
-            this.esD.eow.showToast(r.j.neterror);
+        if (!StringUtils.isNull(this.eyW) && com.baidu.adp.lib.util.k.gD()) {
+            TiebaStatic.log("c10854");
+            com.baidu.tbadk.browser.f.v(this.eyV.eug.getActivity(), this.eyW);
         }
     }
 }

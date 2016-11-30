@@ -8,48 +8,48 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ p bXi;
+    final /* synthetic */ p cay;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.bXi = pVar;
+        this.cay = pVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bi biVar;
-        bi biVar2;
-        bi biVar3;
-        bi biVar4;
-        bi biVar5;
+        bk bkVar;
+        bk bkVar2;
+        bk bkVar3;
+        bk bkVar4;
+        bk bkVar5;
         TbPageContext tbPageContext;
-        bi biVar6;
-        bi biVar7;
-        bi biVar8;
-        biVar = this.bXi.adW;
-        if (biVar != null) {
-            biVar2 = this.bXi.adW;
-            if (biVar2.getAuthor() != null) {
-                biVar3 = this.bXi.adW;
-                if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.bXi.adW;
-                    if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
-                        biVar5 = this.bXi.adW;
-                        if (biVar5.getForum_name() != null) {
+        bk bkVar6;
+        bk bkVar7;
+        bk bkVar8;
+        bkVar = this.cay.aeu;
+        if (bkVar != null) {
+            bkVar2 = this.cay.aeu;
+            if (bkVar2.getAuthor() != null) {
+                bkVar3 = this.cay.aeu;
+                if (!StringUtils.isNull(bkVar3.getAuthor().getName_show())) {
+                    bkVar4 = this.cay.aeu;
+                    if (!StringUtils.isNull(bkVar4.getAuthor().getUserId())) {
+                        bkVar5 = this.cay.aeu;
+                        if (bkVar5.getForum_name() != null) {
                             MessageManager messageManager = MessageManager.getInstance();
-                            tbPageContext = this.bXi.GM;
+                            tbPageContext = this.cay.GO;
                             Activity pageActivity = tbPageContext.getPageActivity();
-                            biVar6 = this.bXi.adW;
-                            String userId = biVar6.getAuthor().getUserId();
-                            biVar7 = this.bXi.adW;
-                            String name_show = biVar7.getAuthor().getName_show();
-                            biVar8 = this.bXi.adW;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, biVar8.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            bkVar6 = this.cay.aeu;
+                            String userId = bkVar6.getAuthor().getUserId();
+                            bkVar7 = this.cay.aeu;
+                            String name_show = bkVar7.getAuthor().getName_show();
+                            bkVar8 = this.cay.aeu;
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, bkVar8.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }
                 }

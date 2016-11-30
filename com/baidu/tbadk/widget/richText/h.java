@@ -9,12 +9,12 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
-    private String aIB;
-    private int aIC;
+    private String aJr;
+    private int aJs;
     private int color = -1;
     private int mType;
     private String mUrl;
@@ -39,8 +39,8 @@ public class h extends ClickableSpan {
         this.mType = i;
     }
 
-    public void fv(int i) {
-        this.aIC = i;
+    public void fy(int i) {
+        this.aJs = i;
     }
 
     public void setColor(int i) {
@@ -48,7 +48,7 @@ public class h extends ClickableSpan {
     }
 
     public void gH(String str) {
-        this.aIB = str;
+        this.aJr = str;
     }
 
     public String getLink() {
@@ -61,20 +61,20 @@ public class h extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aIC == 1) {
+        } else if (this.aJs == 1) {
             if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
-                textPaint.bgColor = av.getColor(r.d.cp_bg_line_c);
+                textPaint.bgColor = at.getColor(r.d.cp_bg_line_c);
             } else {
-                textPaint.bgColor = av.getColor(r.d.cp_bg_line_z);
+                textPaint.bgColor = at.getColor(r.d.cp_bg_line_z);
             }
-        } else if (this.aIC == 2) {
-            textPaint.bgColor = av.getColor(r.d.transparent);
+        } else if (this.aJs == 2) {
+            textPaint.bgColor = at.getColor(r.d.transparent);
         }
     }
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aIB)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aJr)));
     }
 
     public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {

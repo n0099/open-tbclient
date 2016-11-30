@@ -2,6 +2,7 @@ package com.baidu.tieba.VideoCache;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 public class VideoCacheService extends Service {
@@ -17,7 +18,7 @@ public class VideoCacheService extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return null;
+        return new Binder();
     }
 
     @Override // android.app.Service
@@ -32,6 +33,6 @@ public class VideoCacheService extends Service {
         if (this.mHttpServer != null) {
             this.mHttpServer.destroy();
         }
-        p.Kt().destroy();
+        p.KX().destroy();
     }
 }

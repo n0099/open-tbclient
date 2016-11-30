@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class v extends HttpMessageListener {
-    final /* synthetic */ WriteActivity ghD;
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(WriteActivity writeActivity, int i) {
         super(i);
-        this.ghD = writeActivity;
+        this.gpp = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,22 +26,22 @@ class v extends HttpMessageListener {
         if (httpResponsedMessage.getError() == 0) {
             String str4 = (String) MessageManager.getInstance().runTask(CmdConfigCustom.CMD_DECODE_BUBBLE, String.class, httpResponsedMessage).getData();
             if (TextUtils.isEmpty(str4)) {
-                str3 = this.ghD.dPf;
+                str3 = this.gpp.dUK;
                 if (!TextUtils.isEmpty(str3)) {
-                    this.ghD.dPf = str4;
+                    this.gpp.dUK = str4;
                     TbadkCoreApplication.m9getInst().setDefaultBubble(str4);
-                    this.ghD.lR(true);
+                    this.gpp.mq(true);
                     return;
                 }
             }
             if (!TextUtils.isEmpty(str4)) {
-                str = this.ghD.dPf;
+                str = this.gpp.dUK;
                 if (!str4.equals(str)) {
-                    this.ghD.dPf = str4;
+                    this.gpp.dUK = str4;
                     TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
-                    str2 = this.ghD.dPf;
+                    str2 = this.gpp.dUK;
                     m9getInst.setDefaultBubble(str2);
-                    this.ghD.lR(true);
+                    this.gpp.mq(true);
                 }
             }
         }

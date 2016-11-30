@@ -1,66 +1,67 @@
 package com.baidu.tieba.frs.view;
 
-import android.view.View;
-import android.view.animation.Animation;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.av;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tieba.frs.view.t;
+import com.baidu.tieba.frs.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
-    final /* synthetic */ v chN;
+public class w extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ u cmS;
+    private final /* synthetic */ String cmT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(v vVar) {
-        this.chN = vVar;
+    public w(u uVar, String str) {
+        this.cmS = uVar;
+        this.cmT = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        t tVar;
-        int i;
-        t tVar2;
-        TbPageContext<?> tbPageContext;
-        t tVar3;
-        av avVar;
-        t tVar4;
-        t.a aVar;
-        t tVar5;
-        t tVar6;
-        t tVar7;
-        t tVar8;
-        Animation animation;
-        t tVar9;
-        tVar = this.chN.chL;
-        i = tVar.mState;
-        switch (i) {
-            case 0:
-                tVar7 = this.chN.chL;
-                View view2 = tVar7.chJ;
-                tVar8 = this.chN.chL;
-                animation = tVar8.chG;
-                view2.startAnimation(animation);
-                tVar9 = this.chN.chL;
-                tVar9.aM("c11104", "2");
-                return;
-            case 1:
-                bh vL = bh.vL();
-                tVar2 = this.chN.chL;
-                tbPageContext = tVar2.mTbPageContext;
-                tVar3 = this.chN.chL;
-                avVar = tVar3.mRealTimeData;
-                vL.c(tbPageContext, new String[]{avVar.getUrl()});
-                tVar4 = this.chN.chL;
-                aVar = tVar4.chI;
-                aVar.removeMessages(1);
-                tVar5 = this.chN.chL;
-                tVar5.bo(8000L);
-                tVar6 = this.chN.chL;
-                tVar6.aM("c11104", "1");
-                return;
-            default:
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        au auVar;
+        au auVar2;
+        au auVar3;
+        au auVar4;
+        au auVar5;
+        au auVar6;
+        au auVar7;
+        au auVar8;
+        au auVar9;
+        au auVar10;
+        if (aVar == null) {
+            auVar9 = this.cmS.cmM;
+            auVar9.adn().setVisibility(8);
+            auVar10 = this.cmS.cmM;
+            auVar10.adm().setVisibility(8);
+            return;
+        }
+        if (aVar.cY()) {
+            auVar5 = this.cmS.cmM;
+            auVar5.adn().setVisibility(0);
+            auVar6 = this.cmS.cmM;
+            auVar6.adm().setVisibility(8);
+            com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
+            aVar2.ayh = this.cmT;
+            aVar2.ayf = this.cmT;
+            auVar7 = this.cmS.cmM;
+            auVar7.adn().a(aVar2);
+            u uVar = this.cmS;
+            auVar8 = this.cmS.cmM;
+            uVar.cmQ = auVar8.adn();
+        } else {
+            auVar = this.cmS.cmM;
+            auVar.adn().setVisibility(8);
+            auVar2 = this.cmS.cmM;
+            auVar2.adm().setVisibility(0);
+            auVar3 = this.cmS.cmM;
+            auVar3.adm().c(this.cmT, 17, false);
+            u uVar2 = this.cmS;
+            auVar4 = this.cmS.cmM;
+            uVar2.cmQ = auVar4.adm();
+        }
+        this.cmS.aN("c11103", null);
+        if (this.cmS.cmQ != null) {
+            this.cmS.cmQ.setOnClickListener(new x(this));
+            this.cmS.bn(8000L);
         }
     }
 }

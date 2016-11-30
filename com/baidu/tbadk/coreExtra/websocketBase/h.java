@@ -6,10 +6,10 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class h {
-    private boolean arA = false;
-    private int arB = 0;
+    private boolean asu = false;
+    private int asv = 0;
 
-    public void fa(String str) {
+    public void fc(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -17,8 +17,8 @@ public class h {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.arA = false;
-        this.arB = 0;
+        this.asu = false;
+        this.asv = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -47,7 +47,7 @@ public class h {
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.arA = true;
+                                this.asu = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -81,19 +81,19 @@ public class h {
                         throw th;
                     }
                 }
-                if (this.arA && i3 > 0) {
-                    this.arB = i5 / i3;
+                if (this.asu && i3 > 0) {
+                    this.asv = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.arA;
+        return this.asu;
     }
 
-    public int BI() {
-        return this.arB;
+    public int BP() {
+        return this.asv;
     }
 
     private int getTimeout() {

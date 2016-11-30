@@ -1,22 +1,40 @@
 package com.baidu.tieba.homepage.personalize;
+
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.frs.cs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tbadk.util.g<String> {
-    private final /* synthetic */ l cGg;
-    final /* synthetic */ m this$0;
+public class ac implements View.OnClickListener {
+    final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(m mVar, l lVar) {
-        this.this$0 = mVar;
-        this.cGg = lVar;
+    public ac(n nVar) {
+        this.this$0 = nVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.g
-    /* renamed from: kU */
-    public void onReturnDataInUI(String str) {
-        if (this.cGg != null) {
-            this.cGg.jU(com.baidu.adp.lib.h.b.g(str, 0));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        cs csVar;
+        int i;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        BdTypeListView bdTypeListView3;
+        cs csVar2;
+        csVar = this.this$0.cKR;
+        if (csVar != null) {
+            csVar2 = this.this$0.cKR;
+            csVar2.hideTip();
+        }
+        i = this.this$0.cKN;
+        if (i == 1) {
+            bdTypeListView = this.this$0.aML;
+            if (bdTypeListView != null) {
+                bdTypeListView2 = this.this$0.aML;
+                bdTypeListView2.setSelection(0);
+                bdTypeListView3 = this.this$0.aML;
+                bdTypeListView3.kv();
+            }
         }
     }
 }

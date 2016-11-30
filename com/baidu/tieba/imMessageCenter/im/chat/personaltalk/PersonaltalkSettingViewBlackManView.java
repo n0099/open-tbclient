@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
-    private TextView dpH;
+    private TextView dvo;
 
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -22,7 +22,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     private void initUI() {
         inflate(getContext(), r.h.p2ptalk_setting_black_man_view, this);
         setOrientation(1);
-        this.dpH = (TextView) findViewById(r.g.black_man_text);
+        this.dvo = (TextView) findViewById(r.g.black_man_text);
     }
 
     public void setSex(int i) {
@@ -38,6 +38,6 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
                 string = getResources().getString(r.j.it);
                 break;
         }
-        this.dpH.setText(getResources().getString(r.j.in_black_desc_1, string));
+        this.dvo.setText(getResources().getString(r.j.in_black_desc_1, string));
     }
 }

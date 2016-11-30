@@ -1,22 +1,25 @@
 package com.baidu.tieba.frs.view;
 
-import android.text.TextUtils;
 import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ c cgX;
+    final /* synthetic */ c cme;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.cgX = cVar;
+        this.cme = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.cgX.cgB)) {
-            com.baidu.tbadk.browser.f.a(this.cgX.Gd.getPageActivity(), this.cgX.Gd.getString(r.j.frs_badge_intro), this.cgX.cgB, true, false, false);
+        if ((this.cme.Gf == null || this.cme.Gf.getOrignalPage() == null || this.cme.Gf.getOrignalPage().checkUpIsLogin()) && this.cme.mForumId != null && this.cme.mForumName != null && TbadkCoreApplication.m9getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.cme.Gf.getPageActivity(), this.cme.mForumId, this.cme.mForumName, 0, 1)));
         }
     }
 }

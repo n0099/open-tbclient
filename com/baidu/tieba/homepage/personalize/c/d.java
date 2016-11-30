@@ -4,6 +4,6 @@ import com.baidu.adp.widget.ListView.v;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public List<v> cHL;
-    public int cHM = 0;
+    public List<v> cMY;
+    public int cMZ = 0;
 }

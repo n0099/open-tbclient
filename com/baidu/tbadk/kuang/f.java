@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements HostInvokeCallback {
-    private final /* synthetic */ a.InterfaceC0033a ayH;
+    private final /* synthetic */ a.InterfaceC0033a azz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a.InterfaceC0033a interfaceC0033a) {
-        this.ayH = interfaceC0033a;
+        this.azz = interfaceC0033a;
     }
 
     @Override // com.baidu.searchbox.plugin.api.HostInvokeCallback
@@ -21,17 +21,17 @@ public class f implements HostInvokeCallback {
         String str3;
         String str4;
         if (i == 0) {
-            b.Ot = (String) obj;
-            str = b.pX;
+            b.Ow = (String) obj;
+            str = b.pY;
             if (str == null) {
-                b.Es();
+                b.Ex();
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
             str2 = b.mUserId;
-            str3 = b.pX;
-            str4 = b.Ot;
-            com.baidu.tieba.model.b.a(str2, str3, str4, null, this.ayH);
+            str3 = b.pY;
+            str4 = b.Ow;
+            com.baidu.tieba.model.b.a(str2, str3, str4, null, this.azz);
         }
     }
 }

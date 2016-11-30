@@ -1,64 +1,42 @@
 package com.baidu.tieba.pb.pb.a;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tieba.play.QuickVideoView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.FrsPraiseView;
-import com.baidu.tieba.view.AudioAnimationView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends y.a {
-    public com.baidu.tieba.play.s aLZ;
-    public QuickVideoView aMF;
-    public TextView aMP;
-    public ImageView aZL;
-    public ForeDrawableImageView cRg;
-    public ImageView cRk;
-    public TextView caN;
-    public TextView cbn;
-    public TextView cbo;
-    public ProgressBar cbr;
-    public View eng;
-    public View enh;
-    public ImageView eni;
-    public FrsPraiseView enj;
-    public View enk;
-    public ImageView enl;
-    public TextView enm;
-    public AudioAnimationView enn;
-    public View eno;
-    public View mRootView;
-    public int mSkinType;
+public class v implements View.OnClickListener {
+    final /* synthetic */ u etr;
+    private final /* synthetic */ String ets;
+    private final /* synthetic */ String ett;
+    private final /* synthetic */ String etu;
 
-    public v(View view) {
-        super(view);
-        this.mSkinType = 3;
-        this.mRootView = view.findViewById(r.g.pb_layout_video_view);
-        this.cRg = (ForeDrawableImageView) view.findViewById(r.g.pb_list_video_item_thumbnail);
-        this.cbn = (TextView) view.findViewById(r.g.pb_list_video_item_title);
-        this.cbo = (TextView) view.findViewById(r.g.pb_list_video_item_play_count);
-        this.eng = view.findViewById(r.g.pb_video_black_mask);
-        this.enh = view.findViewById(r.g.pb_list_video_item_location_container);
-        this.eni = (ImageView) view.findViewById(r.g.pb_list_video_item_location_img);
-        this.caN = (TextView) view.findViewById(r.g.pb_list_video_item_location_address);
-        this.aMF = (QuickVideoView) view.findViewById(r.g.pb_videoview);
-        this.aLZ = new com.baidu.tieba.play.s(view.getContext());
-        this.aMF.setBusiness(this.aLZ);
-        this.aZL = (ImageView) view.findViewById(r.g.pb_loading_image);
-        this.cbr = (ProgressBar) view.findViewById(r.g.pb_loading_progress);
-        this.enn = (AudioAnimationView) view.findViewById(r.g.pb_video_play_state);
-        this.enn.setCertainColumnCount(4);
-        this.enn.setColumnColor(r.d.cp_cont_i);
-        this.cRk = (ImageView) view.findViewById(r.g.pb_img_pause_play);
-        this.enj = (FrsPraiseView) view.findViewById(r.g.pb_list_video_item_praise_view);
-        this.enk = view.findViewById(r.g.pb_list_video_item_like_layout);
-        this.aMP = (TextView) view.findViewById(r.g.pb_video_error_tips);
-        this.eno = view.findViewById(r.g.pb_video_error_background);
-        this.enl = (ImageView) view.findViewById(r.g.zan_icon);
-        this.enm = (TextView) view.findViewById(r.g.zan_text_desc);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(u uVar, String str, String str2, String str3) {
+        this.etr = uVar;
+        this.ets = str;
+        this.ett = str2;
+        this.etu = str3;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        PbActivity pbActivity;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ets) && !StringUtils.isNull(this.ett)) {
+            if (!com.baidu.adp.lib.util.i.gm()) {
+                pbActivity = this.etr.eug;
+                pbActivity.showToast(r.j.neterror);
+                return;
+            }
+            context = this.etr.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ets) + "," + this.ett, this.etu, this.etu, context.getString(r.j.app_info_for_map));
+            context2 = this.etr.mContext;
+            com.baidu.tbadk.browser.f.u(context2, format);
+        }
     }
 }

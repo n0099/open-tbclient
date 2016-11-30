@@ -1,53 +1,63 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class x extends RelativeLayout implements View.OnClickListener {
-    private HeadImageView eZt;
-    private ImageView fYV;
+public class x implements View.OnTouchListener {
+    Spannable ggr;
+    private com.baidu.tbadk.widget.richText.h ggs = null;
 
-    public x(Context context) {
-        super(context);
-        this.eZt = new HeadImageView(context);
-        this.fYV = new ImageView(context);
-        addView(this.eZt);
-        addView(this.fYV);
-        ((RelativeLayout.LayoutParams) this.fYV.getLayoutParams()).addRule(12);
-        ((RelativeLayout.LayoutParams) this.fYV.getLayoutParams()).addRule(11);
-        av.c(this.fYV, r.f.profit_lock);
-        this.eZt.setAlpha(0.3f);
+    public x(Spannable spannable) {
+        this.ggr = spannable;
     }
 
-    public void bD(int i, int i2) {
-        getLayoutParams().height = i2;
-        getLayoutParams().width = i;
-    }
-
-    public void bE(int i, int i2) {
-        this.eZt.getLayoutParams().height = i2;
-        this.eZt.getLayoutParams().width = i;
-    }
-
-    public void bF(int i, int i2) {
-        this.fYV.getLayoutParams().height = i2;
-        this.fYV.getLayoutParams().width = i;
-    }
-
-    public HeadImageView getIcon() {
-        return this.eZt;
-    }
-
-    public ImageView getLock() {
-        return this.fYV;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        int action = motionEvent.getAction();
+        if (view instanceof TextView) {
+            TextView textView = (TextView) view;
+            if (action == 3 && this.ggs != null) {
+                this.ggs.setColor(TbadkCoreApplication.m9getInst().getResources().getColor(r.d.transparent));
+                view.invalidate();
+                this.ggs = null;
+                return false;
+            }
+            if (action == 1 || action == 0) {
+                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                int scrollX = x + textView.getScrollX();
+                int scrollY = y + textView.getScrollY();
+                Layout layout = textView.getLayout();
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                com.baidu.tbadk.widget.richText.h[] hVarArr = (com.baidu.tbadk.widget.richText.h[]) this.ggr.getSpans(offsetForHorizontal, offsetForHorizontal, com.baidu.tbadk.widget.richText.h.class);
+                if (hVarArr != null && hVarArr.length != 0 && hVarArr[0] != null) {
+                    if (action == 1) {
+                        hVarArr[0].setColor(TbadkCoreApplication.m9getInst().getResources().getColor(r.d.transparent));
+                        hVarArr[0].onClick(textView);
+                        view.invalidate();
+                    } else if (action == 0) {
+                        this.ggs = hVarArr[0];
+                        if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
+                            hVarArr[0].setColor(at.getColor(r.d.cp_bg_line_c));
+                        } else {
+                            hVarArr[0].setColor(at.getColor(r.d.cp_bg_line_z));
+                        }
+                        Selection.setSelection(this.ggr, this.ggr.getSpanStart(hVarArr[0]), this.ggr.getSpanEnd(hVarArr[0]));
+                        view.invalidate();
+                    }
+                    return true;
+                }
+                Selection.removeSelection(this.ggr);
+            }
+            return false;
+        }
+        return false;
     }
 }

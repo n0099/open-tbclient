@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
-class e implements bh.a {
-    @Override // com.baidu.tbadk.core.util.bh.a
+class e implements bf.a {
+    @Override // com.baidu.tbadk.core.util.bf.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (strArr == null || strArr.length <= 0) {
             return 3;

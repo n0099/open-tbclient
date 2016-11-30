@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ j bVg;
+    final /* synthetic */ j bYo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.bVg = jVar;
+        this.bYo = jVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,9 +22,9 @@ public class m implements View.OnClickListener {
         TbPageContext tbPageContext;
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.bVg.Gd;
+        tbPageContext = this.bYo.Gf;
         Context context = tbPageContext.getContext();
-        str = this.bVg.mForumId;
+        str = this.bYo.mForumId;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_DETAIL, new ForumDetailActivityConfig(context, str, ForumDetailActivityConfig.FromType.FRS)));
     }
 }

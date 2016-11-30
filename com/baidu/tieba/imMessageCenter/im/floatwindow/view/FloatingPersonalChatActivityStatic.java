@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FloatingPersonalChatActivityStatic {
-    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e doB;
+    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e duj;
     private static List<UserData> mUserDataList = null;
-    private static CustomMessageListener doC = new y(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static CustomMessageListener duk = new y(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     static {
-        MessageManager.getInstance().registerListener(doC);
+        MessageManager.getInstance().registerListener(duk);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new z());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -23,11 +23,11 @@ public class FloatingPersonalChatActivityStatic {
         return mUserDataList;
     }
 
-    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e ayy() {
-        return doB;
+    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e aAv() {
+        return duj;
     }
 
     public static void c(com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e eVar) {
-        doB = eVar;
+        duj = eVar;
     }
 }

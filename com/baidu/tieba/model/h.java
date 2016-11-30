@@ -10,8 +10,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.z;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -24,43 +24,43 @@ import org.json.JSONObject;
 public class h {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] aIi;
+        String[] aKd;
         if (bVar == null) {
             return null;
         }
         try {
-            aIi = aIi();
+            aKd = aKd();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aIi != null) {
+        if (aKd != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
-            arrayList.add(new BasicNameValuePair("clientip", aIj()));
-            arrayList.add(new BasicNameValuePair("cert_id", aIi[0]));
+            arrayList.add(new BasicNameValuePair("clientip", aKe()));
+            arrayList.add(new BasicNameValuePair("cert_id", aKd[0]));
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("bduss", bVar.pX);
-            jSONObject.put("ptoken", bVar.Ot);
+            jSONObject.put("bduss", bVar.pY);
+            jSONObject.put("ptoken", bVar.Ow);
             jSONObject.put(SocialConstants.PARAM_CUID, DeviceId.getDeviceID(TbadkCoreApplication.m9getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.m9getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aIi[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aKd[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", d(arrayList, TbConfig.PassConfig.ENC_KEY)));
-            ab abVar = new ab(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            abVar.uS().vN().mIsNeedAddCommenParam = false;
-            abVar.uS().vN().mIsUseCurrentBDUSS = false;
-            abVar.l(arrayList);
-            abVar.uS().vN().vQ().adb = true;
-            abVar.uS().vN().vQ().mIsBaiduServer = false;
-            String uu = abVar.uu();
-            if (abVar.uS().vO().oF() && !az.isEmpty(uu)) {
-                JSONObject jSONObject2 = new JSONObject(uu);
+            z zVar = new z(TbConfig.PassConfig.LOGIN_BDUSS_URL);
+            zVar.uW().vR().mIsNeedAddCommenParam = false;
+            zVar.uW().vR().mIsUseCurrentBDUSS = false;
+            zVar.l(arrayList);
+            zVar.uW().vR().vU().adA = true;
+            zVar.uW().vR().vU().mIsBaiduServer = false;
+            String uy = zVar.uy();
+            if (zVar.uW().vS().oH() && !ax.isEmpty(uy)) {
+                JSONObject jSONObject2 = new JSONObject(uy);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
-                    bVar2.pX = jSONObject2.optString("bduss");
-                    bVar2.Ot = jSONObject2.optString("ptoken");
-                    bVar2.Ou = jSONObject2.optString("uname");
+                    bVar2.pY = jSONObject2.optString("bduss");
+                    bVar2.Ow = jSONObject2.optString("ptoken");
+                    bVar2.Ox = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }
@@ -70,19 +70,19 @@ public class h {
         return null;
     }
 
-    private static String[] aIi() {
+    private static String[] aKd() {
         try {
-            ab abVar = new ab(TbConfig.PassConfig.GET_CERT_URL);
-            abVar.uS().vN().mIsNeedAddCommenParam = false;
-            abVar.uS().vN().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(abVar.uv()));
+            z zVar = new z(TbConfig.PassConfig.GET_CERT_URL);
+            zVar.uW().vR().mIsNeedAddCommenParam = false;
+            zVar.uW().vR().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(zVar.uz()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;
         }
     }
 
-    private static String aIj() {
+    private static String aKe() {
         if (i.gn()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.m9getInst().getApp());
         }

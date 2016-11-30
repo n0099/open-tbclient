@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 /* loaded from: classes.dex */
 public class j extends a {
-    private static j dmB = new j();
+    private static j dsk = new j();
 
     private j() {
     }
 
-    public static j awJ() {
-        return dmB;
+    public static j ayG() {
+        return dsk;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,8 +25,8 @@ public class j extends a {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.dmq) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.dmq.get(str3);
+        synchronized (this.dsa) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.dsa.get(str3);
             personalSettingItemData = (aVar == null || !(aVar instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) aVar;
         }
         if (personalSettingItemData == null) {
@@ -44,7 +44,7 @@ public class j extends a {
         return personalSettingItemData;
     }
 
-    public void asD() {
+    public void auA() {
         super.v(PersonalSettingItemData.class);
     }
 
@@ -59,8 +59,8 @@ public class j extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> awF() {
-        return com.baidu.tbadk.core.b.a.ti().cA("tb.im_personal_chat_setting");
+    public o<String> ayC() {
+        return com.baidu.tbadk.core.b.a.tm().cC("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -75,18 +75,18 @@ public class j extends a {
                 }
                 return;
             }
-            o<String> awF = awF();
+            o<String> ayC = ayC();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.dmq) {
-                this.dmq.put(str, personalSettingItemData);
+            synchronized (this.dsa) {
+                this.dsa.put(str, personalSettingItemData);
             }
-            awF.k(str, jsonStrWithObject);
+            ayC.k(str, jsonStrWithObject);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    public void a(com.baidu.tieba.im.pushNotify.a aVar, com.baidu.tbadk.util.g<Void> gVar) {
+    public void a(com.baidu.tieba.im.pushNotify.a aVar, com.baidu.tbadk.util.f<Void> fVar) {
         if (aVar != null && (aVar instanceof PersonalSettingItemData)) {
             PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) aVar;
             String myUid = personalSettingItemData.getMyUid();
@@ -98,10 +98,10 @@ public class j extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.dmq) {
-                this.dmq.put(str, personalSettingItemData);
+            synchronized (this.dsa) {
+                this.dsa.put(str, personalSettingItemData);
             }
-            u.b(new k(this, personalSettingItemData, str), gVar);
+            t.b(new k(this, personalSettingItemData, str), fVar);
         }
     }
 }

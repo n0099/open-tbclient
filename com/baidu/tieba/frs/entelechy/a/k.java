@@ -1,28 +1,28 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tieba.card.bz;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bUr;
-    final /* synthetic */ i bVX;
+public class k extends bz<bk> {
+    final /* synthetic */ j bZi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(i iVar, ThemeCardInUserData themeCardInUserData) {
-        this.bVX = iVar;
-        this.bUr = themeCardInUserData;
+    public k(j jVar) {
+        this.bZi = jVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbPageContext tbPageContext;
-        tbPageContext = this.bVX.GM;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bUr.getCardId())));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.bz
+    public void a(View view, bk bkVar) {
+        if (view != null && bkVar != null) {
+            if (view.getId() == r.g.card_vote_header_image || view.getId() == r.g.user_name) {
+                com.baidu.tieba.frs.h.b.agV().a(j.chm, bkVar, 2);
+            } else {
+                com.baidu.tieba.frs.h.b.agV().a(j.chm, bkVar, 1);
+            }
+        }
     }
 }

@@ -2,45 +2,45 @@ package com.baidu.tieba.frs.h5;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tieba.frs.dg;
-import com.baidu.tieba.frs.dh;
-import com.baidu.tieba.frs.dn;
-import com.baidu.tieba.frs.dq;
+import com.baidu.tieba.frs.ce;
+import com.baidu.tieba.frs.cf;
+import com.baidu.tieba.frs.cm;
+import com.baidu.tieba.frs.cp;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class i implements dg {
-    private dh bNn;
+public class i implements ce {
+    private cf bQg;
 
     public void setTag(BdUniqueId bdUniqueId) {
     }
 
-    @Override // com.baidu.tieba.frs.dg
-    public void a(int i, int i2, dn dnVar) {
-        if (i > 100 && this.bNn != null && dnVar != null && dnVar.bTy != null && (dnVar.bTy instanceof String)) {
+    @Override // com.baidu.tieba.frs.ce
+    public void a(int i, int i2, cm cmVar) {
+        if (i > 100 && this.bQg != null && cmVar != null && cmVar.bVI != null && (cmVar.bVI instanceof String)) {
             ArrayList<v> arrayList = new ArrayList<>();
-            h hVar = new h((String) dnVar.bTy);
-            hVar.stType = dnVar.stType;
+            h hVar = new h((String) cmVar.bVI);
+            hVar.stType = cmVar.stType;
             arrayList.add(hVar);
-            dq dqVar = new dq();
-            dqVar.hasMore = false;
-            dqVar.bTA = false;
-            dqVar.bTB = false;
-            dqVar.pn = dnVar.pn;
-            dqVar.bTy = dnVar.bTy;
-            this.bNn.a(i, i2, dqVar, arrayList);
+            cp cpVar = new cp();
+            cpVar.hasMore = false;
+            cpVar.bVK = false;
+            cpVar.bVL = false;
+            cpVar.pn = cmVar.pn;
+            cpVar.bVI = cmVar.bVI;
+            this.bQg.a(i, i2, cpVar, arrayList);
         }
     }
 
-    @Override // com.baidu.tieba.frs.dg
-    public void a(dh dhVar) {
-        this.bNn = dhVar;
+    @Override // com.baidu.tieba.frs.ce
+    public void a(cf cfVar) {
+        this.bQg = cfVar;
     }
 
-    @Override // com.baidu.tieba.frs.dg
+    @Override // com.baidu.tieba.frs.ce
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.dg
-    public void aat() {
+    @Override // com.baidu.tieba.frs.ce
+    public void abv() {
     }
 }

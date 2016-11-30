@@ -10,13 +10,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends HttpMessageListener {
-    final /* synthetic */ ReloginManager Ym;
+    final /* synthetic */ ReloginManager YK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ReloginManager reloginManager, int i) {
         super(i);
-        this.Ym = reloginManager;
+        this.YK = reloginManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,21 +24,21 @@ public class a extends HttpMessageListener {
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         ArrayList arrayList;
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof ReloginManager.BgLoginHttpResponsedMessage)) {
-            this.Ym.Yh = false;
+            this.YK.YF = false;
             ReloginManager.BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (ReloginManager.BgLoginHttpResponsedMessage) httpResponsedMessage;
             int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
             int error = bgLoginHttpResponsedMessage.getError();
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_auto_local_result", bgLoginHttpResponsedMessage.getError(), bgLoginHttpResponsedMessage.getErrorString(), new Object[0]);
             if ((statusCode == 200 && error != 0) || statusCode != 200) {
-                this.Ym.f(TbadkCoreApplication.getCurrentAccountObj());
+                this.YK.f(TbadkCoreApplication.getCurrentAccountObj());
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                     k.showToast(TbadkCoreApplication.m9getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
-                arrayList = this.Ym.Yj;
+                arrayList = this.YK.YH;
                 arrayList.clear();
                 return;
             }
-            this.Ym.ud();
+            this.YK.uh();
         }
     }
 }

@@ -23,22 +23,22 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class e {
-    private final d Kj;
-    private double Kk;
-    private Long Kl;
-    private final SQLiteDatabase Ko;
-    private final SQLiteDatabase Kp;
+    private final d Km;
+    private double Kn;
+    private Long Ko;
+    private final SQLiteDatabase Kr;
+    private final SQLiteDatabase Ks;
     private int b;
     private double c;
     private boolean p = false;
-    private final c Km = new c(this, true);
-    private final c Kn = new c(this, false);
-    private StringBuffer Kv = new StringBuffer();
-    private StringBuffer Kq = null;
-    private StringBuffer Kr = null;
-    private HashSet<Long> Ks = new HashSet<>();
-    private ConcurrentHashMap<Long, Integer> Kt = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<Long, String> Ku = new ConcurrentHashMap<>();
+    private final c Kp = new c(this, true);
+    private final c Kq = new c(this, false);
+    private StringBuffer Ky = new StringBuffer();
+    private StringBuffer Kt = null;
+    private StringBuffer Ku = null;
+    private HashSet<Long> Kv = new HashSet<>();
+    private ConcurrentHashMap<Long, Integer> Kw = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Long, String> Kx = new ConcurrentHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -61,22 +61,22 @@ public final class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends Thread {
-        private BDLocation Ia;
-        private Long Kw;
-        private BDLocation Kx;
-        private BDLocation Ky;
-        private LinkedHashMap<String, Integer> Kz;
+        private BDLocation Ic;
+        private BDLocation KA;
+        private BDLocation KB;
+        private LinkedHashMap<String, Integer> KC;
+        private Long Kz;
         private String a;
         private String g;
 
         private b(String str, Long l, BDLocation bDLocation, BDLocation bDLocation2, BDLocation bDLocation3, String str2, LinkedHashMap<String, Integer> linkedHashMap) {
             this.a = str;
-            this.Kw = l;
-            this.Kx = bDLocation;
-            this.Ia = bDLocation2;
-            this.Ky = bDLocation3;
+            this.Kz = l;
+            this.KA = bDLocation;
+            this.Ic = bDLocation2;
+            this.KB = bDLocation3;
             this.g = str2;
-            this.Kz = linkedHashMap;
+            this.KC = linkedHashMap;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -87,48 +87,48 @@ public final class e {
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                e.this.a(this.a, this.Kw, this.Kx);
-                e.this.Kq = null;
-                e.this.Kr = null;
-                e.this.a(this.Kz);
-                e.this.a(this.Ky, this.Kx, this.Ia, this.a, this.Kw);
+                e.this.a(this.a, this.Kz, this.KA);
+                e.this.Kt = null;
+                e.this.Ku = null;
+                e.this.a(this.KC);
+                e.this.a(this.KB, this.KA, this.Ic, this.a, this.Kz);
                 if (this.g != null) {
-                    e.this.Kj.mM().a(this.g);
+                    e.this.Km.mP().a(this.g);
                 }
             } catch (Exception e) {
             }
-            this.Kz = null;
+            this.KC = null;
             this.a = null;
             this.g = null;
-            this.Kw = null;
-            this.Kx = null;
-            this.Ia = null;
-            this.Ky = null;
+            this.Kz = null;
+            this.KA = null;
+            this.Ic = null;
+            this.KB = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public final class c extends com.baidu.location.h.f {
-        private e KB;
+        private e KE;
         private String b;
         private final String c;
         private String d;
         private boolean f = false;
         private int p = 0;
-        private long KC = -1;
-        private long KD = -1;
-        private long KE = -1;
+        private long KF = -1;
+        private long KG = -1;
+        private long KH = -1;
         private long t = -1;
 
         c(e eVar, boolean z) {
-            this.KB = eVar;
+            this.KE = eVar;
             if (z) {
                 this.c = "load";
             } else {
                 this.c = "update";
             }
-            this.LH = new HashMap();
+            this.LK = new HashMap();
             this.b = d.a;
         }
 
@@ -142,16 +142,16 @@ public final class e {
         /* JADX INFO: Access modifiers changed from: private */
         public void c() {
             this.p++;
-            this.KC = System.currentTimeMillis();
+            this.KF = System.currentTimeMillis();
         }
 
         private boolean f() {
             if (this.p < 2) {
                 return true;
             }
-            if (this.KC + 43200000 < System.currentTimeMillis()) {
+            if (this.KF + 43200000 < System.currentTimeMillis()) {
                 this.p = 0;
-                this.KC = -1L;
+                this.KF = -1L;
                 return true;
             }
             return false;
@@ -161,11 +161,11 @@ public final class e {
             this.d = null;
             if (!l()) {
                 this.d = i();
-            } else if (this.KD == -1 || this.KD + 86400000 <= System.currentTimeMillis()) {
+            } else if (this.KG == -1 || this.KG + 86400000 <= System.currentTimeMillis()) {
                 this.d = h();
             }
-            if (this.d == null && (this.KE == -1 || this.KE + 86400000 <= System.currentTimeMillis())) {
-                if (e.this.Kj.mN().a()) {
+            if (this.d == null && (this.KH == -1 || this.KH + 86400000 <= System.currentTimeMillis())) {
+                if (e.this.Km.mQ().a()) {
                     this.d = j();
                 } else {
                     this.d = k();
@@ -181,7 +181,7 @@ public final class e {
             try {
                 jSONObject = new JSONObject();
                 jSONObject.put("type", "0");
-                jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.nm().b);
+                jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.np().b);
                 jSONObject.put("ver", "1");
                 jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
             } catch (Exception e) {
@@ -197,12 +197,12 @@ public final class e {
         /* JADX WARN: Removed duplicated region for block: B:106:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:21:0x0068  */
         /* JADX WARN: Removed duplicated region for block: B:29:0x0097  */
-        /* JADX WARN: Removed duplicated region for block: B:84:0x0165 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:86:0x0160 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:84:0x0164 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:86:0x015f A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:90:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:92:0x0149 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:92:0x0148 A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:94:0x0062 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:98:0x014e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:98:0x014d A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -221,7 +221,7 @@ public final class e {
                     jSONObject3 = new JSONObject();
                     jSONObject = new JSONObject();
                     try {
-                        cursor = e.this.Kp.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "CL", 5, 50), null);
+                        cursor = e.this.Ks.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "CL", 5, 50), null);
                     } catch (Exception e) {
                         cursor = null;
                         cursor2 = null;
@@ -285,7 +285,7 @@ public final class e {
                         }
                         jSONObject3.put("cell", jSONArray);
                         i = count;
-                        cursor2 = e.this.Kp.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "AP", 5, 50), null);
+                        cursor2 = e.this.Ks.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "AP", 5, 50), null);
                         if (cursor2 != null) {
                             try {
                                 if (cursor2.moveToFirst()) {
@@ -319,7 +319,7 @@ public final class e {
                             }
                         }
                         jSONObject.put("type", "1");
-                        jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.nm().b);
+                        jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.np().b);
                         jSONObject.put("ver", "1");
                         jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
                         if (i == 0 || i2 != 0) {
@@ -357,11 +357,11 @@ public final class e {
                     }
                 }
                 i = 0;
-                cursor2 = e.this.Kp.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "AP", 5, 50), null);
+                cursor2 = e.this.Ks.rawQuery(String.format("SELECT * FROM %s WHERE frequency>%d ORDER BY frequency DESC LIMIT %d;", "AP", 5, 50), null);
                 if (cursor2 != null) {
                 }
                 jSONObject.put("type", "1");
-                jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.nm().b);
+                jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.np().b);
                 jSONObject.put("ver", "1");
                 jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
                 if (i == 0) {
@@ -390,9 +390,9 @@ public final class e {
                 try {
                     jSONObject.put("type", "2");
                     jSONObject.put("ver", "1");
-                    jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.nm().b);
+                    jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.np().b);
                     jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
-                    this.KE = System.currentTimeMillis();
+                    this.KH = System.currentTimeMillis();
                 } catch (Exception e) {
                 }
             } catch (Exception e2) {
@@ -407,16 +407,16 @@ public final class e {
         private String k() {
             JSONObject jSONObject;
             try {
-                JSONObject b = e.this.Kj.mN().b();
+                JSONObject b = e.this.Km.mQ().b();
                 if (b != null) {
                     jSONObject = new JSONObject();
                     try {
                         jSONObject.put("type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                         jSONObject.put("ver", "1");
-                        jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.nm().b);
+                        jSONObject.put(SocialConstants.PARAM_CUID, com.baidu.location.h.c.np().b);
                         jSONObject.put("prod", com.baidu.location.h.c.d + ":" + com.baidu.location.h.c.c);
                         jSONObject.put("rgc", b);
-                        this.KE = System.currentTimeMillis();
+                        this.KH = System.currentTimeMillis();
                     } catch (Exception e) {
                     }
                 } else {
@@ -442,9 +442,9 @@ public final class e {
             Cursor cursor2 = null;
             boolean z = true;
             try {
-                cursor = e.this.Ko.rawQuery("SELECT COUNT(*) FROM AP;", null);
+                cursor = e.this.Kr.rawQuery("SELECT COUNT(*) FROM AP;", null);
                 try {
-                    cursor2 = e.this.Ko.rawQuery("SELECT COUNT(*) FROM CL", null);
+                    cursor2 = e.this.Kr.rawQuery("SELECT COUNT(*) FROM CL", null);
                     if (cursor != null && cursor.moveToFirst() && cursor2 != null && cursor2.moveToFirst()) {
                         if (cursor.getInt(0) == 0) {
                         }
@@ -505,9 +505,9 @@ public final class e {
         public void a() {
             this.f = true;
             this.h = this.b;
-            this.LH.clear();
-            this.LH.put("qt", this.c);
-            this.LH.put("req", this.d);
+            this.LK.clear();
+            this.LK.put("qt", this.c);
+            this.LK.put("req", this.d);
         }
 
         @Override // com.baidu.location.h.f
@@ -524,7 +524,7 @@ public final class e {
             if (!f() || this.f) {
                 return;
             }
-            e.this.Kn.g();
+            e.this.Kq.g();
         }
     }
 
@@ -532,9 +532,9 @@ public final class e {
     public e(d dVar) {
         SQLiteDatabase sQLiteDatabase;
         SQLiteDatabase sQLiteDatabase2 = null;
-        this.Kj = dVar;
+        this.Km = dVar;
         try {
-            File file = new File(this.Kj.mL(), "ofl_location.db");
+            File file = new File(this.Km.mO(), "ofl_location.db");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -542,27 +542,27 @@ public final class e {
         } catch (Exception e) {
             sQLiteDatabase = null;
         }
-        this.Ko = sQLiteDatabase;
-        if (this.Ko != null) {
+        this.Kr = sQLiteDatabase;
+        if (this.Kr != null) {
             try {
-                this.Ko.execSQL("CREATE TABLE IF NOT EXISTS AP (id LONG PRIMARY KEY,x DOUBLE,y DOUBLE,r INTEGER,cl DOUBLE,timestamp INTEGER, frequency INTEGER DEFAULT 0);");
-                this.Ko.execSQL("CREATE TABLE IF NOT EXISTS CL (id LONG PRIMARY KEY,x DOUBLE,y DOUBLE,r INTEGER,cl DOUBLE,timestamp INTEGER, frequency INTEGER DEFAULT 0);");
+                this.Kr.execSQL("CREATE TABLE IF NOT EXISTS AP (id LONG PRIMARY KEY,x DOUBLE,y DOUBLE,r INTEGER,cl DOUBLE,timestamp INTEGER, frequency INTEGER DEFAULT 0);");
+                this.Kr.execSQL("CREATE TABLE IF NOT EXISTS CL (id LONG PRIMARY KEY,x DOUBLE,y DOUBLE,r INTEGER,cl DOUBLE,timestamp INTEGER, frequency INTEGER DEFAULT 0);");
             } catch (Exception e2) {
             }
         }
         try {
-            File file2 = new File(this.Kj.mL(), "ofl_statistics.db");
+            File file2 = new File(this.Km.mO(), "ofl_statistics.db");
             if (!file2.exists()) {
                 file2.createNewFile();
             }
             sQLiteDatabase2 = SQLiteDatabase.openOrCreateDatabase(file2, (SQLiteDatabase.CursorFactory) null);
         } catch (Exception e3) {
         }
-        this.Kp = sQLiteDatabase2;
-        if (this.Kp != null) {
+        this.Ks = sQLiteDatabase2;
+        if (this.Ks != null) {
             try {
-                this.Kp.execSQL("CREATE TABLE IF NOT EXISTS AP (id LONG PRIMARY KEY, originid VARCHAR(15), frequency INTEGER DEFAULT 0);");
-                this.Kp.execSQL("CREATE TABLE IF NOT EXISTS CL (id LONG PRIMARY KEY, originid VARCHAR(40), frequency INTEGER DEFAULT 0);");
+                this.Ks.execSQL("CREATE TABLE IF NOT EXISTS AP (id LONG PRIMARY KEY, originid VARCHAR(15), frequency INTEGER DEFAULT 0);");
+                this.Ks.execSQL("CREATE TABLE IF NOT EXISTS CL (id LONG PRIMARY KEY, originid VARCHAR(40), frequency INTEGER DEFAULT 0);");
             } catch (Exception e4) {
             }
         }
@@ -667,7 +667,7 @@ public final class e {
         double d6;
         double d7;
         int min;
-        this.Kv.setLength(0);
+        this.Ky.setLength(0);
         double d8 = 0.0d;
         double d9 = 0.0d;
         if (bDLocation != null) {
@@ -695,13 +695,13 @@ public final class e {
             }
             Long encode3 = Jni.encode3(key);
             if (encode3 != null) {
-                this.Ku.put(encode3, key);
+                this.Kx.put(encode3, key);
                 if (z6) {
                     z6 = false;
                 } else {
                     stringBuffer.append(',');
                 }
-                this.Kt.put(encode3, value);
+                this.Kw.put(encode3, value);
                 stringBuffer.append(encode3);
             }
             z5 = z6;
@@ -709,7 +709,7 @@ public final class e {
         }
         Cursor cursor2 = null;
         try {
-            cursor = this.Ko.rawQuery(String.format(Locale.US, "SELECT * FROM AP WHERE id IN (%s) AND timestamp+%d>%d;", stringBuffer, 7776000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
+            cursor = this.Kr.rawQuery(String.format(Locale.US, "SELECT * FROM AP WHERE id IN (%s) AND timestamp+%d>%d;", stringBuffer, 7776000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
         } catch (Exception e) {
             z2 = false;
             d = 0.0d;
@@ -738,19 +738,19 @@ public final class e {
                         int i6 = cursor.getInt(3);
                         double d12 = cursor.getDouble(4);
                         int i7 = cursor.getInt(5);
-                        this.Ks.add(valueOf);
+                        this.Kv.add(valueOf);
                         if (i7 + 604800 < System.currentTimeMillis() / 1000) {
-                            if (this.Kv.length() > 0) {
-                                this.Kv.append(",");
+                            if (this.Ky.length() > 0) {
+                                this.Ky.append(",");
                             }
-                            this.Kv.append(String.format(Locale.US, "(%d,\"%s\",%d)", valueOf, this.Ku.get(valueOf), 100000));
+                            this.Ky.append(String.format(Locale.US, "(%d,\"%s\",%d)", valueOf, this.Kx.get(valueOf), 100000));
                         }
                         if (d12 <= 0.0d) {
                             cursor.moveToNext();
                         } else if (d10 <= 0.0d || d11 <= 0.0d || i6 <= 0 || i6 >= 1000) {
                             cursor.moveToNext();
                         } else if (!z || a(d9, d8, d11, d10) <= 10000.0d) {
-                            arrayList.add(new a(d10, d11, Math.exp((Math.min(100, Math.max(30, this.Kt.get(valueOf).intValue())) > 70 ? 1.0d + ((min - 70) / 30.0d) : 1.0d + ((min - 70) / 50.0d)) * Math.pow(Math.max(50.0d, i6), 0.6d) * (-0.065d)), null));
+                            arrayList.add(new a(d10, d11, Math.exp((Math.min(100, Math.max(30, this.Kw.get(valueOf).intValue())) > 70 ? 1.0d + ((min - 70) / 30.0d) : 1.0d + ((min - 70) / 50.0d)) * Math.pow(Math.max(50.0d, i6), 0.6d) * (-0.065d)), null));
                             cursor.moveToNext();
                         } else {
                             cursor.moveToNext();
@@ -936,8 +936,8 @@ public final class e {
             String format = String.format(Locale.US, "UPDATE CL SET cl = 0 WHERE id = %d;", l);
             String format2 = String.format(Locale.US, "INSERT OR REPLACE INTO CL VALUES (%d,\"%s\",%d);", l, str, 100000);
             try {
-                this.Ko.execSQL(format);
-                this.Kp.execSQL(format2);
+                this.Kr.execSQL(format);
+                this.Ks.execSQL(format2);
             } catch (Exception e) {
             }
         }
@@ -945,10 +945,10 @@ public final class e {
             return;
         }
         try {
-            String format3 = String.format("UPDATE AP SET cl = 0 WHERE id In (%s);", this.Kq.toString());
-            String format4 = String.format("INSERT OR REPLACE INTO AP VALUES %s;", this.Kr.toString());
-            this.Ko.execSQL(format3);
-            this.Kp.execSQL(format4);
+            String format3 = String.format("UPDATE AP SET cl = 0 WHERE id In (%s);", this.Kt.toString());
+            String format4 = String.format("INSERT OR REPLACE INTO AP VALUES %s;", this.Ku.toString());
+            this.Kr.execSQL(format3);
+            this.Ks.execSQL(format4);
         } catch (Exception e2) {
         }
     }
@@ -958,21 +958,21 @@ public final class e {
         if (str != null) {
             if (bDLocation != null) {
                 try {
-                    this.Ko.execSQL(String.format(Locale.US, "UPDATE CL SET frequency=frequency+1 WHERE id = %d;", l));
+                    this.Kr.execSQL(String.format(Locale.US, "UPDATE CL SET frequency=frequency+1 WHERE id = %d;", l));
                 } catch (Exception e) {
                 }
             } else {
                 String format = String.format(Locale.US, "INSERT OR IGNORE INTO CL VALUES (%d,\"%s\",0);", l, str);
                 String format2 = String.format(Locale.US, "UPDATE CL SET frequency=frequency+1 WHERE id = %d;", l);
                 try {
-                    this.Kp.execSQL(format);
-                    this.Kp.execSQL(format2);
+                    this.Ks.execSQL(format);
+                    this.Ks.execSQL(format2);
                 } catch (Exception e2) {
                 }
             }
             if (this.p) {
                 try {
-                    this.Kp.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO CL VALUES (%d,\"%s\",%d);", l, str, 100000));
+                    this.Ks.execSQL(String.format(Locale.US, "INSERT OR IGNORE INTO CL VALUES (%d,\"%s\",%d);", l, str, 100000));
                 } catch (Exception e3) {
                 }
             }
@@ -981,7 +981,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, String str3) {
-        this.Km.a(str, str2, str3);
+        this.Kp.a(str, str2, str3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -991,28 +991,28 @@ public final class e {
         if (linkedHashMap == null || linkedHashMap.size() <= 0) {
             return;
         }
-        this.Kq = new StringBuffer();
-        this.Kr = new StringBuffer();
+        this.Kt = new StringBuffer();
+        this.Ku = new StringBuffer();
         StringBuffer stringBuffer = new StringBuffer();
         StringBuffer stringBuffer2 = new StringBuffer();
-        if (this.Kt != null && this.Kt.keySet() != null) {
+        if (this.Kw != null && this.Kw.keySet() != null) {
             boolean z3 = true;
             boolean z4 = true;
-            for (Long l : this.Kt.keySet()) {
+            for (Long l : this.Kw.keySet()) {
                 try {
-                    if (this.Ks.contains(l)) {
+                    if (this.Kv.contains(l)) {
                         if (z4) {
                             z4 = false;
                         } else {
-                            this.Kq.append(',');
-                            this.Kr.append(',');
+                            this.Kt.append(',');
+                            this.Ku.append(',');
                         }
-                        this.Kq.append(l);
-                        this.Kr.append('(').append(l).append(',').append('\"').append(this.Ku.get(l)).append('\"').append(',').append(100000).append(')');
+                        this.Kt.append(l);
+                        this.Ku.append('(').append(l).append(',').append('\"').append(this.Kx.get(l)).append('\"').append(',').append(100000).append(')');
                         z = z3;
                         z2 = z4;
                     } else {
-                        String str = this.Ku.get(l);
+                        String str = this.Kx.get(l);
                         if (z3) {
                             z3 = false;
                         } else {
@@ -1033,23 +1033,23 @@ public final class e {
             }
         }
         try {
-            this.Ko.execSQL(String.format(Locale.US, "UPDATE AP SET frequency=frequency+1 WHERE id IN(%s)", this.Kq.toString()));
+            this.Kr.execSQL(String.format(Locale.US, "UPDATE AP SET frequency=frequency+1 WHERE id IN(%s)", this.Kt.toString()));
         } catch (Exception e2) {
         }
-        if (this.Kv != null && this.Kv.length() > 0) {
+        if (this.Ky != null && this.Ky.length() > 0) {
             if (stringBuffer2.length() > 0) {
                 stringBuffer2.append(",");
             }
-            stringBuffer2.append(this.Kv);
+            stringBuffer2.append(this.Ky);
         }
         try {
             String format = String.format("INSERT OR IGNORE INTO AP VALUES %s;", stringBuffer2.toString());
             String format2 = String.format("UPDATE AP SET frequency=frequency+1 WHERE id in (%s);", stringBuffer.toString());
             if (stringBuffer2.length() > 0) {
-                this.Kp.execSQL(format);
+                this.Ks.execSQL(format);
             }
             if (stringBuffer.length() > 0) {
-                this.Kp.execSQL(format2);
+                this.Ks.execSQL(format2);
             }
         } catch (Exception e3) {
         }
@@ -1057,7 +1057,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String[] strArr) {
-        this.Kj.mO().a(strArr);
+        this.Km.mR().a(strArr);
     }
 
     private BDLocation c(Long l) {
@@ -1068,11 +1068,11 @@ public final class e {
         double d = 0.0d;
         double d2 = 0.0d;
         boolean z = false;
-        if (this.Kl == null || !this.Kl.equals(l)) {
+        if (this.Ko == null || !this.Ko.equals(l)) {
             Cursor cursor2 = null;
             try {
                 try {
-                    Cursor rawQuery = this.Ko.rawQuery(String.format(Locale.US, "SELECT * FROM CL WHERE id = %d AND timestamp + %d > %d;", l, 15552000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
+                    Cursor rawQuery = this.Kr.rawQuery(String.format(Locale.US, "SELECT * FROM CL WHERE id = %d AND timestamp + %d > %d;", l, 15552000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
                     if (rawQuery != null) {
                         try {
                             if (rawQuery.moveToFirst() && rawQuery.getDouble(rawQuery.getColumnIndex("cl")) > 0.0d) {
@@ -1089,9 +1089,9 @@ public final class e {
                                     i = 2000;
                                 }
                                 this.c = d;
-                                this.Kk = d2;
+                                this.Kn = d2;
                                 this.b = i;
-                                this.Kl = l;
+                                this.Ko = l;
                             }
                         } catch (Throwable th2) {
                             cursor = rawQuery;
@@ -1126,7 +1126,7 @@ public final class e {
         } else {
             z = true;
             d = this.c;
-            d2 = this.Kk;
+            d2 = this.Kn;
             i = this.b;
         }
         if (z) {
@@ -1158,19 +1158,19 @@ public final class e {
         int i2 = 0;
         if (aVar.c) {
             String str2 = aVar.b;
-            LinkedHashMap<String, Integer> linkedHashMap = aVar.KN;
+            LinkedHashMap<String, Integer> linkedHashMap = aVar.KQ;
             int i3 = aVar.f;
-            BDLocation bDLocation3 = aVar.KM;
+            BDLocation bDLocation3 = aVar.KP;
             BDLocation bDLocation4 = null;
             long j = Long.MIN_VALUE;
-            if (str2 != null && this.Ko != null && (j = Jni.encode3(str2)) != null) {
+            if (str2 != null && this.Kr != null && (j = Jni.encode3(str2)) != null) {
                 bDLocation4 = c(j);
             }
             BDLocation bDLocation5 = null;
-            if (linkedHashMap != null && linkedHashMap.size() > 0 && this.Ko != null) {
-                this.Kt.clear();
-                this.Ks.clear();
-                this.Ku.clear();
+            if (linkedHashMap != null && linkedHashMap.size() > 0 && this.Kr != null) {
+                this.Kw.clear();
+                this.Kv.clear();
+                this.Kx.clear();
                 bDLocation5 = a(linkedHashMap, bDLocation4, i3);
             }
             Double d2 = null;
@@ -1218,8 +1218,8 @@ public final class e {
                     d = null;
                     bDLocation = bDLocation2;
                 }
-                if (aVar.e && this.Kj.mO().l() && d5 != null && d != null) {
-                    bDLocation.setAddr(this.Kj.mN().a(d.doubleValue(), d5.doubleValue()));
+                if (aVar.e && this.Km.mR().l() && d5 != null && d != null) {
+                    bDLocation.setAddr(this.Km.mQ().a(d.doubleValue(), d5.doubleValue()));
                 }
                 if (z && aVar.e && bDLocation.getAddrStr() == null) {
                     d5 = null;
@@ -1230,7 +1230,7 @@ public final class e {
                 if ((aVar.d && !aVar.h) || d5 == null || d == null) {
                     list = null;
                 } else {
-                    List<Poi> b2 = this.Kj.mN().b(d.doubleValue(), d5.doubleValue());
+                    List<Poi> b2 = this.Km.mQ().b(d.doubleValue(), d5.doubleValue());
                     if (aVar.d) {
                         bDLocation.setPoiList(b2);
                     }
@@ -1275,7 +1275,7 @@ public final class e {
                     bDLocation = bDLocation2;
                 }
                 if (aVar.e) {
-                    bDLocation.setAddr(this.Kj.mN().a(d.doubleValue(), d5.doubleValue()));
+                    bDLocation.setAddr(this.Km.mQ().a(d.doubleValue(), d5.doubleValue()));
                 }
                 if (z) {
                     d5 = null;
@@ -1285,7 +1285,7 @@ public final class e {
                 }
                 if (aVar.d) {
                 }
-                List<Poi> b22 = this.Kj.mN().b(d.doubleValue(), d5.doubleValue());
+                List<Poi> b22 = this.Km.mQ().b(d.doubleValue(), d5.doubleValue());
                 if (aVar.d) {
                 }
                 list = b22;
@@ -1315,11 +1315,11 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SQLiteDatabase a() {
-        return this.Kp;
+        return this.Ks;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        this.Kn.b();
+        this.Kq.b();
     }
 }

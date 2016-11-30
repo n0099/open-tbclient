@@ -1,29 +1,32 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements View.OnClickListener {
-    final /* synthetic */ ab fzu;
+public class ar implements a.b {
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a arM;
+    private final /* synthetic */ int dcr;
+    final /* synthetic */ ae fGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ab abVar) {
-        this.fzu = abVar;
+    public ar(ae aeVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
+        this.fGW = aeVar;
+        this.arM = aVar;
+        this.dcr = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.fzu.fzj;
-        ChatMessageActivityConfig chatMessageActivityConfig = new ChatMessageActivityConfig(mainTabActivity.getPageContext().getPageActivity());
-        mainTabActivity2 = this.fzu.fzj;
-        mainTabActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, chatMessageActivityConfig));
-        TiebaStatic.log(new ax("c11667").s("obj_locate", 1));
+        this.arM.dismiss();
+        if (this.dcr == 0) {
+            mainTabActivity2 = this.fGW.fGL;
+            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
+        } else if (this.dcr == 1) {
+            mainTabActivity = this.fGW.fGL;
+            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
+        }
     }
 }

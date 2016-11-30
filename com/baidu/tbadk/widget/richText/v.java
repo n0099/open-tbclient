@@ -15,7 +15,7 @@ class v implements com.baidu.adp.lib.f.c<TextView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: IR */
+    /* renamed from: IU */
     public TextView ez() {
         return new TbListTextView(this.val$context);
     }

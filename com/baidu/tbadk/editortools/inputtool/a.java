@@ -10,8 +10,8 @@ import com.baidu.tbadk.editortools.y;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends aa {
-    private static final int[] avl = {4, 17, 24, 3, 9, 6, 44};
-    private InputView avm;
+    private static final int[] awf = {4, 17, 24, 3, 9, 6, 44};
+    private InputView awg;
 
     public a(Context context, boolean z) {
         super(context, (String) null, 3);
@@ -21,37 +21,37 @@ public class a extends aa {
     public a(Context context, boolean z, boolean z2) {
         super(context, (String) null, 3);
         init(context, z);
-        if (this.avm != null) {
-            this.avm.setNeedFaceMaxCount(z2);
+        if (this.awg != null) {
+            this.awg.setNeedFaceMaxCount(z2);
         }
     }
 
     private void init(Context context, boolean z) {
-        this.auE = false;
-        this.auD = 2;
-        this.auF = avl;
-        this.avm = new InputView(context, z);
-        this.atI = this.avm;
+        this.avy = false;
+        this.avx = 2;
+        this.avz = awf;
+        this.awg = new InputView(context, z);
+        this.auC = this.awg;
         y.a aVar = new y.a(0, -2);
         aVar.topMargin = context.getResources().getDimensionPixelSize(r.e.ds22);
         aVar.bottomMargin = context.getResources().getDimensionPixelSize(r.e.ds20);
         aVar.leftMargin = context.getResources().getDimensionPixelSize(r.e.ds10);
         aVar.rightMargin = context.getResources().getDimensionPixelSize(r.e.ds10);
         aVar.weight = 1.0f;
-        ((View) this.atI).setLayoutParams(aVar);
+        ((View) this.auC).setLayoutParams(aVar);
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        ((InputView) this.atI).setIsOnlyLocalEmotion(z);
+        ((InputView) this.auC).setIsOnlyLocalEmotion(z);
     }
 
     public void b(TextWatcher textWatcher) {
-        ((InputView) this.atI).setOutTextWather(textWatcher);
+        ((InputView) this.auC).setOutTextWather(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.atI != null && !StringUtils.isNull(str)) {
-            ((EditText) this.atI).setHint(str);
+        if (this.auC != null && !StringUtils.isNull(str)) {
+            ((EditText) this.auC).setHint(str);
         }
     }
 }

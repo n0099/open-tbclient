@@ -24,113 +24,113 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class ScrollFragmentTabHost extends FrameLayout {
-    private CustomViewPager YQ;
-    private final com.baidu.tbadk.widget.layout.i aGJ;
-    private BdUniqueId aYW;
-    private PluginErrorTipView bGJ;
-    private View bJw;
-    private NoNetworkView.a bKL;
-    private NoNetworkView bdz;
-    private o cCX;
-    private a cCY;
-    private List<TagInfo> cCZ;
-    private FrameLayout cDa;
-    private r cDb;
-    public boolean cDc;
-    private com.baidu.tieba.homepage.framework.b.e cDd;
-    private CustomMessageListener cDe;
-    private View.OnClickListener cDf;
-    private r.a cDg;
-    private y cDh;
-    private com.baidu.tieba.homepage.framework.y cDi;
-    private com.baidu.tieba.homepage.framework.x cDj;
+    private CustomViewPager Zo;
+    private final com.baidu.tbadk.widget.layout.i aHz;
+    private PluginErrorTipView bJD;
+    private View bMp;
+    private NoNetworkView.a bNE;
+    private BdUniqueId bcf;
+    private NoNetworkView bgz;
+    private o cIk;
+    private a cIl;
+    private List<TagInfo> cIm;
+    private FrameLayout cIn;
+    private r cIo;
+    public boolean cIp;
+    private com.baidu.tieba.homepage.framework.b.e cIq;
+    private CustomMessageListener cIr;
+    private View.OnClickListener cIs;
+    private r.a cIt;
+    private y cIu;
+    private com.baidu.tieba.homepage.framework.y cIv;
+    private com.baidu.tieba.homepage.framework.x cIw;
     private Context mContext;
     private int topHeight;
 
     public ViewGroup getContentContainer() {
-        return this.cDa;
+        return this.cIn;
     }
 
-    public boolean ama() {
-        return this.cDb != null && this.cDb.isShowing();
+    public boolean anV() {
+        return this.cIo != null && this.cIo.isShowing();
     }
 
     public ScrollFragmentTabHost(Context context) {
         super(context);
-        this.cDc = true;
-        this.bJw = null;
-        this.cDe = new h(this, CmdConfigCustom.CMD_RECOMMEND_FRS_GOD_FEED_TAB_TIP_SHOW);
-        this.cDf = new i(this);
-        this.bKL = new j(this);
-        this.cDg = new k(this);
-        this.aGJ = new l(this);
-        this.cDh = new y();
-        this.cDi = new m(this);
-        this.cDj = new n(this);
+        this.cIp = true;
+        this.bMp = null;
+        this.cIr = new h(this, CmdConfigCustom.CMD_RECOMMEND_FRS_GOD_FEED_TAB_TIP_SHOW);
+        this.cIs = new i(this);
+        this.bNE = new j(this);
+        this.cIt = new k(this);
+        this.aHz = new l(this);
+        this.cIu = new y();
+        this.cIv = new m(this);
+        this.cIw = new n(this);
         init(context);
     }
 
     public ScrollFragmentTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cDc = true;
-        this.bJw = null;
-        this.cDe = new h(this, CmdConfigCustom.CMD_RECOMMEND_FRS_GOD_FEED_TAB_TIP_SHOW);
-        this.cDf = new i(this);
-        this.bKL = new j(this);
-        this.cDg = new k(this);
-        this.aGJ = new l(this);
-        this.cDh = new y();
-        this.cDi = new m(this);
-        this.cDj = new n(this);
+        this.cIp = true;
+        this.bMp = null;
+        this.cIr = new h(this, CmdConfigCustom.CMD_RECOMMEND_FRS_GOD_FEED_TAB_TIP_SHOW);
+        this.cIs = new i(this);
+        this.bNE = new j(this);
+        this.cIt = new k(this);
+        this.aHz = new l(this);
+        this.cIu = new y();
+        this.cIv = new m(this);
+        this.cIw = new n(this);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(r.h.scroll_fragment_tabhost, (ViewGroup) this, true);
-        this.cDa = (FrameLayout) findViewById(r.g.tab_widget_content_container);
-        this.bdz = (NoNetworkView) findViewById(r.g.view_no_network);
-        this.bdz.a(this.bKL);
-        this.cCX = new o(context, findViewById(r.g.tab_container));
-        this.cCX.n(this.cDf);
+        this.cIn = (FrameLayout) findViewById(r.g.tab_widget_content_container);
+        this.bgz = (NoNetworkView) findViewById(r.g.view_no_network);
+        this.bgz.a(this.bNE);
+        this.cIk = new o(context, findViewById(r.g.tab_container));
+        this.cIk.p(this.cIs);
         ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) findViewById(r.g.fragment_tab_layout);
-        observedChangeLinearLayout.setOnSizeChangeListener(this.aGJ);
-        this.bJw = findViewById(r.g.statebar_view);
-        this.cDd = new com.baidu.tieba.homepage.framework.b.e(context, this, observedChangeLinearLayout, this.bJw);
-        this.bGJ = (PluginErrorTipView) observedChangeLinearLayout.findViewById(r.g.view_plugin_error_tip);
+        observedChangeLinearLayout.setOnSizeChangeListener(this.aHz);
+        this.bMp = findViewById(r.g.statebar_view);
+        this.cIq = new com.baidu.tieba.homepage.framework.b.e(context, this, observedChangeLinearLayout, this.bMp);
+        this.bJD = (PluginErrorTipView) observedChangeLinearLayout.findViewById(r.g.view_plugin_error_tip);
     }
 
     public void switchNaviBarStatus(boolean z) {
-        if (this.cDd != null) {
-            this.cDd.switchNaviBarStatus(z);
+        if (this.cIq != null) {
+            this.cIq.switchNaviBarStatus(z);
         }
     }
 
-    public void wq() {
-        if (this.cDb == null) {
-            this.cDb = new r(this.cDa);
-            this.cDb.a(this.cDg);
+    public void wu() {
+        if (this.cIo == null) {
+            this.cIo = new r(this.cIn);
+            this.cIo.a(this.cIt);
         }
-        this.cDb.ka(this.topHeight);
-        if (!this.cDb.isShowing()) {
-            this.cDb.a(this.mContext, this.cCZ, this.YQ.getCurrentItem());
-            if (this.cCX != null) {
-                this.cCX.ami();
+        this.cIo.kh(this.topHeight);
+        if (!this.cIo.isShowing()) {
+            this.cIo.a(this.mContext, this.cIm, this.Zo.getCurrentItem());
+            if (this.cIk != null) {
+                this.cIk.aod();
             }
         }
     }
 
-    public void amb() {
-        if (this.cDb != null) {
-            this.cDb.aI(this.mContext);
+    public void anW() {
+        if (this.cIo != null) {
+            this.cIo.aU(this.mContext);
         }
     }
 
-    public boolean amc() {
-        return com.baidu.tbadk.core.util.y.s(this.cCZ) <= 0;
+    public boolean anX() {
+        return com.baidu.tbadk.core.util.x.s(this.cIm) <= 0;
     }
 
-    public void bq(List<TagInfo> list) {
+    public void bs(List<TagInfo> list) {
         if (list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (TagInfo tagInfo : list) {
@@ -138,137 +138,137 @@ public class ScrollFragmentTabHost extends FrameLayout {
                     arrayList.add(new com.baidu.tieba.homepage.recommendfrs.data.a(tagInfo));
                 }
             }
-            com.baidu.tieba.homepage.framework.a.a.aml().bt(list);
-            this.cCZ = list;
-            if (this.cCY != null) {
-                this.cCY.aF(arrayList);
-                if (this.cCX != null) {
-                    this.cCX.setViewPager(this.YQ);
+            com.baidu.tieba.homepage.framework.a.a.aog().bv(list);
+            this.cIm = list;
+            if (this.cIl != null) {
+                this.cIl.aH(arrayList);
+                if (this.cIk != null) {
+                    this.cIk.setViewPager(this.Zo);
                 }
-                this.cDh.a(this.cDi);
+                this.cIu.a(this.cIv);
             }
         }
     }
 
     public void c(long j, DataRes dataRes, boolean z) {
-        if (this.cCY != null) {
-            this.cCY.c(j, dataRes, z);
+        if (this.cIl != null) {
+            this.cIl.c(j, dataRes, z);
         }
     }
 
-    public void alT() {
-        if (this.cCY != null) {
-            this.cCY.alT();
+    public void anO() {
+        if (this.cIl != null) {
+            this.cIl.anO();
         }
     }
 
     public void b(boolean z, long j, com.baidu.tieba.homepage.recommendfrs.data.c cVar, boolean z2) {
-        if (this.cCY != null) {
-            this.cCY.a(z, j, cVar, z2);
+        if (this.cIl != null) {
+            this.cIl.a(z, j, cVar, z2);
         }
     }
 
     public void a(long j, String str, int i) {
-        if (this.YQ != null) {
-            this.cCY.a(j, str, i);
+        if (this.Zo != null) {
+            this.cIl.a(j, str, i);
         }
     }
 
     public void a(com.baidu.tieba.homepage.framework.b bVar, com.baidu.tieba.homepage.framework.c cVar) {
-        this.YQ = (CustomViewPager) findViewById(r.g.tab_widget_view_pager);
-        this.cCY = new a(this.mContext, bVar, cVar, this.aYW);
-        this.cCY.setScrollFragmentTabHost(this);
-        this.YQ.setAdapter(this.cCY);
-        if (this.cDd != null) {
-            this.cCY.setRecommendFrsNavigationAnimDispatcher(this.cDd);
+        this.Zo = (CustomViewPager) findViewById(r.g.tab_widget_view_pager);
+        this.cIl = new a(this.mContext, bVar, cVar, this.bcf);
+        this.cIl.setScrollFragmentTabHost(this);
+        this.Zo.setAdapter(this.cIl);
+        if (this.cIq != null) {
+            this.cIl.setRecommendFrsNavigationAnimDispatcher(this.cIq);
         }
     }
 
-    public boolean amd() {
-        return this.cCY != null && this.cCY.getCount() > 0;
+    public boolean anY() {
+        return this.cIl != null && this.cIl.getCount() > 0;
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.cCY.getCount()) {
-            this.YQ.setCurrentItem(i, false);
+        if (i >= 0 && i < this.cIl.getCount()) {
+            this.Zo.setCurrentItem(i, false);
         }
     }
 
-    public int bC(long j) {
-        if (this.cCY == null) {
+    public int bB(long j) {
+        if (this.cIl == null) {
             return -1;
         }
-        return this.cCY.bB(j);
+        return this.cIl.bA(j);
     }
 
     public int getCurrentItem() {
-        return this.YQ.getCurrentItem();
+        return this.Zo.getCurrentItem();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.cCX != null) {
-            this.cCX.onChangeSkinType(i);
+        if (this.cIk != null) {
+            this.cIk.onChangeSkinType(i);
         }
-        if (this.cCY != null) {
-            this.cCY.dl(i);
+        if (this.cIl != null) {
+            this.cIl.dm(i);
         }
-        if (this.cDb != null) {
-            this.cDb.dl(i);
+        if (this.cIo != null) {
+            this.cIo.dm(i);
         }
         com.baidu.adp.base.h<?> C = com.baidu.adp.base.l.C(getContext());
-        if (this.bdz != null) {
-            this.bdz.onChangeSkinType(C, i);
+        if (this.bgz != null) {
+            this.bgz.onChangeSkinType(C, i);
         }
-        if (this.cDd != null) {
-            this.cDd.onChangeSkinType(i);
+        if (this.cIq != null) {
+            this.cIq.onChangeSkinType(i);
         }
-        if (this.bGJ != null) {
-            this.bGJ.onChangeSkinType(C, i);
+        if (this.bJD != null) {
+            this.bJD.onChangeSkinType(C, i);
         }
-        UtilHelper.setStatusBarBackground(this.bJw, i);
+        UtilHelper.setStatusBarBackground(this.bMp, i);
     }
 
     public void setItemForeGround(int i) {
-        this.cCY.setItemForeGround(i);
-        if (this.bdz != null) {
+        this.cIl.setItemForeGround(i);
+        if (this.bgz != null) {
             if (com.baidu.adp.lib.util.i.fZ()) {
-                this.bdz.setVisibility(8);
+                this.bgz.setVisibility(8);
             } else {
-                this.bdz.setVisibility(0);
+                this.bgz.setVisibility(0);
             }
         }
     }
 
     public void onDestroy() {
-        if (this.cDd != null) {
-            this.cDd.onDestroy();
+        if (this.cIq != null) {
+            this.cIq.onDestroy();
         }
-        this.cCY.onDestroy();
-        if (this.bJw != null) {
-            this.bJw.setBackgroundDrawable(null);
+        this.cIl.onDestroy();
+        if (this.bMp != null) {
+            this.bMp.setBackgroundDrawable(null);
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aYW = bdUniqueId;
-        this.cDe.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cDe);
-        if (this.cDd != null) {
-            this.cDd.setPageUniqueId(bdUniqueId);
+        this.bcf = bdUniqueId;
+        this.cIr.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cIr);
+        if (this.cIq != null) {
+            this.cIq.setPageUniqueId(bdUniqueId);
         }
     }
 
-    public void ame() {
-        if (this.cCY != null) {
-            this.cCY.eT(false);
+    public void anZ() {
+        if (this.cIl != null) {
+            this.cIl.fi(false);
         }
     }
 
-    public int bD(long j) {
-        if (this.cCZ == null || this.cCZ.size() == 0) {
+    public int bC(long j) {
+        if (this.cIm == null || this.cIm.size() == 0) {
             return 0;
         }
-        for (TagInfo tagInfo : this.cCZ) {
+        for (TagInfo tagInfo : this.cIm) {
             if (tagInfo != null && tagInfo.tag_code.longValue() == j) {
                 return tagInfo.tag_type.intValue();
             }
@@ -276,11 +276,11 @@ public class ScrollFragmentTabHost extends FrameLayout {
         return 0;
     }
 
-    public long bE(long j) {
-        if (this.cCZ == null || this.cCZ.size() == 0) {
+    public long bD(long j) {
+        if (this.cIm == null || this.cIm.size() == 0) {
             return 0L;
         }
-        for (TagInfo tagInfo : this.cCZ) {
+        for (TagInfo tagInfo : this.cIm) {
             if (tagInfo != null && tagInfo.tag_code.longValue() == j) {
                 return tagInfo.lego_page_id.longValue();
             }
@@ -288,11 +288,11 @@ public class ScrollFragmentTabHost extends FrameLayout {
         return 0L;
     }
 
-    public String bF(long j) {
-        if (this.cCZ == null || this.cCZ.size() == 0) {
+    public String bE(long j) {
+        if (this.cIm == null || this.cIm.size() == 0) {
             return "";
         }
-        for (TagInfo tagInfo : this.cCZ) {
+        for (TagInfo tagInfo : this.cIm) {
             if (tagInfo != null && tagInfo.tag_code.longValue() == j) {
                 return tagInfo.lego_qs;
             }
@@ -301,13 +301,13 @@ public class ScrollFragmentTabHost extends FrameLayout {
     }
 
     public long i(long j, String str) {
-        if (this.cCZ == null || this.cCZ.size() == 0) {
+        if (this.cIm == null || this.cIm.size() == 0) {
             return 0L;
         }
-        for (TagInfo tagInfo : this.cCZ) {
+        for (TagInfo tagInfo : this.cIm) {
             if (tagInfo != null) {
-                String rb = com.baidu.tieba.tbadkCore.v.rb(tagInfo.lego_qs);
-                if (tagInfo.lego_page_id.longValue() == j && rb.equals(str)) {
+                String rv = com.baidu.tieba.tbadkCore.v.rv(tagInfo.lego_qs);
+                if (tagInfo.lego_page_id.longValue() == j && rv.equals(str)) {
                     return tagInfo.tag_code.longValue();
                 }
             }
@@ -315,35 +315,35 @@ public class ScrollFragmentTabHost extends FrameLayout {
         return 0L;
     }
 
-    public void eS(boolean z) {
-        this.cCY.eS(z);
+    public void fh(boolean z) {
+        this.cIl.fh(z);
     }
 
-    public void alY() {
-        this.cCY.alY();
+    public void anT() {
+        this.cIl.anT();
     }
 
     public List<String> getNextPageSourceKeyList() {
-        if (this.cCY != null) {
-            return this.cCY.getNextPageSourceKeyList();
+        if (this.cIl != null) {
+            return this.cIl.getNextPageSourceKeyList();
         }
         return null;
     }
 
     public String getCurrentPageKey() {
-        if (this.cCY != null) {
-            return this.cCY.getCurrentPageKey();
+        if (this.cIl != null) {
+            return this.cIl.getCurrentPageKey();
         }
         return null;
     }
 
-    public boolean br(List<TagInfo> list) {
-        if (com.baidu.tbadk.core.util.y.t(list) || com.baidu.tbadk.core.util.y.t(this.cCZ) || com.baidu.tbadk.core.util.y.s(list) != com.baidu.tbadk.core.util.y.s(this.cCZ)) {
+    public boolean bt(List<TagInfo> list) {
+        if (com.baidu.tbadk.core.util.x.t(list) || com.baidu.tbadk.core.util.x.t(this.cIm) || com.baidu.tbadk.core.util.x.s(list) != com.baidu.tbadk.core.util.x.s(this.cIm)) {
             return false;
         }
-        for (int i = 0; i < com.baidu.tbadk.core.util.y.s(list); i++) {
-            TagInfo tagInfo = (TagInfo) com.baidu.tbadk.core.util.y.c(this.cCZ, i);
-            TagInfo tagInfo2 = (TagInfo) com.baidu.tbadk.core.util.y.c(list, i);
+        for (int i = 0; i < com.baidu.tbadk.core.util.x.s(list); i++) {
+            TagInfo tagInfo = (TagInfo) com.baidu.tbadk.core.util.x.c(this.cIm, i);
+            TagInfo tagInfo2 = (TagInfo) com.baidu.tbadk.core.util.x.c(list, i);
             if (tagInfo != null && tagInfo2 != null) {
                 if (tagInfo.tag_code == null || tagInfo2.tag_code == null) {
                     return true;
@@ -357,23 +357,23 @@ public class ScrollFragmentTabHost extends FrameLayout {
     }
 
     public void onPause() {
-        if (this.cCY != null) {
-            this.cCY.ku();
-            this.cCY.onPause();
+        if (this.cIl != null) {
+            this.cIl.ku();
+            this.cIl.onPause();
         }
     }
 
     public void onResume() {
-        if (this.cCY != null) {
-            this.cCY.onResume();
+        if (this.cIl != null) {
+            this.cIl.onResume();
         }
     }
 
-    public void amf() {
-        this.cCY.a(this.cDj);
+    public void aoa() {
+        this.cIl.a(this.cIw);
     }
 
-    public void amg() {
-        this.cDh.b(this.cDi);
+    public void aob() {
+        this.cIu.b(this.cIv);
     }
 }

@@ -14,6 +14,8 @@ public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
     public static final int ABSTRACT_OPEN = 1;
+    public static final String ACROSS_AWARD = "c/f/recommend/acrossaward";
+    public static final String ACROSS_FORUM = "c/f/recommend/acrossforum";
     public static final String ADD_FAN_ADDRESS = "c/c/user/fansno";
     public static final int ADD_IAMGE_WATER_NONE = 0;
     public static final int ADD_IMAGE_WATER_FORUM_NAME = 2;
@@ -54,6 +56,7 @@ public class TbConfig {
     public static final String CMD_GET_BOOK_ONLINE_CONTENT = "c/e/tbread/getBookContent";
     public static final String CMD_GET_BOOK_SUMMARY = "c/e/tbread/getBookSummary";
     public static final String CMD_GET_CATEGORY_CARTOON = "c/e/cartoon/getCartoonCategoryList";
+    public static final String CMD_SCREEN_LOCK_MESSAGE_MORE = "c/f/msg/getMoreMsg";
     public static final String COMMIT_GOOD_ADDRESS = "c/c/bawu/commitgood";
     public static final String COMMIT_TOP_ADDRESS = "c/c/bawu/committop";
     public static final String COMMON_PRAISE_URL = "c/c/zan/like";
@@ -113,6 +116,7 @@ public class TbConfig {
     public static final String FEED_BACK_WEB_VIEW_URL = "http://tieba.baidu.com/mo/q/feedback";
     public static final String FINE_PB_PAGE = "c/f/excellent/excpbpage";
     public static final String FINE_PB_PRAISE = "c/f/excellent/exczan";
+    public static final String FINISH_MEMBER_TASK = "c/c/encourage/point/finishmembertask";
     public static final String FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS = "c/c/voice/voice_fin_chunk_upload";
     public static final String FOLLOW_ADDRESS = "c/c/user/follow";
     public static final int FONT_SIZE_BIG = 1;
@@ -168,6 +172,7 @@ public class TbConfig {
     public static final String GET_MANGA_COVER = "c/e/cartoon/getBookCover";
     public static final String GET_MANGA_STORE_INFO = "c/e/cartoon/getBookStore";
     public static final String GET_MEMBER_INFO = "c/f/forum/getMemberInfo";
+    public static final String GET_MEMBER_TASK = "c/e/point/getmembertasklist";
     public static final String GET_MY_GAMELIST = "c/u/game/getmygamelist";
     public static final String GET_MY_POST = "c/f/frs/getmypost";
     public static final String GET_MY_SHELF = "c/e/cartoon/getMyShelf";
@@ -401,6 +406,7 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
+    public static final String URL_CHECK_VIDEO_STATUS = "c/c/video/uploadVideoStatus";
     public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
@@ -417,6 +423,7 @@ public class TbConfig {
     public static final String URL_MANGA_REPORT_TYPE = "c/e/cartoon/getReportType";
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
+    public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
     public static final String USER_MUTE_DEL = "c/c/user/userMuteDel";
@@ -441,6 +448,7 @@ public class TbConfig {
     public static final String VOICE_DATA = "c/p/voice";
     public static final String VOTE_GRAFFITI = "c/c/graffiti/vote";
     public static final int WEBP_FAILURE_MAX = 5;
+    public static final String WEB_URL_FANS = "http://tieba.baidu.com/n/fans-party/prizeshow?nonavigationbar=1&from=native";
     public static final String WEB_URL_TDOU_UEG = "http://tieba.baidu.com/mo/q/nativePayUeg?errorno=";
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
     public static final String WEIXIN_APP_ID = "wxdd0912f3a78239c8";
@@ -455,6 +463,7 @@ public class TbConfig {
     public static boolean USE_OLD_LOGIN = false;
     public static String LOGIN_FULL_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/s/login";
     public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
+    public static int ALPHA_80 = 80;
     private static int PB_LIST_ITEM_MAX_NUM = 300;
     private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
     public static boolean KUANG_TEST_MODE = false;

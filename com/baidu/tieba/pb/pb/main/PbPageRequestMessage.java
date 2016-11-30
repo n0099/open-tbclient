@@ -386,7 +386,8 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.st_task = Long.valueOf(this.opMessageID);
             }
             builder.obj_param1 = this.objParam1;
-            com.baidu.tbadk.util.o.a(builder, true, false, true);
+            builder.app_pos = com.baidu.tieba.recapp.c.a.beA().beD();
+            com.baidu.tbadk.util.n.a(builder, true, false, true);
             PbPageReqIdl.Builder builder2 = new PbPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

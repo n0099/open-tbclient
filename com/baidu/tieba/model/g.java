@@ -32,9 +32,6 @@ public class g {
                             if (TextUtils.equals("uninstall_feed_back_switch", optString)) {
                                 com.baidu.adp.lib.c.e.dN().d(optString, valueOf.intValue());
                             }
-                            if (TextUtils.equals("android_voice_secret", optString)) {
-                                com.baidu.adp.lib.c.e.dN().d(optString, valueOf.intValue());
-                            }
                             if (TextUtils.equals("switch_low_version_login_passv6", optString)) {
                                 com.baidu.adp.lib.c.e.dN().d(optString, valueOf.intValue());
                                 com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();

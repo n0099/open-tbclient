@@ -7,38 +7,35 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-    final /* synthetic */ WriteActivity ghD;
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.ghD = writeActivity;
+        this.gpp = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TextView textView;
-        View view2;
         com.baidu.tieba.write.b bVar;
         com.baidu.tbadk.editortools.l lVar;
         InputMethodManager inputMethodManager;
-        EditText editText;
+        EditText bwy;
         InputMethodManager inputMethodManager2;
-        EditText editText2;
-        textView = this.ghD.flJ;
-        textView.setVisibility(0);
-        view2 = this.ghD.flM;
-        view2.setSelected(true);
-        bVar = this.ghD.flK;
-        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.ghD.getPageContext().getPageActivity(), 1.0f));
-        lVar = this.ghD.atO;
-        lVar.AV();
-        WriteActivity writeActivity = this.ghD;
-        inputMethodManager = this.ghD.mInputManager;
-        editText = this.ghD.flD;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.ghD;
-        inputMethodManager2 = this.ghD.mInputManager;
-        editText2 = this.ghD.flH;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        EditText bwx;
+        textView = this.gpp.fsS;
+        textView.setSelected(true);
+        bVar = this.gpp.fsT;
+        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.gpp.getPageContext().getPageActivity(), 1.0f));
+        lVar = this.gpp.auI;
+        lVar.Bc();
+        WriteActivity writeActivity = this.gpp;
+        inputMethodManager = this.gpp.mInputManager;
+        bwy = this.gpp.bwy();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, bwy);
+        WriteActivity writeActivity2 = this.gpp;
+        inputMethodManager2 = this.gpp.mInputManager;
+        bwx = this.gpp.bwx();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, bwx);
     }
 }

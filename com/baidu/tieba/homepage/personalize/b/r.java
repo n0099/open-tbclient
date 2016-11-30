@@ -3,21 +3,21 @@ package com.baidu.tieba.homepage.personalize.b;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.cb;
-import com.baidu.tieba.card.cd;
-import com.baidu.tieba.homepage.personalize.ak;
+import com.baidu.tieba.card.bx;
+import com.baidu.tieba.card.bz;
+import com.baidu.tieba.homepage.personalize.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends cd<com.baidu.tieba.card.data.o> {
-    final /* synthetic */ q cGH;
+public class r extends bz<com.baidu.tieba.card.data.o> {
+    final /* synthetic */ q cLS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.cGH = qVar;
+        this.cLS = qVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cd
+    @Override // com.baidu.tieba.card.bz
     public void a(View view, com.baidu.tieba.card.data.o oVar) {
         com.baidu.tieba.homepage.personalize.c.f fVar;
         com.baidu.tieba.card.r rVar;
@@ -34,67 +34,67 @@ public class r extends cd<com.baidu.tieba.card.data.o> {
         com.baidu.tieba.card.r rVar12;
         com.baidu.tieba.card.r rVar13;
         com.baidu.tieba.homepage.personalize.c.f fVar2;
-        cb.Oj().cr(true);
-        fVar = this.cGH.cGy;
-        if (fVar != null && oVar != null && oVar.Jv() != null && !StringUtils.isNull(oVar.Jv().getTid())) {
-            rVar = this.cGH.cGG;
+        bx.Pl().cw(true);
+        fVar = this.cLS.cLJ;
+        if (fVar != null && oVar != null && oVar.Jz() != null && !StringUtils.isNull(oVar.Jz().getTid())) {
+            rVar = this.cLS.cLR;
             if (rVar != null) {
-                rVar2 = this.cGH.cGG;
+                rVar2 = this.cLS.cLR;
                 if (rVar2.getView() != null) {
-                    if ((view.getTag() instanceof String) && !ak.bI(com.baidu.adp.lib.h.b.c(oVar.Jv().getTid(), 0L))) {
-                        ak.bH(com.baidu.adp.lib.h.b.c(oVar.Jv().getTid(), 0L));
-                        fVar2 = this.cGH.cGy;
-                        fVar2.a(com.baidu.adp.lib.h.b.c(oVar.Jv().getTid(), 0L), oVar.getWeight(), oVar.getSource(), oVar.Ok(), oVar.Om(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
+                    if ((view.getTag() instanceof String) && !ai.bH(com.baidu.adp.lib.h.b.c(oVar.Jz().getTid(), 0L))) {
+                        ai.bG(com.baidu.adp.lib.h.b.c(oVar.Jz().getTid(), 0L));
+                        fVar2 = this.cLS.cLJ;
+                        fVar2.a(com.baidu.adp.lib.h.b.c(oVar.Jz().getTid(), 0L), oVar.getWeight(), oVar.getSource(), oVar.Pn(), oVar.Pp(), com.baidu.adp.lib.h.b.g((String) view.getTag(), 1));
                     }
                     int id = view.getId();
-                    rVar3 = this.cGH.cGG;
+                    rVar3 = this.cLS.cLR;
                     if (id != rVar3.getView().getId()) {
-                        rVar4 = this.cGH.cGG;
-                        if (rVar4.aZx != null) {
-                            rVar12 = this.cGH.cGG;
-                            if (rVar12.aZx.getBarNameTv() != null) {
+                        rVar4 = this.cLS.cLR;
+                        if (rVar4.bcG != null) {
+                            rVar12 = this.cLS.cLR;
+                            if (rVar12.bcG.getBarNameTv() != null) {
                                 int id2 = view.getId();
-                                rVar13 = this.cGH.cGG;
-                                if (id2 == rVar13.aZx.getBarNameTv().getId()) {
-                                    TiebaStatic.log(oVar.OC());
+                                rVar13 = this.cLS.cLR;
+                                if (id2 == rVar13.bcG.getBarNameTv().getId()) {
+                                    TiebaStatic.log(oVar.PF());
                                     return;
                                 }
                             }
                         }
-                        rVar5 = this.cGH.cGG;
-                        if (rVar5.aZw != null) {
+                        rVar5 = this.cLS.cLR;
+                        if (rVar5.bcF != null) {
                             int id3 = view.getId();
-                            rVar11 = this.cGH.cGG;
-                            if (id3 == rVar11.aZw.getId()) {
-                                TiebaStatic.log(oVar.OD());
+                            rVar11 = this.cLS.cLR;
+                            if (id3 == rVar11.bcF.getId()) {
+                                TiebaStatic.log(oVar.PG());
                                 return;
                             }
                         }
-                        rVar6 = this.cGH.cGG;
-                        if (rVar6.aZz != null) {
-                            rVar9 = this.cGH.cGG;
-                            if (rVar9.aZz.ahv != null) {
+                        rVar6 = this.cLS.cLR;
+                        if (rVar6.bcJ != null) {
+                            rVar9 = this.cLS.cLR;
+                            if (rVar9.bcJ.ahV != null) {
                                 int id4 = view.getId();
-                                rVar10 = this.cGH.cGG;
-                                if (id4 == rVar10.aZz.ahv.getId()) {
-                                    TiebaStatic.log(oVar.OD());
+                                rVar10 = this.cLS.cLR;
+                                if (id4 == rVar10.bcJ.ahV.getId()) {
+                                    TiebaStatic.log(oVar.PG());
                                     return;
                                 }
                             }
                         }
-                        rVar7 = this.cGH.cGG;
-                        if (rVar7.aZy != null) {
+                        rVar7 = this.cLS.cLR;
+                        if (rVar7.bcI != null) {
                             int id5 = view.getId();
-                            rVar8 = this.cGH.cGG;
-                            if (id5 == rVar8.aZy.getId()) {
-                                TiebaStatic.log(oVar.OL());
+                            rVar8 = this.cLS.cLR;
+                            if (id5 == rVar8.bcI.getId()) {
+                                TiebaStatic.log(oVar.PO());
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    TiebaStatic.log(oVar.OB());
+                    TiebaStatic.log(oVar.PE());
                 }
             }
         }

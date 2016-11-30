@@ -7,28 +7,28 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class t extends BaseAdapter {
-    private com.baidu.tieba.homepage.personalize.data.h cGK;
+    private com.baidu.tieba.homepage.personalize.data.h cLV;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cGK == null || this.cGK.cHB == null) {
+        if (this.cLV == null || this.cLV.cMO == null) {
             return 0;
         }
-        return this.cGK.cHB.size();
+        return this.cLV.cMO.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kj */
+    /* renamed from: kq */
     public com.baidu.tieba.homepage.personalize.data.i getItem(int i) {
-        if (this.cGK == null || this.cGK.cHB == null) {
+        if (this.cLV == null || this.cLV.cMO == null) {
             return null;
         }
-        return this.cGK.cHB.get(i);
+        return this.cLV.cMO.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,24 +53,24 @@ public class t extends BaseAdapter {
         }
         com.baidu.tieba.homepage.personalize.data.i item = getItem(i);
         if (item != null) {
-            textView.setText(item.PC);
-            if (item.cHD) {
-                av.j((View) textView, r.d.cp_cont_g);
-                av.k(textView, r.f.shape_semi_circle_all_selected);
+            textView.setText(item.PW);
+            if (item.cMQ) {
+                at.j((View) textView, r.d.cp_cont_g);
+                at.k(textView, r.f.shape_semi_circle_all_selected);
             } else {
-                av.j((View) textView, r.d.cp_cont_f);
-                av.k(textView, r.f.shape_semi_circle_all_line);
+                at.j((View) textView, r.d.cp_cont_f);
+                at.k(textView, r.f.shape_semi_circle_all_line);
             }
         }
         return textView;
     }
 
     public void a(com.baidu.tieba.homepage.personalize.data.h hVar) {
-        this.cGK = hVar;
+        this.cLV = hVar;
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.homepage.personalize.data.h amT() {
-        return this.cGK;
+    public com.baidu.tieba.homepage.personalize.data.h aoN() {
+        return this.cLV;
     }
 }

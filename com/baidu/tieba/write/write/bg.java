@@ -1,31 +1,38 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.EditText;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
-class bg implements View.OnClickListener {
-    final /* synthetic */ WriteActivity ghD;
+class bg extends CustomMessageListener {
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(WriteActivity writeActivity) {
-        this.ghD = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg(WriteActivity writeActivity, int i) {
+        super(i);
+        this.gpp = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.editortools.l lVar;
-        int btN;
-        EditText editText;
-        EditText editText2;
-        lVar = this.ghD.atO;
-        lVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-        btN = this.ghD.btN();
-        if (btN >= 0) {
-            editText = this.ghD.flH;
-            if (btN < editText.getText().length()) {
-                editText2 = this.ghD.flH;
-                editText2.setSelection(btN);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.tbadkCore.location.d dVar;
+        com.baidu.tieba.tbadkCore.location.d dVar2;
+        com.baidu.tieba.tbadkCore.location.d dVar3;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                dVar2 = this.gpp.awB;
+                dVar2.ln(false);
+                dVar3 = this.gpp.awB;
+                dVar3.bX(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.gpp.b(2, true, responsedSelectLocation.getName());
+                return;
             }
+            dVar = this.gpp.awB;
+            dVar.ln(true);
+            this.gpp.b(0, true, null);
         }
     }
 }

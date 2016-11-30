@@ -7,17 +7,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j implements h {
-    private List<?> kU;
+    private List<?> kV;
 
     public j(List<?> list) {
-        this.kU = list;
+        this.kV = list;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
         Type[] dc = cVar.dc();
         JSONArray jSONArray = new JSONArray();
-        for (Object obj : this.kU) {
+        for (Object obj : this.kV) {
             if (obj != null) {
                 if (dc != null && dc.length >= 1) {
                     Object a = com.baidu.adp.lib.a.b.a.e.f.l(obj).a(new com.baidu.adp.lib.a.b.a.e.c(dc[0]));
@@ -39,7 +39,7 @@ public class j implements h {
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
         Type[] dc = cVar.dc();
         ArrayList arrayList = new ArrayList();
-        for (Object obj : this.kU) {
+        for (Object obj : this.kV) {
             if (obj != null) {
                 if (dc != null && dc.length >= 1) {
                     Object a = com.baidu.adp.lib.a.b.a.e.f.l(obj).a(new com.baidu.adp.lib.a.b.a.e.c(dc[0]));
@@ -64,7 +64,7 @@ public class j implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.kU;
+        return this.kV;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -84,6 +84,6 @@ public class j implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.kU;
+        return this.kV;
     }
 }

@@ -16,19 +16,19 @@ public class l {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern fvb = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern fCn = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String fuZ = null;
-    private SpannableStringBuilder fva = null;
-    private boolean fuY = false;
+    private String fCl = null;
+    private SpannableStringBuilder fCm = null;
+    private boolean fCk = false;
 
-    public static boolean br(int i, int i2) {
+    public static boolean bw(int i, int i2) {
         return i == 0 && i2 != 3;
     }
 
-    public static boolean bs(int i, int i2) {
+    public static boolean bx(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -44,23 +44,23 @@ public class l {
         return this.text;
     }
 
-    public String bjz() {
+    public String blV() {
         return this.c;
     }
 
-    public SpannableStringBuilder bjA() {
-        return this.fva;
+    public SpannableStringBuilder blW() {
+        return this.fCm;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.fva == null) {
-            this.fva = new SpannableStringBuilder();
+        if (this.fCm == null) {
+            this.fCm = new SpannableStringBuilder();
         }
-        this.fva.append((CharSequence) spannableString);
-        return this.fva;
+        this.fCm.append((CharSequence) spannableString);
+        return this.fCm;
     }
 
-    public SpannableString bd(Context context) {
+    public SpannableString br(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -120,7 +120,7 @@ public class l {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.fuZ = jSONObject.optString("cdn_src", null);
+                    this.fCl = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -135,7 +135,7 @@ public class l {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.fuY = true;
+                        this.fCk = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -145,7 +145,7 @@ public class l {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.Ej().fr(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.Eo().fu(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

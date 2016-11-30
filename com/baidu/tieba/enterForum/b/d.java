@@ -3,17 +3,17 @@ package com.baidu.tieba.enterForum.b;
 import tbclient.ForumRecommend.HotSearch;
 /* loaded from: classes.dex */
 public class d {
-    private String bGx;
-    private long bGy;
+    private String bJr;
+    private long bJs;
     private long mId;
     private String mName;
 
-    public String XA() {
-        return this.bGx;
+    public String YC() {
+        return this.bJr;
     }
 
-    public long XB() {
-        return this.bGy;
+    public long YD() {
+        return this.bJs;
     }
 
     public long getId() {
@@ -26,10 +26,10 @@ public class d {
 
     public void a(HotSearch hotSearch) {
         if (hotSearch != null && hotSearch.search_value != null) {
-            this.bGx = hotSearch.search_title;
+            this.bJr = hotSearch.search_title;
             this.mId = hotSearch.search_value.id.longValue();
             this.mName = hotSearch.search_value.name;
-            this.bGy = hotSearch.search_value.type.longValue();
+            this.bJs = hotSearch.search_value.type.longValue();
         }
     }
 }

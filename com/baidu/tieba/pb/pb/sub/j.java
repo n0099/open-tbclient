@@ -1,36 +1,24 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.pb.pb.main.view.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnLongClickListener {
-    final /* synthetic */ NewSubPbActivity exF;
+public class j implements c.a {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(NewSubPbActivity newSubPbActivity) {
-        this.exF = newSubPbActivity;
+        this.eEs = newSubPbActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        SparseArray sparseArray;
-        ag agVar;
-        c.b bVar;
-        ax axVar;
-        try {
-            sparseArray = (SparseArray) view.getTag();
-        } catch (ClassCastException e) {
-            e.printStackTrace();
-            sparseArray = null;
-        }
-        if (sparseArray != null) {
-            agVar = this.exF.exu;
-            bVar = this.exF.epS;
-            axVar = this.exF.exr;
-            agVar.a(bVar, axVar.isMarked());
-        }
-        return true;
+    @Override // com.baidu.tieba.pb.pb.main.view.c.a
+    public void i(com.baidu.tieba.tbadkCore.data.q qVar) {
+        ao aoVar;
+        ao aoVar2;
+        aoVar = this.eEs.eEd;
+        aoVar.k(qVar);
+        aoVar2 = this.eEs.eEd;
+        aoVar2.d((BdListView.e) null);
     }
 }

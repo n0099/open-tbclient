@@ -1,10 +1,10 @@
 package com.baidu.tieba.card.data;
 /* loaded from: classes.dex */
 public abstract class a extends b {
-    public String bbF;
-    public int bbG;
-    public String bbH;
-    public String bbI;
-    public boolean bbJ;
-    public boolean bbK = true;
+    public String mBottomLink;
+    public String mBottomText;
+    public String mGroupTitle;
+    public int mRightIconResId;
+    public boolean showBottomDivider = true;
+    public boolean showTopDivider;
 }

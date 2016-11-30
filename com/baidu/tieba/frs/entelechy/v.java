@@ -3,43 +3,43 @@ package com.baidu.tieba.frs.entelechy;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    final /* synthetic */ u bVr;
+    final /* synthetic */ u bYy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.bVr = uVar;
+        this.bYy = uVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.s sVar;
+        com.baidu.tbadk.core.data.t tVar;
         TbPageContext<?> tbPageContext;
-        com.baidu.tbadk.core.data.s sVar2;
-        com.baidu.tbadk.core.data.s sVar3;
+        com.baidu.tbadk.core.data.t tVar2;
+        com.baidu.tbadk.core.data.t tVar3;
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        sVar = this.bVr.bVm;
-        if (sVar != null) {
-            bh vL = bh.vL();
-            tbPageContext = this.bVr.Gd;
-            sVar2 = this.bVr.bVm;
-            boolean c = vL.c(tbPageContext, new String[]{sVar2.pP()});
+        tVar = this.bYy.bYt;
+        if (tVar != null) {
+            bf vP = bf.vP();
+            tbPageContext = this.bYy.Gf;
+            tVar2 = this.bYy.bYt;
+            boolean c = vP.c(tbPageContext, new String[]{tVar2.pS()});
             String str = "c11675";
-            sVar3 = this.bVr.bVm;
-            if (!sVar3.pJ()) {
+            tVar3 = this.bYy.bYt;
+            if (!tVar3.pM()) {
                 str = "c11676";
             }
-            frsActivity = this.bVr.bRi;
+            frsActivity = this.bYy.bTA;
             if (frsActivity != null && c) {
-                ax axVar = new ax(str);
-                frsActivity2 = this.bVr.bRi;
-                TiebaStatic.log(axVar.ab("fid", frsActivity2.getForumId()));
+                av avVar = new av(str);
+                frsActivity2 = this.bYy.bTA;
+                TiebaStatic.log(avVar.ab("fid", frsActivity2.getForumId()));
             }
         }
     }

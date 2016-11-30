@@ -1,13 +1,13 @@
 package com.baidu.tbadk.mvc.f.a;
 /* loaded from: classes.dex */
 public interface a {
-    b Fm();
+    b Fr();
 
-    void Fn();
+    void Fs();
 
-    void Fo();
+    void Ft();
 
-    void bO(boolean z);
+    void bS(boolean z);
 
     void onPrimary();
 }

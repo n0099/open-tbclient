@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class af extends PagerAdapter {
-    private bf dtC;
+    private bf dzh;
 
     public af(bf bfVar) {
-        this.dtC = bfVar;
+        this.dzh = bfVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -19,29 +19,29 @@ public class af extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == 0) {
-            k azM = this.dtC.azM();
-            if (azM.getView() == null) {
-                View mb = azM.mb();
-                viewGroup.addView(mb);
-                return mb;
+            k aBI = this.dzh.aBI();
+            if (aBI.getView() == null) {
+                View me = aBI.me();
+                viewGroup.addView(me);
+                return me;
             }
-            return azM.getView();
+            return aBI.getView();
         } else if (i == 1) {
-            az azI = this.dtC.azI();
-            if (azI.getView() == null) {
-                View mb2 = azI.mb();
-                viewGroup.addView(mb2);
-                return mb2;
+            az aBE = this.dzh.aBE();
+            if (aBE.getView() == null) {
+                View me2 = aBE.me();
+                viewGroup.addView(me2);
+                return me2;
             }
-            return azI.getView();
+            return aBE.getView();
         } else {
-            j azJ = this.dtC.azJ();
-            if (azJ.getView() == null) {
-                View mb3 = azJ.mb();
-                viewGroup.addView(mb3);
-                return mb3;
+            j aBF = this.dzh.aBF();
+            if (aBF.getView() == null) {
+                View me3 = aBF.me();
+                viewGroup.addView(me3);
+                return me3;
             }
-            return azJ.getView();
+            return aBF.getView();
         }
     }
 

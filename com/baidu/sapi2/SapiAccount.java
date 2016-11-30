@@ -8,6 +8,7 @@ import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -173,7 +174,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public AccountType getAccountType() {
-        return AccountType.getAccountType(a("account_type", AccountType.UNKNOWN.getType()));
+        return AccountType.getAccountType(a(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType()));
     }
 
     public String getSocialPortrait() {
@@ -265,7 +266,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("account", this.account);
-                jSONObject.put(b, this.accountType);
+                jSONObject.put("account_type", this.accountType);
                 jSONObject.put(c, this.password);
                 jSONObject.put(d, this.ubi);
                 return jSONObject;
@@ -281,7 +282,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             }
             ReloginCredentials reloginCredentials = new ReloginCredentials();
             reloginCredentials.account = jSONObject.optString("account");
-            reloginCredentials.accountType = jSONObject.optString(b);
+            reloginCredentials.accountType = jSONObject.optString("account_type");
             reloginCredentials.password = jSONObject.optString(c);
             reloginCredentials.ubi = jSONObject.optString(d);
             return reloginCredentials;
@@ -348,7 +349,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(a, this.e);
+                jSONObject.put("account_type", this.e);
                 jSONObject.put(b, this.f);
                 jSONObject.put(c, this.g);
                 jSONObject.put(d, this.h);
@@ -365,7 +366,7 @@ public class SapiAccount implements Parcelable, Cloneable {
                 return null;
             }
             b bVar = new b();
-            bVar.e = jSONObject.optString(a);
+            bVar.e = jSONObject.optString("account_type");
             bVar.f = jSONObject.optString(b);
             bVar.g = jSONObject.optString(c);
             bVar.h = jSONObject.optString(d);

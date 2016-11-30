@@ -1,43 +1,58 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Dialog;
+import android.content.Context;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements View.OnClickListener {
-    final /* synthetic */ ag eyq;
+    final /* synthetic */ ao eFb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(ag agVar) {
-        this.eyq = agVar;
+    public at(ao aoVar) {
+        this.eFb = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Dialog dialog;
-        NewSubPbActivity.a aVar;
-        NewSubPbActivity.a aVar2;
-        Dialog dialog2;
-        Dialog dialog3;
+        SparseArray<Object> sparseArray;
         NewSubPbActivity newSubPbActivity;
-        dialog = this.eyq.evf;
-        if (dialog != null) {
-            dialog2 = this.eyq.evf;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.eyq.evf;
-                newSubPbActivity = this.eyq.exK;
-                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity.getPageContext());
-            }
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            aVar = this.eyq.eyg;
-            if (aVar != null) {
-                aVar2 = this.eyq.eyg;
-                aVar2.g(new Object[]{sparseArray.get(r.g.tag_manage_user_identity), sparseArray.get(r.g.tag_forbid_user_name), sparseArray.get(r.g.tag_forbid_user_post_id)});
+        NewSubPbActivity newSubPbActivity2;
+        NewSubPbActivity newSubPbActivity3;
+        NewSubPbActivity newSubPbActivity4;
+        NewSubPbActivity newSubPbActivity5;
+        NewSubPbActivity newSubPbActivity6;
+        if (view != null && (sparseArray = (SparseArray) view.getTag()) != null) {
+            boolean booleanValue = sparseArray.get(r.g.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.g.tag_should_manage_visible)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(r.g.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.g.tag_user_mute_visible)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(r.g.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.g.tag_should_delete_visible)).booleanValue() : false;
+            if (booleanValue) {
+                if (com.baidu.tieba.c.a.OR()) {
+                    newSubPbActivity3 = this.eFb.eEy;
+                    Context baseContext = newSubPbActivity3.getBaseContext();
+                    newSubPbActivity4 = this.eFb.eEy;
+                    String threadId = newSubPbActivity4.getThreadId();
+                    newSubPbActivity5 = this.eFb.eEy;
+                    String postId = newSubPbActivity5.getPostId();
+                    newSubPbActivity6 = this.eFb.eEy;
+                    if (com.baidu.tieba.c.a.a(baseContext, threadId, postId, newSubPbActivity6.aOt())) {
+                        return;
+                    }
+                }
+                if (booleanValue2) {
+                    sparseArray.put(r.g.tag_from, 1);
+                    newSubPbActivity2 = this.eFb.eEy;
+                    newSubPbActivity2.d(sparseArray);
+                    return;
+                }
+                this.eFb.aX(view);
+            } else if (booleanValue2) {
+                sparseArray.put(r.g.tag_from, 0);
+                newSubPbActivity = this.eFb.eEy;
+                newSubPbActivity.d(sparseArray);
+            } else if (booleanValue3) {
+                this.eFb.a(((Integer) sparseArray.get(r.g.tag_del_post_type)).intValue(), (String) sparseArray.get(r.g.tag_del_post_id), ((Integer) sparseArray.get(r.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(r.g.tag_del_post_is_self)).booleanValue());
             }
         }
     }

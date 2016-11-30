@@ -1,31 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.FrsPage.RecommendBook;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
-public class x extends bi {
-    public static final BdUniqueId QV = BdUniqueId.gen();
-    public String PW;
-    public int QW;
-    public List<String> QX;
-    public String image;
-    public String linkUrl;
-    public String title;
+public class x {
+    private String Ri;
+    private String Rj;
+    private String Rk;
+    private String Rl;
+    private int Rm;
 
-    public void a(RecommendBook recommendBook) {
-        if (recommendBook != null) {
-            this.QW = recommendBook.type.intValue();
-            this.PW = recommendBook.book_id;
-            this.title = recommendBook.title;
-            this.image = recommendBook.image;
-            this.QX = recommendBook.desc;
-            this.linkUrl = recommendBook.link_url;
+    public void a(HeadSdk headSdk) {
+        if (headSdk != null) {
+            this.Ri = headSdk.head_pic;
+            this.Rj = headSdk.head_text;
+            this.Rk = headSdk.sdk_name;
+            this.Rl = headSdk.sdk_params;
+            this.Rm = headSdk.head_type.intValue();
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bi, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return QV;
+    public String pW() {
+        return this.Ri;
+    }
+
+    public String pX() {
+        return this.Rj;
+    }
+
+    public String pY() {
+        return this.Rl;
+    }
+
+    public int pZ() {
+        return this.Rm;
     }
 }

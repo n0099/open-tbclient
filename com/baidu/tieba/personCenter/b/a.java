@@ -9,27 +9,27 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.view.m;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.f.a {
-    private boolean bLG;
-    private CustomMessageListener bPQ = new b(this, CmdConfigCustom.CMD_UPDATE_PENDANT);
-    private com.baidu.tieba.personCenter.f.b eFf;
-    private g eFg;
-    private com.baidu.tieba.e.a eFo;
+    private boolean bOz;
+    private CustomMessageListener bSN = new b(this, CmdConfigCustom.CMD_UPDATE_PENDANT);
+    private com.baidu.tieba.personCenter.f.b eLE;
+    private g eLF;
+    private com.baidu.tieba.e.a eLN;
 
     public a(TbPageContext tbPageContext, com.baidu.tieba.personCenter.f.b bVar, g gVar) {
-        this.eFf = bVar;
-        this.eFg = gVar;
-        this.eFo = new com.baidu.tieba.personCenter.d.b(tbPageContext);
-        this.eFf.a(this);
-        tbPageContext.registerListener(this.bPQ);
+        this.eLE = bVar;
+        this.eLF = gVar;
+        this.eLN = new com.baidu.tieba.personCenter.d.b(tbPageContext);
+        this.eLE.a(this);
+        tbPageContext.registerListener(this.bSN);
     }
 
-    public m aSN() {
-        return this.eFo;
+    public m aUU() {
+        return this.eLN;
     }
 
     @Override // com.baidu.tieba.model.a
-    public void RL() {
-        this.eFf.Fa();
+    public void SN() {
+        this.eLE.Ff();
     }
 
     @Override // com.baidu.tieba.model.a
@@ -43,19 +43,19 @@ public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.
 
     @Override // com.baidu.tieba.personCenter.f.a
     public void a(com.baidu.tieba.personCenter.c.a aVar) {
-        this.eFg.JE();
+        this.eLF.JO();
         if (aVar == null) {
-            if (!this.bLG) {
-                this.eFg.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
+            if (!this.bOz) {
+                this.eLF.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
                 return;
             }
             return;
         }
-        this.bLG = true;
-        this.eFg.b(aVar);
+        this.bOz = true;
+        this.eLF.b(aVar);
     }
 
     public boolean hasData() {
-        return this.bLG;
+        return this.bOz;
     }
 }

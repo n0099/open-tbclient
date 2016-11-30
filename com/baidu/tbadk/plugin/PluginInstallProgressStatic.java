@@ -10,25 +10,25 @@ import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PluginInstallProgressStatic {
-    private static boolean aDh;
-    private static Runnable azR = new d();
+    private static Runnable aAJ = new d();
+    private static boolean aDY;
 
     static {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            h.eG().post(azR);
+            h.eG().post(aAJ);
             MessageManager.getInstance().registerListener(new e(2000993));
             MessageManager.getInstance().registerListener(new f(2000988));
         }
-        aDh = false;
+        aDY = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void Gw() {
+    public static final void GC() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            h.eG().removeCallbacks(azR);
-            h.eG().postDelayed(azR, 120000L);
-            if (!aDh) {
-                aDh = true;
+            h.eG().removeCallbacks(aAJ);
+            h.eG().postDelayed(aAJ, 120000L);
+            if (!aDY) {
+                aDY = true;
                 String string = TbadkCoreApplication.m9getInst().getResources().getString(r.j.plugin_tip_installing);
                 NotificationHelper.showNotification(TbadkCoreApplication.m9getInst().getApplicationContext(), 1000, null, string, string, null, false);
             }
@@ -36,10 +36,10 @@ public class PluginInstallProgressStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void Gx() {
+    public static final void GD() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            aDh = false;
-            h.eG().removeCallbacks(azR);
+            aDY = false;
+            h.eG().removeCallbacks(aAJ);
             NotificationHelper.cancelNotification(TbadkCoreApplication.m9getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_COLLECT_GROUPS, new ArrayList()));
         }

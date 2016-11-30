@@ -4,11 +4,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
 class bj implements TextWatcher {
-    final /* synthetic */ WriteActivity ghD;
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(WriteActivity writeActivity) {
-        this.ghD = writeActivity;
+        this.gpp = writeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -17,11 +17,11 @@ class bj implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.ghD.a(charSequence, i, i3, "from_title");
+        this.gpp.a(charSequence, i, i3, "from_content");
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.ghD.bfL();
+        this.gpp.bih();
     }
 }

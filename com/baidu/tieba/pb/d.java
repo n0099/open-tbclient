@@ -1,23 +1,8 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.pb.PbExtraResolver;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final AtomicReference<a> ekc = new AtomicReference<>(null);
-
-    /* loaded from: classes.dex */
-    public interface a {
-        com.baidu.tieba.pb.view.c b(BdBaseActivity<?> bdBaseActivity);
-    }
-
-    public static com.baidu.tieba.pb.view.c a(BdBaseActivity<?> bdBaseActivity) {
-        a aVar = ekc.get();
-        if (aVar == null) {
-            BdLog.e("PbExtra project load failed");
-            return null;
-        }
-        return aVar.b(bdBaseActivity);
-    }
+    public static final AtomicReference<PbExtraResolver.IChudianViewResolver> eqa = new AtomicReference<>(null);
 }

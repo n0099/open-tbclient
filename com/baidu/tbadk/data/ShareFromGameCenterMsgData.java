@@ -62,10 +62,12 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
         this.shareSource = str;
     }
 
+    @Override // com.baidu.tbadk.data.ShareFromPBMsgData
     public String getShareSourceUrl() {
         return this.shareSourceUrl;
     }
 
+    @Override // com.baidu.tbadk.data.ShareFromPBMsgData
     public void setShareSourceUrl(String str) {
         this.shareSourceUrl = str;
     }

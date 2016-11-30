@@ -4,174 +4,188 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
     private String aDKillerUrl;
-    private String akd;
-    private String ake;
-    private String akf;
-    private String akg;
-    private String akh;
-    private String aki;
-    private String akj;
-    private String akk;
-    private int akl;
-    private int akm;
-    private long akn;
-    private int ako;
-    private String akq;
-    private String akr;
-    private String aks;
-    private String akt;
-    public int akv;
+    private String akV;
+    private String akW;
+    private String akX;
+    private String akY;
+    private String akZ;
+    private String ala;
+    private String alb;
+    private String alc;
+    private int ald;
+    private int ale;
+    private long alf;
+    private int alg;
+    private String ali;
+    private String alj;
+    private String alk;
+    private String alm;
+    public int alo;
+    public com.baidu.tieba.acrossForum.d alt;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
     private long lastUpdateTime;
-    private int akp = 0;
-    private int aku = 2;
-    public int akw = 0;
-    public String akx = "";
-    public String aky = "";
+    private int alh = 0;
+    private int aln = 2;
+    public int alp = 0;
+    public String alq = "";
+    public String alr = "";
+    private String als = "";
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.akd = jSONObject.optString("drop_pic");
-                this.ake = jSONObject.optString("drop_pic_md5");
-                this.akf = jSONObject.optString("drop_pic_num");
-                this.akg = jSONObject.optString("drop_bg_color_day");
-                this.akh = jSONObject.optString("drop_bg_color_night");
-                this.aki = jSONObject.optString("apply_vip_live_room_pid");
-                this.akq = jSONObject.optString("max_cache");
-                this.akr = jSONObject.optString("frs_max_cache");
-                this.aks = jSONObject.optString("frs_pn");
-                this.akj = jSONObject.optString("tail_link");
-                this.akk = jSONObject.optString("bubble_link");
-                this.akl = jSONObject.optInt("xiaoying_time");
+                this.akV = jSONObject.optString("drop_pic");
+                this.akW = jSONObject.optString("drop_pic_md5");
+                this.akX = jSONObject.optString("drop_pic_num");
+                this.akY = jSONObject.optString("drop_bg_color_day");
+                this.akZ = jSONObject.optString("drop_bg_color_night");
+                this.ala = jSONObject.optString("apply_vip_live_room_pid");
+                this.ali = jSONObject.optString("max_cache");
+                this.alj = jSONObject.optString("frs_max_cache");
+                this.alk = jSONObject.optString("frs_pn");
+                this.alb = jSONObject.optString("tail_link");
+                this.alc = jSONObject.optString("bubble_link");
+                this.ald = jSONObject.optInt("xiaoying_time");
                 this.lastUpdateTime = jSONObject.optLong("last_update_time", 0L);
-                this.akm = jSONObject.optInt("new_resign", 0);
-                this.akn = jSONObject.optLong("personalized_cache_seconds", 43200L);
-                this.ako = jSONObject.optInt("personalized_max_count", 300);
+                this.ale = jSONObject.optInt("new_resign", 0);
+                this.alf = jSONObject.optLong("personalized_cache_seconds", 43200L);
+                this.alg = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.akt = jSONObject.optString("show_ad_killer");
+                this.alm = jSONObject.optString("show_ad_killer");
                 this.aDKillerUrl = jSONObject.optString("adkiller_url");
-                this.akp = jSONObject.optInt("read_thread_switch", 0);
-                this.aku = jSONObject.optInt("localvideo_open", 2);
-                this.akv = jSONObject.optInt("card_show_statistic", 200);
+                this.alh = jSONObject.optInt("read_thread_switch", 0);
+                this.aln = jSONObject.optInt("localvideo_open", 2);
+                this.alo = jSONObject.optInt("card_show_statistic", 200);
+                this.als = jSONObject.optString("clean_smart_frs_cookie");
+                com.baidu.tbadk.pageStayDuration.e.FP().fc(jSONObject.optInt("statlog_path_max", 3));
                 if (jSONObject.has("wefans")) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("wefans");
-                    this.akw = optJSONObject.optInt("switch", 0);
-                    this.akx = optJSONObject.optString("tabName", "");
-                    this.aky = optJSONObject.optString("url", "");
+                    this.alp = optJSONObject.optInt("switch", 0);
+                    this.alq = optJSONObject.optString("tabName", "");
+                    this.alr = optJSONObject.optString("url", "");
                 }
-                com.baidu.tbadk.pageStayDuration.e.FL().eZ(jSONObject.optInt("statlog_path_max", 3));
+                if (jSONObject.has("baba_skin_android_url")) {
+                    this.alt = new com.baidu.tieba.acrossForum.d();
+                    this.alt.aVK = jSONObject.optString("baba_skin_android_url");
+                    this.alt.aVL = jSONObject.optString("baba_skin_props_id");
+                    this.alt.aVM = jSONObject.optString("baba_skin_show_start");
+                    this.alt.aVN = jSONObject.optString("baba_skin_show_end");
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String xZ() {
-        return this.aki;
-    }
-
-    public String ya() {
-        return this.akd;
-    }
-
-    public String yb() {
-        return this.ake;
-    }
-
-    public String yc() {
-        return this.akf;
-    }
-
-    public String yd() {
-        return this.akg;
-    }
-
-    public String ye() {
-        return this.akh;
-    }
-
     public String yf() {
-        return this.akq;
+        return this.ala;
     }
 
     public String yg() {
-        return this.akr;
+        return this.akV;
     }
 
     public String yh() {
-        return this.aks;
+        return this.akW;
     }
 
     public String yi() {
-        return this.akj;
+        return this.akX;
     }
 
     public String yj() {
-        return this.akk;
+        return this.akY;
     }
 
-    public int yk() {
-        return this.akl;
+    public String yk() {
+        return this.akZ;
     }
 
-    public long yl() {
-        return this.lastUpdateTime;
+    public String yl() {
+        return this.ali;
     }
 
-    public long ym() {
-        return this.akn;
+    public String ym() {
+        return this.alj;
     }
 
-    public int yn() {
-        return this.ako;
+    public String yn() {
+        return this.alk;
     }
 
-    public int yo() {
-        return this.akm;
+    public String yo() {
+        return this.alb;
     }
 
     public String yp() {
-        return this.infoIconUrl;
+        return this.alc;
     }
 
-    public String yq() {
-        return this.infoTargetUrl;
+    public int yq() {
+        return this.ald;
     }
 
     public long yr() {
+        return this.lastUpdateTime;
+    }
+
+    public long ys() {
+        return this.alf;
+    }
+
+    public int yt() {
+        return this.alg;
+    }
+
+    public int yu() {
+        return this.ale;
+    }
+
+    public String yv() {
+        return this.infoIconUrl;
+    }
+
+    public String yw() {
+        return this.infoTargetUrl;
+    }
+
+    public long yx() {
         return this.infoTimeStamp;
     }
 
-    public String ys() {
-        return this.akt;
+    public String yy() {
+        return this.alm;
     }
 
     public String getaDKillerUrl() {
         return this.aDKillerUrl;
     }
 
-    public int yt() {
-        return this.akp;
+    public int yz() {
+        return this.alh;
     }
 
-    public int yu() {
-        return this.akw;
+    public int yA() {
+        return this.alp;
     }
 
-    public String yv() {
-        return this.akx;
+    public String yB() {
+        return this.alq;
     }
 
-    public String yw() {
-        return this.aky;
+    public String yC() {
+        return this.alr;
     }
 
-    public boolean yx() {
-        return this.aku == 1;
+    public String yD() {
+        return this.als;
+    }
+
+    public boolean yE() {
+        return this.aln == 1;
     }
 }

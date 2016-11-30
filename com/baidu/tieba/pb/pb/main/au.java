@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class au extends CustomMessageListener {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public au(PbActivity pbActivity, int i) {
         super(i);
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,8 +23,8 @@ class au extends CustomMessageListener {
         if (customResponsedMessage != null) {
             String str = (String) customResponsedMessage.getData();
             if (!TextUtils.isEmpty(str)) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c11455").ab("obj_locate", "pb"));
-                com.baidu.tbadk.core.util.bh.vL().c(this.eqa.getPageContext(), new String[]{str});
+                TiebaStatic.log(new com.baidu.tbadk.core.util.av("c11455").ab("obj_locate", "pb"));
+                com.baidu.tbadk.core.util.bf.vP().c(this.evL.getPageContext(), new String[]{str});
             }
         }
     }

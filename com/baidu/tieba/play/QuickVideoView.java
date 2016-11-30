@@ -9,40 +9,41 @@ import android.widget.MediaController;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.play.e;
+import com.baidu.tieba.play.t;
 import com.baidu.tieba.r;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class QuickVideoView extends FrameLayout implements MediaController.MediaPlayerControl {
-    private static f eYH;
-    private e.a aLq;
-    private e.d aLr;
-    private e.b aLs;
-    private e.c aLt;
-    private b aMS;
-    private w eYF;
-    private e eYG;
-    private boolean eYI;
-    private a eYJ;
-    private boolean eYK;
-    private int eYL;
-    private TextureView.SurfaceTextureListener eYM;
-    private e.d eYN;
-    private e.a eYO;
-    private e.b eYP;
+    private static u ffS;
+    private t.a aMn;
+    private t.d aMo;
+    private t.b aMp;
+    private t.c aMq;
+    private b aOX;
+    private al ffQ;
+    private t ffR;
+    private boolean ffT;
+    private a ffU;
+    private boolean ffV;
+    private int ffW;
+    private boolean ffX;
+    private TextureView.SurfaceTextureListener ffY;
+    private t.d ffZ;
+    private t.a fga;
+    private t.b fgb;
     private Context mContext;
     private Uri mUri;
-    private Map<String, String> uc;
+    private Map<String, String> ud;
 
     /* loaded from: classes.dex */
     public interface a {
-        void baq();
+        void Jk();
 
-        h bar();
+        String bcP();
 
-        String hg(String str);
+        w bcQ();
+
+        String hh(String str);
 
         void onPause();
 
@@ -57,75 +58,78 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     static {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, f.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, u.class);
         if (runTask != null) {
-            eYH = (f) runTask.getData();
+            ffS = (u) runTask.getData();
         }
     }
 
     public QuickVideoView(Context context) {
         super(context);
-        this.eYI = false;
-        this.eYK = false;
-        this.eYL = 0;
-        this.eYM = new n(this);
-        this.eYN = new o(this);
-        this.eYO = new p(this);
-        this.eYP = new q(this);
-        this.aLt = new r(this);
+        this.ffT = false;
+        this.ffV = false;
+        this.ffW = 0;
+        this.ffX = false;
+        this.ffY = new ac(this);
+        this.ffZ = new ad(this);
+        this.fga = new ae(this);
+        this.fgb = new af(this);
+        this.aMq = new ag(this);
         init(context);
     }
 
     public QuickVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eYI = false;
-        this.eYK = false;
-        this.eYL = 0;
-        this.eYM = new n(this);
-        this.eYN = new o(this);
-        this.eYO = new p(this);
-        this.eYP = new q(this);
-        this.aLt = new r(this);
+        this.ffT = false;
+        this.ffV = false;
+        this.ffW = 0;
+        this.ffX = false;
+        this.ffY = new ac(this);
+        this.ffZ = new ad(this);
+        this.fga = new ae(this);
+        this.fgb = new af(this);
+        this.aMq = new ag(this);
         init(context);
     }
 
     public QuickVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eYI = false;
-        this.eYK = false;
-        this.eYL = 0;
-        this.eYM = new n(this);
-        this.eYN = new o(this);
-        this.eYO = new p(this);
-        this.eYP = new q(this);
-        this.aLt = new r(this);
+        this.ffT = false;
+        this.ffV = false;
+        this.ffW = 0;
+        this.ffX = false;
+        this.ffY = new ac(this);
+        this.ffZ = new ad(this);
+        this.fga = new ae(this);
+        this.fgb = new af(this);
+        this.aMq = new ag(this);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        this.eYF = new w(context);
-        this.eYF.setSurfaceTextureListener(this.eYM);
-        if (eYH != null) {
-            this.eYG = eYH.Jm();
+        this.ffQ = new al(context);
+        this.ffQ.setSurfaceTextureListener(this.ffY);
+        if (ffS != null) {
+            this.ffR = ffS.Js();
         }
-        if (this.eYG != null) {
-            this.eYG.setOnPreparedListener(this.eYN);
-            this.eYG.setOnCompletionListener(this.eYO);
-            this.eYG.setOnErrorListener(this.eYP);
-            this.eYG.a(this.aLt);
+        if (this.ffR != null) {
+            this.ffR.setOnPreparedListener(this.ffZ);
+            this.ffR.setOnCompletionListener(this.fga);
+            this.ffR.setOnErrorListener(this.fgb);
+            this.ffR.a(this.aMq);
         }
-        av.l(this, r.d.cp_bg_line_k);
+        com.baidu.tbadk.core.util.at.l(this, r.d.cp_bg_line_k);
     }
 
     public void setVideoPath(String str) {
-        if (this.eYJ != null) {
-            str = this.eYJ.hg(str);
-            if (this.eYJ.bar() != null) {
-                this.eYJ.bar().setPlayer(this);
+        if (this.ffU != null) {
+            str = this.ffU.hh(str);
+            if (this.ffU.bcQ() != null) {
+                this.ffU.bcQ().setPlayer(this);
             }
         }
-        if (!az.isEmpty(str)) {
+        if (!com.baidu.tbadk.core.util.ax.isEmpty(str)) {
             setVideoURI(Uri.parse(str));
         }
     }
@@ -135,95 +139,98 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public void a(Uri uri, Map<String, String> map) {
-        stopPlayback();
-        this.eYK = true;
+        bcO();
+        this.ffV = true;
         this.mUri = uri;
-        this.uc = map;
-        this.eYL = 0;
-        removeView(this.eYF);
-        addView(this.eYF, new FrameLayout.LayoutParams(-2, -2, 17));
-        av.l(this, r.d.cp_bg_line_k);
+        this.ud = map;
+        this.ffW = 0;
+        removeView(this.ffQ);
+        addView(this.ffQ, new FrameLayout.LayoutParams(-2, -2, 17));
+        com.baidu.tbadk.core.util.at.l(this, r.d.cp_bg_line_k);
+    }
+
+    private void bcO() {
+        this.ffV = false;
+        this.ffT = false;
+        if (this.ffR != null) {
+            this.ffR.release();
+        }
     }
 
     public void stopPlayback() {
-        this.eYK = false;
-        this.eYI = false;
-        if (this.eYG != null) {
-            this.eYG.release();
-        }
-        if (this.eYJ != null) {
-            this.eYJ.onStop();
+        bcO();
+        this.ffX = false;
+        if (this.ffU != null) {
+            this.ffU.onStop();
         }
     }
 
-    public void setOnPreparedListener(e.d dVar) {
-        this.aLr = dVar;
+    public void setOnPreparedListener(t.d dVar) {
+        this.aMo = dVar;
     }
 
-    public void setOnCompletionListener(e.a aVar) {
-        this.aLq = aVar;
+    public void setOnCompletionListener(t.a aVar) {
+        this.aMn = aVar;
     }
 
-    public void setOnErrorListener(e.b bVar) {
-        this.aLs = bVar;
+    public void setOnErrorListener(t.b bVar) {
+        this.aMp = bVar;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void start() {
-        this.eYI = true;
-        if (this.eYG != null) {
-            this.eYG.start();
+        this.ffT = true;
+        if (this.ffR != null) {
+            this.ffR.start();
         }
-        if (this.eYJ != null) {
-            this.eYJ.onStart();
+        if (this.ffU != null) {
+            this.ffU.onStart();
         }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void pause() {
-        if (this.eYG != null) {
-            this.eYG.pause();
+        if (this.ffR != null) {
+            this.ffR.pause();
         }
-        if (this.eYJ != null) {
-            this.eYJ.onPause();
+        if (this.ffU != null) {
+            this.ffU.onPause();
         }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getDuration() {
-        if (this.eYG != null) {
-            return this.eYG.getDuration();
+        if (this.ffR != null) {
+            return this.ffR.getDuration();
         }
         return 0;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getCurrentPosition() {
-        if (this.eYG != null) {
-            return this.eYG.getCurrentPosition();
+        if (this.ffR != null) {
+            return this.ffR.getCurrentPosition();
         }
         return 0;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void seekTo(int i) {
-        if (this.eYG != null) {
-            this.eYG.seekTo(i);
+        if (this.ffR != null) {
+            this.ffR.seekTo(i);
         }
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean isPlaying() {
-        if (this.eYG != null) {
-            return this.eYG.isPlaying();
+        if (this.ffR != null) {
+            return this.ffR.isPlaying();
         }
         return false;
     }
 
     public void setLooping(boolean z) {
-        if (this.eYG != null) {
-            this.eYG.setLooping(z);
-        }
+        this.ffX = z;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -247,10 +254,20 @@ public class QuickVideoView extends FrameLayout implements MediaController.Media
     }
 
     public void setOnSurfaceDestroyedListener(b bVar) {
-        this.aMS = bVar;
+        this.aOX = bVar;
     }
 
     public void setBusiness(a aVar) {
-        this.eYJ = aVar;
+        this.ffU = aVar;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        this.ffX = false;
+    }
+
+    public t getPlayer() {
+        return this.ffR;
     }
 }

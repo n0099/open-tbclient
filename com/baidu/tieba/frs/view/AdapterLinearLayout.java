@@ -7,7 +7,7 @@ import android.widget.Adapter;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class AdapterLinearLayout extends LinearLayout {
-    private Adapter cfA;
+    private Adapter ckD;
     private final DataSetObserver mDataSetObserver;
 
     public AdapterLinearLayout(Context context) {
@@ -26,12 +26,12 @@ public class AdapterLinearLayout extends LinearLayout {
     }
 
     public void setAdapter(Adapter adapter) {
-        if (this.cfA != null) {
-            this.cfA.unregisterDataSetObserver(this.mDataSetObserver);
+        if (this.ckD != null) {
+            this.ckD.unregisterDataSetObserver(this.mDataSetObserver);
         }
-        this.cfA = adapter;
-        if (this.cfA != null) {
-            this.cfA.registerDataSetObserver(this.mDataSetObserver);
+        this.ckD = adapter;
+        if (this.ckD != null) {
+            this.ckD.registerDataSetObserver(this.mDataSetObserver);
         }
     }
 }

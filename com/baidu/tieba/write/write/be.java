@@ -1,23 +1,26 @@
 package com.baidu.tieba.write.write;
 
-import android.content.DialogInterface;
+import android.view.View;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements DialogInterface.OnDismissListener {
-    final /* synthetic */ WriteActivity ghD;
+public class be implements View.OnClickListener {
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity) {
-        this.ghD = writeActivity;
+        this.gpp = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        boolean z;
-        z = this.ghD.ghs;
-        if (z) {
-            com.baidu.adp.lib.util.k.b(this.ghD.getPageContext().getPageActivity(), this.ghD.getCurrentFocus());
-            this.ghD.ght = System.currentTimeMillis();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        File file;
+        File file2;
+        file = this.gpp.goQ;
+        if (file != null) {
+            WriteActivity writeActivity = this.gpp;
+            file2 = this.gpp.goQ;
+            writeActivity.tg(file2.getAbsolutePath());
         }
     }
 }

@@ -6,13 +6,13 @@ import java.util.List;
 import tbclient.FrequentlyForumInfo;
 /* loaded from: classes.dex */
 public class c {
-    private ArrayList<com.baidu.tbadk.data.e> bGw = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.data.e> bJq = new ArrayList<>();
 
-    public List<com.baidu.tbadk.data.e> Xz() {
-        return this.bGw;
+    public List<com.baidu.tbadk.data.e> YB() {
+        return this.bJq;
     }
 
-    public void ag(List<FrequentlyForumInfo> list) {
+    public void ah(List<FrequentlyForumInfo> list) {
         if (list != null && list.size() > 0) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -21,7 +21,7 @@ public class c {
                     com.baidu.tbadk.data.e eVar = new com.baidu.tbadk.data.e();
                     if (frequentlyForumInfo != null && frequentlyForumInfo.forum_id != null && frequentlyForumInfo.forum_id.longValue() != 0 && !StringUtils.isNull(frequentlyForumInfo.forum_name)) {
                         eVar.a(frequentlyForumInfo);
-                        this.bGw.add(eVar);
+                        this.bJq.add(eVar);
                     }
                 }
             }

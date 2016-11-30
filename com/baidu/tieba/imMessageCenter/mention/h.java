@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 /* loaded from: classes.dex */
 public class h extends ax {
     @Override // com.baidu.tieba.imMessageCenter.mention.ax, com.baidu.tbadk.mvc.b.e
-    public String EI() {
+    public String EN() {
         return "tb_user_atme";
     }
 
@@ -12,7 +12,7 @@ public class h extends ax {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.ax, com.baidu.tbadk.mvc.b.e
-    public boolean EJ() {
+    public boolean EO() {
         return false;
     }
 }

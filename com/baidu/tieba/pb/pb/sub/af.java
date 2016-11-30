@@ -1,24 +1,18 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.view.View;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
-    final /* synthetic */ NewSubPbActivity exF;
+public class af implements a.b {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(NewSubPbActivity newSubPbActivity) {
-        this.exF = newSubPbActivity;
+        this.eEs = newSubPbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ax axVar;
-        ax axVar2;
-        axVar = this.exF.exr;
-        if (axVar != null) {
-            axVar2 = this.exF.exr;
-            axVar2.Fa();
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

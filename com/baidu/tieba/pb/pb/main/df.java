@@ -1,58 +1,92 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class df implements com.baidu.adp.lib.guide.b {
-    private final /* synthetic */ String bRX;
-    final /* synthetic */ de erd;
+public class df extends gi {
+    private com.baidu.adp.lib.guide.d ewQ;
+    private View ewR;
+    private com.baidu.tieba.pb.a ewS;
+    private long ewT;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public df(de deVar, String str) {
-        this.erd = deVar;
-        this.bRX = str;
+    public df(BaseActivity baseActivity, View view) {
+        super(baseActivity, view);
+        this.ewR = null;
+        this.ewS = null;
+        this.ewT = 50L;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        dd ddVar;
-        dd ddVar2;
-        dd ddVar3;
-        dd ddVar4;
-        ddVar = this.erd.erc;
-        TextView textView = new TextView(ddVar.aRd.getPageContext().getPageActivity());
-        textView.setText(this.bRX);
-        textView.setGravity(17);
-        com.baidu.tbadk.core.util.av.j((View) textView, r.d.cp_cont_i);
-        ddVar2 = this.erd.erc;
-        textView.setTextSize(0, ddVar2.aRd.getResources().getDimensionPixelSize(r.e.fontsize28));
-        ddVar3 = this.erd.erc;
-        textView.setWidth(ddVar3.aRd.getResources().getDimensionPixelSize(r.e.ds266));
-        ddVar4 = this.erd.erc;
-        textView.setHeight(ddVar4.aRd.getResources().getDimensionPixelSize(r.e.ds76));
-        com.baidu.tbadk.core.util.av.k(textView, r.f.bg_tip_blue_left);
-        return textView;
+    @Override // com.baidu.tieba.pb.pb.main.gi
+    protected void a(e eVar) {
+        this.ewR = this.mRootView.findViewById(r.g.pb_editor_tool_comment_graffiti_icon);
+        aQf();
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int dO() {
-        return 2;
+    @Override // com.baidu.tieba.pb.pb.main.gi
+    protected void onChangeSkinType(int i) {
+        if (this.ewS != null) {
+            this.ewS.changeSkinType(i);
+        }
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int dP() {
-        return 48;
+    private void aQf() {
+        CustomResponsedMessage runTask;
+        if (this.aTb != null && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GRAFFITI_QUICK_VOTE_VIEW, this.aTb.getPageContext().getPageActivity()), com.baidu.tieba.pb.a.class)) != null && runTask.getData() != null) {
+            this.ewS = (com.baidu.tieba.pb.a) runTask.getData();
+            ViewGroup viewGroup = (ViewGroup) this.aTb.findViewById(r.g.pb_comment_container);
+            if (this.ewS != null && viewGroup != null) {
+                viewGroup.addView(this.ewS, 0, new LinearLayout.LayoutParams(-1, -2));
+            }
+        }
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int getXOffset() {
-        return -10;
+    public void aQg() {
+        com.baidu.adp.lib.h.h.eG().postDelayed(new dg(this), this.ewT);
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int getYOffset() {
-        return 0;
+    public void Da() {
+        if (this.ewQ != null) {
+            this.ewQ.dismiss();
+            this.ewQ = null;
+        }
+    }
+
+    public void cC(long j) {
+        this.ewT = j;
+    }
+
+    public void c(com.baidu.tbadk.core.data.af afVar) {
+        if (this.ewS != null) {
+            this.ewS.b(afVar);
+        }
+    }
+
+    public boolean aQh() {
+        return this.ewS != null && this.ewS.getVisibility() == 0;
+    }
+
+    public void aQi() {
+        if (this.ewS != null && this.ewR != null) {
+            this.ewS.aib();
+            this.ewR.setSelected(true);
+        }
+    }
+
+    public void aQj() {
+        if (this.ewS != null && this.ewR != null) {
+            this.ewS.amW();
+            this.ewR.setSelected(false);
+        }
+    }
+
+    public View aQk() {
+        return this.ewR;
     }
 }

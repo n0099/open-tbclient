@@ -18,12 +18,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
@@ -33,23 +33,23 @@ import java.util.concurrent.ConcurrentHashMap;
 public class FrsCommonImageLayout extends LinearLayout implements AbsListView.RecyclerListener {
     private Rect Bc;
     private Rect Bd;
-    private Bitmap bmp;
-    private int chb;
-    private boolean faV;
-    private b fsi;
-    private MediaData[] fsj;
-    private boolean fsk;
-    private int fsl;
-    private boolean fsm;
-    private com.baidu.adp.lib.f.b<TbImageView> fsn;
-    private View.OnClickListener fso;
-    private boolean fsp;
-    com.baidu.adp.base.h<?> fsq;
-    private String fsr;
-    private int fss;
-    private int fst;
-    private Paint fsu;
-    private String fsv;
+    private String fzA;
+    private int fzB;
+    private int fzC;
+    private Paint fzD;
+    private Bitmap fzE;
+    private String fzF;
+    private b fzp;
+    private MediaData[] fzq;
+    private boolean fzr;
+    private int fzs;
+    private int fzt;
+    private boolean fzu;
+    private com.baidu.adp.lib.f.b<TbImageView> fzv;
+    private View.OnClickListener fzw;
+    private boolean fzx;
+    private boolean fzy;
+    com.baidu.adp.base.h<?> fzz;
     private int h;
     private int mChildCount;
     private final Context mContext;
@@ -71,11 +71,11 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes.dex */
     public interface c {
-        com.baidu.adp.lib.f.b<TbImageView> aea();
+        com.baidu.adp.lib.f.b<TbImageView> aft();
     }
 
     public void setDrawNum(boolean z) {
-        this.fsm = z;
+        this.fzu = z;
     }
 
     public int getNormalShowCount() {
@@ -105,18 +105,18 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         super(context, attributeSet);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.fsk = false;
+        this.fzr = false;
         this.mItemSize = 0;
         this.mPadding = 2;
-        this.chb = 0;
+        this.fzs = 0;
         this.mNormalShowCount = 3;
-        this.fsm = false;
-        this.fsn = null;
-        this.fsp = true;
-        this.faV = true;
+        this.fzu = false;
+        this.fzv = null;
+        this.fzx = true;
+        this.fzy = true;
         this.mContext = context;
         this.mPadding = com.baidu.adp.lib.util.k.dip2px(this.mContext, this.mPadding);
-        this.mItemSize = com.baidu.adp.lib.util.k.dip2px(this.mContext, this.chb);
+        this.mItemSize = com.baidu.adp.lib.util.k.dip2px(this.mContext, this.fzs);
         setOnHierarchyChangeListener(new f(this));
         this.w = com.baidu.adp.lib.util.k.dip2px(this.mContext, 50.0f);
         this.h = com.baidu.adp.lib.util.k.dip2px(this.mContext, 23.0f);
@@ -124,21 +124,21 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         this.paint.setDither(true);
         this.paint.setFilterBitmap(true);
         Resources resources = getResources();
-        this.fsr = String.valueOf(resources.getString(r.j.frs_item_common_image_canvas_text1)) + this.fsl + resources.getString(r.j.frs_item_common_image_canvas_text2);
-        this.fss = ((this.fsr.length() + 2) * com.baidu.adp.lib.util.k.dip2px(this.mContext, 10.0f)) / 2;
-        this.fst = com.baidu.adp.lib.util.k.dip2px(this.mContext, 10.0f);
-        this.fsu = new Paint((int) SapiErrorCode.PHONE_NULL);
-        this.fsu.setColor(-1);
-        this.fsu.setTextSize(resources.getDimension(r.e.ds20));
-        this.bmp = BitmapHelper.getCashBitmap(r.f.bg_look_photo_1);
-        if (this.bmp != null) {
-            this.Bc = new Rect(0, 0, this.bmp.getWidth(), this.bmp.getHeight());
+        this.fzA = String.valueOf(resources.getString(r.j.frs_item_common_image_canvas_text1)) + this.fzt + resources.getString(r.j.frs_item_common_image_canvas_text2);
+        this.fzB = ((this.fzA.length() + 2) * com.baidu.adp.lib.util.k.dip2px(this.mContext, 10.0f)) / 2;
+        this.fzC = com.baidu.adp.lib.util.k.dip2px(this.mContext, 10.0f);
+        this.fzD = new Paint((int) SapiErrorCode.PHONE_NULL);
+        this.fzD.setColor(-1);
+        this.fzD.setTextSize(resources.getDimension(r.e.ds20));
+        this.fzE = BitmapHelper.getCashBitmap(r.f.bg_look_photo_1);
+        if (this.fzE != null) {
+            this.Bc = new Rect(0, 0, this.fzE.getWidth(), this.fzE.getHeight());
             this.Bd = new Rect(getWidth() - this.w, getHeight() - this.h, getWidth(), getHeight());
         }
     }
 
     public void setOnChildClickListener(b bVar) {
-        this.fsi = bVar;
+        this.fzp = bVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
@@ -163,17 +163,17 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             MediaData[] mediaDataArr;
             Context pageActivity;
             MediaData[] mediaDataArr2;
-            if (FrsCommonImageLayout.this.fsi != null) {
-                FrsCommonImageLayout.this.fsi.dn(this.mIndex);
-            } else if (FrsCommonImageLayout.this.fsj != null && this.mIndex < FrsCommonImageLayout.this.fsj.length) {
-                if (FrsCommonImageLayout.this.fsj[this.mIndex].getType() == 5) {
-                    if (FrsCommonImageLayout.this.fsq instanceof TbPageContext) {
-                        bh.vL().c((TbPageContext) FrsCommonImageLayout.this.fsq, new String[]{FrsCommonImageLayout.this.fsj[this.mIndex].getVideoUrl()});
+            if (FrsCommonImageLayout.this.fzp != null) {
+                FrsCommonImageLayout.this.fzp.dn(this.mIndex);
+            } else if (FrsCommonImageLayout.this.fzq != null && this.mIndex < FrsCommonImageLayout.this.fzq.length) {
+                if (FrsCommonImageLayout.this.fzq[this.mIndex].getType() == 5) {
+                    if (FrsCommonImageLayout.this.fzz instanceof TbPageContext) {
+                        bf.vP().c((TbPageContext) FrsCommonImageLayout.this.fzz, new String[]{FrsCommonImageLayout.this.fzq[this.mIndex].getVideoUrl()});
                     }
                 } else {
                     ArrayList<String> arrayList = new ArrayList<>();
                     ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
-                    for (MediaData mediaData : FrsCommonImageLayout.this.fsj) {
+                    for (MediaData mediaData : FrsCommonImageLayout.this.fzq) {
                         if (!TextUtils.isEmpty(mediaData.getSrc_pic())) {
                             arrayList.add(mediaData.getSrc_pic());
                             if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
@@ -189,16 +189,16 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                         }
                     }
                     if (arrayList.size() <= 0) {
-                        for (MediaData mediaData2 : FrsCommonImageLayout.this.fsj) {
+                        for (MediaData mediaData2 : FrsCommonImageLayout.this.fzq) {
                             if (!TextUtils.isEmpty(mediaData2.getPicUrl())) {
                                 arrayList.add(mediaData2.getPicUrl());
                             }
                         }
                     }
-                    if (FrsCommonImageLayout.this.fsq == null) {
+                    if (FrsCommonImageLayout.this.fzz == null) {
                         pageActivity = FrsCommonImageLayout.this.mContext;
                     } else {
-                        pageActivity = FrsCommonImageLayout.this.fsq.getPageActivity();
+                        pageActivity = FrsCommonImageLayout.this.fzz.getPageActivity();
                     }
                     ImageViewerConfig createConfig = new ImageViewerConfig(pageActivity).createConfig(arrayList, this.mIndex, FrsCommonImageLayout.this.mForumName, FrsCommonImageLayout.this.mForumId, FrsCommonImageLayout.this.mThreadId, FrsCommonImageLayout.this.mIsFromCDN, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
                     createConfig.getIntent().putExtra("from", "frs");
@@ -208,20 +208,20 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             } else {
                 return;
             }
-            if (FrsCommonImageLayout.this.fso != null) {
-                FrsCommonImageLayout.this.fso.onClick(view);
+            if (FrsCommonImageLayout.this.fzw != null) {
+                FrsCommonImageLayout.this.fzw.onClick(view);
             }
         }
     }
 
     public void setChildrenClickable(boolean z) {
-        this.fsp = z;
+        this.fzx = z;
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        if (this.fsp) {
+        if (this.fzx) {
             view.setOnClickListener(new a(this, getChildCount() - 1, null));
         }
     }
@@ -229,32 +229,32 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        if (this.fsp) {
+        if (this.fzx) {
             view.setOnClickListener(new a(this, getChildCount() - 1, null));
         }
     }
 
-    public void a(bi biVar, String str, String str2, String str3) {
+    public void a(bk bkVar, String str, String str2, String str3) {
         this.mForumName = str;
         this.mForumId = str2;
         this.mThreadId = str3;
     }
 
     public void a(com.baidu.adp.base.h<?> hVar, MediaData[] mediaDataArr, int i) {
-        this.fsj = mediaDataArr;
-        this.fsl = i;
-        this.fsq = hVar;
+        this.fzq = mediaDataArr;
+        this.fzt = i;
+        this.fzz = hVar;
         Resources resources = getResources();
-        this.fsr = String.valueOf(resources.getString(r.j.frs_item_common_image_canvas_text1)) + this.fsl + resources.getString(r.j.frs_item_common_image_canvas_text2);
-        if (this.fsn == null && (hVar.getOrignalPage() instanceof c)) {
-            this.fsn = ((c) hVar.getOrignalPage()).aea();
+        this.fzA = String.valueOf(resources.getString(r.j.frs_item_common_image_canvas_text1)) + this.fzt + resources.getString(r.j.frs_item_common_image_canvas_text2);
+        if (this.fzv == null && (hVar.getOrignalPage() instanceof c)) {
+            this.fzv = ((c) hVar.getOrignalPage()).aft();
         }
-        if (this.fsn != null) {
-            if (this.fsj == null || this.fsj.length <= 0) {
+        if (this.fzv != null) {
+            if (this.fzq == null || this.fzq.length <= 0) {
                 requestLayout();
                 return;
             }
-            this.mChildCount = this.fsj.length;
+            this.mChildCount = this.fzq.length;
             if (this.mChildCount > this.mNormalShowCount) {
                 this.mChildCount = this.mNormalShowCount;
             }
@@ -262,7 +262,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             if (this.mChildCount > childCount) {
                 int i2 = this.mChildCount - childCount;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    TbImageView ey = this.fsn.ey();
+                    TbImageView ey = this.fzv.ey();
                     ey.setContentDescription(String.valueOf(hVar.getString(r.j.editor_image)) + (i3 + 1));
                     if (ey != null) {
                         addView(ey);
@@ -272,13 +272,13 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                 removeViews(this.mChildCount, childCount - this.mChildCount);
             }
             int childCount2 = getChildCount();
-            for (int i4 = 0; i4 < childCount2 && i4 < this.fsj.length; i4++) {
+            for (int i4 = 0; i4 < childCount2 && i4 < this.fzq.length; i4++) {
                 TbImageView tbImageView = (TbImageView) getChildAt(i4);
                 if (this.mSkinType != TbadkCoreApplication.m9getInst().getSkinType() && tbImageView != null) {
-                    tbImageView.setDefaultBg(av.getDrawable(r.d.common_color_10220));
+                    tbImageView.setDefaultBg(at.getDrawable(r.d.common_color_10220));
                 }
                 this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
-                a(tbImageView, this.fsj[i4], i4);
+                a(tbImageView, this.fzq[i4], i4);
             }
         }
     }
@@ -344,7 +344,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.fsj != null && this.fsj.length > 0) {
+        if (this.fzq != null && this.fzq.length > 0) {
             this.mChildCount = getChildCount();
             if (this.mChildCount != 0) {
                 long drawingTime = getDrawingTime();
@@ -357,7 +357,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     drawChild(canvas, (TbImageView) getChildAt(i2), drawingTime);
                     i = i2 + 1;
                 }
-                if (this.fsl > 3 && this.fsm) {
+                if (this.fzt > 3 && this.fzu) {
                     z(canvas);
                 }
             }
@@ -365,19 +365,19 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     }
 
     private void z(Canvas canvas) {
-        if (this.bmp == null || this.bmp.isRecycled()) {
-            this.bmp = BitmapHelper.getCashBitmap(r.f.bg_look_photo_1);
-            if (this.bmp != null) {
-                this.Bc = new Rect(0, 0, this.bmp.getWidth(), this.bmp.getHeight());
+        if (this.fzE == null || this.fzE.isRecycled()) {
+            this.fzE = BitmapHelper.getCashBitmap(r.f.bg_look_photo_1);
+            if (this.fzE != null) {
+                this.Bc = new Rect(0, 0, this.fzE.getWidth(), this.fzE.getHeight());
                 this.Bd = new Rect(getWidth() - this.w, getHeight() - this.h, getWidth(), getHeight());
             }
         }
-        if (this.bmp != null && !this.bmp.isRecycled()) {
-            this.Bc.set(0, 0, this.bmp.getWidth(), this.bmp.getHeight());
+        if (this.fzE != null && !this.fzE.isRecycled()) {
+            this.Bc.set(0, 0, this.fzE.getWidth(), this.fzE.getHeight());
             this.Bd.set(getWidth() - this.w, getHeight() - this.h, getWidth(), getHeight());
-            canvas.drawBitmap(this.bmp, this.Bc, this.Bd, this.paint);
+            canvas.drawBitmap(this.fzE, this.Bc, this.Bd, this.paint);
         }
-        canvas.drawText(this.fsr, (getWidth() - this.w) + ((this.w - this.fss) / 2), getHeight() + ((this.fst - this.h) / 2), this.fsu);
+        canvas.drawText(this.fzA, (getWidth() - this.w) + ((this.w - this.fzB) / 2), getHeight() + ((this.fzC - this.h) / 2), this.fzD);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -400,16 +400,16 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     }
 
     public void setShowBig(boolean z) {
-        this.fsk = z;
-        if (this.fsk) {
-            this.fsv = "_small";
+        this.fzr = z;
+        if (this.fzr) {
+            this.fzF = "_small";
         } else {
-            this.fsv = "_mobile";
+            this.fzF = "_mobile";
         }
     }
 
     public void setAfterChildClickListener(View.OnClickListener onClickListener) {
-        this.fso = onClickListener;
+        this.fzw = onClickListener;
     }
 
     public static com.baidu.adp.lib.f.b<TbImageView> o(Context context, int i) {

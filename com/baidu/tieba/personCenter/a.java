@@ -14,60 +14,60 @@ import com.baidu.tieba.personCenter.g.g;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private BaseFragmentActivity aTS;
-    private b eFf;
-    private g eFg;
-    private com.baidu.tieba.personCenter.b.a eFh;
+    private BaseFragmentActivity aWd;
+    private b eLE;
+    private g eLF;
+    private com.baidu.tieba.personCenter.b.a eLG;
     private boolean mIsLogin;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.aTS = getBaseFragmentActivity();
+        this.aWd = getBaseFragmentActivity();
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eFf = new b(this.aTS);
+        this.eLE = new b(this.aWd);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.eFg = new g(this.aTS.getPageContext());
-        return this.eFg.onCreateView(layoutInflater, viewGroup, bundle);
+        this.eLF = new g(this.aWd.getPageContext());
+        return this.eLF.onCreateView(layoutInflater, viewGroup, bundle);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        this.eFg.initUI();
-        this.eFg.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        this.eLF.initUI();
+        this.eLF.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.eFh = new com.baidu.tieba.personCenter.b.a(this.aTS.getPageContext(), this.eFf, this.eFg);
-        this.eFg.setOnViewResponseListener(this.eFh.aSN());
-        this.eFg.a(this.eFh);
+        this.eLG = new com.baidu.tieba.personCenter.b.a(this.aWd.getPageContext(), this.eLE, this.eLF);
+        this.eLF.setOnViewResponseListener(this.eLG.aUU());
+        this.eLF.a(this.eLG);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        com.baidu.tieba.f.a.bcl().kf(isPrimary());
+        com.baidu.tieba.f.a.beM().kH(isPrimary());
         if (isPrimary() && this.mIsLogin) {
-            com.baidu.tieba.f.a.bcl().bcs();
+            com.baidu.tieba.f.a.beM().beT();
             if (i.fZ()) {
-                this.eFg.JJ();
-                if (!this.eFh.hasData()) {
-                    this.eFg.j(true, getResources().getDimensionPixelSize(r.e.ds480));
+                this.eLF.JP();
+                if (!this.eLG.hasData()) {
+                    this.eLF.j(true, getResources().getDimensionPixelSize(r.e.ds480));
                 }
-                this.eFf.Fa();
-            } else if (!this.eFh.hasData()) {
-                this.eFg.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
+                this.eLE.Ff();
+            } else if (!this.eLG.hasData()) {
+                this.eLF.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
             }
         }
     }
@@ -75,8 +75,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eFg != null) {
-            this.eFg.onChangeSkinType(i);
+        if (this.eLF != null) {
+            this.eLF.onChangeSkinType(i);
         }
     }
 

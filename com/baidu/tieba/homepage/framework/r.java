@@ -6,20 +6,20 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements g.a {
-    final /* synthetic */ q cCJ;
+    final /* synthetic */ q cHW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.cCJ = qVar;
+        this.cHW = qVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.c.g.a
     public void b(long j, DataRes dataRes, boolean z) {
         q.a aVar;
         q.a aVar2;
-        aVar = this.cCJ.cCa;
+        aVar = this.cHW.cHn;
         if (aVar != null) {
-            aVar2 = this.cCJ.cCa;
+            aVar2 = this.cHW.cHn;
             aVar2.a(j, dataRes, z);
         }
     }
@@ -28,9 +28,9 @@ public class r implements g.a {
     public void a(long j, int i, String str) {
         q.a aVar;
         q.a aVar2;
-        aVar = this.cCJ.cCa;
+        aVar = this.cHW.cHn;
         if (aVar != null) {
-            aVar2 = this.cCJ.cCa;
+            aVar2 = this.cHW.cHn;
             aVar2.a(j, "", str, i, false);
         }
     }

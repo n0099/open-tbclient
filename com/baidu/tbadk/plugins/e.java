@@ -1,67 +1,14 @@
 package com.baidu.tbadk.plugins;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tieba.r;
+import android.view.View;
 /* loaded from: classes.dex */
-public class e {
-    public static boolean GB() {
-        return PluginPackageManager.iB().bk("com.baidu.tieba.pluginHotTopic") && TbadkCoreApplication.m9getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
+class e extends com.baidu.tbadk.widget.richText.h {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(int i, String str) {
+        super(i, str);
     }
 
-    public static boolean GC() {
-        return PluginPackageManager.iB().bq("com.baidu.tieba.pluginHotTopic");
-    }
-
-    public static boolean a(TbPageContext<?> tbPageContext, boolean z) {
-        if (PluginPackageManager.iB().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
-            String string = tbPageContext.getResources().getString(r.j.plugin_hottopic_not_install);
-            if (z) {
-                showGoPluginDetailDialog(tbPageContext, string, null);
-                return true;
-            }
-            return true;
-        } else if (!GB()) {
-            String string2 = tbPageContext.getResources().getString(r.j.plugin_hottopic_install_tips);
-            String string3 = tbPageContext.getResources().getString(r.j.plugin_go_install);
-            if (z) {
-                showGoPluginDetailDialog(tbPageContext, string2, string3);
-                return true;
-            }
-            return true;
-        } else if (GC()) {
-            String string4 = tbPageContext.getResources().getString(r.j.plugin_hottopic_not_active);
-            String string5 = tbPageContext.getResources().getString(r.j.setup);
-            if (z) {
-                showGoPluginDetailDialog(tbPageContext, string4, string5);
-                return true;
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean f(TbPageContext<?> tbPageContext) {
-        return a(tbPageContext, true);
-    }
-
-    public static void showGoPluginDetailDialog(TbPageContext<?> tbPageContext, String str, String str2) {
-        Activity pageActivity;
-        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cD(str);
-            if (TextUtils.isEmpty(str2)) {
-                aVar.b(r.j.know, new f());
-            } else {
-                aVar.a(str2, new g(pageActivity, tbPageContext));
-                aVar.b(r.j.cancel, new h());
-            }
-            aVar.b(tbPageContext).tm();
-        }
+    @Override // com.baidu.tbadk.widget.richText.h, android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 }

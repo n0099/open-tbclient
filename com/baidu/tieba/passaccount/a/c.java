@@ -2,17 +2,17 @@ package com.baidu.tieba.passaccount.a;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.passaccount.a.f;
 /* loaded from: classes.dex */
 class c extends BdAsyncTask<Void, Void, AccountData> {
-    private final /* synthetic */ String dXW;
-    final /* synthetic */ b ejd;
+    private final /* synthetic */ String edW;
+    final /* synthetic */ b epb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, String str) {
-        this.ejd = bVar;
-        this.dXW = str;
+        this.epb = bVar;
+        this.edW = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ class c extends BdAsyncTask<Void, Void, AccountData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public AccountData doInBackground(Void... voidArr) {
-        return com.baidu.tbadk.core.a.b.ch(this.dXW);
+        return com.baidu.tbadk.core.a.b.ci(this.edW);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,11 +31,11 @@ class c extends BdAsyncTask<Void, Void, AccountData> {
         a aVar;
         f.a aVar2;
         super.onPostExecute(accountData);
-        if (accountData != null && !az.isEmpty(accountData.getPassword())) {
+        if (accountData != null && !ax.isEmpty(accountData.getPassword())) {
             String account = accountData.getAccount();
             String password = accountData.getPassword();
-            aVar = this.ejd.ejc;
-            aVar2 = aVar.ejb;
+            aVar = this.epb.epa;
+            aVar2 = aVar.eoZ;
             f.a(account, password, aVar2);
         }
     }

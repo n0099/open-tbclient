@@ -12,37 +12,37 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static f dld = null;
-    private int dle = 0;
-    private List<Long> dlf = new ArrayList();
-    private final CustomMessageListener dkd = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static f dqN = null;
+    private int dqO = 0;
+    private List<Long> dqP = new ArrayList();
+    private final CustomMessageListener dpN = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     private f() {
-        MessageManager.getInstance().registerListener(this.dkd);
+        MessageManager.getInstance().registerListener(this.dpN);
     }
 
-    public static f awk() {
-        if (dld == null) {
+    public static f ayh() {
+        if (dqN == null) {
             synchronized (f.class) {
-                if (dld == null) {
-                    dld = new f();
+                if (dqN == null) {
+                    dqN = new f();
                 }
             }
         }
-        return dld;
+        return dqN;
     }
 
     public synchronized void init(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.dle = Integer.parseInt(str);
+                this.dqO = Integer.parseInt(str);
                 try {
                     String[] split = str2.split(",");
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.dlf.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.dqP.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -56,46 +56,46 @@ public class f {
     }
 
     public synchronized void clear() {
-        this.dle = 0;
-        this.dlf.clear();
+        this.dqO = 0;
+        this.dqP.clear();
     }
 
     public int getGid() {
-        return this.dle;
+        return this.dqO;
     }
 
-    public Long awl() {
-        return com.baidu.tieba.im.memorycache.b.avm().avw().get(this.dle);
+    public Long ayi() {
+        return com.baidu.tieba.im.memorycache.b.axj().axt().get(this.dqO);
     }
 
-    public synchronized List<Long> awm() {
+    public synchronized List<Long> ayj() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.dlf) {
+        for (Long l : this.dqP) {
             if (l != null) {
-                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.g.ce(l.longValue())));
+                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.g.cd(l.longValue())));
             }
         }
         return arrayList;
     }
 
-    public synchronized void awn() {
-        this.dlf.clear();
+    public synchronized void ayk() {
+        this.dqP.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0041, code lost:
-        r7.dlf.add(java.lang.Long.valueOf(r9));
+        r7.dqP.add(java.lang.Long.valueOf(r9));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void h(int i, long j) {
-        if (this.dle != 0 && this.dle != i) {
-            this.dlf.clear();
-            k.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + "-" + this.dle);
+    public synchronized void g(int i, long j) {
+        if (this.dqO != 0 && this.dqO != i) {
+            this.dqP.clear();
+            k.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + "-" + this.dqO);
         }
-        this.dle = i;
-        Iterator<Long> it = this.dlf.iterator();
+        this.dqO = i;
+        Iterator<Long> it = this.dqP.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -107,17 +107,17 @@ public class f {
         }
     }
 
-    public synchronized boolean awo() {
+    public synchronized boolean ayl() {
         boolean z;
-        if (this.dle > 0) {
-            z = this.dlf.size() > 0;
+        if (this.dqO > 0) {
+            z = this.dqP.size() > 0;
         }
         return z;
     }
 
-    public synchronized boolean ca(long j) {
+    public synchronized boolean bZ(long j) {
         boolean z;
-        Iterator<Long> it = this.dlf.iterator();
+        Iterator<Long> it = this.dqP.iterator();
         while (true) {
             if (it.hasNext()) {
                 Long next = it.next();
@@ -133,10 +133,10 @@ public class f {
         return z;
     }
 
-    public synchronized String awp() {
+    public synchronized String aym() {
         String str;
         str = "";
-        for (Long l : this.dlf) {
+        for (Long l : this.dqP) {
             if (l != null && l.longValue() != 0) {
                 str = String.valueOf(String.valueOf(str) + l.longValue()) + ",";
             }

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,6 +11,7 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
     protected String forumName;
     protected String imageUrl;
     protected String postId;
+    protected String shareSourceUrl;
     protected String theNewThemeId;
     protected String threadId;
     protected int threadType;
@@ -27,6 +29,9 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
             jSONObject.put("themeTitle", this.title);
             jSONObject.put("theNewThemeID", this.theNewThemeId);
             jSONObject.put("threadType", this.threadType);
+            if (!StringUtils.isNull(this.shareSourceUrl)) {
+                jSONObject.put("shareSourceUrl", this.shareSourceUrl);
+            }
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(String.valueOf(this.title) + " http://tieba.baidu.com/p/" + this.threadId + "?share=9105");
             jSONArray.put("1");
@@ -100,5 +105,13 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
 
     public void setTitle(String str) {
         this.title = str;
+    }
+
+    public void setShareSourceUrl(String str) {
+        this.shareSourceUrl = str;
+    }
+
+    public String getShareSourceUrl() {
+        return this.shareSourceUrl;
     }
 }

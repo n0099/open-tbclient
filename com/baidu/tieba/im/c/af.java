@@ -5,8 +5,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.e {
-    private a dmk;
-    private b dml;
+    private a drU;
+    private b drV;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -28,33 +28,33 @@ public class af extends com.baidu.adp.base.e {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.dmk = new a(str, chatMessage);
-        this.dmk.execute(new Object[0]);
+        this.drU = new a(str, chatMessage);
+        this.drU.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.dml = bVar;
+        this.drV = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String dmm;
-        private ChatMessage dmn;
-        private ac dmo = new ac();
+        private String drW;
+        private ChatMessage drX;
+        private ac drY = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.dmm = str;
-            this.dmn = chatMessage;
+            this.drW = str;
+            this.drX = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: v */
+        /* renamed from: w */
         public String doInBackground(Object... objArr) {
             try {
-                return this.dmo.me(this.dmm);
+                return this.drY.mr(this.drW);
             } catch (Exception e) {
                 return null;
             }
@@ -63,11 +63,11 @@ public class af extends com.baidu.adp.base.e {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: ex */
+        /* renamed from: ez */
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            if (af.this.dml != null) {
-                af.this.dml.a(str, this.dmn);
+            if (af.this.drV != null) {
+                af.this.drV.a(str, this.drX);
             }
         }
     }

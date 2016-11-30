@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private List<f> aNJ = new ArrayList();
-    private long aNK = 0;
+    private List<f> aPP = new ArrayList();
+    private long aPQ = 0;
 
-    public List<f> Kb() {
-        return this.aNJ;
+    public List<f> KF() {
+        return this.aPP;
     }
 
-    public long Kc() {
-        return this.aNK;
+    public long KG() {
+        return this.aPQ;
     }
 
     public void a(f fVar) {
-        if (this.aNJ != null) {
-            this.aNJ.add(fVar);
+        if (this.aPP != null) {
+            this.aPP.add(fVar);
             if (fVar != null) {
-                this.aNK += fVar.Kj();
+                this.aPQ += fVar.KN();
             }
         }
     }
 
     public void b(f fVar) {
-        if (this.aNJ != null) {
-            this.aNJ.remove(fVar);
+        if (this.aPP != null) {
+            this.aPP.remove(fVar);
             if (fVar != null) {
-                this.aNK -= fVar.Kj();
+                this.aPQ -= fVar.KN();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.aNJ != null) {
-            f fVar = this.aNJ.get(i);
+        if (this.aPP != null) {
+            f fVar = this.aPP.get(i);
             if (fVar != null) {
-                this.aNK -= fVar.Kj();
+                this.aPQ -= fVar.KN();
             }
-            this.aNJ.remove(i);
+            this.aPP.remove(i);
         }
     }
 
-    public int Kd() {
-        if (this.aNJ != null) {
-            return this.aNJ.size();
+    public int KH() {
+        if (this.aPP != null) {
+            return this.aPP.size();
         }
         return 0;
     }
 
     public f fK(int i) {
-        if (this.aNJ != null) {
-            return this.aNJ.get(i);
+        if (this.aPP != null) {
+            return this.aPP.get(i);
         }
         return null;
     }

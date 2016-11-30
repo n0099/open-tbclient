@@ -10,10 +10,10 @@ public class a implements Comparator<f> {
         if (fVar == null || fVar2 == null) {
             return 0;
         }
-        long Ki = fVar.Ki();
-        long Ki2 = fVar2.Ki();
-        int i = Ki > Ki2 ? 1 : 0;
-        if (Ki < Ki2) {
+        long KM = fVar.KM();
+        long KM2 = fVar2.KM();
+        int i = KM > KM2 ? 1 : 0;
+        if (KM < KM2) {
             return -1;
         }
         return i;

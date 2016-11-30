@@ -4,15 +4,15 @@ import com.baidu.tieba.frs.tab.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements j.a {
-    final /* synthetic */ HorizontalTabView cdA;
+    final /* synthetic */ HorizontalTabView chB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(HorizontalTabView horizontalTabView) {
-        this.cdA = horizontalTabView;
+        this.chB = horizontalTabView;
     }
 
     @Override // com.baidu.tieba.frs.tab.j.a
     public void a(TabItemView tabItemView) {
-        this.cdA.a(tabItemView, false);
+        this.chB.a(tabItemView, false);
     }
 }

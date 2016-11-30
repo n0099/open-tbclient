@@ -1,52 +1,37 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
 import android.view.View;
-import java.util.Date;
+import com.baidu.tbadk.BaseActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bn implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+public class bn implements Runnable {
+    final /* synthetic */ bm gpx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    public bn(bm bmVar) {
+        this.gpx = bmVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        boolean sM;
-        z = this.this$0.erq;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                if (this.this$0.coW.getVisibility() != 0) {
-                    z2 = this.this$0.eGI;
-                    if (z2 && this.this$0.eGB != null && !this.this$0.eGB.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        sM = this.this$0.sM(str);
-                        if (sM) {
-                            intent.putExtra("change", true);
-                            intent.putExtra("file_name", str);
-                        } else {
-                            intent.putExtra("change", false);
-                        }
-                    } else {
-                        intent.putExtra("change", false);
-                    }
-                    this.this$0.setResult(-1, intent);
-                } else {
-                    return;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.l lVar;
+        com.baidu.tbadk.editortools.l lVar2;
+        com.baidu.tbadk.editortools.j jVar2;
+        BaseActivity baseActivity;
+        jVar = this.gpx.gpu;
+        if (jVar != null) {
+            lVar = this.gpx.auI;
+            if (lVar != null) {
+                lVar2 = this.gpx.auI;
+                com.baidu.tbadk.editortools.s ez = lVar2.ez(24);
+                if (ez instanceof View) {
+                    jVar2 = this.gpx.gpu;
+                    baseActivity = this.gpx.aTb;
+                    jVar2.d(baseActivity.getPageContext().getPageActivity(), (View) ez);
                 }
-            } else {
-                this.this$0.setResult(0, new Intent());
+                this.gpx.gpv = true;
             }
-        } else {
-            this.this$0.setResult(0, new Intent());
         }
-        this.this$0.finish();
     }
 }

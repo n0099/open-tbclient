@@ -1,49 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.ai;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SignData;
 /* loaded from: classes.dex */
-class y implements ai.a {
-    final /* synthetic */ FrsActivity bQi;
+class y extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bTa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(FrsActivity frsActivity) {
-        this.bQi = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bTa = frsActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ai.a
-    public void hB(String str) {
-        boolean z;
-        com.baidu.tbadk.core.data.bi biVar;
-        com.baidu.tbadk.core.data.bi biVar2;
-        int i = 1;
-        z = this.bQi.bOR;
-        if (z) {
-            biVar = this.bQi.bOQ;
-            if (biVar != null) {
-                biVar2 = this.bQi.bOQ;
-                if (biVar2.rF().getIsLike() == 1) {
-                    i = 0;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.frs.j.n nVar;
+        com.baidu.tieba.frs.j.n nVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && this.bTa.bRX != null && this.bTa.bRX.aOk() != null) {
+            SignData signData = (SignData) customResponsedMessage.getData();
+            if (signData.forumId != null && signData.forumId.equals(this.bTa.bRX.aOk().getId())) {
+                this.bTa.bRX.d(signData);
+                nVar = this.bTa.bSi;
+                nVar.k(this.bTa.bRX);
+                int user_level = this.bTa.bRX.aOk().getUser_level();
+                nVar2 = this.bTa.bSi;
+                if (nVar2.ahA()) {
+                    user_level = this.bTa.bRX.aOk().getUser_level() + 1;
                 }
-            }
-            this.bQi.hS(i);
-        }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.ai.a
-    public void v(int i, String str) {
-        boolean z;
-        z = this.bQi.bOR;
-        if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.rU(i)) {
-                AntiHelper.R(this.bQi.getPageContext().getPageActivity(), str);
-            } else {
-                this.bQi.showToast(str);
+                TbadkCoreApplication.m9getInst().addSignedForum(this.bTa.bRX.aOk().getName(), signData.sign_bonus_point, user_level);
             }
         }
     }

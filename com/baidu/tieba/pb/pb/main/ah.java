@@ -3,66 +3,66 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.tbadkCore.f.a;
 /* loaded from: classes.dex */
 class ah extends com.baidu.adp.base.g {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(PbActivity pbActivity) {
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     @Override // com.baidu.adp.base.g
     public void g(Object obj) {
-        ex exVar;
+        ey eyVar;
         com.baidu.tieba.tbadkCore.f.a aVar;
         com.baidu.tieba.tbadkCore.f.a aVar2;
         com.baidu.tieba.tbadkCore.f.a aVar3;
-        ex exVar2;
+        ey eyVar2;
         com.baidu.tieba.tbadkCore.f.a aVar4;
-        ex exVar3;
-        ex exVar4;
-        dh dhVar;
+        ey eyVar3;
+        ey eyVar4;
+        dj djVar;
         boolean z = false;
         if (obj != null) {
-            aVar2 = this.eqa.epd;
+            aVar2 = this.evL.euO;
             switch (aVar2.getLoadDataMode()) {
                 case 0:
-                    dhVar = this.eqa.eov;
-                    dhVar.aOI();
+                    djVar = this.evL.euf;
+                    djVar.aQB();
                     a.b bVar = (a.b) obj;
-                    if (bVar.cuW || bVar.eyv <= 0 || bVar.fxt == 0) {
+                    if (bVar.cAf || bVar.eFf <= 0 || bVar.fEy == 0) {
                         z = true;
                     } else {
-                        com.baidu.tieba.c.a.a(this.eqa.getPageContext(), 2, 1);
+                        com.baidu.tieba.c.a.a(this.evL.getPageContext(), 2, 1);
                     }
-                    this.eqa.a(bVar, z);
+                    this.evL.a(bVar, z);
                     return;
                 case 1:
                     a.d dVar = (a.d) obj;
-                    exVar4 = this.eqa.epe;
-                    exVar4.a(1, dVar.ub, dVar.fxv, true);
+                    eyVar4 = this.evL.euP;
+                    eyVar4.a(1, dVar.uc, dVar.fEA, true);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    PbActivity pbActivity = this.eqa;
-                    aVar3 = this.eqa.epd;
+                    PbActivity pbActivity = this.evL;
+                    aVar3 = this.evL.euO;
                     pbActivity.a(aVar3.getLoadDataMode(), (a.f) obj);
                     return;
                 case 6:
                     a.f fVar = (a.f) obj;
-                    exVar2 = this.eqa.epe;
-                    aVar4 = this.eqa.epd;
-                    exVar2.a(aVar4.getLoadDataMode(), fVar.ub, fVar.fxv, false);
-                    exVar3 = this.eqa.epe;
-                    exVar3.am(fVar.fxx);
+                    eyVar2 = this.evL.euP;
+                    aVar4 = this.evL.euO;
+                    eyVar2.a(aVar4.getLoadDataMode(), fVar.uc, fVar.fEA, false);
+                    eyVar3 = this.evL.euP;
+                    eyVar3.ap(fVar.fEC);
                     return;
                 default:
                     return;
             }
         }
-        exVar = this.eqa.epe;
-        aVar = this.eqa.epd;
-        exVar.a(aVar.getLoadDataMode(), false, (String) null, false);
+        eyVar = this.evL.euP;
+        aVar = this.evL.euO;
+        eyVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

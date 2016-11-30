@@ -6,11 +6,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ChangeSystemPhotoActivity aDW;
+    final /* synthetic */ ChangeSystemPhotoActivity aEM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.aDW = changeSystemPhotoActivity;
+        this.aEM = changeSystemPhotoActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,19 +21,19 @@ public class d implements AdapterView.OnItemClickListener {
         ArrayList arrayList4;
         h hVar;
         h hVar2;
-        arrayList = this.aDW.aDO;
+        arrayList = this.aEM.aEE;
         if (arrayList != null) {
-            arrayList2 = this.aDW.aDO;
+            arrayList2 = this.aEM.aEE;
             if (arrayList2.size() > 0) {
-                arrayList3 = this.aDW.aDO;
+                arrayList3 = this.aEM.aEE;
                 if (arrayList3.size() > i) {
-                    arrayList4 = this.aDW.aDO;
+                    arrayList4 = this.aEM.aEE;
                     if (arrayList4.get(i) != null) {
-                        this.aDW.aDP = i;
-                        this.aDW.bW(true);
-                        hVar = this.aDW.aDN;
-                        hVar.fh(i);
-                        hVar2 = this.aDW.aDN;
+                        this.aEM.aEF = i;
+                        this.aEM.cb(true);
+                        hVar = this.aEM.aED;
+                        hVar.fk(i);
+                        hVar2 = this.aEM.aED;
                         hVar2.notifyDataSetChanged();
                     }
                 }

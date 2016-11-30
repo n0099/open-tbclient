@@ -1,18 +1,18 @@
 package com.baidu.tbadk.editortools.e;
 /* loaded from: classes.dex */
 public class b {
-    private static b avB;
+    private static b awv;
     private int mStatus = 0;
 
-    public static b Dh() {
-        if (avB == null) {
+    public static b Dp() {
+        if (awv == null) {
             synchronized (b.class) {
-                if (avB == null) {
-                    avB = new b();
+                if (awv == null) {
+                    awv = new b();
                 }
             }
         }
-        return avB;
+        return awv;
     }
 
     private b() {

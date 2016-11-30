@@ -20,7 +20,7 @@ public class IndicatorView extends View {
     private Drawable AG;
     private final j AH;
     private float mPosition;
-    private int qg;
+    private int qh;
 
     public IndicatorView(Context context) {
         this(context, null, 0);
@@ -35,7 +35,7 @@ public class IndicatorView extends View {
         this.AH = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
         this.AD = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
-        this.qg = obtainStyledAttributes.getInteger(4, 0);
+        this.qh = obtainStyledAttributes.getInteger(4, 0);
         this.AF = obtainStyledAttributes.getDrawable(1);
         if (this.AF != null) {
             this.AF.setBounds(0, 0, this.AF.getIntrinsicWidth(), this.AF.getIntrinsicHeight());
@@ -92,11 +92,11 @@ public class IndicatorView extends View {
     }
 
     public int getCount() {
-        return this.qg;
+        return this.qh;
     }
 
     public void setCount(int i) {
-        this.qg = i;
+        this.qh = i;
         requestLayout();
         invalidate();
     }
@@ -127,7 +127,7 @@ public class IndicatorView extends View {
 
         @Override // com.baidu.adp.widget.j
         public void measure(int i, int i2) {
-            if (IndicatorView.this.AF == null || IndicatorView.this.AG == null || IndicatorView.this.qg == 0) {
+            if (IndicatorView.this.AF == null || IndicatorView.this.AG == null || IndicatorView.this.qh == 0) {
                 IndicatorView.this.setWillNotDraw(true);
                 IndicatorView.this.setMeasuredDimension(0, 0);
                 return;
@@ -139,7 +139,7 @@ public class IndicatorView extends View {
         private int aH(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
-            int max = (IndicatorView.this.AD * (IndicatorView.this.qg - 1)) + (Math.max(IndicatorView.this.AF.getIntrinsicWidth(), IndicatorView.this.AG.getIntrinsicWidth()) * IndicatorView.this.qg);
+            int max = (IndicatorView.this.AD * (IndicatorView.this.qh - 1)) + (Math.max(IndicatorView.this.AF.getIntrinsicWidth(), IndicatorView.this.AG.getIntrinsicWidth()) * IndicatorView.this.qh);
             switch (i2) {
                 case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
                     int min = Math.min(i3, max);
@@ -151,7 +151,7 @@ public class IndicatorView extends View {
                     IndicatorView.this.AG.setBounds(0, 0, IndicatorView.this.AG.getIntrinsicWidth(), 0);
                     return max;
                 case 1073741824:
-                    int i4 = (int) ((i3 - (IndicatorView.this.AD * (IndicatorView.this.qg - 1))) / IndicatorView.this.qg);
+                    int i4 = (int) ((i3 - (IndicatorView.this.AD * (IndicatorView.this.qh - 1))) / IndicatorView.this.qh);
                     IndicatorView.this.AG.setBounds(0, 0, i4, IndicatorView.this.AG.getBounds().height());
                     IndicatorView.this.AF.setBounds(0, 0, i4, IndicatorView.this.AF.getBounds().height());
                     return i3;
@@ -186,7 +186,7 @@ public class IndicatorView extends View {
         @Override // com.baidu.adp.widget.j
         public void draw(Canvas canvas) {
             int save = canvas.save();
-            for (int i = 0; i < IndicatorView.this.qg; i++) {
+            for (int i = 0; i < IndicatorView.this.qh; i++) {
                 if (i != 0) {
                     canvas.translate(IndicatorView.this.AF.getBounds().width() + IndicatorView.this.AD, 0.0f);
                 }

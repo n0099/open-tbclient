@@ -188,7 +188,7 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             if (sslErrorHandler != null) {
-                sslErrorHandler.proceed();
+                sslErrorHandler.cancel();
             }
         }
     }

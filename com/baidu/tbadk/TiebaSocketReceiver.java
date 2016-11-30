@@ -16,8 +16,8 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
                 synchronized (f.class) {
-                    f.acQ.removeParameter("http.route.default-proxy");
-                    f.acO = null;
+                    f.adp.removeParameter("http.route.default-proxy");
+                    f.adn = null;
                 }
             }
         } else if ("com.baidu.android.pushservice.action.BIND_SYNC".equals(intent.getAction())) {

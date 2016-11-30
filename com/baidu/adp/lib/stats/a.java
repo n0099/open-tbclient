@@ -27,58 +27,58 @@ import java.util.List;
 public class a {
     private String mAppVersion;
     private Context mContext;
-    private String pD;
     private String pE;
     private String pF;
-    private boolean pG;
-    private e pI;
-    private C0007a pJ;
-    private static a pC = null;
+    private String pG;
+    private boolean pH;
+    private e pJ;
+    private C0007a pK;
+    private static a pD = null;
     private static final Handler mHandler = new b();
-    private boolean pH = false;
-    private a.InterfaceC0008a pK = new c(this);
+    private boolean pI = false;
+    private a.InterfaceC0008a pL = new c(this);
 
     public static a eI() {
-        if (pC == null) {
+        if (pD == null) {
             synchronized (a.class) {
-                if (pC == null) {
-                    pC = new a();
+                if (pD == null) {
+                    pD = new a();
                 }
             }
         }
-        return pC;
+        return pD;
     }
 
     public e eJ() {
-        return this.pI;
+        return this.pJ;
     }
 
     public void a(Context context, boolean z, String str, String str2, String str3, String str4, f fVar, e eVar) {
         this.mContext = context;
-        this.pE = str3;
-        this.pF = String.valueOf(this.pE) + "/notUpload";
-        this.pG = z;
-        this.pI = eVar;
+        this.pF = str3;
+        this.pG = String.valueOf(this.pF) + "/notUpload";
+        this.pH = z;
+        this.pJ = eVar;
         com.baidu.adp.lib.Disk.d.cB().F(str2);
-        com.baidu.adp.lib.stats.switchs.a.fD().a(z, str, this.mContext, this.pK);
+        com.baidu.adp.lib.stats.switchs.a.fD().a(z, str, this.mContext, this.pL);
         com.baidu.adp.lib.stats.upload.b.fJ().a(fVar, str4);
         j.fL().init();
         if (fVar != null) {
             this.mAppVersion = fVar.mAppVersion;
         }
-        if (TextUtils.isEmpty(this.pD)) {
-            this.pD = eL();
-            if (z && this.pD == null) {
-                this.pD = "44f94582";
+        if (TextUtils.isEmpty(this.pE)) {
+            this.pE = eL();
+            if (z && this.pE == null) {
+                this.pE = "44f94582";
             }
         }
         try {
-            if (this.pJ == null && this.mContext != null) {
-                this.pJ = new C0007a(this, null);
+            if (this.pK == null && this.mContext != null) {
+                this.pK = new C0007a(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("adp.bdstatisticsmanager.multiproceess.uploadallfile");
                 intentFilter.addAction("com.baidu.adp.stats.upload.alertlog");
-                this.mContext.registerReceiver(this.pJ, intentFilter);
+                this.mContext.registerReceiver(this.pK, intentFilter);
             }
         } catch (Exception e) {
             BdLog.e(e);
@@ -126,15 +126,15 @@ public class a {
     }
 
     public String eM() {
-        return this.pE;
-    }
-
-    public String eN() {
         return this.pF;
     }
 
+    public String eN() {
+        return this.pG;
+    }
+
     public String eO() {
-        return this.pD;
+        return this.pE;
     }
 
     public void k(String str, String str2, String str3) {
@@ -146,7 +146,7 @@ public class a {
     }
 
     public boolean eP() {
-        return this.pG;
+        return this.pH;
     }
 
     public void a(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
@@ -170,10 +170,10 @@ public class a {
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
                 String action = intent.getAction();
-                if ("com.baidu.adp.stats.uploadallfile".equals(action) && !a.this.pG) {
+                if ("com.baidu.adp.stats.uploadallfile".equals(action) && !a.this.pH) {
                     j.fL().fP();
                 }
-                if ("com.baidu.adp.stats.upload.alertlog".equals(action) && a.this.pG) {
+                if ("com.baidu.adp.stats.upload.alertlog".equals(action) && a.this.pH) {
                     Bundle extras = intent.getExtras();
                     String string = extras.getString("alert_type");
                     String string2 = extras.getString("alert_log");
@@ -195,7 +195,7 @@ public class a {
 
     public void eR() {
         j.fL().fP();
-        if (this.pG) {
+        if (this.pH) {
             Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
             this.mContext.sendBroadcast(intent);

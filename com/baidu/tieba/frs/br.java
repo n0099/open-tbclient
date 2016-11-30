@@ -1,22 +1,48 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class br implements Runnable {
-    final /* synthetic */ bm bRV;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bm bmVar) {
-        this.bRV = bmVar;
+import android.content.Context;
+/* loaded from: classes.dex */
+public class br {
+    private long bVd;
+    private long bVe;
+    private long bVf;
+    private long bVg;
+    private long bVh;
+
+    public br(Context context) {
+        bh(0L);
+        bi(0L);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.adp.lib.guide.d dVar;
-        com.baidu.adp.lib.guide.d dVar2;
-        dVar = this.bRV.Hs;
-        if (dVar != null) {
-            dVar2 = this.bRV.Hs;
-            dVar2.dismiss();
-        }
+    public void bh(long j) {
+        this.bVd = j;
+    }
+
+    public void bi(long j) {
+        this.bVe = j;
+    }
+
+    public long adB() {
+        return this.bVe + this.bVd + this.bVf;
+    }
+
+    public void bj(long j) {
+        this.bVf = j;
+    }
+
+    public void bk(long j) {
+        this.bVg = j;
+    }
+
+    public long adC() {
+        return this.bVg;
+    }
+
+    public long adD() {
+        return this.bVh;
+    }
+
+    public void bl(long j) {
+        this.bVh = j;
     }
 }

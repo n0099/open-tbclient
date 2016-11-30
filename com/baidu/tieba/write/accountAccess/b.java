@@ -18,11 +18,11 @@ import com.baidu.tieba.tbadkCore.writeModel.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements b.d {
-    final /* synthetic */ a gbU;
+    final /* synthetic */ a gjz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.gbU = aVar;
+        this.gjz = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
@@ -44,59 +44,59 @@ public class b implements b.d {
         c cVar13;
         c cVar14;
         com.baidu.tieba.tbadkCore.writeModel.b bVar2;
-        cVar = this.gbU.gbP;
+        cVar = this.gjz.gju;
         if (cVar != null) {
-            bVar = this.gbU.gbT;
+            bVar = this.gjz.gjy;
             if (bVar != null) {
-                cVar2 = this.gbU.gbP;
+                cVar2 = this.gjz.gju;
                 cVar2.showPostThreadLoadingView(false);
                 if (writeData == null) {
-                    bVar2 = this.gbU.gbT;
-                    writeData2 = bVar2.bfE();
+                    bVar2 = this.gjz.gjy;
+                    writeData2 = bVar2.bia();
                 } else {
                     writeData2 = writeData;
                 }
                 if (z) {
-                    cVar10 = this.gbU.gbP;
-                    cVar11 = this.gbU.gbP;
+                    cVar10 = this.gjz.gju;
+                    cVar11 = this.gjz.gju;
                     cVar10.showToast(true, cVar11.getContext().getResources().getString(r.j.send_success));
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    cVar12 = this.gbU.gbP;
+                    cVar12 = this.gjz.gju;
                     BaseActivity context = cVar12.getContext();
-                    cVar13 = this.gbU.gbP;
+                    cVar13 = this.gjz.gju;
                     cVar13.getContext();
                     context.setResult(-1, intent);
-                    cVar14 = this.gbU.gbP;
+                    cVar14 = this.gjz.gju;
                     cVar14.getContext().finish();
-                } else if (writeData2 != null && sVar != null && !TextUtils.isEmpty(sVar.xW())) {
+                } else if (writeData2 != null && sVar != null && !TextUtils.isEmpty(sVar.yc())) {
                     writeData2.setVcodeMD5(sVar.getVcode_md5());
                     writeData2.setVcodeUrl(sVar.getVcode_pic_url());
-                    writeData2.setVcodeExtra(sVar.xX());
-                    cVar7 = this.gbU.gbP;
+                    writeData2.setVcodeExtra(sVar.yd());
+                    cVar7 = this.gjz.gju;
                     cVar7.getContext().setVisible(false);
-                    if (com.baidu.tbadk.j.a.gG(sVar.xW())) {
+                    if (com.baidu.tbadk.j.a.gG(sVar.yc())) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        cVar9 = this.gbU.gbP;
-                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(cVar9.getContext().getActivity(), 12006, writeData2, false, sVar.xW())));
+                        cVar9 = this.gjz.gju;
+                        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(cVar9.getContext().getActivity(), 12006, writeData2, false, sVar.yc())));
                         return;
                     }
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    cVar8 = this.gbU.gbP;
+                    cVar8 = this.gjz.gju;
                     messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(cVar8.getContext().getActivity(), writeData2, 12006)));
                 } else {
                     if (postWriteCallBackData != null) {
-                        cVar4 = this.gbU.gbP;
+                        cVar4 = this.gjz.gju;
                         cVar4.showToast(true, postWriteCallBackData.getErrorString());
-                        cVar5 = this.gbU.gbP;
+                        cVar5 = this.gjz.gju;
                         BaseActivity context2 = cVar5.getContext();
-                        cVar6 = this.gbU.gbP;
+                        cVar6 = this.gjz.gju;
                         cVar6.getContext();
                         context2.setResult(0, null);
                     }
-                    cVar3 = this.gbU.gbP;
+                    cVar3 = this.gjz.gju;
                     cVar3.getContext().finish();
                 }
             }

@@ -3,45 +3,45 @@ package com.baidu.tbadk.core;
 import com.baidu.tbadk.core.data.NewErrorData;
 /* loaded from: classes.dex */
 public class h {
-    protected com.baidu.tbadk.core.util.ab NY;
-    protected NewErrorData NZ = null;
+    protected com.baidu.tbadk.core.util.z Ob;
+    protected NewErrorData Oc = null;
 
     public h() {
-        this.NY = null;
-        this.NY = new com.baidu.tbadk.core.util.ab();
+        this.Ob = null;
+        this.Ob = new com.baidu.tbadk.core.util.z();
     }
 
     public void cancel() {
-        if (this.NY != null) {
-            this.NY.eg();
+        if (this.Ob != null) {
+            this.Ob.eg();
         }
     }
 
     protected void setUrl(String str) {
-        this.NY.setUrl(str);
+        this.Ob.setUrl(str);
     }
 
     public void n(String str, String str2) {
-        this.NY.n(str, str2);
+        this.Ob.n(str, str2);
     }
 
     protected String getResult() {
-        String uu = this.NY.uu();
-        this.NZ = new NewErrorData();
-        this.NZ.parserJson(uu);
-        return uu;
+        String uy = this.Ob.uy();
+        this.Oc = new NewErrorData();
+        this.Oc.parserJson(uy);
+        return uy;
     }
 
-    public boolean oF() {
-        if (this.NY != null) {
-            return this.NY.uS().vO().oF();
+    public boolean oH() {
+        if (this.Ob != null) {
+            return this.Ob.uW().vS().oH();
         }
         return false;
     }
 
-    public String oG() {
-        if (this.NY != null) {
-            return this.NY.getErrorString();
+    public String oI() {
+        if (this.Ob != null) {
+            return this.Ob.getErrorString();
         }
         return null;
     }

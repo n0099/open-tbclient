@@ -1,82 +1,65 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class gm extends LinearLayout {
-    private LinearLayout aDM;
-    private TextView aJT;
-    private TbImageView cSt;
-    private EditText chn;
-    private ShareFromPBMsgData dnP;
-    private TextView title;
+class gm extends CustomMessageListener {
+    final /* synthetic */ ReaderPbService eDb;
 
-    public EditText getChatMsgView() {
-        return this.chn;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gm(ReaderPbService readerPbService, int i) {
+        super(i);
+        this.eDb = readerPbService;
     }
 
-    public void F(String str, boolean z) {
-        if (this.cSt != null) {
-            this.cSt.c(str, z ? 17 : 18, false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ei eiVar;
+        ei eiVar2;
+        ei eiVar3;
+        ei eiVar4;
+        ei eiVar5;
+        ei eiVar6;
+        BdUniqueId bdUniqueId;
+        el elVar;
+        BdUniqueId bdUniqueId2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof eh)) {
+            eh ehVar = (eh) customResponsedMessage.getData();
+            BdUniqueId bdUniqueId3 = ehVar.tag;
+            if (bdUniqueId3 != null) {
+                bdUniqueId = this.eDb.mTagId;
+                if (bdUniqueId.getId() != bdUniqueId3.getId()) {
+                    this.eDb.mTagId = bdUniqueId3;
+                    elVar = this.eDb.mReaderModel;
+                    bdUniqueId2 = this.eDb.mTagId;
+                    elVar.p(bdUniqueId2);
+                }
+            }
+            this.eDb.threadId = ehVar.threadId;
+            this.eDb.postId = ehVar.postId;
+            this.eDb.isAlive = ehVar.isAlive;
+            this.eDb.setReadModel(ehVar);
+            if (ehVar.ezP >= 0) {
+                eiVar2 = this.eDb.mReaderManager;
+                eiVar2.a(ehVar.pbData, ehVar.isSquence, ehVar.loadType, ehVar.ezO, false);
+                eiVar3 = this.eDb.mReaderManager;
+                int aRs = eiVar3.aRs();
+                if (aRs == 1 || aRs == 3) {
+                    eiVar4 = this.eDb.mReaderManager;
+                    eiVar4.oK(0);
+                } else {
+                    eiVar6 = this.eDb.mReaderManager;
+                    eiVar6.oK(1);
+                }
+                eiVar5 = this.eDb.mReaderManager;
+                eiVar5.O(ehVar.ezP, ehVar.ezR);
+                return;
+            }
+            eiVar = this.eDb.mReaderManager;
+            eiVar.a(ehVar.pbData, ehVar.isSquence, ehVar.loadType, ehVar.ezO, true);
         }
-    }
-
-    public gm(Context context) {
-        super(context);
-        aC(context);
-    }
-
-    private void aC(Context context) {
-        LayoutInflater.from(context).inflate(r.h.thread_to_group_share_view, this);
-        setOrientation(1);
-        this.aDM = (LinearLayout) findViewById(r.g.share_content);
-        this.title = (TextView) findViewById(r.g.share_title_view);
-        this.chn = (EditText) findViewById(r.g.chat_msg);
-        this.cSt = (TbImageView) findViewById(r.g.chat_group_img);
-        this.aJT = (TextView) findViewById(r.g.chat_group_desc);
-        com.baidu.tbadk.core.util.av.c(this.title, r.d.cp_cont_b, 1);
-        com.baidu.tbadk.core.util.av.c(this.chn, r.d.cp_cont_b, 2);
-        com.baidu.tbadk.core.util.av.c(this.aJT, r.d.cp_cont_f, 1);
-        this.chn.setHintTextColor(com.baidu.tbadk.core.util.av.getColor(r.d.cp_cont_e));
-        this.chn.setPadding(context.getResources().getDimensionPixelSize(r.e.ds20), 0, 0, 0);
-        agc();
-    }
-
-    public void agc() {
-        this.aDM.setFocusable(true);
-        this.aDM.setFocusableInTouchMode(true);
-        this.aDM.requestFocus();
-    }
-
-    public String getLeaveMsg() {
-        if (this.chn != null) {
-            return com.baidu.adp.lib.util.j.a(this.chn.getText(), null);
-        }
-        return null;
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        return new LinearLayout.LayoutParams(-1, -2);
-    }
-
-    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.dnP = shareFromPBMsgData;
-        ws();
-    }
-
-    private void ws() {
-        this.title.setText(this.dnP.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.dnP.getImageUrl());
-        this.cSt.setTag(this.dnP.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.dnP.getContent());
-        this.aJT.setText(this.dnP.getContent());
     }
 }

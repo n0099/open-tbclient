@@ -1,48 +1,107 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class cq {
-    private BaseActivity aRd;
-    private dh eov;
-    private a eqN = null;
-    private final HttpMessageListener eqO = new cr(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
+    private static cq ewx;
+    private com.baidu.adp.lib.cache.o<byte[]> ewy = null;
+    private com.baidu.adp.lib.cache.o<byte[]> ewz = null;
+    private long ewA = 0;
+    private long ewB = 0;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void j(int i, long j);
-
-        void onError(int i, String str);
+    public static synchronized cq aPS() {
+        cq cqVar;
+        synchronized (cq.class) {
+            if (ewx == null) {
+                ewx = new cq();
+            }
+            cqVar = ewx;
+        }
+        return cqVar;
     }
 
-    public cq(dh dhVar, BaseActivity baseActivity) {
-        this.eov = dhVar;
-        this.aRd = baseActivity;
-        aOd();
-        this.aRd.registerListener(this.eqO);
+    private cq() {
+        abn();
     }
 
-    public void a(a aVar) {
-        this.eqN = aVar;
+    private void abn() {
+        if (this.ewy == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.ewy = com.baidu.tbadk.core.b.a.tm().cB("tb.pb_mark");
+            this.ewB = System.currentTimeMillis() - currentTimeMillis;
+        }
+        if (this.ewz == null) {
+            long currentTimeMillis2 = System.currentTimeMillis();
+            this.ewz = com.baidu.tbadk.core.b.a.tm().cB("tb.pb_normal");
+            this.ewA = System.currentTimeMillis() - currentTimeMillis2;
+        }
     }
 
-    public void aOd() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setResponsedClass(HideChudianPostResponseMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
+    public void K(String str, boolean z) {
+        if (z) {
+            if (this.ewy != null && str != null) {
+                this.ewy.b(str, new byte[0], 0L);
+            }
+        } else if (this.ewz != null && str != null) {
+            this.ewz.b(str, new byte[0], 0L);
+        }
     }
 
-    public void cB(long j) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
-        httpMessage.addParam("template_id", String.valueOf(j));
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public byte[] L(String str, boolean z) {
+        o.c<byte[]> T;
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = 0;
+        if (z) {
+            if (this.ewy != null && str != null) {
+                T = this.ewy.T(str);
+                j = this.ewB;
+            }
+            T = null;
+        } else {
+            if (this.ewz != null && str != null) {
+                T = this.ewz.T(str);
+                j = this.ewA;
+            }
+            T = null;
+        }
+        if (T == null || T.lp == null) {
+            return null;
+        }
+        com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
+        vVar.fg(1001);
+        vVar.aCN = (System.currentTimeMillis() - currentTimeMillis) + j;
+        vVar.Gq();
+        return T.lp;
+    }
+
+    public void a(String str, boolean z, byte[] bArr) {
+        if (str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            abn();
+            if (z) {
+                this.ewy.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            } else {
+                this.ewz.a(str, bArr, 86400000L);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
+            vVar.fg(1001);
+            vVar.aCO = currentTimeMillis2;
+            vVar.Gr();
+        }
+    }
+
+    public void l(String str, byte[] bArr) {
+        if (bArr != null && str != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            abn();
+            this.ewy.a(str, bArr, 2592000000L);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
+            vVar.fg(1001);
+            vVar.aCO = currentTimeMillis2;
+            vVar.Gr();
+        }
     }
 }

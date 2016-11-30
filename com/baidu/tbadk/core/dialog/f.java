@@ -20,42 +20,42 @@ import java.util.ArrayList;
 public class f {
     private AdapterView.OnItemClickListener BG;
     private BdListView Cj;
-    private TbPageContext<?> Gd;
-    private AlertDialog VI;
-    private ViewGroup VJ;
-    private TextView VW;
-    private View VX;
-    private g Wn;
+    private TbPageContext<?> Gf;
+    private g WL;
+    private AlertDialog Wg;
+    private ViewGroup Wh;
+    private TextView Wu;
+    private View Wv;
     private ArrayList<h> mItems;
     private String mTitle;
-    private int VZ = -1;
-    private int Vx = -1;
-    private boolean VL = false;
+    private int Wx = -1;
+    private int VV = -1;
+    private boolean Wj = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int Wh = r.k.dialog_ani_b2t;
-        public static final int Wi = r.k.dialog_ani_t2b;
-        public static final int Wj = r.k.dialog_ani_l2r;
-        public static final int Wk = r.k.dialog_ani_r2l;
+        public static final int WF = r.k.dialog_ani_b2t;
+        public static final int WG = r.k.dialog_ani_t2b;
+        public static final int WH = r.k.dialog_ani_l2r;
+        public static final int WI = r.k.dialog_ani_r2l;
     }
 
     public f(TbPageContext<?> tbPageContext) {
-        this.Gd = tbPageContext;
-        this.VJ = (ViewGroup) LayoutInflater.from(this.Gd.getPageActivity()).inflate(r.h.dialog_rich_layout, (ViewGroup) null);
-        this.VW = (TextView) this.VJ.findViewById(r.g.dialog_title_list);
-        this.Cj = (BdListView) this.VJ.findViewById(r.g.dialog_content_list);
-        this.VX = this.VJ.findViewById(r.g.line_bg);
-        this.Wn = new g(this.Gd);
+        this.Gf = tbPageContext;
+        this.Wh = (ViewGroup) LayoutInflater.from(this.Gf.getPageActivity()).inflate(r.h.dialog_rich_layout, (ViewGroup) null);
+        this.Wu = (TextView) this.Wh.findViewById(r.g.dialog_title_list);
+        this.Cj = (BdListView) this.Wh.findViewById(r.g.dialog_content_list);
+        this.Wv = this.Wh.findViewById(r.g.line_bg);
+        this.WL = new g(this.Gf);
     }
 
-    public f cF(String str) {
+    public f cH(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public f ch(int i) {
-        return cF(this.Gd.getResources().getString(i));
+    public f ci(int i) {
+        return cH(this.Gf.getResources().getString(i));
     }
 
     public f a(ArrayList<h> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -69,25 +69,25 @@ public class f {
         return this;
     }
 
-    public f tq() {
-        if (!this.VL) {
-            this.VL = true;
+    public f tu() {
+        if (!this.Wj) {
+            this.Wj = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.VW.setText(this.mTitle);
-                this.VW.setVisibility(0);
-                this.VX.setVisibility(0);
+                this.Wu.setText(this.mTitle);
+                this.Wu.setVisibility(0);
+                this.Wv.setVisibility(0);
             } else {
-                this.VW.setVisibility(8);
-                this.VX.setVisibility(8);
+                this.Wu.setVisibility(8);
+                this.Wv.setVisibility(8);
             }
-            this.Cj.setAdapter((ListAdapter) this.Wn);
-            this.Wn.setData(this.mItems);
-            c(this.Gd);
+            this.Cj.setAdapter((ListAdapter) this.WL);
+            this.WL.setData(this.mItems);
+            c(this.Gf);
         }
         return this;
     }
 
-    public void ci(int i) {
+    public void cj(int i) {
         for (int i2 = 0; i2 < this.mItems.size(); i2++) {
             if (i2 == i) {
                 this.mItems.get(i2).setChecked(true);
@@ -95,32 +95,32 @@ public class f {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.Wn.setData(this.mItems);
+        this.WL.setData(this.mItems);
     }
 
-    public f tr() {
-        if (!this.VL) {
+    public f tv() {
+        if (!this.Wj) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.VI != null) {
-            j.a(this.VI, this.Gd);
+        if (this.Wg != null) {
+            j.a(this.Wg, this.Gf);
         } else {
-            this.VI = new AlertDialog.Builder(this.Gd.getPageActivity()).create();
-            this.VI.setCanceledOnTouchOutside(true);
-            if (j.a(this.VI, this.Gd.getPageActivity())) {
-                Window window = this.VI.getWindow();
-                if (this.VZ == -1) {
-                    this.VZ = a.Wh;
+            this.Wg = new AlertDialog.Builder(this.Gf.getPageActivity()).create();
+            this.Wg.setCanceledOnTouchOutside(true);
+            if (j.a(this.Wg, this.Gf.getPageActivity())) {
+                Window window = this.Wg.getWindow();
+                if (this.Wx == -1) {
+                    this.Wx = a.WF;
                 }
-                if (this.Vx == -1) {
-                    this.Vx = 17;
+                if (this.VV == -1) {
+                    this.VV = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.Vx);
+                window.setGravity(this.VV);
                 window.setBackgroundDrawableResource(r.f.transparent_bg);
-                window.setContentView(this.VJ);
+                window.setContentView(this.Wh);
             }
         }
         return this;
@@ -129,15 +129,15 @@ public class f {
     private void c(com.baidu.adp.base.h<?> hVar) {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
         if (hVar instanceof TbPageContext) {
-            ((TbPageContext) hVar).getLayoutMode().ah(skinType == 1);
-            ((TbPageContext) hVar).getLayoutMode().x(this.VJ);
+            ((TbPageContext) hVar).getLayoutMode().ai(skinType == 1);
+            ((TbPageContext) hVar).getLayoutMode().x(this.Wh);
         }
-        this.VJ.setBackgroundResource(r.f.transparent_bg);
+        this.Wh.setBackgroundResource(r.f.transparent_bg);
     }
 
     public void dismiss() {
-        if (this.VI != null) {
-            j.b(this.VI, this.Gd.getPageActivity());
+        if (this.Wg != null) {
+            j.b(this.Wg, this.Gf.getPageActivity());
         }
     }
 }

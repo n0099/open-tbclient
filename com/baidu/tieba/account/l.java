@@ -17,35 +17,35 @@ import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private View.OnClickListener afS;
-    private BaseActivity avO;
-    private List<AccountData> aSU = null;
-    private boolean aST = false;
+    private View.OnClickListener agt;
+    private BaseActivity awH;
+    private List<AccountData> aUV = null;
+    private boolean aUU = false;
 
     public l(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.avO = baseActivity;
-        this.afS = onClickListener;
+        this.awH = baseActivity;
+        this.agt = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
-        this.aSU = list;
+        this.aUV = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        if (this.aSU != null) {
-            i = this.aSU.size();
+        if (this.aUV != null) {
+            i = this.aUV.size();
         }
         return i + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aSU == null || i < 0 || i >= this.aSU.size()) {
+        if (this.aUV == null || i < 0 || i >= this.aUV.size()) {
             return null;
         }
-        return this.aSU.get(i);
+        return this.aUV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -74,80 +74,80 @@ public class l extends BaseAdapter {
                         aVar = (a) view.getTag();
                         view2 = view;
                     } else if (getItemViewType(i) == 0) {
-                        view2 = LayoutInflater.from(this.avO.getPageContext().getContext()).inflate(r.h.account_item, (ViewGroup) null);
+                        view2 = LayoutInflater.from(this.awH.getPageContext().getContext()).inflate(r.h.account_item, (ViewGroup) null);
                         aVar = new a(this, null);
-                        aVar.aSV = (TextView) view2.findViewById(r.g.account);
-                        aVar.aSX = (ImageView) view2.findViewById(r.g.active);
-                        aVar.aSY = (Button) view2.findViewById(r.g.delete);
-                        aVar.amC = view2.findViewById(r.g.account_item_line_layout);
-                        aVar.aSY.setOnClickListener(this.afS);
+                        aVar.aUW = (TextView) view2.findViewById(r.g.account);
+                        aVar.aUY = (ImageView) view2.findViewById(r.g.active);
+                        aVar.aUZ = (Button) view2.findViewById(r.g.delete);
+                        aVar.anv = view2.findViewById(r.g.account_item_line_layout);
+                        aVar.aUZ.setOnClickListener(this.agt);
                         view2.setTag(aVar);
                     } else {
-                        view2 = LayoutInflater.from(this.avO.getPageContext().getContext()).inflate(r.h.account_add_item, (ViewGroup) null);
+                        view2 = LayoutInflater.from(this.awH.getPageContext().getContext()).inflate(r.h.account_add_item, (ViewGroup) null);
                         aVar = new a(this, null);
-                        aVar.aSW = (TextView) view2.findViewById(r.g.add_text);
+                        aVar.aUX = (TextView) view2.findViewById(r.g.add_text);
                         view2.setTag(aVar);
                     }
                     if (getItemViewType(i) == 0) {
                         AccountData accountData = (AccountData) getItem(i);
-                        aVar.aSX.setVisibility(8);
-                        aVar.aSY.setVisibility(8);
-                        aVar.aSY.setTag(accountData);
+                        aVar.aUY.setVisibility(8);
+                        aVar.aUZ.setVisibility(8);
+                        aVar.aUZ.setTag(accountData);
                         if (accountData != null) {
                             if (StringUtils.isNull(accountData.getDisplayName())) {
-                                aVar.aSV.setText(accountData.getAccount());
+                                aVar.aUW.setText(accountData.getAccount());
                             } else {
-                                aVar.aSV.setText(accountData.getDisplayName());
+                                aVar.aUW.setText(accountData.getDisplayName());
                             }
                             if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                                aVar.aSX.setVisibility(0);
+                                aVar.aUY.setVisibility(0);
                             }
-                            if (this.aST) {
-                                aVar.aSY.setVisibility(0);
+                            if (this.aUU) {
+                                aVar.aUZ.setVisibility(0);
                             }
                         }
                         if (i == getCount() - 2) {
-                            aVar.amC.setVisibility(8);
+                            aVar.anv.setVisibility(8);
                         } else {
-                            aVar.amC.setVisibility(0);
+                            aVar.anv.setVisibility(0);
                         }
                     }
-                    this.avO.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-                    this.avO.getLayoutMode().x(view2);
+                    this.awH.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+                    this.awH.getLayoutMode().x(view2);
                     return view2;
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    this.avO.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() != 1);
-                    this.avO.getLayoutMode().x(view);
+                    this.awH.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() != 1);
+                    this.awH.getLayoutMode().x(view);
                     return view;
                 }
             } catch (Throwable th) {
                 th = th;
-                this.avO.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-                this.avO.getLayoutMode().x(view);
+                this.awH.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+                this.awH.getLayoutMode().x(view);
                 throw th;
             }
         } catch (Exception e2) {
             e = e2;
             BdLog.detailException(e);
-            this.avO.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() != 1);
-            this.avO.getLayoutMode().x(view);
+            this.awH.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() != 1);
+            this.awH.getLayoutMode().x(view);
             return view;
         } catch (Throwable th2) {
             th = th2;
-            this.avO.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-            this.avO.getLayoutMode().x(view);
+            this.awH.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+            this.awH.getLayoutMode().x(view);
             throw th;
         }
     }
 
     public void setEditState(boolean z) {
-        this.aST = z;
+        this.aUU = z;
     }
 
-    public boolean Mg() {
-        return this.aST;
+    public boolean MM() {
+        return this.aUU;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -165,11 +165,11 @@ public class l extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        TextView aSV;
-        TextView aSW;
-        ImageView aSX;
-        Button aSY;
-        View amC;
+        TextView aUW;
+        TextView aUX;
+        ImageView aUY;
+        Button aUZ;
+        View anv;
 
         private a() {
         }

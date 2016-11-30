@@ -10,15 +10,16 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class BdListViewHelper {
-    public static final int aEg = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds320);
-    private static /* synthetic */ int[] aEh;
+    public static final int aEW = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds320);
+    private static /* synthetic */ int[] aEX;
 
     /* loaded from: classes.dex */
     public enum HeadType {
         DEFAULT,
-        HASTAB;
+        HASTAB,
+        HAS_NO_NETWORK_BAR;
 
-        /* JADX DEBUG: Replace access to removed values field (aEi) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aEY) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HeadType[] valuesCustom() {
             HeadType[] valuesCustom = values();
@@ -29,8 +30,8 @@ public class BdListViewHelper {
         }
     }
 
-    static /* synthetic */ int[] GR() {
-        int[] iArr = aEh;
+    static /* synthetic */ int[] GU() {
+        int[] iArr = aEX;
         if (iArr == null) {
             iArr = new int[HeadType.valuesCustom().length];
             try {
@@ -41,18 +42,24 @@ public class BdListViewHelper {
                 iArr[HeadType.HASTAB.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
-            aEh = iArr;
+            try {
+                iArr[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
+            } catch (NoSuchFieldError e3) {
+            }
+            aEX = iArr;
         }
         return iArr;
     }
 
     public static int a(HeadType headType) {
         Context context = TbadkCoreApplication.m9getInst().getContext();
-        switch (GR()[headType.ordinal()]) {
+        switch (GU()[headType.ordinal()]) {
             case 1:
                 return com.baidu.adp.lib.util.k.e(context, r.e.ds98) + UtilHelper.getLightStatusBarHeight();
             case 2:
                 return com.baidu.adp.lib.util.k.e(context, r.e.ds176) + UtilHelper.getLightStatusBarHeight();
+            case 3:
+                return com.baidu.adp.lib.util.k.e(context, r.e.ds168) + UtilHelper.getLightStatusBarHeight();
             default:
                 return com.baidu.adp.lib.util.k.e(context, r.e.ds98) + UtilHelper.getLightStatusBarHeight();
         }

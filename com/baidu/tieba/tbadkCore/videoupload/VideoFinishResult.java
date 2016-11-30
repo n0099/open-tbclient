@@ -10,7 +10,6 @@ public class VideoFinishResult implements Serializable {
     private static final long serialVersionUID = 6275774083063164456L;
     private String errorMessage;
     private int errorNo;
-    private boolean isSuccess = true;
     private String userMessage;
     private String videoMd5;
     private String videoUrl;
@@ -38,7 +37,7 @@ public class VideoFinishResult implements Serializable {
     }
 
     public boolean isSuccess() {
-        return this.errorNo == 0 && this.isSuccess && !StringUtils.isNull(this.videoMd5) && !StringUtils.isNull(this.videoUrl);
+        return (this.errorNo != 0 || StringUtils.isNull(this.videoMd5) || StringUtils.isNull(this.videoUrl)) ? false : true;
     }
 
     public int getErrorNo() {
@@ -79,20 +78,5 @@ public class VideoFinishResult implements Serializable {
 
     public void setVideoUrl(String str) {
         this.videoUrl = str;
-    }
-
-    public void setSuccess(boolean z) {
-        this.isSuccess = z;
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("ErrorNo:").append(this.errorNo).append("\n");
-        sb.append("ErrorMessage:").append(this.errorMessage).append("\n");
-        sb.append("IsSuccess:").append(this.isSuccess).append("\n");
-        sb.append("VideoMd5:").append(this.videoMd5).append("\n");
-        sb.append("VideoUrl:").append(this.videoUrl).append("\n");
-        sb.append("UserMessage").append(this.userMessage).append("\n");
-        return sb.toString();
     }
 }

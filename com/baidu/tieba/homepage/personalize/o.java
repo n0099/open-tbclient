@@ -1,92 +1,85 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.Personalized.AgeSexModule;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.TagStruct;
+import android.widget.AbsListView;
+import com.baidu.tieba.card.bx;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends CustomMessageListener {
-    final /* synthetic */ m this$0;
+public class o implements AbsListView.OnScrollListener {
+    private int cLm = -1;
+    private int cLn = 0;
+    private boolean cLo = false;
+    final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(m mVar, int i) {
-        super(i);
-        this.this$0 = mVar;
+    public o(n nVar) {
+        this.this$0 = nVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        List list2;
-        List list3;
-        List list4;
-        DataRes.Builder builder;
-        List list5;
-        DataRes.Builder builder2;
-        DataRes.Builder builder3;
-        list = this.this$0.aMf;
-        if (list.size() > 0) {
-            list2 = this.this$0.aMf;
-            if (list2.get(0) instanceof com.baidu.tieba.homepage.personalize.data.j) {
-                list5 = this.this$0.aMf;
-                com.baidu.tieba.homepage.personalize.data.j jVar = (com.baidu.tieba.homepage.personalize.data.j) list5.get(0);
-                LinkedList linkedList = new LinkedList();
-                LinkedList linkedList2 = new LinkedList();
-                if (jVar.cHF != null) {
-                    for (com.baidu.tieba.homepage.personalize.data.i iVar : jVar.cHF) {
-                        if (iVar != null) {
-                            TagStruct.Builder builder4 = new TagStruct.Builder();
-                            builder4.tag_name = iVar.PC;
-                            builder4.selected = Integer.valueOf(iVar.cHD ? 1 : 0);
-                            linkedList.add(builder4.build(false));
-                        }
-                    }
-                }
-                if (jVar.cHG != null) {
-                    for (com.baidu.tieba.homepage.personalize.data.i iVar2 : jVar.cHG) {
-                        if (iVar2 != null) {
-                            TagStruct.Builder builder5 = new TagStruct.Builder();
-                            builder5.tag_name = iVar2.PC;
-                            builder5.selected = Integer.valueOf(iVar2.cHD ? 1 : 0);
-                            linkedList2.add(builder5.build(false));
-                        }
-                    }
-                }
-                builder2 = this.this$0.cFw;
-                if (builder2 != null) {
-                    AgeSexModule.Builder builder6 = new AgeSexModule.Builder();
-                    builder6.sex_tag = linkedList;
-                    builder6.age_tag = linkedList2;
-                    builder3 = this.this$0.cFw;
-                    builder3.age_sex = builder6.build(false);
-                }
-            } else {
-                list3 = this.this$0.aMf;
-                if (list3.get(0) instanceof com.baidu.tieba.homepage.personalize.data.h) {
-                    list4 = this.this$0.aMf;
-                    com.baidu.tieba.homepage.personalize.data.h hVar = (com.baidu.tieba.homepage.personalize.data.h) list4.get(0);
-                    if (hVar.cHB != null) {
-                        LinkedList linkedList3 = new LinkedList();
-                        for (com.baidu.tieba.homepage.personalize.data.i iVar3 : hVar.cHB) {
-                            if (iVar3 != null) {
-                                TagStruct.Builder builder7 = new TagStruct.Builder();
-                                builder7.tag_name = iVar3.PC;
-                                builder7.selected = Integer.valueOf(iVar3.cHD ? 1 : 0);
-                                linkedList3.add(builder7.build(false));
-                            }
-                        }
-                        builder = this.this$0.cFw;
-                        builder.interestion = linkedList3;
-                    }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        com.baidu.tieba.play.aa aaVar;
+        boolean z;
+        com.baidu.tieba.play.aa aaVar2;
+        int i2;
+        int i3;
+        boolean z2;
+        boolean z3;
+        if (this.this$0.cKT == null) {
+            this.this$0.cKT = new com.baidu.tbadk.performanceLog.m();
+            this.this$0.cKT.fg(1005);
+            this.this$0.cKT.pageType = 1;
+        }
+        if (this.this$0.cJB != null) {
+            z3 = this.this$0.cKX;
+            if (!z3) {
+                this.this$0.cJB.onScrollStateChanged(absListView, i);
+            }
+        }
+        this.this$0.cKT.Gb();
+        if (i == 0) {
+            bx.Pl().cw(true);
+            if (this.cLo) {
+                this.this$0.aoH();
+            }
+            this.cLo = false;
+            aaVar = this.this$0.aMM;
+            if (aaVar != null) {
+                z = this.this$0.cKY;
+                if (z) {
+                    aaVar2 = this.this$0.aMM;
+                    i2 = this.this$0.aMQ;
+                    i3 = this.this$0.aMP;
+                    z2 = this.this$0.aMO;
+                    aaVar2.a(i2, i3, z2, 1);
                 }
             }
-            this.this$0.amK();
         }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        boolean z;
+        if (this.cLn > i) {
+            this.cLo = true;
+        }
+        if (this.this$0.cJB != null) {
+            z = this.this$0.cKX;
+            if (!z) {
+                this.this$0.cJB.a(absListView, this.cLn, i, i2, i3);
+            }
+        }
+        this.cLn = i;
+        int i4 = (i + i2) - 1;
+        if (!this.cLo && this.cLm != i4) {
+            this.cLm = i4;
+            this.this$0.kn(this.cLm);
+        }
+        if (this.cLo && this.cLm != i) {
+            this.cLm = i;
+            this.this$0.kn(this.cLm);
+        }
+        this.this$0.cLj = i;
+        this.this$0.aMQ = i;
+        this.this$0.aMP = (i + i2) - 1;
     }
 }
